@@ -230,7 +230,7 @@ A script named `migrationYYYYMMDDHHMMSS.sql` will be generated in the current di
 This script will contain all the statements required to modify and create data structures (for example, tables/indexes),
 and updates the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables itself.
-For descriptions of the options, refer to the [Corda Database Management Tool](../../../../../../en/platform/corda/4.5/enterprise/node/operating/node-database.html#database-management-tool-ref) manual.
+For descriptions of the options, refer to the [Corda Database Management Tool](../../../../../../en/platform/corda/4.5/enterprise/node/operating/node-database.html#database-management-tool) manual.
 
 
 ### 3.3. Apply DDL scripts on a database
