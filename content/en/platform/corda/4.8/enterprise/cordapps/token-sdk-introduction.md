@@ -514,7 +514,7 @@ To choose only tokens from one issuer, you can provide optional [queryCriteria] 
 
 {{< note >}}
 
-This method always uses database token selection, to use in memory [token selection](../../../../../../en/platform/corda/4.8/enterprise/cordapps/token-selection.md), use `addMoveTokens` with already selected input and output states.
+This method always uses database token selection, to use in-memory [token selection](../../../../../../en/platform/corda/4.8/enterprise/cordapps/token-selection.md), use `addMoveTokens` with already selected input and output states.
 
 {{< /note >}}
 
