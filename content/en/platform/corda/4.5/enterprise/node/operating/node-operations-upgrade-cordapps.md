@@ -24,7 +24,7 @@ To be compatible with Corda Enterprise, CorDapps need to bundle database migarat
 
 ## Flow upgrades
 
-If any backwards-incompatible changes have been made (see [What constitutes a non-backwards compatible flow change?](../../cordapps/upgrading-cordapps.html#upgrading-cordapps-backwards-incompatible-flow-changes)
+If any backwards-incompatible changes have been made (see [What constitutes a non-backwards compatible flow change?](../../cordapps/upgrading-cordapps.html#What-constitutes-a-non-backwards-compatible-flow-change?)
 for more information), the upgrade method detailed below will need to be followed. Otherwise the CorDapp JAR can just
 be replaced with the new version.
 
@@ -59,7 +59,7 @@ time.
 In order to perform the upgrade, follow the following steps:
 
 
-* If required, do a flow drain to avoid the definition of states or contracts changing whilst a flow is in progress (see [Flow drains](../../cordapps/upgrading-cordapps.html#upgrading-cordapps-flow-drains) for more information)
+* If required, do a flow drain to avoid the definition of states or contracts changing whilst a flow is in progress (see [Flow drains](../../cordapps/upgrading-cordapps.html#flow-drains) for more information)
     * By RPC using the `setFlowsDrainingModeEnabled` method with the parameter `true`
     * Via the shell by issuing the following command `run setFlowsDrainingModeEnabled enabled: true`
 
