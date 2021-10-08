@@ -64,7 +64,7 @@ The main elements that need to be configured for the Identity Manager are:
 * [Issuance workflow](#issuance-workflow)
     * [CSR Approval Mechanism](#csr-approval-mechanism)
     * [CSR Signing Mechanism](#csr-signing-mechanism)
-    * [Restricting a node’s Corda version (optional)](#restricting-a-node-s-corda-version-optional)
+    * [Restricting a node’s Corda version (optional)](#restricting-a-nodes-corda-version-optional)
 * [Revocation workflow (optional)](#revocation-workflow-optional)
     * [CRR Approval Mechanism](#crr-approval-mechanism)
     * [CRR Signing Mechanism](#crr-signing-mechanism)
