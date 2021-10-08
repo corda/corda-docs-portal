@@ -36,7 +36,7 @@ It also makes use of the [Application Entity Manager](app-entity-manager) - whic
 {{< note >}}
 The Archiving Service relies on the [Ledger Graph](/en/platform/corda/4.7/enterprise/node/operating/ledger-graph.md)functionality. For the Archiving Service to work correctly, the Ledger Graph must load your entire graph in memory to function.
 
-Unless you follow the guide for [making Archive-friendly CorDapps](#making-archive-friendly-cordapps)This can cause:
+Unless you follow the guide for [making Archive-friendly CorDapps](#making-archive-friendly-cordapps), this can cause:
 
 * Increased time to run Archiving tasks.
 * Increased JVM heap memory usage while Archiving tasks are being performed.
