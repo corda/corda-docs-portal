@@ -92,7 +92,7 @@ maxAllowedReconciliationRequestsPerTimeWindow = 1000
 
 ## Support for Confidential Identities in LedgerSync
 
-If you are using [Corda Confidential Identities](../../cordapps/api-confidential-identity), LedgerSync requires additional configuration in order to support your environment.
+If you are using [Corda Confidential Identities](../../cordapps/api-confidential-identity.md), LedgerSync requires additional configuration in order to support your environment.
 
 Use this additional configuration step to ensure that confidential identities on your node are properly mapped to known identities where they have been shared with your node when new transactions are processed. This is important when reconciling with another party as only transactions with known identities can be reconciled.
 
@@ -602,7 +602,7 @@ In all cases, it may be necessary to *kill* the flow. See below for the details 
 
 ### Step 3. Transaction recovery
 
-If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery](ledger-recover-automatic.html) or a [ManualRecovery](ledger-recover-manual.html).
+If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery](ledger-recovery-automatic.md) or a [ManualRecovery](ledger-recovery-manual.md).
 
 #### Killing Reconciliation Flows
 
