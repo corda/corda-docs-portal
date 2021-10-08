@@ -110,7 +110,7 @@ Similar to the Identity Manager the main elements that need to be configured for
 * [Cache Timeout](#cache-timeout)
 * [Node Certificate Revocation Checking](#node-certificate-revocation-checking)
 * [CENM Internal Server](#cenm-internal-server)
-* [Identity Manager & Revocation Communication](#identity-manager-revocation-communication)
+* [Identity Manager and Revocation Communication](#identity-manager--revocation-communication)
 * [Restricting A Node’s Corda Version (optional)](#restricting-a-nodes-corda-version-optional)
 * [Admin RPC Interface](#admin-rpc-interface)
 
