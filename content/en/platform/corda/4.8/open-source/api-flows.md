@@ -66,7 +66,7 @@ The `initiator`:
 
 The `initiator`:
 
-1. Runs the [contracts](contracts-api.md) contained in the CorDapp.
+1. Runs the [contracts](api-contracts.md) contained in the CorDapp.
 2. Verifies that the transaction is valid based on the contracts.
 
 
@@ -91,7 +91,7 @@ The `initiator`:
 
 You can visualize the work performed by initiator like this:
 
-{{< figure alt="flow overview" width=80% zoom="../resources/flow-overview.png" >}}
+{{< figure alt="flow overview" width=80% zoom="./resources/flow-overview.png" >}}
 
 ## Responder flow class example
 
@@ -103,7 +103,7 @@ The `responder`:
 
 1. Receives the transaction from the counterparty.
 2. Verifies the transaction’s existing signatures.
-3. Runs the [contracts](contracts-api.md) contained in the CorDapp.
+3. Runs the [contracts](api-contracts.md) contained in the CorDapp.
 4. Verifies that the transaction is valid based on the contracts.
 
 
