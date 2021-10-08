@@ -79,18 +79,17 @@ The project containing the sample CorDapp opens.
 
 `corda-cli network config docker-compose solar-system`
 
-3. Run a Gradle command to build the CorDapp and generate the `.cpk` files:
+3. Run a Gradle command to build the CorDapp and generate the `.cpb` file:
 
-  `gradlew build`
+  `./gradlew build`
 
 4. Run the `gradle cpk` [task in IntelliJ](https://www.jetbrains.com/help/idea/work-with-gradle-tasks.html#gradle_tasks) to build the CorDapp package (`.cpk`) files of your CorDapp. Most CorDapps will have two files: a `contracts` file and a `workflows` file.
 
 5. Run the `gradle cpb` task in IntelliJ to build the CorDapp package bundle (`.cpb`).
 
-6. Deploy the network using `docker-compose`:
-  `docker-compose -f docker-compose.yaml up`
+6. Deploy the network using `corda-cli` and `docker-compose`:
+  `corda-cli network deploy -n solar-system | docker-compose -f - up`
 
-  This command references the name of the `docker-compose` file generated in step 2.
 
 7. Check the CorDapp's status using [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md):
   `corda-cli network status -n solar-system`
