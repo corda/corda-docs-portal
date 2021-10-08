@@ -15,6 +15,6 @@ Read more about reissuing states [here](../../../en/platform/corda/4.8/open-sour
 
 Sample CorDapps:
 
-* State reissuance CorDapp: [https://github.com/corda/reissue-cordapp](https://github.com/corda/reissue-cordapp).
+* [State reissuance CorDapp](https://github.com/corda/reissue-cordapp).
 
-* State reissuance sample CorDapp: [https://github.com/corda/reissue-sample-cordapp](https://github.com/corda/reissue-sample-cordapp).
+* [State reissuance sample CorDapp](https://github.com/corda/reissue-sample-cordapp).
