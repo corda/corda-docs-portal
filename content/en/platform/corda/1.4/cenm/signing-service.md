@@ -19,7 +19,7 @@ title: Signing Service
 
 The Signing Service acts as a bridge between the main CENM services and the PKI/HSM infrastructure, enabling a network operator to verify and sign incoming requests and changes to the network.
 
-The Signing Service forms a part of the main Corda Enterprise Network Manager (CENM) services, alongside the [Identity Manager Service](identity-manager.md) and the [Network Map Service](network-map.md) (and complemented by the [Auth Service](auth-service), the [Zone Service](zone-service.md), the [Angel Service](angel-service.md), and the [Gateway Service](gateway-service.md)).
+The Signing Service forms a part of the main Corda Enterprise Network Manager (CENM) services, alongside the [Identity Manager Service](identity-manager.md) and the [Network Map Service](network-map.md) (and complemented by the [Auth Service](auth-service.md), the [Zone Service](zone-service.md), the [Angel Service](angel-service.md), and the [Gateway Service](gateway-service.md)).
 
 As mentioned in other CENM service documentation ([Identity Manager Service](identity-manager.md) and [Network Map Service](network-map.md)), the main CENM services
 can be configured with an integrated *local signer* that will automatically sign all unsigned data using a provided key.
@@ -31,7 +31,7 @@ particular data to require authentication from multiple users.
 
 ## Signing Service overview
 
-The Signing Service supports the following HSMs (see [CENM support matrix](cenm-support-matrix.md#hardware-security-modules-hsms) for more information):
+The Signing Service supports the following HSMs (see [CENM support matrix](../../../../../en/platform/corda/1.4/cenm/cenm-support-matrix.html#hardware-security-modules-hsms) for more information):
 
 * Utimaco SecurityServer Se Gen2.
 * Gemalto Luna.
@@ -141,7 +141,7 @@ The configuration for the Signing Service consists of the following sections:
 
 The Signing Service is interacted with via the shell, which is configured at the top level of the configuration file. This
 shell is similar to the interactive shell available in other CENM services and is configured in a similar way. See
-[Shell Configuration](shell.md#shell-config) for more information on how to configure the shell.
+[Shell Configuration](../../../../../en/platform/corda/1.4/cenm/shell.html#shell-configuration) for more information on how to configure the shell.
 
 
 #### HSM libraries
