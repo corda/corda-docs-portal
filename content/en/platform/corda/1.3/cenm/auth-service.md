@@ -81,7 +81,7 @@ To do this:
 
 To deploy the Auth service, you need to create a configuration file.
 
-When you create your config file, you establish its connection to your [FARM Service](farm-service.md). Make sure you know:
+When you create your config file, you establish its connection to your [FARM Service](gateway-service.md). Make sure you know:
 
 * Your FARM service ID.
 * Your FARM service secret.
