@@ -20,7 +20,7 @@ Find here the release notes for the latest versions of Corda open source, Corda 
 
 ## Corda 5 Developer Preview
 
-[The Corda 5 Developer Preview](/en/platform/corda/5.0-dev-preview-1/release-notes-c5dp1.html) is a hands-on advanced look at Corda’s next major iteration, Corda 5. You can experiment with three key aspects of Corda 5:
+[The Corda 5 Developer Preview](../../en/platform/corda/5.0-dev-preview-1/release-notes-c5dp1.md) is a hands-on advanced look at Corda’s next major iteration, Corda 5. You can experiment with three key aspects of Corda 5:
 
 * A new modular API structure. This lets you build applications to use on Corda (CorDapps) and test them efficiently.
 * An HTTPS API, based on Open API principles. This allows you to control nodes and initiate flows remotely.
@@ -28,44 +28,44 @@ Find here the release notes for the latest versions of Corda open source, Corda 
 
 ## Corda open source 4.8
 
-Corda open source 4.8 is the latest open source version of Corda, with commitments to wire and API stability. It introduces several fixes and improvements. States and CorDapps from version 3.0 and above are compatible with Corda 4.8. See the [full 4.8 release notes](/en/platform/corda/4.8/open-source/release-notes.html).
+Corda open source 4.8 is the latest open source version of Corda, with commitments to wire and API stability. It introduces several fixes and improvements. States and CorDapps from version 3.0 and above are compatible with Corda 4.8. See the [full 4.8 release notes](../../en/platform/corda/4.8/open-source/release-notes.md).
 
 ### Previous versions of Corda open source
 
-* [Corda open source 4.7](/en/platform/corda/4.7/open-source/release-notes.html)
-* [Corda open source 4.6](/en/platform/corda/4.6/open-source/release-notes.html)
-* [Corda open source 4.5](/en/platform/corda/4.5/open-source/release-notes.html)
-* [Corda open source 4.4](/en/platform/corda/4.4/open-source/release-notes.html)
-* [Corda open source 4.3](/en/platform/corda/4.3/open-source/release-notes.html)
-* [Corda open source 4.1](/en/platform/corda/4.1/open-source/release-notes.html)
-* [Corda open source 4.0](/en/platform/corda/4.0/open-source/release-notes.html)
+* [Corda open source 4.7](../../en/platform/corda/4.7/open-source/release-notes.md)
+* [Corda open source 4.6](../../en/platform/corda/4.6/open-source/release-notes.md)
+* [Corda open source 4.5](../../en/platform/corda/4.5/open-source/release-notes.md)
+* [Corda open source 4.4](../../en/platform/corda/4.4/open-source/release-notes.md)
+* [Corda open source 4.3](../../en/platform/corda/4.3/open-source/release-notes.md)
+* [Corda open source 4.1](../../en/platform/corda/4.1/open-source/release-notes.md)
+* [Corda open source 4.0](../../en/platform/corda/4.0/open-source/release-notes.md)
 
 ## Corda Enterprise 4.8
 
-Corda Enterprise 4.8 is a long-term support release, with commitments to wire and API stability. It introduces several fixes and improvements. States and CorDapps from version 3.0 and above are compatible with Corda Enterprise 4.8. See the [full 4.8 release notes](/en/platform/corda/4.8/enterprise/release-notes-enterprise.html).
+Corda Enterprise 4.8 is a long-term support release, with commitments to wire and API stability. It introduces several fixes and improvements. States and CorDapps from version 3.0 and above are compatible with Corda Enterprise 4.8. See the [full 4.8 release notes](../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
 ### Previous versions of Corda Enterprise
 
-* [Corda Enterprise 4.7](/en/platform/corda/4.7/enterprise/release-notes-enterprise.html)
-* [Corda Enterprise 4.6](/en/platform/corda/4.6/enterprise/release-notes-enterprise.html)
-* [Corda Enterprise 4.5](/en/platform/corda/4.5/enterprise/release-notes-enterprise.html)
-* [Corda Enterprise 4.4](/en/platform/corda/4.4/enterprise/release-notes-enterprise.html)
-* [Corda Enterprise 4.3](/en/platform/corda/4.3/enterprise/release-notes-enterprise.html)
-* [Corda Enterprise 4.2](/en/platform/corda/4.2/enterprise/release-notes-enterprise.html)
-* [Corda Enterprise 4.1](/en/platform/corda/4.1/enterprise/release-notes-enterprise.html)
-* [Corda Enterprise 4.0](/en/platform/corda/4.0/enterprise/release-notes-enterprise.html)
+* [Corda Enterprise 4.7](../../en/platform/corda/4.7/enterprise/release-notes-enterprise.md)
+* [Corda Enterprise 4.6](../../en/platform/corda/4.6/enterprise/release-notes-enterprise.md)
+* [Corda Enterprise 4.5](../../en/platform/corda/4.5/enterprise/release-notes-enterprise.md)
+* [Corda Enterprise 4.4](../../en/platform/corda/4.4/enterprise/release-notes-enterprise.md)
+* [Corda Enterprise 4.3](../../en/platform/corda/4.3/enterprise/release-notes-enterprise.md)
+* [Corda Enterprise 4.2](../../en/platform/corda/4.2/enterprise/release-notes-enterprise.md)
+* [Corda Enterprise 4.1](../../en/platform/corda/4.1/enterprise/release-notes-enterprise.md)
+* [Corda Enterprise 4.0](../../en/platform/corda/4.0/enterprise/release-notes-enterprise.md)
 
 ## Corda Enterprise Network Manager (CENM) 1.5
 
-The Corda Enterprise Network Manager (CENM) lets Corda Enterprise customers deploy, operate, and set consensus rules for their networks. CENM versions are released separately from Corda Enterprise versions and follow an independent version sequence. The latest version of CENM is [CENM 1.5](/en/platform/corda/1.5/cenm/release-notes.html), which introduces a new CENM management console, single sign-on functionality for Azure AD for Corda services, and the ability to reissue node legal identity keys and certificates. While this release is backward-compatible, you should consider upgrading to this release from earlier versions of CENM.
+The Corda Enterprise Network Manager (CENM) lets Corda Enterprise customers deploy, operate, and set consensus rules for their networks. CENM versions are released separately from Corda Enterprise versions and follow an independent version sequence. The latest version of CENM is [CENM 1.5](../../en/platform/corda/1.5/cenm/release-notes.md), which introduces a new CENM management console, single sign-on functionality for Azure AD for Corda services, and the ability to reissue node legal identity keys and certificates. While this release is backward-compatible, you should consider upgrading to this release from earlier versions of CENM.
 
 ### Previous versions of CENM
 
-* [CENM 1.4](/en/platform/corda/1.4/cenm/release-notes.html)
-* [CENM 1.3](/en/platform/corda/1.3/cenm/release-notes.html)
-* [CENM 1.2](/en/platform/corda/1.2/cenm/release-notes.html)
-* [CENM 1.1](/en/platform/corda/1.1/cenm/release-notes.html)
-* [CENM 1.0](/en/platform/corda/1.0/cenm/release-notes.html)
+* [CENM 1.4](../../en/platform/corda/1.4/cenm/release-notes.md)
+* [CENM 1.3](../../en/platform/corda/1.3/cenm/release-notes.md)
+* [CENM 1.2](../../en/platform/corda/1.2/cenm/release-notes.md)
+* [CENM 1.1](../../en/platform/corda/1.1/cenm/release-notes.md)
+* [CENM 1.0](../../en/platform/corda/1.0/cenm/release-notes.md)
 
 ## Archived release documentation of older, non-supported Corda releases
 

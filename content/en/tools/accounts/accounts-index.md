@@ -20,6 +20,6 @@ Accounts are created by host nodes, which are just regular Corda nodes. Hosts ca
 
 The Corda Accounts Library takes the form of a `.jar` file, which can be dropped into the CorDapps directory. It is optional to use - some nodes will support accounts but others will not. This functionality is intentional, as not all nodes will need to support accounts and the optional nature of accounts reduces the learning curve for new CorDapp developers.
 
-You can access the Corda Accounts Library from the [https://github.com/corda/accounts](https://github.com/corda/accounts) public repository.
+You can access the Corda Accounts Library from the [public repository](https://github.com/corda/accounts).
 
 To learn how to install and use the Corda Accounts Library, check out the [readme](https://github.com/corda/accounts/blob/master/README.md) and [docs](https://github.com/corda/accounts/blob/master/docs.md) repo pages.
