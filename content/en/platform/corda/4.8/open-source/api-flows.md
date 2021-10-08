@@ -103,7 +103,7 @@ The `responder`:
 
 1. Receives the transaction from the counterparty.
 2. Verifies the transaction’s existing signatures.
-3. Runs the [contracts](contracts-api.md) contained in the CorDapp.
+3. Runs the [contracts](api-contracts.md) contained in the CorDapp.
 4. Verifies that the transaction is valid based on the contracts.
 
 
