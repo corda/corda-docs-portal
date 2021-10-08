@@ -29,7 +29,7 @@ that isn’t possible with separate, isolated Corda networks. A common trust roo
 
 The network will support many sub-groups of participants running particular CorDapps (sometimes referred to as ‘business networks’), and these groups will often have a co-ordinating party (the ‘business network operator’) who manages the distribution of the app and rules, including membership, for its use. There is a clear separation between areas of control for the network as a whole and for individual business networks. Like the internet, Corda Network intends to exist as a background utility.
 
-The main benefit of Corda Network for participants is being able to move cash, digital assets, and identity data from one application or line of business to another. Business network operators also benefit by being able to access network-wide services, and reuse the [trust root](https://corda.network/trust-root/index.html) and network services, instead of building and managing their own.
+The main benefit of Corda Network for participants is being able to move cash, digital assets, and identity data from one application or line of business to another. Business network operators also benefit by being able to access network-wide services, and reuse the [trust root](https://trust.corda.network/) and network services, instead of building and managing their own.
 
 The [Corda Network](https://corda.network/) website provides a [high-level overview](https://corda.network/participation/index.html) of the joining process.
 
@@ -45,9 +45,9 @@ signing requests (CSRs) from prospective network participants (sometimes via a b
 information submitted. A digitally signed participation certificate is returned if:
 
 
-* The participant meets the requirements specified in the [bylaws and policies](https://corda.network/policy/admission-criteria.html)
+* The participant meets the requirements specified in the [bylaws and policies](https://corda.network/corda-network-rulebook/admissions-criteria.html)
 of the foundation (broadly speaking, limited to sanctions screening only);
-* The participant agrees to Corda Network participant [terms of use](https://corda.network/participation/terms-of-use.html).
+* The participant agrees to Corda Network participant [terms of use](https://corda.network/about/terms-of-use.html).
 
 The Corda Network node can then use the participation certificate to register itself with the Network Map Service.
 
