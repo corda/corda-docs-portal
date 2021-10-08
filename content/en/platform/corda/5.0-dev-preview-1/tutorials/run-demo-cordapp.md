@@ -79,19 +79,16 @@ The project containing the sample CorDapp opens.
 
 `corda-cli network config docker-compose solar-system`
 
-3. Run a Gradle command to build the CorDapp and generate the `.cpb` file:
+3. Run a Gradle command ([or run a Gradle task in IntelliJ](https://www.jetbrains.com/help/idea/work-with-gradle-tasks.html#gradle_tasks)) to build the CorDapp and generate the `.cpb` file:
 
   `./gradlew build`
 
-4. Run the `gradle cpk` [task in IntelliJ](https://www.jetbrains.com/help/idea/work-with-gradle-tasks.html#gradle_tasks) to build the CorDapp package (`.cpk`) files of your CorDapp. Most CorDapps will have two files: a `contracts` file and a `workflows` file.
+This command builds the CorDapp package (`.cpk`) files. Most CorDapps will have two files: a `contracts` file and a `workflows` file. The command also builds the CorDapp package bundle (`.cpb`).
 
-5. Run the `gradle cpb` task in IntelliJ to build the CorDapp package bundle (`.cpb`).
-
-6. Deploy the network using `corda-cli` and `docker-compose`:
+4. Deploy the network using `corda-cli` and `docker-compose`:
   `corda-cli network deploy -n solar-system | docker-compose -f - up`
 
-
-7. Check the CorDapp's status using [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md):
+5. Check the CorDapp's status using [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md):
   `corda-cli network status -n solar-system`
 
   You'll be able to see the status of the node. The nodes are up and running when their status is `Ready`.
@@ -99,7 +96,11 @@ The project containing the sample CorDapp opens.
   {{< note >}}
   Take note of the `HTTP RPC port` for each node. You will use these later when you [test the CorDapp using Swagger UI](#test-the-sample-cordapp-using-swagger-ui) or [Corda Node CLI](#test-the-sample-cordapp-using-corda-node-cli).
   {{< /note >}}
-8. Install the application on the network using Corda CLI.
+
+6. Alternatively, wait for the network to be ready with:
+`corda-cli network wait -n solar-system`
+
+7. Install the application on the network using Corda CLI.
 
 In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
 
@@ -109,7 +110,7 @@ In Corda 4, this process was much more involved. Now you can install the applica
 
   After running this command, your CorDapp is up and running.
 
-9. Double-check that everything is working properly:
+8. Double-check that everything is working properly:
     1. Open Docker.
     2. Go to **Containers/Apps**.
     3. Select the project.
