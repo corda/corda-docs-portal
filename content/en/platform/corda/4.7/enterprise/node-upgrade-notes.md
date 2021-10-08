@@ -85,8 +85,8 @@ You can perform an automatic database update when:
 
 If you cannot perform an automatic update, you must perform a manual update.
 
-* To perform a manual update, follow the instructions in [3.1](#31-configure-the-database-management-tool), [3.2](#32-extract-ddl-script-using-database-management-tool), [3.3](#33-apply-ddl-scripts-on-a-database), and [3.4](#34-apply-data-updates-on-a-database) (below). Then go on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
-* To perform an automatic update, skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). The automatic update will be performed later in the update process ([Step 6](#step-6-update-database-automatic)).
+* To perform a manual update, follow the instructions in [3.1](#31-configure-the-database-management-tool), [3.2](#32-extract-the-ddl-and-dml-scripts-using-the-database-management-tool), [3.3](#33-apply-ddl-scripts-on-a-database), and [3.4](#34-optional-apply-data-updates-on-the-h2-database) (below). Then go on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
+* To perform an automatic update, skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). The automatic update will be performed later in the update process ([Step 6](#step-6-update-the-database-automatic)).
 
 
 ### 3.1. Configure the Database Management Tool
