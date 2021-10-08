@@ -19,7 +19,7 @@ provides examples.
 mechanism for executing pre-defined named queries with optional in-memory post filtering and post-processing to
 transform results.
 
-For more information on querying, read the [Named Query API](query-api.md) guide.
+For more information on querying, read the [Named Query API](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.md) guide.
 
 ## Inject the `PersistenceService` API
 
@@ -306,9 +306,9 @@ class RemoveShoppingItemsFlow(private val items: List<ShoppingSchemaV1.ShoppingI
 
 ## Execute named queries
 
-The `PersistenceService` has APIs for executing pre-defined named queries from flows and services. See the [Query API](query-api.md) guide for further information.
+The `PersistenceService` has APIs for executing pre-defined named queries from flows and services. See the [Query API](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.md) guide for further information.
 
-You can also call the Query API over HTTP-RPC. See the [HTTP-RPC Named Query API](http-named-query-api.md)
+You can also call the Query API over HTTP-RPC. See the [HTTP-RPC Named Query API](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/http-named-query-api.md)
 guide for further information.
 
 ## Notes

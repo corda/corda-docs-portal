@@ -21,7 +21,7 @@ via a secure HTTP API. It describes:
 
 {{< note >}}
 
-You need to [enable HTTP-RPC](configure-nodeconf.md) before you can use the OpenAPI specification.
+You need to [enable HTTP-RPC](../../../../../../en/platform/corda/5.0-dev-preview-1/nodes/operating/configure-nodeconf.md) before you can use the OpenAPI specification.
 
 {{< /note >}}
 

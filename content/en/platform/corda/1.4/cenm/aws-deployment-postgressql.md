@@ -31,17 +31,18 @@ Not supported:
 
 To set up a reference deployment of CENM using AWS and PostgreSQL:
 
+
 ### Set up a PostgreSQL database for each CENM service
 
 You must ensure that each CENM service has it's own PostgreSQL database. Complete the steps referenced below for each of the following:
 
-* [Auth service](auth-service).
-* [Gateway service](gateway-service).
-* [Identity manager](identity-manager).
-* [Network Map](network-map).
-* [Signer service](signing-service).
-* [Zone service](zone-service).
-* [Angel service](angel-service).
+* [Auth service](../../../../../en/platform/corda/1.4/cenm/auth-service.md).
+* [Gateway service](../../../../../en/platform/corda/1.4/cenm/gateway-service.md).
+* [Identity manager](../../../../../en/platform/corda/1.4/cenm/identity-manager.md).
+* [Network Map](../../../../../en/platform/corda/1.4/cenm/network-map.md).
+* [Signer service](../../../../../en/platform/corda/1.4/cenm/signing-service.md).
+* [Zone service](../../../../../en/platform/corda/1.4/cenm/zone-service.md).
+* [Angel service](../../../../../en/platform/corda/1.4/cenm/angel-service.md).
 
 To set up each database:
 

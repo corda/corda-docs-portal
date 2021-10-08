@@ -16,7 +16,7 @@ In Corda, flows automate the process of agreeing ledger updates. They are a sequ
 
 Built-in flows are provided in Corda to automate common tasks, such as gathering signatures from counterparty nodes or notarising and recording a transaction. As a developer, you only need to implement flows for the business logic of your specific use case.
 
-The `Flow` interface is used to implement a flow. When you use this interface, it defines the `call` method where the business logic goes. Flows access the Corda 5 API through injectable services using the `@CordaInject` tag. See the [services documentation](../../cordapps/corda-services/injectable-services.md) for a list of all services available in the Corda 5 Developer Preview.
+The `Flow` interface is used to implement a flow. When you use this interface, it defines the `call` method where the business logic goes. Flows access the Corda 5 API through injectable services using the `@CordaInject` tag. See the [services documentation](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/injectable-services.md) for a list of all services available in the Corda 5 Developer Preview.
 
 Using the `Flow` interface allows you to add the services you need, and leave out those that you don't. This makes your CorDapp much more lightweight, and will reduce development time in future production-ready versions of Corda 5.
 
@@ -36,9 +36,9 @@ After you have completed this tutorial, you will know how to create and implemen
 
 Before you start building flows, read:
 
-* [Key concepts: Flows](../../cordapps/flows/overview.md)
-* [Writing flows](../../cordapps/flows/writing-flows.md)
-* [Injectable services](../../cordapps/corda-services/injectable-services.md)
+* [Key concepts: Flows](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/flows/overview.md)
+* [Writing flows](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/flows/writing-flows.md)
+* [Injectable services](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/injectable-services.md)
 
 ## Write the `CreateAndIssueMarsVoucher` flow
 
@@ -83,7 +83,7 @@ Define the `CreateAndIssueMarsVoucherInitiator` class to begin writing your flow
 * The RPC Client must call this constructor.
 * The flow can pass in JSON parameters.
 
-As noted in the [Write states](c5-basic-cordapp-state.md) tutorial, parameters must be passed in JSON format to return the output over RPC. The flow must take the `RpcStartFlowRequestParameters` parameter to be callable by RPC.
+As noted in the [Write states](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-state.md) tutorial, parameters must be passed in JSON format to return the output over RPC. The flow must take the `RpcStartFlowRequestParameters` parameter to be callable by RPC.
 
 To ensure that values are returned in JSON format, use the new return type `SignedTransactionDigest`. This is a new type that returns transaction IDs, signatures, and states in a JSON format, allowing you to send the type over RPC.
 
@@ -111,7 +111,7 @@ class CreateAndIssueMarsVoucher2 @JsonConstructor constructor(private val params
 
 When writing flows with the Corda 5 Developer Preview, you can inject whichever services you need, and exclude those you don't.
 
-Use the `@CordaInject` annotation to define a field to be set by Corda before the call method is called. See this [list of services](../../cordapps/corda-services/injectable-services.md) to find out what services you can add to a CorDapp.
+Use the `@CordaInject` annotation to define a field to be set by Corda before the call method is called. See this [list of services](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/injectable-services.md) to find out what services you can add to a CorDapp.
 
 In this sample CorDapp, add these services:
 
@@ -459,7 +459,7 @@ In the implementation of this initiating flow, you must query the `MarsVoucher` 
 
 1. Use a `cursor` to point to a specific line in the query results.
 2. Add a `persistenceService.query` to get the `StateAndRef` of the `MarsVoucher`.
-3. Use the [predefined query](XXX) `findByUuidAndStateStatus` to find the `MarsVoucher` you need by the state's unique identifier and status.
+3. Use the [predefined query](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.html#query-for-states-when-your-state-does-not-have-a-mapped-schema) `findByUuidAndStateStatus` to find the `MarsVoucher` you need by the state's unique identifier and status.
 4. Because you need to return a `StateAndRef`, use Corda's built-in `IdentityContractStatePostProcessor`.
 5. Use the `poll` function to set a maximum poll size and timeout duration for the query.
 
@@ -467,7 +467,7 @@ In the implementation of this initiating flow, you must query the `MarsVoucher` 
 
 1. Use an additional cursor (`cursor2`) to point to a specific line in the query results.
 2. Add a `persistenceService.query` to get the `StateAndRef` of the `BoardingTicket`.
-3. Use the [predefined query](XXX) `findByStateStatusAndContractStateClassName` to find the `BoardingTicket` you need by the state's status and contract state class name.
+3. Use the [predefined query](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.html#query-for-states-when-your-state-does-not-have-a-mapped-schema) `findByStateStatusAndContractStateClassName` to find the `BoardingTicket` you need by the state's status and contract state class name.
 4. Because you need to return a `StateAndRef`, use Corda's built-in `IdentityContractStatePostProcessor`.
 5. Use the `poll` function to set a maximum poll size and timeout duration for the query.
 
@@ -709,4 +709,4 @@ class RedeemBoardingTicketWithVoucherResponder(val otherPartySession: FlowSessio
 
 ## Next steps
 
-Follow the [Run your CorDapp](c5-basic-cordapp-running.md) tutorial to continue on this learning path.
+Follow the [Run your CorDapp](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-running.md) tutorial to continue on this learning path.

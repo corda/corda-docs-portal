@@ -20,26 +20,26 @@ Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we
 
 Intended for local deployment, experimental development, and testing only, this preview includes:
 
-- A [modular API](../../../api-ref.html). Corda's core API module has been split into packages and versioned. Learn about [key APIs](cordapps/overview.md) and [Corda Services](cordapps/corda-services/overview.md), and find new [API reference documentation](../../../api-ref.html). Test it out with [updated code samples](../../../samples.html).
+- A [modular API](../../../../en/api-ref.html). Corda's core API module has been split into packages and versioned. Learn about [key APIs](../../../../en/platform/corda/5.0-dev-preview-1/cordapps/overview.md) and [Corda Services](../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/overview.md), and find new [API reference documentation](../../../../en/api-ref.html). Test it out with [updated code samples](../../../../en/samples.html).
 
-- [Dependency upgrades](getting-started/prerequisites.md) to Gradle 6, Java 11, and Kotlin 1.4. This enables the latest Gradle CorDapp packaging plugins, letting you create CorDapps faster.
+- [Dependency upgrades](../../../../en/platform/corda/5.0-dev-preview-1/getting-started/prerequisites.md) to Gradle 6, Java 11, and Kotlin 1.4. This enables the latest Gradle CorDapp packaging plugins, letting you create CorDapps faster.
 
-- Node interaction upgrades. You can [interface with a node using HTTP](nodes/operating/operating-nodes-homepage.md) and [auto-generate CorDapp endpoints](nodes/operating/openapi.md).
+- Node interaction upgrades. You can [interface with a node using HTTP](../../../../en/platform/corda/5.0-dev-preview-1/nodes/operating/operating-nodes-homepage.md) and [auto-generate CorDapp endpoints](../../../../en/platform/corda/5.0-dev-preview-1/nodes/operating/openapi.md).
 
 - Upgrades to packaging:
-  - A [Corda Package](packaging/overview.html#corda-package-files) (`.cpk`) is the unit of software that executes within a single sandbox.
-  - [CorDapps](packaging/overview.html#corda-package-bundles) are a set of versioned `.cpb` (Corda package bundle) files that define a deployable application.
+  - A [Corda Package](../../../../en/platform/corda/5.0-dev-preview-1/packaging/overview.html#corda-package-files) (`.cpk`) is the unit of software that executes within a single sandbox.
+  - [CorDapps](../../../../en/platform/corda/5.0-dev-preview-1/packaging/overview.html#corda-package-bundles) are a set of versioned `.cpb` (Corda package bundle) files that define a deployable application.
 
-- A new [integration test framework](cordapps/integration-tests.md) that reflects real node behavior.
+- A new [integration test framework](../../../../en/platform/corda/5.0-dev-preview-1/cordapps/integration-tests.md) that reflects real node behavior.
 
 ## Changes from Corda 4
 
 Some features available in Corda 4 have been replaced with new functionality. These are:
 
-- `MockNetwork`. You can now [use off-the-shelf testing frameworks](cordapps/integration-tests.md).
-- Crash shell. This has been replaced with the [Corda Node CLI](nodes/operating/cli-curl/cli-curl.md).
-- Driver DSL. This has been replaced with the [Corda CLI](corda-cli/overview.md).
-- Network Bootstrapper. This has been replaced by the [Corda CLI](corda-cli/overview.md).
+- `MockNetwork`. You can now [use off-the-shelf testing frameworks](../../../../en/platform/corda/5.0-dev-preview-1/cordapps/integration-tests.md).
+- Crash shell. This has been replaced with the [Corda Node CLI](../../../../en/platform/corda/5.0-dev-preview-1/nodes/operating/cli-curl/cli-curl.md).
+- Driver DSL. This has been replaced with the [Corda CLI](../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md).
+- Network Bootstrapper. This has been replaced by the [Corda CLI](../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md).
 
 {{< warning >}}
 
@@ -55,7 +55,7 @@ We welcome your [feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) - it
 
 {{< /warning >}}
 
-See the [Corda 5 Developer Preview overview](../5.0-dev-preview-1.html) for more details.
+See the [Corda 5 Developer Preview overview](../../../../en/platform/corda/5.0-dev-preview-1.html) for more details.
 
 ## Known issues
 

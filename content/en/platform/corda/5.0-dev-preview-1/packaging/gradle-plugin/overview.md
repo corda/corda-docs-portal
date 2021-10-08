@@ -179,7 +179,7 @@ To generate the `.cpk` file, run `./gradlew build`. The `.cpk` file will be gene
 
 ## Tuning the OSGi Metadata
 
-In most circumstances, the `cordapp-cpk` plugin correctly generates the OSGi metadata. However, the `cordapp-cpk` plugin also extends Gradle's `jar` task with an `osgi` block. This can be used to tune the OSGi metadata. For more information, see [Tuning OSGi metadata](tuning-osgi-metadata.md).
+In most circumstances, the `cordapp-cpk` plugin correctly generates the OSGi metadata. However, the `cordapp-cpk` plugin also extends Gradle's `jar` task with an `osgi` block. This can be used to tune the OSGi metadata. For more information, see [Tuning OSGi metadata](../../../../../../en/platform/corda/5.0-dev-preview-1/packaging/gradle-plugin/tuning-osgi-metadata.md).
 
 ## CorDapp CPB Gradle plugin
 
@@ -206,7 +206,7 @@ The CorDapp CPB Gralde plugin automatically applies the CorDapp CPK plugin, so b
             id 'net.corda.plugins.cordapp-cpb'
         }
 
-The plugin will normally determine all of the CorDapp's transient `.cpk` dependencies, although it is your responsibility to ensure that this set is complete. See [CPK inspection tool](../../corda-cli/commands.md) for details of how to inspect the contents of the bundle.
+The plugin will normally determine all of the CorDapp's transient `.cpk` dependencies, although it is your responsibility to ensure that this set is complete. See [CPK inspection tool](../../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/commands.md) for details of how to inspect the contents of the bundle.
 
 Any extra package references can be added to the bundle using the `cpb` Gradle configuration. For example:
 

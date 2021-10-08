@@ -19,7 +19,7 @@ weight: 10
 Follow these steps to upgrade a node from Corda Enterprise 4.x to Corda Enterprise 4.8.
 
 If you are upgrading from Corda Enterprise 3.x, you must first:
-1. Upgrade your node to Corda Enterprise 3.3, if you haven't already. If your node is running on an earlier version, follow the steps in [Upgrade a Corda 3.X Enterprise Node](https://docs.corda.net/docs/corda-enterprise/3.3/node-operations-upgrading-enterprise.md).
+1. Upgrade your node to Corda Enterprise 3.3, if you haven't already. If your node is running on an earlier version, follow the steps in Upgrade a Corda 3.X Enterprise Node (available in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/archived-docs) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repo).
 2. Upgrade from Corda Enterprise 3.3 to Corda Enterprise 4.5.
 3. Upgrade from Corda 4.5 to Corda Enterprise 4.8.
 
@@ -30,9 +30,9 @@ Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before up
 Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](../../../../../en/platform/corda/4.8/open-source/api-stability-guarantees.md). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
 
 1. [Drain the node](#step-1-drain-the-node).
-2. [Make a backup of your node's directories and database](#step-2-make-a-backup-of-your-nodes-directories-and-database).
+2. [Make a backup of the directories in your node and database](#step-2-make-a-backup-of-your-nodes-directories-and-database).
 3. [Update the database](#step-3-update-the-database).
-4. [Replace the `corda.jar` file with the new version](#step-4-replace-cordajar-with-the-new-version).
+4. <a href="#step-4-replace-cordajar-with-the-new-version">Replace the `corda.jar` file with the new version.</a>
 5. [Update the configuration](#step-5-update-the-configuration).
 6. [Start the node](#step-6-start-the-node).
 7. [Undrain the node](#step-7-undrain-the-node).
@@ -63,7 +63,7 @@ For a smooth node draining process avoid long-running flows.
 
 Back up your data before upgrading, in case you need to roll back if there’s a problem. Make a copy of the node’s data directory or, if you use an external non-H2 database, consult your database user guide to learn how to make backups.
 
-For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](node/operating/node-administration.md#backup-recommendations).
+For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](../../../../../en/platform/corda/4.8/enterprise/node/operating/node-administration.html#backup-recommendations). 
 
 
 

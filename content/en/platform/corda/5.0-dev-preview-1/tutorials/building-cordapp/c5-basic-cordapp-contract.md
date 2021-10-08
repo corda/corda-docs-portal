@@ -18,7 +18,7 @@ Contract files implement the contract interface, containing the `verify` method.
 
 A transaction that is not contractually valid is not a valid proposal to update the ledger, and thus can never be committed to the ledger. In this way, contracts impose rules on the evolution of states over time that are independent of the willingness of the required signers to sign a given transaction.
 
-This tutorial guides you through writing the two contracts you need in your CorDapp: `MarsVoucherContract` and `BoardingTicketContract`. You will link these contracts to the states that you created in the [Write the states](c5-basic-cordapp-state.md) tutorial.
+This tutorial guides you through writing the two contracts you need in your CorDapp: `MarsVoucherContract` and `BoardingTicketContract`. You will link these contracts to the states that you created in the [Write the states](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-state.md) tutorial.
 
 You will create these contracts in the `contracts/src/main/<kotlin>/net/corda/missionMars/contracts/` directory in this tutorial. Refer to the `TemplateContract.kt` file in this directory to see a template contract.
 
@@ -270,4 +270,4 @@ class BoardingTicketContract : Contract {
 
 ## Next steps
 
-Follow the [Write flows](c5-basic-cordapp-flows.md) tutorial to continue on this learning path.
+Follow the [Write flows](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-flows.md) tutorial to continue on this learning path.
