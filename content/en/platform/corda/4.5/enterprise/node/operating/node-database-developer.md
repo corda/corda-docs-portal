@@ -256,7 +256,7 @@ Configuration templates for each database vendor are shown below:
 * [Azure SQL](#Azure-SQL)
 * [SQL Server](#SQL-Server)
 * [Oracle](#oracle-1)
-* [PostgreSQL](#PostgreSQL)
+* [PostgreSQL](#postgresql-1)
 
 
 
