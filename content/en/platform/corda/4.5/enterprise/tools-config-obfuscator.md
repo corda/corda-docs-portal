@@ -18,7 +18,7 @@ The purpose of the Configuraton Obfuscator tool is to obfuscate sensitive inform
 The Configuration Obfuscator makes node installation less vulnerable to someone trawling plain text files, searching for passwords and credentials of resources that they should not have access to in the first place.
 
 {{< warning >}}
-Although the Configuration Obfuscator does protect the node against trawling attacks, it does not ensure that password protection is completely secure. For improved security, always use the [latest released version](https://github.com/corda/r3-tools) of the tool.
+Although the Configuration Obfuscator does protect the node against trawling attacks, it does not ensure that password protection is completely secure. For improved security, always use the [latest released version](https://engineering.r3.com/library/archive/design/extensions/node-internals/4.4/config-obfuscator/#packaging-and-delivery) of the tool.
 {{< /warning >}}
 
 {{< note >}}
@@ -53,7 +53,7 @@ To deobfuscate that configuration file, you must provide the same seed and passp
 
 ## How deobfuscation works
 
-You deobfuscate an obfuscated configuration file by starting the respective node, Firewall component, or service (for example, a [Corda Enterprise Network Manager service](https://docs.r3.com/en/platform/corda/1.3/cenm.html)).
+You deobfuscate an obfuscated configuration file by starting the respective node, Firewall component, or service (for example, a [Corda Enterprise Network Manager service](../../../../../en/platform/corda/1.3/cenm/_index.md)).
 
 You cannot use the Configuration Obfuscator tool to deobfuscate an obfuscated file directly. This is intentional in order to prevent a potential security risk where plain text passwords could be revealed by just running the tool again.
 
@@ -201,7 +201,7 @@ $ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=m
 
 ## Deobfuscate an obfuscated configuration file
 
-You deobfuscate an obfuscated configuration file by starting the respective node, Firewall component, or service (for example, a [Corda Enterprise Network Manager service](https://docs.r3.com/en/platform/corda/1.3/cenm.html)).
+You deobfuscate an obfuscated configuration file by starting the respective node, Firewall component, or service (for example, a [Corda Enterprise Network Manager service](../../../../../en/platform/corda/1.3/cenm/_index.md)).
 
 When you need your node, Firewall component, or service, to deobfuscate an obfuscated configuration file, you must pass them the same seed and passhprase used when that configuration file was deobfuscated. There are two ways you can do that, as described below.
 

@@ -39,7 +39,7 @@ The Corda configuration file uses the HOCON format which is a superset of JSON. 
 
 Node setup will log `Config files should not contain " in property names. Please fix: [key]` as an error when it finds double quotes around keys.
 This prevents configuration errors when mixing keys containing `.` wrapped with double quotes and without them e.g.: The property
-`"dataSourceProperties.dataSourceClassName" = "val"` in [Reference.conf](#reference-conf) would be not overwritten by the property
+`"dataSourceProperties.dataSourceClassName" = "val"` in [Reference.conf](#referenceconf) would be not overwritten by the property
 `dataSourceProperties.dataSourceClassName = "val2"` in *node.conf*.
 
 {{< warning >}}
