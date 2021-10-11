@@ -22,7 +22,7 @@
     "build": "hugo --gc --minify",
     "build:preview": "npm run build -D -F",
     "clean": "rimraf public resources functions",
-    "server": "hugo server",
+    "server": "hugo server --buildFuture --buildDrafts --disableFastRender --bind 0.0.0.0",
     "env": "env",
     "precheck": "npm version",
     "check": "hugo version"
