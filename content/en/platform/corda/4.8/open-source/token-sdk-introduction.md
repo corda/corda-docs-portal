@@ -54,7 +54,7 @@ Overview of changes:
 
 ### Changes in V1.2.2
 
-In V1.2.2, a new [Token Selection](token-selection) feature allows a the exception `InsufficientNotLockedBalanceException` to be thrown when  sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
+In V1.2.2, a new [Token Selection](token-selection.md) feature allows a the exception `InsufficientNotLockedBalanceException` to be thrown when  sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
 
 ### Upgrade Tokens SDK
 
@@ -120,7 +120,7 @@ Once you have established what type of token you want to create, you can use the
 
 * **Move** the token from at least one party to at least one other party in a transaction.
 
-    * **Select** which specific tokens are to be used to settle a transaction. This applies when a party has more than one 'wallet' or 'pot' of tokens that can be used to settle a transaction.
+* **Select** which specific tokens are to be used to settle a transaction. This applies when a party has more than one 'wallet' or 'pot' of tokens that can be used to settle a transaction.
 
 * **Redeem** and remove the token from the ledger, for example when a party finally takes ownership of their real-life diamond and the token it represents can no longer be used.
 
@@ -143,7 +143,7 @@ An `EvolvableTokenType` has properties that can change over time. This is repres
 * Define the evolvable attributes that can change over time.
 * Identify at least one signatory service that can approve the newly evolved state. This is called a `Maintainer`.
 
-In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](token-diamond-example) for a fuller picture.
+In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](token-diamond-example.md) for a fuller picture.
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -473,7 +473,7 @@ fun addMoveTokens(
 ```
 **Add multiple fungible token moves to a transaction:**
 
-Use this method to add multiple token moves to a transaction. The [partiesAndAmounts] parameter specifies which parties should receive amounts of the token, with possible change paid to [changeHolder].
+Use this method to add multiple token moves to a transaction. The `partiesAndAmounts` parameter specifies which parties should receive amounts of the token, with possible change paid to `changeHolder`.
 
 {{< note >}}
 Change refers to any change due to the party using their token for something that doesn't come to the full value of the token. Like when you pay in a shop with cash, and you might get change from your $100 bill.
@@ -481,7 +481,7 @@ Change refers to any change due to the party using their token for something tha
 
 You can use this method to combine multiple token amounts from different issuers if needed.
 
-To choose only tokens from one issuer, you can provide optional [queryCriteria] for move generation.
+To choose only tokens from one issuer, you can provide optional `queryCriteria` for move generation.
 
 {{< note >}}
 
