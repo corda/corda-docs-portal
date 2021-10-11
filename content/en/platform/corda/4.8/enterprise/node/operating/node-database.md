@@ -14,7 +14,7 @@ weight: 1
 
 
 
-The Corda platform, and the installed CorDapps store their data in a relational database (see [State Persistence]({{% ref "../../cordapps/state-persistence.md" %}})).
+The Corda platform, and the installed CorDapps store their data in a relational database (see [State Persistence](../../../../../../../en/platform/corda/4.8/enterprise/cordapps/state-persistence.md).
 
 Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
 This document provides an overview of required database permissions, related ways to create database schema objects,
