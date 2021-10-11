@@ -86,7 +86,7 @@ Each Corda node needs to use a separate database user and schema where multiple 
 
 {{< note >}}
 For developing and testing the node using the Gradle plugin `Cordform` `deployNodes` task you need to create
-the database user/schema manually ([the first Step](#1.-Creating-a-database-user-with-schema-permissions)) before running the task (deploying nodes).
+the database user/schema manually ([the first Step](#1-creating-a-database-user-with-schema-permissions)) before running the task (deploying nodes).
 Also note that during re-deployment existing data in the database is retained.
 Remember to cleanup the database if required as part of the testing cycle.
 The above restrictions do not apply to the default H2 database as the relevant database data file is
