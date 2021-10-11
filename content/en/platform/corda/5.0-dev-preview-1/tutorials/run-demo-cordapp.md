@@ -38,10 +38,11 @@ The flow takes in three parameters:
 Before you run the sample CorDapp:
 
 * Follow the <a href="../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/overview.html#step-by-step-installation-guide">Step-by-step installation guide</a>.
-* Read about setting up a [local network](../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/setup-network.md).
-* Read about [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md).
-* Read about [CorDapp Builder](../../../../../en/platform/corda/5.0-dev-preview-1/packaging/cordapp-builder.md).
-* Read about [Corda Node CLI](../../../../../en/platform/corda/5.0-dev-preview-1/nodes/operating/cli-curl/cli-curl.md).
+* Read about:
+    * Setting up a [local network](../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/setup-network.md).
+    * The [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md).
+    * The [CorDapp Builder](../../../../../en/platform/corda/5.0-dev-preview-1/packaging/cordapp-builder.md).
+    * The [Corda Node CLI](../../../../../en/platform/corda/5.0-dev-preview-1/nodes/operating/cli-curl/cli-curl.md).
 
 If you're new to Corda, check out the [CorDapp documentation](../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/overview.md) for key concepts.
 
@@ -83,13 +84,13 @@ The project containing the sample CorDapp opens.
 
   `./gradlew build`
 
-This command builds the CorDapp package (`.cpk`) files. Most CorDapps will have two files: a `contracts` file and a `workflows` file. The command also builds the CorDapp package bundle (`.cpb`).
+This command builds the CorDapp package (`.cpk`) files. Most CorDapps have two files: a `contracts` file and a `workflows` file. The command also builds the CorDapp package bundle (`.cpb`).
 
 4. Deploy the network using `corda-cli` and `docker-compose`:
   `corda-cli network deploy -n solar-system | docker-compose -f - up`
 
 {{< note >}}
-The safest and preferred method for seeing the contents of the network is by piping to Docker.
+The safest way to view the network contents is to pipe them to Docker.
 
 While this is *not* the recommended approach, you can also output the contents to a file if you want to see what is happening. Use this command to do so: `corda-cli network deploy -n solar-system -f solar-system.yaml > solar-system-compose.yaml`.
 {{< /note >}}
