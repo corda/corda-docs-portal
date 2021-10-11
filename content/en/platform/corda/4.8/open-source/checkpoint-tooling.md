@@ -22,7 +22,7 @@ This page contains information about checkpoint tooling. These tools can be used
 
 Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading [Flows](key-concepts-flows.md) and [Writing flows](api-flows.md).
 It is also recommended that you understand the purpose and behaviour of the [Flow Hospital](node-flow-hospital.md) in relation to *checkpoints* and flow recovery.
-An advanced explanation of [*checkpoints*](contributing-flow-internals.md#flow-internals-checkpoints-ref) within the flow state machine can be found here: [Flow framework internals](contributing-flow-internals.md).
+An advanced explanation of [checkpoints](contributing-flow-internals.md#flow-internals-checkpoints-ref) within the flow state machine can be found here: [Flow framework internals](contributing-flow-internals.md).
 
 {{< note >}}
 As a recap,
@@ -194,7 +194,7 @@ To run simply pass in the following jar to the JVM used to start a Corda node: `
 
 {{< note >}}
 As above also ensure to use the jar when using corda gradle plugin configuration tasks: e.g. `cordformation deployNodes` task.
-See [https://docs.corda.net/head/generating-a-node.html#the-cordform-task](https://docs.corda.net/head/generating-a-node.html#the-cordform-task)
+See [Generating a node](generating-a-node.md).
 
 {{< /note >}}
 
@@ -414,7 +414,7 @@ And two additional files will appear in the nodes logs directory:
 
 
 * Unzip the `<NODE_BASE>\logs\checkpoints_dump-<date>.zip` file, and you should see a file with a matching flow id as above:
-**CashIssueAndPaymentFlow-90613d6f-be78-41bd-98e1-33a756c28808.json**Its contents will contain the following diagnostics information:
+**CashIssueAndPaymentFlow-90613d6f-be78-41bd-98e1-33a756c28808.json** Its contents will contain the following diagnostics information:
 
 ```json
 {
@@ -584,7 +584,7 @@ Useful commands include 'help' to see what is available, and 'bye' to shut down 
 Thu Jul 11 19:52:56 BST 2019>>> run setFlowsDrainingModeEnabled enabled: false
 ```
 
-See also [Flow draining mode](key-concepts-node.md#draining-mode).
+See also [Flow draining mode](key-concepts-node.html#draining-mode).
 
 
 * contacting other participants in the network where their nodes are not responding to an initiated flow.
