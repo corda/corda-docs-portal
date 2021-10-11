@@ -97,7 +97,7 @@ This configuration file contains specifies the location of:
 
 
 
-You can find examples of configuration files [available here](https://docs.corda.net/docs/corda-enterprise/4.3/corda-firewall-configuration-file.html)
+You can find examples of configuration files [available here](../../../../../../../../content/en/platform/corda/4.4/enterprise/node/corda-firewall-configuration-file.md)
 
 
 ### Installing the Corda Node
@@ -345,12 +345,12 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 [float.conf](../../resources/float.conf)
 
-A full list of the parameters that can be utilized in these configuration files can be found here : [https://docs.corda.net/docs/corda-enterprise/4.4/node/corda-firewall-configuration-file.html](https://docs.corda.net/docs/corda-enterprise/4.4/node/corda-firewall-configuration-file.html)
+A full list of the parameters that can be utilized in these configuration files can be found [here](../../../../../../../../content/en/platform/corda/4.4/enterprise/node/corda-firewall-configuration-file.md).
 
 
 ### Corda 3.x vs Corda 4.x Firewall Upgrade
 
-In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found here : [https://docs.corda.net/docs/corda-enterprise/4.4/node/corda-firewall-upgrade.html](https://docs.corda.net/docs/corda-enterprise/4.4/node/corda-firewall-upgrade.html)
+In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found [here](../../../../../../../../content/en/platform/corda/4.4/enterprise/node/corda-firewall-upgrade.md).
 
 
 ### Port Policy and Network Configuration
