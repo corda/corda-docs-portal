@@ -110,9 +110,9 @@ While this is *not* the recommended approach, you can also output the contents t
 
 In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
 
-  `corda-cli package install -n solar-system cordaSolarSystem.cpb`
+  `corda-cli package install -n solar-system corda5-solar-system.cpb`
 
-  In this command, you must specify the network and the `.cpb` file. Depending on the Gradle setupm the `.cpb` will be in one of the build folders and the name may be different.
+  In this command, you must specify the network and the `.cpb` file. Depending on the Gradle setup, the `.cpb` will be in one of the build folders and the name may be different.
 
   After running this command, your CorDapp is up and running.
 
