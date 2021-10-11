@@ -39,7 +39,7 @@ Alongside the brand new site design and the user experience perks it brings, we 
 
 * We have massively refactored the documentation sets for Corda 4.8 (open source), Corda Enterprise 4.8, and Corda Enterprise Network Manager (CENM) 1.5! The work on this project will continue for a little longer in the next few months, however we truly hope that this content is now more readable, better structured, and overall much more useful and easier to follow than before.
 * We have brought over the Corda 4 API reference to [docs.r3.com](https://docs.r3.com/en/api-ref.html), and we have added the Corda 5 Developer Preview public API reference too.
-* In the near future we are planning to improve the [Conclave documentation](https://docs.conclave.com) content and migrate it to [docs.r3.com](https://docs.r3.com).
+* In the near future we are planning to improve the [Conclave documentation](https://docs.conclave.net) content and migrate it to [docs.r3.com](https://docs.r3.com).
 * We have added **dark mode** to the docs - just click the icon at the top right corner of any docs page to switch between modes!
 * We are planning to expand the scope of the content we publish on [docs.r3.com](https://docs.r3.com). In the upcoming year, we will be bringing you more and more useful tutorials, enriched and improved content based on your feedback and our own user research and analytics, and more interactive learning paths to support the main documentation.
 

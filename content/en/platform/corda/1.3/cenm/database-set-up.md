@@ -544,7 +544,7 @@ Set the `database.schema` value to the username of the admin user (in the exampl
 
 The transaction isolation level is set by CENM to `READ_COMMITTED` - an attempt to set another isolation level in the configuration will result in an error. This is intentional behaviour, as `READ_UNCOMMITTED` results in inconsistent data reads, and `REPEATABLE_READ` and `SERIALIZABLE` are not compatible with Corda.
 
-Use Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c. You can find links to the appropriate drivers on [Oracle's website](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html).
+Use Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c. You can find links to the appropriate drivers on [Oracle website](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html).
 The database schema name can be set in a JDBC URL string - for example, `currentSchema=my_schema`.
 
 ### PostgreSQL
@@ -572,7 +572,7 @@ This section provides additional vendor-specific database configuration details.
 
 ### SQL Server
 
-The database collation for SQL Server should be *case insensitive* - see [Server Configuration documentation](https://docs.microsoft.com/en-us/sql/sql-server/install/server-configuration-collation?view=sql-server-2014&viewFallbackFrom=sql-server-2017) for more information.
+The database collation for SQL Server should be *case insensitive* - see [Server Configuration documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-ver15) for more information.
 
 ### Oracle
 
