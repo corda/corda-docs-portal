@@ -19,7 +19,7 @@ title: Run a sample CorDapp
 
 # Run a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [CorDapp template](../../../../tutorials/corda/4.8/os/template-tutorial/writing-a-cordapp-using-a-template.md), [building your own](content/en/tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-intro.md), or using a [community CorDapp](https://www.corda.net/samples/).
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [CorDapp template](../../../../tutorials/corda/4.8/os/template-tutorial/writing-a-cordapp-using-a-template.md), [building your own](../../../../tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-intro.md), or using a [community CorDapp](https://www.corda.net/samples/).
 
 The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](key-concepts-node.md).
 
@@ -37,7 +37,7 @@ You will deploy and run the sample CorDapp on the following test nodes:
 
 ## Before you start
 
-* Learn [what a CorDapp is](cordapp-overview).
+* Learn [what a CorDapp is](cordapp-overview.md).
 * Set up your [development environment](getting-set-up.md).
 
 
@@ -271,7 +271,7 @@ You can connect directly to your node’s database to see its stored states, tra
 
 ## Step 6: Test the CorDapp
 
-Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the **hammer icon**.  For a general guide, see [Running tests in IntelliJ](testing.md#tutorial-cordapp-alternative-test-runners).
+Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the **hammer icon**.  For a general guide, see [Running tests in IntelliJ](testing.html#tutorial-cordapp-alternative-test-runners).
 
 ### Integration tests
 
