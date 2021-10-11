@@ -96,10 +96,10 @@ re-created during each `deployNodes` run.
 Creating database user with schema permissions for:
 
 
-* [Azure SQL](#SQL-Azure)
-* [SQL Server](#SQL-Server)
-* [Oracle](#Oracle)
-* [PostgreSQL](#PostgreSQL)
+* [Azure SQL](#sql-azure)
+* [SQL Server](#sql-server)
+* [Oracle](#oracle)
+* [PostgreSQL](#postgresql)
 
 
 
@@ -208,7 +208,7 @@ The following updates are required to a nodes filesystem configuration:
 
 * The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
 and other database properties (passed to nodes’ JPA persistence provider or schema creation/upgrade flag) in the `database` entry.
-For development convenience the properties are specified in the [deployNodes Cordform task](../../testing.md#External-Database-Testing) task.
+For development convenience the properties are specified in the [deployNodes Cordform task](../../testing.html#external-database-testing) task.
 
 ```none
 dataSourceProperties = {
@@ -226,7 +226,7 @@ database = {
 ```
 
 
-See [Node configuration](../setup/corda-configuration-file.html#Node-configuration) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
+See [Node configuration](../setup/corda-configuration-file.html#node-configuration) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
 * Set `runMigration` to `true` to allow a Corda node to create database tables upon startup.
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
 It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.
@@ -252,9 +252,9 @@ dataSourceProperties = {
 Configuration templates for each database vendor are shown below:
 
 
-* [H2](#H2)
-* [Azure SQL](#Azure-SQL)
-* [SQL Server](#SQL-Server)
+* [H2](#h2)
+* [Azure SQL](#azure-sql)
+* [SQL Server](#sql-server-1)
 * [Oracle](#oracle-1)
 * [PostgreSQL](#postgresql-1)
 
