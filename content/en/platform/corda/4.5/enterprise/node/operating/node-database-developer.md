@@ -56,7 +56,7 @@ Setting up a Corda node to connect to a database requires:
 
 
 * [Creating a database user with schema permissions](#1-creating-a-database-user-with-schema-permissions)
-* [Corda node configuration changes](#2.-Corda-node-configuration)
+* [Corda node configuration changes](#2-corda-node-configuration)
 * [Run the node](#3-start-the-node-to-auto-create-schema-objects) to auto-create schema objects
 
 Corda ships out of the box with an [H2 database](http://www.h2database.com) which doesn’t require any configuration
