@@ -31,7 +31,7 @@ If you wish to set up a Corda network under an existing root and therefore are n
 
 If you wish to delegate network signing to a third party software provider, this can be done partially (with the Certificate Authority only) or fully (with the Certificate Authority and the non-Certificate Authority).
 
-Follow the specifications outlined in the [Signing and SMR Services](signing-service.html#using-a-signing-plugins) documentation to delegate this task to a third party software provider.
+Follow the specifications outlined in the [Signing and SMR Services](signing-service.html#developing-signing-plugins) documentation to delegate this task to a third party software provider.
 
 ## Using your own Certificate Authority software
 
