@@ -408,7 +408,7 @@ flows (see [Versioning](versioning.md)).
 
 {{< note >}}
 Before installing a CorDapp, you must create one or more nodes to install it on. For instructions, please see
-[generating-a-node](../../../../../../en/platform/corda/4.7/enterprise/operations/deployment/generating-a-node.md).
+[generating a node](../../../../../../en/platform/corda/4.7/enterprise/operations/deployment/generating-a-node.md).
 
 {{< /note >}}
 At start-up, nodes will load any CorDapps present in their `cordapps` folder. In order to install a CorDapp on a node, the
@@ -611,7 +611,7 @@ As of Corda 4, CorDapp Contract JARs must be installed on a node by a trusted up
 
 
 * installing manually as per [Installing the CorDapp JAR](../../../../../../en/platform/corda/4.7/enterprise/cordapps/cordapp-build-systems.html#installing-the-cordapp-jar) and re-starting the node.
-* uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC](../../../../../../en/platform/corda/4.7/enterprise/node/operating/clientrpc.md#clientrpc-connect-ref))
+* uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC](../../../../../../en/platform/corda/4.7/enterprise/node/operating/clientrpc.html#clientrpc-connect-ref))
 or via the shell by issuing the following command:
 
 `>>> run uploadAttachment jar: path/to/the/file.jar`
