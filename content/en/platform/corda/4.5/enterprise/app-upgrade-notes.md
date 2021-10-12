@@ -199,7 +199,7 @@ Otherwise just upgrade your installed copy in the usual manner for your operatin
 {{< note >}}
 Platform Version 5 requires a different version of Gradle, so if you’re intending to upgrade past Platform Version 4 you may wish
 to skip updating Gradle here and upgrade directly to the version required by Platform Version 5. You’ll still need to alter the version
-numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#platform-version-5-gradle-changes)
+numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#step-2-adjust-the-version-numbers-in-your-gradle-build-files)
 
 {{< /note >}}
 
@@ -342,7 +342,7 @@ The upgrade is a three step process:
 
 * Change the flow that calls `FinalityFlow`.
 * Change or create the flow that will receive the finalised transaction.
-* Make sure your application’s minimum and target version numbers are both set to 4 (see [Step 2. Adjust the version numbers in your Gradle build files](#cordapp-upgrade-version-numbers-ref)).
+* Make sure your application’s minimum and target version numbers are both set to 4 (see [Step 2. Adjust the version numbers in your Gradle build files](#step-2-adjust-the-version-numbers-in-your-gradle-build-files)).
 
 
 #### Upgrading a non-initiating flow
