@@ -90,8 +90,11 @@ This command builds the CorDapp package (`.cpk`) files. Most CorDapps have two f
 ```
 corda-cli network deploy -n solar-system -f solar-system.yaml | docker-compose -f - up -d
 ```
+{{< note >}}
+The `-f` flag allows you to specify the location of the network definition file. Since the network and network definition `.yaml` have the same name in this example, you can omit it. Here it is included here as a best practice example.
 
-Here the `-f` flag ensures that the network files have the same name as the network itself.
+See the [Corda CLI commands documentation](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/commands.html#subcommands) for more information on commands and their flags.
+{{< /note >}}
 
 {{< note >}}
 The safest way to view the network contents is to pipe them to Docker.
@@ -99,7 +102,10 @@ The safest way to view the network contents is to pipe them to Docker.
 While this is *not* the recommended approach, you can also output the contents to a file if you want to see what is happening. Use this command to do so: `corda-cli network deploy -n solar-system -f solar-system.yaml > solar-system-compose.yaml`.
 {{< /note >}}
 
-5. Check the CorDapp's status using [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md):
+5. Wait for the network to be ready with:
+`corda-cli network wait -n solar-system`
+
+6. Check the CorDapp's status using [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md):
   `corda-cli network status -n solar-system`
 
   You'll be able to see the status of the node. The nodes are up and running when their status is `Ready`.
@@ -107,9 +113,6 @@ While this is *not* the recommended approach, you can also output the contents t
   {{< note >}}
   Take note of the `HTTP RPC port` for each node. You will use these later when you [test the CorDapp using Swagger UI](#test-the-sample-cordapp-using-swagger-ui) or [Corda Node CLI](#test-the-sample-cordapp-using-corda-node-cli).
   {{< /note >}}
-
-6. Alternatively, wait for the network to be ready with:
-`corda-cli network wait -n solar-system`
 
 7. Install the application on the network using Corda CLI.
 

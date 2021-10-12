@@ -80,7 +80,9 @@ nodes:
 corda-cli network deploy -n missionmars-network -f missionmars.yaml | docker-compose -f - up -d
 ```
 
-Here the `-f` flag allows you to specify the location of the network definition file. This step will take some time to complete.
+The `-f` flag allows you to specify the location of the network definition file. See the [Corda CLI commands documentation](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/commands.html#subcommands) for more information on commands and their flags.
+
+This step will take some time to complete.
 
 7. Wait for the nodes to run. You can monitor nodes starting by using the following command:
 
