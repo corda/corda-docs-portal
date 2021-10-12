@@ -145,10 +145,10 @@ Example 2:
 
 
 Information on blacklisting attachment signing keys can be found in the
-[node configuration documentation](../node/setup/corda-configuration-file.md#corda-configuration-file-blacklisted-attachment-signer-keys).
+[node configuration documentation](../../../../../../en/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-blacklisted-attachment-signer-keys).
 
 More information on how to sign an app directly from Gradle can be found in the
-[CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
+[CorDapp Jar signing](../../../../../../en/platform/corda/4.4/enterprise/cordapps/cordapp-build-systems.html#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
 
 
 ## Using Signature Constraints in transactions
@@ -275,10 +275,10 @@ dependencies, are all attached to the transaction. Nodes will download this JAR 
 so it can be used for verification.
 
 The `TransactionBuilder` will manage the details of constraints for you, by selecting both constraints
-and attachments to ensure they line up correctly. Therefore you only need to have a basic understanding of this topic unless you are
+and attachments to ensure they line up correctly. Therefore, you only need to have a basic understanding of this topic unless you are
 doing something sophisticated.
 
-By default the `TransactionBuilder` will use [Signature Constraints](#signature-constraints) for any issuance transactions if the app attached to it is
+By default, the `TransactionBuilder` will use [Signature Constraints](#signature-constraints) for any issuance transactions if the app attached to it is
 signed.
 
 To manually define the Contract Constraint of an output state, see the example below:

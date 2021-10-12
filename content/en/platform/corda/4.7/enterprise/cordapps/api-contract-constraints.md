@@ -143,16 +143,16 @@ Example 2:
 
 
 Information on blacklisting attachment signing keys can be found in the
-[node configuration documentation](../node/setup/corda-configuration-file.md#corda-configuration-file-blacklisted-attachment-signer-keys).
+[node configuration documentation](../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-blacklisted-attachment-signer-keys).
 
 More information on how to sign an app directly from Gradle can be found in the
-[CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
+[CorDapp Jar signing](../../../../../../en/platform/corda/4.7/enterprise/cordapps/cordapp-build-systems.html#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
 
 
 ## Using Signature Constraints in transactions
 
 If the app is signed, Signature Constraints will be used by default (in most situations) by the `TransactionBuilder` when adding output states.
-This is expanded upon in [Using Contract Constraints in Transactions](#contract-constraints-in-transactions).
+This is expanded upon in [Using Contract Constraints in Transactions](#using-contract-constraints-in-transactions).
 
 {{< note >}}
 Signature Constraints are used by default except when a new transaction contains an input state with a Hash Constraint. In this
