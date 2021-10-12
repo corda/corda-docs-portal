@@ -291,7 +291,7 @@ For immutable state objects to be deserializable, serializable objects must have
   *primary constructor* will be selected.
 
 
-In Kotlin, this maps cleanly to a data class where there getters are synthesized automatically. For example, suppose you
+In Kotlin, this maps cleanly to a data class where the getters are synthesized automatically. For example, suppose you
 have this data class:
 
 {{< tabs name="tabs-1" >}}
