@@ -35,7 +35,7 @@ Once you have signed a transaction, there is nothing you can do to prevent the t
 ## Entry points for attacks
 Your CorDapp is vulnerable at two points:
 * **Flows**. Flows let your CorDapp communicate with other parties on the network. That means insecure flows can be an entry point for malicious data.
-* **Contracts**. Contracts are arbitrary functions inside a JVM sandbox, so it is important make sure they behave as expected.
+* **Contracts**. Contracts are arbitrary functions inside a JVM sandbox, so it is important that they behave as expected.
 
 ### Secure flows
 
@@ -46,7 +46,7 @@ The `receive` methods remind you to validate this data by wrapping it in the `Un
 Make sure this type of data:
 
 * Matches any partial transaction built or proposed earlier in the flow. For example, you propose to trade a cash state worth $100 for an asset. When the other side returns your proposal, you must ensure it points to the $100 cash state you indicated. A malicious counterparty could attempt to get you to sign a transaction that results in you spending a higher-value state, if they know that state's ID.
-* Matches the expected transaction type. There are two transaction types: general and notary change. If you are expecting a general transaction type but accidentally authorize notary change, you could transfer your assets to a hostile notary.
+* Matches the expected transaction type. There are two transaction types: general and notary change. If you are expecting a general transaction type but accidentally authorize a notary change, you could transfer your assets to a hostile notary.
 * Does not contain any unexpected changes to the states in a transaction. The best way to check this is to re-run the builder logic and compare the resulting states to make sure the result is as expected. For example, if both parties have the data required to construct the next state, they can share the function to calculate the transaction they want to mutually agree between the classes implementing both sides of the flow.
 
 

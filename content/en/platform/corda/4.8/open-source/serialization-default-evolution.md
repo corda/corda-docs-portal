@@ -89,7 +89,6 @@ Consider this example:
 // The original version of the class
 data class Example3 (val a: Int, val b: Int)
 ```
-{
 ```kotlin
 // The first alteration, property c added
 data class Example3 (val a: Int, val b: Int, val c: Int)
