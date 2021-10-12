@@ -91,7 +91,7 @@ This command builds the CorDapp package (`.cpk`) files. Most CorDapps have two f
 corda-cli network deploy -n solar-system -f solar-system.yaml | docker-compose -f - up -d
 ```
 {{< note >}}
-The `-f` flag allows you to specify the location of the network definition file. Since the network and network definition `.yaml` have the same name in this example, you can omit it. Here it is included here as a best practice example.
+The `-f` flag lets you specify the location of the network definition file. Since the network and network definition `.yaml` have the same name in this example, you can omit it. It is included here as a best practice example.
 
 See the [Corda CLI commands documentation](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/commands.html#subcommands) for more information on commands and their flags.
 {{< /note >}}
