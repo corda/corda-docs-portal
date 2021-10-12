@@ -839,7 +839,7 @@ Filtering by CorDapp is forbidden for the `AggregatedMeteringCollectionFlow` flo
 {{< /note >}}
 
 {{% note %}}
-The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database-admin.md#sql-server-3)
+The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database-admin.html#sql-server-3)
 {{% /note %}}
 
 All classes listed below belong to the `com.r3.corda.metering.filter` package.

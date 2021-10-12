@@ -19,7 +19,7 @@ The Corda platform, and the installed CorDapps store their data in a relational 
 Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle and PostgreSQL.
 
 The documentation contains the required [database user permission and schema creation](../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database-admin.md) steps
-for production systems for a new Corda installation or [database upgrade](../../../../../en/platform/corda/4.8/enterprise/node-upgrade-notes.html#step-3-update-the-database-manual) for upgrading Corda nodes.
+for production systems for a new Corda installation or [database upgrade](../../../../../en/platform/corda/4.8/enterprise/node-upgrade-notes.html#step-3-update-the-database) for upgrading Corda nodes.
 Database schema updates may be also required when [deploying CorDapps on a node](node/operating/node-operations-cordapp-deployment.md)
 or [upgrading CorDapps](node-operations-upgrade-cordapps.md).
 
