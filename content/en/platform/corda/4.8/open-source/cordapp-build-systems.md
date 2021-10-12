@@ -583,7 +583,6 @@ However, any associated database schema definition scripts (for example, Liquiba
 This is because the node requires access to these schema definitions on startup (*contract* `.jar`s are loaded in a separate attachments classloader).
 This split enables scenarios where the same *contract* CorDapp may wish to target different database providers (and thus, the associated schema DDL may vary
 to use native features of a particular database). The finance CorDapp provides an illustration of this packaging convention.
-Future versions of Corda will de-couple this custom schema dependency to remove this anomaly.
 
 {{< /warning >}}
 
