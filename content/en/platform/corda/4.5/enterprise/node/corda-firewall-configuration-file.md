@@ -753,9 +753,9 @@ making same DataCentre connection a priority. This applies to Artemis connection
 
 ### Starting all up
 
-Please see [Http Proxy Setup](#Complete-example) note above on connectivity through the proxy.
+Please see [Http Proxy Setup](#complete-example) note above on connectivity through the proxy.
 
-Please see [Capsule Cache Directory](#Keystores-generation) note above explaining details of running Capsule Fat Jars.
+Please see [Capsule Cache Directory](#keystores-generation) note above explaining details of running Capsule Fat Jars.
 
 
 #### Starting Float processes
