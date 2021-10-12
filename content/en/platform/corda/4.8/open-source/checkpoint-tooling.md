@@ -24,16 +24,12 @@ Before reading this page, please ensure you understand the mechanics and princip
 It is also recommended that you understand the purpose and behaviour of the [Flow Hospital](node-flow-hospital.md) in relation to *checkpoints* and flow recovery.
 An advanced explanation of [checkpoints](contributing-flow-internals.html#checkpoints) within the flow state machine can be found here: [Flow framework internals](contributing-flow-internals.md).
 
-{{< note >}}
-As a recap,
 
-A flow *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack. Checkpoints are saved to
-the database automatically when a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed
+As a recap, a flow *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack. Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed
 from the last checkpoint if the node restarts. Automatic checkpointing is an unusual feature of Corda and significantly helps developers write
 reliable code that can survive node restarts and crashes. It also assists with scaling up, as flows that are waiting for a response can be flushed
 from memory.
 
-{{< /note >}}
 The checkpoint tools available are:
 
 
