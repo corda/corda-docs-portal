@@ -263,7 +263,7 @@ Your own types must adhere to the following rules to be supported.
 
 For all classes, you must:
 
-* Include the parameter names in the `.class` file when compliling a class. This is the default in Kotlin.
+* Include the parameter names in the `.class` file when compiling a class. This is the default in Kotlin.
   In Java, turn it on using the `-parameters` command line option to `javac`. If you cannot recompile classes, such as when using a third-party library, you can use a
   proxy serializer. See [Pluggable Serializers for CorDapps](cordapp-custom-serializers.md).
 * Annotate the class with `@CordaSerializable`.
