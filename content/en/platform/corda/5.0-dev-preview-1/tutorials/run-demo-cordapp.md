@@ -87,7 +87,11 @@ The project containing the sample CorDapp opens.
 This command builds the CorDapp package (`.cpk`) files. Most CorDapps have two files: a `contracts` file and a `workflows` file. The command also builds the CorDapp package bundle (`.cpb`).
 
 4. Deploy the network using `corda-cli` and `docker-compose`:
-  `corda-cli network deploy -n solar-system | docker-compose -f - up`
+```
+corda-cli network deploy -n solar-system -f solar-system.yaml | docker-compose -f - up -d
+```
+
+Here the `-f` flag ensures that the network files have the same name as the network itself.
 
 {{< note >}}
 The safest way to view the network contents is to pipe them to Docker.
