@@ -45,4 +45,4 @@ helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=Y --set 
 | `zonePort`                    | Zone Service port | `12345` |
 | `logsContainersEnabled`       | Enable container displaying live logs | `true`
 {{< /table >}}
-For additional information on database connection details refer to the official documentation: [database documentation](../../../../cenm/1.5/config-database.md/).
+For additional information on database connection details refer to the official documentation: [database documentation](../../../../1.5/cenm/config-database.md/).
