@@ -34,7 +34,7 @@ Since some recovery flows have been designed to be run manually, you can set ale
 ## Monitor reconciliation and receive alerts using metrics
 
 The Collaborative Recovery CorDapps expose a number of JMX metrics via Jolokia. You can see the full list of the exposed metrics for
-[LedgerSync here](ledger-sync.html#JMX-metrics), and [LedgerRecover here](ledger-recovery-automatic.html#JMX-metrics). These are exposed alongside metrics from the node.
+[LedgerSync here](ledger-sync.html#jmx-metrics), and [LedgerRecover here](ledger-recovery-automatic.html#jmx-metrics). These are exposed alongside metrics from the node.
 You can also [monitor via Jolokia](../operating/node-administration.html#monitoring-via-jolokia).
 
 
@@ -142,7 +142,7 @@ When you use manual recovery, it creates unencrypted archives with transaction d
 the data doesn't fall into the wrong hands. At a minimum, we advise to use encrypted and secure storage to transmit the data
 (or encrypt the data on the supplier side) as well as delete the archive data from the responder and initiator filesystems.
 
-Statuses of running recoveries can be monitored via [LedgerRecover metrics](ledger-recovery-automatic.html#JMX-metrics). At the end of each recovery, the relevant reconciliation data is refreshed automatically by the recovery flows. This removes all transactions that now exist in the vault. If you are in a situation where more loss of data is expected, you can re-run reconciliation to confirm that the differences are gone.
+Statuses of running recoveries can be monitored via [LedgerRecover metrics](ledger-recovery-automatic.html#jmx-metrics). At the end of each recovery, the relevant reconciliation data is refreshed automatically by the recovery flows. This removes all transactions that now exist in the vault. If you are in a situation where more loss of data is expected, you can re-run reconciliation to confirm that the differences are gone.
 
 When using Collaborative Recovery, keep in mind:
 

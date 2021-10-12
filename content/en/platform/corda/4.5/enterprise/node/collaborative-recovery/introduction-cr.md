@@ -74,7 +74,7 @@ If you find yourself in this position, or if your other disaster recovery proced
 
 ## Who can use Collaborative Recovery
 
-Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda Enterprise](../../../../../../../en/platform/corda/4.5/enterprise/_index.md#corda-enterprise-vs-corda-open-source:-feature-comparison) nodes.
+Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda Enterprise](../../../../../../../en/platform/corda/4.5/enterprise/_index.html#corda-enterprise-vs-corda-open-source-feature-comparison) nodes.
 
 Collaborative Recovery is an Enterprise, CorDapp-level solution and is not shipped as a part of Corda itself. Only nodes that have the Collaborative Recovery CorDapps installed can participate in Collaborative Recovery. In mixed networks that consist of both Open Source and Enterprise nodes, only the Enterprise nodes of the right version that have the Collaborative Recovery CorDapps installed will be able to participate in Collaborative Recovery.
 
@@ -210,4 +210,4 @@ It is currently not possible to recover the issuance transaction containing an `
 
 Collaborative Recovery is *not* compatible with the legacy Corda Finance module. This is due to the way Confidential Identities are used as a part of the `CashPaymentFlow`.
 
-In general, it is recommended that you avoid the legacy Corda Finance module in favour of [Tokens](../../cordapps/token-skd) and Accounts SDKs.
+In general, it is recommended that you avoid the legacy Corda Finance module in favour of [Tokens](../../cordapps/token-sdk-introduction.md) and Accounts SDKs.

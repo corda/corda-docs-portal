@@ -22,7 +22,7 @@ weight: 600
 * Business Network Operators (BNOs)
 * Corda developers
 
-In a disaster recovery scenario, if you have been unable to use the automatic LedgerRecover process to recover lost data, you can attempt the recovery with the manual LedgerRecover approach. In this situation, you and the other node operators involved in the process initiate and execute the LedgerRecover (Manual) [workflows](#workflowsection) manually.
+In a disaster recovery scenario, if you have been unable to use the automatic LedgerRecover process to recover lost data, you can attempt the recovery with the manual LedgerRecover approach. In this situation, you and the other node operators involved in the process initiate and execute the LedgerRecover (Manual) [workflows](#example-workflow) manually.
 
 As these processes are managed on a discretionary basis, restrictions on the size, duration or other criteria used with an automatic recovery process are not applied. However, you should be extremely careful when accepting and executing manually initiated `RecoveryRequests`, even more so when the requested
 set of transactions IDs is extremely large.
