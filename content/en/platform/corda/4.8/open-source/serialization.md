@@ -286,8 +286,8 @@ For immutable state objects to be deserializable, serializable objects must have
   parameter `foo`, there must be a getter called `getFoo()`. If `foo` is a boolean, the getter may
   optionally be called `isFoo()`. This is why the class must be compiled with parameter names turned on.
 * A constructor that takes all the properties you wish to record in the serialized form. This is required for the serialization framework to reconstruct an instance of your class.
-* If more than one constructor is provided, the serialization framework needs to know which one to use. The `@ConstructorForDeserialization`
-  You can use annotation to indicate which one. For example, if you use a Kotlin class without the `@ConstructorForDeserialization` annotation, the
+* If more than one constructor is provided, the serialization framework needs to know which one to use. You can use the `@ConstructorForDeserialization`
+  annotation to indicate which one. For example, if you use a Kotlin class without the `@ConstructorForDeserialization` annotation, the
   *primary constructor* will be selected.
 
 
