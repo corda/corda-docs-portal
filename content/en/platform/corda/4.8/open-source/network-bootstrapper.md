@@ -100,7 +100,7 @@ alongside the configuration files. For example, for a directory with this struct
 ```
 
 The `cordapp-a.jar` and `cordapp-b.jar` will be installed in each node directory, and any contracts within them will be
-added to the [contract whitelist](###whitelist-contracts).
+added to the [contract whitelist](#create-a-contracts-whitelist).
 
 
 
@@ -219,7 +219,7 @@ You will produce this result:
 
 The bootstrapper generates a directory and the `node-info` file for Party B. It also places a copy of each
 nodes’ `node-info` file in the `additional-node-info` directory of every node. Any other files in the existing nodes,
-such a generated keys, will be unaffected.
+such as generated keys, will be unaffected.
 
 {{< note >}}
 The Network Bootstrapper is intended for test deployments, and can only generate information for nodes collected on
@@ -252,7 +252,7 @@ For example, you could take this pre-generated network:
 │   ├── network-parameters
 │   └── cordapps
 │       └── cordapp-a.jar
-└── cordapp-b.jar               // The new cordapp to add to the existing nodes
+└── cordapp-b.jar               // The new CorDapp to add to the existing nodes
 ```
 
 Then run the Network Bootstrapper again from the root directory:
@@ -343,7 +343,7 @@ The available configuration fields are:
 
 
 * **packageOwnership**:
-  A list of package owners. See [Package namespace ownership](#id1). For each package owner, these fields
+  A list of package owners. See [Package namespace ownership](#package-namespace-ownership). For each package owner, these fields
   are required:
 
 
@@ -422,7 +422,7 @@ To register a package, you need to provide the:
 
 We've created a sample CorDapp (available in [Java](https://github.com/corda/samples-java/tree/master/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Basic/cordapp-example)) you can use to practice initializing a simple network and registering and unregistering a package namespace.
 
-1. Check the sample CorDapp out, then follow the [instructions to build it](../../../../../en/platform/corda/4.8/open-source/tutorial-cordapp.html#building-the-example-cordapp).
+1. Check the sample CorDapp out, then follow the [instructions to build it](../../../../../en/platform/corda/4.8/open-source/tutorial-cordapp.md).
 
 {{< note >}}
 You can point to any existing bootstrapped network on Corda. This will update the associated network parameters file for that network).

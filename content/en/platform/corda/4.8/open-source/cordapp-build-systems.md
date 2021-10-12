@@ -590,7 +590,7 @@ Future versions of Corda will de-couple this custom schema dependency to remove 
 
 
 
-## CorDapp Contract Attachments
+## CorDapp contract attachments
 
 CorDapp Contract `.jar`s must be installed on a node by a trusted uploader, either by:
 
@@ -610,7 +610,7 @@ If the node operator decides to trust the attachment, they can issue a CRaSH she
 
 
 {{< note >}}
-This behaviour protects the node from executing contract code that was not vetted. It is a temporary precaution until the
+This behavior protects the node from executing contract code that was not vetted. It is a temporary precaution until the
 Deterministic JVM is integrated into Corda whereby execution takes place in a sandboxed environment which protects the node from malicious code.
 
 {{< /note >}}
