@@ -469,7 +469,7 @@ You can find an example project that demonstrates this in the `samples` folder o
 CorDapps can advertise their minimum and target platform version. The minimum platform version indicates that a node has to run at least this
 version in order to be able to run this CorDapp. The target platform version indicates that a CorDapp was tested with this version of the Corda
 Platform and should be run at this API level if possible. It provides a means of maintaining behavioural compatibility for the cases where the
-platform’s behaviour has changed. These attributes are specified in the `.jar` manifest of the CorDapp, for example:
+platform’s behavior has changed. These attributes are specified in the `.jar` manifest of the CorDapp, for example:
 
 ```groovy
 'Min-Platform-Version': 5
