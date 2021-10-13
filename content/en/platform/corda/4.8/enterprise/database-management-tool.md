@@ -13,7 +13,7 @@ weight: 60
 # Database Management Tool
 
 {{< warning >}}
-Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8 please read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.8/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 The database management tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
@@ -123,7 +123,7 @@ database-manager execute-migration [-hvV] [--doorman-jar-path=<doormanJarPath>]
 The `release-lock` subcommand forces the release of database locks. Sometimes, when a node or the database management
 tool crashes while running migrations, Liquibase will not release the lock. This can happen during some long
 database operations, or when an admin kills the process (this cannot happen during normal operation of a node,
-only [during the migration process](http://www.liquibase.org/documentation/databasechangeloglock_table.html).
+only [during the migration process](http://www.liquibase.org/documentation/databasechangeloglock_table.html)).
 
 Usage:
 
@@ -148,7 +148,7 @@ Additional options:
 ## Database Manager shell extensions
 
 The `install-shell-extensions` subcommand can be used to install the `database-manager` alias and auto completion for
-bash and zsh. See [Shell extensions for CLI Applications]({{% ref "node/operating/cli-application-shell-extensions.md" %}}) for more info.
+bash and zsh. See [Shell extensions for CLI Applications](../../../../../en/platform/corda/4.8/enterprise/node/operating/cli-application-shell-extensions.md) for more info.
 
 {{< note >}}
 When running the database management tool, it is preferable to use absolute paths when specifying the “base-directory”.
