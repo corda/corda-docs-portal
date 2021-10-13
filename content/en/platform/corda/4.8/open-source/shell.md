@@ -335,7 +335,7 @@ otherResults: []
 
 ### Upload and download attachments
 
-The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](tutorial-attachments.html#uploading-an-attachment) tutorial.
+The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments]((../../../../tutorials/corda/4.8/os/supplementary-tutorials/tutorial-attachments.html#uploading-an-attachment) tutorial.
 
 
 ### Extract attachment information
