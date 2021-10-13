@@ -21,4 +21,4 @@ The Corda 4.8 tutorials can now be found in the [Tutorials](../../../../tutorial
 
 * [Writing a CorDapp using a template](../../../../tutorials/corda/4.8/os/template-tutorial/writing-a-cordapp-using-a-template.md)
 * [Building your first basic CorDapp](../../../../tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-intro.md)
-* [Platform feature tutorials](../../../../tutorials/corda/4.8/os/supplementary-tutorials/supplementary-tutorials-index.md)
+* [Platform feature tutorials](../../../../tutorials/corda/4.8/os/supplementary-tutorials/supplementary-tutorials-intro.md)

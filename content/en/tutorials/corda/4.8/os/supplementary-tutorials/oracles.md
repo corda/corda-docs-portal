@@ -430,7 +430,7 @@ checkpointed.
 
 ## Testing your oracle service
 
-The `MockNetwork` allows the creation of `MockNode` instances, which are simplified nodes which can be used for testing (see [API: Testing](api-testing.md)).
+The `MockNetwork` allows the creation of `MockNode` instances, which are simplified nodes which can be used for testing (see [API: Testing](../../../../../../en/platform/corda/4.8/open-source/api-testing.md)).
 When creating the `MockNetwork`, you supply a list of `TestCordapp` objects which point to CorDapps on
 the classpath. These CorDapps will be installed on each node on the network. Make sure the packages you provide reference to the CorDapp
 containing your oracle service.
