@@ -26,7 +26,7 @@ By inspecting the amount of states in the request queue and comparing that to th
 the number of seconds until a new request can be processed is calculated.
 
 
-## Why is there an backpressure mechanism?
+## Why is there a backpressure mechanism?
 
 Like any other form of backpressure, it is to prevent queuing redundant requests by retrying requests before the expected
 time of handling the original request. Queuing additional redundant requests creates unnecessary work for the notary service
