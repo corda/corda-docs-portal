@@ -163,7 +163,7 @@ data class WorkflowPluginRequest(val requestId: String,
 ## Example
 
 This sample workflow plugin creates a request file in *basedir* when the Identity Manager received a certificate signing request, user can then approve or reject the request by moving the request files to *approved* or *rejected* folder.
-The certificate signing process will then issue a certificate for the request (require signer configuration), and move the request files to *done* folder
+The certificate signing process will then issue a certificate for the request (require signer configuration), and move the request files to *done* folder.
 
 Config file:
 
@@ -324,4 +324,4 @@ HTTP Response header:
 
 Response Body:
 
-Rejection reason code: 8. Description: On a Sanctions Watchlist. Additional remark: No additional remark.”
+"Rejection reason code: 8. Description: On a Sanctions Watchlist. Additional remark: No additional remark.”
