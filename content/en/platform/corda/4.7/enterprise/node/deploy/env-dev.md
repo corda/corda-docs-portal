@@ -26,7 +26,7 @@ In addition to the network map, all the nodes must also use the same set of netw
 
 For these reasons, test deployments can avail themselves of the Network Bootstrapper. This is a tool that scans all the node configurations from a common directory to generate the network parameters file, which is then copied to all the nodes’ directories. It also copies each node’s node-info file to every other node so that they can all be visible to each other.
 
-You can find out more about network maps and network parameters from [network map](../../../../../en/platform/corda/4.7/enterprise/network/network-map.md).
+You can find out more about network maps and network parameters from [network map](../../../../../../../en/platform/corda/4.7/enterprise/network/network-map.md).
 
 
 ## Bootstrap a test network
@@ -403,4 +403,4 @@ in the given file. See [Overriding network parameters via a file](#overriding-ne
 
 ### Sub-commands
 
-`install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See [shell extensions for CLI applications](../operating/cli-application-shell-extensions.html) for more info.
+`install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See [shell extensions for CLI applications](../operating/cli-application-shell-extensions.md) for more info.

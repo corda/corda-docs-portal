@@ -44,7 +44,7 @@ Setting up a Corda node to connect to a database requires:
 * [Run the node](#db-setup-developer-step-3-ref) to auto-create schema objects
 
 Corda ships out of the box with an [H2 database](http://www.h2database.com) which doesn’t require any configuration
-(see the documentation on [Database access when running H2](../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md), hence when using H2 database it’s sufficient to [start the node](../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database-admin.html#db-setup-step-3-ref) and the database will be created.
+(see the documentation on [Database access when running H2](../../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md), hence when using H2 database it’s sufficient to [start the node](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database-admin.html#db-setup-step-3-ref) and the database will be created.
 
 
 
@@ -208,7 +208,7 @@ database = {
 ```
 
 
-See [Node configuration](../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.html#database-properties-ref) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
+See [Node configuration](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.html#configuration-file-fields) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
 * Run the `run-migration-script` sub-command to allow a Corda node to create database tables upon startup.
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
 It is the responsibility of the node administrator, or a developer to download the appropriate JDBC driver.
@@ -276,7 +276,7 @@ You need  *administrative* permissions in order to run the `run-migration-script
 
 The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
 extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* as the archive comes with two JARs.
-[Common Configuration Steps paragraph](#db-setup-developer-step-3-ref) explains the correct location for the driver JAR in the node installation structure.
+[Common Configuration Steps paragraph](#3-run-the-run-migration-script-sub-command-to-create-all-database-schema-objects) explains the correct location for the driver JAR in the node installation structure.
 
 
 
@@ -412,7 +412,7 @@ ensure that:
 
 
 
-Those requirements should already be set during [the initial Corda node configuration](#db-setup-developer-step-3-ref).
+Those requirements should already be set during [the initial Corda node configuration](#2-corda-node-configuration).
 
 You can optionally check if a CorDapp which is expected to store data in custom tables, is correctly built.
 To check the presence of script files inside *migration* directory,
@@ -437,7 +437,7 @@ Liquibase database migration scripts for CorDapps are not used when a node runs 
 
 When an upgraded CorDapp contains a requires a database schema changes, the
 database is automatically updated during a node restart, see:
-[database schema update for a new CorDapp](#node-database-developer-database-schema-setup-when-deploying-a-new-cordapp-ref).
+[database schema update for a new CorDapp](#database-schema-setup-when-deploying-a-new-cordapp).
 
 
 

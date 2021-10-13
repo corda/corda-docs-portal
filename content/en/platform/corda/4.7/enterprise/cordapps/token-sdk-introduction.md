@@ -138,7 +138,7 @@ An `EvolvableTokenType` has properties that can change over time. This is repres
 * Define the evolvable attributes that can change over time.
 * Identify at least one signatory service that can approve the newly evolved state. This is called a `Maintainer`.
 
-In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](token-diamond-example) for a fuller picture.
+In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](token-diamond-example.md) for a fuller picture.
 
 {{< tabs name="tabs-1234" >}}
 {{% tab name="kotlin" %}}
