@@ -25,7 +25,7 @@ from the proxy object.
 
 ## Serializer location
 
-Custom serializer classes should follow the [rules for including classes](https://docs.corda.net/docs/4.8/enterprise/cordapps/cordapp-build-systems.html#building-and-installing-a-cordapp).
+Custom serializer classes should follow the [rules for including classes](../../../../../en/platform/corda/4.8/enterprise/cordapps/cordapp-build-systems.md).
 
 
 ## Writing a custom serializer
