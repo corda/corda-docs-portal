@@ -69,7 +69,7 @@ A CorDapp's `build.gradle` file uses several `ext` variables to define version n
 * `ext.corda_release_version` defines the Corda version.
 * `ext.corda_core_release_version` defines the open source version for the core dependencies.
 * `ext.corda_gradle_plugins_version` defines the version of the Corda Gradle Plugins.
-* `ext.quasar_version` defines the version of Quasar, a library the implements the flow framework.
+* `ext.quasar_version` defines the version of Quasar, a library that implements the flow framework.
 * `ext.quasar_classifier` is used with `quasar_version` to set the version and classifier of the Quasar agent that the `quasar-utils` plugin will use. If `quasar_classifier` is not set as shown below, Gradle may not be able to resolve Quasar-related dependencies correctly.
 * `ext.kotlin_version` defines the version of Kotlin (if using Kotlin to write your CorDapp).
 
