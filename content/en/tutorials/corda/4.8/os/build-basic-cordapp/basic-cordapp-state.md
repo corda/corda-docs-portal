@@ -69,7 +69,7 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
 3. After you clone the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
-   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../platform/corda/4.8/open-source/tutorial-cordapp.md#step-2-open-the-sample-cordapp-in-intellij-idea).
+   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../platform/corda/4.8/open-source/tutorial-cordapp.html#step-2-open-the-sample-cordapp-in-intellij-idea).
 
 4. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `AppleStamp`. This changes all instances of `template` in the project to `applestamp`
 
