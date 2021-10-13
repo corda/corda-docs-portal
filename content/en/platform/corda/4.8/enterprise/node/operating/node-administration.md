@@ -297,7 +297,7 @@ Unfortunately the JVM does not let you limit the total memory usage of Java prog
 A node which is running out of memory is expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
 Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens. It’s also advised to have
 necessary JVM monitoring and restart infrastructure in place.
-See [Setting JVM arguments](../../../../../../../en/platform/corda/4.8/enterpise/node/deploy/running-a-node.html#setting-jvm-arguments) for further details on JVM out-of-memory related parameters.
+See [Setting JVM arguments](../../../../../../../en/platform/corda/4.8/enterprise/node/deploy/running-a-node.html#setting-jvm-arguments) for further details on JVM out-of-memory related parameters.
 
 
 ## Hiding sensitive data
@@ -475,7 +475,7 @@ A Contract CorDapp (an attachment) received over the network, is only allowed to
 CorDapps installed in the node that have been signed by at least one of the received CorDapp’s keys.
 
 See [Signature Constraints](../../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.html#signature-constraints) and
-[Signing CorDapps for use with Signature Constraints](../../../../../../../en/platform/corda/4.8/enterpise/cordapps/api-contract-constraints.html#signing-cordapps-for-use-with-signature-constraints) for more information
+[Signing CorDapps for use with Signature Constraints](../../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.html#signing-cordapps-for-use-with-signature-constraints) for more information
 
 {{< /note >}}
 
