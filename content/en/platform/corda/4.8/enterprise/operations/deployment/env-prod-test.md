@@ -94,7 +94,7 @@ This configuration file contains specifies the location of:
 
 
 
-You can find examples of configuration files [available here](../../node/corda-firewall-configuration-file.md)
+You can find examples of configuration files [available here](../../node/corda-firewall-configuration-file.md).
 
 
 ### Installing the Corda Node
