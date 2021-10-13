@@ -255,7 +255,7 @@ There are two types of contract/state upgrade:
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it
 using the contract upgrade flows
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](../../cordapps/api-contract-constraints.md#implicit-vs-explicit-upgrades).
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/api-contract-constraints.html#implicit-vs-explicit-upgrades).
 
 
 
@@ -265,7 +265,7 @@ In an explicit upgrade, contracts and states can be changed in arbitrary ways, i
 
 
 {{< warning >}}
-In Corda 4 we’ve introduced the Signature Constraint (see [contract constraints](../../cordapps/api-contract-constraints.md)). States created or migrated to
+In Corda 4 we’ve introduced the Signature Constraint (see [contract constraints](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/api-contract-constraints.md)). States created or migrated to
 the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
 Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
 
@@ -298,7 +298,7 @@ interface UpgradedContract<in OldState : ContractState, out NewState : ContractS
 
 The `upgrade` method describes how the old state type is upgraded to the new state type.
 
-By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [contract constraints](../../cordapps/api-contract-constraints.html)).
+By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [contract constraints](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/api-contract-constraints.md)).
 
 {{< note >}}
 The requirement for a `legacyContractConstraint` arises from the fact that when a transaction chain is verified and a `Contract Upgrade` is
@@ -348,7 +348,7 @@ in progress.
 #### 6. Re-run the network bootstrapper (only if you want to whitelist the new contract)
 
 If you’re using the network bootstrapper instead of a network map server and have defined any new contracts, you need to
-re-run the network bootstrapper to whitelist the new contracts. See [network bootstrapper](../../network-bootstrapper.html).
+re-run the network bootstrapper to whitelist the new contracts. See [network bootstrapper](../../../../../../../en/platform/corda/4.4/enterprise/network-bootstrapper.md).
 
 
 #### 7. Restart the nodes
@@ -387,7 +387,7 @@ which references the new contract code.
 
 #### 10. Migrate the new upgraded state to the Signature Constraint from the zone constraint
 
-Follow the guide in [contract constraints](../../cordapps/api-contract-constraints.html).
+Follow the guide in [contract constraints](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/api-contract-constraints.md).
 
 
 ### Points to note
@@ -422,7 +422,7 @@ side-by-side
 By default, all state objects are serialised to the database as a string of bytes and referenced by their `StateRef`.
 However, it is also possible to define custom schemas for serialising particular properties or combinations of
 properties, so that they can be queried from a source other than the Corda Vault. This is done by implementing the
-`QueryableState` interface and creating a custom object relational mapper for the state. See [state persistence](../../cordapps/state-persistence.html)
+`QueryableState` interface and creating a custom object relational mapper for the state. See [state persistence](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/state-persistence.md)
 for details.
 
 For backwards compatible changes such as adding columns, the procedure for upgrading a state schema is to extend the

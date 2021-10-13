@@ -36,7 +36,7 @@ your node via HTTP, you will need to stand up your own webserver that connects t
 
 ## Connecting to a node via RPC
 
-To use [CordaRPCClient](https://api.corda.net/api/corda-enterprise/4.4/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html), you must add `com.r3.corda:corda-rpc:$corda_release_version` as a `compile` dependency
+To use [CordaRPCClient](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html), you must add `com.r3.corda:corda-rpc:$corda_release_version` as a `compile` dependency
 in your client’s `build.gradle` file. As the RPC library has a transitive dependency on a patched version of Caffeine in Corda
 Enterprise 4.0, you also need to add `corda-dependencies` to the list of repositories for your project in order to resolve
 this dependency:
@@ -48,11 +48,11 @@ repositories {
 }
 ```
 
-[CordaRPCClient](https://api.corda.net/api/corda-enterprise/4.4/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](https://api.corda.net/api/corda-enterprise/4.4/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
-[CordaRPCConnection](https://api.corda.net/api/corda-enterprise/4.4/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](https://api.corda.net/api/corda-enterprise/4.4/html/api/javadoc/net/corda/core/messaging/CordaRPCOps.html)
+[CordaRPCClient](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html) has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
+[CordaRPCConnection](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](https://api.corda.net/api/corda-enterprise/4.4/html/api/javadoc/net/corda/core/messaging/CordaRPCOps.html)
 object that you can use to interact with the node.
 
-Here is an example of using [CordaRPCClient](https://api.corda.net/api/corda-enterprise/4.4/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) to connect to a node and log the current time on its internal clock:
+Here is an example of using [CordaRPCClient](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html) to connect to a node and log the current time on its internal clock:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -126,15 +126,15 @@ class ClientRpcExample {
 {{< /tabs >}}
 
 {{< warning >}}
-The returned [CordaRPCConnection](https://api.corda.net/api/corda-enterprise/4.4/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of
+The returned [CordaRPCConnection](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of
 server side resources. When you’re done with it, call `close` on it. Alternatively you may use the `use`
-method on [CordaRPCClient](https://api.corda.net/api/corda-enterprise/4.4/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) which cleans up automatically after the passed in lambda finishes. Don’t create
+method on [CordaRPCClient](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html) which cleans up automatically after the passed in lambda finishes. Don’t create
 a new proxy for every call you make - reuse an existing one.
 
 {{< /warning >}}
 
 
-For further information on using the RPC API, see [Using the client RPC API](../../../../corda-os/4.4/tutorial-clientrpc-api.md).
+For further information on using the RPC API, see [Using the client RPC API](../../../../../../../en/platform/corda/4.4/open-source/tutorial-clientrpc-api.md).
 
 
 ## RPC permissions
@@ -403,7 +403,7 @@ would expect.
 This feature comes with a cost: the server must queue up objects emitted by the server-side observable until you
 download them. Note that the server side observation buffer is bounded, once it fills up the client is considered
 slow and will be disconnected. You are expected to subscribe to all the observables returned, otherwise client-side
-memory starts filling up as observations come in. If you don’t want an observable then subscribe then unsubscribe
+memory starts filling up as observations come in. If you don’t want an observable, subscribe then unsubscribe
 immediately to clear the client-side buffers and to stop the server from streaming. For Kotlin users, there is a
 convenience extension method called `notUsed()` which can be called on an observable to automate this step.
 
@@ -436,7 +436,7 @@ any resources.
 
 ## Versioning
 
-The client RPC protocol is versioned using the node’s platform version number (see [Versioning](../../cordapps/versioning.md)). When a proxy is created
+The client RPC protocol is versioned using the node’s platform version number (see [Versioning](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/versioning.md)). When a proxy is created
 the server is queried for its version, and you can specify your minimum requirement. Methods added in later versions
 are tagged with the `@RPCSinceVersion` annotation. If you try to use a method that the server isn’t advertising support
 of, an `UnsupportedOperationException` is thrown. If you want to know the version of the server, just use the
@@ -505,10 +505,10 @@ A more graceful form of reconnection is also available. This will:
 More specifically, the behaviour in the second case is a bit more subtle:
 
 
-* Any RPC calls that do not have any side-effects (e.g. `nodeInfo`) will be retried automatically across reconnections.
+* Any RPC calls that do not have any side effects (e.g. `nodeInfo`) will be retried automatically across reconnections.
 This will work transparently for application code that will not be able to determine whether there was a reconnection.
 These RPC calls will remain blocked during a reconnection and will return successfully after the connection has been re-established.
-* Any RPC calls that do have side-effects, such as the ones invoking flows (e.g. `startFlow`), will not be retried and they will fail with `CouldNotStartFlowException`.
+* Any RPC calls that do have side effects, such as the ones invoking flows (e.g. `startFlow`), will not be retried, and they will fail with `CouldNotStartFlowException`.
 This is done in order to avoid duplicate invocations of a flow, thus providing at-most-once guarantees. Application code is responsible for determining whether the flow needs to be retried and retrying it, if needed.
 
 
@@ -560,7 +560,7 @@ void method() {
 ### Retrying flow invocations
 
 As implied above, when graceful reconnection is enabled, flow invocations will not be retried across reconnections to avoid duplicate invocations.
-This retrying can be done from the application code after checking whether the flow was triggered previously by inspecting whether its side-effects have taken place.
+This retrying can be done from the application code after checking whether the flow was triggered previously by inspecting whether its side effects have taken place.
 A simplified, sample skeleton of such code could look like the following code:
 
 {{< tabs name="tabs-3" >}}
@@ -606,12 +606,12 @@ This approach provides at-least-once guarantees. It cannot provide exactly-once 
 
 ## Wire security
 
-If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options](../setup/corda-configuration-file)).
+If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.md)).
 The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options](../node-commandline.md)).
 
 The generated RPC TLS trust root certificate will be exported to a `certificates/export/rpcssltruststore.jks` file which should be distributed to the authorised RPC clients.
 
-The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](https://api.corda.net/api/corda-enterprise/4.4/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html)) and set this constructor
+The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html))) and set this constructor
 argument with the appropriate path for the `rpcssltruststore.jks` file. The client connection will then use this to validate the RPC server handshake.
 
 Note that RPC TLS does not use mutual authentication, and delegates fine grained user authentication and authorisation to the RPC security features detailed above.
@@ -621,4 +621,4 @@ Note that RPC TLS does not use mutual authentication, and delegates fine grained
 
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
-`@CordaSerializable` annotation (see [Object serialization](../../serialization.md)). An example is shown in [Using the client RPC API](../../../../corda-os/4.4/tutorial-clientrpc-api.md).
+`@CordaSerializable` annotation (see [Object serialization](../../../../../../../en/platform/corda/4.4/open-source/serialization.md)). An example is shown in [Using the client RPC API](../../../../../../../en/platform/corda/4.4/open-source/tutorial-clientrpc-api.md).
