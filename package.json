@@ -1,7 +1,7 @@
 {
-  "name": "corda-docs-portal",
+  "name": "corda-docs",
   "description": "R3 Documentation",
-  "version": "3.0.0",
+  "version": "2.0.0",
   "hugo-bin": {
     "buildTags": "extended"
   },
