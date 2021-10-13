@@ -45,7 +45,7 @@ Corda nodes are also expected to have backups from which they are able to partia
 | :------------- | :------------- | :---------------- | :---------------- |
 | `manualExportTransactionsBatchSize` | 100      | 100 to 100000 | |
 | `manualImportNumberOfTransactionsToCommitAfter` | 1000 | 1000 to 10000 | |
-|`skipSizeQuery`|False|True or False|Determines if querying size of artifacts (transactions, attachments, network parameters) should be skipped.|
+|`skipSizeQuery`|`false`|`true` or `false`|Determines if querying size of artifacts (transactions, attachments, network parameters) should be skipped.|
 
 {{< /table >}}
 

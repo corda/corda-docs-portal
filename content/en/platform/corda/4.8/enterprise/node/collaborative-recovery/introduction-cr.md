@@ -11,7 +11,7 @@ tags:
 - install
 - node operator
 
-title: Collaborative Recovery V1.3
+title: Collaborative Recovery V1.2.1
 weight: 100
 ---
 
@@ -22,7 +22,7 @@ weight: 100
 * Business Network Operators (BNOs)
 * Corda developers
 
-## Introducing Collaborative Recovery V1.3
+## Introducing Collaborative Recovery V1.2.1
 
 Collaborative Recovery is a secure, privacy-oriented solution that helps you identify and retrieve data if you ever encounter a disaster recovery (DR) scenario on your Business Network.
 
@@ -44,7 +44,7 @@ Before installing and using the Collaborative Recovery CorDapps, you need to kno
 
 ## In this version
 
-You can now use the `skipSizeQuery` configuration in the Ledger Recover CorDapp in cases where you cannot grant `SELECT` permission to PostGres admin to check the file size of the exported transactions before exporting them. This check normally verifies that the size of files to be exported does not exceed your node’s disk size.
+You can now use the `skipSizeQuery` configuration in the Ledger Recover CorDapp in cases where you cannot grant `SELECT` permission by the PostGres admin to check the file size of the exported transactions before exporting them. This check normally verifies that the size of files to be exported does not exceed your node’s disk size.
 
 This change does not remove the file size limit from a network, so if the exported transactions do exceed your node's disk size, the recovery operation can still fail. In this case, you will get a generic error from Corda, rather than a specific reason for the recovery failure. 
 
