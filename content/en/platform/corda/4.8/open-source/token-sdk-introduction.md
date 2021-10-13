@@ -1266,8 +1266,8 @@ constructor(
 
 Depending on your plan for issuing tokens onto your network - whether you are ready to deploy tokens in an enterprise scenario or experimenting - there are two different ways to install the Tokens SDK:
 
-* [Use the kotlin Tokens SDK template](###get-started-using-the-kotlin-token-sdk-template) template to get started and issue tokens locally. This is a great way to learn about the Tokens SDK through practical application, but may not be suitable for your enterprise deployment.
-* [Clone the latest repo](###build-token-sdk-against-corda-release-branch).
+* [Use the kotlin Tokens SDK template](#get-started-using-the-kotlin-token-sdk-template) template to get started and issue tokens locally. This is a great way to learn about the Tokens SDK through practical application, but may not be suitable for your enterprise deployment.
+* [Clone the latest repo](#build-token-sdk-against-corda-release-branch).
 
 
 For each of the these steps, follow the instructions below.
