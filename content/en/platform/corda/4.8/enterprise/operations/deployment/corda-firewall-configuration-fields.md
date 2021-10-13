@@ -29,7 +29,7 @@ An optional configuraton field that specifies the file from which SSL keys store
 An optional configuration field that specifies the file from which truststore keys will be loaded. The default value is `<certificatesDirectory>/truststore.jks`.
 
 ## firewallMode
-Determines operating mode of the firewall. See [Firewall operating modes](firewall-deployment.md#firewall-operating-modes).
+Determines operating mode of the firewall. See [Firewall operating modes](firewall-deployment.html#firewall-operating-modes).
 
 ## keyStorePassword
 The password to unlock the TLS keystore file (`<workspace>/<certificatesDirectory>/sslkeystore.jks`) containing the node certificate and private key. Due to limitations in the Artemis libraries, the private key password must be the same.
@@ -160,8 +160,8 @@ The path to the truststore file to use in control tunnel connections.
 This field is required for `FloatOuter` mode and configures the control tunnel listening socket. It should be absent for `SenderReceiver` and `BridgeInner` modes. It contains the following fields:
 
 * [floatAddress](#floataddress).
-* [expectedCertificateSubject](#expectedcertificatesubject-1).
-* [tunnelSSLConfiguration](#tunnelsslconfiguration-1).
+* [expectedCertificateSubject](#expectedcertificatesubject).
+* [tunnelSSLConfiguration](#tunnelsslconfiguration).
 
 ### floatAddress
 The host and port to bind the control tunnel listener socket to. This can be for a specific interface if used on a multi-homed machine.
@@ -265,7 +265,7 @@ For instance `custom.jvmArgs = ["-Xmx2G"]` in the configuration file will set 2G
 
 This is equivalent to specifying `-Dcapsule.jvm.args="-Xmx2G"` on the command line, but is easier to track with other configuration and does not risk accidentally setting the properties onto the capsule parent process (e.g. wasting 2Gbyte of memory).
 
-See [Setting JVM arguments](running-a-node.md#setting-jvm-arguments) for examples and details on the precedence of the different approaches to settings arguments.
+See [Setting JVM arguments](running-a-node.html#setting-jvm-arguments) for examples and details on the precedence of the different approaches to settings arguments.
 
 ## revocationConfig
 An optional field that controls the way Certificate Revocation Lists (CRL) are handled for TLS connections. It contains the `mode` field.
@@ -288,7 +288,7 @@ If the `revocationConfig` field is missing this will be the default method in `F
 
 ## p2pTlsSigningCryptoServiceConfig
 This is an optional crypto service configuration that will be used for HSM TLS signing when incoming P2P connection by external party attempted into
-Float.  See [Use of HSM in Corda Firewall](../../node/corda-firewall-component.md#use-of-hsm-in-corda-firewall) for an overview.
+Float.  See [Use of HSM in Corda Firewall](../../node/corda-firewall-component.html#use-of-hsm-in-corda-firewall) for an overview.
 
 Since Float is by design a lightweight component that does not store any sensitive information locally, when it comes to TLS signing, Float will talk to the Bridge for TLS signing to take place.
 Therefore, this option only makes sense for `BridgeInner` and `SenderReceiver` modes.
