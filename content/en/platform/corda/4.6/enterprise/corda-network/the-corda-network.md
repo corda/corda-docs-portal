@@ -41,7 +41,7 @@ signing requests (CSRs) from prospective network participants (sometimes via a b
 information submitted. A digitally signed participation certificate is returned if:
 
 
-* The participant meets the requirements specified in the [Corda Network Rulebook](https://corda.network/corda-network-rulebook/introduction);
+* The participant meets the requirements specified in the [Corda Network Rulebook](https://corda.network/corda-network-rulebook/introduction).
 * The participant agrees to Corda Network participant terms of use.
 
 The Corda Network node can then use the participation certificate to register itself with the Network Map Service.
