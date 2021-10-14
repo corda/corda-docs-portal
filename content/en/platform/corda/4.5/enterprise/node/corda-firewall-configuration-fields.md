@@ -16,7 +16,7 @@ weight: 1
 
 The available configuration fields are listed below. `baseDirectory` is available as a substitution value and contains the absolute path to the firewall’s base directory.
 
-## healthCheck 
+## healthCheck
 An optional configuration field that specifies whether the firewall can process requests sent by the [Health Survey Tool](../health-survey.md). The default is `true`.
 
 ## certificatesDirectory
@@ -29,7 +29,7 @@ An optional configuraton field that specifies the file from which SSL keys store
 An optional configuration field that specifies the file from which truststore keys will be loaded. The default value is `<certificatesDirectory>/truststore.jks`.
 
 ## firewallMode
-Determines operating mode of the firewall. See [Firewall operating modes](corda-firewall-configuration-file.md#firewall-operating-modes).
+Determines operating mode of the firewall. See [Firewall operating modes](corda-firewall-configuration-file.html#firewall-operating-modes).
 
 ## keyStorePassword
 The password to unlock the TLS keystore file (`<workspace>/<certificatesDirectory>/sslkeystore.jks`) containing the node certificate and private key. Due to limitations in the Artemis libraries, the private key password must be the same.
@@ -38,7 +38,7 @@ The password to unlock the TLS keystore file (`<workspace>/<certificatesDirector
 This is the non-secret value for the development certificates automatically generated during the first node run. Longer term these keys will be managed in secure hardware devices.
 {{< /note >}}
 
-## trustStorePassword 
+## trustStorePassword
 The password to unlock the truststore file (`<workspace>/<certificatesDirectory>/truststore.jks`) containing the Corda network root certificate. This is the non-secret value for the development certificates automatically generated during the first node run.
 
 {{< note >}}
@@ -108,7 +108,7 @@ Optionally, a password to present to the SOCKS5 or HTTP Proxy. It is not valid f
 * **proxyTimeoutMS**:
 optionally, specify a timeout in milliseconds if the proxy is unusually slow to initate connections. The default value used is `10000`.
 
-## inboundConfig 
+## inboundConfig
 This field is used to configure the properties of the listening port. It is required for `SenderReceiver` and `FloatOuter` modes and must be absent for `BridgeInner` mode. It contains the `listeningAddress` field.
 
 ### listeningAddress
@@ -194,13 +194,13 @@ The path to the keystore file to use in control tunnel connections.
 * **trustStoreFile**:
 The path to the truststore file to use in control tunnel connections.
 
-## haConfig 
+## haConfig
 Optionally the `SenderReceiver` and `BridgeInner` modes can be run in a hot-warm configuration, which determines the active instance using an external master election service.
 Currently, the leader election process can be delegated to Zookeeper, or the firewall can use the `Bully Algorithm` (see [Bully algorithm on Wikipedia](https://en.wikipedia.org/wiki/Bully_algorithm)) via Publish/Subscribe messages on the artemis broker.
 
 For production it is recommended that a Zookeeper cluster be used as this will protect against network partitioning scenarios. However, the `Bully Algorithm` mode does not require any additional server processes.
 
-Eventually other electors may be supported e.g. `etcd`. 
+Eventually other electors may be supported e.g. `etcd`.
 
 This configuration field contains the following fields:
 
@@ -222,7 +222,7 @@ At the same level of priority, it is random which instance wins the leader elect
 ### haTopic
 Sets the zookeeper topic that the nodes used in resolving the election and must be the same for all `bridge` instances competing for master status. This is available to allow a single zookeeper cluster to be reused with multiple sets of `bridges` (e.g. in test environments).
 
-The default value is `bridge/ha` and would not normally need to be changed if the cluster is not shared. 
+The default value is `bridge/ha` and would not normally need to be changed if the cluster is not shared.
 
 {{% note %}}This is a zookeeper specific configuration that is not appropriate when using the `Bully Algorithm`.  It should therefore not be set when using the algorithm over artemis.{{% /note %}}
 
@@ -265,7 +265,7 @@ For instance `custom.jvmArgs = ["-Xmx2G"]` in the configuration file will set 2G
 
 This is equivalent to specifying `-Dcapsule.jvm.args="-Xmx2G"` on the command line, but is easier to track with other configuration and does not risk accidentally setting the properties onto the capsule parent process (e.g. wasting 2Gbyte of memory).
 
-See [Setting JVM arguments](deploy/running-a-node.md#setting-jvm-arguments) for examples and details on the precedence of the different approaches to settings arguments.
+See [Setting JVM arguments](deploy/running-a-node.html#setting-jvm-arguments) for examples and details on the precedence of the different approaches to settings arguments.
 
 ## revocationConfig
 An optional field that controls the way Certificate Revocation Lists (CRL) are handled for TLS connections. It contains the `mode` field.
@@ -288,10 +288,10 @@ If the `revocationConfig` field is missing this will be the default method in `F
 
 ## p2pTlsSigningCryptoServiceConfig
 This is an optional crypto service configuration that will be used for HSM TLS signing when incoming P2P connection by external party attempted into
-Float.  See [Use of HSM in Corda Firewall](corda-firewall-component.md#use-of-hsm-in-corda-firewall) for an overview.
+Float.  See [Use of HSM in Corda Firewall](corda-firewall-component.html#use-of-hsm-in-corda-firewall) for an overview.
 
 Since Float is by design a lightweight component that does not store any sensitive information locally, when it comes to TLS signing, Float will talk to the Bridge for TLS signing to take place.
-Therefore, this option only makes sense for `BridgeInner` and `SenderReceiver` modes. 
+Therefore, this option only makes sense for `BridgeInner` and `SenderReceiver` modes.
 
 It contains the following fields:
 
@@ -316,4 +316,4 @@ If this option is missing, local file system will be used to store private keys 
 
 ## bridgeConnectionTTLSeconds
 Time interval from establishing the Bridge AMQP client connection, the bridge to float tunnel connection and the float inbound connection after which the connection will be restarted, seconds.
-Used to refresh TLS symmetric sessions keys and ensure that CRL revocations are up to date. Disabled if set to 0. Default value is 0.	
+Used to refresh TLS symmetric sessions keys and ensure that CRL revocations are up to date. Disabled if set to 0. Default value is 0.

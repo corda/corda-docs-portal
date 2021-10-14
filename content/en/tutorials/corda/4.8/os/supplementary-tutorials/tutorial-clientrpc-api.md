@@ -583,7 +583,7 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 
 ```
 
-See more on plugins in [Running nodes locally](running-a-node.md).
+See more on plugins in [Running nodes locally](../../../../../../en/platform/corda/4.8/open-source/running-a-node.md).
 
 
 ## Defining RPC credentials and permissions

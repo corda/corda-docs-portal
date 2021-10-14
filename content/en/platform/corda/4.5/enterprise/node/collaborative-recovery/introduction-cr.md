@@ -68,15 +68,15 @@ Ideally, you should never need to use Collaborative Recovery. To protect the dat
 * synchronous database replication
 * replicated and fault-tolerant filesystem (to prevent loss of MQ data)
 
-If your Business Network is not supported by synchronous database replication on all nodes, but uses asynchronous replication combined with incremental backups instead, you do not have a 100% recovery guarantee in a disaster scenario. By definition, the data in your asynchronous replica is behind the master node.  
+If your Business Network is not supported by synchronous database replication on all nodes, but uses asynchronous replication combined with incremental backups instead, you do not have a 100% recovery guarantee in a disaster scenario. By definition, the data in your asynchronous replica is behind the master node.
 
 If you find yourself in this position, or if your other disaster recovery procedures fail, Collaborative Recovery can help you restore and synchronise data across the ledger.
 
 ## Who can use Collaborative Recovery
 
-Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda Enterprise](../../#corda-enterprise-vs-corda-open-source:-feature-comparison) nodes.  
+Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda Enterprise](../../../../../../../en/platform/corda/4.5/enterprise.html#corda-enterprise-vs-corda-open-source-feature-comparison) nodes.
 
-Collaborative Recovery is an Enterprise, CorDapp-level solution and is not shipped as a part of Corda itself. Only nodes that have the Collaborative Recovery CorDapps installed can participate in Collaborative Recovery. In mixed networks that consist of both Open Source and Enterprise nodes, only the Enterprise nodes of the right version that have the Collaborative Recovery CorDapps installed will be able to participate in Collaborative Recovery.  
+Collaborative Recovery is an Enterprise, CorDapp-level solution and is not shipped as a part of Corda itself. Only nodes that have the Collaborative Recovery CorDapps installed can participate in Collaborative Recovery. In mixed networks that consist of both Open Source and Enterprise nodes, only the Enterprise nodes of the right version that have the Collaborative Recovery CorDapps installed will be able to participate in Collaborative Recovery.
 
 ## Scope of Collaborative Recovery
 
@@ -100,7 +100,7 @@ can, however, be recovered if the proof of owning the key was shared with the co
 * Off-ledger tables.
 * Observed transactions. Transactions that have been shared as a part of **Observers** functionality have to be re-provisioned separately.
 * Scheduled states.
-* Any ledger data that has been shared with parties that are not available on the network anymore.  
+* Any ledger data that has been shared with parties that are not available on the network anymore.
 
 ### Out-of-scope RPO and RTO guarantees
 
@@ -185,7 +185,7 @@ LedgerSync and LedgerRecover can only support cases when the ledger is self-cons
 For example, this might happen when a transaction has not reached the node due to the issues with the infrastructure or when
 the node has been recovered from a backup that was behind the current state of the network.
 
-Scenarios such as when a node's database is manually tampered with are not fully supported in Version 1.2.  
+Scenarios such as when a node's database is manually tampered with are not fully supported in Version 1.2.
 
 ## Compatibility with other Corda Enterprise libraries
 
@@ -193,7 +193,7 @@ If you are using other R3 Corda Enterprise libraries, you may need to take extra
 
 ### Tokens SDK - fully compatible
 
-Collaborative Recovery is fully compatible with the [Tokens](../../cordapps/token-sdk)
+Collaborative Recovery is fully compatible with the [Tokens](../../cordapps/token-sdk-introduction.md)
 SDK.
 
 ### Accounts SDK - compatible with limitations
@@ -202,7 +202,7 @@ You can use Collaborative Recovery to recover transactions where a node particip
 
 When using Accounts, remember that each account is still represented by a Confidential Identity. Even though the transactions that the account has participated in *are* recoverable (given that the *AccountInfo* has been shared alongside the transactions), the account key pair itself won't be recovered from other peers.
 
-You need to implement your own key rotation techniques to move the states to a different key if the original one has been lost.  
+You need to implement your own key rotation techniques to move the states to a different key if the original one has been lost.
 
 It is currently not possible to recover the issuance transaction containing an `AccountInfo` state (generated when a new Account is created on a node). The `AccountInfo` transaction is required for Account balances, issuances and payments to work properly. Any Account that has lost the corresponding `AccountInfo` transaction can no longer be considered functional.
 
@@ -210,4 +210,4 @@ It is currently not possible to recover the issuance transaction containing an `
 
 Collaborative Recovery is *not* compatible with the legacy Corda Finance module. This is due to the way Confidential Identities are used as a part of the `CashPaymentFlow`.
 
-In general, it is recommended that you avoid the legacy Corda Finance module in favour of [Tokens](../../cordapps/token-skd) and Accounts SDKs.
+In general, it is recommended that you avoid the legacy Corda Finance module in favour of [Tokens](../../cordapps/token-sdk-introduction.md) and Accounts SDKs.
