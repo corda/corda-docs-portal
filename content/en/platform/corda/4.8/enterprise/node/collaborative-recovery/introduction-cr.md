@@ -46,15 +46,15 @@ Before installing and using the Collaborative Recovery CorDapps, you need to kno
 
 You can now use the `skipSizeQuery` configuration in the Ledger Recover CorDapp in cases where you cannot grant `SELECT` permission by the PostGres admin to check the file size of the exported transactions before exporting them. This check normally verifies that the size of files to be exported does not exceed your node’s disk size.
 
-This change does not remove the file size limit from a network, so if the exported transactions do exceed your node's disk size, the recovery operation can still fail. In this case, you will get a generic error from Corda, rather than a specific reason for the recovery failure. 
+This change does not remove the file size limit from a network, so if the exported transactions do exceed your node's disk size, the recovery operation can still fail. In this case, you will get a generic error from Corda, rather than a specific reason for the recovery failure.
 
-### Changes from V1.2
+### Changes in V1.2
 
-In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service](../archiving/archiving-setup).
+In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service](/en/platform/corda/4.8/enterprise/node/archiving/archiving-setup.md).
 
 ### Changes from V1.0 to V1.1
 
-Collaborative Recovery 1.1 now makes use of [**LedgerGraph** as a stand-alone CorDapp](./../operating/ledger-graph.md) to get in-memory access to transaction data. In V 1.0, this was bundled with the other Collaborative Recovery CorDapps. Support for **Confidential Identities** has been moved from **LedgerSync** to **LedgerGraph** CorDapps.
+Collaborative Recovery 1.1 now makes use of [LedgerGraph as a stand-alone CorDapp](./../operating/ledger-graph.md) to get in-memory access to transaction data. In V 1.0, this was bundled with the other Collaborative Recovery CorDapps. Support for **Confidential Identities** has been moved from **LedgerSync** to **LedgerGraph** CorDapps.
 
 ## Main stages of Collaborative Recovery
 
