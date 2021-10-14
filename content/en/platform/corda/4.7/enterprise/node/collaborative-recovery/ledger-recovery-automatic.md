@@ -42,19 +42,72 @@ timeWindowForMaxAllowedRequests = 1h
 
 **Details of configuration parameters**
 
-{{< table >}}
 
-|Configuration Parameter|Default Value|Acceptable Value(s)|Description|
-|-|:-:|:-:|-|
-|`maxAllowedTransactions`|`30`|`1` to `1000`| Maximum number of allowed transactions per recovery request.*|
-|<a id="max-allowed-size">`maxAllowedSizeInBytes`</a>|`3000000`|`1` to `10000000`|Use this configuration parameter in conjunction with `timeWindowForMaxAllowedSize` to control the total size of transactions the node will send as a response to a recovery request from another party/node within a given amount of time (sliding time window). For example: 1000000 bytes per minute. **&Dagger;**|
-|`timeWindowForMaxAllowedSize` **&dagger;**|`1h`|`1m` to `24h`|Use this configuration parameter in conjunction with `maxAllowedSizeInBytes` to control the total size of transactions the node will send as a response to a recovery request from another party/node within a given amount of time (sliding time window). For example: 1000000 bytes per minute. **&Dagger;**|
-|`maxAllowedRequests`|`30`|`1` to `100`|Use this configuration parameter in conjunction with `timeWindowForMaxAllowedRequests` to control how often a node will initiate or respond to recovery requests from another party/node within a given amount of time (sliding time window). For example: 10 requests per minute.|
-|`timeWindowForMaxAllowedRequests` **&dagger;**|`1h`|`1m` to `24h`|Use this configuration parameter in conjunction with `maxAllowedRequests` to control how often a node will initiate or respond to recovery requests from another party/node within a given amount of time (sliding time window). For example: 10 requests per minute.|
-|`manualExportTransactionsBatchSize`|`100`|`100` to `100000`|Defines the number of transactions that will be read as a batch during manual export. Consider changing this to improve manual export performance. This property has a conservative default value to not exceed the `WHERE value IN(...)` limit, which is different for different databases. Check your database vendor's documentation before changing.|
-|`manualImportNumberOfTransactionsToCommitAfter`|`1000`|`1000` to `10000`|Defines the number of transactions to import after which a database commit will be performed during manual import.|
 
-{{< /table >}}
+<table>
+<col style="width:30%">
+<col style="width:10%">
+<col style="width:10%">
+<col style="width:50%">
+<thead>
+<tr>
+<th>Configuration Parameter</th>
+<th>Default Value</th>
+<th>Accepted Values</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>maxAllowedTransactions</code></td>
+<td><code>30</code></td>
+<td><code>1</code> to <code>1000</code></td>
+<td>Maximum number of allowed transactions per recovery request.*</td>
+</tr>
+<tr>
+<td><code>skipSizeQuery</code></td>
+<td><code>false</code></td>
+<td><code>true</code> or <code>false</code></td>
+<td>Determines if querying size of artifacts (transactions, attachments, network parameters) should be skipped.</td>
+</tr>
+<tr>
+<td><a id="max-allowed-size"><code>maxAllowedSizeInBytes</code></a></td>
+<td><code>3000000</code></td>
+<td><code>1</code> to <code>10000000</code></td>
+<td>Use this configuration parameter in conjunction with <code>timeWindowForMaxAllowedSize</code> to control the total size of transactions the node will send as a response to a recovery request from another party/node within a given amount of time (sliding time window). For example: 1000000 bytes per minute. <strong>&Dagger;</strong></td>
+</tr>
+<tr>
+<td><code>timeWindowForMaxAllowedSize</code> <strong>&dagger;</strong></td>
+<td><code>1h</code></td>
+<td><code>1m</code> to <code>24h</code></td>
+<td>Use this configuration parameter in conjunction with <code>maxAllowedSizeInBytes</code> to control the total size of transactions the node will send as a response to a recovery request from another party/node within a given amount of time (sliding time window). For example: 1000000 bytes per minute. <strong>&Dagger;</strong></td>
+</tr>
+<tr>
+<td><code>maxAllowedRequests</code></td>
+<td><code>30</code></td>
+<td><code>1</code> to <code>100</code></td>
+<td>Use this configuration parameter in conjunction with <code>timeWindowForMaxAllowedRequests</code> to control how often a node will initiate or respond to recovery requests from another party/node within a given amount of time (sliding time window). For example: 10 requests per minute.</td>
+</tr>
+<tr>
+<td><code>timeWindowForMaxAllowedRequests</code> <strong>&dagger;</strong></td>
+<td><code>1h</code></td>
+<td><code>1m</code> to <code>24h</code></td>
+<td>Use this configuration parameter in conjunction with <code>maxAllowedRequests</code> to control how often a node will initiate or respond to recovery requests from another party/node within a given amount of time (sliding time window). For example: 10 requests per minute.</td>
+</tr>
+<tr>
+<td><code>manualExportTransactionsBatchSize</code></td>
+<td><code>100</code></td>
+<td><code>100</code> to <code>100000</code></td>
+<td>Defines the number of transactions that will be read as a batch during manual export. Consider changing this to improve manual export performance. This property has a conservative default value to not exceed the <code>WHERE value IN(...)</code> limit, which is different for different databases. Check your database vendor's documentation before changing.</td>
+</tr>
+<tr>
+<td><code>manualImportNumberOfTransactionsToCommitAfter</code></td>
+<td><code>1000</code></td>
+<td><code>1000</code> to <code>10000</code></td>
+<td>Defines the number of transactions to import after which a database commit will be performed during manual import.</td>
+</tr>
+</tbody>
+</table>
 
 {{< note >}}
 \*Number of transactions is used as an estimate for the total size of transaction data on the requester node, as actual size of data is not known by the requester before recovery.

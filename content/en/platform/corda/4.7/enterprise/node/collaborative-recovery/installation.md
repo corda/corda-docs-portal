@@ -9,11 +9,11 @@ tags:
 - install
 - node operator
 
-title: Install Collaborative Recovery V1.2
+title: Install Collaborative Recovery V1.2.1
 weight: 150
 ---
 
-# Install the Collaborative Recovery CorDapps V1.2
+# Install the Collaborative Recovery CorDapps V1.2.1
 
 **Who this documentation is for:**
 * Node operators
