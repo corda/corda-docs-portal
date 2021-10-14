@@ -55,4 +55,4 @@ The current `AuditService` configuration supports the following audit types:
 
 ## Collecting RPC audit data
 
-In addition to recording RPC Audit Data it will also be useful to collect information on any data recorded.  See the [RPC Audit Data Collector](../../../../../../../en/platform/corda/4.8/enterprise/rpc-audit-collector.md) page for details on this.
+In addition to recording RPC Audit Data it will also be useful to collect information on any data recorded.  See the [RPC Audit Data Collector](../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/rpc-audit-collector.md) page for details on this.

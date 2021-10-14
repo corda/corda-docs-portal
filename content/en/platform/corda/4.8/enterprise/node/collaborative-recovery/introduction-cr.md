@@ -11,7 +11,7 @@ tags:
 - install
 - node operator
 
-title: Collaborative Recovery V1.2
+title: Collaborative Recovery V1.2.1
 weight: 100
 ---
 
@@ -23,11 +23,7 @@ weight: 100
 * Corda developers
 
 
-## Introducing Collaborative Recovery V1.2
-
-In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service](../archiving/archiving-setup).
-
-### In Collaborative Recovery V1.1
+## Introducing Collaborative Recovery V1.2.1
 
 Collaborative Recovery is a secure, privacy-oriented solution that helps you identify and retrieve data if you ever encounter a disaster recovery (DR) scenario on your Business Network.
 
@@ -43,13 +39,23 @@ As the name suggests, this is a collaborative method for recovering data. For ma
 
 Before installing and using the Collaborative Recovery CorDapps, you need to know:
 
-* Your Business Network disaster recovery policy
-* The Corda platform requirements
-* How and when the **LedgerSync** and **LedgerRecover** CorDapps should be used
+* Your Business Network disaster recovery policy.
+* The Corda platform requirements.
+* How and when the **LedgerSync** and **LedgerRecover** CorDapps should be used.
+
+## In this version
+
+You can now use the `skipSizeQuery` configuration in `LedgerRecover` in cases where you cannot grant `SELECT` permission by the PostgreSQL admin to check the file size of the exported transactions before exporting them. This check normally verifies that the size of files to be exported does not exceed your node’s disk size.
+
+This change does not remove the file size limit from a network, so if the exported transactions do exceed your node's disk size, the recovery operation can still fail. In this case, you will get a generic error from Corda, rather than a specific reason for the recovery failure.
+
+### Changes in V1.2
+
+In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archiving-setup.md).
 
 ### Changes from V1.0 to V1.1
 
-Collaborative Recovery 1.1 now makes use of [**LedgerGraph** as a stand-alone CorDapp](./../operating/ledger-graph.md) to get in-memory access to transaction data. In V 1.0, this was bundled with the other Collaborative Recovery CorDapps. Support for **Confidential Identities** has been moved from **LedgerSync** to **LedgerGraph** CorDapps.
+Collaborative Recovery 1.1 now makes use of [LedgerGraph as a stand-alone CorDapp](./../operating/ledger-graph.md) to get in-memory access to transaction data. In V 1.0, this was bundled with the other Collaborative Recovery CorDapps. Support for **Confidential Identities** has been moved from **LedgerSync** to **LedgerGraph** CorDapps.
 
 ## Main stages of Collaborative Recovery
 
@@ -82,7 +88,7 @@ If you find yourself in this position, or if your other disaster recovery proced
 
 ## Who can use Collaborative Recovery
 
-Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda Enterprise](../../#corda-enterprise-vs-corda-open-source:-feature-comparison) nodes.
+Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda Enterprise](../../../../../../../en/platform/corda/4.8/enterprise#corda-enterprise-vs-corda-open-source:-feature-comparison) nodes.
 
 Collaborative Recovery is an Enterprise, CorDapp-level solution and is not shipped as a part of Corda itself. Only nodes that have the Collaborative Recovery CorDapps installed can participate in Collaborative Recovery. In mixed networks that consist of both Open Source and Enterprise nodes, only the Enterprise nodes of the right version that have the Collaborative Recovery CorDapps installed will be able to participate in Collaborative Recovery.
 
@@ -126,7 +132,7 @@ Collaborative Recovery is made up of two CorDapps - **LedgerSync** and **LedgerR
 
 ### LedgerGraph
 
-[**LedgerGraph**](./../operating/ledger-graph.md) is a CorDapp used to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where **LedgerGraph** is installed. As not all transactions are related to all other transactions, it can actually contain multiple components (or sub-graphs): each a **directed acyclic graph** (DAG).
+[LedgerGraph](./../operating/ledger-graph.md) is a CorDapp used to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where **LedgerGraph** is installed. As not all transactions are related to all other transactions, it can actually contain multiple components (or sub-graphs): each a **directed acyclic graph** (DAG).
 
 ### LedgerSync
 
@@ -205,7 +211,7 @@ If you are using other R3 Corda Enterprise libraries, you may need to take extra
 
 ### Tokens SDK - fully compatible
 
-Collaborative Recovery is fully compatible with the [Tokens](../../cordapps/token-sdk-introduction.md/)
+Collaborative Recovery is fully compatible with the [Tokens](../../cordapps/token-sdk-introduction.md)
 SDK.
 
 ### Accounts SDK - compatible with limitations
@@ -222,4 +228,4 @@ It is currently not possible to recover the issuance transaction containing an `
 
 Collaborative Recovery is *not* compatible with the legacy Corda Finance module. This is due to the way Confidential Identities are used as a part of the `CashPaymentFlow`.
 
-In general, it is recommended that you avoid the legacy Corda Finance module in favour of [Tokens](../../cordapps/token-sdk-introduction.md/) and Accounts SDKs.
+In general, it is recommended that you avoid the legacy Corda Finance module in favour of [Tokens](../../cordapps/token-sdk-introduction.md) and Accounts SDKs.
