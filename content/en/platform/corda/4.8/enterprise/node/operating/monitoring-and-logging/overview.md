@@ -11,7 +11,7 @@ title: Node monitoring and logging
 weight: 5
 ---
 
-Corda nodes use [log4j2 asynchronous logging](https://logging.apache.org/log4j/2.x/manual/async.html to ensure that log message flushing is not slowing down node processing. Log4j2 is configured via a log4j2 properties file in the node resources. The configuration file can be taken from the `config/dev` folder in [Corda Open Source repository](https://github.com/corda/corda). By default, the node log files are stored to the `logs` subdirectory of the working node directory. You can print logs to the console using the `--log-to-console` command line flag when starting the node.
+Corda nodes use [log4j2 asynchronous logging](https://logging.apache.org/log4j/2.x/manual/async.html) to ensure that log message flushing is not slowing down node processing. Log4j2 is configured via a log4j2 properties file in the node resources. The configuration file can be taken from the `config/dev` folder in [Corda Open Source repository](https://github.com/corda/corda). By default, the node log files are stored to the `logs` subdirectory of the working node directory. You can print logs to the console using the `--log-to-console` command line flag when starting the node.
 
 Corda uses the Hibernate JPA provider. Some `WARN` and `ERROR` level messages from Hibernate do not require operator attention because Corda handles them internally. If Corda handles the message internally it will be logged in a separate diagnostic file in the `logs` subdirectory. If the messages require operator attention, they will be recorded in the main node log file.
 
@@ -134,7 +134,7 @@ To monitor your node using Jolokia you must:
 
 The following JMX statistics are exported:
 
-* [Corda specific metrics](node-metrics.md/).
+* [Corda specific metrics](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/node-metrics.md).
 * Apache Artemis queue information for P2P and RPC services.
 * JVM classloading, garbage collection, memory, runtime, threading, and operating system metrics.
 
@@ -159,7 +159,7 @@ To add a security policy use `java -Dcapsule.jvm.args=-javaagent:./drivers/jolok
 
 #### Monitor development systems with Jolokia
 
-If you Corda instance is set to dev mode you can access Hibernate statistics using the Jolokia interface. Hibernate statistics are disabled outside of dev mode due to expensive runtime costs. Hibernate statistics reporting can be enabled or disabled regardless of dev mode using the `exportHibernateJMXStatistics` flag on the [database configuration](setup/corda-configuration-file.md#database-properties-ref).
+If you Corda instance is set to dev mode you can access Hibernate statistics using the Jolokia interface. Hibernate statistics are disabled outside of dev mode due to expensive runtime costs. Hibernate statistics reporting can be enabled or disabled regardless of dev mode using the `exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#database).
 
 ### Monitoring your node using Graphite
 
@@ -185,5 +185,5 @@ To publish metrics to a Graphite server:
 
 ## Related content
 
-* [Node metrics](node-metrics.md/)
-* [Monitoring scenarios](monitoring-scenarios.md/)
+* [Node metrics](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/node-metrics.md)
+* [Monitoring scenarios](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/monitoring-scenarios.md)

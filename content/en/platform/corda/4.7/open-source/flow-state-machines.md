@@ -361,7 +361,7 @@ safe manner.
 
 The process of starting a flow returns a `FlowHandle` that you can use to observe the result, and which also contains
 a permanent identifier for the invoked flow in the form of the `StateMachineRunId`. Should you also wish to track the
-progress of your flow (see [Progress tracking](#progress-tracking)) then you can invoke your flow instead using
+progress of your flow (see [Progress tracking](#tracking-progress)) then you can invoke your flow instead using
 `CordaRPCOps.startTrackedFlowDynamic` or any of its corresponding `CordaRPCOps.startTrackedFlow` extension functions.
 These will return a `FlowProgressHandle`, which is just like a `FlowHandle` except that it also contains an observable
 `progress` field.
@@ -951,7 +951,7 @@ public class signTransactionFlow extends FlowLogic<SignedTransaction> {
 {{% /tab %}}
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.7/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.7/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/en/images/icon-github.svg "github")
 
 {{< /tabs >}}
 
@@ -1127,7 +1127,7 @@ private static final ProgressTracker.Step VERIFYING_AND_SIGNING = new ProgressTr
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.7/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.7/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/en/images/icon-github.svg "github")
 
 {{< /tabs >}}
 
