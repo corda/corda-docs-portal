@@ -11,7 +11,7 @@ tags:
 - install
 - node operator
 
-title: Collaborative Recovery V1.2
+title: Collaborative Recovery V1.2.1
 weight: 100
 ---
 
@@ -23,11 +23,7 @@ weight: 100
 * Corda developers
 
 
-## Introducing Collaborative Recovery V1.2
-
-In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archiving-setup.md).
-
-### In Collaborative Recovery V1.1
+## Introducing Collaborative Recovery V1.2.1
 
 Collaborative Recovery is a secure, privacy-oriented solution that helps you identify and retrieve data if you ever encounter a disaster recovery (DR) scenario on your Business Network.
 
@@ -43,9 +39,19 @@ As the name suggests, this is a collaborative method for recovering data. For ma
 
 Before installing and using the Collaborative Recovery CorDapps, you need to know:
 
-* Your Business Network disaster recovery policy
-* The Corda platform requirements
-* How and when the **LedgerSync** and **LedgerRecover** CorDapps should be used
+* Your Business Network disaster recovery policy.
+* The Corda platform requirements.
+* How and when the **LedgerSync** and **LedgerRecover** CorDapps should be used.
+
+## In this version
+
+You can now use the `skipSizeQuery` configuration in `LedgerRecover` in cases where you cannot grant `SELECT` permission by the PostgreSQL admin to check the file size of the exported transactions before exporting them. This check normally verifies that the size of files to be exported does not exceed your node’s disk size.
+
+This change does not remove the file size limit from a network, so if the exported transactions do exceed your node's disk size, the recovery operation can still fail. In this case, you will get a generic error from Corda, rather than a specific reason for the recovery failure.
+
+### Changes in V1.2
+
+In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archiving-setup.md).
 
 ### Changes from V1.0 to V1.1
 
