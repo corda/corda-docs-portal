@@ -55,7 +55,7 @@ as they root to the same certificate.
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
 {{< figure alt="hierarchy agnostic" width=80% zoom="../resources/hierarchy-agnostic.png" >}}
-At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found in the [Certificate Hierarchy Guide](../../../../../../en/platform/corda/4.8/enterprise/network/permissioning.html#certificate-role-extension) .
+At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found in the [Certificate Hierarchy Guide](../../../../../../en/platform/corda/4.8/enterprise/network/permissioning.html#certificate-hierarchy) .
 
 
 ### Certificate Revocation List
