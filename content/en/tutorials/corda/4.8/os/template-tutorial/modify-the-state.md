@@ -170,7 +170,7 @@ on the blockchain, while only sharing information on a need-to-know basis.
 
 ## What about the contract?
 
-If you’ve read the white paper or the [key concepts](key-concepts.md) section, you’ll know that each state has an associated contract that
+If you’ve read the white paper or the [key concepts](../../../../../../en/platform/corda/4.8/open-source/key-concepts.md) section, you’ll know that each state has an associated contract that
 imposes invariants on how the state evolves over time. Including a contract isn’t crucial for our first CorDapp, so
 you’ll just use the empty `TemplateContract` and `TemplateContract.Commands.Action` command defined by the template
 for now.

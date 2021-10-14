@@ -32,7 +32,7 @@ To add a suspending operation for a simple request-response type function that p
 use `FlowExternalOperation` or `FlowExternalAsyncOperation`. These interfaces represent the public versions of the internal
 `FlowAsyncOperation`.
 
-See [calling external systems inside of flows](api-flows.md#api-flows-external-operations) for more information on these public interfaces.
+See [calling external systems inside of flows](api-flows.html#calling-external-systems-inside-of-flows) for more information on these public interfaces.
 
 
 ## How to test
