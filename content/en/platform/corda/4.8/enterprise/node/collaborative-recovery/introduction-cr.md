@@ -23,11 +23,7 @@ weight: 100
 * Corda developers
 
 
-## Introducing Collaborative Recovery V1.2
-
-In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archiving-setup.md).
-
-### In Collaborative Recovery V1.1
+## Introducing Collaborative Recovery V1.2.1
 
 Collaborative Recovery is a secure, privacy-oriented solution that helps you identify and retrieve data if you ever encounter a disaster recovery (DR) scenario on your Business Network.
 
