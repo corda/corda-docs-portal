@@ -230,9 +230,9 @@ enum class Example {
 
 {{< /tabs >}}
 
-{{< note >}}
+
 Alternatively, we could have decided both new constants should have been defaulted to the first
-element
+element:
 
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
@@ -243,7 +243,7 @@ enum class Example {
     A, B, C, D, E
 }
 ```
-{{< /note >}}
+
 
 When deserializing the most applicable transform will be applied. Continuing the above example, deserializing
 nodes could have three distinct views on what the enum Example looks like (annotations omitted for brevity)
