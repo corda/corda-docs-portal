@@ -52,7 +52,7 @@ The **LedgerSync** CorDapp requires participating Corda nodes to
  - be using Corda Enterprise, not Corda Open Source (OS); and
  - be using Corda Minimum Platform Version (MPV) >= 6; and
  - have the matching version of the LedgerGraph CorDapp installed; and
- - running on top of a supported [database technology](../../platform-support-matrix).
+ - running on top of a supported [database technology](../../platform-support-matrix.md).
 
 {{< note >}}
 This version of LedgerSync is compatible with Corda's Archiving functionality. If you or parties on your network use Archiving, you can find out [what to expect when running ledger sync here](#integration-with-archiving).
@@ -271,7 +271,7 @@ The information provided in this section is meant only to provide insight into t
 
 Some information regarding the state of reconciliations can be found in a node's `CR_RECONCILIATION_STATUS` table. This table is present when the LedgerSync CorDapp is installed. You should not rely on this as a log of reconciliations, nor is it reliable for providing all state information.
 
-The status of a reconciliation is only stored/updated in this table when a reconciliation is actually executed by the scheduler (becomes `IN_PROGRESS`), or stops/fails thereafter. Reconciliations that are yet to enter the execution pool will not appear in this table, and so the data in this table should not be used for real-time status monitoring. Please use the provided API (see [Flows](#Flows) or [JMX](#JMX%20Metrics)) to get reliable status information on reconciliations.
+The status of a reconciliation is only stored/updated in this table when a reconciliation is actually executed by the scheduler (becomes `IN_PROGRESS`), or stops/fails thereafter. Reconciliations that are yet to enter the execution pool will not appear in this table, and so the data in this table should not be used for real-time status monitoring. Please use the provided API (see [Flows](#flows) or [JMX](#jmx-metrics)) to get reliable status information on reconciliations.
 
 ### Table Structure
 
@@ -585,7 +585,7 @@ In all cases, it may be necessary to *kill* the flow. See below for the details 
 
 ### Step 3. Transaction recovery
 
-If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery](ledger-recovery-automatic.md/) or a [ManualRecovery](ledger-recovery-manual.md/).
+If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery](ledger-recovery-automatic.md) or a [ManualRecovery](ledger-recovery-manual.md).
 
 #### Killing Reconciliation Flows
 
