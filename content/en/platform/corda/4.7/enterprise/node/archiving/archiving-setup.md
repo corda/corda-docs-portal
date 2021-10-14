@@ -28,8 +28,8 @@ Due to its in-memory design, the Archive Service is most effective and efficient
 The Archive Service consists of the following:
 
 * [Archive Service CorDapp](#archive-service-cordapp)- which contains the necessary flows to mark and archive transactions.
-* [Archive Service Client Library](archive-library) - which provides programmatic access to the archive service, and [exposes relevant APIs](archiving-apis).
-* [Archive Service Command Line Interface](archiving-cli) - which allows you to perform archiving tasks from the command line.
+* [Archive Service Client Library](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archive-library.md) - which provides programmatic access to the archive service, and [exposes relevant APIs](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archiving-apis.md).
+* [Archive Service Command Line Interface](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archiving-cli.md) - which allows you to perform archiving tasks from the command line.
 
 It also makes use of the [Application Entity Manager](app-entity-manager) - which allows CorDapps to access off-ledger databases using JPA APIs.
 
