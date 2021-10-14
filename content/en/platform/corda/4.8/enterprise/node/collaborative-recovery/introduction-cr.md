@@ -22,6 +22,7 @@ weight: 100
 * Business Network Operators (BNOs)
 * Corda developers
 
+
 ## Introducing Collaborative Recovery V1.2.1
 
 Collaborative Recovery is a secure, privacy-oriented solution that helps you identify and retrieve data if you ever encounter a disaster recovery (DR) scenario on your Business Network.
