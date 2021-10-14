@@ -48,4 +48,4 @@ Corda Network Pre-Production is governed by an [independent Foundation](https://
 
 Steps to join are outlined on the [Corda Network microsite](https://corda.network/participation/index.html) - follow any specific instructions for ‘Pre-Production’.
 
-For further questions on this process, please contact us - preferably on the mailing list: [https://groups.io/g/corda-network](https://groups.io/g/corda-network) or at [info@corda.network](mailto:info@corda.network)
+For further questions on this process, please contact us, either on the [mailing list](https://groups.io/g/corda-network) or through our [contact form](https://corda.network/contact/contact-us).
