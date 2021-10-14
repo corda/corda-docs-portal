@@ -44,7 +44,7 @@ Before installing and using the Collaborative Recovery CorDapps, you need to kno
 
 ## In this version
 
-You can now use the `skipSizeQuery` configuration in the Ledger Recover CorDapp in cases where you cannot grant `SELECT` permission by the PostGres admin to check the file size of the exported transactions before exporting them. This check normally verifies that the size of files to be exported does not exceed your node’s disk size.
+You can now use the `skipSizeQuery` configuration in `LedgerRecover` in cases where you cannot grant `SELECT` permission by the PostgreSQL admin to check the file size of the exported transactions before exporting them. This check normally verifies that the size of files to be exported does not exceed your node’s disk size.
 
 This change does not remove the file size limit from a network, so if the exported transactions do exceed your node's disk size, the recovery operation can still fail. In this case, you will get a generic error from Corda, rather than a specific reason for the recovery failure.
 
