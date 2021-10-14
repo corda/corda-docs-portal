@@ -22,7 +22,7 @@ weight: 600
 * Business Network Operators (BNOs)
 * Corda developers
 
-In a disaster recovery scenario, if you have been unable to use the automatic LedgerRecover process to recover lost data, you can attempt the recovery with the manual LedgerRecover approach. In this situation, you and the other node operators involved in the process initiate and execute the LedgerRecover (Manual) [workflows](#workflowsection) manually.
+In a disaster recovery scenario, if you have been unable to use the automatic LedgerRecover process to recover lost data, you can attempt the recovery with the manual LedgerRecover approach. In this situation, you and the other node operators involved in the process initiate and execute the LedgerRecover (Manual) [workflows](#flows) manually.
 
 As these processes are managed on a discretionary basis, restrictions on the size, duration or other criteria used with an automatic recovery process are not applied. However, you should be extremely careful when accepting and executing manually initiated `RecoveryRequests`, even more so when the requested
 set of transactions IDs is extremely large.
@@ -190,7 +190,7 @@ This flow only marks the `RecoveryRequest` as complete on behalf of the invoking
 
 #### Vault archive
 
-A `VaultArchive` is a file/folder structure representing exported data from the nodes vault. It's structured in a specific format so that the initiating node (for whom you are exporting this `VaultArchive`) is able to interpret and import the transaction data back into their vault. The data in the `VaultArchive` is stored in [Corda Wire Format](https://docs.corda.net/wire-format.html) and may be deserialized and inspected using the [Corda Blob Inspector](https://docs.corda.net/blob-inspector.html).
+A `VaultArchive` is a file/folder structure representing exported data from the nodes vault. It's structured in a specific format so that the initiating node (for whom you are exporting this `VaultArchive`) is able to interpret and import the transaction data back into their vault. The data in the `VaultArchive` is stored in [Corda Wire Format](../../../../../../../en/platform/corda/4.8/enterprise/wire-format.md) and may be deserialized and inspected using the [Corda Blob Inspector](../../../../../../../en/platform/corda/4.8/enterprise/blob-inspector.md).
 
 An example of the file folder structure of a `VaultArchive` is defined below:
 
@@ -454,7 +454,7 @@ When run successfully, this flow will persist a `RecoveryRequest` in the `CR_REC
 
 If the initiating node throws an exception, it is very likely for one of the following reasons:
 - The reconciliation process is either still in progress or has failed. In the former situation, wait for the reconciliation process to be scheduled or complete. In the
-latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of [LedgerSync documentation](./ledger-sync.md)) and
+latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of [LedgerSync documentation](../../../../../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/ledger-sync.md)) and
 then reschedule the reconciliation so that it may be completed successfully.
 
 #### Unhappy path - Exception is thrown by the responding node
