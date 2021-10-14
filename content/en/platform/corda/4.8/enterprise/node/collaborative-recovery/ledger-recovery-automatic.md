@@ -44,9 +44,10 @@ timeWindowForMaxAllowedRequests = 1h
 
 {{< table >}}
 
-|Configuration Parameter|Default Value|Acceptable Value(s)|Description|
-|-|:-:|:-:|-|
+| Configuration Parameter | Default Value | Acceptable Value(s) | Description |
+| -------- | ------------------ | ----------------- | - |
 |`maxAllowedTransactions`|`30`|`1` to `1000`| Maximum number of allowed transactions per recovery request.*|
+|`skipSizeQuery`|`false`|`true` or `false`|Determines if querying size of artifacts (transactions, attachments, network parameters) should be skipped.|
 |<a id="max-allowed-size">`maxAllowedSizeInBytes`</a>|`3000000`|`1` to `10000000`|Use this configuration parameter in conjunction with `timeWindowForMaxAllowedSize` to control the total size of transactions the node will send as a response to a recovery request from another party/node within a given amount of time (sliding time window). For example: 1000000 bytes per minute. **&Dagger;**|
 |`timeWindowForMaxAllowedSize` **&dagger;**|`1h`|`1m` to `24h`|Use this configuration parameter in conjunction with `maxAllowedSizeInBytes` to control the total size of transactions the node will send as a response to a recovery request from another party/node within a given amount of time (sliding time window). For example: 1000000 bytes per minute. **&Dagger;**|
 |`maxAllowedRequests`|`30`|`1` to `100`|Use this configuration parameter in conjunction with `timeWindowForMaxAllowedRequests` to control how often a node will initiate or respond to recovery requests from another party/node within a given amount of time (sliding time window). For example: 10 requests per minute.|
