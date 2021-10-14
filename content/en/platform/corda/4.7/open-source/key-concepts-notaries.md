@@ -88,7 +88,7 @@ Below is a summary of what specific transaction components have to be revealed t
 
 |Transaction components|Validating|Non-validating|
 |-----------------------------------|---------------|-----------------------|
-|Input states|Fully visible|References only <sup>[\[1\]](#key-concepts-notaries-id1)|
+|Input states|Fully visible|State references only |
 |Output states|Fully visible|Hidden|
 |Commands (with signer identities)|Fully visible|Hidden|
 |Attachments|Fully visible|Hidden|
@@ -101,11 +101,8 @@ Below is a summary of what specific transaction components have to be revealed t
 
 Both types of notaries record the calling party’s identity: the public key and the X.500 Distinguished Name.
 
-<a name="key-concepts-notaries-id1"></a>
-
-\[1\]
-A state reference is composed of the issuing transaction’s id and the state’s position in the outputs. It does not
-reveal what kind of state it is or its contents.
+A state reference is composed of the issuing transaction's id and the state's position in the outputs. It does not
+reveal the state type or contents.
 
 ## Multiple notaries
 
