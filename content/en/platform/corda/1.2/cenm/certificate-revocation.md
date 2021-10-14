@@ -44,7 +44,7 @@ remote peer’s chain, and therefore the CRL must remain available for the netwo
 {{< /note >}}
 {{< note >}}
 CRLs should be signed manually from time to time depending on its’ `nextUpdate` property. Further details
-on CRL lifecycle are covered under [Lifecycle](#crl-lifecycle).
+on CRL lifecycle are covered under [Lifecycle](#lifecycle).
 
 {{< /note >}}
 

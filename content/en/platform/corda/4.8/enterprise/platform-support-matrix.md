@@ -96,10 +96,10 @@ for your deployment needs.
 
 |Device|Legal identity & CA keys|TLS keys|Confidential identity keys|Notary service keys|
 |-------------------------------|----------------------------|----------------------------|----------------------------|-----------------------------|
-| Utimaco SecurityServer Se Gen2| Firmware version 4.21.1  | Firmware version 4.21.1  | Not supported              | Firmware version 4.21.1   |
-|                               | Driver version 4.21.1    | Driver version 4.21.1    |                            | Driver version 4.21.1     |
-| Gemalto Luna                  | Firmware version 7.0.3   | Firmware version 7.0.3   | Not supported              | Firmware version 7.0.3    |
-|                               | Driver version 7.3       | Driver version 7.3       |                            | Driver version 7.3        |
+| Utimaco SecurityServer Se Gen2| Firmware version 4.21.1  | Firmware version 4.21.1  | Firmware version 4.21.1 | Firmware version 4.21.1   |
+|                               | Driver version 4.21.1    | Driver version 4.21.1    | Driver version 4.21.1   | Driver version 4.21.1     |
+| Gemalto Luna                  | Firmware version 7.0.3   | Firmware version 7.0.3   | Firmware version 7.0.3  | Firmware version 7.0.3    |
+|                               | Driver version 7.3       | Driver version 7.3       | Driver version 7.3      | Driver version 7.3        |
 | FutureX Vectera Plus          | Firmware version 6.1.5.8 | Firmware version 6.1.5.8 | Firmware version 6.1.5.8 | Firmware version 6.1.5.8  |
 |                               | PKCS#11 version 3.1      | PKCS#11 version 3.1      | PKCS#11 version 3.1      | PKCS#11 version 3.1       |
 |                               | FXJCA version 1.17       | FXJCA version 1.17       | FXJCA version 1.17       | FXJCA version 1.17        |
