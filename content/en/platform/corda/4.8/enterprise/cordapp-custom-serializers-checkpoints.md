@@ -28,7 +28,7 @@ If a CorDapp encounters an exception during the checkpoint process, it may need 
 {{< /warning >}}
 
 {{< note >}}
-Please read [Pluggable serializers for CorDapps](cordapp-custom-serializers.md) before you start.
+Please read [Custom serializers for CorDapps](cordapp-custom-serializers.md) before you start.
 {{< /note >}}
 
 
