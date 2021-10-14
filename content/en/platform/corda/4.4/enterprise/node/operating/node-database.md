@@ -19,7 +19,7 @@ weight: 1
 
 # Understanding the node database
 
-The Corda platform, and the installed CorDapps store their data in a relational database (see [State Persistence]({{% ref "../../cordapps/state-persistence.md" %}})).
+The Corda platform, and the installed CorDapps store their data in a relational database (see [State Persistence](../../cordapps/state-persistence.md).
 
 Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
 This document provides an overview of required database permissions, related ways to create database schema objects,
@@ -56,7 +56,7 @@ or within the CorDapp distributions (a JAR file). Therefore Corda, and custom Co
 Whenever a node operator or database administrator needs to obtain a DDL script to be run, they can use the Corda Database Management Tool.
 The tool, among other functions, outputs the DDL script which is compatible with the Corda release
 and the database which the tool was running against.
-Depending on [database user permissions](#node-database-user-permissions-ref) a Corda node may be configured to create database tables
+Depending on database user permissions a Corda node may be configured to create database tables
 (and other schema objects) automatically upon startup (and subsequently update tables).
 
 
@@ -82,7 +82,7 @@ is highly recommended for understanding how database migrations work in Corda.
 
 By default, a node will *not* attempt to execute database migration scripts at startup (even when a new version has been deployed),
 but will check the database “version” and halt if the database is not in sync with the node, to avoid data corruption.
-To bring the database to the correct state we provide a [Database Management Tool](#database-management-tool-ref).
+To bring the database to the correct state we provide a [Database Management Tool](#database-management-tool).
 This setup/procedure is recommended for production systems.
 
 Running the migration at startup automatically can be configured by specifying true in the `database.runMigration`
@@ -189,7 +189,7 @@ Additional options:
 
 #### Database Manager shell extensions
 
-The `install-shell-extensions` subcommand can be used to install the `database-manager` alias and auto completion for
+The `install-shell-extensions` subcommand can be used to install the `database-manager` alias and auto-completion for
 bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
 
 {{< note >}}
@@ -293,7 +293,7 @@ The node database for a Simple Notary has additional tables:
 
 {{< /table >}}
 
-The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend](../../notary/installing-jpa.md#configuring-jpa-notary-backend).
+The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend](../../../../../../../en/platform/corda/4.4/enterprise/notary/installing-jpa.html#configuring-jpa-notary-backend).
 
 The tables for other experimental notary implementations are not described here.
 
@@ -301,4 +301,4 @@ The tables for other experimental notary implementations are not described here.
 ### Database Schema Migration Logging
 
 Database migration logs for Corda internal tables follow a structured format
-described in [Database Schema Migration Logging](../../node-database-migration-logging.md#database-schema-migration-logging).
+described in [Database Schema Migration Logging](../../../../../../../en/platform/corda/4.4/enterprise/node-database-migration-logging.html#database-schema-migration-logging).

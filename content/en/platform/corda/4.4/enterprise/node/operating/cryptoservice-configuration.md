@@ -38,7 +38,7 @@ Importing existing keys from the file based keystore into a HSM is not supported
 
 ## Configuration
 
-As mentioned in the description of the configuration file ([Node configuration](../setup/corda-configuration-file.md)), the `node.conf` has three relevant fields:
+As mentioned in the description of the configuration file ([Node configuration](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.md), the `node.conf` has three relevant fields:
 * `cryptoServiceName`
 * `cryptoServiceConf`
 * Optional: `cryptoServiceTimeout`

@@ -48,7 +48,7 @@ Setting up a Corda node to connect to a database requires:
 * [Run the node](#db-setup-developer-step-3-ref) to auto-create schema objects
 
 Corda ships out of the box with an [H2 database](http://www.h2database.com) which doesn’t require any configuration
-(see the documentation on [Database access when running H2](../../node-database-access-h2), hence when using H2 database it’s sufficient to [start the node](node-database-admin.md#db-setup-step-3-ref)
+(see the documentation on [Database access when running H2](../../../../../../../en/platform/corda/4.4/enterprise/node-database-access-h2.md), hence when using H2 database it’s sufficient to [start the node](node-database-admin.html#db-setup-step-3-ref)
 and the database will be created.
 
 
@@ -197,7 +197,7 @@ The following updates are required to a nodes filesystem configuration:
 
 * The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
 and other database properties (passed to nodes’ JPA persistence provider or schema creation/upgrade flag) in the `database` entry.
-For development convenience the properties are specified in the [deployNodes Cordform task](../../testing.md#testing-cordform-ref) task.
+For development convenience the properties are specified in the [deployNodes Cordform task](../../../../../../../en/platform/corda/4.4/enterprise/testing.html#testing-cordform-ref) task.
 
 ```none
 dataSourceProperties = {
@@ -215,7 +215,7 @@ database = {
 ```
 
 
-See [Node configuration](../setup/corda-configuration-file.md#database-properties-ref) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
+See [Node configuration](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#database-properties-ref) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
 * Set `runMigration` to `true` to allow a Corda node to create database tables upon startup.
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
 It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.
@@ -252,7 +252,7 @@ Configuration templates for each database vendor are shown below:
 #### H2
 
 By default, nodes store their data in an H2 database.
-No database setup is needed. Optionally remote H2 access/port can be configured. See the documentation on [Database access when running H2](../../node-database-access-h2).
+No database setup is needed. Optionally remote H2 access/port can be configured. See the documentation on [Database access when running H2](../../../../../../../en/platform/corda/4.4/enterprise/node-database-access-h2.md).
 
 
 
@@ -404,7 +404,7 @@ Additionally, the node will create any tables for CorDapps containing Liquibase 
 
 As the Corda node is configured to automatically run migrations on startup,
 no additional database update steps are required when upgrading Corda.
-See the [Corda node upgrade notes](cm-upgrading-node.md#node-upgrade-notes-update-database-ref) for more information.
+See the [Corda node upgrade notes](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/cm-upgrading-node.html#node-upgrade-notes-update-database-ref) for more information.
 
 
 
