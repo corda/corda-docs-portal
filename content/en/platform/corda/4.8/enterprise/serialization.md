@@ -262,7 +262,7 @@ For all classes, you must:
 
 * Include the parameter names in the `.class` file when compliling a class. This is the default in Kotlin.
 In Java, turn it on using the `-parameters` command line option to `javac`. If you cannot recompile classes, such as when using a third-party library, you can use a
-proxy serializer. See [Pluggable Serializers for CorDapps](cordapp-custom-serializers.md).
+proxy serializer. See [Custom Serializers for CorDapps](cordapp-custom-serializers.md).
 * Annotate the class with `@CordaSerializable`.
 * Make sure Corda supports the declared types of constructor arguments, getters, and setters. If you use generics, the
 generic parameter must be a supported type, an open wildcard (`*`), or a bounded wildcard that has been
