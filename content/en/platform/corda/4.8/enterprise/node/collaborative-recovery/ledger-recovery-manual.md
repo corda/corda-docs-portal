@@ -39,15 +39,40 @@ Corda nodes are also expected to have backups from which they are able to partia
 
 ## Configuration parameters
 
-{{< table >}}
-
-| Configuration parameter   | Default value     | Acceptable values | Description |
-| :------------- | :------------- | :---------------- | :---------------- |
-| `manualExportTransactionsBatchSize` | 100      | 100 to 100000 | |
-| `manualImportNumberOfTransactionsToCommitAfter` | 1000 | 1000 to 10000 | |
-|`skipSizeQuery`|`false`|`true` or `false`|Determines if querying size of artifacts (transactions, attachments, network parameters) should be skipped.|
-
-{{< /table >}}
+<table>
+  <col style="width:40%">
+  <col style="width:12%">
+  <col style="width:18%">
+  <col style="width:30%">
+  <thead>
+    <tr>
+      <th align="left">Configuration parameter</th>
+      <th align="left">Default value</th>
+      <th align="left">Acceptable values</th>
+      <th align="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left"><code>manualExportTransactionsBatchSize</code></td>
+      <td align="left">100</td>
+      <td align="left">100 to 100000</td>
+      <td align="left"></td>
+    </tr>
+    <tr>
+      <td align="left"><code>manualImportNumberOfTransactionsToCommitAfter</code></td>
+      <td align="left">1000</td>
+      <td align="left">1000 to 10000</td>
+      <td align="left"></td>
+    </tr>
+    <tr>
+      <td align="left"><code>skipSizeQuery</code></td>
+      <td align="left"><code>false</code></td>
+      <td align="left"><code>true</code> or <code>false</code></td>
+      <td align="left">Determines if querying size of artifacts (transactions, attachments, network parameters) should be skipped.</td>
+    </tr>
+    </tbody>
+</table>
 
 ## Flows
 
