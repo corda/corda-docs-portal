@@ -22,7 +22,7 @@ It consists of two `.jar` files:
 * The flow management plug-in: `flow-management-plugin-<release>.jar`.
 * The permissions `.jar` for the plug-in: `auth-baseline-flow-management-<release>.jar`.
 
-These files can be downloaded from Artifactory: [`corda-gatewayplugins`](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-gateway-plugins).
+These files can be downloaded from Artifactory: <a href="https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-gateway-plugins">`corda-gatewayplugins`</a>
 
 ## Installation
 

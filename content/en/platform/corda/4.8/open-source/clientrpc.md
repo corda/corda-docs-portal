@@ -23,7 +23,7 @@ To interact with your node, you need to build an RPC client. This RPC client ena
 
 Corda supports two types of RPC client:
 * **Corda RPC Client**, which is used if you want to interact with your node via the `CordaRPCOps` remote interface.
-* **Multi RPC Client**, which is used if you want to interact with your node via the `CordaRPCOps` remote interface, as an alternative to the Corda RPC Client. Compared to the Corda RPC Client, the Multi RPC Client is more flexible with handling connection speed variations when started in HA mode, through the use of the [`RPCConnectionListener` interface](#adding-rpc-connection-listeners).
+* **Multi RPC Client**, which is used if you want to interact with your node via the `CordaRPCOps` remote interface, as an alternative to the Corda RPC Client. Compared to the Corda RPC Client, the Multi RPC Client is more flexible with handling connection speed variations when started in HA mode, through the use of the [RPCConnectionListener interface](#adding-rpc-connection-listeners).
 
 {{< warning >}}
 The built-in Corda test webserver is deprecated and unsuitable for production use. If you want to interact with your node via HTTP, you will need to stand up your own webserver that connects to your node using the [CordaRPCClient](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. You can find an example of how to do this using the popular Spring Boot server [here](https://github.com/corda/spring-webserver).
@@ -363,7 +363,7 @@ This approach provides at-least-once guarantees. It cannot provide exactly-once 
 
 ## Building the Multi RPC Client
 
-The Multi RPC Client in Corda open source can be used as an extension of the [`net.corda.core.messaging.CordaRPCOps`](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/net/corda/core/messaging/RPCOps.html) remote interface.
+The Multi RPC Client in Corda open source can be used as an extension of the [net.corda.core.messaging.CordaRPCOps](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/net/corda/core/messaging/RPCOps.html) remote interface.
 
 To interact with your node via this interface, you need to build a client that uses the [MultiRPCClient](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class.
 
@@ -631,7 +631,7 @@ side as if it were thrown from inside the called RPC method. These exceptions ca
 
 ## Configuring wire security
 
-If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [`rpcSettings`](corda-configuration-fields.md#rpcsettings)).
+If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [rpcSettings](corda-configuration-fields.html#rpcsettings)).
 The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options](node-commandline.md)).
 
 The generated RPC TLS trust root certificate is exported to a `certificates/export/rpcssltruststore.jks` file, which should be distributed to the authorised RPC clients.

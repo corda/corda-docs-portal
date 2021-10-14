@@ -1,6 +1,6 @@
 {
   "name": "corda-docs",
-  "description": "Corda Developer Documentation",
+  "description": "R3 Documentation",
   "version": "2.0.0",
   "hugo-bin": {
     "buildTags": "extended"
@@ -8,7 +8,7 @@
   "browserslist": [
     "defaults"
   ],
-  "repository": "https://github.com/corda/corda-docs",
+  "repository": "https://github.com/corda/corda-docs-portal",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -45,6 +45,7 @@
     "postcss-cli": "^9.0.0",
     "purgecss-whitelister": "^2.4",
     "rimraf": "^3.0",
-    "shx": "^0.3.3"
+    "shx": "^0.3.3",
+    "semver-regex": "^3.1.2"
   }
 }
