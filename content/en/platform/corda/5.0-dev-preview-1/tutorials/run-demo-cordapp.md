@@ -35,13 +35,14 @@ The flow takes in three parameters:
 
 ## Before you start
 
-Before you can run the sample CorDapp, set up:
+Before you run the sample CorDapp:
 
-* [A local network](../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/setup-network.md)
-* [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md)
-* [CorDapp Builder](../../../../../en/platform/corda/5.0-dev-preview-1/packaging/cordapp-builder.md)
-* [Corda Node CLI](../../../../../en/platform/corda/5.0-dev-preview-1/nodes/operating/cli-curl/cli-curl.md)
-* [Docker](https://docs.docker.com/get-started/)
+* Follow the <a href="../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/overview.html#step-by-step-installation-guide">Step-by-step installation guide</a>.
+* Read about:
+    * Setting up a [local network](../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/setup-network.md).
+    * The [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md).
+    * The [CorDapp Builder](../../../../../en/platform/corda/5.0-dev-preview-1/packaging/cordapp-builder.md).
+    * The [Corda Node CLI](../../../../../en/platform/corda/5.0-dev-preview-1/nodes/operating/cli-curl/cli-curl.md).
 
 If you're new to Corda, check out the [CorDapp documentation](../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/overview.md) for key concepts.
 
@@ -79,35 +80,32 @@ The project containing the sample CorDapp opens.
 
 `corda-cli network config docker-compose solar-system`
 
-3. Deploy your network by building the network deployment Docker file using Corda CLI:
-  `corda-cli network deploy -n solar-system -f solar-system.yaml > solar-system-compose`
+3. Run a Gradle command ([or run a Gradle task in IntelliJ](https://www.jetbrains.com/help/idea/work-with-gradle-tasks.html#gradle_tasks)) to build the CorDapp and generate the `.cpb` file:
 
-    The `-n` here is the name of the network. The `-f` is the network definition file.
+  `./gradlew build`
 
-    After you run the command, you will see a new `docker-compose.yaml` file in your project. This contains all of the details for your network, which is now ready to go.
+This command builds the CorDapp package (`.cpk`) files. Most CorDapps have two files: a `contracts` file and a `workflows` file. The command also builds the CorDapp package bundle (`.cpb`).
 
-4. Run a Gradle command to build the CorDapp and generate the `.cpk` files:
+4. Deploy the network using `corda-cli` and `docker-compose`:
+```
+corda-cli network deploy -n solar-system -f solar-system.yaml | docker-compose -f - up -d
+```
+{{< note >}}
+The `-f` flag lets you specify the location of the network definition file. Since the network and network definition `.yaml` have the same name in this example, you can omit it. It is included here as a best practice example.
 
-  `gradlew build`
+See the [Corda CLI commands documentation](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/commands.html#subcommands) for more information on commands and their flags.
+{{< /note >}}
 
-5. Use the `cordapp-builder` CLI utility to bundle the `.cpk` files into an easy-to-use `.cpb` file:
+{{< note >}}
+The safest way to view the network contents is to pipe them to Docker.
 
-  `cordapp-builder create --cpk contracts\build\libs\corda5-solar-system-contracts-cordapp.cpk --cpk workflows\build\libs\corda5-solar-system-workflows-cordapp.cpk -o corda5-hello-solarsystem.cpb`
+While this is *not* the recommended approach, you can also output the contents to a file if you want to see what is happening. Use this command to do so: `corda-cli network deploy -n solar-system -f solar-system.yaml > solar-system-compose.yaml`.
+{{< /note >}}
 
-This command specifies the `.cpk` files of your CorDapp. Most CorDapps will have two files: a `contracts` file and a `workflows` file.
+5. Wait for the network to be ready with:
+`corda-cli network wait -n solar-system`
 
-This command also specifies the output file. In this case, the output file is `corda5-hello-solarsystem.cpb`.
-
-  If the command is successful, there is no output.
-
-  If you have an error in your command, the segment with the error is returned in red.
-
-6. Deploy the network using `docker-compose`:
-  `docker-compose -f docker-compose.yaml up`
-
-  This command references the name of the `docker-compose` file generated in step 2.
-
-7. Check the CorDapp's status with Corda CLI:
+6. Check the CorDapp's status using [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md):
   `corda-cli network status -n solar-system`
 
   You'll be able to see the status of the node. The nodes are up and running when their status is `Ready`.
@@ -115,18 +113,19 @@ This command also specifies the output file. In this case, the output file is `c
   {{< note >}}
   Take note of the `HTTP RPC port` for each node. You will use these later when you [test the CorDapp using Swagger UI](#test-the-sample-cordapp-using-swagger-ui) or [Corda Node CLI](#test-the-sample-cordapp-using-corda-node-cli).
   {{< /note >}}
-8. Install the application on the network using Corda CLI.
+
+7. Install the application on the network using Corda CLI.
 
 In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
 
-  `corda-cli package install -n solar-system cordaSolarSystem.cpb`
+  `corda-cli package install -n solar-system corda5-solar-system.cpb`
 
-  In this command, you must specify the network and the `.cpb` file.
+  In this command, you must specify the network and the `.cpb` file. Depending on the Gradle setup, the `.cpb` will be in one of the build folders and the name may be different.
 
   After running this command, your CorDapp is up and running.
 
-9. Double-check that everything is working properly:
-    1. Open Docker.
+8. Double-check that everything is working properly:
+    1. Open Docker Desktop.
     2. Go to **Containers/Apps**.
     3. Select the project.
 

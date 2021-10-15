@@ -25,7 +25,7 @@ The following components of the ENM suite can all be configured to encrypt their
 * Signing Service
 
 How to configure this is discussed in this section, whilst the flow of information between these various components
-is shown in the following diagram
+is shown in the following diagram:
 
 ![enm with ssl](/en/images/enm-with-ssl.png "enm with ssl")
 
@@ -48,7 +48,7 @@ a Corda network.
 
 {{< /important >}}
 
-Thus the key signing hierarchy would be
+Thus the key signing hierarchy would be:
 
 
 * Root
@@ -65,9 +65,9 @@ outside of a testing environment.
 
 ## Configuration
 
-In general ENM components are configured with SSL via the inclusion of an `ssl` config block
-#. The SSL settings themselves, locations of keystores and passwords
-#. The enabling of individual communication channels to use SSL.
+In general, ENM components are configured with SSL via the inclusion of an `ssl` config block:
+* The SSL settings themselves, locations of keystores and passwords
+* The enabling of individual communication channels to use SSL.
 
 
 {{< warning >}}
@@ -90,7 +90,7 @@ acting as clients of the network.
 ### SSL Certificate Configuring
 
 All components should be configured to use SSL with the following configuration block. More details can be found in
-config-doorman-parameters and [Network Map Configuration Parameters](config-network-map-parameters.md)
+config-doorman-parameters and [Network Map Configuration Parameters](config-network-map-parameters.md).
 
 ```yaml
 ssl = {
@@ -106,7 +106,7 @@ ssl = {
 }
 ```
 
-The `keyStore` contains the public and private keypair of the service signed by the root key
+The `keyStore` contains the public and private keypair of the service signed by the root key.
 
 
 {{< important >}}
@@ -120,7 +120,7 @@ The `trustStore` contains the root key’s certificate. This is, in effect, comm
 as it is this that enables the various components to trust one another checking that the certificate presented
 chains back to this root certificate.
 
-However, if the key and keystore passwords are the same, then the `keyPassword` option can be omitted
+However, if the key and keystore passwords are the same, then the `keyPassword` option can be omitted.
 
 ```yaml
 ssl = {

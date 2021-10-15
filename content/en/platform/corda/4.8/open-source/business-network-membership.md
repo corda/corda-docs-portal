@@ -82,7 +82,7 @@ dependencies {
 }
 ```
 
-3. Add both dependencies in your **Cordform** - `deployNodes` - [task](generating-a-node.md#tasks-using-the-cordform-plug-in).
+3. Add both dependencies in your **Cordform** - `deployNodes` - [task](generating-a-node.html#tasks-using-the-cordform-plug-in).
 
 You have installed the Business Network membership extension.
 
@@ -280,7 +280,7 @@ The attributes which can be amended are:
 * Membership list or group.
 * Roles.
 
-### Update a members business identity attribute
+### Update a member's business identity attribute
 
 To update a member's business identity attribute:
 
@@ -306,9 +306,9 @@ val notary = serviceHub.networkMapCache.notaryIdentities.first())
 subFlow(ModifyBusinessIdentityFlow(membership.state.data.linearId, updatedIdentity, notary))
 ```
 
-### Update a members business network roles
+### Update a member's business network roles
 
-You can also update a member's business identity attributes by modifying their roles. Depending on your proposed changes, the updated member may become an **authorised member**. In this case, your enhancement must be preceded by an execution of the [`ModifyGroupsFlow`](#modify-a-group) to add the member to all membership lists that it will have administrative powers over.
+You can also update a member's business identity attributes by modifying their roles. Depending on your proposed changes, the updated member may become an **authorised member**. In this case, your enhancement must be preceded by an execution of the [ModifyGroupsFlow](#modify-a-group) to add the member to all membership lists that it will have administrative powers over.
 
 To update a member's roles and permissions in the business network:
 

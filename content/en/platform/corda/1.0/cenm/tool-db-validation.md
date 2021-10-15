@@ -35,12 +35,9 @@ set errno to 0.
 
 On encountering any error the tool will print out the cause and set errno appropriately.
 
-Exit codes are as follows
+Exit codes are as follows:
 
-
-0 - Success
-1 - Unknown Error
-2 - Missing driver error
-3 - Outstanding migrations
-
-
+* 0 - Success
+* 1 - Unknown Error
+* 2 - Missing driver error
+* 3 - Outstanding migrations

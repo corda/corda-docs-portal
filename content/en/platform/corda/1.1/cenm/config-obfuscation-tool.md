@@ -185,7 +185,7 @@ Each time an obfuscated config is passed as a command line argument to one of th
 seed **needs** to be supplied if it was explicitly set for obfuscation.
 
 {{< /note >}}
-service in a cloud), the following example command shows how a custom MAC address can be specified:
+The following example command shows how a custom MAC address can be specified:
 
 ```bash
 java -jar identitymanager.jar --config-file <im-config-obfuscated.conf> -o --hardware-address 44:1C:8F:36:C2:A8

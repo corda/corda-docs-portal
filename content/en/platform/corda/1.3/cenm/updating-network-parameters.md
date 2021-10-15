@@ -24,7 +24,7 @@ be advertised to the entire network to allow nodes time to agree to the changes.
 This process has changed extensively in CENM 1.3. The legacy process is still
 supported for services which use the shell interface instead of the admin RPC
 interface - for example, in the CENM Command-Line Interface (CLI) tool. However, this document presumes  that you
-use admin RPC. For information about the legacy process, see the [CENM 1.2 documentation](../1.2/updating-network-parameters.md).
+use admin RPC. For information about the legacy process, see the [CENM 1.2 documentation](../../../../../en/platform/corda/1.2/cenm/updating-network-parameters.md).
 {{< /note >}}
 
 At a high level, the process is as follows:
@@ -40,7 +40,7 @@ At a high level, the process is as follows:
 
 ## Editing network parameters configuration
 
-See [Setting the Network Parameters](network-map.md#network-parameters)
+See [Setting the Network Parameters](network-map.html#network-parameters)
 for information on the network parameters configuration file format and options.
 
 When updating the network parameters, ensure that the network parameters file has the
@@ -58,7 +58,7 @@ the time (in ISO-8601 format) by which all nodes in the network must decide that
 A Flag Day cannot be issued *before* the `updateDeadline` has passed, so make sure to set the right `updateDeadline` time.
 
 {{< note >}}
-Currently you can only make backward-compatible changes to the network parameters. For example, you cannot remove notaries 
+Currently you can only make backward-compatible changes to the network parameters. For example, you cannot remove notaries
 (they will be always added to the existing list), you can only increase the max transaction size, and so on.
 {{< /note >}}
 
@@ -100,7 +100,7 @@ security actions:
 Before the `updateDeadline` time, nodes will have to run the `acceptNewNetworkParameters()` RPC command to accept
 new parameters. This will not
 activate the new network parameters on the nodes - it will only inform the Network Map Service that the node has agreed to the
-update. See [the Corda node RPC API](../../corda/4.5/tutorial-clientrpc-api.md) for further details.
+update. See [the Corda node RPC API](../../../../../en/platform/corda/4.5/open-source/tutorial-clientrpc-api.md) for further details.
 
 To list network participants that have or have not accepted the new network parameters,
 run the following command:
@@ -112,7 +112,7 @@ cenm signer netmap netparams update status --network-params-hash <parameters upd
 ## Execute network parameters update
 
 Once the `updateDeadline` has passed, you can issue a Flag Day. This is the act of changing the active network
-parameters to be the parameters advertised in step 2. To do so, use the following 
+parameters to be the parameters advertised in step 2. To do so, use the following
 command:
 
 ```bash
@@ -129,7 +129,7 @@ Corda 4.6 does not support hotswapping of Network Parameters within a node. As a
 
 ## Sign the network map
 
-As with signing the network parameters, you should run the high security commands listed below 
+As with signing the network parameters, you should run the high security commands listed below
 from within the same network as the Signing Service:
 
 * Fetch the unsigned Network Map - command: `cenm signer netmap unsigned`.

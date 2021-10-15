@@ -35,7 +35,9 @@ Before you run your Mission Mars CorDapp, you may want to compare your files to 
 
 2. Assemble your `.cpk` files into a single Corda package bundle (`.cpb`) file using the CorDapp Builder CLI:
 
-`cordapp-builder create --cpk contracts/build/libs/corda5-missionmars-contracts-1.0-SNAPSHOT-cordapp.cpk --cpk workflows/build/libs/corda5-missionmars-workflows-1.0-SNAPSHOT-cordapp.cpk -o missionMars.cpb`
+```
+cordapp-builder create --cpk contracts/build/libs/corda5-missionmars-contracts-1.0-SNAPSHOT-cordapp.cpk --cpk workflows/build/libs/corda5-missionmars-workflows-1.0-SNAPSHOT-cordapp.cpk -o missionMars.cpb
+```
 
 3. Configure the `missionmars-network`:
 
@@ -72,37 +74,37 @@ nodes:
     notary: true
 ```
 
-6. Deploy your network locally.
+6. Deploy your network locally and start Docker.
 
-`corda-cli network deploy -n missionmars-network | docker-compose -f - up -d`
+```
+corda-cli network deploy -n missionmars-network -f missionmars.yaml | docker-compose -f - up -d
+```
 
-7. Start Docker containers by running the following command:
-
-`docker-compose -f docker-compose.yaml up -d`
+The `-f` flag allows you to specify the location of the network definition file. See the [Corda CLI commands documentation](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/commands.html#subcommands) for more information on commands and their flags.
 
 This step will take some time to complete.
 
-8. Wait for the nodes to run. You can monitor nodes starting by using the following command:
+7. Wait for the nodes to run. You can monitor nodes starting by using the following command:
 
 `corda-cli network wait -n missionmars-network`
 
 This command inspects the logs every few seconds until all the nodes are ready.
 
-9. Deploy your CorDapp to all the nodes in the running network using this command:
+8. Deploy your CorDapp to all the nodes in the running network using this command:
 
 `corda-cli package install -n missionmars-network missionMars.cpb`
 
 **Step result:** The `package install` command copies the `.cpb` file to the nodes' CorDapps directory and restarts the nodes' containers.
 
-10. Monitor CorDapp deployment by using the following command:
+9. Monitor CorDapp deployment by using the following command:
 
 `corda-cli network wait -n missionmars-network`
 
-11. Verify the status of the network using the `corda-cli network status -n missionmars-network` command.
+10. Verify the status of the network using the `corda-cli network status -n missionmars-network` command.
 
 **Step result:** The **Deployed apps** section appears in the command’s output.
 
-12. **Optional:** To terminate the network, use:
+11. **Optional:** To terminate the network, use:
 
 `corda-cli network terminate -n missionmars-network -ry`
 

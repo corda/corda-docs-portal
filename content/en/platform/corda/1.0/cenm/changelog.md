@@ -38,7 +38,7 @@ details.
 * Added multi-phase config parsing.
 * Separated Identity Manager, Network Map, Signing Service into stand-alone JARs.
 * Renaming of Doorman to Identity Manager.
-* Removed bundled mssql jdbc driver
+* Removed bundled mssql jdbc driver.
 
 
 ## ENM 0.4
@@ -48,16 +48,16 @@ details.
 * Added certificate signing request rejection reasons to the node’s rejection response.
 * Added certificate signing request rejection reasons handling for the JIRA workflow.
 * Signing Service -> Doorman socket based communication added.
-* Added client and server health check tools to the utilities JAR
-See [Inter-service Communication Health Checking Tool](tool-health-check.md) for more details
+* Added client and server health check tools to the utilities JAR.
+See [Inter-service Communication Health Checking Tool](tool-health-check.md) for more details.
 * Change of the naming convention Enterprise Zone Manager -> Enterprise Network Manager.
-* Added packageOwnership map to the network parameters config
+* Added packageOwnership map to the network parameters config.
 
 
 ## EZM 0.3
 
 
-* Added doorman and network map schema migration logic to the utilities JAR
+* Added doorman and network map schema migration logic to the utilities JAR.
 as well as the migration status check to the Network Services JAR.
 * Added support for the explicit whitelisted contracts specification in the network parameters configuration file.
 See [Contract Whitelist Generation](contract-whitelisting.md) for more details.
@@ -65,14 +65,14 @@ See [Contract Whitelist Generation](contract-whitelisting.md) for more details.
 the certificate revocation list validation.
 * Added the socket-based communication between Signing service and Network Map service.
 See [Signing Service](signing-service.md) for more details.
-* Added a timeout and backoff strategy to the local signer for Doorman, Revocation and Network Map
-* Fixed the revocation service socket server to guarantee reads and writes will be completed
+* Added a timeout and backoff strategy to the local signer for Doorman, Revocation and Network Map.
+* Fixed the revocation service socket server to guarantee reads and writes will be completed.
 * Added embedded shell support for the Network Map & Doorman service. See [Embedded Shell](shell.md) for more details.
-* Ensured consistent naming throughout DB schema
-* Separated the Doorman/Revocation and Network Map DB schemas
+* Ensured consistent naming throughout DB schema.
+* Separated the Doorman/Revocation and Network Map DB schemas.
 * As a consequence of the schema separation added in verification to prevent a user from running both Network Map and
-Doorman services simultaneously
-* Modified private network management tool to run against the Network Map schema only
+Doorman services simultaneously.
+* Modified private network management tool to run against the Network Map schema only.
 * Added requirement for network truststore to be passed when setting network parameters. This is a consequence of
 separating the DB schemas, as the Network Map service no longer has access to the Doorman DB to check that the
 Notaries within the network parameters have valid certificates. See the ‘Setting the Network Parameters’ section
@@ -85,10 +85,9 @@ in both the Network Map and the Doorman DB.
 the node info submission to the network map service.
 * Integrate Doorman socket server with Network Map during node info publishing. This is for retrieval of the private
 network mapping.
-* Exposed SSL configuration for the ENM services
-* Change of the naming convention Network Services -> Enterprise Zone Manager.
-* Bug-Fix:
-Certificate generation issue fix. [[ENT-2990](https://r3-cev.atlassian.net/browse/ENT-2990)]
+* Exposed SSL configuration for the ENM services.
+* Change of the naming convention of Network Services to Enterprise Zone Manager.
+* Bug-Fix: Certificate generation issue fix.
 
 
 ## Network Services 0.2.2
@@ -117,7 +116,7 @@ details.
 
 * The workflow engine for managing legal identity verification checks is no longer restricted to Jira or nothing.
 Currently Jira is the only provided plugin, with more planned in the future. However, you can write your own
-plugin for any workflow engine as per the example show in [Workflow](workflow.md)
+plugin for any workflow engine as per the example show in [Workflow](workflow.md).
 * Adding new REST endpoints to the Network map to allow more human readable output to be generated as
 JSON to facilitate debugging and inspection. See [Network Map Overview](network-map-overview.md) for details.
 * Adding hidden command line options to disable parts of the configuration. Specifically, this is useful when
@@ -125,7 +124,6 @@ bootstrapping a Doorman / Network Map combined server where you wish to temporar
 Network Map elements.These options are `--ignore-doorman` and `--ignore-network-map`
 * Adding `minimumPlatformVersion` and `newPKIOnly` configuration options to the Doorman.
 These can be used to validate a registration request from a node and reject if below the configured values.
-See config-doorman-parameters for details
 * Adding `minimumPlatformVersion` and `newPKIOnly` configuration options to the Network Map Service.
 These can be used to validate a registration request from a node and reject if below the configured value.
 See [Network Map Configuration Parameters](config-network-map-parameters.md) for details
@@ -134,5 +132,4 @@ See [Network Map Configuration Parameters](config-network-map-parameters.md) for
 ## Network Services 0.1
 
 
-* Separation of the Network services into their own repository
-
+* Separation of the Network services into their own repository.

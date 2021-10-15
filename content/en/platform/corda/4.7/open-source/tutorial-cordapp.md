@@ -499,7 +499,7 @@ You can see the newly-created IOU by running `run vaultQuery contractStateType: 
 ### Via the h2 web console
 
 You can connect directly to your node’s database to see its stored states, transactions and attachments. To do so,
-please follow the instructions in [Node database](node-database-access-h2.md/).
+please follow the instructions in [Node database](node-database-access-h2.md).
 
 
 ## Running nodes across machines
@@ -541,7 +541,7 @@ the nodes’ databases and if two nodes share the same H2 port, the process will
 
 ## Testing the CorDapp
 
-Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the hammer icon.  For a general guide, see [[Running tests in IntelliJ](testing.md#tutorial-cordapp-alternative-test-runners).
+Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the hammer icon.  For a general guide, see [[Running tests in IntelliJ](testing.html#running-tests-in-intellij).
 
 ### Integration tests
 
