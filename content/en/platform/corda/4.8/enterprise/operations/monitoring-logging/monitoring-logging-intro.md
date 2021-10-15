@@ -29,11 +29,11 @@ Monitoring and logging topics:
 
 * [Basics of logging on your node](#logging---the-basics).
 * [Basics of monitoring your node](#monitoring---the-basics).
-* [Node metrics](metrics-monitoring-scenarios).
-* [Node monitoring scenarios](metrics-monitoring-scenarios).
-* [Troubleshooting Corda Enterprise Network Manager (CENM) services on your node](monitoring-trouble-shooting).
-* [The Corda Enterprise Health Survey tool](monitoring-trouble-shooting#corda-health-survey-tool).
-* [Using Ledger Sync to check the status of data on your node and the rest of the ledger](monitoring-trouble-shooting#ledger-sync).
+* [Node metrics](metrics-monitoring-scenarios.md).
+* [Node monitoring scenarios](metrics-monitoring-scenarios.md).
+* [Troubleshooting Corda Enterprise Network Manager (CENM) services on your node](monitoring-trouble-shooting.md).
+* [The Corda Enterprise Health Survey tool](monitoring-trouble-shooting.html#corda-health-survey-tool).
+* [Using Ledger Sync to check the status of data on your node and the rest of the ledger](monitoring-trouble-shooting.html#ledger-sync).
 
 ## Logging - the basics
 
@@ -43,11 +43,11 @@ By default the node log files are stored to the logs subdirectory of the working
 
 It may be the case that you require to amend the log level of a particular subset of modules (e.g., if you’d like to take a closer look at hibernate activity). So, for more bespoke logging configuration, the logger settings can be completely overridden with a Log4j2 configuration file assigned to the log4j.configurationFile system property.
 
-To understand the information in the logs, which data is important, and what can be safely kept as a low priority, you can read the [logging documentation](../../node/operating/node-administration).
+To understand the information in the logs, which data is important, and what can be safely kept as a low priority, you can read the [logging documentation](../../node/operating/node-administration.md).
 
 ## Monitoring - the basics
 
-You can monitor the health and performance of your node [using tools such as Jolokia and Graphite](../../node/operating/monitoring-logging#monitoring-your-node). Whenever using these tools, you should follow best-practice steps such as setting up TCP checks for the ports the node communicates on, database health checks etc.
+You can monitor the health and performance of your node [using tools such as Jolokia and Graphite](../../node/operating/monitoring-logging/overview.html#node-monitoring). Whenever using these tools, you should follow best-practice steps such as setting up TCP checks for the ports the node communicates on, database health checks etc.
 
 ### Monitoring via Jolokia
 

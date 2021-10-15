@@ -26,7 +26,7 @@ In a disaster recovery scenario, you can use LedgerRecover to either automatical
 
 ## Configuration parameters
 
-LedgerRecover can be configured, [like other CorDapps](../../cordapps/cordapp-build-systems), by creating a configuration file named after the LedgerRecover configuration `.jar` file. For example, if the LedgerRecover `.jar` file is called `ledger-recover-1.0.jar`, the configuration file would be `<corda_node_dir>/cordapps/config/ledger-recover-1.0.conf`.
+LedgerRecover can be configured, [like other CorDapps](../../cordapps/cordapp-build-systems.md), by creating a configuration file named after the LedgerRecover configuration `.jar` file. For example, if the LedgerRecover `.jar` file is called `ledger-recover-1.0.jar`, the configuration file would be `<corda_node_dir>/cordapps/config/ledger-recover-1.0.conf`.
 
 You can adjust LedgerRecover behaviour using the configuration parameters set out in the table below. If a configuration parameter is not specified, or the configuration file is not present, the default value is used.
 
@@ -42,19 +42,72 @@ timeWindowForMaxAllowedRequests = 1h
 
 **Details of configuration parameters**
 
-{{< table >}}
 
-|Configuration Parameter|Default Value|Acceptable Value(s)|Description|
-|-|:-:|:-:|-|
-|`maxAllowedTransactions`|`30`|`1` to `1000`| Maximum number of allowed transactions per recovery request.*|
-|<a id="max-allowed-size">`maxAllowedSizeInBytes`</a>|`3000000`|`1` to `10000000`|Use this configuration parameter in conjunction with `timeWindowForMaxAllowedSize` to control the total size of transactions the node will send as a response to a recovery request from another party/node within a given amount of time (sliding time window). For example: 1000000 bytes per minute. **&Dagger;**|
-|`timeWindowForMaxAllowedSize` **&dagger;**|`1h`|`1m` to `24h`|Use this configuration parameter in conjunction with `maxAllowedSizeInBytes` to control the total size of transactions the node will send as a response to a recovery request from another party/node within a given amount of time (sliding time window). For example: 1000000 bytes per minute. **&Dagger;**|
-|`maxAllowedRequests`|`30`|`1` to `100`|Use this configuration parameter in conjunction with `timeWindowForMaxAllowedRequests` to control how often a node will initiate or respond to recovery requests from another party/node within a given amount of time (sliding time window). For example: 10 requests per minute.|
-|`timeWindowForMaxAllowedRequests` **&dagger;**|`1h`|`1m` to `24h`|Use this configuration parameter in conjunction with `maxAllowedRequests` to control how often a node will initiate or respond to recovery requests from another party/node within a given amount of time (sliding time window). For example: 10 requests per minute.|
-|`manualExportTransactionsBatchSize`|`100`|`100` to `100000`|Defines the number of transactions that will be read as a batch during manual export. Consider changing this to improve manual export performance. This property has a conservative default value to not exceed the `WHERE value IN(...)` limit, which is different for different databases. Check your database vendor's documentation before changing.|
-|`manualImportNumberOfTransactionsToCommitAfter`|`1000`|`1000` to `10000`|Defines the number of transactions to import after which a database commit will be performed during manual import.|
+<table>
+<col style="width:30%">
+<col style="width:10%">
+<col style="width:10%">
+<col style="width:50%">
+<thead>
+<tr>
+<th>Configuration Parameter</th>
+<th>Default Value</th>
+<th>Accepted Values</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>maxAllowedTransactions</code></td>
+<td><code>30</code></td>
+<td><code>1</code> to <code>1000</code></td>
+<td>Maximum number of allowed transactions per recovery request.*</td>
+</tr>
+<tr>
+<td><code>skipSizeQuery</code></td>
+<td><code>false</code></td>
+<td><code>true</code> or <code>false</code></td>
+<td>Determines if querying size of artifacts (transactions, attachments, network parameters) should be skipped.</td>
+</tr>
+<tr>
+<td><a id="max-allowed-size"><code>maxAllowedSizeInBytes</code></a></td>
+<td><code>3000000</code></td>
+<td><code>1</code> to <code>10000000</code></td>
+<td>Use this configuration parameter in conjunction with <code>timeWindowForMaxAllowedSize</code> to control the total size of transactions the node will send as a response to a recovery request from another party/node within a given amount of time (sliding time window). For example: 1000000 bytes per minute. <strong>&Dagger;</strong></td>
+</tr>
+<tr>
+<td><code>timeWindowForMaxAllowedSize</code> <strong>&dagger;</strong></td>
+<td><code>1h</code></td>
+<td><code>1m</code> to <code>24h</code></td>
+<td>Use this configuration parameter in conjunction with <code>maxAllowedSizeInBytes</code> to control the total size of transactions the node will send as a response to a recovery request from another party/node within a given amount of time (sliding time window). For example: 1000000 bytes per minute. <strong>&Dagger;</strong></td>
+</tr>
+<tr>
+<td><code>maxAllowedRequests</code></td>
+<td><code>30</code></td>
+<td><code>1</code> to <code>100</code></td>
+<td>Use this configuration parameter in conjunction with <code>timeWindowForMaxAllowedRequests</code> to control how often a node will initiate or respond to recovery requests from another party/node within a given amount of time (sliding time window). For example: 10 requests per minute.</td>
+</tr>
+<tr>
+<td><code>timeWindowForMaxAllowedRequests</code> <strong>&dagger;</strong></td>
+<td><code>1h</code></td>
+<td><code>1m</code> to <code>24h</code></td>
+<td>Use this configuration parameter in conjunction with <code>maxAllowedRequests</code> to control how often a node will initiate or respond to recovery requests from another party/node within a given amount of time (sliding time window). For example: 10 requests per minute.</td>
+</tr>
+<tr>
+<td><code>manualExportTransactionsBatchSize</code></td>
+<td><code>100</code></td>
+<td><code>100</code> to <code>100000</code></td>
+<td>Defines the number of transactions that will be read as a batch during manual export. Consider changing this to improve manual export performance. This property has a conservative default value to not exceed the <code>WHERE value IN(...)</code> limit, which is different for different databases. Check your database vendor's documentation before changing.</td>
+</tr>
+<tr>
+<td><code>manualImportNumberOfTransactionsToCommitAfter</code></td>
+<td><code>1000</code></td>
+<td><code>1000</code> to <code>10000</code></td>
+<td>Defines the number of transactions to import after which a database commit will be performed during manual import.</td>
+</tr>
+</tbody>
+</table>
 
-{{< /table >}}
 
 {{< note >}}
 \*Number of transactions is used as an estimate for the total size of transaction data on the requester node, as actual size of data is not known by the requester before recovery.
@@ -115,7 +168,7 @@ In case of failure, the usage of standard Corda flows for transmission of artifa
 Upon successful completion of the automatic LedgerRecover, all `ReconciliationStatus`es initiated by the requester node (of the recovery) are refreshed. This is done so that newly acquired transactions will not show up as difference in the reconciliation results.
 
 {{< note >}}
-When recovered transactions are persisted, these will trigger the same events as were triggered when the transaction was originally persisted (before the disaster). If users are subscribing to vault-observable feeds (see [documentation on updates](https://docs.corda.net/api/kotlin/corda/net.corda.core.node.services/-vault-service/updates.html)), they will receive duplicate updates.
+When recovered transactions are persisted, these will trigger the same events as were triggered when the transaction was originally persisted (before the disaster). If users are subscribing to vault-observable feeds (see [documentation on updates](../../../../../../../en/api-ref/corda/4.8/open-source/kotlin/corda/net.corda.core.node.services/-vault-service/updates.html)), they will receive duplicate updates.
 {{< /note >}}
 
 #### Parameters
@@ -151,7 +204,7 @@ flow start AutomaticLedgerRecoverFlow party: "O=PartyB, L=London, C=GB"
 This flow is used by a party to mark an automatic recovery process as failed. The initiating party marks their recovery request as `FAILED`. A failed `RecoveryRequest` remains as a record in the `CR_RECOVERY_REQUEST` table for record-keeping and querying.
 
 {{< note >}}
-This flow should be run after running `killFlow`. See [Killing Automatic Recovery Flows](#Killing-Automatic-Recovery-Flows) for details.
+This flow should be run after running `killFlow`. See [Killing Automatic Recovery Flows](#killing-automatic-recovery-flows) for details.
 {{< /note >}}
 
 #### Parameters
@@ -450,7 +503,7 @@ Some information regarding the progress of recovery can be found in a node's `CR
 
 ## JMX metrics
 
-The JMX metrics for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.md#JMX-Metrics).
+The JMX metrics for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](../../../../../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/ledger-recovery-manual.html#jmx-metrics).
 
 {{< note >}}
 The metrics do not distinguish between automatic and manual recoveries - the results returned are aggregated over both types.
@@ -458,7 +511,7 @@ The metrics do not distinguish between automatic and manual recoveries - the res
 
 ## System requirements
 
-System requirements for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.md#System-Requirements).
+System requirements for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](../../../../../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/ledger-recovery-manual.html#system-requirements).
 
 ## Log messages
 
@@ -483,7 +536,7 @@ In this scenario, we'll make the following assumptions:
 
 * We either have not been anonymizing our identity, or we have exchanged identity information with party B such that party B can identify transactions that involve us, party A.
 
-* [Reconciliation](./ledger-sync.md#Workflow) has been successfully completed and shows differences between our (party A) vault and party B's.
+* [Reconciliation](../../../../../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/ledger-sync.html#example-workflow) has been successfully completed and shows differences between our (party A) vault and party B's.
 
 ### Process
 
@@ -509,11 +562,11 @@ The requesting node should now have successfully recovered their vault and shoul
 
 If the initiating node (node A) throws an exception, it is very likely for one of the following reasons:
 
-- The reconciliation process is either still in progress or has failed. In the former situation, wait for the reconciliation process to be scheduled or complete. In the latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of the [LedgerSync documentation](./ledger-sync.md#Log-Messages)) and then reschedule the reconciliation so that it may be completed successfully.
+- The reconciliation process is either still in progress or has failed. In the former situation, wait for the reconciliation process to be scheduled or complete. In the latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of the [LedgerSync documentation](../../../../../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/ledger-sync.html#log-messages)) and then reschedule the reconciliation so that it may be completed successfully.
 
 - The recovery request breached one of the following constraints:
-    - The list of transactions to be recovered is empty. This may be a result of a concurrent recovery processes with another counterparty. In this case, the reconciliation result contained only false positives and there is nothing to recover. Consider [refreshing the reconciliation results](./ledger-sync.md#RefreshReconciliationStatusesFlow).
-    - There are too many transactions to recover. Consider running a [LedgerRecover (Manual)](./ledger-recovery-manual.md#Workflow) process instead.
+    - The list of transactions to be recovered is empty. This may be a result of a concurrent recovery processes with another counterparty. In this case, the reconciliation result contained only false positives and there is nothing to recover. Consider [refreshing the reconciliation results](../../../../../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/ledger-sync.html#refreshreconciliationstatusesflow).
+    - There are too many transactions to recover. Consider running a [LedgerRecover (Manual)](../../../../../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/ledger-recovery-manual.html#example-workflow) process instead.
     - The automatic recovery requests initiated against the counterparty are too frequent.
 
 ##### Unhappy path - Exception is thrown by the responding node
@@ -522,7 +575,7 @@ If the responder node (node B) throws an exception, it is very likely for one of
 
 - The recovery request breached one of the following constraints:
     - The list of transactions to be recovered is empty.
-    - The total size of transactions requested to be sent has exceeded the configured limits. Consider running a [LedgerRecover (Manual)](./ledger-recovery-manual.md#Workflow) process instead from the initiating node.
+    - The total size of transactions requested to be sent has exceeded the configured limits. Consider running a [LedgerRecover (Manual)](../../../../../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/ledger-recovery-manual.html#example-workflow) process instead from the initiating node.
     - The automatic recovery requests received from the initiating party are too frequent.
     - The requested transaction data should not be known about by the initiating party.
 
@@ -532,7 +585,7 @@ As indicated in steps above, it may be necessary to kill an automatic LedgerReco
 
 ##### Step 1
 
-The first step is to use the Corda RPC command `killFlow`.  For this, you'll need the **state machine run ID** of the flow to kill. This can be obtained from the output using [GetCurrentRecoveryRequestWithPartyFlow](#GetCurrentRecoveryRequestWithPartyFlow).
+The first step is to use the Corda RPC command `killFlow`.  For this, you'll need the **state machine run ID** of the flow to kill. This can be obtained from the output using [GetCurrentRecoveryRequestWithPartyFlow](#getcurrentrecoveryrequestwithpartyflow).
 
 ```sh
 run killFlow id: <state-machine-run-id>
@@ -546,7 +599,7 @@ run killFlow id: 80edc8fc-088c-4367-acb4-cc4d6f0d44c7
 
 ##### Step 2
 
-The next step is to run the [FailAutomaticRecoveryFlow](#FailAutomaticRecoveryFlow) flow to update the status of the recovery from `IN_PROGRESS` to `FAILED`. This is a necessary step in order to be able to run recoveries with the involved other party in the future. Not completing this step will cause any future recovery request with the involved other party to be rejected, as concurrent automatic recoveries are not permitted.
+The next step is to run the [FailAutomaticRecoveryFlow](#failautomaticrecoveryflow) flow to update the status of the recovery from `IN_PROGRESS` to `FAILED`. This is a necessary step in order to be able to run recoveries with the involved other party in the future. Not completing this step will cause any future recovery request with the involved other party to be rejected, as concurrent automatic recoveries are not permitted.
 
 ```
 flow start FailAutomaticRecoveryFlow requestId: <UUID of RecoveryRequest>, failReason: "<Cited reason for request failure>"
@@ -558,7 +611,7 @@ Example:
 flow start FailAutomaticRecoveryFlow requestId: 80edc8fc-088c-4367-acb4-cc4d6f0d44c7, failReason: "Operator intervention."
 ```
 
-And if you run the [GetRecoveryRequestsFlow](#GetRecoveryRequestsFlow) flow again as follows,
+And if you run the [GetRecoveryRequestsFlow](#getrecoveryrequestsflow) flow again as follows,
 
 ```sh
 flow start GetRecoveryRequestsFlow party: "O=PartyB, L=London, C=GB", isRequester: true

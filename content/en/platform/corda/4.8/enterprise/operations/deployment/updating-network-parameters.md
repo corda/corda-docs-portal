@@ -22,7 +22,7 @@ be advertised to the entire network to allow nodes time to agree to the changes.
 This process changed extensively in CENM 1.3. The legacy process is still
 supported for services which use the shell interface instead of the admin RPC
 interface - for example, in the CENM Command-Line Interface (CLI) tool. However, this document presumes  that you
-use admin RPC. For information about the legacy process, see the [CENM 1.2 documentation](../../../../cenm/1.2/updating-network-parameters.md/).
+use admin RPC. For information about the legacy process, see the [CENM 1.2 documentation](../../../../1.2/cenm/updating-network-parameters.md).
 {{< /note >}}
 
 At a high level, the process is as follows:
@@ -38,8 +38,8 @@ At a high level, the process is as follows:
 
 ## Editing network parameters configuration
 
-See [Setting the Network Parameters](../../../../cenm/1.5/network-map.md#network-parameters)
-for information on the network parameters configuration file format and options.
+See [Setting the Network Parameters](../../../../4.8/enterprise/network/network-map.html#network-parameters)
+for information on the network parameters configuration file format and options. You can find supplementary information in the [CENM Network Map documentation](../../../../1.5/cenm/network-map.html#network-parameters).
 
 When updating the network parameters, ensure that the network parameters file has the
 `parametersUpdate` configuration block configured, as shown in the example below:

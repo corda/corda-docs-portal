@@ -21,15 +21,15 @@ will play before beginning a project on Corda.
 
 ## Roles in a Corda business network
 
-Whether you are planning to build CorDapps for other organisations to use, or you are planning to take responsibility for a network as a Business Network Operator, you should get a good idea of the work and responsibilities of other enterprise users so you can see where you fit in. Keep in mind that some organisations may perform multiple roles on their network. 
+Whether you are planning to build CorDapps for other organisations to use, or you are planning to take responsibility for a network as a Business Network Operator, you should get a good idea of the work and responsibilities of other enterprise users so you can see where you fit in. Keep in mind that some organisations may perform multiple roles on their network.
 
 ### CorDapp Developer
 
 In a Corda network, the same CorDapp must be deployed to all nodes that wish to transact with one another. CorDapps may be
 developed by a member of the business network, by the Business Network Operator, or by an entirely external organisation.
 
-When developing CorDapps, an organisation should bear in mind the [platform support matrix](platform-support-matrix.md/)
-and the guidance on [developing CorDapps](../cordapps/cordapp-overview.md/).
+When developing CorDapps, an organisation should bear in mind the [platform support matrix](../../platform-support-matrix.md)
+and the guidance on [developing CorDapps](../../cordapps/cordapp-overview.md).
 
 To test CorDapps, use the network bootstrapper tool to quickly create Corda networks to test that the CorDapp performs as expected.
 

@@ -26,7 +26,7 @@ In a disaster recovery scenario, you can use LedgerRecover to either automatical
 
 ## Configuration parameters
 
-LedgerRecover can be configured, [like other CorDapps](../../cordapps/cordapp-build-systems), by creating a configuration file named after the LedgerRecover configuration `.jar` file. For example, if the LedgerRecover `.jar` file is called `ledger-recover-1.0.jar`, the configuration file would be `<corda_node_dir>/cordapps/config/ledger-recover-1.0.conf`.
+LedgerRecover can be configured, [like other CorDapps](../../cordapps/cordapp-build-systems.md), by creating a configuration file named after the LedgerRecover configuration `.jar` file. For example, if the LedgerRecover `.jar` file is called `ledger-recover-1.0.jar`, the configuration file would be `<corda_node_dir>/cordapps/config/ledger-recover-1.0.conf`.
 
 You can adjust LedgerRecover behaviour using the configuration parameters set out in the table below. If a configuration parameter is not specified, or the configuration file is not present, the default value is used.
 
@@ -151,7 +151,7 @@ flow start AutomaticLedgerRecoverFlow party: "O=PartyB, L=London, C=GB"
 This flow is used by a party to mark an automatic recovery process as failed. The initiating party marks their recovery request as `FAILED`. A failed `RecoveryRequest` remains as a record in the `CR_RECOVERY_REQUEST` table for record-keeping and querying.
 
 {{< note >}}
-This flow should be run after running `killFlow`. See [Killing Automatic Recovery Flows](#Killing-Automatic-Recovery-Flows) for details.
+This flow should be run after running `killFlow`. See [Killing Automatic Recovery Flows](#killing-automatic-recovery-flows) for details.
 {{< /note >}}
 
 #### Parameters
@@ -450,7 +450,7 @@ Some information regarding the progress of recovery can be found in a node's `CR
 
 ## JMX metrics
 
-The JMX metrics for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.md#JMX-Metrics).
+The JMX metrics for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.html#JMX-Metrics).
 
 {{< note >}}
 The metrics do not distinguish between automatic and manual recoveries - the results returned are aggregated over both types.
@@ -458,7 +458,7 @@ The metrics do not distinguish between automatic and manual recoveries - the res
 
 ## System requirements
 
-System requirements for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.md#System-Requirements).
+System requirements for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.html#System-Requirements).
 
 ## Log messages
 
@@ -483,7 +483,7 @@ In this scenario, we'll make the following assumptions:
 
 * We either have not been anonymizing our identity, or we have exchanged identity information with party B such that party B can identify transactions that involve us, party A.
 
-* [Reconciliation](./ledger-sync.md#Workflow) has been successfully completed and shows differences between our (party A) vault and party B's.
+* [Reconciliation](ledger-sync.html#example-workflow) has been successfully completed and shows differences between our (party A) vault and party B's.
 
 ### Process
 
@@ -501,7 +501,7 @@ flow start AutomaticLedgerRecoverFlow party: "O=PartyB, L=London, C=GB"
 
 When run successfully, this flow will persist a `RecoveryRequest` in the `CR_RECOVERY_REQUEST` table of the both requesting and responding nodes based on the previously conducted reconciliation. Further operations described will update this record with the current progress.
 
-> Note: Operators can monitor the recovery progress while it is running using [ShowInitiatedAutomaticRecoveryProgressFlow](#ShowInitiatedAutomaticRecoveryProgressFlow).
+> Note: Operators can monitor the recovery progress while it is running using [ShowInitiatedAutomaticRecoveryProgressFlow](#showinitiatedautomaticrecoveryprogressflow).
 
 The requesting node should now have successfully recovered their vault and should be able to transact with the counterparty with whom they were recovering. `RecoveryRequest` will be marked as `COMPLETED` on both nodes and `ReconciliationStatus` will be refreshed automatically on the requester node.
 
@@ -509,11 +509,11 @@ The requesting node should now have successfully recovered their vault and shoul
 
 If the initiating node (node A) throws an exception, it is very likely for one of the following reasons:
 
-- The reconciliation process is either still in progress or has failed. In the former situation, wait for the reconciliation process to be scheduled or complete. In the latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of the [LedgerSync documentation](./ledger-sync.md#Log-Messages)) and then reschedule the reconciliation so that it may be completed successfully.
+- The reconciliation process is either still in progress or has failed. In the former situation, wait for the reconciliation process to be scheduled or complete. In the latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of the [LedgerSync documentation](ledger-sync.html#log-messages)) and then reschedule the reconciliation so that it may be completed successfully.
 
 - The recovery request breached one of the following constraints:
-    - The list of transactions to be recovered is empty. This may be a result of a concurrent recovery processes with another counterparty. In this case, the reconciliation result contained only false positives and there is nothing to recover. Consider [refreshing the reconciliation results](./ledger-sync.md#RefreshReconciliationStatusesFlow).
-    - There are too many transactions to recover. Consider running a [LedgerRecover (Manual)](./ledger-recovery-manual.md#Workflow) process instead.
+    - The list of transactions to be recovered is empty. This may be a result of a concurrent recovery processes with another counterparty. In this case, the reconciliation result contained only false positives and there is nothing to recover. Consider [refreshing the reconciliation results](ledger-sync.html#refreshreconciliationstatusesflow).
+    - There are too many transactions to recover. Consider running a [LedgerRecover (Manual)](ledger-recovery-manual.html#example-workflow) process instead.
     - The automatic recovery requests initiated against the counterparty are too frequent.
 
 ##### Unhappy path - Exception is thrown by the responding node
@@ -522,7 +522,7 @@ If the responder node (node B) throws an exception, it is very likely for one of
 
 - The recovery request breached one of the following constraints:
     - The list of transactions to be recovered is empty.
-    - The total size of transactions requested to be sent has exceeded the configured limits. Consider running a [LedgerRecover (Manual)](./ledger-recovery-manual.md#Workflow) process instead from the initiating node.
+    - The total size of transactions requested to be sent has exceeded the configured limits. Consider running a [LedgerRecover (Manual)](ledger-recovery-manual.html#example-workflow) process instead from the initiating node.
     - The automatic recovery requests received from the initiating party are too frequent.
     - The requested transaction data should not be known about by the initiating party.
 
@@ -532,7 +532,7 @@ As indicated in steps above, it may be necessary to kill an automatic LedgerReco
 
 ##### Step 1
 
-The first step is to use the Corda RPC command `killFlow`.  For this, you'll need the **state machine run ID** of the flow to kill. This can be obtained from the output using [GetCurrentRecoveryRequestWithPartyFlow](#GetCurrentRecoveryRequestWithPartyFlow).
+The first step is to use the Corda RPC command `killFlow`.  For this, you'll need the **state machine run ID** of the flow to kill. This can be obtained from the output using [GetCurrentRecoveryRequestWithPartyFlow](#getcurrentrecoveryrequestwithpartyflow).
 
 ```sh
 run killFlow id: <state-machine-run-id>
@@ -546,7 +546,7 @@ run killFlow id: 80edc8fc-088c-4367-acb4-cc4d6f0d44c7
 
 ##### Step 2
 
-The next step is to run the [FailAutomaticRecoveryFlow](#FailAutomaticRecoveryFlow) flow to update the status of the recovery from `IN_PROGRESS` to `FAILED`. This is a necessary step in order to be able to run recoveries with the involved other party in the future. Not completing this step will cause any future recovery request with the involved other party to be rejected, as concurrent automatic recoveries are not permitted.
+The next step is to run the [FailAutomaticRecoveryFlow](#failautomaticrecoveryflow) flow to update the status of the recovery from `IN_PROGRESS` to `FAILED`. This is a necessary step in order to be able to run recoveries with the involved other party in the future. Not completing this step will cause any future recovery request with the involved other party to be rejected, as concurrent automatic recoveries are not permitted.
 
 ```
 flow start FailAutomaticRecoveryFlow requestId: <UUID of RecoveryRequest>, failReason: "<Cited reason for request failure>"
@@ -558,7 +558,7 @@ Example:
 flow start FailAutomaticRecoveryFlow requestId: 80edc8fc-088c-4367-acb4-cc4d6f0d44c7, failReason: "Operator intervention."
 ```
 
-And if you run the [GetRecoveryRequestsFlow](#GetRecoveryRequestsFlow) flow again as follows,
+And if you run the [GetRecoveryRequestsFlow](#getrecoveryrequestsflow) flow again as follows,
 
 ```sh
 flow start GetRecoveryRequestsFlow party: "O=PartyB, L=London, C=GB", isRequester: true
