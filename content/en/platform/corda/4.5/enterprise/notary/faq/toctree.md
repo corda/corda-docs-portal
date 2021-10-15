@@ -18,7 +18,7 @@ Frequently asked questions for anything notary related:
 
 * [Backpressure Mechanism Overview](eta-mechanism.md)
     * [What is the backpressure mechanism?](eta-mechanism.html#what-is-the-backpressure-mechanism)
-    * [How is the backpressure calculated?](eta-mechanism.html#how-is-the-retry-time-calculated)
+    * [How is the retry time calculated?](eta-mechanism.html#how-is-the-retry-time-calculated)
     * [Why is there a backpressure mechanism?](eta-mechanism.html#why-is-there-a-backpressure-mechanism)
     * [What happens if I just invoke FinalityFlow again after getting told to wait?](eta-mechanism.html#what-happens-if-i-just-invoke-finalityflow-again-after-getting-told-to-wait)
     * [How can I configure backpressure threshold?](eta-mechanism.html#how-can-i-configure-backpressure-threshold)
@@ -34,7 +34,7 @@ Frequently asked questions for anything notary related:
 
 * [Notary Failover](notary-failover.md)
     * [How does the timeout work?](notary-failover.html#how-does-the-timeout-work)
-    * [What is the back off mechanism?](notary-failover.html#what-is-the-backpressure-mechanism)
+    * [What is the backpressure mechanism?](notary-failover.html#what-is-the-backpressure-mechanism)
     * [What happens on multiple successful responses caused by retrying?](notary-failover.html#what-happens-on-multiple-successful-responses-caused-by-retrying)
     * [Is it possible to receive a success and failure because of retrying?](notary-failover.html#is-it-possible-to-receive-a-success-and-failure-because-of-retrying)
     * [If there is a network outage/partition, how does this affect the notary?](notary-failover.html#if-there-is-a-network-outagepartition-how-does-this-affect-the-notary)
