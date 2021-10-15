@@ -22,7 +22,7 @@ weight: 600
 * Business Network Operators (BNOs)
 * Corda developers
 
-In a disaster recovery scenario, if you have been unable to use the automatic LedgerRecover process to recover lost data, you can attempt the recovery with the manual LedgerRecover approach. In this situation, you and the other node operators involved in the process initiate and execute the LedgerRecover (Manual) [workflows](#workflowsection) manually.
+In a disaster recovery scenario, if you have been unable to use the automatic LedgerRecover process to recover lost data, you can attempt the recovery with the manual LedgerRecover approach. In this situation, you and the other node operators involved in the process initiate and execute the LedgerRecover (Manual) [workflows](#example-workflow) manually.
 
 As these processes are managed on a discretionary basis, restrictions on the size, duration or other criteria used with an automatic recovery process are not applied. However, you should be extremely careful when accepting and executing manually initiated `RecoveryRequests`, even more so when the requested
 set of transactions IDs is extremely large.
@@ -33,7 +33,7 @@ Manual Recovery processes executed via the LedgerRecover CorDapp require partici
 
 - Using Corda Enterprise, not Corda Open Source (OS)
 - Corda Minimum Platform Version (MPV) > 6
-- Running on top of a supported [database technology](/docs/corda-enterprise/4.5/platform-support-matrix.html)
+- Running on top of a supported [database technology](../../platform-support-matrix.md)
 
 Corda nodes are also expected to have backups from which they are able to partially restore the contents of their vault to a state that is self-consistent, meaning that all available transactions and dependencies are correctly recorded in the vault and all appropriate tables. These tables may not be current, and may be missing records of some transactions due to a disaster scenario.
 
@@ -173,7 +173,7 @@ This flow fetches a `RecoveryRequest` from the database, verifies that the reque
 
 This flow only marks the `RecoveryRequest` as complete on behalf of the invoking node. The node that initiated the `RecoveryRequest` will not mark their record as complete until they have successfully imported the transaction data.
 
-#### Parameters                                                     
+#### Parameters
 
 * `requestId` - A `String` representing the `UUID` corresponding to the manual `RecoveryRequest` for which you will be exporting a file containing transaction data (a `VaultArchive`).
 * `path` - A `String` representing the file path to which you will export the requested data to the filesystem.
@@ -189,7 +189,7 @@ This flow only marks the `RecoveryRequest` as complete on behalf of the invoking
 
 #### Vault archive
 
-A `VaultArchive` is a file/folder structure representing exported data from the nodes vault. It's structured in a specific format so that the initiating node (for whom you are exporting this `VaultArchive`) is able to interpret and import the transaction data back into their vault. The data in the `VaultArchive` is stored in [Corda Wire Format](https://docs.corda.net/wire-format.html) and may be deserialized and inspected using the [Corda Blob Inspector](https://docs.corda.net/blob-inspector.html).
+A `VaultArchive` is a file/folder structure representing exported data from the nodes vault. It's structured in a specific format so that the initiating node (for whom you are exporting this `VaultArchive`) is able to interpret and import the transaction data back into their vault. The data in the `VaultArchive` is stored in [Corda Wire Format](../../wire-format.md) and may be deserialized and inspected using the [Corda Blob Inspector](../../blob-inspector.md).
 
 An example of the file folder structure of a `VaultArchive` is defined below:
 
@@ -351,7 +351,7 @@ This is an endpoint exposed via JMX that returns all current `RecoveryRequests` 
 
 #### Return type
 
-* `Array<RecoveryRequest>` - This endpoint returns an array of `RecoveryRequest`s that took place during the specified time window.  
+* `Array<RecoveryRequest>` - This endpoint returns an array of `RecoveryRequest`s that took place during the specified time window.
 
 ### `FailedPartiesAsInitiator`
 
@@ -414,7 +414,7 @@ This endpoint returns the number of nodes on the network who have attempted to i
 ## Log messages
 
 LedgerRecover manual recovery processes emit logging statements from the package `com.r3.dr.ledgerrecover.app.manual.flows`. Logging statements
-generally provide information as to the progress of the flow in which they were made.  
+generally provide information as to the progress of the flow in which they were made.
 
 ## Example workflow
 
@@ -427,7 +427,7 @@ In this scenario, we'll make the following assumptions:
 
 * The actors, Parties A and B are on a two-party Corda network, comprised of their nodes and a notary.
 
-* Both nodes are running Corda Enterprise and have both LedgerSync and LedgerRecovery installed.  
+* Both nodes are running Corda Enterprise and have both LedgerSync and LedgerRecovery installed.
 *  Both nodes have backups of their vaults.
 *  PartyA has experienced a disaster in which their vault became corrupt.
 *  PartyA subsequently restored from the backup.
@@ -497,7 +497,7 @@ Corda does not attempt to solve the problem of securely and privately transmitti
 This is the final step in the **happy path** for manual ledger recovery. In this step, it is assumed that the initiating node has received a copy of the `VaultArchive` which is now stored in a known location
 accessible via the Corda node. The initiating party should run `ImportTransactionsFlow` to read the `VaultArchive` data and load it into the vault using the following command:
 
-`flow start ImportTransactionsFlow requestId: "e769be7d-deb1-46dd-98fc-fe09e6e172b3", path: "/var/folders/vault_archives`  
+`flow start ImportTransactionsFlow requestId: "e769be7d-deb1-46dd-98fc-fe09e6e172b3", path: "/var/folders/vault_archives`
 
 {{< note >}}
 The path must be adjusted to reflect where the `VaultArchive` is saved on the responding node's filesystem.
