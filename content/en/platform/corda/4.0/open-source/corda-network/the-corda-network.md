@@ -32,7 +32,7 @@ The main benefit of Corda Network for participants is being able to move cash, d
 or line of business to another. Business network operators also benefit by being able to access network-wide services, and reuse the
 [trust root](https://corda.network/trust-root/index.html) and network services, instead of building and managing their own.
 
-The [Corda Network](https://corda.network/) website provides a [high-level overview](https://corda.network/participation/index.html) of the joining process.
+The [Corda Network](https://corda.network/) website provides a [high-level overview](https://corda.network/joining-corda-network/onboarding-workflow) of the joining process.
 
 
 # Key services

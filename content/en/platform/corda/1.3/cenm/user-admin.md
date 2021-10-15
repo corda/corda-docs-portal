@@ -34,14 +34,14 @@ You can only use the User Admin tool if you are registered to use the tool as an
 
 ## Access the CENM User Admin tool
 
-You access the User Admin tool from the location of your [FARM service](gateway-service#manage-your-configuration) instance. Enter the full address of your FARM service, including the port number, followed by `/admin` into a web browser.
+You access the User Admin tool from the location of your [FARM service](gateway-service.html#manage-farm-service-configuration) instance. Enter the full address of your FARM service, including the port number, followed by `/admin` into a web browser.
 
 For example:
 `http://10.230.41.12:8080/admin`
 
 ### First login
 
-Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service](auth-service).
+Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service](auth-service.md).
 
 If you do not have these, you need to access them from the operator who configured your Auth Service.
 
