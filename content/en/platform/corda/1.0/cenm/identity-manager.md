@@ -54,7 +54,7 @@ The main elements that need to be configured for the Identity Manager are:
     * [CSR Approval Mechanism](#csr-approval-mechanism)
     * [CSR Signing Mechanism](#csr-signing-mechanism)
     * [Issuance Internal Server](#issuance-internal-server)
-    * [Restricting a node’s Corda version (optional)](#restricting-a-node-s-corda-version-optional)
+    * [Restricting a node’s Corda version (optional)](#restricting-a-nodes-corda-version-optional)
 
 
 * [Revocation workflow (optional)](#revocation-workflow-optional)
@@ -145,7 +145,7 @@ database {
 
 ### Embedded shell (optional)
 
-See [Shell Configuration](shell.md#shell-config) for more information on how to configure the shell.
+See [Shell Configuration](shell.html#shell-configuration) for more information on how to configure the shell.
 
 
 ### Issuance Workflow
@@ -508,11 +508,11 @@ All inter-service communication can be configured with SSL support. See [Configu
 There are an additional two parameters that need to be specified with the revocation workflow config block:
 
 
-* **crlCacheTimeout**: 
+* **crlCacheTimeout**:
 The time (in milliseconds) for nodes to cache the CRL for
 
 
-* **crlFiles**: 
+* **crlFiles**:
 The list of CRLs for other participants within the certificate chain. This is necessary as when a node checks
 for revoked certificates, it needs to check all certificates within the certificate chain. This parameter can
 be used to include empty CRLs to remove the requirement for node operators to provide their own CRL
@@ -620,4 +620,3 @@ Below is an example of a more production-like configuration of the Identity Mana
 and Revocation workflow, using JIRA workflows for CSR/CRR approvals, no local signer and also using SSL for secure
 communication between ENM services. In this scenario, all approved requests would be signed using an external signing
 service (see [Signing Service](signing-service.md)).
-
