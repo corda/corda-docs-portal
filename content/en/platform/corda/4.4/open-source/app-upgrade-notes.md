@@ -99,7 +99,7 @@ used as an `AbstractParty` but has an actual value that is one of `Party` or `An
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not a valid type for use as an `AbstractParty` later.
 (For more information on `Destination`, see the [Changelog](changelog.md) for Platform Version 5, or the KDocs for the interface
-[here](https://docs.corda.net/head/api/kotlin/corda/net.corda.core.flows/-destination.html))
+[here](https://docs.r3.com/en/api-ref/corda/4.4/open-source/kotlin/corda/index.html))
 
 Note that this is a Kotlin-specific issue. Java can instead choose `? extends AbstractParty & Destination` here, which can later be used
 as `AbstractParty`.
@@ -142,7 +142,7 @@ Platform Version 5 requires Gradle 5.4 to build. If you use the Gradle wrapper, 
 
 Otherwise, upgrade your installed copy in the usual manner for your operating system.
 
-Additionally, you’ll need to add [https://repo.gradle.org/gradle/libs-releases](https://repo.gradle.org/gradle/libs-releases) as a repository to your project, in order to pick up the
+Additionally, you’ll need to add [this release library](https://repo.gradle.org/artifactory/libs-releases/) as a repository to your project, in order to pick up the
 *gradle-api-tooling* dependency. You can do this by adding the following to the repositories in your Gradle file:
 
 ```groovy
@@ -192,7 +192,7 @@ Otherwise just upgrade your installed copy in the usual manner for your operatin
 {{< note >}}
 Platform Version 5 requires a different version of Gradle, so if you’re intending to upgrade past Platform Version 4 you may wish
 to skip updating Gradle here and upgrade directly to the version required by Platform Version 5. You’ll still need to alter the version
-numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#platform-version-5-gradle-changes)
+numbers in your Gradle file as shown in this section. See Step 2. Update the Gradle version and associated dependencies.
 
 {{< /note >}}
 
@@ -335,7 +335,7 @@ The upgrade is a three step process:
 
 * Change the flow that calls `FinalityFlow`.
 * Change or create the flow that will receive the finalised transaction.
-* Make sure your application’s minimum and target version numbers are both set to 4 (see [Step 2. Adjust the version numbers in your Gradle build files](#cordapp-upgrade-version-numbers-ref)).
+* Make sure your application’s minimum and target version numbers are both set to 4 (see Step 2. Adjust the version numbers in your Gradle build files.
 
 
 #### Upgrading a non-initiating flow

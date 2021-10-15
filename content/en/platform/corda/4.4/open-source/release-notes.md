@@ -30,7 +30,7 @@ comes with those same guarantees. States and apps valid in Corda 3.0 are usable 
 ## Corda 4.4
 
 Corda 4.4 lays the foundation of a new open core approach for the Corda codebase. This involved a refactoring of the
-main functional components of Corda. Please consult [the CorDapp overview](cordapp-overview.md/) to get an overview of
+main functional components of Corda. Please consult [the CorDapp overview](cordapp-overview.md) to get an overview of
 the practical impact on CorDapp development.
 
 Furthermore, Corda 4.4 introduces improvements to the flow framework API and a new diagnostic `ServiceHub` call, and includes

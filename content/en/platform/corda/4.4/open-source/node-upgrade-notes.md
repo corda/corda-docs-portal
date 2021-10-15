@@ -70,13 +70,13 @@ We provide some [backup recommendations](node-administration.html#backup-recomme
 Ensure your node is running Corda 3.2 or later.
 Corda 3.2 required a database table name change and column type change in PostgreSQL.
 These changes need to be applied to the database before upgrading to Corda 4.0.
-Refer to [Corda 3.2 release notes](https://docs.corda.net/releases/release-V3.4/upgrade-notes.html#v3-1-to-v3-2)
+Refer to [Corda 3.2 release notes](../../../../../archived-docs/corda-os/3.2/release-notes.md)
 for further information.
 
 
 ## Step 4. Replace `corda.jar` with the new version
 
-Download the latest version of Corda from [our Artifactory site](https://software.r3.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
+Download the latest version of Corda from [our Artifactory site](https://software.r3.com/ui/repos/tree/General/corda).
 Make sure it’s available on your path, and that you’ve read the [Release notes](release-notes.md), in particular to discover what version of Java this
 node requires.
 
