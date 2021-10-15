@@ -97,8 +97,8 @@ Similar to the Identity Manager the main elements that need to be configured for
 * [Cache Timeout](#cache-timeout)
 * [Node Certificate Revocation Checking](#node-certificate-revocation-checking)
 * [ENM Internal Server](#enm-internal-server)
-* [Identity Manager & Revocation Communication](#identity-manager-revocation-communication)
-* [Restricting A Node’s Corda Version (optional)](#restricting-a-node-s-corda-version-optional)
+* [Identity Manager and Revocation Communication](#identity-manager-and-revocation-communication)
+* [Restricting A Node’s Corda Version (optional)](#restricting-a-nodes-corda-version-optional)
 
 
 ### Address
@@ -202,7 +202,7 @@ database {
 
 ### Embedded shell (optional)
 
-See [Shell Configuration](shell.md#shell-config) for more information on how to configure the shell.
+See [Shell Configuration](shell.html#shell-configuration) for more information on how to configure the shell.
 
 
 ### Network Data Signing Mechanism
@@ -298,7 +298,7 @@ checkRevocation = true
 
 {{< note >}}
 Enabling this option requires communication with the Revocation service to be configured (See
-[Identity Manager & Revocation Communication](#identity-manager-revocation-communication) below)
+[Identity Manager and Revocation Communication](#identity-manager-and-revocation-communication) below)
 
 {{< /note >}}
 
@@ -327,7 +327,7 @@ All inter-service communication can be configured with SSL support. See [Configu
 
 {{< /note >}}
 
-### Identity Manager & Revocation Communication
+### Identity Manager and Revocation Communication
 
 
 {{< warning >}}
