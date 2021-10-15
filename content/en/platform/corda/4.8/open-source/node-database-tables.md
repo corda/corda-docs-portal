@@ -241,7 +241,6 @@ This is the key ledger table used as a source of truth. In the future the conten
 
 ### Contract upgrades
 
-Read more in [Upgrading contracts](contract-upgrade.md)
 
 
 {{< table >}}
@@ -257,8 +256,6 @@ This table should be empty when no states are authorised for upgrade or after au
 
 
 ### Scheduling
-
-Read more in [Scheduling events](event-scheduling.md)
 
 
 {{< table >}}
