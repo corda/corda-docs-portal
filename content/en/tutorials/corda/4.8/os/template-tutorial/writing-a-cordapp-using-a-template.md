@@ -25,7 +25,7 @@ A CorDapp solves a specific problem using the Corda framework. CorDapps are stor
 
 Writing a CorDapp using a template involves the following steps:
 
-1. [Get the CorDapp template](obtain-the-cordapp-template)
+1. [Get the CorDapp template](obtain-the-cordapp-template.md)
 2. [Modify the state](modify-the-state.md)
 3. [Modify the flow](modify-the-flow.md)
 4. [Run your CorDapp](run-your-cordapp.md)
@@ -35,9 +35,9 @@ Writing a CorDapp using a template involves the following steps:
 
 Before starting the tutorial steps, you should:
 
-* [Familiarize yourself with Corda’s key concepts](key-concepts.md)
-* [Get set up for CorDapp development](getting-set-up.md)
-* [Run your first CorDapp](tutorial-cordapp.md)
+* [Familiarize yourself with Corda’s key concepts](../../../../../../en/platform/corda/4.8/open-source/key-concepts.md)
+* [Get set up for CorDapp development](../../../../../../en/platform/corda/4.8/open-source/getting-set-up.md)
+* [Run your first CorDapp](../../../../../../en/platform/corda/4.8/open-source/tutorial-cordapp.md)
 
 
 ## Use case

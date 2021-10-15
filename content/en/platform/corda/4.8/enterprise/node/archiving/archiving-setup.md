@@ -21,33 +21,42 @@ be part of an ongoing or new transaction flow. This can reduce pressure on your 
 
 You can use Archive service commands to mark archivable items in your vault, archive them, and restore transactions from the archive when necessary.
 
+{{< note >}}
+Due to its in-memory design, the Archive Service is most effective and efficient for smaller ledgers & frequent archiving events. For scenarios that don't fit these constraints, you should consider building your required archiving logic within the application itself. This introduction includes advice on [making your CorDapps archive-friendly](#making-archive-friendly-cordapps).
+{{< /note >}}
+
 The Archive Service consists of the following:
 
-* [**Archive Service CorDapp**](#archive-service-cordapp)- which contains the necessary flows to mark and archive transactions.
-* [**Archive Service Client Library**](archive-library) - which provides programmatic access to the archive service, and [exposes relevant APIs](archiving-apis).
-* [**Archive Service Command Line Interface**](archiving-cli) - which allows you to perform archiving tasks from the command line.
+* [Archive Service CorDapp](#archive-service-cordapp)- which contains the necessary flows to mark and archive transactions.
+* [Archive Service Client Library](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archive-library.md) - which provides programmatic access to the archive service, and [exposes relevant APIs](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archiving-apis.md).
+* [Archive Service Command Line Interface](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archiving-cli.md) - which allows you to perform archiving tasks from the command line.
 
-It also makes use of the [Application Entity Manager](app-entity-manager) - which allows CorDapps to access off-ledger databases using JPA APIs.
+It also makes use of the [Application Entity Manager](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/app-entity-manager.md) - which allows CorDapps to access off-ledger databases using JPA APIs.
 
 {{< note >}}
-The Archiving Service relies on the [Ledger Graph](/en/platform/corda/4.8/enterprise/node/operating/ledger-graph.md)functionality. For the Archiving Service to work correctly, the Ledger Graph must load your entire graph in memory to function. This can cause:
+
+The Archiving Service relies on the [Ledger Graph](../../../../../../../en/platform/corda/4.8/enterprise/node/operating/ledger-graph.md) functionality. For the Archiving Service to work correctly, the Ledger Graph must load your entire graph in memory to function.
+
+Unless you follow the guide for [making Archive-friendly CorDapps](#making-archive-friendly-cordapps), this can cause:
+
 * Increased time to run Archiving tasks.
 * Increased JVM heap memory usage while Archiving tasks are being performed.
 
 There is also a risk of Ledger Graph initialisation failure if transactions are in progress while the graph is being loaded (initialised) – if this happens it is deemed invalid and you must restart the node to re-initialise the ledger.
 
 In order to improve speed and memory usage when using the Archiving Service, JVM heap memory of the node can be increased to handle larger ledgers. In addition, the `transactionReaderPoolSize` config parameter can be adjusted upwards to use more CPU threads to increase speed, and increase the number of CPUs or cores a node has access to.
+
 {{< /note >}}
 
 ## New in V1.0.1
 
-The Archive Service is compatible with [Ledger Graph V1.2.1 On Demand function](#Archiving-and-onDemand-LedgerGraph).
+The Archive Service is compatible with [Ledger Graph V1.2.1 On Demand function](#archiving-and-ondemand-ledgergraph).
 
 ## What can be archived
 
 The Archive Service has commands you can use to identify which transactions can be archived in your vault. A fully consumed transaction or attachment will be marked as archivable when:
 
-* There are no unconsumed transactions in the same LedgerGraph component. A LedgerGraph component is a connected group of transactions, represented as a Direct Acrylic Graph (DAG) in the [LedgerGraph service](../operating/ledger-graph).
+* There are no unconsumed transactions in the same LedgerGraph component. A LedgerGraph component is a connected group of transactions, represented as a Direct Acrylic Graph (DAG) in the [LedgerGraph service](../../../../../../../en/platform/corda/4.8/enterprise/node/operating/ledger-graph.md).
 * The transaction is not also referenced by another LedgerGraph component that contains unconsumed transactions.
 * The attachment itself is not a contract attachment.
 
@@ -61,7 +70,7 @@ Once the Archive Service has marked a transaction or attachment as archivable, y
 
 ### Archiving and Collaborative Recovery
 
-The [Collaborative Recovery CorDapp **LedgerSync** V1.2.1](../collaborative-recovery/ledger-sync) has been introduced for compatibility with the Archive Service. If you or anyone on your network uses Collaborative Recovery to recover data after a disaster scenario, archived transactions in any nodes on the network are marked as such. This means they do not appear to be 'lost' or 'missing' data and will not be recovered automatically in the recovery process.
+The [Collaborative Recovery CorDapp LedgerSync V1.2.1](../../../../../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/ledger-sync.md) has been introduced for compatibility with the Archive Service. If you or anyone on your network uses Collaborative Recovery to recover data after a disaster scenario, archived transactions in any nodes on the network are marked as such. This means they do not appear to be 'lost' or 'missing' data and will not be recovered automatically in the recovery process.
 
 ## Making archive-friendly CorDapps
 
@@ -85,7 +94,7 @@ The Archive Service requires:
 
 * Node minimum platform version 6.
 * Corda Enterprise minimum version 4.4.
-* [LedgerGraph V1.2](../operating/ledger-graph.md).
+* [LedgerGraph V1.2](../../../../../../../en/platform/corda/4.8/enterprise/node/operating/ledger-graph.md).
 * Collaborative Recovery V 1.2 (if you use Collaborative Recovery).
 
 {{< warning >}}
@@ -273,7 +282,7 @@ Commands:
 ```
 
 {{< note >}}
-A detailed explanation on each sub-command can be found in the [Archive Service CLI documentation](archiving-cli.md).
+A detailed explanation on each sub-command can be found in the [Archive Service CLI documentation](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archiving-cli.md).
 {{< /note >}}
 
 ## Filters
@@ -286,7 +295,7 @@ Each filter has its own configuration requirements, which it takes either from t
 command line or from the CorDapp configuration file.
 
 Custom filters can be implemented by using the Archive Service Library.
-For more details see the [Archive Service Library documentation](archive-library.md).
+For more details see the [Archive Service Library documentation](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archive-library.md).
 
 ### Filter configuration
 
@@ -349,7 +358,7 @@ Each exporter has its own configuration requirements, which it takes either from
 command line or from the CorDapp configuration file.
 
 Custom exporters can be implemented for individual archive solutions.
-For more details see the [Archive Service Library documentation](archive-library.md).
+For more details see the [Archive Service Library documentation](../../../../../../../en/platform/corda/4.8/enterprise/node/archiving/archive-library.md).
 
 ## Queryable state tables
 
