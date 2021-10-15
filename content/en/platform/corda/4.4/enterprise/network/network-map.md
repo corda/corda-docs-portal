@@ -212,7 +212,7 @@ The fact a new set of parameters is being advertised shows up in the node logs w
 the `CordaRPCOps.networkParametersFeed` method. Typically a zone operator would also email node operators to let them
 know about the details of the impending change, along with the justification, how to object, deadlines and so on.
 
-You can find supplementary information in the [CENM Network Map documentation](../../../../1.5/cenm/network-map.html#network-parameters).
+You can find supplementary information in the [CENM Network Map documentation](../../../1.5/cenm/network-map.html#network-parameters).
 
 
 ### Automatic Acceptance
