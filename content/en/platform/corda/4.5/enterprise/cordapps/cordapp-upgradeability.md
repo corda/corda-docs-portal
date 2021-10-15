@@ -61,7 +61,7 @@ The following additional capabilities are under consideration for delivery in fo
 * CorDapp Contract states generated on ledger using hash constraints will be automatically migrated to signature constraints when building new transactions
 where the latest installed contract Jar is signed as per [Signing the CorDapp JAR](cordapp-build-systems.html#signing-the-cordapp-jar).
 * CorDapp Contract states generated on ledger using CZ whitelisted constraints will be automatically migrated to signature constraints when building new transactions
-where the latest installed contract Jar is signed as per [CorDapp Jar signing](cordapp-build-systems.html#cordapp-build-system-signing-cordapp-jar-ref).
+where the latest installed contract Jar is signed as per [Signing the CorDapp JAR](cordapp-build-systems.html#signing-the-cordapp-jar).
 * Explicit Contract Upgrades will be supported for all constraint types: hash, CZ whitelisted and signature.
 In practice, it should only be necessary to upgrade from hash or CZ whitelisted to new signature constrained contract types.
 signature constrained Contracts are upgradeable seamlessly (through built in serialization and code signing controls) without requiring explicit upgrades.
