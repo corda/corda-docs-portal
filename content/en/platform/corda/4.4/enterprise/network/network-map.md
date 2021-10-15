@@ -72,7 +72,7 @@ Note that only HTTP OK (response code 200) is supported - any other kind of resp
 ### Additional endpoints from R3
 
 Network maps hosted by R3 or other parties using R3’s commercial network management tools typically provide some
-additional endpoints for users. These additional endpoints can be found [here](../../../cenm/1.2/network-map-overview.html).
+additional endpoints for users. These additional endpoints can be found [here](../../../../../../en/platform/corda/1.2/cenm/network-map-overview.md).
 
 HTTP is used for the network map service instead of Corda’s own AMQP based peer to peer messaging protocol to
 enable the server to be placed behind caching content delivery networks like Cloudflare, Akamai, Amazon Cloudfront and so on.
@@ -102,7 +102,7 @@ the network, along with the network parameters file and identity certificates. G
 online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
-More information can be found in network-bootstrapper.
+More information can be found in [Network Bootstrapper](../../../../../../en/platform/corda/4.4/enterprise/network-bootstrapper.md).
 
 
 
@@ -180,7 +180,7 @@ Any CorDapp JAR that offers contracts and states in any of these packages must b
 This ensures that when a node encounters an owned contract it can uniquely identify it and knows that all other nodes can do the same.
 Encountering an owned contract in a JAR that is not signed by the rightful owner is most likely a sign of malicious behaviour, and should be reported.
 The transaction verification logic will throw an exception when this happens.
-Read more about *Package ownership* here “[Package namespace ownership](../node/deploy/env-dev.md#package-namespace-ownership)”.
+Read more about Package ownership in the [Package namespace ownership](../node/deploy/env-dev.md#package-namespace-ownership) section.
 
 
 
@@ -211,6 +211,8 @@ The fact a new set of parameters is being advertised shows up in the node logs w
 “Downloaded new network parameters”, and programs connected via RPC can receive `ParametersUpdateInfo` by using
 the `CordaRPCOps.networkParametersFeed` method. Typically a zone operator would also email node operators to let them
 know about the details of the impending change, along with the justification, how to object, deadlines and so on.
+
+You can find supplementary information in the [CENM Network Map documentation](../../../1.5/cenm/network-map.html#network-parameters).
 
 
 ### Automatic Acceptance
