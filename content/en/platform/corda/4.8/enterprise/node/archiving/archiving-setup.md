@@ -22,7 +22,7 @@ be part of an ongoing or new transaction flow. This can reduce pressure on your 
 You can use Archive service commands to mark archivable items in your vault, archive them, and restore transactions from the archive when necessary.
 
 {{< note >}}
-Due to its in-memory design, the Archive Service is most effective and efficient for smaller ledgers & frequent archiving events. For scenarios that don't fit these constraints, you should consider building your required archiving logic within the application itself. this introduction incluldes advice on steps to [make your CorDapps archive-friendly](#making-archive-friendly-cordapps).
+Due to its in-memory design, the Archive Service is most effective and efficient for smaller ledgers & frequent archiving events. For scenarios that don't fit these constraints, you should consider building your required archiving logic within the application itself. This introduction includes advice on [making your CorDapps archive-friendly](#making-archive-friendly-cordapps).
 {{< /note >}}
 
 The Archive Service consists of the following:
