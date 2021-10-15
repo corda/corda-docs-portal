@@ -604,7 +604,7 @@ As of Corda 4, CorDapp Contract JARs must be installed on a node by a trusted up
 
 
 * installing manually as per [Installing the CorDapp JAR](#cordapp-install-ref) and re-starting the node.
-* uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC](../../../../../../../en/platform/corda/4.5/enterprise/node/operating/clientrpc.html#clientrpc-connect-ref))
+* uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC](../../../../../../../en/platform/corda/4.5/enterprise/node/operating/clientrpc.html#connecting-to-a-node-via-rpc))
 or via the shell by issuing the following command:
 
 `>>> run uploadAttachment jar: path/to/the/file.jar`
