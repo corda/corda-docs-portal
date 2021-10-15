@@ -92,7 +92,7 @@ maxAllowedReconciliationRequestsPerTimeWindow = 1000
 
 ## Support for Confidential Identities in LedgerSync
 
-If you are using [Corda Confidential Identities](../../cordapps/api-confidential-identity), LedgerSync requires additional configuration in order to support your environment.
+If you are using [Corda Confidential Identities](../../cordapps/api-confidential-identity.md), LedgerSync requires additional configuration in order to support your environment.
 
 Use this additional configuration step to ensure that confidential identities on your node are properly mapped to known identities where they have been shared with your node when new transactions are processed. This is important when reconciling with another party as only transactions with known identities can be reconciled.
 
@@ -288,7 +288,7 @@ The information provided in this section is meant only to provide insight into t
 
 Some information regarding the state of reconciliations can be found in a node's `CR_RECONCILIATION_STATUS` table. This table is present when the LedgerSync CorDapp is installed. You should not rely on this as a log of reconciliations, nor is it reliable for providing all state information.
 
-The status of a reconciliation is only stored/updated in this table when a reconciliation is actually executed by the scheduler (becomes `IN_PROGRESS`), or stops/fails thereafter. Reconciliations that are yet to enter the execution pool will not appear in this table, and so the data in this table should not be used for real-time status monitoring. Please use the provided API (see [Flows](#Flows) or [JMX](#JMX%20Metrics)) to get reliable status information on reconciliations.
+The status of a reconciliation is only stored/updated in this table when a reconciliation is actually executed by the scheduler (becomes `IN_PROGRESS`), or stops/fails thereafter. Reconciliations that are yet to enter the execution pool will not appear in this table, and so the data in this table should not be used for real-time status monitoring. Please use the provided API (see [Flows](#flows) or [JMX](#jmx-metrics)) to get reliable status information on reconciliations.
 
 ### Table Structure
 
@@ -602,7 +602,7 @@ In all cases, it may be necessary to *kill* the flow. See below for the details 
 
 ### Step 3. Transaction recovery
 
-If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery](ledger-recover-automatic.html) or a [ManualRecovery](ledger-recover-manual.html).
+If differences were found during the reconciliation, the next step will be to perform an [Automatic Recovery](ledger-recovery-automatic.md) or a [ManualRecovery](ledger-recovery-manual.md).
 
 #### Killing Reconciliation Flows
 
