@@ -110,7 +110,7 @@ The workflow plugin must extend *CsrWorkflowPlugin* or *CrrWorkflowPlugin* for c
 can be configured with specific plugin classes as per the configuration show above.
 
 {{< note >}}
-for release 1.0 only a sinlle issuance and optional reovation workflow pair are supported.
+For release 1.0 only a single issuance and optional renovation workflow pair are supported.
 
 {{< /note >}}
 The plugin will need to be made available to the ENM process by including the plugin jar in the classpath.
