@@ -29,7 +29,7 @@ that any node on the network verifying the transaction must execute.
 
 {{< note >}}
 It is also important to understand how to manage any dependencies a CorDapp may have on 3rd party libraries and other CorDapps.
-Please read [Setting your dependencies](../../../../../../../en/platform/corda/4.5/enterprise/cordapps/cordapp-build-systems.html#cordapp-dependencies-ref) to understand the options and recommendations with regards to correctly Jar’ing CorDapp dependencies.
+Please read [Setting your dependencies](../../../../../../../en/platform/corda/4.5/enterprise/cordapps/cordapp-build-systems.html#setting-your-dependencies) to understand the options and recommendations with regards to correctly Jar’ing CorDapp dependencies.
 
 {{< /note >}}
 
