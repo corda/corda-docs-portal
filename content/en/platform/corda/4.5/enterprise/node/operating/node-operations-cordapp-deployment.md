@@ -75,10 +75,10 @@ Create `node.conf` with properties for your database. Copy the respective driver
 The `node.conf` templates for each database vendor are shown below:
 
 
-* [Azure SQL](#db-setup-configure-db-tool-azure-ref)
-* [SQL Server](#db-setup-configure-db-tool-sqlserver-ref)
-* [Oracle](#db-setup-configure-db-tool-oracle-ref)
-* [PostgreSQL](#db-setup-configure-db-tool-postgresql-ref)
+* [Azure SQL](#azure-sql)
+* [SQL Server](#sql-server)
+* [Oracle](#oracle)
+* [PostgreSQL](#postgresql)
 
 
 

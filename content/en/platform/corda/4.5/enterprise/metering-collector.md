@@ -128,12 +128,12 @@ You invoke this flow from the [shell](node/operating/shell.md). The flow takes t
 
 1. A time window over which the flow runs. This is a mandatory argument. The accepted time window formats are either a start date and an end date (both of type `Instant`), or a start date and a duration (see the [Usage](#usage) section below). Note that the minimum time unit you can use is an hour, so the flow is unable to collect metering data over durations shorter than an hour.
 2. A filter to select which CorDapps to collect data for. To specify a filter, provide a `MeteringFilter` object, which consists of `filterBy` criteria and a list of strings that describe
-the CorDapps to filter by. There are four possible options to filter by, which are described in the [data filtering section](#data-filtering).
+the CorDapps to filter by. There are four possible options to filter by, which are described in the [data filtering section](#data-filtering-using-the-node-shell).
 3. A paging specification to describe how the flow should access the database. The paging specification is used to control database access by ensuring that only a subset of data is accessed at once. This is important in order to prevent too much data being read into memory at once, which would result in out-of-memory errors. By default, up to 10 000 metering entries are read into memory at a time, although the number of returned entries is likely to be smaller because some aggregation takes place in the background. If more than one page of data is required, the flow may need to be run multiple times to collect the full breakdown of metering events. However, the total count provided is always the full number of signing events that match the supplied criteria.
 
 Use the shell interface to invoke the flow by specifying the time window - either provide the `startDate` and `endDate` for the metering data collection in the format `YYYY-MM-DD`, or the `startDate` (in the same format) and the duration as an integer number of `daysToCollect`.
 
-You can also specify a filter according to the rules described in the [data filtering section](#data-filtering). This is not needed if all the metering data is required. As mentioned above, the smallest time window you can specify is one day.
+You can also specify a filter according to the rules described in the [data filtering section](#data-filtering-using-the-node-shell). This is not needed if all the metering data is required. As mentioned above, the smallest time window you can specify is one day.
 
 When date strings are required, they are always in the `YYYY-MM-DD` format. If the date does not parse correctly, an exception is thrown.
 
@@ -240,7 +240,7 @@ val nodeMeteringData = client.use("rpcUsername", "rpcPassword") { conn: CordaRPC
 You can use this flow to collect aggregated metering data from a remote node on the network. Aggregated metering data only contains the total number of signing events that happened within a given time period, without any additional information such as signing service public key, contract command, or transaction type.
 
 {{< note >}}
-The result of the metering data collection with this flow depends on what the node operator decided to share with you in their [CorDapp configuration](#sharing-of-metering-data). In particular, your X.500 name must be present in their list of `network_collectors`, otherwise the invocation of this flow will result in an `PermissionDeniedException` error.
+The result of the metering data collection with this flow depends on what the node operator decided to share with you in their [CorDapp configuration](#how-metering-data-is-shared). In particular, your X.500 name must be present in their list of `network_collectors`, otherwise the invocation of this flow will result in an `PermissionDeniedException` error.
 {{< /note >}}
 
 The example below shows how to retrieve aggregated metering data by connecting to a node running on the local machine, from the node ran by `O=PartyA,L=New York,C=US`, for the duration of the past 7 days:

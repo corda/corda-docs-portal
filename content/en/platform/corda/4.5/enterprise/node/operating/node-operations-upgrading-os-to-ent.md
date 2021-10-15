@@ -32,8 +32,8 @@ but you need to upgrade the Corda node to the latest 3.x version first (3.3, at 
 
 To upgrade Corda (open source) to Corda Enterprise within the same major release version, follow the Corda node upgrade procedure.
 The database upgrade steps need to be replaced by those specified below,
-depending if you are [reusing the same database](#node-operations-upgrading-os-to-ent-1)
-or [moving away from H2](#node-operations-upgrading-os-to-ent-2).
+depending if you are [reusing the same database](#reusing-an-existing-database)
+or [moving away from H2](#migrating-from-the-h2-database-to-another-database-vendor).
 
 
 
@@ -91,7 +91,7 @@ Refer to [Understanding the node database](node-database.md) to decide which set
 * Migrate data from H2 databaseThe migration from the H2 database requires a third party specialized tool.
 Your organisation may need to purchase a licence to use the tool.
 Please contact R3 for further advice.
-* Follow the same CorDapp database upgrade steps (1-3) in [reusing an existing database](#node-operations-upgrading-os-to-ent-1).
+* Follow the same CorDapp database upgrade steps (1-3) in [reusing an existing database](#reusing-an-existing-database).
 
 
 
@@ -104,13 +104,13 @@ For developer information on recompiling CorDapps against Corda Enterprise, see 
 
 Please ensure you follow the instructions in the [Corda 3.3 Upgrade Notes](https://github.com/corda/corda-docs-portal/blob/main/archived-docs/corda-enterprise/3.3/upgrade-notes.md)
 to upgrade your database to the latest minor release of Corda (3.3 as time of writing),
-and then proceed with the upgrade following the instructions in [above](#node-operations-upgrading-os-to-ent-1).
+and then proceed with the upgrade following the instructions in [above](#upgrade-from-corda-open-source-to-corda-enterprise).
 
 
 ### Reusing an existing database
 
 To reuse an existing database, follow the same database instructions as
-[upgrading within the same Corda version](#node-operations-upgrading-os-to-ent-1).
+[upgrading within the same Corda version](#reusing-an-existing-database).
 
 
 ### Migrating from H2 database to other database vendor
@@ -122,7 +122,7 @@ that we have validated for this upgrade exercise.
 
 {{< /note >}}
 To migrate from a H2 database to another database, follow the same database instructions as
-[upgrading within the same Corda version](#node-operations-upgrading-os-to-ent-2).
+[upgrading within the same Corda version](#migrating-from-the-h2-database-to-another-database-vendor).
 
 
 ## Using a third-party tool to migrate data from a H2 database
