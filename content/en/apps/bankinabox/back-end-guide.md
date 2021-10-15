@@ -37,7 +37,7 @@ The Bank in a Box application utilises the [Accounts SDK](https://github.com/cor
 The business logic behind Bank in a Box accounts is explained below, addressing:
 
 - [Account status](#account-status) - how account statuses are implemented in the application.
-- [Extending the mapped schema](#extending-the-mapped-schema) - how the the account schema is returned using the `generateMappedObject` method.
+- [Extending the mapped schema](#extending-the-mapped-schema) - how the account schema is returned using the `generateMappedObject` method.
 - [Implementing the withdraw method with overdraft support](#implementing-the-withdraw-method-with-overdraft-support) - how overdraft support is implemented in the application.
 - [Custom serialization](#custom-serialization) - how custom serializers are implemented to generate the serialization for Kryo.
 
@@ -119,7 +119,7 @@ The method checks that the account has sufficient funds - in either the account 
 
 #### Custom serialization
 
-Corda uses the [Kryo serializer](../../corda-os/4.7/serialization-index.md) to serialize objects on the call stack when suspending flows. There are known issues serializing JPA entity objects, particularly if they use one to many relationships or other complex structures. One approach to overcome this is to map entity objects to data classes, referred to as Data Transfer Objects (DTOs), for use within flows. Another approach is to implement custom serializers that generate the serialization for Kryo.
+Corda uses the [Kryo serializer](../../../en/platform/corda/4.7/open-source/serialization-index.md) to serialize objects on the call stack when suspending flows. There are known issues serializing JPA entity objects, particularly if they use one to many relationships or other complex structures. One approach to overcome this is to map entity objects to data classes, referred to as Data Transfer Objects (DTOs), for use within flows. Another approach is to implement custom serializers that generate the serialization for Kryo.
 
 A custom serializer for a JPA entity can be specified with the `DefaultSerializer` annotation:
 
@@ -164,13 +164,13 @@ The above shows the serialization of the `createdOn` property in the Customer sc
 
 Using the flows in this section, several account-related tasks can be accomplished. You can:
 
-* Create a new customer [`CreateCustomerFlow`](#createcustomerflow).
-* Update customer information [(`UpdateCustomerFlow`)](#updatecustomerflow).
-* Create a current account for a customer [(`CreateCurrentAccountFlow`)](#createcurrentaccountflow).
-* Create a savings account for a customer [(`CreateSavingsAccountFlow`)](#createsavingsaccountflow).
-* Set an account status of active or suspended [(`SetAccountStatusFlow`)](#setaccountstatusflow).
-* Set a limit on daily transfers or withdrawals from an account [(`SetAccountLimitsFlow`)](#setaccountlimitsflow).
-* Approve an overdraft limit for an account [(`ApproveOverdraftFlow`)](#approveoverdraftflow).
+* Create a new customer <a href="#createcustomerflow">(`CreateCustomerFlow`)</a>.
+* Update customer information <a href="#updatecustomerflow">(`UpdateCustomerFlow`)</a>.
+* Create a current account for a customer <a href="#createcurrentaccountflow">(`CreateCurrentAccountFlow`)</a>.
+* Create a savings account for a customer <a href="#createsavingsaccountflow">(`CreateSavingsAccountFlow`)</a>.
+* Set an account status of active or suspended <a href="#setaccountstatusflow">(`SetAccountStatusFlow`)</a>.
+* Set a limit on daily transfers or withdrawals from an account <a href="#setaccountlimitsflow">(`SetAccountLimitsFlow`)</a>.
+* Approve an overdraft limit for an account <a href="#approveoverdraftflow">(`ApproveOverdraftFlow`)</a>.
 
 ### `CreateCustomerFlow`
 
@@ -182,7 +182,7 @@ To create a new customer, use the `CreateCustomerFlow`. This flow also adds pers
 * `contactNumber`: Customer phone number.
 * `emailAddress`: Customer email address.
 * `postCode`: Post code of customer's address.
-* `attachments`: List of `SecureHash`, `String` pairs with references to the Corda attachments of additional customer documentation. For more information on the standard process for uploading attachments to Corda, see the documentation on [CorDapp Contract Attachments](../../corda-os/4.7/cordapp-build-systems.md#cordapp-contract-attachments).
+* `attachments`: List of `SecureHash`, `String` pairs with references to the Corda attachments of additional customer documentation. For more information on the standard process for uploading attachments to Corda, see the documentation on [CorDapp Contract Attachments](../../../en/platform/corda/4.7/open-source/cordapp-build-systems.html#cordapp-contract-attachments).
 
 This flows returns `UUID`, the customer ID.
 
@@ -322,11 +322,11 @@ subFlow(ApproveOverdraftFlow(accountId, amount))
 
 ## Loans
 
-The Bank in a Box application uses [Oracles](../../corda-os/4.7/key-concepts-oracles.md#oracles) in various contexts, one of which is in the issuance of loans. A dummy Oracle is used to call external services based on a customer ID and sign off on the loan. The response is then embedded in the transaction that issues the loan. This mimics a real-life scenario where a bank calls a rating provider before giving a customer a loan.
+The Bank in a Box application uses [Oracles](../../../en/platform/corda/4.7/open-source/key-concepts-oracles.html#oracles) in various contexts, one of which is in the issuance of loans. A dummy Oracle is used to call external services based on a customer ID and sign off on the loan. The response is then embedded in the transaction that issues the loan. This mimics a real-life scenario where a bank calls a rating provider before giving a customer a loan.
 
-Oracle signatures use [partial Merkle tree signing](../../corda-os/4.7/key-concepts-tearoffs.md#hiding-data), which provides privacy for the transaction. In this way, the external party present in the loan issuance transaction can only see the contents of the transaction that they must confirm before signing the transaction.
+Oracle signatures use [partial Merkle tree signing](../../../en/platform/corda/4.7/open-source/key-concepts-tearoffs.html#hiding-data), which provides privacy for the transaction. In this way, the external party present in the loan issuance transaction can only see the contents of the transaction that they must confirm before signing the transaction.
 
-When a loan is issued, money is transferred to the customer's current account. In the background, this transaction uses [Corda scheduled states](../../corda-os/4.7/event-scheduling.md#implementing-scheduled-events) to create a recurring payment for that loan, into the loan account.
+When a loan is issued, money is transferred to the customer's current account. In the background, this transaction uses [Corda scheduled states](../../../en/platform/corda/4.7/open-source/event-scheduling.html#implementing-scheduled-events) to create a recurring payment for that loan, into the loan account.
 
 ### Business logic
 
@@ -478,8 +478,8 @@ commandCreditRating.signers.contains(commandCreditRating.value.oracleKey)
 
 Use the flows in this section to perform loan-related tasks. You can:
 
-* Issue a new loan to a customer [(`IssueLoanFlow`)](#issueloanflow).
-* Get a customer's credit rating [(`GetCustomerCreditRatingFlow`)](#getcustomercreditratingflow).
+* Issue a new loan to a customer <a href="#issueloanflow">(`IssueLoanFlow`)</a>.
+* Get a customer's credit rating <a href="#getcustomercreditratingflow">(`GetCustomerCreditRatingFlow`)</a>.
 
 ### `IssueLoanFlow`
 
@@ -667,15 +667,15 @@ Once the Corda transaction is signed, an appropriate entry is saved to the `tran
 
 Use the flows in this section to perform tasks related to account deposits and withdrawals. You can:
 
-* Withdraw money from an account [(`WithdrawFiatFlow`)](#withdrawfiatflow).
-* Deposit money into an account [(`DepositFiatFlow`)](#depositfiatflow).
+* Withdraw money from an account <a href="#withdrawfiatflow">(`WithdrawFiatFlow`)</a>.
+* Deposit money into an account <a href="#depositfiatflow">(`DepositFiatFlow`)</a>.
 
 
 ### `WithdrawFiatFlow`
 
 Use `WithdrawFiatFlow` to withdraw a specified amount from an account with the provided `accountId`.
 
-`WithdrawFiatFlow(val accountId: UUID, val amount: Amount<Currency>) : FlowLogic<SignedTransaction>()``
+`WithdrawFiatFlow(val accountId: UUID, val amount: Amount<Currency>) : FlowLogic<SignedTransaction>()`
 
 * `accountId`: `UUID` - The ID of an account.
 * `amount`: amount to be withdrawn
@@ -726,7 +726,7 @@ val signedTx = subFlow(DepositFiatFlow(accountId, amount))
 
 ## Payments
 
-As noted in the [Loans](#loans) section, [Corda scheduled states](../../corda-os/4.7/event-scheduling.md#implementing-scheduled-events) are utilised in Bank in a Box to create recurring payments that start on a given date and are executed in a specific time period.
+As noted in the [Loans](#loans) section, [Corda scheduled states](../../../en/platform/corda/4.7/open-source/event-scheduling.html#implementing-scheduled-events) are utilised in Bank in a Box to create recurring payments that start on a given date and are executed in a specific time period.
 
 Payments in Bank in a Box are also a good example of how CorDapps can be integrated with external systems.
 
@@ -739,7 +739,7 @@ The business logic behind Bank in a Box payments is explained below, addressing:
 
 #### Deduplicating payment logs
 
-In Corda, notaries prevent the double spending of contract states but this naturally excludes off-ledger systems. Instead, Corda provides a [`FlowExternalOperation`](../../corda-os/4.7/api-flows.md#flowexternalasyncoperation) that is executed with a `deduplicationId`, allowing for custom handling of duplicate runs. Each recurring payment execution is logged and duplicate logs can be avoided by creating the payment log instance within a subclass of `FlowExternalOperation`.
+In Corda, notaries prevent the double spending of contract states but this naturally excludes off-ledger systems. Instead, Corda provides a <a href="../../../en/platform/corda/4.7/open-source/api-flows.html#flowexternalasyncoperation">`FlowExternalOperation`</a> that is executed with a `deduplicationId`, allowing for custom handling of duplicate runs. Each recurring payment execution is logged and duplicate logs can be avoided by creating the payment log instance within a subclass of `FlowExternalOperation`. 
 
 The skeleton `CreateRecurringPaymentLogOperation` is as follows:
 
@@ -810,10 +810,10 @@ requireThat {
 
 Use the flows in this section to perform tasks related to payments. You can:
 
-* Transfer funds from one account to another [(`IntrabankPaymentFlow`)](#intrabankpaymentflow).
-* Create a recurring payment [(`CreateRecurringPaymentFlow`)](#createrecurringpaymentflow).
-* Cancel a recurring payment [(`CancelRecurringPaymentFlow`)](#cancelrecurringpaymentflow).
-* Schedule a recurring payment [(`ExecuteRecurringPaymentFlow`)](#executerecurringpaymentflow).
+* Transfer funds from one account to another <a href="#intrabankpaymentflow">(`IntrabankPaymentFlow`)</a>.
+* Create a recurring payment <a href="#createrecurringpaymentflow">(`CreateRecurringPaymentFlow`)</a>.
+* Cancel a recurring payment <a href="#cancelrecurringpaymentflow">(`CancelRecurringPaymentFlow`)</a>.
+* Schedule a recurring payment <a href="#executerecurringpaymentflow">(`ExecuteRecurringPaymentFlow`)</a>.
 
 
 ### `IntrabankPaymentFlow`
@@ -1072,19 +1072,19 @@ The above queries all transactions for account with ID `accountId` and of type `
 
 Use the flows in this section to perform tasks related to reports and views. These flows are all tied to the Bank in a Box front end. You can:
 
-* See a list of accounts for a customer [(`GetBalancesFlow)`](#getbalancesflow).
-* See a list of transactions for a customer [(`GetCustomerTransactionsFlow`)](#getcustomertransactionsflow).
-* See a list of recurring payments for a customer [(`GetRecurringPaymentsFlow`)](#getrecurringpaymentsflow).
-* See the status of an account [(`GetAccountFlow`)](#getaccountflow).
-* See a list of accounts and associated customers [(`GetAccountsPaginatedFlow`)](#getaccountspaginatedflow).
-* See a customer's information when searching by their customer ID [(`GetCustomerByIdFlow`)](#getcustomerbyidflow).
-* See a list of all customers [(`GetCustomersPaginatedFlow`)](#getcustomerspaginatedflow).
-* See the state of a recurring payment [(`GetRecurringPaymentsByIdFlow`)](#getrecurringpaymentsbyidflow).
-* See a list of recurring payments for an account [(`GetRecurringPaymentsForAccountPaginatedFlow`)](#getrecurringpaymentsforaccountpaginatedflow).
-* See a list of recurring payments for a customer [(`GetRecurringPaymentsForCustomerPaginatedFlow`)](#getrecurringpaymentsforcustomerpaginatedflow).
-* See a list of recurring payments [(`GetRecurringPaymentsPaginatedFlow`)](#getrecurringpaymentspaginatedflow).
-* See a list of transactions for an account [(`GetTransactionsForCustomerPaginatedFlow`)](#gettransactionsforcustomerpaginatedflow).
-* See a list of transactions for a customer in a specified time frame [(`GetTransactionsPaginatedFlow`)](#gettransactionspaginatedflow).
+* See a list of accounts for a customer <a href="#getbalancesflow">(`GetBalancesFlow`)</a>.
+* See a list of transactions for a customer <a href="#getcustomertransactionsflow">(`GetCustomerTransactionsFlow`)</a>.
+* See a list of recurring payments for a customer <a href="#getrecurringpaymentsflow">(`GetRecurringPaymentsFlow`)</a>.
+* See the status of an account <a href="#getaccountflow">(`GetAccountFlow`)</a>.
+* See a list of accounts and associated customers <a href="#getaccountspaginatedflow">(`GetAccountsPaginatedFlow`)</a>.
+* See a customer's information when searching by their customer ID <a href="#getcustomerbyidflow">(`GetCustomerByIdFlow`)</a>.
+* See a list of all customers <a href="#getcustomerspaginatedflow">(`GetCustomersPaginatedFlow`)</a>.
+* See the state of a recurring payment <a href="#getrecurringpaymentsbyidflow">(`GetRecurringPaymentsByIdFlow`)</a>.
+* See a list of recurring payments for an account <a href="#getrecurringpaymentsforaccountpaginatedflow">(`GetRecurringPaymentsForAccountPaginatedFlow`)</a>.
+* See a list of recurring payments for a customer <a href="#getrecurringpaymentsforcustomerpaginatedflow">(`GetRecurringPaymentsForCustomerPaginatedFlow`)</a>.
+* See a list of recurring payments <a href="#getrecurringpaymentspaginatedflow">(`GetRecurringPaymentsPaginatedFlow`)</a>.
+* See a list of transactions for an account <a href="#gettransactionsforcustomerpaginatedflow">(`GetTransactionsForCustomerPaginatedFlow`)</a>.
+* See a list of transactions for a customer in a specified time frame <a href="#gettransactionspaginatedflow">(`GetTransactionsPaginatedFlow`)</a>.
 
 
 ### `GetBalancesFlow`

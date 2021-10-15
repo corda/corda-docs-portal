@@ -15,7 +15,7 @@ weight: 30
 DemoBench is a standalone desktop application that makes it easy to configure and launch local Corda nodes. It is useful for training sessions, demos or just experimentation.
 
 {{< warning >}}
-**DemoBench** is deprecated in Corda Enterprise 4.6.
+**DemoBench** was deprecated in Corda Enterprise 4.6.
 {{< /warning >}}
 
 ## Downloading
@@ -66,7 +66,7 @@ DemoBench writes a log file to the following location:
 
 ## Building the Installers
 
-Gradle defines tasks that build DemoBench installers using JavaPackager. There are three scripts in the [tools/demobench](https://github.com/corda/corda/tree/master/tools/demobench) directory of the [Corda repository](https://github.com/corda/corda) to execute these tasks:
+Gradle defines tasks that build DemoBench installers using JavaPackager. There are three scripts in the [tools/demobench](https://github.com/corda/corda/tree/release/os/4.8/tools/demobench) directory of the [Corda repository](https://github.com/corda/corda) to execute these tasks:
 
 
 

@@ -39,10 +39,10 @@ Concepts and Overview
 
 * [Corda Networks](../../../../../en/platform/corda/1.1/cenm/corda-networks.md)
 * [Components of the Corda Enterprise Network Manager](../../../../../en/platform/corda/1.1/cenm/enm-components.md)
-* [The Workflow](../../../../../en/platform/corda/1.1/cenm/enm-components.html#the-workflow)
-* [Databases](../../../../../en/platform/corda/1.1/cenm/enm-components.html#databases)
-* [Public Key Infrastructure](../../../../../en/platform/corda/1.1/cenm/enm-components.html#public-key-infrastructure)
-* [The Node](../../../../../en/platform/corda/1.1/cenm/enm-components.html#the-node)
+* [The Workflow](../../../../../en/platform/corda/1.1/cenm/workflow.md)
+* [Databases](../../../../../en/platform/corda/1.1/cenm/database-set-up.md)
+* [Public Key Infrastructure](../../../../../en/platform/corda/1.1/cenm/pki-tool.md)
+* [The Node](../../../../../en/platform/corda/1.1/cenm/network-map-overview.html#node-info)
 * [Sub Zones](../../../../../en/platform/corda/1.1/cenm/sub-zones.md)
 * [Network Map Overview](../../../../../en/platform/corda/1.1/cenm/network-map-overview.md)
 * [Certificate Revocation List (CRL)](../../../../../en/platform/corda/1.1/cenm/certificate-revocation.md)
@@ -87,7 +87,7 @@ Configuration
 
 Tools & Utilities
 
-* [Tools & Utilities](../../../../../en/platform/corda/1.1/cenm/tools-index.md)
+* [Tools and Utilities](../../../../../en/platform/corda/1.1/cenm/tools-index.md)
 * [Embedded Shell](../../../../../en/platform/corda/1.1/cenm/shell.md)
 
 

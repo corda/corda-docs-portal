@@ -9,11 +9,11 @@ tags:
 - install
 - node operator
 
-title: Install Collaborative Recovery V1.2
+title: Install Collaborative Recovery V1.2.1
 weight: 150
 ---
 
-# Install the Collaborative Recovery CorDapps V1.2
+# Install the Collaborative Recovery CorDapps V1.2.1
 
 **Who this documentation is for:**
 * Node operators
@@ -41,7 +41,7 @@ Outline of steps for installation:
 
 ## Requirements
 
-* [**LedgerGraph** CorDapp](./../operating/ledger-graph). The collaborative recovery CorDapps depend on the LedgerGraph CorDapp.
+* [LedgerGraph CorDapp](./../operating/ledger-graph.md). The collaborative recovery CorDapps depend on the LedgerGraph CorDapp.
 
 * **Corda Enterprise** Corda nodes must be running Corda Enterprise in order to initiate or participate in Collaborative Recovery. This feature is not available for Corda Open Source nodes.
 
@@ -49,7 +49,7 @@ Outline of steps for installation:
 
 * **Network MPV > 6** In addition to a CPV of greater than 6, the network itself must have a sufficient MPV.
 
-* **Database requirements** Collaborative Recovery CorDapps are tested against Corda Enterprise and will work according to the [platform support matrix](../../platform-support-matrix).
+* **Database requirements** Collaborative Recovery CorDapps are tested against Corda Enterprise and will work according to the [platform support matrix](../../platform-support-matrix.md).
 
 
 ## Install the CorDapps
@@ -81,7 +81,7 @@ Once the node has been successfully drained of any pending activity, you will be
 checkpoints dump
 ```
 
-If the resultant list is empty, the node has been successfully drained. If the list contains representations of in-flight flows, and continues to do so for an unreasonable amount of time, the flows may have become stuck. At this point, you may wish to kill the flows explicitly using the [`killFlow` API](../../cordapps/api-flows#killing-flows).
+If the resultant list is empty, the node has been successfully drained. If the list contains representations of in-flight flows, and continues to do so for an unreasonable amount of time, the flows may have become stuck. At this point, you may wish to kill the flows explicitly using the <a href="../../cordapps/api-flows.html#killing-flows">`killFlow` API</a>.
 
 ### Step 3: Install the CorDapps
 
@@ -97,11 +97,11 @@ Before proceeding, verify that the transfer was completed successfully by checki
 
 ### Step 4: Run any necessary database migrations
 
-If you are using Corda with a permissioned database, you may need to [perform database migrations](../operating/node-operations-cordapp-deployment).
+If you are using Corda with a permissioned database, you may need to [perform database migrations](../operating/node-operations-cordapp-deployment.md).
 
 ### Step 5: Restart the node
 
-Restart the node in the manner in which the node was [originally started by the node operator](../deploy/deploying-a-node).
+Restart the node in the manner in which the node was [originally started by the node operator](../deploy/deploying-a-node.md).
 
 You have enabled your Corda node for Collaborative Recovery in the event of a disaster scenario.
 

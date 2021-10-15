@@ -12,7 +12,6 @@ tags:
 title: Corda Network Pre-Production environment
 weight: 1000
 ---
-
 # Corda Network Pre-Production environment
 
 The Corda Network Pre-Production (also known as the User Acceptance Testing/UAT) environment seeks to provide a test environment which is as close as possible to Corda Network in its make-up and operation.
@@ -22,7 +21,6 @@ For owners of tested CorDapps with a firm plan to take them into production, a b
 The Corda Network Pre-Production environment is not intended for customers’ full test cycles, as it is expected that the bulk of CorDapp testing will occur in simpler network configurations run by the CorDapp provider, but is available for testing of functionally complete and tested CorDapps in realistic network settings. The environment simulates the real-world business environment, including the production settings of network parameters, Corda network services and supported Corda versions.
 
 The environment is therefore more aligned to the testing of the operational characteristics of networked CorDapps rather than their specific functional features, although we recognise there can be overlap between the two. Realistic test data is therefore expected to be used and may include data copied from production environments and hence representing real world entities and business activities. It will be up to the introducer of such data to ensure that all relevant data protection legislation is complied with and, in particular, that the terms and conditions under which Corda Network services process such data is suitable for their needs. All test data will be cleared from Corda Network services on the completion of testing.
-
 
 ## Pre-requisites to joining the Pre-Production environment
 
@@ -43,10 +41,10 @@ The environment is therefore more aligned to the testing of the operational char
 Corda Network Pre-Production is governed by an [independent Foundation](https://corda.network/corda-network-foundation/about-the-foundation).
 {{< /note >}}
 
-##  Joining the Pre-Production environment
+## Joining the Pre-Production environment
 
 *The below joining steps assume the potential participant is joining the Pre-Production environment directly, and as such is not "sponsoring" or onboarding other participants. If this is the case, please contact your Corda representative for how to "sponsor" end-participants.*
 
 Steps to join are outlined on the [Corda Network site](https://corda.network/joining-corda-network/onboarding-workflow).
 
-For further questions on this process, please contact us - preferably on the mailing list: [https://groups.io/g/corda-network](https://groups.io/g/corda-network) or at [info@corda.network](mailto:info@corda.network)
+For further questions on this process, please contact us through our [contact form](https://corda.network/contact/contact-us).
