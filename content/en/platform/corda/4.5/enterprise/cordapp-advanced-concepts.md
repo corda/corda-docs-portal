@@ -296,7 +296,7 @@ But if another CorDapp developer, `OrangeCo` bundles the `Fruit` library, they m
 This will create a `com.fruitcompany.Banana` signed by the `OrangeCo`, so there could be two types of Banana states on the network,
 but “owned” by two different parties. This means that while they might have started using the same code, nothing stops these `Banana` contracts from diverging.
 Parties on the network receiving a `com.fruitcompany.Banana` will need to explicitly check the constraint to understand what they received.
-In Corda 4, to help avoid this type of confusion, we introduced the concept of Package Namespace Ownership (see “[Package namespace ownership](node/deploy/env-dev.html#package-namespace-ownership)”).
+In Corda 4, to help avoid this type of confusion, we introduced the concept of Package Namespace Ownership (see [Package namespace ownership](node/deploy/env-dev.html#package-namespace-ownership)).
 Briefly, it allows companies to claim namespaces and anyone who encounters a class in that package that is not signed by the registered key knows is invalid.
 
 This new feature can be used to solve the above scenario. If `FruitCo` claims package ownership of `com.fruitcompany`, it will prevent anyone
