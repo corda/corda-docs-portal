@@ -331,7 +331,7 @@ otherResults: []
 
 ### Upload and download attachments
 
-The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](../../../open-source/tutorial-attachments.html#uploading-an-attachment) tutorial.
+The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](../../../open-source/tutorial-attachments.html#uploading-and-downloading) tutorial.
 
 
 ### Extract attachment information

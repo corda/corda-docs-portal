@@ -218,7 +218,7 @@ A script named `migration/.sql` will be generated in the base directory.
 This script will contain all the statements required to modify and create data structures (for example, tables/indexes),
 and inserts the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables itself.
-For descriptions of the options, refer to the [Corda Database Management Tool](node-database.html#database-management-tool-ref) manual.
+For descriptions of the options, refer to the [Corda Database Management Tool](node-database.html#database-management-tool) manual.
 
 
 ### 3.3. Apply DDL scripts on a database
