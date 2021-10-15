@@ -95,10 +95,9 @@ database {
 ```
 
 
-* **Config Files**CENM 1.0 Identity Manager and Network Map services are not backwards compatible with 0.x Doorman and Network Map
+* **Config Files** CENM 1.0 Identity Manager and Network Map services are not backwards compatible with 0.x Doorman and Network Map
 config files. 0.2.2 and 0.3 / 0.4 config files can be migrated to 1.0 using the [Config migration tool](tool-config-migration.md).
 
-.
 Using the generated 1.0 configs, the services can be upgraded by: stopping the services, swapping out the JAR and
 config files and restarting the services.
 
@@ -215,4 +214,3 @@ The new JAR can then be run with the new configuration file with no extra steps 
 * **Auto Enrolment in Private Networks**To support automatic enrolment of nodes within a Private Network a new column has been added to the `private-networks` table
 to facilitate indication as to whether that private network should allow for automatic registration. This task will handled
 automatically via liquibase if “run_migration” is set when starting the 0.2.1 `doorman.jar`.
-
