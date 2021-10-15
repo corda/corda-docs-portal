@@ -28,12 +28,12 @@ There are several ways to identify an area where you can contribute to Corda:
 
 
 * If you'd like to contribute, but don't have a specific project in mind:
-    * Message a [Community Maintainer](contributing-philosophy.md#community-maintainers) saying “I want to help!”. They’ll work
+    * Message a [Community Maintainer](contributing-philosophy.html#community-maintainers) saying “I want to help!”. They’ll work
 with you to find an area for you to contribute.
     * Browse the issues labelled `help wanted` on the
 [Corda GitHub issues](https://github.com/corda/corda/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) page. Issues labeled `good first issue` are ideal for first-timers.
 * If you have a specific contribution in mind, message the
-`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contact one of the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly to confirm if it is appropriate before starting development.
+`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contact one of the [Community Maintainers](contributing-philosophy.html#community-maintainers) directly to confirm if it is appropriate before starting development.
 
 
 
@@ -56,7 +56,7 @@ accept responsibility for maintaining it.
 the project maintainers to reconcile this. As the major contributor to Corda, many employees of [R3](https://r3.com) are working on
 features at any given time. To avoid surprises and foster transparency,
 [our Jira work tracking system is public](https://r3-cev.atlassian.net/projects/CORDA/summary). If in doubt, reach out to one of the
-[Community Maintainers](contributing-philosophy.md#community-maintainers).
+[Community Maintainers](contributing-philosophy.html#community-maintainers).
 
 
 ## Making changes to Corda
@@ -153,7 +153,7 @@ If you add a new API or feature and don’t update the samples, your work will h
 accordance with the Developer Certificate of Origin ([https://developercertificate.org/](https://developercertificate.org/)).”
 
 5. Request a review by reaching out in the `#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contacting one of
-the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly. The reviewer will either:
+the [Community Maintainers](contributing-philosophy.html#community-maintainers) directly. The reviewer will either:
     * Accept and merge your PR
     * Leave comments requesting changes via the GitHub PR interface
 
