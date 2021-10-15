@@ -69,7 +69,7 @@ Note that only HTTP OK (response code 200) is supported - any other kind of resp
 ### Additional endpoints from R3
 
 Network maps hosted by R3 or other parties using R3’s commercial network management tools typically provide some
-additional endpoints for users. These additional endpoints can be found [here](../../../cenm/1.3/network-map-overview.html).
+additional endpoints for users. These additional endpoints can be found [here](../../../../../../en/platform/corda/1.3/cenm/network-map-overview.md).
 
 HTTP is used for the network map service instead of Corda’s own AMQP based peer to peer messaging protocol to
 enable the server to be placed behind caching content delivery networks like Cloudflare, Akamai, Amazon Cloudfront and so on.
@@ -99,7 +99,7 @@ the network, along with the network parameters file and identity certificates. G
 online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
-More information can be found in network-bootstrapper.
+More information can be found in [Network Bootstrapper](../../../../../../en/platform/corda/4.5/enterprise/network-bootstrapper.md).
 
 
 
