@@ -59,7 +59,7 @@ java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_
 The option `-b` points to the base directory (the directory containing a `node.conf` file, and the *drivers* and *cordapps* subdirectories). The generated script (*migration/*.sql*) will be present in the base directory.
 This script contains all of the statements to create the data structures (e.g. tables/indexes) for CorDapps,
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
-For a description of the options, refer to the [Corda Database Management Tool](node-database.html#database-management-tool-ref) manual.
+For a description of the options, refer to the [Corda Database Management Tool](node-database.html#database-management-tool) manual.
 
 * Run selected insert statements to update Liquibase database change logIn the generated script, find all inserts into *DATABASECHANGELOG* table related to your CorDapp,
 you can search for *– Changeset migration/<file-name>* lines, where <file-name> references the Liquibase Script file name from the CorDapp.
