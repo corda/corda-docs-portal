@@ -36,7 +36,7 @@ source has to be monotonic and support leap second smearing.
 * Java runtime
 * Corda Enterprise JAR
 * [Notary Health Check](../notary-healthcheck.md) Tool
-* HA Utilities JAR to run [notary registration](../ha-utilities.html#notary-reg-tool)
+* HA Utilities JAR to run [notary registration](../ha-utilities.html#notary-registration)
 * Root access to a Linux machine or VM to install the selected database
 * The private IP addresses of your database hosts
 * The public IP addresses of your notary hosts
@@ -51,7 +51,7 @@ source has to be monotonic and support leap second smearing.
 * Notary worker configuration files
 
 If you are setting up a local network to test the HA notary setup process, use the [Network Bootstrapper](../network-bootstrapper.md)
-instead of the [Notary Registration Tool](../ha-utilities.html#notary-reg-tool). In all other implementations, the network bootstrapper is not required.
+instead of the [Notary Registration Tool](../ha-utilities.html#notary-registration). In all other implementations, the network bootstrapper is not required.
 
 Ensure that the notary worker P2P ports are reachable from any nodes that might join the network. Each notary worker also
 needs access to its individual node database, and communicates with the underlying database cluster using JDBC.
@@ -79,7 +79,7 @@ request (CSR) to the Identity Manager, then poll until it receives a successful 
 file will be created containing the key pair and certificate chain if using a local key store, or just the certificate
 chain if using an HSM.
 
-See [notary registration](../ha-utilities.html#notary-reg-tool) for more information on using the notary registration tool.
+See [notary registration](../ha-utilities.html#notary-registration) for more information on using the notary registration tool.
 
 
 2. Register the notary workers

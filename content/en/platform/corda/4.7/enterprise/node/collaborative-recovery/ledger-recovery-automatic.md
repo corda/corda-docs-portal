@@ -115,7 +115,7 @@ In case of failure, the usage of standard Corda flows for transmission of artifa
 Upon successful completion of the automatic LedgerRecover, all `ReconciliationStatus`es initiated by the requester node (of the recovery) are refreshed. This is done so that newly acquired transactions will not show up as difference in the reconciliation results.
 
 {{< note >}}
-When recovered transactions are persisted, these will trigger the same events as were triggered when the transaction was originally persisted (before the disaster). If users are subscribing to vault-observable feeds (see [documentation on updates](https://docs.corda.net/api/kotlin/corda/net.corda.core.node.services/-vault-service/updates.html)), they will receive duplicate updates.
+When recovered transactions are persisted, these will trigger the same events as were triggered when the transaction was originally persisted (before the disaster). If users are subscribing to vault-observable feeds (see [documentation on updates](../../../../../../../en/api-ref/corda/4.8/open-source/kotlin/corda/net.corda.core.node.services/-vault-service/updates.html), they will receive duplicate updates.
 {{< /note >}}
 
 #### Parameters
@@ -151,7 +151,7 @@ flow start AutomaticLedgerRecoverFlow party: "O=PartyB, L=London, C=GB"
 This flow is used by a party to mark an automatic recovery process as failed. The initiating party marks their recovery request as `FAILED`. A failed `RecoveryRequest` remains as a record in the `CR_RECOVERY_REQUEST` table for record-keeping and querying.
 
 {{< note >}}
-This flow should be run after running `killFlow`. See [Killing Automatic Recovery Flows](#Killing-Automatic-Recovery-Flows) for details.
+This flow should be run after running `killFlow`. See [Kill Automatic Recovery Flows](#kill-automatic-recovery-flows) for details.
 {{< /note >}}
 
 #### Parameters
@@ -450,7 +450,7 @@ Some information regarding the progress of recovery can be found in a node's `CR
 
 ## JMX metrics
 
-The JMX metrics for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.html#JMX-Metrics).
+The JMX metrics for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.html#jmx-metrics).
 
 {{< note >}}
 The metrics do not distinguish between automatic and manual recoveries - the results returned are aggregated over both types.
@@ -509,11 +509,11 @@ The requesting node should now have successfully recovered their vault and shoul
 
 If the initiating node (node A) throws an exception, it is very likely for one of the following reasons:
 
-- The reconciliation process is either still in progress or has failed. In the former situation, wait for the reconciliation process to be scheduled or complete. In the latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of the [LedgerSync documentation](ledger-sync.html#Log-Messages)) and then reschedule the reconciliation so that it may be completed successfully.
+- The reconciliation process is either still in progress or has failed. In the former situation, wait for the reconciliation process to be scheduled or complete. In the latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of the [LedgerSync documentation](ledger-sync.html#log-messages)) and then reschedule the reconciliation so that it may be completed successfully.
 
 - The recovery request breached one of the following constraints:
-    - The list of transactions to be recovered is empty. This may be a result of a concurrent recovery processes with another counterparty. In this case, the reconciliation result contained only false positives and there is nothing to recover. Consider [refreshing the reconciliation results](ledger-sync.html#RefreshReconciliationStatusesFlow).
-    - There are too many transactions to recover. Consider running a [LedgerRecover (Manual)](ledger-recovery-manual.html#Workflow) process instead.
+    - The list of transactions to be recovered is empty. This may be a result of a concurrent recovery processes with another counterparty. In this case, the reconciliation result contained only false positives and there is nothing to recover. Consider [refreshing the reconciliation results](ledger-sync.html#refreshreconciliationstatusesflow).
+    - There are too many transactions to recover. Consider running a [LedgerRecover (Manual)](ledger-recovery-manual.html#flows) process instead.
     - The automatic recovery requests initiated against the counterparty are too frequent.
 
 ##### Unhappy path - Exception is thrown by the responding node
@@ -522,11 +522,11 @@ If the responder node (node B) throws an exception, it is very likely for one of
 
 - The recovery request breached one of the following constraints:
     - The list of transactions to be recovered is empty.
-    - The total size of transactions requested to be sent has exceeded the configured limits. Consider running a [LedgerRecover (Manual)](ledger-recovery-manual.html#Workflow) process instead from the initiating node.
+    - The total size of transactions requested to be sent has exceeded the configured limits. Consider running a [LedgerRecover (Manual)](ledger-recovery-manual.html#flows) process instead from the initiating node.
     - The automatic recovery requests received from the initiating party are too frequent.
     - The requested transaction data should not be known about by the initiating party.
 
-#### Killing Automatic Recovery Flows
+#### Kill Automatic Recovery Flows
 
 As indicated in steps above, it may be necessary to kill an automatic LedgerRecover flow. This is a *two-step process*.
 

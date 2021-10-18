@@ -25,7 +25,7 @@ You can use the Collaborative Recovery CorDapps to automate the process of recov
 
 ## Schedule reconciliation
 
-If you and counterparties on your Business Network (BN) plan to use collaborative recovery as part of your disaster planning, it's a good idea to schedule regular reconciliation checks using the [LedgerSync CorDapp](ledger-sync#`ScheduleReconciliationFlow`). You can achieve this by implementing a small layer to schedule and integrate ledger syncing with your Business Network services. For practical steps on scheduling recovery, use the [LedgerSync guide](ledger-sync.md).
+If you and counterparties on your Business Network (BN) plan to use collaborative recovery as part of your disaster planning, it's a good idea to schedule regular reconciliation checks using the [LedgerSync CorDapp](ledger-sync.html#schedulereconciliationflow). You can achieve this by implementing a small layer to schedule and integrate ledger syncing with your Business Network services. For practical steps on scheduling recovery, use the [LedgerSync guide](ledger-sync.md).
 
 How frequently you should run reconciliation checks depends on the size of your network. Since reconciliation flows carry some memory overheads, smaller networks may be able to schedule more regular reconciliation actions. For a larger network, you can implement a lighter schedule of reconciliations, or you could choose to reconcile more regularly, but with a random subset of available peers. This would give you an indication of the general health of data in the BN.
 
@@ -34,7 +34,7 @@ Since some recovery flows have been designed to be run manually, you can set ale
 ## Monitor reconciliation and receive alerts using metrics
 
 The Collaborative Recovery CorDapps expose a number of JMX metrics via Jolokia. You can see the full list of the exposed metrics for
-[LedgerSync here](../../../../../../../en/platform/corda/4.7/enterprise/node/collaborative-recovery/ledger-sync.html#JMX-metrics), and [LedgerRecover here](ledger-recovery-automatic.md). These are exposed alongside metrics from the node.
+[LedgerSync here](../../../../../../../en/platform/corda/4.7/enterprise/node/collaborative-recovery/ledger-sync.html#jmx-metrics), and [LedgerRecover here](ledger-recovery-automatic.md). These are exposed alongside metrics from the node.
 You can also [monitor via Jolokia](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-administration.html#monitoring-via-jolokia).
 
 

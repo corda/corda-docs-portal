@@ -174,11 +174,9 @@ dataSourceProperties = {
 }
 ```
 
-[config_obfuscator](../resources/config_obfuscator)
-
 
 
 ## Obtaining the notary service identity
 
-The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration](../../../../../../en/platform/corda/4.7/enterprise/ha-utilities.html#notary-reg-tool).
-Once the service is registered, each worker node is registered using the `initial-registration` process. See ../joining-a-compatibility-zone.
+The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration](../../../../../../en/platform/corda/4.7/enterprise/ha-utilities.html#notary-registration).
+Once the service is registered, each worker node is registered using the `initial-registration` process. See [Joining a compatibility zone](../../../../../../en/platform/corda/4.7/enterprise/docker-image.html#joining-an-existing-compatibility-zone).

@@ -64,7 +64,7 @@ Node can be configured to run SSH server.
 ## Database access
 
 When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-(see [database access when running H2](../../node-database-access-h2.html)).
+(see [database access when running H2](../../node-database-access-h2.md)).
 
 Note that in a production set up, it is highly recommended to use an enterprise grade database, and access to the
 database should be via the usual database tools mechanisms, including access control and restrictions.
@@ -132,7 +132,7 @@ environments under `/config/<env>`.
 
 When running in dev mode, Hibernate statistics are also available via the Jolkia interface. These are disabled otherwise
 due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
-`exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.html#database-properties-ref).
+`exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#database).
 
 When starting Corda nodes using Cordformation runner (see [running nodes locally](../deploy/running-a-node.md)), you should see a startup message similar to the following:
 **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**

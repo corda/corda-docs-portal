@@ -26,7 +26,7 @@ LedgerGraph is a dependency for the set of Collaborative Recovery CorDapps V1.1 
 {{< /warning >}}
 
 {{< note >}}
-The [Archiving Service](/en/platform/corda/4.7/enterprise/node/archiving/archiving-setup.md) relies on the Ledger Graph functionality. For the Archiving Service to work correctly, the Ledger Graph must load your entire graph in memory to function. This can cause:
+The [Archiving Service](../../../../../../../en/platform/corda/4.7/enterprise/node/archiving/archiving-setup.md) relies on the Ledger Graph functionality. For the Archiving Service to work correctly, the Ledger Graph must load your entire graph in memory to function. This can cause:
 * Increased time to run Archiving tasks.
 * Increased JVM heap memory usage while Archiving tasks are being performed.
 
@@ -54,7 +54,7 @@ LedgerGraph then deletes a constructed graph when the Archive Service `create-sn
 
 ### Database requirements
 
-LedgerGraph CorDapps are tested against Corda Enterprise and will work according to the [support matrix.] (../../platform-support-matrix.html#platform-support-matrix).
+LedgerGraph CorDapps are tested against Corda Enterprise and will work according to the [support matrix.](../../../../../../../en/platform/corda/4.7/enterprise/platform-support-matrix.html#platform-support-matrix).
 
 ## Install LedgerGraph
 
@@ -115,7 +115,7 @@ If you're installing the <nobr>`ledger-graph-confidential-identities`</nobr> Cor
 
 ### Restart the Node
 
-Restart the node in the same manner originally started by the [node operator](../deploy/deploying-a-node.md/).
+Restart the node in the same manner originally started by the [node operator](../deploy/deploying-a-node.md).
 
 Depending on the size of the  node's vault, it might take longer to start than it did previously.
 
@@ -147,7 +147,7 @@ You can tune **LedgerGraph**'s behaviour through a small set of configuration pa
 |-|:-:|:-:|-|
 |`transactionReaderPageSize` &dagger; |`100`|`10` to `10,000,000`|The number of transactions to include in the result set when querying the database during graph initialization.|
 |`transactionReaderPoolSize` &Dagger;|`10`|`1` to `1000`|The number of threads to use when deserializing transaction data during graph initialization.|
-|`onDemand`|`true`| `true`, `false`|When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../archiving/archiving-setup.html). This saves heap memory usage.
+|`onDemand`|`true`| `true`, `false`|When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../archiving/archiving-setup.md). This saves heap memory usage.
 {{< /table >}}
 
 **&dagger;** Because there can be an extremely large number of transactions in a node's vault, it is important to select an appropriate page size for your database to optimize retrieval performance. Some amount of experimentation may be required on your part to find/define the best value to be used here, so we don't recommend the default value for most production environments.

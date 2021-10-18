@@ -41,7 +41,7 @@ Outline of steps for installation:
 
 ## Requirements
 
-* [**LedgerGraph** CorDapp](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/ledger-graph.md). The collaborative recovery CorDapps depend on the LedgerGraph CorDapp.
+* **[LedgerGraph CorDapp](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/ledger-graph.md)** The collaborative recovery CorDapps depend on the LedgerGraph CorDapp.
 
 * **Corda Enterprise** Corda nodes must be running Corda Enterprise in order to initiate or participate in Collaborative Recovery. This feature is not available for Corda Open Source nodes.
 
@@ -81,7 +81,7 @@ Once the node has been successfully drained of any pending activity, you will be
 checkpoints dump
 ```
 
-If the resultant list is empty, the node has been successfully drained. If the list contains representations of in-flight flows, and continues to do so for an unreasonable amount of time, the flows may have become stuck. At this point, you may wish to kill the flows explicitly using the [`killFlow` API](../../../../../../../en/platform/corda/4.7/enterprise/cordapps/api-flows.html#killing-flows).
+If the resultant list is empty, the node has been successfully drained. If the list contains representations of in-flight flows, and continues to do so for an unreasonable amount of time, the flows may have become stuck. At this point, you may wish to kill the flows explicitly using the <a href="../../../../../../../en/platform/corda/4.7/enterprise/cordapps/api-flows.html#killing-flows">`killFlow` API</a>.
 
 ### Step 3: Install the CorDapps
 

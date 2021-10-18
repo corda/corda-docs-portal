@@ -15,7 +15,7 @@ weight: 20
 # Configuring a JPA notary backend
 
 Prior to using the JPA notary, the database must be prepared. This can be performed using the
-[Corda Database Management Tool](../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database.html#database-management-tool-ref). If preferred, the required tables can be manually
+[Corda Database Management Tool](../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database.html#database-management-tool). If preferred, the required tables can be manually
 created. See below for example database scripts. Note that in these examples, a database named “corda” is created to
 house the tables - this is purely for example purposes. The database name could be any string supported by your
 database vendor - ensure that the configuration matches the database name.

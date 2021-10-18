@@ -121,7 +121,7 @@ You can also onboard and activate memberships in batches using [Composite flows]
 
 You can make joining a business network a two-step process, in which prospective members must first send a request to join the network. The request can then be approved by the relevant parties, and the member is added.
 
-You can also onboard and activate memberships in batches using [Composite flows](##onboard-and-activate-members-with-composite-flows)
+You can also onboard and activate memberships in batches using [Composite flows](#onboard-and-activate-members-with-composite-flows)
 
 #### Step 1 - prospective member sends a membership request
 

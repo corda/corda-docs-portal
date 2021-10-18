@@ -28,8 +28,8 @@ Any Corda Enterprise Node can be used as a designated collector node as long as 
 
 The metering client requires the following configuration information:
 
-* RPC username, password, and hostname; this information is used to connect to the designated collector node and launch the data collection flows (see [`nodeRpcLogin`](#noderpclogin))
-* A list of nodes to retrieve data from (see [`destinations`](#destinations))
+* RPC username, password, and hostname; this information is used to connect to the designated collector node and launch the data collection flows (see <a href="https://docs.r3.com/en/platform/corda/4.7/enterprise/metering-rpc.html#noderpclogin">`NodeRpcLogin`</a>)
+* A list of nodes to retrieve data from (see <a href="https://docs.r3.com/en/platform/corda/4.7/enterprise/metering-rpc.html#destinations">`Destinations`</a>)
 * A list of CorDapps to collect the data for (see [CorDapps](#cordapps))
 * A collection period (see [Collection period](#collection-period))
 

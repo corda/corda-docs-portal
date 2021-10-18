@@ -118,7 +118,7 @@ Each Network Map requires:
 * [The network map](network-map.md)
     * [HTTP network map protocol](network-map.html#http-network-map-protocol)
         * [Additional endpoints from R3](network-map.html#additional-endpoints-from-r3)
-    * [The `additional-node-infos` directory](network-map.html#the-additional-node-infos-directory)
+    * <a href="network-map.html#the-additional-node-infos-directory">The `additional-node-infos` directory</a>
     * [Network parameters](network-map.html#network-parameters)
     * [Network parameters update process](network-map.html#network-parameters-update-process)
         * [Automatic Acceptance](network-map.html#automatic-acceptance)
