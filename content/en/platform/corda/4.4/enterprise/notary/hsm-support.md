@@ -28,7 +28,7 @@ notary service identity is drawn in blue. Their cryptographic keys are held in a
 {{< warning >}}
 As noted in the above diagram, if the workers are sharing a HSM then this should be setup in a highly available configuration. Using a
 single non-HA HSM in a CFT notary cluster will introduce a single point of failure and is strongly discouraged. If a HA HSM configuration
-is not possible then see the below section on [Using Multiple HSMs](#using-multiple-hsms) for how to setup one HSM per worker node.
+is not possible then see the below section on [Using Multiple HSMs](#using-multiple-hsms) for how to set up one HSM per worker node.
 {{< /warning >}}
 
 
@@ -43,21 +43,21 @@ See the *enterpriseConfiguration* section of the corda-configuration-file doc fo
 When the private keys are stored in a HSM, only the certificates are stored in the keystore file.
 
 The associated certificates for the distributed notary identity and node certificate authority are issued by the Identity Manager on the
-network. See the [Corda OS documentation](https://docs.corda.net/docs/corda-os/index.html) for more information. The legal identity certificate is issued by the node certificate authority.
+network. See the [Corda OS documentation](../../../../../../en/platform/corda/4.4/open-source/_index.md) for more information. The legal identity certificate is issued by the node certificate authority.
 
 The worker specific legal identity key pair is used for P2P messaging, whereas the single distributed notary identity key pair is used by
 all the notary workers of the CFT notary cluster to sign valid transactions. During operation, each notary worker will access the HSM and
 use the distributed notary key when processing notarisation requests.
 
 For information on which HSMs are supported by Corda Enterprise, see the [platform support matrix](../platform-support-matrix.md).
-Please read the section below for setup instructions and [configuration details](../node/operating/cryptoservice-configuration.md/).
+Please read the section below for setup instructions and [configuration details](../../../../../../en/platform/corda/4.4/enterprise/node/operating/cryptoservice-configuration.md).
 
 
 ## Detailed instructions to deploy to Azure Key Vault
 
 These instructions assume that a single Azure Key Vault is being used across all notary workers.
 
-Add the following entries to your workers node.conf files, replacing the placeholders with the relevant/chosen values:
+Add the following entries to your worker's node.conf files, replacing the placeholders with the relevant/chosen values:
 
 ```sh
 cryptoServiceName: "AZURE_KEY_VAULT"

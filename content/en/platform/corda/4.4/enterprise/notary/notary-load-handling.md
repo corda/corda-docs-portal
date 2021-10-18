@@ -19,11 +19,11 @@ weight: 5
 # Behaviour Under Excessive Load
 
 In high traffic networks, a notary can receive a large amount of notarisation requests in a short time window. Once this number starts
-approaching the capacity the the notary can quickly handle, the notarisation response time will increase.
+approaching the capacity the notary can quickly handle, the notarisation response time will increase.
 
 To avoid a notarisation request being lost in the event of a notary worker temporarily going down, retry functionality is built into Corda.
 If the node does not receive a response from the notary in a predefined period of time, the node will resend the notarisation request.
-Having this retry period fixed would mean that if the time to process a request starts starts to exceed the retry period, the notary will
+Having this retry period fixed would mean that if the time to process a request starts to exceed the retry period, the notary will
 get inundated with requests. Hence to ensure the notary does not become overloaded the retry value is variable and based on the backpressure
 mechanism.
 
