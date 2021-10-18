@@ -178,7 +178,7 @@ rpcSettings {
 ### Optional configuration
 
 
-* `notary` <config> (see [notary](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.htmlcorda-configuration-file-notary))
+* `notary` <config> (see [notary](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-notary))
     * Optional configuration which specifies the node is a notary.
     * {{< note >}}
 <**required**> for notary nodes{{< /note >}}
@@ -320,7 +320,7 @@ ext.jolokia_version = "1.6.1"
 
 ### Package namespace ownership
 
-To specify [Package namespace ownership](env-dev.md#package-namespace-ownership) configuration, the optional `networkParameterOverrides` and `packageOwnership` blocks can be used, similar to the configuration file used in network-bootstrapper:
+To specify [Package namespace ownership](env-dev.html#package-namespace-ownership) configuration, the optional `networkParameterOverrides` and `packageOwnership` blocks can be used, similar to the configuration file used in network-bootstrapper:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {

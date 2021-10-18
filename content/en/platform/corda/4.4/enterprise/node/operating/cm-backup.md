@@ -45,7 +45,7 @@ Should states in the vault ever be lost, partial or total recovery might be achi
 
 ## File backups
 
-Corda components read and write information from and to the file-system. The advice is to backup the entire root directory of the component, plus any external directories and files optionally specified in the configuration.
+Corda components read and write information from and to the file-system. The advice is to back up the entire root directory of the component, plus any external directories and files optionally specified in the configuration.
 Corda assumes the filesystem is reliable. You must ensure that it is configured to provide this assurance, which means you must configure it to synchronously replicate to your backup/DR site.
 If the above holds, Corda components will benefit from the following:
 

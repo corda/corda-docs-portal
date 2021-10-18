@@ -266,7 +266,7 @@ shell (see shell):
 
 If the administrator does not accept the update then next time the node polls network map after the deadline, the
 advertised network parameters will be the updated ones. The previous set of parameters will no longer be valid.
-At this point the node will automatically shutdown and will require the node operator to bring it back again.
+At this point the node will automatically shut down and will require the node operator to bring it back again.
 
 
 ## Private networks

@@ -101,7 +101,7 @@ If you only wish to whitelist the CorDapps but not copy them to each node then r
 {{< /note >}}
 The CorDapp JARs will be hashed and scanned for `Contract` classes. These contract class implementations will become part of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` [network map](../../../../../../../en/platform/corda/4.4/enterprise/network/network-map.md)).
 
-By default the Bootstrapper will whitelist all the contracts found in the unsigned CorDapp JARs (a JAR file not signed by jarSigner tool). Whitelisted contracts are checked by *Zone constraints*, while contract classes from signed JARs will be checked by *Signature constraints*. To prevent certain contracts from unsigned JARs from being whitelisted, add their fully qualified class name in the `exclude_whitelist.txt`. These will instead use the more restrictive `HashAttachmentConstraint`. To add certain contracts from signed JARs to whitelist, add their fully qualified class name in the `include_whitelist.txt`. Refer to [contract constraints](../../cordapps/api-contract-constraints.html) to understand the implication of different constraint types before adding `exclude_whitelist.txt` or `include_whitelist.txt` files.
+By default the Bootstrapper will whitelist all the contracts found in the unsigned CorDapp JARs (a JAR file not signed by jarSigner tool). Whitelisted contracts are checked by *Zone constraints*, while contract classes from signed JARs will be checked by *Signature constraints*. To prevent certain contracts from unsigned JARs from being whitelisted, add their fully qualified class name in the `exclude_whitelist.txt`. These will instead use the more restrictive `HashAttachmentConstraint`. To add certain contracts from signed JARs to whitelist, add their fully qualified class name in the `include_whitelist.txt`. Refer to [contract constraints](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/api-contract-constraints.md) to understand the implication of different constraint types before adding `exclude_whitelist.txt` or `include_whitelist.txt` files.
 
 The `exclude_whitelist.txt` and `include_whitelist.txt` files should be in the same root directory as the CorDapp JAR files.
 
@@ -317,7 +317,7 @@ The alias for the name associated with the certificate to be associated with the
 
 
 
-Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an example, we will initialise a simple network and then register and unregister a package namespace. Checkout the Example CorDapp and follow the instructions to build it [here](https://docs.corda.net/tutorial-cordapp.html#building-the-example-cordapp).
+Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an example, we will initialise a simple network and then register and unregister a package namespace. Checkout the Example CorDapp and follow the instructions to build it [here](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/tutorial-cordapp.html#building-the-example-cordapp).
 
 {{< note >}}
 You can point to any existing bootstrapped corda network (this will have the effect of updating the associated network parameters file).
@@ -407,4 +407,4 @@ in the given file. See [Overriding network parameters via a file](#overriding-ne
 
 ### Sub-commands
 
-`install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See [shell extensions for CLI applications](../operating/cli-application-shell-extensions.html) for more info.
+`install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See [shell extensions for CLI applications](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/cli-application-shell-extensions.md) for more info.
