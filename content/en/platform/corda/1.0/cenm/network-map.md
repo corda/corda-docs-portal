@@ -37,26 +37,26 @@ The initial network parameters file can be loaded into the network map service d
 `--set-network-parameters` flag. The complete list of flags required to set the network parameters is as follows:
 
 
-* **[–set-network-parameters] or [-s]**: 
+* **[–set-network-parameters] or [-s]**:
 This flag specifies that you wish to set or update the network parameters, and
 should be followed by the new network parameters configuration file.
 
 
-* **[–network-truststore] or [-t]**: 
+* **[–network-truststore] or [-t]**:
 This is used to define the network trustStore, which should contain the root
 certificate (similar to the *network-root-truststore.jks* file for Corda nodes). This is needed to validate that the
 notaries that have been set in the network parameters have a valid certificate issued by the Identity Manager.
 
 
-* **[–truststore-password] or [-p]**: 
+* **[–truststore-password] or [-p]**:
 The password for the above trustStore.
 
 
-* **[–root-alias] or [-a]**: 
+* **[–root-alias] or [-a]**:
 The alias for the root certificate within the above trustStore.
 
 
-* **[–ignore-migration]**: 
+* **[–ignore-migration]**:
 Required for fresh deployments (not an upgrade that involves migrating data across).
 
 
@@ -99,8 +99,8 @@ Similar to the Identity Manager the main elements that need to be configured for
 * [Cache Timeout](#cache-timeout)
 * [Node Certificate Revocation Checking](#node-certificate-revocation-checking)
 * [Embedded Shell (optional)](#embedded-shell-optional)
-* [Restricting A Node’s Corda Version (optional)](#restricting-a-node-s-corda-version-optional)
-* [Identity Manager & Revocation Communication](#identity-manager-revocation-communication)
+* [Restricting A Node’s Corda Version (optional)](#restricting-a-nodes-corda-version-optional)
+* [Identity Manager and Revocation Communication](#identity-manager-and-revocation-communication)
 
 
 ### Address
@@ -272,7 +272,7 @@ networkMap {
 
 ### Embedded Shell (optional)
 
-See [Shell Configuration](shell.md#shell-config) for more information on how to configure the shell.
+See [Shell Configuration](shell.html#shell-configuration) for more information on how to configure the shell.
 
 
 ### ENM Internal Server
@@ -314,7 +314,7 @@ All inter-service communication can be configured with SSL support. See [Configu
 
 {{< /note >}}
 
-### Identity Manager & Revocation Communication
+### Identity Manager and Revocation Communication
 
 
 {{< warning >}}
@@ -506,4 +506,3 @@ useful especially when dealing with node’s deployment in environments with IP 
 |GET|/network-map/my-hostname|Returns the IP address of the requestor.|
 
 {{< /table >}}
-

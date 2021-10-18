@@ -38,12 +38,12 @@ Concepts and Overview
 
 * [Corda Networks](../../../../../en/platform/corda/1.2/cenm/corda-networks.md)
 * [Components of the Corda Enterprise Network Manager](../../../../../en/platform/corda/1.2/cenm/enm-components.md)
-* [The Workflow](../../../../../en/platform/corda/1.2/cenm/enm-components.html#the-workflow)
-* [Databases](../../../../../en/platform/corda/1.2/cenm/enm-components.html#databases)
-* [Public Key Infrastructure (PKI)](../../../../../en/platform/corda/1.2/cenm/enm-components.html#public-key-infrastructure-pki)
-* [The Node](../../../../../en/platform/corda/1.2/cenm/enm-components.html#the-node)
+* [The workflow](../../../../../en/platform/corda/1.2/cenm/workflow.md)
+* [Databases](../../../../../en/platform/corda/1.2/cenm/database-set-up.md)
+* [Public Key Infrastructure (PKI)](../../../../../en/platform/corda/1.2/cenm/pki-tool.md)
+* [The node](../../../../../en/platform/corda/1.2/cenm/network-map.html#node-certificate-revocation-checking)
 * [Sub Zones](../../../../../en/platform/corda/1.2/cenm/sub-zones.md)
-* [Network Map Overview](../../../../../en/platform/corda/1.2/cenm/network-map-overview.md)
+* [Network Map overview](../../../../../en/platform/corda/1.2/cenm/network-map-overview.md)
 * [Certificate Revocation List](../../../../../en/platform/corda/1.2/cenm/certificate-revocation.md)
 
 
@@ -81,14 +81,14 @@ Configuration
 * [Network Map Configuration Parameters](../../../../../en/platform/corda/1.2/cenm/config-network-map-parameters.md)
 * [Network Parameters](../../../../../en/platform/corda/1.2/cenm/config-network-parameters.md)
 * [Configuring the ENM services to use SSL](../../../../../en/platform/corda/1.2/cenm/enm-with-ssl.md)
-* [Workflow](workflow.md)
+* [Workflow](../../../../../en/platform/corda/1.2/cenm/workflow.md)
 
 
 
 
 Tools & Utilities
 
-* [Tools & Utilities](../../../../../en/platform/corda/1.2/cenm/tools-index.md)
+* [Tools and Utilities](../../../../../en/platform/corda/1.2/cenm/tools-index.md)
 * [Embedded Shell](../../../../../en/platform/corda/1.2/cenm/shell.md)
 
 

@@ -66,7 +66,7 @@ STEP 3: Corda Specific Options
 Define the version of Corda you want on your nodes and the type of notary.
 
 
-* **Corda version (as seen in Maven Central)**: Select the version of Corda you want your nodes to use from the drop down list. The version numbers can be seen in [Maven Central](http://repo1.maven.org/maven2/net/corda/corda/), for example 0.11.0
+* **Corda version (as seen in Maven Central)**: Select the version of Corda you want your nodes to use from the drop down list. The version numbers can be seen in [Maven Central](https://repo1.maven.org/maven2/net/corda/corda/), for example 0.11.0
 * **Notary type**: Select either ‘Non Validating’ (notary only checks whether a state has been previously used and marked as historic) or ‘Validating’ (notary performs transaction verification by seeing input and output states, attachments and other transaction information). More information on notaries can be found [here](https://vimeo.com/album/4555732/video/214138458)
 
 ![azure multi node step3](../resources/azure_multi_node_step3.png "azure multi node step3")

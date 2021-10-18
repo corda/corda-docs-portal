@@ -27,7 +27,7 @@ Typical update process is as follows:
 
 
 * Start network map with initial network parameters.
-* To advertise an update:> 
+* To advertise an update:>
 
 * Stop the Network Map service.
 * Run it with `--set-network-parameters` flag, along with the network truststore related flags. See the ‘Setting
@@ -58,7 +58,7 @@ new parameters. This will not
 activate the new network parameters on the nodes, only inform the Network Map service that the node has agreed to the
 update. It is possible to poll the network map database to check how many network participants have accepted the new
 network parameters - the information is stored in the `node-info.accepted_parameters_hash` column. See
-[https://docs.corda.net/tutorial-clientrpc-api.html](https://docs.corda.net/tutorial-clientrpc-api.html) for further details.
+[https://docs.corda.net/tutorial-clientrpc-api.html](../../../../../en/platform/corda/4.5/open-source/tutorial-clientrpc-api.md) for further details.
 * Once the `updateDeadline` has passed, a flag day can be issued. This is the act of changing the active network
 parameters to be the parameters advertised in step 2. To achieve this, restart the Network Map service with the
 `--flag-day` flag. This will cause all nodes in the network to shutdown when they next poll the service due to a
@@ -135,4 +135,3 @@ Note that when reading from file:
 
 `epoch` will increase by one every time the network parameters are updated, however larger jumps can be achieved by
 manually setting the next epoch value within the config file..
-
