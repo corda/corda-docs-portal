@@ -35,16 +35,13 @@ set errno to 0.
 
 On encountering any error the tool will print out the cause and set errno appropriately.
 
-Exit codes are as follows
+Exit codes are as follows:
 
-
-0 - Success
-1 - Unknown Error
-2 - Specified configuration file is not a Doorman
-3 - Specified configuration file doesn’t configure a Jira instance
-4 - The Jira instance is unreachable at the specified UR
-5 - Specified user is invalid
-6 - Specified password is either incorrect or the user needs further validation (captcha entry)
-7 - Specified project does not exist
-
-
+* 0 - Success
+* 1 - Unknown Error
+* 2 - Specified configuration file is not a Doorman
+* 3 - Specified configuration file doesn’t configure a Jira instance
+* 4 - The Jira instance is unreachable at the specified UR
+* 5 - Specified user is invalid
+* 6 - Specified password is either incorrect or the user needs further validation (captcha entry)
+* 7 - Specified project does not exist

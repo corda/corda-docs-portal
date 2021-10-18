@@ -94,7 +94,7 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 
 {{< /tabs >}}
 
-See [Node configuration](../../node/setup/corda-configuration-file.md) for a complete reference.
+See [Node configuration](../node/setup/corda-configuration-file.md) for a complete reference.
 
 
 ## MySQL notary (deprecated)
@@ -179,5 +179,5 @@ dataSourceProperties = {
 
 ## Obtaining the notary service identity
 
-The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration](../ha-utilities.md#notary-reg-tool).
+The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration](../ha-utilities.html#notary-registration).
 Once the service is registered, each worker node is registered using the `initial-registration` process. See ../joining-a-compatibility-zone.

@@ -89,7 +89,7 @@ This permission set is recommended for production environments.
 
 {{< note >}}
 This step refers to *schema* as a namespace with a set of permissions,
-the schema content (tables, indexes) is created in [the next step](#db-setup-step-2-ref).
+the schema content (tables, indexes) is created in [the next step](#2-database-schema-creation).
 
 {{< /note >}}
 Variants of Data Definition Language (DDL) scripts are provided for each supported database vendor.
@@ -244,7 +244,7 @@ GRANT CREATE SEQUENCE TO my_admin_user;
 GRANT SELECT ON v_$parameter TO my_admin_user;
 ```
 
-The permissions for the CENM service instance user to access database objects will be assigned in [the following step](#db-setup-step-2-oracle-extra-step-ref)
+The permissions for the CENM service instance user to access database objects will be assigned in [the following step](#oracle-2)
 after the database objects are created.
 
 The last permission for the *v_$parameter* view is needed when a database is running in
@@ -451,7 +451,7 @@ The `database.schema` is the database schema name assigned to the user.
 
 The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539),
 extract the archive and copy the single file *mssql-jdbc-6.2.2.jre8.jar* (the archive comes with two JARs).
-[Common Configuration Steps paragraph](#db-setup-step-3-ref) explains the correct location for the driver JAR in the CENM service installation structure.
+[Common Configuration Steps paragraph](#4-database-configuration) explains the correct location for the driver JAR in the CENM service installation structure.
 
 
 
@@ -588,7 +588,7 @@ Additional vendor specific database configuration.
 ### SQL Server
 
 The database collation should be *case insensitive*, refer to
-[Server Configuration documentation](https://docs.microsoft.com/en-us/sql/sql-server/install/server-configuration-collation?view=sql-server-2014&viewFallbackFrom=sql-server-2017).
+[Server Configuration documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-ver15).
 
 
 ### Oracle

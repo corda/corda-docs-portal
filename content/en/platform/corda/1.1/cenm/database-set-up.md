@@ -67,14 +67,14 @@ and how to configure CENM services to connect to a database with *restricted per
 Setting up a CENM service (Identity Manager / Network Map) to connect to a database requires:
 
 
-* [Creating a database user with schema permissions](#db-setup-step-1-ref)
-* [Database table creation](#db-setup-step-2-ref)
-* [CENM service configuration changes](#db-setup-step-3-ref)
-* [Database configuration](#db-setup-step-4-ref)
+* [Creating a database user with schema permissions](#1-creating-a-database-user-with-schema-permissions)
+* [Database table creation](#2-database-schema-creation)
+* [CENM service configuration changes](#3-cenm-service-configuration)
+* [Database configuration](#4-database-configuration)
 
 
 
-### 1. Creating a database user with schema permissions
+## 1. Creating a database user with schema permissions
 
 A database administrator must create a database user and a schema namespace with **restricted permissions**.
 This grants the user access to DML execution only (to manipulate data itself e.g. select/delete rows).
@@ -82,7 +82,7 @@ This permission set is recommended for production environments.
 
 {{< note >}}
 This step refers to *schema* as a namespace with a set of permissions,
-the schema content (tables, indexes) is created in [the next step](#db-setup-step-2-ref).
+the schema content (tables, indexes) is created in [the next step](#2-database-schema-creation).
 
 {{< /note >}}
 Variants of Data Definition Language (DDL) scripts are provided for each supported database vendor.
@@ -101,14 +101,14 @@ Each CENM service needs to use a separate database user and schema where multipl
 Creating database users with schema permissions for:
 
 
-* [Azure SQL](#db-setup-create-user-azure-ref)
-* [SQL Server](#db-setup-create-user-sqlserver-ref)
-* [Oracle](#db-setup-create-user-oracle-ref)
-* [PostgreSQL](#db-setup-create-user-postgresql-ref)
+* [Azure SQL](#azure-sql)
+* [SQL Server](#sql-server)
+* [Oracle](#oracle)
+* [PostgreSQL](#postgresql)
 
 
 
-#### Azure SQL
+### Azure SQL
 
 Two database users needed to be created; the first one with administrative permissions to create schema objects,
 and the second with restrictive permissions for a CENM service instance.
@@ -155,7 +155,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_
 
 
 
-#### SQL Server
+### SQL Server
 
 Two database users need to be created; the first with administrative permissions to create schema objects,
 the second with restrictive permissions for a CENM service instance.
@@ -204,7 +204,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE, VIEW DEFINITION, REFERENCES ON SCHEMA::my_
 
 
 
-#### Oracle
+### Oracle
 
 {{< note >}}
 CENM has been tested with Oracle database versions 12cR2 and 11gR2
@@ -245,7 +245,7 @@ The last permission for the *v_$parameter* view is needed when a database is run
 
 
 
-#### PostgreSQL
+### PostgreSQL
 
 Connect to the database as an administrator and run the following script to create a CENM service instance user:
 
@@ -396,10 +396,10 @@ database = {
 Configuration templates for each database vendor are shown below:
 
 
-* [Azure SQL](#db-setup-configure-cenm-azure-ref)
-* [SQL Server](#db-setup-configure-cenm-sqlserver-ref)
-* [Oracle](#db-setup-configure-cenm-oracle-ref)
-* [PostgreSQL](#db-setup-configure-cenm-postgresql-ref)
+* [Azure SQL](#azure-sql-1)
+* [SQL Server](#sql-server-1)
+* [Oracle](#oracle-2)
+* [PostgreSQL](#postgresql-1)
 
 
 
@@ -581,7 +581,7 @@ Additional vendor specific database configuration.
 ### SQL Server
 
 The database collation should be *case insensitive*, refer to
-[Server Configuration documentation](https://docs.microsoft.com/en-us/sql/sql-server/install/server-configuration-collation?view=sql-server-2014&viewFallbackFrom=sql-server-2017).
+[Server Configuration documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-ver15).
 
 
 ### Oracle
@@ -728,6 +728,3 @@ To remove service tables run the following SQL script:
 ```sql
 DROP SCHEMA IF EXISTS "my_schema" CASCADE;
 ```
-
-
-

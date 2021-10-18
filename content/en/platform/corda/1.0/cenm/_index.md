@@ -38,10 +38,10 @@ Concepts and Overview
 
 * [Compatibility Zones](../../../../../en/platform/corda/1.0/cenm/compatibility-zones.md)
 * [Components of the Corda Enterprise Network Manager](../../../../../en/platform/corda/1.0/cenm/enm-components.md)
-* [The Workflow](../../../../../en/platform/corda/1.0/cenm/enm-components.html#the-workflow)
-* [Databases](../../../../../en/platform/corda/1.0/cenm/enm-components.html#databases)
-* [Public Key Infrastructure](../../../../../en/platform/corda/1.0/cenm/enm-components.html#public-key-infrastructure)
-* [The Node](../../../../../en/platform/corda/1.0/cenm/enm-components.html#the-node)
+* [The Workflow](../../../../../en/platform/corda/1.0/cenm/workflow.md)
+* [Databases](../../../../../en/platform/corda/1.0/cenm/database-set-up.md)
+* [Public Key Infrastructure](../../../../../en/platform/corda/1.0/cenm/pki-tool.md)
+* [The Node](../../../../../en/platform/corda/1.0/cenm/network-map-overview.html#node-info)
 * [Sub Zones](../../../../../en/platform/corda/1.0/cenm/sub-zones.md)
 * [Network Map Overview](../../../../../en/platform/corda/1.0/cenm/network-map-overview.md)
 * [Certificate Revocation List (CRL)](../../../../../en/platform/corda/1.0/cenm/certificate-revocation.md)
@@ -79,14 +79,14 @@ Configuration
 * [Network Parameters](../../../../../en/platform/corda/1.0/cenm/config-network-parameters.md)
 * [Configuring the ENM services to use SSL](../../../../../en/platform/corda/1.0/cenm/enm-with-ssl.md)
 * [Workflow](../../../../../en/platform/corda/1.0/cenm/workflow.md)
-* [Example response to a node when its CSR has been rejected:](../../../../../en/platform/corda/1.0/cenm/workflow.html#example-response-to-a-node-when-its-csr-has-been-rejected)
+* [Node CSR Rejection Response](../../../../../en/platform/corda/1.0/cenm/workflow.html#node-csr-rejection-response)
 
 
 
 
 Tools & Utilities
 
-* [Tools & Utilities](../../../../../en/platform/corda/1.0/cenm/tools-index.md)
+* [Tools and Utilities](../../../../../en/platform/corda/1.0/cenm/tools-index.md)
 * [Embedded Shell](../../../../../en/platform/corda/1.0/cenm/shell.md)
 
 
