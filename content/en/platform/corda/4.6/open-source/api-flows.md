@@ -1831,7 +1831,7 @@ another flow to take control and run.
 Implementations of `FlowExternalAsyncOperation` must return a `CompletableFuture`. How this future is created is up to the developer.
 It is recommended to use `CompletableFuture.supplyAsync` and supply an executor to run the future on. Other libraries can be used to
 generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. An example of creating a future
-using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) is given in a following section.
+using [Guava’s ListenableFuture](#creating-completablefutures-from-guavas-listenablefutures) is given in a following section.
 
 {{< note >}}
 The future can be chained to execute further operations that continue using the same thread the future started on. For example,
