@@ -44,7 +44,7 @@ or [moving away from H2](#migrating-from-the-h2-database-to-another-database-ven
 You can check if the CorDapp JAR contains Liquibase scripts as described in [here](node-operations-cordapp-deployment.md).
 If the Cordapp stores data in the custom tables (consult with the CorDapp developer/provider)
 and it doesn’t contain Liquibase scripts, follow the procedure
-[to add the script retrospectively](../../cordapps/database-management.html#database-management-add-liquibase-retrospectively-ref).{{< note >}}
+[to add the script retrospectively](../../cordapps/database-management.md).{{< note >}}
 Adding a Liquibase migration script to a CorDapp should be done by a CorDapp developer.{{< /note >}}
 
 * Generate CorDapp changesets against an empty database.Any custom tables required by CorDapps will have been created manually or by Hibernate upon node startup.
