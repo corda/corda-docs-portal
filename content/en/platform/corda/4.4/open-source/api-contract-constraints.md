@@ -181,7 +181,7 @@ More information on how to sign an app directly from Gradle can be found in the
 ### Using Signature Constraints in transactions
 
 If the app is signed, Signature Constraints will be used by default (in most situations) by the `TransactionBuilder` when adding output states.
-This is expanded upon in [Using Contract Constraints in Transactions](#contract-constraints-in-transactions).
+This is expanded upon in [Using Contract Constraints in Transactions](#using-contract-constraints-in-transactions).
 
 {{< note >}}
 Signature Constraints are used by default except when a new transaction contains an input state with a Hash Constraint. In this

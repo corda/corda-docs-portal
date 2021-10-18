@@ -99,7 +99,7 @@ used as an `AbstractParty` but has an actual value that is one of `Party` or `An
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not a valid type for use as an `AbstractParty` later.
 (For more information on `Destination`, see the [Changelog](changelog.md) for Platform Version 5, or the KDocs for the interface
-[here](https://docs.r3.com/en/api-ref/corda/4.4/open-source/kotlin/corda/index.html))
+[here](https://docs.r3.com/en/api-ref/corda/4.4/open-source/kotlin/corda/index.html)).
 
 Note that this is a Kotlin-specific issue. Java can instead choose `? extends AbstractParty & Destination` here, which can later be used
 as `AbstractParty`.
@@ -335,7 +335,7 @@ The upgrade is a three step process:
 
 * Change the flow that calls `FinalityFlow`.
 * Change or create the flow that will receive the finalised transaction.
-* Make sure your application’s minimum and target version numbers are both set to 4 (see Step 2. Adjust the version numbers in your Gradle build files.
+* Make sure your application’s minimum and target version numbers are both set to 4 (see Step 2. Adjust the version numbers in your Gradle build files).
 
 
 #### Upgrading a non-initiating flow
