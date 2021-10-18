@@ -45,7 +45,7 @@ its signature somehow altered.
 * Addition of a new method to an interface or abstract class. Types that have been annotated as `@DoNotImplement` are
 excluded from this check. (This annotation is also inherited across subclasses and sub-interfaces.)
 * Exposure of an internal type via a public API. Internal types are considered to be anything in a `*.internal.` package
-or anything in a module that isn’t in the stable modules list [here](api-stability-guarantees.md#internal-apis-and-stability-guarantees).
+or anything in a module that isn’t in the stable modules list [here](api-stability-guarantees.md).
 
 Developers can execute these commands themselves before submitting their PR, to ensure that they haven’t inadvertently
 broken Corda’s API.
