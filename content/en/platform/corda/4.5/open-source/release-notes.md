@@ -41,7 +41,7 @@ We have improved the existing [killFlow RPC operation](https://api.corda.net/api
 
 ### New flow APIs
 
-We have introduced new flow framework APIs `sendAll` and `sendAllMap`, which can be used to send messages to multiple counterparties with improved performance. Previously, a flow was able to send messages to multiple counterparties by using the [send API](api-flows.md#send) once for each counterparty. These new APIs can now be used to achieve the same with better performance, which comes from a smaller number of suspensions and checkpoints.
+We have introduced new flow framework APIs `sendAll` and `sendAllMap`, which can be used to send messages to multiple counterparties with improved performance. Previously, a flow was able to send messages to multiple counterparties by using the [send API](api-flows.html#send) once for each counterparty. These new APIs can now be used to achieve the same with better performance, which comes from a smaller number of suspensions and checkpoints.
 
 For more information about the new APIs, see the [API flows](api-flows.html#communication-between-parties) documentation section.
 
@@ -71,7 +71,7 @@ the knowledge base will be populated over time, as new error conditions are repo
 
 Corda uses Quasar to instrument flows, which makes it possible to resume a flow from a checkpoint. However, the Quasar instrumentation causes `OutOfMemoryError` exceptions to occur when certain `.jar` files are loaded as dependencies.
 
-To resolve this issue, we have added the new node configuration option `quasarExcludePackages`, which allows you to list packages that are to be excluded from the Quasar instrumentation. See [Node configuration](corda-configuration-fields.md#quasarexcludepackages) for more information.
+To resolve this issue, we have added the new node configuration option `quasarExcludePackages`, which allows you to list packages that are to be excluded from the Quasar instrumentation. See [Node configuration](corda-configuration-fields.html#quasarexcludepackages) for more information.
 
 ### `RestrictedEntityManager` and `RestrictedConnection`
 
@@ -79,8 +79,8 @@ To improve reliability and prevent user errors, we have modified the database ac
 
 The full list of blocked functions can be found below:
 
-- [Restricted connections](api-persistence.md#restricted-control-of-connections).
-- [Restricted entity managers](api-persistence.md#restricted-control-of-entity-managers).
+- [Restricted connections](api-persistence.html#restricted-control-of-connections).
+- [Restricted entity managers](api-persistence.html#restricted-control-of-entity-managers).
 
 ### Updated Dockerform task
 
@@ -118,7 +118,7 @@ For more information about platform versions, see [Versioning](versioning.md).
 ## Corda 4.4
 
 Corda 4.4 lays the foundation of a new open core approach for the Corda codebase. This involved a refactoring of the
-main functional components of Corda. Please consult [the CorDapp overview](cordapp-overview.md/) to get an overview of
+main functional components of Corda. Please consult [the CorDapp overview](cordapp-overview.md) to get an overview of
 the practical impact on CorDapp development.
 
 Furthermore, Corda 4.4 introduces improvements to the flow framework API and a new diagnostic `ServiceHub` call, and includes
@@ -742,7 +742,7 @@ Learn more about this new feature by reading the [Upgrading CorDapps to newer Pl
 
 #### State pointers
 
-[State Pointers](api-states.md#state-pointers) formalize a recommended design pattern, in which states may refer to other states
+[State Pointers](api-states.html#state-pointers) formalize a recommended design pattern, in which states may refer to other states
 on the ledger by `StateRef` (a pair of transaction hash and output index that is sufficient to locate
 any information on the global ledger). State pointers work together with the reference states feature
 to make it easy for data to point to the latest version of any other piece of data, with the right
