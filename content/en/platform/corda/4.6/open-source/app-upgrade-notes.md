@@ -57,7 +57,7 @@ If you are using them you should re-namespace them to a package namespace you co
 
 ### Required actions relating to database optimisation in Corda 4.6
 
-The operational improvements around [database schema harmonisation](release-notes.md#database-schema-harmonisation) that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version.
+The operational improvements around [database schema harmonisation](release-notes.html#database-schema-harmonisation) that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version.
 
 The required steps for each upgrade path are described below.
 
@@ -65,7 +65,7 @@ The required steps for each upgrade path are described below.
 
 1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` from the database section of your node configuration file.
 2. Update any missing core schema changes by running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
-3. Add Liquibase resources to CorDapps. In Corda 4.6, CorDapps that introduce custom schema need Liquibase migration scripts allowing them to create the schema upfront. For existing CorDapps that do not have migration scripts in their resources, they can be added as an external migration `.jar` file, as documented in the [Corda Enterprise documentation](../../4.6/enterprise/cordapps/database-management.md#adding-scripts-retrospectively-to-an-existing-cordapp).
+3. Add Liquibase resources to CorDapps. In Corda 4.6, CorDapps that introduce custom schema need Liquibase migration scripts allowing them to create the schema upfront. For existing CorDapps that do not have migration scripts in their resources, they can be added as an external migration `.jar` file, as documented in the [Corda Enterprise documentation](../../4.6/enterprise/cordapps/database-management.html#adding-scripts-retrospectively-to-an-existing-cordapp).
 4. Update the changelog for existing schemas. After upgrading the Corda `.jar` file and adding Liquibase scripts to the CorDapp(s), any custom schemas from the apps are present
 in the database, but the changelog entries in the Liquibase changelog table are missing (as they have been created by Liquibase). This will cause issues when starting the node, and also when running `run-migration-scripts` as tables that already exist cannot be recreated. By running the new sub-command `sync-app-schemas`, changelog entries are created for all existing mapped schemas from CorDapps: `java -jar corda.jar sync-app-schemas`.
 
@@ -227,7 +227,7 @@ Otherwise just upgrade your installed copy in the usual manner for your operatin
 {{< note >}}
 Platform Version 5 requires a different version of Gradle, so if you’re intending to upgrade past Platform Version 4 you may wish
 to skip updating Gradle here and upgrade directly to the version required by Platform Version 5. You’ll still need to alter the version
-numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#platform-version-5-gradle-changes)
+numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#step-2-update-gradle-version-and-associated-dependencies)
 
 {{< /note >}}
 
@@ -338,7 +338,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-See [CorDapp configuration files](cordapp-build-systems.md#cordapp-configuration-files-ref) for more information.
+See [CorDapp configuration files](cordapp-build-systems.html#cordapp-configuration-files) for more information.
 
 
 
@@ -370,7 +370,7 @@ The upgrade is a three step process:
 
 * Change the flow that calls `FinalityFlow`.
 * Change or create the flow that will receive the finalised transaction.
-* Make sure your application’s minimum and target version numbers are both set to 4 (see [Step 2. Adjust the version numbers in your Gradle build files](#cordapp-upgrade-version-numbers-ref)).
+* Make sure your application’s minimum and target version numbers are both set to 4 (see [Step 2. Adjust the version numbers in your Gradle build files](#step-2-adjust-the-version-numbers-in-your-gradle-build-files)).
 
 
 #### Upgrading a non-initiating flow
@@ -631,7 +631,7 @@ Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same t
 
 ### Step 6. Security: Upgrade your use of SwapIdentitiesFlow
 
-The [Confidential identities](api-identity.md#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
+The [Confidential identities](api-identity.html#confidential-identities) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as `FinalityFlow` above, to close problems with confidential identities being injectable into a node
 outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
 the `SwapIdentitiesFlow`.
@@ -778,20 +778,20 @@ to be governed by a contract that is either:
 * The outer class of the state class, if the state is an inner class of a contract. This is a common design pattern.
 * Annotated with `@BelongsToContract` which specifies the contract class explicitly.
 
-Learn more by reading [Contract/State Agreement](api-contract-constraints.md#contract-state-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
+Learn more by reading [Contract/State Agreement](api-contract-constraints.html#contractstate-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
 states that point to contracts outside their package will trigger a log warning but validation will proceed.
 
 
 ### Step 9. Learn about signature constraints and JAR signing
 
-[Signature Constraints](api-contract-constraints.md#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
+[Signature Constraints](api-contract-constraints.html#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
 deploy application upgrades smoothly and in a decentralised manner. Signature constraints are the new default mode for CorDapps, and
 the act of upgrading your app to use the version 4 Gradle plugins will result in your app being automatically signed, and new states
 automatically using new signature constraints selected automatically based on these signing keys.
 
 You can read more about signature constraints and what they do in [API: Contract Constraints](api-contract-constraints.md). The `TransactionBuilder` class will
 automatically use them if your application JAR is signed. **We recommend all JARs are signed**. To learn how to sign your JAR files, read
-[Signing the CorDapp JAR](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
+[Signing the CorDapp JAR](cordapp-build-systems.html#signing-the-cordapp-jar). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
 with developer certificates is deployed to a production node, the node will refuse to start. Therefore to deploy apps built for Corda 4
 to production you will need to generate signing keys and integrate them with the build process.
 
@@ -836,7 +836,7 @@ flow logic that individual users can customise at pre-agreed points (protected m
 that causes transaction details to be converted to a PDF and sent to a particular printer. This would be an inappropriate feature to put
 into shared business logic, but it makes perfect sense to put into a user-specific app they developed themselves.
 
-If your flows could benefit from being extended in this way, read “[Configuring Responder Flows](flow-overriding.md)” to learn more.
+If your flows could benefit from being extended in this way, read [Configuring Responder Flows](flow-overriding.md) to learn more.
 
 
 ### Step 12. Possibly update vault state queries
@@ -844,7 +844,7 @@ If your flows could benefit from being extended in this way, read “[Configurin
 In Corda 4 queries made on a node’s vault can filter by the relevancy of those states to the node. As this functionality does not exist in
 Corda 3, apps will continue to receive all states in any vault queries. However, it may make sense to migrate queries expecting just those states relevant
 to the node in question to query for only relevant states. See [API: Vault Query](api-vault-query.md) for more details on how to do this. Not doing this
-may result in queries returning more states than expected if the node is using observer functionality (see “[Posting transactions to observer nodes](tutorial-observer-nodes.md)”).
+may result in queries returning more states than expected if the node is using observer functionality (see [Posting transactions to observer nodes](tutorial-observer-nodes.md)).
 
 
 ### Step 13. Explore other new features that may be useful
@@ -852,9 +852,9 @@ may result in queries returning more states than expected if the node is using o
 Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
-* The [new withEntityManager API](https://api.corda.net/api/corda-os/4.6/html/api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
-* [Reference States](api-states.md#reference-states), that let you use an input state without consuming it.
-* [State Pointers](api-states.md#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
+* The [new withEntityManager API](https://docs.r3.com/en/api-ref/corda/4.6/open-source/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
+* [Reference States](api-states.html#reference-states), that let you use an input state without consuming it.
+* [State Pointers](api-states.html#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 
 Please also read the [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) associated with CorDapp upgrading.
 
@@ -871,4 +871,4 @@ You have some choices here:
 * Upgrade your `quasar.jar` to `0.7.12_r3`
 * Delete your `lib` directory and switch to using the Gradle test runner
 
-Instructions for both options can be found in [Running tests in Intellij](tutorial-cordapp.md#tutorial-cordapp-running-tests-intellij).
+Instructions for both options can be found in [Running tests in Intellij](tutorial-cordapp.html#testing-the-cordapp).
