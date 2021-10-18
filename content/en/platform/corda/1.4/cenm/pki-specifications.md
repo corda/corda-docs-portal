@@ -25,7 +25,7 @@ For instructions on generating certificates, see the [PKI Tool](pki-tool.html#ru
 
 ## Setting up a network under an existing root
 
-If you wish to set up a Corda network under an existing root and therefore are not using the PKI Tool, the certificate hierarchy you create should follow the guidelines specified in the [Certificate Hierarchy Guide](pki-guide.md). You may also find it helpful to reference the [Corda network policies](https://corda.network).
+If you wish to set up a Corda network under an existing root and therefore are not using the PKI Tool, the certificate hierarchy you create should follow the guidelines specified in the [Certificate Hierarchy Guide](pki-guide.md). You may also find it helpful to reference the [Corda network policies](https://trust.corda.network/).
 
 ## Delegating network signing to a third party
 

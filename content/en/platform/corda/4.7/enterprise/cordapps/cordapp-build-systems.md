@@ -256,7 +256,7 @@ plugin and signing the CorDapp JAR downstream in your build pipeline. A CorDapp 
 is accepted by a Corda node only when running in development mode. In case that the CorDapp signed by the (default)
 development key is run on node in the production mode (for example, for testing), the node may be set to accept the development
 key by adding the `cordappSignerKeyFingerprintBlacklist = []` property set to an empty list (see
-[Configuring a node](../node/setup/corda-configuration-file.md#corda-configuration-file-signer-blacklist)).
+[Configuring a node](../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-signer-blacklist)).
 
 Signing options can be contextually overwritten by the relevant system properties as described above. This allows the
 single `build.gradle` file to be used for a development build (defaulting to the Corda development keystore) and for
@@ -408,7 +408,7 @@ flows (see [Versioning](versioning.md)).
 
 {{< note >}}
 Before installing a CorDapp, you must create one or more nodes to install it on. For instructions, please see
-generating-a-node.
+[generating a node](../../../../../../en/platform/corda/4.7/enterprise/operations/deployment/generating-a-node.md).
 
 {{< /note >}}
 At start-up, nodes will load any CorDapps present in their `cordapps` folder. In order to install a CorDapp on a node, the
@@ -610,8 +610,8 @@ Future versions of Corda will de-couple this custom schema dependency to remove 
 As of Corda 4, CorDapp Contract JARs must be installed on a node by a trusted uploader, either by
 
 
-* installing manually as per [Installing the CorDapp JAR](#cordapp-install-ref) and re-starting the node.
-* uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC](../node/operating/clientrpc.md#clientrpc-connect-ref))
+* installing manually as per [Installing the CorDapp JAR](../../../../../../en/platform/corda/4.7/enterprise/cordapps/cordapp-build-systems.html#installing-the-cordapp-jar) and re-starting the node.
+* uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC](../../../../../../en/platform/corda/4.7/enterprise/node/operating/clientrpc.html#clientrpc-connect-ref))
 or via the shell by issuing the following command:
 
 `>>> run uploadAttachment jar: path/to/the/file.jar`

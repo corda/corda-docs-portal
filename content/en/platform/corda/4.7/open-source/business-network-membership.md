@@ -27,7 +27,7 @@ In this version, you can:
 * Access control group reporting.
 * Query group membership.
 * Log and report actions to membership attestations.
-* Request membership attribute changes.  
+* Request membership attribute changes.
 
 ## Creating and managing a business network
 
@@ -82,7 +82,7 @@ dependencies {
 }
 ```
 
-3. Add both dependencies in your **Cordform** - `deployNodes` - [task](generating-a-node.md#tasks-using-the-cordform-plug-in).
+3. Add both dependencies in your **Cordform** - `deployNodes` - [task](generating-a-node.html#tasks-using-the-cordform-plug-in).
 
 You have installed the Business Network membership extension.
 
@@ -182,7 +182,7 @@ subFlow(ModifyGroupFlow(groupId, groupName, newParticipantsList, notary))
 
 ### Onboard a new member without prior request
 
-As an authorised member of the network, you can onboard a new member without needing a prior membership request. The joining party is immediately added to the network with an `ACTIVE` status. You can then add the member directly to the relevant groups.  
+As an authorised member of the network, you can onboard a new member without needing a prior membership request. The joining party is immediately added to the network with an `ACTIVE` status. You can then add the member directly to the relevant groups.
 
 1. Run `OnboardMembershipFlow` to directly issue a new membership with `ACTIVE` status.
 2. Run `ModifyGroupFlow` to assign the new member to the correct groups.

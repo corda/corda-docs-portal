@@ -27,7 +27,7 @@ After you have written the contract and defined any necessary constraints, as de
 * Update the lender’s side of the flow to request the borrower’s signature.
 * Create a response flow for the borrower that responds to the signature request from the lender.
 
-To do this, modify the flow that you created earlier as part of [Write the flow](write-the-flow.md).
+To do this, modify [the flow that you created earlier](../../../../../../en/tutorials/corda/4.8/os/template-tutorial/modify-the-flow.md).
 
 ## Outcome
 

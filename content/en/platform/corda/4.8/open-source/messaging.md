@@ -123,26 +123,13 @@ with the advertised X.500 legal name from the network map service.
 ### Implementation details
 
 
-*
-    * Opens Acceptor configured with the doorman’s certificate in the trustStore and the node’s SSL certificate in the keyStore.
-
-
-*
-    * Opens “Admin” Acceptor configured with the doorman’s certificate in the trustStore and the node’s SSL certificate in the keyStore.
-    * Opens “Client” Acceptor with the SSL settings configurable. This acceptor does not require SSL client-auth.
-
-
-*
-    * Connects to the P2P broker using the `SystemUsers/Node` user and the node’s keyStore and trustStore.
-    * Connects to the “Admin” Acceptor of the RPC broker using the `SystemUsers/NodeRPC` user and the node’s keyStore and trustStore.
-
-
-*
-    * Connect to the “Client” Acceptor of the RPC broker using the username/password provided by the node’s admin. The client verifies the node’s certificate using a trustStore provided by the node’s admin.
-
-
-*
-    * Connect to the P2P broker using the `SystemUsers/Peer` user and a doorman signed certificate. The authentication is performed based on the root CA.
+* Opens Acceptor configured with the doorman’s certificate in the trustStore and the node’s SSL certificate in the keyStore.
+* Opens “Admin” Acceptor configured with the doorman’s certificate in the trustStore and the node’s SSL certificate in the keyStore.
+* Opens “Client” Acceptor with the SSL settings configurable. This acceptor does not require SSL client-auth.
+* Connects to the P2P broker using the `SystemUsers/Node` user and the node’s keyStore and trustStore.
+* Connects to the “Admin” Acceptor of the RPC broker using the `SystemUsers/NodeRPC` user and the node’s keyStore and trustStore.
+* Connect to the “Client” Acceptor of the RPC broker using the username/password provided by the node’s admin. The client verifies the node’s certificate using a trustStore provided by the node’s admin.
+* Connect to the P2P broker using the `SystemUsers/Peer` user and a doorman signed certificate. The authentication is performed based on the root CA.
 
 
 
