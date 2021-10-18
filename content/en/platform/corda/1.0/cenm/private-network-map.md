@@ -94,7 +94,7 @@ Run the following SQL script to create a new private network that doesn’t allo
 insert into private_network values (NEWID(), 'Private Network Name', 0)
 ```
 
-Or this to allow for auto enrolment
+Or this to allow for auto enrolment:
 
 ```sql
 insert into private_network values (NEWID(), 'Private Network Name', 1)
@@ -115,7 +115,7 @@ select id from private_network where name = 'Private Network Name'
 
 ### Add nodes to the private network
 
-To add a node to the private network map run the following SQL
+To add a node to the private network map run the following SQL:
 
 ```sql
 update cert_signing_request
@@ -169,4 +169,3 @@ networkServices = {
 
 The Identity Manager will return any error to the node and reject the CSR if there are any issues with the configured
 private network.
-

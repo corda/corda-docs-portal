@@ -20,13 +20,12 @@ weight: 20
 - [CENM Deployment with Docker, Kubernetes and Helm charts](#cenm-deployment-with-docker-kubernetes-and-helm-charts)
   - [Docker images and JDK supported](#docker-images-and-jdk-supported)
   - [Helm charts](#helm-charts)
-  - [Kubernetes services supported](#kubernetes-services-supported)
   - [General information about this deployment](#general-information-about-this-deployment)
   - [Deploying your network](#deploying-your-network)
     - [Prerequisite](#prerequisite)
       - [(1) Install dependencies](#1-install-dependencies)
       - [(2) Set up and connect to a cluster on Azure](#2-set-up-and-connect-to-a-cluster-on-azure)
-      - [(3) Create storage class and namespace](#3-create-storage-class-and-namespace)
+      - [(3) Create storage class and namespace](#3-create-storage-class-namespace-and-rbac)
       - [(4) Download helm charts and installation scripts](#4-download-helm-charts-and-installation-scripts)
     - [Option 1: Bootstrapping by allocating new external IP addresses](#option-1-bootstrapping-by-allocating-new-external-ip-addresses)
     - [Option 2: Bootstrapping by reusing already allocated external IP addresses](#option-2-bootstrapping-by-reusing-already-allocated-external-ip-addresses)
@@ -255,8 +254,8 @@ ssh -p <shell.sshdPort> -l <shell.user> <IP Address>
 ```
 
 - IP addresses are dynamically allocated for each deployment and can be found with `kubectl get svc`
-- ssh port and user are specified in [Helm charts configurations](#Helm-charts) for each service
-- you will be asked a password for each service, which can be found [Helm charts configurations](#Helm-charts) for each service
+- ssh port and user are specified in [Helm charts configurations](#helm-charts) for each service
+- you will be asked a password for each service, which can be found [Helm charts configurations](#helm-charts) for each service
 
 Note: make sure that you are pointing at the correct namespace - check with:
 
@@ -298,7 +297,7 @@ kubectl get pods -o wide`
 
 Truststore password can be found in the `signer/files/pki.conf`, the default value used in this helm chart:  `trust-store-password`
 
-For more details about joining CENM network see: [Joining an existing compatibility zone](https://docs.corda.net/releases/release-V4.3/joining-a-compatibility-zone.html?highlight=registration#joining-an-existing-compatibility-zone)
+For more details about joining CENM network see: [Joining an existing compatibility zone](../../../../../en/platform/corda/4.3/enterprise/joining-a-compatibility-zone.html?highlight=registration#joining-an-existing-compatibility-zone).
 
 ### Display logs
 

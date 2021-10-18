@@ -30,8 +30,8 @@ inter-service communication. There are two types of connection:
 In this context, a client is either:
 
 
-* The Network Map, which consumes the Doorman and Revocation services
-* The Signing Service, comprised of the CRL Signer and Network Map Signer, which consume the Revocation and Network Map services respectively
+* The Network Map, which consumes the Doorman and Revocation services.
+* The Signing Service, comprised of the CRL Signer and Network Map Signer, which consume the Revocation and Network Map services respectively.
 
 
 ### Usage
@@ -45,8 +45,8 @@ java -jar utilities-<VERSION>.jar client-health-check --config-file <CONFIG_FILE
 ```
 
 
-* Either `--network-map` or `--signing-service` flag must be set
-* Service keystore and truststore files must be held locally and corresponding keys `keyStore` and `trustStore` must be configured
+* Either `--network-map` or `--signing-service` flag must be set.
+* Service keystore and truststore files must be held locally and corresponding keys `keyStore` and `trustStore` must be configured.
 
 
 ## Server Health Check Tool
@@ -56,8 +56,8 @@ The server health check tool reads an ENM service config file and pings the serv
 In this context, a server hosts either:
 
 
-* The Doorman and Revocation services. These services reside on the same remote host and listen on different ports, sharing a single config file
-* The Network Map
+* The Doorman and Revocation services. These services reside on the same remote host and listen on different ports, sharing a single config file.
+* The Network Map.
 
 
 ### Usage
@@ -69,5 +69,4 @@ java -jar utilities-<VERSION>.jar server-health-check --config-file <CONFIG_FILE
 ```
 
 
-* Service keystore and truststore files must be held locally and corresponding keys `keyStore` and `trustStore` must be configured
-
+* Service keystore and truststore files must be held locally and corresponding keys `keyStore` and `trustStore` must be configured.

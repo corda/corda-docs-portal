@@ -101,4 +101,4 @@ I want to:
 
 ## Add a node to an existing production network
 
-Corda Network is a global production network of Corda nodes, operated by the independent Corda Network Foundation. You can learn more here: [https://corda.network/participation/index.html](https://corda.network/participation/index.html)
+Corda Network is a global production network of Corda nodes, operated by the independent Corda Network Foundation. You can learn more here: [https://corda.network/joining-corda-network/onboarding-workflow](https://corda.network/joining-corda-network/onboarding-workflow)

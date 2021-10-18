@@ -112,30 +112,30 @@ assess in what state the service is. Better tooling around service health-check 
 
 ### Documentation
 
-The entire documentation for the Network Services has been redone and published under the [http://docs.netman.r3.com](http://docs.netman.r3.com)
+The entire documentation for the Network Services has been redone and published in the [Networking and messaging](../../../../../en/platform/corda/4.5/open-source/messaging.md) section.
 
 ### Issues Fixed
 
-* Added missing *my-hostname* endpoint missing in the Network Map Server. [[ENM-185](https://r3-cev.atlassian.net/browse/ENM-185)]
-* Revert network parameters constraints on the *maxTransactionSize*. [[ENM-187](https://r3-cev.atlassian.net/browse/ENM-187)]
-* JIRA client inaccessible from the maven repo. [ [ENM-190](https://r3-cev.atlassian.net/browse/ENM-190) ]
-* Running master (just post 0.2.1) Norman with Revocation Service also embedded gets serialization exceptions. [ [ENM-196](https://r3-cev.atlassian.net/browse/ENM-196) ]
-* If DB gets overloaded If local signing slows then timed execution does not back off. [ [ENM-223](https://r3-cev.atlassian.net/browse/ENM-223) ]
-* Fix hanging tests in Network Services code base. [ [ENM-224](https://r3-cev.atlassian.net/browse/ENM-224) ]
-* Fix docs isCa -> issuesCertificates. [ [ENM-255](https://r3-cev.atlassian.net/browse/ENM-255) ]
-* run-all.sh script for example cert generation doesn’t work when multiple utils jars exist in the build directory. [ [ENM-258](https://r3-cev.atlassian.net/browse/ENM-258) ]
-* Cert generator isn’t backward compatible with 0.2 config. [ [ENM-264](https://r3-cev.atlassian.net/browse/ENM-264) ]
-* Doorman doesn’t exit when it can’t locate cert stores, needs to be CTRL-C’d. [ [ENM-286](https://r3-cev.atlassian.net/browse/ENM-286) ]
-* Doorman doesn’t exit on exception when creating local signer whilst initialising. [ [ENM-308](https://r3-cev.atlassian.net/browse/ENM-308) ]
-* Improve error logging within the private network utility tool. [ [ENM-310](https://r3-cev.atlassian.net/browse/ENM-310) ]
-* Minor doc fix. [[ENM-184](https://r3-cev.atlassian.net/browse/ENM-184)]
-* Minor doc fix. [ [ENM-194](https://r3-cev.atlassian.net/browse/ENM-194) ]
+* Added missing *my-hostname* endpoint missing in the Network Map Server.
+* Revert network parameters constraints on the *maxTransactionSize*.
+* JIRA client inaccessible from the maven repo.
+* Running master (just post 0.2.1) Norman with Revocation Service also embedded gets serialization exceptions.
+* If DB gets overloaded If local signing slows then timed execution does not back off.
+* Fix hanging tests in Network Services code base.
+* Fix docs isCa -> issuesCertificates.
+* run-all.sh script for example cert generation doesn’t work when multiple utils jars exist in the build directory.
+* Cert generator isn’t backward compatible with 0.2 config.
+* Doorman doesn’t exit when it can’t locate cert stores, needs to be CTRL-C’d.
+* Doorman doesn’t exit on exception when creating local signer whilst initialising.
+* Improve error logging within the private network utility tool.
+* Minor doc fix.
+* Minor doc fix.
 
 ## Release 0.2.2
 
 ### Issues Fixed
 
-* Add the migration script for the allowAutoEnrollment column addition to the private networks table. [[ENM-188](https://r3-cev.atlassian.net/browse/ENM-188)]
+* Add the migration script for the allowAutoEnrollment column addition to the private networks table.
 
 ## Release 0.2.1
 
@@ -154,23 +154,23 @@ translates any 0.1 or 0.2.0 config file to 0.2.1 format.
 
 Moreover, utilities have been added that facilitate management of the new PKI. In particular the Certificate Hierarchy
 Verifier, which ensures correctness of the generated certificate hierarchy with respect to the Corda Network deployment.
-See [Certificates Validator](tool-certificates-validator.md) for more details regarding this tool and [Tools & Utilities](tools-index.md) for a comprehensive
+See [Certificates Validator](tool-certificates-validator.md) for more details regarding this tool and [Tools and Utilities](tools-index.md) for a comprehensive
 list of all available tools.
 
 ### Documentation
 
-The entire documentation for the Network Services has been redone and published under the [http://docs.netman.r3.com](http://docs.netman.r3.com)
+The entire documentation for the Network Services has been redone and published in the [Networking and messaging](../../../../../en/platform/corda/4.5/open-source/messaging.md) section.
 
 ### Issues Fixed
 
-* Fix error logging when exception during Jira workflow plugin creation. [[ENM-182](https://r3-cev.atlassian.net/browse/ENM-182)]
-* Fix keyPassword field for the revocation section in the configuration upgdrader. [[ENM-178](https://r3-cev.atlassian.net/browse/ENM-178)]
-* Add cert chain validation for local signer certificate chain construction. [[ENM-173](https://r3-cev.atlassian.net/browse/ENM-173)]
-* Print error message for signing service exception. [[ENM-169](https://r3-cev.atlassian.net/browse/ENM-169)]
-* Wrong log line in the CertificateSigningRequestSigner. [[ENM-168](https://r3-cev.atlassian.net/browse/ENM-168)]
-* Throw an explicit error when exception during local signer creation. [[ENM-162](https://r3-cev.atlassian.net/browse/ENM-162)]
-* Fix error logging within config parsing. [[ENM-161](https://r3-cev.atlassian.net/browse/ENM-161)]
-* Remove stack trace from the error logging. [[ENM-156](https://r3-cev.atlassian.net/browse/ENM-156)]
+* Fix error logging when exception during Jira workflow plugin creation.
+* Fix keyPassword field for the revocation section in the configuration upgdrader.
+* Add cert chain validation for local signer certificate chain construction.
+* Print error message for signing service exception.
+* Wrong log line in the CertificateSigningRequestSigner.
+* Throw an explicit error when exception during local signer creation.
+* Fix error logging within config parsing.
+* Remove stack trace from the error logging.
 
 ## Release 0.2.0
 
