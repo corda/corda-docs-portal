@@ -319,7 +319,7 @@ States and apps valid in Corda 3.0 and above are usable in Corda 4.5.
 
 #### Improved `killFlow` operations
 
-We have improved the existing [killFlow RPC operation](https://api.corda.net/api/corda-os/4.5/html/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/kill-flow.md), which allows node operators to terminate flows manually - in several ways:
+We have improved the existing [killFlow RPC operation](https://docs.r3.com/en/api-ref/corda/4.6/open-source/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/kill-flow.html), which allows node operators to terminate flows manually - in several ways:
 
 * When a flow is terminated, any counterparty that has an open flow session with the flow in question is notified that the flow has ended unexpectedly
 
@@ -822,7 +822,7 @@ of tools Corda offers. Now, following the release of Corda Enterprise 4.0, we ar
 and documentation updates to bring additional stability and quality of life improvements to those developing on the Corda platform.
 
 Information on Corda Enterprise 4.0 can be found [here](https://www.r3.com/wp-content/uploads/2019/05/CordaEnterprise4_Enhancements_FS.pdf) and
-[here](https://docs.corda.net/docs/corda-enterprise/4.0/release-notes-enterprise.md). (It’s worth noting that normally this document would have started with a comment
+[here](../../../../../en/platform/corda/4.0/enterprise/release-notes-enterprise.md). (It’s worth noting that normally this document would have started with a comment
 about whether or not you’d been recently domiciled under some solidified mineral material regarding the release of Corda Enterprise 4.0. Alas, we made
 that joke when we shipped the first release of Corda after Enterprise 3.0 shipped, so the thunder has been stolen and repeating ourselves would be terribly gauche.)
 
