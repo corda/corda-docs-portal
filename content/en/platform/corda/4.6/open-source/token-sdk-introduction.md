@@ -53,7 +53,7 @@ Overview of changes:
 
 ### Changes in V1.2.2
 
-In V1.2.2, a new [Token Selection](token-selection) feature allows the exception `InsufficientNotLockedBalanceException` to be thrown when  sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
+In V1.2.2, a new [Token Selection](token-selection.md) feature allows the exception `InsufficientNotLockedBalanceException` to be thrown when  sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
 
 ### Upgrade Tokens SDK
 
@@ -1265,7 +1265,7 @@ constructor(
 
 Depending on your plan for issuing tokens onto your network - whether you are ready to deploy tokens in an enterprise scenario or experimenting - there are two different ways to install the Tokens SDK:
 
-* [Use the kotlin Tokens SDK template](#create-tokens-using-the-tokens-sdk) template to get started and issue tokens locally. This is a great way to learn about the Tokens SDK through practical application, but may not be suitable for your enterprise deployment.
+* [Use the kotlin Tokens SDK template](#create-tokens-using-the-tokens-sdk) to get started and issue tokens locally. This is a great way to learn about the Tokens SDK through practical application, but may not be suitable for your enterprise deployment.
 * [Clone the latest repo](#build-tokens-sdk-against-corda-release-branch).
 
 
