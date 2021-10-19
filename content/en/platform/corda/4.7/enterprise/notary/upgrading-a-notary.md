@@ -18,7 +18,7 @@ and [Notary Worker Configuration](installing-the-notary-service.md/) processes c
 
 ## Before you begin
 
-Before beginning you must have:
+Before beginning, you must have:
 
 - An `ssh` accessible Percona cluster in **read-only mode**, or in **read/write** mode with no active connections.
 - An `ssh` accessible CockroachDB cluster.
@@ -230,4 +230,4 @@ echo --Done
 ## Next steps
 After the notary data migration is complete, at least one JPA notary node must be provisioned. To set up a JPA notary node,
 see the [JPA Notary Setup](ha-notary-service-overview.md/) and [Notary Worker Configuration](installing-the-notary-service.md/) documentation.
-After the JPA notary is operating, you should run the [Notary Health Check tool](../notary-healthcheck.md/) to ensure that the network is up and responsive.
+After the JPA notary is operating, you should run the [Notary Health Check tool](../../../../../../en/platform/corda/4.8/enterprise/notary-healthcheck.md/) to ensure that the network is up and responsive.
