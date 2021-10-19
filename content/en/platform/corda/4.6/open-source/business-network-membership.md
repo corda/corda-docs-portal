@@ -32,7 +32,7 @@ With this extension, you can use a set of flows to:
 * Assign members to membership lists or groups.
 * Update information about a member - such as their Business Network identity.
 * Modify a member's roles in the network.
-* Suspend or revoke membership.  
+* Suspend or revoke membership.
 
 {{< note >}}
 The code samples in this documentation show you how to run management operations using the provided primitives from the context of a tool or Cordapp. It is also possible to do these operations from an RPC client or node shell by simply invoking the supplied administrative flows using data resulted from executing vault queries.
@@ -204,7 +204,7 @@ subFlow(ModifyBusinessIdentityFlow(membership.state.data.linearId, updatedIdenti
 
 ### Update a members business network roles
 
-You can update a member's business identity attributes - by modifying their roles. Depending on your proposed changes, the updated member may become an **authorised member**. In this case, your enhancement must be preceded by an execution of the [`ModifyGroupsFlow`](#modify-a-group) to add the member to all membership lists that it will have administrative powers over.
+You can update a member's business identity attributes - by modifying their roles. Depending on your proposed changes, the updated member may become an **authorised member**. In this case, your enhancement must be preceded by an execution of the <a href="#modify-a-group">`ModifyGroupsFlow`</a> to add the member to all membership lists that it will have administrative powers over.
 
 To update a member's roles and permissions in the business network:
 
