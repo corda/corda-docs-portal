@@ -66,7 +66,7 @@ The main elements that need to be configured for the Identity Manager are:
     * [CSR Approval Mechanism](#csr-approval-mechanism)
     * [CSR Signing Mechanism](#csr-signing-mechanism)
     * [Issuance Internal Server](#issuance-internal-server)
-    * [Restricting a node’s Corda version (optional)](#restricting-a-node-s-corda-version-optional)
+    * [Restricting a node’s Corda version (optional)](#restricting-a-nodes-corda-version-optional)
 
 
 * [Revocation workflow (optional)](#revocation-workflow-optional)
@@ -179,7 +179,7 @@ database {
 
 ### Embedded shell (optional)
 
-See [Shell Configuration](shell.md#shell-config) for more information on how to configure the shell.
+See [Shell Configuration](shell.html#shell-configuration) for more information on how to configure the shell.
 
 
 ### Issuance Workflow

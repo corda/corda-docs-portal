@@ -741,7 +741,7 @@ transaction fail to verify it, or the receiving flow (the finality handler) fail
 all parties have the correct up to date view of the ledger (a condition where eventual consistency between participants takes longer than is
 normally the case under Corda’s [eventual consistency model](https://en.wikipedia.org/wiki/Eventual_consistency)). To recover from this scenario,
 the receiver’s finality handler will automatically be sent to the node-flow-hospital where it’s suspended and retried from its last checkpoint
-upon node restart, or according to other conditional retry rules explained in [flow hospital runtime behaviour](../node/node-flow-hospital.md#flow-hospital-runtime).
+upon node restart, or according to other conditional retry rules explained in [flow hospital runtime behaviour](../../../../../../../en/platform/corda/4.5/enterprise/node/node-flow-hospital.html#flow-hospital-runtime).
 This gives the node operator the opportunity to recover from the error. Until the issue is resolved the node will continue to retry the flow
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent once again.
 
@@ -1169,7 +1169,7 @@ Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`
 thread pool.
 
 {{< note >}}
-The size of the external operation thread pool can be configured, see [the node configuration documentation](../node/setup/corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size).
+The size of the external operation thread pool can be configured, see [the node configuration documentation](../../../../../../../en/platform/corda/4.5/enterprise/node/setup/corda-configuration-file.html#configuration-file-fields).
 
 {{< /note >}}
 Below is an example of how `FlowExternalOperation` can be called from a flow to run an operation on a new thread, allowing the flow to suspend:

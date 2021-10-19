@@ -77,7 +77,7 @@ to execute until the node is `drained` of any pending activity. This can be done
 Once the node has been successfully drained of any pending activity, you will be able to shut it down safely. Use the following command to output a JSON representation of remaining checkpoints:
 `checkpoints dump`
 
-If the resultant list is empty, the node has been successfully drained. If the list contains representations of in-flight flows, and continues to do so for an unreasonable amount of time, the flows may have become stuck. At this point, you may wish to kill the flows explicitly using the [`killFlow` API](../cordapps/api-flows#killing-flows).
+If the resultant list is empty, the node has been successfully drained. If the list contains representations of in-flight flows, and continues to do so for an unreasonable amount of time, the flows may have become stuck. At this point, you may wish to kill the flows explicitly using the [killFlow API](../../cordapps/api-flows.html#killing-flows).
 
 ### Step 3: Install the CorDapps
 
@@ -87,11 +87,11 @@ Before proceeding, verify that the transfer was completed successfully by checki
 
 ### Step 4: Run any necessary database migrations
 
-If you are using Corda with a permissioned database, you may need to [perform database migrations](../operating/node-operations-cordapp-deployment).
+If you are using Corda with a permissioned database, you may need to [perform database migrations](../operating/node-operations-cordapp-deployment.md).
 
 ### Step 5: Restart the node
 
-Restart the node in the manner in which the node was [originally started by the node operator](../deploy/deploying-a-node).
+Restart the node in the manner in which the node was [originally started by the node operator](../deploy/deploying-a-node.md).
 
 You have enabled your Corda node for Collaborative Recovery in the event of a disaster scenario.
 
@@ -112,5 +112,5 @@ initiating flows, described in detail in this documentation. Verify that the lis
 
 ## Next steps
 
-Now that you have successfully installed and verified your Collaborative Recovery CorDapps, you should familiarise yourself with their use and configuration by reviewing the documentation for [LedgerSync](ledger-sync), [automatic LedgerRecover](ledger-recovery-automatic) and
-[manual LedgerRecover](ledger-recovery-manual).
+Now that you have successfully installed and verified your Collaborative Recovery CorDapps, you should familiarise yourself with their use and configuration by reviewing the documentation for [LedgerSync](ledger-sync.md), [automatic LedgerRecover](ledger-recovery-automatic.md) and
+[manual LedgerRecover](ledger-recovery-manual.md).

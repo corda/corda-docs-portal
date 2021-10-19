@@ -102,7 +102,7 @@ the network, along with the network parameters file and identity certificates. G
 online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
-More information can be found in network-bootstrapper.
+More information can be found in [Network Bootstrapper](../../../../../../en/platform/corda/4.4/enterprise/network-bootstrapper.md).
 
 
 
@@ -180,7 +180,7 @@ Any CorDapp JAR that offers contracts and states in any of these packages must b
 This ensures that when a node encounters an owned contract it can uniquely identify it and knows that all other nodes can do the same.
 Encountering an owned contract in a JAR that is not signed by the rightful owner is most likely a sign of malicious behaviour, and should be reported.
 The transaction verification logic will throw an exception when this happens.
-Read more about *Package ownership* here “[Package namespace ownership](../../../../../../en/platform/corda/4.4/enterprise/node/deploy/env-dev.md#package-namespace-ownership)”.
+Read more about Package ownership in the [Package namespace ownership](../node/deploy/env-dev.md#package-namespace-ownership) section.
 
 
 
@@ -211,6 +211,8 @@ The fact a new set of parameters is being advertised shows up in the node logs w
 “Downloaded new network parameters”, and programs connected via RPC can receive `ParametersUpdateInfo` by using
 the `CordaRPCOps.networkParametersFeed` method. Typically a zone operator would also email node operators to let them
 know about the details of the impending change, along with the justification, how to object, deadlines and so on.
+
+You can find supplementary information in the [CENM Network Map documentation](../../../1.5/cenm/network-map.html#network-parameters).
 
 
 ### Automatic Acceptance
@@ -266,7 +268,7 @@ shell (see shell):
 
 If the administrator does not accept the update then next time the node polls network map after the deadline, the
 advertised network parameters will be the updated ones. The previous set of parameters will no longer be valid.
-At this point the node will automatically shut down and will require the node operator to bring it back again.
+At this point the node will automatically shutdown and will require the node operator to bring it back again.
 
 
 ## Private networks
