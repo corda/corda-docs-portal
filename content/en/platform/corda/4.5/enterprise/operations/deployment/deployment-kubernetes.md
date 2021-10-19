@@ -31,7 +31,7 @@ This deployment guide is intended for use by either of the following types of CE
 The reference deployment for Corda Enterprise Network Manager runs on [Kubernetes](https://kubernetes.io/) hosted on Microsoft Azure Cloud.
 Microsoft Azure provides a dedicated service to deploy a Kubernetes cluster - [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
 You must have an active Azure subscription to be able to deploy CENM.
-The next section [Deploy your network](#Deploy-your-network) contains links to the official Microsoft installation guide.
+The next section [Deploy your network](#deploy-your-network) contains links to the official Microsoft installation guide.
 The Kubernetes cluster must have access to a private Docker repository to obtain CENM Docker images.
 
 Your local machine operating system should be Linux, Mac OS, or a Unix-compatible environment for Windows
@@ -39,7 +39,7 @@ Your local machine operating system should be Linux, Mac OS, or a Unix-compatibl
 The deployment process is driven from your local machine using a Bash script and several third-party tools:
 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest),
 [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [Helm](https://helm.sh/).
-The following section [Deploy your network](#Deploy-your-network) provides links to official installation guides of the required tools.
+The following section [Deploy your network](#deploy-your-network) provides links to official installation guides of the required tools.
 In addition, the CENM Command-Line Interface (CLI) tool is required so you can connect to, and manage CENM (however, this is not required for deployment).
 
 ### Compatibility
@@ -52,7 +52,7 @@ The deployed network runs on Kubernetes minimum version 1.16.9 and Helm minimum 
 ### Deployment overview
 
 The provided deployment runs all CENM services run inside a single, dedicated Kubernetes namespace (default name:`cenm`).
-Each service runs in its own dedicated Kubernetes pod, with the exception of the [Angel Service](../../../../cenm/1.3/angel-service.md), which runs in the same pod as its managed service.
+Each service runs in its own dedicated Kubernetes pod, with the exception of the [Angel Service](../../../../../../../en/platform/corda/1.3/cenm/angel-service.md), which runs in the same pod as its managed service.
 
 {{< note >}}
 Naturally, the following command will not show a dedicated Angel Service pod:
@@ -102,7 +102,7 @@ The deployment steps are given below:
     ```
 - Install [Docker](https://www.docker.com/get-started). Docker is required to run the CENM CLI tool.
 
-- Download the Docker image with CENM [Command-Line Interface (CLI) tool](../../../../cenm/1.3/cenm-cli-tool.md) so you can manage CENM services:
+- Download the Docker image with CENM [Command-Line Interface (CLI) tool](../../../../../../../en/platform/corda/1.3/cenm/cenm-cli-tool.md) so you can manage CENM services:
 
     ```bash
     docker pull corda/enterprise-cenm-cli:1.3-zulu-openjdk8u242
@@ -196,7 +196,7 @@ cd network-services/deployment/k8s/helm
 
 ## Network operations
 
-Use the CENM [Command Line Interface (CLI) Tool](../../../../cenm/1.3/cenm-cli-tool.md) to access the [FARM Service](../../../../cenm/1.3/gateway-service.md) from your local machine.
+Use the CENM [Command Line Interface (CLI) Tool](../../../../../../../en/platform/corda/1.3/cenm/cenm-cli-tool.md) to access the [FARM Service](../../../../../../../en/platform/corda/1.3/cenm/gateway-service.md) from your local machine.
 To star CENM CLI Tool run Docker command starting Docker container with the tool:
 
   ```bash
@@ -219,7 +219,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<FARM-SERVICE-IP>:8080
   ```
 
-The [FARM Service](../../../../cenm/1.3/gateway-service.md) is a gateway between the [Auth Service](../../../../cenm/1.3/auth-service.md) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager Service](../../../../cenm/1.3/identity-manager.md), the [Network Map Service](../../../../cenm/1.3/network-map.md), and the [Signing Service](../../../../cenm/1.3/signing-service.md).
+The [FARM Service](../../../../../../../en/platform/corda/1.3/cenm/gateway-service.md) is a gateway between the [Auth Service](../../../../../../../en/platform/corda/1.3/cenm/auth-service.md) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager Service](../../../../../../../en/platform/corda/1.3/cenm/identity-manager.md), the [Network Map Service](../../../../../../../en/platform/corda/1.3/cenm/network-map.md), and the [Signing Service](../../../../../../../en/platform/corda/1.3/cenm/signing-service.md).
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 
