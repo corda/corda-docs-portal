@@ -426,7 +426,7 @@ running.
 #### 5. Stop the nodes
 
 Have each node operator stop their node. If you are also changing flow definitions, you should perform a
-[node drain](../node/operating/cm-updating-cordapp.html#draining-the-node) first to avoid the definition of states or contracts changing whilst a flow is
+[node drain](../../../../../../en/platform/corda/4.4/enterprise/node/operating/cm-updating-cordapp.html#draining-the-node) first to avoid the definition of states or contracts changing whilst a flow is
 in progress.
 
 
