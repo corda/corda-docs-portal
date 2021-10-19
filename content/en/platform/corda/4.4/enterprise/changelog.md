@@ -87,18 +87,18 @@ This is only best-effort and there are no guarantees of reliability.{{< /note >}
 signed by the same public keys, and uploaded by a trusted uploader. This allows the node to resolve transactions that use earlier versions
 of a contract without having to manually install that version, provided a newer version is installed. Similarly, non-contract attachments
 are whitelisted if another attachment is present on the node that is signed by the same public key.
-* [Package namespace ownership](node/deploy/env-dev.md#package-namespace-ownership) configurations can be now be set as described in
-[Package namespace ownership](node/deploy/generating-a-node.md#node-package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
+* [Package namespace ownership](../../../../../en/platform/corda/4.4/enterprise/node/deploy/env-dev.html#package-namespace-ownership) configurations can be now be set as described in
+[Package namespace ownership](../../../../../en/platform/corda/4.4/enterprise/node/deploy/generating-a-node.html#node-package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
 * Wildcards can now be used when specifying RPC permissions, for example `StartFlow.foo.bar.*` will allow users to start any flow in the
-`foo.bar` package. See [rpcUsers](node/setup/corda-configuration-file.md#corda-configuration-file-rpc-users) for more information.
+`foo.bar` package. See [rpcUsers](../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-rpc-users) for more information.
 * `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:+CrashOnOutOfMemoryError` have been added to the default JVM options of the node.
 A node which is running out of memory is now expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
 Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens.
-See [Setting JVM arguments](node/deploy/running-a-node.md#setting-jvm-args) and [Memory usage and tuning](node/operating/node-administration.md#memory-usage-and-tuning) for further details.
+See [Setting JVM arguments](../../../../../en/platform/corda/4.4/enterprise/node/deploy/running-a-node.html#setting-jvm-args) and [Memory usage and tuning](../../../../../en/platform/corda/4.4/enterprise/node/operating/node-administration.html#memory-usage-and-tuning) for further details.
 * Package namespace ownership configurations can be now be set as described in
-[Package namespace ownership](node/deploy/generating-a-node.md#node-package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
-* Environment variables and system properties can now be provided with underscore separators instead of dots. Neither are case sensitive.
-See [overriding config values](node/setup/corda-configuration-file.md#corda-configuration-file-overriding-config) for more information.
+[Package namespace ownership](../../../../../en/platform/corda/4.4/enterprise/node/deploy/generating-a-node.html#node-package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
+* Environment variables and system properties can now be provided with underscore separators instead of dots. Neither are case-sensitive.
+See [overriding config values](../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-overriding-config) for more information.
 * SSH server in the [Embedded Shell](shell.md) has been updated to remove outdated weak ciphers and algorithms.
 * Removed support for external SSH connections to the standalone shell. As a result, `--sshd-port` and `--sshd-hostkey-directory`
 options, as well as `extensions.sshd` configuration entry, have been removed from the standalone shell.
@@ -142,7 +142,7 @@ complements `database.initialiseSchema` to disable DDL handling altogether.
 Updated all samples to reflect new conventions.
 * Introduction of unique CorDapp version identifiers in jar manifests for contract and flows/services CorDapps.
 Updated all sample CorDapps to reflect new conventions.
-See [CorDapp separation](cordapps/cordapp-build-systems.md#cordapp-separation-ref) for further information.
+See [CorDapp separation](../../../../../en/platform/corda/4.4/enterprise/cordapps/cordapp-build-systems.html#cordapp-separation-ref) for further information.
 * Automatic Constraints propagation for hash-constrained states to signature-constrained states.
 This allows Corda 4 signed CorDapps using signature constraints to consume existing hash constrained states generated
 by unsigned CorDapps in previous versions of Corda.
@@ -174,7 +174,7 @@ their experimental nature. Note that it is not possible to preserve the state fo
 * CorDapps now have the ability to specify a minimum platform version in their MANIFEST.MF to prevent old nodes from loading them.
 * CorDapps have the ability to specify a target platform version in their MANIFEST.MF as a means of indicating to the node
 the app was designed and tested on that version.
-* Nodes will no longer automatically reject flow initiation requests for flows they don’t know about. Instead the request will remain
+* Nodes will no longer automatically reject flow initiation requests for flows they don’t know about. Instead, the request will remain
 un-acknowledged in the message broker. This enables the recovery scenerio whereby any missing CorDapp can be installed and retried on node
 restart. As a consequence the initiating flow will be blocked until the receiving node has resolved the issue.
 * `FinalityFlow` is now an inlined flow and requires `FlowSession` s to each party intended to receive the transaction. This is to fix the
@@ -304,7 +304,7 @@ we are disallowing this as the paradigm in general makes little sense for contra
 The fields were always effectively non-nullable - values were set from non-nullable fields of other objects.
 The class is used as database Primary Key columns of other entities and databases already impose those columns as non-nullable
 (even if JPA annotation nullable=false was absent).
-In case your Cordapps use this entity class to persist data in own custom tables as non Primary Key columns refer to
+In case your Cordapps use this entity class to persist data in own custom tables as non-Primary Key columns refer to
 [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md) for upgrade instructions.
 * Adding a public method to check if a public key satisfies Corda recommended algorithm specs, `Crypto.validatePublicKey(java.security.PublicKey)`.
 For instance, this method will check if an ECC key lies on a valid curve or if an RSA key is >= 2048bits. This might
@@ -334,7 +334,7 @@ any changes. Old CorDapp JARs will still work regardless.
 * CorDapps built by `corda-gradle-plugins` are now signed and sealed JAR files.
 Signing can be configured or disabled, and it defaults to using the Corda development certificate.
 * Finance CorDapps are now built as sealed and signed JAR files.
-Custom classes can no longer be placed in the packages defined in either finance Cordapp or access it’s non-public members.
+Custom classes can no longer be placed in the packages defined in either finance CorDapp or access it’s non-public members.
 * Finance CorDapp was split into two separate apps: `corda-finance-contracts` and `corda-finance-workflows`. There is
 no longer a single cordapp which provides both. You need to have both JARs installed in the node simultaneously for the
 app to work however.
@@ -343,7 +343,7 @@ this way, see [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.
 * The format of the shell commands’ output can now be customized via the node shell, using the `output-format` command.
 * The `node_transaction_mapping` database table has been folded into the `node_transactions` database table as an additional column.
 * Logging for P2P and RPC has been separated, to make it easier to enable all P2P or RPC logging without hand-picking loggers for individual classes.
-* Vault Query Criteria have been enhanced to allow filtering by state relevancy. Queries can request all states, just relevant ones, or just non relevant ones. The default is to return all states, to maintain backwards compatibility.
+* Vault Query Criteria have been enhanced to allow filtering by state relevancy. Queries can request all states, just relevant ones, or just non-relevant ones. The default is to return all states, to maintain backwards compatibility.
 Note that this means apps running on nodes using Observer node functionality should update their queries to request only relevant states if they are only expecting to see states in which they participate.
 * Postgres dependency was updated to version 42.2.5
 * Test `CordaService` s can be installed on mock nodes using `UnstartedMockNode.installCordaService`.
@@ -737,7 +737,10 @@ verification.
 that included the `Move`, `Issue` and `Exit` interfaces have all been removed, while the `move` function has
 been renamed to `withNewOwnerAndAmount` to be consistent with the `withNewOwner` function of the `OwnableState`.
 * The `IssueCommand` interface has been removed from `Structures`, because, due to the introduction of nonces per
-transaction component, the issue command does not need a nonce anymore and it does not require any other attributes.
+transaction component, the issue command does n
+*
+*
+* to need a nonce anymore and it does not require any other attributes.
 * As a consequence of the above and the simpler `FungibleAsset` format, fungible assets like `Cash` now use
 `class Issue : TypeOnlyCommandData()`, because it’s only its presence (`Issue`) that matters.
 * A new *PrivacySalt* transaction component is introduced, which is now an attribute in `TraversableTransaction` and
@@ -856,12 +859,12 @@ sub-properties in existing code.
 `Command` is now parameterised on the `CommandData` field.
 * Kotlin utilities that we deemed useful enough to keep public have been moved out of `net.corda.core.Utils` and into
 `net.corda.core.utilities.KotlinUtils`. The other utilities have been marked as internal.
-* Changes to `Cordformation`/ cordapp building:>
+* Changes to `Cordformation`/ CorDapp building:>
 
-    * `Cordformation` modifies the JAR task to make cordapps build as semi fat JARs containing all dependencies
-except other cordapps and Corda core dependencies.
-    * `Cordformation` adds a `corda` and `cordaRuntime` configuration to projects which cordapp developers should
-use to exclude core Corda JARs from being built into Cordapp fat JARs.
+    * `Cordformation` modifies the JAR task to make CorDapps build as semi fat JARs containing all dependencies
+except other CorDapps and Corda core dependencies.
+    * `Cordformation` adds a `corda` and `cordaRuntime` configuration to projects which CorDapp developers should
+use to exclude core Corda JARs from being built into CorDapp fat JARs.
 
 
 
@@ -1338,7 +1341,7 @@ interface in their Driver logic (if they use the driver e.g. in integration test
 * Data model: `Party` equality is now based on the owning key, rather than the owning key and name. This is important for
 party anonymisation to work, as each key must identify exactly one party.
 * Contracts: created new composite clauses called `AllOf`, `AnyOf` and `FirstOf` to replace `AllComposition`, `AnyComposition`
-and `FirstComposition`, as this is significantly clearer in intent. `AnyOf` also enforces that at least one subclause
+and `FirstComposition`, as this is significantly clearer in intent. `AnyOf` also enforces that at least one sub-clause
 must match, whereas `AnyComposition` would accept no matches.
 * Explorer: the user can now configure certificate path and keystore/truststore password on the login screen.
 * Documentation:>
