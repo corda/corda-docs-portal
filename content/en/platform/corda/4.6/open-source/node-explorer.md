@@ -158,7 +158,7 @@ Node Explorer allows you to execute transaction flows using the CorDapps you hav
 
 {{< note >}}
 
-You can use Node Explorer to execute a range of commonly used flows, however not all flows can be executed this way. [Check the compatibility of your CorDapp's flow parameters before you begin](#accepted-flow-parameters).
+You can use Node Explorer to execute a range of commonly used flows, however not all flows can be executed this way. <a href="#accepted-flow-parameters">Check the compatibility of your CorDapp's flow parameters before you begin</a>.
 
 {{< /note >}}
 
