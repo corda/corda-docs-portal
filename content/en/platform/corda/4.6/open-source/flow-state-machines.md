@@ -257,7 +257,7 @@ safe manner.
 
 The process of starting a flow returns a `FlowHandle` that you can use to observe the result, and which also contains
 a permanent identifier for the invoked flow in the form of the `StateMachineRunId`. Should you also wish to track the
-progress of your flow (see [Progress tracking](#progress-tracking)) then you can invoke your flow instead using
+progress of your flow (see [Progress tracking](#tracking-progress)) then you can invoke your flow instead using
 `CordaRPCOps.startTrackedFlowDynamic` or any of its corresponding `CordaRPCOps.startTrackedFlow` extension functions.
 These will return a `FlowProgressHandle`, which is just like a `FlowHandle` except that it also contains an observable
 `progress` field.
@@ -338,7 +338,7 @@ the trade info, and then call `otherSideSession.send`. which takes two arguments
 
 `otherSideSession.send` will serialise the payload and send it to the other party automatically.
 
-Next, we call a *subflow* called `IdentitySyncFlow.Receive` (see [Implementing sub-flows](#subflows)). `IdentitySyncFlow.Receive`
+Next, we call a *subflow* called `IdentitySyncFlow.Receive` (see [Implementing sub-flows](#implementing-sub-flows)). `IdentitySyncFlow.Receive`
 ensures that our node can de-anonymise any confidential identities in the transaction it’s about to be asked to sign.
 
 Next, we call another subflow called `SignTransactionFlow`. `SignTransactionFlow` automates the process of:
