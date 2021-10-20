@@ -329,10 +329,10 @@ database {
 
 ### Update network parameters
 
-Use the CENM [Command-Line (CLI) tool](../../../../cenm/1.3/cenm-cli-tool.md) to run commands to update the network parameters.
+Use the CENM [Command-Line (CLI) tool](../../../../../../../en/platform/corda/1.3/cenm/cenm-cli-tool.md) to run commands to update the network parameters.
 
-See the official CENM documentation for more information about the list of available [network parameters](./config-network-parameters.html)
-and instructions on [updating network parameters](./updating-network-parameters.html).
+See the official CENM documentation for more information about the list of available [network parameters](../../../../../../../en/platform/corda/1.3/cenm/config-network-parameters.md)
+and instructions on [updating network parameters](updating-network-parameters.md).
 
 ### Run Flag Day
 
@@ -344,7 +344,7 @@ This operation is scheduled to take place at regular intervals (by default, once
 
 ### Signing Service configuration
 
-The Signing Service is not managed by the [Angel Service](../../../../cenm/1.3/angel-service.md) in this deployment, therefore any CENM Command-Line Interface (CLI) tool commands trying to change the Signing Service configuration will take no effect.
+The Signing Service is not managed by the [Angel Service](../../../../../../../en/platform/corda/1.3/cenm/angel-service.md) in this deployment, therefore any CENM Command-Line Interface (CLI) tool commands trying to change the Signing Service configuration will take no effect.
 To change the Singing Service configuration, you must log in to a Kubernetes pod, update the configuration file, and restart the service.
 
 ## Delete Network
@@ -393,7 +393,7 @@ Once you have created an Azure Key Vault that you want to use, perform the follo
 
 The HSM pod is a helper pod, which loads a defined Docker image and attempts to load the folder containing the HSM-related
 files as a volume for the other pods to use. Follow the steps below:
-1. [Create the library jar](#azure-key-vault).
+1. [Create the library jar](#using-azure-key-vault).
 2. Create a Docker image containing the `.jar` file and the `.pkcs12` file used as the key store path.
 
 The Docker image and the directory where these files are stored must be specified in the relevant variables in the HSM `values.yaml` file.
@@ -460,7 +460,7 @@ helm install cenm-database bitnami/postgresql
 
 Follow the instructions displayed by the script output to connect to the database server via `psql`.
 You can create a separate database server for each CENM service by running the Helm script multiple times with different names
-and then setting up the database user/schema, following the instructions in the [CENM database setup](../../../../cenm/1.3/database-set-up.md) section.
+and then setting up the database user/schema, following the instructions in the [CENM database setup](../../../../../../../en/platform/corda/1.3/cenm/database-set-up.md) section.
 Alternatively, you can create several databases inside the single PostgresSQL server you have just deployed, by running
 the following DDL commands:
 
