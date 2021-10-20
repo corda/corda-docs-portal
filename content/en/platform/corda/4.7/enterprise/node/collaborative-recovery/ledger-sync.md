@@ -271,7 +271,7 @@ The information provided in this section is meant only to provide insight into t
 
 Some information regarding the state of reconciliations can be found in a node's `CR_RECONCILIATION_STATUS` table. This table is present when the LedgerSync CorDapp is installed. You should not rely on this as a log of reconciliations, nor is it reliable for providing all state information.
 
-The status of a reconciliation is only stored/updated in this table when a reconciliation is actually executed by the scheduler (becomes `IN_PROGRESS`), or stops/fails thereafter. Reconciliations that are yet to enter the execution pool will not appear in this table, and so the data in this table should not be used for real-time status monitoring. Please use the provided API (see [Flows](#Flows) or [JMX](#JMX%20Metrics)) to get reliable status information on reconciliations.
+The status of a reconciliation is only stored/updated in this table when a reconciliation is actually executed by the scheduler (becomes `IN_PROGRESS`), or stops/fails thereafter. Reconciliations that are yet to enter the execution pool will not appear in this table, and so the data in this table should not be used for real-time status monitoring. Please use the provided API (see [Flows](#flows) or [JMX](#jmx-metrics)) to get reliable status information on reconciliations.
 
 ### Table Structure
 

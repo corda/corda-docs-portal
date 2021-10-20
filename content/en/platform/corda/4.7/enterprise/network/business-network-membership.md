@@ -310,7 +310,7 @@ subFlow(ModifyBusinessIdentityFlow(membership.state.data.linearId, updatedIdenti
 
 ### Update a members business network roles
 
-You can also update a member's business identity attributes by modifying their roles. Depending on your proposed changes, the updated member may become an **authorised member**. In this case, your enhancement must be preceded by an execution of the [`ModifyGroupsFlow`](#modify-a-group) to add the member to all membership lists that it will have administrative powers over.
+You can also update a member's business identity attributes by modifying their roles. Depending on your proposed changes, the updated member may become an **authorised member**. In this case, your enhancement must be preceded by an execution of the <a href="#modify-a-group">`ModifyGroupsFlow`</a> to add the member to all membership lists that it will have administrative powers over.
 
 To update a member's roles and permissions in the business network:
 

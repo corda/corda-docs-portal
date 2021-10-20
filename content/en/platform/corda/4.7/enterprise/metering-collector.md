@@ -242,7 +242,7 @@ val nodeMeteringData = client.use("rpcUsername", "rpcPassword") { conn: CordaRPC
 You can use this flow to collect aggregated metering data from a remote node on the network. Aggregated metering data only contains the total number of signing events that happened within a given time period, without any additional information such as signing service public key, contract command, or transaction type.
 
 {{< note >}}
-The result of the metering data collection with this flow depends on what the node operator decided to share with you in their [CorDapp configuration](#sharing-of-metering-data). In particular, your X.500 name must be present in their list of `network_collectors`, otherwise the invocation of this flow will result in an `PermissionDeniedException` error.
+The result of the metering data collection with this flow depends on what the node operator decided to share with you in their [CorDapp configuration](#how-metering-data-is-shared). In particular, your X.500 name must be present in their list of `network_collectors`, otherwise the invocation of this flow will result in an `PermissionDeniedException` error.
 {{< /note >}}
 
 The example below shows how to retrieve aggregated metering data by connecting to a node running on the local machine, from the node ran by `O=PartyA,L=New York,C=US`, for the duration of the past 7 days:

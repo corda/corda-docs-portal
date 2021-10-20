@@ -172,7 +172,7 @@ output = "path/to/output.json"
 The entire allocated collection time. This is _not_ the same as the running time of the client.
 
 {{< note >}}
-Use the [`Duration` format](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) to specify values for `timeout`.
+Use the <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">`Duration` format</a> to specify values for `timeout`.
 {{< /note >}}
 
 _Default_: `30s` (30 seconds)
@@ -251,7 +251,7 @@ This can be specified in nanoseconds, microseconds, milliseconds, seconds, minut
 For example, if the `period` is set to `P30D` (30 days) and `start` is set, the collection period will be from the `start` date until 30 days after the `start` date.
 
 {{< note >}}
-Use the [`Duration` format](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) to specify values for `period`.
+Use the <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">`Duration` format</a> to specify values for `period`.
 {{< /note >}}
 
 ##### `period` configuration-file example
