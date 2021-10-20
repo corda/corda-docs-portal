@@ -189,7 +189,7 @@ To run simply pass in the following jar to the JVM used to start a Corda node: `
 
 {{< note >}}
 As above also ensure to use the jar when using corda gradle plugin configuration tasks: e.g. `cordformation deployNodes` task.
-See [Generating a Node](../../../../../en/platform/corda/4.7/enterprise/node/deploy/generating-a-node.html#tasks-using-the-cordform-plug-in)
+See [Generating a Node](../../../../../en/platform/corda/4.7/enterprise/node/deploy/generating-a-node.html#tasks-using-the-cordform-plug-in).
 
 {{< /note >}}
 

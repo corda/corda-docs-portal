@@ -101,7 +101,7 @@ notary {
 
 If the Corda Database Management Tool’s `dry-run` mode is used, the `databasechangelog` and `databasechangeloglock` tables must already exist
 and the database user would need read and write permissions. If the tool’s `execute-migration` mode is used, the database user would require
-schema modification rights. For more information, see [Corda Database Management Tool](../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database.html#database-management-tool-ref).
+schema modification rights. For more information, see [Corda Database Management Tool](../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database.html#database-management-tool).
 
 
 ### Database users

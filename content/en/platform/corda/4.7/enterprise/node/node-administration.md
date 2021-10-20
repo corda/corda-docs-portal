@@ -160,7 +160,7 @@ Node can be configured to run SSH server. See [Node shell](../../../../../../en/
 ## Database access
 
 When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-(see [Node database access h2](../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md).
+(see [Node database access h2](../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md)).
 
 Note that in a production set up, it is highly recommended to use an enterprise grade database, and access to the
 database should be via the usual database tools mechanisms, including access control and restrictions.
