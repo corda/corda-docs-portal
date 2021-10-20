@@ -25,11 +25,11 @@ The instructions cover all commercial third-party database vendors supported by 
 
 
 
-* [Database setup for a new installation](#node-database-developer-database-schema-setup-ref)
-* [Database update](#node-database-developer-database-schema-setup-ref)
-* [Database setup when deploying a new CorDapp](#node-database-developer-database-schema-setup-when-deploying-a-new-cordapp-ref)
-* [Database update when upgrading a new CorDapp](#node-database-developer-database-schema-update-when-upgrading-a-new-cordapp-ref)
-* [Database cleanup](#node-database-developer-database-schema-cleanup-ref).
+* [Database setup for a new installation](#database-schema-setup)
+* [Database update](#database-schema-setup)
+* [Database setup when deploying a new CorDapp](#database-schema-setup-when-deploying-a-new-cordapp)
+* [Database update when upgrading a new CorDapp](#database-schema-update-when-upgrading-a-cordapp)
+* [Database cleanup](#database-schema-cleanup).
 
 
 
@@ -39,12 +39,12 @@ The instructions cover all commercial third-party database vendors supported by 
 Setting up a Corda node to connect to a database requires:
 
 
-* [Creating a database user with schema permissions](#db-setup-developer-step-1-ref)
-* [Corda node configuration changes](#db-setup-developer-step-2-ref)
-* [Run the node](#db-setup-developer-step-3-ref) to auto-create schema objects
+* [Creating a database user with schema permissions](#1-creating-a-database-user-with-schema-permissions)
+* [Corda node configuration changes](#2-corda-node-configuration)
+* [Run the node](#3-run-the-run-migration-script-sub-command-to-create-all-database-schema-objects) to auto-create schema objects
 
 Corda ships out of the box with an [H2 database](http://www.h2database.com) which doesn’t require any configuration
-(see the documentation on [Database access when running H2](../../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md), hence when using H2 database it’s sufficient to [start the node](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database-admin.html#db-setup-step-3-ref) and the database will be created.
+(see the documentation on [Database access when running H2](../../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md), hence when using H2 database it’s sufficient to [start the node](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database-admin.html#3-corda-node-configuration) and the database will be created.
 
 
 
@@ -70,7 +70,7 @@ Each Corda node needs to use a separate database user and schema where multiple 
 
 {{< note >}}
 For developing and testing the node using the Gradle plugin `Cordform` `deployNodes` task you need to create
-the database user/schema manually ([the first Step](#db-setup-developer-step-1-ref)) before running the task (deploying nodes).
+the database user/schema manually ([the first Step](#1-creating-a-database-user-with-schema-permissions)) before running the task (deploying nodes).
 Also note that during re-deployment existing data in the database is retained.
 Remember to cleanup the database if required as part of the testing cycle.
 The above restrictions do not apply to the default H2 database as the relevant database data file is
@@ -80,10 +80,10 @@ re-created during each `deployNodes` run.
 Creating database user with schema permissions for:
 
 
-* [Azure SQL](#db-dev-setup-create-user-azure-ref)
-* [SQL Server](#db-dev-setup-create-user-sqlserver-ref)
-* [Oracle](#db-dev-setup-create-user-oracle-ref)
-* [PostgreSQL](#db-dev-setup-create-user-postgresql-ref)
+* [Azure SQL](#sql-azure)
+* [SQL Server](#sql-server)
+* [Oracle](#oracle)
+* [PostgreSQL](#postgresql)
 
 
 
@@ -234,11 +234,11 @@ dataSourceProperties = {
 Configuration templates for each database vendor are shown below:
 
 
-* [H2](#db-dev-setup-configure-node-h2-ref)
-* [Azure SQL](#db-dev-setup-configure-node-azure-ref)
-* [SQL Server](#db-dev-setup-configure-node-sqlserver-ref)
-* [Oracle](#db-dev-setup-configure-node-oracle-ref)
-* [PostgreSQL](#db-dev-setup-configure-node-postgresql-ref)
+* [H2](#h2)
+* [Azure SQL](#azure-sql)
+* [SQL Server](#sql-server-1)
+* [Oracle](#oracle-1)
+* [PostgreSQL](#postgresql-1)
 
 
 
