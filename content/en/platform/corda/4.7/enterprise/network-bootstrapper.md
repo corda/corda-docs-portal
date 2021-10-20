@@ -325,7 +325,7 @@ for information on valid inputs.
 
 
 * **packageOwnership**:
-A list of package owners. See [Package namespace ownership](#id1) for more information. For each package owner, the following fields
+A list of package owners. See [Package namespace ownership](#package-namespace-ownership) for more information. For each package owner, the following fields
 are required:
 
 
@@ -403,7 +403,7 @@ The alias for the name associated with the certificate to be associated with the
 
 
 Using the Example CorDapp (found in these repositories in [Java](https://github.com/corda/samples-java/tree/master/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Basic/cordapp-example)) as an example, we will initialise a simple network and then register and unregister a package namespace.
-Check out the Example CorDapp and follow the instructions to build it [here](../../../../../en/platform/corda/4.7/open-source/tutorial-cordapp.html#building-the-example-cordapp).
+Check the sample CorDapp out, then follow the [instructions to build it](../../../../../en/platform/corda/4.7/open-source/tutorial-cordapp.md).
 
 {{< note >}}
 You can point to any existing bootstrapped Corda network (this will have the effect of updating the associated network parameters file).
@@ -488,7 +488,7 @@ FirstRunOnly, Yes, No. Default: FirstRunOnly.
 * `--max-transaction-size`: The maximum transaction size to use in the network-parameters, in bytes.
 * `--event-horizon`: The event horizon to use in the network-parameters.
 * `--network-parameter-overrides=<networkParametersFile>`, `-n=<networkParametersFile>`: Overrides the default network parameters with those
-in the given file. See [Overriding network parameters via a file](#overriding-network-parameters-via-a-file) for more information.
+in the given file. See [Overriding network parameters via a file](#override-network-parameters-via-a-file) for more information.
 
 
 ### Sub-commands

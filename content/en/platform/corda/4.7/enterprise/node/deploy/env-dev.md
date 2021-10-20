@@ -313,7 +313,7 @@ The alias for the name associated with the certificate to be associated with the
 
 
 
-Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an example, we will initialise a simple network and then register and unregister a package namespace. Checkout the Example CorDapp and follow the instructions to build it [here](https://docs.corda.net/tutorial-cordapp.html#building-the-example-cordapp).
+Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an example, we will initialise a simple network and then register and unregister a package namespace. Check the sample CorDapp out, then follow the [instructions to build it](https://docs.corda.net/tutorial-cordapp.md).
 
 {{< note >}}
 You can point to any existing bootstrapped corda network (this will have the effect of updating the associated network parameters file).
@@ -398,7 +398,7 @@ FirstRunOnly, Yes, No. Default: FirstRunOnly.
 * `--max-transaction-size`: The maximum transaction size to use in the network-parameters, in bytes.
 * `--event-horizon`: The event horizon to use in the network-parameters.
 * `--network-parameter-overrides=<networkParametersFile>`, `-n=<networkParametersFile>`: Overrides the default network parameters with those
-in the given file. See [Overriding network parameters via a file](#overriding-network-parameters-via-a-file) for more information.
+in the given file. See [Overriding network parameters via a file](#override-network-parameters-via-a-file) for more information.
 
 
 ### Sub-commands
