@@ -735,7 +735,7 @@ The generated RPC TLS trust root certificate is exported to a `certificates/expo
 The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html)) and set this constructor
 argument with the appropriate path for the `rpcssltruststore.jks` file. The client connection will then use this to validate the RPC server handshake.
 
-Note that RPC TLS does not use mutual authentication, and delegates fine-grained user authentication and authorisation to the RPC security features detailed under [Managing RPC security](#managing-rpc-security).
+Note that RPC TLS does not use mutual authentication, and delegates fine-grained user authentication and authorisation to the RPC security features detailed under [Managing RPC security](#manage-rpc-security).
 
 ## Whitelist classes with the Corda node
 

@@ -219,7 +219,7 @@ ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences 
 
 All data structures (tables, indexes) must be created before the Corda node connects to a database with **restricted permissions**.
 Corda is released without a separate set of DDL scripts, instead a database administrator needs to use
-the [Corda Database Management Tool](../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database.html#database-management-tool) to output the DDL scripts and run the scripts against a database.
+the [Corda Database Management Tool](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database.html#database-management-tool) to output the DDL scripts and run the scripts against a database.
 Each Corda release version has the associated Corda Database Management Tool release which outputs a compatible set of DDL scripts.
 The DDL scripts contain the history of a database evolution - series of table alterations leading to the current state, using the
 functionality of [Liquibase](http://www.liquibase.org) which is used by Corda for database schema management.
@@ -493,7 +493,7 @@ A script will be generated named *migration/*.sql* in the base directory.
 This script contains all the statements to create/modify data structures (e.g. tables/indexes)
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables.
-Refer to the [Corda Database Management Tool](../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database.html#database-management-tool) manual for more detail.
+Refer to the [Corda Database Management Tool](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database.html#database-management-tool) manual for more detail.
 
 
 ### 2.4. Apply DDL scripts on a database
@@ -668,7 +668,7 @@ database = {
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
 It is the responsibility of the node administrator or a developer to install the appropriate JDBC driver.
 Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
-Alternatively the path can be also specified by the `jarDirs` option in [the node configuration](../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#jardirs).
+Alternatively the path can be also specified by the `jarDirs` option in [the node configuration](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#jardirs).
 The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
 * Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
 To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:
