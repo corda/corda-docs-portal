@@ -576,6 +576,6 @@ Deprecated. Use rpcSettings instead.**
   This option is disabled by default and is independent from `devMode`.
   {{< /note >}}
 
-  For full details, see [Automatic detection of unrestorable checkpoints](checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints).
+  For full details, see [Automatic detection of unrestorable checkpoints](checkpoint-tooling.html#automatic-detection-of-unrestorable-checkpoints).
 
   *Default:* not defined
