@@ -15,7 +15,7 @@ weight: 30
 # Upgrading a CorDapp to a newer platform version
 
 {{< warning >}}
-Corda Enterprise 4.6.3 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.6.3 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.6.3 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.6.3 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 These notes provide instructions for upgrading your CorDapps from previous versions. Corda provides backwards compatibility for public,
@@ -54,7 +54,7 @@ If you are using them you should re-namespace them to a package namespace you co
 
 ### Required actions relating to database optimisation in Corda 4.6
 
-The operational improvements around [database schema harmonisation](release-notes-enterprise.md#database-schema-harmonisation) that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version.
+The operational improvements around [database schema harmonisation](release-notes-enterprise.html#database-schema-harmonisation) that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version.
 
 The required steps for each upgrade path are described below.
 
