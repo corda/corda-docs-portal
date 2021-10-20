@@ -96,7 +96,7 @@ You can use an existing network map implementation such as the
 
 #### Writing a network map server
 
-This server implements a simple HTTP based protocol described in the “[The network map](network-map.md)” page.
+This server implements a simple HTTP based protocol described in [The network map](network-map.md).
 The map server is responsible for gathering NodeInfo files from nodes, storing them, and distributing them back to the
 nodes in the zone. By doing this it is also responsible for choosing who is in and who is out: having a signed
 identity certificate is not enough to be a part of a Corda zone, you also need to be listed in the network map.
@@ -193,7 +193,7 @@ signedParams.open().copyTo(Paths.get("/some/path"))
 
 {{< /tabs >}}
 
-Each individual parameter is documented in [the JavaDocs/KDocs for the NetworkParameters class](https://docs.corda.net/api/kotlin/corda/net.corda.core.node/-network-parameters/index.html). The network map
+Each individual parameter is documented in [the JavaDocs/KDocs for the NetworkParameters class](https://docs.r3.com/en/api-ref/corda/4.6/open-source/kotlin/corda/net.corda.core.node/-network-parameters/index.html). The network map
 certificate is usually chained off the root certificate, and can be created according to the instructions above. Each
 time the zone parameters are changed, the epoch should be incremented. Epochs are essentially version numbers for the
 parameters, and they therefore cannot go backwards. Once saved, the new parameters can be served by the network map server.
