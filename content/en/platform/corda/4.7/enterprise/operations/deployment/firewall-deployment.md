@@ -155,7 +155,7 @@ To facilitate High Availability requirement deployment is split onto two data ce
 {{< note >}}
 This document does not describe how to perform SOCKS5 setup. It is assumed that this type of proxy is correctly configured as part
 of organisation’s IT infrastructure according to best practices/policies for outbound Internet connectivity. Other types of proxies are also supported
-as well as no proxy at all. For more information please see [proxyConfig](corda-firewall-configuration-fields.md#proxyconfig).
+as well as no proxy at all. For more information please see [proxyConfig](corda-firewall-configuration-fields.html#proxyconfig).
 {{< /note >}}
 
 

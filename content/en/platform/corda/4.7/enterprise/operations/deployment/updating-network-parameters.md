@@ -22,7 +22,7 @@ be advertised to the entire network to allow nodes time to agree to the changes.
 This process changed extensively in CENM 1.3. The legacy process is still
 supported for services which use the shell interface instead of the admin RPC
 interface - for example, in the CENM Command-Line Interface (CLI) tool. However, this document presumes  that you
-use admin RPC. For information about the legacy process, see the [CENM 1.2 documentation](../../../../cenm/1.2/updating-network-parameters.md/).
+use admin RPC. For information about the legacy process, see the [CENM 1.2 documentation](../../../../1.2/cenm/updating-network-parameters.md/).
 {{< /note >}}
 
 At a high level, the process is as follows:
@@ -38,7 +38,7 @@ At a high level, the process is as follows:
 
 ## Editing network parameters configuration
 
-See [Setting the Network Parameters](../../../../4.8/enterprise/network/network-map.html#network-parameters)
+See [Setting the Network Parameters](../../../../4.7/enterprise/network/network-map.html#network-parameters)
 for information on the network parameters configuration file format and options. You can find supplementary information in the [CENM Network Map documentation](../../../../1.5/cenm/network-map.html#network-parameters).
 
 When updating the network parameters, ensure that the network parameters file has the
@@ -98,7 +98,7 @@ security actions:
 Before the `updateDeadline` time, nodes will have to run the `acceptNewNetworkParameters()` RPC command to accept
 new parameters. This will not
 activate the new network parameters on the nodes - it will only inform the Network Map Service that the node has agreed to the
-update. See [the Corda node RPC API](../../../../../../../en/platform/corda/4.7/open-source/tutorial-clientrpc-api.md/) for further details.
+update. See [the Corda node RPC API](../../../../../../../en/platform/corda/4.7/open-source/tutorial-clientrpc-api.md) for further details.
 
 To list network participants that have or have not accepted the new network parameters,
 run the following command:
@@ -145,7 +145,7 @@ The Network Map Service will continue to advertise the cancelled update until a 
 
 {{< note >}}
 You should avoid advertising new parameters or cancelling the update during the period between Flag Day
-issuance and the next network map signing, especially if the scheduled network map signing task is configured.
-Otherwise you can cause an inconsistent parameters update record in the database and the implicit cancellation of the
+issuance, and the next network map signing, especially if the scheduled network map signing task is configured.
+Otherwise, you can cause an inconsistent parameters update record in the database and the implicit cancellation of the
 issued Flag Day.
 {{< /note >}}

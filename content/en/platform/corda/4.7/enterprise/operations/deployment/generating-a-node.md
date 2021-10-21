@@ -39,7 +39,7 @@ The remaining files and folders described in node-structure will be generated at
 
 Corda provides a gradle plugin called `Cordform` that allows you to automatically generate and configure a set of
 nodes for testing and demos. Here is an example `Cordform` task called `deployNodes` that creates three nodes, defined
-in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V6/build.gradle#L95):
+in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V4/build.gradle#L95):
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -123,7 +123,7 @@ The configuration values available in `deployNodes` task are as follows:
 
 
 * `name` <string>
-    * The legal identity name of the Corda node. (see [myLegalName](../../node/setup/corda-configuration-file.md#corda-configuration-file-mylegalname))
+    * The legal identity name of the Corda node. (see [myLegalName](../../node/setup/corda-configuration-file.html#corda-configuration-file-mylegalname))
     * e.g.
 
 ```kotlin
@@ -134,7 +134,7 @@ name "O=PartyA,L=London,C=GB"
 
 
 * `p2pAddress` <string> <**required if p2pPort not specified**>
-    * The address/port the node uses for inbound communication from other nodes. (see [p2pAddress](../../node/setup/corda-configuration-file.md#corda-configuration-file-p2paddress))
+    * The address/port the node uses for inbound communication from other nodes. (see [p2pAddress](../../node/setup/corda-configuration-file.html#corda-configuration-file-p2paddress))
     * e.g.
 
 ```kotlin
@@ -145,7 +145,7 @@ p2pAddress "example.com:10002"
 
 
 * `p2pPort` <integer>
-    * The port the node uses for inbound communication from other nodes.  Assumes the address is `localhost`. (see [p2pAddress](../../node/setup/corda-configuration-file.md#corda-configuration-file-p2paddress))
+    * The port the node uses for inbound communication from other nodes.  Assumes the address is `localhost`. (see [p2pAddress](../../node/setup/corda-configuration-file.html#corda-configuration-file-p2paddress))
     * e.g.
 
 ```kotlin
@@ -156,7 +156,7 @@ p2pPort 10006  // "localhost:10006"
 
 
 * `rpcSettings` <config>
-    * Specifies RPC settings for the node. (see [rpcSettings](../../node/setup/corda-configuration-file.md#corda-configuration-file-rpc-settings))
+    * Specifies RPC settings for the node. (see [rpcSettings](../../node/setup/corda-configuration-file.html#corda-configuration-file-rpc-settings))
     * e.g.
 
 ```kotlin
@@ -174,7 +174,7 @@ rpcSettings {
 ### Optional configuration
 
 
-* `notary` <config> (see [notary](../../node/setup/corda-configuration-file.md#corda-configuration-file-notary))
+* `notary` <config> (see [notary](../../node/setup/corda-configuration-file.html#corda-configuration-file-notary))
     * Optional configuration which specifies the node is a notary.
     * {{< note >}}
 <**required**> for notary nodes{{< /note >}}
@@ -182,7 +182,7 @@ rpcSettings {
 
 
 * `devMode` <boolean>
-    * When true enables development mode. (see [devMode](../../node/setup/corda-configuration-file.md#corda-configuration-file-dev-mode))
+    * When true enables development mode. (see [devMode](../../node/setup/corda-configuration-file.html#corda-configuration-file-dev-mode))
     * e.g.
 
 ```kotlin
@@ -193,7 +193,7 @@ devMode true
 
 
 * `webAddress` <string>
-    * Configure a webserver to connect to the node via RPC. This will specify the address and port it will listen on. The node must have an RPC address configured. (see [Specifying a custom webserver](#specify-custom-webserver))
+    * Configure a webserver to connect to the node via RPC. This will specify the address and port it will listen on. The node must have an RPC address configured. (see [Specify a custom webserver](#specify-a-custom-webserver))
     * e.g.
 
 ```kotlin
@@ -204,7 +204,7 @@ webAddress  "example.com:10011"
 
 
 * `webPort` <integer>
-    * Configure a webserver to connect to the node via RPC. Defaults the address to *localhost*. The node must have an RPC address configured. (see [Specifying a custom webserver](#specify-custom-webserver))
+    * Configure a webserver to connect to the node via RPC. Defaults the address to *localhost*. The node must have an RPC address configured. (see [Specify a custom webserver](#specify-a-custom-webserver))
     * e.g.
 
 ```kotlin
@@ -215,7 +215,7 @@ webPort  10011  // "localhost:10011"
 
 
 * `rpcUsers` <list>
-    * Set the RPC users for this node. (see [rpcUsers](../../node/setup/corda-configuration-file.md#corda-configuration-file-rpc-users))
+    * Set the RPC users for this node. (see [rpcUsers](../../node/setup/corda-configuration-file.html#corda-configuration-file-rpc-users))
     * e.g.
 
 ```kotlin
@@ -227,7 +227,7 @@ rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.
 
 
 * `configFile` <string>
-    * For extending configuration of nodes. (see [extended node configuration](#generating-a-node-extended-config))
+    * For extending configuration of nodes. (see [extended node configuration](#optional-configuration))
     * e.g.
 
 ```kotlin
@@ -335,7 +335,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 
 
-### Signing CorDapp JARs
+### Sign CorDapp JARs
 
 The default behaviour of Cordform is to deploy CorDapp JARs “as built”:
 
@@ -407,7 +407,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 
 
 
-### Specifying a custom webserver
+### Specify a custom webserver
 
 By default, any node listing a web port will use the default development webserver, which is not production-ready. You
 can use your own webserver JAR instead by using the `webserverJar` argument in a `Cordform` `node` configuration

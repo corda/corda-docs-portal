@@ -12,7 +12,7 @@ weight: 300
 ---
 
 {{< note >}}
-All mentions of `jmeter-corda.jar` on this page refer to the `jmeter-corda-<version>-capsule.jar` - see [Obtaining and Installing the Performance Test Suite](installation.html) for more information.
+All mentions of `jmeter-corda.jar` on this page refer to the `jmeter-corda-<version>-capsule.jar` - see [Obtaining and Installing the Performance Test Suite](installation.md) for more information.
 {{< /note >}}
 
 # Running JMeter Corda
@@ -45,7 +45,7 @@ In your command on the command prompt, you must place these arguments first. The
 * `-p`: This argument instructs JMeter what properties file to use. This will **always** be set by the wrapper code -
 you must **not** set it in your command on the command prompt. Use the `-XjmeterProperties` argument to the wrapper instead.
 * `-s`: This argument makes JMeter run in server mode - it will run headless and wait for instructions from a client via remote
-method invocation. See also [Installing JMeter server](installation.md#jmeter-server).
+method invocation. See also [Installing JMeter server](installation.html#jmeter-server).
 
 ## Running the JMeter GUI
 
@@ -59,7 +59,7 @@ The *clear current view* button only clears the data in the currently viewed out
 output listeners defined (as in the example above, we have *Aggregate Graph*, *Graph Results* and *View Results in Table*),
 any collector not currently selected is not affected. *Clear all data* will clear the results from all collectors.
 
-See [Understanding and Creating Testplans](jmeter-testplans.html) for details on the testplan, and how to create one.
+See [Understanding and Creating Testplans](jmeter-testplans.md) for details on the testplan, and how to create one.
 
 
 ## Running JMeter headless
