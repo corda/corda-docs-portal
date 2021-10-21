@@ -189,7 +189,7 @@ This flow only marks the `RecoveryRequest` as complete on behalf of the invoking
 
 #### Vault archive
 
-A `VaultArchive` is a file/folder structure representing exported data from the nodes vault. It's structured in a specific format so that the initiating node (for whom you are exporting this `VaultArchive`) is able to interpret and import the transaction data back into their vault. The data in the `VaultArchive` is stored in [Corda Wire Format](https://docs.corda.net/wire-format.html) and may be deserialized and inspected using the [Corda Blob Inspector](https://docs.corda.net/blob-inspector.html).
+A `VaultArchive` is a file/folder structure representing exported data from the nodes vault. It's structured in a specific format so that the initiating node (for whom you are exporting this `VaultArchive`) is able to interpret and import the transaction data back into their vault. The data in the `VaultArchive` is stored in [Corda Wire Format](../../../../../../../en/platform/corda/4.7/enterprise/wire-format.md) and may be deserialized and inspected using the [Corda Blob Inspector](../../../../../../../en/platform/corda/4.7/enterprise/blob-inspector.md).
 
 An example of the file folder structure of a `VaultArchive` is defined below:
 

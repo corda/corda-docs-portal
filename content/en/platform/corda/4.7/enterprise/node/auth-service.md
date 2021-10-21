@@ -19,11 +19,11 @@ The Auth Service is the user authentication and authorisation service for managi
 * Signing Service
 * Network Map (and associated network configurations and node info)
 
-Whenever you use the [User Administration Tool](../../../cenm/1.5/user-admin) to create new users, groups or roles, the Auth Service is updated to authenticate those users and their permissions. When using the remote management tools such as the [CENM Command Line Interface](../../../cenm/1.5/cenm-cli-tool) or the web GUIs hosted on the Gateway Service, the Auth Service verifies your identity and security clearance as needed.
+Whenever you use the [User Administration Tool](../../../../../../en/platform/corda/1.5/cenm/user-admin.md) to create new users, groups or roles, the Auth Service is updated to authenticate those users and their permissions. When using the remote management tools such as the [CENM Command Line Interface](../../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md) or the web GUIs hosted on the Gateway Service, the Auth Service verifies your identity and security clearance as needed.
 
 You do not need to interact directly with the Auth Service once it has been installed and configured. To protect the integrity of this secure service, there is no direct API contact with the Auth Service: all front-end communications go via the Gateway Service.
 
-Auth Service can also be configured to use [Azure AD SSO](azure-ad-sso).
+Auth Service can also be configured to use [Azure AD SSO](../../../../../../en/platform/corda/4.7/enterprise/node/azure-ad-sso.html).
 
 ## Install the Auth service
 
@@ -67,7 +67,7 @@ Before you can configure the Auth service, you need to prepare SSL certificates,
 
 To do this:
 
-1. Create a SSL certificate in a `.jks` file using the [CENM PKI tool](../../../cenm/1.5/PKI-tool).
+1. Create a SSL certificate in a `.jks` file using the [CENM PKI tool](../../../../../../en/platform/corda/1.5/cenm/pki-tool.md).
 
 2. Generate a JWT signing key (RSA keypair) in a `.jks` file with the following command-line command:
 `keytool -genkeypair -alias mytest -keyalg RSA -keypass mypass -keystore mytest.jks -storepass mypass`.
@@ -79,17 +79,17 @@ of available permissions and predefined roles. Copy this file to a directory cal
 
 To deploy the Auth service, you need to create a configuration file.
 
-When you create your config file, you establish its connection to your [Gateway Service](gateway-service). Make sure you know:
+When you create your config file, you establish its connection to your [Gateway Service](gateway-service.md). Make sure you know:
 
 * Your Gateway service ID.
 * Your Gateway service secret.
 
 In the sample below, you can see the initial configuration process:
 
-1. [Database configuration](../../../cenm/1.5/database-set-up). Add the name, address and login credentials for the SQL database that supports the Auth Service.
+1. [Database configuration](../../../../../../en/platform/corda/1.5/cenm/database-set-up.md). Add the name, address and login credentials for the SQL database that supports the Auth Service.
 
 {{<note>}}
-If multiple CENM instances are connected to the same database, setting `lockResolutionStrategy` to `SingleInstance` can cause startup problems and/or database corruption. For more information, see the [database configuration options](../../../cenm/1.5/config-database.md).
+If multiple CENM instances are connected to the same database, setting `lockResolutionStrategy` to `SingleInstance` can cause startup problems and/or database corruption. For more information, see the [database configuration options](../../../../../../en/platform/corda/1.5/cenm/config-database.md).
 {{</note>}}
 
 2. JSON Web Key configuration. Set the user name, password, and location of the RSA keypair store for signing. The location must be the absolute path.
@@ -230,6 +230,6 @@ Reset user (**initializer**): Use this command group to reset, re-enable, and un
 Auth Service needs to be set up with baseline permission data for each application.
 {{< /note >}}
 
-* [CENM management console](../../../cenm/1.5/cenm-console#installation)
-* [Node management console](management-console#installation)
-* [Flow management console](node-flow-management-console#installation)
+* [CENM management console](../../../../../../en/platform/corda/1.5/cenm/cenm-console.html#installation)
+* [Node management console](../../../../../../en/platform/corda/4.7/enterprise/node/management-console.html#installation)
+* [Flow management console](../../../../../../en/platform/corda/4.7/enterprise/node/node-flow-management-console.html#installation)
