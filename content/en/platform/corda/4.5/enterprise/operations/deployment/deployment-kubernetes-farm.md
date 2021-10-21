@@ -13,7 +13,7 @@ weight: 20
 
 # CENM FARM Service Helm Chart
 
-This Helm chart is to configure, deploy, and run the [CENM FARM Service](../../../../cenm/1.3/gateway-service.md) on Kubernetes.
+This Helm chart is to configure, deploy, and run the [CENM FARM Service](../../../../../../../en/platform/corda/1.3/cenm/gateway-service.md) on Kubernetes.
 
 ## Example usage
 
@@ -45,4 +45,4 @@ helm install cenm-farm farm --set prefix=cenm --set acceptLicense=Y --set volume
 | `zonePort`                    | Zone Service port | `12345` |
 | `logsContainersEnabled`       | Enable container displaying live logs | `true`
 {{< /table >}}
-For additional information on database connection details refer to the official documentation: [database documentation](../../../../cenm/1.3/config-database.md).
+For additional information on database connection details refer to the official documentation: [database documentation](../../../../../../../en/platform/corda/1.3/cenm/config-database.md).
