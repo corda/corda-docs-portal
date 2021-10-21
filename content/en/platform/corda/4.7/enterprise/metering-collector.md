@@ -72,7 +72,7 @@ Notaries running on Corda Enterprise are also metered. The data recorded for not
 
 The Metering Collection Tool also contains responder flows that can be used by other nodes on the network to collect metering data from the node where
 the respective CorDapp is installed. This feature must be enabled by the node operator deploying a
-[CorDapp configuration file](../../../../../en/platform/corda/4.7/open-source/cordapp-build-systems.html#cordapp-configuration-files) for the CorDapp.
+[CorDapp configuration file](../../../../../en/platform/corda/4.7/enterprise/cordapps/cordapp-build-systems.html#cordapp-configuration-files) for the CorDapp.
 If no configuration file is deployed, metering data will not be shared with any other network party.
 
 An example configuration file that enables metering data sharing is shown below:
@@ -104,13 +104,13 @@ Based on the example configuration above:
 * Node `PartyC` collects detailed metering data related to CorDapps with a `.jar` hash either `FC0150EFAB3BBD715BDAA7F67B4C4DB5E133D919B6860A3D3B4C6C7D3EFE25D5` or `44489E8918D7D8F7A3227FE56EC34BFDDF15BD413FF92F23E72DD5D543BD6194`.
 * Node `PartyD` collects detailed metering data related to all CorDapps that have had their `.jar` files signed with the key `AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B`.
 
-To create the configuration file correctly, use the [`RetrieveCordappDataFlow`](#using-RetrieveCordappDataFlow) flow to get detailed information about the CorDapps deployed on your node.
+To create the configuration file correctly, use the <a href="https://docs.r3.com/en/platform/corda/4.7/enterprise/metering-collector.html#using-RetrieveCordappDataFlow">`RetrieveCordappDataFlow`</a> flow to get detailed information about the CorDapps deployed on your node.
 
 {{< warning >}}
-It is very important that you create the configuration file correctly. To do so, you must follow the configuration process described below exactly, otherwise the collection of metering data will fail and the node could even fail to start.
+It is very important that you create the configuration file correctly. To do so, you must follow the configuration process described below exactly, otherwise the collection of metering data will fail, and the node could even fail to start.
 {{< /warning >}}
 
-* Use the [`RetrieveCordappDataFlow`](#using-RetrieveCordappDataFlow) flow to get detailed information about the CorDapps deployed on your node.
+* Use the <a href="https://docs.r3.com/en/platform/corda/4.7/enterprise/metering-collector.html#using-RetrieveCordappDataFlow">`RetrieveCordappDataFlow`</a> flow to get detailed information about the CorDapps deployed on your node.
 * Ensure you configure the correct values for the configuration file static keys (`access_configuration`, `network_collectors`, `by_hash`, and so on). Any errors, like a typo, will mean your configuration is ignored and the default applied. As a result, no metering data will be shared.
 * Ensure that every `.jar` hash, `.jar` signature, and CorDapp name in the configuration matches at least one of the deployed CorDapps. This means that you must not whitelist a CorDapp that does not exist. This step is essential in order to pass the configuration validation step that runs at node start-up, which checks that the X.500 names used in the configuration file are valid. If the configuration validation step fails for any reason, the node will fail to start.
 
@@ -130,12 +130,12 @@ You invoke this flow from the [shell](node/operating/shell.md). The flow takes t
 
 1. A time window over which the flow runs. This is a mandatory argument. The accepted time window formats are either a start date and an end date (both of type `Instant`), or a start date and a duration (see the [Usage](#usage) section below). Note that the minimum time unit you can use is an hour, so the flow is unable to collect metering data over durations shorter than an hour.
 2. A filter to select which CorDapps to collect data for. To specify a filter, provide a `MeteringFilter` object, which consists of `filterBy` criteria and a list of strings that describe
-the CorDapps to filter by. There are four possible options to filter by, which are described in the [data filtering section](#data-filtering).
+the CorDapps to filter by. There are four possible options to filter by, which are described in the [data filtering section](#filter-data-using-the-node-shell).
 3. A paging specification to describe how the flow should access the database. The paging specification is used to control database access by ensuring that only a subset of data is accessed at once. This is important in order to prevent too much data being read into memory at once, which would result in out-of-memory errors. By default, up to 10 000 metering entries are read into memory at a time, although the number of returned entries is likely to be smaller because some aggregation takes place in the background. If more than one page of data is required, the flow may need to be run multiple times to collect the full breakdown of metering events. However, the total count provided is always the full number of signing events that match the supplied criteria.
 
 Use the shell interface to invoke the flow by specifying the time window - either provide the `startDate` and `endDate` for the metering data collection in the format `YYYY-MM-DD`, or the `startDate` (in the same format) and the duration as an integer number of `daysToCollect`.
 
-You can also specify a filter according to the rules described in the [data filtering section](#data-filtering). This is not needed if all the metering data is required. As mentioned above, the smallest time window you can specify is one day.
+You can also specify a filter according to the rules described in the [data filtering section](#filter-data-using-the-node-shell). This is not needed if all the metering data is required. As mentioned above, the smallest time window you can specify is one day.
 
 When date strings are required, they are always in the `YYYY-MM-DD` format. If the date does not parse correctly, an exception is thrown.
 
@@ -242,7 +242,7 @@ val nodeMeteringData = client.use("rpcUsername", "rpcPassword") { conn: CordaRPC
 You can use this flow to collect aggregated metering data from a remote node on the network. Aggregated metering data only contains the total number of signing events that happened within a given time period, without any additional information such as signing service public key, contract command, or transaction type.
 
 {{< note >}}
-The result of the metering data collection with this flow depends on what the node operator decided to share with you in their [CorDapp configuration](#sharing-of-metering-data). In particular, your X.500 name must be present in their list of `network_collectors`, otherwise the invocation of this flow will result in an `PermissionDeniedException` error.
+The result of the metering data collection with this flow depends on what the node operator decided to share with you in their [CorDapp configuration](#how-metering-data-is-shared). In particular, your X.500 name must be present in their list of `network_collectors`, otherwise the invocation of this flow will result in an `PermissionDeniedException` error.
 {{< /note >}}
 
 The example below shows how to retrieve aggregated metering data by connecting to a node running on the local machine, from the node ran by `O=PartyA,L=New York,C=US`, for the duration of the past 7 days:
@@ -784,7 +784,7 @@ flow start com.r3.corda.metering.MultiFilteredCollectionFlow dateFormat: {value:
 flow start com.r3.corda.metering.MultiFilteredCollectionFlow dateFormat: {value: "yyyy-MM-dd"},  start: {value: "2020-04-06"}, end : {value: "2020-05-06"}, destinations: [PartyA, PartyB], filter: {filterBy: CORDAPP_NAMES, values: [Finance]}, txTypes: [NORMAL]
 ```
 
-### Data filtering using the node shell
+### Filter data using the node shell
 <a name="data-filtering-shell"></a>
 
 When you use the node shell to filter metering data, you can only filter by:
@@ -793,7 +793,7 @@ When you use the node shell to filter metering data, you can only filter by:
 * transaction type
 * timestamp
 
-#### Filtering by CorDapp
+#### Filter by CorDapp
 
 To filter metering data by CorDapp, use the `filter` parameter in the `MeteringCollectionFlow`, `MultiAggregatedMeteringCollectionFlow`, and `MultiFilteredMeteringCollectionFlow` flows.
 
@@ -811,10 +811,10 @@ This parameter requires an object created by the `filterBy` parameter that speci
 {{< /table >}}
 
 {{% note %}}
-The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](node/operating/node-database-admin.md#sql-server-3)
+The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database-admin.html#sql-server-3).
 {{% /note %}}
 
-#### Filtering by transaction type
+#### Filter by transaction type
 
 To filter metering data by transaction type, use the `txTypes` parameter in the `MultiAggregatedMeteringCollectionFlow` and `MultiFilteredMeteringCollectionFlow` flows.
 
@@ -831,7 +831,7 @@ The available transaction types are as follows:
 The transaction types `NORMAL`, `CONTRACT_UPGRADE`, and `NOTARY_CHANGE` correspond to transactions that cause a ledger update, while the `UNKNOWN` transaction type corresponds to transactions that do not cause a ledger update.
 {{< /note >}}
 
-### Data filtering using the RPC API
+### Filter data using the RPC API
 <a name="data-filtering-rpc"></a>
 
 You can use data filtering via the RPC API for the `NodeMeteringCollectionFlow`, `AggregatedMeteringCollectionFlow`, and `FilteredMeteringCollectionFlow` flows.
@@ -841,7 +841,7 @@ Filtering by CorDapp is forbidden for the `AggregatedMeteringCollectionFlow` flo
 {{< /note >}}
 
 {{% note %}}
-The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](node/operating/node-database-admin.md#sql-server-3)
+The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database-admin.html#sql-server-3).
 {{% /note %}}
 
 All classes listed below belong to the `com.r3.corda.metering.filter` package.

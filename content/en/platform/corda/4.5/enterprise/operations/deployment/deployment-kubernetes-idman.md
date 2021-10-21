@@ -13,11 +13,11 @@ weight: 30
 
 # CENM Identity Manager Helm Chart
 
-This Helm chart is to configure, deploy, and run the CENM [Identity Manager Service](../../../../cenm/1.3/identity-manager.md) on Kubernetes.
+This Helm chart is to configure, deploy, and run the CENM [Identity Manager Service](../../../../../../../en/platform/corda/1.3/cenm/identity-manager.md) on Kubernetes.
 
 ## Example usage
 
-The example below shows a command that triggers the Helm chart for the [Zone Service](../../../../cenm/1.3/zone-service.md):
+The example below shows a command that triggers the Helm chart for the [Zone Service](../../../../../../../en/platform/corda/1.3/cenm/zone-service.md):
 
 ```bash
 helm install cenm-idman idman --set prefix=cenm --set acceptLicense=Y
@@ -61,4 +61,4 @@ helm install cenm-idman idman --set idmanPublicIP=X.X.X.X --set prefix=cenm --se
 | `logsContainersEnabled`       | Defines whether the container displaying live logs is enabled or disabled | `true` |
 {{< /table >}}
 
-For additional information on database connection details refer to the official documentation: [database documentation](../../../../cenm/1.3/config-database.md).
+For additional information on database connection details refer to the official documentation: [database documentation](../../../../../../../en/platform/corda/1.3/cenm/config-database.md).

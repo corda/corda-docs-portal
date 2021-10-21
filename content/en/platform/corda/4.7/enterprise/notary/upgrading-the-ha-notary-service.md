@@ -126,7 +126,7 @@ ALTER TABLE notary_request_log ADD COLUMN worker_node_x500_name TEXT;
 ## Version 4.2
 
 Since Corda Enterprise 4.2 the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
-See [notary installation page](installing-the-notary-service.md#mysql-driver) for more information.
+See [notary installation page](../../../../../../en/platform/corda/4.7/enterprise/notary/installing-the-notary-service.html#mysql-driver) for more information.
 
 
 ## Version 4.0
