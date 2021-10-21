@@ -27,7 +27,7 @@ which will not. Over time, more of the API will fall under the stability guarant
 
 
 
-# Public API
+## Public API
 
 The following modules form part of Corda’s public API and we commit to API/ABI backwards compatibility in following releases, unless an incompatible change is required for security reasons:
 
@@ -47,10 +47,13 @@ has a stable API.
 
 
 
-# Non-public API (experimental)
+## Non-public API
+
+{{< note >}}
+This is an experimental API.
+{{< /note >}}
 
 The following modules are not part of the Corda’s public API and no backwards compatibility guarantees are provided. They are further categorized in 2 classes:
-
 
 * the incubating modules, for which we will do our best to minimise disruption to developers using them until we are able to graduate them into the public API
 * the internal modules, which are not to be used, and will change without notice
@@ -86,4 +89,3 @@ functionality, the annotation is a warning that we may need to extend them in fu
 Cordapp developers should therefore just use these classes “as is”, and *not* attempt to extend or implement any of them themselves.
 
 This annotation is inherited by subclasses and sub-interfaces.
-

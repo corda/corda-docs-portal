@@ -17,11 +17,9 @@ title: DemoBench
 
 DemoBench is a standalone desktop application that makes it easy to configure and launch local Corda nodes. It is useful for training sessions, demos or just experimentation.
 
-
 ## Downloading
 
-Installers compatible with the latest Corda release can be downloaded from the [Corda website](https://www.corda.net/downloads).
-
+Installers compatible with the latest Corda release can be downloaded [here](https://github.com/corda/corda/tree/release/os/4.3/tools/demobench).
 
 
 ## Running DemoBench
@@ -45,13 +43,9 @@ bankb/
 ...
 ```
 
-
-
 When DemoBench reloads this profile it will close any nodes that it is currently running and then launch these new nodes instead. All nodes will be created with a brand new database. Note that the `node.conf` files within each profile are JSON/HOCON format, and so can be extracted and edited as required.
 
-
 DemoBench writes a log file to the following location:
-
 
 {{< table >}}
 
@@ -139,4 +133,3 @@ explorer/
 cordapps/
     bank-of-corda.jar
 ```
-
