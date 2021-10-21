@@ -1,8 +1,8 @@
 ---
 menu:
-corda-enterprise-4-8:
-identifier: corda-enterprise-4-8-upgrade-notary-database
-parent: corda-enterprise-4-8-notary-migration-overview
+  corda-enterprise-4-8:
+    identifier: corda-enterprise-4-8-upgrade-notary-database
+    parent: corda-enterprise-4-8-notary-migration-overview
 weight: 1
 title: "Importing Percona notary data to CockroachDB"
 ---
