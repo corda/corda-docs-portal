@@ -99,7 +99,7 @@ The node is using log4j2 asynchronous logging by default (configured via log4j2 
 to ensure that log message flushing is not slowing down the actual processing.
 If you need to switch to synchronous logging (e.g. for debugging/testing purposes), you can override this behaviour
 by adding `-DLog4jContextSelector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector` to the node’s
-command line or to the `jvmArgs` section of the node configuration (see corda-configuration-file).
+command line or to the `jvmArgs` section of the node configuration (see [Corda configuration file](../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.md).
 Additionally, you need to override the log4j2 configuration file by specifying `-Dlog4j.configurationFile=<log4j2 config>`.
 The configuration file can be taken from the `config/dev` folder in [Corda Open Source repository](https://github.com/corda/corda).
 When using synchronous logging with `RollingRandomAccessFile` appenders in the configuration file, make sure that they DO NOT
@@ -154,13 +154,13 @@ then determine the logging module name from the console output.
 
 ## SSH access
 
-Node can be configured to run SSH server. See [Node shell](operating/shell.md/) for details.
+Node can be configured to run SSH server. See [Node shell](../../../../../../en/platform/corda/4.7/enterprise/node/operating/shell.md) for details.
 
 
 ## Database access
 
 When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-(see node-database-access-h2).
+(see [Node database access h2](../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md)).
 
 Note that in a production set up, it is highly recommended to use an enterprise grade database, and access to the
 database should be via the usual database tools mechanisms, including access control and restrictions.
@@ -168,7 +168,7 @@ database should be via the usual database tools mechanisms, including access con
 
 ## Monitoring your node
 
-This section covers monitoring performance and health of a node in Corda Enterprise with Jolokia and Graphite. General best practices for monitoring (e.g. setting up TCP checks for the ports the node communicates on, database health checks etc.) are not covered here but should be followed.
+This section covers monitoring performance and health of a node in Corda Enterprise with Jolokia and Graphite. General best practices for monitoring (e.g., setting up TCP checks for the ports the node communicates on, database health checks etc.) are not covered here but should be followed.
 
 
 
@@ -210,7 +210,7 @@ The format of the driver name needs to be `jolokia-jvm-{VERSION}-agent.jar` wher
 The following JMX statistics are exported:
 
 
-* Corda specific metrics: see node-metrics for a list
+* Corda specific metrics: see [Node metrics](../../../../../../en/platform/corda/4.7/enterprise/node-metrics.md) for a list
 * Apache Artemis metrics: queue information for P2P and RPC services
 * JVM statistics: classloading, garbage collection, memory, runtime, threading, operating system
 
@@ -232,9 +232,9 @@ To pass a security policy use `java -Dcapsule.jvm.args=-javaagent:./drivers/jolo
 
 When running in dev mode, Hibernate statistics are also available via the Jolokia interface. These are disabled otherwise
 due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
-`exportHibernateJMXStatistics` flag on the [database configuration](setup/corda-configuration-file.md#database-properties-ref).
+`exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#database).
 
-When starting Corda nodes using Cordformation runner (see running-a-node), you should see a startup message similar to the following:
+When starting Corda nodes using Cordformation runner (see [Running a node](../../../../../../en/platform/corda/4.7/enterprise/node/deploy/running-a-node.md), you should see a startup message similar to the following:
 **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
 
 When starting Corda nodes using the ‘driver DSL’, you should see a startup message in the logs similar to the following:
@@ -297,7 +297,7 @@ Unfortunately the JVM does not let you limit the total memory usage of Java prog
 A node which is running out of memory is expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
 Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens. It’s also advised to have
 necessary JVM monitoring and restart infrastructure in place.
-See [Setting JVM arguments](deploy/running-a-node.md#setting-jvm-args) for further details on JVM out-of-memory related parameters.
+See [Setting JVM arguments](deploy/running-a-node.html#setting-jvm-arguments) for further details on JVM out-of-memory related parameters.
 
 
 
@@ -359,7 +359,7 @@ If this approach is taken, the passwords will appear in the windows command prom
 
 ## Obfuscating sensitive data
 
-Instead of hiding sensitive data using environment variables, another option is to use configuration obfuscation. Corda ships with a tools-config-obfuscator which allows the user to censor string properties in the configuration file. The config would look something like this:
+Instead of hiding sensitive data using environment variables, another option is to use configuration obfuscation. Corda ships with a [Configuration Obfuscator](../../../../../../en/platform/corda/4.7/enterprise/tools-config-obfuscator.md) which allows the user to censor string properties in the configuration file. The config would look something like this:
 
 ```kotlin
 keyStorePassword = "<{Kwby0G9c/+jxJM+c7Vaiow==:pdy+UaakdFSmmh8WWuBOoQ==}>"
@@ -475,8 +475,8 @@ that were received over the network.
 A Contract CorDapp (an attachment) received over the network, is only allowed to be evaluated if there are other Contract
 CorDapps installed in the node that have been signed by at least one of the received CorDapp’s keys.
 
-See [Signature Constraints](../cordapps/api-contract-constraints.md#signature-constraints) and
-[Signing CorDapps for use with Signature Constraints](../cordapps/api-contract-constraints.md#signing-cordapps-for-use-with-signature-constraints) for more information
+See [Signature Constraints](../../../../../../en/platform/corda/4.7/enterprise/cordapps/api-contract-constraints.html#signature-constraints) and
+[Signing CorDapps for use with Signature Constraints](../../../../../../en/platform/corda/4.7/enterprise/cordapps/api-contract-constraints.html#signing-cordapps-for-use-with-signature-constraints) for more information
 
 {{< /note >}}
 
