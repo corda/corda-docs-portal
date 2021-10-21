@@ -46,7 +46,7 @@ repositories {
 ### Connect to a node with `CordaRPCClient`
 
 The [CordaRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) class has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
-[CordaRPCConnection](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/core/messaging/CordaRPCOps.html)
+[CordaRPCConnection](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/core/messaging/RPCOps.html)
 object that you can use to interact with the node.
 
 Here is an example of using [CordaRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) to connect to a node and log the current time on its internal clock:
@@ -530,8 +530,8 @@ For more information, see the API documentation for [MultiRPCClient](../../../..
 If the reconnection cycle has started, the previously supplied `RPCConnection` may become interrupted and `proxy` will throw an
 `RPCException` every time the remote method is called.
 
-To be notified when the connection has been re-established or, indeed, to receive notifications throughout the lifecycle of every connection, you can add one or more [RPCConnectionListeners](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/ext/RPCConnectionListener.html) to `MultiRPCClient`.
-For more information, see [RPCConnectionListener](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/ext/RPCConnectionListener.html) in the API documentation.
+To be notified when the connection has been re-established or, indeed, to receive notifications throughout the lifecycle of every connection, you can add one or more [RPCConnectionListeners](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/ext/RPCConnectionListener.html) to `MultiRPCClient`.
+For more information, see [RPCConnectionListener](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/ext/RPCConnectionListener.html) in the API documentation.
 
 ### Specify RPC connection parameters
 Many constructors are available for `MultiRPCClient`. This enables you to specify a variety of other configuration parameters relating to the RPC connection. The parameters for `MultiRPCClient` are largely similar to the parameters for [CordaRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html). For more information, see [MultiRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.

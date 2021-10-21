@@ -245,7 +245,7 @@ Configuration templates for each database vendor are shown below:
 #### H2
 
 By default, nodes store their data in an H2 database.
-No database setup is needed. Optionally remote H2 access/port can be configured. See the documentation on [Database access when running H2](../../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2).
+No database setup is needed. Optionally remote H2 access/port can be configured. See the documentation on [Database access when running H2](../../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md).
 
 
 

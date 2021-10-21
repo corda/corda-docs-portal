@@ -313,7 +313,7 @@ The alias for the name associated with the certificate to be associated with the
 
 
 
-Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an example, we will initialise a simple network and then register and unregister a package namespace. Check the sample CorDapp out, then follow the [instructions to build it](https://docs.corda.net/tutorial-cordapp.md).
+Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an example, we will initialise a simple network and then register and unregister a package namespace. Check the sample CorDapp out, then follow the [instructions to build it](../../../../../../../en/platform/corda/4.7/open-source/tutorial-cordapp.md).
 
 {{< note >}}
 You can point to any existing bootstrapped corda network (this will have the effect of updating the associated network parameters file).
