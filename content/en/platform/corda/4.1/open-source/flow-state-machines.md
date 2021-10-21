@@ -340,7 +340,7 @@ the trade info, and then call `otherSideSession.send`. which takes two arguments
 
 `otherSideSession.send` will serialise the payload and send it to the other party automatically.
 
-Next, we call a *subflow* called `IdentitySyncFlow.Receive` (see [Sub-flows](#subflows)). `IdentitySyncFlow.Receive`
+Next, we call a *subflow* called `IdentitySyncFlow.Receive` (see [Sub-flows](#sub-flows)). `IdentitySyncFlow.Receive`
 ensures that our node can de-anonymise any confidential identities in the transaction it’s about to be asked to sign.
 
 Next, we call another subflow called `SignTransactionFlow`. `SignTransactionFlow` automates the process of:
@@ -853,4 +853,3 @@ problems (e.g. the other side doesn’t know the trade)
 For example to implement human transaction authorisations
 * A standard library of flows that can be easily sub-classed by local developers in order to integrate internal
 reporting logic, or anything else that might be required as part of a communications lifecycle
-
