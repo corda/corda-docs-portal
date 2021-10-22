@@ -334,7 +334,7 @@ There are two types of contract/state upgrade:
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.md#implicit-vs-explicit-upgrades).
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](../../../../../../en/platform/corda/4.7/enterprise/cordapps/api-contract-constraints.html#implicit-vs-explicit-contract-upgrades).
 
 
 
@@ -488,7 +488,7 @@ side-by-side
 * State schema changes are handled separately
 
 
-#### Writing new states and contracts
+#### Write new states and contracts
 
 
 * If a property is removed from a state, any references to it must be removed from the contract code. Otherwise, you
@@ -500,10 +500,10 @@ value
 * Updated state objects can use the old contract code as long as there is no requirement to update it
 
 
-#### Permissioning
+#### Permissions
 
 
-* Only node administrators are able to run the contract upgrade authorisation and deauthorisation flows
+* Only node administrators are able to run the contract upgrade authorisation and de-authorisation flows
 
 
 #### Logistics
@@ -523,7 +523,7 @@ a schema describing what has been serialized alongside the data itself. This ass
 long-ago archived data, among other things.
 
 
-### Writing classes
+### Write classes
 
 Although not strictly related to versioning, AMQP serialisation dictates that we must write our classes in a particular way:
 
@@ -547,7 +547,7 @@ wildcard
 * Object graph cycles are not supported, so an object cannot refer to itself, directly or indirectly
 
 
-### Writing enums
+### Write enums
 
 Elements cannot be added to enums in a new version of the code. Hence, enums are only a good fit for genuinely static
 data that will never change (e.g. days of the week). A `Buy` or `Sell` flag is another. However, something like
@@ -769,7 +769,7 @@ override fun generateMappedObject(schema: MappedSchema): PersistentState {
 With this approach, whenever the state object is stored in the vault, a representation of it will be stored in two
 separate database tables where possible - one for each supported schema.
 
-## Testing CorDapp upgrades
+## Test CorDapp upgrades
 
 At the time of this writing there is no platform support to test CorDapp upgrades. There are plans to add support in a future version.
 This means that it is not possible to write automated tests using just the provided tooling.
@@ -782,7 +782,7 @@ This can be simulated with a scenario like this:
 
 
 * Write and individually test the new version of the state and contract.
-* Setup a network of nodes with the previous version. In the simplest form, *deployNodes* can be used for this purpose.
+* Set up a network of nodes with the previous version. In the simplest form, *deployNodes* can be used for this purpose.
 * Run some transactions between nodes.
 * Upgrade a couple of nodes to the new version of the CorDapp.
 

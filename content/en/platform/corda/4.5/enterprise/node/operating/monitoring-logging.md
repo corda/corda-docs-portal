@@ -132,7 +132,7 @@ environments under `/config/<env>`.
 
 When running in dev mode, Hibernate statistics are also available via the Jolkia interface. These are disabled otherwise
 due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
-`exportHibernateJMXStatistics` flag on the [database configuration](../setup/corda-configuration-file.md#database-properties-ref).
+`exportHibernateJMXStatistics` flag on the [database configuration](../setup/corda-configuration-file.html#database-properties-ref).
 
 When starting Corda nodes using Cordformation runner (see [running nodes locally](../deploy/running-a-node.html)), you should see a startup message similar to the following:
 **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
@@ -244,7 +244,7 @@ If this approach is taken, the passwords will appear in the windows command prom
 
 ## Obfuscating sensitive data
 
-Instead of hiding sensitive data using environment variables, another option is to use configuration obfuscation. Corda ships with a [configuration obfuscator](../../tools-config-obfuscator.md/) which allows the user to censor string properties in the configuration file. The config would look something like this:
+Instead of hiding sensitive data using environment variables, another option is to use configuration obfuscation. Corda ships with a [configuration obfuscator](../../tools-config-obfuscator.md) which allows the user to censor string properties in the configuration file. The config would look something like this:
 
 ```kotlin
 keyStorePassword = "<{Kwby0G9c/+jxJM+c7Vaiow==:pdy+UaakdFSmmh8WWuBOoQ==}>"
