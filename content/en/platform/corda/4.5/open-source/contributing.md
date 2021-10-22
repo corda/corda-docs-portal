@@ -55,7 +55,7 @@ features at any given time. To avoid surprises and foster transparency,
 [our Jira work tracking system is public](https://r3-cev.atlassian.net/projects/CORDA/summary). If in doubt, reach out to one of the
 [Community Maintainers](contributing-philosophy.html#community-maintainers).
 
-In addition, there are a number of additional requirements that apply to ["large" contributions](contributing.html#large-contributions).
+In addition, there are a number of additional requirements that apply to [large contributions](contributing.html#large-contributions).
 
 ## Making changes to Corda
 
