@@ -633,7 +633,7 @@ Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same t
 
 ### Step 6. Security: Upgrade your use of SwapIdentitiesFlow
 
-The [Confidential identities](../../../../../en/platform/corda/4.4/enterprise/cordapps/cordapp-build-systems.html#cordapp-configuration-files) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
+The [Confidential identities](../../../../../en/platform/corda/4.4/enterprise/api-confidential-identity.html#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as `FinalityFlow` above, to close problems with confidential identities being injectable into a node
 outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
 the `SwapIdentitiesFlow`.
