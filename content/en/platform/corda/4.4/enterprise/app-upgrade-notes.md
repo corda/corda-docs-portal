@@ -313,7 +313,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-See [CorDapp configuration files](../../../../../en/platform/corda/4.4/enterprise/cordapps/cordapp-build-systems.html#cordapp-configuration-files) for more information.
+See [CorDapp configuration files](../../../../../en/platform/corda/4.4/enterprise/cordapps/cordapp-build-systems.html#cordapp-configuration-files-ref) for more information.
 
 
 
