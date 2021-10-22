@@ -76,7 +76,7 @@ Then start the Corda webserver
 find ~/dev/cordapp-example/kotlin-source/ -name corda-webserver.jar -execdir sh -c 'java -jar {} &' \;
 ```
 
-You can now interact with your running CorDapp. See the instructions [here](https://docs.corda.net/tutorial-cordapp.html#via-http).
+You can now interact with your running CorDapp. See the instructions [here](tutorial-cordapp.html#interacting-with-the-example-cordapp).
 
 
 ## Next Steps
