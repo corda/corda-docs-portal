@@ -417,7 +417,7 @@ java -jar corda-tools-ha-utilities-4.7.jar node-registration --config-files=./en
 ```
 
 This call will process `node.conf` files and for each legal name performs Doorman registration. Depending on Corda Network configuration this process may require manual approval
-and the program will poll for for Certification Signing Request(CSR) completion. For more information see joining-a-compatibility-zone.
+and the program will poll for for Certification Signing Request(CSR) completion. For more information see [Joining a compatibility zone](../../../../../../../en/platform/corda/4.7/open-source/joining-a-compatibility-zone.md).
 
 After successful execution this will produce two directories `entityA/certificates` and `entityB/certificates` containing the following files:
 
@@ -746,9 +746,7 @@ making same DataCentre connection a priority. This applies to Artemis connection
 
 ### Starting all up
 
-Please see [Http Proxy Setup](#http-proxy-setup) note above on connectivity through the proxy.
-
-Please see [Capsule Cache Directory](#capsule-cache-directory) note above explaining details of running Capsule Fat Jars.
+Please see the notes above on connectivity through the proxy and the details of running Capsule fat jars.
 
 
 #### Starting Float processes

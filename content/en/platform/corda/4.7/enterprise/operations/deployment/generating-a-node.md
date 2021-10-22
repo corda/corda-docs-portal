@@ -123,7 +123,7 @@ The configuration values available in `deployNodes` task are as follows:
 
 
 * `name` <string>
-    * The legal identity name of the Corda node. (see [myLegalName](../../node/setup/corda-configuration-file.html#corda-configuration-file-mylegalname))
+    * The legal identity name of the Corda node. (see [myLegalName](../../node/setup/corda-configuration-fields.html#mylegalname))
     * e.g.
 
 ```kotlin
@@ -134,7 +134,7 @@ name "O=PartyA,L=London,C=GB"
 
 
 * `p2pAddress` <string> <**required if p2pPort not specified**>
-    * The address/port the node uses for inbound communication from other nodes. (see [p2pAddress](../../node/setup/corda-configuration-file.html#corda-configuration-file-p2paddress))
+    * The address/port the node uses for inbound communication from other nodes. (see [p2pAddress](../../node/setup/corda-configuration-fields.html#p2paddress))
     * e.g.
 
 ```kotlin
@@ -145,7 +145,7 @@ p2pAddress "example.com:10002"
 
 
 * `p2pPort` <integer>
-    * The port the node uses for inbound communication from other nodes.  Assumes the address is `localhost`. (see [p2pAddress](../../node/setup/corda-configuration-file.html#corda-configuration-file-p2paddress))
+    * The port the node uses for inbound communication from other nodes.  Assumes the address is `localhost`. (see [p2pAddress](../../node/setup/corda-configuration-fields.html#p2paddress))
     * e.g.
 
 ```kotlin
@@ -156,7 +156,7 @@ p2pPort 10006  // "localhost:10006"
 
 
 * `rpcSettings` <config>
-    * Specifies RPC settings for the node. (see [rpcSettings](../../node/setup/corda-configuration-file.html#corda-configuration-file-rpc-settings))
+    * Specifies RPC settings for the node. (see [rpcSettings](../../node/setup/corda-configuration-fields.html#rpcsettings))
     * e.g.
 
 ```kotlin
@@ -174,7 +174,7 @@ rpcSettings {
 ### Optional configuration
 
 
-* `notary` <config> (see [notary](../../node/setup/corda-configuration-file.html#corda-configuration-file-notary))
+* `notary` <config> (see [notary](../../node/setup/corda-configuration-fields.html#notary))
     * Optional configuration which specifies the node is a notary.
     * {{< note >}}
 <**required**> for notary nodes{{< /note >}}
@@ -182,7 +182,7 @@ rpcSettings {
 
 
 * `devMode` <boolean>
-    * When true enables development mode. (see [devMode](../../node/setup/corda-configuration-file.html#corda-configuration-file-dev-mode))
+    * When true enables development mode. (see [devMode](../../node/setup/corda-configuration-fields.html#devmode))
     * e.g.
 
 ```kotlin
@@ -215,7 +215,7 @@ webPort  10011  // "localhost:10011"
 
 
 * `rpcUsers` <list>
-    * Set the RPC users for this node. (see [rpcUsers](../../node/setup/corda-configuration-file.html#corda-configuration-file-rpc-users))
+    * Set the RPC users for this node. (see [rpcUsers](../../node/setup/corda-configuration-fields.html#rpcusers))
     * e.g.
 
 ```kotlin
@@ -249,7 +249,7 @@ https true
 
 
 * `sshdPort` <integer>
-    * Specifies the port for sshd communication. (see [sshd](../../node/setup/corda-configuration-file.md#corda-configuration-file-sshd))
+    * Specifies the port for sshd communication. (see [sshd](../../node/setup/corda-configuration-fields.html#sshd))
     * e.g.
 
 ```kotlin
@@ -316,7 +316,7 @@ ext.jolokia_version = "1.6.1"
 
 ### Package namespace ownership
 
-To specify [Package namespace ownership](../../node/deploy/env-dev.md#package-namespace-ownership) configuration, the optional `networkParameterOverrides` and `packageOwnership` blocks can be used, similar to the configuration file used in network-bootstrapper:
+To specify [Package namespace ownership](../../node/deploy/env-dev.html#package-namespace-ownership) configuration, the optional `networkParameterOverrides` and `packageOwnership` blocks can be used, similar to the configuration file used in network-bootstrapper:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
