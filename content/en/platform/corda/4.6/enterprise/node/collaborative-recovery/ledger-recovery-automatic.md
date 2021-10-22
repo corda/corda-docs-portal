@@ -26,7 +26,7 @@ In a disaster recovery scenario, you can use LedgerRecover to either automatical
 
 ## Configuration parameters
 
-LedgerRecover can be configured, [like other CorDapps](../../cordapps/cordapp-build-systems), by creating a configuration file named after the LedgerRecover configuration `.jar` file. For example, if the LedgerRecover `.jar` file is called `ledger-recover-1.0.jar`, the configuration file would be `<corda_node_dir>/cordapps/config/ledger-recover-1.0.conf`.
+LedgerRecover can be configured, [like other CorDapps](../../cordapps/cordapp-build-systems.md), by creating a configuration file named after the LedgerRecover configuration `.jar` file. For example, if the LedgerRecover `.jar` file is called `ledger-recover-1.0.jar`, the configuration file would be `<corda_node_dir>/cordapps/config/ledger-recover-1.0.conf`.
 
 You can adjust LedgerRecover behaviour using the configuration parameters set out in the table below. If a configuration parameter is not specified, or the configuration file is not present, the default value is used.
 
@@ -142,7 +142,7 @@ flow start AutomaticLedgerRecoverFlow party: "O=PartyB, L=London, C=GB"
 * `AutomaticRecoveryException` - Thrown if the corresponding `ReconciliationStatus` shows no differences, if there are no transactions to recover, or if the received transaction was not included in the list of requested transactions.
 * `TransactionLimitExceededException` - Thrown if the number of requested transactions per request exceeds the configured limit.
 * `RequestLimitExceededException` - Thrown if the number of requests within a timeframe exceeds the configured limit.
-* `SizeLimitExceededException` - Thrown by the responder node if the size of artifacts (including not only transactions but referenced artifacts such as attachments and network parameters) to send within a timeframe exceeds the configured limit. In this case, the recovery is only _partially_ completed; the transaction exceeding the limit (including its components) is not sent, but the preceding transactions are sent and saved successfully. See [maxAllowedSizeInBytes](#max-allowed-size) for more details.
+* `SizeLimitExceededException` - Thrown by the responder node if the size of artifacts (including not only transactions but referenced artifacts such as attachments and network parameters) to send within a timeframe exceeds the configured limit. In this case, the recovery is only _partially_ completed; the transaction exceeding the limit (including its components) is not sent, but the preceding transactions are sent and saved successfully. See [maxAllowedSizeInBytes](#configuration-parameters) for more details.
 * `RecoveryAlreadyInprogressException` - Thrown by either the requesting or responding nodes if an existing `RecoveryRequest` is already in progress.
 * `RecoveryRequestVerificationException` - Thrown by the responder node if the `RecoveryRequest` received from the requesting node includes transactions which they are not permitted to request.
 
@@ -450,7 +450,7 @@ Some information regarding the progress of recovery can be found in a node's `CR
 
 ## JMX metrics
 
-The JMX metrics for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.md#JMX-Metrics).
+The JMX metrics for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.html#jmx-metrics).
 
 {{< note >}}
 The metrics do not distinguish between automatic and manual recoveries - the results returned are aggregated over both types.
@@ -458,7 +458,7 @@ The metrics do not distinguish between automatic and manual recoveries - the res
 
 ## System requirements
 
-System requirements for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.md#System-Requirements).
+System requirements for LedgerRecover (Automatic) are identical to those of [LedgerRecover (Manual)](ledger-recovery-manual.html#system-requirements).
 
 ## Log messages
 
@@ -483,7 +483,7 @@ In this scenario, we'll make the following assumptions:
 
 * We either have not been anonymizing our identity, or we have exchanged identity information with party B such that party B can identify transactions that involve us, party A.
 
-* [Reconciliation](./ledger-sync.md#Workflow) has been successfully completed and shows differences between our (party A) vault and party B's.
+* [Reconciliation](ledger-sync.html#example-workflow) has been successfully completed and shows differences between our (party A) vault and party B's.
 
 ### Process
 
@@ -509,11 +509,11 @@ The requesting node should now have successfully recovered their vault and shoul
 
 If the initiating node (node A) throws an exception, it is very likely for one of the following reasons:
 
-- The reconciliation process is either still in progress or has failed. In the former situation, wait for the reconciliation process to be scheduled or complete. In the latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of the [LedgerSync documentation](./ledger-sync.md#Log-Messages)) and then reschedule the reconciliation so that it may be completed successfully.
+- The reconciliation process is either still in progress or has failed. In the former situation, wait for the reconciliation process to be scheduled or complete. In the latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of the [LedgerSync documentation](./ledger-sync.html#log-messages)) and then reschedule the reconciliation so that it may be completed successfully.
 
 - The recovery request breached one of the following constraints:
-    - The list of transactions to be recovered is empty. This may be a result of a concurrent recovery processes with another counterparty. In this case, the reconciliation result contained only false positives and there is nothing to recover. Consider [refreshing the reconciliation results](./ledger-sync.md#RefreshReconciliationStatusesFlow).
-    - There are too many transactions to recover. Consider running a [LedgerRecover (Manual)](./ledger-recovery-manual.md#Workflow) process instead.
+    - The list of transactions to be recovered is empty. This may be a result of a concurrent recovery processes with another counterparty. In this case, the reconciliation result contained only false positives and there is nothing to recover. Consider [refreshing the reconciliation results](ledger-sync.html#refreshreconciliationstatusesflow).
+    - There are too many transactions to recover. Consider running a [LedgerRecover (Manual)](ledger-recovery-manual.html#example-workflow) process instead.
     - The automatic recovery requests initiated against the counterparty are too frequent.
 
 ##### Unhappy path - Exception is thrown by the responding node
@@ -522,7 +522,7 @@ If the responder node (node B) throws an exception, it is very likely for one of
 
 - The recovery request breached one of the following constraints:
     - The list of transactions to be recovered is empty.
-    - The total size of transactions requested to be sent has exceeded the configured limits. Consider running a [LedgerRecover (Manual)](./ledger-recovery-manual.md#Workflow) process instead from the initiating node.
+    - The total size of transactions requested to be sent has exceeded the configured limits. Consider running a [LedgerRecover (Manual)](ledger-recovery-manual.html#example-workflow) process instead from the initiating node.
     - The automatic recovery requests received from the initiating party are too frequent.
     - The requested transaction data should not be known about by the initiating party.
 

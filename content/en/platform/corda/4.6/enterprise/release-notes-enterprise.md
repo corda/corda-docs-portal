@@ -401,7 +401,7 @@ For more information, see [Node configuration reference](../../../../../en/platf
 
 Notary data stored in a Percona database can now be migrated to Cockroach DB.
 
-For more information, see [Importing Percona notary data to CockroachDB](../../../../../en/platform/corda/4.6/enterprise/notary/upgrading-a-notary.md).
+For more information, see [Importing Percona notary data to CockroachDB](../../../../../en/platform/corda/4.6/enterprise/notary/notary-db-migration.md).
 
 ### Notary identity configuration
 
