@@ -79,8 +79,8 @@ To improve reliability and prevent user errors, we have modified the database ac
 
 The full list of blocked functions can be found below:
 
-- [Restricted connections](api-persistence.html#restricted-control-of-connections).
-- [Restricted entity managers](api-persistence.html#restricted-control-of-entity-managers).
+- [Restricted control of connections](api-persistence.html#restricted-control-of-connections).
+- [Restricted control of entity managers](api-persistence.html#restricted-control-of-entity-managers).
 
 ### Updated Dockerform task
 

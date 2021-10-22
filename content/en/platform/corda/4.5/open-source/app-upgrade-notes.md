@@ -190,7 +190,7 @@ Otherwise just upgrade your installed copy in the usual manner for your operatin
 {{< note >}}
 Platform Version 5 requires a different version of Gradle, so if you’re intending to upgrade past Platform Version 4 you may wish
 to skip updating Gradle here and upgrade directly to the version required by Platform Version 5. You’ll still need to alter the version
-numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#step-2-adjust-the-version-numbers-in-your-gradle-build-files)
+numbers in your Gradle file as shown in this section. See [Step 2. Adjust the version numbers in your Gradle build files](#step-2-adjust-the-version-numbers-in-your-gradle-build-files)
 
 {{< /note >}}
 
@@ -834,4 +834,4 @@ You have some choices here:
 * Upgrade your `quasar.jar` to `0.7.12_r3`
 * Delete your `lib` directory and switch to using the Gradle test runner
 
-Instructions for both options can be found in [Running tests in Intellij](tutorial-cordapp.html#testing-the-cordapp).
+Instructions for both options can be found in [Running tests in Intellij](testing.html#running-tests-in-intellij).
