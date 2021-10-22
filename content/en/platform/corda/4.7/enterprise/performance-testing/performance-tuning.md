@@ -14,7 +14,7 @@ weight: 800
 # Performance-tuning a node
 
 Great, so we have set up a test cluster, have all the CorDapps and JMeter installed, sorted out the firewall rules, we can get a request
-go through via the JMeter GUI (see [View Results in Table](practical-considerations.html#view-results-in-table) for details how to verify that), we have sorted
+go through via the JMeter GUI (see [View Results in Table](practical-considerations.html#interpreting-and-trouble-shooting-jmeter-output) for details how to verify that), we have sorted
 out an initial test plan and have run a performance test, but these throughput numbers are not quite what we would like to see there.
 Time to tune the node.
 
