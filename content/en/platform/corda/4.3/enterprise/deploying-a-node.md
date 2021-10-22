@@ -93,7 +93,7 @@ communicate with your node.
 * Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
 * Enter an email address which will be used as an administrative contact during the registration process. This is
 only visible to the permissioning service.
-* Enter your node’s desired legal name (see [Node identity](node-naming.md#node-naming) for more details).
+* Enter your node’s desired legal name (see [Node identity](node-naming.html#node-naming) for more details).
 * If required, add RPC users
 
 
@@ -256,7 +256,7 @@ communicate with your node.
 * Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
 * Enter an email address which will be used as an administrative contact during the registration process. This is
 only visible to the permissioning service.
-* Enter your node’s desired legal name (see [Node identity](node-naming.md#node-naming) for more details).
+* Enter your node’s desired legal name (see [Node identity](node-naming.html#node-naming) for more details).
 * If required, add RPC users
 
 
