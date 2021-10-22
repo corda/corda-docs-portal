@@ -17,7 +17,7 @@ weight: 5
 
 ## Logging
 
-By default the node log files are stored to the `logs` subdirectory of the working directory and are rotated. Logging can be printed to the console by passing the `--log-to-console` command line flag. The default logging level is `INFO` which can be adjusted by the `--logging-level` command line argument. This configuration option will affect all modules. Hibernate (the JPA provider used by Corda) specific log messages of level `WARN` and above will be logged to the diagnostic log file, which is stored in the same location as other log files (`logs` subdirectory by default). This is because Hibernate may log messages at WARN and ERROR that are handled internally by Corda and do not need operator attention. If they do, they will be logged by Corda itself in the main node log file.
+By default, the node log files are stored to the `logs` subdirectory of the working directory and are rotated. Logging can be printed to the console by passing the `--log-to-console` command line flag. The default logging level is `INFO` which can be adjusted by the `--logging-level` command line argument. This configuration option will affect all modules. Hibernate (the JPA provider used by Corda) specific log messages of level `WARN` and above will be logged to the diagnostic log file, which is stored in the same location as other log files (`logs` subdirectory by default). This is because Hibernate may log messages at WARN and ERROR that are handled internally by Corda and do not need operator attention. If they do, they will be logged by Corda itself in the main node log file.
 
 It may be the case that you require to amend the log level of a particular subset of modules (e.g., if you’d like to take a closer look at Hibernate activity). So, for more bespoke logging configuration, the logging settings can be completely overridden with a [Log4j2](https://logging.apache.org/log4j/2.x) configuration file assigned to the `log4j.configurationFile` system property.
 
@@ -64,7 +64,7 @@ Node can be configured to run SSH server.
 ## Database access
 
 When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-(see [database access when running H2](../../node-database-access-h2.html)).
+(see [database access when running H2](../../node-database-access-h2.md)).
 
 Note that in a production set up, it is highly recommended to use an enterprise grade database, and access to the
 database should be via the usual database tools mechanisms, including access control and restrictions.
@@ -132,9 +132,9 @@ environments under `/config/<env>`.
 
 When running in dev mode, Hibernate statistics are also available via the Jolkia interface. These are disabled otherwise
 due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
-`exportHibernateJMXStatistics` flag on the [database configuration](../setup/corda-configuration-file.md#database-properties-ref).
+`exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#database).
 
-When starting Corda nodes using Cordformation runner (see [running nodes locally](../deploy/running-a-node.html)), you should see a startup message similar to the following:
+When starting Corda nodes using Cordformation runner (see [running nodes locally](../deploy/running-a-node.md)), you should see a startup message similar to the following:
 **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
 
 When starting Corda nodes using the ‘driver DSL’, you should see a startup message in the logs similar to the following:
@@ -244,7 +244,7 @@ If this approach is taken, the passwords will appear in the windows command prom
 
 ## Obfuscating sensitive data
 
-Instead of hiding sensitive data using environment variables, another option is to use configuration obfuscation. Corda ships with a [configuration obfuscator](../../tools-config-obfuscator.md/) which allows the user to censor string properties in the configuration file. The config would look something like this:
+Instead of hiding sensitive data using environment variables, another option is to use configuration obfuscation. Corda ships with a [configuration obfuscator](../../../../../../../en/platform/corda/4.7/enterprise/tools-config-obfuscator.md) which allows the user to censor string properties in the configuration file. The config would look something like this:
 
 ```kotlin
 keyStorePassword = "<{Kwby0G9c/+jxJM+c7Vaiow==:pdy+UaakdFSmmh8WWuBOoQ==}>"

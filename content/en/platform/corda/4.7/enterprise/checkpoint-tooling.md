@@ -189,7 +189,7 @@ To run simply pass in the following jar to the JVM used to start a Corda node: `
 
 {{< note >}}
 As above also ensure to use the jar when using corda gradle plugin configuration tasks: e.g. `cordformation deployNodes` task.
-See [https://docs.corda.net/head/generating-a-node.html#the-cordform-task](https://docs.corda.net/head/generating-a-node.html#the-cordform-task)
+See [Generating a Node](../../../../../en/platform/corda/4.7/enterprise/node/deploy/generating-a-node.html#tasks-using-the-cordform-plug-in).
 
 {{< /note >}}
 
@@ -621,7 +621,7 @@ The feature provides a way for flows to reload from checkpoints, even if no erro
 
 ### How to use this feature
 
-Add the `reloadCheckpointAfterSuspend` [node configuration option](node/setup/corda-configuration-fields.md#reloadCheckpointAfterSuspend) and set it to `true`, as shown below:
+Add the `reloadCheckpointAfterSuspend` [node configuration option](../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#reloadCheckpointAfterSuspend) and set it to `true`, as shown below:
 
 ```
 reloadCheckpointAfterSuspend = true

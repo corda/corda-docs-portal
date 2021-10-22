@@ -31,9 +31,9 @@ When you configure the Gateway Service, you need to:
 
 1. Specify the endpoint where the Auth Service is exposed - this must match the IP or host name of the machine/VM/container and the port that is configured in the Auth Service config file.
 
-2. Specify the SSL configuration for connecting to the Auth Service. You can do this using the [PKI tool](../../../cenm/1.5/pki-tool).
+2. Specify the SSL configuration for connecting to the Auth Service. You can do this using the [PKI tool](../../../../../../en/platform/corda/1.5/cenm/pki-tool.md).
 
-3. Your authentication credentials, as specified in your [Auth Service configuration](auth-service).
+3. Your authentication credentials, as specified in your [Auth Service configuration](auth-service.md).
 
 4. Your Zone Service address.
 
@@ -98,9 +98,9 @@ Command line arguments:
 ## Installing applications onto the Gateway Service
 
 {{< note >}}
-[Auth Service](auth-service) needs to be set up with baseline permission data for each application.
+[Auth Service](auth-service.md) needs to be set up with baseline permission data for each application.
 {{< /note >}}
 
-* [CENM management console](../../../cenm/1.5/cenm-console)
-* [Node management console](management-console)
-* [Flow management console](node-flow-management-console)
+* [CENM management console](../../../../../../en/platform/corda/1.5/cenm/cenm-console.md)
+* [Node management console](../../../../../../en/platform/corda/4.7/enterprise/node/management-console.md)
+* [Flow management console](../../../../../../en/platform/corda/4.7/enterprise/node/node-flow-management-console.md)
