@@ -13,7 +13,7 @@ weight: 155
 
 # Flow management console
 
-The flow management console allows you to see the state of the flows running on a node and perform some operations on them. It runs as part of the [Gateway Service](gateway-service.md).
+The flow management console allows you to see the state of the flows running on a node and perform some operations on them. It runs as part of the [Gateway Service](../../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md).
 
 It has a front end written in React, and a REST service written in Kotlin, which makes RPC calls to Corda Enterprise.
 
@@ -22,7 +22,7 @@ It consists of two `.jar` files:
 * The flow management plug-in: `flow-management-plugin-<release>.jar`.
 * The permissions `.jar` for the plug-in: `auth-baseline-flow-management-<release>.jar`.
 
-These files can be downloaded from Artifactory: [`corda-gatewayplugins`](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-gateway-plugins).
+These files can be downloaded from Artifactory: <a href="https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-gateway-plugins">`corda-gatewayplugins`</a>.
 
 ## Installation
 

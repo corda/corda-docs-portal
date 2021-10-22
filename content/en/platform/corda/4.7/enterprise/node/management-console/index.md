@@ -12,7 +12,7 @@ weight: 76
 
 # Node management console
 
-The Node management console allows you to see information about a node and perform some operations on it. It runs as a plug-in for the [Gateway Service](../gateway-service.md).
+The Node management console allows you to see information about a node and perform some operations on it. It runs as a plug-in for the [Gateway Service](../../../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md).
 
 The node management console allows you to see the following information about the node:
 
@@ -157,7 +157,7 @@ If you do not have permission to perform this action and you click the tab, a me
 ### Further information
 
 * The CorDapp fields are retrieved as a `CordappInfo` object from the Corda API.
-    * View the [API documentation](https://api.corda.net/api/corda-os/4.7/html/api/kotlin/corda/net.corda.core.cordapp/-cordapp-info/index.html).
+    * View the [API documentation](../../../../../../../en/api-ref/corda/4.7/open-source/kotlin/corda/net.corda.core.cordapp/-cordapp-info/index.html).
 
 ## Viewing available drivers
 
@@ -222,7 +222,7 @@ If you do not have permission to perform these actions:
 
 ### Further information
 * The Status fields are retrieved as a `NodeDiagnosticInfo` object from the Corda API.
-    * View the [API documentation](https://api.corda.net/api/corda-os/4.7/html/api/kotlin/corda/net.corda.core.node/-node-diagnostic-info/index.html)
+    * View the [API documentation](../../../../../../../en/api-ref/corda/4.8/open-source/kotlin/corda/net.corda.core.node/-node-diagnostic-info/index.html)
 * The calls to gracefully stop or kill a node, or to toggle drainage mode:
     * Make a REST call to the Node Management REST service.
     * The REST service connects to the node via a `CordaRPCService` connection to execute the command.

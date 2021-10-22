@@ -155,7 +155,7 @@ To facilitate High Availability requirement deployment is split onto two data ce
 {{< note >}}
 This document does not describe how to perform SOCKS5 setup. It is assumed that this type of proxy is correctly configured as part
 of organisation’s IT infrastructure according to best practices/policies for outbound Internet connectivity. Other types of proxies are also supported
-as well as no proxy at all. For more information please see [proxyConfig](#proxyconfig) parameter above.
+as well as no proxy at all. For more information please see the [proxyConfig](../../../../../../../en/platform/corda/4.5/enterprise/operations/deployment/corda-firewall-configuration-fields.html#proxyconfig) parameter.
 
 {{< /note >}}
 
@@ -751,9 +751,9 @@ making same DataCentre connection a priority. This applies to Artemis connection
 
 ### Starting all up
 
-Please see [Http Proxy Setup](#http-proxy-setup) note above on connectivity through the proxy.
+Please see the [example and note](#complete-example) above on connectivity through the proxy.
 
-Please see [Capsule Cache Directory](#capsule-cache-directory) note above explaining details of running Capsule Fat Jars.
+Please see [Capsule Cache Directory](#keystores-generation) note above explaining details of running Capsule Fat Jars.
 
 
 #### Starting Float processes

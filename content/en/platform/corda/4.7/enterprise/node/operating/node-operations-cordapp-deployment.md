@@ -43,7 +43,7 @@ Because of that, most of the steps are similar to those described in [Database s
 ### 1. Check if the CorDapp requires custom tables
 
 Refer to the CorDapp documentation or consult a CorDapp provider if the CorDapp requires custom backing tables.
-You can verify a CorDapp JAR manually to check the presence of script files inside *migration* director, e.g. for Linux:
+You can verify a CorDapp JAR manually to check the presence of script files inside *migration* director, e.g., for Linux:
 
 
 ```bash
@@ -67,7 +67,7 @@ this would have already been detected in your test environment.
 
 Corda Database Management Tool needs access to a running database.
 The tool is configured in a similar manner to the Corda node.
-A base directory needs to be provided with he following content: a `node.conf` file with database connection settings, a
+A base directory needs to be provided with the following content: a `node.conf` file with database connection settings, a
 `drivers` directory to place the JDBC driver in, and a `cordapps` directory containing the CorDapps that are being deployed.
 
 Copy CorDapps to the *cordapps* subdirectory. This is required to collect and run any database migration scripts for CorDapps.
@@ -205,7 +205,7 @@ A generated script named *migration/*.sql* will be present in the base directory
 This script contains all statements to create data structures (e.g. tables/indexes) for CorDapps
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables.
-Refer to [Corda Database Management Tool](node-database.md#database-management-tool-ref) manual for a description of the options.
+Refer to [Corda Database Management Tool](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database.html#database-management-tool) manual for a description of the options.
 
 
 ### 4. Apply DDL scripts on a database
