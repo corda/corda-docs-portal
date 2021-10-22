@@ -58,7 +58,7 @@ program starts, that you can interact with it, and that no exceptions are genera
 ## Running tests in IntelliJ
 
 We recommend editing your IntelliJ preferences so that you use the Gradle runner - this means that the quasar utils
-plugin will make sure that some flags (like `-javaagent` - see [below](#tutorial-cordapp-alternative-test-runners)) are
+plugin will make sure that some flags (like `-javaagent`) are
 set for you.
 
 To switch to using the Gradle runner:
@@ -98,4 +98,3 @@ task installQuasar(type: Copy) {
 ```
 
 and then you can run `gradlew installQuasar`.
-
