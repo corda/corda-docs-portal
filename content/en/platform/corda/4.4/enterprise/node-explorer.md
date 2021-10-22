@@ -33,7 +33,7 @@ Use Node Explorer to:
 
 ## Install Node Explorer
 
-Node Explorer is a standalone tool that accesses your node and its CorDapps using your security credentials - you don't need to install it directly onto any particular node.  
+Node Explorer is a standalone tool that accesses your node and its CorDapps using your security credentials - you don't need to install it directly onto any particular node.
 
 ### Requirements
 
@@ -142,7 +142,7 @@ To see a geographical view of your network, click **Network** in the left-hand s
 
 {{< note >}}
 
-The geographical location of each node is based on the [`locality` property of the node's registered CordaX500 name](https://api.corda.net/api/corda-os/4.4/html/api/kotlin/corda/net.corda.core.identity/-corda-x500-name/index.html)
+The geographical location of each node is based on the [`locality` property of the node's registered CordaX500 name](../../../../../../archived-docs/corda-enterprise/api-ref/3.3/html/api/kotlin/corda/net.corda.core.identity/-corda-x500-name/index.html)
 
 {{< /note >}}
 

@@ -34,7 +34,7 @@ For these reasons, test deployments can avail themselves of the Network Bootstra
 node configurations from a common directory to generate the network parameters file, which is then copied to all the nodes’
 directories. It also copies each node’s node-info file to every other node so that they can all be visible to each other.
 
-You can find out more about network maps and network parameters from [Network map](network/network-map.md).
+You can find out more about network maps and network parameters from [Network map](../../../../../en/platform/corda/4.4/enterprise/network/network-map.md).
 
 
 ## Bootstrapping a test network
@@ -103,7 +103,7 @@ If you only wish to whitelist the CorDapps but not copy them to each node then r
 
 {{< /note >}}
 The CorDapp JARs will be hashed and scanned for `Contract` classes. These contract class implementations will become part
-of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` in [Network parameters](network/network-map.md#network-parameters)).
+of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` in [Network parameters](../../../../../en/platform/corda/4.4/enterprise/network/network-map.html#network-parameters)).
 
 By default the Bootstrapper will whitelist all the contracts found in the unsigned CorDapp JARs (a JAR file not signed by jarSigner tool).
 Whitelisted contracts are checked by *Zone constraints*, while contract classes from signed JARs will be checked by *Signature constraints*.
@@ -303,7 +303,7 @@ are updating an existing network, the value in the existing network parameters f
 
 {{< note >}}
 All fields can be used with placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
-variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node/operating/node-administration.md#hiding-sensitive-data).
+variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](../../../../../en/platform/corda/4.4/enterprise/node/operating/node-administration.html#hiding-sensitive-data).
 
 {{< /note >}}
 The available configuration fields are listed below:

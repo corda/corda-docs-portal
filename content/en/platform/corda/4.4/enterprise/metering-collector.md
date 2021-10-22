@@ -115,7 +115,7 @@ more than one page of data is required, the flow may need to be run multiple tim
 However, the total count provided is always the full number of signing events that match the supplied criteria.
 
 {{% note %}}
-The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](node/operating/node-database-admin.md#sql-server-3)
+The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](../../../../../en/platform/corda/4.4/enterprise/node/operating/node-database-admin.html#sql-server-3)
 {{% /note %}}
 
 ### Examples

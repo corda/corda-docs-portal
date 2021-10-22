@@ -173,7 +173,7 @@ ext.kotlin_version = '1.2.71'
 ext.quasar_version = '0.7.12_r3'
 ```
 
-You also need a add `corda-dependencies` to the list of repositories to make the custom built version of Quasar available:
+You also need a add `corda-dependencies` to the list of repositories to make the custom-built version of Quasar available:
 
 ```groovy
 repositories {

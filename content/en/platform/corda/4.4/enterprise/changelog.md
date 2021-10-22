@@ -483,10 +483,10 @@ column `"VAULTSCHEMAV1$VAULTLINEARSTATES_TRANSACTION_ID"` renamed to `TRANSACTIO
 * X.509 certificates now have an extension that specifies the Corda role the certificate is used for, and the role
 hierarchy is now enforced in the validation code. See `net.corda.core.internal.CertRole` for the current implementation
 until final documentation is prepared. Certificates at `NODE_CA`, `WELL_KNOWN_SERVICE_IDENTITY` and above must
-only ever by issued by network services and therefore issuance constraints are not relevant to end users.
+only ever be issued by network services and therefore issuance constraints are not relevant to end users.
 The `TLS`, `WELL_KNOWN_LEGAL_IDENTITY` roles must be issued by the `NODE_CA` certificate issued by the
 Doorman, and `CONFIDENTIAL_IDENTITY` certificates must be issued from a `WELL_KNOWN_LEGAL_IDENTITY` certificate.
-For a detailed specification of the extension please see permissioning.
+For a detailed specification of the extension please see [permissioning](../../../../../en/platform/corda/4.4/enterprise/network/permissioning.md).
 * The network map service concept has been re-designed. More information can be found in network-map.>
 
     * The previous design was never intended to be final but was rather a quick implementation in the earliest days of the
@@ -535,14 +535,14 @@ was needed to allow changes to the schema.
 DriverDSL and/or cordformation node runner.
 * Removed confusing property database.initDatabase, enabling its guarded behaviour with the dev-mode.
 In devMode Hibernate will try to create or update database schemas, otherwise it will expect relevant schemas to be present
-in the database (pre configured via DDL scripts or equivalent), and validate these are correct.
+in the database (pre-configured via DDL scripts or equivalent), and validate these are correct.
 * `AttachmentStorage` now allows providing metadata on attachments upload - username and filename, currently as plain
 strings. Those can be then used for querying, utilizing `queryAttachments` method of the same interface.
 * `SSH Server` - The node can now expose shell via SSH server with proper authorization and permissioning built in.
 * `CordaRPCOps` implementation now checks permissions for any function invocation, rather than just when starting flows.
 * `wellKnownPartyFromAnonymous()` now always resolve the key to a `Party`, then the party to the well known party.
 Previously if it was passed a `Party` it would use its name as-is without verifying the key matched that name.
-* `OpaqueBytes.bytes` now returns a clone of its underlying `ByteArray`, and has been redeclared as `final`.
+* `OpaqueBytes.bytes` now returns a clone of its underlying `ByteArray`, and has been re-declared as `final`.
 This is a minor change to the public API, but is required to ensure that classes like `SecureHash` are immutable.
 * Experimental support for PostgreSQL: CashSelection done using window functions
 * `FlowLogic` now exposes a series of function called `receiveAll(...)` allowing to join `receive(...)` instructions.
@@ -1408,7 +1408,7 @@ improves performance.
 ## Milestone 6
 
 
-* Added the [Corda technical white paper](/en/pdf/corda-technical-whitepaper.pdf). Note that its current version
+* Added the [Corda technical white paper](../../../../../en/get-started/corda-key-concepts.html#5-corda-white-papers). Note that its current version
 is 0.5 to reflect the fact that the Corda design is still evolving. Although we expect only relatively small tweaks
 at this point, when Corda reaches 1.0 so will the white paper.
 * Major documentation restructuring and new content:>
