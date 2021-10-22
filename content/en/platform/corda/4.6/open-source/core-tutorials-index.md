@@ -17,7 +17,7 @@ title: Core tutorials
 
 #  Core tutorials
 
-Once you've worked through the [Hello, World!](hello-world-introduction.md/) tutorials and are ready to dig a bit deeper, the Core tutorials cover all of the key skills you will need to be able to develop CorDapps.
+Once you've worked through the [Hello, World!](hello-world-introduction.md) tutorials and are ready to dig a bit deeper, the Core tutorials cover all of the key skills you will need to be able to develop CorDapps.
 
 While these tutorials don’t depend on the code from any of the other tutorials, for optimum learning, it's recommended that you complete the tutorials in the order shown.
 
