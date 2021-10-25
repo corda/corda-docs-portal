@@ -88,7 +88,7 @@ Below is a summary of what specific transaction components have to be revealed t
 
 |Transaction components|Validating|Non-validating|
 |-----------------------------------|---------------|-----------------------|
-|Input states|Fully visible|References only <sup>[\[1\]](#key-concepts-notaries-id1)|
+|Input states|Fully visible|References only|
 |Output states|Fully visible|Hidden|
 |Commands (with signer identities)|Fully visible|Hidden|
 |Attachments|Fully visible|Hidden|

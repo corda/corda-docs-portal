@@ -143,7 +143,7 @@ To see a geographical view of your network, click **Network** in the left-hand s
 
 {{< note >}}
 
-The geographical location of each node is based on the [`locality` property of the node's registered CordaX500 name](https://api.corda.net/api/corda-os/4.6/html/api/kotlin/corda/net.corda.core.identity/-corda-x500-name/index.html)
+The geographical location of each node is based on the <a href="https://docs.r3.com/en/api-ref/corda/4.6/open-source/kotlin/corda/net.corda.core.identity/-corda-x500-name/index.html">`locality` property of the node's registered CordaX500 name</a>.
 
 {{< /note >}}
 
@@ -158,7 +158,7 @@ Node Explorer allows you to execute transaction flows using the CorDapps you hav
 
 {{< note >}}
 
-You can use Node Explorer to execute a range of commonly used flows, however not all flows can be executed this way. [Check the compatibility of your CorDapp's flow parameters before you begin](#accepted-flow-parameters).
+You can use Node Explorer to execute a range of commonly used flows, however not all flows can be executed this way. <a href="#accepted-flow-parameters">Check the compatibility of your CorDapp's flow parameters before you begin</a>.
 
 {{< /note >}}
 

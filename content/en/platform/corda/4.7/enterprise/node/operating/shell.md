@@ -217,7 +217,7 @@ This is a new mode added in the Enterprise 4.3 release to prevent the CRaSH shel
 
 When a shell is running in unsafe mode, the shell behaviour will be the same as before and will include CRaSH built-in commands. By default the internal shell will run in safe mode but will still be have the ability to execute RPC client calls as before based on existing RPC permissions. No Corda functionality is affected by this change; only the ability to access to the CRaSH shell embedded commands.
 
-When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items in their RPC permission list, see [Working with the CordaRPCClient API](../../../../corda-os/4.7/tutorial-clientrpc-api.md) for more information about the RPC Client API. These shell changes arealso applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onwards). It may be possible that, in the future, the CRaSH shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they are technically not part of Corda functionality.
+When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items in their RPC permission list, see [Working with the CordaRPCClient API](../../../../../../../en/platform/corda/4.7/open-source/tutorial-clientrpc-api.md) for more information about the RPC Client API. These shell changes arealso applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onwards). It may be possible that, in the future, the CRaSH shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they are technically not part of Corda functionality.
 
 ### Getting help
 
@@ -245,7 +245,7 @@ You can use the shell to:
 The shell interacts with the node by issuing RPCs (remote procedure calls). You make an RPC from the shell by typing `run`, followed by the name of the desired RPC method.
 
 You can find a list of the available RPC methods
-[here](https://docs.corda.net/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
+[here](../../../../../../../en/api-ref/corda/4.7/open-source/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
 
 Some RPCs return a stream of events that will be shown on screen until you press Ctrl-C.
 
@@ -331,7 +331,7 @@ otherResults: []
 
 ### Upload and download attachments
 
-The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](../../../../corda-os/4.7/tutorial-attachments.md#uploading-an-attachment) tutorial.
+The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](../../../../../../../en/platform/corda/4.7/open-source/tutorial-attachments.html#uploading-an-attachment) tutorial.
 
 
 ### Extract attachment information
