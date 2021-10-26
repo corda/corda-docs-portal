@@ -172,7 +172,7 @@ These usernames and passwords are specified in the `solar-system.yaml` file.
 {
   "rpcStartFlowRequest": {
     "clientId": "launchpad-2",
-    flowName": "net.corda.solarsystem.flows.LaunchProbeFlow",
+    "flowName": "net.corda.solarsystem.flows.LaunchProbeFlow",
     "parameters": {
       "parametersInJson": "{\"message\": \"Hello Mars\", \"target\": \"C=GB, L=FIFTH, O=MARS, OU=PLANET\", \"planetaryOnly\":\"true\"}"
     }
