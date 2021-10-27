@@ -217,4 +217,4 @@ dependencies {
 ```
 
 
-* Workflow CorDapps.Please follow the instructions listed in step 5 of [Upgrading apps to Corda 4](../../../../../en/platform/corda/4.4/enterprise/app-upgrade-notes.html#cordapp-upgrade-finality-flow-ref).
+* Workflow CorDapps, please follow the instructions listed in step 5 of [Upgrading a CorDapp to a newer platform version](../../../../../en/platform/corda/4.4/enterprise/app-upgrade-notes.html#step-5-security-upgrade-your-use-of-finalityflow).
