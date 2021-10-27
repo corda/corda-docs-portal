@@ -780,7 +780,7 @@ to be governed by a contract that is either:
 * The outer class of the state class, if the state is an inner class of a contract. This is a common design pattern.
 * Annotated with `@BelongsToContract` which specifies the contract class explicitly.
 
-Learn more by reading [Contract/State Agreement](../../../../../en/platform/corda/4.4/enterprise/cordapps/api-contract-constraints.html#contract-state-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
+Learn more by reading [Contract/State Agreement](../../../../../en/platform/corda/4.4/enterprise/cordapps/api-contract-constraints.html#contractstate-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
 states that point to contracts outside their package will trigger a log warning but validation will proceed.
 
 
