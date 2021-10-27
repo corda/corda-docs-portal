@@ -90,7 +90,7 @@ are whitelisted if another attachment is present on the node that is signed by t
 * [Package namespace ownership](../../../../../en/platform/corda/4.4/enterprise/node/deploy/env-dev.html#package-namespace-ownership) configurations can be now be set as described in
 [Package namespace ownership](../../../../../en/platform/corda/4.4/enterprise/node/deploy/generating-a-node.html#package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
 * Wildcards can now be used when specifying RPC permissions, for example `StartFlow.foo.bar.*` will allow users to start any flow in the
-`foo.bar` package. See [rpcUsers](../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-rpc-users) for more information.
+`foo.bar` package. See [rpcUsers](../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#configuration-file-fields) for more information.
 * `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:+CrashOnOutOfMemoryError` have been added to the default JVM options of the node.
 A node which is running out of memory is now expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
 Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens.
