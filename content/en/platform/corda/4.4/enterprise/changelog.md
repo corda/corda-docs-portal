@@ -88,7 +88,7 @@ signed by the same public keys, and uploaded by a trusted uploader. This allows 
 of a contract without having to manually install that version, provided a newer version is installed. Similarly, non-contract attachments
 are whitelisted if another attachment is present on the node that is signed by the same public key.
 * [Package namespace ownership](../../../../../en/platform/corda/4.4/enterprise/node/deploy/env-dev.html#package-namespace-ownership) configurations can be now be set as described in
-[Package namespace ownership](../../../../../en/platform/corda/4.4/enterprise/node/deploy/generating-a-node.html#node-package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
+[Package namespace ownership](../../../../../en/platform/corda/4.4/enterprise/node/deploy/generating-a-node.html#package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
 * Wildcards can now be used when specifying RPC permissions, for example `StartFlow.foo.bar.*` will allow users to start any flow in the
 `foo.bar` package. See [rpcUsers](../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-rpc-users) for more information.
 * `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:+CrashOnOutOfMemoryError` have been added to the default JVM options of the node.
