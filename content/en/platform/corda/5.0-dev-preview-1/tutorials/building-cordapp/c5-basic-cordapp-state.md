@@ -203,7 +203,7 @@ As noted in the [introduction](../../../../../../en/platform/corda/5.0-dev-previ
 
 You must add these parameters in the form of a `JsonRepresentable` with these components:
 
-* A required method that is annotated with `@OverRide`. This is what the node will return each time the node is asked for a JSON representation of the state.
+* An overridden method from the `JsonRepresentable` interface: `@OverRide`. This is what the node will return each time the node is asked for a JSON representation of the state.
 * A `Dto` class that will be used as the template of the returned JSON file. This class marks all variable types as `String`.
 * A helper method that populates the template with the actual variables of the class.
 
@@ -285,36 +285,37 @@ import net.corda.v5.application.identity.Party
 import net.corda.v5.application.utilities.JsonRepresentable
 import net.corda.v5.ledger.contracts.BelongsToContract
 import net.corda.v5.ledger.contracts.ContractState
+import java.time.LocalDate
 import java.util.*
 
 @BelongsToContract(BoardingTicketContract::class)
 data class BoardingTicket(
-        var description : String, //Trip information
-        var marsExpress : Party, //Party selling the ticket
-        var owner: Party, //The party who exchanges the ticket for the voucher
-        var daysUntilLaunch: Int)
+        var description : String, //Brand or type
+        var marsExpress : Party, //Origin of the ticket
+        var owner: Party, //The person who exchange the basket of apple with the stamp.
+        var daysTillLaunch: Int)
     : ContractState, JsonRepresentable {
 
     //Secondary Constructor
-    constructor(description: String, marsExpress: Party, daysUntilLaunch: Int) : this(
+    constructor(description: String, marsExpress: Party, daysTillLaunch: Int) : this(
             description = description,
             marsExpress = marsExpress,
             owner = marsExpress,
-            daysUntilLaunch = daysUntilLaunch
+            daysTillLaunch = daysTillLaunch
     )
 
     fun changeOwner(buyer: Party): BoardingTicket {
-        return BoardingTicket(description, marsExpress, buyer, daysUntilLaunch)
+        return BoardingTicket(description, marsExpress, buyer, daysTillLaunch)
     }
 
-    override val participants: List<AbstractParty> get() = listOf<AbstractParty>(spaceCompany,owner)
+    override val participants: List<AbstractParty> get() = listOf<AbstractParty>(marsExpress,owner)
 
     fun toDto(): BoardingTicketDto {
         return BoardingTicketDto(
                 description,
                 marsExpress.name.toString(),
                 owner.name.toString(),
-                daysUntilLaunch.toString()
+                daysTillLaunch.toString()
         )
     }
 
@@ -325,9 +326,9 @@ data class BoardingTicket(
 
 data class BoardingTicketDto(
         var description : String, //Brand or type
-        var marsExpress : String, //Origin of the ticket
-        var owner: String, //The party who exchanges the ticket for the voucher.
-        var daysUntilLaunch: String
+        var marsExpress : String, //Origin of the apple
+        var owner: String, //The person who exchange the basket of apple with the stamp.
+        var daysTillLaunch: String
 )
 ```
 

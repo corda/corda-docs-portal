@@ -263,7 +263,7 @@ class BoardingTicketContract : Contract {
 
     companion object {
         // This is used to identify our contract when building a transaction.
-        const val ID = "com.tutorial.contracts.BoardingTicketContract"
+        const val ID = "net.corda.missionMars.contracts.BoardingTicketContract"
     }
 }
 ```
