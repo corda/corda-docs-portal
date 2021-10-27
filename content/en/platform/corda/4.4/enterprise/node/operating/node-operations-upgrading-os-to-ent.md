@@ -124,7 +124,7 @@ that we have validated for this upgrade exercise.
 
 {{< /note >}}
 To migrate from a H2 database to another database, follow the same database instructions as
-[upgrading within the same Corda version](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-operations-upgrading-os-to-ent.html#node-operations-upgrading-os-to-ent-2).
+[upgrading within the same Corda version](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-operations-upgrading-os-to-ent.html#migrating-from-the-h2-database-to-another-database-vendor).
 
 
 ## Using a third-party tool to migrate data from a H2 database
