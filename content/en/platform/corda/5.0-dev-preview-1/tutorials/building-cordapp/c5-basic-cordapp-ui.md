@@ -91,7 +91,7 @@ Once the Mission Mars CorDapp UI is up and running, you can use it to test the C
 
 4. Go to the **REDEEM VOUCHER** tab to test the `RedeemBoardingTicketWithVoucher` flow.
 
-   a. Provide voucher ID and voucher's holder X500 name.
+   a. Provide voucher ID and the voucher holder's X500 name.
 
    b. Click **START FLOW**.
 
