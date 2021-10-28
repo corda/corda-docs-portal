@@ -253,7 +253,7 @@ plugin and signing the CordDapp JAR downstream in your build pipeline. CorDapp s
 is accepted by Corda node only when running in the development mode. In case CordDapp signed by the (default)
 development key is run on node in the production mode (e.g. for testing), the node may be set to accept the development
 key by adding the `cordappSignerKeyFingerprintBlacklist = []` property set to empty list (see
-[Configuring a node](../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-signer-blacklist)).
+[Node configuration](../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#configuration-file-fields)).
 
 Signing options can be contextually overwritten by the relevant system properties as described above. This allows the
 single `build.gradle` file to be used for a development build (defaulting to the Corda development keystore) and for
