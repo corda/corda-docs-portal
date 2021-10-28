@@ -98,7 +98,7 @@ See [Setting JVM arguments](../../../../../en/platform/corda/4.4/enterprise/node
 * Package namespace ownership configurations can be now be set as described in
 [Package namespace ownership](../../../../../en/platform/corda/4.4/enterprise/node/deploy/generating-a-node.html#package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
 * Environment variables and system properties can now be provided with underscore separators instead of dots. Neither are case-sensitive.
-See [overriding config values](../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-overriding-config) for more information.
+See [overriding config values](../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#overriding-configuration-values) for more information.
 * SSH server in the [Embedded Shell](shell.md) has been updated to remove outdated weak ciphers and algorithms.
 * Removed support for external SSH connections to the standalone shell. As a result, `--sshd-port` and `--sshd-hostkey-directory`
 options, as well as `extensions.sshd` configuration entry, have been removed from the standalone shell.
