@@ -33,7 +33,7 @@ Before you can build the Mission Mars CorDapp UI, you must:
 
 ## Set up the CorDapp's UI
 
-Once you have deployed your CorDapp to a local Corda 5 network and the back-end code is running, perform the following steps:
+After you have deployed your CorDapp to a local Corda 5 network and the back-end code is running, perform the following steps:
 
 1. Check what is the RPC port for the `PartyA` node:
 
