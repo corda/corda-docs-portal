@@ -51,7 +51,7 @@ After you have deployed your CorDapp to a local Corda 5 network and the back-end
 
 5. Run `npm start`.
 
-   This command runs the UI in the development mode.
+   This command runs the UI in development mode.
 
    **Step result:** The Mission Mars CorDapp UI opens in your browser window.
 
