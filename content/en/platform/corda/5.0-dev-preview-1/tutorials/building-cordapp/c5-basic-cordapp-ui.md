@@ -47,7 +47,7 @@ After you have deployed your CorDapp to a local Corda 5 network and the back-end
 
 4. In the project directory, run `npm install`.
 
-   This command installs all necessary npm modules to run the Mission Mars CorDapp UI.
+   This command installs all necessary [npm](https://docs.npmjs.com/ modules to run the Mission Mars CorDapp UI.
 
 5. Run `npm start`.
 
