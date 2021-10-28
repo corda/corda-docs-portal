@@ -41,7 +41,7 @@ Please read [Setting your dependencies](cordapp-build-systems.html#setting-your-
 depend on the `corda-core` package from the Corda Open Source distribution.
 
 {{< note >}}
-As of Corda 4 it is recommended to use [CorDapp Jar signing](cordapp-build-systems.html#cordapp-build-system-signing-cordapp-jar-ref) to leverage the new signature constraints functionality.
+As of Corda 4 it is recommended to use [CorDapp Jar signing](cordapp-build-systems.html#signing-the-cordapp-jar) to leverage the new signature constraints functionality.
 
 {{< /note >}}
 
