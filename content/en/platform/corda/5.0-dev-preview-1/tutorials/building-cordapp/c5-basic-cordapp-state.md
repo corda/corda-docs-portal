@@ -293,19 +293,19 @@ data class BoardingTicket(
         var description : String, //Brand or type
         var marsExpress : Party, //Origin of the ticket
         var owner: Party, //The person who exchange the basket of apple with the stamp.
-        var daysTillLaunch: Int)
+        var daysUntilLaunch: Int)
     : ContractState, JsonRepresentable {
 
     //Secondary Constructor
-    constructor(description: String, marsExpress: Party, daysTillLaunch: Int) : this(
+    constructor(description: String, marsExpress: Party, daysUntilLaunch: Int) : this(
             description = description,
             marsExpress = marsExpress,
             owner = marsExpress,
-            daysTillLaunch = daysTillLaunch
+            daysUntilLaunch = daysUntilLaunch
     )
 
     fun changeOwner(buyer: Party): BoardingTicket {
-        return BoardingTicket(description, marsExpress, buyer, daysTillLaunch)
+        return BoardingTicket(description, marsExpress, buyer, daysUntilLaunch)
     }
 
     override val participants: List<AbstractParty> get() = listOf<AbstractParty>(marsExpress,owner)
@@ -315,7 +315,7 @@ data class BoardingTicket(
                 description,
                 marsExpress.name.toString(),
                 owner.name.toString(),
-                daysTillLaunch.toString()
+                daysUntilLaunch.toString()
         )
     }
 
@@ -328,7 +328,7 @@ data class BoardingTicketDto(
         var description : String, //Brand or type
         var marsExpress : String, //Origin of the apple
         var owner: String, //The person who exchange the basket of apple with the stamp.
-        var daysTillLaunch: String
+        var daysUntilLaunch: String
 )
 ```
 
