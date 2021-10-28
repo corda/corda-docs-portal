@@ -142,7 +142,7 @@ complements `database.initialiseSchema` to disable DDL handling altogether.
 Updated all samples to reflect new conventions.
 * Introduction of unique CorDapp version identifiers in jar manifests for contract and flows/services CorDapps.
 Updated all sample CorDapps to reflect new conventions.
-See [CorDapp separation](../../../../../en/platform/corda/4.4/enterprise/cordapps/cordapp-build-systems.html#cordapp-separation-ref) for further information.
+See [Separation of CorDapp contracts, flows and services](../../../../../en/platform/corda/4.4/enterprise/cordapps/cordapp-build-systems.html#separation-of-cordapp-contracts-flows-and-services) for further information.
 * Automatic Constraints propagation for hash-constrained states to signature-constrained states.
 This allows Corda 4 signed CorDapps using signature constraints to consume existing hash constrained states generated
 by unsigned CorDapps in previous versions of Corda.
