@@ -47,7 +47,7 @@ After you have deployed your CorDapp to a local Corda 5 network and the back-end
 
 4. In the project directory, run `npm install`.
 
-   This command installs all necessary [npm](https://docs.npmjs.com/ modules to run the Mission Mars CorDapp UI.
+   This command installs all necessary [npm](https://docs.npmjs.com/) modules to run the Mission Mars CorDapp UI.
 
 5. Run `npm start`.
 
@@ -59,7 +59,7 @@ After you have deployed your CorDapp to a local Corda 5 network and the back-end
   figure
 	 src="mission-mars-ui.PNG"
 	 zoom="mission-mars-ui.PNG"
-   width=90%
+   width=100%
 	 figcaption="Mission Mars CorDapp UI"
 	 alt="mission mars cordapp ui"
 >}}
@@ -75,11 +75,11 @@ Once the Mission Mars CorDapp UI is up and running, you can use it to test the C
 
 2. Go to the **ISSUE VOUCHER** tab to test the `CreateAndIssueMarsVoucher` flow:
 
-   a. Provide voucher description and voucher holder's X500 name.
+   a. Provide voucher description and the voucher holder's X500 name.
 
-  b. Click **START FLOW**.
+   b. Click **START FLOW**.
 
-  **Step result:** Voucher ID appears at the top of the page.
+   **Step result:** Voucher ID appears at the top of the page.
 
 3. Go to the **CREATE TICKET** tab to test the `CreateBoardingTicket` flow.
 
