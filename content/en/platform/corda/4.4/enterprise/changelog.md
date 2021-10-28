@@ -94,7 +94,7 @@ are whitelisted if another attachment is present on the node that is signed by t
 * `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:+CrashOnOutOfMemoryError` have been added to the default JVM options of the node.
 A node which is running out of memory is now expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
 Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens.
-See [Setting JVM arguments](../../../../../en/platform/corda/4.4/enterprise/node/deploy/running-a-node.html#setting-jvm-args) and [Memory usage and tuning](../../../../../en/platform/corda/4.4/enterprise/node/operating/node-administration.html#memory-usage-and-tuning) for further details.
+See [Setting JVM arguments](../../../../../en/platform/corda/4.4/enterprise/node/deploy/running-a-node.html#setting-jvm-arguments) and [Memory usage and tuning](../../../../../en/platform/corda/4.4/enterprise/node/operating/node-administration.html#memory-usage-and-tuning) for further details.
 * Package namespace ownership configurations can be now be set as described in
 [Package namespace ownership](../../../../../en/platform/corda/4.4/enterprise/node/deploy/generating-a-node.html#node-package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
 * Environment variables and system properties can now be provided with underscore separators instead of dots. Neither are case-sensitive.
