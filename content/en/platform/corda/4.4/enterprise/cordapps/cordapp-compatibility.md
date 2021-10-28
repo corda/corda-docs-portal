@@ -25,7 +25,7 @@ This allows CorDapps to be developed for compatibility between Corda and Corda E
 In order to develop a CorDapp for compatibility between Corda and Corda Enterprise follow these steps:
 
 
-* Ensure your CorDapp is designed per [Structuring a CorDapp](writing-a-cordapp.md) and annotated according to [CorDapp separation](cordapp-build-systems.html#cordapp-separation-ref).
+* Ensure your CorDapp is designed per [CorDapp structure and format](writing-a-cordapp.md) and annotated according to [Separation of CorDapp contracts, flows and services](cordapp-build-systems.html#separation-of-cordapp-contracts-flows-and-services).
 In particular, it is critical to separate the consensus-critical parts of your application (contracts, states and their dependencies) from
 the rest of the business logic (flows, APIs, etc).
 The former - the **CorDapp kernel** - is the Jar that will be attached to transactions creating/consuming your states and is the Jar
