@@ -46,18 +46,23 @@ Before you run the sample CorDapp:
 
 If you're new to Corda, check out the [CorDapp documentation](../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/overview.md) for key concepts.
 
-## Download the sample CorDapp
+## Clone the sample CorDapps repo
 
 {{< note >}}
-You can write a CorDapp in any language targeting the JVM. Source files for this CorDapp are provided in Kotlin.
+You can write a CorDapp in any language targeting the JVM. Source files for this CorDapp are provided in Kotlin and Java. Instructions in this tutorial are provided for the Kotlin CorDapp.
+
+You can see both Kotlin and Java versions of the CorDapp in their respective repositories:
+
+* [Solar System CorDapp - Kotlin](https://github.com/corda/samples-kotlin-corda5/tree/main/Tutorial/solarsystem)
+* [Solar System CorDapp - Java](https://github.com/corda/samples-java-corda5/tree/main/Tutorial/solarsystem)
 {{< /note >}}
 
 1. Decide where you want to store the sample CorDapp.
 2. Open that directory in the command line.
-3. Run the following command to clone the repository:
+3. Run the following command to clone the Kotlin sample CorDapps repository:
 
 ```
-git clone https://github.com/corda/corda5-solarsystem-contracts-demo.git
+git clone https://github.com/corda/samples-kotlin-corda5.git
 ```
 
 The sample project appears in your chosen directory.
@@ -68,7 +73,7 @@ Open the sample CorDapp in IntelliJ IDEA to explore the CorDapp's structure.
 
 1. Open IntelliJ.
 2. Choose **Open** from the top menu.
-3. Navigate to the `Corda5-SolarSystem` directory and click **OK**.
+3. Navigate to the `solarsystem` directory and click **OK**.
 
 The project containing the sample CorDapp opens.
 
@@ -172,7 +177,7 @@ These usernames and passwords are specified in the `solar-system.yaml` file.
 {
   "rpcStartFlowRequest": {
     "clientId": "launchpad-2",
-    flowName": "net.corda.solarsystem.flows.LaunchProbeFlow",
+    "flowName": "net.corda.solarsystem.flows.LaunchProbeFlow",
     "parameters": {
       "parametersInJson": "{\"message\": \"Hello Mars\", \"target\": \"C=GB, L=FIFTH, O=MARS, OU=PLANET\", \"planetaryOnly\":\"true\"}"
     }
