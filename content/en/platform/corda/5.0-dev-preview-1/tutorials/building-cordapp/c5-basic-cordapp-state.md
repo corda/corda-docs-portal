@@ -290,9 +290,9 @@ import java.util.*
 
 @BelongsToContract(BoardingTicketContract::class)
 data class BoardingTicket(
-        var description : String, //Brand or type
-        var marsExpress : Party, //Origin of the ticket
-        var owner: Party, //The person who exchange the basket of apple with the stamp.
+        var description : String, //Trip information
+        var marsExpress : Party, //Party selling the ticket
+        var owner: Party, //The party who exchanges the ticket for the voucher
         var daysUntilLaunch: Int)
     : ContractState, JsonRepresentable {
 
