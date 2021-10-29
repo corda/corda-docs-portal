@@ -127,7 +127,7 @@ The configuration values available in `deployNodes` task are as follows:
 
 
 * `name` <string>
-    * The legal identity name of the Corda node. (see [myLegalName](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-mylegalname))
+    * The legal identity name of the Corda node. (see [myLegalName](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#configuration-file-fields))
     * e.g.
 
 ```kotlin
