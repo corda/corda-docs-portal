@@ -149,7 +149,7 @@ p2pAddress "example.com:10002"
 
 
 * `p2pPort` <integer>
-    * The port the node uses for inbound communication from other nodes.  Assumes the address is `localhost`. (see [p2pAddress](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-p2paddress))
+    * The port the node uses for inbound communication from other nodes.  Assumes the address is `localhost`. (see [p2pAddress](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#configuration-file-fields))
     * e.g.
 
 ```kotlin
