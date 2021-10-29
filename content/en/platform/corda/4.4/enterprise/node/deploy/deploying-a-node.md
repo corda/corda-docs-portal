@@ -251,7 +251,7 @@ at boot, and means the Corda service stays running with no users connected to th
 
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../../en/platform/corda/4.4/enterprise/node/deploy/starting-components.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.4/enterprise/cordapps/getting-set-up.md))
 
 
 
