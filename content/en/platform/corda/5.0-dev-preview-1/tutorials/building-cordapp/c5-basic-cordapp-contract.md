@@ -242,14 +242,14 @@ class BoardingTicketContract : Contract {
             is Commands.CreateTicket -> requireThat {
                 "This transaction should only output one BoardingTicket state".using(tx.outputs.size == 1)
                 "The output BoardingTicket state should have clear description of space trip information".using(output.description != "")
-                "The output BoardingTicket state should have a launching date later then the creation time".using(output.daysTillLaunch > 0)
+                "The output BoardingTicket state should have a launching date later then the creation time".using(output.daysUntilLaunch > 0)
                 null
             }
             is Commands.RedeemTicket -> requireThat {
                 val input = tx.inputsOfType(MarsVoucher::class.java)[0]
                 "This transaction should consume two states".using(tx.inputStates.size == 2)
                 "The issuer of the BoardingTicket should be the space company which creates the boarding ticket".using(input.issuer == output.marsExpress)
-                "The output BoardingTicket state should have a launching date later then the creation time".using(output.daysTillLaunch > 0)
+                "The output BoardingTicket state should have a launching date later then the creation time".using(output.daysUntilLaunch > 0)
                 null
             }
         }
@@ -263,7 +263,7 @@ class BoardingTicketContract : Contract {
 
     companion object {
         // This is used to identify our contract when building a transaction.
-        const val ID = "com.tutorial.contracts.BoardingTicketContract"
+        const val ID = "net.corda.missionMars.contracts.BoardingTicketContract"
     }
 }
 ```
