@@ -63,7 +63,7 @@ time.
 In order to perform the upgrade, follow the following steps:
 
 
-* If required, do a flow drain to avoid the definition of states or contracts changing whilst a flow is in progress (see [Flow drains](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/upgrading-cordapps.html#upgrading-cordapps-flow-drains) for more information)
+* If required, do a flow drain to avoid the definition of states or contracts changing whilst a flow is in progress (see [Flow drains](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/upgrading-cordapps.html#flow-drains) for more information)
     * By RPC using the `setFlowsDrainingModeEnabled` method with the parameter `true`
     * Via the shell by issuing the following command `run setFlowsDrainingModeEnabled enabled: true`
 

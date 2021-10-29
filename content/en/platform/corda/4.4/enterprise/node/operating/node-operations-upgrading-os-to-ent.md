@@ -47,7 +47,7 @@ depending on if you are reusing the same database or moving away from H2.
 You can check if the CorDapp JAR contains Liquibase scripts as described in [here](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-operations-cordapp-deployment.html#cordapp-deploymnet-database-setup-ref).
 If the Cordapp stores data in the custom tables (consult with the CorDapp developer/provider)
 and it doesn’t contain Liquibase scripts, follow the procedure
-[to add the script retrospectively](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/database-management.html#database-management-add-liquibase-retrospectively-ref).{{< note >}}
+[to add the script retrospectively](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/database-management.html#adding-scripts-retrospectively-to-an-existing-cordapp).{{< note >}}
 Adding a Liquibase migration script to a CorDapp should be done by a CorDapp developer.{{< /note >}}
 
 * Generate CorDapp changesets against an empty database.Any custom tables required by CorDapps will have been created manually or by Hibernate upon node startup.
@@ -62,7 +62,7 @@ java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_
 The option `-b` points to the base directory (the directory containing a `node.conf` file, and the *drivers* and *cordapps* subdirectories).The generated script (*migration/*.sql*) will be present in the base directory.
 This script contains all of the statements to create the data structures (e.g. tables/indexes) for CorDapps,
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
-For a description of the options, refer to the [Corda Database Management Tool](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-database.html#database-management-tool-ref) manual.
+For a description of the options, refer to the [Corda Database Management Tool](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-database.html#database-management-tool) manual.
 * Run selected insert statements to update Liquibase database change logIn the generated script, find all inserts into *DATABASECHANGELOG* table related to your CorDapp,
 you can search for *– Changeset migration/<file-name>* lines, where <file-name> references the Liquibase Script file name from the CorDapp.
 The SQL insert related to a changeset will follow the *– Changeset migration/<file-name>* comment, e.g.:
@@ -93,7 +93,7 @@ Refer to [Understanding the node database](../../../../../../../en/platform/cord
 * Migrate data from H2 databaseThe migration from the H2 database requires a third party specialized tool.
 Your organisation may need to purchase a licence to use the tool.
 Please contact R3 for further advice.
-* Follow the same CorDapp database upgrade steps (1-3) in [reusing an existing database](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-operations-upgrading-os-to-ent.html#node-operations-upgrading-os-to-ent-1).
+* Follow the same CorDapp database upgrade steps (1-3) in [reusing an existing database](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-operations-upgrading-os-to-ent.html#reusing-an-existing-database-1).
 
 
 
@@ -104,9 +104,9 @@ existing open source Corda nodes should be a simple case of updating the Corda J
 See node-upgrade-notes for general instructions on upgrading your node.
 For developer information on recompiling CorDapps against Corda Enterprise, see upgrade-notes.
 
-Please ensure you follow the instructions in [Upgrade Notes](../../../../../../../../archived-docs/corda-enterprise/3.3/upgrade-notes.md)
+Please ensure you follow the instructions in [Upgrade Notes](https://github.com/corda/corda-docs-portal/blob/main/archived-docs/corda-enterprise/3.3/upgrade-notes.md)
 to upgrade your database to the latest minor release of Corda (3.3 as time of writing),
-and then proceed with the upgrade following the instructions in [above](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-operations-upgrading-os-to-ent.html#node-operations-upgrading-os-to-ent-1).
+and then proceed with the upgrade following the instructions in [above](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-operations-upgrading-os-to-ent.html#upgrade-from-corda-open-source-to-corda-enterprise).
 
 
 ### Reusing an existing database

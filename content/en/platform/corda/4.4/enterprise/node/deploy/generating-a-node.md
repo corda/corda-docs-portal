@@ -160,7 +160,7 @@ p2pPort 10006  // "localhost:10006"
 
 
 * `rpcSettings` <config>
-    * Specifies RPC settings for the node. (see [rpcSettings](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html/corda-configuration-file-rpc-settings))
+    * Specifies RPC settings for the node. (see [rpcSettings](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#configuration-file-fields))
     * e.g.
 
 ```kotlin
@@ -178,7 +178,7 @@ rpcSettings {
 ### Optional configuration
 
 
-* `notary` <config> (see [notary](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-notary))
+* `notary` <config> (see [notary](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#configuration-file-fields))
     * Optional configuration which specifies the node is a notary.
     * {{< note >}}
 <**required**> for notary nodes{{< /note >}}
@@ -186,7 +186,7 @@ rpcSettings {
 
 
 * `devMode` <boolean>
-    * When true enables development mode. (see [devMode](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-dev-mode))
+    * When true enables development mode. (see [devMode](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#configuration-file-fields))
     * e.g.
 
 ```kotlin
@@ -253,7 +253,7 @@ https true
 
 
 * `sshdPort` <integer>
-    * Specifies the port for sshd communication. (see [sshd](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-sshd))
+    * Specifies the port for sshd communication. (see [sshd](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#configuration-file-fields))
     * e.g.
 
 ```kotlin

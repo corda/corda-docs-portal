@@ -49,7 +49,7 @@ repositories {
 ```
 
 [CordaRPCClient](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html) has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
-[CordaRPCConnection](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](https://api.corda.net/api/corda-enterprise/4.4/html/api/javadoc/net/corda/core/messaging/CordaRPCOps.html)
+[CordaRPCConnection](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](../../../../../../../en/api-ref/corda/4.4/open-source/javadoc/net/corda/core/messaging/RPCOps.html)
 object that you can use to interact with the node.
 
 Here is an example of using [CordaRPCClient](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html) to connect to a node and log the current time on its internal clock:
@@ -611,7 +611,7 @@ The node admin must then create a node-specific RPC certificate and key, by runn
 
 The generated RPC TLS trust root certificate will be exported to a `certificates/export/rpcssltruststore.jks` file which should be distributed to the authorised RPC clients.
 
-The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html))) and set this constructor
+The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](../../../../../../../en/api-ref/corda/4.4/enterprise/javadoc/net/corda/client/rpc/CordaRPCClient.html)) and set this constructor
 argument with the appropriate path for the `rpcssltruststore.jks` file. The client connection will then use this to validate the RPC server handshake.
 
 Note that RPC TLS does not use mutual authentication, and delegates fine grained user authentication and authorisation to the RPC security features detailed above.
