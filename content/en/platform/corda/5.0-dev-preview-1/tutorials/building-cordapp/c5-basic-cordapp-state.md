@@ -325,9 +325,9 @@ data class BoardingTicket(
 }
 
 data class BoardingTicketDto(
-        var description : String, //Brand or type
-        var marsExpress : String, //Origin of the apple
-        var owner: String, //The person who exchange the basket of apple with the stamp.
+        var description : String, //Ticket information
+        var marsExpress : String, //Origin of the ticket
+        var owner: String, //The person who exchanges the ticket for the voucher
         var daysUntilLaunch: String
 )
 ```
