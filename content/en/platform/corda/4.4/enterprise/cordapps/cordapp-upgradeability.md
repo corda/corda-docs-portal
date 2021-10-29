@@ -38,7 +38,7 @@ that requires programmatic code changes. See [CZ whitelisted constraints migrati
 * CorDapp contract attachments are not trusted from remote peers over the p2p network for the purpose of transaction verification.
 A node operator must locally install *all* versions of a Contract attachment to be able to resolve a chain of contract states from its original version.
 The RPC `uploadAttachment` mechanism can be used to achieve this (as well as conventional loading of a CorDapp by installing it in the nodes /cordapp directory).
-See [Installing the CorDapp JAR](cordapp-build-systems.html#cordapp-install-ref) and [CorDapp Contract Attachments](cordapp-build-systems.html#cordapp-contract-attachments-ref) for more information.
+See [Installing the CorDapp JAR](cordapp-build-systems.html#installing-the-cordapp-jar) and [CorDapp Contract Attachments](ccordapp-build-systems.html#cordapp-contract-attachments) for more information.
 * CorDapp contract attachment classloader isolation has some important side-effects and edge cases to consider:
 * Contract attachments should include all 3rd party library dependencies in the same packaged JAR - we call this a “Fat JAR”,
 meaning that all dependencies are resolvable by the classloader by only loading a single JAR.
