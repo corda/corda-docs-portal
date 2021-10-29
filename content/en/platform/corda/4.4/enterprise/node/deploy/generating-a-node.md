@@ -138,7 +138,7 @@ name "O=PartyA,L=London,C=GB"
 
 
 * `p2pAddress` <string> <**required if p2pPort not specified**>
-    * The address/port the node uses for inbound communication from other nodes. (see [p2pAddress](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#corda-configuration-file-p2paddress))
+    * The address/port the node uses for inbound communication from other nodes. (see [p2pAddress](../../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.html#configuration-file-fields))
     * e.g.
 
 ```kotlin
