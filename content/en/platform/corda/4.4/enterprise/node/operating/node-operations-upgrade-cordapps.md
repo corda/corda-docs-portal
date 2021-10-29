@@ -28,7 +28,7 @@ To be compatible with Corda Enterprise, CorDapps need to bundle database migarat
 
 ## Flow upgrades
 
-If any backwards-incompatible changes have been made (see [What constitutes a non-backwards compatible flow change?](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/upgrading-cordapps.html#upgrading-cordapps-backwards-incompatible-flow-changes)
+If any backwards-incompatible changes have been made (see [What constitutes a non-backwards compatible flow change?](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/upgrading-cordapps.html#what-constitutes-a-non-backwards-compatible-flow-change)
 for more information), the upgrade method detailed below will need to be followed. Otherwise the CorDapp JAR can just
 be replaced with the new version.
 
