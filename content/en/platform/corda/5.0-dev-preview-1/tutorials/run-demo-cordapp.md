@@ -269,7 +269,77 @@ This returns the same output as checking the flow status on Swagger UI. You see:
 
 If you have any questions about the Corda Node CLI commands, run the `--help` command for more information.
 
+## Set up and test the UI
+
+The Solar System CorDapp comes with a built-in UI. See the <a href="https://github.com/corda/samples-kotlin-corda5/tree/main/Tutorial/solarsystem/Web-UI">`Web-UI`</a> folder of the sample folder to study the code.
+
+### Before you start
+
+Before you can build the Solar System CorDapp UI, you must:
+
+* [Deploy your CorDapp to a local Corda 5 network](*deploy-the-cordapp-using-corda-cli)
+* Download the [Node.js](https://nodejs.org/en/download/) asynchronous event-driven JavaScript runtime for your platform.
+* Ensure that port `3000` is not being used by any other applications. The UI is hard-coded to run on port `3000`.
+
+### Set up the UI
+
+Follow these steps to start up the UI:
+
+1. Navigate to the `Web-UI` folder of the project.
+
+2. Install [npm](https://docs.npmjs.com/) to set up the React project:
+
+```
+npm install
+```
+
+    **Step result: Your `node_modules` and `package-lock.json` are set up.**
+
+    {{< note >}}
+    You only need to run this command the first time you build the UI.
+    {{< /note >}}
+
+3. Run this command to start up the UI:
+
+```
+npm start
+```
+
+    **Step result: You see a message indicating that the UI has been compiled. You can now open it in your browser.**
+
+4. Visit [http://localhost:3000/](http://localhost:3000/) to test the UI.
+
+### Test the UI
+
+Now that you have the UI up and running, test out the same functionalities you tried with [Swagger]() and [Node CLI]().
+
+1. Click one of the celestial bodies shown to send a probe from that location. Choose from:
+    * **Earth**
+    * **Mars**
+    * or **Pluto**
+
+    **Step result: You are brought to the homepage of the location you selected.**
+
+    {{< note >}}
+    You can open each celestial body in a different browser tab to quickly navigate between them.
+    <<< /note >}}
+
+2. Wait for the **Member Information** box to load all info. Your node is connected and your location is ready to send a probe when you can see the **X500 Name**, **Status**, **Platform Version**, and **Serial** values.
+
+3. Send a probe.
+    1. Click **SEND PROBE** in the menu.
+    2. Enter the message you wish to send to the other celestial body.
+    3. Tick the box if you want to include the Planetary Only smart contract logic.
+    4. Click the **SEND PROBE** button.
+
+    **Step result: You see your flow status as it progresses from RUNNING to COMPLETE. The probe is sent.**
+
+4. **Optional:** Click **CHECK FLOW OUTCOME** to see what happened with your flow.
+
+5. **Optional:** Click **VIEW MESSAGES** to see all messages received in your location.
+
+6. **Optional:** Continue to send probes back and forth.
 
 ## Next steps
 
-Now that you've run the Solar System demo CorDapp, try [building your own CorDapp](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-intro.md).
+Now that you've run the Solar System demo CorDapp, [build your own CorDapp](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-intro.md).
