@@ -42,7 +42,7 @@ Please do NOT use double quotes (`"`) in configuration keys.
 
 Node setup will log `Config files should not contain " in property names. Please fix: [key]` as an error when it finds double quotes around keys.
 This prevents configuration errors when mixing keys containing `.` wrapped with double quotes and without them e.g.: The property
-`"dataSourceProperties.dataSourceClassName" = "val"` in [Reference.conf](#reference-conf) would be not overwritten by the property
+`"dataSourceProperties.dataSourceClassName" = "val"` in [Reference.conf](#referenceconf) would be not overwritten by the property
 `dataSourceProperties.dataSourceClassName = "val2"` in *node.conf*.
 
 By default the node will fail to start in presence of unknown property keys.
@@ -51,7 +51,7 @@ To alter this behaviour, the `on-unknown-config-keys` command-line argument can 
 
 ## Overriding values from node.conf
 
-For example: `${NODE_TRUST_STORE_PASSWORD}` would be replaced by the contents of environment variable `NODE_TRUST_STORE_PASSWORD` (see: [Logging](node-administration.md#hiding-sensitive-data) section).JVM options or environmental variables prefixed with `corda.` can override `node.conf` fields.
+For example: `${NODE_TRUST_STORE_PASSWORD}` would be replaced by the contents of environment variable `NODE_TRUST_STORE_PASSWORD` (see: [Logging](node-administration.html#logging) section).JVM options or environmental variables prefixed with `corda.` can override `node.conf` fields.
 Provided system properties can also set values for absent fields in `node.conf`.
 This is an example of adding/overriding the keyStore password :
 
@@ -67,9 +67,8 @@ The available configuration fields are listed below in alphabetic order.
 
 {{< /note >}}
 
-An array of additional host:port values, which will be included in the advertised NodeInfo in the network map in addition to the [p2pAddress](#corda-configuration-file-p2paddress).
-Nodes can use this configuration option to advertise HA endpoints and aliases to external parties.*Default:* empty listOptionally specify how much memory should be used to cache attachment contents in memory.*Default:* 10MBOptionally specify how many attachments should be cached locally. Note that this includes only the key and metadata, the content is cached separately and can be loaded lazily.*Default:* 1024The root address of the Corda compatibility zone network management services, it is used by the Corda node to register with the network and obtain a Corda node certificate, (See [Network certificates](permissioning.md) for more information.) and also is used by the node to obtain network map information.
-Cannot be set at the same time as the [networkServices](#corda-configuration-file-networkservices) option.**Important:  old configuration value, please use networkServices***Default:* not defined
+An array of additional host:port values, which will be included in the advertised NodeInfo in the network map in addition to the p2pAddress. Nodes can use this configuration option to advertise HA endpoints and aliases to external parties.*Default:* empty listOptionally specify how much memory should be used to cache attachment contents in memory.*Default:* 10MBOptionally specify how many attachments should be cached locally. Note that this includes only the key and metadata, the content is cached separately and can be loaded lazily.*Default:* 1024The root address of the Corda compatibility zone network management services, it is used by the Corda node to register with the network and obtain a Corda node certificate, (See [Network certificates](permissioning.md) for more information.) and also is used by the node to obtain network map information.
+Cannot be set at the same time as the networkServices option.**Important:  old configuration value, please use networkServices***Default:* not defined
 List of the public keys fingerprints (SHA-256 of public key hash) not allowed as Cordapp JARs signers.
 The node will not load Cordapps signed by those keys.
 The option takes effect only in production mode and defaults to Corda development keys (`["56CA54E803CB87C8472EBD3FBC6A2F1876E814CEEBF74860BD46997F40729367", "83088052AF16700457AE2C978A7D8AC38DD6A7C713539D00B897CD03A5E5D31D"]`), in development mode any key is allowed to sign Cordpapp JARs.*Default:* not definedThis is a boolean flag that when enabled (i.e. `true` value is set) causes certificate revocation list (CRL) checking to use soft fail mode.
@@ -77,7 +76,7 @@ Soft fail mode allows the revocation check to succeed if the revocation status c
 If this parameter is set to `false` rigorous CRL checking takes place. This involves each certificate in the certificate path being checked for a CRL distribution point extension, and that this extension points to a URL serving a valid CRL.
 This means that if any CRL URL in the certificate path is inaccessible, the connection with the other party will fail and be marked as bad.
 Additionally, if any certificate in the hierarchy, including the self-generated node SSL certificate, is missing a valid CRL URL, then the certificate path will be marked as invalid.*Default:* trueSet custom command line attributes (e.g. Java system properties) on the node process via the capsule launcherA list of JVM arguments to apply to the node process. This removes any defaults specified from `corda.jar`, but can be overridden from the command line.
-See [Setting JVM arguments](running-a-node.md#setting-jvm-args) for examples and details on the precedence of the different approaches to settings arguments.*Default:* not defined
+See [Setting JVM arguments](running-a-node.html#setting-jvm-arguments) for examples and details on the precedence of the different approaches to settings arguments.*Default:* not defined
 Database configurationTransaction isolation level as defined by the `TRANSACTION_` constants in `java.sql.Connection`, but without the `TRANSACTION_` prefix.*Default:* `REPEATABLE_READ`Whether to export Hibernate JMX statistics.**Caution: enabling this option causes expensive run-time overhead***Default:* falseBoolean which indicates whether to update the database schema at startup (or create the schema when node starts for the first time).
 If set to `false` on startup, the node will validate if it’s running against a compatible database schema.*Default:* trueThe property allows to override `database.initialiseSchema` for the Hibernate DDL generation for CorDapp schemas.
 `UPDATE` performs an update of CorDapp schemas, while `VALID` only verifies their integrity and `NONE` performs no check.
@@ -125,14 +124,14 @@ This allows the address and port advertised in `p2pAddress` to differ from the l
 This acts as a human-readable alias to the node’s public key and can be used with the network map to look up the node’s info.
 This is the name that is used in the node’s certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
 At runtime, Corda checks whether this name matches the name in the node’s certificates.
-For more details please read [Node identity](node-naming.md#node-naming) chapter.*Default:* not definedOptional configuration object which if present configures the node to run as a notary. If part of a Raft or BFT-SMaRt
+For more details please read [Node identity](node-naming.md) chapter.*Default:* not definedOptional configuration object which if present configures the node to run as a notary. If part of a Raft or BFT-SMaRt
 cluster then specify `raft` or `bftSMaRt` respectively as described below. If a single node notary then omit both.Boolean to determine whether the notary is a validating or non-validating one.*Default:* falseIf the node is part of a distributed cluster, specify the legal name of the cluster.
-At runtime, Corda checks whether this name matches the name of the certificate of the notary cluster.*Default:* not defined*(Experimental)* If part of a distributed Raft cluster, specify this configuration object with the following settings:> 
+At runtime, Corda checks whether this name matches the name of the certificate of the notary cluster.*Default:* not defined*(Experimental)* If part of a distributed Raft cluster, specify this configuration object with the following settings:>
 The host and port to which to bind the embedded Raft server. Note that the Raft cluster uses a
 separate transport layer for communication that does not integrate with ArtemisMQ messaging services.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
 be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
 new cluster will be bootstrapped.*Default:* not defined
-*(Experimental)* If part of a distributed BFT-SMaRt cluster, specify this configuration object with the following settings:> 
+*(Experimental)* If part of a distributed BFT-SMaRt cluster, specify this configuration object with the following settings:>
 The zero-based index of the current replica. All replicas must specify a unique replica id.*Default:* not definedMust list the addresses of all the members in the cluster. At least one of the members must
 be active and be able to communicate with the cluster leader for the node to join the cluster. If empty, a
 new cluster will be bootstrapped.*Default:* not defined
@@ -148,7 +147,7 @@ The host and port on which the node is available for protocol operations over Ar
 However, note that the host is the included as the advertised entry in the network map.
 As a result the value listed here must be **externally accessible when running nodes across a cluster of machines.**
 If the provided host is unreachable, the node will try to auto-discover its public one.*Default:* not definedThe address of the RPC system on which RPC requests can be made to the node.
-If not provided then the node will run without RPC.**Important: Deprecated. Use rpcSettings instead.***Default:* not definedOptions for the RPC server exposed by the Node.**Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the “generate-rpc-ssl-settings” command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**> 
+If not provided then the node will run without RPC.**Important: Deprecated. Use rpcSettings instead.***Default:* not definedOptions for the RPC server exposed by the Node.**Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the “generate-rpc-ssl-settings” command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**>
 host and port for the RPC server binding.*Default:* not definedhost and port for the RPC admin binding (this is the endpoint that the node process will connect to).*Default:* not definedboolean, indicates whether the node will connect to a standalone broker for RPC.*Default:* falseboolean, indicates whether or not the node should require clients to use SSL for RPC connections.*Default:* false(mandatory if `useSsl=true`) SSL settings for the RPC server.Absolute path to the key store containing the RPC SSL certificate.*Default:* not definedPassword for the key store.*Default:* not defined
 A list of users who are authorised to access the RPC system.
 Each user in the list is a configuration object with the following fields:Username consisting only of word characters (a-z, A-Z, 0-9 and _)*Default:* not definedThe password*Default:* not definedA list of permissions for starting flows via RPC.
@@ -298,4 +297,3 @@ networkServices {
 ```
 
 [example-node-with-networkservices.conf](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/resources/example-node-with-networkservices.conf)
-

@@ -211,7 +211,7 @@ When running each flow, you must replace the `.json` code for each flow in step 
     "clientId": "launchpad-3",
     "flowName": "net.corda.missionMars.flows.CreateBoardingTicketInitiator",
     "parameters": {
-      "parametersInJson": "{\"ticketDescription\": \"Space Shuttle 323 - Seat 16B\", \"daysTillLaunch\": \"10\"}"
+      "parametersInJson": "{\"ticketDescription\": \"Space Shuttle 323 - Seat 16B\", \"daysUntilLaunch\": \"10\"}"
     }
   }
 }
