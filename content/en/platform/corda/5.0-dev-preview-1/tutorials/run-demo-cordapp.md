@@ -82,16 +82,25 @@ The project containing the sample CorDapp opens.
 1. Navigate to the root directory of the project from the command line.
 
 2. Configure the network:
-
-`corda-cli network config docker-compose solar-system`
+```
+corda-cli network config docker-compose solar-system
+```
 
 3. Run a Gradle command ([or run a Gradle task in IntelliJ](https://www.jetbrains.com/help/idea/work-with-gradle-tasks.html#gradle_tasks)) to build the CorDapp and generate the `.cpb` file:
 
-  `./gradlew build`
+```
+./gradlew build
+```
 
 This command builds the CorDapp package (`.cpk`) files. Most CorDapps have two files: a `contracts` file and a `workflows` file. The command also builds the CorDapp package bundle (`.cpb`).
 
-4. Deploy the network using `corda-cli` and `docker-compose`:
+4. Compile your `.cpk` files into a single `.cpb` file using the CorDapp Builder CLI:
+
+```
+cordapp-builder create --cpk contracts/build/libs/corda5-solar-system-contracts-demo-contracts-1.0-SNAPSHOT-cordapp.cpk --cpk workflows/build/libs/corda5-solar-system-contracts-demo-workflows-1.0-SNAPSHOT-cordapp.cpk -o corda5-solar-system-1.0-SNAPSHOT-package.cpb
+```
+
+5. Deploy the network using `corda-cli` and `docker-compose`:
 ```
 corda-cli network deploy -n solar-system -f solar-system.yaml | docker-compose -f - up -d
 ```
@@ -107,11 +116,13 @@ The safest way to view the network contents is to pipe them to Docker.
 While this is *not* the recommended approach, you can also output the contents to a file if you want to see what is happening. Use this command to do so: `corda-cli network deploy -n solar-system -f solar-system.yaml > solar-system-compose.yaml`.
 {{< /note >}}
 
-5. Wait for the network to be ready with:
+6. Wait for the network to be ready with:
 `corda-cli network wait -n solar-system`
 
-6. Check the CorDapp's status using [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md):
-  `corda-cli network status -n solar-system`
+7. Check the CorDapp's status using [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md):
+  ```
+  corda-cli network status -n solar-system`
+  ```
 
   You'll be able to see the status of the node. The nodes are up and running when their status is `Ready`.
 
@@ -119,17 +130,18 @@ While this is *not* the recommended approach, you can also output the contents t
   Take note of the `HTTP RPC port` for each node. You will use these later when you [test the CorDapp using Swagger UI](#test-the-sample-cordapp-using-swagger-ui) or [Corda Node CLI](#test-the-sample-cordapp-using-corda-node-cli).
   {{< /note >}}
 
-7. Install the application on the network using Corda CLI.
+8. Install the application on the network using Corda CLI.
 
 In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
-
-  `corda-cli package install -n solar-system corda5-solar-system.cpb`
+  ```
+  corda-cli package install -n solar-system corda5-solar-system-1.0-SNAPSHOT-package.cpb`
+  ```
 
   In this command, you must specify the network and the `.cpb` file. Depending on the Gradle setup, the `.cpb` will be in one of the build folders and the name may be different.
 
   After running this command, your CorDapp is up and running.
 
-8. Double-check that everything is working properly:
+9. Double-check that everything is working properly:
     1. Open Docker Desktop.
     2. Go to **Containers/Apps**.
     3. Select the project.
@@ -293,11 +305,11 @@ Follow these steps to start up the UI:
 npm install
 ```
 
-    **Step result: Your `node_modules` and `package-lock.json` are set up.**
+  **Step result:** Your `node_modules` and `package-lock.json` are set up.
 
-    {{< note >}}
-    You only need to run this command the first time you build the UI.
-    {{< /note >}}
+  {{< note >}}
+  You only need to run this command the first time you build the UI.
+  {{< /note >}}
 
 3. Run this command to start up the UI:
 
@@ -305,24 +317,42 @@ npm install
 npm start
 ```
 
-    **Step result: You see a message indicating that the UI has been compiled. You can now open it in your browser.**
+  **Step result:** You see a message indicating that the UI has been compiled. You can now open it in your browser.
 
 4. Visit [http://localhost:3000/](http://localhost:3000/) to test the UI.
 
+{{<
+  figure
+	 src="solar-system-home.png"
+	 zoom="solar-system-home.png"
+   width=100%
+	 figcaption="Solar System CorDapp UI"
+	 alt="Solar system CorDapp UI"
+>}}
+
+{{<
+  figure
+	 src="solar-system-earth.png"
+	 zoom="solar-system-earth.png"
+   width=100%
+	 figcaption="Solar System CorDapp UI - Earth"
+	 alt="Solar system CorDapp UI - Earth"
+>}}
+
 ### Test the UI
 
-Now that you have the UI up and running, test out the same functionalities you tried with [Swagger]() and [Node CLI]().
+Now that you have the UI up and running, test out the same functionalities you tried with [Swagger](#test-the-sample-cordapp-using-swagger-ui) and [Node CLI](#test-the-sample-cordapp-using-corda-node-cli).
 
 1. Click one of the celestial bodies shown to send a probe from that location. Choose from:
     * **Earth**
     * **Mars**
-    * or **Pluto**
+    * **Pluto**
 
-    **Step result: You are brought to the homepage of the location you selected.**
+  **Step result:** You are brought to the homepage of the location you selected.
 
-    {{< note >}}
-    You can open each celestial body in a different browser tab to quickly navigate between them.
-    <<< /note >}}
+  {{< note >}}
+  You can open each celestial body in a different browser tab to quickly navigate between them.
+  {{< /note >}}
 
 2. Wait for the **Member Information** box to load all info. Your node is connected and your location is ready to send a probe when you can see the **X500 Name**, **Status**, **Platform Version**, and **Serial** values.
 
@@ -332,7 +362,7 @@ Now that you have the UI up and running, test out the same functionalities you t
     3. Tick the box if you want to include the Planetary Only smart contract logic.
     4. Click the **SEND PROBE** button.
 
-    **Step result: You see your flow status as it progresses from RUNNING to COMPLETE. The probe is sent.**
+  **Step result:** You see your flow status as it progresses from RUNNING to COMPLETE. The probe is sent.
 
 4. **Optional:** Click **CHECK FLOW OUTCOME** to see what happened with your flow.
 
