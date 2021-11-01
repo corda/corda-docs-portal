@@ -27,11 +27,7 @@ Then you can obtain a Jackson `ObjectMapper` instance configured for use using t
 method. There are variants of this method for obtaining Jackson’s configured in other ways: if you have an RPC
 connection to the node (see “[Interacting with a node](clientrpc.md)”) then your JSON mapper can resolve identities found in objects.
 
-The API is described in detail here:
-
-
-* [Kotlin API docs](https://api.corda.net/api/corda-os/4.1/html/api/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
-* [JavaDoc](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/net/corda/client/jackson/package-summary.html)
+For more details, see [API reference](api-ref.md).
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}

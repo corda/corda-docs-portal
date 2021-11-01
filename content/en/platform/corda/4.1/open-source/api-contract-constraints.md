@@ -110,13 +110,13 @@ Each transaction received by a node will then verify that the apps attached to i
 Signature Constraints. This ensures that the version of each app is acceptable to the transaction’s input states.
 
 More information on how to sign an app directly from Gradle can be found in the
-[CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
+[Signing the CorDapp JAR](cordapp-build-systems.html#signing-the-cordapp-jar) section of the documentation.
 
 
 ### Using Signature Constraints in transactions
 
 If the app is signed, Signature Constraints will be used by default (in most situations) by the `TransactionBuilder` when adding output states.
-This is expanded upon in [Using Contract Constraints in Transactions](#contract-constraints-in-transactions).
+This is expanded upon in [Using Contract Constraints in Transactions](#using-contract-constraints-in-transactions).
 
 {{< note >}}
 Signature Constraints are used by default except when a new transaction contains an input state with a Hash Constraint. In this
@@ -369,4 +369,3 @@ See [Creating nodes locally](generating-a-node.md) for detailed instructions.
 You are specifying the fully-qualified name of the contract incorrectly. For example, you’ve defined `MyContract` in
 the package `com.mycompany.myapp.contracts`, but the fully-qualified contract name you pass to the
 `TransactionBuilder` is `com.mycompany.myapp.MyContract` (instead of `com.mycompany.myapp.contracts.MyContract`).
-
