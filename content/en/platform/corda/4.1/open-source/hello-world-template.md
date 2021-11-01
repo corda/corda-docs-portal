@@ -52,8 +52,7 @@ git clone https://github.com/corda/cordapp-template-kotlin.git ; cd cordapp-temp
 
 ## Opening the template in IntelliJ
 
-Once the template is download, open it in IntelliJ by following the instructions here:
-[https://docs.corda.net/tutorial-cordapp.html#opening-the-example-cordapp-in-intellij](https://docs.corda.net/tutorial-cordapp.html#opening-the-example-cordapp-in-intellij).
+Once the template is download, [open it in IntelliJ](tutorial-cordapp.html#opening-the-example-cordapp-in-intellij).
 
 
 ## Template structure
@@ -87,4 +86,3 @@ workflows/src/main/kotlin/com/template/flows/Flows.kt
 ## Progress so far
 
 We now have a template that we can build upon to define our IOU CorDapp. Let’s start by defining the `IOUState`.
-
