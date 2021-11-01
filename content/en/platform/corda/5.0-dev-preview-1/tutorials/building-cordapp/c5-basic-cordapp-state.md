@@ -203,7 +203,7 @@ As noted in the [introduction](../../../../../../en/platform/corda/5.0-dev-previ
 
 You must add these parameters in the form of a `JsonRepresentable` with these components:
 
-* A required method that is annotated with `@OverRide`. This is what the node will return each time the node is asked for a JSON representation of the state.
+* An overridden method from the `JsonRepresentable` interface: `@OverRide`. This is what the node will return each time the node is asked for a JSON representation of the state.
 * A `Dto` class that will be used as the template of the returned JSON file. This class marks all variable types as `String`.
 * A helper method that populates the template with the actual variables of the class.
 
@@ -285,6 +285,7 @@ import net.corda.v5.application.identity.Party
 import net.corda.v5.application.utilities.JsonRepresentable
 import net.corda.v5.ledger.contracts.BelongsToContract
 import net.corda.v5.ledger.contracts.ContractState
+import java.time.LocalDate
 import java.util.*
 
 @BelongsToContract(BoardingTicketContract::class)
@@ -307,7 +308,7 @@ data class BoardingTicket(
         return BoardingTicket(description, marsExpress, buyer, daysUntilLaunch)
     }
 
-    override val participants: List<AbstractParty> get() = listOf<AbstractParty>(spaceCompany,owner)
+    override val participants: List<AbstractParty> get() = listOf<AbstractParty>(marsExpress,owner)
 
     fun toDto(): BoardingTicketDto {
         return BoardingTicketDto(
@@ -324,9 +325,9 @@ data class BoardingTicket(
 }
 
 data class BoardingTicketDto(
-        var description : String, //Brand or type
+        var description : String, //Ticket information
         var marsExpress : String, //Origin of the ticket
-        var owner: String, //The party who exchanges the ticket for the voucher.
+        var owner: String, //The person who exchanges the ticket for the voucher
         var daysUntilLaunch: String
 )
 ```

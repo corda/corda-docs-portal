@@ -56,7 +56,7 @@ They do not require additional coding and do not incur a complex choreographed o
 {{< warning >}}
 The steps outlined in this page assume you are using the same CorDapp Contract (for example, same state definition, commands and verification code) and
 wish to use that CorDapp to leverage the upgradeability benefits of Corda 4 signature constraints. If you are looking to upgrade code within an existing
-Contract CorDapp please read [Contract and state versioning](upgrading-cordapps.md#contract-upgrading-ref) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
+Contract CorDapp please read [Contract and state versioning](upgrading-cordapps.html#contract-and-state-versioning) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
 
 {{< /warning >}}
 
@@ -80,7 +80,7 @@ Corda 4.0 requires some additional steps to consume and evolve pre-existing on-l
 
 
 * All Corda Nodes in the same CZ or business network that may encounter a transaction chain with a hash constrained state must be started using
-relaxed hash constraint checking mode as described in [Hash constrained states in private networks](api-contract-constraints.md#relax-hash-constraints-checking-ref).
+relaxed hash constraint checking mode as described in [Hash constrained states in private networks](api-contract-constraints.html#hash-constrained-states-in-private-networks).
 * CorDapp flows that build transactions using pre-existing *hash-constrained* states must explicitly set output states to use *signature constraints*
 and specify the related public key(s) used in signing the associated CorDapp Contract JAR:
 
@@ -142,12 +142,12 @@ by different parties and it will be expressed as a `CompositeKey` in the `Signat
 to all nodes in that CZ). The CZ network operator should check that the JAR is signed and not allow any more versions of it to be whitelisted in the future.
 From now on the development organisation that signed the JAR is responsible for signing new versions. The process of CZ network CorDapp whitelisting depends on how the Corda network is configured:
 
-* If using a hosted CZ network (such as [The Corda Network](https://docs.corda.net/head/corda-network/index.html) or
-[UAT Environment](https://docs.corda.net/head/corda-network/uat.html) ) running an Identity Operator (formerly known as Doorman) and
+* If using a hosted CZ network (such as [The Corda Network](corda-networks-index.md) or
+[UAT Environment](../../../../../en/platform/corda/4.1/open-source/corda-network/uat.md)) running an Identity Operator (formerly known as Doorman) and
 Network Map Service, you should manually send the hashes of the two JARs to the CZ network operator and request these be added using
 their network parameter update process.
 * If using a local network created using the Network Bootstrapper tool, please follow the instructions in
-[Updating the contract whitelist for bootstrapped networks](network-bootstrapper.md#bootstrapper-updating-whitelisted-contracts) to can add both CorDapp Contract JAR hashes.
+[Updating the contract whitelist for bootstrapped networks](network-bootstrapper.html#updating-the-contract-whitelist-for-bootstrapped-networks) to can add both CorDapp Contract JAR hashes.
 
 
 

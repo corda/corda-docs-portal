@@ -94,7 +94,7 @@ A `-v` short option should also be provided.
 ### Parameter stability
 
 
-* keep both versions of the parameter. See [Backwards Compatibility](#cli-ux-backwards-compatibility) for more information.
+* keep both versions of the parameter. See [Backwards Compatibility](#backwards-compatibility) for more information.
 
 
 ## Notes for adding a new a command line application
@@ -255,4 +255,3 @@ As part of the release process, the release manager should regenerate the YAML f
 * Copy the resulting YAML from the test output
 * Check out the master branch
 * Replace the text in `<fully.qualified.tool.name>.yml` with the text generated on the release branch
-
