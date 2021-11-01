@@ -236,7 +236,7 @@ plugin and signing the CordDapp JAR downstream in your build pipeline. CorDapp s
 is accepted by Corda node only when running in the development mode. In case CordDapp signed by the (default)
 development key is run on node in the production mode (e.g. for testing), the node may be set to accept the development
 key by adding the `cordappSignerKeyFingerprintBlacklist = []` property set to empty list (see
-[Configuring a node](corda-configuration-file.md#corda-configuration-file-signer-blacklist)).
+[Node configuration](corda-configuration-file.md)).
 
 Signing options can be contextually overwritten by the relevant system properties as described above. This allows the
 single `build.gradle` file to be used for a development build (defaulting to the Corda development keystore) and for
@@ -468,7 +468,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 
 There is an example project that demonstrates this in the `samples` folder of the Corda Git repository, called `cordapp-configuration` .
-API documentation can be found at [api/kotlin/corda/net.corda.core.cordapp/index.html](https://api.corda.net/api/corda-os/4.1/html/api/kotlin/corda/net.corda.core.cordapp/index.html).
+See also [API documentation](https://api.corda.net/api/corda-os/4.1/html/api/kotlin/corda/net.corda.core.cordapp/index.html).
 
 
 ## Minimum and target platform version
@@ -608,8 +608,8 @@ Future versions of Corda will de-couple this custom schema dependency to remove 
 As of Corda 4, CorDapp Contract JARs must be installed on a node by a trusted uploader, either by
 
 
-* installing manually as per [Installing the CorDapp JAR](#cordapp-install-ref) and re-starting the node.
-* uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC](clientrpc.md#clientrpc-connect-ref))
+* installing manually as per [Installing the CorDapp JAR](#installing-the-cordapp-jar) and re-starting the node.
+* uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC](clientrpc.html#connecting-to-a-node-via-rpc))
 or via the [Node shell](shell.md) by issuing the following command:
 
 `>>> run uploadAttachment jar: path/to/the/file.jar`
