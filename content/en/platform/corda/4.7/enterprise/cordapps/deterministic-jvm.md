@@ -22,7 +22,7 @@ deterministic version, the DJVM.
 
 So, what does it mean for a piece of code to be fully deterministic?  Ultimately, it means that the code, when viewed
 as a function, is pure. In other words, given the same set of inputs, it will always produce the same set of outputs
-without inflicting any side-effects that might later affect the computation.
+without inflicting any side effects that might later affect the computation.
 
 
 ## Non-Determinism
@@ -41,7 +41,7 @@ hash maps and hash sets, or be used as non-pure input into arbitrary expressions
 * **Garbage collector callbacks**.
 
 To ensure that the contract verification function is fully pure even in the face of infinite loops we want to use a
-custom-built JVM sandbox. The sandbox performs static analysis of loaded byte code and a rewriting pass to allow for
+custom-built JVM sandbox. The sandbox performs static analysis of loaded byte code, and a rewriting pass to allow for
 necessary instrumentation and constraint hardening.
 
 The byte code rewriting further allows us to patch up and control the default behaviour of things like the hash-code
@@ -52,7 +52,7 @@ for future use.
 ## Abstraction
 
 The sandbox is abstracted away as an executor which takes as input an implementation of the interface
-`Function<in Input, out Output>`, dereferenced by a `ClassSource`. This interface has a single method that
+`Function<in Input, out Output>`, de-referenced by a `ClassSource`. This interface has a single method that
 needs implementing, namely `apply(Input): Output`.
 
 A `ClassSource` object referencing such an implementation can be passed into the `SandboxExecutor<in Input, out
@@ -152,9 +152,8 @@ Forbids finalizers as these can be called at unpredictable times during executio
 controlled by the garbage collector. As stated in the standard Java documentation:
 
 
->
-> Called by the garbage collector on an object when garbage collection determines that there are no more references
-> to the object.
+Called by the garbage collector on an object when garbage collection determines that there are no more references
+to the object.
 
 
 
@@ -192,7 +191,7 @@ memory. Types of expensive byte code include method invocation, memory allocatio
 
 The cost instrumentation strategy used is a simple one: just counting byte code that are known to be expensive to
 execute. The methods can be limited in size and jumps count towards the costing budget, allowing us to determine a
-consistent halting criteria. However it is still possible to construct byte code sequences by hand that take excessive
+consistent halting criteria. However, it is still possible to construct byte code sequences by hand that take excessive
 amounts of time to execute. The cost instrumentation is designed to ensure that infinite loops are terminated and that
 if the cost of verifying a transaction becomes unexpectedly large (*e.g.*, contains algorithms with complexity
 exponential in transaction size) that all nodes agree precisely on when to quit. It is not intended as a protection
@@ -202,7 +201,7 @@ time then simply blocking that node is sufficient to solve the problem, given th
 The budgets are separate per operation code type, so there is no unified cost model. Additionally the instrumentation is
 high overhead. A more sophisticated design would be to calculate byte code costs statically as much as possible ahead of
 time, by instrumenting only the entry point of ‘accounting blocks’, *i.e.*, runs of basic blocks that end with either a
-method return or a backwards jump. Because only an abstract cost matters (this is not a profiler tool) and because the
+method return, or a backwards jump. Because only an abstract cost matters (this is not a profiler tool) and because the
 limits are expected to bet set relatively high, there is no need to instrument every basic block. Using the max of both
 sides of a branch is sufficient when neither branch target contains a backwards jump. This sort of design will be
 investigated if the per category budget accounting turns out to be insufficient.
@@ -248,13 +247,11 @@ and returns the value from the `hashCode()` method implementation. It also has a
 
 The loaded classes are further rewritten in two ways:
 
->
->
-> * All allocations of new objects of type `java.lang.Object` get mapped into using the sandboxed object.
-> * Calls to the constructor of `java.lang.Object` get mapped to the constructor of `sandbox.java.lang.Object`
-> instead, passing in a constant value for now. In the future, we can easily have this passed-in hash-code be a pseudo
-> random number seeded with, for instance, the hash of the transaction or some other dynamic value, provided of course
-> that it is deterministically derived.
+* All allocations of new objects of type `java.lang.Object` get mapped into using the sandboxed object.
+* Calls to the constructor of `java.lang.Object` get mapped to the constructor of `sandbox.java.lang.Object`
+instead, passing in a constant value for now. In the future, we can easily have this passed-in hash-code be a pseudo
+random number seeded with, for instance, the hash of the transaction or some other dynamic value, provided of course
+that it is deterministically derived.
 
 
 
@@ -264,7 +261,7 @@ The DJVM doesn’t support multi-threading and so synchronised methods and code 
 use in sandboxed code. Consequently, we automatically transform them into ordinary methods and code blocks instead.
 
 
-## Trying out the DJVM
+## Try out the DJVM
 
 
 {{< warning >}}
@@ -277,7 +274,7 @@ we envision will be placed on contract code in the future.
 
 
 
-### Tweaking Your Contract Code
+### Tweak Your Contract Code
 
 CorDapp developers may need to tweak their contract CorDapps for use inside the DJVM. This is because not every class, constructor or
 method defined in the `corda-core` and `corda-serialization` modules is available when running inside the sandbox.
@@ -301,7 +298,7 @@ private final void deterministic(Configuration configuration) {
 }
 ```
 
-And applying it to individual modules of your CorDapp using:
+Apply it to individual modules of your CorDapp using:
 
 ```shell
 apply from: "${rootProject.projectDir}/deterministic.gradle"
@@ -314,7 +311,7 @@ not sufficient. The only way to be sure that a piece of code is deterministic is
 as described below.
 
 
-### Enabling Use of the DJVM for a Node
+### Enable use of the DJVM for a Node
 
 You can enable the DJVM for your node by adding the following line to your node’s `node.conf` file:
 
@@ -384,19 +381,17 @@ Runtime Cost Summary:
 
 The output should be pretty self-explanatory, but just to summarise:
 
->
->
-> * It prints out the return value from the `Function<Object, Object>.apply()` method implemented in
-> `net.corda.sandbox.Hello`.
-> * It also prints out the aggregated costs for allocations, invocations, jumps and throws.
+
+* It prints out the return value from the `Function<Object, Object>.apply()` method implemented in
+`net.corda.sandbox.Hello`.
+* It also prints out the aggregated costs for allocations, invocations, jumps and throws.
 
 
 Other commands to be aware of are:
 
->
->
-> * `djvm check` which allows you to perform some up-front static analysis without running the code. However, be aware
-> that the DJVM also transforms some non-deterministic operations into `RuleViolationError` exceptions. A successful
-> `check` therefore does *not* guarantee that the code will behave correctly at runtime.
-> * `djvm inspect` which allows you to inspect what byte code modifications will be applied to a class.
-> * `djvm show` which displays the transformed byte code of a class, *i.e.*, the end result and not the difference.
+
+* `djvm check` which allows you to perform some up-front static analysis without running the code. However, be aware
+that the DJVM also transforms some non-deterministic operations into `RuleViolationError` exceptions. A successful
+`check` therefore does *not* guarantee that the code will behave correctly at runtime.
+* `djvm inspect` which allows you to inspect what byte code modifications will be applied to a class.
+* `djvm show` which displays the transformed byte code of a class, *i.e.*, the end result and not the difference.
