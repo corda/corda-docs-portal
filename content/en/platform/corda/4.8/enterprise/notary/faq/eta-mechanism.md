@@ -15,14 +15,14 @@ title: Backpressure mechanism overview
 
 ## What is the backpressure mechanism?
 
-The mechanism, in simple terms, is a method to make sure the notary is at no point overwhelmed with information and requests. An overwhelmed
+The backpressure mechanism is a method to ensure that the notary is at no point overwhelmed with information and requests. An overwhelmed
 notary is more likely to suffer a detriment to performance. To avoid this, Corda uses a simple backpressure mechanism that is applicable to notaries and nodes
 above a minimum platform version of 4. Using a configured retry threshold, we compare the measured throughput and determine if
 the request is going to require more than that. If so, we respond with a backpressure message.
 
 ## How is the retry time calculated?
 
-By inspecting the amount of states in the request queue and comparing that to the throughput (measured in states per minute),
+By inspecting the number of states in the request queue and comparing that to the throughput (measured in states per minute),
 the number of seconds until a new request can be processed is calculated.
 
 

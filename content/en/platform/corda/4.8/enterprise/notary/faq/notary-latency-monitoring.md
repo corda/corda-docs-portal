@@ -12,7 +12,7 @@ title: Monitoring Notary Latency
 weight: 2
 ---
 
-# Monitoring Notary Latency
+# Monitoring notary latency
 
 To measure notary latency, combine three metrics:
 

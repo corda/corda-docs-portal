@@ -11,13 +11,13 @@ title: Notary Failover
 ---
 
 
-# Notary Failover
+# Notary failover
 
 Corda has built-in features to allow for the retrying of flows in specific cases of failure.
-See [node-flow-hospital](content/en/platform/corda/4.8/enterprise/node/node-flow-hospital.md) for information that applies
+See [Flow Hospital](content/en/platform/corda/4.8/enterprise/node/node-flow-hospital.md) for information that applies
 to all flows.
 
-The FinalityFlow contains notary specific logic which can initiate a backpressure-aware sub-flow since minimum platform version 4.
+The FinalityFlow contains notary-specific logic which can initiate a backpressure-aware sub-flow since minimum platform version 4.
 The backpressure aware subflow has configured timeout and retry with specific logic relating
 to the [backpressure mechanism](eta-mechanism.md).
 
@@ -36,14 +36,14 @@ The backpressure mechanism is described in [backpressure mechanism overview](eta
 ## What happens on multiple successful responses caused by retrying?
 
 The first successful response will be mapped to the correct flow and proceed, while the second will be discarded, as the flow that it is
-attempting to map to is no longer in existence. A warning will be logged into the console that a response has nothing to go to, but that
-this is expected behaviour.
+attempting to map to no longer exists. A warning will be logged into the console that a response has nothing to go to, but that
+is expected behaviour.
 
 
 ## Is it possible to receive a success and failure because of retrying?
 
 Notarization requests are idempotent and can be retried, the same request should lead to the same response when retried.
-Previously notarised transactions are saved so that future repeated requests can be answered appropriately.
+Previously notarized transactions are saved so that future repeated requests can be answered appropriately.
 
 
 ## If there is a network outage/partition, how does this affect the notary?
