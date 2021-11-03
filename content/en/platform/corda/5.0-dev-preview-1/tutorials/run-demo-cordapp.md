@@ -291,7 +291,11 @@ Before you can build the Solar System CorDapp UI, you must:
 
 * [Deploy your CorDapp to a local Corda 5 network](*deploy-the-cordapp-using-corda-cli)
 * Download the [Node.js](https://nodejs.org/en/download/) asynchronous event-driven JavaScript runtime for your platform.
-* Ensure that port `3000` is not being used by any other applications. The UI is hard-coded to run on port `3000`.
+* Ensure that port `3000` is not being used by any other applications.
+
+{{< note >}}
+The UI proxy is hard-coded to run on port `3000`. A proxy is used because the current implementation of the web server does not populate any of the CORS headers. The proxy ensures that when the Open API is used by externally-hosted websites, no errors occur on the client side.
+{{< /note >}}
 
 ### Set up the UI
 
