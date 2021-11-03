@@ -95,7 +95,7 @@ the underlying Corda nodes may be still starting and SSHing to a node may be not
 * `java -jar <path/to/corda-tools-network-builder.jar> -b AZURE -d .`
 
 {{< note >}}
-The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#pre-requisites).
+The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#prerequisites).
 
 {{< /note >}}
 
@@ -167,7 +167,7 @@ click `Open`
 * Click `Build`
 
 {{< note >}}
-The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#pre-requisites).
+The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#prerequisites).
 
 {{< /note >}}
 All the nodes should eventually move to a `Status` of `INSTANTIATED`. If you run `docker ps` from the terminal to
@@ -215,4 +215,3 @@ Tue Jul 17 15:47:14 GMT 2018>>> run networkMapSnapshot
 ## Shutting down the nodes
 
 Run `docker kill $(docker ps -q)` to kill all running Docker processes.
-

@@ -25,7 +25,7 @@ A node can be created manually by creating a folder that contains the following 
 
 * The Corda JAR>
 
-    * Can be downloaded from [https://r3.bintray.com/corda/net/corda/corda/](https://r3.bintray.com/corda/net/corda/corda/) (under /4.1/corda-4.1.jar)
+    * Can be downloaded from [JFrog](https://software.r3.com/ui/repos/tree/General/corda-releases%2Fnet%2Fcorda%2Fcorda%2F4.1) (under /4.1/corda-4.1.jar)
 
 
 
@@ -33,7 +33,7 @@ A node can be created manually by creating a folder that contains the following 
 * A folder entitled `cordapps` containing any CorDapp JARs you want the node to load
 * **Optional:** A webserver JAR entitled `corda-webserver.jar` that will connect to the node via RPC>
 
-    * The (deprecated) default webserver can be downloaded from [http://r3.bintray.com/corda/net/corda/corda-webserver/](http://r3.bintray.com/corda/net/corda/corda-webserver/) (under /4.1/corda-4.1.jar)
+    * The (deprecated) default webserver can be downloaded from [JFrog](https://software.r3.com/ui/repos/tree/General/corda-releases%2Fnet%2Fcorda%2Fcorda%2F4.1) (under /4.1/corda-4.1.jar)
     * A Spring Boot alternative can be found here: [https://github.com/corda/spring-webserver](https://github.com/corda/spring-webserver)
 
 
@@ -364,4 +364,3 @@ If the task is a `Dockerform` task, running the task will also create an additio
 directory, and a `docker-compose.yml` file in the `build/nodes` directory.
 
 You can now run the nodes by following the instructions in [Running a node](running-a-node.md).
-

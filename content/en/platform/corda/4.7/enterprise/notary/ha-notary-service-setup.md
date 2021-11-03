@@ -16,7 +16,7 @@ weight: 110
 # Corda Enterprise HA notary service set-up
 
 The Corda Enterprise notary service can be configured in high-availability (HA) mode. For the Corda Enterprise notary
-service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview](./ha-notary-service-overview.html) for more information.
+service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview](ha-notary-service-overview.md) for more information.
 
 Running an HA notary requires the following:
 
@@ -36,7 +36,7 @@ source has to be monotonic and support leap second smearing.
 * Java runtime
 * Corda Enterprise JAR
 * [Notary Health Check](../notary-healthcheck.md) Tool
-* HA Utilities JAR to run [notary registration](../ha-utilities.md#notary-reg-tool)
+* HA Utilities JAR to run [notary registration](../ha-utilities.html#notary-registration)
 * Root access to a Linux machine or VM to install the selected database
 * The private IP addresses of your database hosts
 * The public IP addresses of your notary hosts
@@ -51,7 +51,7 @@ source has to be monotonic and support leap second smearing.
 * Notary worker configuration files
 
 If you are setting up a local network to test the HA notary setup process, use the [Network Bootstrapper](../network-bootstrapper.md)
-instead of the [Notary Registration Tool](../ha-utilities.md#notary-reg-tool). In all other implementations, the network bootstrapper is not required.
+instead of the [Notary Registration Tool](../ha-utilities.html#notary-registration). In all other implementations, the network bootstrapper is not required.
 
 Ensure that the notary worker P2P ports are reachable from any nodes that might join the network. Each notary worker also
 needs access to its individual node database, and communicates with the underlying database cluster using JDBC.
@@ -79,7 +79,7 @@ request (CSR) to the Identity Manager, then poll until it receives a successful 
 file will be created containing the key pair and certificate chain if using a local key store, or just the certificate
 chain if using an HSM.
 
-See [notary registration](../ha-utilities.md#notary-reg-tool) for more information on using the notary registration tool.
+See [notary registration](../ha-utilities.html#notary-registration) for more information on using the notary registration tool.
 
 
 2. Register the notary workers
@@ -101,7 +101,7 @@ entry. If configured to use an HSM, the generated keys are stored in the HSM and
 
 In order for network participants to use the new HA notary the notary service must be present in the network parameters. This involves
 configuring and setting the initial network parameters (if setting up a new network), or modifying the existing parameters and performing a
-flag day (if using an existing network). Please refer to the [CENM documentation](../../../cenm/1.2.html) for more information on this
+flag day (if using an existing network). Please refer to the [CENM documentation](../../../../../../en/platform/corda/1.2/cenm.md) for more information on this
 process.
 
 {{< note >}}

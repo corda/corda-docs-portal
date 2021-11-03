@@ -22,6 +22,13 @@ Before you start building your first CorDapp:
 - [Run a sample CorDapp](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/run-demo-cordapp.md).
 - Take a look at the Corda 5 Developer Preview [Kotlin CorDapp template](https://github.com/corda/corda5-cordapp-template-kotlin).
 
+{{< note >}}
+Instructions for this tutorial are provided for the Kotlin version of the Mission Mars CorDapp. If you want to see the completed Kotlin or Java CorDapp, see these repositories:
+
+* [Mission Mars CorDapp - Kotlin](https://github.com/corda/samples-kotlin-corda5/tree/main/Tutorial/missionmars)
+* [Mission Mars CorDapp - Java](https://github.com/corda/samples-java-corda5/tree/main/Tutorial/missionmars)
+{{< /note >}}
+
 ## The story
 
 This example showcases a delivery versus payment (DvP) scenario. You are building a CorDapp for a space travel company that wants to offer a way for customers to purchase a voucher that they will later redeem for a ticket to go to Mars.

@@ -77,7 +77,7 @@ Corda and Corda Enterprise are compatible and interoperable, which means you can
 To make this work in practice you should follow these steps:
 
 
-* Ensure your CorDapp is designed per [Structuring a CorDapp](writing-a-cordapp.md) and annotated according to [CorDapp separation](cordapp-build-systems.md#cordapp-separation-ref).
+* Ensure your CorDapp is designed per [Structuring a CorDapp](writing-a-cordapp.md) and annotated according to [CorDapp separation](cordapp-build-systems.html#cordapp-separation-ref).
 In particular, it is critical to separate the consensus-critical parts of your application (contracts, states and their dependencies) from
 the rest of the business logic (flows, APIs, etc).
 The former - the **CorDapp kernel** - is the Jar that will be attached to transactions creating/consuming your states and is the Jar
@@ -85,7 +85,7 @@ that any node on the network verifying the transaction must execute.
 
 {{< note >}}
 It is also important to understand how to manage any dependencies a CorDapp may have on 3rd party libraries and other CorDapps.
-Please read [Setting your dependencies](cordapp-build-systems.md#cordapp-dependencies-ref) to understand the options and recommendations with regards to correctly Jar’ing CorDapp dependencies.
+Please read [Setting your dependencies](cordapp-build-systems.html#cordapp-dependencies-ref) to understand the options and recommendations with regards to correctly Jar’ing CorDapp dependencies.
 
 {{< /note >}}
 
@@ -97,7 +97,7 @@ as preventing the risk that you inadvertently create two different versions of t
 and interoperability.
 
 {{< note >}}
-As of Corda 4 it is recommended to use [CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) to leverage the new signature constraints functionality.
+As of Corda 4 it is recommended to use [CorDapp Jar signing](cordapp-build-systems.html#cordapp-build-system-signing-cordapp-jar-ref) to leverage the new signature constraints functionality.
 
 {{< /note >}}
 

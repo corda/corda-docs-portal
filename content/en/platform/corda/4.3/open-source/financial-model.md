@@ -24,7 +24,7 @@ These provide a common language for states and contracts.
 
 ## Amount
 
-The [Amount](https://api.corda.net/api/corda-os/4.3/html/api/kotlin/corda/net.corda.core.contracts/-amount/index.html) class is used to represent an amount of
+The [Amount](https://docs.r3.com/en/api-ref/corda/4.3/open-source/kotlin/corda/net.corda.core.contracts/-amount/index.html) class is used to represent an amount of
 some fungible asset. It is a generic class which wraps around a type used to define the underlying product, called
 the *token*. For instance it can be the standard JDK type `Currency`, or an `Issued` instance, or this can be
 a more complex type such as an obligation contract issuance definition (which in turn contains a token definition
@@ -94,4 +94,3 @@ The following diagram illustrates the complete Contract State hierarchy:
 ![financialContractStateModel](/en/images/financialContractStateModel.png "financialContractStateModel")
 Note there are currently two packages, a core library and a finance model specific library.
 Developers may re-use or extend the Finance types directly or write their own by extending the base types from the Core library.
-

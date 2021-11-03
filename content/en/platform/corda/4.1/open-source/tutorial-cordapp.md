@@ -537,10 +537,9 @@ You can run the CorDapp’s integration tests by running the `Run Integration Te
 
 ### Running tests in IntelliJ
 
-See [Running tests in IntelliJ](testing.md#tutorial-cordapp-alternative-test-runners)
+See [Running tests in IntelliJ](testing.html#running-tests-in-intellij)
 
 
 ## Debugging your CorDapp
 
 See [Debugging a CorDapp](debugging-a-cordapp.md).
-

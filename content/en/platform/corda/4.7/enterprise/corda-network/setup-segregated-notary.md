@@ -32,7 +32,7 @@ A notary cluster is a group of at least one node that act together as one pooled
 notary scalability and reliability because additional nodes can be added to the notary pool as demand increases.
 
 Single-node and multi-node notary clusters are only available in Corda Enterprise. Before deploying a notary cluster,
-read the [JPA notary configuration documentation](../notary/installing-jpa.md/). A notary cluster requires a backend database to store notarised
+read the [JPA notary configuration documentation](../notary/installing-jpa.md). A notary cluster requires a backend database to store notarised
 transactions. A notary cluster can be registered, but not run, without a database.
 
 {{< note >}}
@@ -48,4 +48,4 @@ Please note that you must register the notary service identity **before** the in
 
 3. Add the notary service identity to the network parameters by sending the `nodeInfo-xxx` file using the [Corda Network support portal](https://r3-cev.atlassian.net/servicedesk/customer/portal/7) using either a segregated network request form, or by creating a new task.
 
-4. After the network parameters have been updated, [start the notary worker nodes](../node/deploy/starting-components.md#starting-a-corda-node).
+4. After the network parameters have been updated, [start the notary worker nodes](../node/deploy/starting-components.html#starting-a-corda-node).

@@ -132,12 +132,12 @@ from the local bridge to the original node’s float and then on to the original
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../cordapps/getting-set-up.md/))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.7/enterprise/cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 
 The simplest development deployment of the node is without firewall and thus just use the embedded bridge and Peer-to-Peer
 Artemis with the node as TLS endpoint and to have the outgoing packets use the internal bridge functionality.
-Typically this should only be used for easy development, or for organisations evaluating on Open Source Corda,
+Typically, this should only be used for easy development, or for organisations evaluating on Open Source Corda,
 where this is the only available option:
 
 {{< figure alt="node embedded bridge" width=80% zoom="/en/images/node_embedded_bridge.png" >}}
@@ -148,7 +148,7 @@ where this is the only available option:
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../cordapps/getting-set-up.md/))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.7/enterprise/cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 
@@ -221,7 +221,7 @@ networkParametersPath = network-parameters
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../cordapps/getting-set-up.md/))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.7/enterprise/cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 
@@ -317,7 +317,7 @@ floatOuterConfig {
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../cordapps/getting-set-up.md/))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.7/enterprise/cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 * SOCKS Proxy
@@ -412,7 +412,7 @@ floatOuterConfig {
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../cordapps/getting-set-up.md/))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.7/enterprise/cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 * Zookeeper v3.6.1
@@ -547,7 +547,7 @@ More specifically, in order to ensure optimal performance it is required:
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../cordapps/getting-set-up.md/))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.7/enterprise/cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 * Apache Artemis v2.6.2 or RedHat amq broker v7.2.2
