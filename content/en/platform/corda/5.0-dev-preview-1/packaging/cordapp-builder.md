@@ -103,7 +103,7 @@ You can also specify multiple repository folders:
 cordapp-builder create --cpk root.cpk -A cpk-repository1 -A cpk-repository2 -o result.cpb
 ```
 
-{{< attention >}}
+{{< note >}}
 
 Providing multiple `.cpk` files with the same identifier is an error. The identifier of a `.cpk` file is the tuple of bundle symbolic name, bundle version, and set of public keys that have signed the main `.jar`.
 
@@ -112,7 +112,7 @@ $ cordapp-builder create --cpk file.cpk --cpk file.cpk
 net.corda.packaging.DependencyResolutionException: Detected two CPKs with the same identifier Identifier(symbolicName=contracts, version=1.0, signers=[]): './file.cpk' and './file.cpk'
 ```
 
-{{< /attention >}}
+{{< /note >}}
 
 
 ### Sign the generated `.cpb` file
