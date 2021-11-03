@@ -343,7 +343,7 @@ npm start
 	 alt="Solar system CorDapp UI - Earth"
 >}}
 
-### Test the UI
+### Test the CorDapp using the UI
 
 Now that you have the UI up and running, test out the same functionalities you tried with [Swagger](#test-the-sample-cordapp-using-swagger-ui) and [Node CLI](#test-the-sample-cordapp-using-corda-node-cli).
 
@@ -361,10 +361,10 @@ Now that you have the UI up and running, test out the same functionalities you t
 2. Wait for the **Member Information** box to load all info. Your node is connected and your location is ready to send a probe when you can see the **X500 Name**, **Status**, **Platform Version**, and **Serial** values.
 
 3. Send a probe.
-    1. Click **SEND PROBE** in the menu.
-    2. Enter the message you wish to send to the other celestial body.
-    3. Tick the box if you want to include the Planetary Only smart contract logic.
-    4. Click the **SEND PROBE** button.
+    a. Click **SEND PROBE** in the menu.
+    b. Enter the message you wish to send to the other celestial body.
+    c. Select the checkbox if you want to include the Planetary Only smart contract logic.
+    d. Click the **SEND PROBE** button.
 
   **Step result:** You see your flow status as it progresses from RUNNING to COMPLETE. The probe is sent.
 
