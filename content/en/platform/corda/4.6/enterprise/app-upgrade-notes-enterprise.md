@@ -19,7 +19,7 @@ weight: 20
 # Upgrading a CorDapp to Corda Enterprise 4.6
 
 {{< warning >}}
-Corda Enterprise 4.6.3 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.6.3 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.6.3 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.6.3 please read the guidance on [upgrading your notary service](/en/platform/corda/4.6/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 ## Upgrading from Open Source
@@ -33,7 +33,7 @@ Please follow the instructions in [Upgrading CorDapps to newer Platform Versions
 There is no requirement to re-compile your CorDapp to Corda Enterprise in order to run it on Corda Enterprise. If you wish your CorDapp to
 be compatible with nodes running Open Source, then compiling against Open Source Corda V4.x will suffice.
 However, if you wish to leverage Corda Enterprise specific features, such as 3rd party commercial database support, and do not intend
-for your CorDapp to run in an open source production environment, then please follow the instructions [here](#recompiling-for-enterprise)
+for your CorDapp to run in an open source production environment, then please follow the instructions [here](#re-compiling-for-corda-enterprise-46)
 
 {{< note >}}
 Corda open source and Enterprise Public APIs are currently identical but this may change in future releases of Corda Enterprise.
@@ -163,7 +163,7 @@ cordaCompile "$ext.corda_core_release_distribution:corda-core:$ext.corda_core_re
 
 ## Upgrading from Enterprise 3.x
 
-Firstly, please update all your CorDapp project dependencies as described in [re-compiling for Corda Enterprise](#recompiling-for-enterprise).
+Firstly, please update all your CorDapp project dependencies as described in [re-compiling for Corda Enterprise](#re-compiling-for-corda-enterprise-46).
 
 
 Adjust your CorDapp source code as necessary to take into account the following upgrade constraints:
@@ -216,4 +216,4 @@ dependencies {
 ```
 
 
-* Workflow CorDapps.Please follow the instructions listed in step 5 of [Upgrading apps to Corda 4](app-upgrade-notes.md#cordapp-upgrade-finality-flow-ref).
+* Workflow CorDapps.Please follow the instructions listed in step 5 of [Upgrading apps to Corda 4](app-upgrade-notes.html#upgrading-apps-to-platform-version-4).

@@ -399,7 +399,7 @@ The size should be fairly constant.
 
 ## Vault tables
 
-Read more about the vault in [Vault](../../../../../../../en/platform/corda/4.6/open-source/4.6/key-concepts-vault.md).
+Read more about the vault in [Vault](../../../open-source/key-concepts-vault.md).
 
 Note that the vault tables are guaranteed to remain backwards compatible and are safe to be used directly by third party applications.
 

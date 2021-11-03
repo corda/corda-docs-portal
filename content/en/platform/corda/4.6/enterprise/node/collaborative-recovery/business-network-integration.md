@@ -33,9 +33,9 @@ The Collaborative Recovery CorDapps use flows to initiate and execute the recove
 
 To validate these parties, you need to write and distribute simple wrapping flows for these reconciliation and recovery flows:
 
-- [ScheduleReconciliationFlow](ledger-sync.md#schedule-reconciliation-flow) - This flow schedules regular reconciliation checks.
-- [AutomaticRecoveryFlow](ledger-recovery-automatic.md#automatic-ledger-recover-flow) - This flow initiates automatic data recovery.
-- [InitiateManualRecoveryFlow](ledger-recovery-manual.md#initiate-manual-recovery-flow) - This flow initiates manual data recovery.
+- [ScheduleReconciliationFlow](ledger-sync.html#schedulereconciliationflow) - This flow schedules regular reconciliation checks.
+- [AutomaticRecoveryFlow](ledger-recovery-automatic.html#automaticledgerrecoverflow) - This flow initiates automatic data recovery.
+- [InitiateManualRecoveryFlow](ledger-recovery-manual.html#initiatemanualrecoveryflow) - This flow initiates manual data recovery.
 
 These wrapping flows should be bundled into a single CorDapp that can be distributed to relevant parties on your network.
 
