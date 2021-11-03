@@ -120,26 +120,26 @@ While this is *not* the recommended approach, you can also output the contents t
 `corda-cli network wait -n solar-system`
 
 7. Check the CorDapp's status using [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md):
-  ```
-  corda-cli network status -n solar-system`
-  ```
+```
+corda-cli network status -n solar-system`
+```
 
   You'll be able to see the status of the node. The nodes are up and running when their status is `Ready`.
 
-  {{< note >}}
-  Take note of the `HTTP RPC port` for each node. You will use these later when you [test the CorDapp using Swagger UI](#test-the-sample-cordapp-using-swagger-ui) or [Corda Node CLI](#test-the-sample-cordapp-using-corda-node-cli).
-  {{< /note >}}
+{{< note >}}
+Take note of the `HTTP RPC port` for each node. You will use these later when you [test the CorDapp using Swagger UI](#test-the-sample-cordapp-using-swagger-ui) or [Corda Node CLI](#test-the-sample-cordapp-using-corda-node-cli).
+{{< /note >}}
 
 8. Install the application on the network using Corda CLI.
 
 In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
-  ```
-  corda-cli package install -n solar-system corda5-solar-system-1.0-SNAPSHOT-package.cpb`
-  ```
+```
+corda-cli package install -n solar-system corda5-solar-system-1.0-SNAPSHOT-package.cpb`
+```
 
-  In this command, you must specify the network and the `.cpb` file. Depending on the Gradle setup, the `.cpb` will be in one of the build folders and the name may be different.
+In this command, you must specify the network and the `.cpb` file. Depending on the Gradle setup, the `.cpb` will be in one of the build folders and the name may be different.
 
-  After running this command, your CorDapp is up and running.
+After running this command, your CorDapp is up and running.
 
 9. Double-check that everything is working properly:
     1. Open Docker Desktop.
@@ -309,11 +309,11 @@ Follow these steps to start up the UI:
 npm install
 ```
 
-  **Step result:** Your `node_modules` and `package-lock.json` are set up.
+**Step result:** Your `node_modules` and `package-lock.json` are set up.
 
-  {{< note >}}
-  You only need to run this command the first time you build the UI.
-  {{< /note >}}
+{{< note >}}
+You only need to run this command the first time you build the UI.
+{{< /note >}}
 
 3. Run this command to start up the UI:
 
@@ -321,7 +321,7 @@ npm install
 npm start
 ```
 
-  **Step result:** You see a message indicating that the UI has been compiled. You can now open it in your browser.
+**Step result:** You see a message indicating that the UI has been compiled. You can now open it in your browser.
 
 4. Visit [http://localhost:3000/](http://localhost:3000/) to test the UI.
 
@@ -352,21 +352,21 @@ Now that you have the UI up and running, test out the same functionalities you t
     * **Mars**
     * **Pluto**
 
-  **Step result:** You are brought to the homepage of the location you selected.
+**Step result:** You are brought to the homepage of the location you selected.
 
-  {{< note >}}
-  You can open each celestial body in a different browser tab to quickly navigate between them.
-  {{< /note >}}
+{{< note >}}
+You can open each celestial body in a different browser tab to quickly navigate between them.
+{{< /note >}}
 
 2. Wait for the **Member Information** box to load all info. Your node is connected and your location is ready to send a probe when you can see the **X500 Name**, **Status**, **Platform Version**, and **Serial** values.
 
 3. Send a probe.
-    a. Click **SEND PROBE** in the menu.
-    b. Enter the message you wish to send to the other celestial body.
-    c. Select the checkbox if you want to include the Planetary Only smart contract logic.
-    d. Click the **SEND PROBE** button.
+    1. Click **SEND PROBE** in the menu.
+    2. Enter the message you wish to send to the other celestial body.
+    3. Select the checkbox if you want to include the Planetary Only smart contract logic.
+    4. Click the **SEND PROBE** button.
 
-  **Step result:** You see your flow status as it progresses from RUNNING to COMPLETE. The probe is sent.
+**Step result:** You see your flow status as it progresses from RUNNING to COMPLETE. The probe is sent.
 
 4. **Optional:** Click **CHECK FLOW OUTCOME** to see what happened with your flow.
 
