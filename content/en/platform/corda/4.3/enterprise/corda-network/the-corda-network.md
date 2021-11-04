@@ -1,3 +1,4 @@
+---
 https://corda.network/joining-corda-network/onboarding-workflow---
 aliases:
 - /releases/4.3/corda-network/index.html
