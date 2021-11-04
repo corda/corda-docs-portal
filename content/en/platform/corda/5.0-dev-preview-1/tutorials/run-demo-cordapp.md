@@ -289,8 +289,8 @@ The Solar System CorDapp comes with a built-in UI. See the <a href="https://gith
 
 Before you can build the Solar System CorDapp UI, you must:
 
-* [Deploy your CorDapp to a local Corda 5 network](*deploy-the-cordapp-using-corda-cli)
-* Download the [Node.js](https://nodejs.org/en/download/) asynchronous event-driven JavaScript runtime for your platform.
+* [Deploy your CorDapp to a local Corda 5 network](#deploy-the-cordapp-using-corda-cli)
+* Download the [Node.js](https://nodejs.org/en/download/) asynchronous event-driven JavaScript runtime for your platform. Choose the latest version that is marked as "recommended for most users".
 * Ensure that port `3000` is not being used by any other applications.
 
 {{< note >}}
@@ -303,7 +303,7 @@ Follow these steps to start up the UI:
 
 1. Navigate to the `Web-UI` folder of the project.
 
-2. Install [npm](https://docs.npmjs.com/) to set up the React project:
+2. Run this command to set up the React project:
 
 ```
 npm install
