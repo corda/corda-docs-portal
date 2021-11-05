@@ -14,7 +14,7 @@ Using this DSL helps you form "mock" transactions, complete with inputs, outputs
 
 ## Testing with Ledger DSL vs Corda CLI
 
-The feedback time when using the DSL is much quicker than using the `corda-cli` to test your contract code. It removes the need to write any test flows and RPC client code to trigger these flows by fully removing the Corda node from the equation. You create your transaction within a `TransactionDSL` block, verify it, and then check the outcome. The tests themselves should execute extremely quickly as there is no requirement for a Corda node, and the low number of components contained within the DSL.
+The feedback time when using the DSL is much quicker than using the `corda-cli` to test your contract code. It removes the need to write any test flows and RPC client code to trigger these flows by fully removing the Corda node from the equation. You create your transaction within a `TransactionDSL` block, verify it, and then check the outcome. The tests themselves should execute extremely quickly as there is no requirement for a Corda node, and a low number of components contained within the DSL.
 
 ## Get the Ledger DSL from Mavern Central
 
@@ -32,14 +32,14 @@ testImplementation "net.corda:corda-ledger-dsl:$cordaVersion"
 
 ## Build a transaction using the `TransactionDSL`
 
-There are two different functions that provide access to a `TransactionDSL` instance, one for Kotlin users and another for java users:
+There are two different functions that provide access to a `TransactionDSL` instance, one for Kotlin users and another for Java users:
 
 - `net.corda.testing.ledger.dsl.transactions.TransactionDSL.Companion.transaction` for convenient Kotlin usage.
 - `net.corda.testing.ledger.dsl.transactions.transaction` for convenient Java usage (accessed via `TransactionJavaDSL.transaction`).
 
 Calling one of these functions instantiates a `TransactionDSL` that you can access within the function/lambda block of the `transaction` function. Inside this block, you have access to `TransactionDSL`'s methods, which allow you to construct your transaction.
 
-Below is an example of a building a transaction using the DSL:
+Below is an example of building a transaction using the DSL:
 
 **Kotlin:**
 
@@ -103,7 +103,7 @@ input(MyState(UniqueIdentifier(), listOf(alice), "input 1"), notary)
 dsl.input(new MyState(new UniqueIdentifier(), List.of(alice), "input 1"), notary);
 ```
 
-* Creates a new `StateAndRef` with the passed in transaction id (`txId`) and adds it to the transaction. This is useful if your contract verification validates any transaction ids.
+* Creates a new `StateAndRef` with the passed-in transaction id (`txId`) and adds it to the transaction. This is useful if your contract verification validates any transaction ids.
 
 **Kotlin**
 
@@ -117,7 +117,7 @@ input(MyState(UniqueIdentifier(), listOf(alice), "input 1"), notary, txId)
 dsl.input(new MyState(new UniqueIdentifier(), List.of(alice), "input 1"), notary, txId);
 ```
 
-* Adds the passed in `StateAndRef` to the transaction. This `StateAndRef` could come from another transaction or built manually. This method matches `TransactionBuilder.addInputState` and allows you to write code that closer matches your production code.
+* Adds the passed in `StateAndRef` to the transaction. This `StateAndRef` could come from another transaction or could be built manually. This method matches `TransactionBuilder.addInputState` and allows you to write code that matches your production code more closely.
 
 **Kotlin**
 
@@ -149,7 +149,7 @@ reference(MyState(UniqueIdentifier(), listOf(alice), "input 1"), notary)
 dsl.reference(new MyState(new UniqueIdentifier(), List.of(alice), "input 1"), notary);
 ```
 
-* Creates a new `StateAndRef` with the passed in transaction id (`txId`) and adds it to the transaction. This is useful if your contract verification validates any transaction ids.
+* Creates a new `StateAndRef` with the passed-in transaction id (`txId`) and adds it to the transaction. This is useful if your contract verification validates any transaction ids.
 
 **Kotlin**
 
@@ -163,7 +163,7 @@ reference(MyState(UniqueIdentifier(), listOf(alice), "input 1"), notary, txId)
 dsl.reference(new MyState(new UniqueIdentifier(), List.of(alice), "input 1"), notary, txId);
 ```
 
-* Adds the passed in `StateAndRef` to the transaction. This `StateAndRef` could come from another transaction or built manually. This method matches `TransactionBuilder.addReferenceState` and allows you to write code that closer matches your production code.
+* Adds the passed-in `StateAndRef` to the transaction. This `StateAndRef` could come from another transaction or could be built manually. This method matches `TransactionBuilder.addReferenceState` and allows you to write code that matches your production code more closely.
 
 **Kotlin**
 
@@ -181,7 +181,7 @@ dsl.reference(stateAndRef);
 
 There are 2 overloads of this method, explained alongside the snippets below:
 
-* Creates an attachment that reads the contents of a file found in the `resource` directory when accessed. This is the simplest version to use as you need provide the name of the file and nothing else.
+* Creates an attachment that reads the contents of a file found in the `resource` directory when accessed. This is the simplest version to use as you must provide the name of the file and nothing else.
 
 **Kotlin**
 
@@ -214,7 +214,7 @@ attachment(mockAttachment)
 ```
 
 {{< note >}}
-`Attachment.open` returns an `InputStream` representing a ZIP file and you should mock its functionality as such or it will differ from when you run your contracts in production.
+`Attachment.open` returns an `InputStream` representing a ZIP file. You should mock its functionality to reflect this, otherwise it will not give an accurate comparison to running your contracts in production.
 {{< /note >}}
 
 ## Test your contract code using the `TransactionDSL`
