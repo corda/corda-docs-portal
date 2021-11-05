@@ -792,7 +792,7 @@ public void chainCommercialPaperDoubleSpend() {
 ### Further examples
 
 
-* See the flow testing tutorial [here](tutorial-test-dsl.md)
+* See the contracts testing tutorial [here](tutorial-test-dsl.md)
 * Further examples are available in the Example CorDapp in
 [Java](https://github.com/corda/samples/blob/release-V4/cordapp-example/workflows-java/src/test/java/com/example/test/flow/IOUFlowTests.java) and
 [Kotlin](https://github.com/corda/samples/blob/release-V4/cordapp-example/workflows-kotlin/src/test/kotlin/com/example/test/flow/IOUFlowTests.kt)
