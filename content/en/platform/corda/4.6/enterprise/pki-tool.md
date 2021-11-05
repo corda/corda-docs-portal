@@ -455,7 +455,7 @@ certificates = {
 {{< note >}}
 HSM keys used by the Signing Service require an accompanying certificate store that contains all certificates in
 the chain, from the signing entity back to the root. This is because the full chains cannot be stored within the
-HSMs. Refer to the [Signing Service](../../cenm/1.4/signing-service.md) documentation for more information.
+HSMs. Refer to the [Signing Service](../../1.4/cenm/signing-service.md) documentation for more information.
 
 {{< /note >}}
 
