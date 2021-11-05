@@ -30,7 +30,7 @@ The `net.corda.client.rpc.proxy.NodeFlowStatusRpcOps` interface is an RPC extens
 
 To use the `net.corda.client.rpc.proxy.NodeFlowStatusRpcOps` interface to query flow status via RPC, you need to complete the following steps:
 
-1. Build a Multi RPC client - see [Building a Multi RPC Client](#-building-a-multi-rpc-client).
+1. Build a Multi RPC client - see [Building a Multi RPC Client](#building-a-multi-rpc-client).
 2. Specify the search criteria for the query - see [Specifying the query criteria](#specifying-the-query-criteria).
 
 ### Building a Multi RPC Client
@@ -73,13 +73,13 @@ The available search parameters and their required formats are outlined in the t
 
 | Parameter name | Description | Format |
 |---------|----------|---------|---------|
-| `flowClass` | The name of the class that implements the flow. You do not need to enter the full name - providing a fragment of the class name is enough to identify the class. The * regex operator is applied to the start and end of the fragment. | String |  
+| `flowClass` | The name of the class that implements the flow. You do not need to enter the full name - providing a fragment of the class name is enough to identify the class. The * regex operator is applied to the start and end of the fragment. | String |
 | `flowState` | The state of the flow at its latest checkpoint. The state is one of the following values: `RUNNABLE`, `FAILED`, `COMPLETED`, `HOSPITALIZED`, `KILLED`, `PAUSED`. | Enum |
-| `progressStep` | If the flow implements progress tracking, specifies the latest step that was encountered before checkpointing. A progressStep is a user-defined value which is defined by the CorDapp developer - you can specify the name of any progressStep defined in your CorDapp. The * regex operator is applied to the start and end of the fragment. | String |  
+| `progressStep` | If the flow implements progress tracking, specifies the latest step that was encountered before checkpointing. A progressStep is a user-defined value which is defined by the CorDapp developer - you can specify the name of any progressStep defined in your CorDapp. The * regex operator is applied to the start and end of the fragment. | String |
 | `cordapp` | The name of the CorDapp that contains the flow. You do not need to enter the full name - providing a fragment of the name is enough to identify the CorDapp. The * regex operator is applied to the start and end of the fragment. | String |
 | `compatibleWithCurrentCordaRuntime` | Indicates whether the suspended flow is compatible with and can be loaded on the current Corda runtime environment. | Boolean String |
-| `suspensionDuration` | The minimum duration for which a flow must have remained suspended (that is, "stuck") at a checkpoint. | java.time.Duration |  
-| `flowStart` | Uses the `net.corda.core.contracts.TimeWindow` class to define an open or closed time window for when the flow was first started.  The start time of the time-window in which the flow was started. A start-open window will return all flows started before the Unix 0 Instant (that is, the time 00:00 on January 1, 1970). An end-open window will return all flows started after a given time and before the current Instant. All times specified are inclusive. | net.corda.core.contracts.TimeWindow |  
+| `suspensionDuration` | The minimum duration for which a flow must have remained suspended (that is, "stuck") at a checkpoint. | java.time.Duration |
+| `flowStart` | Uses the `net.corda.core.contracts.TimeWindow` class to define an open or closed time window for when the flow was first started.  The start time of the time-window in which the flow was started. A start-open window will return all flows started before the Unix 0 Instant (that is, the time 00:00 on January 1, 1970). An end-open window will return all flows started after a given time and before the current Instant. All times specified are inclusive. | net.corda.core.contracts.TimeWindow |
 {{< /table >}}
 
 {{< warning >}}
@@ -168,13 +168,13 @@ The available search parameters and their required formats are outlined in the t
 | Parameter name | Description | Format |
 |---------|----------|---------|---------|
 | `compatibleWithCurrentCordaRuntime` | Indicates whether the suspended flow is compatible with and can be loaded on the current Corda runtime environment. | Boolean String |
-| `cordapp` | The name of the CorDapp that contains the flow. You do not need to enter the full name - providing a fragment of the name is enough to identify the CorDapp. | String |  
-| `flowClass` | The name of the class that implements the flow. You do not need to enter the full name - providing a fragment of the class name is enough to identify the class. | String |  
-| `flowStartFrom` | The start time of the time-window in which the flow was started. If you do not specify a start time value, the start time is taken to be a UNIX 0 timestamp (that is, the time 00:00 on January 1, 1970). If you specify a value for `flowStartFrom` but do not specify a value for `flowStartUntil`, the query will return a list of all flows that did not complete up until the time that the query was run. | String in ISO8601 DateTime format*. |  
-| `flowStartUntil` | The end time of the time-window in which the flow was started. If you specify a value for `flowStartUntil` but do not specify a value for `flowStartFrom`, the query will return a list of all flows that did not complete since the node started up. | String in ISO8601 DateTime format*. |  
-| `flowState` | The state of the flow at its latest checkpoint. The state is one of the following values: `RUNNABLE`, `FAILED`, `COMPLETED`, `HOSPITALIZED`, `KILLED`, `PAUSED`. | String |  
-| `progressStep` | If the flow implements progress tracking, specifies the latest step that was encountered before checkpointing. A progressStep is a user-defined value which is defined by the CorDapp developer - you can specify the name of any progressStep defined in your CorDapp. | String |  
-| `suspensionDuration` | The minimum duration for which a flow must have remained suspended (that is, "stuck") at a checkpoint. This is entered in the format `"<value>, <unit>"` where `<value>` is a numerical value and `<unit>` is the unit of time, specified as `SECONDS`, `MINUTES`, `HOURS` or `DAYS`). | String |  
+| `cordapp` | The name of the CorDapp that contains the flow. You do not need to enter the full name - providing a fragment of the name is enough to identify the CorDapp. | String |
+| `flowClass` | The name of the class that implements the flow. You do not need to enter the full name - providing a fragment of the class name is enough to identify the class. | String |
+| `flowStartFrom` | The start time of the time-window in which the flow was started. If you do not specify a start time value, the start time is taken to be a UNIX 0 timestamp (that is, the time 00:00 on January 1, 1970). If you specify a value for `flowStartFrom` but do not specify a value for `flowStartUntil`, the query will return a list of all flows that did not complete up until the time that the query was run. | String in ISO8601 DateTime format*. |
+| `flowStartUntil` | The end time of the time-window in which the flow was started. If you specify a value for `flowStartUntil` but do not specify a value for `flowStartFrom`, the query will return a list of all flows that did not complete since the node started up. | String in ISO8601 DateTime format*. |
+| `flowState` | The state of the flow at its latest checkpoint. The state is one of the following values: `RUNNABLE`, `FAILED`, `COMPLETED`, `HOSPITALIZED`, `KILLED`, `PAUSED`. | String |
+| `progressStep` | If the flow implements progress tracking, specifies the latest step that was encountered before checkpointing. A progressStep is a user-defined value which is defined by the CorDapp developer - you can specify the name of any progressStep defined in your CorDapp. | String |
+| `suspensionDuration` | The minimum duration for which a flow must have remained suspended (that is, "stuck") at a checkpoint. This is entered in the format `"<value>, <unit>"` where `<value>` is a numerical value and `<unit>` is the unit of time, specified as `SECONDS`, `MINUTES`, `HOURS` or `DAYS`). | String |
 {{< /table >}}
 
 {{< warning >}}

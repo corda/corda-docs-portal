@@ -52,7 +52,7 @@ or within the CorDapp distributions (a JAR file). Therefore Corda, and custom Co
 Whenever a node operator or database administrator needs to obtain a DDL script to be run, they can use the Corda Database Management Tool.
 The tool, among other functions, outputs the DDL script which is compatible with the Corda release
 and the database which the tool was running against.
-Depending on [database user permissions](#node-database-user-permissions-ref) a Corda node may be configured to create database tables
+Depending on [database user permissions](#database-user-permissions) a Corda node may be configured to create database tables
 (and other schema objects) automatically upon startup (and subsequently update tables).
 
 
@@ -78,7 +78,7 @@ is highly recommended for understanding how database migrations work in Corda.
 
 By default, a node will *not* attempt to execute database migration scripts at startup (even when a new version has been deployed),
 but will check the database “version” and halt if the database is not in sync with the node, to avoid data corruption.
-To bring the database to the correct state we provide a [Database Management Tool](#database-management-tool-ref).
+To bring the database to the correct state we provide a [Database Management Tool](#database-management-tool).
 This setup/procedure is recommended for production systems.
 
 Running the migration at startup automatically can only be configured by using the `initial registration` sub-command when running the node. The standard way of running the schema initialisation / migration scripts is to run the `run-migration-script` sub-command - see [Node command-line options](../node-commandline.md).
@@ -101,7 +101,7 @@ The database management tool is for production databases only. H2 databases cann
 
 {{< /note >}}
 
-You can review all available commands and options in the [Database Management Tool documentation](../../database-management-tool).
+You can review all available commands and options in the [Database Management Tool documentation](../../database-management-tool.md).
 
 ## Node database tables
 
@@ -171,7 +171,7 @@ The node database for a Simple Notary has additional tables:
 
 {{< /table >}}
 
-The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend](../../notary/installing-jpa.md#configuring-jpa-notary-backend).
+The structure of the tables of JPA notaries are described at [Configuring a JPA notary backend](../../notary/installing-jpa.html#configuring-a-jpa-notary-backend).
 
 The tables for other experimental notary implementations are not described here.
 
@@ -179,4 +179,4 @@ The tables for other experimental notary implementations are not described here.
 ### Database Schema Migration Logging
 
 Database migration logs for Corda internal tables follow a structured format
-described in [Database Schema Migration Logging](../../node-database-migration-logging.md#database-schema-migration-logging).
+described in [Database Schema Migration Logging](../../node-database-migration-logging.html#database-schema-migration-logging).

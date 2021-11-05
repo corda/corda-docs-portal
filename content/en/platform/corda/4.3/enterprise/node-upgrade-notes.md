@@ -17,7 +17,7 @@ title: Upgrading your node to Corda 4.3
 # Upgrading your node to Corda 4.3.7
 
 {{< warning >}}
-Corda Enterprise 4.3.7 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.3.7 please read the guidance on [upgrading your notary service](running-a-notary-cluster/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.3.7 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.3.7 please read the guidance on [upgrading your notary service](../../../../../../en/platform/corda/4.3/enterprise/running-a-notary-cluster/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and should not require changes to
@@ -62,7 +62,7 @@ It’s always a good idea to back up your data before upgrading any server. This
 You can simply make a copy of the node’s data directory to enable this. If you use an external non-H2 database, consult your database
 user guide to learn how to make backups.
 
-For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](node-administration.md#backup-recommendations) .
+For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](node-administration.html#backup-recommendations) .
 
 
 
@@ -235,7 +235,7 @@ A script named `migration/.sql` will be generated in the base directory.
 This script will contain all the statements required to modify and create data structures (for example, tables/indexes),
 and inserts the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables itself.
-For descriptions of the options, refer to the [Corda Database Management Tool](node-database.md#database-management-tool-ref) manual.
+For descriptions of the options, refer to the [Corda Database Management Tool](node-database.html#database-management-tool) manual.
 
 
 ### 3.3. Apply DDL scripts on a database
@@ -326,7 +326,7 @@ Your upgrade is complete.
 
 {{< warning >}}
 If upgrading from Corda Enterprise 3.x, please ensure your node has been upgraded to the latest point release of that
-distribution. See [Upgrade a Corda 3.X Enterprise Node](../3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node)
+distribution. See [Upgrade a Corda 3.X Enterprise Node](https://github.com/corda/corda-docs-portal/blob/main/archived-docs/corda-enterprise/3.3/node-operations-upgrading.md)
 for information on upgrading Corda 3.x versions.
 
 {{< /warning >}}

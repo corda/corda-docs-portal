@@ -296,7 +296,7 @@ Unfortunately the JVM does not let you limit the total memory usage of Java prog
 A node which is running out of memory is expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
 Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens. It’s also advised to have
 necessary JVM monitoring and restart infrastructure in place.
-See [Setting JVM arguments](running-a-node.html#setting-jvm-args) for further details on JVM out-of-memory related parameters.
+See [Setting JVM arguments](running-a-node.html#setting-jvm-arguments) for further details on JVM out-of-memory related parameters.
 
 
 
@@ -311,7 +311,7 @@ myLegalName = "O=PasswordProtectedNode,OU=corda,L=London,C=GB"
 keyStorePassword = ${KEY_PASS}
 trustStorePassword = ${TRUST_PASS}
 p2pAddress = "localhost:12345"
-devMode = false 
+devMode = false
 networkServices {
     doormanURL = "https://cz.example.com"
     networkMapURL = "https://cz.example.com"

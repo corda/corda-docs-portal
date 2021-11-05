@@ -27,13 +27,13 @@ The following maintenance tasks are currently supported:
 
 ## Configuration of Node Maintenance Mode
 
-Node Maintenance Mode is configured via a new, optional configuration sub-section named `maintenanceMode` within the `enterpriseConfiguration` top-level [configuration section](../setup/corda-configuration-fields.md#enterpriseconfiguration).
+Node Maintenance Mode is configured via a new, optional configuration sub-section named `maintenanceMode` within the `enterpriseConfiguration` top-level [configuration section](../setup/corda-configuration-fields.html#enterpriseconfiguration).
 
 By default, no maintenance activities will be performed if the `maintenanceMode` section is not provided. Without the new parameter, Corda will behave as if maintenance mode is not available.
 
 If the `maintenanceMode` configuration sub-section *is* present in the Corda configuration, then **ALL** `maintenanceMode` parameters must be supplied and must also pass configuration validation at start-up.
 
-In addition to the `maintenanceMode` configuration sub-section, the message ID cleanup maintenance task parameters are taken from the configuration sub-section `processedMessageCleanup`(also part of the `enterpriseConfiguration` top-level [configuration section](../setup/corda-configuration-fields.md#enterpriseconfiguration)). This configuration is used for running the message ID cleanup task (also called `NodeJanitor`) at shutdown. `NodeJanitor` is a background process that will clean up old entries from the `NODE_MESSAGE_IDS` [table](node-database-tables.html#node-state-machine). The size should be fairly constant. The same rules will apply for calculation of default values as when the activity runs at shutdown.
+In addition to the `maintenanceMode` configuration sub-section, the message ID cleanup maintenance task parameters are taken from the configuration sub-section `processedMessageCleanup`(also part of the `enterpriseConfiguration` top-level [configuration section](../setup/corda-configuration-fields.html#enterpriseconfiguration)). This configuration is used for running the message ID cleanup task (also called `NodeJanitor`) at shutdown. `NodeJanitor` is a background process that will clean up old entries from the `NODE_MESSAGE_IDS` [table](node-database-tables.html#node-state-machine). The size should be fairly constant. The same rules will apply for calculation of default values as when the activity runs at shutdown.
 
 The following example shows a sample `maintenanceMode` configuration, including `processedMessageCleanup` parameters:
 
@@ -64,7 +64,7 @@ This is the *“cron-like”* expression which is used to control at what time(s
 │ │ │ ┌───────── day of the month (1 - 31)
 │ │ │ │ ┌─────── month (1 - 12)
 │ │ │ │ │ ┌───── day of the week (0 - 6) (Sunday to Saturday)
-│ │ │ │ │ │                                  
+│ │ │ │ │ │
 │ │ │ │ │ │
 │ │ │ │ │ │
 * * * * * *
@@ -81,7 +81,7 @@ schedule = "00 30 14,15 * * 5"
 
 This is the maximum time that a maintenance window is expected to take to run all tasks. At start-up, Corda will check for all maintenance events that occur within the following week. If there is an overlap (due the specified duration being longer than the interval between any two adjacent maintenance windows), Corda will emit a *warning* to the log which will precisely specify the overlap scenario but no further action will be taken. Additionally, if the time that the maintenance tasks *actually* take to run exceeds the specified duration, a warning will be emitted to the log but the maintenance tasks will not be interrupted. The purpose of the duration parameter is to allow the user to check that there are no overlaps and to allow monitoring of overrunning activities via log messaging and monitoring.
 
-The duration is specified in HOCON *duration* format with suffixes of `‘h’ (hours), ‘m’ (minutes) and ‘s’ (seconds)` - for example, `‘1h’` to mean one hour. For additional information on HOCON duration format parsing see [HOCON-duration-format](https://github.com/lightbend/config/blob/master/HOCON.md#duration-format).
+The duration is specified in HOCON *duration* format with suffixes of `‘h’ (hours), ‘m’ (minutes) and ‘s’ (seconds)` - for example, `‘1h’` to mean one hour. For additional information on HOCON duration format parsing see [HOCON-duration-format](https://github.com/lightbend/config/blob/master/HOCON.html#duration-format).
 
 #### `rpcAuditDataRetentionPeriod`
 
@@ -89,7 +89,7 @@ This is a parameter to the RPC table maintenance task and specifies how long rec
 
 The parameter is in HOCON *period* format - for example, `‘365d’, ‘1w’`. In general, the following suffixes should be sufficient: `‘d’ (days), ‘w’ (weeks), ‘m’ (months), ‘y’ (years)`.
 
-For more information on the HOCON period format see [HOCON-period-format](https://github.com/lightbend/config/blob/master/HOCON.md#period-format). The end of the retention period will be the current time (in UTC) minus the duration.
+For more information on the HOCON period format see [HOCON-period-format](https://github.com/lightbend/config/blob/master/HOCON.html#period-format). The end of the retention period will be the current time (in UTC) minus the duration.
 
 ## Overrunning maintenance windows
 

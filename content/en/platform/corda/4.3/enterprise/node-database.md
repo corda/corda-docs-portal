@@ -53,7 +53,7 @@ or within the CorDapp distributions (a JAR file). Therefore Corda, and custom Co
 Whenever a node operator or database administrator needs to obtain a DDL script to be run, they can use the Corda Database Management Tool.
 The tool, among other functions, outputs the DDL script which is compatible with the Corda release
 and the database which the tool was running against.
-Depending on [database user permissions](#node-database-user-permissions-ref) a Corda node may be configured to create database tables
+Depending on [database user permissions](#database-user-permissions) a Corda node may be configured to create database tables
 (and other schema objects) automatically upon startup (and subsequently update tables).
 
 
@@ -79,7 +79,7 @@ is highly recommended for understanding how database migrations work in Corda.
 
 By default, a node will *not* attempt to execute database migration scripts at startup (even when a new version has been deployed),
 but will check the database “version” and halt if the database is not in sync with the node, to avoid data corruption.
-To bring the database to the correct state we provide a [Database Management Tool](#database-management-tool-ref).
+To bring the database to the correct state we provide a [Database Management Tool](#database-management-tool).
 This setup/procedure is recommended for production systems.
 
 Running the migration at startup automatically can be configured by specifying true in the `database.runMigration`

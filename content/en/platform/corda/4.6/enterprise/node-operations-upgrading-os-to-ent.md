@@ -42,10 +42,10 @@ or [Migrating from the H2 database to another database vendor](#migrating-from-t
 
 
 * Ensure CorDapps contain Liquibase database management scripts.
-You can check if the CorDapp JAR contains Liquibase scripts as described in [Database update](node/operating/node-operations-cordapp-deployment.md#database-update).
+You can check if the CorDapp JAR contains Liquibase scripts as described in [Database update](node/operating/node-operations-cordapp-deployment.html#database-update).
 If the Cordapp stores data in the custom tables (consult with the CorDapp developer/provider)
 and it doesn’t contain Liquibase scripts, follow the procedure
-[to add the script retrospectively](cordapps/database-management.md#notes-on-liquibase-specifics).{{< note >}}
+[to add the script retrospectively](cordapps/database-management.html#notes-on-liquibase-specifics).{{< note >}}
 Adding a Liquibase migration script to a CorDapp should be done by a CorDapp developer.{{< /note >}}
 
 * Generate CorDapp changesets against an empty database.Any custom tables required by CorDapps will have been created manually or by Hibernate upon node startup.
@@ -103,9 +103,7 @@ existing open source Corda nodes should be a simple case of updating the Corda `
 See node-upgrade-notes for general instructions on upgrading your node.
 For developer information on recompiling CorDapps against Corda Enterprise, see upgrade-notes.
 
-Please ensure you follow the instructions in the [Corda 3.3 Upgrade Notes](../../corda-os/3.3/upgrade-notes.md)
-to upgrade your database to the latest minor release of Corda (3.3 as time of writing),
-and then proceed with the upgrade following the instructions in [above](#reusing-an-existing-database).
+Please ensure you upgrade your database to the latest minor release of Corda 3 and then proceed with the upgrade following the instructions in [above](#reusing-an-existing-database).
 
 
 ### Reusing an existing database
