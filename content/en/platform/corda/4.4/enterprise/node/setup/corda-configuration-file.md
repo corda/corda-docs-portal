@@ -45,7 +45,7 @@ Please do NOT use double quotes (`"`) in configuration keys.
 
 Node setup will log `Config files should not contain " in property names. Please fix: [key]` as an error when it finds double quotes around keys.
 This prevents configuration errors when mixing keys containing `.` wrapped with double quotes and without them e.g.: The property
-`"dataSourceProperties.dataSourceClassName" = "val"` in [Reference.conf](#reference-conf) would be not overwritten by the property
+`"dataSourceProperties.dataSourceClassName" = "val"` in *Reference.conf* would be not overwritten by the property
 `dataSourceProperties.dataSourceClassName = "val2"` in *node.conf*.
 
 
@@ -58,12 +58,12 @@ lines `key=overridingValue` will result into the value being `overridingValue`.
 {{< /warning >}}
 
 
-By default the node will fail to start in presence of unknown property keys.
+By default, the node will fail to start in presence of unknown property keys.
 To alter this behaviour, the `on-unknown-config-keys` command-line argument can be set to `IGNORE` (default is `FAIL`).
 
 {{< note >}}
 As noted in the HOCON documentation, the default behaviour for resources referenced within a config file is to silently
-ignore them if missing. Therefore it is strongly recommended to utilise the `required` syntax for includes. See HOCON documentation
+ignore them if missing. Therefore, it is strongly recommended to utilise the `required` syntax for includes. See HOCON documentation
 for more information.
 
 {{< /note >}}
@@ -76,7 +76,7 @@ for more information.
 
 It is possible to add placeholders to the `node.conf` file to override particular settings via environment variables. In this case the
 `rpcSettings.address` property will be overridden by the `RPC_ADDRESS` environment variable, and the node will fail to load if this
-environment variable isn’t present (see: [Hiding sensitive data](../operating/node-administration.md#hiding-sensitive-data) for more information).
+environment variable isn’t present (see: [Hiding sensitive data](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-administration.html#hiding-sensitive-data) for more information).
 
 ```groovy
 rpcSettings {
@@ -134,7 +134,7 @@ SET corda_jarDirs_1=./morelibs
 
 * If the same key is overridden by both an environment variable and system property, the system property takes precedence.
 
-* Variables and properties are case sensitive. Corda will warn you if a variable
+* Variables and properties are case-sensitive. Corda will warn you if a variable
   prefixed with `CORDA` cannot be mapped to a valid property. Shadowing occurs when two properties
   of the same type with the same key are defined. For example having `corda_p2Aaddress=host:port` and `corda_p2Aaddress=host1:port1`
   will raise an exception on startup. This is to prevent mistakes that are hard to spot.
@@ -210,9 +210,9 @@ The available configuration fields are listed below in alphabetic order.
 
 `cordappSignerKeyFingerprintBlacklist`
 
-  List of the public keys fingerprints (SHA-256 of public key hash) not allowed as Cordapp JARs signers.
-  The node will not load Cordapps signed by those keys.
-  The option takes effect only in production mode and defaults to Corda development keys (``["56CA54E803CB87C8472EBD3FBC6A2F1876E814CEEBF74860BD46997F40729367", "83088052AF16700457AE2C978A7D8AC38DD6A7C713539D00B897CD03A5E5D31D"]``), in development mode any key is allowed to sign Cordpapp JARs.
+  List of the public keys fingerprints (SHA-256 of public key hash) not allowed as CorDapp JARs signers.
+  The node will not load CorDapps signed by those keys.
+  The option takes effect only in production mode and defaults to Corda development keys (``["56CA54E803CB87C8472EBD3FBC6A2F1876E814CEEBF74860BD46997F40729367", "83088052AF16700457AE2C978A7D8AC38DD6A7C713539D00B897CD03A5E5D31D"]``), in development mode any key is allowed to sign CorDapp JARs.
 
   This property requires retrieving the hashes of public keys that need to be blacklisted.
 
@@ -278,7 +278,7 @@ The available configuration fields are listed below in alphabetic order.
    *Default:* CorDapp schema creation is controlled with ``initialiseSchema``.
 
   `runMigration`
-    Boolean on whether to run the database migration scripts at startup. In production please keep it false. For more information please check [Database management scripts](../../cordapps/database-management.md). If migration is not run, on startup, the node will check if it's running on the correct database version.
+    Boolean on whether to run the database migration scripts at startup. In production please keep it false. For more information please check [Database management scripts](../../../../../../../en/platform/corda/4.8/enterprise/cordapps/database-management.md). If migration is not run, on startup, the node will check if it's running on the correct database version.
     The property is used only when a node runs against a database other than H2, and it's replaced by the ``initialiseSchema`` property for other databases.
 
     *Default:* false
@@ -696,7 +696,7 @@ If an item in a list is overridden via an environment variable/system property, 
       *Default:* 20
 
   `mysql`
-    If using the MySQL notary (deprecated), specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](../../notary/installing-the-notary-service.md).
+    If using the MySQL notary (deprecated), specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](../../../../../../../en/platform/corda/4.4/enterprise/notary/installing-the-notary-service.md).
 
       `connectionRetries`
         The number of times to retry connection to the MySQL database. This should be based on the number of database servers in the replicated
@@ -815,7 +815,7 @@ Example configuration:
 
         *Default:* not defined
   `jpa`
-    If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](../../notary/installing-the-notary-service.md).
+    If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](../../../../../../../en/platform/corda/4.4/enterprise/notary/installing-the-notary-service.md).
 
       `connectionRetries`
         The number of times to retry connection to the database. This should be based on the number of database servers in the replicated
@@ -930,7 +930,7 @@ Example configuration:
   `autoAcceptEnabled`
     This flag toggles auto accepting of network parameter changes.
     If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator.
-    See [Network map](../../network/network-map.md) for more information on the update process and current auto-acceptable parameters.
+    See [Network map](../../../../../../../en/platform/corda/4.4/enterprise/network/network-map.md) for more information on the update process and current auto-acceptable parameters.
     Set to `false` to disable.
 
     *Default:* true
@@ -980,7 +980,7 @@ Example configuration:
     basic authentication.
 
   `proxyPassword`
-    Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator](../../tools-config-obfuscator.md).
+    Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator](../../../../../../../en/platform/corda/4.4/enterprise/tools-config-obfuscator.md).
 
   `csrToken`
     Optional token to provide alongside the certificate signing request (CSR) as part of the HTTP header during node registration.

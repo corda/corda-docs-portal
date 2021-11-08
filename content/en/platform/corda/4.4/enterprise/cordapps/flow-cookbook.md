@@ -1,4 +1,5 @@
-https://github.com/corda/corda/blob/release/os/4.4/docs/sourcehttps://github.com/corda/corda/blob/release/os/4.4/docs/source---
+https://github.com/corda/corda/blob/release/os/4.4/docs/source
+---
 aliases:
 - /releases/4.4/cordapps/flow-cookbook.html
 - /docs/corda-enterprise/head/cordapps/flow-cookbook.html
