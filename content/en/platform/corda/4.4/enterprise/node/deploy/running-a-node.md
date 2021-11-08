@@ -48,7 +48,7 @@ in the current working directory. You can override the configuration file and wo
 {{< note >}}
 If your node configuration file is obfuscated and you want to deobfuscate it when running the node, you need to pass the obfuscation seed and passphrase to the node in the node run command.
 
-To do so using the [Configuration Obfuscator](../../tools-config-obfuscation.md) command-line tool, use the `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
+To do so using the [Configuration Obfuscator](../../../../../../../en/platform/corda/4.4/enterprise/tools-config-obfuscator.md) command-line tool, use the `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
 
 The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration Obfuscator command-line tool:
 
@@ -192,7 +192,7 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 This command line will start the node with JMX metrics accessible via HTTP on port 7005.
 
-See [Monitoring via Jolokia](../operating/node-administration.md#monitoring-jolokia) for further details.
+See [Monitoring via Jolokia](../../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-administration.html#monitoring-via-jolokia) for further details.
 
 
 ## Starting all nodes at once on a local machine from the command line
@@ -221,7 +221,7 @@ fail to start.
 
 If you receive an `OutOfMemoryError` exception when interacting with the nodes, you need to increase the amount of
 Java heap memory available to them, which you can do when running them individually. See
-[Starting a Corda node from the command line](#starting-an-individual-corda-node).
+[Starting a Corda node from the command line](#starting-a-corda-node-from-the-command-line).
 
 
 ### docker-compose
@@ -257,7 +257,7 @@ To create nodes locally and run on a remote machine perform the following steps:
 In each top level `[NODE NAME]_node.conf` configuration file add the database settings and copy the JDBC driver JAR (if required).
 Edit the top level `[NODE NAME]_node.conf` files only and not the files (`node.conf`) inside the node subdirectories.
 * Optionally, bootstrap the network on the remote machine.This is optional step when a remote machine doesn’t accept `localhost` addresses, or the generated nodes are configured to run on another host’s IP address.If required change host addresses in top level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress` , `rpcSettings.address` and  `rpcSettings.adminAddress`.Run the network bootstrapper tool to regenerate the nodes network map (see for more explanation network-bootstrapper):`java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`
-* Run nodes on the remote machine using [runnodes command](#starting-all-nodes-at-once).
+* Run nodes on the remote machine using [runnodes command](../../../../../../platform/corda/4.4/enterprise/node/deploy/running-a-node.html#native).
 
 The above steps create a test deployment as `deployNodes` Gradle task would do on a local machine.
 
@@ -282,7 +282,7 @@ Should any of those critical resources become not available, Corda Node will be 
 shut itself down reporting the cause as an error message to the Node’s log file.
 
 {{< note >}}
-On some operating systems when PC is going to sleep whilst Corda Node is running, imbedded into Node Artemis message broker reports
+On some operating systems when PC is going to sleep whilst Corda Node is running, embedded into Node Artemis message broker reports
 the loss of heartbeat event which in turn causes loss of connectivity to Artemis. In such circumstances Corda Node will exit reporting broker
 connectivity problem in the log.
 
