@@ -29,7 +29,7 @@ This release addresses a security issue in the JPA notary if the Corda database 
 ## Version 4.2
 
 Since Corda Enterprise 4.2 the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
-See [notary installation page](installing-the-notary-service.md#mysql-driver) for more information.
+See [notary installation page](installing-the-notary-service.html#mysql-notary-deprecated) for more information.
 
 ## Version 4.0
 

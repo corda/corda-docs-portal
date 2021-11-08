@@ -17,7 +17,7 @@ title: Upgrading CorDapps to Corda Enterprise 4.3
 # Upgrading CorDapps to Corda Enterprise 4.3
 
 {{< warning >}}
-Corda Enterprise 4.3.7 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.3.7 please read the guidance on [upgrading your notary service](running-a-notary-cluster/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.3.7 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.3.7 please read the guidance on [upgrading your notary service](../../../../../../en/platform/corda/4.3/enterprise/running-a-notary-cluster/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 ## Upgrading from Open Source
@@ -124,7 +124,7 @@ ext.os_corda_release_version = '4.0'
 
 ## Upgrading from Enterprise 3.x
 
-Firstly, please update all your CorDapp project dependencies as described in [re-compiling for Corda Enterprise](#recompiling-for-enterprise).
+Firstly, please update all your CorDapp project dependencies as described in [re-compiling for Corda Enterprise](#re-compiling-for-corda-enterprise-43).
 
 
 Adjust your CorDapp source code as necessary to take into account the following upgrade constraints:
@@ -177,4 +177,4 @@ dependencies {
 ```
 
 
-* Workflow CorDapps.Please follow the instructions listed in step 5 of [Upgrading apps to Corda 4](app-upgrade-notes.md#cordapp-upgrade-finality-flow-ref).
+* Workflow CorDapps.Please follow the instructions listed in step 5 of [Upgrading apps to Corda 4](../../../../../../en/platform/corda/4.3/enterprise/app-upgrade-notes.html#step-5-security-upgrade-your-use-of-finalityflow).
