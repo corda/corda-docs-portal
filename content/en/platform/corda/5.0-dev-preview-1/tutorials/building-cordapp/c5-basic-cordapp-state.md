@@ -12,13 +12,13 @@ tags:
 title: "Write states"
 ---
 
-In Corda, states are immutable objects on the ledger that represent a fact known by one or more Corda nodes at a specific point in time. They can represent facts of any kind - for example, stocks, bonds, loans, and so on. States relevant to a specific node are stored in that node's vault. For a state to evolve, the current state must be marked as historic and a new, updated state must be created.
+In Corda, states are immutable objects on the ledger that represent a fact agreed upon by one or more Corda nodes at a specific point in time. They can represent facts of any kind - in this example, the states represent the voucher for a trip to Mars (`MarsVoucher`) and a ticket (`BoardingTicket`) given to the customer when they redeem their voucher. These states represent information that Mars Express and Peter share, and have agreed upon. 
 
-When you create a state, you include the relevant information about the fact you are storing. You also include a reference to the contract that governs how the states should evolve over time.
+States relevant to a specific node are stored in that node's vault. For a state to evolve, the current state must be marked as historic and a new, updated state must be created. The `MarsVoucher` state is issued by the company Mars Express to Peter, so it is stored in both nodes' vaults. When Peter redeems his voucher, the `MarsVoucher` state is spent and this information is updated in both vaults. It's a similar process for the `BoardingTicket` state. The state is issued by Mars Express and spent when Peter takes his trip.
 
-States in the Corda 5 Developer Preview are largely the same as states in Corda 4. A state still must implement `ContractState` or one of its dependents. The main difference when writing states with the Developer Preview is that you must add a <a href="#add-the-json-representable">`JsonRepresentable`</a>. This ensures that the output can be returned over RPC.
+When you create a state, you include the relevant information about the fact you are storing. The `MarsVoucher` state includes a description of the voucher and the names of the issuer and holder. The `BoardingTicket` includes trip information, the issuer and owner of the ticket, and the days left until the rocket launch. You also include a reference to the contract that governs how the states should evolve over time. The state must implement <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`</a> or one of its dependents.
 
-This tutorial guides you through writing the two states you need in your CorDapp: `MarsVoucher` and `BoardingTicket`. You will be creating these states in the `contracts/src/main/kotlin/net/corda/missionMars/states/` directory in this tutorial. Refer to the `TemplateState.kt` file in this directory to see a template state.
+This tutorial guides you through writing the `MarsVoucher` state then provides some tips for writing the `BoardingTicket` state. You will be creating these states in the `contracts/src/main/kotlin/net/corda/missionMars/states/` directory in this tutorial. Refer to the `TemplateState.kt` file in this directory to see a template state.
 
 ## Learning objectives
 
@@ -32,27 +32,17 @@ Before you start building states, read [Key concepts: States](../../../../../../
 
 The easiest way to write any CorDapp is to start from a template. This ensures that you have the correct files to begin building.
 
-1. Navigate to the [Kotlin template repository](https://github.com/corda/corda5-cordapp-template-kotlin).
-
-2. Open a terminal window in the directory where you want to download the CorDapp template.
-
-3. Run the command:
+1. Clone the CorDapp template repo in the directory of your choice:
 
    ```kotlin
    git clone https://github.com/corda/corda5-cordapp-template-kotlin.git
    ```
 
-4. After you have cloned the template repository, navigate to the correct subdirectory:
-
-   ```kotlin
-   cd cordapp-template-kotlin
-   ```
-
-5. Open `corda5-cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+2. Open `corda5-cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
    If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
 
-6. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `missionMars`. This changes all instances of `template` in the project to `missionMars`
+3. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `missionMars`. This changes all instances of `template` in the project to `missionMars`
 
 ## Create the `MarsVoucher` state
 
@@ -99,7 +89,9 @@ When naming your CorDapp files, it's best practice to match your contract and st
 
 The next step of implementing the state is to complete the class declaration by adding the <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`</a>. This step ensures that Corda recognizes the `MarsVoucher` as a state.
 
-In this case, use a `LinearState` to tie the `MarsVoucher` to a `LinearID`. You will also need to add a `@ConstructorForDeserialization` and a `JsonRepresentable`. You will add the details to this `JsonRepresentable` [later](#add-the-json-representable-data-class).
+In this case, use a <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#linearstate">`LinearState`</a> to tie the `MarsVoucher` to a `linearId`. As the information in the state changes, the state evolves. This creates a sequence of `LinearStates` with each evolution. The `LinearState`s share a `linearId`, so you can track the lifecycle of the state.
+
+You will also need to add a `@ConstructorForDeserialization` and a `JsonRepresentable`. You will add the details to this `JsonRepresentable` [later](#add-the-json-representable-data-class).
 
 1. Add the public class `MarsVoucher` implementing a `LinearState`.
 2. Add the `@ConstructorForDeserialization`.
@@ -124,13 +116,13 @@ data class MarsVoucher @ConstructorForDeserialization constructor (
 }
 ```
 
-### Add constructor parameters and `participants`
+### Add content to the state
 
-Next, add these constructor parameters:
+Next, you need to add the content of the state. Remember that the `MarsVoucher` state will be issued to the customer and it must include parameters for:
 
-* `voucherDesc` - voucher description.
-* `issuer` - the issuer of the voucher.
-* `holder` - the current owner of the voucher.
+*  A description of the voucher - `voucherDesc`
+*  The issuer of the voucher - `issuer`
+*  The current owner of the voucher- `holder`
 
 In the class, you need to implement a method to populate the `participants` list of the state. This indicates the participant who will store the state.
 
