@@ -32,7 +32,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 In this patch release:
 
 * Compatibility with FutureX versions FXPKCS11 4.40 and FXJCA 1.33.
-* A new FutureX configuration option has been introduced: `loginOnce`. This allows users to login only once, to match JWT continuous-keep-alive functionality. To enable this setting, use the updated configuration documentation. By default, `loginOnce` is set to `False`.
+* A new FutureX configuration option has been introduced: `loginOnce`. This allows users to login only once, to match JWT continuous-keep-alive functionality. To enable this setting, use the updated configuration documentation. By default, `loginOnce` is set to `false`.
 * There are now additional log entries from configured FutureX crypto service detailing when operation on the crypto service starts and ends.
 * Vulnerability fixes have been added to protect against Denial of Service (DoS) attacks via unchecked attachment files.
 * Vulnerability fixes have been added to prevent sensitive information being retrievable from MSSQL databases via DDL script using the Data Management Tool.

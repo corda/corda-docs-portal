@@ -151,7 +151,7 @@ cryptoServiceName : "FUTUREX"
 cryptoServiceConf : "futurex.conf"
 ```
 
-The configuration file for Futurex has two fields:
+The configuration file for FutureX has two fields:
 
 * `credentials` which contains the password (PIN) required to authenticate with the HSM.
 * `loginOnce` which is an **optional** field to allow the login to be kept alive. The default setting for this boolean field is `false`.
@@ -163,10 +163,10 @@ credentials: "password"
 loginOnce: "true"
 ```
 
-When starting Corda the environment variables `FXPKCS11_CFG` and `FXPKCS11_MODULE` need to be set as detailed in Futurex’s documentation.
-Corda must be running with the system property `java.library.path` pointing to the directory that contains the FutureX binaries (e.g. `libfxjp11.so` for Linux).
+When starting Corda the environment variables `FXPKCS11_CFG` and `FXPKCS11_MODULE` need to be set as detailed in FutureX’s documentation.
+Corda must be running with the system property `java.library.path` pointing to the directory that contains the FutureX binaries. For example, `libfxjp11.so` for Linux.
 
-Additionaly, The JAR containing the Futurex JCA provider (version 3.1) must be put on the class path, or copied to the node’s `drivers` directory.
+Additionaly, The JAR containing the FutureX JCA provider (version 3.1) must be put on the class path, or copied to the node’s `drivers` directory.
 The following versions should be used for the required FutureX libraries: 3.1 for the PKCS#11 library and 1.17 for the FutureX JCA library.
 
 ## Azure KeyVault
