@@ -42,7 +42,7 @@ In this patch release:
 * An error was fixed when using `FlowHandleWithClientId` to get subflow status via a subflow.
 * A fix to improve enforcement of RPC authorisation matrix.
 * Default index added for `transaction_id` and `output_index` on `state_party` table.
-* Notary support for Cockroach DB version 21.1.8. 
+* Notary support for Cockroach DB version 21.1.7. 
 * A fix to prevent a rare invalid notarisation response after internal notary flow retry.
 
 ## Corda Enterprise 4.8.1
