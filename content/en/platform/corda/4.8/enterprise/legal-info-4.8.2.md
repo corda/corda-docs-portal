@@ -11,7 +11,7 @@ tags:
 title: Third-party software licence information - CE 4.8.2
 ---
 
-# Corda Enterprise 4.8.1 third-party software notices and licence information
+# Corda Enterprise 4.8.2 third-party software notices and licence information
 
 **Do not translate or localise.**
 
