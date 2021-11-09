@@ -185,7 +185,7 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 This command line will start the node with JMX metrics accessible via HTTP on port 7005.
 
-See [Monitoring via Jolokia](node-administration.md#monitoring-jolokia) for further details.
+See [Monitoring via Jolokia](node-administration.html#monitoring-via-jolokia) for further details.
 
 
 ## Starting all nodes at once on a local machine from the command line
@@ -214,7 +214,7 @@ fail to start.
 
 If you receive an `OutOfMemoryError` exception when interacting with the nodes, you need to increase the amount of
 Java heap memory available to them, which you can do when running them individually. See
-[Starting a Corda node from the command line](#starting-an-individual-corda-node).
+[Starting a Corda node from the command line](#starting-a-corda-node-from-the-command-line).
 
 
 ### docker-compose
@@ -250,7 +250,7 @@ To create nodes locally and run on a remote machine perform the following steps:
 In each top level `[NODE NAME]_node.conf` configuration file add the database settings and copy the JDBC driver JAR (if required).
 Edit the top level `[NODE NAME]_node.conf` files only and not the files (`node.conf`) inside the node subdirectories.
 * Optionally, bootstrap the network on the remote machine.This is optional step when a remote machine doesn’t accept `localhost` addresses, or the generated nodes are configured to run on another host’s IP address.If required change host addresses in top level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress` , `rpcSettings.address` and  `rpcSettings.adminAddress`.Run the network bootstrapper tool to regenerate the nodes network map (see for more explanation [Network Bootstrapper](network-bootstrapper.md)):`java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`
-* Run nodes on the remote machine using [runnodes command](#starting-all-nodes-at-once).
+* Run nodes on the remote machine using `runnodes` command.
 
 The above steps create a test deployment as `deployNodes` Gradle task would do on a local machine.
 

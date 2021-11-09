@@ -28,7 +28,9 @@ When deploying multiple nodes in parallel the package tool (Capsule) that Corda 
 issues retrieving dependencies. This is due to each node trying to download the dependencies in a common
 location.  In these cases it is recommended to set the environment variable `CAPSULE_CACHE_DIR` which
 will allow the Capsule to maintain a separate cache for each node.  This is used in the example descriptions
-below. See the [Capsule documentation](http://www.capsule.io) for more details.
+below.
+
+The Capsule website has been retired. If you wish to read more about Capsule, you may be able to find documentation in the web archives - for example, the [Wayback Machine](https://archive.org/web/).
 
 {{< /note >}}
 {{< note >}}

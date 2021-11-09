@@ -59,4 +59,4 @@ corresponding codes will contain a message with the error code and a link pointi
 
 ## Corda Enterprise Network Manager error codes
 
-For a list of error codes specific to Corda Enterprise Network Manager (CENM), see [CENM error codes](../../../../cenm/1.4/cenm-error-codes.md).
+For a list of error codes specific to Corda Enterprise Network Manager (CENM), see [CENM error codes](../../../../1.4/cenm/cenm-error-codes.md).

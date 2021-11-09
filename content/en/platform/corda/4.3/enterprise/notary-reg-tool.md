@@ -42,4 +42,4 @@ HSM Support
 ———–
 
 The registration tool supports `Azure Key Vault` and `Securosys Primus X`, and if any of those is configured in the `node.config` the keys will be installed
-there instead of `certificates/nodekeystore.jks`. See [HSM Support](running-a-notary-cluster/hsm-support.md#hsm-support) for more information.
+there instead of `certificates/nodekeystore.jks`. See [Notary HSM Support](running-a-notary-cluster/hsm-support.md) for more information.

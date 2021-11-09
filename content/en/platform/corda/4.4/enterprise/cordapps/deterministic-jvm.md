@@ -26,7 +26,7 @@ deterministic version, the DJVM.
 
 So, what does it mean for a piece of code to be fully deterministic?  Ultimately, it means that the code, when viewed
 as a function, is pure. In other words, given the same set of inputs, it will always produce the same set of outputs
-without inflicting any side-effects that might later affect the computation.
+without inflicting any side effects that might later affect the computation.
 
 
 ## Non-Determinism
@@ -35,7 +35,7 @@ For a program running on the JVM, non-determinism could be introduced by a range
 
 * **External input**, *e.g.*, the file system, network, system properties and clocks.
 * **Random number generators**.
-* **Halting criteria**, *e.g.*, different decisions about when to terminate long running programs.
+* **Halting criteria**, *e.g.*, different decisions about when to terminate long-running programs.
 * **Hash-codes**, or more specifically `Object.hashCode()`, which is typically implemented either by returning a pointer
 address or by assigning the object a random number. This could, for instance, surface as different iteration orders over
 hash maps and hash sets, or be used as non-pure input into arbitrary expressions.
@@ -56,7 +56,7 @@ for future use.
 ## Abstraction
 
 The sandbox is abstracted away as an executor which takes as input an implementation of the interface
-`Function<in Input, out Output>`, dereferenced by a `ClassSource`. This interface has a single method that
+`Function<in Input, out Output>`, de-referenced by a `ClassSource`. This interface has a single method that
 needs implementing, namely `apply(Input): Output`.
 
 A `ClassSource` object referencing such an implementation can be passed into the `SandboxExecutor<in Input, out

@@ -12,9 +12,9 @@ title: Monitoring Notary Latency
 weight: 2
 ---
 
-# Monitoring Notary Latency
+# Monitoring notary latency
 
-Three metrics should be combined when measuring notary latency:
+To measure notary latency, combine three metrics:
 
  - `P2P.ReceiveLatency` - The time between receiving a message to queueing a flow.
  - `Flows.StartupQueueTime` - The time flows spends in the queue.

@@ -79,7 +79,7 @@ to the remote peer (optionally, this connection can be made via a SOCKS4/5 proxy
 Upon connection, the two ends of the TLS link exchange certificate details
 and confirm that the certificate path is anchored at the network root certificate and that the X500 subject matches
 the expected target as specified in the create bridge message using details contained in the network map.
-The links are long lived so as to reduce the setup cost of the P2P messaging.
+The links are long-lived so as to reduce the setup cost of the P2P messaging.
 * If the outgoing TLS 1.2 link is created successfully, then the bridge opens a consumer on the Artemis out queue.
 The pending messages will then be transferred to the remote destination using AMQP 1.0, with final removal from the
 out queue only occurring when the remote end fully acknowledges safe message receipt. This ensures at least once
@@ -89,7 +89,7 @@ so that all out queues have an active bridge.
 * Assuming an out queue exists, the message can be posted to Artemis and the bridge should eventually deliver this
 message to the remote system.
 * On receipt of a message acknowledge from Artemis, the `StateMachine` can continue flow if it is not awaiting a response
-(that is, a `send` operation). Otherwise it remains suspended waiting for the reply.
+(that is, a `send` operation). Otherwise, it remains suspended waiting for the reply.
 * The receiving end of the bridge TLS 1.2 /AMQP 1.0 link might be the Artemis broker of a remote node,
 but for now we assume it is an enterprise deployment that is using a float process running behind a firewall.
 The receiver will already have confirmed the validity of the TLS originator when it accepted the TLS handshake.
@@ -131,7 +131,7 @@ from the local bridge to the original node’s float and then on to the original
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.4/enterprise/cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 
 The simplest development deployment of the node is without firewall and thus just use the embedded bridge and Peer-to-Peer
@@ -147,7 +147,7 @@ where this is the only available option:
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.4/enterprise/cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 
@@ -220,7 +220,7 @@ networkParametersPath = network-parameters
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.4/enterprise/cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 
@@ -316,7 +316,7 @@ floatOuterConfig {
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.4/enterprise/cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 * SOCKS Proxy
@@ -411,7 +411,7 @@ floatOuterConfig {
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.4/enterprise/cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 * Zookeeper v3.5.4-beta
@@ -546,7 +546,7 @@ More specifically, in order to ensure optimal performance it is required:
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.4/enterprise/cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 * Apache Artemis v2.6.2 or RedHat amq broker v7.2.2

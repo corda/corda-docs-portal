@@ -66,7 +66,7 @@ the test definition.
 By default, JMeter runs in interactive mode, i.e. it brings up a graphical user interface (GUI) that allows the user to
 create, view, modify and run a test definition. Tests can either be in process (i.e. the sampler runs in the GUI
 process) or can be fanned out to a set of JMeter server instances that will run under the control of a JMeter client
-connected to them (see [Server Mode](#jmeter-server)).
+connected to them (see Server Mode).
 
 
 #### Non-Interactive Mode

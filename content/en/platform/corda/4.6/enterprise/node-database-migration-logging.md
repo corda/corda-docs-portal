@@ -70,7 +70,7 @@ where:
 |        “start” - the start of the current change set,
 |        “successful” - the successful completion of a change set,
 |        “error” - an error for the whole process or an error while running a specific change set
-* CODE := a predefined error code (see [Error codes](#node-database-migration-logging-error-codes))
+* CODE := a predefined error code (see [Error codes](#error-codes))
 * ERROR := a detailed message, for change set error it will be error produced by Liquibase
 
 An example database initialisation log:
