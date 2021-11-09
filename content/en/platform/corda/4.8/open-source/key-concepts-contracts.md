@@ -101,3 +101,22 @@ these cases, an oracle is required. See [Oracles](key-concepts-oracles.md) for f
 Each contract also refers to a legal prose document that states the rules governing the evolution of the state over
 time in a way that is compatible with traditional legal systems. This document can be relied upon in the case of
 legal disputes.
+
+## Encumbrances
+
+All contract states can be *encumbered* by up to one other state. This is called an **encumbrance**. The encumbrance reference is optional in the `ContractState` interface.
+
+The encumbrance state, if present, forces additional controls over the encumbered state, since the encumbrance state
+contract will also be verified during the execution of the transaction. For example, a contract state could be
+encumbered with a time-lock contract state; the state is then only processable in a transaction that verifies that the
+time specified in the encumbrance time-lock has passed.
+
+The encumbered state refers to its encumbrance by index, and the referred encumbrance state is an output state in a
+particular position on the same transaction that created the encumbered state. Note that an encumbered state that is
+being consumed must have its encumbrance consumed in the same transaction, otherwise the transaction is not valid.
+
+When you construct a transaction that generates the encumbered state, you must place the encumbrance in the corresponding output
+position of that transaction. And when you subsequently consume that encumbered state, the same encumbrance state must be
+available somewhere within the input set of states.
+
+See an example of an encumbrance in the <a href="https://github.com/corda/reissue-cordapp/blob/master/contracts/src/main/kotlin/com/r3/corda/lib/reissuance/contracts/ReissuanceLockContract.kt">`ReissuanceLockContract`</a> and <a href="https://github.com/corda/reissue-cordapp/blob/master/workflows/src/main/kotlin/com/r3/corda/lib/reissuance/flows/ReissueStates.kt">`ReissueStatesFlow`</a> of the [Reissuance CorDapp](https://github.com/corda/reissue-cordapp).

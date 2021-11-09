@@ -20,7 +20,7 @@ weight: 5
 
 ## Logging
 
-By default the node log files are stored to the `logs` subdirectory of the working directory and are rotated. Logging can be printed to the console by passing the `--log-to-console` command line flag. The default logging level is `INFO` which can be adjusted by the `--logging-level` command line argument. This configuration option will affect all modules. Hibernate (the JPA provider used by Corda) specific log messages of level `WARN` and above will be logged to the diagnostic log file, which is stored in the same location as other log files (`logs` subdirectory by default). This is because Hibernate may log messages at WARN and ERROR that are handled internally by Corda and do not need operator attention. If they do, they will be logged by Corda itself in the main node log file.
+By default, the node log files are stored to the `logs` subdirectory of the working directory and are rotated. Logging can be printed to the console by passing the `--log-to-console` command line flag. The default logging level is `INFO` which can be adjusted by the `--logging-level` command line argument. This configuration option will affect all modules. Hibernate (the JPA provider used by Corda) specific log messages of level `WARN` and above will be logged to the diagnostic log file, which is stored in the same location as other log files (`logs` subdirectory by default). This is because Hibernate may log messages at WARN and ERROR that are handled internally by Corda and do not need operator attention. If they do, they will be logged by Corda itself in the main node log file.
 
 It may be the case that you require to amend the log level of a particular subset of modules (e.g., if you’d like to take a closer look at Hibernate activity). So, for more bespoke logging configuration, the logging settings can be completely overridden with a [Log4j2](https://logging.apache.org/log4j/2.x) configuration file assigned to the `log4j.configurationFile` system property.
 
@@ -67,7 +67,7 @@ Node can be configured to run SSH server.
 ## Database access
 
 When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-(see [database access when running H2](../../node-database-access-h2.html)).
+(see [database access when running H2](../../../../../../../en/platform/corda/4.4/enterprise/node-database-access-h2.md)).
 
 Note that in a production set up, it is highly recommended to use an enterprise grade database, and access to the
 database should be via the usual database tools mechanisms, including access control and restrictions.

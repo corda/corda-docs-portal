@@ -56,7 +56,7 @@ The name must also obey the following constraints:
 
 
 
-* The `country` attribute is a valid *ISO 3166-1<https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2>* two letter code in upper-case
+* The `country` attribute is a valid [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) two-letter code in upper-case
 * The `organisation` field of the name obeys the following constraints:
 
     * Has at least two letters
