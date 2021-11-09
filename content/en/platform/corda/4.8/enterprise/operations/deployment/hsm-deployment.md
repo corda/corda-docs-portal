@@ -140,27 +140,32 @@ password: "my-password"
 
 Note that the Gemalto’s JCA provider (version 7.3) has to be installed as described in the documentation for the Gemalto Luna.
 
-## Futurex
+## FutureX
 
 Corda Enterprise nodes can be configured to store their legal identity keys in [FutureX Vectera Plus](https://www.futurex.com/products/vectera-series) HSMs running firmware version 6.1.5.8.
 
-In the `node.conf`, the `cryptoServiceName` needs to be set to “FUTUREX”, and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down.
+In the `node.conf`, the `cryptoServiceName` needs to be set to “FUTUREX”, and `cryptoServiceConf` should contain the path to a configuration file: `futurex.conf`.
 
 ```kotlin
 cryptoServiceName : "FUTUREX"
 cryptoServiceConf : "futurex.conf"
 ```
 
-The configuration file for Futurex has one field, `credentials` that contains the password (PIN) required to authenticate with the HSM.
+The configuration file for Futurex has two fields:
+
+* `credentials` which contains the password (PIN) required to authenticate with the HSM.
+* `loginOnce` which is an **optional** field to allow the login to be kept alive. The default setting for this boolean field is `false`.
 
 Example configuration file:
 
 ```kotlin
 credentials: "password"
+loginOnce: "true"
 ```
 
 When starting Corda the environment variables `FXPKCS11_CFG` and `FXPKCS11_MODULE` need to be set as detailed in Futurex’s documentation.
 Corda must be running with the system property `java.library.path` pointing to the directory that contains the FutureX binaries (e.g. `libfxjp11.so` for Linux).
+
 Additionaly, The JAR containing the Futurex JCA provider (version 3.1) must be put on the class path, or copied to the node’s `drivers` directory.
 The following versions should be used for the required FutureX libraries: 3.1 for the PKCS#11 library and 1.17 for the FutureX JCA library.
 
