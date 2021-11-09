@@ -34,6 +34,8 @@ In this patch release:
 * Compatibility with FutureX versions FXPKCS11 4.40 and FXJCA 1.33.
 * A new FutureX configuration option has been introduced: `loginOnce`. This allows users to login only once, to match JWT continuous-keep-alive functionality. To enable this setting, use the updated configuration documentation. By default, `loginOnce` is set to `false`.
 * There are now additional log entries from configured FutureX crypto service detailing when operation on the crypto service starts and ends.
+* Notary support for Cockroach DB version 21.1.7. 
+* A fix to prevent a rare invalid notarisation response after internal notary flow retry.
 * Vulnerability fixes have been added to protect against Denial of Service (DoS) attacks via unchecked attachment files.
 * Vulnerability fixes have been added to prevent sensitive information being retrievable from MSSQL databases via DDL script using the Data Management Tool.
 * Corda Archive Service has been updated to prevent sensitive information being exposed in log files.
@@ -42,8 +44,6 @@ In this patch release:
 * An error was fixed when using `FlowHandleWithClientId` to get subflow status via a subflow.
 * A fix to improve enforcement of RPC authorisation matrix.
 * Default index added for `transaction_id` and `output_index` on `state_party` table.
-* Notary support for Cockroach DB version 21.1.7. 
-* A fix to prevent a rare invalid notarisation response after internal notary flow retry.
 
 ## Corda Enterprise 4.8.1
 
