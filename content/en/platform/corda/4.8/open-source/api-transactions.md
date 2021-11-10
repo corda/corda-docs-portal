@@ -20,26 +20,27 @@ title: 'API: Transactions'
 
 # API: Transactions
 
-{{< note >}}
-Before reading this page, you should be familiar with the key concepts of [Transactions](key-concepts-transactions.md).
+The Transactions API is [blurb]
 
-See also [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
+{{< note >}}
+Before reading this page, familiarize yourself with the key concepts of [Transactions](key-concepts-transactions.md).
+
+See also [Reissuing states](reissuing-states.md) with a guaranteed state replacement, which allows you to break transaction backchains.
 {{< /note >}}
 
 
 ## Transaction lifecycle
 
-Between its creation and its final inclusion on the ledger, a transaction will generally occupy one of three states:
-
+Transactions occupy three states between creation and final inclusion on the ledger:
 
 * `TransactionBuilder`. A transaction’s initial state. This is the only state during which the transaction is
-mutable, so we must add all the required components before moving on.
+mutable, so you must add all the required components before moving on.
 * `SignedTransaction`. The transaction now has one or more digital signatures, making it immutable. This is the
 transaction type that is passed around to collect additional signatures and that is recorded on the ledger.
 * `LedgerTransaction`. The transaction has been “resolved” - for example, its inputs have been converted from
 references to actual states - allowing the transaction to be fully inspected.
 
-We can visualise the transitions between the three stages as follows:
+The transitions between the three stages are as follows:
 
 {{< figure alt="transaction flow" width=80% zoom="/en/images/transaction-flow.png" >}}
 
@@ -69,7 +70,6 @@ and how it is created.
 
 An input state is added to a transaction as a `StateAndRef`, which combines:
 
-
 * The `ContractState` itself
 * A `StateRef` identifying this `ContractState` as the output of a specific transaction
 
@@ -92,8 +92,7 @@ StateAndRef ourStateAndRef = getServiceHub().toStateAndRef(ourStateRef);
 
 {{< /tabs >}}
 
-A `StateRef` uniquely identifies an input state, allowing the notary to mark it as historic. It is made up of:
-
+A `StateRef` uniquely identifies an input state. The notary then uses it to mark the input state as historic. A ```StatRef``` is made up of:
 
 * The hash of the transaction that generated the state
 * The state’s index in the outputs of that transaction
@@ -117,9 +116,9 @@ StateRef ourStateRef = new StateRef(SecureHash.sha256("DummyTransactionHash"), 0
 
 {{< /tabs >}}
 
-The `StateRef` links an input state back to the transaction that created it. This means that transactions form
-“chains” linking each input back to an original issuance transaction. This allows nodes verifying the transaction
-to “walk the chain” and verify that each input was generated through a valid sequence of transactions.
+The `StateRef` links an input state back to the transaction that created it. Transactions form
+“chains” linking each input back to an original issuance transaction. Nodes verifying a transaction
+“walk the chain” to verify that each input was generated through a valid sequence of transactions.
 
 
 #### Reference input states
@@ -131,8 +130,8 @@ Reference states are only available on Corda networks with a minimum platform ve
 {{< /warning >}}
 
 
-A reference input state is added to a transaction as a `ReferencedStateAndRef`. A `ReferencedStateAndRef` can be
-obtained from a `StateAndRef` by calling the `StateAndRef.referenced()` method which returns a `ReferencedStateAndRef`.
+The reference input state is represented by the `ReferencedStateAndRef` object. It is
+obtained from the `StateAndRef` by calling `StateAndRef.referenced()`.
 
 {{< tabs name="tabs-3" >}}
 {{% tab name="kotlin" %}}
@@ -155,43 +154,36 @@ ReferencedStateAndRef referenceState = ourStateAndRef.referenced();
 
 **Handling of update races:**
 
-When using reference states in a transaction, it may be the case that a notarisation failure occurs. This is most likely
-because the creator of the state (being used as a reference state in your transaction), has just updated it.
-
-Typically, the creator of such reference data will have implemented flows for syndicating the updates out to users.
-However it is inevitable that there will be a delay between the state being used as a reference being consumed, and the
-nodes using it receiving the update.
-
-This is where the `WithReferencedStatesFlow` comes in. Given a flow which uses reference states, the
-`WithReferencedStatesFlow` will execute the the flow as a subFlow. If the flow fails due to a `NotaryError.Conflict`
+When applied to a flow which uses reference states, the
+`WithReferencedStatesFlow` executes a flow as a subFlow. If the flow fails due to a `NotaryError.Conflict`
 for a reference state, then it will be suspended until the state refs for the reference states are consumed. In this
 case, a consumption means that:
 
-
-* the owner of the reference state has updated the state with a valid, notarised transaction
-* the owner of the reference state has shared the update with the node attempting to run the flow which uses the
-reference state
+* The owner of the reference state has updated the state with a valid, notarized transaction.
+* The owner of the reference state has shared the update with the node attempting to run the flow which uses the
+reference state.
 * The node has successfully committed the transaction updating the reference state (and all the dependencies), and
 added the updated reference state to the vault.
 
 At the point where the transaction updating the state being used as a reference is committed to storage and the vault
-update occurs, then the `WithReferencedStatesFlow` will wake up and re-execute the provided flow.
+update occurs, then the `WithReferencedStatesFlow` wakes up and re-executes the provided flow.
 
+When notarization failure occurs, it is most likely
+because the creator of the reference state in your transaction has updated the said state.
+The creator ordinarily implements flows for syndicating updates out to users, but these flows can be affected by the communication
+delay between the use of a state and the node processing this use. `WithReferenceStatesFlow` is a way to navigate this issue.
 
 {{< warning >}}
-Caution should be taken when using this flow as it facilitates automated re-running of flows which use
+This flow facilitates automated re-running of flows which use
 reference states. The flow using reference states should include checks to ensure that the reference data is
 reasonable, especially if the economics of the transaction depends upon the data contained within a reference state.
-
 {{< /warning >}}
-
-
 
 ### Output states
 
-Since a transaction’s output states do not exist until the transaction is committed, they cannot be referenced as the
-outputs of previous transactions. Instead, we create the desired output states as `ContractState` instances, and
-add them to the transaction directly:
+A transaction's output states cannot be used as the reference of a previous transaction's outputs. This is because the output
+states do not exist until the transaction is committed. Instead, desired output states are created as `ContractState` instances, and
+added to the transaction directly:
 
 {{< tabs name="tabs-4" >}}
 {{% tab name="kotlin" %}}
@@ -212,8 +204,8 @@ DummyState ourOutputState = new DummyState();
 
 {{< /tabs >}}
 
-In cases where an output state represents an update of an input state, we may want to create the output state by basing
-it on the input state:
+In cases where an output state is an update of an input state, you may want to create the output state by basing
+it on that input state:
 
 {{< tabs name="tabs-5" >}}
 {{% tab name="kotlin" %}}
@@ -234,9 +226,8 @@ DummyState ourOtherOutputState = ourOutputState.copy(77);
 
 {{< /tabs >}}
 
-Before our output state can be added to a transaction, we need to associate it with a contract. We can do this by
-wrapping the output state in a `StateAndContract`, which combines:
-
+A output state must be associated with a contract before it can be added to a transaction.
+Wrapping the output state in a `StateAndContract` is the way to do this. This combines:
 
 * The `ContractState` representing the output states
 * A `String` identifying the contract governing the state
@@ -325,8 +316,8 @@ The attachment with the corresponding hash must have been uploaded ahead of time
 
 ### Time-windows
 
-Time windows represent the period during which the transaction must be notarised. They can have a start and an end
-time, or be open at either end:
+Time windows represent the period during which the transaction must be notarized. They have a start and an end
+time, or may be set as open at either end:
 
 {{< tabs name="tabs-9" >}}
 {{% tab name="kotlin" %}}
@@ -351,7 +342,7 @@ TimeWindow ourBefore = TimeWindow.untilOnly(Instant.MAX);
 
 {{< /tabs >}}
 
-We can also define a time window as an `Instant` plus/minus a time tolerance (e.g. 30 seconds):
+Time windows can be defined as an `Instant` plus/minus a time tolerance (e.g. 30 seconds):
 
 {{< tabs name="tabs-10" >}}
 {{% tab name="kotlin" %}}
@@ -401,8 +392,8 @@ TimeWindow ourTimeWindow3 = TimeWindow.fromStartAndDuration(getServiceHub().getC
 
 The first step when creating a transaction proposal is to instantiate a `TransactionBuilder`.
 
-If the transaction has input states or a time-window, we need to instantiate the builder with a reference to the notary
-that will notarise the inputs and verify the time-window:
+If the transaction has input states or a time-window, you need to instantiate the builder with a reference to the notary
+that will notarize the inputs and verify the time-window:
 
 {{< tabs name="tabs-12" >}}
 {{% tab name="kotlin" %}}
@@ -452,7 +443,7 @@ TransactionBuilder txBuilderNoNotary = new TransactionBuilder();
 
 The next step is to build up the transaction proposal by adding the desired components.
 
-We can add components to the builder using the `TransactionBuilder.withItems` method:
+Components are added to the builder using the `TransactionBuilder.withItems` method:
 
 {{< tabs name="tabs-14" >}}
 {{% tab name="kotlin" %}}
@@ -591,7 +582,7 @@ txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID, specificNotar
 
 {{< /tabs >}}
 
-We can also leave the notary field blank, in which case the transaction’s default notary is used:
+If the notary field is left blank, the transaction’s default notary is used:
 
 {{< tabs name="tabs-18" >}}
 {{% tab name="kotlin" %}}
@@ -612,7 +603,7 @@ txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID);
 
 {{< /tabs >}}
 
-Or we can add the output state as a `TransactionState`, which already specifies the output’s contract and notary:
+Or you can add the output state as a `TransactionState`, which already specifies the output’s contract and notary:
 
 {{< tabs name="tabs-19" >}}
 {{% tab name="kotlin" %}}
@@ -675,7 +666,7 @@ txBuilder.addCommand(commandData, ourPubKey, counterpartyPubKey);
 
 {{< /tabs >}}
 
-For the time-window, we can set a time-window directly:
+For the time-window, you can set a time-window directly:
 
 {{< tabs name="tabs-22" >}}
 {{% tab name="kotlin" %}}
@@ -720,9 +711,9 @@ txBuilder.setTimeWindow(getServiceHub().getClock().instant(), Duration.ofSeconds
 
 ### Signing the builder
 
-Once the builder is ready, we finalize it by signing it and converting it into a `SignedTransaction`.
+Once the builder is ready, finalize it by signing it and converting it into a `SignedTransaction`.
 
-We can either sign with our legal identity key:
+It is signed with your legal identity key:
 
 {{< tabs name="tabs-24" >}}
 {{% tab name="kotlin" %}}
@@ -743,7 +734,7 @@ SignedTransaction onceSignedTx = getServiceHub().signInitialTransaction(txBuilde
 
 {{< /tabs >}}
 
-Or we can also choose to use another one of our public keys:
+You can also choose to use another one of our public keys:
 
 {{< tabs name="tabs-25" >}}
 {{% tab name="kotlin" %}}
@@ -766,7 +757,7 @@ SignedTransaction onceSignedTx2 = getServiceHub().signInitialTransaction(txBuild
 
 {{< /tabs >}}
 
-Either way, the outcome of this process is to create an immutable `SignedTransaction` with our signature over it.
+The outcome of this process is to create an immutable `SignedTransaction` with your signature over it.
 
 
 ## SignedTransaction
@@ -796,19 +787,19 @@ data class SignedTransaction(val txBits: SerializedBytes<CoreTransaction>,
 
 {{< /tabs >}}
 
-Before adding our signature to the transaction, we’ll want to verify both the transaction’s contents and the
+Before adding your signature to the transaction, verify both the transaction’s contents and the
 transaction’s signatures.
 
 
 ### Verifying the transaction’s contents
 
-If a transaction has inputs, we need to retrieve all the states in the transaction’s dependency chain before we can
-verify the transaction’s contents. This is because the transaction is only valid if its dependency chain is also valid.
-We do this by requesting any states in the chain that our node doesn’t currently have in its local storage from the
+A transaction is only valid if its dependency chain is also valid. All
+the states in the transaction’s dependency chain must be retrieved to verify the transaction’s contents.
+In order to do this, request any states in the chain that the node does not currently have in its local storage from the
 proposer(s) of the transaction. This process is handled by a built-in flow called `ReceiveTransactionFlow`.
 See [API: Flows](api-flows.md) for more details.
 
-We can now verify the transaction’s contents to ensure that it satisfies the contracts of all the transaction’s input
+Verify the transaction’s contents to ensure that it satisfies the contracts of all the transaction’s input
 and output states:
 
 {{< tabs name="tabs-27" >}}
@@ -830,16 +821,13 @@ twiceSignedTx.verify(getServiceHub());
 
 {{< /tabs >}}
 
-Checking that the transaction meets the contract constraints is only part of verifying the transaction’s contents. We
-will usually also want to perform our own additional validation of the transaction contents before signing, to ensure
-that the transaction proposal represents an agreement we wish to enter into.
+It is possible to perform additional validation of the transaction contents before signing, to ensure
+that the transaction proposal represents an agreement you wish to enter into.
 
-However, the `SignedTransaction` holds its inputs as `StateRef` instances, and its attachments as `SecureHash`
-instances, which do not provide enough information to properly validate the transaction’s contents. We first need to
-resolve the `StateRef` and `SecureHash` instances into actual `ContractState` and `Attachment` instances, which
-we can then inspect.
-
-We achieve this by using the `ServiceHub` to convert the `SignedTransaction` into a `LedgerTransaction`:
+Before this is possible, it is necessary to resolve the `StateRef` and `SecureHash` instances into actual `ContractState` and `Attachment` instances, which
+are then inspected. This is because the `SignedTransaction` holds its inputs as `StateRef` instances, and its attachments as `SecureHash`
+instances. These alone do not alone provide enough information to properly validate the transaction’s contents.
+Resolving these instances requires using the `ServiceHub` to convert the `SignedTransaction` into a `LedgerTransaction`:
 
 {{< tabs name="tabs-28" >}}
 {{% tab name="kotlin" %}}
@@ -860,7 +848,7 @@ LedgerTransaction ledgerTx = twiceSignedTx.toLedgerTransaction(getServiceHub());
 
 {{< /tabs >}}
 
-We can now perform our additional verification. Here’s a simple example:
+Additional verification is now possible. Here’s a simple example:
 
 {{< tabs name="tabs-29" >}}
 {{% tab name="kotlin" %}}
@@ -898,10 +886,10 @@ if (outputState.getMagicNumber() != 777) {
 
 ### Verifying the transaction’s signatures
 
-Aside from verifying that the transaction’s contents are valid, we also need to check that the signatures are valid. A
+Aside from verifying that the transaction’s contents are valid, you also need to check that the signatures are valid. A
 valid signature over the hash of the transaction prevents tampering.
 
-We can verify that all the transaction’s required signatures are present and valid as follows:
+To verify that all the transaction’s required signatures are present and valid:
 
 {{< tabs name="tabs-30" >}}
 {{% tab name="kotlin" %}}
@@ -922,9 +910,8 @@ fullySignedTx.verifyRequiredSignatures();
 
 {{< /tabs >}}
 
-However, we’ll often want to verify the transaction’s existing signatures before all of them have been collected. For
-this we can use `SignedTransaction.verifySignaturesExcept`, which takes a `vararg` of the public keys for
-which the signatures are allowed to be missing:
+To verify the transaction’s existing signatures before all of them have been collected use `SignedTransaction.verifySignaturesExcept`, which
+takes a `vararg` of the public keys within which the signatures are allowed to be missing:
 
 {{< tabs name="tabs-31" >}}
 {{% tab name="kotlin" %}}
@@ -970,7 +957,7 @@ onceSignedTx.verifySignaturesExcept(singletonList(counterpartyPubKey));
 If the transaction is missing any signatures without the corresponding public keys being passed in, a
 `SignaturesMissingException` is thrown.
 
-We can also choose to simply verify the signatures that are present:
+You can also choose to simply verify the signatures that are present:
 
 {{< tabs name="tabs-33" >}}
 {{% tab name="kotlin" %}}
@@ -997,10 +984,10 @@ checks whether any signatures are missing.
 
 ### Signing the transaction
 
-Once we are satisfied with the contents and existing signatures over the transaction, we add our signature to the
-`SignedTransaction` to indicate that we approve the transaction.
+Once you are satisfied with the contents and existing signatures over the transaction, you add your signature to the
+`SignedTransaction` to indicate that you approve the transaction.
 
-We can sign using our legal identity key, as follows:
+You can sign using the legal identity key, as follows:
 
 {{< tabs name="tabs-34" >}}
 {{% tab name="kotlin" %}}
@@ -1021,7 +1008,7 @@ SignedTransaction twiceSignedTx = getServiceHub().addSignature(onceSignedTx);
 
 {{< /tabs >}}
 
-Or we can choose to sign using another one of our public keys:
+Or you can choose to sign using another one of our public keys:
 
 {{< tabs name="tabs-35" >}}
 {{% tab name="kotlin" %}}
@@ -1042,9 +1029,9 @@ SignedTransaction twiceSignedTx2 = getServiceHub().addSignature(onceSignedTx, ot
 
 {{< /tabs >}}
 
-We can also generate a signature over the transaction without adding it to the transaction directly.
+You can also generate a signature over the transaction without adding it to the transaction directly.
 
-We can do this with our legal identity key:
+This is done using the legal identity key:
 
 {{< tabs name="tabs-36" >}}
 {{% tab name="kotlin" %}}
@@ -1065,7 +1052,7 @@ TransactionSignature sig = getServiceHub().createSignature(onceSignedTx);
 
 {{< /tabs >}}
 
-Or using another one of our public keys:
+Or using another one of the public keys:
 
 {{< tabs name="tabs-37" >}}
 {{% tab name="kotlin" %}}
