@@ -20,26 +20,25 @@ title: 'API: Transactions'
 
 # API: Transactions
 
-{{< note >}}
-Before reading this page, you should be familiar with the key concepts of [Transactions](key-concepts-transactions.md).
+This document explains how the Corda API handles transactions. Before reading this page, you should be familiar with the key concepts of [transactions](key-concepts-transactions.md) on Corda.
 
-See also [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
-{{< /note >}}
-
-
-## Transaction lifecycle
-
-Between its creation and its final inclusion on the ledger, a transaction will generally occupy one of three states:
+This document covers:
+- The transaction lifecycle.
+- The components of a transaction, including all the states.
+- Building transactions.
+- Transaction verification, signing, and notarization.
 
 
-* `TransactionBuilder`. A transaction’s initial state. This is the only state during which the transaction is
-mutable, so we must add all the required components before moving on.
-* `SignedTransaction`. The transaction now has one or more digital signatures, making it immutable. This is the
-transaction type that is passed around to collect additional signatures and that is recorded on the ledger.
+## The transaction lifecycle
+
+Transactions move through three states before they are added to the ledger.
+
+* `TransactionBuilder`. A transaction’s initial state. This is the only time you can make changes to the transaction, so make sure you add all the required components.
+* `SignedTransaction`. The transaction has one or more digital signatures and can no longer be changed. You can pass this transaction type between parties to collect additional signatures. It is also the transaction type recorded on the ledger.
 * `LedgerTransaction`. The transaction has been “resolved” - for example, its inputs have been converted from
 references to actual states - allowing the transaction to be fully inspected.
 
-We can visualise the transitions between the three stages as follows:
+The transitions between the stages look like this:
 
 {{< figure alt="transaction flow" width=80% zoom="/en/images/transaction-flow.png" >}}
 
@@ -61,13 +60,12 @@ A transaction consists of six types of components:
 
 
 
-Each component corresponds to a specific class in the Corda API. The following section describes each component class,
-and how it is created.
+Each component corresponds to a specific class in the Corda API.
 
 
 ### Input states
 
-An input state is added to a transaction as a `StateAndRef`, which combines:
+Add input states to transactions as a `StateAndRef`. This combines:
 
 
 * The `ContractState` itself
@@ -92,11 +90,11 @@ StateAndRef ourStateAndRef = getServiceHub().toStateAndRef(ourStateRef);
 
 {{< /tabs >}}
 
-A `StateRef` uniquely identifies an input state, allowing the notary to mark it as historic. It is made up of:
+A `StateRef` uniquely identifies an input state. This lets the notary mark it as historic. It is made up of:
 
 
-* The hash of the transaction that generated the state
-* The state’s index in the outputs of that transaction
+* The hash of the transaction that generated the state.
+* The state’s index in the outputs of that transaction.
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -118,15 +116,15 @@ StateRef ourStateRef = new StateRef(SecureHash.sha256("DummyTransactionHash"), 0
 {{< /tabs >}}
 
 The `StateRef` links an input state back to the transaction that created it. This means that transactions form
-“chains” linking each input back to an original issuance transaction. This allows nodes verifying the transaction
-to “walk the chain” and verify that each input was generated through a valid sequence of transactions.
+“chains” linking each input back to an original issuance transaction. This lets the nodes verifying the transaction
+ “walk the chain” and verify that each input was generated through a valid sequence of transactions.
 
 
 #### Reference input states
 
 
 {{< warning >}}
-Reference states are only available on Corda networks with a minimum platform version >= 4.
+Reference states are only available on Corda networks with a minimum platform version greater than 4.
 
 {{< /warning >}}
 
@@ -153,13 +151,12 @@ ReferencedStateAndRef referenceState = ourStateAndRef.referenced();
 
 {{< /tabs >}}
 
-**Handling of update races:**
+#### Handing update races
 
-When using reference states in a transaction, it may be the case that a notarisation failure occurs. This is most likely
-because the creator of the state (being used as a reference state in your transaction), has just updated it.
+If the person who created a state you are referencing has just updated it, it can cause a notarization failure.
 
-Typically, the creator of such reference data will have implemented flows for syndicating the updates out to users.
-However it is inevitable that there will be a delay between the state being used as a reference being consumed, and the
+Reference data creators usually implement flows that sends updates to users.
+However, there is a delay between the state being used as a reference being consumed, and the
 nodes using it receiving the update.
 
 This is where the `WithReferencedStatesFlow` comes in. Given a flow which uses reference states, the
@@ -1087,7 +1084,11 @@ TransactionSignature sig2 = getServiceHub().createSignature(onceSignedTx, otherI
 {{< /tabs >}}
 
 
-### Notarising and recording
+### Notarizing and recording
 
-Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [API: Flows](api-flows.md) for
+Notarize and record transaction with the built-in `FinalityFlow`. See [API: Flows](api-flows.md) for
 more details.
+
+## Further reading
+
+See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which lets you break transaction backchains.
