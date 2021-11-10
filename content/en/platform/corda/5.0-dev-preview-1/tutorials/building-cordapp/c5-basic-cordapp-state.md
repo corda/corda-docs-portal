@@ -12,9 +12,9 @@ tags:
 title: "Write the MarsVoucher and BoardingTicket states"
 ---
 
-In Corda, states are immutable objects on the ledger. One or more Corda nodes agree that these objects exist at a specific point in time. These objects can represent different types of information - in this example, the states represent the voucher for a trip to Mars (`MarsVoucher`) and a ticket (`BoardingTicket`) given to the customer when they redeem their voucher. These states represent information that Mars Express and Peter share and have agreed upon.
+In Corda, states are immutable objects on the ledger. One or more Corda nodes agree that these states exist at a specific point in time. These objects can represent any information - in this example, the states represent the voucher for a trip to Mars (`MarsVoucher`) and a ticket (`BoardingTicket`) given to the customer when they redeem their voucher. These states represent information that Mars Express and Peter share and have agreed upon.
 
-States relevant to a specific node are stored in that node's vault. For a state to evolve, the current state must be marked as historic and a new, updated state must be created. The `MarsVoucher` state is issued by the company Mars Express to Peter, so it is stored in both nodes' vaults. When Peter redeems his voucher, the `MarsVoucher` state is spent and this information is updated in both vaults. It's a similar process for the `BoardingTicket` state. The state is issued by Mars Express and spent when Peter takes his trip. Both the voucher and ticket are valid for single-use only - when the states are spent, it guarantees that they cannot be used again.
+States associated to a specific party's identity are stored in that entity's vault. For a state to evolve, the current state must be marked as historic and a new, updated state must be created. The `MarsVoucher` state is issued by the company Mars Express to Peter, so it is stored in both parties' vaults. When Peter redeems his voucher, the `MarsVoucher` state is spent and this information is updated in both vaults. It's a similar process for the `BoardingTicket` state. The state is issued by Mars Express and spent when Peter takes his trip. Both the voucher and ticket are valid for single-use only - when the states are spent, it guarantees that they cannot be used again.
 
 When you create a state, you include the relevant information about the fact you are storing. The `MarsVoucher` state includes a description of the voucher and the names of the issuer and holder. The `BoardingTicket` includes trip information, the issuer and owner of the ticket, and the days left until the rocket launch. You also include a reference to the contract that governs how the states should evolve over time. The state must implement <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`</a> or one of its dependents.
 
@@ -42,7 +42,7 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
    If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
 
-3. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `missionMars`. This changes all instances of `template` in the project to `missionMars`
+3. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `missionMars`. This changes all instances of `template` in the project to `missionMars`.
 
 ## Create the `MarsVoucher` state
 
@@ -95,7 +95,7 @@ Adding the `@BelongsToContract` annotation triggers an error in IntelliJ because
 
 When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `MarsVoucher`, so the contract is called `MarsVoucherContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
 
-### Define the `LinearState`
+### Define the `MarsVoucher` as a `LinearState`
 
 Next, complete the class declaration by adding the `LinearState`. This step ensures that Corda recognizes the `MarsVoucher` as a state.
 
