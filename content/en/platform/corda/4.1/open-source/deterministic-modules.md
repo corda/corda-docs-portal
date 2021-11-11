@@ -13,8 +13,6 @@ tags:
 title: Deterministic Corda Modules
 ---
 
- .red {color:red}
-
 # Deterministic Corda Modules
 
 A Corda contract’s verify function should always produce the same results for the same input data. To that end,
@@ -46,7 +44,7 @@ standalone Gradle project within the Corda repository that will clone the `deter
 GNU Make and a UNIX-like development environment.)`core-deterministic` and `serialization-deterministic` are generated from Corda’s `core` and `serialization`
 modules respectively using both [ProGuard](https://www.guardsquare.com/en/proguard) and Corda’s `JarFilter` Gradle
 plugin. Corda developers configure these tools by applying Corda’s `@KeepForDJVM` and `@DeleteForDJVM`
-annotations to elements of `core` and `serialization` as described [here](#deterministic-annotations).The build generates each of Corda’s deterministic JARs in six steps:
+annotations to elements of `core` and `serialization` as described [here](#applying-keepfordjvm-and-deletefordjvm-annotations).The build generates each of Corda’s deterministic JARs in six steps:
 
 
 

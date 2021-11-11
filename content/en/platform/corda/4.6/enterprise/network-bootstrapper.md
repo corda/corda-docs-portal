@@ -93,14 +93,14 @@ added to the Contract Whitelist (see below).
 ### Whitelisting contracts
 
 Any CorDapps provided when bootstrapping a network will be scanned for contracts which will be used to create the
-*Zone whitelist* (see the documentation on [Contract constraints](../cordapps/api-contract-constraints.html) for the network.
+*Zone whitelist* (see the documentation on [Contract constraints](cordapps/api-contract-constraints.md) for the network.
 
 {{< note >}}
 If you only wish to whitelist the CorDapps but not copy them to each node then run with the `--copy-cordapps=No` option.
 
 {{< /note >}}
 The CorDapp JARs will be hashed and scanned for `Contract` classes. These contract class implementations will become part
-of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` in [Network parameters](network/network-map.md#network-parameters)).
+of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` in [Network parameters](network/network-map.html#network-parameters)).
 
 By default the Bootstrapper will whitelist all the contracts found in the unsigned CorDapp JARs (a JAR file not signed by jarSigner tool).
 Whitelisted contracts are checked by *Zone constraints*, while contract classes from signed JARs will be checked by *Signature constraints*.
@@ -300,7 +300,7 @@ are updating an existing network, the value in the existing network parameters f
 
 {{< note >}}
 All fields can be used with placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
-variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node/operating/node-administration.md#hiding-sensitive-data).
+variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node/operating/node-administration.html#hiding-sensitive-data).
 
 {{< /note >}}
 The available configuration fields are listed below:
@@ -325,7 +325,7 @@ for information on valid inputs.
 
 
 * **packageOwnership**:
-A list of package owners. See [Package namespace ownership](#id1) for more information. For each package owner, the following fields
+A list of package owners. See [Package namespace ownership](#package-namespace-ownership) for more information. For each package owner, the following fields
 are required:
 
 

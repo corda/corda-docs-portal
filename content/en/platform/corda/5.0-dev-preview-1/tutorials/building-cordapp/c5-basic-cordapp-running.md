@@ -27,7 +27,7 @@ Deploy and run the Mission Mars CorDapp on the following test nodes:
 
 ## Before you start
 
-Before you run your Mission Mars CorDapp, you may want to compare your files to the ones from R3's [missionmars](https://github.com/corda/samples-kotlin-corda5/tree/main/tutorial/missionmars) solution repository. This should give you a more holistic view of the CorDapp and help to resolve any issues you might have encountered when writing it.
+Before you run your Mission Mars CorDapp, you may want to compare your files to the ones from R3's [missionmars](https://github.com/corda/samples-kotlin-corda5/tree/main/Tutorial/missionmars) solution repository. This should give you a more holistic view of the CorDapp and help to resolve any issues you might have encountered when writing it.
 
 ## Deploy your CorDapp to a local Corda 5 network
 
@@ -77,7 +77,7 @@ nodes:
 6. Deploy your network locally and start Docker.
 
 ```
-corda-cli network deploy -n missionmars-network -f missionmars.yaml | docker-compose -f - up -d
+corda-cli network deploy -n missionmars-network -f mission-mars.yaml | docker-compose -f - up -d
 ```
 
 The `-f` flag allows you to specify the location of the network definition file. See the [Corda CLI commands documentation](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/commands.html#subcommands) for more information on commands and their flags.
@@ -211,7 +211,7 @@ When running each flow, you must replace the `.json` code for each flow in step 
     "clientId": "launchpad-3",
     "flowName": "net.corda.missionMars.flows.CreateBoardingTicketInitiator",
     "parameters": {
-      "parametersInJson": "{\"ticketDescription\": \"Space Shuttle 323 - Seat 16B\", \"daysTillLaunch\": \"10\"}"
+      "parametersInJson": "{\"ticketDescription\": \"Space Shuttle 323 - Seat 16B\", \"daysUntilLaunch\": \"10\"}"
     }
   }
 }

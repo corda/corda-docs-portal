@@ -24,6 +24,14 @@ or are deploying a third-party CorDapp.
 
 {{< /note >}}
 
+{{< note >}}
+
+When deploying multiple nodes in parallel the package tool (Capsule) that Corda uses can encounter issues retrieving dependencies. This is due to each node trying to download the dependencies in a common location. In these cases it is recommended to set the environment variable CAPSULE_CACHE_DIR, which will allow the Capsule to maintain a separate cache for each node. This is used in the example descriptions below.
+
+The Capsule website has been retired. If you wish to read more about Capsule, you may be able to find documentation in the web archives - for example, the [Wayback Machine](https://archive.org/web/).
+
+{{< /note >}}
+
 ## Linux: Installing and running Corda as a system service
 
 We recommend creating system services to run a node and the optional webserver. This provides logging and service
@@ -37,13 +45,13 @@ handling, and ensures the Corda service is run at boot.
 
 
 
-* As root/sys admin user - add a system user which will be used to run Corda:> 
+* As root/sys admin user - add a system user which will be used to run Corda:>
 `sudo adduser --system --no-create-home --group corda`
 
 * Create a directory called `/opt/corda` and change its ownership to the user you want to use to run Corda:`mkdir /opt/corda; chown corda:corda /opt/corda`
-* Download the [Corda jar](https://r3.bintray.com/corda/net/corda/corda/)
+* Download the [Corda jar](https://software.r3.com/ui/repos/tree/General/corda-releases%2Fnet%2Fcorda%2Fcorda%2F4.1)
 (under `/4.1/corda-4.1.jar`) and place it in `/opt/corda`
-* (Optional) Download the [Corda webserver jar](http://r3.bintray.com/corda/net/corda/corda-webserver/)
+* (Optional) Download the [Corda webserver jar](https://software.r3.com/ui/repos/tree/General/corda-releases%2Fnet%2Fcorda%2Fcorda%2F4.1)
 (under `/4.1/corda-4.1.jar`) and place it in `/opt/corda`
 * Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
@@ -81,7 +89,7 @@ communicate with your node.
 * Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
 * Enter an email address which will be used as an administrative contact during the registration process. This is
 only visible to the permissioning service.
-* Enter your node’s desired legal name (see [Node identity](node-naming.md#node-naming) for more details).
+* Enter your node’s desired legal name (see [Node identity](node-naming.md) for more details).
 * If required, add RPC users
 
 
@@ -94,7 +102,7 @@ If you are running Ubuntu 14.04, follow the instructions for **Upstart**.
 {{< /note >}}
 
 * **SystemD**: Create a `corda.service` file based on the example below and save it in the `/etc/systemd/system/`
-directory> 
+directory>
 ```shell
 [Unit]
 Description=Corda Node - Bank of Breakfast Tea
@@ -116,7 +124,7 @@ WantedBy=multi-user.target
 
 
 
-* **Upstart**: Create a `corda.conf` file based on the example below and save it in the `/etc/init/` directory> 
+* **Upstart**: Create a `corda.conf` file based on the example below and save it in the `/etc/init/` directory>
 ```shell
 description "Corda Node - Bank of Breakfast Tea"
 
@@ -132,19 +140,19 @@ exec java -jar /opt/corda/corda.jar
 
 
 
-* Make the following changes to `corda.service` or `corda.conf`:> 
+* Make the following changes to `corda.service` or `corda.conf`:>
 
 * Make sure the service description is informative - particularly if you plan to run multiple nodes.
 * Change the username to the user account you want to use to run Corda. **We recommend that this user account is
 not root**
-* **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:> 
+* **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:>
 
     * `sudo chown root:root /etc/systemd/system/corda.service`
     * `sudo chmod 644 /etc/systemd/system/corda.service`
 
 
 
-* **Upstart**: Make sure the `corda.conf` file is owned by root with the correct permissions:> 
+* **Upstart**: Make sure the `corda.conf` file is owned by root with the correct permissions:>
 
     * `sudo chown root:root /etc/init/corda.conf`
     * `sudo chmod 644 /etc/init/corda.conf`
@@ -244,7 +252,7 @@ example using PowerShell:
 
 ```kotlin
 mkdir C:\Corda
-wget http://jcenter.bintray.com/net/corda/corda/4.1/corda-4.1.jar -OutFile C:\Corda\corda.jar
+wget https://software.r3.com/ui/repos/tree/General/corda-releases%2Fnet%2Fcorda%2Fcorda%2F4.1%2Fcorda-4.1.jar -OutFile C:\Corda\corda.jar
 ```
 
 
@@ -281,7 +289,7 @@ communicate with your node.
 * Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
 * Enter an email address which will be used as an administrative contact during the registration process. This is
 only visible to the permissioning service.
-* Enter your node’s desired legal name (see [Node identity](node-naming.md#node-naming) for more details).
+* Enter your node’s desired legal name (see [Node identity](node-naming.md) for more details).
 * If required, add RPC users
 
 
@@ -301,7 +309,7 @@ sc start cordanode1
 ```
 
 
-* Modify the batch file:> 
+* Modify the batch file:>
 
 * If you are installing multiple nodes, use a different service name (`cordanode1`) for each node
 * Set an informative description
@@ -328,4 +336,3 @@ You can verify Corda is running by connecting to your RPC port from another host
 
 If you receive the message “Escape character is ^]”, Corda is running and accessible. Press Ctrl-] and Ctrl-D to exit
 telnet.
-

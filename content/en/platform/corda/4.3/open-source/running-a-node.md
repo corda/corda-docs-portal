@@ -65,12 +65,12 @@ They are listed here in order of increasing priority, i.e. if the same flag is s
 anything set earlier.
 
 
-* **Default arguments in capsule**: 
+* **Default arguments in capsule**:
 The capsuled Corda node has default flags set to `-Xmx512m -XX:+UseG1GC` - this gives the node (a relatively
 low) 512 MB of heap space and turns on the G1 garbage collector, ensuring low pause times for garbage collection.
 
 
-* **Node configuration**: 
+* **Node configuration**:
 The node configuration file can specify custom default JVM arguments by adding a section like:
 
 ```none
@@ -83,7 +83,7 @@ Note that this will completely replace any defaults set by capsule above, not ju
 to set e.g. the memory, you also need to set the garbage collector, or it will revert to whatever default your JVM is using.
 
 
-* **Capsule specific system property**: 
+* **Capsule specific system property**:
 You can use a special system property that Capsule understands to set JVM arguments only for the Corda
 process, not the launcher that actually starts it:
 
@@ -97,12 +97,12 @@ This is particarly useful for either setting large memory allowances that you do
 can only be set on one process at a time, e.g. a debug port.
 
 
-* **Command line flag**: 
+* **Command line flag**:
 You can set JVM args on the command line that apply to the launcher process and the node process as in the example
 above. This will override any value for the same flag set any other way, but will leave any other JVM arguments alone.
 
 
-* **OutOfMemoryError handling**: 
+* **OutOfMemoryError handling**:
 In addition to the JVM arguments listed above, the capsuled Corda node has two flags that cause the node to stop
 on out-of-memory error and generate the corresponding diagnostic files:
 
@@ -152,7 +152,7 @@ fail to start.
 
 If you receive an `OutOfMemoryError` exception when interacting with the nodes, you need to increase the amount of
 Java heap memory available to them, which you can do when running them individually. See
-[Starting a Corda node from the command line](#starting-an-individual-corda-node).
+[Starting a Corda node from the command line](#starting-a-corda-node-from-the-command-line).
 
 
 ### docker-compose
@@ -185,7 +185,7 @@ To create nodes locally and run on a remote machine perform the following steps:
 * Configure Cordform task and deploy the nodes locally as described in [Creating nodes locally](generating-a-node.md).
 * Copy the generated directory structure to a remote machine using e.g. Secure Copy.
 * Optionally, bootstrap the network on the remote machine.This is optional step when a remote machine doesn’t accept `localhost` addresses, or the generated nodes are configured to run on another host’s IP address.If required change host addresses in top level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress` , `rpcSettings.address` and  `rpcSettings.adminAddress`.Run the network bootstrapper tool to regenerate the nodes network map (see for more explanation [Network Bootstrapper](network-bootstrapper.md)):`java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`
-* Run nodes on the remote machine using [runnodes command](#starting-all-nodes-at-once).
+* Run nodes on the remote machine using [runnodes command](#starting-all-nodes-at-once-on-a-remote-machine-from-the-command-line).
 
 The above steps create a test deployment as `deployNodes` Gradle task would do on a local machine.
 
@@ -210,4 +210,3 @@ connectivity problem in the log.
 
 {{< /note >}}
 Once critical resources node relies upon are available again, it is safe for Node operator to re-start the node for normal operation.
-

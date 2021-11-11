@@ -45,11 +45,7 @@ handling, and ensures the Corda service is run at boot.
 
 **Prerequisites**:
 
-
-
-* A supported Java distribution (see [Getting set up for CorDapp development](starting-components.md))
-
-
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.4/enterprise/cordapps/getting-set-up.md))
 
 * As root/sys admin user - add a system user which will be used to run Corda:
 `sudo adduser --system --no-create-home --group corda`
@@ -250,8 +246,8 @@ at boot, and means the Corda service stays running with no users connected to th
 **Prerequisites**:
 
 
+* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.4/enterprise/cordapps/getting-set-up.md))
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../../en/platform/corda/4.4/enterprise/cordapps/getting-set-up.md))
 
 
 

@@ -11,7 +11,7 @@ weight: 400
 ---
 
 {{< note >}}
-All mentions of `jmeter-corda.jar` on this page refer to the `jmeter-corda-<version>-capsule.jar` - see [Obtaining and Installing the Performance Test Suite](installation.html) for more information.
+All mentions of `jmeter-corda.jar` on this page refer to the `jmeter-corda-<version>-capsule.jar` - see [Obtaining and Installing the Performance Test Suite](installation.md) for more information.
 {{< /note >}}
 
 # JMeter samplers

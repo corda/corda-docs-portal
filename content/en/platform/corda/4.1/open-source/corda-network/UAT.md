@@ -44,6 +44,6 @@ Corda Network UAT is an R3 owned and operated environment and service designed t
 
 *The below joining steps assume the potential participant is joining the UAT environment directly, and as such is not "sponsoring" or onboarding other participants. If this is the case, please contact your Corda representative for how to "sponsor" end-participants.*
 
-Steps to join are outlined on the [Corda Network UAT microsite](http://uat.network.r3.com/pages/joining/joining.html)
+Steps to join are outlined on the [Corda Network site](https://corda.network/joining-corda-network/onboarding-workflow/).
 
 For further questions on this process, please contact us - preferably on the mailing list: [https://groups.io/g/corda-network](https://groups.io/g/corda-network)

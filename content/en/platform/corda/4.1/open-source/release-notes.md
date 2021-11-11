@@ -239,7 +239,7 @@ Learn more about this new feature by reading the [Upgrading apps to Corda 4](app
 
 #### State pointers
 
-[State Pointers](api-states.md#state-pointers) formalize a recommended design pattern, in which states may refer to other states
+[State Pointers](api-states.html#state-pointers) formalize a recommended design pattern, in which states may refer to other states
 on the ledger by `StateRef` (a pair of transaction hash and output index that is sufficient to locate
 any information on the global ledger). State pointers work together with the reference states feature
 to make it easy for data to point to the latest version of any other piece of data, with the right

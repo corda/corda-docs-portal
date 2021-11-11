@@ -24,7 +24,7 @@ release, see upgrade-notes.
 
 
 * Changes in HA notary setup: the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
-See [notary installation page](running-a-notary-cluster/installing-the-notary-service.md#mysql-driver) for more information.
+See [notary installation page](running-a-notary-cluster/installing-the-notary-service.html#mysql-notary-deprecated) for more information.
 * For Azure SQL and SQL Server databases the node now requires a minimum version of 6.4.0.jre8 for the JDBC drivers.
 
 

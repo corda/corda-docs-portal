@@ -345,7 +345,7 @@ A full list of the parameters that can be utilized in these configuration files 
 
 ### Corda 3.x vs Corda 4.x Firewall Upgrade
 
-In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found in [Firewall upgrade](../../node/corda-firewall-upgrade.html).
+In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found in [Firewall upgrade](../../node/corda-firewall-upgrade.md).
 
 
 ### Port Policy and Network Configuration

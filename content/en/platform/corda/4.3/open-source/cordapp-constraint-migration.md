@@ -45,9 +45,9 @@ Fungible states are created by an issuer and transferred around a Corda network 
 
 For the purposes of constraints migration, it is desirable that any new output states are produced using the new Corda 4 signature constraint types. Where you have long transaction chains of fungible states, it may be advisable to send them back to the issuer for re-issuance (this is called “chain snipping” and has performance advantages as well as simplifying constraints type migration).
 
-### Should I use the **implicit** or **explicit** upgrade path?
+### Should I use the *implicit* or *explicit* upgrade path?
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.md#implicit-vs-explicit-upgrades). **Implicit** upgrades allow pre-authorising multiple implementations of the contract ahead of time.
+The general recommendation for Corda 4 is to use *implicit* upgrades for the reasons described [here](api-contract-constraints.html#implicit-vs-explicit-upgrades). *Implicit* upgrades allow pre-authorising multiple implementations of the contract ahead of time.
 They do not require additional coding and do not incur a complex choreographed operational upgrade process.
 
 
@@ -55,7 +55,7 @@ They do not require additional coding and do not incur a complex choreographed o
 {{< warning >}}
 The steps outlined in this page assume you are using the same CorDapp Contract (eg. same state definition, commands and verification code) and
 wish to use that CorDapp to leverage the upgradeability benefits of Corda 4 signature constraints. If you are looking to upgrade code within an existing
-Contract CorDapp please read [Contract and state versioning](upgrading-cordapps.md#contract-upgrading-ref) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
+Contract CorDapp please read [Contract and state versioning](upgrading-cordapps.html#contract-upgrading-ref) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
 
 {{< /warning >}}
 
@@ -142,12 +142,12 @@ by different parties and it will be expressed as a `CompositeKey` in the `Signat
 to all nodes in that CZ). The CZ network operator should check that the JAR is signed and not allow any more versions of it to be whitelisted in the future.
 From now on the development organisation that signed the JAR is responsible for signing new versions. The process of CZ network CorDapp whitelisting depends on how the Corda network is configured:
 
-* If using a hosted CZ network (such as [The Corda Network](https://docs.corda.net/head/corda-network/index.html) or
-[UAT Environment](https://docs.corda.net/head/corda-network/uat.html) ) running an Identity Operator (formerly known as Doorman) and
+* If using a hosted CZ network (such as [The Corda Network](https://corda.network) or
+[UAT Environment](https://corda.network/about/corda-network-pre-production) running an Identity Operator (formerly known as Doorman) and
 Network Map Service, you should manually send the hashes of the two JARs to the CZ network operator and request these be added using
 their network parameter update process.
 * If using a local network created using the Network Bootstrapper tool, please follow the instructions in
-[Updating the contract whitelist for bootstrapped networks](network-bootstrapper.md#bootstrapper-updating-whitelisted-contracts) to can add both CorDapp Contract JAR hashes.
+[Updating the contract whitelist for bootstrapped networks](network-bootstrapper.html#bootstrapper-updating-whitelisted-contracts) to can add both CorDapp Contract JAR hashes.
 
 
 

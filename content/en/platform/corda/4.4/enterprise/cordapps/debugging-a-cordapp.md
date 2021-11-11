@@ -89,4 +89,4 @@ The nodes’ webservers always run in a separate process, and cannot be attached
 
 ## By enabling remote debugging on a node
 
-See [Enabling remote debugging](../node/node-commandline.md#enabling-remote-debugging).
+See [Enabling remote debugging](../../../../../../en/platform/corda/4.4/enterprise/node/node-commandline.html#enabling-remote-debugging).
