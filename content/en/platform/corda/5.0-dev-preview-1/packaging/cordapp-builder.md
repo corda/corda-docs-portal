@@ -16,6 +16,19 @@ CorDapp Builder CLI is a command-line utility that assembles Corda package bundl
 
 CorDapp Builder CLI can be installed automatically or manually.
 
+### Automatic installation
+
+1. Download the [universal installer](https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0/cordapp-builder-installer.jar).
+2. Run the following command.
+    ```bash
+    java -jar cordapp-builder-installer.jar
+    ```
+3. Start a new shell.
+4. Test the program with the following command.
+    ```bash
+    cordapp-builder --version
+    ```
+
 ### Manual installation
 
 #### Before you start
@@ -60,20 +73,6 @@ If a previous installation of CorDapp Builder CLI exists, remove it. See [deleti
 6. Verify installation by opening a new terminal session and running `cordapp-builder --version`.
 
    **Step result:** If successful, this will output details of the installed CorDapp Builder CLI version.
-
-
-### Automatic installation
-
-1. Download the [universal installer](https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0/cordapp-builder-installer.jar).
-2. Run the following command.
-    ```bash
-    java -jar cordapp-builder-installer.jar
-    ```
-3. Start a new shell.
-4. Test the program with the following command.
-    ```bash
-    cordapp-builder --version
-    ```
 
 ## Usage
 
