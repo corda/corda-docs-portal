@@ -12,9 +12,9 @@ tags:
 title: "Write the MarsVoucher and BoardingTicket states"
 ---
 
-In Corda, states are immutable objects on the ledger. One or more Corda nodes agree that these states exist at a specific point in time. These objects can represent any information - in this example, the states represent the voucher for a trip to Mars (`MarsVoucher`) and a ticket (`BoardingTicket`) given to the customer when they redeem their voucher. These states represent information that Mars Express and Peter share and have agreed upon.
+In Corda, states are immutable objects. One or more Corda nodes agree that these states exist at a specific point in time. These objects can represent any information - in this example, the states represent the voucher for a trip to Mars (`MarsVoucher`) and a ticket (`BoardingTicket`) given to the customer when they redeem their voucher. These states represent information that Mars Express and the customer share and have agreed upon.
 
-States associated to a specific party's identity are stored in that entity's vault. For a state to evolve, the current state must be marked as historic and a new, updated state must be created. The `MarsVoucher` state is issued by the company Mars Express to Peter, so it is stored in both parties' vaults. When Peter redeems his voucher, the `MarsVoucher` state is spent and this information is updated in both vaults. It's a similar process for the `BoardingTicket` state. The state is issued by Mars Express and spent when Peter takes his trip. Both the voucher and ticket are valid for single-use only - when the states are spent, it guarantees that they cannot be used again.
+States associated to a specific party's identity are stored in that entity's vault. They are also stored in the vaults of relevant parties, or other parties involved in transactions with that state. For a state to evolve, the current state must be marked as historic and a new, updated state must be created. The `MarsVoucher` state is issued by the company Mars Express to Peter, so it is stored in both parties' vaults. When Peter redeems his voucher, the `MarsVoucher` state is spent and this information is updated in both vaults. It's a similar process for the `BoardingTicket` state. The state is issued by Mars Express and spent when Peter takes his trip. Both the voucher and ticket are valid for single-use only - when the states are spent, it guarantees that they cannot be used again.
 
 When you create a state, you include the relevant information about the fact you are storing. The `MarsVoucher` state includes a description of the voucher and the names of the issuer and holder. The `BoardingTicket` includes trip information, the issuer and owner of the ticket, and the days left until the rocket launch. You also include a reference to the contract that governs how the states should evolve over time. The state must implement <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`</a> or one of its dependents.
 
@@ -42,19 +42,26 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
    If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
 
-3. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `missionMars`. This changes all instances of `template` in the project to `missionMars`.
+3. If you want to customize the CorDapp template, [rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `missionMars`. This changes all instances of `template` in the project to `missionMars`.
 
 ## Create the `MarsVoucher` state
 
-First create the `MarsVoucher` state. As noted above, this state represents the voucher that Mars Express will issue to its customers. It must include a description of the voucher, the name of the issuer, and the name of the current holder. You can choose from several types of <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`s</a> when writing a CorDapp:
+First create the `MarsVoucher` state. This state represents the voucher that Mars Express will issue to its customers and must include:
+* A description of the voucher. This can include any relevant information, such as an expiration date.
+* The name of the issuer. The customer can then verify which company the voucher was purchased from.
+* The name of the current holder. The company can then verify the identity of the customer who redeems the voucher.
+
+The `MarsVoucher` state must be transferable between entities. A customer redeems their voucher by returning it to the company that issued it. The value of this voucher does not change until it is redeemed, when the state is consumed and the voucher cannot be used again. You need a way to track the evolution of this state as it is transferred between parties.
+
+Use a <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#linearstate">`LinearState`</a> to tie the `MarsVoucher` to a `linearId`. When the state is transferred to a new holder, the state evolves. This creates a sequence of `LinearStates` with each evolution. The `LinearState`s share a `linearId`, so you can track the lifecycle of the `MarsVoucher` state.
+
+The `LinearState` makes sense for this use case, but there are several types of <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`s</a> that you can use when writing your own CorDapp:
 
 * <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#linearstate">`LinearState`</a>
 * <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#ownablestate">`OwnableState`</a>
 * <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#fungiblestate">`FungibleState`</a>
 * <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#the-queryablestate-and-schedulablestate-interfaces">`QueryableState`</a>
 * <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#the-queryablestate-and-schedulablestate-interfaces">`SchedulableState`</a>
-
-In this case, use a <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#linearstate">`LinearState`</a> to tie the `MarsVoucher` to a `linearId`. As the information in the state changes, the state evolves. This creates a sequence of `LinearStates` with each evolution. The `LinearState`s share a `linearId`, so you can track the lifecycle of the `MarsVoucher` state.
 
 ### Set up the `MarsVoucher` file
 
@@ -64,42 +71,11 @@ In this case, use a <a href="../../../../../../en/platform/corda/4.8/open-source
 
 3. Open the file.
 
-### Connect the `MarsVoucher` state to the `MarsVoucherContract`
-
-The first thing you should do when writing a state is add the `@BelongsToContract` annotation. This annotation establishes the relationship between a state and a contract. Without this, your state does not know which contract is used to verify it.
-
-1. Add the `MarsVoucherContract.class`.
-
-2. Add the annotation `@BelongsToContract` to your state.
-
-{{< note >}}
-As you are writing the state, you will notice that IntelliJ prompts you to add imports that correspond to elements you've added. In this case, `@BelongsToContract` and `MarsVoucherContract` are underlined by IntelliJ. Click the underlined item and press **Enter** to add the relevant import. Repeat this process for all suggested imports.
-{{< /note >}}
-
-This is what your code should look like so far:
-
-```kotlin
-package net.corda.missionMars.states
-
-import net.corda.missionMars.contracts.MarsVoucherContract
-import net.corda.v5.ledger.contracts.BelongsToContract
-
-@BelongsToContract(MarsVoucherContract.class)
-class MarsVoucher {
-}
-```
-
-{{< note >}}
-Adding the `@BelongsToContract` annotation triggers an error in IntelliJ because you haven't created the `MarsVoucherContract` yet. Ignore this error for now - you will add the contract class in the [Write contracts](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-contract.md) tutorial.
-{{< /note >}}
-
-When naming your CorDapp files, it's best practice to match your contract and state names. In this case the state is called `MarsVoucher`, so the contract is called `MarsVoucherContract`. Follow this naming convention when you write an original CorDapp to avoid confusion.
-
 ### Define the `MarsVoucher` as a `LinearState`
 
-Next, complete the class declaration by adding the `LinearState`. This step ensures that Corda recognizes the `MarsVoucher` as a state.
+Next, implement the `LinearState` interface in the `MarsVoucher`. This step ensures that Corda recognizes the `MarsVoucher` as a state.
 
-You will also need to add a `@ConstructorForDeserialization` and a `JsonRepresentable`. You will add the details to this `JsonRepresentable` [later](#add-the-json-representable-data-class).
+You also need to add a `@ConstructorForDeserialization` and extend the `JsonRepresentable`. You will add the details to this `JsonRepresentable` [later](#add-the-json-representable-data-class).
 
 1. Add the public class `MarsVoucher` implementing a `LinearState`.
 2. Add the `@ConstructorForDeserialization`.
