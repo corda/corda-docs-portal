@@ -17,6 +17,23 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.8.3
+
+Corda Enterprise 4.8.3 is a patch release of Corda Enterprise that fixes an issue affecting flows on counterparty nodes in the event of certain notary exceptions.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+In this patch release:
+
+* A fix has been added to prevent exceptions from the notary leading to hospitalised flows on counterparty nodes.
+
+
 ## Corda Enterprise 4.8.2
 
 Corda Enterprise 4.8.2 is a patch release of Corda Enterprise that fixes security vulnerabilities in Corda Enterprise 4.8 and 4.8.1, and offers greater compatibility with recent versions of FutureX.
@@ -34,7 +51,7 @@ In this patch release:
 * Compatibility with FutureX versions FXPKCS11 4.40 and FXJCA 1.33.
 * A new FutureX configuration option has been introduced: `loginOnce`. This allows users to login only once, to match JWT continuous-keep-alive functionality. To enable this setting, use the updated configuration documentation. By default, `loginOnce` is set to `false`.
 * There are now additional log entries from configured FutureX crypto service detailing when operation on the crypto service starts and ends.
-* Notary support for Cockroach DB version 21.1.7. 
+* Notary support for Cockroach DB version 21.1.7.
 * A fix to prevent a rare invalid notarisation response after internal notary flow retry.
 * Vulnerability fixes have been added to protect against Denial of Service (DoS) attacks via unchecked attachment files.
 * Vulnerability fixes have been added to prevent sensitive information being retrievable from MSSQL databases via DDL script using the Data Management Tool.
