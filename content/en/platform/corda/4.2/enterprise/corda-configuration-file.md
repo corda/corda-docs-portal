@@ -127,8 +127,7 @@ Otherwise, a currently active flow must be finished or suspended before the susp
 up to handle the event. This can have serious performance implications if the flow thread pool is too small,
 as a flow cannot be suspended while in a database transaction, or without checkpointing its state first.
 Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in
-parallel, allowing more than one flow to be active and/or use resources at the same time.The default value is 2 times the number of cores available which was found to be working efficiently in
-performance testing.
+parallel, allowing more than one flow to be active and/or use resources at the same time.
 The ideal value for this parameter depends on a number of factors.
 The main ones are the hardware the node is running on, the performance profile of the
 flows, and the database instance backing the node as datastore. Every thread will open a database connection,
