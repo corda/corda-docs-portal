@@ -119,7 +119,9 @@ Mode used when setting up the Artemis client. Supported modes are: DEFAULT (5 in
 FAIL_FAST (no initial attempts, no reconnect attempts), CONTINUOUS_RETRY (infinite initial and reconnect attempts, starting retry interval of 5 seconds with an exponential back-of multiplier of 1.5 up for up to 5 minutes retry interval).*Default:* DEFAULTList of Artemis Server back-up addresses. If any back-ups are specified, the client will be configured to automatically failover to the first server it can connect to.*Default:* empty list
 
 
-Performance tuning parameters for Corda EnterpriseThe number of threads available to handle flows in parallel. This is the number of flows
+## Performance tuning parameters for Corda Enterprise
+
+The number of threads available to handle flows in parallel. This is the number of flows
 that can run in parallel doing something and/or holding resources like database connections.
 A larger number of flows can be suspended, e.g. waiting for reply from a counterparty.
 When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
