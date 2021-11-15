@@ -31,7 +31,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 In this patch release:
 
-* A fix has been added to prevent exceptions from the notary leading to hospitalised flows on counterparty nodes.
+* A fix has been added to prevent exceptions from the notary leading to hospitalized flows on counterparty nodes.
 
 
 ## Corda Enterprise 4.8.2
