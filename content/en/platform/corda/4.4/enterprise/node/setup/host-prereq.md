@@ -76,7 +76,7 @@ Prerequisite and sizing information for the Corda Node, Bridge and Float compone
 ### VM Sizing Guidelines
 
 {{< note >}}
-R3 recommend a max Java heap memory size of 4 GB be allocated to a Corda Node running in a production environment.
+You should allocate a minimum Java heap memory size of 4 GB to a Corda Node running in a production environment.
 
 {{< /note >}}
 Minimum specification for a testing environment with components on separate VMs:
