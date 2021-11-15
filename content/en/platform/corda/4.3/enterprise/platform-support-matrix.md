@@ -119,8 +119,7 @@ Driver 8.0.16|
 
 |Vendor|CPU Architecture|Versions|JDBC Driver|
 |-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|19.1.2|PostgreSQL JDBC
-Driver 42.1.4|
+|CockroachDB|x86-64|19.1.2|PostgreSQL JDBC Driver 42.1.4|
 |Oracle RAC|x86-64|12cR2|Oracle JDBC 8|
 
 {{< /table >}}
