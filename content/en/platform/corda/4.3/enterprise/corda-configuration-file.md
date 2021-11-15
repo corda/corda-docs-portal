@@ -464,7 +464,7 @@ To add additional data source properties (for a specific JDBC driver) use the `d
 Performance tuning parameters for Corda Enterprise
 
 * `flowThreadPoolSize`
-  `
+  
   The number of threads available to handle flows in parallel. This is the number of flows
   that can run in parallel doing something and/or holding resources like database connections.
   A larger number of flows can be suspended, e.g. waiting for reply from a counterparty.
