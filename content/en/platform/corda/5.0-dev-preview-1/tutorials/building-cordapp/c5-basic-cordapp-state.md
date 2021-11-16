@@ -73,11 +73,11 @@ The `LinearState` makes sense for this use case, but there are several types of 
 
 ### Define the `MarsVoucher` as a `LinearState`
 
-Next, implement the `LinearState` interface in the `MarsVoucher`. This step ensures that Corda recognizes the `MarsVoucher` as a state.
+Next, implement the `LinearState` interface in the `MarsVoucher`. This step allows Corda to use the `MarsVoucher` as a state.
 
-You also need to add a `@ConstructorForDeserialization` and extend the `JsonRepresentable`. You will add the details to this `JsonRepresentable` [later](#add-the-json-representable-data-class).
+You must also add a `@ConstructorForDeserialization` and extend the `JsonRepresentable`. You will implement it [later](#add-a-json-representable-data-class).
 
-1. Add the public class `MarsVoucher` implementing a `LinearState`.
+1. Add the public class `MarsVoucher` implementing `LinearState`.
 2. Add the `@ConstructorForDeserialization`.
 3. Extend the `JsonRepresentable`.
 
@@ -87,7 +87,6 @@ This is what your code should look like now:
 package net.corda.missionMars.states
 
 import com.google.gson.Gson
-import net.corda.missionMars.contracts.MarsVoucherContract
 import net.corda.v5.application.utilities.JsonRepresentable
 import net.corda.v5.ledger.UniqueIdentifier
 import net.corda.v5.ledger.contracts.BelongsToContract
@@ -119,7 +118,6 @@ After adding these features, your code should look like this:
 package net.corda.missionMars.states
 
 import com.google.gson.Gson
-import net.corda.missionMars.contracts.MarsVoucherContract
 import net.corda.v5.application.identity.AbstractParty
 import net.corda.v5.application.identity.Party
 import net.corda.v5.application.utilities.JsonRepresentable
@@ -159,7 +157,6 @@ After you've added this data class, your code should look like this:
 package net.corda.missionMars.states
 
 import com.google.gson.Gson
-import net.corda.missionMars.contracts.MarsVoucherContract
 import net.corda.v5.application.identity.AbstractParty
 import net.corda.v5.application.identity.Party
 import net.corda.v5.application.utilities.JsonRepresentable
@@ -202,7 +199,6 @@ After you've added these items, your code should look like this:
 package net.corda.missionMars.states
 
 import com.google.gson.Gson
-import net.corda.missionMars.contracts.MarsVoucherContract
 import net.corda.v5.application.identity.AbstractParty
 import net.corda.v5.application.identity.Party
 import net.corda.v5.application.utilities.JsonRepresentable
