@@ -180,7 +180,7 @@ Java module. This will work but it will effectively publish your entire app onto
 (1) it is inefficient, and (2) it means changes to your flows or other parts of the app will be seen by the ledger
 as a “new app”, which may end up requiring essentially unnecessary upgrade procedures. It’s better to split your
 app into multiple modules: one which contains just states, contracts and core data types. And another which contains
-the rest of the app. See [Modules](writing-a-cordapp.md#cordapp-structure).
+the rest of the app. See [Modules](writing-a-cordapp.html#modules).
 
 {{< /warning >}}
 
@@ -216,7 +216,7 @@ possible constraints, the `TransactionBuilder` will throw an exception.
 The key used for signing will be used to sign all subsequent releases, so it should be stored appropriately. The JAR can be signed by multiple keys owned
 by different parties and it will be expressed as a `CompositeKey` in the `SignatureAttachmentConstraint` (See [API: Core types](api-core-types.md)).
 Use [JAR signing and verification tool](https://docs.oracle.com/javase/tutorial/deployment/jar/verify.html) to sign the existing JAR.
-The signing capability of [corda-gradle-plugins](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) cannot be used in this context as it signs the JAR while building it from source.
+The signing capability of [corda-gradle-plugins](cordapp-build-systems.html#signing-the-cordapp-jar) cannot be used in this context as it signs the JAR while building it from source.
 
 2. Whitelist this newly signed JAR with the Zone operator. The Zone operator should check that the JAR is signed and not allow any
 more versions of it to be whitelisted in the future. From now on the developer(s) who signed the JAR are responsible for new versions.
@@ -316,4 +316,3 @@ See [Creating nodes locally](generating-a-node.md) for detailed instructions.
 You are specifying the fully-qualified name of the contract incorrectly. For example, you’ve defined `MyContract` in
 the package `com.mycompany.myapp.contracts`, but the fully-qualified contract name you pass to the
 `TransactionBuilder` is `com.mycompany.myapp.MyContract` (instead of `com.mycompany.myapp.contracts.MyContract`).
-
