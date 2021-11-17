@@ -53,6 +53,17 @@ First create the `MarsVoucher` state. This state represents the voucher that Mar
 
 The `MarsVoucher` state must be transferable between entities. A customer redeems their voucher by returning it to the company that issued it. The value of this voucher does not change until it is redeemed, when the state is consumed and the voucher cannot be used again. You need a way to track the evolution of this state as it is transferred between parties.
 
+
+### Set up the `MarsVoucher` class
+
+1. Right-click the **states** folder, select **New > Kotlin Class/File**.
+
+2. In the **New Kotlin Class/File** window, select **Class** and create a file called `MarsVoucher`.
+
+3. Open the file.
+
+### Implement the `LinearState` interface
+
 Use a <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#linearstate">`LinearState`</a> to tie the `MarsVoucher` to a `linearId`. When the state is transferred to a new holder, the state evolves. This creates a sequence of `LinearStates` with each evolution. The `LinearState`s share a `linearId`, so you can track the lifecycle of the `MarsVoucher` state.
 
 The `LinearState` makes sense for this use case, but there are several types of <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`s</a> that you can use when writing your own CorDapp:
@@ -63,23 +74,16 @@ The `LinearState` makes sense for this use case, but there are several types of 
 * <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#the-queryablestate-and-schedulablestate-interfaces">`QueryableState`</a>
 * <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#the-queryablestate-and-schedulablestate-interfaces">`SchedulableState`</a>
 
-### Set up the `MarsVoucher` class
+`LinearState` allows Corda to use the `MarsVoucher` as a state. You must implement a method to populate the `participants` of the state. `participants` is a list of the `AbstractParty` that are involved with the state. The `participants`:
 
-1. Right-click the **states** folder, select **New > Kotlin Class/File**.
+* Store the state in their vault.
+* Need to sign any notary-change and contract-upgrade transactions involving this state.
+* Receive any finalized transactions involving this state as part of `FinalityFlow`.
 
-2. In the **New Kotlin Class/File** window, select **Class** and create a file called `MarsVoucher`.
-
-3. Open the file.
-
-### Define the `MarsVoucher` as a `LinearState`
-
-Next, implement the `LinearState` interface in the `MarsVoucher`. This step allows Corda to use the `MarsVoucher` as a state.
-
-You must also add a `@ConstructorForDeserialization` and extend the `JsonRepresentable`. You will implement it [later](#add-a-json-representable-data-class).
+You must also extend the `JsonRepresentable`.
 
 1. Add the public class `MarsVoucher` implementing `LinearState`.
-2. Add the `@ConstructorForDeserialization`.
-3. Extend the `JsonRepresentable`.
+2. Extend the `JsonRepresentable`.
 
 This is what your code should look like now:
 
@@ -92,7 +96,7 @@ import net.corda.v5.ledger.UniqueIdentifier
 import net.corda.v5.ledger.contracts.BelongsToContract
 import net.corda.v5.ledger.contracts.LinearState
 
-data class MarsVoucher @ConstructorForDeserialization constructor (
+data class MarsVoucher (
 ) : LinearState, JsonRepresentable{
 
 }
@@ -106,11 +110,7 @@ Next, you need to add the content of the state. Remember that the `MarsVoucher` 
 *  The issuer of the voucher - `issuer`
 *  The current owner of the voucher- `holder`
 
-In the class, you need to implement a method to populate the `participants` of the state. `participants` is a list of the `AbstractParty` that are involved with the state. The `participants`:
 
-* Store the state in their vault.
-* Need to sign any notary-change and contract-upgrade transactions involving this state.
-* Receive any finalized transactions involving this state as part of `FinalityFlow`.
 
 After adding these features, your code should look like this:
 
@@ -125,7 +125,7 @@ import net.corda.v5.ledger.UniqueIdentifier
 import net.corda.v5.ledger.contracts.BelongsToContract
 import net.corda.v5.ledger.contracts.LinearState
 
-data class MarsVoucher @ConstructorForDeserialization constructor (
+data class MarsVoucher (
         val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
         val issuer: Party, //The party who issued the voucher
         val holder: Party, //The party who currently owns the voucher
@@ -164,7 +164,7 @@ import net.corda.v5.ledger.UniqueIdentifier
 import net.corda.v5.ledger.contracts.BelongsToContract
 import net.corda.v5.ledger.contracts.LinearState
 
-data class MarsVoucher @ConstructorForDeserialization constructor (
+data class MarsVoucher (
         val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
         val issuer: Party, //The party who issued the voucher
         val holder: Party, //The party who currently owns the voucher
@@ -206,7 +206,7 @@ import net.corda.v5.ledger.UniqueIdentifier
 import net.corda.v5.ledger.contracts.BelongsToContract
 import net.corda.v5.ledger.contracts.LinearState
 
-data class MarsVoucher @ConstructorForDeserialization constructor (
+data class MarsVoucher (
         val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
         val issuer: Party, //The party who issued the voucher
         val holder: Party, //The party who currently owns the voucher
