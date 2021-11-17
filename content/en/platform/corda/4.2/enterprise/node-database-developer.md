@@ -195,7 +195,7 @@ The following updates are required to a nodes filesystem configuration:
 
 * The Corda node configuration file `node.conf` needs to contain JDBC connection properties in the `dataSourceProperties` entry
 and other database properties (passed to nodes’ JPA persistence provider or schema creation/upgrade flag) in the `database` entry.
-For development convenience the properties are specified in the [deployNodes Cordform task](testing.md#testing-cordform-ref) task.
+For development convenience the properties are specified in the `deployNodes` Cordform task.
 
 ```none
 dataSourceProperties = {
@@ -418,7 +418,7 @@ ensure that:
 
 
 * the node can connect to the  database with **administrative permissions** or runs with the default embedded H2 database.
-* the node configuration `node.conf` file contains the *runMigration* option set to *true*:> 
+* the node configuration `node.conf` file contains the *runMigration* option set to *true*:>
 ```groovy
 database = {
     runMigration = true
