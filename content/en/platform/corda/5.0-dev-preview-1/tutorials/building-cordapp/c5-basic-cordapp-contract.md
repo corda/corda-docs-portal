@@ -44,8 +44,7 @@ When naming contracts, it’s best practice to match your contract and state nam
 
 4. Open the file.
 
-
-### Add the class name declaration
+## Add the class name declaration
 
 A Corda state typically has a corresponding contract class to document the rules/policy of that state when used in a transaction. To declare the contract class:
 

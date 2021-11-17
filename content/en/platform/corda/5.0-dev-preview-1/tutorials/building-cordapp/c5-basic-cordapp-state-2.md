@@ -93,9 +93,9 @@ data class BoardingTicket(
 There are several ways to return your parameters in a JSON string. The tutorial shows you one method, but you are not restricted to using this specific method in Corda.
 {{< /note >}}
 
-1. Create a data transfer object that encapsulates the data of your `BoardingTicket` state - `BoardingTicketDto`. This should include the same variables as the `BoardingTicket` class (`description`, `marsExpress`, `owner`, and `daysUntilLaunch`) and mark all variable types as `String`.
+1. Create a data transfer object that encapsulates the data of your `BoardingTicket` state - `BoardingTicketDto`. Include the same variables as the `BoardingTicket` class (`description`, `marsExpress`, `owner`, and `daysUntilLaunch`) and mark all variable types as `String`.
 2. Create a function that instantiates the `BoardingTicketDto`.
-3. Create an [override function](https://kotlinlang.org/docs/inheritance.html#overriding-methods) that converts the `BoardingTicketDto` variables to JSON using the `toJson` method.
+3. Create an override function that converts the `BoardingTicketDto` variables to JSON using the `toJson` method.
 
 Your code should now look like this:
 
