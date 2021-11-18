@@ -44,7 +44,7 @@ When naming contracts, it’s best practice to match your contract and state nam
 
 4. Open the file.
 
-### Declare the contract class
+### Create the contract class
 
 A Corda state typically has a corresponding contract class to document the rules/policy of that state when used in a transaction. To declare the contract class:
 
@@ -67,7 +67,7 @@ class MarsVoucherContract : Contract {
 
 ### Connect the `MarsVoucherContract` to the `MarsVoucher` state
 
-After creating the contract class in a CorDapp, you must connect the contract to its correlating state. Add the `@BelongsToContract` annotation *in the state class* to establish the relationship between a state and a contract. Without this, your state does not know which contract is used to verify it.
+After creating the contract class in a CorDapp, you must connect the contract to its correlating state. Add the `@BelongsToContract` annotation *in the state class* to establish the relationship between a state and a contract. Without this, your state does not hold a relationship to the contract that is used to verify it.
 
 1. Open your `MarsVoucher` class.
 2. Insert the `@BelongsToContract` annotation with the `MarsVoucherContract` just before the definition of the `MarsVoucher` data class.
@@ -76,15 +76,15 @@ Transactions involving the `MarsVoucher` state are now verified using the `MarsV
 
 ### Define commands
 
-[Commands](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-transactions.html#commands) are built into a transaction to indicate the transaction's intent. They control the type of actions performed to the state that the contract can verify.
+[Commands](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-transactions.html#commands) are built into a transaction to indicate its intent. They control the type of actions performed to the state that the contract can verify.
 
 Each command is associated with a list of signers. The public keys listed in a contract's commands indicate the transaction's required signers.
 
 In the `MarsVoucherContract`, you need a command that issues the `MarsVoucher`.
 
-1. Add the `Commands : CommandData` interface declaration.
+1. Extend the `CommandData` interface into a new interface called `Commands`.
 
-2. Inside the interface, add the `Issue` class that implements `Commands`.
+2. Within the `Commands` interface, create a class named `Issue`, implementing its parent interface.
 
    The `Issue` command is used to create the Mars voucher.
 
@@ -236,7 +236,7 @@ First, create the `BoardingTicketContract`. This contract verifies actions perfo
 
 4. Open the file.
 
-### Declare the contract class
+### Create the contract class
 
 As noted with the `MarsVoucherContract`, Corda states typically have a corresponding contract class to document the rules/policy of that state when used in a transaction.
 
