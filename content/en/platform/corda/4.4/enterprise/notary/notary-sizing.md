@@ -55,7 +55,7 @@ that the disk space requirements given are always the maximum, meaning actual sp
 
 {{< table >}}
 
-|Notarised transations|States per transaction|Percentage of transations retried|Max space required (gigabytes)|
+|Notarised transactions|States per transaction|Percentage of transactions retried|Max space required (gigabytes)|
 |-----------------------|--------------------------|-------------------------------------|---------------------------------|
 |1 million|1|0%|1.98|
 |10 million|2|1%|20.75|

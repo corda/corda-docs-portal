@@ -17,7 +17,7 @@ weight: 12
 # Database Management Tool
 
 {{< warning >}}
-Corda Enterprise 4.4.6 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.4.6 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.4.6 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.4.6 please read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.4/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 The database management tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
@@ -116,8 +116,8 @@ Additional options:
 
 ## Database Manager shell extensions
 
-The `install-shell-extensions` subcommand can be used to install the `database-manager` alias and auto completion for
-bash and zsh. See [Shell extensions for CLI Applications]({{% ref "node/operating/cli-application-shell-extensions.md" %}}) for more info.
+The `install-shell-extensions` subcommand can be used to install the `database-manager` alias and auto-completion for
+bash and zsh. See [Shell extensions for CLI Applications](../../../../../en/platform/corda/4.4/enterprise/node/operating/cli-application-shell-extensions.md) for more info.
 
 {{< note >}}
 When running the database management tool, it is preferable to use absolute paths when specifying the “base-directory”.

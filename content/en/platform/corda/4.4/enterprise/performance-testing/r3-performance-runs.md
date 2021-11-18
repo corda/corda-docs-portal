@@ -23,14 +23,14 @@ presented or published occasionally.
 
 ## Test Network
 
-The performance test runs in a self contained test network consisting of
+The performance test runs in a self-contained test network consisting of
 
 
 * 4 node machines, each running one Corda node.
 * 1 simple notary running on a separate machine.
 * Separate database servers for all the nodes.
 * Optionally a doorman/network map server - the test network can be set up using the bootstrapper or the network map
-approach - this does not impact performance however.
+approach - this does not impact performance, however.
 
 The performance network sits behind a firewall that allows incoming connections only via SSH, however the machines
 within the network can connect to each other on a range of ports (Corda Remote Procedure Call (RPC), Corda peer to
@@ -47,7 +47,7 @@ The location of the node’s working directory is important - as nodes use Artem
 crucial that the Artemis spool directory is on a fast storage solution, e.g. a local SSD. It should not be on a network
 mount or SAN drive.
 
-There is a separate database for each node - for historical reasons, the notary and node 2 share a database in the,
+There is a separate database for each node - for historical reasons, the notary and node 2 share a database in the
 set-up, therefore node 2 gets the lightest load in order to not cause a slow-down by overloading the database. It
 is entirely possible to run the whole network with one database that has different users/schemas for each node and the
 notary, however, this set-up might not reach full performance as database throughput becomes a bottleneck.

@@ -46,7 +46,7 @@ In your command on the command prompt, you must place these arguments first. The
 * `-p`: This argument instructs JMeter what properties file to use. This will **always** be set by the wrapper code -
 you must **not** set it in your command on the command prompt. Use the `-XjmeterProperties` argument to the wrapper instead.
 * `-s`: This argument makes JMeter run in server mode - it will run headless and wait for instructions from a client via remote
-method invocation. See also [Installing JMeter server](installation.md#jmeter-server).
+method invocation. See also [Installing JMeter server](installation.html#jmeter-server).
 
 ## Running the JMeter GUI
 
@@ -102,7 +102,7 @@ The RMI traffic requires non-standard ports to be open, therefore the standard p
 route it via SSH tunnels. Therefore, the remote hosts in the default configuration are all specified as `127.0.0.1`,
 i.e. localhost, with different port numbers, for which SSH tunnels will be opened to the hosts specified on the command
 line using the `-Xssh` flag.
-Due to the Java RMI architecture, three tunnels need to be opened for each remote JMeter instace - one for the connection
+Due to the Java RMI architecture, three tunnels need to be opened for each remote JMeter instance - one for the connection
 to the RMI server, and an outbound and inbound tunnel. For this to work, it is crucial that the JMeter client and the
 server instances agree on the ports they use, and the hostnames used on the command line and the server RMI mapping
 do match exactly.
@@ -167,7 +167,7 @@ that can be reached via SSH tunnels. When using the run remotely function in the
 hosts listed in its properties file.
 
 If you need to specify a different list of remote hosts, e.g. for a different number of hosts, to specify different port
-numbers or to specify explicit namesin case SSH tunnelling is not required, you will have to take a copy of the
+numbers or to specify explicit names in case SSH tunnelling is not required, you will have to take a copy of the
 `jmeter.properties` file, modify it accordingly and specify the file to use on the command line using the
 `-XjmeterProperties` argument.
 
