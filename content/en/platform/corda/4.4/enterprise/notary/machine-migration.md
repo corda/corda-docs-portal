@@ -21,7 +21,7 @@ To migrate a notary worker from one physical machine or VM to another
 follow the steps outlined below.
 
 {{< note >}}
-This applies to to the Corda notary worker and not the underlying database.
+This applies to the Corda notary worker and not the underlying database.
 Please refer to the data migration documentation of the database, in case
 a database service is located on the same machine as the notary worker.
 

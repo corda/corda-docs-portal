@@ -105,12 +105,12 @@ correspond to identities that have their own key pair and certificate, which sho
 Both worker identity and notary service keys and certificates are stored in the same way as for regular Corda nodes. That is, if using local
 key stores, the worker identity, worker node CA and notary service key pairs and certificates are stored in files within the
 `certificates` directory. If an HSM is being used to generate and store the keys then only the certificate chains will be stored in the
-local files. You can find out more in the ../permissioning document.
+local files. You can find out more in the [permissioning](../../../../../../en/platform/corda/4.4/enterprise/network/permissioning.md) document.
 
 {{< note >}}
 The key store aliases for the worker identity, worker node CA and notary service are fully configurable. Unique worker identity and node
 CA aliases are required for the workers to share the same HA HSM. Although not required for all deployment scenarios, it is recommended
-to configure unique worker aliases. See ../corda-configuration-file for more information.
+to configure unique worker aliases. See [the Corda configuration file](../../../../../../en/platform/corda/4.4/enterprise/node/setup/corda-configuration-file.md) for more information.
 
 {{< /note >}}
 
