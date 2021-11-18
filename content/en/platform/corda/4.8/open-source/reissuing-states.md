@@ -34,7 +34,7 @@ The new state reissuance functionality provides a state reissuance algorithm tha
 {{< note >}}
 State encumbrance refers to a state pointing to another state that must also appear as an input to any transaction consuming this state. A state may be encumbered by up to one other state, which is called an "encumbrance" state. The encumbrance state, if present, forces additional controls over the encumbered state, since the encumbrance state contract will also be verified during the execution of the transaction.
 
-See [Defining encumbrances](../../../../tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-contract.md) for more information.
+See [Encumbrances](../../../../en/platform/corda/4.8/open-source/key-concepts-contracts.html#encumbrances) for more information.
 {{< /note >}}
 
 In addition, a single trusted issuing party is allowed to reissue multiple fungible states at once, provided that all these states are of the same type. For example, you can issue at once a number of tokens with different quantities but with the same `TokenType` and issued by the same party.
@@ -46,6 +46,13 @@ This functionality is part of Corda open source 4.8 and can be fully leveraged b
 ## How it works
 
 A trusted issuer reissues an encumbered state before the original state is deleted, thus enabling the requester to unlock that reissued state immediately after the original state is deleted.
+
+### Dependencies
+
+The Reissuance CorDapp has the following dependencies:
+
+* Corda Open Source or Corda Enterprise, versions 4.7 and above
+* [Tokens SDK](https://github.com/corda/token-sdk)
 
 ### High-level steps
 
