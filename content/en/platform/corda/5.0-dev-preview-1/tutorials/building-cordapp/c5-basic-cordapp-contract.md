@@ -44,7 +44,7 @@ When naming contracts, it’s best practice to match your contract and state nam
 
 4. Open the file.
 
-### Add the class name declaration
+### Declare the contract class
 
 A Corda state typically has a corresponding contract class to document the rules/policy of that state when used in a transaction. To declare the contract class:
 
@@ -74,7 +74,7 @@ After creating the contract class in a CorDapp, you must connect the contract to
 
 Transactions involving the `MarsVoucher` state are now verified using the `MarsVoucherContract`.
 
-### Add commands
+### Define commands
 
 [Commands](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-transactions.html#commands) are built into a transaction to indicate the transaction's intent. They control the type of actions performed to the state that the contract can verify.
 
@@ -206,12 +206,9 @@ class MarsVoucherContract : Contract {
 
 ## Create the `BoardingTicketContract`
 
-Now that you've written your first contract, try writing the `BoardingTicketContract` using the following information.
+Now that you've written your first contract, write the `BoardingTicketContract`.
 
-The `BoardingTicketState` will be used on two occasions, which means that the `BoardingTicketContract` should have a `Commands` interface that carries two commands corresponding to the contract's two intentions:
-
-* Mars Express creates the ticket to go to Mars. This intention is expressed by the `CreateTicket` command.
-* Peter redeems the `BoardingTicket` state. This intention is expressed by the `RedeemTicket` command.
+The `BoardingTicketState` will be used on two occasions: when the ticket is created by Mars Express and when the ticket is redeemed by the customer. This means that the `BoardingTicketContract` should have a `Commands` interface that carries two commands corresponding to the contract's two intentions.
 
 The rules inside the `requireThat` Corda DSL helper method are:
 
@@ -227,6 +224,54 @@ The rules inside the `requireThat` Corda DSL helper method are:
   * The issuer of the `BoardingTicket` should be the space company that created the boarding ticket.
   * The output `BoardingTicket` state should have a launch date later than the creation time.
 
+### Set up the `BoardingTicketContract` class
+
+First, create the `BoardingTicketContract`. This contract verifies actions performed on the `BoardingTicket` state.
+
+1. Right-click the **contracts** folder.
+
+2. Select **New > Kotlin Class/File**.
+
+3. In the **New Kotlin Class/File** window, select **Class** and name the file `BoardingTicketContract`.
+
+4. Open the file.
+
+### Declare the contract class
+
+As noted with the `MarsVoucherContract`, Corda states typically have a corresponding contract class to document the rules/policy of that state when used in a transaction.
+
+To declare the contract class, add the class name `BoardingTicketContract` that implements the `Contract` class.
+
+This is what your code should look like now:
+
+```kotlin
+package net.corda.missionMars.contracts;
+
+class BoardingTicketContract : Contract {
+
+}
+```
+
+### Connect the `BoardingTicketContract` to the `BoardingTicket` state
+
+After creating the contract class in a CorDapp, you must connect the contract to its correlating state. Add the `@BelongsToContract` annotation *in the state class* to establish the relationship between a state and a contract. Without this, your state does not know which contract is used to verify it.
+
+1. Open your `BoardingTicket` class.
+2. Insert the `@BelongsToContract` annotation with the `BoardingTicketContract` just before the definition of the `BoardingTicket` data class.
+
+Transactions involving the `BoardingTicket` state are now verified using the `BoardingTicketContract`.
+
+### Define commands
+
+The `BoardingTicketContract` requires two commands:
+
+* `CreateTicket` - Define this command to express the intention of Mars Express creating the ticket to go to Mars.
+* `RedeemTicket` - Define this command to express the intention of Peter redeeming the `BoardingTicket` state.
+
+1. Implement the `Commands : CommandData` interface declaration.
+
+
+Your code should now look like this:
 
 ### Check your work
 
