@@ -17,7 +17,7 @@ weight: 1
 
 ## Corda Enterprise 4.7.3
 
-Corda Enterprise 4.7.3 is a patch release of Corda Enterprise that fixes an invalid notarisation response being sent
+Corda Enterprise 4.7.3 is a patch release of Corda Enterprise that fixes an invalid notarization response being sent
 after an internal notary flow retry.
 
 ### Upgrade recommendation
@@ -28,7 +28,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 ### Fixed issues
 
-* A fix has been added to prevent a rare invalid notarisation response after internal notary flow retry.
+* A fix has been added to prevent a rare invalid notarization response after internal notary flow retry.
 
 ## Corda Enterprise 4.7.2
 
