@@ -74,6 +74,25 @@ After creating the contract class in a CorDapp, you must connect the contract to
 
 Transactions involving the `MarsVoucher` state are now verified using the `MarsVoucherContract`.
 
+```kotlin
+package net.corda.missionMars.states
+
+import com.google.gson.Gson
+import net.corda.v5.application.identity.AbstractParty
+import net.corda.v5.application.identity.Party
+import net.corda.v5.application.utilities.JsonRepresentable
+import net.corda.v5.ledger.UniqueIdentifier
+import net.corda.v5.ledger.contracts.LinearState
+
+@BelongsToContract(MarsVoucherContract::class)
+data class MarsVoucher (
+        val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars"
+        val issuer: Party, //The party who issued the voucher
+        val holder: Party, //The party who currently owns the voucher
+        override val linearId: UniqueIdentifier,//LinearState required variable
+) ...
+```
+
 ### Define commands
 
 [Commands](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-transactions.html#commands) are built into a transaction to indicate its intent. They control the type of actions performed to the state that the contract can verify.
@@ -85,8 +104,6 @@ In the `MarsVoucherContract`, you need a command that issues the `MarsVoucher`.
 1. Extend the `CommandData` interface into a new interface called `Commands`.
 
 2. Within the `Commands` interface, create a class named `Issue`, implementing its parent interface.
-
-   The `Issue` command is used to create the Mars voucher.
 
 This is what your code should look like now:
 
@@ -238,9 +255,9 @@ First, create the `BoardingTicketContract`. This contract verifies actions perfo
 
 ### Create the contract class
 
-As noted with the `MarsVoucherContract`, Corda states typically have a corresponding contract class to document the rules/policy of that state when used in a transaction.
+As noted when creating the `MarsVoucherContract`, Corda states typically have a corresponding contract class to document the rules/policy of that state when used in a transaction. To declare the contract class:
 
-To declare the contract class, add the class name `BoardingTicketContract` that implements the `Contract` class.
+Add the class name `BoardingTicketContract` that implements the `Contract` class.
 
 This is what your code should look like now:
 
@@ -254,12 +271,32 @@ class BoardingTicketContract : Contract {
 
 ### Connect the `BoardingTicketContract` to the `BoardingTicket` state
 
-After creating the contract class in a CorDapp, you must connect the contract to its correlating state. Add the `@BelongsToContract` annotation *in the state class* to establish the relationship between a state and a contract. Without this, your state does not know which contract is used to verify it.
+After creating the contract class in a CorDapp, you must connect the contract to its correlating state. Add the `@BelongsToContract` annotation *in the state class* to establish the relationship between a state and a contract. Without this, your state does not hold a relationship to the contract that is used to verify it.
 
 1. Open your `BoardingTicket` class.
 2. Insert the `@BelongsToContract` annotation with the `BoardingTicketContract` just before the definition of the `BoardingTicket` data class.
 
 Transactions involving the `BoardingTicket` state are now verified using the `BoardingTicketContract`.
+
+```kotlin
+package net.corda.missionMars.states
+
+import com.google.gson.Gson
+import net.corda.v5.application.identity.AbstractParty
+import net.corda.v5.application.identity.Party
+import net.corda.v5.application.utilities.JsonRepresentable
+import net.corda.v5.ledger.contracts.ContractState
+import java.time.LocalDate
+import java.util.*
+
+@BelongsToContract(BoardingTicketContract::class)
+data class BoardingTicket(
+        var description : String, //Trip information
+        var marsExpress : Party, //Party selling the ticket
+        var owner: Party, //The party who exchanges the ticket for the voucher
+        var daysUntilLaunch: Int)
+...
+```
 
 ### Define commands
 
@@ -268,10 +305,26 @@ The `BoardingTicketContract` requires two commands:
 * `CreateTicket` - Define this command to express the intention of Mars Express creating the ticket to go to Mars.
 * `RedeemTicket` - Define this command to express the intention of Peter redeeming the `BoardingTicket` state.
 
-1. Implement the `Commands : CommandData` interface declaration.
+1. Extend the `CommandData` interface into a new interface called `Commands`.
+
+2. Within the `Commands` interface, create two classes named `CreateTicket` and `RedeemTicket`, implementing their parent interface.
 
 
 Your code should now look like this:
+
+```kotlin
+package net.corda.missionMars.contracts;
+
+class BoardingTicketContract : Contract {
+
+  // Used to indicate the transaction's intent.
+  interface Commands : CommandData {
+        class CreateTicket : Commands
+        class RedeemTicket : Commands
+  }
+
+}
+```
 
 ### Check your work
 
