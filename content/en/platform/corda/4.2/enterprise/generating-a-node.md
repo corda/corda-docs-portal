@@ -23,7 +23,7 @@ title: Creating nodes locally
 A node can be created manually by creating a folder that contains the following items:
 
 
-* The Corda Enterprise JAR> 
+* The Corda Enterprise JAR>
 
     * The binary `corda-4.2.jar` provided to your organisation.
 
@@ -31,7 +31,7 @@ A node can be created manually by creating a folder that contains the following 
 
 * A node configuration file entitled `node.conf`, configured as per [Node configuration](corda-configuration-file.md)
 * A folder entitled `cordapps` containing any CorDapp JARs you want the node to load
-* **Optional:** A webserver JAR entitled `corda-webserver-4.2.jar` that will connect to the node via RPC> 
+* **Optional:** A webserver JAR entitled `corda-webserver-4.2.jar` that will connect to the node via RPC>
 
     * The (deprecated) default webserver is available to you for testing and should not be used in a production environment.
     * A Spring Boot alternative can be found here: [https://github.com/corda/spring-webserver](https://github.com/corda/spring-webserver)
@@ -152,11 +152,8 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-Additional properties can be also specified directly by the `extraConfig` property which defines a map of keys and values. The example config above uses `extraConfig` to set value of the `jvmArgs` property.
-See the extended example of [adding database configuration](testing.md#testing-cordform-ref).
-
-Cordform parameter *drivers* of the *node* entry lists paths of the files to be copied to the *./drivers* subdirectory of the node.
-To copy the same file to all nodes *ext.drivers* can be defined in the top level and reused for each node via *drivers=ext.drivers`*.
+The `drivers` Cordform parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
+To copy the same file to all nodes, define `ext.drivers` in the top level, and reuse it for each node by setting `drivers=ext.drivers`.
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
