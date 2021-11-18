@@ -51,7 +51,7 @@ A trusted issuer reissues an encumbered state before the original state is delet
 
 The Reissuance CorDapp has the following dependencies:
 
-* Corda Open Source or Corda Enterprise, versions 4.7 and above
+* Corda Open Source or Corda Enterprise, version 4.7 or higher
 * [Tokens SDK](https://github.com/corda/token-sdk)
 
 ### High-level steps
