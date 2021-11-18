@@ -142,7 +142,7 @@ There are several ways to return your parameters in a JSON string. The tutorial 
 2. Create a function that instantiates the `MarsVoucherDto` and populates the template with the actual variables of the class.
 3. Create an [override function](https://kotlinlang.org/docs/inheritance.html#overriding-methods) that converts the `MarsVoucherDto` to JSON using the `toJson` method.
 
-This is what your code should look like now:
+You've finished writing the `MarsVoucher` state. This is what your code should look like now:
 
 ```kotlin
 package net.corda.missionMars.states
@@ -187,4 +187,4 @@ data class MarsVoucherDto(
 
 ## Next steps
 
-Now that you have written the first state for the Mission Mars CorDapp, [write the `BoardingTicket` state](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-state-2.md).
+Now that you have written the first state for the Mission Mars CorDapp, <a href="../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-state-2.md">write the `BoardingTicket` state</a>.  

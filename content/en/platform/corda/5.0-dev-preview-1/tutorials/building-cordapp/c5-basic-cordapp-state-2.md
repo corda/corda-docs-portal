@@ -12,7 +12,7 @@ tags:
 title: "Write an advanced state"
 ---
 
-Now that you have created a state to represent a voucher, you must create a `BoardingTicket` state to represent the ticket that the customer receives when they redeem their `MarsVoucher`. This state has some additional complexity. You will be creating this state in the same directory as the `MarsVoucher` (`contracts/src/main/kotlin/net/corda/missionMars/states/`).
+Now that you have created a state to represent a voucher, you must create a `BoardingTicket` state to represent the ticket that the customer receives when they redeem their `MarsVoucher`. This state has some additional complexity. You will be creating this state in the same directory as `MarsVoucher` (`contracts/src/main/kotlin/net/corda/missionMars/states/`).
 
 ## Create the `BoardingTicket` state
 
@@ -85,7 +85,7 @@ data class BoardingTicket(
   }
 ```
 
-### Implement the `JsonRepresentable` interface
+### Implement the `JsonRepresentable` interface to use the Corda RPC Client
 
 `JsonRepresentable` ensures the object can be serialized to JSON and called over RPC. Implement this interface in `BoardingTicket` so that it can be used with the Corda RPC Client.
 
@@ -140,16 +140,16 @@ data class BoardingTicketDto(
         var daysUntilLaunch: String
 )
 ```
-### Define a secondary constructor and helper method that change the ticket owner
+### Define a secondary constructor and helper method to change the ticket owner
 
-The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction. In the second transaction, an ownership transfer occurs. To implement this functionality:
+The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction. In the second transaction, an ownership transfer occurs. This creates a new instance of the `BoardingTicket` state, since you cannot change an immutable object.
+
+To implement this functionality:
 
 1. Define a secondary constructor that creates the default `BoardingTicket` state. This constructor assigns `marsExpress` as the default `owner` of the ticket when no customer is specified.
 2. Define a helper method that changes the owner of the `BoardingTicket` state - `changeOwner`. This function is used when Mars Expresses issues a `BoardingTicket` to a customer and returns the `BoardingTicket` with its updated variables.
 
-### Check your work
-
-After you have written the `BoardingTicket` state, your code should look like this:
+You've finished writing the `BoardingTicket` state. Your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.states
