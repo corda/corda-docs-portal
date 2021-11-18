@@ -125,7 +125,7 @@ submitting the flow to the node via RPC until the result is returned to the clie
 * **Aggregate Graph**:
 This listener aggregates all the runs for each thread group and the whole test plan and presents some basic statistics.
 It also allows plotting these statistics in basic charts and to save the results as a csv file. This is what we use for looking at the
-performance results on a day to day basis.
+performance results on a day-to-day basis.
 
 {{< figure alt="jmeter results aggregate" width=80% zoom="../resources/jmeter-results-aggregate.png" >}}
 This listener has one line for each sampler being run as part of the test plan, and a total line summing up/averaging the results
