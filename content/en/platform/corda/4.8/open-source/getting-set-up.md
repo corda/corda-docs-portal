@@ -20,7 +20,7 @@ title: Getting set up for CorDapp development
 
 There are four pieces of required software for CorDapp development: the Java 8 JDK, IntelliJ IDEA, Git, and Gradle.
 
-{{< note >}} Visit the [platform support matrix](../../../../../en/platform/corda/4.8/enterprise/platform-support-matrix.md) to check your software versions against the latest version supported by Corda. {{< /note >}}
+{{< note >}} Visit the [platform support matrix](../../../../../en/platform/corda/4.8/enterprise/platform-support-matrix.md) to check the latest third-party application versions supported by Corda. {{< /note >}}
 
 ## Installing the Java 8 JDK
 
