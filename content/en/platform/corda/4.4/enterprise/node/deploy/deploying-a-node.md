@@ -45,11 +45,7 @@ handling, and ensures the Corda service is run at boot.
 
 **Prerequisites**:
 
-
-
 * A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.4/enterprise/cordapps/getting-set-up.md))
-
-
 
 * As root/sys admin user - add a system user which will be used to run Corda:
 `sudo adduser --system --no-create-home --group corda`
@@ -250,8 +246,8 @@ at boot, and means the Corda service stays running with no users connected to th
 **Prerequisites**:
 
 
-
 * A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.4/enterprise/cordapps/getting-set-up.md))
+
 
 
 
@@ -301,7 +297,7 @@ only visible to the permissioning service.
 * If required, add RPC users
 
 
-* Copy the required Java keystores to the node. See permissioning
+* Copy the required Java keystores to the node. See [permissioning](../../../../../../../en/platform/corda/4.8/enterprise/network/permissioning.md).
 * Download the [NSSM service manager](https://nssm.cc/)
 * Unzip `nssm-2.24\win64\nssm.exe` to `C:\Corda`
 * Save the following as `C:\Corda\nssm.bat`:
@@ -327,8 +323,7 @@ sc start cordanode1
 
 
 
-* Provision the required certificates to your node. Contact the network permissioning service or see
-permissioning
+* Provision the required certificates to your node. Contact the network permissioning service or see [permissioning](../../../../../../../en/platform/corda/4.8/enterprise/network/permissioning.md).
 * Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
 For more information refer to database-management
 * Run the batch file by clicking on it or from a command prompt
