@@ -146,10 +146,8 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     }
 }
 ```
-Additional properties can be also specified directly by the `extraConfig` property which defines a map of keys and values. The example config above uses `extraConfig` to set value of the `jvmArgs` property.
-
-Cordform parameter *drivers* of the *node* entry lists paths of the files to be copied to the *./drivers* subdirectory of the node.
-To copy the same file to all nodes *ext.drivers* can be defined in the top level and reused for each node via *drivers=ext.drivers`*.
+The `drivers` Cordform parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
+To copy the same file to all nodes, define `ext.drivers` in the top level, and reuse it for each node by setting `drivers=ext.drivers`.
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {

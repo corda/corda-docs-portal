@@ -173,7 +173,7 @@ ext.kotlin_version = '1.2.71'
 ext.quasar_version = '0.7.12_r3'
 ```
 
-You also need a add `corda-dependencies` to the list of repositories to make the custom built version of Quasar available:
+You also need a add `corda-dependencies` to the list of repositories to make the custom-built version of Quasar available:
 
 ```groovy
 repositories {
@@ -782,7 +782,6 @@ to be governed by a contract that is either:
 
 Learn more by reading [Contract/State Agreement](../../../../../en/platform/corda/4.4/enterprise/cordapps/api-contract-constraints.html#contractstate-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
 states that point to contracts outside their package will trigger a log warning but validation will proceed.
-
 
 ### Step 9. Learn about signature constraints and signing `.jar` files
 

@@ -58,7 +58,7 @@ This sampler client requires the following minimal set of properties:
  * `label`: A label for reporting results on this sampler - if in doubt what to put here, `${__samplername}` will fill in the sampler client classname.
 * `host`: The host name on which the Corda node is running. The sampler client will connect to this host via RPC. This name needs to be resolvable from where the sampler client is running - if using remote JMeter calls, this means from the server, not the client machine.
 * `port`: The RPC port of the Corda node.
-* `username`: The RPC user name of the Corda node.
+* `username`: The RPC username of the Corda node.
 * `password`: The RPC password of the Corda node.
 
 These properties are also required by all of the other Corda sampler clients documented on this page.
@@ -83,7 +83,7 @@ This sampler client has the classname `com.r3.corda.jmeter.CashIssueAndPaySample
 In addition to the parameters required for the `CashIssueSampler`, this sampler client also requires the following properties:
 * `otherPartyName`: The X500 name of the recipient node of the payment.
 * `useCoinSelection`: Whether to use coin selection to select the tokens for paying or use the cash reference returned by the issuance call. The value of this flag switches between the two different flows mentioned above. Coin selection adds a set of additional problems to the processing, so it is of interest to measure its impact.
-* `anonymousIdentities`: Switches the creation of anonymised per-transactions keys on and off.
+* `anonymousIdentities`: Switches the creation of anonymized per-transactions keys on and off.
 
 ## `CashPaySampler`
 The classname of this sampler client is `com.r3.corda.jmeter.CashPaySampler`. The `CashPaySampler` client issues cash once per run in its `setupTest` method, and then generates a transaction to pay 1 dollar `numberOfStatesPerTx` times to a specified party per sample, thus invoking the notary and the payee via P2P. This allows us to test performance with different numbers of states per transaction, and to eliminate issuance from each sample (unlike `CashIssueAndPaySampler`).
@@ -93,7 +93,7 @@ The classname of this sampler client is `com.r3.corda.jmeter.CashPaySampler`. Th
 In addition to the base requirements as in the `CashIssueSampler`, this sampler client requires the following properties:
 * `otherPartyName`: The Corda X500 name of the party receiving the payments.
 * `numberOfStatesPerTx`: The number of $1 payments that are batched up and transferred to the recipient in one transaction, thus allowing to observe the impact of transaction size on peer to peer throughput and notarisation.
-* `anonymousIdentities`: Switches the creation of anonymised per-transactions keys on and off.
+* `anonymousIdentities`: Switches the creation of anonymized per-transactions keys on and off.
 
 ## Custom Sampler Clients
 
