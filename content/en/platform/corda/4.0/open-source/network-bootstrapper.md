@@ -326,7 +326,7 @@ for information on valid inputs.
 
 
 * **packageOwnership**:
-A list of package owners. See [Package namespace ownership](#id2) for more information. For each package owner, the following fields
+A list of package owners. See [Package namespace ownership](#package-namespace-ownership) for more information. For each package owner, the following fields
 are required:
 
 
@@ -495,4 +495,3 @@ in the given file. See [Overriding network parameters via a file](#overriding-ne
 ### Sub-commands
 
 `install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
-
