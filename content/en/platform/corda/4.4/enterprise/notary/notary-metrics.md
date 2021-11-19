@@ -20,7 +20,7 @@ weight: 4
 
 ## Available metrics
 
-A notary exports the standard metrics exported by all Corda nodes (see ../node-administration), plus the
+A notary exports the standard metrics exported by all Corda nodes (see the [node administration page](../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-administration.md), plus the
 highly-available notary metrics below. Note that all timers and histograms use exponentially decaying reservoirs, and
 all meters use exponential moving averages.
 
@@ -30,7 +30,7 @@ all meters use exponential moving averages.
 |Metric Name|Type|Description|
 |:-----------------------------|:-----------|:-------------------------------------------------------------|
 | Commit | Timer | Measures the time taken in milliseconds to commit a single transaction and the number of transactions per second (TPS). |
-| IPS | Meter | Measures the number of comitted input states per second (IPS).|
+| IPS | Meter | Measures the number of committed input states per second (IPS).|
 | Rollback | Counter | Tracks the number of database transaction rollbacks. These might occur due to transient SQL exceptions, which are mitigated by retrying, or unexpected errors that cause the notarisation to be aborted.|
 | `ConnectionException` | Counter | Tracks the number of times that the notary service is unable to obtain a database connection. |
 | Conflicts | Counter | Tracks the number of double spend attempts. Note that this will also include notarisation retries. |

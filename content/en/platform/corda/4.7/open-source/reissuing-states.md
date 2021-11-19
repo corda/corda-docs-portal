@@ -47,6 +47,11 @@ This functionality is part of Corda open source 4.7 and can be fully leveraged b
 
 A trusted issuer reissues an encumbered state before the original state is deleted, thus enabling the requester to unlock that reissued state immediately after the original state is deleted.
 
+### Reissuance CorDapp dependencies
+
+* Corda Open Source or Corda Enterprise, version 4.7 or higher
+* [Tokens SDK](https://github.com/corda/token-sdk)
+
 ### High-level steps
 
 1. The issuing party issues an encumbered state (State B) based on the original state (State A).

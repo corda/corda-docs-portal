@@ -71,7 +71,7 @@ data class UniqueIdentifier @JvmOverloads @DeleteForDJVM constructor(
 }
 ```
 
-While CorDapps will definitely need to handle `UniqueIdentifier` objects, all of the secondary nstructors
+While CorDapps will definitely need to handle `UniqueIdentifier` objects, all of the secondary instructors
 generate a new random `UUID` and so are non-deterministic. Hence the next “determinising” step is to ss the
 classes to the `JarFilter` tool, which strips out all of the elements which have been annotated as
 `@DeleteForDJVM` and stubs out any functions annotated with `@StubOutForDJVM`. (Stub functions that
