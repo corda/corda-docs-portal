@@ -253,7 +253,7 @@ The documentation has been relocated to the main Corda and Corda Enterprise docu
 ### Other improvements
 
 * All database columns containing datestamps have been standardised to use UTC (the time zone used was previously inconsistent).
-* The HSM name used in the HA Utilities `--bridge-hsm-name` and `--float-hsm-name` command-line parameters should now exactly match `cryptoServiceName`, as described [here](../../../../../en/platform/corda/4.5/enterprise/cryptoservice-configuration.md).
+* The HSM name used in the HA Utilities `--bridge-hsm-name` and `--float-hsm-name` command-line parameters should now exactly match `cryptoServiceName`, as described [here](../../../../../en/platform/corda/4.5/enterprise/cryptoservice-configuration.html).
 
 ## Platform version change
 
