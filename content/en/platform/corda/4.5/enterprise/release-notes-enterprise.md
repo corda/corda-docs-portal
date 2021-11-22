@@ -197,7 +197,7 @@ See the `LedgerSync` [documentation section](../../../../../en/platform/corda/4.
 
 ### HA Notary readback queue
 
-Each Notary worker now has a readback queue. This queue collects recently-spent states, then double-checks that they have correctly been recorded as spent in the Notary database. If this mechanism detects an inconsistency, an error is recorded in the worker’s log file, and a JMX metric for unpersisted DB records is updated.
+Each Notary worker now has a readback queue. This queue collects recently-spent states, then double-checks that they have correctly been recorded as spent in the Notary database. If this mechanism detects an inconsistency, an error is recorded in the worker’s log file, and a JMX metric for un-persisted DB records is updated.
 
 See the [database monitoring agent](../../../../../en/platform/corda/4.5/enterprise/notary/notary-monitoring.md) documentation section for more information.
 
