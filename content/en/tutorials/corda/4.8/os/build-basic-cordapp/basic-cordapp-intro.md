@@ -25,7 +25,6 @@ Before you start building your first CorDapp:
 - Read about [Corda key concepts](../../../../../platform/corda/4.8/open-source/key-concepts.md).
 - [Get set up for CorDapp development](../../../../../platform/corda/4.8/open-source/getting-set-up.md).
 - [Run the sample CorDapp](../../../../../platform/corda/4.8/open-source/tutorial-cordapp.md).
-- [Writing a CorDapp using a template](../template-tutorial/writing-a-cordapp-using-a-template.md).
 
 ## The story
 
