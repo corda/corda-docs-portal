@@ -14,14 +14,6 @@ title: Corda 4.8 tutorials
 
 The Corda 4.8 tutorials show you how to build a basic CorDapp and add advanced features to fit your business needs.
 
-Follow the [Writing a CorDapp using a template](template-tutorial/writing-a-cordapp-using-a-template.md) learning path to make changes to the CorDapp template in Kotlin or Java. This path covers:
-
-* [Getting the CorDapp template](template-tutorial/obtain-the-cordapp-template.md)
-* [Modifying the state](template-tutorial/modify-the-state.md)
-* [Modifying the flow](template-tutorial/modify-the-flow.md)
-* [Running your CorDapp](template-tutorial/run-your-cordapp.md)
-* [Applying contract constraints](template-tutorial/tut-two-party-introduction.md)
-
 Follow the [Building your first CorDapp](build-basic-cordapp/basic-cordapp-intro.md) learning path to learn how to:
 
 * [Write states](build-basic-cordapp/basic-cordapp-state.md)
