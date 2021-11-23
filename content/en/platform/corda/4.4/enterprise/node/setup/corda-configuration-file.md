@@ -482,7 +482,7 @@ This is an optimisation for sharing transaction backchains. Corda Enterprise nod
 
 The ideal value for this parameter depends on a number of factors. These include the hardware the node is running on, the performance profile of the flows, and the database instance backing the node as datastore. Every thread will open a database connection, so for n threads, the database system must have at least n+1 connections available. Also, the database
 must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
-using e.g. H2, any number beyond 8 does not add any substantial benefit due to limitations with its internal
+using for example H2, any number beyond eight does not add any substantial benefit due to limitations with its internal
 architecture. For these reasons, the default size for the flow framework thread pool is the lower number between either
 the available number of processors times two, and 30. Overriding this value in the configuration allows you to specify any number.
 
@@ -496,7 +496,7 @@ the available number of processors times two, and 30. Overriding this value in t
       threads being idle while the payload is being deserialized and the flow invocation run.
 
 If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this number slightly.
-      Valid values for this property are between 4 (that is the number used for the single threaded state machine in
+      Valid values for this property are between four (that is the number used for the single threaded state machine in
       open source) and the number of flow threads.
 
 `journalBufferTimeout`

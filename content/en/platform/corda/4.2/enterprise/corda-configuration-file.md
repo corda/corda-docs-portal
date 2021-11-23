@@ -123,7 +123,7 @@ FAIL_FAST (no initial attempts, no reconnect attempts), CONTINUOUS_RETRY (infini
 
 The number of threads available to handle flows in parallel. This is the number of flows
 that can run in parallel doing something and/or holding resources like database connections.
-A larger number of flows can be suspended, e.g. waiting for reply from a counterparty.
+A larger number of flows can be suspended, for example, waiting for reply from a counterparty.
 When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
 Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
 up to handle the event. This can have serious performance implications if the flow thread pool is too small,

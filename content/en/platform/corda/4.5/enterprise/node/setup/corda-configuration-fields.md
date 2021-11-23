@@ -315,7 +315,7 @@ Tuning is a section within the Corda Node configuration file that contains perfo
 
   The number of threads available to handle flows in parallel. This is the number of flows
   that can run in parallel doing something and/or holding resources like database connections.
-  A larger number of flows can be suspended, e.g. waiting for reply from a counterparty.
+  A larger number of flows can be suspended, for example, waiting for reply from a counterparty.
   When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
 
   Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
@@ -325,7 +325,7 @@ Tuning is a section within the Corda Node configuration file that contains perfo
 
   The ideal value for this parameter depends on a number of factors. These include the hardware the node is running on, the performance profile of the flows, and the database instance backing the node as datastore. Every thread will open a database connection, so for n threads, the database system must have at least n+1 connections available. Also, the database
   must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
-  using e.g. H2, any number beyond 8 does not add any substantial benefit due to limitations with its internal
+  using for example, H2, any number beyond eight does not add any substantial benefit due to limitations with its internal
   architecture. For these reasons, the default size for the flow framework thread pool is the lower number between either the available number of processors times two, and 30. Overriding this value in the configuration allows you to specify any number.
 
 - `rpcThreadPoolSize`
