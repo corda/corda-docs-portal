@@ -55,16 +55,6 @@ See [SSL Settings](config-ssl.md)
 
 
 
-
-* **privateNetworkAutoEnrolment**:
-To enable nodes to be automatically enrolled in a private network this must
-be set to true. Setting it to false will result in all nodes being added
-to the public zone and require manual movement into the private network
-desired. Setting to true requires communication with the Identity Manager
-to be in place to allow the Netowrk Map to interogate it as to which,
-if any, private network a ndoe should be put in.
-
-
 * **checkRevocation**:
 If set to true then the Network Map will check with the Identity Manager’s revocation
 service weather the registering node is revoked.
@@ -147,8 +137,3 @@ before retrying. The wait time after each failure is determined by an exponentia
 * **crlDistributionUrl**:
 *(Optional)* REST endpoint under which the certificate revocation list issued by Identity Manager can be obtained.
 It is needed as this URL is encoded in certificates issued by Identity Manager.
-
-
-
-
-

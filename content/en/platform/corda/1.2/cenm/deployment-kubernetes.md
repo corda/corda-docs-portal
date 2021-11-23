@@ -17,33 +17,7 @@ weight: 20
 
 # CENM Deployment with Docker, Kubernetes and Helm charts
 
-- [CENM Deployment with Docker, Kubernetes and Helm charts](#cenm-deployment-with-docker-kubernetes-and-helm-charts)
-  - [Docker images and JDK supported](#docker-images-and-jdk-supported)
-  - [Helm charts](#helm-charts)
-  - [General information about this deployment](#general-information-about-this-deployment)
-  - [Deploying your network](#deploying-your-network)
-    - [Prerequisite](#prerequisite)
-      - [(1) Install dependencies](#1-install-dependencies)
-      - [(2) Set up and connect to a cluster on Azure](#2-set-up-and-connect-to-a-cluster-on-azure)
-      - [(3) Create storage class and namespace](#3-create-storage-class-namespace-and-rbac)
-      - [(4) Download helm charts and installation scripts](#4-download-helm-charts-and-installation-scripts)
-    - [Option 1: Bootstrapping by allocating new external IP addresses](#option-1-bootstrapping-by-allocating-new-external-ip-addresses)
-    - [Option 2: Bootstrapping by reusing already allocated external IP addresses](#option-2-bootstrapping-by-reusing-already-allocated-external-ip-addresses)
-    - [Option 3: Bootstrapping manually](#option-3-bootstrapping-manually)
-  - [Interacting with your network](#interacting-with-your-network)
-    - [Access the interactive shell of the network services and notary](#access-the-interactive-shell-of-the-network-services-and-notary)
-    - [How to join your network](#how-to-join-your-network)
-    - [Display logs](#display-logs)
-    - [Display configuration files used for each CENM service](#display-configuration-files-used-for-each-cenm-service)
-      - [Overwriting default configuration](#overwriting-default-configuration)
-    - [Unwinding your environnement](#unwinding-your-environnement)
-      - [Unwinding the whole environment (including IPs)](#unwinding-the-whole-environment-including-ips)
-  - [Managing your network](#managing-your-network)
-    - [Updating network parameters](#updating-network-parameters)
-    - [Running flag day](#running-flag-day)
-    - [Canceling network parameters update](#canceling-network-parameters-update)
-
-### Docker images and JDK supported
+## Docker images and JDK supported
 
 CENM docker images are based on `azul/zulu-openjdk:8u242`
 
@@ -68,21 +42,21 @@ All helm charts by default use CENM docker images with tag `1.2-zulu-openjdk8u24
 The use of different CENM versions on the same network is not supported - all services on a given network must be on the same CENM version.
 {{< /note >}}
 
-### Helm charts
+## Helm charts
 
-#### Requirements
+### Requirements
 
 The following requirements are needed in order to deploy CENM correctly:
 
 - [Helm](https://helm.sh/) >=3.1.1
 - [Kubernetes](https://kubernetes.io/) >=1.8
 
-#### Usage notes
+### Usage notes
 
 - These charts are supposed to be a reference installation.
 - They allow to configure several variables related to each CENM service.
 
-#### Compatibility
+### Compatibility
 
 These charts are compatible with Corda Enterprise Network Manager (CENM) version 1.2. Earlier CENM releases are not supported.
 

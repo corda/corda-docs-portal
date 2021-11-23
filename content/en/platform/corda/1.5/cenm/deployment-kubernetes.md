@@ -539,29 +539,48 @@ where each command creates a CENM service consisting of the following:
 
 They need to be run in the correct order, as shown below:
 
+{{< note >}}
+
+If you want to modify the deployment's configuration but not in the `values.yaml` file, you can extend the helm commands by adding additional parameters to each command.
+
+{{< /note >}}
+
 ```bash
-cd network-services/deployment/k8s/helm
+cd cenm-deployment/k8s/helm
 
 # These Helm charts trigger public IP allocation
-helm install idman-ip idman-ip
-helm install notary-ip notary-ip
+helm install cenm-idman-ip idman-ip --set prefix=cenm
+helm install cenm-notary-ip notary-ip --set prefix=cenm
 
-# Run these commands to display allocated public IP addresses:
-kubectl get svc --namespace cenm idman-ip --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"   # step 1
-kubectl get svc --namespace cenm notary-ip --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"  # step 2
+# Install HSM chart
+helm install cenm-hsm hsm --set prefix=cenm
 
-# These Helm charts bootstrap CENM
-helm install cenm-auth auth --set prefix=cenm --set acceptLicense=YES
-helm install cenm-zone zone --set prefix=cenm --set acceptLicense=YES
-helm install cenm-nmap nmap --set prefix=cenm --set acceptLicense=YES
-helm install cenm-signer signer --set prefix=cenm --set acceptLicense=YES
-helm install cenm-idman idman --set prefix=cenm --set acceptLicense=Y --set idmanPublicIP=[use IP from step 1]
-helm install notary notary --set prefix=cenm --set acceptLicense=YES --set notaryPublicIP=[use IP from step 2]
-helm install cenm-nmap nmap --set prefix=cenm --set acceptLicense=YES
-helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=YES
+# Store the public IP address of Identity Manager (allocated above) - it cannot be empty
+idmanPublicIP=$(kubectl get svc cenm-idman-ip -o jsonpath='{.status.loadBalancer.ingress[0].*}')
 
-# Run these commands to display allocated public IP for Network Map Service:
-kubectl get svc --namespace cenm nmap --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"
+# These Helm charts bootstrap the rest of the CENM services
+helm install cenm-pki pki --set idmanPublicIP=${idmanPublicIP} --set prefix=cenm --set acceptLicense=Y
+helm install cenm-auth auth --set prefix=cenm --set acceptLicense=Y
+helm install cenm-farm farm --set prefix=cenm --set acceptLicense=Y
+helm install cenm-zone zone --set prefix=cenm --set acceptLicense=Y
+helm install cenm-signer signer --set idmanPublicIP=${idmanPublicIP} --set prefix=cenm --set acceptLicense=Y
+helm install cenm-idman idman --set prefix=cenm --set acceptLicense=Y
+
+# Store the public IP address of the Notary (allocated above) - it cannot be empty
+notaryPublicIP=$(kubectl get svc cenm-notary-ip -o jsonpath='{.status.loadBalancer.ingress[0].*}')
+
+# Install Notary and Network Map
+helm install cenm-notary notary --set notaryPublicIP=${notaryPublicIP} --set prefix=cenm --set mpv=4 --set acceptLicense=Y
+helm install cenm-nmap nmap --set prefix=cenm --set acceptLicense=Y
+
+# Run this command to display the IP address of the CENM CLI endpoint
+kubectl get svc cenm-farm -o jsonpath='{.status.loadBalancer.ingress[0].*}'
+
+# Run this command to display the IP address of NetworkMap
+kubectl get svc cenm-nmap -o jsonpath='{.status.loadBalancer.ingress[0].*}'
+
+# Run this command to display the IP address of Identity Manager
+echo ${idmanPublicIP}
 ```
 
 ## Appendix A: Docker Images
