@@ -72,6 +72,10 @@ Once the Archive Service has marked a transaction or attachment as archivable, y
 
 The [Collaborative Recovery CorDapp LedgerSync V1.2.1](../../../../../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/ledger-sync.md) has been introduced for compatibility with the Archive Service. If you or anyone on your network uses Collaborative Recovery to recover data after a disaster scenario, archived transactions in any nodes on the network are marked as such. This means they do not appear to be 'lost' or 'missing' data and will not be recovered automatically in the recovery process.
 
+### Archiving and onDemand LedgerGraph
+
+If you are using the Archive Service with [LedgerGraph V1.2.1](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/ledger-graph.md), you can save heap memory usage by configuring the option `onDemand` to `true` in your LedgerGraph configuration settings. This means LedgerGraph is only triggered when required by the Archive Service. For example, when you make a `create-snapshot` request.
+
 ## Making archive-friendly CorDapps
 
 The more transactions within a Ledger Graph component, the longer it may take for a related transaction to become archivable. If you wish to create CorDapps that produce regularly archivable transactions, there are some steps you can take in your design process to help this.
