@@ -589,15 +589,15 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 
 {{< table >}}
 
-| Service           | Image Name                                          | Tag   |
-|-------------------|-----------------------------------------------------|-------|
-| Identity Manager  | `corda/enterprise-identitymanager:1.5-zulu-openjdk8u242 `     | 1.5.0 |
-| Network Map       | `corda/enterprise-networkmap:1.5-zulu-openjdk8u242`       | 1.5.0 |
-| Signing           | `corda/enterprise-signer:1.5-zulu-openjdk8u242`     | 1.5.0 |
-| Zone              | `corda/enterprise-zone:1.5-zulu-openjdk8u242`       | 1.5.0 |
-| Auth              | `corda/enterprise-auth:1.5-zulu-openjdk8u242`       | 1.5.0 |
-| Gateway           | `corda/enterprise-gateway:1.5-zulu-openjdk8u242`    | 1.5.0 |
-| PKI Tool          | `corda/enterprise-pkitool:1.5-zulu-openjdk8u242`    | 1.5.0 |
-| Notary            | `corda/enterprise-notary:4.6-zulu-openjdk8u242`     | 1.5.0 |
+| Service           | Image name                                          |
+|-------------------|-----------------------------------------------------|
+| Identity Manager  | `corda/enterprise-identitymanager:1.5.0-zulu-openjdk8u242 `     |
+| Network Map       | `corda/enterprise-networkmap:1.5.0-zulu-openjdk8u242`       |
+| Signing           | `corda/enterprise-signer:1.5.0-zulu-openjdk8u242`     |
+| Zone              | `corda/enterprise-zone:1.5.0-zulu-openjdk8u242`       |
+| Auth              | `corda/enterprise-auth:1.5.0-zulu-openjdk8u242`       |
+| Gateway           | `corda/enterprise-gateway:1.5.0-zulu-openjdk8u242`    |
+| PKI Tool          | `corda/enterprise-pkitool:1.5.0-zulu-openjdk8u242`    |
+| Notary            | `corda/enterprise-notary:4.6-zulu-openjdk8u242`     |
 
 {{< /table >}}
