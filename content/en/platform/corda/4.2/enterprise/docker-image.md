@@ -163,7 +163,7 @@ docker run -ti \
         -v /home/user/docker/docker/persistence:/opt/corda/persistence \
         -v /home/user/docker/docker/logs:/opt/corda/logs \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
-        entdocker.software.r3.com/corda-enterprise-5.0-snapshot:latest db-migrate-create-jars
+        entdocker.software.r3.com/corda-enterprise-java1.8-4.2:latest db-migrate-create-jars
 ```
 
 After the container has finished executing, there will be two new jars in `/home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps`: `migration-corda-insurance.jar` and `migration-corda-kyc.jar`.
@@ -181,7 +181,7 @@ docker run -ti \
         -v $(pwd)/docker/persistence:/opt/corda/persistence \
         -v $(pwd)/docker/logs:/opt/corda/logs \
         -v $(pwd)/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
-        entdocker.software.r3.com/corda-enterprise-5.0-snapshot:latest db-migrate-execute-migration
+        entdocker.software.r3.com/corda-enterprise-java1.8-4.2:latest db-migrate-execute-migration
 ```
 
 If the container is launched with the `db-migrate-execute-migration` command, the migration is directly applied to the database.
