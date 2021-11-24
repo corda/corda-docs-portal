@@ -20,11 +20,11 @@ Welcome to the Corda Quickstart Guide. Follow the links below to help get going 
 I want to:
 
 
-* [Learn](#quickstart-learn) about Corda for the first time
-* [Develop](#quickstart-develop) a CorDapp
-* [Run](#quickstart-run) and test a CorDapp on a local Corda network
-* [Add](#quickstart-add) a node to an existing test Corda network
-* [Add](#quickstart-production) a node to an existing production network
+* [Learn](#learn-about-corda-for-the-first-time) about Corda for the first time
+* [Develop](#develop-a-cordapp) a CorDapp
+* [Run](#run-and-test-a-cordapp-on-local-corda-network) and test a CorDapp on a local Corda network
+* [Add](#add-a-node-to-an-existing-test-corda-network) a node to an existing test Corda network
+* [Add](#add-a-node-to-an-existing-production-network) a node to an existing production network
 
 
 
@@ -71,7 +71,7 @@ I want to:
 |[Node folder structure]({{% ref "node-structure.md" %}})|The Corda node folder structure and how to name your node|
 |[Node configuration]({{% ref "corda-configuration-file.md" %}})|A detailed description of the Corda node configuration file with examples|
 |[Running nodes locally]({{% ref "running-a-node.md" %}})|Guidance on running Corda nodes locally and on Docker|
-|setting-up-a-corda-network|Considerations for setting up a Corda network|
+|[Setting up a dynamic compatibility zone]({{% ref "setting-up-a-dynamic-compatibility-zone.md" %}})|Considerations for setting up a Corda network|
 |[Node shell]({{% ref "shell.md" %}})|Guidance on using an embedded command line to control and monitor a node|
 |[Node administration]({{% ref "node-administration.md" %}})|How to monitor a Corda node using an RPC interface|
 |[Node Explorer]({{% ref "node-explorer.md" %}})|A GUI-based tool to view transactional data and transactional history for a node|
@@ -104,9 +104,4 @@ I want to:
 ## Add a node to an existing production network
 
 
-{{< table >}}
-
-|Contact R3 Solutions Engineering at [support@r3.com](mailto:support@r3.com)|
-
-{{< /table >}}
-
+Contact R3 Solutions Engineering at [support@r3.com](mailto:support@r3.com)

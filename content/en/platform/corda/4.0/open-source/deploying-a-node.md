@@ -37,7 +37,7 @@ handling, and ensures the Corda service is run at boot.
 
 
 
-* As root/sys admin user - add a system user which will be used to run Corda:> 
+* As root/sys admin user - add a system user which will be used to run Corda:>
 `sudo adduser --system --no-create-home --group corda`
 
 * Create a directory called `/opt/corda` and change its ownership to the user you want to use to run Corda:`mkdir /opt/corda; chown corda:corda /opt/corda`
@@ -81,7 +81,7 @@ communicate with your node.
 * Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
 * Enter an email address which will be used as an administrative contact during the registration process. This is
 only visible to the permissioning service.
-* Enter your node’s desired legal name (see [Node identity](node-naming.md#node-naming) for more details).
+* Enter your node’s desired legal name (see [Node identity](node-naming.md) for more details).
 * If required, add RPC users
 
 
@@ -94,7 +94,7 @@ If you are running Ubuntu 14.04, follow the instructions for **Upstart**.
 {{< /note >}}
 
 * **SystemD**: Create a `corda.service` file based on the example below and save it in the `/etc/systemd/system/`
-directory> 
+directory>
 ```shell
 [Unit]
 Description=Corda Node - Bank of Breakfast Tea
@@ -116,7 +116,7 @@ WantedBy=multi-user.target
 
 
 
-* **Upstart**: Create a `corda.conf` file based on the example below and save it in the `/etc/init/` directory> 
+* **Upstart**: Create a `corda.conf` file based on the example below and save it in the `/etc/init/` directory>
 ```shell
 description "Corda Node - Bank of Breakfast Tea"
 
@@ -132,19 +132,19 @@ exec java -jar /opt/corda/corda.jar
 
 
 
-* Make the following changes to `corda.service` or `corda.conf`:> 
+* Make the following changes to `corda.service` or `corda.conf`:>
 
 * Make sure the service description is informative - particularly if you plan to run multiple nodes.
 * Change the username to the user account you want to use to run Corda. **We recommend that this user account is
 not root**
-* **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:> 
+* **SystemD**: Make sure the `corda.service` file is owned by root with the correct permissions:>
 
     * `sudo chown root:root /etc/systemd/system/corda.service`
     * `sudo chmod 644 /etc/systemd/system/corda.service`
 
 
 
-* **Upstart**: Make sure the `corda.conf` file is owned by root with the correct permissions:> 
+* **Upstart**: Make sure the `corda.conf` file is owned by root with the correct permissions:>
 
     * `sudo chown root:root /etc/init/corda.conf`
     * `sudo chmod 644 /etc/init/corda.conf`
@@ -281,7 +281,7 @@ communicate with your node.
 * Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
 * Enter an email address which will be used as an administrative contact during the registration process. This is
 only visible to the permissioning service.
-* Enter your node’s desired legal name (see [Node identity](node-naming.md#node-naming) for more details).
+* Enter your node’s desired legal name (see [Node identity](node-naming.md) for more details).
 * If required, add RPC users
 
 
@@ -301,7 +301,7 @@ sc start cordanode1
 ```
 
 
-* Modify the batch file:> 
+* Modify the batch file:>
 
 * If you are installing multiple nodes, use a different service name (`cordanode1`) for each node
 * Set an informative description
@@ -328,4 +328,3 @@ You can verify Corda is running by connecting to your RPC port from another host
 
 If you receive the message “Escape character is ^]”, Corda is running and accessible. Press Ctrl-] and Ctrl-D to exit
 telnet.
-
