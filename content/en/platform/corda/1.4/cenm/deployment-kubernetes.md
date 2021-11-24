@@ -586,13 +586,13 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 
 | Service           | Image Name                                          | Tag |
 |-------------------|-----------------------------------------------------|-----|
-| Identity Manager  | `corda/enterprise-idman:1.4-zulu-openjdk8u242 `     | 1.4 |
-| Network Map       | `corda/enterprise-nmap:1.4-zulu-openjdk8u242`       | 1.4 |
+| Identity Manager  | `corda/enterprise-identitymanager:1.4-zulu-openjdk8u242 `     | 1.4 |
+| Network Map       | `corda/enterprise-networkmap:1.4-zulu-openjdk8u242`       | 1.4 |
 | Signing           | `corda/enterprise-signer:1.4-zulu-openjdk8u242`     | 1.4 |
 | Zone              | `corda/enterprise-zone:1.4-zulu-openjdk8u242`       | 1.4 |
 | Auth              | `corda/enterprise-auth:1.4-zulu-openjdk8u242`       | 1.4 |
 | Gateway           | `corda/enterprise-gateway:1.4-zulu-openjdk8u242`    | 1.4 |
 | PKI Tool          | `corda/enterprise-pkitool:1.4-zulu-openjdk8u242`    | 1.4 |
-| Notary            | `corda/enterprise-notary:1.4-zulu-openjdk8u242`     | 1.4 |
+| Notary            | `corda/enterprise-notary:4.4-zulu-openjdk8u242`     | 1.4 |
 
 {{< /table >}}
