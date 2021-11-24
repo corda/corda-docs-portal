@@ -36,7 +36,7 @@ docker run -ti \
         -v /path/to/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-5.0-snapshot:latest
+        corda/corda-zulu-java1.8-4.2:latest
 ```
 
 As the node runs within a container, several mount points are required:
@@ -78,7 +78,7 @@ docker run -ti \
         -v /home/user/sharedFolder/network-parameters:/opt/corda/network-parameters \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-5.0-snapshot:latest
+        corda/corda-zulu-java1.8-4.2:latest
 ```
 
 There is a new mount `/home/user/sharedFolder/node-infos:/opt/corda/additional-node-infos` which is used to hold the `nodeInfo` of all the nodes within the network.
@@ -110,7 +110,7 @@ docker run -ti --net="host" \
         -e MY_EMAIL_ADDRESS="cordauser@r3.com"      \
         -v /home/user/docker/config:/etc/corda          \
         -v /home/user/docker/certificates:/opt/corda/certificates \
-        corda/corda-zulu-5.0-snapshot:latest config-generator --generic
+        corda/corda-zulu-java1.8-4.2:latest config-generator --generic
 ```
 
 Several environment variables must also be passed to the container to allow it to register:
@@ -142,7 +142,7 @@ docker run -ti \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-5.0-snapshot:latest
+        corda/corda-zulu-java1.8-4.2:latest
 ```
 
 
