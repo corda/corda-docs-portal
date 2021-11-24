@@ -598,6 +598,6 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 | Auth              | `corda/enterprise-auth:1.5-zulu-openjdk8u242`       | 1.5.0 |
 | Gateway           | `corda/enterprise-gateway:1.5-zulu-openjdk8u242`    | 1.5.0 |
 | PKI Tool          | `corda/enterprise-pkitool:1.5-zulu-openjdk8u242`    | 1.5.0 |
-| Notary            | `corda/enterprise-notary:4.4-zulu-openjdk8u242`     | 1.5.0 |
+| Notary            | `corda/enterprise-notary:4.6-zulu-openjdk8u242`     | 1.5.0 |
 
 {{< /table >}}
