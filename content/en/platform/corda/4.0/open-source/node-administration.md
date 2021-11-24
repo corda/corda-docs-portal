@@ -139,7 +139,7 @@ environments under `/config/<env>`.
 
 When running in dev mode, Hibernate statistics are also available via the Jolkia interface. These are disabled otherwise
 due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
-`exportHibernateJMXStatistics` flag on the [database configuration](corda-configuration-file.md#database-properties-ref).
+`exportHibernateJMXStatistics` flag on the [database configuration](corda-configuration-file.md).
 
 When starting Corda nodes using Cordformation runner (see [Running nodes locally](running-a-node.md)), you should see a startup message similar to the following:
 **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
@@ -261,5 +261,3 @@ If the above holds, Corda components will benefit from the following:
 Private keys used to sign transactions should be preserved with the utmost care. The recommendation is to keep at least two separate copies on a storage not connected to the Internet.
 
 {{< /warning >}}
-
-

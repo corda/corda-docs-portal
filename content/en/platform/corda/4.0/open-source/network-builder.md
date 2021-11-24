@@ -25,7 +25,7 @@ The network you build will either be made up of local `docker` nodes *or* of nod
 containers. More backends may be added in future. The tool is open source, so contributions to add more
 destinations for the containers are welcome!
 
-[Download the Corda Network Builder](https://software.r3.com/artifactory/corda-releases/net/corda/corda-network-builder/4.0-corda/corda-network-builder-4.0-corda-executable.jar).
+[Download the Corda Network Builder](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-builder/4.1/corda-tools-network-builder-4.1.jar).
 
 
 
@@ -88,7 +88,7 @@ cf7ab689f493        node-notary:corda-network   "/run-corda.sh"     30 seconds a
 * `java -jar <path/to/network-builder-jar> -b AZURE -d .`
 
 {{< note >}}
-The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#pre-requisites).
+The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#prerequisites).
 
 {{< /note >}}
 
@@ -155,7 +155,7 @@ click `Open`
 * Click `Build`
 
 {{< note >}}
-The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#pre-requisites).
+The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#prerequisites).
 
 {{< /note >}}
 All the nodes should eventually move to a `Status` of `INSTANTIATED`. If you run `docker ps` from the terminal to
@@ -203,4 +203,3 @@ Tue Jul 17 15:47:14 GMT 2018>>> run networkMapSnapshot
 ## Shutting down the nodes
 
 Run `docker kill $(docker ps -q)` to kill all running Docker processes.
-
