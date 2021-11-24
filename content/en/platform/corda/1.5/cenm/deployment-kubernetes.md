@@ -589,15 +589,15 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 
 {{< table >}}
 
-| Service           | Image Name                         | Tag |
-|-------------------|------------------------------------|-----|
-| Identity Manager  | acrcenm.azurecr.io/nmap/nmap       | 1.5.0 |
-| Network Map       | acrcenm.azurecr.io/nmap/nmap       | 1.5.0 |
-| Signing           | acrcenm.azurecr.io/signer/signer   | 1.5.0 |
-| Zone              | acrcenm.azurecr.io/zone/zone       | 1.5.0 |
-| Auth              | acrcenm.azurecr.io/auth/auth       | 1.5.0 |
-| Gateway              | acrcenm.azurecr.io/gateway/gateway       | 1.5.0 |
-| PKI Tool          | acrcenm.azurecr.io/pkitool/pkitool | 1.5.0 |
-| Notary            | acrcenm.azurecr.io/notary/notary   | 1.5.0 |
+| Service           | Image name                                          |
+|-------------------|-----------------------------------------------------|
+| Identity Manager  | `corda/enterprise-identitymanager:1.5.0-zulu-openjdk8u242 `     |
+| Network Map       | `corda/enterprise-networkmap:1.5.0-zulu-openjdk8u242`       |
+| Signing           | `corda/enterprise-signer:1.5.0-zulu-openjdk8u242`     |
+| Zone              | `corda/enterprise-zone:1.5.0-zulu-openjdk8u242`       |
+| Auth              | `corda/enterprise-auth:1.5.0-zulu-openjdk8u242`       |
+| Gateway           | `corda/enterprise-gateway:1.5.0-zulu-openjdk8u242`    |
+| PKI Tool          | `corda/enterprise-pkitool:1.5.0-zulu-openjdk8u242`    |
+| Notary            | `corda/enterprise-notary:4.6-zulu-openjdk8u242`     |
 
 {{< /table >}}
