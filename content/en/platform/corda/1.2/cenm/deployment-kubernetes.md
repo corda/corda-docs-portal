@@ -280,7 +280,7 @@ Each CENM service has a dedicated sidecar to displays live logs from the `log/` 
 To display logs use the following command:
 
 ```bash
-kubectl logs -c logs <logs-container> <pod-name>
+kubectl logs -c <logs-container> <pod-name>
 ```
 
 The ```<logs-container>``` object container determines where the logs will be drawn from. The services write their logs to dedicated display containers
