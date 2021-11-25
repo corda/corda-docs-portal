@@ -288,12 +288,12 @@ where you can get a live view of the logs:
 ```bash
 kubectl logs -c logs-auth <pod-name>   //for auth
 kubectl logs -c logs-gateway <pod-name>   //for gateway
-kubectl logs -c logs-idman <pod-name>   //for idman
-kubectl logs -c logs-nmap <pod-name>   //for nmap
+kubectl logs -c logs-idman <pod-name>   //for identity manager
+kubectl logs -c logs-nmap <pod-name>   //for network map
 kubectl logs -c logs-signer <pod-name>   //for signer
 kubectl logs -c logs-zone <pod-name>   //for zone
 ```
-For notary, PKI and HSM the command is slightly different as logs containers do not exist for these services:
+For notary, PKI, and HSM, the command is slightly different as logs containers do not exist for these services:
 ```bash
 kubectl logs <pod-name>
 ````
