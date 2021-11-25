@@ -294,7 +294,7 @@ You will find the truststore password in the `signer/files/pki.conf`, where the 
 
 ### Display logs
 
-Each CENM service has dedicated sidecar to displays live logs from `log/` folder.
+Each CENM service has a dedicated sidecar to display live logs from `log/` directory.
 
 To display logs use the following command:
 
