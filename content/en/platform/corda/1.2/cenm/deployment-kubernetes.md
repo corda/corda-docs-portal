@@ -357,7 +357,7 @@ helm delete nmap notary idman signer
 
 ### Updating network parameters
 
-CENM 1.2 allows to update network parameters without restarting Network Map. Take the following steps to update network parameters:
+CENM 1.2 allows you to update network parameters without restarting Network Map. Take the following steps to update network parameters:
 
 - Login to Network Map pod and edit `etc/network-parameters-update-example.conf` file:
 
