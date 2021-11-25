@@ -23,7 +23,7 @@ title: Nodes
 
 
 * *A node is JVM run-time with a unique network identity running the Corda software*
-* *The node has two interfaces with the outside world:*> 
+* *The node has two interfaces with the outside world:*>
 
     * *A network layer, for interacting with other nodes*
     * *RPC, for interacting with the node’s owner*
@@ -123,7 +123,7 @@ be persisted. The node is able to be put in draining mode, during which:
 * Initial P2P session messages will not be processed, meaning peers will not be able to initiate new flows involving the node.
 * All other activities will proceed as usual, ensuring that the number of in-flight flows will strictly diminish.
 
-As their number - which can be monitored through RPC - reaches zero, it is safe to shut the node down.
+As their number reaches zero, it is safe to shut the node down.
 This property is durable, meaning that restarting the node will not reset it to its default value and that a RPC command is required.
 
 The node can be safely shut down via a drain using the shell.

@@ -22,7 +22,7 @@ title: 'API: Persistence'
 Corda offers developers the option to expose all or some parts of a contract state to an *Object Relational Mapping*
 (ORM) tool to be persisted in a *Relational Database Management System* (RDBMS).
 
-The purpose of this, is to assist [vault](https://docs.corda.net/vault.html)
+The purpose of this, is to assist [vault](key-concepts-states.html#the-vault)
 development and allow for the persistence of state data to a custom database table. Persisted states held in the
 vault are indexed for the purposes of executing queries. This also allows for relational joins between Corda tables
 and the organization’s existing data.
@@ -729,4 +729,3 @@ Please note that suspendable flow operations such as:
 * `FlowLogic.subFlow`
 
 Cannot be used within the lambda function passed to `withEntityManager`.
-
