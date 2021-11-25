@@ -23,10 +23,9 @@
 {{ end }}
 {{ end }}
 
-{{$currentUrl := .RelPermalink}}
-{{ $currentPath := path.Dir .File.Dir }}
-
 {{ if and (ne $currentVersion "Versions") (gt $totalVersions 1)}}
+  {{ $currentUrl := .RelPermalink }}
+  {{ $currentPath := path.Dir .File.Dir }}
   {{/* We know whether we're in 'corda-os-4.4' or not ('Versions') */}}
 
   <li class="nav-item dropdown">
