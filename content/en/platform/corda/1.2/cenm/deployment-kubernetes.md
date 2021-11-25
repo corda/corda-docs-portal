@@ -249,7 +249,7 @@ networkServices {
 ```
 
 - the `doormanURL` property is the public IP address and port of the Identity Manager service.
-- the `networkMapURL` is the pubic IP address and port of the Network Map service.
+- the `networkMapURL` is the public IP address and port of the Network Map service.
 
 Note: to obtain public IPs of Identity Manager and Network Map use:
 
@@ -283,8 +283,9 @@ To display logs use the following command:
 kubectl logs -c logs <logs-container> <pod-name>
 ```
 
-The ```<logs-container>``` object container determines where the logs will be drawn from:
-```
+The ```<logs-container>``` object container determines where the logs will be drawn from. The services write their logs to dedicated display containers
+where you can get a live view of the logs:
+```bash
 kubectl logs -c logs-auth <pod-name>   //for auth
 kubectl logs -c logs-gateway <pod-name>   //for gateway
 kubectl logs -c logs-idman <pod-name>   //for idman
