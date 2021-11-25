@@ -280,13 +280,23 @@ Each CENM service has dedicated sidecar to displays live logs from `log/` folder
 To display logs use the following command:
 
 ```bash
-kubectl logs -c logs <pod-name>
+kubectl logs -c logs <logs-container> <pod-name>
+```
+
+The ```<logs-container>``` object container determines where the logs will be drawn from:
+```
+kubectl logs -c logs-auth <pod-name>   //for auth
+kubectl logs -c logs-gateway <pod-name>   //for gateway
+kubectl logs -c logs-idman <pod-name>   //for idman
+kubectl logs -c logs-nmap <pod-name>   //for nmap
+kubectl logs -c logs-signer <pod-name>   //for signer
+kubectl logs -c logs-zone <pod-name>   //for zone
 ```
 
 To display live logs use the following command:
 
 ```bash
-kubectl logs -c logs -f <pod-name>
+kubectl logs -c logs -f <logs-container> <pod-name>
 ```
 
 ### Display configuration files used for each CENM service

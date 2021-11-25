@@ -299,21 +299,31 @@ You will find the truststore password in the `signer/files/pki.conf`, where the 
 
 ### Display logs
 
-Each CENM service has a dedicated sidecar to display live logs from the `log/` directory.
+Each CENM service has dedicated sidecar to displays live logs from `log/` folder.
 
-Use the following command to display logs:
+To display logs use the following command:
 
-  ```bash
-  kubectl logs -c logs <pod-name>
-  ```
+```bash
+kubectl logs -c logs <logs-container> <pod-name>
+```
 
-Use the following command to display live logs:
+The ```<logs-container>``` object container determines where the logs will be drawn from:
+```
+kubectl logs -c logs-auth <pod-name>   //for auth
+kubectl logs -c logs-gateway <pod-name>   //for gateway
+kubectl logs -c logs-idman <pod-name>   //for idman
+kubectl logs -c logs-nmap <pod-name>   //for nmap
+kubectl logs -c logs-signer <pod-name>   //for signer
+kubectl logs -c logs-zone <pod-name>   //for zone
+```
 
-  ```bash
-  kubectl logs -c logs -f <pod-name>
-  ```
+To display live logs use the following command:
 
-Display configuration files used for each CENM service:
+```bash
+kubectl logs -c logs -f <logs-container> <pod-name>
+```
+
+### Display configuration files used for each CENM service:
 
 Each service stores configuration files in `etc/` directory in a pod.
 Run the following commands to display what is in the Identity Manager Service `etc/` directory:
