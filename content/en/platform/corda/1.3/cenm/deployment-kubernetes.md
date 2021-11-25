@@ -298,7 +298,7 @@ Each CENM service has a dedicated sidecar to display live logs from `log/` direc
 To display logs use the following command:
 
 ```bash
-kubectl logs -c logs <logs-container> <pod-name>
+kubectl logs -c <logs-container> <pod-name>
 ```
 
 The ```<logs-container>``` object container determines where the logs will be drawn from. The services write their logs to dedicated display containers
@@ -311,11 +311,14 @@ kubectl logs -c logs-nmap <pod-name>   //for nmap
 kubectl logs -c logs-signer <pod-name>   //for signer
 kubectl logs -c logs-zone <pod-name>   //for zone
 ```
-
+For notary, PKI and HSM the command is slightly different as logs containers do not exist for these services:
+```bash
+kubectl logs <pod-name>
+````
 To display live logs use the following command:
 
 ```bash
-kubectl logs -c logs -f <logs-container> <pod-name>
+kubectl logs -c -f <logs-container> <pod-name>
 ```
 
 
