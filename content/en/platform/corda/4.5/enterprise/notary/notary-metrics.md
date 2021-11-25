@@ -52,8 +52,8 @@ history. Technically, uses an exponentially decaying reservoir of 1028 elements,
 confidence level with a 5% margin of error assuming a normal distribution, and an alpha
 factor of 0.015, which heavily biases the reservoir to the past 5 minutes of measurements
 * `xth percentile`: Representative of the last five minutes of received data, rather than the entire
-history. The value y such that x% of captured values are less than y. For example, a 95% percentile of 2
-means that 95% of captured values are less than 2
+history. The value y such that x% of captured values are less than y. For example, a 95% percentile of two
+means that 95% of captured values are less than two.
 * `Count`: Number of times the metric was collected. This has been found to be unreliable during testing, and should
 be ignored
 * `Snapshot size`: The current size of the reservoir of metrics. Should be ignored
@@ -62,8 +62,8 @@ The key metrics to track are:
 
 
 * `Commit.Mean`, `Commit.95th percentile` and `Commit.99th percentile`: Information on the duration of
-transaction commits over the last five minutes
-* `requestQueue.size.Mean`: The mean number of requests in the notary queue over the last five minutes
+transaction commits over the last five minutes.
+* `requestQueue.size.Mean`: The mean number of requests in the notary queue over the last five minutes.
 
 There is no “correct” base value for each metric, but a substantial increase in one of these metrics over time may
 indicate an issue.

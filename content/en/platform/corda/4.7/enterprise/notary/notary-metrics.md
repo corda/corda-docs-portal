@@ -62,7 +62,7 @@ The key metrics to track are:
 
 
 * `Commit.Mean`, `Commit.95th percentile` and `Commit.99th percentile`: Information on the duration of
-transaction commits over the last five minutes
+transaction commits over the last five minutes.
 * `requestQueue.size.Mean`: The mean number of requests in the notary queue over the last five minutes.
 
 There is no “correct” base value for each metric, but a substantial increase in one of these metrics over time may
