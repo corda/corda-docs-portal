@@ -275,7 +275,7 @@ For more details about joining CENM network see: [Joining an existing compatibil
 
 ### Display logs
 
-Each CENM service has dedicated sidecar to displays live logs from `log/` folder.
+Each CENM service has a dedicated sidecar to displays live logs from the `log/` directory.
 
 To display logs use the following command:
 
