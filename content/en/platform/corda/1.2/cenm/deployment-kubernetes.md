@@ -249,7 +249,7 @@ networkServices {
 ```
 
 - the `doormanURL` property is the public IP address and port of the Identity Manager service.
-- the `networkMapURL` is the pubic IP address and port of the Network Map service.
+- the `networkMapURL` is the public IP address and port of the Network Map service.
 
 Note: to obtain public IPs of Identity Manager and Network Map use:
 
@@ -275,18 +275,32 @@ For more details about joining CENM network see: [Joining an existing compatibil
 
 ### Display logs
 
-Each CENM service has dedicated sidecar to displays live logs from `log/` folder.
+Each CENM service has a dedicated sidecar to displays live logs from the `log/` directory.
 
 To display logs use the following command:
 
 ```bash
-kubectl logs -c logs <pod-name>
+kubectl logs -c <logs-container> <pod-name>
 ```
 
+The ```<logs-container>``` object container determines where the logs will be drawn from. The services write their logs to dedicated display containers
+where you can get a live view of the logs:
+```bash
+kubectl logs -c logs-auth <pod-name>   //for auth
+kubectl logs -c logs-gateway <pod-name>   //for gateway
+kubectl logs -c logs-idman <pod-name>   //for identity manager
+kubectl logs -c logs-nmap <pod-name>   //for network map
+kubectl logs -c logs-signer <pod-name>   //for signer
+kubectl logs -c logs-zone <pod-name>   //for zone
+```
+For notary, PKI, and HSM, the command is slightly different as logs containers do not exist for these services:
+```bash
+kubectl logs <pod-name>
+````
 To display live logs use the following command:
 
 ```bash
-kubectl logs -c logs -f <pod-name>
+kubectl logs -c -f <logs-container> <pod-name>
 ```
 
 ### Display configuration files used for each CENM service
@@ -347,7 +361,7 @@ helm delete nmap notary idman signer
 
 ### Updating network parameters
 
-CENM 1.2 allows to update network parameters without restarting Network Map. Take the following steps to update network parameters:
+CENM 1.2 allows you to update network parameters without restarting Network Map. Take the following steps to update network parameters:
 
 - Login to Network Map pod and edit `etc/network-parameters-update-example.conf` file:
 
