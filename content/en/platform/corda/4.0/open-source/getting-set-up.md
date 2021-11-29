@@ -57,10 +57,10 @@ you have any issues, please reach out on [Stack Overflow](https://stackoverflow.
 The set-up instructions are available for the following platforms:
 
 
-* [Windows](#windows-label) (or [in video form](https://vimeo.com/217462250))
-* [Mac](#mac-label) (or [in video form](https://vimeo.com/217462230))
-* [Debian/Ubuntu](#deb-ubuntu-label)
-* [Fedora](#fedora-label)
+* [Windows](#windows) (or [in video form](https://vimeo.com/217462250))
+* [Mac](#mac) (or [in video form](https://vimeo.com/217462230))
+* [Debian/Ubuntu](#debianubuntu)
+* [Fedora](#fedora)
 
 
 
@@ -68,7 +68,7 @@ The set-up instructions are available for the following platforms:
 
 
 {{< warning >}}
-If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac](#mac-label), [Debian/Ubuntu](#deb-ubuntu-label) or [Fedora](#fedora-label) instructions instead.
+If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac](#mac), [Debian/Ubuntu](#debianubuntu) or [Fedora](#fedora) instructions instead.
 
 {{< /warning >}}
 
@@ -108,7 +108,7 @@ If you are using a Mac, Debian/Ubuntu or Fedora machine, please follow the [Mac]
 
 
 {{< warning >}}
-If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the [Windows](#windows-label), [Debian/Ubuntu](#deb-ubuntu-label) or [Fedora](#fedora-label) instructions instead.
+If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the [Windows](#windows), [Debian/Ubuntu](#debianubuntu) or [Fedora](#fedora) instructions instead.
 
 {{< /warning >}}
 
@@ -138,7 +138,7 @@ If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the [
 
 
 {{< warning >}}
-If you are using a Mac, Windows or Fedora machine, please follow the [Mac](#mac-label), [Windows](#windows-label) or [Fedora](#fedora-label) instructions instead.
+If you are using a Mac, Windows or Fedora machine, please follow the [Mac](#mac), [Windows](#windows) or [Fedora](#fedora) instructions instead.
 
 {{< /warning >}}
 
@@ -177,7 +177,7 @@ Jetbrains offers a pre-built snap package that allows for easy, one-step install
 
 
 {{< warning >}}
-If you are using a Mac, Windows or Debian/Ubuntu machine, please follow the [Mac](#mac-label), [Windows](#windows-label) or [Debian/Ubuntu](#deb-ubuntu-label) instructions instead.
+If you are using a Mac, Windows or Debian/Ubuntu machine, please follow the [Mac](#mac), [Windows](#windows) or [Debian/Ubuntu](#debianubuntu) instructions instead.
 
 {{< /warning >}}
 

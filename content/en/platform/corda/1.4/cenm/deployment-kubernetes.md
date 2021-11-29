@@ -263,7 +263,7 @@ networkServices {
 
 Replacing placeholder values as follows:
   * the `doormanURL` property is the public IP address and port of the Identity Manager Service
-  * the `networkMapURL` is the pubic IP address and port of the Network Map Service.
+  * the `networkMapURL` is the public IP address and port of the Network Map Service.
 
 Next, upload the `network-root-truststore.jks` to your Corda node.
 You can download it locally from the CENM Signing Service, using the following command:
@@ -294,21 +294,35 @@ You will find the truststore password in the `signer/files/pki.conf`, where the 
 
 ### Display logs
 
-Each CENM service has a dedicated sidecar to display live logs from the `log/` directory.
+Each CENM service has a dedicated sidecar to display live logs from `log/` directory.
 
-Use the following command to display logs:
+To display logs use the following command:
 
-  ```bash
-  kubectl logs -c logs <pod-name>
-  ```
+```bash
+kubectl logs -c <logs-container> <pod-name>
+```
 
-Use the following command to display live logs:
+The ```<logs-container>``` object container determines where the logs will be drawn from. The services write their logs to dedicated display containers
+where you can get a live view of the logs:
+```bash
+kubectl logs -c logs-auth <pod-name>   //for auth
+kubectl logs -c logs-gateway <pod-name>   //for gateway
+kubectl logs -c logs-idman <pod-name>   //for identity manager
+kubectl logs -c logs-nmap <pod-name>   //for network map
+kubectl logs -c logs-signer <pod-name>   //for signer
+kubectl logs -c logs-zone <pod-name>   //for zone
+```
+For notary, PKI, and HSM, the command is slightly different as logs containers do not exist for these services:
+```bash
+kubectl logs <pod-name>
+````
+To display live logs use the following command:
 
-  ```bash
-  kubectl logs -c logs -f <pod-name>
-  ```
+```bash
+kubectl logs -c -f <logs-container> <pod-name>
+```
 
-Display configuration files used for each CENM service:
+### Display configuration files used for each CENM service:
 
 Each service stores configuration files in `etc/` directory in a pod.
 Run the following commands to display what is in the Identity Manager Service `etc/` directory:
@@ -584,15 +598,15 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 
 {{< table >}}
 
-| Service           | Image Name                         | Tag |
-|-------------------|------------------------------------|-----|
-| Identity Manager  | acrcenm.azurecr.io/nmap/nmap       | 1.4 |
-| Network Map       | acrcenm.azurecr.io/nmap/nmap       | 1.4 |
-| Signing           | acrcenm.azurecr.io/signer/signer   | 1.4 |
-| Zone              | acrcenm.azurecr.io/zone/zone       | 1.4 |
-| Auth              | acrcenm.azurecr.io/auth/auth       | 1.4 |
-| Gateway              | acrcenm.azurecr.io/gateway/gateway       | 1.4 |
-| PKI Tool          | acrcenm.azurecr.io/pkitool/pkitool | 1.4 |
-| Notary            | acrcenm.azurecr.io/notary/notary   | 1.4 |
+| Service           | Image name                                          |
+|-------------------|-----------------------------------------------------|
+| Identity Manager  | `corda/enterprise-identitymanager:1.4-zulu-openjdk8u242 `     |
+| Network Map       | `corda/enterprise-networkmap:1.4-zulu-openjdk8u242`       |
+| Signing           | `corda/enterprise-signer:1.4-zulu-openjdk8u242`     |
+| Zone              | `corda/enterprise-zone:1.4-zulu-openjdk8u242`       |
+| Auth              | `corda/enterprise-auth:1.4-zulu-openjdk8u242`       |
+| Gateway           | `corda/enterprise-gateway:1.4-zulu-openjdk8u242`    |
+| PKI Tool          | `corda/enterprise-pkitool:1.4-zulu-openjdk8u242`    |
+| Notary            | `corda/enterprise-notary:4.5-zulu-openjdk8u242`     |
 
 {{< /table >}}

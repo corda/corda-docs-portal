@@ -114,7 +114,7 @@ being Corda flows or services.
 
 {{< important >}}
 The `versionId` specified for the JAR manifest is checked by the platform and is used for informative purposes only.
-See “[App versioning with signature constraints](api-contract-constraints.md#contract-downgrade-rule-ref)” for more information.
+See “[App versioning with signature constraints](api-contract-constraints.html#app-versioning-with-signature-constraints)” for more information.
 
 
 {{< /important >}}
