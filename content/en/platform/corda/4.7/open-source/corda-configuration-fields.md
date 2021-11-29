@@ -309,7 +309,7 @@ Please do not change.
 
 ## `notary`
 
-This optional object configures the node to run as a notary. Please
+This optional object configures the node to run as a notary. 
 Specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` configuration as described below, and set the `validating` boolean to true or false.
 
 * `validating`
