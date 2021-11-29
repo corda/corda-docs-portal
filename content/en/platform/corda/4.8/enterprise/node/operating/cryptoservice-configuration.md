@@ -241,7 +241,7 @@ keyVaultURL: "https://<key vault name>.vault.azure.net/"
 protection: "SOFTWARE" # HARDWARE can be specified if using a premium vault
 ```
 
-The drivers directory must contain a `.jar` file built by the gradle script below.
+The driver's directory must contain a `.jar` file built by the gradle script below.
 
 First copy the following text in to a new file called build.gradle anywhere on your file system.
 Please do not change any of your existing build.gradle files.
@@ -281,7 +281,7 @@ or if gradle is not on the path but gradlew is in the current directory then run
 ./gradlew shadowJar
 ```
 
-This will create a jar called azure-keyvault-with-deps.jar, copy this into the drivers directory.
+This will create a jar called `azure-keyvault-with-deps.jar`, copy this into the driver's directory.
 
 ### Authentication using Azure Managed Identities
 
