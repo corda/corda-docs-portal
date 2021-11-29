@@ -283,9 +283,6 @@ or if gradle is not on the path but gradlew is in the current directory then run
 
 This will create a jar called azure-keyvault-with-deps.jar, copy this into the drivers directory.
 
-Note that okhttp3 needs to be shaded as the latest version of this library will raise an exception on a handle leak which version 1.2.1
-of azure key vault has. For further details see [https://github.com/Azure/azure-sdk-for-java/issues/4879](https://github.com/Azure/azure-sdk-for-java/issues/4879)
-
 ### Authentication using Azure Managed Identities
 
 If any of the parameters required for the certificate are not defined, or set to `null`, then the Azure Key Vault will use Azure Managed Identities.
