@@ -253,16 +253,19 @@ plugins {
 }
 
 repositories {
-    jcenter()
+  jcenter()
 }
 
 dependencies {
-    compile 'com.azure:azure-security-keyvault-keys:4.2.3'
-    compile 'com.azure:azure-identity:1.2.0'
+  compile 'com.azure:azure-security-keyvault-keys:4.2.3'
+  compile 'com.azure:azure-identity:1.2.0'
 }
 
 shadowJar {
-    archiveName = 'azure-keyvault-with-deps.jar'
+  relocate 'io.netty', 'azure.shaded.io.netty'
+  relocate 'META-INF/native/libnetty', 'META-INF/native/libazure_shaded_netty'
+  relocate 'META-INF/native/netty', 'META-INF/native/azure_shaded_netty'
+  archiveName = 'azure-keyvault-with-deps.jar'
 }
 ```
 
