@@ -165,6 +165,8 @@ node {
             port : 10006
         }
     }
+    user : demo
+    password : demo
 }
 shell {
         workDir : /path/to/dir
@@ -190,8 +192,6 @@ ssl {
         password: password
     }
 }
-user : demo
-password : demo
 ```
 
 
@@ -259,7 +259,7 @@ simple JSON-like language. The key features of Yaml are:
 
 
 * Parameters are separated by commas
-* Each parameter is specified as a `key: value` pair> 
+* Each parameter is specified as a `key: value` pair
 
     * There **MUST** to be a space after the colon, otherwise you’ll get a syntax error
 
