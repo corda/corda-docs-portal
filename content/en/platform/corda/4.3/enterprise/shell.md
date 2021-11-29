@@ -184,6 +184,8 @@ node {
             port : 10006
         }
     }
+    user : demo
+    password : demo
 }
 shell {
         workDir : /path/to/dir
@@ -205,8 +207,6 @@ ssl {
         password: password
     }
 }
-user : demo
-password : demo
 ```
 
 {{< note >}}
