@@ -208,7 +208,6 @@ Here are the contents of the `reference.conf` file:
         },
         },
     "database" : {
-        "runMigration" : "true",
         "schema" : "dbo",
         "transactionIsolationLevel" : "READ_COMMITTED"
     },
