@@ -191,7 +191,7 @@ For more information, see [Configuring the notary backend - JPA](running-a-notar
 
 #### Notary key storage
 
-The shared key that is used by a highly-available notary cluster can now be stored in Securosys and Azure Keyvault HSMs. In a highly available notary configuration, multiple notary workers are able to share a single HSM.
+The shared key that is used by a highly-available notary cluster can now be stored in Securosys and Azure Key Vault HSMs. In a highly available notary configuration, multiple notary workers are able to share a single HSM.
 
 
 #### Support for Metering
