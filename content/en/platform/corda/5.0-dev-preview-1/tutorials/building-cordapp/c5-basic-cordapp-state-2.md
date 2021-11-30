@@ -12,7 +12,9 @@ tags:
 title: "Write an advanced state"
 ---
 
-Now that you have created a state to represent a voucher, you must create a `BoardingTicket` state to represent the ticket that the customer receives when they redeem their `MarsVoucher`. This state has some additional complexity. You will be creating this state in the same directory as `MarsVoucher` (`contracts/src/main/kotlin/net/corda/missionMars/states/`).
+Now that you have created a state to represent a voucher, you must create a `BoardingTicket` state to represent the ticket that the customer receives when they redeem their `MarsVoucher`. This state has some additional complexity - it uses a secondary constructor and helper method to change the owner of the `BoardingTicket`.
+
+You will be creating this state in the same directory as `MarsVoucher` (`contracts/src/main/kotlin/net/corda/missionMars/states/`).
 
 ## Create the `BoardingTicket` state
 

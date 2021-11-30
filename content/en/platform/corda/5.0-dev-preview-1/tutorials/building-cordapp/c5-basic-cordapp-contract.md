@@ -221,114 +221,29 @@ class MarsVoucherContract : Contract {
 }
 ```
 
-## Create the `BoardingTicketContract`
+## Create the BoardingTicketContract
 
-Now that you've written your first contract, write the `BoardingTicketContract`.
+Now that you’ve written your first contract, try writing the `BoardingTicketContract` using the following information.
 
-The `BoardingTicketState` will be used on two occasions: when the ticket is created by Mars Express and when the ticket is redeemed by the customer. This means that the `BoardingTicketContract` should have a `Commands` interface that carries two commands corresponding to the contract's two intentions.
+The `BoardingTicketState` will be used on two occasions, which means that the `BoardingTicketContract` should have a `Commands` interface that carries two commands corresponding to the contract’s two intentions:
+
+* Mars Express creates the ticket to go to Mars. This intention is expressed by the CreateTicket command.
+* Peter redeems the BoardingTicket state. This intention is expressed by the RedeemTicket command.
 
 The rules inside the `requireThat` Corda DSL helper method are:
 
 * For the `CreateTicket` command:
-
-  * The transaction should only output one `BoardingTicket` state.
-  * The output `BoardingTicket` state should have a clear description of the space trip.
-  * The output `BoardingTicket` state should have a launch date later then the creation time.
-
+    * The transaction should only output one BoardingTicket state.
+    * The output BoardingTicket state should have a clear description of the space trip.
+    * The output BoardingTicket state should have a launch date later than the creation time.
 * For the `RedeemTicket` command:
+    * The transaction should consume two states.
+    * The issuer of the `BoardingTicket` should be the space company that created the boarding ticket.
+    * The output `BoardingTicket` state should have a launch date later than the creation time.
 
-  * The transaction should consume two states.
-  * The issuer of the `BoardingTicket` should be the space company that created the boarding ticket.
-  * The output `BoardingTicket` state should have a launch date later than the creation time.
+## Check your work
 
-### Set up the `BoardingTicketContract` class
-
-First, create the `BoardingTicketContract`. This contract verifies actions performed on the `BoardingTicket` state.
-
-1. Right-click the **contracts** folder.
-
-2. Select **New > Kotlin Class/File**.
-
-3. In the **New Kotlin Class/File** window, select **Class** and name the file `BoardingTicketContract`.
-
-4. Open the file.
-
-### Create the contract class
-
-As noted when creating the `MarsVoucherContract`, Corda states typically have a corresponding contract class to document the rules/policy of that state when used in a transaction. To declare the contract class:
-
-Add the class name `BoardingTicketContract` that implements the `Contract` class.
-
-This is what your code should look like now:
-
-```kotlin
-package net.corda.missionMars.contracts;
-
-class BoardingTicketContract : Contract {
-
-}
-```
-
-### Connect the `BoardingTicketContract` to the `BoardingTicket` state
-
-After creating the contract class in a CorDapp, you must connect the contract to its correlating state. Add the `@BelongsToContract` annotation *in the state class* to establish the relationship between a state and a contract. Without this, your state does not hold a relationship to the contract that is used to verify it.
-
-1. Open your `BoardingTicket` class.
-2. Insert the `@BelongsToContract` annotation with the `BoardingTicketContract` just before the definition of the `BoardingTicket` data class.
-
-Transactions involving the `BoardingTicket` state are now verified using the `BoardingTicketContract`.
-
-```kotlin
-package net.corda.missionMars.states
-
-import com.google.gson.Gson
-import net.corda.v5.application.identity.AbstractParty
-import net.corda.v5.application.identity.Party
-import net.corda.v5.application.utilities.JsonRepresentable
-import net.corda.v5.ledger.contracts.ContractState
-import java.time.LocalDate
-import java.util.*
-
-@BelongsToContract(BoardingTicketContract::class)
-data class BoardingTicket(
-        var description : String, //Trip information
-        var marsExpress : Party, //Party selling the ticket
-        var owner: Party, //The party who exchanges the ticket for the voucher
-        var daysUntilLaunch: Int)
-...
-```
-
-### Define commands
-
-The `BoardingTicketContract` requires two commands:
-
-* `CreateTicket` - Define this command to express the intention of Mars Express creating the ticket to go to Mars.
-* `RedeemTicket` - Define this command to express the intention of Peter redeeming the `BoardingTicket` state.
-
-1. Extend the `CommandData` interface into a new interface called `Commands`.
-
-2. Within the `Commands` interface, create two classes named `CreateTicket` and `RedeemTicket`, implementing their parent interface.
-
-
-Your code should now look like this:
-
-```kotlin
-package net.corda.missionMars.contracts;
-
-class BoardingTicketContract : Contract {
-
-  // Used to indicate the transaction's intent.
-  interface Commands : CommandData {
-        class CreateTicket : Commands
-        class RedeemTicket : Commands
-  }
-
-}
-```
-
-### Check your work
-
-Once you've written the `BoardingTicketContract`, your code should look like this:
+Once you’ve written the `BoardingTicketContract`, your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.contracts
