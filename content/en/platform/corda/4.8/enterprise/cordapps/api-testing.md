@@ -263,6 +263,22 @@ on an implementation of the `ServiceHub` interface.
 You can create dummy identities to use in test transactions using the `TestIdentity` class:
 
 {{< tabs name="tabs-7" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+val bigCorp = TestIdentity((CordaX500Name("BigCorp", "New York", "GB")))
+
+```
+{{% /tab %}}
+
+
+
+{{% tab name="java" %}}
+```java
+private static final TestIdentity bigCorp = new TestIdentity(new CordaX500Name("BigCorp", "New York", "GB"));
+
+```
+{{% /tab %}}
+
 {{< /tabs >}}
 
 `TestIdentity` exposes the following fields and methods:
