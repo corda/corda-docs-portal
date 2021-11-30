@@ -12,7 +12,7 @@ tags:
 title: Write contracts
 ---
 
-[Contracts](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-contracts.md) define the rules of how states can evolve. A CorDapp can have more than one contract, and each contract defines rules for one or more states. The contract includes [transactions](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-transactions.html) that update the ledger by marking zero or more existing ledger states as historic (the inputs), and producing zero or more new ledger states (the outputs). The contract(s) ensures that input and output states in transactions are valid and prevents invalid transactions from occurring. All parties that wish to transact in a network must run the same contract(s) for any transaction they’re a party to, verifying that the transaction is valid.
+[Contracts](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-contracts.md) define the rules of how states can evolve. A CorDapp can have more than one contract, and each contract defines rules for one or more states. The contract governs the execution of [transactions](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-transactions.html) that update the ledger by marking zero or more existing ledger states as historic (the inputs), and producing zero or more new ledger states (the outputs). The contract(s) ensures that input and output states in transactions are valid and prevents invalid transactions from occurring. All parties that wish to transact in a network must run the same contract(s) for any transaction they’re a party to, verifying that the transaction is valid.
 
 Contracts are classes that implement the Contract interface. They must override the `verify` method. The `verify` method takes transactions as input and evaluates them against rules defined as a `requireThat` element. Contract execution must be deterministic, and transaction acceptance is based on the transaction’s contents alone. Contract verification is the final step that governs the evolution of the ledger, thus it can only address on-ledger facts.
 
@@ -70,7 +70,7 @@ class MarsVoucherContract : Contract {
 After creating the contract class in a CorDapp, you must connect the contract to its correlating state. Add the `@BelongsToContract` annotation *in the state class* to establish the relationship between a state and a contract. Without this, your state does not hold a relationship to the contract that is used to verify it.
 
 1. Open your `MarsVoucher` class.
-2. Insert the `@BelongsToContract` annotation with the `MarsVoucherContract` just before the definition of the `MarsVoucher` data class.
+2. Annotate the `MarsVoucher` data class with the `@BelongsToContract` annotation.
 
 Transactions involving the `MarsVoucher` state are now verified using the `MarsVoucherContract`.
 
@@ -99,7 +99,7 @@ data class MarsVoucher (
 
 Each command is associated with a list of signers. The public keys listed in a contract's commands indicate the transaction's required signers.
 
-In the `MarsVoucherContract`, you need a command that issues the `MarsVoucher`.
+In the `MarsVoucherContract`, you need a command that issues an instance of the `MarsVoucher`, which creates a new state on the ledger.
 
 1. Extend the `CommandData` interface into a new interface called `Commands`.
 

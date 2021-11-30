@@ -19,11 +19,11 @@ Now that you have created a state to represent a voucher, you must create a `Boa
 The `BoardingTicket` state represents the ticket that Mars Express issues to a customer when they redeem their `MarsVoucher`. The state must include:
 
 * Trip information.
-* The company issuing the ticket. The customer can then verify which company the voucher was purchased from.
-* The current owner of the ticket. The company can then verify the identity of the customer who redeems the voucher.
-* The number of days until the rocket launch. Both parties are aware of the trip date.
+* The company issuing the ticket.
+* The current owner of the ticket.
+* The number of days until the rocket launch.
 
-The `BoardingTicket` state must be transferable between the issuer and the customer. A customer must redeem their boarding ticket when they get on the rocket to Mars. The value of the ticket does not change until it is redeemed, when the state is consumed and the ticket cannot be used again.
+The `BoardingTicket` state must be transferable between the issuer and the customer. A customer must redeem their boarding ticket when they get on the rocket to Mars. When the ticket is redeemed, the state is consumed and the ticket cannot be used again.
 
 ### Set up the `BoardingTicket` class
 
@@ -142,7 +142,7 @@ data class BoardingTicketDto(
 ```
 ### Define a secondary constructor and helper method to change the ticket owner
 
-The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction. In the second transaction, an ownership transfer occurs. This creates a new instance of the `BoardingTicket` state, since you cannot change an immutable object.
+The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction. In the second transaction, an ownership transfer occurs. This creates a new instance of the `BoardingTicket` state on the ledger, since you cannot change an immutable object. While states are immutable, the ledger as a whole is mutable as states are created and consumed.
 
 To implement this functionality:
 
