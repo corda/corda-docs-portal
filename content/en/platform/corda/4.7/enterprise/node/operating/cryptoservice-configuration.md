@@ -234,7 +234,7 @@ clientId: "a3d72387-egfa-4bc2-9cba-b0b27c63540e"
 protection: "HARDWARE"
 ```
 
-The driver's directory needs to contain an uber jar, built by the gradle script below.
+The drivers directory needs to contain an uber jar, built by the gradle script below.
 
 First copy the following text in to a new file called build.gradle anywhere on your file system.
 Please do not change any of your existing build.gradle files.
@@ -255,6 +255,7 @@ dependencies {
 }
 
 shadowJar {
+    relocate 'okhttp3', 'shadow.okhttp3'
     archiveName = 'azure-keyvault-with-deps.jar'
 }
 ```
@@ -271,7 +272,10 @@ or if gradle is not on the path but gradlew is in the current directory then run
 ./gradlew shadowJar
 ```
 
-This will create a jar called `azure-keyvault-with-deps.jar`, copy this into the driver's directory.
+This will create a jar called azure-keyvault-with-deps.jar, copy this into the drivers directory.
+
+Note that okhttp3 needs to be shaded as the latest version of this library will raise an exception on a handle leak which version 1.2.1
+of azure key vault has. For further details see [https://github.com/Azure/azure-sdk-for-java/issues/4879](https://github.com/Azure/azure-sdk-for-java/issues/4879)
 
 ## Securosys Primus X
 
