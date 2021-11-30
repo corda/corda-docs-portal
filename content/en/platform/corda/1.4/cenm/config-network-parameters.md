@@ -30,7 +30,7 @@ network.
 
 {{< note >}}
 Once a network has started, the only supported changes to notaries are to add new notaries at the end of the list or to remove existing ones as part of a decommissioning process.
-{{< /note >}}  
+{{< /note >}}
 Notaries can be removed from the list, in which case no new states can be created and reference it. The existing states which reference
 the removed Notary have to be moved to a new Notary before the pointed one is decommissioned. Notaries must be added
 to the end as Flows often use the ordering of notaries during selection (i.e. pick the first),
@@ -98,20 +98,15 @@ Specific configuration for contracts whitelist (optional).
   The list of contract class names (for instance, full package names) to be excluded from the whitelist.
 
 
-  * **contracts**:
+* **contracts**:
   The list of explicitly specified whitelisted contracts. Each element of the list has the following attributes:
 
 
-  * **className**:
-  The full package class name of the contract to be whitelisted.
+    * **className**:
+    The full package class name of the contract to be whitelisted.
 
-
-* **attachmentIds**:
-List of `.jar` file hashes (given as strings) containing the contract class.
-
-
-  * **attachmentIds**:
-    The list of `.jar` file hashes (given as strings) containing the contract class.
+    * **attachmentIds**:
+    List of `.jar` file hashes (given as strings) containing the contract class.
 
 * **packageOwnership**:
 List of the network-wide Java packages that have been claimed by their owners along with the owners' public keys. Optionally, the list should consist of entries with the following parameters:

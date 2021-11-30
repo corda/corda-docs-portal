@@ -99,60 +99,19 @@ Driver 42.1.4|
 
 ## Hardware Security Modules (HSM)
 
-
 {{< table >}}
 
-|Device|Legal Identity & CA keys|TLS keys|Confidential Identities keys|
-|-------------------------------|----------------------------|----------------------------|---------------------------------------|
-|Utimaco SecurityServer Se Gen2|
-* Firmware version 4.21.1
-* Driver version 4.21.1
-
-|
-* Firmware version 4.21.1
-* Driver version 4.21.1
-
-|Not supported|
-|Gemalto Luna|
-* Firmware version 7.0.3
-* Driver version 7.3
-
-|
-* Firmware version 7.0.3
-* Driver version 7.3
-
-|Not supported|
-|FutureX Vectera Plus|
-* Firmware version 6.1.5.8
-* PKCS#11 version 3.1
-* FXJCA version 1.17
-
-|
-* Firmware version 6.1.5.8
-* PKCS#11 version 3.1
-* FXJCA version 1.17
-
-|Not supported|
-|Azure Key Vault|
-* Driver version 1.1.1
-
-|
-* Driver version 1.1.1
-
-|Not supported|
-|Securosys PrimusX|
-* Firmware version 2.7.4
-* Driver version 1.8.2
-
-|
-* Firmware version 2.7.4
-* Driver version 1.8.2
-
-|
-* Firmware version 2.7.4
-* Driver version 1.8.2
-
-|
+|Device|Legal Identity & CA keys|TLS keys|Confidential Identity keys|Notary service keys|
+|-------------------------------|----------------------------|----------------------------|----------------------------|-------------------------------|
+| Utimaco SecurityServer Se Gen2| * Firmware version 4.21.1  | * Firmware version 4.21.1  | Not supported              | * Firmware version 4.21.1     |
+|                               | * Driver version 4.21.1    | * Driver version 4.21.1    |                            | * Driver version 4.21.1       |
+| Gemalto Luna                  | * Firmware version 7.0.3   | * Firmware version 7.0.3   | Not supported              | * Firmware version 7.0.3      |
+|                               | * Driver version 7.3       | * Driver version 7.3       |                            | * Driver version 7.3          |
+| FutureX Vectera Plus          | * Firmware version 6.1.5.8 | * Firmware version 6.1.5.8 | Not supported              | * Firmware version 6.1.5.8    |
+|                               | * PKCS#11 version 3.1      | * PKCS#11 version 3.1      |                            | * PKCS#11 version 3.1         |
+|                               | * FXJCA version 1.17       | * FXJCA version 1.17       |                            | * FXJCA version 1.17          |
+| Azure Key Vault               | * Driver version 1.1.1     | * Driver version 1.1.1     | Not supported              | * Driver version 1.1.1        |
+| Securosys PrimusX             | * Firmware version 2.7.4   | * Firmware version 2.7.4   | * Firmware version 2.7.4   | * Firmware version 2.7.4      |
+|                               | * Driver version 1.8.2     | * Driver version 1.8.2     | * Driver version 1.8.2     | * Driver version 1.8.2        |
 
 {{< /table >}}
-

@@ -268,7 +268,7 @@ networkServices {
 
 Replacing placeholder values as follows:
   * the `doormanURL` property is the public IP address and port of the Identity Manager Service
-  * the `networkMapURL` is the pubic IP address and port of the Network Map Service.
+  * the `networkMapURL` is the public IP address and port of the Network Map Service.
 
 Next, upload the `network-root-truststore.jks` to your Corda node.
 You can download it locally from the CENM Signing Service, using the following command:
@@ -299,21 +299,36 @@ You will find the truststore password in the `signer/files/pki.conf`, where the 
 
 ### Display logs
 
-Each CENM service has a dedicated sidecar to display live logs from the `log/` directory.
+Each CENM service has a dedicated sidecar to displays live logs from the `log/` directory.
 
-Use the following command to display logs:
+To display logs use the following command:
 
-  ```bash
-  kubectl logs -c logs <pod-name>
-  ```
+```bash
+kubectl logs -c <logs-container> <pod-name>
+```
 
-Use the following command to display live logs:
+The ```<logs-container>``` object container determines where the logs will be drawn from. The services write their logs to dedicated display containers
+where you can get a live view of the logs:
+```bash
+kubectl logs -c logs-auth <pod-name>   //for auth
+kubectl logs -c logs-gateway <pod-name>   //for gateway
+kubectl logs -c logs-idman <pod-name>   //for identity manager
+kubectl logs -c logs-nmap <pod-name>   //for network map
+kubectl logs -c logs-signer <pod-name>   //for signer
+kubectl logs -c logs-zone <pod-name>   //for zone
+```
+For notary, PKI, and HSM, the command is slightly different as logs containers do not exist for these services:
+```bash
+kubectl logs <pod-name>
+````
 
-  ```bash
-  kubectl logs -c logs -f <pod-name>
-  ```
+To display live logs use the following command:
 
-Display configuration files used for each CENM service:
+```bash
+kubectl logs -c -f <logs-container> <pod-name>
+```
+
+### Display configuration files used for each CENM service:
 
 Each service stores configuration files in `etc/` directory in a pod.
 Run the following commands to display what is in the Identity Manager Service `etc/` directory:
@@ -539,29 +554,48 @@ where each command creates a CENM service consisting of the following:
 
 They need to be run in the correct order, as shown below:
 
+{{< note >}}
+
+If you want to modify the deployment's configuration but not in the `values.yaml` file, you can extend the helm commands by adding additional parameters to each command.
+
+{{< /note >}}
+
 ```bash
-cd network-services/deployment/k8s/helm
+cd cenm-deployment/k8s/helm
 
 # These Helm charts trigger public IP allocation
-helm install idman-ip idman-ip
-helm install notary-ip notary-ip
+helm install cenm-idman-ip idman-ip --set prefix=cenm
+helm install cenm-notary-ip notary-ip --set prefix=cenm
 
-# Run these commands to display allocated public IP addresses:
-kubectl get svc --namespace cenm idman-ip --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"   # step 1
-kubectl get svc --namespace cenm notary-ip --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"  # step 2
+# Install HSM chart
+helm install cenm-hsm hsm --set prefix=cenm
 
-# These Helm charts bootstrap CENM
-helm install cenm-auth auth --set prefix=cenm --set acceptLicense=YES
-helm install cenm-zone zone --set prefix=cenm --set acceptLicense=YES
-helm install cenm-nmap nmap --set prefix=cenm --set acceptLicense=YES
-helm install cenm-signer signer --set prefix=cenm --set acceptLicense=YES
-helm install cenm-idman idman --set prefix=cenm --set acceptLicense=Y --set idmanPublicIP=[use IP from step 1]
-helm install notary notary --set prefix=cenm --set acceptLicense=YES --set notaryPublicIP=[use IP from step 2]
-helm install cenm-nmap nmap --set prefix=cenm --set acceptLicense=YES
-helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=YES
+# Store the public IP address of Identity Manager (allocated above) - it cannot be empty
+idmanPublicIP=$(kubectl get svc cenm-idman-ip -o jsonpath='{.status.loadBalancer.ingress[0].*}')
 
-# Run these commands to display allocated public IP for Network Map Service:
-kubectl get svc --namespace cenm nmap --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"
+# These Helm charts bootstrap the rest of the CENM services
+helm install cenm-pki pki --set idmanPublicIP=${idmanPublicIP} --set prefix=cenm --set acceptLicense=Y
+helm install cenm-auth auth --set prefix=cenm --set acceptLicense=Y
+helm install cenm-farm farm --set prefix=cenm --set acceptLicense=Y
+helm install cenm-zone zone --set prefix=cenm --set acceptLicense=Y
+helm install cenm-signer signer --set idmanPublicIP=${idmanPublicIP} --set prefix=cenm --set acceptLicense=Y
+helm install cenm-idman idman --set prefix=cenm --set acceptLicense=Y
+
+# Store the public IP address of the Notary (allocated above) - it cannot be empty
+notaryPublicIP=$(kubectl get svc cenm-notary-ip -o jsonpath='{.status.loadBalancer.ingress[0].*}')
+
+# Install Notary and Network Map
+helm install cenm-notary notary --set notaryPublicIP=${notaryPublicIP} --set prefix=cenm --set mpv=4 --set acceptLicense=Y
+helm install cenm-nmap nmap --set prefix=cenm --set acceptLicense=Y
+
+# Run this command to display the IP address of the CENM CLI endpoint
+kubectl get svc cenm-farm -o jsonpath='{.status.loadBalancer.ingress[0].*}'
+
+# Run this command to display the IP address of NetworkMap
+kubectl get svc cenm-nmap -o jsonpath='{.status.loadBalancer.ingress[0].*}'
+
+# Run this command to display the IP address of Identity Manager
+echo ${idmanPublicIP}
 ```
 
 ## Appendix A: Docker Images
@@ -570,15 +604,15 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 
 {{< table >}}
 
-| Service           | Image Name                         | Tag |
-|-------------------|------------------------------------|-----|
-| Identity Manager  | acrcenm.azurecr.io/nmap/nmap       | 1.5.0 |
-| Network Map       | acrcenm.azurecr.io/nmap/nmap       | 1.5.0 |
-| Signing           | acrcenm.azurecr.io/signer/signer   | 1.5.0 |
-| Zone              | acrcenm.azurecr.io/zone/zone       | 1.5.0 |
-| Auth              | acrcenm.azurecr.io/auth/auth       | 1.5.0 |
-| Gateway              | acrcenm.azurecr.io/gateway/gateway       | 1.5.0 |
-| PKI Tool          | acrcenm.azurecr.io/pkitool/pkitool | 1.5.0 |
-| Notary            | acrcenm.azurecr.io/notary/notary   | 1.5.0 |
+| Service           | Image name                                          |
+|-------------------|-----------------------------------------------------|
+| Identity Manager  | `corda/enterprise-identitymanager:1.5.0-zulu-openjdk8u242 `     |
+| Network Map       | `corda/enterprise-networkmap:1.5.0-zulu-openjdk8u242`       |
+| Signing           | `corda/enterprise-signer:1.5.0-zulu-openjdk8u242`     |
+| Zone              | `corda/enterprise-zone:1.5.0-zulu-openjdk8u242`       |
+| Auth              | `corda/enterprise-auth:1.5.0-zulu-openjdk8u242`       |
+| Gateway           | `corda/enterprise-gateway:1.5.0-zulu-openjdk8u242`    |
+| PKI Tool          | `corda/enterprise-pkitool:1.5.0-zulu-openjdk8u242`    |
+| Notary            | `corda/enterprise-notary:4.6-zulu-openjdk8u242`     |
 
 {{< /table >}}

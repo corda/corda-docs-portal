@@ -249,6 +249,3 @@ the classpath. These CorDapps will be installed on each node on the network. Mak
 containing your oracle service.
 
 You can then write tests on your mock network to verify the nodes interact with your Oracle correctly.
-
-See [here](https://github.com/corda/corda/samples/irs-demo/cordapp/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt) for more examples.
-

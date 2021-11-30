@@ -128,19 +128,7 @@ public void simpleCPDoesntCompile() {
 {{< /tabs >}}
 
 We can add a transaction to the ledger using the `transaction` primitive. The transaction in turn may be defined by
-specifying 
-{{< warning >}}``{{< /warning >}}
-
-input``s, 
-{{< warning >}}``{{< /warning >}}
-
-output``s, 
-{{< warning >}}``{{< /warning >}}
-
-command``s and 
-{{< warning >}}``{{< /warning >}}
-
-attachment``s.
+specifying `input`s, `output`s, `command`s and `attachment`s.
 
 The above `input` call is a bit special; transactions don’t actually contain input states, just references
 to output states of other transactions. Under the hood the above `input` call creates a dummy transaction in the
@@ -831,4 +819,3 @@ public void chainCommercialPaperTweak() {
 [TutorialTestDSL.kt](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/test/kotlin/net/corda/docs/kotlin/tutorial/testdsl/TutorialTestDSL.kt) | [TutorialTestDSL.java](https://github.com/corda/corda/blob/release/os/4.0/docs/source/example-code/src/test/java/net/corda/docs/java/tutorial/testdsl/TutorialTestDSL.java) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
-

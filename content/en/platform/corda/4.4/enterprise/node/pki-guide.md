@@ -54,13 +54,13 @@ Corda nodes operate with the following assumptions on the certificates hierarchy
 * They need to have the common root certificate, which is present in the node’s trust store.
 The length of the certificate chain can be arbitrary. As such, there can be any number of certificates between the Identity Manager and Network Map certificates as long
 as they root to the same certificate.
-* They need to have a custom extension defining the role of the certificate in the context of Corda. See .. _here: [https://docs.corda.net/head/permissioning.html#certificate-role-extension](https://docs.corda.net/head/permissioning.html#certificate-role-extension) for more details.
+* They need to have a custom extension defining the role of the certificate in the context of Corda. See [here](../../../../../../en/platform/corda/4.4/enterprise/network/permissioning.html#certificate-role-extension) for more details.
 
 
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
 ![hierarchy agnostic](../resources/hierarchy-agnostic.png "hierarchy agnostic")
-At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found .. _here: [https://docs.corda.net/head/permissioning.html](https://docs.corda.net/head/permissioning.html) .
+At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found [here](../../../../../../en/platform/corda/4.4/enterprise/network/permissioning.html).
 
 
 ### Certificate Revocation List

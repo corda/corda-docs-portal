@@ -17,33 +17,7 @@ weight: 20
 
 # CENM Deployment with Docker, Kubernetes and Helm charts
 
-- [CENM Deployment with Docker, Kubernetes and Helm charts](#cenm-deployment-with-docker-kubernetes-and-helm-charts)
-  - [Docker images and JDK supported](#docker-images-and-jdk-supported)
-  - [Helm charts](#helm-charts)
-  - [General information about this deployment](#general-information-about-this-deployment)
-  - [Deploying your network](#deploying-your-network)
-    - [Prerequisite](#prerequisite)
-      - [(1) Install dependencies](#1-install-dependencies)
-      - [(2) Set up and connect to a cluster on Azure](#2-set-up-and-connect-to-a-cluster-on-azure)
-      - [(3) Create storage class and namespace](#3-create-storage-class-namespace-and-rbac)
-      - [(4) Download helm charts and installation scripts](#4-download-helm-charts-and-installation-scripts)
-    - [Option 1: Bootstrapping by allocating new external IP addresses](#option-1-bootstrapping-by-allocating-new-external-ip-addresses)
-    - [Option 2: Bootstrapping by reusing already allocated external IP addresses](#option-2-bootstrapping-by-reusing-already-allocated-external-ip-addresses)
-    - [Option 3: Bootstrapping manually](#option-3-bootstrapping-manually)
-  - [Interacting with your network](#interacting-with-your-network)
-    - [Access the interactive shell of the network services and notary](#access-the-interactive-shell-of-the-network-services-and-notary)
-    - [How to join your network](#how-to-join-your-network)
-    - [Display logs](#display-logs)
-    - [Display configuration files used for each CENM service](#display-configuration-files-used-for-each-cenm-service)
-      - [Overwriting default configuration](#overwriting-default-configuration)
-    - [Unwinding your environnement](#unwinding-your-environnement)
-      - [Unwinding the whole environment (including IPs)](#unwinding-the-whole-environment-including-ips)
-  - [Managing your network](#managing-your-network)
-    - [Updating network parameters](#updating-network-parameters)
-    - [Running flag day](#running-flag-day)
-    - [Canceling network parameters update](#canceling-network-parameters-update)
-
-### Docker images and JDK supported
+## Docker images and JDK supported
 
 CENM docker images are based on `azul/zulu-openjdk:8u242`
 
@@ -68,21 +42,21 @@ All helm charts by default use CENM docker images with tag `1.2-zulu-openjdk8u24
 The use of different CENM versions on the same network is not supported - all services on a given network must be on the same CENM version.
 {{< /note >}}
 
-### Helm charts
+## Helm charts
 
-#### Requirements
+### Requirements
 
 The following requirements are needed in order to deploy CENM correctly:
 
 - [Helm](https://helm.sh/) >=3.1.1
 - [Kubernetes](https://kubernetes.io/) >=1.8
 
-#### Usage notes
+### Usage notes
 
 - These charts are supposed to be a reference installation.
 - They allow to configure several variables related to each CENM service.
 
-#### Compatibility
+### Compatibility
 
 These charts are compatible with Corda Enterprise Network Manager (CENM) version 1.2. Earlier CENM releases are not supported.
 
@@ -275,7 +249,7 @@ networkServices {
 ```
 
 - the `doormanURL` property is the public IP address and port of the Identity Manager service.
-- the `networkMapURL` is the pubic IP address and port of the Network Map service.
+- the `networkMapURL` is the public IP address and port of the Network Map service.
 
 Note: to obtain public IPs of Identity Manager and Network Map use:
 
@@ -301,18 +275,32 @@ For more details about joining CENM network see: [Joining an existing compatibil
 
 ### Display logs
 
-Each CENM service has dedicated sidecar to displays live logs from `log/` folder.
+Each CENM service has a dedicated sidecar to displays live logs from the `log/` directory.
 
 To display logs use the following command:
 
 ```bash
-kubectl logs -c logs <pod-name>
+kubectl logs -c <logs-container> <pod-name>
 ```
 
+The ```<logs-container>``` object container determines where the logs will be drawn from. The services write their logs to dedicated display containers
+where you can get a live view of the logs:
+```bash
+kubectl logs -c logs-auth <pod-name>   //for auth
+kubectl logs -c logs-gateway <pod-name>   //for gateway
+kubectl logs -c logs-idman <pod-name>   //for identity manager
+kubectl logs -c logs-nmap <pod-name>   //for network map
+kubectl logs -c logs-signer <pod-name>   //for signer
+kubectl logs -c logs-zone <pod-name>   //for zone
+```
+For notary, PKI, and HSM, the command is slightly different as logs containers do not exist for these services:
+```bash
+kubectl logs <pod-name>
+````
 To display live logs use the following command:
 
 ```bash
-kubectl logs -c logs -f <pod-name>
+kubectl logs -c -f <logs-container> <pod-name>
 ```
 
 ### Display configuration files used for each CENM service
@@ -373,7 +361,7 @@ helm delete nmap notary idman signer
 
 ### Updating network parameters
 
-CENM 1.2 allows to update network parameters without restarting Network Map. Take the following steps to update network parameters:
+CENM 1.2 allows you to update network parameters without restarting Network Map. Take the following steps to update network parameters:
 
 - Login to Network Map pod and edit `etc/network-parameters-update-example.conf` file:
 
