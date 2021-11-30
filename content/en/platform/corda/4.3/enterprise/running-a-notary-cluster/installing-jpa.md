@@ -86,7 +86,7 @@ notary {
             dataSource.url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST={host 1 IP address})(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST={host 2 IP address})(PORT=1521))(CONNECT_DATA=(SERVICE_NAME={service name})))"
             dataSource.user = {username}
             dataSource.password = {password}
-            dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"            
+            dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
         }
     }
 }
@@ -163,7 +163,7 @@ create table corda.notary_request_log (
   consuming_transaction_id varchar(64),
   requesting_party_name varchar(255),
   request_timestamp timestamp not null,
-  request_signature bytea not null,
+  request_signature bytes not null,
   constraint id3 primary key (id)
   );
 ```

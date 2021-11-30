@@ -231,7 +231,7 @@ create table corda.notary_request_log (
   consuming_transaction_id varchar(64),
   requesting_party_name varchar(255),
   request_timestamp timestamp not null,
-  request_signature bytea not null,
+  request_signature bytes not null,
   worker_node_x500_name varchar(255),
   constraint id3 primary key (id),
   index (consuming_transaction_id)
@@ -284,7 +284,7 @@ Additionally, the same user has to have access to the key in PKCS8 format used t
 ### JDBC driver
 
 The PostgresSQL driver should be used when attempting to connect the JPA notary to CockroachDB. The JPA notary
-service has been tested with driver version 42.2.7. This JAR file should be placed in the `drivers` folder.
+service has been tested with driver version 42.2.9. This JAR file should be placed in the `drivers` folder.
 
 
 ### Connection string

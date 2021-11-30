@@ -339,18 +339,14 @@ A larger number of flows can be suspended, e.g. waiting for reply from a counter
 When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
 
 Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
-up to handle the event. This can have serious performance implications if the flow thread pool is too small,as a flow cannot be suspended while in a database transaction, or without checkpointing its state first.
+up to handle the event. This can have serious performance implications if the flow thread pool is too small, as a flow cannot be suspended while in a database transaction, or without checkpointing its state first.
 
 Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in parallel, allowing more than one flow to be active and/or use resources at the same time.
 
-The default value is 2 times the number of cores available (the minimum is 30 if there are less than 15 cores) which was found to be working efficiently in performance testing.
-
-The ideal value for this parameter depends on a number of factors.
-
-The main ones are the hardware the node is running on, the performance profile of the flows, and the database instance backing the node as datastore. Every thread will open a database connection, so for n threads, the database system must have at least n+1 connections available. Also, the database
+The ideal value for this parameter depends on a number of factors. These include the hardware the node is running on, the performance profile of the flows, and the database instance backing the node as datastore. Every thread will open a database connection, so for n threads, the database system must have at least n+1 connections available. Also, the database
 must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
-using e.g. H2, any number beyond 8 does not add any substantial benefit due to limitations with its internal
-architecture. For these reasons, the default size for the flow framework thread pool is the minimum between two times the available number of processors and 30. Overriding this value in the configuration allows to specify any number.
+using for example H2, any number beyond eight does not add any substantial benefit due to limitations with its internal
+architecture. For these reasons, the default size for the flow framework thread pool is the lower number between either the available number of processors times two, and 30. Overriding this value in the configuration allows you to specify any number.
 
 * `rpcThreadPoolSize`
   * The number of threads handling RPC calls - this defines how many RPC requests can be handled

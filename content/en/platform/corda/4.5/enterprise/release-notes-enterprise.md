@@ -16,6 +16,21 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.5.6
+
+Corda Enterprise 4.5.6 is a patch release of Corda Enterprise that fixes an invalid notarization response being sent
+after an internal notary flow retry.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* A fix has been added to prevent a rare invalid notarization response after internal notary flow retry.
+
 ## Corda Enterprise 4.5.5
 
 Corda Enterprise 4.5.5 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise 4.5.3.
@@ -67,7 +82,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * The `attachmentPresenceCache` has been removed. The functionality is duplicated in the `attachmentContent` cache in the `NodeAttachmentService`.
 * We have fixed an issue that caused the Corda Firewall to throw an error when version information was requested.
 * We have fixed an issue that can cause failure at node startup.
-* We have fixed an issue that caused Jmeter to be unable to deserialise CorDapps if they were not listed as Jmeter dependencies.
+* We have fixed an issue that caused Jmeter to be unable to deserialize CorDapps if they were not listed as Jmeter dependencies.
 * We have fixed an issue that caused the float to not reactivate after a bridge restart.
 * We have fixed an issue that could cause a float to handle two connection attempts from the same bridge simultaneously.
 * We have fixed an issue that misinterpreted an internal error as a bad certificate error, preventing future connection attempts.
@@ -182,7 +197,7 @@ See the `LedgerSync` [documentation section](../../../../../en/platform/corda/4.
 
 ### HA Notary readback queue
 
-Each Notary worker now has a readback queue. This queue collects recently-spent states, then double-checks that they have correctly been recorded as spent in the Notary database. If this mechanism detects an inconsistency, an error is recorded in the worker’s log file, and a JMX metric for unpersisted DB records is updated.
+Each Notary worker now has a readback queue. This queue collects recently-spent states, then double-checks that they have correctly been recorded as spent in the Notary database. If this mechanism detects an inconsistency, an error is recorded in the worker’s log file, and a JMX metric for un-persisted DB records is updated.
 
 See the [database monitoring agent](../../../../../en/platform/corda/4.5/enterprise/notary/notary-monitoring.md) documentation section for more information.
 
@@ -238,7 +253,7 @@ The documentation has been relocated to the main Corda and Corda Enterprise docu
 ### Other improvements
 
 * All database columns containing datestamps have been standardised to use UTC (the time zone used was previously inconsistent).
-* The HSM name used in the HA Utilities `--bridge-hsm-name` and `--float-hsm-name` command-line parameters should now exactly match `cryptoServiceName`, as described [here](../../../../../en/platform/corda/4.5/enterprise/cryptoservice-configuration.md).
+* The HSM name used in the HA Utilities `--bridge-hsm-name` and `--float-hsm-name` command-line parameters should now exactly match `cryptoServiceName`, as described [here](../../../../../en/platform/corda/4.5/enterprise/node/operating/cryptoservice-configuration.md).
 
 ## Platform version change
 
@@ -249,12 +264,12 @@ For more information about platform versions, see [Versioning](../../../../../en
 ## Fixed issues
 
 * Fixed an issue where the implementation of `FieldInfo.notEqual` in `QueryCriteriaUtils` was the same as `FieldInfo.Equal`.
-* We have fixed an issue where CorDapp custom serialisers were not supported in `MockNetwork`, causing unit tests of flows to fail without using `Driver`.
-* We have fixed an issue where serialising a `FlowExternalOperation`, which had maintained a reference to a `FlowLogic`, could throw an `IndexOutOfBoundsException` error when constructing a `FlowAsyncOperation` from a `FlowExternalOperation`.
+* We have fixed an issue where CorDapp custom serializers were not supported in `MockNetwork`, causing unit tests of flows to fail without using `Driver`.
+* We have fixed an issue where serializing a `FlowExternalOperation`, which had maintained a reference to a `FlowLogic`, could throw an `IndexOutOfBoundsException` error when constructing a `FlowAsyncOperation` from a `FlowExternalOperation`.
 * We have fixed an issue where `ServiceHub.signInitialTransaction()` threw undeclared checked exceptions (`TransactionDeserialisationException` and `MissingAttachmentsException`.
 * We have standardised all node database timestamps to use the UTC time zone.
-* We have fixed issues with the existing checkpoint iterator serialisers related to null handling and the use of `equals` when restoring the iterator position.
-* We have fixed an issue where Corda failed to deserialise Enums with custom `toString()` methods into the DJVM sandbox.
+* We have fixed issues with the existing checkpoint iterator serializers related to null handling and the use of `equals` when restoring the iterator position.
+* We have fixed an issue where Corda failed to deserialize Enums with custom `toString()` methods into the DJVM sandbox.
 * We have fixed an issue where Corda's internal `providerMap` field in `core`, which is supposed to be private, was both public and mutable.
 * We have fixed an issue with failing session init messages when the state machine replayed them from the Artemis queue in order to retry flows that had not yet persisted their first checkpoint, due to problems with database connectivity.
 * We have fixed an issue where the `com.r3.corda.enterprise.settlementperftestcordapp.flows.SwapStockForCashFlowTest` failed for Oracle 11 due to failed migration.
@@ -263,7 +278,7 @@ For more information about platform versions, see [Versioning](../../../../../en
 * We have fixed an issue where no CRL check was done when using embedded Artemis, which could cause nodes to continue to be involved in transactions after they had been blacklisted.
 * We have fixed an issue with inconsistent error messages on starting components if HSM was not available.
 * We have fixed an issue where a Vault Query using `LinearStateQueryCriteria(linearId = emptyList())` would translate into an illegal SQL statement on PostgreSQL and would throw an exception.
-* We have added a custom serialiser (`IteratorSerializer`) that can fix broken iterators in order to resolve an issue with a `ConcurrentModificationException` in `FetchDataFlow`.
+* We have added a custom serializer (`IteratorSerializer`) that can fix broken iterators in order to resolve an issue with a `ConcurrentModificationException` in `FetchDataFlow`.
 * We have fixed an issue with failing `VaultObserverExceptionTest` tests on Oracle.
 * We have fixed an issue where the “Registering as a new participant with a Corda network” message during node registration using the node shell was not centred.
 * We have fixed an issue with licensing for the Collaborative Recovery CorDapps.
