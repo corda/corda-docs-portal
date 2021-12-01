@@ -46,13 +46,13 @@ When naming contracts, it’s best practice to match your contract and state nam
 
 ### Create the contract class
 
-A Corda state typically has a corresponding contract class to document the rules/policy of that state when used in a transaction. To declare the contract class:
+A Corda state typically has a corresponding contract class to document the rules/policy of that state when used in a transaction.
 
-Add the class name `MarsVoucherContract` that implements the `Contract` class.
+To declare the contract class, add the class name `MarsVoucherContract` that implements the `Contract` class.
 
 {{< note >}}
 As you are writing the contract, you will notice that IntelliJ prompts you to add imports that correspond to elements you've added. Add the relevant imports to all suggested elements.
-When adding imports, ignore `BoardingTicketContract` that is in red - you will add it in the *Create the `BoardingTicketContract`* section.
+When adding imports, ignore `BoardingTicketContract` that is in red—you will add it in the [Create the `BoardingTicketContract`](#create-the-boardingticketcontract) section.
 {{< /note >}}
 
 This is what your code should look like now:
