@@ -12,17 +12,17 @@ tags:
 title: "Write a simple state"
 ---
 
-In Corda, states are immutable objects. One or more Corda nodes agree that these states exist at a specific point in time. These objects can represent any information - in this example, the states represent the voucher for a trip to Mars (`MarsVoucher`) and a ticket (`BoardingTicket`) given to the customer when they redeem their voucher. These states represent information that Mars Express and the customer share and have agreed upon.
+In Corda, states are immutable objects. One or more Corda nodes agree that these states exist at a specific point in time. These objects can represent any information—in this example, the states represent the voucher for a trip to Mars (`MarsVoucher`) and a ticket (`BoardingTicket`) given to the customer when they redeem their voucher. These states represent information that Mars Express and the customer share and have agreed upon.
 
-States associated to a specific party's identity are stored in that entity's vault. They can also stored in the vaults of relevant parties, or other parties involved in transactions with that state. For a state to evolve, the current state must be marked as historic and a new, updated state must be created. The `MarsVoucher` state is issued by the company Mars Express to Peter, so it is stored in both parties' vaults. When Peter redeems his voucher, the `MarsVoucher` state is spent and this information is updated in both vaults. It's a similar process for the `BoardingTicket` state. The state is issued by Mars Express and spent when Peter takes his trip. Both the voucher and ticket are valid for single-use only - when the states are spent, it guarantees that they cannot be used again.
+States associated to a specific party's identity are stored in that entity's vault. They are also stored in the vaults of other parties involved in transactions with that state. For a state to evolve, the current state must be marked as historic and a new, updated state must be created. The `MarsVoucher` state is issued by the company Mars Express to Peter, so it is stored in both parties' vaults. When Peter redeems his voucher, the `MarsVoucher` state is spent and this information is updated in both vaults. It's a similar process for the `BoardingTicket` state. The state is issued by Mars Express and spent when Peter takes his trip. Both the voucher and ticket are valid for single-use only—when the states are spent, it guarantees that they cannot be used again.
 
 When you create a state, you include the relevant information about the fact you are storing. The `MarsVoucher` state includes a description of the voucher and the names of the issuer and holder. The `BoardingTicket` includes trip information, the issuer and owner of the ticket, and the days left until the rocket launch. You also include a reference to the contract that governs how the states should evolve over time. The state must implement <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`</a> or one of its dependents.
 
-This tutorial guides you through writing the `MarsVoucher` state. You will be creating this state in the `contracts/src/main/kotlin/net/corda/missionMars/states/` directory in this tutorial. Refer to the `TemplateState.kt` file in this directory to see a template state.
+This tutorial guides you through writing the `MarsVoucher` state. You will be creating this state in the `contracts/src/main/kotlin/net/corda/missionMars/states/` directory. Refer to the `TemplateState.kt` file in this directory to see a template state.
 
 ## Learning objectives
 
-After you have completed this tutorial and the [Write an advanced state](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-state-2.md) tutorial, you will know how to create and implement states in a Corda 5 Developer Preview CorDapp.
+After you have completed this tutorial and the tutorial on [writing advanced states](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-state-2.md), you will know how to create and implement states in a Corda 5 Developer Preview CorDapp.
 
 ## Before you start
 
@@ -40,14 +40,14 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
 2. Open `corda5-cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
-   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
+   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [running a sample CorDapp](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/run-demo-cordapp.html#open-the-sample-cordapp-in-intellij-idea).
 
 3. If you want to customize the CorDapp template, [rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `missionMars`. This changes all instances of `template` in the project to `missionMars`.
 
 ## Create the `MarsVoucher` state
 
-First create the `MarsVoucher` state. This state represents the voucher that Mars Express will issue to its customers and must include:
-* A description of the voucher. This can include any relevant information, such as an expiration date.
+The `MarsVoucher` state represents the voucher that Mars Express will issue to its customers and must include:
+* A description of the voucher. This includes any relevant information, such as an expiration date.
 * The name of the issuer. The customer can then verify which company the voucher was purchased from.
 * The name of the current holder. The company can then verify the identity of the customer who redeems the voucher.
 
@@ -63,11 +63,11 @@ The `MarsVoucher` state must be transferable between entities. A customer redeem
 
 ### Define the `MarsVoucher` data class
 
-Next, define the `MarsVoucher` data class. Include these variables:
+Include these variables in the `MarsVoucher` data class:
 
-*  `voucherDesc` - A description of the voucher. Use type `String`.
-*  `issuer` - The issuer of the voucher. Use type `Party`.
-*  `holder` - The current owner of the voucher. Use type `Party`.
+*  `voucherDesc`: A description of the voucher. Use type `String`.
+*  `issuer`: The issuer of the voucher. Use type `Party`.
+*  `holder`: The current owner of the voucher. Use type `Party`.
 
 Your code should now look like this:
 
@@ -101,7 +101,7 @@ The `LinearState` makes sense for this use case, but there are several types of 
 * Need to sign any notary-change and contract-upgrade transactions involving this state.
 * Receive any finalized transactions involving this state as part of `FinalityFlow`.
 
-1. Implement the `LinearState` interface and define an [override varaible](https://kotlinlang.org/docs/inheritance.html#overriding-properties) for the `LinearId` of the state. This is required for `LinearState`s.
+1. Implement the `LinearState` interface and define an [override varaible](https://kotlinlang.org/docs/inheritance.html#overriding-properties) for the `linearId` of the state. This is required for `LinearState`s.
 2. Define another override variable for the `participants` of the state.
 
 Your code should now look like this:
@@ -135,10 +135,10 @@ The Corda RPC Client takes in JSON parameters. You must pass JSON parameters if 
 Implement the `JsonRepresentable` interface in `MarsVoucher` to ensure that it can be transmitted over RPC.
 
 {{< note >}}
-There are several ways to return your parameters in a JSON string. The tutorial shows you one method, but you are not restricted to using this specific method in Corda.
+There are several ways to return your parameters in a JSON string. This tutorial shows you one method, but you are not restricted to using this specific method in Corda.
 {{< /note >}}
 
-1. Create a data transfer object that encapsulates the data of your `MarsVoucher` state - `MarsVoucherDto`. Include the same variables as the `MarsVoucher` class (`voucherDesc`, `issuer`, and `holder`) and mark all variables as type `String`. This sets up a template that the node uses to send this data class to the RPC Client.
+1. Create a data transfer object that encapsulates the data of your `MarsVoucher` state—`MarsVoucherDto`. Include the same variables as the `MarsVoucher` class (`voucherDesc`, `issuer`, and `holder`) and mark all variables as type `String`. This sets up a template that the node uses to send this data class to the RPC Client.
 2. Create a function that instantiates the `MarsVoucherDto` and populates the template with the actual variables of the class.
 3. Create an [override function](https://kotlinlang.org/docs/inheritance.html#overriding-methods) that converts the `MarsVoucherDto` to JSON using the `toJson` method.
 

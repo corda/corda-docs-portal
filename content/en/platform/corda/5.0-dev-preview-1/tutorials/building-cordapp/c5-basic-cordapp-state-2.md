@@ -12,7 +12,7 @@ tags:
 title: "Write an advanced state"
 ---
 
-Now that you have created a state to represent a voucher, you must create a `BoardingTicket` state to represent the ticket that the customer receives when they redeem their `MarsVoucher`. This state has some additional complexity - it uses a secondary constructor and helper method to change the owner of the `BoardingTicket`.
+Now that you have created a state to represent a voucher, you must create a `BoardingTicket` state to represent the ticket that the customer receives when they redeem their `MarsVoucher`. This state has some additional complexity—it uses a secondary constructor and helper method to change the owner of the `BoardingTicket`.
 
 You will be creating this state in the same directory as `MarsVoucher` (`contracts/src/main/kotlin/net/corda/missionMars/states/`).
 
@@ -37,12 +37,12 @@ The `BoardingTicket` state must be transferable between the issuer and the custo
 
 ### Define the `BoardingTicket` data class
 
-Next, define the `BoardingTicket` data class. Include these variables:
+Include these variables in the `BoardingTicket` data class:
 
-* `description` - Trip information. Use type `String`.
-* `marsExpress` - The space travel company issuing the ticket. Use type `Party`.
-* `owner` - The party exchanging the voucher for the ticket. Use type `Party`.
-* `daysUntilLaunch` - The number of days until the launch date. Use type `int`.
+* `description`: Trip information. Use type `String`.
+* `marsExpress`: The space travel company issuing the ticket. Use type `Party`.
+* `owner`: The party exchanging the voucher for the ticket. Use type `Party`.
+* `daysUntilLaunch`: The number of days until the launch date. Use type `int`.
 
 This is what your code should look like now:
 
@@ -62,7 +62,7 @@ data class BoardingTicket(
 
 ### Implement the `ContractState` interface
 
-Use <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`s</a> to create the `BoardingTicket` state. The state must use the `participants` field, but has no additional requirements so you do not need to use any of `ContractState`'s sub-interfaces.
+Use <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html#contractstate">`ContractState`s</a> to create the `BoardingTicket` state. The state must use the `participants` field, but as it has no additional requirements you do not need to use any of `ContractState`'s sub-interfaces.
 
 `ContractState` allows Corda to use the `BoardingTicket` class as a state. As in the `MarsVoucher` state, you need to implement a method to populate the `participants` of the state.
 
@@ -92,10 +92,10 @@ data class BoardingTicket(
 `JsonRepresentable` ensures the object can be serialized to JSON and called over RPC. Implement this interface in `BoardingTicket` so that it can be used with the Corda RPC Client.
 
 {{< note >}}
-There are several ways to return your parameters in a JSON string. The tutorial shows you one method, but you are not restricted to using this specific method in Corda.
+There are several ways to return your parameters in a JSON string. This tutorial shows you one method, but you are not restricted to using this specific method in Corda.
 {{< /note >}}
 
-1. Create a data transfer object that encapsulates the data of your `BoardingTicket` state - `BoardingTicketDto`. Include the same variables as the `BoardingTicket` class (`description`, `marsExpress`, `owner`, and `daysUntilLaunch`) and mark all variable types as `String`.
+1. Create a data transfer object that encapsulates the data of your `BoardingTicket` state—`BoardingTicketDto`. Include the same variables as the `BoardingTicket` class (`description`, `marsExpress`, `owner`, and `daysUntilLaunch`) and mark all variable types as `String`.
 2. Create a function that instantiates the `BoardingTicketDto`.
 3. Create an override function that converts the `BoardingTicketDto` variables to JSON using the `toJson` method.
 
@@ -144,12 +144,12 @@ data class BoardingTicketDto(
 ```
 ### Define a secondary constructor and helper method to change the ticket owner
 
-The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction. In the second transaction, an ownership transfer occurs. This creates a new instance of the `BoardingTicket` state on the ledger, since you cannot change an immutable object. While states are immutable, the ledger as a whole is mutable as states are created and consumed.
+The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction. In the second transaction, an ownership transfer occurs. Since you cannot change an immutable object, this creates a new instance of the `BoardingTicket` state on the ledger. While states are immutable, the ledger as a whole is mutable as states are created and consumed.
 
 To implement this functionality:
 
 1. Define a secondary constructor that creates the default `BoardingTicket` state. This constructor assigns `marsExpress` as the default `owner` of the ticket when no customer is specified.
-2. Define a helper method that changes the owner of the `BoardingTicket` state - `changeOwner`. This function is used when Mars Expresses issues a `BoardingTicket` to a customer and returns the `BoardingTicket` with its updated variables.
+2. Define a helper method that changes the owner of the `BoardingTicket` state—`changeOwner`. This function is used when Mars Express issues a `BoardingTicket` to a customer and returns the `BoardingTicket` with its updated variables.
 
 You've finished writing the `BoardingTicket` state. Your code should look like this:
 
@@ -209,4 +209,4 @@ data class BoardingTicketDto(
 
 ## Next steps
 
-Follow the [Write contracts](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-contract.md) tutorial to continue on this learning path.
+Follow the tutorial on [writing contracts](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-contract.md) to continue on this learning path.
