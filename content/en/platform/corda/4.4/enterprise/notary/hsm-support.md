@@ -87,7 +87,7 @@ clientId: "<app id from creation of the service principle>"
 protection: "SOFTWARE" # HARDWARE can be specified if using a premium vault
 ```
 
-When the configuration files are ready, register the notary service identity using the notary registration tool and any worker’s node.conf
+When the configuration files are ready, register the notary service identity using the HA Utilities tool and any worker’s node.conf
 file:
 
 ```sh
