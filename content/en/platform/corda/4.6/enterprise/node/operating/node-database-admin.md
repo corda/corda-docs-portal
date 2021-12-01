@@ -433,7 +433,7 @@ Configure the required `node.conf` settings for the Database Management Tool usi
 dataSourceProperties = {
     dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
     dataSource.url = "jdbc:oracle:thin:@<host>:<port>:<sid>"
-    dataSource.user = my_user
+    dataSource.user = my_admin_user
     dataSource.password = "my_password"
 }
 database = {
@@ -521,7 +521,7 @@ SET SCHEMA 'my_schema';
 
 
 
-The reason is that not all SQL statements in the generated DDL script contain the schema prefix.
+The reason is that not all SQL statements in the generated DDL script contain the schema prefix. This is not relevant to Oracle setups.
 
 {{< /note >}}
 The whole script needs to be run. Partially running the script would cause the database schema content to be in an inconsistent version.
