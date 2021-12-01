@@ -485,18 +485,7 @@ whitelistContracts = {
     ]
 }
 eventHorizonDays = 30 # Duration in days
-packageOwnership = [
-    {
-        packageName = "com.megacorp.example.claimed.package",
-        publicKeyPath = "/example/path/to/public_key_rsa.pem",
-        algorithm = "RSA"
-    },
-    {
-        packageName = "com.anothercorp.example",
-        publicKeyPath = "/example/path/to/public_key_ec.pem",
-        algorithm = "EC"
-    }
-]
+
 ```
 
 

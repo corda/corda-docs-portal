@@ -419,7 +419,8 @@ Once you have created an Azure Key Vault that you want to use, perform the follo
 
 The HSM pod is a helper pod, which loads a defined Docker image and attempts to load the folder containing the HSM-related
 files as a volume for the other pods to use. Follow the steps below:
-1. [Create the library jar](#azure-key-vault).
+
+1. [Create the library `.jar`](signing-service.html#azure-key-vault).
 2. Create a Docker image containing the `.jar` file and the `.pkcs12` file used as the key store path.
 
 The Docker image and the directory where these files are stored must be specified in the relevant variables in the HSM `values.yaml` file.
