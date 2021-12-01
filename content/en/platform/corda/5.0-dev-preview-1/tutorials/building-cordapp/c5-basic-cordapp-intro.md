@@ -35,7 +35,7 @@ This example showcases a delivery versus payment (DvP) scenario. You are buildin
 
 There are two parties involved in this transaction:
 
-- The space travel company - Mars Express.
+- A space travel company - Mars Express.
 - A customer - let's call him Peter.
 
 Your CorDapp must follow this process:
