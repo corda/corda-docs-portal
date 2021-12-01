@@ -9,20 +9,20 @@ menu:
 tags:
 - tutorial
 - cordapp
-title: Write contracts
+title: Write a contract
 ---
 
 [Contracts](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-contracts.md) define the rules of how states can evolve. A CorDapp can have more than one contract, and each contract defines rules for one or more states. The contract governs the execution of [transactions](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-transactions.html) that update the ledger by marking zero or more existing ledger states as historic (the inputs), and producing zero or more new ledger states (the outputs). The contract(s) ensures that input and output states in transactions are valid and prevents invalid transactions from occurring. All parties that wish to transact in a network must run the same contract(s) for any transaction they’re a party to, verifying that the transaction is valid.
 
-Contracts are classes that implement the Contract interface. They must override the `verify` method. The `verify` method takes transactions as input and evaluates them against rules defined as a `requireThat` element. Contract execution must be deterministic, and transaction acceptance is based on the transaction’s contents alone. Contract verification is the final step that governs the evolution of the ledger, thus it can only address on-ledger facts.
+Contracts are classes that implement the `Contract` interface. They must override the `verify` method. The `verify` method takes transactions as input and evaluates them against rules defined as a `requireThat` element. Contract execution must be deterministic, and transaction acceptance is based on the transaction’s contents alone. Contract verification is the final step that governs the evolution of the ledger, thus it can only address on-ledger facts.
 
-A transaction that is not contractually valid is not a valid proposal to update the ledger, and thus can never be committed to the ledger. In this way, contracts impose rules on the evolution of states over time that are independent of the willingness of the required signers to sign a given transaction.
+A transaction that is not contractually valid is not a valid proposal to update the ledger, therefore it can never be committed to the ledger. In this way, contracts impose rules on the evolution of states over time that are independent of the willingness of the required signers to sign a given transaction.
 
 Contract verification is not the only type of validation that you can apply in your CorDapp—you can use [workflows](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/flows/overview.html) to perform validation as well.
 
 This tutorial guides you through writing the two contracts you need in your CorDapp: `MarsVoucherContract` and `BoardingTicketContract`. You will link these contracts to the states that you created in the [states](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-state.md) tutorials.
 
-You will create these contracts in the `contracts/src/main/<kotlin>/net/corda/missionMars/contracts/` directory in this tutorial. Refer to the `TemplateContract.kt` file in this directory to see a template contract.
+You will create these contracts in the `contracts/src/main/<kotlin>/net/corda/missionMars/contracts/` directory. Refer to the `TemplateContract.kt` file in this directory to see a template contract.
 
 ## Learning objectives
 
@@ -30,7 +30,7 @@ When you have completed this tutorial, you will know how to create and implement
 
 ## Create the `MarsVoucherContract` contract
 
-First, create the `MarsVoucherContract`. This contract verifies actions performed on the `MarsVoucher` state.
+The `MarsVoucherContract` contract verifies actions performed on the `MarsVoucher` state.
 
 1. Right-click the **contracts** folder.
 
@@ -221,21 +221,21 @@ class MarsVoucherContract : Contract {
 }
 ```
 
-## Create the BoardingTicketContract
+## Create the `BoardingTicketContract`
 
 Now that you’ve written your first contract, try writing the `BoardingTicketContract` using the following information.
 
 The `BoardingTicketState` will be used on two occasions, which means that the `BoardingTicketContract` should have a `Commands` interface that carries two commands corresponding to the contract’s two intentions:
 
-* Mars Express creates the ticket to go to Mars. This intention is expressed by the CreateTicket command.
-* Peter redeems the BoardingTicket state. This intention is expressed by the RedeemTicket command.
+* Mars Express creates the ticket to go to Mars. This intention is expressed by the `CreateTicket` command.
+* Peter redeems the `BoardingTicket` state. This intention is expressed by the `RedeemTicket` command.
 
 The rules inside the `requireThat` Corda DSL helper method are:
 
 * For the `CreateTicket` command:
-    * The transaction should only output one BoardingTicket state.
-    * The output BoardingTicket state should have a clear description of the space trip.
-    * The output BoardingTicket state should have a launch date later than the creation time.
+    * The transaction should only output one `BoardingTicket` state.
+    * The output `BoardingTicket` state should have a clear description of the space trip.
+    * The output `BoardingTicket` state should have a launch date later than the creation time.
 * For the `RedeemTicket` command:
     * The transaction should consume two states.
     * The issuer of the `BoardingTicket` should be the space company that created the boarding ticket.
