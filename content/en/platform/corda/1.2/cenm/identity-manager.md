@@ -782,3 +782,16 @@ shell {
 }
 
 ```
+
+## Known vulnerabilities
+
+A vulnerability for DOS (Denial-of-Service) attacks was discovered in Identity Manager during penetration testing:
+Identity Manager performs no authentication of network connections. As a result, a network attacker may submit any number
+of maliciously-formatted Certificate Signing Requests (CSR). The number of requests submitted, and the size of each request
+are unconstrained.
+
+The impact of this vulnerability:
+* Web-server logs on any NGINX proxy could become exhausted, as will the log files on the Doorman server.
+* Critically, the JIRA queue will likely become saturated with CSRs and will become impossible to manage - the associated management & required cleanup will be difficult.
+* The doorman server itself will likely be knocked offline, meaning that legitimate network participants will be unable to register with Doorman.
+* Malformed CSRs which are not being validated might trigger down-stream vulnerabilities such as SQL injection, XSS attacks in JIRA and formatting issues in log files.
