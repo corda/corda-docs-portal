@@ -367,7 +367,6 @@ override fun call(): SignedTransaction {
     progressTracker.currentStep = SIGNING
     val (ptx, cashSigningPubKeys) = assembleSharedTX(assetForSale, tradeRequest, buyerAnonymousIdentity)
 
-    // DOCSTART 6
     // Now sign the transaction with whatever keys we need to move the cash.
     val partSignedTx = serviceHub.signInitialTransaction(ptx, cashSigningPubKeys)
 

@@ -69,7 +69,6 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
     ---------------------------------**/
     // Giving our flow a progress tracker allows us to see the flow's
     // progress visually in our node's CRaSH shell.
-    // DOCSTART 17
     companion object {
         object ID_OTHER_NODES : Step("Identifying other nodes on the network.")
         object SENDING_AND_RECEIVING_DATA : Step("Sending data between parties.")
@@ -707,7 +706,6 @@ public class FlowCookbook {
             //   - To serve as a timestamping authority if the transaction has a
             //     time-window
             // We retrieve a notary from the network map.
-            // DOCSTART 01
             CordaX500Name notaryName = new CordaX500Name("Notary Service", "London", "GB");
             Party specificNotary = Objects.requireNonNull(getServiceHub().getNetworkMapCache().getNotary(notaryName));
             // Alternatively, we can pick an arbitrary notary from the notary
