@@ -216,7 +216,7 @@ Initial user **initializer**: This command group allows configuration of the ini
 
 * `[--initial-user-name]` Sets the name of the user.
 * `[--initial-user-password]` Sets the password of the user when provider is ```internal```.
-* `[--initial-user-external-id]` External id of the user when using a provider other than ```internal``` that requires it. In case of AzureAD this should be the ObjectID of the user whose username is used in the ```--initial-user-name``` parameter.
+* `[--initial-user-external-id]` External ID of the user when using a provider other than ```internal``` that requires it. In case of AzureAD this should be the ObjectID of the user whose user name is used in the ```--initial-user-name``` parameter.
 
 
 * `[--restore-admin-capability]` (**initializer**) If all admin users are locked out, for example because of password policy, this option unlocks them.
