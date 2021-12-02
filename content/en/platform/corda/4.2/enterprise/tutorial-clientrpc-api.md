@@ -103,18 +103,15 @@ thread {
      *   otherwise a [VaultQueryException] will be thrown alerting to this condition.
      *   It is the responsibility of the API user to request further pages and/or specify a more suitable [PageSpecification].
      */
-    // DOCSTART VaultQueryByAPI
     @RPCReturnsObservables
     fun <T : ContractState> vaultQueryBy(criteria: QueryCriteria,
                                          paging: PageSpecification,
                                          sorting: Sort,
                                          contractStateType: Class<out T>): Vault.Page<T>
-    // DOCEND VaultQueryByAPI
 
     // Note: cannot apply @JvmOverloads to interfaces nor interface implementations
     // Java Helpers
 
-    // DOCSTART VaultQueryAPIHelpers
     fun <T : ContractState> vaultQuery(contractStateType: Class<out T>): Vault.Page<T>
 
     fun <T : ContractState> vaultQueryByCriteria(criteria: QueryCriteria, contractStateType: Class<out T>): Vault.Page<T>
@@ -122,7 +119,6 @@ thread {
     fun <T : ContractState> vaultQueryByWithPagingSpec(contractStateType: Class<out T>, criteria: QueryCriteria, paging: PageSpecification): Vault.Page<T>
 
     fun <T : ContractState> vaultQueryByWithSorting(contractStateType: Class<out T>, criteria: QueryCriteria, sorting: Sort): Vault.Page<T>
-    // DOCEND VaultQueryAPIHelpers
 
     /**
      * Returns a snapshot (as per queryBy) and an observable of future updates to the vault for the given query criteria.
@@ -136,18 +132,15 @@ thread {
      * Notes: the snapshot part of the query adheres to the same behaviour as the [CordaRPCOps.vaultQueryBy] function.
      *        the [QueryCriteria] applies to both snapshot and deltas (streaming updates).
      */
-    // DOCSTART VaultTrackByAPI
     @RPCReturnsObservables
     fun <T : ContractState> vaultTrackBy(criteria: QueryCriteria,
                                          paging: PageSpecification,
                                          sorting: Sort,
                                          contractStateType: Class<out T>): DataFeed<Vault.Page<T>, Vault.Update<T>>
-    // DOCEND VaultTrackByAPI
 
     // Note: cannot apply @JvmOverloads to interfaces nor interface implementations
     // Java Helpers
 
-    // DOCSTART VaultTrackAPIHelpers
     fun <T : ContractState> vaultTrack(contractStateType: Class<out T>): DataFeed<Vault.Page<T>, Vault.Update<T>>
 
     fun <T : ContractState> vaultTrackByCriteria(contractStateType: Class<out T>, criteria: QueryCriteria): DataFeed<Vault.Page<T>, Vault.Update<T>>
@@ -155,7 +148,6 @@ thread {
     fun <T : ContractState> vaultTrackByWithPagingSpec(contractStateType: Class<out T>, criteria: QueryCriteria, paging: PageSpecification): DataFeed<Vault.Page<T>, Vault.Update<T>>
 
     fun <T : ContractState> vaultTrackByWithSorting(contractStateType: Class<out T>, criteria: QueryCriteria, sorting: Sort): DataFeed<Vault.Page<T>, Vault.Update<T>>
-    // DOCEND VaultTrackAPIHelpers
 
     /**
      * @suppress Returns a list of all recorded transactions.
