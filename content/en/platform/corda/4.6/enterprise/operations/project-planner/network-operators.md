@@ -28,10 +28,8 @@ When deploying a private network, the Business Network Operator is responsible f
 * An HA Corda Firewall
 * An HSM
 * The certificate hierarchy of the network
-* An identity manager
-* A network map
 
-The Business Network Operator also deploys Corda Enterprise Network Manager in a private network.
+The Business Network Operator also deploys Corda Enterprise Network Manager in a private network. This deployment includes an identity manager and a network map.
 
 When deploying a public network, the Network Operator is responsible for all major components of the Corda network.
 
