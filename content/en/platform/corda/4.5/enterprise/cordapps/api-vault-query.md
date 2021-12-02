@@ -275,7 +275,7 @@ API’s now provide ease of use calling semantics from both Java and Kotlin. How
 An example of a custom query in Java is illustrated here:
 
 ```java
-QueryCriteria generalCriteria = new VaultQueryCriteria(Vault.StateStatus.ALL);
+QueryCriteria generalCriteria = new VaultQueryCriteria(Vault.StateStatus.UNCONSUMED);
 
 FieldInfo attributeCurrency = getField("currency", CashSchemaV1.PersistentCashState.class);
 FieldInfo attributeQuantity = getField("pennies", CashSchemaV1.PersistentCashState.class);
