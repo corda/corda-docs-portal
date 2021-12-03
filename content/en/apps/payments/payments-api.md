@@ -3,143 +3,270 @@ date: '2020-01-08T09:59:25Z'
 menu:
   apps:
     parent: "payments"
-    name: Corda Payments API
-title: Corda Payments API
+    name: Payment Service
+title: Payment Service
 weight: 400
 ---
-Use the Payment Service API to initiate payments from a node on a Corda network.
+Use Payment Service flows to initiate payments and account management requests from a node on a Corda network. These requests can then be picked up by the [Payments Agent](payments-agent.md) on your network.
 
-The methods listed below are triggered by flows within Corda.
+Use the Payment Service flows to:
 
+* Create a request for a payment to be made. [MakePayment](#makepayment).
+* Reinstate a stalled payment into the payment workflow. [ReinstatePayment](#reinstatepayment).
+* Cancel a stalled payment. [CancelPayment](#cancelpayment).
+* Update and reinstate a stalled payment into the payment workflow. [RemediatePayment](#remediatepayment).
+* Return the list of payments stalled on an error. [StalledPayments](#stalledpayments).
+* Return the payment state associated with a specific payment ID or provided transaction reference. [PaymentById](#paymentbyid).
+* Return the PSPs that are configured on the system and available to use. [AvailablePSPs](#availablepsps).
+* Return a PSP specification from the Payments Agent. [PspSpecification](#pspspecification).
+* Add a payment account for an existing account on the PSP. [AddPaymentAccount](#addpaymentaccount).
+* Create a customer account for an existing customer on the PSP. [CreateCustomerAccount](#createcustomeraccount).
+* Add a beneficiary account for an external customer. [AddBeneficiaryAccount](#addbeneficiaryaccount).
+* Update payment account details. [UpdatePaymentAccount](#updatepaymentaccount).
+* Update a beneficiary account details. [UpdateBeneficiaryAccount](#updatebeneficiaryaccount).
+* Return a list of payment accounts held by the owning party. [PaymentAccounts](#paymentaccounts).
+* Return the payment account associated with a payment account ID. [PaymentAccountId](#paymentaccountbyid).
+* Return a list of transactions made against this account. [Transactions](#transactions)
+* Return a list of payments made on the system by a given payment account.
+* Return the account balance for a given payment account ID. [AccountBalance](#accountbalance).
+* Return the current default payment agent.
 
-## `makePayment`
+## `MakePayment`
 
 Initiate a payment between participating nodes on the network.
 
 ### Parameters
 
-* `amount`: Amount<`FiatCurrency`> - the amount and currency of the payment to make.
+* `amount`: Amount<`FiatCurrency`>. The amount and currency of the payment to make. In the Corda Payments Technical Preview, you can use GBP or EUR.
+* `debtor`: String. A reference (signature) to debtor account (the account from which the payment is to be made - or the account from which `makePayment`is initiated) which is in turn resolved by the `AccountsResolver` service.
+* `creditor`: String. A reference (signature) to creditor account (the account into which the payment is to be made) which is in turn resolved by the `AccountsResolver` service.
+* `transactionRef`: String. Provided reference to the specified transaction. Bound to the externalId of the generated `PaymentState`'s `UniqueIdentifier`. Should be unique.
 
-* `debtor`: String - a reference (signature) to debtor account (the account from which the payment is to be made - or the account from which `makePayment`is initiated) which is in turn resolved by the `AccountsResolver` service.
+* `externalId`: String. Corresponds to the ID provided by the PSP.
 
-* `creditor`: String - a reference (signature) to creditor account (the account into which the payment is to be made) which is in turn resolved by the `AccountsResolver` service.
+### Return type
 
-* `transactionRef`: String - provided reference to the specified transaction. Bound to the externalId of the generated `PaymentState`'s `UniqueIdentifier`. Should be unique.
+`PaymentState` - The object containing information regarding the requested payment.
 
-* `externalId`: String - should correspond to the ID provided by the PSP.
+## `ReinstatePayment`
 
-### Return Type
-
-PaymentState - This method will return the persisted `PaymentState` object containing information regarding the requested payment.
-
-## `paymentById`
-
-Find a payment with the provided payment id.
+Reinstate a stalled payment into the payment workflow.
 
 ### Parameters
 
-* `paymentId`: UUID - the UUID component of the PaymentState UniqueIdentifier
+* `paymentId` UUID. ID of the stalled payment to be reinstated.
+* `comment` String. User supplied comment.  
 
-### Return Type
+### Return type
 
-* `PaymentState` - This method will return the persisted PaymentState object\
-containing information regarding the requested payment.
+`PaymentState` - The object containing information regarding the requested payment.
 
-## `availablePSPs`
+## `CancelPayment`
 
-This method returns a list of the PSPs that are configured on the system.
-
-### Return Type
-
-List<String> - the list of PSP identifiers eg "MODULR" that are available on the system to make payments against.
-
-## `createPaymentAccount`
-
-Create a record of an existing payment account details in the application.
+Cancel a stalled payment.
 
 ### Parameters
 
-* `accountName`: String - Account name to be stored against the account details that are received from the PSP.
+* `paymentId` UUID. Payment ID of the stalled payment.
+* `comment` String. User supplied comment.
 
-* `currency`: FiatCurrency - The currency that the account should be created with.
+### Return type
 
-* `psp`: String - The PSP to create the account with.
+`PaymentState` - The object containing information regarding the requested payment.
 
-* `agent`: Party [Optional] - the Agent which runs the Payment Service for operating on the account. If not provided, the account will default to an agent configured via the node's Payment Service CorDapp config.
+## `RemediatePayment`
 
-* `details`: Map<String, String> - [OPTIONAL] additional Key-value data associated with the Payment Account. These details will be stored in the underlying PaymentAccountDetailsState shared between agent and node - but are NOT available through the returned PaymentAccount object.
-
-### Return Type
-
-`AccountDetails` - The payment account details.
-
-## `updatePaymentAccount`
-
-Send a request to the given PSP to update the underlying `PaymentAccountDetailsState` with the provided details.
+Update a stalled payment and reinstate into the payment workflow.
 
 ### Parameters
 
-details: Map<String, String> - additional Key-value data associated with the Payment Account. These details are stored in the underlying `PaymentAccountDetailsState` shared between agent and node - but are not available through the returned `PaymentAccount` object.
+* `payment` The updated payment state.
 
-### Return Type
+### Return type
 
-`AccountDetails` - The payment account details
+`PaymentState` - The object containing information regarding the requested payment.
 
-## `paymentAccounts`
+## `StalledPayments`
+
+Return a list of payments stalled on an error.
+
+### Parameters
+
+None.
+
+### Return type
+
+List of `PaymentState` objects for payments stalled on an error.
+
+## `PaymentById`
+
+Return the `PaymentState` associated with either a `paymentId` or `transactionRef`.
+
+### Parameters
+
+You can use either of the following:
+
+* `paymentId`: UUID. The unique identifier component of the `PaymentState`.
+
+* `transactionRef` UUID. The `externalId` component of the target `PaymentState`.
+
+### Return type
+
+* `PaymentState` - Object containing information regarding the requested payment.
+
+## `AvailablePSPs`  
+
+Get a list of the Payment Service Providers (PSPs) that are registered on the Payment Agent's node - making them available for payments on your network.
+
+{{< note >}}
+In Corda Payments Technical Preview the only possible available PSP is Modulr, and you connect with Modulr's sandbox environment - this is an in-memory mock PSP that is used for testing purposes only.
+{{< /note >}}
+
+### Parameters
+
+None.
+
+### Return type
+
+`List<PSPSpecification>`. A list of PSP identifiers, such as "MODULR", that are available on the system to make payments against.
+
+## `PspSpecification`
+
+Return the PSP specification for the named PSP on the agent. In the Corda Payment Service Technical Preview, the PSP can only be Modulr.
+
+### Parameters
+
+* `name`. The name of the PSP.
+
+### Return type
+
+## `AddPaymentAccount`
+
+Create a record of an existing payment account in the application. Without a payment account, you cannot make payments.
+
+### Parameters
+
+* `accountName`: String. Account name to be stored against the account details that are received from the PSP (Modulr).
+
+* `currency`: FiatCurrency. The currency that the account should be created with.
+
+* `psp`: String. The PSP to create the account with. In Corda Payments Technical Preview, this can only be Modulr.
+
+* `agent`: Party [Optional]. The Payments Agent on your network. If not provided, the account will default to an agent configured via the node's Payment Service CorDapp config.
+
+* `details`: Map<String, String> [Optional]. Additional Key-value data associated with the Payment Account. These details will be stored in the underlying `PaymentAccountDetailsState` shared between agent and node. They are not available through the returned `PaymentAccount` object.
+
+### Return type
+
+`PaymentAccount`: Object. The payment account details.
+
+## `CreateCustomerAccount`
+
+Create a record of payment account linked to a specific customer in the application.
+
+### Parameters
+
+* `accountName`. A common name for the account
+
+* `currency`. The currency of the account
+
+* `psp`. Payment Service Provider associated with this account
+
+* `customerId`. ID of the customer who owns the account.
+
+* `pspAccountId`. Original `accountId` on PSP for re-registered accounts.
+
+### Return type
+
+`PaymentAccount`: Object. The payment account details.
+
+## `AddBeneficiaryAccount`
+
+Create a local record of a beneficiary payment account for a party that is not present on the network.
+
+### Parameters
+
+* `accountName`. A common name for the account.
+* `currency`. The currency required for the account.
+* `psp`. Payment Service Provider associated with this account.
+* `details`. Additional key-value data to be stored.
+
+### Return type
+
+`PaymentAccount`: Object. Contains details of the payment account.
+
+## `UpdatePaymentAccount`
+
+Send a request to update the underlying `PaymentAccountDetailsState` with the provided details.
+
+### Parameters
+
+* `details`: Map<String, String>. Additional Key-value data associated with the Payment Account. These details are stored in the underlying `PaymentAccountDetailsState` shared between agent and node - but are not available through the returned `PaymentAccount` object.
+
+### Return type
+
+`PaymentAccount`: Object. The payment account details.
+
+## `UpdateBeneficiaryAccount`
+
+Update a beneficiary payment account details. If an existing key is provided in `details`, the value will be updated. If a new key is provided, a new entry in the map will be created.
+
+### Parameters
+
+* `accountId`. The unique account identifier.
+* `details`: Map<String, String>. Additional Key-value data associated with the Payment Account. These details are stored in the underlying `PaymentAccountDetailsState` shared between agent and node - but are not available through the returned `PaymentAccount` object.
+
+### Return type
+
+`PaymentAccount`: Object. The payment account details.
+
+## `PaymentAccounts`
 
 Get a list of `PaymentAccount`s for all the accounts owned by the party passed as a parameter.
 
 The `AccountDetails` object captures the owning key for these details which could refer to a well known party or Corda account.
 
-#### Parameters
+### Parameters
 
 `owningParty`: `AbstractParty` - the owning party of the payment accounts.
 
-#### Return Type
+### Return type
 
 `List<PaymentAccount>` - The list of internal account references. Returns an empty list if none exist.
 
-## `paymentAccountById`
+## `PaymentAccountById`
 
 Get the `PaymentAccount` associated with a unique account identifier (signature).
 
-#### Parameters
+### Parameters
 
-`accountSignature`: String - the signature matching the target's `PaymentAccount.signature`
+`accountId`: String. A type of `PaymentAccountId`.
 
-#### Return Type
+### Return type
 
-`PaymentAccount` - The payment account object.
+`PaymentAccount`: The payment account object.
 
 
-## `localTransactions`
+## `AccountBalance`
 
-This method returns the PaymentState for all payments made on the payment service for a given account while restricting the results to local transactions - those made only through the Corda Payments Service and which were requested by this node. (For a set of all payments related to the account see [transactions].
+Get the account balance for a given payment account ID.
 
 ### Parameters
 
-*  `accountSignature`: String - the account reference to query the vault against
+`accountId` : String. The payment account ID.
 
-*  `fromTime`: Instant - start of time-window
+### Return type
 
-*  `toTime`: Instant - end of time-window
+`AccountBalance`. The balance of the requested account.
 
-*  `queryCriteria`: QueryCriteria.VaultQueryCriteria? - [Optional] additional query constraints
+## `GetPaymentAgent`
 
-*  `paging`: PageSpecification? - [Optional]
-
-### Return Type
-
-`List<PaymentState>` - the list of completed transactions made by the account
-
-## `accountBalance`
-
-This method is called to get the balance of an account.
+Returns the current default payment agent, if it has been set. The default payment agent can be set through Cordapp config.
 
 ### Parameters
 
-`accountSignature` : String - payment account reference
+None.
 
-### Return Type
+### Return type
 
-`Amount<FiatCurrency>`- This method will return the balance of the account in a given currency
+`AbstractParty`.

@@ -27,7 +27,9 @@ The CorDapps that make up the Corda Payments solution are made available to Cord
 
 ## Set up Modulr sandbox
 
-Corda Payments relies on the use of a Payment Service Provider (PSP). Once this product has reached a full commercial release, you should be able to choose any compatible PSP. In this version, you must use Modulr to trial the payments process.
+Corda Payments is dependent on integration with a Payment Service Provider (PSP). In this technical preview, you can only use Modulr as the PSP. Your payments are simulated using the Modulr sandbox environment. This is a mock environment, so no real money is paid to anyone.
+
+Once this product has reached a full commercial release, you should be able to choose from a range of compatible PSPs.
 
 To register with the Modulr sandbox:
 
