@@ -208,6 +208,7 @@ know about the details of the impending change, along with the justification, ho
 and a replacement is registered to the network, the original notary will continue to appear in the list of available
 notaries. Use explicit notary selection in your CordApp to avoid issues when adding a new notary to the network parameters. {{< /note >}}
 
+
 ```kotlin
 /**
  * Data class containing information about the scheduled network parameters update. The info is emitted every time node
