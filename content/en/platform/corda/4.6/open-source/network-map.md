@@ -204,6 +204,11 @@ When the zone operator advertises a new set of parameters, the proposed update s
 the `CordaRPCOps.networkParametersFeed` method. Typically, a zone operator also emails node operators to let them
 know about the details of the impending change, along with the justification, how to object, and  deadlines.
 
+{{< note >}} You can add notary entries to your network parameters, but they cannot be deleted. Even after an existing notary identity is revoked
+and a replacement is registered to the network, the original notary will continue to appear in the list of available
+notaries. Use explicit notary selection in your CordApp to avoid issues when adding a new notary to the network parameters. {{< /note >}}
+
+
 ```kotlin
 /**
  * Data class containing information about the scheduled network parameters update. The info is emitted every time node
