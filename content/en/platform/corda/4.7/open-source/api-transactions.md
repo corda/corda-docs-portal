@@ -39,10 +39,6 @@ transaction type that is passed around to collect additional signatures and that
 * `LedgerTransaction`. The transaction has been “resolved” - for example, its inputs have been converted from
 references to actual states - allowing the transaction to be fully inspected.
 
-We can visualise the transitions between the three stages as follows:
-
-{{< figure alt="transaction flow" width=80% zoom="/en/images/transaction-flow.png" >}}
-
 ## Transaction components
 
 A transaction consists of six types of components:
