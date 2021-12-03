@@ -256,6 +256,8 @@ useful especially when dealing with node’s deployment in environments with IP 
 
 {{< table >}}
 
-|GET|/network-map/my-ip  | Returns the IP address of the requestor.|
+| Request method | Path               | Description                              |
+| -------------- | ------------------ | ---------------------------------------- |
+| GET            | /network-map/my-ip | Returns the IP address of the requestor. |
 
 {{< /table >}}
