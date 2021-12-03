@@ -128,7 +128,7 @@ Run the following instruction once the previous points have been cleared:
 `All the examples below use the namespace **cenm**`
 
 ```bash
-kubectl apply -f deployment/k8s/cenm.yaml
+kubectl apply -f deployment/k8s/rbac.yaml
 export nameSpace=cenm
 kubectl config set-context $(kubectl config current-context) --namespace=${nameSpace}
 ```
