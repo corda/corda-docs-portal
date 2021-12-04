@@ -18,12 +18,12 @@ All code samples are in Kotlin.
 
 You must have access to:
 
-* The Corda Enterprise Artifactory repository.
+* The Corda Enterprise customer hub.
 * Modulr sandbox.
 
-## Access Corda Payments on Corda Enterprise Artifactory
+## Access Corda Payments on Corda Customer Hub
 
-The CorDapps that make up the Corda Payments solution are made available to Corda Enterprise customers by agreement. Once your Corda account manager has arranged access, you can download the Corda Payments files via the Corda Enterprise Artifactory repository.
+The CorDapps that make up the Corda Payments solution are made available to Corda Enterprise customers by agreement. Once your Corda account manager has arranged access, you can download the Corda Payments files via the Corda Enterprise Customer Hub.
 
 ## Set up Modulr sandbox
 

@@ -59,4 +59,4 @@ This preview demonstrates how payments can be initiated by members of a Corda ne
 
 To see this in action quickly, use the ready-made CorDapps, Payments Agent and network to make payments via Modulr.
 
-To see how easy it can be to enable payments on existing CorDapps, get to grips with the Payments SDK. Once your modifciations are complete, you can use the local network and Payments Agent to trial it.
+To see how easy it can be to enable payments on existing CorDapps, get to grips with the Payments SDK. Once your modifications are complete, you can use the local network and Payments Agent to trial it.

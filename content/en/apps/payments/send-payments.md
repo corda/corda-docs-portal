@@ -22,7 +22,7 @@ By following this guide, you can:
 
 You must have :
 
-* Access to the Corda Enterprise Artifactory repository.
+* Access to the Corda Enterprise Customer Hub.
 * A Corda Payments-enabled CorDapp.
 * Modulr sandbox credentials.
 
