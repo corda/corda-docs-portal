@@ -57,6 +57,7 @@ Returns set of accounts on the calling agent filtered by optional search predica
 
 Return debtor and creditor account details for a `PaymentID`, or null if no matches are found.
 
+
 ### Parameters
 
 * `paymentId`. Either a customer supplied external ref or UUID portion of the payment UniqueIdentifier.
@@ -75,7 +76,7 @@ None.
 
 ### Return type
 
-`AccountDetails`. A paged response containing account details of the relevant accounts.
+`PagedResponse<AccountDetails>`. A paged response containing account details of the relevant accounts.
 
 ## `AccountSummary`
 
@@ -112,7 +113,7 @@ Set up a member of your network as a customer.
 
 ### Return type
 
-`CustomerDetails`. 
+`CustomerDetails`.
 
 ## `CreateAccount`
 
@@ -128,3 +129,213 @@ Allow an administrator on the Payments Agent node to create an account on behalf
 ### Return type
 
 `PaymentAccountDetailsState`.
+
+## `CloseAccount`
+
+Close an account. The account must have zero balance. The flow may block if the account's node is unavailable, so a time out is set.
+
+### Parameters
+
+`accountId`. Account ID in the vault.
+
+### Return type
+
+`AccountSummary`.
+
+## `Currencies`
+
+Get a set of all currencies the agent's provided PSPs allow.
+
+### Parameters
+
+None.
+
+### Return type
+
+`Set<FiatCurrency>`.
+
+## `Customer`
+
+Return a customer managed by the agent.
+
+### Parameters
+
+`customerId`. Your UUID for your customer on the network.
+
+### Return type
+
+`CustomerDetails`.
+
+## `CustomerAccounts`
+
+Return a list of accounts owned by a specified customer.
+
+### Parameters
+
+`customerId`. Your UUID for your customer on the network.
+
+### Return type
+
+`PagedResponse<PaymentAccount>`.
+
+## `CustomersOnPSP`
+
+Return a page of customers managed by the agent on a PSP.
+
+### Parameters
+
+`CustomerDetailsCriteria`.
+
+### Return type
+
+`PagedResponse<CustomerDetails>`. A paged response containing account details of the relevant accounts.
+
+## `CustomersOnVault`
+
+Return a page of customers managed by the agent.
+
+### Parameters
+
+`CustomerDetailsCriteria`.
+
+### Return type
+
+`PagedResponse<CustomerDetails>`. A paged response containing account details of the relevant accounts.
+
+## `Parties`
+
+Return parties from network map.
+
+### Parameters
+
+None.
+
+### Return type
+
+`List<CordaX500Name>`. List of parties on the network.
+
+## `PaymentById`
+
+Return the most current payment from id, or null.
+
+### Parameters
+
+`paymentId`. Either a customer supplied external ref or UUID portion of the payment `UniqueIdentifier`.
+
+### Return type
+
+`PaymentState`.
+
+## `PaymentMessages`
+
+List the agent and system messages for a paymentId.
+
+### Parameters
+
+`paymentId`. Payments unique or external identifier.
+
+### Return type
+
+`List<String>`.
+
+## `PaymentRequestMessages`
+
+Return comments and messages linked to a payment request via `paymentId`.
+
+### Parameters
+
+`paymentId`. Payments unique or external identifier.
+
+### Return type
+
+`PaymentRequestMessage`.
+
+## `RecordUser`
+
+Register a user's credentials once they have been authenticated.
+
+### Parameters
+
+`user`. User credentials.
+
+### Return type
+
+No return - the user's credentials are registered.
+
+## `ReinstatePayment`
+
+Cancel or reinstate a payment onto the workflow after an error. The command must be one of the `PaymentCommands` types.
+
+### Parameters
+
+* `paymentId`. Payments unique or external identifier.
+* `command`. Command to used for reinstatement or cancellation.
+* `comment`. Reason for reinstatement or cancellation.
+
+### Return type
+
+## `RetrieveUser`
+
+Retrieve a user from the node service cache.
+
+### Parameters
+
+`username`. RPC username for the required user.
+
+### Return type
+
+`AgentUIService.AgentUser`.
+
+## `RetrieveUserRole`
+
+Retrieves the role for a named user.
+
+### Parameters
+
+`username`. RPC user name.
+`password`. RPC password.
+
+### Return type
+
+`string`.
+
+## `StalledPayments`
+
+Return a paged list of stalled payments from the vault.
+
+### Parameters
+
+* `stallStatuses`.
+* `psp`.
+* `paymentId`.
+
+### Return type
+
+`PagedResponse<StalledPayment>`.
+
+## `Transactions`
+
+Return the transaction for accountId based on the criteria.
+
+### Parameters
+
+* `accountId: PaymentAccountId`.
+* `criteria: PaymentTransactionCriteria`.
+
+### Return type
+
+`PagedResponse<PaymentTransaction>`.
+
+## `UpdateCustomer`
+
+Update a customer on the agent.
+
+### Parameters
+
+* `customerId: String`.
+* `details: Map<String, Any>`.
+* `deleted: List<String>`.
+
+### Return type
+
+`CustomerDetails`
