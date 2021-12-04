@@ -16,7 +16,7 @@ title: HSM support for legal identity keys
 
 # HSM support for legal identity keys
 
-By default, the private keys that belong to the node CA and legal identity are stored in a key store file in the node’s certificates directory. Users may wish to instead store this key in a hardware security module (HSM) or similar. For this purpose, Corda Enterprise supports HSMs by [Utimaco](https://hsm.utimaco.com), [Gemalto](https://www.gemalto.com), and [Azure KeyVault](https://azure.microsoft.com/en-gb/services/key-vault).
+By default, the private keys that belong to the node CA and legal identity are stored in a key store file in the node’s certificates directory. Users may wish to instead store this key in a hardware security module (HSM) or similar. For this purpose, Corda Enterprise supports HSMs by [Utimaco](https://hsm.utimaco.com), [Gemalto](https://www.gemalto.com), and [Azure Key Vault](https://azure.microsoft.com/en-gb/services/key-vault).
 
 Note that only the private and public key of node CA and the legal identity are stored this way. The certificate chain is still stored in a file-based key store.
 
@@ -134,23 +134,23 @@ Corda must be running with the system property `java.library.path` pointing to t
 Additionaly, The JAR containing the Futurex JCA provider must be put on the class path, or copied to the node's `drivers` directory.
 
 
-## Azure KeyVault
+## Azure Key Vault
 
-In the `node.conf`, the `cryptoServiceName` needs to be set to "AZURE_KEY_VAULT" and `cryptoServiceConf` should contain the path to the configuration for Azure KeyVault, as shown below.
+In the `node.conf`, the `cryptoServiceName` needs to be set to "AZURE_KEY_VAULT" and `cryptoServiceConf` should contain the path to the configuration for Azure Key Vault, as shown below.
 
 ```kotlin
 cryptoServiceName: "AZURE_KEY_VAULT"
 cryptoServiceConf: "az_keyvault.conf"
 ```
 
-The configuration file for Azure KeyVault contains the fields listed below. For details refer to the [Azure KeyVault documentation](https://docs.microsoft.com/en-gb/azure/key-vault).
+The configuration file for Azure Key Vault contains the fields listed below. For details refer to the [Azure Key Vault documentation](https://docs.microsoft.com/en-gb/azure/key-vault).
 
 * **path**: path to the key store for login. Note that the .pem file that belongs to your service principal needs to be created to pkcs12. One way of doing this is by using openssl: ``openssl pkcs12 -export -in /home/username/tmpdav8oje3.pem -out keyvault_login.p12``.
 * **alias**: alias of the key used for login.
 * **password**: password to the key store.
 * **clientId**: the client id for the login.
 * **keyVaultURL**: the URL of the key vault.
-* **protection**: If set to "HARDWARE", 'hard' keys will be used, if set to "SOFTWARE", 'soft' keys will be used as described in the [Azure KeyVault documentation](https://docs.microsoft.com/en-gb/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
+* **protection**: If set to "HARDWARE", 'hard' keys will be used, if set to "SOFTWARE", 'soft' keys will be used as described in the [Azure Key Vault documentation](https://docs.microsoft.com/en-gb/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
 
 Example configuration file:
 

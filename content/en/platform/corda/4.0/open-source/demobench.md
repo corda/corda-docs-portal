@@ -20,7 +20,7 @@ DemoBench is a standalone desktop application that makes it easy to configure an
 
 ## Downloading
 
-Installers compatible with the latest Corda release can be downloaded from the [Corda website](https://www.corda.net/downloads).
+Installers compatible with the latest Corda release can be downloaded from the [Corda website](https://developer.r3.com/).
 
 
 
@@ -63,7 +63,7 @@ DemoBench writes a log file to the following location:
 
 ## Building the Installers
 
-Gradle defines tasks that build DemoBench installers using JavaPackager. There are three scripts in the [tools/demobench](https://github.com/corda/corda/tree/master/tools/demobench) directory of the [Corda repository](https://github.com/corda/corda) to execute these tasks:
+Gradle defines tasks that build DemoBench installers using JavaPackager. There are three scripts in the [tools/demobench](https://github.com/corda/corda/tree/241170ffa4f63616daeefb5dbb0dcd8d2c3ff21c/tools/demobench) directory of the [Corda repository](https://github.com/corda/corda) to execute these tasks:
 
 
 
@@ -139,5 +139,3 @@ explorer/
 cordapps/
     bank-of-corda.jar
 ```
-
-

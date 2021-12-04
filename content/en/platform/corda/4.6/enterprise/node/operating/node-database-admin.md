@@ -306,7 +306,7 @@ CONSTRAINT "PK_DATABASECHANGELOGLOCK" PRIMARY KEY ("ID")) TABLESPACE users;
 #### PostgreSQL
 
 DDL script to create Liquibase control tables and allow the restricted user (*my_user*) read only access to the *databasechangelog* table.
-Run th script as user with the schema administrative permissions (*my_admin_user*):
+Run the script as user with the schema administrative permissions (*my_admin_user*):
 
 ```sql
 CREATE TABLE "my_schema".databasechangelog (
@@ -433,7 +433,7 @@ Configure the required `node.conf` settings for the Database Management Tool usi
 dataSourceProperties = {
     dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
     dataSource.url = "jdbc:oracle:thin:@<host>:<port>:<sid>"
-    dataSource.user = my_user
+    dataSource.user = my_admin_user
     dataSource.password = "my_password"
 }
 database = {
@@ -521,7 +521,7 @@ SET SCHEMA 'my_schema';
 
 
 
-The reason is that not all SQL statements in the generated DDL script contain the schema prefix.
+The reason is that not all SQL statements in the generated DDL script contain the schema prefix. This is not relevant to Oracle setups.
 
 {{< /note >}}
 The whole script needs to be run. Partially running the script would cause the database schema content to be in an inconsistent version.
@@ -715,8 +715,6 @@ database = {
 
 
 Replace placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
-Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness
-and performance using this level.
 The `database.schema` is the database schema name assigned to the user.
 
 The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
@@ -748,7 +746,6 @@ Replace placeholders *<host>* and *<port>* with appropriate values (the default 
 By default the connection to the database is not SSL. To secure the JDBC connection, refer to
 [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
-Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness and performance using this level.
 The `database.schema` is the database schema name assigned to the user.
 
 The Microsoft JDBC 6.4 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
@@ -788,8 +785,6 @@ When connecting with a database user with restricted permissions, all queries ne
 Set the `database.schema` value to *my_admin_user*.
 The Corda node doesn’t guarantee to prefix all SQL queries with the schema namespace.
 The additional configuration entry `connectionInitSql` sets the current schema to the admin user (*my_user*) on connection to the database.
-
-Do not change the default isolation for this database (*READ_COMMITTED*), as the Corda platform has been validated for functional correctness and performance using this level.
 
 Place the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).
 Database schema name can be set in JDBC URL string e.g. currentSchema=my_schema.
@@ -897,8 +892,6 @@ The `database.schema` is the database schema name assigned to the user.
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity
 (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
 This behaviour differs from Corda Open Source where the value is not wrapped in double quotes.
-
-Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness and performance using this level.
 
 Place the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).
 

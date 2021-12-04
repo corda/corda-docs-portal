@@ -51,7 +51,7 @@ source has to be monotonic and support leap second smearing.
 * Notary worker configuration files
 
 If you are setting up a local network to test the HA notary setup process, use the [Network Bootstrapper](../network-bootstrapper.md)
-instead of the [Notary Registration Tool](../ha-utilities.html#notary-registration). In all other implementations, the network bootstrapper is not required.
+instead of the [HA Utilities Tool](../ha-utilities.html#notary-registration). In all other implementations, the network bootstrapper is not required.
 
 Ensure that the notary worker P2P ports are reachable from any nodes that might join the network. Each notary worker also
 needs access to its individual node database, and communicates with the underlying database cluster using JDBC.
@@ -71,15 +71,15 @@ Network Map, and that the above prerequisites have been met.
 1. Register the notary service identity
 
 Before any workers can be started up the HA notary service identity must be registered with the network's Identity Manager.
-To register the notary service identity with the Identity Manager, run the notary registration tool using the the notary
+To register the notary service identity with the Identity Manager, run the HA Utilities tool using the notary
 workers `node.conf` file.
 
-The notary registration tool will generate the notary service key pair, and submit a corresponding certificate submission
+The HA Utilities tool will generate the notary service key pair, and submit a corresponding certificate submission
 request (CSR) to the Identity Manager, then poll until it receives a successful response. Once successful, a local `.jks`
 file will be created containing the key pair and certificate chain if using a local key store, or just the certificate
 chain if using an HSM.
 
-See [notary registration](../ha-utilities.html#notary-registration) for more information on using the notary registration tool.
+See [notary registration](../ha-utilities.html#notary-registration) for more information on using the HA Utilities tool.
 
 
 2. Register the notary workers

@@ -201,8 +201,13 @@ discuss and accept the parameters.
 
 The fact a new set of parameters is being advertised shows up in the node logs with the message
 “Downloaded new network parameters”, and programs connected via RPC can receive `ParametersUpdateInfo` by using
-the `CordaRPCOps.networkParametersFeed` method. Typically a zone operator would also email node operators to let them
+the `CordaRPCOps.networkParametersFeed` method. Typically, a zone operator would also email node operators to let them
 know about the details of the impending change, along with the justification, how to object, deadlines and so on.
+
+{{< note >}} You can add notary entries to your network parameters, but they cannot be deleted. Even after an existing notary identity is revoked
+and a replacement is registered to the network, the original notary will continue to appear in the list of available
+notaries. Use explicit notary selection in your CordApp to avoid issues when adding a new notary to the network parameters. {{< /note >}}
+
 
 ```kotlin
 /**

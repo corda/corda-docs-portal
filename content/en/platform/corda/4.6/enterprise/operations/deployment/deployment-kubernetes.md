@@ -128,7 +128,7 @@ Run the following instruction once the previous points have been cleared:
 `All the examples below use the namespace **cenm**`
 
 ```bash
-kubectl apply -f deployment/k8s/cenm.yaml
+kubectl apply -f deployment/k8s/rbac.yaml
 export nameSpace=cenm
 kubectl config set-context $(kubectl config current-context) --namespace=${nameSpace}
 ```
@@ -259,7 +259,7 @@ networkServices {
 
 Replacing placeholder values as follows:
   * the `doormanURL` property is the public IP address and port of the Identity Manager Service
-  * the `networkMapURL` is the pubic IP address and port of the Network Map Service.
+  * the `networkMapURL` is the public IP address and port of the Network Map Service.
 
 Next, upload the `network-root-truststore.jks` to your Corda node.
 You can download it locally from the CENM Signing Service, using the following command:
