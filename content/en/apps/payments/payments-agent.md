@@ -10,16 +10,121 @@ weight: 300
 
 The Payments Agent CorDapp is hosted by a trusted member of a network, such as the Business Network Operator (BNO). In this technical preview, you can assign the role of Payments Agent to a node on your local network.
 
-As well as providing the link for payment requests between the party making a payment and Modulr, the Payments Agent CorDapp allows you to perform additional tasks:
-
-* Manage account details of network participants using Corda Payments.
-* Reinstate failed or incomplete payments.
-* Review all payments from the network.
-
 ## Payments Agent and the PSP
 
 In the role of Payments Agent on a network, you are responsible for the connection between your node and the Payment Service Provider (PSP) you are using–in the technical preview, this is Modulr. You must have an account with Modulr in order to act as the Payments Agent, and to make use of this technical preview.
 
-You can find out more about the Modulr sandbox environment in the Modulr documentation.
+## Customers of the Payments Agent
+
+As the Payments Agent, you can consider members of your network who wish to make payments as your **Customers**. In this documentation, any reference to a customer or customer ID refers to members of a network who wish to make payments using Corda Payments with you as their Payments Agent.
+
+Before you can create accounts for a party on your network, you must add them as a customer.
+
+Using the Payments Agent CorDapp, you can manage your customers' payment accounts and payment requests. You can use the Payments Agent CorDapp endpoints to connect to a UI to perform tasks as required.
 
 ## Payments Agent flows
+
+The Payments Agent CorDapp provides flows that correspond to API endpoints. You can use these flows to:
+
+* Return a list of accounts based on defined search criteria. [Accounts](#accounts).
+* Return a list of accounts based on payment IDs.
+* Create customer accounts.
+* Close accounts.
+* Reinstate failed or incomplete payments.
+* Review all payments from the network.
+* Find payments by ID.
+
+## `Accounts`
+
+Returns set of accounts on the calling agent filtered by optional search predicates.
+
+### Parameters
+
+* `pageSpecification`. Set the page number and page size for returned query.
+* `accountName`. Optional. The name of an account.
+* `cordaX500Name`. Name of party in format "O=organisation, L=location, C=country".
+* `currency`. Three letter ISO designation of the Fiat currency. For Modulr, this can be GBP or EUR.
+* `customerId`. Unique reference based on hash of `customerName`, `owningParty`, `agentParty`, and `psp`.
+* `psp`. Payment Service Provider for the accounts.
+* `accountId`. Optional. The UUID for an account.
+* `wildcard`. Optional catch-all for partial matches against any query-param.
+
+### Return type
+
+`PaymentAccountDetailsState`. A Paged response according to `pageSpecification` parameter.
+
+## `AccountsByPaymentID`
+
+Return debtor and creditor account details for a `PaymentID`, or null if no matches are found.
+
+### Parameters
+
+* `paymentId`. Either a customer supplied external ref or UUID portion of the payment UniqueIdentifier.
+
+### Return type
+
+`Pair<PaymentAccount, PaymentAccount>`. Two `PaymentAccounts` representing the debtor and the creditor involved in the payment.
+
+## `AccountsOnPsp`
+
+Return a page of accounts managed by the agent on a PSP. In Corda Payments Technical Preview, the only available PSP is Modulr, with payments simulated in the Modulr Sandbox.
+
+### Parameters
+
+None.
+
+### Return type
+
+`AccountDetails`. A paged response containing account details of the relevant accounts.
+
+## `AccountSummary`
+
+Return a summary of accounts for a specified account ID.
+
+### Parameters
+
+* `accountID`. The UUID for the account.
+
+### Return type
+
+`AccountSummary` object containing:
+
+* `accountName`. The name of an account.
+* `currency`. Three letter ISO designation of the Fiat currency. For Modulr, this can be GBP or EUR.
+* `psp`. Payment Service Provider for the account.
+* `balance: Amount<FiatCurrency>`. The balance recorded in the appropriate currency for the account.
+* `customerId`. Your UUID for your customer on the network.
+* `details: Map<String, String>`. Optional details of your customer or their account.
+* `accountId`. The UUID for an account.
+* `accountType`.
+
+## `CreateCustomer`
+
+Set up a member of your network as a customer.
+
+### Parameters
+
+* `customerName`
+* `ownerName`
+* `psp`
+* `pspCustomerId`
+* `details`
+
+### Return type
+
+`CustomerDetails`. 
+
+## `CreateAccount`
+
+Allow an administrator on the Payments Agent node to create an account on behalf of a customer.
+
+### Parameters
+
+* `accountName`. The account name.
+* `currency`. The currency to be used for the account.
+* `customerId`. Your UUID for your customer on the network.
+* `pspAccountId`. The account ID as on the PSP.
+
+### Return type
+
+`PaymentAccountDetailsState`.
