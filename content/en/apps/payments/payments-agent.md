@@ -12,7 +12,7 @@ The Payments Agent CorDapp is hosted by a trusted member of a network, such as t
 
 ## Payments Agent and the PSP
 
-In the role of Payments Agent on a network, you are responsible for the connection between your node and the Payment Service Provider (PSP) you are using–in the technical preview, this is Modulr. You must have an account with Modulr in order to act as the Payments Agent, and to make use of this technical preview.
+In the role of Payments Agent on a network, you are responsible for the connection between your node and the Payment Service Provider (PSP) you are using—in the technical preview, this is Modulr. You must have an account with Modulr in order to act as the Payments Agent, and to make use of this technical preview.
 
 ## Customers of the Payments Agent
 
@@ -51,7 +51,7 @@ Returns set of accounts on the calling agent filtered by optional search predica
 
 ### Return type
 
-`PaymentAccountDetailsState`. A Paged response according to `pageSpecification` parameter.
+`PaymentAccountDetailsState`. A paged response according to `pageSpecification` parameter.
 
 ## `AccountsByPaymentID`
 
@@ -60,7 +60,7 @@ Return debtor and creditor account details for a `PaymentID`, or null if no matc
 
 ### Parameters
 
-* `paymentId`. Either a customer supplied external ref or UUID portion of the payment UniqueIdentifier.
+`paymentId`. Either a customer supplied external ref or UUID portion of the payment `UniqueIdentifier`.
 
 ### Return type
 
@@ -84,7 +84,7 @@ Return a summary of accounts for a specified account ID.
 
 ### Parameters
 
-* `accountID`. The UUID for the account.
+`accountID`. The UUID for the account.
 
 ### Return type
 
@@ -132,7 +132,7 @@ Allow an administrator on the Payments Agent node to create an account on behalf
 
 ## `CloseAccount`
 
-Close an account. The account must have zero balance. The flow may block if the account's node is unavailable, so a time out is set.
+Close an account. The account must have zero balance. The flow may block if the account's node is unavailable, so a timeout is set.
 
 ### Parameters
 
@@ -216,7 +216,7 @@ None.
 
 ## `PaymentById`
 
-Return the most current payment from id, or null.
+Return the most current payment from ID or null.
 
 ### Parameters
 
@@ -228,7 +228,7 @@ Return the most current payment from id, or null.
 
 ## `PaymentMessages`
 
-List the agent and system messages for a paymentId.
+List the agent and system messages for a `paymentId`.
 
 ### Parameters
 
@@ -269,7 +269,7 @@ Cancel or reinstate a payment onto the workflow after an error. The command must
 ### Parameters
 
 * `paymentId`. Payments unique or external identifier.
-* `command`. Command to used for reinstatement or cancellation.
+* `command`. Command used for reinstatement or cancellation.
 * `comment`. Reason for reinstatement or cancellation.
 
 ### Return type
@@ -292,7 +292,7 @@ Retrieves the role for a named user.
 
 ### Parameters
 
-`username`. RPC user name.
+`username`. RPC username.
 `password`. RPC password.
 
 ### Return type
@@ -315,7 +315,7 @@ Return a paged list of stalled payments from the vault.
 
 ## `Transactions`
 
-Return the transaction for accountId based on the criteria.
+Return the transaction for `accountId` based on the criteria.
 
 ### Parameters
 

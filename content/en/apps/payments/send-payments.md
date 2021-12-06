@@ -152,21 +152,21 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 
   * `./build/nodes/runnodes`
 
-6. From directory where the downloaded `payments-spring-service` .jar files are located, run the following commands:
+6. From the directory where the downloaded `payments-spring-service` .jar files are located, run the following commands:
 
 ```
 java -jar payments-spring-service-0.2.jar
 ```
 
-You can now register payment accounts with the Payments Agent, using Modulr account details and use them to make payments against the Modulr PSP, from Corda.
+Using Modulr account details, you can now register payment accounts with the Payments Agent and use them to make payments against the Modulr PSP from Corda.
 
 ## Create a payment account
 
-You need to first create your payer and payee accounts on the Modulr sandbox. Once they have been created then you
+You need to first create your payer and payee accounts on the Modulr sandbox. Once they have been created, you
 need to store the account details on the system. The details required for making a payment on Modulr from a GBP account
 to another GBP account are `Account ID` and `Account Number`.
 
-From the payer node and payee nodes you can add the account details as follows.
+From the payer node and payee node, add the account details as follows.
 
 Flow:
 ````
@@ -187,7 +187,7 @@ RPC:
 ```
 
 When a payment account is registered on the system it returns a `PaymentAccount` object. The `PaymentAccount.accountId`
-is the parameter you will use to make a payment.
+is the parameter you use to make a payment.
 
 ## Make a payment
 
@@ -219,8 +219,8 @@ it being successful or failing. You can therefore trigger flows when a payment t
 
 The recommended annotations are:
 
-* `@OnPaymentSucceed` - for payment success.
-* `@OnPaymentFailure` - for payment failure.
+* `@OnPaymentSucceed` for payment success.
+* `@OnPaymentFailure` for payment failure.
 
 If desired, you can trigger flows at a more granular level by specifying a `PaymentStatus`.
 
@@ -252,7 +252,7 @@ class WaitingForPaymentResponseFlow(private val paymentState: PaymentState) : Fl
 }
 ```
 
-You will need to add the packages that these flows live in to your node CorDapp config as follows.
+You need to add the packages that these flows live in to your node CorDapp config:
 
 ```
  "payments" : {

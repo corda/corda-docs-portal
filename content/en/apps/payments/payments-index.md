@@ -10,13 +10,13 @@ title: Corda Payments Technical Preview
 weight: 100
 ---
 
-Corda Payments Technical Preview is an early release of Corda Payments, a solution that allows you to initiate and manage payments from within a Corda Network via an external PSP.
+Corda Payments Technical Preview is an early release of Corda Payments, a solution that allows you to initiate and manage payments from within a Corda Network via an external Payment Service Provider (PSP).
 
-This technical preview allows you create a local environment on which you can generate payment requests from a node, have the request picked up by a Payment Agent CorDapp attached to another node, and passed to the chosen external Payment Service Provider (PSP)–Modulr. The Modulr sandbox environment simulates the payment off-ledger, which is tracked and recored on your Corda network.
+This technical preview allows you create a local environment on which you can generate payment requests from a node, have the request picked up by a Payment Agent CorDapp attached to another node, and passed to the chosen external PSP—Modulr. The Modulr sandbox environment simulates the payment off-ledger, which is tracked and recored on your Corda network.
 
 Using these documents, you can:
 
-1. Add the Payments SDK dependencies to an existing CorDapp. This gives the CorDapp access to the Payments flows are used to generate payment requests and account amendments to be picked up by the network's Payments Agent.
+1. Add the Payments SDK dependencies to an existing CorDapp. This gives the CorDapp access to the Payments flows used to generate payment requests and account amendments to be picked up by the network's Payments Agent.
 2. Deploy and configure the Payments Agent CorDapp to a local node.
 3. Simulate payments on a local network that connects to Modulr's sandbox environment.
 
@@ -40,9 +40,9 @@ For example, Bob wants to pay Alice £100. Both parties have CorDapps that have 
 
 2. A payment state is created on the ledger for the Payments Agent to process.
 
-3. The Payments Agent contacts the PSP, Modulr with a request to pay £100 from Bob's account to Alice's account.
+3. The Payments Agent contacts the PSP, Modulr, with a request to pay £100 from Bob's account to Alice's account.
 
-4. The payment request is processed by Modulr via the appropriate payment rail–UK Faster Payments, and is tracked by the Payment Agent via Modulr's API.
+4. The payment request is processed by Modulr via the appropriate payment rail—UK Faster Payments, and is tracked by the Payment Agent via Modulr's API.
 
 5. The payment is complete. The ledger shows, and both Bob and Alice's vault reflect that Bob has paid £100 to Alice.
 

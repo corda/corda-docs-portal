@@ -8,7 +8,7 @@ title: Send and receive payments with the demo CorDapps
 weight: 200
 ---
 
-With the Corda Payments SDK you can build and deploy payment-enabled CorDapps on your network. Use this documentation to add all the required Payment SDK dependencies to an existing CorDapp. Once the dependencies have been added to your CorDapp, it can be configured to initiate payments, via the network's Payments Agent.
+With the Corda Payments SDK you can build and deploy payment-enabled CorDapps on your network. Use this documentation to add all the required Payments SDK dependencies to an existing CorDapp. Once you have added the dependencies to your CorDapp, you can configure it to initiate payments via the network's Payments Agent.
 
 {{< note >}}
 All code samples are in Kotlin.
@@ -55,7 +55,7 @@ The Corda Payments SDK dependencies can be added to an existing CorDapp, making 
 
 To add the Corda Payments SDK:  
 
-1. Add a variable for the payments release group and the version you wish to use and set the Corda version:
+1. Add a variable for the payments release group, the version you wish to use, and set the Corda version:
 
 ```
 buildscript {
@@ -121,4 +121,4 @@ cordapp("$corda_payments_release_group:payments-cordapp:$corda_payments_release_
 }
 ```
 
-You have added the Corda Payments dependencies to your existing CorDapp. Now you can follow the steps to trial the payments process locally.
+Now that you have added the Corda Payments SDK dependencies to your existing CorDapp, you can trial the payments process locally.
