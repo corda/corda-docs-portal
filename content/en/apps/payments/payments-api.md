@@ -48,6 +48,29 @@ Initiate a payment between participating nodes on the network.
 
 `PaymentState` - The object containing information regarding the requested payment.
 
+### Flow signature
+
+@StartableByRPC\
+@StartableByService\
+class MakePayment(\
+private val amount: Amount<FiatCurrency>,\
+private val debtor: PaymentAccountId,\
+private val creditor: PaymentAccountId,\
+private val externalRef: String?,\
+private val transactionRef: String?,\
+private val details: Map<String, Any>,\
+private val comments: List<String>?\
+) : FlowLogic<PaymentState>()
+
+### Example
+
+val paymentState = proxy.startTrackedFlow(\
+        ::MakePayment,\
+        1 of GBP,\
+        accountB.accountId,\
+        accountA.accountId\
+).returnValue.getOrThrow()\
+
 ## `ReinstatePayment`
 
 Reinstate a stalled payment into the payment workflow.
@@ -55,12 +78,31 @@ Reinstate a stalled payment into the payment workflow.
 ### Parameters
 
 * `paymentId` UUID. ID of the stalled payment to be reinstated.
-* `comment` String. User supplied comment.  
+* `comment` String. User supplied comment.
 
 ### Return type
 
 `PaymentState` - The object containing information regarding the requested payment.
 
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class ReinstatePayment(
+private val uuid: UUID,
+private val commandName: String,
+private val comment: String?
+) : ReinstatePaymentInitiator()
+```
+### Example
+```
+val paymentState = proxy.startTrackedFlow(
+::ReinstatePayment,
+paymentId,
+PaymentCommands.ManuallyFixedPayment(),
+comment
+).returnValue.getOrThrow()
+```
 ## `CancelPayment`
 
 Cancel a stalled payment.
@@ -74,6 +116,27 @@ Cancel a stalled payment.
 
 `PaymentState` - The object containing information regarding the requested payment.
 
+### Flow signature
+
+Both retrying a stalled payment and cancelling a stalled payment use the same flow with a different command attached.
+```
+@StartableByRPC
+@StartableByService
+class ReinstatePayment(
+private val uuid: UUID,
+private val commandName: String,
+private val comment: String?
+) : ReinstatePaymentInitiator()
+```
+### Example
+```
+val paymentState = proxy.startTrackedFlow(
+::ReinstatePayment,
+paymentId,
+PaymentCommands.ManuallyFailed(),
+comment
+).returnValue.getOrThrow()
+```
 ## `RemediatePayment`
 
 Update a stalled payment and reinstate into the payment workflow.
@@ -86,6 +149,22 @@ Update a stalled payment and reinstate into the payment workflow.
 
 `PaymentState` - The object containing information regarding the requested payment.
 
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class RemediatePayment(
+private val updatedPayment: PaymentState,
+private val commandName: String
+) : RemediatePaymentInitiator()
+```
+### Example
+```
+val tx = service.startFlow(
+    ::RemediatePayment,
+    updatedState,
+    "ManuallyFixedPayment").returnValue.get()
+```
 ## `StalledPayments`
 
 Return a list of payments stalled on an error.
@@ -97,6 +176,17 @@ None.
 ### Return type
 
 List of `PaymentState` objects for payments stalled on an error.
+
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class StalledPayments : FlowLogic<List<PaymentState>>()
+```
+### Example
+```
+flowAwareStartFlow(StalledPayments()).getOrThrow()
+```
 
 ## `PaymentById`
 
@@ -114,7 +204,21 @@ You can use either of the following:
 
 * `PaymentState` - Object containing information regarding the requested payment.
 
-## `AvailablePSPs`  
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class PaymentById private constructor(
+	private val transactionRef: String?,
+	private val paymentId: UUID?
+) : FlowLogic<List<PaymentState>>()
+```
+### Example
+```
+flowAwareStartFlow(PaymentById(paymentId)).getOrThrow()
+```
+
+## `AvailablePSPs`
 
 Get a list of the Payment Service Providers (PSPs) that are registered on the Payment Agent's node - making them available for payments on your network.
 
@@ -130,6 +234,17 @@ None.
 
 `List<PSPSpecification>`. A list of PSP identifiers, such as "MODULR", that are available on the system to make payments against.
 
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class AvailablePSPs : AvailablePSPsInitiator()
+```
+### Example
+```
+flowAwareStartFlow(AvailablePSPs()).getOrThrow()
+```
+
 ## `PspSpecification`
 
 Return the PSP specification for the named PSP on the agent. In the Corda Payment Service Technical Preview, the PSP can only be Modulr.
@@ -138,7 +253,16 @@ Return the PSP specification for the named PSP on the agent. In the Corda Paymen
 
 * `name`. The name of the PSP.
 
-### Return type
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class AvailablePSPs : AvailablePSPsInitiator()
+```
+### Example
+```
+flowAwareStartFlow(AvailablePSPs()).getOrThrow()
+```
 
 ## `AddPaymentAccount`
 
@@ -160,6 +284,29 @@ Create a record of an existing payment account in the application. Without a pay
 
 `PaymentAccount`: Object. The payment account details.
 
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class AddPaymentAccount(
+	private val accountName: String,
+	private val currency: FiatCurrency,
+	private val psp: String,
+	private val pspAccountId: String,
+	private val credentials: Map<String, String>
+) : FlowLogic<PaymentAccount>()
+```
+### Example
+```
+service.startFlow(
+    ::AddPaymentAccount,
+    accountName,
+    FiatCurrency(currency),
+    psp,
+    accountId,
+    authDetails).returnValue.get()
+```
+
 ## `CreateCustomerAccount`
 
 Create a record of payment account linked to a specific customer in the application.
@@ -180,6 +327,29 @@ Create a record of payment account linked to a specific customer in the applicat
 
 `PaymentAccount`: Object. The payment account details.
 
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class AddCustomerAccount(
+private val accountName: String,
+private val currency: FiatCurrency,
+private val psp: String,
+private val customerId: PaymentCustomerId,
+private val pspAccountId: String?
+) : FlowLogic<PaymentAccount>()
+```
+### Example
+```
+service.startFlow(
+    ::AddCustomerAccount,
+    accountName,
+    FiatCurrency(currency),
+    psp,
+    customerId,
+    accountId).returnValue.get()
+```
+
 ## `AddBeneficiaryAccount`
 
 Create a local record of a beneficiary payment account for a party that is not present on the network.
@@ -195,6 +365,27 @@ Create a local record of a beneficiary payment account for a party that is not p
 
 `PaymentAccount`: Object. Contains details of the payment account.
 
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class AddBeneficiaryAccount(
+	private val accountName: String,
+	private val currency: FiatCurrency,
+	private val psp: String,
+	private val details: Map<String, String>
+) : AddBeneficiaryAccountInitiator()
+```
+### Example
+```
+service.startFlow(
+    ::AddBeneficiaryAccount,
+    accountName,
+    FiatCurrency(currency),
+    psp,
+    details).returnValue.get()
+```
+
 ## `UpdatePaymentAccount`
 
 Send a request to update the underlying `PaymentAccountDetailsState` with the provided details.
@@ -206,6 +397,23 @@ Send a request to update the underlying `PaymentAccountDetailsState` with the pr
 ### Return type
 
 `PaymentAccount`: Object. The payment account details.
+
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class UpdatePaymentAccount(
+    private val accountId: PaymentAccountId,
+    private val credentials: Map<String, String>
+): FlowLogic<PaymentAccount>()
+```
+### Example
+```
+service.startFlow(
+    ::UpdatePaymentAccount,
+    account.accountId,
+    authDetails).returnValue.get()
+```
 
 ## `UpdateBeneficiaryAccount`
 
@@ -219,6 +427,23 @@ Update a beneficiary payment account details. If an existing key is provided in 
 ### Return type
 
 `PaymentAccount`: Object. The payment account details.
+
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class UpdateBeneficiaryAccount(
+    private val accountId: PaymentAccountId,
+    private val details: Map<String, String>
+): FlowLogic<PaymentAccount>()
+```
+### Example
+```
+service.startFlow(
+    ::UpdateBeneficiaryAccount,
+    account.accountId,
+    details).returnValue.get()
+```
 
 ## `PaymentAccounts`
 
@@ -234,6 +459,21 @@ The `AccountDetails` object captures the owning key for these details which coul
 
 `List<PaymentAccount>` - The list of internal account references. Returns an empty list if none exist.
 
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class PaymentAccounts(
+	private val owningParty: AbstractParty
+) : PaymentAccountsInitiator()
+```
+### Example
+```
+service.startFlow(
+    ::PaymentAccounts,
+    ownerParty).returnValue.get()
+```
+
 ## `PaymentAccountById`
 
 Get the `PaymentAccount` associated with a unique account identifier (signature).
@@ -245,6 +485,19 @@ Get the `PaymentAccount` associated with a unique account identifier (signature)
 ### Return type
 
 `PaymentAccount`: The payment account object.
+
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class PaymentAccountById(private val accountId: PaymentAccountId) : PaymentAccountByIdInitiator()
+```
+### Example
+```
+service.startFlow(
+    ::PaymentAccountById,
+    accountId).returnValue.get()
+```
 
 ## `Transactions`
 
@@ -259,6 +512,23 @@ Return a list of transactions made against this account as recorded on the PSP, 
 
 `PagedResponse<PaymentTransaction>`. A paged response of transactions.
 
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class Transactions(
+	private val accountId: PaymentAccountId,
+	private val searchCriteria: PaymentTransactionCriteria
+) : TransactionsInitiator()
+```
+### Example
+```
+service.startFlow(
+    ::Transactions,
+    accountId,
+    searchCriteria).returnValue.get()
+```
+
 ## `Payments`
 
 Return a list of transactions made against this account as recorded on the vault, using the criteria given to this function.
@@ -272,6 +542,24 @@ Return a list of transactions made against this account as recorded on the vault
 
 `PagedResponse<PaymentTransaction>`. A paged response of transactions.
 
+
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class Payments(
+    private val accountId: PaymentAccountId,
+    private val searchCriteria: PaymentTransactionCriteria
+) : FlowLogic<PagedResponse<PaymentTransaction>>()
+```
+### Example
+```
+service.startFlow(
+    ::Payments,
+    accountId,
+    searchCriteria).returnValue.get()
+```
+
 ## `AccountBalance`
 
 Get the account balance for a given payment account ID.
@@ -283,6 +571,21 @@ Get the account balance for a given payment account ID.
 ### Return type
 
 `AccountBalance`. The balance of the requested account.
+
+### Flow signature
+```
+@StartableByRPC
+@StartableByService
+class ViewAccountBalance(
+		private val accountId: PaymentAccountId
+): AccountBalanceInitiator()
+```
+### Example
+```
+service.startFlow(
+  ::ViewAccountBalance,
+  account.accountId).returnValue.get()
+```
 
 ## `GetPaymentAgent`
 
