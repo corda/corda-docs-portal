@@ -37,11 +37,10 @@ Initiate a payment between participating nodes on the network.
 
 ### Parameters
 
-* `amount`: Amount<`FiatCurrency`>. The amount and currency of the payment to make. In the Corda Payments Technical Preview, you can use GBP or EUR.
-* `debtor`: String. A reference (signature) to debtor account (the account from which the payment is to be made - or the account from which `makePayment`is initiated) which is in turn resolved by the `AccountsResolver` service.
-* `creditor`: String. A reference (signature) to creditor account (the account into which the payment is to be made) which is in turn resolved by the `AccountsResolver` service.
+* `amount`: Amount<`FiatCurrency`>. Required. The amount and currency of the payment to make. In the Corda Payments Technical Preview, you can use GBP or EUR.
+* `debtor`: String. Required. A reference (signature) to debtor account (the account from which the payment is to be made - or the account from which `makePayment`is initiated) which is in turn resolved by the `AccountsResolver` service.
+* `creditor`: String. Required. A reference (signature) to creditor account (the account into which the payment is to be made) which is in turn resolved by the `AccountsResolver` service.
 * `transactionRef`: String. Provided reference to the specified transaction. Bound to the externalId of the generated `PaymentState`'s `UniqueIdentifier`. Should be unique.
-
 * `externalId`: String. Corresponds to the ID provided by the PSP.
 
 ### Return type
@@ -266,7 +265,7 @@ flowAwareStartFlow(AvailablePSPs()).getOrThrow()
 
 ## `AddPaymentAccount`
 
-Create a record of an existing payment account in the application. Without a payment account, you cannot make payments.
+Create a record of an existing payment account in the application.
 
 ### Parameters
 
@@ -319,7 +318,7 @@ Create a record of payment account linked to a specific customer in the applicat
 
 * `psp`. Payment Service Provider associated with this account
 
-* `customerId`. ID of the customer who owns the account.
+* `customerId`. ID of the customer who owns the account. You should get this information from the Payments Agent on your network. 
 
 * `pspAccountId`. Original `accountId` on PSP for re-registered accounts.
 
