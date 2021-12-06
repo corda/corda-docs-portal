@@ -18,12 +18,16 @@ All code samples are in Kotlin.
 
 You must have access to:
 
-* The Corda Enterprise customer hub.
+* The Corda Enterprise Customer Hub.
 * Modulr sandbox.
 
 ## Access Corda Payments on Corda Customer Hub
 
 The CorDapps that make up the Corda Payments solution are made available to Corda Enterprise customers by agreement. Once your Corda account manager has arranged access, you can download the Corda Payments files via the Corda Enterprise Customer Hub.
+
+To install Corda Payments Technical Preview, go to: 
+
+https://customerhub.r3.com/s/
 
 ## Set up Modulr sandbox
 
@@ -35,7 +39,8 @@ To register with the Modulr sandbox:
 
 1. Go to https://secure-sandbox.modulrfinance.com/sandbox/onboarding.
 2. Complete the registration process using the Modulr on-screen directions.
-3. Keep your Modulr credentials available. In your Corda Payments environment, set the following environment variables:
+3. Once your account is set up on Modulr Sandbox, Modulr will email you with your secrets and API key. 
+4. Keep your Modulr credentials available. In your Corda Payments environment, set the following environment variables:
 
 ```
 CORDA_ARTIFACTORY_USERNAME = {enter-your-username}

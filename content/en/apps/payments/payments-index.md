@@ -53,10 +53,6 @@ In order to start trialling payments on Corda, you need to:
 1. Set up a sandbox account with Modulr.
 2. Install the Corda Payments Technical Preview.
 
-## Getting the most from the Corda Payments Technical Preview
-
-This preview demonstrates how payments can be initiated by members of a Corda network, leading to money being paid outside of Corda by a traditional PSP, while the payment is tracked and recorded on the Corda ledger. This retains the integrity of the Corda network, but empowers network members.
 
 To see this in action quickly, use the ready-made CorDapps, Payments Agent and network to make payments via Modulr.
 
-To see how easy it can be to enable payments on existing CorDapps, get to grips with the Payments SDK. Once your modifications are complete, you can use the local network and Payments Agent to trial it.
