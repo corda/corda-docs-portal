@@ -27,9 +27,9 @@ Use the Payment Service flows to:
 * Return a list of payment accounts held by the owning party. [PaymentAccounts](#paymentaccounts).
 * Return the payment account associated with a payment account ID. [PaymentAccountId](#paymentaccountbyid).
 * Return a list of transactions made against this account. [Transactions](#transactions)
-* Return a list of payments made on the system by a given payment account.
+* Return a list of payments made on the system by a given payment account. [Payments](#payments).
 * Return the account balance for a given payment account ID. [AccountBalance](#accountbalance).
-* Return the current default payment agent.
+* Return the current default payment agent. [GetPaymentAgent](#getpaymentagent).
 
 ## `MakePayment`
 
@@ -246,6 +246,31 @@ Get the `PaymentAccount` associated with a unique account identifier (signature)
 
 `PaymentAccount`: The payment account object.
 
+## `Transactions`
+
+Return a list of transactions made against this account as recorded on the PSP, using the criteria given to this function.
+
+### Paramters
+
+* `accountId`. The identifier of the account which is involved as debtor or creditor.
+* `searchCriteria`. Optional criteria to further filter transaction search.
+
+### Return type
+
+`PagedResponse<PaymentTransaction>`. A paged response of transactions.
+
+## `Payments`
+
+Return a list of transactions made against this account as recorded on the vault, using the criteria given to this function.
+
+### Paramters
+
+* `accountId`. The identifier of the account which is involved as debtor OR creditor.
+* `searchCriteria`. Optional criteria to further filter transaction search.
+
+### Return type
+
+`PagedResponse<PaymentTransaction>`. A paged response of transactions.
 
 ## `AccountBalance`
 
