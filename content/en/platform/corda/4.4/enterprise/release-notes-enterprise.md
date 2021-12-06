@@ -121,7 +121,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * Fixed an error in DNS name resolution when using the [Corda Health Survey tool](../../../../../en/platform/corda/4.4/enterprise/health-survey.md).
 * Fixed an issue where Corda Firewall did not start if its main configuration and its HSM configuration were obfuscated.
 * Fixed an issue where deobfuscation options were missing from [HA Utilities](../../../../../en/platform/corda/4.4/enterprise/ha-utilities.md) in `generate-internal-tunnel-ssl-keystores` mode.
-* Some Corda Enterprise 4.5 features have been backported to allow AKS deployment in Corda Enterprise 4.4.3.
+* Some Corda Enterprise 4.5 features have been backported to allow Azure Kubernetes Service deployment in Corda Enterprise 4.4.3.
 * Fixed `vaultService.updates.subscribe` errors when running inside `STATE_MACHINE_STARTED` event handler.
 * In the `graphiteOptions` section of `node.conf`, `sampleInvervallSeconds` has been changed to `sampleIntervalSeconds`.
 

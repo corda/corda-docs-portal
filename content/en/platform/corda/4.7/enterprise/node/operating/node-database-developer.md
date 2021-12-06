@@ -269,8 +269,6 @@ database = {
 
 
 Replace the placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
-Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated
-for functional correctness and performance using this level.
 The `database.schema` is the database schema name assigned to the user.
 You need  *administrative* permissions in order to run the `run-migration-script` sub-command to initialise or migrate the database schema.
 
@@ -303,8 +301,6 @@ Replace the placeholders *<host>*, *<port>* with appropriate values, the default
 By default the connection to the database is not SSL, for securing JDBC connection refer to
 [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
-Do not change the default isolation for the database (*READ_COMMITTED*) as the Corda platform has been validated
-for functional correctness and performance using this level.
 You can only run the  `run-migration-script` sub-command to initialise or migrate the database schema when using *administrative* permissions.
 The `database.schema` is the database schema name assigned to the user.
 
@@ -339,7 +335,6 @@ database = {
 Replace the placeholders *<host>*, *<port>* and *<sid>* with appropriate values, for a basic Oracle installation the default *<sid>* value is *xe*.
 If the user was created with *administrative* permissions the schema name `database.schema` will be the same as the user name (*my_user*).
 
-Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness and performance using this level.
 When the database user has *administrative* permissions they can run the `run-migration-script` sub-command to initialise or migrate the database schema - this is not possible when using *restricted* permissions.
 
 Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c to the node directory `drivers`.
@@ -371,7 +366,6 @@ The value of `database.schema` is automatically wrapped in double quotes to pres
 (e.g. *AliceCorp* becomes *AliceCorp*, without quotes PostgresSQL would treat the value as *alicecorp*),
 this behaviour differs from Corda Open Source where the value is not wrapped in double quotes.
 
-Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness and performance using this level.
 You can only run the `run-migration-script` sub-command when using *administrative* permissions.
 
 Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* to the node directory `drivers`.

@@ -21,11 +21,17 @@ When planning a Corda deployment as a Business Network Operator, there are sever
 - Database compatibility
 - Corda Enterprise Network Manager deployment
 
-The Business Network Operator is responsible for all major components of the Corda network. In most enterprise deployments
-of Corda this includes: Nodes, an HA notary cluster, an HA Corda Firewall, an HSM, the certificate hierarchy of the network,
-identity manager, and network map.
+When deploying a private network, the Business Network Operator is responsible for all major components of the Corda network. In most enterprise deployments of Corda this includes:
 
-This likely includes a Corda Enterprise Network Manager as well as Corda Enterprise.
+* Nodes
+* An HA notary cluster
+* An HA Corda Firewall
+* An HSM
+* The certificate hierarchy of the network
+
+The Business Network Operator also deploys Corda Enterprise Network Manager in a private network. This deployment includes an identity manager and a network map.
+
+When deploying a public network, the Network Operator is responsible for all major components of the Corda network.
 
 ## Deployment environments
 
