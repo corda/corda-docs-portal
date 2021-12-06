@@ -51,17 +51,16 @@ This can be overridden using the additional `--network-root-truststore` flag.
 
 The utility performs the following steps:
 
-
 * It creates a certificate signing request based on the following information from the node’s configuration file (see
 [Node configuration](corda-configuration-file.md)):
-* **myLegalName** Your company’s legal name as an X.500 string. X.500 allows differentiation between entities with the same
+  * **myLegalName** Your company’s legal name as an X.500 string. X.500 allows differentiation between entities with the same
 name, as the legal name needs to be unique on the network. If another node has already been permissioned with this
 name then the permissioning server will automatically reject the request. The request will also be rejected if it
 violates legal name rules, see node_naming for more information. You can use the X.500 schema to disambiguate
 entities that have the same or similar brand names
-* **emailAddress** e.g. “[admin@company.com](mailto:admin@company.com)”
-* **devMode** must be set to false
-* **compatibilityZoneURL** or **networkServices** The address(es) used to register with the compatibility zone and
+  * **emailAddress** e.g. “[admin@company.com](mailto:admin@company.com)”
+  * **devMode** must be set to false
+  * **compatibilityZoneURL** or **networkServices** The address(es) used to register with the compatibility zone and
 retrieve the network map. These should be provided to you by the operator of the zone. This must be either:
     * **compatibilityZoneURL** The root address of the network management service. Use this if both the doorman and the
 network map service are operating on the same URL endpoint
@@ -69,12 +68,6 @@ network map service are operating on the same URL endpoint
 network map service are operating on the same URL endpoint, where:
         * **doormanURL** is the root address of the doorman. This is the address used for initial registration
         * **networkMapURL** is the root address of the network map service
-
-
-
-
-
-
 * It generates a new private/public keypair to sign the certificate signing request
 * It submits the request to the doorman server and polls periodically to retrieve the corresponding certificates
 * It creates the node’s keystore and trust store using the received certificates
