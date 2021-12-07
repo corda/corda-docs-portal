@@ -79,6 +79,9 @@ To install the CENM management console:
    ```
 6. Launch the Gateway Service.
 7. Open your browser and use the Gateway Service's host and the `port` property from the configuration (`localhost:8081` in the example above).
+{{< warning >}}
+Internet Explorer 11 is not supported for this tool.
+{{< /warning >}}
 8. The login page is displayed. Log in using the initial user credentials.
 9. You can either open the **USER ADMINISTRATION** page to manage users, groups, and roles (please note that this requires admin rights), or open the CENM management console to manage your CENM instance.
 

@@ -423,21 +423,25 @@ Note that you may need to add permissions to your cluster to download the Docker
 
 You must modify the following values in the `values.yaml` file:
 
-`pkiJar.configFile: pki-azure.conf`
-`signingKeys.keyStore.keyVaultUrl: <your vault url>`
-`signingKeys.credentials.clientId: <the client ID that will access the vault>`
-`signingKeys.credentials.keyStorePassword: <the password of the .pkcs12 file>`
-`signingKeys.credentials.keyStoreAlias: <the alias of the .pkcs12 file>`
+```bash
+pki:
+  keyStores:
+    keyVaultUrl: "<your vault url>"
+    credentials:
+      keyStorePassword: "<the password of the .pkcs12 file>"
+      keyStoreAlias: "<the alias of the .pkcs12 file>"
+      clientId: "<the client ID that will access the vault>"
+```
 
 #### Modify Signing Service configuration
 
 You must modify the following values in the `values.yaml` file:
 
-`signerJar.configFile: signer-azure.conf`
-`signingKeys.keyStore.keyVaultUrl: <your vault url>`
-`signingKeys.credentials.clientId: <the client ID that will access the vault>`
-`signingKeys.credentials.keyStorePassword: <the password of the .pkcs12 file>`
-`signingKeys.credentials.keyStoreAlias: <the alias of the .pkcs12 file>`
+* `signerJar.configFile: signer-azure.conf`
+* `signingKeys.keyStore.keyVaultUrl: <your vault url>`
+* `signingKeys.credentials.clientId: <the client ID that will access the vault>`
+* `signingKeys.credentials.keyStorePassword: <the password of the .pkcs12 file>`
+* `signingKeys.credentials.keyStoreAlias: <the alias of the .pkcs12 file>`
 
 ### Service Chart Settings
 
