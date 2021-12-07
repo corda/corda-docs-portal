@@ -529,8 +529,8 @@ If running as part of a HA notary cluster, you must specify the `serviceLegalNam
 For a single-node notary, you must specify the `validating` and `serviceLegalName` configuration fields.
 {{< /warning >}}
 
-{{< note >}} Once a notary is configured with a default value (validating = false), if a user wanted to re-configure it to be a non-validating one,
-it would not be enough just to change the parameter in the node.conf to validating =true. It will require a new Notary creation and registration with the necessary parameter value. {{< /note >}}
+{{< note >}} Once a notary is configured with a default value, it cannot be reconfigured. To change a non-validating notary to validating
+or vice-versa requires a new notary creation and registration with the necessary parameter value. {{< /note >}}
 
 * `validating`
   * Boolean to determine whether the notary is a validating or non-validating one.
