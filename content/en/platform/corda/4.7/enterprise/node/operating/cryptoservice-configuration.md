@@ -234,7 +234,7 @@ clientId: "a3d72387-egfa-4bc2-9cba-b0b27c63540e"
 protection: "HARDWARE"
 ```
 
-The drivers directory needs to contain an uber jar, built by the gradle script below.
+The `drivers` directory needs to contain an uber jar, built by the gradle script below.
 
 First copy the following text in to a new file called build.gradle anywhere on your file system.
 Please do not change any of your existing build.gradle files.
