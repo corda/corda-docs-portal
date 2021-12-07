@@ -87,7 +87,7 @@ The property allows to override `database.initialiseSchema` for the Hibernate DD
 `UPDATE` performs an update of CorDapp schemas, while `VALID` only verifies their integrity and `NONE` performs no check.
 When `initialiseSchema` is set to `false`, then `initialiseAppSchema` may be set as `VALID` or `NONE` only.*Default:* CorDapp schema creation is controlled with `initialiseSchema`.Boolean on whether to run the database migration scripts at startup. In production please keep it false. For more information please
 check [Database management scripts](database-management.md). If migration is not run, on startup, the node will check if it’s running on the correct database version.
-The property is used only when a node runs against a database other than H2, and it’s replaced by the `initialiseSchema` property for other databases.*Default:* falseSome database providers require a schema name when generating DDL and SQL statements. The value is passed to the Hibernate
+The property is used only when a node runs against a database other than H2, and it’s replaced by the `initialiseSchema` property for H2 databases.*Default:* falseSome database providers require a schema name when generating DDL and SQL statements. The value is passed to the Hibernate
 property ‘hibernate.default_schema’. This is optional.Optional property for testing/development against an unsupported database. The value is passed to Hibernate `hibernate.dialect` option.
 All supported databases don’t require this option, as Hibernate sets the correct dialect value out of box.This section is used to configure the JDBC connection and database driver used for the node’s persistence.
 Node database contains example configurations for other database providers.
