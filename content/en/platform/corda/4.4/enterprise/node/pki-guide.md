@@ -136,6 +136,6 @@ is only required to provide only essential information to the tool. At the same 
 defaults and have the configuration adjusted to the specific needs of different scenarios.
 
 {{< note >}}
-To learn more about running the tool, see pki-tool.
+To learn more about running the tool, see the documentation on the [Public Key Infrastructure (PKI) Tool](../../../../../../en/platform/corda/4.4/enterprise/pki-tool.md)
 
 {{< /note >}}
