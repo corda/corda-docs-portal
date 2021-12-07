@@ -531,7 +531,7 @@ For a single-node notary, you must specify the `validating` and `serviceLegalNam
 
 {{< note >}} 
 Once a notary is configured with a default value, it cannot be reconfigured. To change a non-validating notary to validating
-(or vice-versa) requires a new notary creation and registration. 
+(or vice-versa), you need to create and register a new notary. 
 {{< /note >}}
 
 * `validating`
