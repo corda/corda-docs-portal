@@ -246,17 +246,18 @@ plugins {
 }
 
 repositories {
-    jcenter()
+  jcenter()
 }
 
 dependencies {
-    compile 'com.microsoft.azure:azure-keyvault:1.2.1'
-    compile 'com.microsoft.azure:adal4j:1.6.4'
+  compile 'com.microsoft.azure:azure-keyvault:1.2.1'
+  compile 'com.microsoft.azure:adal4j:1.6.4'
+  compile 'com.nimbusds:oauth2-oidc-sdk:7.1.1'
 }
 
 shadowJar {
-    relocate 'okhttp3', 'shadow.okhttp3'
-    archiveName = 'azure-keyvault-with-deps.jar'
+  relocate 'okhttp3', 'shadow.okhttp3'
+  archiveName = 'azure-keyvault-with-deps.jar'
 }
 ```
 
