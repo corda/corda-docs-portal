@@ -26,7 +26,7 @@ Payments on a Corda network are facilitated by the designated Payments Agent. Th
 
 In this Technical Preview, you can play the role of the Payments Agent to facilitate payments requested on a local network, via the Modulr sandbox.
 
-If you are considering setting up a payments network, read more about the Payments Agent.
+If you are considering setting up a payments network, read more about the [Payments Agent flows](payments-agent) to see the actions you can perform.
 
 ## The Payments SDK
 
@@ -55,4 +55,3 @@ In order to start trialling payments on Corda, you need to:
 
 
 To see this in action quickly, use the ready-made CorDapps, Payments Agent and network to make payments via Modulr.
-

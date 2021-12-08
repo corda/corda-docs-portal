@@ -4,7 +4,7 @@ menu:
   apps:
     parent: "payments"
     name: Corda Payments SDK
-title: Send and receive payments with the demo CorDapps
+title: Add SDK dependencies to an existing CorDapp
 weight: 200
 ---
 
@@ -25,21 +25,21 @@ You must have access to:
 
 The CorDapps that make up the Corda Payments solution are made available to Corda Enterprise customers by agreement. Once your Corda account manager has arranged access, you can download the Corda Payments files via the Corda Enterprise Customer Hub.
 
-To install Corda Payments Technical Preview, go to: 
+To install Corda Payments Technical Preview, go to:
 
 https://customerhub.r3.com/s/
 
 ## Set up Modulr sandbox
 
-Corda Payments is dependent on integration with a Payment Service Provider (PSP). In this technical preview, you can only use Modulr as the PSP. Your payments are simulated using the Modulr sandbox environment. This is a mock environment, so no real money is paid to anyone.
+Corda Payments is dependent on integration with a Payment Service Provider (PSP). In this technical preview, you can only use Modulr as the PSP. Your payments are simulated using the Modulr Sandbox environment. This is a mock environment, so no real money is paid to anyone.
 
 Once this product has reached a full commercial release, you should be able to choose from a range of compatible PSPs.
 
-To register with the Modulr sandbox:
+To register with the Modulr Sandbox:
 
 1. Go to https://secure-sandbox.modulrfinance.com/sandbox/onboarding.
 2. Complete the registration process using the Modulr on-screen directions.
-3. Once your account is set up on Modulr Sandbox, Modulr will email you with your secrets and API key. 
+3. Once your account is set up on Modulr Sandbox, Modulr will email you with your secrets and API key.
 4. Keep your Modulr credentials available. In your Corda Payments environment, set the following environment variables:
 
 ```
@@ -51,7 +51,7 @@ MODULR_SECRET = {enter-your-secret}
 
 ## Add Corda Payments SDK dependencies to an existing CorDapp
 
-The Corda Payments SDK dependencies can be added to an existing CorDapp, making it possible to trigger all the required flows for payments to be made and received on your network.
+The Corda Payments SDK dependencies can be added to an existing CorDapp, making it possible to trigger all the required flows for making payment and account requests through your network's Payments Agent.
 
 To add the Corda Payments SDK:  
 

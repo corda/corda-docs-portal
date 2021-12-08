@@ -3,8 +3,8 @@ date: '2020-01-08T09:59:25Z'
 menu:
   apps:
     parent: "payments"
-    name: Send payments locally
-title: Send and receive payments with the demo CorDapps
+    name: Deploy a local payments network
+title: Deploy a local payments network
 weight: 300
 ---
 
@@ -28,13 +28,13 @@ You must have :
 
 ## About Modulr accounts and payment accounts
 
-Payments can only be triggered by a member of a network if they have an existing account with the PSP, and these details are reflected in the Payments Agent CorDapp.
-
-When using the Corda Payments API method `createPaymentAccount`, one required parameter is the `accountName` - this is the name for the account that is registered with Modulr.
+Payments can only be triggered by a member of a network if:
+* They have an account with the PSP that has been set up by the Payments Agent.
+* They have an existing account that they have set up directly with the PSP.
 
 ## Run the Payments Agent infrastructure locally
 
-The Payments Agent CorDapp is hosted in a live environment by a trusted member of the network, such as the Business Network Operator (BNO). In this technical preview, you can assign the role of Payments Agent to a local node.
+The Payments Agent CorDapp is hosted by a trusted member of the network, such as the Business Network Operator (BNO). In this technical preview, you can assign the role of Payments Agent to a local node.
 
 To add the Payment Agent infrastructure locally:
 
@@ -162,11 +162,9 @@ Using Modulr account details, you can now register payment accounts with the Pay
 
 ## Create a payment account
 
-You need to first create your payer and payee accounts on the Modulr sandbox. Once they have been created, you
-need to store the account details on the system. The details required for making a payment on Modulr from a GBP account
-to another GBP account are `Account ID` and `Account Number`.
+You need to first create your payer and payee accounts on the Modulr sandbox. Once they have been created, you need to store the account details on the system. The details required for making a payment on Modulr from a GBP account to another GBP account are `Account ID` and `Account Number`.
 
-From the payer node and payee node, add the account details as follows.
+From the payer node and payee node, add the account details as follows:
 
 Flow:
 ````
@@ -183,7 +181,7 @@ Flow:
 ````
 RPC:
 ```
-    rpc.startFlow(::CreatePaymentAccount, accountName, psp, details, agent)
+    rpc.startFlow(::AddPaymentAccount, accountName, psp, details, agent)
 ```
 
 When a payment account is registered on the system it returns a `PaymentAccount` object. The `PaymentAccount.accountId`

@@ -4,11 +4,11 @@ menu:
   apps:
     parent: "payments"
     name: The Payments Agent
-title: Learn more about the Payments Agent CorDapp
+title: Payments Agent CorDapp flows
 weight: 300
 ---
 
-The Payments Agent CorDapp is hosted by a trusted member of a network, such as the Business Network Operator (BNO). In this technical preview, you can assign the role of Payments Agent to a node on your local network.
+The Payments Agent CorDapp is hosted by a trusted member of a network, such as the Business Network Operator (BNO). In this technical preview, you can assign the role of Payments Agent to a node on your local network by adding the CorDapp to that node.
 
 ## Payments Agent and the PSP
 
@@ -26,316 +26,443 @@ Using the Payments Agent CorDapp, you can manage your customers' payment account
 
 The Payments Agent CorDapp provides flows that correspond to API endpoints. You can use these flows to:
 
-* Return a list of accounts based on defined search criteria. [Accounts](#accounts).
-* Return a list of accounts based on payment IDs.
-* Create customer accounts.
-* Close accounts.
-* Reinstate failed or incomplete payments.
-* Review all payments from the network.
-* Find payments by ID.
+* Close an account. [CloseAccountDetails](#closeaccountdetails).
+* Close down the customer details on the vault. [CloseCustomerDetails](#closecustomerdetails).
+* Create a customer account state object in the vault. [CreateAccountDetails](#createaccountdetails).
+* Create a customer details state in the vault. [CreateCustomerDetails](#createcustomerdetails).
+* Get the balance of an account. [GetAccountBalance](#getaccountbalance).
+* Get a list of available PSPs. [GetAvailablePSPs](#getavailablepsps).
+* Get a list of available currencies available to the Payments Agent. [GetCurrenciesOnAgent](#getcurrenciesonagent).
+* Get a list of customer accounts. [GetCustomerAccounts](#getcustomeraccounts).
+* Get a payment account. [GetPaymentAccount](#getpaymentaccount).
+* Get a list of customers that you manage on the PSP. [GetPSPAccounts](#getpspaccounts).
+* Return a page of customers managed by the agent on the PSP. [GetPSPCustomers](#getpspcustomers).
+* Return the specification of the PSP. [GetPSPSpecification](#getpspspecification).
+* Return a list of transactions based on specified criteria. [GetTransactions](#gettransactions).
+* Update details of a customer by updating the details state object in the vault. [UpdateCustomerDetails](#updatecustomerdetails).
 
-## `Accounts`
+## `CloseAccountDetails`
 
-Returns set of accounts on the calling agent filtered by optional search predicates.
-
-### Parameters
-
-* `pageSpecification`. Set the page number and page size for returned query.
-* `accountName`. Optional. The name of an account.
-* `cordaX500Name`. Name of party in format "O=organisation, L=location, C=country".
-* `currency`. Three letter ISO designation of the Fiat currency. For Modulr, this can be GBP or EUR.
-* `customerId`. Unique reference based on hash of `customerName`, `owningParty`, `agentParty`, and `psp`.
-* `psp`. Payment Service Provider for the accounts.
-* `accountId`. Optional. The UUID for an account.
-* `wildcard`. Optional catch-all for partial matches against any query-param.
-
-### Return type
-
-`PaymentAccountDetailsState`. A paged response according to `pageSpecification` parameter.
-
-## `AccountsByPaymentID`
-
-Return debtor and creditor account details for a `PaymentID`, or null if no matches are found.
-
+Close an account state on the vault.
 
 ### Parameters
 
-`paymentId`. Either a customer supplied external ref or UUID portion of the payment `UniqueIdentifier`.
+`accountId`. The account ID in the vault.
 
-### Return type
 
-`Pair<PaymentAccount, PaymentAccount>`. Two `PaymentAccounts` representing the debtor and the creditor involved in the payment.
+### Flow Signature
 
-## `AccountsOnPsp`
+```
+@StartableByRPC
+@StartableByService
+@Suppress("unused")
+class CloseAccountDetails(
+    private val accountId: PaymentAccountId
+) : CloseAccountDetailsInitiator()
+```
 
-Return a page of accounts managed by the agent on a PSP. In Corda Payments Technical Preview, the only available PSP is Modulr, with payments simulated in the Modulr Sandbox.
+### Return Type
+
+```
+FlowLogic<Unit>
+```
+
+### Example
+
+```
+startFlow(
+    ::CloseAccountDetails,
+    accountId
+)
+```
+
+## `CloseCustomerDetails`
+
+Close a customer details state on the vault.
+
+### Parameters
+
+`customerId: PaymentCustomerId`
+
+### Flow Signature
+
+```
+@StartableByRPC
+@StartableByService
+@Suppress("unused")
+class CloseCustomerDetails(
+    private val customerId: PaymentCustomerId
+) : CloseCustomerDetailsInitiator()
+```
+
+### Return Type
+
+```
+FlowLogic<CustomerDetailsState>
+```
+
+### Example
+
+```
+startFlow(::CloseCustomerDetails, customerId)
+```
+
+## `CreateAccountDetails`
+
+Create a customer account state object in the vault.
+
+### Parameters
+
+* `accountName`. Account name.
+* `currency`. Account currency.
+* `customerId`. Existing customer who will own the account.
+* `pspAccountId`. Optional. Existing Modulr account to link to.
+
+### Flow Signature
+
+```
+@StartableByRPC
+@Suppress("unused")
+class CreateAccountDetails(
+    private val accountName: String,
+    private val currency: String,
+    private val customerId: String,
+    private val pspAccountId: String?
+) : CreateAccountDetailsInitiator()
+```
+
+### Return Type
+
+`FlowLogic<PaymentAccountDetailsState>`
+
+### Example
+
+```
+startFlow(
+    ::CreateAccountDetails,
+    accountName,
+    currency,
+    customerId,
+    pspAccountId
+)
+```
+
+## `CreateCustomerDetails`
+
+Create a payment customer details state object in the vault. If the customer already exists then a flow exception is thrown.
+
+### Parameters
+
+* `paymentCustomer`. Customer name.
+* `details`. Customer details.
+
+### Flow Signature
+
+```
+@StartableByRPC
+@Suppress("unused")
+class CreateCustomerDetails(
+    private val paymentCustomer: PaymentCustomer,
+    private val details: Map<String, Any>
+) : CreateCustomerDetailsInitiator()
+```
+### Return Type
+```
+FlowLogic<CustomerDetailsState>
+```
+### Example
+```
+startFlow(::CreateCustomerDetails, customer, details)
+```
+
+## `GetAccountBalance`
+
+Return the `AccountBalance` for a given `accountId`. Internal flow logic for use by responder and direct for agent UI interactions.
+
+### Parameters
+
+* `accountId`. The ID associated with the account.
+
+### Flow Signature
+
+```
+@StartableByRPC
+class GetAccountBalance(
+    private val accountId: PaymentAccountId
+) : FlowLogic<AccountBalance>()
+```
+### Return Type
+
+```
+FlowLogic<AccountBalance>
+```
+
+### Example
+
+```
+startFlow(
+    ::GetAccountBalance,
+    accountId
+)
+```
+
+## `GetAvailablePSPs`
+
+Returns a list of the PSPs that are configured on the Payments application.
 
 ### Parameters
 
 None.
 
-### Return type
+### Flow Signature
 
-`PagedResponse<AccountDetails>`. A paged response containing account details of the relevant accounts.
+```
+@StartableByRPC
+@StartableByService
+@Suppress("unused")
+class GetAvailablePSPs : FlowLogic<List<String>>()
+```
 
-## `AccountSummary`
+### Return Type
 
-Return a summary of accounts for a specified account ID.
+```
+FlowLogic<List<String>>
+```
+### Example
 
-### Parameters
+```
+startFlow(::GetAvailablePSPs)
+```
 
-`accountID`. The UUID for the account.
+## `GetCurrenciesOnAgent`
 
-### Return type
-
-`AccountSummary` object containing:
-
-* `accountName`. The name of an account.
-* `currency`. Three letter ISO designation of the Fiat currency. For Modulr, this can be GBP or EUR.
-* `psp`. Payment Service Provider for the account.
-* `balance: Amount<FiatCurrency>`. The balance recorded in the appropriate currency for the account.
-* `customerId`. Your UUID for your customer on the network.
-* `details: Map<String, String>`. Optional details of your customer or their account.
-* `accountId`. The UUID for an account.
-* `accountType`.
-
-## `CreateCustomer`
-
-Set up a member of your network as a customer.
-
-### Parameters
-
-* `customerName`
-* `ownerName`
-* `psp`
-* `pspCustomerId`
-* `details`
-
-### Return type
-
-`CustomerDetails`.
-
-## `CreateAccount`
-
-Allow an administrator on the Payments Agent node to create an account on behalf of a customer.
-
-### Parameters
-
-* `accountName`. The account name.
-* `currency`. The currency to be used for the account.
-* `customerId`. Your UUID for your customer on the network.
-* `pspAccountId`. The account ID as on the PSP.
-
-### Return type
-
-`PaymentAccountDetailsState`.
-
-## `CloseAccount`
-
-Close an account. The account must have zero balance. The flow may block if the account's node is unavailable, so a timeout is set.
-
-### Parameters
-
-`accountId`. Account ID in the vault.
-
-### Return type
-
-`AccountSummary`.
-
-## `Currencies`
-
-Get a set of all currencies the agent's provided PSPs allow.
-
-### Parameters
-
-None.
-
-### Return type
-
-`Set<FiatCurrency>`.
-
-## `Customer`
-
-Return a customer managed by the agent.
-
-### Parameters
-
-`customerId`. Your UUID for your customer on the network.
-
-### Return type
-
-`CustomerDetails`.
-
-## `CustomerAccounts`
-
-Return a list of accounts owned by a specified customer.
-
-### Parameters
-
-`customerId`. Your UUID for your customer on the network.
-
-### Return type
-
-`PagedResponse<PaymentAccount>`.
-
-## `CustomersOnPSP`
-
-Return a page of customers managed by the agent on a PSP.
-
-### Parameters
-
-`CustomerDetailsCriteria`.
-
-### Return type
-
-`PagedResponse<CustomerDetails>`. A paged response containing account details of the relevant accounts.
-
-## `CustomersOnVault`
-
-Return a page of customers managed by the agent.
-
-### Parameters
-
-`CustomerDetailsCriteria`.
-
-### Return type
-
-`PagedResponse<CustomerDetails>`. A paged response containing account details of the relevant accounts.
-
-## `Parties`
-
-Return parties from network map.
+Return all currencies provided by the Payment Agent's PSPs integrations.
 
 ### Parameters
 
 None.
 
-### Return type
 
-`List<CordaX500Name>`. List of parties on the network.
+### Flow Signature
 
-## `PaymentById`
+```
+@StartableByRPC
+class GetCurrenciesOnAgent() : FlowLogic<Set<FiatCurrency>>()
+```
 
-Return the most current payment from ID or null.
+### Return Type
 
-### Parameters
+```
+FlowLogic<Set<FiatCurrency>>
+```
+### Example
 
-`paymentId`. Either a customer supplied external ref or UUID portion of the payment `UniqueIdentifier`.
+```
+startFlow(::GetCurrenciesOnAgent)
+```
 
-### Return type
+## `GetCustomerAccounts`
 
-`PaymentState`.
-
-## `PaymentMessages`
-
-List the agent and system messages for a `paymentId`.
-
-### Parameters
-
-`paymentId`. Payments unique or external identifier.
-
-### Return type
-
-`List<String>`.
-
-## `PaymentRequestMessages`
-
-Return comments and messages linked to a payment request via `paymentId`.
+Return a list of accounts associated with a customer.
 
 ### Parameters
 
-`paymentId`. Payments unique or external identifier.
+```
+private val customerId: String
+```
 
-### Return type
+### Flow Signature
 
-`PaymentRequestMessage`.
+```
+@StartableByRPC
+@StartableByService
+@Suppress("unused")
+class GetCustomerAccounts(private val customerId: String) : FlowLogic<List<PaymentAccount>>() {
+```
+### Return Type
 
-## `RecordUser`
+```
+FlowLogic<List<PaymentAccount>>
+```
+### Example
 
-Register a user's credentials once they have been authenticated.
+```
+startFlow(::GetCustomerAccounts, customerId)
+```
 
-### Parameters
+## `GetPaymentAccount`
 
-`user`. User credentials.
+Return the `PaymentAccount` for a given `PaymentAccountId`. Internal flow logic for use by responder and direct for agent UI interactions.
 
-### Return type
-
-No return - the user's credentials are registered.
-
-## `ReinstatePayment`
-
-Cancel or reinstate a payment onto the workflow after an error. The command must be one of the `PaymentCommands` types.
-
-### Parameters
-
-* `paymentId`. Payments unique or external identifier.
-* `command`. Command used for reinstatement or cancellation.
-* `comment`. Reason for reinstatement or cancellation.
-
-### Return type
-
-## `RetrieveUser`
-
-Retrieve a user from the node service cache.
+Will return from local cache map if available; else fetches from vault query, adds to cache, then returns.
 
 ### Parameters
 
-`username`. RPC username for the required user.
+`paymentAccountId: PaymentAccountId`
 
-### Return type
+### Flow Signature
 
-`AgentUIService.AgentUser`.
+```
+@StartableByRPC
+class GetPaymentAccount(private val paymentAccountId: PaymentAccountId) : FlowLogic<PaymentAccount>()
+```
+### Return Type
 
-## `RetrieveUserRole`
+```
+FlowLogic<PaymentAccount>
+```
+### Example
 
-Retrieves the role for a named user.
+```
+startFlow(::GetPaymentAccount, paymentAccountId)
+```
 
-### Parameters
+## `GetPSPAccounts`
 
-`username`. RPC username.
-`password`. RPC password.
-
-### Return type
-
-`string`.
-
-## `StalledPayments`
-
-Return a paged list of stalled payments from the vault.
-
-### Parameters
-
-* `stallStatuses`.
-* `psp`.
-* `paymentId`.
-
-### Return type
-
-`PagedResponse<StalledPayment>`.
-
-## `Transactions`
-
-Return the transaction for `accountId` based on the criteria.
+Return a page of customers managed by the agent on the PSP.
 
 ### Parameters
 
-* `accountId: PaymentAccountId`.
+Search criteria.
+
+### Flow Signature
+
+```
+@StartableByRPC
+class GetPSPAccounts(
+    private val criteria: AccountDetailsCriteria
+) : FlowLogic<PagedResponse<AccountDetails>>()
+```
+### Return Type
+
+```
+FlowLogic<PagedResponse<AccountDetails>>
+```
+### Example
+
+```
+startFlow(::GetPSPAccounts, criteria)
+```
+
+## `GetPSPCustomers`
+
+Return a page of customers managed by the agent on the PSP.
+
+### Parameters
+
+Search criteria.
+
+### Flow Signature
+
+```
+@StartableByRPC
+class GetPSPCustomers(
+    private val criteria: CustomerDetailsCriteria
+) : FlowLogic<PagedResponse<CustomerDetails>>()
+```
+### Return Type
+
+```
+FlowLogic<PagedResponse<CustomerDetails>>
+```
+### Example
+
+```
+startFlow(::GetPSPCustomers, criteria)
+```
+
+## `GetPSPSpecification`
+
+Returns a PSP specification.
+
+### Parameters
+
+```
+private val psp: String
+```
+### Flow Signature
+
+```
+@StartableByRPC
+@StartableByService
+@Suppress("unused")
+class GetPSPSpecification(private val psp: String) : FlowLogic<PSPSpecification>()
+```
+### Return Type
+
+```
+FlowLogic<PSPSpecification>
+```
+### Example
+
+```
+startFlow(::GetPSPSpecification, psp.toUpperCase())
+```
+
+## `GetTransactions`
+
+Return the transaction history of an account.
+
+### Parameters
+
+* `accountId:` String. The account ID.
 * `criteria: PaymentTransactionCriteria`.
 
-### Return type
+### Flow Signature
 
-`PagedResponse<PaymentTransaction>`.
+```
+@StartableByRPC
+@StartableByService
+@Suppress("unused")
+class GetTransactions(
+    private val accountId: String,
+    private val criteria: PaymentTransactionCriteria
+) : FlowLogic<PagedResponse<PaymentTransaction>>()
+```
+### Return Type
 
-## `UpdateCustomer`
+```
+FlowLogic<PagedResponse<PaymentTransaction>>
+```
+### Example
 
-Update a customer on the agent.
+```
+startFlow(::GetTransactions, accountId, criteria)
+```
+
+## `UpdateCustomerDetails`
+
+Update a payment customer details state object in the vault.
 
 ### Parameters
 
-* `customerId: String`.
-* `details: Map<String, Any>`.
-* `deleted: List<String>`.
+`customerId`. Customer Id.
+`details`. Customer details.
+`deleted`. Customer details to be deleted.
 
-### Return type
+### Flow Signature
 
-`CustomerDetails`
+```
+@StartableByRPC
+@Suppress("unused")
+class UpdateCustomerDetails(
+    private val customerId: PaymentCustomerId,
+    private val details: Map<String, Any>,
+    private val deleted: List<String> = emptyList()
+) : UpdateCustomerDetailsInitiator()
+```
+### Return Type
+
+```
+FlowLogic<CustomerDetailsState>
+```
+### Example
+
+```
+startFlow(
+  ::UpdateCustomerDetails,
+  customerId,
+  details,
+  deleted
+)
+```

@@ -4,7 +4,7 @@ menu:
   apps:
     parent: "payments"
     name: Payment Service
-title: Payment Service
+title: Payment Service flows
 weight: 400
 ---
 Use Payment Service flows to initiate payments and account management requests from a node on a Corda network. These requests can then be picked up by the [Payments Agent](payments-agent.md) on your network.
@@ -318,7 +318,7 @@ Create a record of payment account linked to a specific customer in the applicat
 
 * `psp`. Payment Service Provider associated with this account
 
-* `customerId`. ID of the customer who owns the account. You should get this information from the Payments Agent on your network. 
+* `customerId`. ID of the customer who owns the account. You should get this information from the Payments Agent on your network.
 
 * `pspAccountId`. Original `accountId` on PSP for re-registered accounts.
 
@@ -339,6 +339,7 @@ private val pspAccountId: String?
 ) : FlowLogic<PaymentAccount>()
 ```
 ### Example
+
 ```
 service.startFlow(
     ::AddCustomerAccount,
