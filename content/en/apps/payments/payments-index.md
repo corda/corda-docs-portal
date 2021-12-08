@@ -50,7 +50,10 @@ For example, Bob wants to pay Alice £100. Both parties have CorDapps that have 
 
 In order to start trialling payments on Corda, you need to:
 
-1. Set up a sandbox account with Modulr.
+1. Set up a sandbox account with Modulr. To run the Payments Agent, you must have a **Partner Account** for your Modulr Sandbox. This involves contacting Modulr by email. You can follow the Modulr instructions to do this here: https://secure-sandbox.modulrfinance.com/sandbox/onboarding.
+
+Once you have registered, Modulr will communicate your API key and secret. The Payments Agent holds these keys. Customers of the Payments Agent (anyone on the network who wants to use Corda Payments) do not require Modulr accounts with API key or secret.
+
 2. Install the Corda Payments Technical Preview.
 
 

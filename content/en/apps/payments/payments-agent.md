@@ -5,7 +5,7 @@ menu:
     parent: "payments"
     name: The Payments Agent
 title: Payments Agent CorDapp flows
-weight: 300
+weight: 500
 ---
 
 The Payments Agent CorDapp is hosted by a trusted member of a network, such as the Business Network Operator (BNO). In this technical preview, you can assign the role of Payments Agent to a node on your local network by adding the CorDapp to that node.

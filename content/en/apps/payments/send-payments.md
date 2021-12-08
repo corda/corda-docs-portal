@@ -5,10 +5,10 @@ menu:
     parent: "payments"
     name: Deploy a local payments network
 title: Deploy a local payments network
-weight: 300
+weight: 200
 ---
 
-You can use the Corda Payments Technical Preview to locally replicate payments in a live environment.   
+You can use the Corda Payments Technical Preview to locally replicate payments in a live environment. the fastest way to do this is to use the Corda Payments sample CorDapps.
 
 By following this guide, you can:
 
@@ -26,234 +26,196 @@ You must have :
 * A Corda Payments-enabled CorDapp.
 * Modulr sandbox credentials.
 
+## Set up Modulr Sandbox for Payments Agent
+
+Corda Payments is dependent on integration with a Payment Service Provider (PSP). In this technical preview, you can only use Modulr as the PSP. Your payments are simulated using the Modulr Sandbox environment. This is a mock environment, so no real money is paid to anyone.
+
+To run the Payments Agent, you must have a **Partner Account** for your Modulr Sandbox. This involves contacting Modulr by email. You can follow the Modulr instructions to do this here: https://secure-sandbox.modulrfinance.com/sandbox/onboarding.
+
+Once you have registered, Modulr will communicate your API key and secret. The Payments Agent holds these keys. Customers of the Payments Agent (anyone on the network who wants to use Corda Payments) do not require Modulr accounts with API key or secret.
+
+With these, you can set the following environment variables:
+
+```
+MODULR_API_KEY = {enter-your-api-key}
+MODULR_SECRET = {enter-your-secret}
+
+```
 ## About Modulr accounts and payment accounts
 
-Payments can only be triggered by a member of a network if:
+Payments can only be triggered by a member of a network if one of the following is true:
+
 * They have an account with the PSP that has been set up by the Payments Agent.
-* They have an existing account that they have set up directly with the PSP.
+* They have an existing **Direct account** with Modulr that they have set up directly, and has been recorded with the Payments Agent. In this technical preview, you can do this on behalf of the nodes on your local network to test this kind of payment account. 
 
-## Run the Payments Agent infrastructure locally
 
-The Payments Agent CorDapp is hosted by a trusted member of the network, such as the Business Network Operator (BNO). In this technical preview, you can assign the role of Payments Agent to a local node.
+##  Download files from CustomerHub
 
-To add the Payment Agent infrastructure locally:
+The CorDapps that make up the Corda Payments solution are made available to Corda Enterprise customers by agreement. Once your Corda account manager has arranged access, you can download the Corda Payments files via the Corda Enterprise Customer Hub.
 
-1. Use the `deployNodes` Gradle task - which automates the deployment of CorDapps to specified nodes - by adding the following dependencies to your root `build.gradle` file:
+To install Corda Payments Technical Preview, go to:
 
+https://customerhub.r3.com/s/
+
+## Get access to the Modulr Sandbox for individual nodes
+
+For the quickest set up, sign up to use the sandbox https://secure-sandbox.modulrfinance.com/sandbox/onboarding and create two accounts on the sandbox to run the sample commands.
+
+## Update the `payments.properties`
+
+Set the following properties:
+
+* `payments-jar-location` = Location of the files downloaded from CustomerHub
+* `account-id-1` = First Modulr account ID
+* `account-id-2` = Second Modulr account ID
+
+Example:
 ```
-    cordapp "$corda_payments_release_group:payments-cordapp:$corda_payments_release_version"
-    cordapp "$corda_payments_release_group:payments-contracts:$corda_payments_release_version"
-    cordapp "$corda_payments_release_group:payments-agent:$corda_payments_release_version"
-```
+payments-jar-location=/Users/Bob/Downloads/corda-payments-1.0.0-TechPreview-1.0
 
-2. Add the following to the `deployNodes` task with the following syntax:
-
-```
-nodeDefaults {
-    projectCordapp {
-        deploy = false
-    }
-        cordapp "$corda_payments_release_group:payments-cordapp:$corda_payments_release_version"
-        cordapp "$corda_payments_release_group:payments-contracts:$corda_payments_release_version"
-        cordapp "$corda_payments_release_group:payments-agent:$corda_payments_release_version"
-}
-```
-
-3. Add this agent node to your `deployNodes` task using the following configuration:
-
-```
-task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
-    directory "./build/nodes"
-    nodeDefaults {
-        projectCordapp {
-            deploy = false
-        }
-
-        cordapp("$corda_payments_release_group:payments-cordapp:$corda_payments_release_version")
-        cordapp("$corda_payments_release_group:payments-contracts:$corda_payments_release_version")
-
-        runSchemaMigration = true
-    }
-    node {
-        name "O=Notary,L=London,C=GB"
-        notary = [validating: false]
-        p2pPort 10002
-        rpcSettings {
-            address("localhost:10003")
-            adminAddress("localhost:10043")
-        }
-    }
-    node {
-        name "O=PartyA,L=London,C=GB"
-        p2pPort 10005
-        rpcSettings {
-            address("localhost:10006")
-            adminAddress("localhost:10046")
-        }
-        rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
-        cordapp("$corda_payments_release_group:payments-cordapp:$corda_payments_release_version") {
-            config """
-            {
-                "payments" : {
-                    "agent" : "O=Agent,L=New York,C=US"
-                }
-            }
-                """
-        }
-    }
-    node {
-        name "O=PartyB,L=New York,C=US"
-        p2pPort 10008
-        rpcSettings {
-            address("localhost:10009")
-            adminAddress("localhost:10049")
-        }
-        cordapp project(":iou-workflows")
-        cordapp project(":iou-contracts")
-        rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
-        cordapp("$corda_payments_release_group:payments-cordapp:$corda_payments_release_version") {
-            config """
-            {
-                "payments" : {
-                    "agent" : "O=Agent,L=New York,C=US"
-                }
-            }
-                """
-        }
-    }
-    node {
-        name "O=Agent,L=New York,C=US"
-        p2pPort 10000
-        rpcSettings {
-            address("localhost:10001")
-            adminAddress("localhost:10044")
-        }
-        cordapp("$corda_payments_release_group:payments-agent:$corda_payments_release_version") {
-            config """
-        {
-            "workflow" : {
-                "polling" : "1000",
-                "shutdown" : "true"
-                "timeout" : {
-                    "delay" : 50000
-                }
-            }
-        }
-            """
-        }
-        rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
-    }
-}
+account-id-1=A120NXXX
+account-id-2=A120NXXX
 ```
 
-4. From your project, run:
-
-  * `./gradlew clean deployNodes`
-
-  * `./build/nodes/runnodes`
-
-6. From the directory where the downloaded `payments-spring-service` .jar files are located, run the following commands:
+## Set environmental variables
 
 ```
-java -jar payments-spring-service-0.2.jar
+MODULR_API_KEY = Your Modulr api key
+MODULR_SECRET = Your Modulr secret
 ```
 
-Using Modulr account details, you can now register payment accounts with the Payments Agent and use them to make payments against the Modulr PSP from Corda.
+## Running Corda Payments
 
-## Create a payment account
-
-You need to first create your payer and payee accounts on the Modulr sandbox. Once they have been created, you need to store the account details on the system. The details required for making a payment on Modulr from a GBP account to another GBP account are `Account ID` and `Account Number`.
-
-From the payer node and payee node, add the account details as follows:
-
-Flow:
-````
-    val agent = paymentService.getPaymentAgent()
-    val accountName = "{your-account-alias}"
-    val currency = GBP
-    val psp = "MODULR"
-    val details = mutableMapOf(
-        "id" to "{your-account-id}",
-        "accountNumber" to "{your-account-number}"
-    )
-
-    paymentService.createAccount(accountName, currency, psp, details, agent)
-````
-RPC:
-```
-    rpc.startFlow(::AddPaymentAccount, accountName, psp, details, agent)
-```
-
-When a payment account is registered on the system it returns a `PaymentAccount` object. The `PaymentAccount.accountId`
-is the parameter you use to make a payment.
-
-## Make a payment
-
-Once the payer and payee have both registered their payment account details on the system then a payment can be made
-between the two of them. The payment will be made in the currency associated with the payment accounts.
-
-The `PaymentAccount` objects can be accessed by using the `PaymentService.paymentAccounts` or `PaymentService.paymentAccount` API. You can filter the results of `paymentAccounts` based on the account name, currency, or PSP the account is held with.
-
-Flow:
-```
-    val amount = 100
-    val payer = payerAccount.accountId
-    val payee = payeeAccount.accountId
-    val transactionRef = "{your-transaction-ref}"
-
-    paymentService.makePayment(amount, payer, payee, transactionRef)
-```
-RPC:
-```
-    rpc.startFlow(::MakePayment, amount, payer, payee, transactionRef)
-```
-
-Once the payment has been sent - you should receive the payment state object confirming that the payment has been initiated. The state object has the status `unprocessed`.
-
-## Trigger flows on completion of a payment
-
-Making payments requires calls to the external PSP, so there may be a small delay between initiating the payment and
-it being successful or failing. You can therefore trigger flows when a payment transitions to a specific status.
-
-The recommended annotations are:
-
-* `@OnPaymentSucceed` for payment success.
-* `@OnPaymentFailure` for payment failure.
-
-If desired, you can trigger flows at a more granular level by specifying a `PaymentStatus`.
+### Deploy Corda Nodes
 
 ```
-package com.r3.payments.callbacks
-
-@StartableByService
-@OnPaymentSucceed
-class PostPaymentFlow(private val paymentState: PaymentState) : FlowLogic<Unit>() {
-    override fun call() {
-        // some process
-    }
-}
-
-@StartableByService
-@OnPaymentFailure
-class FailedPaymentFlow(private val paymentState: PaymentState) : FlowLogic<Unit>() {
-    override fun call() {
-        // some process
-    }
-}
-
-@StartableByService
-@OnPaymentStatus(PaymentStatus.RESPONSE_PENDING)
-class WaitingForPaymentResponseFlow(private val paymentState: PaymentState) : FlowLogic<Unit>() {
-    override fun call() {
-        // some process
-    }
-}
+./gradlew deployNodes
 ```
-
-You need to add the packages that these flows live in to your node CorDapp config:
+### Run Corda Nodes
 
 ```
- "payments" : {
-    "packages" : "com.r3.payments.callbacks"
-  }
+./gradlew runNodes
+```
+### Run Corda Nodes (Windows only)
+
+```
+./gradlew runNodesWindows
+```
+
+### Run Payment Gateway
+
+```
+./gradlew runGateway
+```
+
+##  Running Sample Commands
+
+The following list are Gradle commands that trigger flows in the sample CorDapps.
+
+* Add an account to PartyA
+```
+./gradlew AddAccountPartyA
+```
+* Add an account to PartyB
+```
+./gradlew AddAccountPartyB
+```
+* Get accounts from PartyA
+```
+./gradlew GetAccountsPartyA
+```
+* Get accounts from PartyB
+```
+./gradlew GetAccountsPartyB
+```
+* Remove account from PartyA
+```
+./gradlew RemoveAccountPartyA
+```
+* Remove account from PartyB
+```
+./gradlew RemoveAccountPartyB
+```
+* Get available PSPs from PartyA
+```
+./gradlew GetAvailablePSPsPartyA
+```
+* Get available PSPs from PartyB
+```
+./gradlew GetAvailablePSPsPartyB
+```
+* Get balance from PartyA
+```
+./gradlew GetBalancePartyA
+```
+* Get balance from PartyB
+```
+./gradlew GetBalancePartyB
+```
+* Make payment to PartyA
+```
+./gradlew MakePaymentToPartyA
+```
+* Make payment to PartyB
+```
+./gradlew MakePaymentToPartyB
+```
+* Get payments from PartyA's PSP
+```
+./gradlew GetTransactionsPartyA
+```
+* Get payments from PartyB's PSP
+```
+./gradlew GetTransactionsPartyB
+```
+* Get payments from PartyA's vault
+```
+./gradlew GetPaymentsPartyA
+```
+* Get payments from PartyB's vault
+```
+./gradlew GetPaymentsPartyB
+```
+Making a payment for an amount greater than the available balance to make it stall
+* Get stalled payments from PartyA
+```
+./gradlew GetStalledPaymentsPartyA
+```
+* Get stalled payments from PartyB
+```
+./gradlew GetStalledPaymentsPartyB
+```
+
+
+## Running Sample GUIs
+
+The Corda Payments sample includes some basic user interfaces that you can use to trigger API calls and flows from the perspective of a node making payments, or the Payments Agent.
+
+{{< note >}}
+These GUIs and web servers are for demonstration purposes only, and are not supported as part of Corda Payments Technical Preview.
+{{< /note >}}
+
+
+1. In a new terminal, run the sample agent web server
+
+```
+./gradlew runSampleAgentWebserver
+```
+2. In a new terminal, run the sample agent GUI
+  * URL = http://localhost:3002/
+  * Username = agent
+  * Password = test
+```
+./gradlew runSampleAgentGUI
+```
+3.  In a new terminal, run the sample client web server
+```
+./gradlew runSampleClientWebserver
+```
+4. In a new terminal, run the sample client GUI
+    * URL = http://localhost:3001/
+    * Username = user
+    * Password = admin
+```
+./gradlew runSampleClientGUI
 ```
