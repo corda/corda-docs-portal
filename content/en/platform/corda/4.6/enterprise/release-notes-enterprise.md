@@ -420,7 +420,7 @@ For more information, see [Importing Percona notary data to CockroachDB](../../.
 
 ### Notary identity configuration
 
-When registering a notary, the new field `notary.serviceLegalName` must be defined. This allows single-node notaries to be upgraded to HA notaries.
+When registering a notary, the new field `notary.serviceLegalName` must be defined. This upgrades single-node notaries to high availability.
 
 For more information, see [Notary service overview](../../../../../en/platform/corda/4.6/enterprise/notary/ha-notary-service-overview.md).
 
