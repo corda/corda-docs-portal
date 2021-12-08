@@ -386,12 +386,6 @@ create index tx_idx on corda_adm.notary_request_log(consuming_transaction_id)
 create index state_ts_tx_idx on corda_adm.notary_double_spends (state_ref,request_timestamp,consuming_transaction_id)
 ```
 
-Lastly, you must grant user rights:
-
-```sql
-GRANT SELECT, INSERT ON corda_adm.notary_double_spends TO corda_pdb_user;
-```
-
 ### Database user setup
 
 Once the database and tables have been created, create a user with restricted rights that the notary worker will use to
@@ -401,19 +395,26 @@ sure that the user created belongs to the pluggable database. The username can b
 configuration file is updated to match.
 
 This user will only be able to insert and read data. It will not be able to delete or update data, nor will it be able to modify any schemas. Ensure that
-the database name is correct if it was changed in the previous step.
+the database name is correct if it was changed in the previous step. The tablespace size is unlimited, set the value (e.g. 100M, 1 GB) depending on your node sizing requirements.
+The script uses the default tablespace users with unlimited database space quota assigned to the user. Revise these settings depending on your node sizing requirements.
 
 ```sql
 ALTER SESSION SET CONTAINER = corda_pdb;
-CREATE USER corda_pdb_user IDENTIFIED BY Password1 CONTAINER=CURRENT;
+CREATE USER corda_pdb_user IDENTIFIED BY Password1 CONTAINER=CURRENT TABLESPACE users QUOTA unlimited ON users;;
 
 GRANT CREATE SESSION to corda_pdb_user CONTAINER=CURRENT;
 
 GRANT SELECT, INSERT ON corda_adm.notary_committed_states TO corda_pdb_user;
 GRANT SELECT, INSERT ON corda_adm.notary_committed_transactions TO corda_pdb_user;
 GRANT SELECT, INSERT ON corda_adm.notary_request_log TO corda_pdb_user;
+GRANT SELECT, INSERT ON corda_adm.notary_double_spends TO corda_pdb_user;
 ```
 
+Lastly, you must grant user rights:
+
+```sql
+GRANT SELECT, INSERT ON corda_adm.notary_double_spends TO corda_pdb_user;
+```
 
 ### JDBC driver
 
