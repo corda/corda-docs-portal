@@ -3,7 +3,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   apps:
     parent: "payments"
-    name: Deploy a local payments network
+    name: Payments network
 title: Deploy a local payments network
 weight: 200
 ---
@@ -12,7 +12,7 @@ You can use the Corda Payments Technical Preview to locally replicate payments i
 
 By following this guide, you can:
 
-1. Deploy a local network that includes the required nodes to sent and receive payments, and a node to act as the Payments Agent.
+1. Deploy a local network that includes the required nodes to send and receive payments, and a node to act as the Payments Agent.
 2. Set up the Payments Agent locally.
 3. Add the details of two Modulr accounts to the payer and payee nodes on your local network.
 4. Make a payment by initiating a payment flow.
@@ -20,7 +20,7 @@ By following this guide, you can:
 
 ## Requirements
 
-You must have :
+You must have:
 
 * Access to the Corda Enterprise Customer Hub.
 * A Corda Payments-enabled CorDapp.
@@ -46,28 +46,26 @@ MODULR_SECRET = {enter-your-secret}
 Payments can only be triggered by a member of a network if one of the following is true:
 
 * They have an account with the PSP that has been set up by the Payments Agent.
-* They have an existing **Direct account** with Modulr that they have set up directly, and has been recorded with the Payments Agent. In this technical preview, you can do this on behalf of the nodes on your local network to test this kind of payment account. 
+* They have an existing **Direct account** with Modulr that they have set up directly, and has been recorded with the Payments Agent. In this technical preview, you can do this on behalf of the nodes on your local network to test this kind of payment account.
 
 
-##  Download files from CustomerHub
+##  Download files from Customer Hub
 
 The CorDapps that make up the Corda Payments solution are made available to Corda Enterprise customers by agreement. Once your Corda account manager has arranged access, you can download the Corda Payments files via the Corda Enterprise Customer Hub.
 
-To install Corda Payments Technical Preview, go to:
-
-https://customerhub.r3.com/s/
+To install Corda Payments Technical Preview, go to the [Corda Customer Hub](https://customerhub.r3.com/s/).
 
 ## Get access to the Modulr Sandbox for individual nodes
 
-For the quickest set up, sign up to use the sandbox https://secure-sandbox.modulrfinance.com/sandbox/onboarding and create two accounts on the sandbox to run the sample commands.
+For the quickest set up, [sign up to use the sandbox](https://secure-sandbox.modulrfinance.com/sandbox/onboarding) and create two accounts on the sandbox to run the sample commands.
 
 ## Update the `payments.properties`
 
 Set the following properties:
 
-* `payments-jar-location` = Location of the files downloaded from CustomerHub
-* `account-id-1` = First Modulr account ID
-* `account-id-2` = Second Modulr account ID
+* `payments-jar-location` = Location of the files downloaded from Customer Hub.
+* `account-id-1` = First Modulr account ID.
+* `account-id-2` = Second Modulr account ID.
 
 Example:
 ```
@@ -86,133 +84,133 @@ MODULR_SECRET = Your Modulr secret
 
 ## Running Corda Payments
 
-### Deploy Corda Nodes
+### Deploy Corda nodes
 
 ```
 ./gradlew deployNodes
 ```
-### Run Corda Nodes
+### Run Corda nodes
 
 ```
 ./gradlew runNodes
 ```
-### Run Corda Nodes (Windows only)
+### Run Corda nodes (Windows only)
 
 ```
 ./gradlew runNodesWindows
 ```
 
-### Run Payment Gateway
+### Run payment gateway
 
 ```
 ./gradlew runGateway
 ```
 
-##  Running Sample Commands
+##  Running sample commands
 
 The following list are Gradle commands that trigger flows in the sample CorDapps.
 
-* Add an account to PartyA
+* Add an account to PartyA:
 ```
 ./gradlew AddAccountPartyA
 ```
-* Add an account to PartyB
+* Add an account to PartyB:
 ```
 ./gradlew AddAccountPartyB
 ```
-* Get accounts from PartyA
+* Get accounts from PartyA:
 ```
 ./gradlew GetAccountsPartyA
 ```
-* Get accounts from PartyB
+* Get accounts from PartyB:
 ```
 ./gradlew GetAccountsPartyB
 ```
-* Remove account from PartyA
+* Remove account from PartyA:
 ```
 ./gradlew RemoveAccountPartyA
 ```
-* Remove account from PartyB
+* Remove account from PartyB:
 ```
 ./gradlew RemoveAccountPartyB
 ```
-* Get available PSPs from PartyA
+* Get available PSPs from PartyA:
 ```
 ./gradlew GetAvailablePSPsPartyA
 ```
-* Get available PSPs from PartyB
+* Get available PSPs from PartyB:
 ```
 ./gradlew GetAvailablePSPsPartyB
 ```
-* Get balance from PartyA
+* Get balance from PartyA:
 ```
 ./gradlew GetBalancePartyA
 ```
-* Get balance from PartyB
+* Get balance from PartyB:
 ```
 ./gradlew GetBalancePartyB
 ```
-* Make payment to PartyA
+* Make payment to PartyA:
 ```
 ./gradlew MakePaymentToPartyA
 ```
-* Make payment to PartyB
+* Make payment to PartyB:
 ```
 ./gradlew MakePaymentToPartyB
 ```
-* Get payments from PartyA's PSP
+* Get payments from PartyA's PSP:
 ```
 ./gradlew GetTransactionsPartyA
 ```
-* Get payments from PartyB's PSP
+* Get payments from PartyB's PSP:
 ```
 ./gradlew GetTransactionsPartyB
 ```
-* Get payments from PartyA's vault
+* Get payments from PartyA's vault:
 ```
 ./gradlew GetPaymentsPartyA
 ```
-* Get payments from PartyB's vault
+* Get payments from PartyB's vault:
 ```
 ./gradlew GetPaymentsPartyB
 ```
-Making a payment for an amount greater than the available balance to make it stall
-* Get stalled payments from PartyA
+Make a payment for an amount greater than the available balance to make it stall
+* Get stalled payments from PartyA:
 ```
 ./gradlew GetStalledPaymentsPartyA
 ```
-* Get stalled payments from PartyB
+* Get stalled payments from PartyB:
 ```
 ./gradlew GetStalledPaymentsPartyB
 ```
 
 
-## Running Sample GUIs
+## Running sample GUIs
 
 The Corda Payments sample includes some basic user interfaces that you can use to trigger API calls and flows from the perspective of a node making payments, or the Payments Agent.
 
 {{< note >}}
-These GUIs and web servers are for demonstration purposes only, and are not supported as part of Corda Payments Technical Preview.
+These GUIs and web servers are for demonstration purposes only, and are not supported as part of the Corda Payments Technical Preview.
 {{< /note >}}
 
 
-1. In a new terminal, run the sample agent web server
+1. In a new terminal, run the sample agent web server:
 
 ```
 ./gradlew runSampleAgentWebserver
 ```
-2. In a new terminal, run the sample agent GUI
+2. In a new terminal, run the sample agent GUI:
   * URL = http://localhost:3002/
   * Username = agent
   * Password = test
 ```
 ./gradlew runSampleAgentGUI
 ```
-3.  In a new terminal, run the sample client web server
+3.  In a new terminal, run the sample client web server:
 ```
 ./gradlew runSampleClientWebserver
 ```
-4. In a new terminal, run the sample client GUI
+4. In a new terminal, run the sample client GUI:
     * URL = http://localhost:3001/
     * Username = user
     * Password = admin

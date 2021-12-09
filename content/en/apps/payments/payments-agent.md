@@ -16,7 +16,7 @@ In the role of Payments Agent on a network, you are responsible for the connecti
 
 ## Customers of the Payments Agent
 
-As the Payments Agent, you can consider members of your network who wish to make payments as your **Customers**. In this documentation, any reference to a customer or customer ID refers to members of a network who wish to make payments using Corda Payments with you as their Payments Agent.
+As the Payments Agent, you can consider members of your network who wish to make payments as your **customers**. In this documentation, any reference to a customer or customer ID refers to members of a network who wish to make payments using Corda Payments with you as their Payments Agent.
 
 Before you can create accounts for a party on your network, you must add them as a customer.
 
@@ -50,7 +50,7 @@ Close an account state on the vault.
 `accountId`. The account ID in the vault.
 
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
@@ -61,7 +61,7 @@ class CloseAccountDetails(
 ) : CloseAccountDetailsInitiator()
 ```
 
-### Return Type
+### Return type
 
 ```
 FlowLogic<Unit>
@@ -84,7 +84,7 @@ Close a customer details state on the vault.
 
 `customerId: PaymentCustomerId`
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
@@ -95,7 +95,7 @@ class CloseCustomerDetails(
 ) : CloseCustomerDetailsInitiator()
 ```
 
-### Return Type
+### Return type
 
 ```
 FlowLogic<CustomerDetailsState>
@@ -118,7 +118,7 @@ Create a customer account state object in the vault.
 * `customerId`. Existing customer who will own the account.
 * `pspAccountId`. Optional. Existing Modulr account to link to.
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
@@ -131,7 +131,7 @@ class CreateAccountDetails(
 ) : CreateAccountDetailsInitiator()
 ```
 
-### Return Type
+### Return type
 
 `FlowLogic<PaymentAccountDetailsState>`
 
@@ -156,7 +156,7 @@ Create a payment customer details state object in the vault. If the customer alr
 * `paymentCustomer`. Customer name.
 * `details`. Customer details.
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
@@ -166,7 +166,7 @@ class CreateCustomerDetails(
     private val details: Map<String, Any>
 ) : CreateCustomerDetailsInitiator()
 ```
-### Return Type
+### Return type
 ```
 FlowLogic<CustomerDetailsState>
 ```
@@ -183,7 +183,7 @@ Return the `AccountBalance` for a given `accountId`. Internal flow logic for use
 
 * `accountId`. The ID associated with the account.
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
@@ -191,7 +191,7 @@ class GetAccountBalance(
     private val accountId: PaymentAccountId
 ) : FlowLogic<AccountBalance>()
 ```
-### Return Type
+### Return type
 
 ```
 FlowLogic<AccountBalance>
@@ -214,7 +214,7 @@ Returns a list of the PSPs that are configured on the Payments application.
 
 None.
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
@@ -223,7 +223,7 @@ None.
 class GetAvailablePSPs : FlowLogic<List<String>>()
 ```
 
-### Return Type
+### Return type
 
 ```
 FlowLogic<List<String>>
@@ -236,21 +236,21 @@ startFlow(::GetAvailablePSPs)
 
 ## `GetCurrenciesOnAgent`
 
-Return all currencies provided by the Payment Agent's PSPs integrations.
+Return all currencies provided by the Payments Agent's PSPs integrations.
 
 ### Parameters
 
 None.
 
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
 class GetCurrenciesOnAgent() : FlowLogic<Set<FiatCurrency>>()
 ```
 
-### Return Type
+### Return type
 
 ```
 FlowLogic<Set<FiatCurrency>>
@@ -271,7 +271,7 @@ Return a list of accounts associated with a customer.
 private val customerId: String
 ```
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
@@ -279,7 +279,7 @@ private val customerId: String
 @Suppress("unused")
 class GetCustomerAccounts(private val customerId: String) : FlowLogic<List<PaymentAccount>>() {
 ```
-### Return Type
+### Return type
 
 ```
 FlowLogic<List<PaymentAccount>>
@@ -300,13 +300,13 @@ Will return from local cache map if available; else fetches from vault query, ad
 
 `paymentAccountId: PaymentAccountId`
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
 class GetPaymentAccount(private val paymentAccountId: PaymentAccountId) : FlowLogic<PaymentAccount>()
 ```
-### Return Type
+### Return type
 
 ```
 FlowLogic<PaymentAccount>
@@ -325,7 +325,7 @@ Return a page of customers managed by the agent on the PSP.
 
 Search criteria.
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
@@ -333,7 +333,7 @@ class GetPSPAccounts(
     private val criteria: AccountDetailsCriteria
 ) : FlowLogic<PagedResponse<AccountDetails>>()
 ```
-### Return Type
+### Return type
 
 ```
 FlowLogic<PagedResponse<AccountDetails>>
@@ -352,7 +352,7 @@ Return a page of customers managed by the agent on the PSP.
 
 Search criteria.
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
@@ -360,7 +360,7 @@ class GetPSPCustomers(
     private val criteria: CustomerDetailsCriteria
 ) : FlowLogic<PagedResponse<CustomerDetails>>()
 ```
-### Return Type
+### Return type
 
 ```
 FlowLogic<PagedResponse<CustomerDetails>>
@@ -380,7 +380,7 @@ Returns a PSP specification.
 ```
 private val psp: String
 ```
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
@@ -388,7 +388,7 @@ private val psp: String
 @Suppress("unused")
 class GetPSPSpecification(private val psp: String) : FlowLogic<PSPSpecification>()
 ```
-### Return Type
+### Return type
 
 ```
 FlowLogic<PSPSpecification>
@@ -408,7 +408,7 @@ Return the transaction history of an account.
 * `accountId:` String. The account ID.
 * `criteria: PaymentTransactionCriteria`.
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
@@ -419,7 +419,7 @@ class GetTransactions(
     private val criteria: PaymentTransactionCriteria
 ) : FlowLogic<PagedResponse<PaymentTransaction>>()
 ```
-### Return Type
+### Return type
 
 ```
 FlowLogic<PagedResponse<PaymentTransaction>>
@@ -440,7 +440,7 @@ Update a payment customer details state object in the vault.
 `details`. Customer details.
 `deleted`. Customer details to be deleted.
 
-### Flow Signature
+### Flow signature
 
 ```
 @StartableByRPC
@@ -451,7 +451,7 @@ class UpdateCustomerDetails(
     private val deleted: List<String> = emptyList()
 ) : UpdateCustomerDetailsInitiator()
 ```
-### Return Type
+### Return type
 
 ```
 FlowLogic<CustomerDetailsState>

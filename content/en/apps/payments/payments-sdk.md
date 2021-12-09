@@ -19,15 +19,13 @@ All code samples are in Kotlin.
 You must have access to:
 
 * The Corda Enterprise Customer Hub.
-* Modulr Sandbox. This is so you can [test your CorDapp on a local environment](send-payments.md#set-up-modulr-for-payments-agent).
+* Modulr Sandbox. This is so you can [test your CorDapp on a local environment](send-payments.html#set-up-modulr-sandbox-for-payments-agent).
 
 ## Access Corda Payments on Corda Customer Hub
 
 The CorDapps that make up the Corda Payments solution are made available to Corda Enterprise customers by agreement. Once your Corda account manager has arranged access, you can download the Corda Payments files via the Corda Enterprise Customer Hub.
 
-To install Corda Payments Technical Preview, go to:
-
-https://customerhub.r3.com/s/
+To install Corda Payments Technical Preview, go to the [Corda Customer Hub](https://customerhub.r3.com/s/).
 
 ## Add Corda Payments SDK dependencies to an existing CorDapp
 
@@ -63,7 +61,7 @@ repositories {
     cordaCompile "$corda_payments_release_group:payments-contracts:$corda_payments_release_version"
 ```
 
-4. To use the `deployNodes` task, add the following dependencies to your root `build.gradle` file:
+4. To use the `deployNodes` task, add these dependencies to your root `build.gradle` file:
 
 ```
     cordapp "$corda_payments_release_group:payments-sdk:$corda_payments_release_version"
@@ -82,7 +80,7 @@ nodeDefaults {
 }
 ```
 
-5. Specify the default agent in your node config by adding the following:
+5. Specify the default agent in your node config by adding:
 
 ```
 cordapp("$corda_payments_release_group:payments-sdk:$corda_payments_release_version") {

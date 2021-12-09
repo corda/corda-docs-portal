@@ -29,7 +29,7 @@ Use the Payment Service flows to:
 * Return a list of transactions made against this account. [Transactions](#transactions)
 * Return a list of payments made on the system by a given payment account. [Payments](#payments).
 * Return the account balance for a given payment account ID. [AccountBalance](#accountbalance).
-* Return the current default payment agent. [GetPaymentAgent](#getpaymentagent).
+* Return the current default payments agent. [GetPaymentAgent](#getpaymentagent).
 
 ## `MakePayment`
 
@@ -38,9 +38,9 @@ Initiate a payment between participating nodes on the network.
 ### Parameters
 
 * `amount`: Amount<`FiatCurrency`>. Required. The amount and currency of the payment to make. In the Corda Payments Technical Preview, you can use GBP or EUR.
-* `debtor`: String. Required. A reference (signature) to debtor account (the account from which the payment is to be made - or the account from which `makePayment`is initiated) which is in turn resolved by the `AccountsResolver` service.
+* `debtor`: String. Required. A reference (signature) to debtor account (the account from which the payment is to be made—or the account from which `makePayment`is initiated) which is in turn resolved by the `AccountsResolver` service.
 * `creditor`: String. Required. A reference (signature) to creditor account (the account into which the payment is to be made) which is in turn resolved by the `AccountsResolver` service.
-* `transactionRef`: String. Provided reference to the specified transaction. Bound to the externalId of the generated `PaymentState`'s `UniqueIdentifier`. Should be unique.
+* `transactionRef`: String. Provided reference to the specified transaction. Bound to the `externalId` of the generated `PaymentState`'s `UniqueIdentifier`. Should be unique.
 * `externalId`: String. Corresponds to the ID provided by the PSP.
 
 ### Return type
@@ -219,10 +219,10 @@ flowAwareStartFlow(PaymentById(paymentId)).getOrThrow()
 
 ## `AvailablePSPs`
 
-Get a list of the Payment Service Providers (PSPs) that are registered on the Payment Agent's node - making them available for payments on your network.
+Get a list of the Payment Service Providers (PSPs) that are registered on the sent node—making them available for payments on your network.
 
 {{< note >}}
-In Corda Payments Technical Preview the only possible available PSP is Modulr, and you connect with Modulr's sandbox environment - this is an in-memory mock PSP that is used for testing purposes only.
+In Corda Payments Technical Preview the only possible available PSP is Modulr, and you connect with Modulr's sandbox environment—this is an in-memory mock PSP that is used for testing purposes only.
 {{< /note >}}
 
 ### Parameters
@@ -246,7 +246,7 @@ flowAwareStartFlow(AvailablePSPs()).getOrThrow()
 
 ## `PspSpecification`
 
-Return the PSP specification for the named PSP on the agent. In the Corda Payment Service Technical Preview, the PSP can only be Modulr.
+Return the PSP specification for the named PSP on the agent. In the Corda Payments Technical Preview, the PSP can only be Modulr.
 
 ### Parameters
 
@@ -392,7 +392,7 @@ Send a request to update the underlying `PaymentAccountDetailsState` with the pr
 
 ### Parameters
 
-* `details`: Map<String, String>. Additional Key-value data associated with the Payment Account. These details are stored in the underlying `PaymentAccountDetailsState` shared between agent and node - but are not available through the returned `PaymentAccount` object.
+* `details`: Map<String, String>. Additional Key-value data associated with the Payment Account. These details are stored in the underlying `PaymentAccountDetailsState` shared between agent and node—but are not available through the returned `PaymentAccount` object.
 
 ### Return type
 
@@ -422,7 +422,7 @@ Update a beneficiary payment account details. If an existing key is provided in 
 ### Parameters
 
 * `accountId`. The unique account identifier.
-* `details`: Map<String, String>. Additional Key-value data associated with the Payment Account. These details are stored in the underlying `PaymentAccountDetailsState` shared between agent and node - but are not available through the returned `PaymentAccount` object.
+* `details`: Map<String, String>. Additional Key-value data associated with the Payment Account. These details are stored in the underlying `PaymentAccountDetailsState` shared between agent and node—but are not available through the returned `PaymentAccount` object.
 
 ### Return type
 
@@ -449,7 +449,7 @@ service.startFlow(
 
 Get a list of `PaymentAccount`s for all the accounts owned by the party passed as a parameter.
 
-The `AccountDetails` object captures the owning key for these details which could refer to a well known party or Corda account.
+The `AccountDetails` object captures the owning key for these details which could refer to a well-known party or Corda account.
 
 ### Parameters
 
@@ -503,7 +503,7 @@ service.startFlow(
 
 Return a list of transactions made against this account as recorded on the PSP, using the criteria given to this function.
 
-### Paramters
+### Parameters
 
 * `accountId`. The identifier of the account which is involved as debtor or creditor.
 * `searchCriteria`. Optional criteria to further filter transaction search.
@@ -533,7 +533,7 @@ service.startFlow(
 
 Return a list of transactions made against this account as recorded on the vault, using the criteria given to this function.
 
-### Paramters
+### Parameters
 
 * `accountId`. The identifier of the account which is involved as debtor OR creditor.
 * `searchCriteria`. Optional criteria to further filter transaction search.
@@ -589,7 +589,7 @@ service.startFlow(
 
 ## `GetPaymentAgent`
 
-Returns the current default payment agent, if it has been set. The default payment agent can be set through Cordapp config.
+Returns the current default payments agent, if it has been set. The default payments agent can be set through CorDapp config.
 
 ### Parameters
 
