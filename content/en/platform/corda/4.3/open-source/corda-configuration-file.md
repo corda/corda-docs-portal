@@ -204,7 +204,7 @@ Database configuration
 * `runMigration`
   Boolean on whether to run the database migration scripts at startup. In production   please keep it false. For more information please
   check [Database management scripts](database-management.md). If migration is not run, on startup, the node will   check if it's running on the correct database version.
-  The property is used only when a node runs against a database other than H2, and it's   replaced by the `initialiseSchema` property for other databases.
+  The property is used only when a node runs against a database other than H2, and it's   replaced by the `initialiseSchema` property for H2 databases.
 
   *Default:* false
 

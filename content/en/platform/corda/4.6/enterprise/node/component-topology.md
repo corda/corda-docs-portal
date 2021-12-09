@@ -38,15 +38,15 @@ A typical Node deployment.
 The diagram highlights that:
 
 
-* **CorDapps** are the functional aspect of Corda that define the operations of a business network for a given use case.
-* Corda Nodes store States in a database (the Vault) using **JDBC**.
-* **Corda Nodes** communicate in peer-to-peer fashion using **AMQP/TLS 1.2**.
-* **Corda Firewall** is an optional reverse proxy extension of the Corda Node intended to reside in the DMZ, enabling secure **AMQP/TLS 1.2** interaction with peer Corda Nodes.
-* Client applications interact with Corda Nodes using **RPC/TLS 1.2**.
-* Administrators interact with Corda Nodes over **SSH**.
-* Corda Nodes attain an identity certificate via a doorman service using **HTTPS**.
-* Corda Nodes learn about other trusted Corda Nodes and their addresses via a Network Map service using **HTTPS**.
-* Corda Nodes and the Corda Firewall check a Certificate Revocation List using **HTTP/HTTPS**.
+1. **CorDapps** are the functional aspect of Corda that define the operations of a business network for a given use case.
+2. Corda nodes store states in a database (the vault) using **JDBC**.
+3. **Corda nodes** communicate in peer-to-peer fashion using **AMQP/TLS 1.2**.
+4. **Corda Firewall** is an optional reverse proxy extension of the Corda node intended to reside in the DMZ, enabling secure **AMQP/TLS 1.2** interaction with peer Corda nodes.
+5. Client applications interact with Corda nodes using **RPC/TLS 1.2**.
+6. Administrators interact with Corda nodes over **SSH**.
+7. Corda nodes attain an identity certificate via a doorman service using **HTTPS**.
+8. Corda nodes learn about other trusted Corda nodes and their addresses via a Network Map service using **HTTPS**.
+9. Corda nodes and the Corda Firewall check a Certificate Revocation List using **HTTP/HTTPS**.
 
 
 ## Corda Firewall

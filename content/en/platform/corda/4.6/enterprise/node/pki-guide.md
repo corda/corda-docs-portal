@@ -49,13 +49,13 @@ Corda nodes operate with the following assumptions on the certificates hierarchy
 * They need to have the common root certificate, which is present in the node’s trust store.
 The length of the certificate chain can be arbitrary. As such, there can be any number of certificates between the Identity Manager and Network Map certificates as long
 as they root to the same certificate.
-* They need to have a custom extension defining the role of the certificate in the context of Corda. See .. _here: [https://docs.corda.net/head/permissioning.html#certificate-role-extension](https://docs.corda.net/head/permissioning.html#certificate-role-extension) for more details.
+* They need to have a custom extension defining the role of the certificate in the context of Corda. See [here](../../../../../../en/platform/corda/4.6/enterprise/network/permissioning.html#certificate-role-extension) for more details.
 
 
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
 {{< figure alt="hierarchy agnostic" width=80% zoom="../resources/hierarchy-agnostic.png" >}}
-At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found .. _here: [https://docs.corda.net/head/permissioning.html](https://docs.corda.net/head/permissioning.html) .
+At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found [here](../../../../../../en/platform/corda/4.6/enterprise/network/permissioning.md).
 
 
 ### Certificate Revocation List
@@ -93,7 +93,7 @@ It follows practices applicable for certificate authorities providing a balance 
 In this scenario, a network operator wants to create a CA hierarchy where the self-signed Root CA issues a certificate for the Subordinate CA which in turn issues
 two certificates for both Identity Manager CA and Network Map (note that the Network Map is not a CA-type entity).
 The root certificate is self-signed and its keys are to be protected with the highest security level. In normal circumstances,
-they would be used just once to sign lover-level certificates (in this case the Subordinate CA) and then placed in some secure location,
+they would be used just once to sign lower-level certificates (in this case the Subordinate CA) and then placed in some secure location,
 preferably not being accessed anymore.
 Further down in the hierarchy, the Subordinate certificate is then used to issue other certificates for other CAs.
 Additionally, there is the TLS CRL signer entity, which is also self-signed and does not act as a CA.
@@ -131,6 +131,6 @@ is only required to provide only essential information to the tool. At the same 
 defaults and have the configuration adjusted to the specific needs of different scenarios.
 
 {{< note >}}
-To learn more about running the tool, see pki-tool.
+To learn more about running the tool, see the documentation on the [Public Key Infrastructure (PKI) Tool](../../../../../../en/platform/corda/4.6/enterprise/pki-tool.md)
 
 {{< /note >}}
