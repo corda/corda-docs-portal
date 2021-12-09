@@ -1,160 +1,245 @@
-<p>{{ define "main" }}</p>
-<section id="home-introduce" class="section">
-  <h1>Welcome to R3 Documentation</h1>
-  <p class="subtitle">Find tutorials, sample code, developer guides, and API references for Corda and Conclave.</p>
-  <div id="home-search"><form class="navbar-form order-lg-4 order-0">{{ if .Site.Params.options.flexSearch -}} <input id="userinput" class="form-control is-search rounded-pill" autocomplete="off" type="search" placeholder="Search the documentation..." aria-label="Search the documentation..." /> <button class="btn_search"> <img src="data:;base64,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>" /> </button>
-    <div id="suggestions" class="shadow rounded">&nbsp;</div>
-    {{ end -}} {{ if .Site.Params.options.algolia -}} <input id="search-input" class="form-control is-search rounded-pill" autocomplete="off" type="search" placeholder="Search the documentation..." aria-label="Search the documentation..." /> <button class="btn_search"> <img src="data:;base64,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>" /> </button> {{ end -}}</form></div>
-</section>
-<section class="section">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-5">
-    <div class="col">
-      <div class="card h-100">
-        <div class="card-body">
-          <h3 class="card-title"><a href="en/get-started.html"> <img class="light-only" src="{{ &quot;icons/agenda-bookmark.svg&quot; | relURL }}" alt="Get started" height="68" /> <img class="dark-only" src="{{ &quot;icons/agenda-bookmark-white.svg&quot; | relURL }}" alt="Get started" height="68" /> </a> Get started</h3>
-          <p>View <a class="fw-semibold" href="en/get-started/corda-key-concepts.html">key concepts</a> and start coding with <a class="fw-semibold" href="en/get-started/getting-started-with-corda-5.html">Corda 5 Developer Preview</a>, <a class="fw-semibold" href="en/get-started/getting-started-with-corda-4.html">Corda 4</a>, and <a class="fw-semibold" href="https://docs.conclave.net" target="_blank" rel="noopener">Conclave</a>.</p>
-          <a class="fw-semibold" href="en/get-started.html">Ready, set, go!</a></div>
-      </div>
+{{ define "main" }}
+<main>
+  <section class="section" id="home-introduce">
+    <h1>
+      Welcome to R3 Documentation
+    </h1>
+    <p class="subtitle">Find tutorials, sample code, developer guides, and API references for Corda and Conclave.</p>
+
+    <div id="home-search">
+      <form class="navbar-form order-lg-4 order-0">
+        {{ if .Site.Params.options.flexSearch -}}
+        <input id="userinput" class="form-control is-search rounded-pill" type="search" placeholder="Search the documentation..." aria-label="Search the documentation..." autocomplete="off">
+        <button class="btn_search">
+          <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
+        </button>
+        <div id="suggestions" class="shadow rounded"></div>
+        {{ end -}}
+
+        {{ if .Site.Params.options.algolia -}}
+        <input id="search-input" class="form-control is-search rounded-pill" type="search" placeholder="Search the documentation..." aria-label="Search the documentation..." autocomplete="off">
+        <button class="btn_search">
+          <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
+        </button>
+        {{ end -}}
+
+      </form>
     </div>
-    <div class="col">
-      <div class="card h-100">
-        <div class="card-body">
-          <h3 class="card-title"><a href="en/tutorials.html"> <img class="light-only" src="{{ &quot;icons/document.svg&quot; | relURL }}" alt="Tutorials" height="68" /> <img class="dark-only" src="{{ &quot;icons/document-white.svg&quot; | relURL }}" alt="Tutorials" height="68" /> </a> Tutorials</h3>
-          <p>Learn how to build CorDapps and much more through our developer tutorials for <a class="fw-semibold" href="en/platform/corda/5.0-dev-preview-1/tutorials/overview.html">Corda 5 Developer Preview</a> and <a class="fw-semibold" href="en/tutorials/corda/4.8/os.html">Corda 4</a>.</p>
-          <a class="fw-semibold" href="en/tutorials.html">Learn through tutorials</a></div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <div class="card-body">
-          <h3 class="card-title"><a href="en/samples.html"> <img class="light-only" src="{{ &quot;icons/bullet-list.svg&quot; | relURL }}" alt="Samples and templates" height="68" /> <img class="dark-only" src="{{ &quot;icons/bullet-list-white.svg&quot; | relURL }}" alt="Samples and templates" height="68" /> </a> Samples and templates</h3>
-          <p>Try out our free code samples and CorDapp templates to help you build and run CorDapps based on ready examples.</p>
-          <a class="fw-semibold" href="en/samples.html">Learn through examples</a></div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <div class="card-body">
-          <h3 class="card-title"><a href="en/release-notes.html"> <img class="light-only" src="{{ &quot;icons/grammar-check.svg&quot; | relURL }}" alt="Releases" height="68" /> <img class="dark-only" src="{{ &quot;icons/grammar-check-white.svg&quot; | relURL }}" alt="Releases" height="68" /> </a> Releases</h3>
-          <p>View release notes and related information about the latest R3 product releases - start with the <a class="fw-semibold" href="en/platform/corda/5.0-dev-preview-1/release-notes-c5dp1.html">Corda 5 Developer Preview</a>.</p>
-          <a class="fw-semibold" href="en/release-notes.html">Learn about R3 releases</a></div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="carousel-btns d-none"><button class="slick-prev slick-arrow">Previous</button> <button class="slick-next slick-arrow">Next</button></div>
-      <div id="home-carousel">
-        <div class="item">
-          <div class="slide"><a href="en/platform/corda/5.0-dev-preview-1.html"> <img src="{{ &quot;images/home-page-carousel-001-c5-dev-preview1.png&quot; }}" alt="Corda 5 Developer Preview" /> </a>
-            <div class="d-inline-block">
-              <h5>Discover the Corda 5 Developer Preview!</h5>
-              <p>Build and deploy CorDapps locally with this preview version of Corda 5.</p>
-              <p>Experiment with the new modular API, HTTPS node interaction, and CorDapp packaging.</p>
-              <a href="en/platform/corda/5.0-dev-preview-1.html">Start here - build your first test CorDapp with the Corda 5 Developer Preview</a></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="slide"><a href="https://developer.r3.com/" target="_blank" rel="noopener"> <img src="{{ &quot;images/home-page-carousel-002-dev-platform.png&quot; }}" alt="R3 Developer Platform" /> </a>
-            <div class="d-inline-block">
-              <h5>Join the new R3 Developer Platform</h5>
-              <p>Join the most powerful blockchain and confidential computing community for developers.</p>
-              <p>Build your knowledge of blockchain and confidential computing by accessing R3&rsquo;s developer resources, open source projects, additional support from R3 developers, and documentation.</p>
-              <a href="https://developer.r3.com/" target="_blank" rel="noopener">Join the R3 Developer Platform</a></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="slide"><a href="en/announcements.html"> <img src="{{ &quot;images/home-page-carousel-003-announcements.png&quot; }}" alt="News and announcements" /> </a>
-            <div class="d-inline-block">
-              <h5>Overheard by tech writers</h5>
-              <p>News and announcements about R3 products and documentation - delivered to you by R3's Technical Writing Team.</p>
-              <ul>
-                <li>R3 documentation has a new home - welcome to the palace of Corda knowledge! Tell us what you think about the docs and the new site on <a href="https://cordaledger.slack.com/archives/C01Q3RQ7E8M">slack</a> and <a href="mailto:corda-docs@r3.com">over email</a>.</li>
-              </ul>
-              <a href="en/announcements.html">Read all news and announcements</a></div>
+  </section>
+
+  <section class="section">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-5">
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href="en/get-started.html">
+                <img src='{{ "icons/agenda-bookmark.svg" | relURL }}' alt="Get started"  height="68" class="light-only">
+                <img src='{{ "icons/agenda-bookmark-white.svg" | relURL }}' alt="Get started"  height="68" class="dark-only">
+              </a>
+              <span>Get started</span></h3>
+            <p>View <a href="en/get-started/corda-key-concepts.html" class="fw-semibold">key concepts</a> and start coding with <a href="en/get-started/getting-started-with-corda-5.html" class="fw-semibold">Corda 5 Developer Preview</a>, <a href="en/get-started/getting-started-with-corda-4.html" class="fw-semibold">Corda 4</a>, and <a href="https://docs.conclave.net" class="fw-semibold" target=_blank>Conclave</a>.</p>
+            <a href="en/get-started.html" class="fw-semibold">Ready, set, go!</a>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-5">
-    <div class="col">
-      <div class="card no-border h-100">
-        <div class="card-body">
-          <h3 class="card-title">Corda 5 Developer Preview</h3>
-          <p>Build and deploy CorDapps locally with this preview version of Corda 5. Experiment with the new modular API, HTTPS node interaction, and CorDapp packaging.</p>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href="en/tutorials.html">
+                <img src='{{ "icons/document.svg" | relURL }}' alt="Tutorials"  height="68" class="light-only">
+                <img src='{{ "icons/document-white.svg" | relURL }}' alt="Tutorials"  height="68" class="dark-only">
+              </a>
+              <span>Tutorials</span></h3>
+            <p>Learn how to build CorDapps and much more through our developer tutorials for <a href="en/platform/corda/5.0-dev-preview-1/tutorials/overview.html" class="fw-semibold">Corda 5 Developer Preview</a> and <a href="en/tutorials/corda/4.8/os.html" class="fw-semibold">Corda 4</a>.</p>
+            <a href="en/tutorials.html" class="fw-semibold">Learn through tutorials</a>
+          </div>
         </div>
-        <div class="card-footer"><a class="btn rounded" href="en/platform/corda/5.0-dev-preview-1.html">Ready, set, read!</a></div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href="en/samples.html">
+                <img src='{{ "icons/bullet-list.svg" | relURL }}' alt="Samples and templates"  height="68" class="light-only">
+                <img src='{{ "icons/bullet-list-white.svg" | relURL }}' alt="Samples and templates"  height="68" class="dark-only">
+              </a>
+              <span>Samples and templates</span></h3>
+            <p>Try out our free code samples and CorDapp templates to help you build and run CorDapps based on ready examples.</p>
+            <a href="en/samples.html" class="fw-semibold">Learn through examples</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href="en/release-notes.html">
+                <img src='{{ "icons/grammar-check.svg" | relURL }}' alt="Releases"  height="68" class="light-only">
+                <img src='{{ "icons/grammar-check-white.svg" | relURL }}' alt="Releases"  height="68" class="dark-only">
+              </a>
+              <span>Releases</span></h3>
+            <p>View release notes and related information about the latest R3 product releases - start with the <a href="en/platform/corda/5.0-dev-preview-1/release-notes-c5dp1.html" class="fw-semibold">Corda 5 Developer Preview</a>.</p>
+            <a href="en/release-notes.html" class="fw-semibold">Learn about R3 releases</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card no-border h-100">
-        <div class="card-body">
-          <h3 class="card-title">Corda 4</h3>
-          <p>Everything you need to know about the Corda 4 platform series - read the comprehensive documentation sets for:</p>
-          <ul>
-            <li><a href="en/platform/corda/4.8/open-source.html">Corda open source 4.8</a></li>
-            <li><a href="en/platform/corda/4.8/enterprise.html">Corda Enterprise 4.8</a></li>
-            <li><a href="en/platform/corda/1.5/cenm.html">Corda Enterprise Network Manager 1.5</a></li>
-          </ul>
+    <div class="row">
+      <div class="col">
+        <div class="carousel-btns d-none">
+          <button class="slick-prev slick-arrow">Previous</button>
+          <button class="slick-next slick-arrow">Next</button>
+          <ul class="slick-dots"></ul>
         </div>
-        <div class="card-footer"><a class="btn rounded" href="en/platform/corda/4.8/open-source.html">Ready, set, read!</a></div>
+
+        <div id="home-carousel">
+          <div class="item">
+            <div class="slide">
+              <a href="en/platform/corda/5.0-dev-preview-1.html">
+                <img src='{{ "images/home-page-carousel-001-c5-dev-preview1.png" }}' alt="Corda 5 Developer Preview">
+              </a>
+              <div class="d-inline-block">
+                <h5>Discover the Corda 5 Developer Preview!</h5>
+                <p>Build and deploy CorDapps locally with this preview version of Corda 5.</p>
+                <p>Experiment with the new modular API, HTTPS node interaction, and CorDapp packaging.</p>
+                <a href="en/platform/corda/5.0-dev-preview-1.html">Start here - build your first test CorDapp with the Corda 5 Developer Preview</a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="slide">
+              <a href="https://developer.r3.com/" target="_blank">
+                <img src='{{ "images/home-page-carousel-002-dev-platform.png" }}' alt="R3 Developer Platform">
+              </a>
+              <div class="d-inline-block">
+                <h5>Join the new R3 Developer Platform</h5>
+                <p>Join the most powerful blockchain and confidential computing community for developers.</p>
+                <p>Build your knowledge of blockchain and confidential computing by accessing R3’s developer resources, open source
+                  projects, additional support from R3 developers, and documentation.</p>
+                <a href="https://developer.r3.com/" target="_blank">Join the R3 Developer Platform</a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="slide">
+              <a href="en/announcements.html">
+                <img src='{{ "images/home-page-carousel-003-announcements.png" }}' alt="News and announcements">
+              </a>
+              <div class="d-inline-block">
+                <h5>Overheard by tech writers</h5>
+                <p>News and announcements about R3 products and documentation - delivered to you by R3's Technical Writing Team.</p>
+                <p>
+                <ul>
+                  <li>R3 documentation has a new home - welcome to the palace of Corda knowledge! Tell us what you think about the docs and the new site
+                    on <a href="https://cordaledger.slack.com/archives/C01Q3RQ7E8M">slack</a> and <a
+                      href="mailto:corda-docs@r3.com">over email</a>.
+                  </li>
+                </ul>
+                </p>
+                <a href="en/announcements.html">Read all news and announcements</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card no-border h-100">
-        <div class="card-body">
-          <h3 class="card-title">API reference</h3>
-          <p>Find complete documentation reference in Javadoc and KDoc format for all publicly exposed APIs in the Corda 5 Developer Preview and the Corda 4 series (Corda open source 4.8, Corda Enterprise 4.8, and Corda Enterprise Network Manager 1.5).</p>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-5">
+      <div class="col">
+        <div class="card no-border h-100">
+          <div class="card-body">
+            <h3 class="card-title">Corda 5 Developer Preview</h3>
+            <p>Build and deploy CorDapps locally with this preview version of Corda 5. Experiment with the new modular
+              API, HTTPS node interaction, and CorDapp packaging.</p>
+          </div>
+          <div class="card-footer">
+            <a href="en/platform/corda/5.0-dev-preview-1.html" class="btn rounded">Ready, set, read!</a>
+          </div>
         </div>
-        <div class="card-footer"><a class="btn rounded external" href="en/api-ref.html">View API references</a></div>
+      </div>
+      <div class="col">
+        <div class="card no-border h-100">
+          <div class="card-body">
+            <h3 class="card-title">Corda 4</h3>
+            <p>Everything you need to know about the Corda 4 platform series - read the comprehensive documentation sets for:</p>
+            <ul>
+              <li><a href="en/platform/corda/4.8/open-source.html">Corda open source 4.8</a></li>
+              <li><a href="en/platform/corda/4.8/enterprise.html">Corda Enterprise 4.8</a></li>
+              <li><a href="en/platform/corda/1.5/cenm.html">Corda Enterprise Network Manager 1.5</a></li>
+            </ul>
+          </div>
+      <div class="col">
+        <div class="card no-border h-100">
+          <div class="card-body">
+            <h3 class="card-title">API reference</h3>
+            <p>Find complete documentation reference in Javadoc and KDoc format for all publicly exposed APIs in the Corda 5 Developer Preview and the Corda 4
+              series (Corda open source 4.x, Corda Enterprise 4.x, and Corda Enterprise Network Manager 1.x).</p>
+          </div>
+          <div class="card-footer">
+            <a href="en/api-ref.html" class="btn rounded external">View API references</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card no-border h-100">
+          <div class="card-body">
+            <h3 class="card-title">Featured apps</h3>
+            <p>Explore new possibilities on Corda, carry out trial development work, and expand your vision for Corda with these featured and early-version apps.</p>
+          </div>
+          <div class="card-footer">
+            <a href="en/apps.html" class="btn rounded external">Explore apps</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card no-border h-100">
+          <div class="card-body">
+            <h3 class="card-title">Tools and add-ons</h3>
+            <p>Learn how to use various tools and add-ons to help you with Corda operations and CorDapp design and development: Tokens SDK, Accounts Library, CorDapp Design Language, node & flow management consoles, and more.</p>
+          </div>
+          <div class="card-footer">
+            <a href="en/tools.html" class="btn rounded">Explore tools and add-ons</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card no-border h-100">
+          <div class="card-body">
+            <h3 class="card-title">Conclave</h3>
+            <p>Conclave is a revolutionary new platform from R3 that enables the development of solutions that securely pool and process sensitive data from multiple parties.</p>
+          </div>
+          <div class="card-footer">
+            <a href="en/platform/conclave.html" class="btn rounded external">Discover Conclave</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card no-border h-100">
+          <div class="card-body">
+            <h3 class="card-title">R3 Developer Platform</h3>
+            <p>Join the new R3 Developer Platform - the most powerful blockchain and confidential computing community for developers.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://developer.r3.com" target="_blank" class="btn rounded external">Join R3 Developers</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card no-border h-100">
+          <div class="card-body">
+            <h3 class="card-title">Featured: CorDapp Design Language</h3>
+            <p>CorDapp Design Language (CDL) is a set of diagrammatic views you can use to concisely and accurately guide the design of your CorDapp.</p>
+          </div>
+          <div class="card-footer">
+            <a href="en/tools/cdl/cdl-index.html" class="btn rounded external">Read the CDL docs</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card no-border h-100">
-        <div class="card-body">
-          <h3 class="card-title">Featured apps</h3>
-          <p>Explore new possibilities on Corda, carry out trial development work, and expand your vision for Corda with these featured and early-version apps.</p>
-        </div>
-        <div class="card-footer"><a class="btn rounded external" href="en/apps.html">Explore apps</a></div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card no-border h-100">
-        <div class="card-body">
-          <h3 class="card-title">Tools and add-ons</h3>
-          <p>Learn how to use various tools and add-ons to help you with Corda operations and CorDapp design and development: Tokens SDK, Accounts Library, CorDapp Design Language, node &amp; flow management consoles, and more.</p>
-        </div>
-        <div class="card-footer"><a class="btn rounded" href="en/tools.html">Explore tools and add-ons</a></div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card no-border h-100">
-        <div class="card-body">
-          <h3 class="card-title">Conclave</h3>
-          <p>Conclave is a revolutionary new platform from R3 that enables the development of solutions that securely pool and process sensitive data from multiple parties.</p>
-        </div>
-        <div class="card-footer"><a class="btn rounded external" href="en/platform/conclave.html">Discover Conclave</a></div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card no-border h-100">
-        <div class="card-body">
-          <h3 class="card-title">R3 Developer Platform</h3>
-          <p>Join the new R3 Developer Platform - the most powerful blockchain and confidential computing community for developers.</p>
-        </div>
-        <div class="card-footer"><a class="btn rounded external" href="https://developer.r3.com" target="_blank" rel="noopener">Join R3 Developers</a></div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card no-border h-100">
-        <div class="card-body">
-          <h3 class="card-title">Featured: CorDapp Design Language</h3>
-          <p>CorDapp Design Language (CDL) is a set of diagrammatic views you can use to concisely and accurately guide the design of your CorDapp.</p>
-        </div>
-        <div class="card-footer"><a class="btn rounded external" href="en/tools/cdl/cdl-index.html">Read the CDL docs</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-<p>{{ end }}</p>
+
+  </section>
+
+</main>
+{{ end }}
