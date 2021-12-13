@@ -6,6 +6,7 @@ menu:
     name: Releases
     weight: 9
     identifier: releases-notes
+    parent: homepage-releases
     project: releases
 project: releases
 version: 'releases'
