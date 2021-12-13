@@ -1,65 +1,16 @@
 ---
-date: '2021-04-24T00:00:00Z'
+date: '2021-12-13T00:00:00Z'
 section_menu: releases
 menu:
   projects:
     name: Releases
-    weight: 8
-    identifier: homepage-releases
+    weight: 9
+    identifier: releases-notes
     project: releases
 project: releases
 version: 'releases'
 title: Releases
 ---
-
-# Apache Log4j announcement
-
-In response to news of the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), new patches for all supported versions of Corda Open Source, Corda Enterprise, and CENM are in progress.
-
-You do not need to patch CorDapps— they inherit Apache Log4j from the Corda runtime.
-
-Check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue) for expected patch release dates for your version of Corda or CENM. Use the [mitigation guide](#what-you-can-do-now) to reduce your risk before upgrading to the new patch.
-
-## What you can do now
-
-While you wait for the release of the required emergency patch, you can apply one of the following steps to mitigate the threat implied by the Apache Log4j vulnerability, as referenced in https://nvd.nist.gov/vuln/detail/CVE-2021-44228.
-
-### For Corda OS/ENT 4.3 and above and CENM 1.3 and above
-
-Use the `log4j2.formatMsgNoLookups` Java property. Set this property to true when specifying it as a Java parameter when running Corda as follows:
-
-`java -jar corda.jar -Dlog4j2.formatMsgNoLookups=true`
-
-Alternatively, you can configure a system environment variable which has the same effect. For example, in Linux:
-
-`export LOG4J_FORMAT_MSG_NO_LOOKUPS=true`
-
-In both cases, the Corda node must be restarted for these mitigations to take effect.
-
-### Older versions of Corda
-
-For Corda versions using an older version of log4j prior to 2.10, the above mitigation is not possible. Instead, the JndiLookup class must be removed from the classpath. Please contact Support for assistance in this case.
-
-
-## Corda and CENM patch release timetable for Apache Log4J issue
-
-| Version with new patch | Patch target shipping date    | Mitigation available |
-| :------------- | :------------- | :------------- |
-| Corda OS/CE 4.8.4      | Dec 14      | Yes |
-| Corda OS/CE 4.6.6      | Dec 14      | Yes |
-| Corda OS/CE 4.5.7      | Dec 15      | Yes |
-| Corda OS/CE 4.7.4      | Dec 15      | Yes |
-| Corda OS/CE 4.4.9      | Dec 16      | Yes |
-| Corda OS/CE 4.3.9      | Dec 16      | Yes |
-| CENM 1.2.4      | Dec 14      | No |
-| CENM 1.5.2      | Dec 15      | Yes |
-| CENM 1.3.3      | Dec 16      | Yes |
-| CENM 1.4.2      | Dec 17      | Yes |
-
-{{< note >}}
-These patch releases are valid for the stated supported versions of Corda and CENM only. If you are not using a supported version of Corda or CENM, please upgrade to one of the above versions.
-{{< /note >}}
-
 
 # Releases
 
