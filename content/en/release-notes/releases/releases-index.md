@@ -5,7 +5,7 @@ menu:
   projects:
     name: Releases
     weight: 9
-    identifier: homepage-releases
+    identifier: releases-notes
     project: releases
 project: releases
 version: 'releases'
