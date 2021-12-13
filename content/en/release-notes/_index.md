@@ -14,11 +14,11 @@ title: Releases
 
 # Apache Log4j announcement
 
-Following news of the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), new patches for all supported versions of Corda Open Source, Corda Enterprise, and CENM are in progress.
+In response to news of the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), new patches for all supported versions of Corda Open Source, Corda Enterprise, and CENM are in progress.
 
 Your individual CorDapps do not need to be patched as they inherit Apache Log4j from the Corda runtime.
 
-Check the [patch release timetable](#apache-log4j-patch-release-timetable) for expected patch release dates for your version of Corda or CENM. Use the [mitigation guide](#what-you-can-do-now) to reduce your risk before upgrading to the new patch.
+Check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue) for expected patch release dates for your version of Corda or CENM. Use the [mitigation guide](#what-you-can-do-now) to reduce your risk before upgrading to the new patch.
 
 ## What you can do now
 
@@ -41,7 +41,7 @@ In both cases, the Corda node must be restarted for these mitigations to take ef
 For Corda versions using an older version of log4j prior to 2.10, the above mitigation is not possible. Instead, the JndiLookup class must be removed from the classpath. Please contact Support for assistance in this case.
 
 
-## Corda and CENM patch release timetable for Apache Log4J CVE-2021-44228 issue
+## Corda and CENM patch release timetable for Apache Log4J issue
 
 | Version with new patch | Patch target shipping date    | Mitigation available |
 | :------------- | :------------- | :------------- |
