@@ -20,7 +20,7 @@ Your individual CorDapps do not need to be patched as they inherit Apache Log4j 
 
 Check the list below for expected patch release dates for your version of Corda or CENM. Use the [mitigation guide](#what-you-can-do-now) to reduce your risk before upgrading to the new patch.
 
-### log4j patch release timetable
+### Apache Log4j patch release timetable
 
 | Version with new patch | Patch target shipping date    | Mitigation available |
 | :------------- | :------------- | :------------- |
