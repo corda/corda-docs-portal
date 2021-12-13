@@ -45,7 +45,7 @@ For Corda versions using an older version of log4j prior to 2.10, the above miti
 
 | Version with new patch | Patch target shipping date    | Mitigation available |
 | :------------- | :------------- | :------------- |
-| Corda OS/CE 4.8.4      | Dec 13      | Yes |
+| Corda OS/CE 4.8.4      | Dec 14      | Yes |
 | Corda OS/CE 4.6.6      | Dec 14      | Yes |
 | Corda OS/CE 4.5.7      | Dec 15      | Yes |
 | Corda OS/CE 4.7.4      | Dec 15      | Yes |
