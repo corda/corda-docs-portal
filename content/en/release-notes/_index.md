@@ -11,8 +11,11 @@ project: releases
 version: 'releases'
 title: Alerts
 ---
+# Alerts and releases
 
-# Apache Log4j announcement
+This page provides updates on all major alerts, fixes and forthcoming patch releases. Check the top of the page for most urgent alerts. Scroll down for [current release information](#current-releases). 
+
+## Apache Log4j announcement
 
 In response to news of the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), new patches for all supported versions of Corda Open Source, Corda Enterprise, and CENM are in progress.
 
@@ -38,7 +41,7 @@ In both cases, the Corda node must be restarted for these mitigations to take ef
 
 ### Older versions of Corda
 
-For Corda and CENM versions using an older version of log4j prior to 2.10, the mitigation outlined for later versions does not work. You should continue to check these pages as new mitigation steps are being tested and will be added as soon as possible. 
+For Corda and CENM versions using an older version of log4j prior to 2.10, the mitigation outlined for later versions does not work. You should continue to check these pages as new mitigation steps are being tested and will be added as soon as possible.
 Refer to https://nvd.nist.gov/vuln/detail/CVE-2021-44228 or https://logging.apache.org/log4j/2.x/security.html for information in the mean time.
 
 
@@ -62,7 +65,7 @@ These patch releases are valid for the stated supported versions of Corda and CE
 {{< /note >}}
 
 
-# Current releases
+## Current releases
 
 Release notes for R3 products let you see what's new, what's been enhanced, what's been fixed, and any known issues. Alongside release notes you can also view third-party license information and reference to release files and their artifact checksums.
 
