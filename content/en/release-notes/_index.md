@@ -16,7 +16,7 @@ title: Releases
 
 In response to news of the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), new patches for all supported versions of Corda Open Source, Corda Enterprise, and CENM are in progress.
 
-Your individual CorDapps do not need to be patched as they inherit Apache Log4j from the Corda runtime.
+You do not need to patch CorDapps— they inherit Apache Log4j from the Corda runtime.
 
 Check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue) for expected patch release dates for your version of Corda or CENM. Use the [mitigation guide](#what-you-can-do-now) to reduce your risk before upgrading to the new patch.
 
