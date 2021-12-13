@@ -24,7 +24,7 @@ Check the [patch release timetable](#apache-log4j-patch-release-timetable) for e
 
 While you wait for the release of the required emergency patch, you can apply one of the following steps to mitigate the threat implied by the Apache Log4j vulnerability, as referenced in https://nvd.nist.gov/vuln/detail/CVE-2021-44228.
 
-### For Corda OS/ENT 4.3 and above and CENM 1.3 and above
+### For Corda OS/ENT 4.3 and above and CENM 1.3 and above
 
 Use the `log4j2.formatMsgNoLookups` Java property. Set this property to true when specifying it as a Java parameter when running Corda as follows:
 
