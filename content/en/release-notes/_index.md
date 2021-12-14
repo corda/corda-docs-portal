@@ -31,7 +31,7 @@ While you wait for the release of the required emergency patch, you can apply on
 
 Use the `log4j2.formatMsgNoLookups` Java property. Set this property to true when specifying it as a Java parameter when running Corda as follows:
 
-`java -jar corda.jar -Dlog4j2.formatMsgNoLookups=true`
+`java -Dlog4j2.formatMsgNoLookups=true -jar corda.jar`
 
 Alternatively, you can configure a system environment variable which has the same effect. For example, in Linux:
 
