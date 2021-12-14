@@ -428,6 +428,10 @@ progress {
   font-size: 0.875em;
   text-transform: uppercase; }
 
+.announcement {
+  font-weight: normal;
+  color: #000000;}
+
 .blockquote {
   margin-bottom: 1rem;
   font-size: 1.25rem; }
