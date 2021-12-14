@@ -13,7 +13,7 @@ title: Alerts
 ---
 # Alerts and releases
 
-This page provides updates on all major alerts, fixes and forthcoming patch releases. Check the top of the page for most urgent alerts. Scroll down for [current release information](#current-releases). 
+This page provides updates on all major alerts, fixes and forthcoming patch releases. Check the top of the page for most urgent alerts. Scroll down for [current release information](#current-releases).
 
 ## Apache Log4j announcement
 
@@ -55,7 +55,7 @@ Refer to https://nvd.nist.gov/vuln/detail/CVE-2021-44228 or https://logging.apac
 | Corda OS/CE 4.7.4      | Dec 15      | Yes |
 | Corda OS/CE 4.4.9      | Dec 16      | Yes |
 | Corda OS/CE 4.3.9      | Dec 16      | Yes |
-| CENM 1.2.4      | Dec 14      | No |
+| CENM 1.2.4      | Dec 15      | No |
 | CENM 1.5.2      | Dec 15      | Yes |
 | CENM 1.3.3      | Dec 16      | Yes |
 | CENM 1.4.2      | Dec 17      | Yes |
