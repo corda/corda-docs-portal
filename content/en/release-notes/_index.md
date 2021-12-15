@@ -21,7 +21,7 @@ This page provides updates on all major alerts, fixes and forthcoming patch rele
 
 {{< note >}}
 A new vulnerability has been discovered in version 2.15.0 of the log4j logging library, as described here: https://nvd.nist.gov/vuln/detail/CVE-2021-45046.
-Additional patches are in progress to all current supported software versions for this issue. New patches will upgrade Corda and CENM dependencies to Log4j 2.16.0.
+Additional patches are in progress for all current supported software versions for this issue. New patches will upgrade Corda and CENM dependencies to Log4j 2.16.0.
 {{< /note >}}
 
 
