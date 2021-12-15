@@ -25,7 +25,7 @@ Download the [latest version of Corda 4.8](https://github.com/corda/corda) to fi
 
 {{< warning >}}
 
-Upgrade to avoid exposure to the Apache Log4j 2 vulnerability to attack. This is the most secure way to mitigate any risks associated with this vulnerability.
+Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). This is the most secure way to mitigate any risks associated with this vulnerability.
 
 {{< /warning >}}
 
