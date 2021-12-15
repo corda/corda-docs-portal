@@ -19,25 +19,15 @@ weight: 1
 
 ## Corda Enterprise 4.8.4
 
-Corda Enterprise 4.8.4 is a patch release of Corda Enterprise that fixes an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
-
 {{< warning >}}
-
-Upgrade now to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). This is the most secure way to mitigate any risks associated with this vulnerability.
-
+Patch 4.8.4 contains dependency Log4j 2.15.0. A new vulnerability has been discovered in version 2.15.0 of the log4j logging library, as described here: https://nvd.nist.gov/vuln/detail/CVE-2021-45046. Apache has released version 2.16.0 of the library to address the issue. Corda Enterprise 4.8.5 is due for release December 17 2021.
 {{< /warning >}}
+
+Corda Enterprise 4.8.4 is a patch release of Corda Enterprise that attempted to fix an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
 
 ### Upgrade recommendation
 
-As a developer, you should **urgently upgrade** to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
-
-As a node operator, you should **urgenty upgrade** to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html).
-
-### Fixed issues
-
-In this patch release:
-
-* Log4j dependency updated to version 2.15.0, to mitigate CVE-2021-44228.
+When available, update to the next patch release, **Corda Enterprise 4.8.5**, as soon as possible. 
 
 ## Corda Enterprise 4.8.3
 
