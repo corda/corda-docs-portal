@@ -32,8 +32,8 @@ connection to the node (see “[Interacting with a node](clientrpc.md)”) then 
 The API is described in detail here:
 
 
-* [Kotlin API docs](https://api.corda.net/api/corda-os/4.6/html/api/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
-* [JavaDoc](https://api.corda.net/api/corda-os/4.6/html/api/javadoc/net/corda/client/jackson/package-summary.html)
+* [Kotlin API docs](https://docs.r3.com/en/api-ref/corda/4.6/open-source/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
+* [JavaDoc](https://docs.r3.com/en/api-ref/corda/4.6/open-source/javadoc/net/corda/client/jackson/package-summary.html)
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}

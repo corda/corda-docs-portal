@@ -360,9 +360,9 @@ The ampersand (&) character is not allowed in the password for Artemis SSL keyst
 
 
 
-## Notary Registration
+## Notary registration
 
-The notary registration tool is used to register the identity of the HA notary service, and generates the key and certificate of the notary
+The HA Utilities tool is used to register the identity of the HA notary service, and generates the key and certificate of the notary
 service that is shared by all workers of the notary cluster. It is required to be run before registering any notary worker nodes.
 
 The tool does not include any third party supplied client side jar files needed when connecting to an HSM. These jar files are supplied by
@@ -397,4 +397,4 @@ After successful registration, a keystore file is created by the tool. The locat
 
 This key store contains the service identity certificate (and key if not using a HSM) that all notary workers of this notary cluster share.
 Due to HSM restrictions around storing certificate chains, the key store will still be generated when using a HSM however it will only
-contain the notary service certificate chain. See [HSM Support](notary/hsm-support.md#hsm-support) for more information.
+contain the notary service certificate chain. See [HSM Support](../../../../../en/platform/corda/4.4/enterprise/notary/hsm-support.html#hsm-support) for more information.

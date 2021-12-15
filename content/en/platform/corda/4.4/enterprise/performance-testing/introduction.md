@@ -140,7 +140,7 @@ These tests stress components in a single node, without any dependencies on othe
 
 This test starts a flow that does nothing - this gives us a timing for the overhead involved in starting a flow, i.e. RPC
 handling, deserialization of the request, starting/winding down a flow and sending the response. Note that a flow that
-requires inputs via RPC might have a larger overhead as these might need to be deserialised.
+requires inputs via RPC might have a larger overhead as these might need to be de-serialized.
 
 
 #### Issuance

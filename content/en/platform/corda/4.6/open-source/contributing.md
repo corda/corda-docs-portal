@@ -24,12 +24,12 @@ There are several ways to identify an area where you can contribute to Corda:
 
 
 * If you'd like to contribute, but don't have a specific project in mind:
-    * Message a [Community Maintainer](contributing-philosophy.md#community-maintainers) saying “I want to help!”. They’ll work
+    * Message a [Community Maintainer](contributing-philosophy.html#community-maintainers) saying “I want to help!”. They’ll work
 with you to find an area for you to contribute.
     * Browse the issues labelled `help wanted` on the
 [Corda GitHub issues](https://github.com/corda/corda/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) page. Issues labeled `good first issue` are ideal for first-timers.
 * If you have a specific contribution in mind, message the
-`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contact one of the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly to confirm if it is appropriate before starting development.
+`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contact one of the [Community Maintainers](contributing-philosophy.html#community-maintainers) directly to confirm if it is appropriate before starting development.
 
 
 
@@ -44,9 +44,9 @@ One of the things that makes Corda special is its coherent design. That's why we
 * **Scope**: To ensure the Corda project remains coherent and focused, so we ask that the feature’s scope is within the definition specified in the [Corda Technical Whitepaper](/en/pdf/corda-technical-whitepaper.pdf).
 * **Maintainability**: If the feature requires ongoing maintenance (for example, support for a particular brand of database), we may ask you to accept responsibility for maintaining it.
 * **Non-duplicative**: If the contribution duplicates features that already exist or are in progress, you may be asked to work with the project maintainers to reconcile this. As the major contributor to Corda, many employees of [R3](https://r3.com) are working on features at any given time. To avoid surprises and foster transparency,
-[our Jira work tracking system is public](https://r3-cev.atlassian.net/projects/CORDA/summary). If in doubt, reach out to one of the [Community Maintainers](contributing-philosophy.md#community-maintainers).
+[our Jira work tracking system is public](https://r3-cev.atlassian.net/projects/CORDA/summary). If in doubt, reach out to one of the [Community Maintainers](contributing-philosophy.html#community-maintainers).
 
-In addition, there are a number of additional requirements that apply to ["large" contributions](contributing.md#large-contributions).
+In addition, there are a number of additional requirements that apply to [large contributions](contributing.html#large-contributions).
 
 ## Making changes to Corda
 
@@ -114,39 +114,34 @@ runs as part of the build process. Use this to flag any accidental changes.
 Document any changes to Corda’s public API:
 
 
-1. Add comments and javadocs/kdocs. API functions must have javadoc/kdoc comments and sentences must be terminated
-with a full stop. We also start comments with capital letters, even for inline comments. Where Java APIs have
+1. Add comments and javadocs/kdocs. API functions must have javadoc/kdoc comments and sentences must be terminated with a full stop. We also start comments with capital letters, even for inline comments. Where Java APIs have
 synonyms (e.g. `%d` and `%date`), we prefer the longer form for legibility reasons. You can configure your IDE to highlight these in yellow.
-2. Update the relevant .rst file(s).
-3. Include the change in the [changelog](changelog.md) if the change is external and therefore visible to CorDapp
+2. Update the relevant .md file(s).
+3. Include the change in the [changelog](../../../../../en/platform/corda/4.6/open-source/release-notes.md) if the change is external and therefore visible to CorDapp
 developers and/or node operators.
-4. [Build the docs locally](building-the-docs.md) and check that the resulting .html files (under `docs/build/html`) for the modified
-render correctly.
-5. If relevant, add a sample. Samples are one of the key ways users learn what the platform can do.
-If you add a new API or feature and don’t update the samples, your work will have less impact.
+4. [Build the docs locally](building-the-docs.md) and check that the resulting .html files render correctly.
+5. If relevant, add a sample. Samples are one of the key ways users learn what the platform can do. If you add a new API or feature and don’t update the samples, your work will have less impact.
 
 
 ## Merging the changes back into Corda
 
 1. Create a pull request (PR) from your fork to the equivalent branch of the Corda repo.
 
-2. Complete the PR checklist in the **comments box**.
-    * Have you run [unit, integration and smoke tests](https://docs.corda.net/head/testing.html)?
-    * If you added/changed public APIs, did you write/update the JavaDocs?
-    * If the changes are of interest to application developers, have you added them to the changelog and release notes where applicable?
-    * If you are contributing for the first time, please read the contribution guidelines above and indicate your agreement.
+    * Complete the PR checklist in the **comments box**.
+      * Have you run [unit, integration and smoke tests](../../../../../en/platform/corda/4.6/open-source/testing.md)?
+      * If you added/changed public APIs, did you write/update the JavaDocs?
+      * If the changes are of interest to application developers, have you added them to the changelog and release notes where applicable?
+      * If you are contributing for the first time, please read the contribution guidelines above and indicate your agreement.
+    * Add a clear **description** of the purpose of the PR.
+    * Add the following statement to confirm that your contribution is your own original work: “I hereby certify that my contribution is in accordance with the Developer Certificate of Origin ([https://developercertificate.org/](https://developercertificate.org/)).”
 
-3. Add a clear **description** of the purpose of the PR.
-4. Add the following statement to confirm that your contribution is your own original work: “I hereby certify that my contribution is in
-accordance with the Developer Certificate of Origin ([https://developercertificate.org/](https://developercertificate.org/)).”
+2. Request a review by reaching out in the `#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contacting one of
+the [Community Maintainers](contributing-philosophy.html#community-maintainers) directly. The reviewer will either:
+    * Accept and merge your PR.
+    * Leave comments requesting changes via the GitHub PR interface.
 
-5. Request a review by reaching out in the `#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contacting one of
-the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly. The reviewer will either:
-    * Accept and merge your PR
-    * Leave comments requesting changes via the GitHub PR interface
-
-6. Make the changes by pushing directly to your existing PR branch. The PR updates automatically.
-7. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.4/CONTRIBUTORS.md)>. The format is generally `firstname surname (company)`. You can omit the company name.
+3. Make the changes by pushing directly to your existing PR branch. The PR updates automatically.
+4. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.4/CONTRIBUTORS.md). The format is generally `firstname surname (company)`. You can omit the company name.
 
 
 ## Large contributions
@@ -181,7 +176,7 @@ The process for contributing a large change to Corda is as follows:
 
 3. If the proposal is accepted, please raise a design PR on the [Corda GitHub project](https://github.com/corda/corda). The design should give the rationale for the change, how the change will be implemented, and what alternative designs were rejected. The engineering team will review your design and indicate any required changes.
 
-4. Once the design is approved, please go ahead with the change according to the [guidelines for small and medium contributions](contributing.md#making-the-required-changes). In addition to those guidelines, we require that large contributions be fully exercised by tests, including any exception paths and error handling.
+4. Once the design is approved, please go ahead with the change according to the [guidelines for small and medium contributions](contributing.html#making-changes-to-corda). In addition to those guidelines, we require that large contributions be fully exercised by tests, including any exception paths and error handling.
 
 
 ## Developer Certificate of Origin

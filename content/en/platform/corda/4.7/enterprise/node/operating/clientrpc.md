@@ -22,17 +22,17 @@ Corda Enterprise supports two types of RPC client:
 {{< warning >}}
 The built-in Corda test webserver is deprecated and unsuitable for production use. If you want to interact with
 your node via HTTP, you will need to stand up your own webserver that connects to your node using the
-[CordaRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. You can find an example of how to do this using the popular Spring Boot server
+[CordaRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. You can find an example of how to do this using the popular Spring Boot server
 [here](https://github.com/corda/spring-webserver).
 {{< /warning >}}
 
-## Building the Corda RPC Client
+## Build the Corda RPC Client
 
-To interact with your node via the `CordaRPCOps` remote interface, you need to build a client that uses the [CordaRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. The `CordaRPCClient` class enables you to connect to your node via a message queue protocol and provides a simple RPC interface (the `CordaRPCOps` remote interface) for interacting with the node. You make calls on a JVM object as normal, and the marshalling back-and-forth is handled for you.
+To interact with your node via the `CordaRPCOps` remote interface, you need to build a client that uses the [CordaRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. The `CordaRPCClient` class enables you to connect to your node via a message queue protocol and provides a simple RPC interface (the `CordaRPCOps` remote interface) for interacting with the node. You make calls on a JVM object as normal, and the marshalling back-and-forth is handled for you.
 
 ### Pre-requisites
 
-To be able to use the [CordaRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class, you must add `com.r3.corda:corda-rpc:$corda_release_version` as a `compile` dependency in your client’s `build.gradle` file. As the RPC library has a transitive dependency on a patched version of Caffeine in Corda
+To be able to use the [CordaRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) class, you must add `com.r3.corda:corda-rpc:$corda_release_version` as a `compile` dependency in your client’s `build.gradle` file. As the RPC library has a transitive dependency on a patched version of Caffeine in Corda
 Enterprise 4.0, you must add `corda-dependencies` to the list of repositories for your project, as shown in the following example, to resolve
 this dependency:
 
@@ -43,13 +43,13 @@ repositories {
 }
 ```
 
-### Connecting to a node with `CordaRPCClient`
+### Connect to a node with `CordaRPCClient`
 
-The [CordaRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
-[CordaRPCConnection](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/core/messaging/CordaRPCOps.html)
+The [CordaRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) class has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
+[CordaRPCConnection](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/core/messaging/RPCOps.html)
 object that you can use to interact with the node.
 
-Here is an example of using [CordaRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) to connect to a node and log the current time on its internal clock:
+Here is an example of using [CordaRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) to connect to a node and log the current time on its internal clock:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -121,19 +121,19 @@ class ClientRpcExample {
 {{< /tabs >}}
 
 {{< warning >}}
-The returned [CordaRPCConnection](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of
+The returned [CordaRPCConnection](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of
 server-side resources. When you’re done with it, call `close` on it. Alternatively, you would typically employ the `use`
-method on [CordaRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) which cleans up automatically after the passed-in lambda finishes. Don’t create
+method on [CordaRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) which cleans up automatically after the passed-in lambda finishes. Don’t create
 a new proxy for every call you make - reuse an existing one.
 {{< /warning >}}
 
-For further information on using the RPC API, see [Working with the CordaRPCClient API](../../../../corda-os/4.7/tutorial-clientrpc-api.md).
+For further information on using the RPC API, see [Working with the CordaRPCClient API](../../../../../../../en/platform/corda/4.7/open-source/tutorial-clientrpc-api.md).
 
-### Defining RPC users and permissions
+### Define RPC users and permissions
 
 To interact with the Corda node via the RPC interface, a node operator must define one or more RPC users. Each user is authenticated with a username and password, and is assigned a set of permissions that control which RPC operations they can perform. To interact with the node via the local shell, permissions are not required. Permissions do, however, have effect if the shell is started via SSH.
 
-#### Defining the RPC users
+#### Define the RPC users
 
 To define the users for the Corda RPC Client, add each user to the `rpcUsers` list in the node’s `node.conf` file, as shown in the following example:
 
@@ -150,7 +150,7 @@ rpcUsers=[
 
 By default, RPC users are not allowed to perform any RPC operations.
 
-#### Granting flow permissions
+#### Grant flow permissions
 
 To grant an RPC user permission to start a specific flow, use the syntax `StartFlow.<fully qualified flow name>`, and the listed `InvokeRpc` permissions, as shown in the following example:
 
@@ -192,7 +192,7 @@ rpcUsers=[
 ]
 ```
 
-#### Fixing permissions
+#### Fix permissions
 
 If an RPC user tries to perform an RPC operation that they do not have permission for, they will see an error like this:
 
@@ -204,7 +204,7 @@ To fix this, you must grant them permissions based on the method name: `InvokeRp
 
 In this example, the method name is `vaultQueryByWithPagingSpec`, so `InvokeRpc.vaultQueryByWithPagingSpec` must be added to the RPC user's `permissions`.
 
-#### Granting all permissions
+#### Grant all permissions
 
 To provide an RPC user with the permission to perform any RPC operation (including starting any flow), use the `ALL` permission, as shown in the following example:
 
@@ -222,7 +222,7 @@ rpcUsers=[
 ```
 
 
-### Reconnecting the Corda RPC Client
+### Reconnect the Corda RPC Client
 
 An RPC client connected to a node stops functioning when the node becomes unavailable or the associated TCP connection is interrupted.
 Running RPC commands after this has happened will just throw exceptions. Any subscriptions to observables that have been created before the disconnection will stop receiving events after the connection is re-established.
@@ -233,7 +233,7 @@ With regards to RPCs with side effects (for example, flow invocations), the appl
 
 You can make use of the options described below in order to take advantage of some automatic reconnection functionality that mitigates some of these issues.
 
-#### Enabling automatic reconnection
+#### Enable automatic reconnection
 
 If you provide a list of addresses via the `haAddressPool` argument when instantiating a `CordaRPCClient`, then automatic reconnection will be performed when the existing connection is dropped.
 However, the application code is responsible for waiting for the connection to be established again in order to perform any calls, retrieve new observables, and re-subscribe to them.
@@ -245,7 +245,7 @@ It is important to note that this does not mean that the node did not execute th
 Any observables that were returned before the disconnection will call the `onError` handlers.
 {{< /note >}}
 
-#### Enabling graceful reconnection
+#### Enable graceful reconnection
 
 A more graceful form of reconnection is also available. This will:
 
@@ -306,7 +306,7 @@ void method() {
 
 {{< /tabs >}}
 
-#### Retrying flow invocations
+#### Retry flow invocations
 
 As implied above, when graceful reconnection is enabled, flow invocations will not be retried across reconnections to avoid duplicate invocations.
 This retrying can be done from the application code after checking whether the flow was triggered previously by inspecting whether its side-effects have taken place.
@@ -353,11 +353,11 @@ The logic of the `wasFlowTriggered()` function is naturally dependent on the flo
 This approach provides at-least-once guarantees. It cannot provide exactly-once guarantees, because of race conditions between the moment the check is performed and the moment the side effects of the flow become visible.
 {{< /warning >}}
 
-## Building the Multi RPC Client
+## Build the Multi RPC Client
 
 Corda Enterprise exposes a number of custom, remote RPC interfaces.
 
-To interact with your node via any of the following interfaces, you need to build a client that uses the [MultiRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class:
+To interact with your node via any of the following interfaces, you need to build a client that uses the [MultiRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class:
 
 * `net.corda.client.rpc.proxy.AuditDataRPCOps` - This interface enables you to audit the log of RPC activity.
 * `net.corda.client.rpc.proxy.FlowRPCOps` - This interface enables you to retry a previously hospitalised flow.
@@ -372,12 +372,12 @@ All of these interfaces are located in the `:client:extensions-rpc` module.
 {{< /note >}}
 
 {{< note >}}
-`CordaRPCClient` enables you to interact with the `CordaRPCOps` remote interface. However, if you intend to interact with any of the other remote interfaces that the Corda Enterprise provides, you need to build a client that uses the [MultiRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class.
+`CordaRPCClient` enables you to interact with the `CordaRPCOps` remote interface. However, if you intend to interact with any of the other remote interfaces that the Corda Enterprise provides, you need to build a client that uses the [MultiRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class.
 {{< /note >}}
 
 ### Pre-requisites
 
-To use the functionality of the [MultiRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class from a custom JVM application, you must include the following
+To use the functionality of the [MultiRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class from a custom JVM application, you must include the following
 dependencies:
 
 ```groovy
@@ -387,11 +387,11 @@ dependencies {
     ...
 }
 ```
-### Defining RPC users and permissions
+### Define RPC users and permissions
 
 On the Corda Enterprise node side, you must define one or more RPC users and grant permissions to those users to invoke remote methods. To do this, you must edit the `node.conf` file.
 
-#### Granting all permissions
+#### Grant all permissions
 
 To provide an RPC user with the permission to all the methods of an interface, use the syntax `InvokeRpc.<interface name>#ALL` in the `node.conf` file.
 
@@ -410,7 +410,7 @@ rpcUsers=[
 ]
 ```
 
-#### Granting permissions for RPC operations
+#### Grant permissions for RPC operations
 
 To grant permissions in situations where multiple RPC interfaces are running within a single node, you can use the `InvokeRpc` syntax in the `node.conf` file to specify permissions for a particular interface.
 
@@ -463,9 +463,9 @@ To grant permission to the `readAlpha()` method only, but not to the `betaValue`
 Permission strings are case-insensitive.
 {{% /note %}}
 
-### Connecting to a node with `MultiRPCClient`
+### Connect to a node with `MultiRPCClient`
 
-The code snippet below demonstrates how to use the [MultiRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class  to build a Multi RPC Client and define the following:
+The code snippet below demonstrates how to use the [MultiRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class  to build a Multi RPC Client and define the following:
 
 * Endpoint address
 * Interface class to be used for communication (in this example, `NodeHealthCheckRpcOps::class.java`, which is used to communicate with the `net.corda.client.rpc.proxy.NodeHealthCheckRpcOps` interface)
@@ -518,25 +518,25 @@ As some internal resources are allocated to `MultiRPCClient`, it is recommended 
 `RPCConnection` is also a `Closeable` construct, so it is a good idea to call `close()` on it after use.
 
 
-### Specifying multiple endpoint addresses
+### Specify multiple endpoint addresses
 
 You can pass in multiple endpoint addresses when constructing `MultiRPCClient`.
 If you do so, `MultiRPCClient` will operate in fail-over mode and if one of the endpoints becomes unreachable, it will automatically re-try the connection using a round-robin policy.
 
-For more information, see the API documentation for [MultiRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html).
+For more information, see the API documentation for [MultiRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html).
 
-### Adding RPC connection listeners
+### Add RPC connection listeners
 
 If the reconnection cycle has started, the previously supplied `RPCConnection` may become interrupted and `proxy` will throw an
 `RPCException` every time the remote method is called.
 
-To be notified when the connection has been re-established or, indeed, to receive notifications throughout the lifecycle of every connection, you can add one or more [RPCConnectionListeners](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/ext/RPCConnectionListener.html) to `MultiRPCClient`.
-For more information, see [RPCConnectionListener](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/ext/RPCConnectionListener.html) in the API documentation.
+To be notified when the connection has been re-established or, indeed, to receive notifications throughout the lifecycle of every connection, you can add one or more [RPCConnectionListeners](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/ext/RPCConnectionListener.html) to `MultiRPCClient`.
+For more information, see [RPCConnectionListener](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/ext/RPCConnectionListener.html) in the API documentation.
 
-### Specifying RPC connection parameters
-Many constructors are available for `MultiRPCClient`. This enables you to specify a variety of other configuration parameters relating to the RPC connection. The parameters for `MultiRPCClient` are largely similar to the parameters for [CordaRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html). For more information, see [MultiRPCClient](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
+### Specify RPC connection parameters
+Many constructors are available for `MultiRPCClient`. This enables you to specify a variety of other configuration parameters relating to the RPC connection. The parameters for `MultiRPCClient` are largely similar to the parameters for [CordaRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html). For more information, see [MultiRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
 
-## Managing RPC security
+## Manage RPC security
 
 Setting `rpcUsers` provides a simple way of granting RPC permissions to a fixed set of users, but has some
 obvious shortcomings. To support use cases aiming for higher security and flexibility, Corda offers additional security
@@ -601,7 +601,7 @@ For a valid configuration, you cannot specify both the `rpcUsers` and `security`
 an exception at node startup.
 {{< /warning >}}
 
-### Specifying authentication/authorisation data
+### Specify authentication/authorisation data
 
 The `dataSource` structure defines the data provider supplying credentials and permissions for users. There exist two
 supported types of such data source, identified by the `dataSource.type` field:
@@ -625,7 +625,7 @@ The SQL type of each column is not prescribed (although our tests were conducted
 in each table as needed.
 {{< /note >}}
 
-### Encrypting passwords
+### Encrypt passwords
 
 Storing passwords in plain text is discouraged in applications where security is critical. Passwords are assumed
 to be in plain format by default, unless a different format is specified by the `passwordEncryption` field, as shown in the following example:
@@ -638,7 +638,7 @@ passwordEncryption = SHIRO_1_CRYPT
 Modular Crypt Format](https://shiro.apache.org/static/1.2.5/apidocs/org/apache/shiro/crypto/hash/format/Shiro1CryptFormat.html). This is currently the only non-plain password hash-encryption format supported. Hash-encrypted passwords in this
 format can be produced by using the [Apache Shiro Hasher command line tool](https://shiro.apache.org/command-line-hasher.html).
 
-### Caching user account data
+### Cache user account data
 
 A cache layer on top of the external data source of users' credentials and permissions can significantly improve
 performance in some cases, with the disadvantage of causing a (controllable) delay in picking up updates to the underlying data.
@@ -657,7 +657,7 @@ options = {
 This enables a non-persistent cache to be created in the node’s memory with a maximum number of entries set to `maxEntries` and
 where entries are expired and refreshed after `expireAfterSecs` seconds.
 
-## Working with observables
+## Work with observables
 
 The RPC system handles observables in a special way. When a method returns an observable, whether directly or
 as a sub-object of the response object graph, an observable is created on the client to match the one on the
@@ -689,7 +689,7 @@ observables as parameters to the RPC methods. In other words, the streaming is a
 the other way around.
 {{< /note >}}
 
-## Working with futures
+## Work with futures
 
 A method can also return a `CordaFuture` in its object graph and it will be treated in a similar manner to
 observables. Calling the `cancel` method on the future will unsubscribe it from any future value and release
@@ -709,13 +709,13 @@ the client first connects. If you want to override this behaviour, you can alter
 field in the `CordaRPCClientConfiguration` object passed to the client. Alternatively, just link your app against
 an older version of the library.
 
-## Managing thread safety
+## Manage thread safety
 
 A proxy is thread safe, blocking, and allows multiple RPCs to be in flight at once. Any observables that are returned and
 you subscribe to will have objects emitted in order on a background thread pool. Each observable stream is tied to a single
 thread. However, note that two separate observables may invoke their respective callbacks on different threads.
 
-## Handling errors
+## Handle errors
 
 If something goes wrong with the RPC infrastructure itself, an `RPCException` is thrown. If something
 goes wrong that needs a manual intervention to resolve (for example, a configuration error), an
@@ -726,19 +726,19 @@ on the `devMode` node configuration option.
 If the server implementation throws an exception, that exception is serialised and re-thrown on the client
 side as if it were thrown from inside the called RPC method. These exceptions can be caught as normal.
 
-## Configuring wire security
+## Configure wire security
 
-If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options](../setup/corda-configuration-file)).
+If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.md)).
 The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options](../node-commandline.md)).
 The generated RPC TLS trust root certificate is exported to a `certificates/export/rpcssltruststore.jks` file, which should be distributed to the authorised RPC clients.
 
 The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](https://api.corda.net/api/4.7/enterprise/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html)) and set this constructor
 argument with the appropriate path for the `rpcssltruststore.jks` file. The client connection will then use this to validate the RPC server handshake.
 
-Note that RPC TLS does not use mutual authentication, and delegates fine-grained user authentication and authorisation to the RPC security features detailed under [Managing RPC security](#managing-rpc-security).
+Note that RPC TLS does not use mutual authentication, and delegates fine-grained user authentication and authorisation to the RPC security features detailed under [Managing RPC security](#manage-rpc-security).
 
-## Whitelisting classes with the Corda node
+## Whitelist classes with the Corda node
 
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
-`@CordaSerializable` annotation (see [Serialization](../../serialization-index.md)). An example is shown in [Working with the CordaRPCClient API](../../../../corda-os/4.7/tutorial-clientrpc-api.md).
+`@CordaSerializable` annotation (see [Serialization](../../serialization-index.md)). An example is shown in [Working with the CordaRPCClient API](../../../../../../../en/platform/corda/4.7/open-source/tutorial-clientrpc-api.md).

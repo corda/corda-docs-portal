@@ -16,15 +16,30 @@ title: Release notes
 
 # Release notes
 
+## Corda Enterprise 4.3.8
+
+Corda Enterprise 4.3.8 is a patch release of Corda Enterprise that fixes an invalid notarization response being sent
+after an internal notary flow retry.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* A fix has been added to prevent a rare invalid notarization response after internal notary flow retry.
+
 ## Corda Enterprise 4.3.7
 
 Corda Enterprise 4.3.7 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise 4.3.6.
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -36,9 +51,9 @@ Corda Enterprise 4.3.6 is a patch release of Corda Enterprise that introduces fi
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
@@ -55,13 +70,13 @@ Corda Enterprise 4.3.5 is a patch release of Corda Enterprise that introduces fi
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by Corda Enterprise Network Manager (CENM) was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in [CENM 1.2](https://docs.corda.net/docs/cenm/1.2.html)) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [CENM PKI Tool](https://docs.corda.net/docs/cenm/pki-tool.html) now generates certificates with serial number sizes of up to 16 octets/bytes. This fix provides better support for Node and HA tools.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by Corda Enterprise Network Manager (CENM) was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in [CENM 1.2](https://docs.corda.net/docs/cenm/1.2.html)) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [CENM PKI Tool](../../../../../en/platform/corda/1.2/cenm/pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes. This fix provides better support for Node and HA tools.
 * We have fixed an issue where the Corda node would not start up (when not in `dev` mode) if a Network Map Service instance was not running.
 
 ## Corda Enterprise 4.3.4
@@ -73,9 +88,9 @@ Corda Enterprise 4.3.4 is a patch release of Corda Enterprise that introduces fi
 ### Upgrade recommendation
 
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 
 ### Fixed issues
@@ -96,9 +111,9 @@ Corda Enterprise 4.3.3 is a patch release of Corda Enterprise that introduces fi
 ### Upgrade recommendation
 
 
-As a developer, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](https://docs.corda.net/docs/corda-enterprise/release-notes-enterprise.html).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](https://docs.corda.net/docs/corda-enterprise/index.html) if the fixed issues listed below are relevant to your work.
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
 
 ### Fixed issues
@@ -176,7 +191,7 @@ For more information, see [Configuring the notary backend - JPA](running-a-notar
 
 #### Notary key storage
 
-The shared key that is used by a highly-available notary cluster can now be stored in Securosys and Azure Keyvault HSMs. In a highly available notary configuration, multiple notary workers are able to share a single HSM.
+The shared key that is used by a highly-available notary cluster can now be stored in Securosys and Azure Key Vault HSMs. In a highly available notary configuration, multiple notary workers are able to share a single HSM.
 
 
 #### Support for Metering

@@ -16,6 +16,33 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.6.6
+
+{{< warning >}}
+Patch 4.6.6 contains dependency Log4j 2.15.0. A new vulnerability has been discovered in version 2.15.0 of the log4j logging library, as described here: https://nvd.nist.gov/vuln/detail/CVE-2021-45046. Apache has released version 2.16.0 of the library to address the issue. Corda Enterprise 4.8.5 is due for release December 17 2021.
+{{< /warning >}}
+
+Corda Enterprise 4.8.4 is a patch release of Corda Enterprise that attempted to fix an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
+
+### Upgrade recommendation
+
+When available, update to the next patch release, **Corda Enterprise 4.6.7**, as soon as possible. Consider upgrading to the latest Corda Enterprise 4.8.5 version.  
+
+## Corda Enterprise 4.6.5
+
+Corda Enterprise 4.6.5 is a patch release of Corda Enterprise that fixes an invalid notarization response being sent
+after an internal notary flow retry.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* A fix has been added to prevent a rare invalid notarization response after internal notary flow retry.
+
 ## Corda Enterprise 4.6.4
 
 Corda Enterprise 4.6.4 is a patch release of Corda Enterprise that introduces fixes known issues in Corda Enterprise 4.6.3.
@@ -401,11 +428,11 @@ For more information, see [Node configuration reference](../../../../../en/platf
 
 Notary data stored in a Percona database can now be migrated to Cockroach DB.
 
-For more information, see [Importing Percona notary data to CockroachDB](../../../../../en/platform/corda/4.6/enterprise/notary/upgrading-a-notary.md).
+For more information, see [Importing Percona notary data to CockroachDB](../../../../../en/platform/corda/4.6/enterprise/notary/notary-db-migration.md).
 
 ### Notary identity configuration
 
-When registering a notary, the new field `notary.serviceLegalName` must be defined. This allows single-node notaries to be upgraded to HA notaries.
+When registering a notary, the new field `notary.serviceLegalName` must be defined. This upgrades single-node notaries to high availability.
 
 For more information, see [Notary service overview](../../../../../en/platform/corda/4.6/enterprise/notary/ha-notary-service-overview.md).
 

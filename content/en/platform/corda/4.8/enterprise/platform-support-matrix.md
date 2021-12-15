@@ -37,7 +37,7 @@ for your deployment needs.
 
 |Platform|CPU architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|7.x, 6.x|
+|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
 |Ubuntu Linux|x86-64|16.04, 18.04|
 |Oracle Linux|x86-64|7.x, 6.x|
@@ -65,7 +65,7 @@ for your deployment needs.
 |Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|9.6, 10.10, 11.5|PostgreSQL JDBC Driver 42.1.4 / 42.2.8|
+|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.3|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
 
 {{< /table >}}
 
@@ -85,7 +85,7 @@ for your deployment needs.
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|20.1.6|PostgreSQL JDBCDriver 42.1.4|
+|CockroachDB|x86-64|20.1.7|PostgreSQL JDBCDriver 42.2.9|
 |Oracle RAC|x86-64|19c|Oracle JDBC 8|
 
 {{< /table >}}

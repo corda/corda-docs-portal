@@ -17,6 +17,15 @@ title: Release notes
 
 # Corda release notes
 
+## Apache Log4j update
+
+### Updated December 15 2021
+
+{{< note >}}
+The latest version of Corda 4.8 has been updated to Log4j 2.15.0. A further update is underway to address security issues with Log4j 2.15.0. Check the releases and alerts banner for more information and expected release date of the next update.
+{{< /note >}}
+
+
 ## Corda 4.8 release notes
 
 Corda 4.8, released on April 21st 2021, includes several fixes and improvements.

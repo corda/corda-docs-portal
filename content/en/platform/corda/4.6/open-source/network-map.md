@@ -65,7 +65,7 @@ Note that only HTTP OK (response code 200) is supported - any other kind of resp
 ### Additional endpoints from R3
 
 Network maps hosted by R3 or other parties using R3’s commercial network management tools typically provide some
-additional endpoints for users. These additional endpoints can be found [here](../../cenm/1.4/network-map-overview.md).
+additional endpoints for users. These additional endpoints can be found [here](../../../../../en/platform/corda/1.4/cenm/network-map-overview.md).
 
 HTTP is used for the network map service instead of Corda’s own AMQP based peer to peer messaging protocol to
 enable the server to be placed behind caching content delivery networks like Cloudflare, Akamai, Amazon Cloudfront and so on.
@@ -203,6 +203,11 @@ When the zone operator advertises a new set of parameters, the proposed update s
 “Downloaded new network parameters”. Programs connected via RPC can receive `ParametersUpdateInfo` using
 the `CordaRPCOps.networkParametersFeed` method. Typically, a zone operator also emails node operators to let them
 know about the details of the impending change, along with the justification, how to object, and  deadlines.
+
+{{< note >}} You can add notary entries to your network parameters, but they cannot be deleted. Even after an existing notary identity is revoked
+and a replacement is registered to the network, the original notary will continue to appear in the list of available
+notaries. Use explicit notary selection in your CordApp to avoid issues when adding a new notary to the network parameters. {{< /note >}}
+
 
 ```kotlin
 /**

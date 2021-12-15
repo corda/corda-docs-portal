@@ -80,18 +80,21 @@ Using an HSM with confidential identities is not enabled by default. To enable t
 
 The `freshIdentitiesConfiguration` field contains the following attributes:
 
-
 {{< table >}}
 
-|Attribute|Type|Required|Description|
-|-------------------------|-------------------------|-------------------------|-------------------------|
-|mode|String|Yes|Defines the mode of operation, valid values are: `WRAPPED` or `DEGRADED_WRAPPED`.|
-|masterKeyAlias|String|No|Defines an alias for the wrapping key. The default value is `wrapping-key-alias`.|
-|cryptoServiceConfiguration|N/A|Yes|Contains the `cryptoServiceName` and `cryptoServiceConf` attributes.|
-|cryptoServiceName|String|Yes|Defines the type of HSM. Valid values can be found in the [HSM documentation]({{% ref "hsm-deployment.md" %}}).|
-|cryptoServiceConf|String|Yes|Defines a path to the HSM configuration file to use, for details, see the [HSM documentation]({{% ref "hsm-deployment.md" %}}).|
+| Attribute                  | Type   | Required | Description                                                                                                                     |
+| -------------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| mode                       | String | Yes      | Defines the mode of operation, valid values are: `WRAPPED` or `DEGRADED_WRAPPED`.                                               |
+| masterKeyAlias             | String | No       | Defines an alias for the wrapping key. The default value is `wrapping-key-alias`.                                               |
+| cryptoServiceConfiguration | N/A    | Yes      | Contains the `cryptoServiceName` and `cryptoServiceConf` attributes.                                                            |
+| cryptoServiceName          | String | Yes      | Defines the type of HSM. Valid values can be found in the [HSM documentation]({{% ref "hsm-deployment.md" %}}).                 |
+| cryptoServiceConf          | String | Yes      | Defines a path to the HSM configuration file to use, for details, see the [HSM documentation]({{% ref "hsm-deployment.md" %}}). |
 
 {{< /table >}}
+
+{{< note >}}
+Native mode does not require the `masterKeyAlias` parameter.
+{{< /note >}}
 
 A completed configuration file might appear as follows:
 
@@ -113,14 +116,14 @@ The following table contains the current support and the associated configuratio
 
 {{< table >}}
 
-|Master key storage|cryptoServiceName|cryptoServiceConf|mode|
-|-------------------------|-------------------------|-------------------------|-------------------------|
-|file-based keystore|`BC_SIMPLE`|not used|`DEGRADED_WRAPPED`|
-|Securosys PrimusX HSM|`PRIMUS_X`|path to the PrimusX configuration file|`WRAPPED`|
-|AWS CloudHSM|`AWS_CLOUD`|path to the AWS CloudHSM configuration file|`WRAPPED`|
-|nCipher | `N_SHIELD` | path to `nshield.conf`| `NATIVE`|
-|Futurex|`FUTUREX`|path to`futurex.conf`|`WRAPPED`|
-|Azure Key Vault|path to `AZURE_KEY_VAULT`|`az_keyvault.conf`|`NATIVE`|
+| Master key storage    | cryptoServiceName         | cryptoServiceConf                           | mode               |
+| --------------------- | ------------------------- | ------------------------------------------- | ------------------ |
+| file-based keystore   | `BC_SIMPLE`               | not used                                    | `DEGRADED_WRAPPED` |
+| Securosys PrimusX HSM | `PRIMUS_X`                | path to the PrimusX configuration file      | `WRAPPED`          |
+| AWS CloudHSM          | `AWS_CLOUD`               | path to the AWS CloudHSM configuration file | `WRAPPED`          |
+| nCipher               | `N_SHIELD`                | path to `nshield.conf`                      | `NATIVE`           |
+| Futurex               | `FUTUREX`                 | path to`futurex.conf`                       | `WRAPPED`          |
+| Azure Key Vault       | path to `AZURE_KEY_VAULT` | `az_keyvault.conf`                          | `NATIVE`           |
 
 {{< /table >}}
 
@@ -167,7 +170,6 @@ freshIdentitiesConfiguration: {
             cryptoServiceConf: "nshield.conf"
             cryptoServiceTimeout: 10000
     },
-    masterKeyAlias: "ci-master-key-1"
 }
 ```
 
@@ -215,7 +217,6 @@ freshIdentitiesConfiguration: {
           cryptoServiceConf: "az_keyvault.conf"
           cryptoServiceTimeout: 10000
     },
-    masterKeyAlias: "ci-master-key-1"
 }
 ```
 

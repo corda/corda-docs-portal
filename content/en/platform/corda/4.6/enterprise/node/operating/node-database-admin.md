@@ -175,7 +175,7 @@ after the database objects are created.
 
 The last permission for the *v_$parameter* view is needed when a database is running in
 [Database Compatibility mode](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/upgrd/what-is-oracle-database-compatibility.html).
-If the permission is not granted then [Corda Database Management Tool](node-database.md#database-management-tool-ref) will output the message
+If the permission is not granted then [Corda Database Management Tool](node-database.html#database-management-tool) will output the message
 *‘Could not set check compatibility mode on OracleDatabase, assuming not running in any sort of compatibility mode …’* in a log file,
 the message can be ignored.
 
@@ -219,7 +219,7 @@ ALTER DEFAULT privileges IN SCHEMA "my_schema" GRANT USAGE, SELECT ON sequences 
 
 All data structures (tables, indexes) must be created before the Corda node connects to a database with **restricted permissions**.
 Corda is released without a separate set of DDL scripts, instead a database administrator needs to use
-the [Corda Database Management Tool](node-database.md#database-management-tool) to output the DDL scripts and run the scripts against a database.
+the [Corda Database Management Tool](node-database.html#database-management-tool) to output the DDL scripts and run the scripts against a database.
 Each Corda release version has the associated Corda Database Management Tool release which outputs a compatible set of DDL scripts.
 The DDL scripts contain the history of a database evolution - series of table alterations leading to the current state, using the
 functionality of [Liquibase](http://www.liquibase.org) which is used by Corda for database schema management.
@@ -306,7 +306,7 @@ CONSTRAINT "PK_DATABASECHANGELOGLOCK" PRIMARY KEY ("ID")) TABLESPACE users;
 #### PostgreSQL
 
 DDL script to create Liquibase control tables and allow the restricted user (*my_user*) read only access to the *databasechangelog* table.
-Run th script as user with the schema administrative permissions (*my_admin_user*):
+Run the script as user with the schema administrative permissions (*my_admin_user*):
 
 ```sql
 CREATE TABLE "my_schema".databasechangelog (
@@ -433,7 +433,7 @@ Configure the required `node.conf` settings for the Database Management Tool usi
 dataSourceProperties = {
     dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
     dataSource.url = "jdbc:oracle:thin:@<host>:<port>:<sid>"
-    dataSource.user = my_user
+    dataSource.user = my_admin_user
     dataSource.password = "my_password"
 }
 database = {
@@ -493,7 +493,7 @@ A script will be generated named *migration/*.sql* in the base directory.
 This script contains all the statements to create/modify data structures (e.g. tables/indexes)
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables.
-Refer to the [Corda Database Management Tool](node-database.md#database-management-tool) manual for more detail.
+Refer to the [Corda Database Management Tool](node-database.html#database-management-tool) manual for more detail.
 
 
 ### 2.4. Apply DDL scripts on a database
@@ -521,7 +521,7 @@ SET SCHEMA 'my_schema';
 
 
 
-The reason is that not all SQL statements in the generated DDL script contain the schema prefix.
+The reason is that not all SQL statements in the generated DDL script contain the schema prefix. This is not relevant to Oracle setups.
 
 {{< /note >}}
 The whole script needs to be run. Partially running the script would cause the database schema content to be in an inconsistent version.
@@ -666,7 +666,7 @@ database = {
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
 It is the responsibility of the node administrator or a developer to install the appropriate JDBC driver.
 Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
-Alternatively the path can be also specified by the `jarDirs` option in [the node configuration](../setup/corda-configuration-fields.md#jardirs).
+Alternatively the path can be also specified by the `jarDirs` option in [the node configuration](../setup/corda-configuration-fields.html#jardirs).
 The `jarDirs` property is a list of paths, separated by commas and wrapped in single quotes e.g. `jarDirs = [ '/lib/jdbc/driver' ]`.
 * Corda uses [Hikari Pool](https://github.com/brettwooldridge/HikariCP) for creating connection pools.
 To configure a connection pool, the following custom properties can be set in the `dataSourceProperties` section, e.g.:
@@ -715,8 +715,6 @@ database = {
 
 
 Replace placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
-Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness
-and performance using this level.
 The `database.schema` is the database schema name assigned to the user.
 
 The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
@@ -748,7 +746,6 @@ Replace placeholders *<host>* and *<port>* with appropriate values (the default 
 By default the connection to the database is not SSL. To secure the JDBC connection, refer to
 [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
-Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness and performance using this level.
 The `database.schema` is the database schema name assigned to the user.
 
 The Microsoft JDBC 6.4 driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
@@ -788,8 +785,6 @@ When connecting with a database user with restricted permissions, all queries ne
 Set the `database.schema` value to *my_admin_user*.
 The Corda node doesn’t guarantee to prefix all SQL queries with the schema namespace.
 The additional configuration entry `connectionInitSql` sets the current schema to the admin user (*my_user*) on connection to the database.
-
-Do not change the default isolation for this database (*READ_COMMITTED*), as the Corda platform has been validated for functional correctness and performance using this level.
 
 Place the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).
 Database schema name can be set in JDBC URL string e.g. currentSchema=my_schema.
@@ -897,8 +892,6 @@ The `database.schema` is the database schema name assigned to the user.
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity
 (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
 This behaviour differs from Corda Open Source where the value is not wrapped in double quotes.
-
-Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness and performance using this level.
 
 Place the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).
 

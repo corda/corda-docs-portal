@@ -73,7 +73,7 @@ Prerequisite and sizing information for the Corda Node, Bridge and Float compone
 ### VM Sizing Guidelines
 
 {{< note >}}
-R3 recommend a max Java heap memory size of 4 GB be allocated to a Corda Node running in a production environment.
+You should allocate a minimum Java heap memory size of 4 GB to a Corda Node running in a production environment.
 
 {{< /note >}}
 Minimum specification for a testing environment with components on separate VMs:
@@ -144,6 +144,6 @@ During deployment the following system (not user) tables will be created in the 
 * VAULT_TRANSACTION_NOTES
 * V_PKEY_HASH_EX_ID_MAP
 
-Detailed information on the Corda Vault can be found [here](../operating/node-database.html).
+Detailed information on the Corda Vault can be found [here](../operating/node-database.md).
 
 JDBC Connectivity to the Corda Vault is handled in the Corda Enterprise `node.conf` file in `/opt/corda`. Here are examples for each supported RDBMS.

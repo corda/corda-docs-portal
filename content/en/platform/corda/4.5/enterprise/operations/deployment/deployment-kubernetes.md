@@ -31,7 +31,7 @@ This deployment guide is intended for use by either of the following types of CE
 The reference deployment for Corda Enterprise Network Manager runs on [Kubernetes](https://kubernetes.io/) hosted on Microsoft Azure Cloud.
 Microsoft Azure provides a dedicated service to deploy a Kubernetes cluster - [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
 You must have an active Azure subscription to be able to deploy CENM.
-The next section [Deploy your network](#Deploy-your-network) contains links to the official Microsoft installation guide.
+The next section [Deploy your network](#deploy-your-network) contains links to the official Microsoft installation guide.
 The Kubernetes cluster must have access to a private Docker repository to obtain CENM Docker images.
 
 Your local machine operating system should be Linux, Mac OS, or a Unix-compatible environment for Windows
@@ -39,7 +39,7 @@ Your local machine operating system should be Linux, Mac OS, or a Unix-compatibl
 The deployment process is driven from your local machine using a Bash script and several third-party tools:
 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest),
 [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [Helm](https://helm.sh/).
-The following section [Deploy your network](#Deploy-your-network) provides links to official installation guides of the required tools.
+The following section [Deploy your network](#deploy-your-network) provides links to official installation guides of the required tools.
 In addition, the CENM Command-Line Interface (CLI) tool is required so you can connect to, and manage CENM (however, this is not required for deployment).
 
 ### Compatibility
@@ -52,7 +52,7 @@ The deployed network runs on Kubernetes minimum version 1.16.9 and Helm minimum 
 ### Deployment overview
 
 The provided deployment runs all CENM services run inside a single, dedicated Kubernetes namespace (default name:`cenm`).
-Each service runs in its own dedicated Kubernetes pod, with the exception of the [Angel Service](../../../../cenm/1.3/angel-service.md), which runs in the same pod as its managed service.
+Each service runs in its own dedicated Kubernetes pod, with the exception of the [Angel Service](../../../../../../../en/platform/corda/1.3/cenm/angel-service.md), which runs in the same pod as its managed service.
 
 {{< note >}}
 Naturally, the following command will not show a dedicated Angel Service pod:
@@ -102,7 +102,7 @@ The deployment steps are given below:
     ```
 - Install [Docker](https://www.docker.com/get-started). Docker is required to run the CENM CLI tool.
 
-- Download the Docker image with CENM [Command-Line Interface (CLI) tool](../../../../cenm/1.3/cenm-cli-tool.md) so you can manage CENM services:
+- Download the Docker image with CENM [Command-Line Interface (CLI) tool](../../../../../../../en/platform/corda/1.3/cenm/cenm-cli-tool.md) so you can manage CENM services:
 
     ```bash
     docker pull corda/enterprise-cenm-cli:1.3-zulu-openjdk8u242
@@ -196,7 +196,7 @@ cd network-services/deployment/k8s/helm
 
 ## Network operations
 
-Use the CENM [Command Line Interface (CLI) Tool](../../../../cenm/1.3/cenm-cli-tool.md) to access the [FARM Service](../../../../cenm/1.3/gateway-service.md) from your local machine.
+Use the CENM [Command Line Interface (CLI) Tool](../../../../../../../en/platform/corda/1.3/cenm/cenm-cli-tool.md) to access the [FARM Service](../../../../../../../en/platform/corda/1.3/cenm/gateway-service.md) from your local machine.
 To star CENM CLI Tool run Docker command starting Docker container with the tool:
 
   ```bash
@@ -219,7 +219,7 @@ You can now use `cemn` commands from within the running Docker container:
   ./cenm context login -s -u <USER> -p <PASSWORD> http://<FARM-SERVICE-IP>:8080
   ```
 
-The [FARM Service](../../../../cenm/1.3/gateway-service.md) is a gateway between the [Auth Service](../../../../cenm/1.3/auth-service.md) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager Service](../../../../cenm/1.3/identity-manager.md), the [Network Map Service](../../../../cenm/1.3/network-map.md), and the [Signing Service](../../../../cenm/1.3/signing-service.md).
+The [FARM Service](../../../../../../../en/platform/corda/1.3/cenm/gateway-service.md) is a gateway between the [Auth Service](../../../../../../../en/platform/corda/1.3/cenm/auth-service.md) and front end services in CENM. It allows you to perform all network operations on the [Identity Manager Service](../../../../../../../en/platform/corda/1.3/cenm/identity-manager.md), the [Network Map Service](../../../../../../../en/platform/corda/1.3/cenm/network-map.md), and the [Signing Service](../../../../../../../en/platform/corda/1.3/cenm/signing-service.md).
 The IP address is dynamically allocated for each deployment and can be found with `kubectl get svc`.
 Use the following command to ensure that you are pointing at the correct namespace:
 
@@ -257,7 +257,7 @@ networkServices {
 
 Replacing placeholder values as follows:
   * the `doormanURL` property is the public IP address and port of the Identity Manager Service
-  * the `networkMapURL` is the pubic IP address and port of the Network Map Service.
+  * the `networkMapURL` is the public IP address and port of the Network Map Service.
 
 Next, upload the `network-root-truststore.jks` to your Corda node.
 You can download it locally from the CENM Signing Service, using the following command:
@@ -329,10 +329,10 @@ database {
 
 ### Update network parameters
 
-Use the CENM [Command-Line (CLI) tool](../../../../cenm/1.3/cenm-cli-tool.md) to run commands to update the network parameters.
+Use the CENM [Command-Line (CLI) tool](../../../../../../../en/platform/corda/1.3/cenm/cenm-cli-tool.md) to run commands to update the network parameters.
 
-See the official CENM documentation for more information about the list of available [network parameters](./config-network-parameters.html)
-and instructions on [updating network parameters](./updating-network-parameters.html).
+See the official CENM documentation for more information about the list of available [network parameters](../../../../../../../en/platform/corda/1.3/cenm/config-network-parameters.md)
+and instructions on [updating network parameters](updating-network-parameters.md).
 
 ### Run Flag Day
 
@@ -344,7 +344,7 @@ This operation is scheduled to take place at regular intervals (by default, once
 
 ### Signing Service configuration
 
-The Signing Service is not managed by the [Angel Service](../../../../cenm/1.3/angel-service.md) in this deployment, therefore any CENM Command-Line Interface (CLI) tool commands trying to change the Signing Service configuration will take no effect.
+The Signing Service is not managed by the [Angel Service](../../../../../../../en/platform/corda/1.3/cenm/angel-service.md) in this deployment, therefore any CENM Command-Line Interface (CLI) tool commands trying to change the Signing Service configuration will take no effect.
 To change the Singing Service configuration, you must log in to a Kubernetes pod, update the configuration file, and restart the service.
 
 ## Delete Network
@@ -393,7 +393,7 @@ Once you have created an Azure Key Vault that you want to use, perform the follo
 
 The HSM pod is a helper pod, which loads a defined Docker image and attempts to load the folder containing the HSM-related
 files as a volume for the other pods to use. Follow the steps below:
-1. [Create the library jar](#azure-key-vault).
+1. [Create the library jar](#using-azure-key-vault).
 2. Create a Docker image containing the `.jar` file and the `.pkcs12` file used as the key store path.
 
 The Docker image and the directory where these files are stored must be specified in the relevant variables in the HSM `values.yaml` file.
@@ -460,7 +460,7 @@ helm install cenm-database bitnami/postgresql
 
 Follow the instructions displayed by the script output to connect to the database server via `psql`.
 You can create a separate database server for each CENM service by running the Helm script multiple times with different names
-and then setting up the database user/schema, following the instructions in the [CENM database setup](../../../../cenm/1.3/database-set-up.md) section.
+and then setting up the database user/schema, following the instructions in the [CENM database setup](../../../../../../../en/platform/corda/1.3/cenm/database-set-up.md) section.
 Alternatively, you can create several databases inside the single PostgresSQL server you have just deployed, by running
 the following DDL commands:
 

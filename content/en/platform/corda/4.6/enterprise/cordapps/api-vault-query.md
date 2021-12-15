@@ -168,7 +168,7 @@ There are four implementations of this interface which can be chained together t
 
 
 * `VaultQueryCriteria` provides filterable criteria on attributes within the **VAULT_STATES** table. Filterable attributes include one or more of the following: status (`UNCONSUMED`,
-`CONSUMED`), state reference, contract state type, notary name, soft locked states, timestamps (`RECORDED`, `CONSUMED`), state constraints (see [Constraint Types](api-contract-constraints.md#implicit-constraint-types)), relevancy (`ALL`, `RELEVANT`, `NON_RELEVANT`), and participants (exact or any match).
+`CONSUMED`), state reference, contract state type, notary name, soft locked states, timestamps (`RECORDED`, `CONSUMED`), state constraints (see [Constraint Types](api-contract-constraints.html#types-of-contract-constraints)), relevancy (`ALL`, `RELEVANT`, `NON_RELEVANT`), and participants (exact or any match).
 {{< note >}}
 Sensible defaults are defined for frequently used attributes (`status` = `UNCONSUMED`, always include soft
 locked states).{{< /note >}}
@@ -275,7 +275,7 @@ APIs now provide ease of use calling semantics from both Java and Kotlin. Howeve
 An example of a custom query in Java is provided below:
 
 ```java
-QueryCriteria generalCriteria = new VaultQueryCriteria(Vault.StateStatus.ALL);
+QueryCriteria generalCriteria = new VaultQueryCriteria(Vault.StateStatus.UNCONSUMED);
 
 FieldInfo attributeCurrency = getField("currency", CashSchemaV1.PersistentCashState.class);
 FieldInfo attributeQuantity = getField("pennies", CashSchemaV1.PersistentCashState.class);

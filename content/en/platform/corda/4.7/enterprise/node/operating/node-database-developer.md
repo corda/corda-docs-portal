@@ -25,11 +25,11 @@ The instructions cover all commercial third-party database vendors supported by 
 
 
 
-* [Database setup for a new installation](#node-database-developer-database-schema-setup-ref)
-* [Database update](#node-database-developer-database-schema-setup-ref)
-* [Database setup when deploying a new CorDapp](#node-database-developer-database-schema-setup-when-deploying-a-new-cordapp-ref)
-* [Database update when upgrading a new CorDapp](#node-database-developer-database-schema-update-when-upgrading-a-new-cordapp-ref)
-* [Database cleanup](#node-database-developer-database-schema-cleanup-ref).
+* [Database setup for a new installation](#database-schema-setup)
+* [Database update](#database-schema-setup)
+* [Database setup when deploying a new CorDapp](#database-schema-setup-when-deploying-a-new-cordapp)
+* [Database update when upgrading a new CorDapp](#database-schema-update-when-upgrading-a-cordapp)
+* [Database cleanup](#database-schema-cleanup).
 
 
 
@@ -39,12 +39,12 @@ The instructions cover all commercial third-party database vendors supported by 
 Setting up a Corda node to connect to a database requires:
 
 
-* [Creating a database user with schema permissions](#db-setup-developer-step-1-ref)
-* [Corda node configuration changes](#db-setup-developer-step-2-ref)
-* [Run the node](#db-setup-developer-step-3-ref) to auto-create schema objects
+* [Creating a database user with schema permissions](#1-creating-a-database-user-with-schema-permissions)
+* [Corda node configuration changes](#2-corda-node-configuration)
+* [Run the node](#3-run-the-run-migration-script-sub-command-to-create-all-database-schema-objects) to auto-create schema objects
 
 Corda ships out of the box with an [H2 database](http://www.h2database.com) which doesn’t require any configuration
-(see the documentation on [Database access when running H2](../../node-database-access-h2), hence when using H2 database it’s sufficient to [start the node](node-database-admin.md#db-setup-step-3-ref) and the database will be created.
+(see the documentation on [Database access when running H2](../../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md), hence when using H2 database it’s sufficient to [start the node](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database-admin.html#3-corda-node-configuration) and the database will be created.
 
 
 
@@ -70,7 +70,7 @@ Each Corda node needs to use a separate database user and schema where multiple 
 
 {{< note >}}
 For developing and testing the node using the Gradle plugin `Cordform` `deployNodes` task you need to create
-the database user/schema manually ([the first Step](#db-setup-developer-step-1-ref)) before running the task (deploying nodes).
+the database user/schema manually ([the first Step](#1-creating-a-database-user-with-schema-permissions)) before running the task (deploying nodes).
 Also note that during re-deployment existing data in the database is retained.
 Remember to cleanup the database if required as part of the testing cycle.
 The above restrictions do not apply to the default H2 database as the relevant database data file is
@@ -80,10 +80,10 @@ re-created during each `deployNodes` run.
 Creating database user with schema permissions for:
 
 
-* [Azure SQL](#db-dev-setup-create-user-azure-ref)
-* [SQL Server](#db-dev-setup-create-user-sqlserver-ref)
-* [Oracle](#db-dev-setup-create-user-oracle-ref)
-* [PostgreSQL](#db-dev-setup-create-user-postgresql-ref)
+* [Azure SQL](#sql-azure)
+* [SQL Server](#sql-server)
+* [Oracle](#oracle)
+* [PostgreSQL](#postgresql)
 
 
 
@@ -208,10 +208,10 @@ database = {
 ```
 
 
-See [Node configuration](../setup/corda-configuration-file.md#database-properties-ref) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
+See [Node configuration](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.html#configuration-file-fields) for a complete list of database specific properties, it contains more options useful in case of testing Corda with unsupported databases.
 * Run the `run-migration-script` sub-command to allow a Corda node to create database tables upon startup.
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
-It is the responsibility of the node administrator or a developer to download the appropriate JDBC driver.
+It is the responsibility of the node administrator, or a developer to download the appropriate JDBC driver.
 Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
 Corda distributed via published artifacts (e.g. added as Gradle dependency) will also search for the paths specified by the `jarDirs`
 field of the node configuration.
@@ -234,18 +234,18 @@ dataSourceProperties = {
 Configuration templates for each database vendor are shown below:
 
 
-* [H2](#db-dev-setup-configure-node-h2-ref)
-* [Azure SQL](#db-dev-setup-configure-node-azure-ref)
-* [SQL Server](#db-dev-setup-configure-node-sqlserver-ref)
-* [Oracle](#db-dev-setup-configure-node-oracle-ref)
-* [PostgreSQL](#db-dev-setup-configure-node-postgresql-ref)
+* [H2](#h2)
+* [Azure SQL](#azure-sql)
+* [SQL Server](#sql-server-1)
+* [Oracle](#oracle-1)
+* [PostgreSQL](#postgresql-1)
 
 
 
 #### H2
 
 By default, nodes store their data in an H2 database.
-No database setup is needed. Optionally remote H2 access/port can be configured. See the documentation on [Database access when running H2](../../node-database-access-h2).
+No database setup is needed. Optionally remote H2 access/port can be configured. See the documentation on [Database access when running H2](../../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md).
 
 
 
@@ -269,14 +269,12 @@ database = {
 
 
 Replace the placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database).
-Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated
-for functional correctness and performance using this level.
 The `database.schema` is the database schema name assigned to the user.
 You need  *administrative* permissions in order to run the `run-migration-script` sub-command to initialise or migrate the database schema.
 
 The Microsoft SQL JDBC driver can be downloaded from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615),
 extract the archive and copy the single file *mssql-jdbc-6.4.0.jre8.jar* as the archive comes with two JARs.
-[Common Configuration Steps paragraph](#db-setup-developer-step-3-ref) explains the correct location for the driver JAR in the node installation structure.
+[Common Configuration Steps paragraph](#3-run-the-run-migration-script-sub-command-to-create-all-database-schema-objects) explains the correct location for the driver JAR in the node installation structure.
 
 
 
@@ -303,8 +301,6 @@ Replace the placeholders *<host>*, *<port>* with appropriate values, the default
 By default the connection to the database is not SSL, for securing JDBC connection refer to
 [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
-Do not change the default isolation for the database (*READ_COMMITTED*) as the Corda platform has been validated
-for functional correctness and performance using this level.
 You can only run the  `run-migration-script` sub-command to initialise or migrate the database schema when using *administrative* permissions.
 The `database.schema` is the database schema name assigned to the user.
 
@@ -339,7 +335,6 @@ database = {
 Replace the placeholders *<host>*, *<port>* and *<sid>* with appropriate values, for a basic Oracle installation the default *<sid>* value is *xe*.
 If the user was created with *administrative* permissions the schema name `database.schema` will be the same as the user name (*my_user*).
 
-Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness and performance using this level.
 When the database user has *administrative* permissions they can run the `run-migration-script` sub-command to initialise or migrate the database schema - this is not possible when using *restricted* permissions.
 
 Copy the Oracle JDBC driver *ojdbc6.jar* for 11g RC2 or *ojdbc8.jar* for Oracle 12c to the node directory `drivers`.
@@ -371,7 +366,6 @@ The value of `database.schema` is automatically wrapped in double quotes to pres
 (e.g. *AliceCorp* becomes *AliceCorp*, without quotes PostgresSQL would treat the value as *alicecorp*),
 this behaviour differs from Corda Open Source where the value is not wrapped in double quotes.
 
-Do not change the default isolation for this database (*READ_COMMITTED*) as the Corda platform has been validated for functional correctness and performance using this level.
 You can only run the `run-migration-script` sub-command when using *administrative* permissions.
 
 Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* to the node directory `drivers`.
@@ -412,7 +406,7 @@ ensure that:
 
 
 
-Those requirements should already be set during [the initial Corda node configuration](#db-setup-developer-step-3-ref).
+Those requirements should already be set during [the initial Corda node configuration](#2-corda-node-configuration).
 
 You can optionally check if a CorDapp which is expected to store data in custom tables, is correctly built.
 To check the presence of script files inside *migration* directory,
@@ -437,7 +431,7 @@ Liquibase database migration scripts for CorDapps are not used when a node runs 
 
 When an upgraded CorDapp contains a requires a database schema changes, the
 database is automatically updated during a node restart, see:
-[database schema update for a new CorDapp](#node-database-developer-database-schema-setup-when-deploying-a-new-cordapp-ref).
+[database schema update for a new CorDapp](#database-schema-setup-when-deploying-a-new-cordapp).
 
 
 

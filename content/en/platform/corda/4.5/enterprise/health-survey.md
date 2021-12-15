@@ -116,7 +116,7 @@ The Corda Health Survey currently does not support testing RPC communication if 
 
 The tool generates the archive of the collected files in the same directory it is ran in. The names are in the format: `report-date-time.zip`
 
-![health survey photo](resources/health-survey-photo.png "health survey photo")
+![health survey photo](../../../../../en/platform/corda/4.5/enterprise/resources/health-survey-photo.png "health survey photo")
 
 ## Deployment health check
 

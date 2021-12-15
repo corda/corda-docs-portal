@@ -15,6 +15,21 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.7.3
+
+Corda Enterprise 4.7.3 is a patch release of Corda Enterprise that fixes an invalid notarization response being sent
+after an internal notary flow retry.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* A fix has been added to prevent a rare invalid notarization response after internal notary flow retry.
+
 ## Corda Enterprise 4.7.2
 
 Corda Enterprise 4.7.2 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.7.1.
@@ -161,7 +176,7 @@ For more information about platform versions, see [Versioning](../../../../../en
 * The HA Utilities tool does not log a message stating that the master key is not needed when using `NATIVE` mode. Such a message is only recorded in the node log when the node is registered using the `initial-registration` command.
 * During node registration with confidential identities on HSM in `NATIVE` mode, the HA Utilities tool log contains an inaccurate log entry "Confidential identity wrapping key created" although no keys are generated as the master key is not required for confidential identities in `NATIVE` mode.
 * A transaction without inputs and references can have different notaries for its output states. As a result, the node issuing the transaction could assign an arbitrary notary to its output state without notarising the transaction with this notary.
-* Corda still depends on an outdated Azure Java SDK version (1.2.1) for Azure KeyVault support. This may result in the need for node operators to build a `shadedJar` themselves.
+* Corda still depends on an outdated Azure Java SDK version (1.2.1) for Azure Key Vault support. This may result in the need for node operators to build a `shadedJar` themselves.
 * In the new Flow Management Console, columns filtering/sorting may be incorrectly reset after page reload instead of showing the same results as when the filter was applied.
 * In the new Flow Management Console and the Node Management Console, the "Change password" / "Log out" drop-down menu may not be fully visible when the user's name is short.
 * In the new Flow Management Console, the "FLOW START FROM / TO" field in the Calendar on the "Query Flows" page must be clicked twice to open.

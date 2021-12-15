@@ -28,7 +28,7 @@ The `corda-firewall.jar` is used by both Bridge and Float. The JAR file  assumes
 
 To start the Float run the following command from the Float VM:
 
-`/usr/bin/java -Xmx1024m -jar /opt/corda/corda-firewall-4.1.jar --config-file float.conf`
+`/usr/bin/java -Xmx1024m -jar /opt/corda/corda-firewall-4.6.jar --config-file float.conf`
 
 You should see the following output:
 
@@ -45,9 +45,9 @@ To start the Node run the following command from the Node VM:
 `/usr/bin/java -Xmx2048m -jar /opt/corda/corda-4.6.jar --config-file node.conf`
 
 {{< note >}}
-If your node configuration file is obfuscated and you want to deobfuscate it when running the node, you need to pass the obfuscation seed and passphrase to the node in the node run command.
+If your node configuration file is obfuscated and you want to de-obfuscate it when running the node, you need to pass the obfuscation seed and passphrase to the node in the node run command.
 
-To do so using the [Configuration Obfuscator](../../tools-config-obfuscator.md/) command-line tool, use the `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
+To do so using the [Configuration Obfuscator](../../tools-config-obfuscator.md) command-line tool, use the `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
 
 The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration Obfuscator command-line tool:
 
@@ -67,11 +67,11 @@ $ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=m
 All flows can be paused when the node starts up - you can enable this in one of the following ways:
 
 * Use the command-line option `--pause-all-flows`.
-* Add the `smmStartMode="Safe"` option to the [node configuration file](../setup/corda-configuration-file.md/).
+* Add the `smmStartMode="Safe"` option to the [node configuration file](../setup/corda-configuration-file.md).
 
 These flows can then be individually retried via RPC or the node shell.
 
-See [Pause and resume flows](../../flow-pause-and-resume.md#starting-the-node-and-pausing-all-flows) for more information.
+See [Pause and resume flows](../../flow-pause-and-resume.html#starting-the-node-and-pausing-all-flows) for more information.
 {{< /note >}}
 
 
@@ -79,7 +79,7 @@ See [Pause and resume flows](../../flow-pause-and-resume.md#starting-the-node-an
 
 To start the Bridge run the following command from the Bridge VM:
 
-`/usr/bin/java -Xmx1024m -jar /opt/corda/corda-firewall-4.1.jar`
+`/usr/bin/java -Xmx1024m -jar /opt/corda/corda-firewall-4.6.jar`
 
 You should see the following output in the Bridge:
 

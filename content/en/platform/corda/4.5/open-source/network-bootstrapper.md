@@ -316,7 +316,7 @@ The minimum supported version of the Corda platform that is required for nodes i
 
 
 * **maxMessageSize**:
-The maximum permitted message size, in bytes. This is currently ignored but will be used in a future release.
+The maximum permitted message size, in bytes.
 
 
 * **maxTransactionSize**:
@@ -330,7 +330,7 @@ for information on valid inputs.
 
 
 * **packageOwnership**:
-A list of package owners. See [Package namespace ownership](#id1) for more information. For each package owner, the following fields
+A list of package owners. See [Package namespace ownership](#package-namespace-ownership) for more information. For each package owner, the following fields
 are required:
 
 

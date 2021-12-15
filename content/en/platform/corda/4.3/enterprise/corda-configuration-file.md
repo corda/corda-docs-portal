@@ -38,7 +38,7 @@ Please do NOT use double quotes (`"`) in configuration keys.
 Node setup will log `Config files should not contain " in property names. Please fix: [key]` as an error when it finds double quotes around keys.
 
 This prevents configuration errors when mixing keys containing "`.`" wrapped with double quotes and without them e.g.
-the property `"dataSourceProperties.dataSourceClassName" = "val"` in [Reference.conf](#reference-conf) would be not overwritten by the property `dataSourceProperties.dataSourceClassName = "val2"` in *node.conf*.
+the property `"dataSourceProperties.dataSourceClassName" = "val"` in [Reference.conf](#referenceconf) would be not overwritten by the property `dataSourceProperties.dataSourceClassName = "val2"` in *node.conf*.
 
 {{< warning >}}
 If a property is defined twice the last one will take precedence. The library currently used for parsing HOCON
@@ -57,7 +57,7 @@ To alter this behaviour, the `on-unknown-config-keys` command-line argument can 
 
 It is possible to add placeholders to the `node.conf` file to override particular settings via environment variables. In this case the
 `rpcSettings.address` property will be overridden by the `RPC_ADDRESS` environment variable, and the node will fail to load if this
-environment variable isn’t present (see: [Hiding sensitive data](node-administration.md#hiding-sensitive-data) for more information).
+environment variable isn’t present (see: [Hiding sensitive data](node-administration.html#hiding-sensitive-data) for more information).
 
 ```groovy
 rpcSettings {
@@ -172,16 +172,13 @@ List of SHA-256 hashes of public keys. Attachments signed by any of these public
 This property is similar to [cordappSignerKeyFingerprintBlacklist](#cordappsignerkeyfingerprintblacklist)  but only restricts CorDapps that were
 included as attachments in a transaction and received over the network from a peer.
 
-See [Signing CorDapps for use with Signature Constraints](#signing_cordapps_for_use_with_signature_constraints) for more information about signing CorDapps and what
-makes an attachment trusted (a trust root).
-
-This property requires retrieving the hashes of public keys that need to be blacklisted. More information on this process can be found in [Generating a public key hash](#generating_a_public_key_hash).
+This property requires retrieving the hashes of public keys that need to be blacklisted. More information on this process can be found in [Generating a public key hash](#generating-a-public-key-hash).
 
 *Default:* not defined
 
 ### `compatibilityZoneURL` (deprecated)
 
-The root address of the Corda compatibility zone network management services, it is used by the Corda node to register with the network and obtain a Corda node certificate, (See [permissioning](permissioning.md) for more information.) and also is used by the node to obtain network map information.
+The root address of the Corda compatibility zone network management services, it is used by the Corda node to register with the network and obtain a Corda node certificate, (See [Network certificates](permissioning.md) for more information.) and also is used by the node to obtain network map information.
 Cannot be set at the same time as the [networkServices](#networkservices) option.
 
 {{% important %}}
@@ -196,7 +193,7 @@ List of the public keys fingerprints (SHA-256 of public key hash) not allowed as
 The node will not load Cordapps signed by those keys.
 The option takes effect only in production mode and defaults to Corda development keys (`["56CA54E803CB87C8472EBD3FBC6A2F1876E814CEEBF74860BD46997F40729367", "83088052AF16700457AE2C978A7D8AC38DD6A7C713539D00B897CD03A5E5D31D"]`), in development mode any key is allowed to sign Cordpapp JARs.
 
-This property requires retrieving the hashes of public keys that need to be blacklisted. More information on this process can be found in [Generating a public key hash](#generating_a_public_key_hash).
+This property requires retrieving the hashes of public keys that need to be blacklisted. More information on this process can be found in [Generating a public key hash](#generating-a-public-key-hash).
 
 *Default:* not defined
 
@@ -235,7 +232,7 @@ Set custom command line attributes (e.g. Java system properties) on the node pro
 * `jvmArgs`
 
   A list of JVM arguments to apply to the node process. This removes any defaults   specified from `corda.jar`, but can be overridden from the command line.
-  See [here](#setting_jvm_args) for examples and details on the precedence of the   different approaches to settings arguments.
+  See [here](running-a-node.html#setting-jvm-arguments) for examples and details on the precedence of the   different approaches to settings arguments.
 
   *Default:* not defined
 
@@ -272,7 +269,7 @@ Database configuration
 * `runMigration`
   Boolean on whether to run the database migration scripts at startup. In production   please keep it false. For more information please
   check [Database management scripts](database-management.md). If migration is not run, on startup, the node will   check if it's running on the correct database version.
-  The property is used only when a node runs against a database other than H2, and it's   replaced by the `initialiseSchema` property for other databases.
+  The property is used only when a node runs against a database other than H2, and it's   replaced by the `initialiseSchema` property for H2 databases.
 
   *Default:* false
 
@@ -330,7 +327,7 @@ To add additional data source properties (for a specific JDBC driver) use the `d
   If no value is specified in the node configuration file, the node will attempt to detect if it's running on a developer machine and set `devMode=true` in that case.
   This value can be overridden from the command line using the `--dev-mode` option.
 
-  This flag affects the default value for Java heap size. See [here](#memory_usage_and_tuning) for further details.
+  This flag affects the default value for Java heap size. See [here](node-administration.html#memory-usage-and-tuning) for further details.
 
   *Default:* Corda will try to establish based on OS environment
 
@@ -374,7 +371,7 @@ To add additional data source properties (for a specific JDBC driver) use the `d
       *Default:* not defined
 
 * `healthCheck`
-    Enables the health check feature required by the [here](#health-survey-ref).
+    Enables the health check feature.
 
     *Default:* true
 
@@ -467,27 +464,21 @@ To add additional data source properties (for a specific JDBC driver) use the `d
 Performance tuning parameters for Corda Enterprise
 
 * `flowThreadPoolSize`
+
   The number of threads available to handle flows in parallel. This is the number of flows
-  that can run in parallel doing something and/or holding resources like database   connections.
-
-  A larger number of flows can be suspended, e.g. waiting for reply from a counterparty.
-
-  When a response arrives, a suspended flow will be woken up if there are any available   threads in the thread pool.
-  Otherwise, a currently active flow must be finished or suspended before the suspended   flow can be woken
-  up to handle the event. This can have serious performance implications if the flow   thread pool is too small,
-  as a flow cannot be suspended while in a database transaction, or without checkpointing   its state first.
-  Corda Enterprise allows the node operators to configure the number of threads the state   machine manager can use to execute flows in
-  parallel, allowing more than one flow to be active and/or use resources at the same   time.
-
-  The default value is 2 times the number of cores available (the minimum is 30 if there   are less than 15 cores) which was found to be
-  working efficiently in performance testing.
-  The ideal value for this parameter depends on a number of factors.
-  The main ones are the hardware the node is running on, the performance profile of the
-  flows, and the database instance backing the node as datastore. Every thread will open   a database connection,
-  so for n threads, the database system must have at least n+1 connections available.   Also, the database
-  must be able to actually cope with the level of parallelism to make the number of   threads worthwhile - if
-  using e.g. H2, any number beyond 8 does not add any substantial benefit due to   limitations with its internal
-  architecture. For these reasons, the default size for the flow framework thread pool is   the minimum between two times the available number of processors and 30. Overriding   this value in the configuration allows to specify any number.
+  that can run in parallel doing something and/or holding resources like database connections.
+  A larger number of flows can be suspended, for example, waiting for reply from a counterparty.
+  When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
+  Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
+  up to handle the event. This can have serious performance implications if the flow thread pool is too small,
+  as a flow cannot be suspended while in a database transaction, or without checkpointing its state first.
+  Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in
+  parallel, allowing more than one flow to be active and/or use resources at the same time.
+  The ideal value for this parameter depends on a number of factors. These include the hardware the node is running on, the performance profile of the flows, and the database instance backing the node as datastore. Every thread will open a database connection, so for n threads, the database system must have at least n+1 connections available. Also, the database
+must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
+using for example H2, any number beyond eight does not add any substantial benefit due to limitations with its internal
+architecture. For these reasons, the default size for the flow framework thread pool is the lower number between either
+the available number of processors times two, and 30. Overriding this value in the configuration allows you to specify any number.
 
 * `rpcThreadPoolSize`
   The number of threads handling RPC calls - this defines how many RPC requests can be   handled
@@ -524,8 +515,7 @@ Private network UUID should be provided by network operator and lets you see nod
 
 ### `flowExternalOperationThreadPoolSize`
 
-The number of threads available to execute external operations that have been called from flows. See the documentation on
-[calling external systems inside flows](#api_flows_external_operations) for more information.
+The number of threads available to execute external operations that have been called from flows.
 
 *Default:* Set to the lesser of either the maximum number of cores allocated to the node, or 10.
 
@@ -584,13 +574,13 @@ On restart the request is resent to a different notary cluster member in a round
 Defines port for h2 DB.
 
 {{% important %}}
-Deprecated please use [h2Setting](#h2setting) instead
+Deprecated please use [h2Setting](#h2settings) instead
 {{% /important %}}
 
 ### `h2Settings`
 
 Sets the H2 JDBC server host and port.
-See [here](node-database-access-h2.md)
+See [here](node-database-access-h2.md).
 For non-localhost address the database password needs to be set in `dataSourceProperties`.
 
 *Default:* NULL
@@ -671,7 +661,7 @@ Default Jolokia access url is <http://127.0.0.1:port/jolokia/>
 
   This is the name that is used in the node's certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
   At runtime, Corda checks whether this name matches the name in the node's certificates.
-  For more details please read [here](#node-naming) chapter.
+  For more details please read the [Node identity](node-naming.md) chapter.
 
   *Default:* not defined
 

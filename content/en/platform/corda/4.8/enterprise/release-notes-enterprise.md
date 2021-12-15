@@ -17,6 +17,63 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.8.4
+
+{{< warning >}}
+Patch 4.8.4 contains dependency Log4j 2.15.0. A new vulnerability has been discovered in version 2.15.0 of the log4j logging library, as described here: https://nvd.nist.gov/vuln/detail/CVE-2021-45046. Apache has released version 2.16.0 of the library to address the issue. Corda Enterprise 4.8.5 is due for release December 17 2021.
+{{< /warning >}}
+
+Corda Enterprise 4.8.4 is a patch release of Corda Enterprise that attempted to fix an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
+
+### Upgrade recommendation
+
+When available, update to the next patch release, **Corda Enterprise 4.8.5**, as soon as possible. 
+
+## Corda Enterprise 4.8.3
+
+Corda Enterprise 4.8.3 is a patch release of Corda Enterprise that fixes an issue affecting flows on counterparty nodes in the event of certain notary exceptions.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+In this patch release:
+
+* A fix has been added to prevent exceptions from the notary leading to hospitalized flows on counterparty nodes.
+
+
+## Corda Enterprise 4.8.2
+
+Corda Enterprise 4.8.2 is a patch release of Corda Enterprise that fixes security vulnerabilities in Corda Enterprise 4.8 and 4.8.1, and offers greater compatibility with recent versions of FutureX.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+In this patch release:
+
+* Compatibility with FutureX versions FXPKCS11 4.40 and FXJCA 1.33.
+* A new FutureX configuration option has been introduced: `loginOnce`. This allows users to login only once, to match JWT continuous-keep-alive functionality. To enable this setting, use the updated configuration documentation. By default, `loginOnce` is set to `false`.
+* There are now additional log entries from configured FutureX crypto service detailing when operation on the crypto service starts and ends.
+* Notary support for Cockroach DB version 21.1.7.
+* A fix to prevent a rare invalid notarisation response after internal notary flow retry.
+* Vulnerability fixes have been added to protect against Denial of Service (DoS) attacks via unchecked attachment files.
+* Vulnerability fixes have been added to prevent sensitive information being retrievable from MSSQL databases via DDL script using the Data Management Tool.
+* Corda Archive Service has been updated to prevent sensitive information being exposed in log files.
+* Corda now uses newer versions of the Netty library (4.1.67 for io.netty:netty-common and 2.0.42 for io.netty:netty-tcnative-boringssl-static), which resolves some security vulnerabilities.
+* Improvements to Checkpoint tooling to prevent record inconsistencies in some use cases.
+* An error was fixed when using `FlowHandleWithClientId` to get subflow status via a subflow.
+* A fix to improve enforcement of RPC authorisation matrix.
+* Default index added for `transaction_id` and `output_index` on `state_party` table.
+
 ## Corda Enterprise 4.8.1
 
 Corda Enterprise 4.8.1 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise 4.8.

@@ -27,7 +27,7 @@ database vendor - ensure that the configuration matches the database name.
 ## Supported databases for highly available mode
 
 The JPA notary uses the Java Persistence API (JPA) interface to connect to the notary state database. For performance
-and ease of operation, the recommended database is CockroachDB 20.1.6. The full set of supported configurations is
+and ease of operation, the recommended database is CockroachDB 20.1.7. The full set of supported configurations is
 listed in the [Platform support matrix](../../platform-support-matrix.md).
 
 {{< note >}}
@@ -183,7 +183,7 @@ The double-spend table includes records of transactions that attempted a double-
 
 ## Configuring the notary backend - CockroachDB
 
-The JPA notary service is tested against CockroachDB 20.1.6. CockroachDB’s
+The JPA notary service is tested against CockroachDB 20.1.7. CockroachDB’s
 [documentation page](https://www.cockroachlabs.com/docs/v20.1/) explains the installation
 in detail.
 
@@ -231,7 +231,7 @@ create table corda.notary_request_log (
   consuming_transaction_id varchar(64),
   requesting_party_name varchar(255),
   request_timestamp timestamp not null,
-  request_signature bytea not null,
+  request_signature bytes not null,
   worker_node_x500_name varchar(255),
   constraint id3 primary key (id),
   index (consuming_transaction_id)
@@ -284,7 +284,7 @@ Additionally, the same user has to have access to the key in PKCS8 format used t
 ### JDBC driver
 
 The PostgresSQL driver should be used when attempting to connect the JPA notary to CockroachDB. The JPA notary
-service has been tested with driver version 42.2.7. This JAR file should be placed in the `drivers` folder.
+service has been tested with driver version 42.2.9. This JAR file should be placed in the `drivers` folder.
 
 
 ### Connection string
@@ -386,12 +386,6 @@ create index tx_idx on corda_adm.notary_request_log(consuming_transaction_id)
 create index state_ts_tx_idx on corda_adm.notary_double_spends (state_ref,request_timestamp,consuming_transaction_id)
 ```
 
-Lastly, you must grant user rights:
-
-```sql
-GRANT SELECT, INSERT ON corda_adm.notary_double_spends TO corda_pdb_user;
-```
-
 ### Database user setup
 
 Once the database and tables have been created, create a user with restricted rights that the notary worker will use to
@@ -401,19 +395,26 @@ sure that the user created belongs to the pluggable database. The username can b
 configuration file is updated to match.
 
 This user will only be able to insert and read data. It will not be able to delete or update data, nor will it be able to modify any schemas. Ensure that
-the database name is correct if it was changed in the previous step.
+the database name is correct if it was changed in the previous step. The tablespace size is unlimited, set the value (e.g. 100M, 1 GB) depending on your node sizing requirements.
+The script uses the default tablespace users with unlimited database space quota assigned to the user. Revise these settings depending on your node sizing requirements.
 
 ```sql
 ALTER SESSION SET CONTAINER = corda_pdb;
-CREATE USER corda_pdb_user IDENTIFIED BY Password1 CONTAINER=CURRENT;
+CREATE USER corda_pdb_user IDENTIFIED BY Password1 CONTAINER=CURRENT TABLESPACE users QUOTA unlimited ON users;;
 
 GRANT CREATE SESSION to corda_pdb_user CONTAINER=CURRENT;
 
 GRANT SELECT, INSERT ON corda_adm.notary_committed_states TO corda_pdb_user;
 GRANT SELECT, INSERT ON corda_adm.notary_committed_transactions TO corda_pdb_user;
 GRANT SELECT, INSERT ON corda_adm.notary_request_log TO corda_pdb_user;
+GRANT SELECT, INSERT ON corda_adm.notary_double_spends TO corda_pdb_user;
 ```
 
+Lastly, you must grant user rights:
+
+```sql
+GRANT SELECT, INSERT ON corda_adm.notary_double_spends TO corda_pdb_user;
+```
 
 ### JDBC driver
 

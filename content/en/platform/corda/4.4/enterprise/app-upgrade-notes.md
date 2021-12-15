@@ -19,11 +19,11 @@ title: Upgrading a CorDapp to a newer platform version
 # Upgrading CorDapps to newer Platform Versions
 
 {{< warning >}}
-Corda Enterprise 4.4.6 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.4.6 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md/).
+Corda Enterprise 4.4.6 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.4.6 please read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.4/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 These notes provide instructions for upgrading your CorDapps from previous versions. Corda provides backwards compatibility for public,
-non-experimental APIs that have been committed to. A list can be found in the api-stability-guarantees page.
+non-experimental APIs that have been committed to.
 
 This means that you can upgrade your node across versions *without recompiling or adjusting your CorDapps*. You just have to upgrade
 your node and restart.
@@ -97,7 +97,7 @@ The issue here is that a new `Destination` interface introduced in Platform Vers
 used as an `AbstractParty` but has an actual value that is one of `Party` or `AnonymousParty`. These subclasses
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not a valid type for use as an `AbstractParty` later.
-(For more information on `Destination`, see the [Changelog](changelog.md) for Platform Version 5, or the KDocs for the interface
+(For more information on `Destination`, see the [Changelog](../../../../../en/platform/corda/4.4/enterprise/changelog.md) for Platform Version 5, or the KDocs for the interface
 [here](https://docs.corda.net/head/api/kotlin/corda/net.corda.core.flows/-destination.html))
 
 Note that this is a Kotlin-specific issue. Java can instead choose `? extends AbstractParty & Destination` here, which can later be used
@@ -173,7 +173,7 @@ ext.kotlin_version = '1.2.71'
 ext.quasar_version = '0.7.12_r3'
 ```
 
-You also need a add `corda-dependencies` to the list of repositories to make the custom built version of Quasar available:
+You also need a add `corda-dependencies` to the list of repositories to make the custom-built version of Quasar available:
 
 ```groovy
 repositories {
@@ -313,7 +313,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-See [CorDapp configuration files](cordapps/cordapp-build-systems.md#cordapp-configuration-files-ref) for more information.
+See [CorDapp configuration files](../../../../../en/platform/corda/4.4/enterprise/cordapps/cordapp-build-systems.html#cordapp-configuration-files) for more information.
 
 
 
@@ -633,7 +633,7 @@ Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same t
 
 ### Step 6. Security: Upgrade your use of SwapIdentitiesFlow
 
-The [Confidential identities](cordapps/api-confidential-identity.md#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
+The [Confidential identities](../../../../../en/platform/corda/4.4/enterprise/cordapps/api-confidential-identity.html) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as `FinalityFlow` above, to close problems with confidential identities being injectable into a node
 outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
 the `SwapIdentitiesFlow`.
@@ -780,13 +780,12 @@ to be governed by a contract that is either:
 * The outer class of the state class, if the state is an inner class of a contract. This is a common design pattern.
 * Annotated with `@BelongsToContract` which specifies the contract class explicitly.
 
-Learn more by reading [Contract/State Agreement](cordapps/api-contract-constraints.md#contract-state-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
+Learn more by reading [Contract/State Agreement](../../../../../en/platform/corda/4.4/enterprise/cordapps/api-contract-constraints.html#contractstate-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
 states that point to contracts outside their package will trigger a log warning but validation will proceed.
-
 
 ### Step 9. Learn about signature constraints and signing `.jar` files
 
-[Signature Constraints](cordapps/api-contract-constraints.md#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
+[Signature Constraints](../../../../../en/platform/corda/4.4/enterprise/cordapps/api-contract-constraints.html#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
 deploy application upgrades smoothly and in a decentralised manner. Signature constraints are the new default mode for CorDapps, and
 the act of upgrading your app to use the version 4 Gradle plugins will result in your app being automatically signed, and new states
 automatically using new signature constraints selected automatically based on these signing keys.
@@ -858,16 +857,16 @@ Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
 * The [new withEntityManager API](https://api.corda.net/api/corda-os/4.4/html/api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
-* [Reference States](cordapps/api-states.md#reference-states), that let you use an input state without consuming it.
-* [State Pointers](cordapps/api-states.md#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
+* [Reference States](../../../../../en/platform/corda/4.4/enterprise/cordapps/api-states.html#reference-states), that let you use an input state without consuming it.
+* [State Pointers](../../../../../en/platform/corda/4.4/enterprise/cordapps/api-states.html#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 
 Please also read the CorDapp Upgradeability Guarantees associated with CorDapp upgrading.
 
 
 ### Step 14. Possibly update your checked in quasar.jar
 
-If your project is based on one of the official cordapp templates, it is likely you have a `lib/quasar.jar` checked in.  It is worth noting
-that you only use this if you use the JUnit runner in IntelliJ.  In the latest release of the cordapp templates, this directory has
+If your project is based on one of the official CorDapp templates, it is likely you have a `lib/quasar.jar` checked in.  It is worth noting
+that you only use this if you use the JUnit runner in IntelliJ.  In the latest release of the CorDapp templates, this directory has
 been removed.
 
 You have some choices here:

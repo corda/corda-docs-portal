@@ -82,11 +82,11 @@ restart the shell or see [above](#installing-shell-extensions) for instructions 
 
 {{< table >}}
 
-|Description|JAR name|Alias|
-|[Corda node](running-a-node.html#starting-an-individual-corda-node)|`corda-<version>.jar`|`corda --<option>`|
-|[Network bootstrapper]({{% ref "network-bootstrapper.md" %}})|`corda-tools-network-bootstrapper-<version>.jar`|`bootstrapper --<option>`|
-|[Standalone shell](shell.html#standalone-shell)|`corda-tools-shell-cli-<version>.jar`|`corda-shell --<option>`|
-|[Blob inspector]({{% ref "blob-inspector.md" %}})|`corda-tools-blob-inspector-<version>.jar`|`blob-inspector --<option>`|
+|Description|Alias|JAR Name|
+|---------------------------------------------------------|------------------------------|----------------------------------------------------------|
+|[Corda node](running-a-node.html#starting-an-individual-corda-node)|`corda --<option>`|`corda-4.1.jar`|
+|[Network bootstrapper]({{% ref "network-bootstrapper.md" %}})|`bootstrapper --<option>`|`corda-tools-network-bootstrapper-4.1.jar`|
+|[Standalone shell](shell.html#standalone-shell)|`corda-shell --<option>`|`corda-tools-shell-cli-4.1.jar`|
+|[Blob inspector]({{% ref "blob-inspector.md" %}})|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.1.jar`|
 
 {{< /table >}}
-

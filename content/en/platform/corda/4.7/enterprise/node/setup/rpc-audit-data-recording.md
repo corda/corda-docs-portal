@@ -13,7 +13,7 @@ weight: 4
 
 # Recording of RPC audit data
 
-In this section, you will learn how the node records [Remote Procedural Command (RPC)](../../api-rpc.md) audit data.
+In this section, you will learn how the node records [Remote Procedure Call (RPC)](../../api-rpc.md) audit data.
 
 This feature is distributed as part of Corda Enterprise.
 

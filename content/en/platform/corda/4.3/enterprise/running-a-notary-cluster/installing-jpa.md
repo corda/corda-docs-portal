@@ -17,7 +17,7 @@ title: Configuring the notary backend - JPA
 # Configuring the notary backend - JPA
 
 Prior to using the JPA notary, the database must be prepared. This can be performed using the
-[Corda Database Management Tool](../node-database.md#database-management-tool-ref). If preferred, the required tables can be manually
+[Corda Database Management Tool](../node-database.html#database-management-tool). If preferred, the required tables can be manually
 created. See below for example database scripts. Note that in these examples, a database named “corda” is created to
 house the tables - this is purely for example purposes. The database name could be any string supported by your
 database vendor - ensure that the configuration matches the database name.
@@ -86,7 +86,7 @@ notary {
             dataSource.url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST={host 1 IP address})(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST={host 2 IP address})(PORT=1521))(CONNECT_DATA=(SERVICE_NAME={service name})))"
             dataSource.user = {username}
             dataSource.password = {password}
-            dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"            
+            dataSourceClassName = "oracle.jdbc.pool.OracleDataSource"
         }
     }
 }
@@ -102,7 +102,7 @@ notary {
 
 If the Corda Database Management Tool’s `dry-run` mode is used, the `databasechangelog` and `databasechangeloglock` tables must already exist
 and the database user would need read and write permissions. If the tool’s `execute-migration` mode is used, the database user would require
-schema modification rights. For more information, see [Corda Database Management Tool](../node-database.md#database-management-tool-ref).
+schema modification rights. For more information, see [Corda Database Management Tool](../node-database.html#database-management-tool).
 
 
 ### Database users
@@ -163,7 +163,7 @@ create table corda.notary_request_log (
   consuming_transaction_id varchar(64),
   requesting_party_name varchar(255),
   request_timestamp timestamp not null,
-  request_signature bytea not null,
+  request_signature bytes not null,
   constraint id3 primary key (id)
   );
 ```

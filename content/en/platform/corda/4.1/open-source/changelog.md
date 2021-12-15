@@ -49,7 +49,7 @@ complements `database.initialiseSchema` to disable DDL handling altogether.
 Updated all samples to reflect new conventions.
 * Introduction of unique CorDapp version identifiers in jar manifests for contract and flows/services CorDapps.
 Updated all sample CorDapps to reflect new conventions.
-See [CorDapp separation](cordapp-build-systems.md#cordapp-separation-ref) for further information.
+See [CorDapp separation](cordapp-build-systems.html#separation-of-cordapp-contracts-flows-and-services) for further information.
 * Automatic Constraints propagation for hash-constrained states to signature-constrained states.
 This allows Corda 4 signed CorDapps using signature constraints to consume existing hash constrained states generated
 by unsigned CorDapps in previous versions of Corda.
@@ -264,9 +264,9 @@ you wish to preserve the JSON format for this class.
 Similarly with `CommercialPaperUtils` and `ObligationUtils`.
     * Various other utilities such as `GetBalances` and the test calendar data.
 
-The only exception to this is `Interpolator` and related classes. These are now in the [IRS demo workflows CorDapp](https://github.com/corda/corda/tree/master/samples/irs-demo/cordapp/workflows-irs).
+The only exception to this is `Interpolator` and related classes.
+
 * Vault states are migrated when moving from V3 to V4: the relevancy column is correctly filled, and the state party table is populated.
 Note: This means Corda can be slow to start up for the first time after upgrading from V3 to V4.
 
 End of changelog.
-

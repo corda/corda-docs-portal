@@ -19,7 +19,7 @@ weight: 100
 # Configuring a JPA notary backend
 
 Prior to using the JPA notary, the database must be prepared. This can be performed using the
-[Corda Database Management Tool](../node/operating/node-database.md#database-management-tool-ref). If preferred, the required tables can be manually
+[Corda Database Management Tool](../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-database.html#database-management-tool-ref). If preferred, the required tables can be manually
 created. See below for example database scripts. Note that in these examples, a database named “corda” is created to
 house the tables - this is purely for example purposes. The database name could be any string supported by your
 database vendor - ensure that the configuration matches the database name.
@@ -104,7 +104,7 @@ notary {
 
 If the Corda Database Management Tool’s `dry-run` mode is used, the `databasechangelog` and `databasechangeloglock` tables must already exist
 and the database user would need read and write permissions. If the tool’s `execute-migration` mode is used, the database user would require
-schema modification rights. For more information, see [Corda Database Management Tool](../node/operating/node-database.md#database-management-tool-ref).
+schema modification rights. For more information, see [Corda Database Management Tool](../../../../../../en/platform/corda/4.4/enterprise/node/operating/node-database.html#database-management-tool-ref).
 
 
 ### Database users
@@ -218,7 +218,7 @@ create table corda.notary_request_log (
   consuming_transaction_id varchar(64),
   requesting_party_name varchar(255),
   request_timestamp timestamp not null,
-  request_signature bytea not null,
+  request_signature bytes not null,
   worker_node_x500_name varchar(255),
   constraint id3 primary key (id)
   );

@@ -284,13 +284,10 @@ override fun call(): SignedTransaction {
     // Verify and sign the transaction.
     progressTracker.currentStep = VERIFYING_AND_SIGNING
 
-    // DOCSTART 07
     // Sync identities to ensure we know all of the identities involved in the transaction we're about to
     // be asked to sign
     subFlow(IdentitySyncFlow.Receive(otherSideSession))
-    // DOCEND 07
 
-    // DOCSTART 5
     val signTransactionFlow = object : SignTransactionFlow(otherSideSession, VERIFYING_AND_SIGNING.childProgressTracker()) {
         override fun checkTransaction(stx: SignedTransaction) {
             // Verify that we know who all the participants in the transaction are
@@ -309,7 +306,6 @@ override fun call(): SignedTransaction {
     }
 
     val txId = subFlow(signTransactionFlow).id
-    // DOCEND 5
 
     return subFlow(ReceiveFinalityFlow(otherSideSession, expectedTxId = txId))
 }
@@ -333,7 +329,7 @@ the trade info, and then call `otherSideSession.send`. which takes two arguments
 
 `otherSideSession.send` will serialise the payload and send it to the other party automatically.
 
-Next, we call a *subflow* called `IdentitySyncFlow.Receive` (see [Sub-flows](#subflows)). `IdentitySyncFlow.Receive`
+Next, we call a *subflow* called `IdentitySyncFlow.Receive` (see [Sub-flows](#sub-flows)). `IdentitySyncFlow.Receive`
 ensures that our node can de-anonymise any confidential identities in the transaction it’s about to be asked to sign.
 
 Next, we call another subflow called `SignTransactionFlow`. `SignTransactionFlow` automates the process of:
@@ -372,7 +368,6 @@ override fun call(): SignedTransaction {
     progressTracker.currentStep = SIGNING
     val (ptx, cashSigningPubKeys) = assembleSharedTX(assetForSale, tradeRequest, buyerAnonymousIdentity)
 
-    // DOCSTART 6
     // Now sign the transaction with whatever keys we need to move the cash.
     val partSignedTx = serviceHub.signInitialTransaction(ptx, cashSigningPubKeys)
 
@@ -384,7 +379,6 @@ override fun call(): SignedTransaction {
     progressTracker.currentStep = COLLECTING_SIGNATURES
     val sellerSignature = subFlow(CollectSignatureFlow(partSignedTx, sellerSession, sellerSession.counterparty.owningKey))
     val twiceSignedTx = partSignedTx + sellerSignature
-    // DOCEND 6
 
     // Notarise and record the transaction.
     progressTracker.currentStep = RECORDING
@@ -664,7 +658,7 @@ loaded off disk again.
 If a node has flows still in a suspended state, with flow continuations written to disk, it will not be
 possible to upgrade that node to a new version of Corda or your app, because flows must be completely “drained”
 before an upgrade can be performed, and must reach a finished state for draining to complete (see
-[Draining the node](upgrading-cordapp.md#draining-the-node) for details). While there are mechanisms for “evolving” serialised data held
+[Draining the node](upgrading-cordapp.html#draining-the-node) for details). While there are mechanisms for “evolving” serialised data held
 in the vault, there are no equivalent mechanisms for updating serialised checkpoint data. For this
 reason it is not a good idea to design flows with the intention that they should remain in a suspended
 state for a long period of time, as this will obstruct necessary upgrades to Corda itself. Any

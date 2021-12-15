@@ -32,7 +32,7 @@ With this extension, you can use a set of flows to:
 * Assign members to membership lists or groups.
 * Update information about a member - such as their Business Network identity.
 * Modify a member's roles in the network.
-* Suspend or revoke membership.  
+* Suspend or revoke membership.
 
 {{< note >}}
 The code samples in this documentation show you how to run management operations using the provided primitives from the context of a tool or Cordapp. It is also possible to do these operations from an RPC client or node shell by simply invoking the supplied administrative flows using data resulted from executing vault queries.
@@ -50,10 +50,10 @@ In a Business Network, you can assign different roles to members of the network.
 
 This is an extension for Corda 4.6. If you have this version of Corda, you can access the required `.jar` files here:
 
-* BNE contracts: [https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-contracts/1.0/business-networks-contracts-1.0.jar](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-contracts/1.0/business-networks-contracts-1.0.jar).
-* BNE workflows: [https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-workflows/1.0/business-networks-workflows-1.0.jar](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-workflows/1.0/business-networks-workflows-1.0.jar).
-* Sample CorDapp contracts: [https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-demo-contracts/1.0/business-networks-demo-contracts-1.0.jar](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-demo-contracts/1.0/business-networks-demo-contracts-1.0.jar).
-* Sample CorDapp workflows: [https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-demo-workflows/1.0/business-networks-demo-workflows-1.0.jar](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-demo-workflows/1.0/business-networks-demo-workflows-1.0.jar).
+* [BNE contracts](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-contracts/1.0/business-networks-contracts-1.0.jar).
+* [BNE workflows](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-workflows/1.0/business-networks-workflows-1.0.jar).
+* [Sample CorDapp contracts](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-demo-contracts/1.0/business-networks-demo-contracts-1.0.jar).
+* [Sample CorDapp workflows](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-demo-workflows/1.0/business-networks-demo-workflows-1.0.jar).
 
 To install the extension:
 
@@ -345,7 +345,7 @@ subFlow(SuspendMembershipFlow(memberToBeRevoked, notary))
 
 ## Business Network management demo
 
-This demo showcases integration of Business Networks solution inside a CorDapp designed for issuing and settling loans between banks. It brings up 4 nodes: a notary and 3 nodes representing banks. Each bank node must be active member of the same Business Network, have a Swift Business Identifier Code (BIC) as their business identity and loan issuance initiators must be granted permission to do so.
+This [demo](https://github.com/corda/bn-extension) showcases integration of Business Networks solution inside a CorDapp designed for issuing and settling loans between banks. It brings up 4 nodes: a notary and 3 nodes representing banks. Each bank node must be active member of the same Business Network, have a Swift Business Identifier Code (BIC) as their business identity and loan issuance initiators must be granted permission to do so.
 
 ### Flows
 

@@ -62,9 +62,9 @@ The set-up instructions are available for the following platforms:
 
 
 * windows-label (or [in video form](https://vimeo.com/217462250))
-* [Mac](#mac-label) (or [in video form](https://vimeo.com/217462230))
+* [Mac](#mac) (or [in video form](https://vimeo.com/217462230))
 * deb-ubuntu-label
-* [Fedora](#fedora-label)
+* [Fedora](#fedora)
 
 {{< note >}}
 These setup instructions will guide you on how to install the Oracle JDK. Each JDK can be found on their respective sites:
@@ -77,16 +77,6 @@ These setup instructions will guide you on how to install the Oracle JDK. Each J
 
 {{< /note >}}
 
-{{< note >}}
-These setup instructions will guide you on how to install the Oracle JDK. Each JDK can be found on their respective sites:
-
-
-* [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Amazon Corretto](https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html)
-* [Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/download/)
-* [Zulu OpenJDK](https://www.azul.com/downloads/zulu/)
-
-{{< /note >}}
 
 ## Windows
 
@@ -197,10 +187,7 @@ is complete)
 * At the top-right of the screen, to the left of the green `play` arrow, you should see a dropdown. In that
 dropdown, select `Run Example Cordapp - Kotlin` and click the green `play` arrow.
 * Wait until the run windows displays the message `Webserver started up in XX.X sec`
-* Confirm that the CorDapp is running correctly by visiting the front end at
-{{< warning >}}`{{< /warning >}}
-
-[http://localhost:10009/web/example/](http://localhost:10009/web/example/)
+* Confirm that the CorDapp is running correctly by visiting the front end at [http://localhost:10009/web/example/](http://localhost:10009/web/example/)
 
 
 
@@ -208,7 +195,7 @@ dropdown, select `Run Example Cordapp - Kotlin` and click the green `play` arrow
 
 
 {{< warning >}}
-If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the windows-label, deb-ubuntu-label or [Fedora](#fedora-label) instructions instead.
+If you are using a Windows, Debian/Ubuntu or Fedora machine, please follow the windows-label, deb-ubuntu-label or [Fedora](#fedora) instructions instead.
 
 {{< /warning >}}
 

@@ -49,7 +49,7 @@ all the notary workers of the CFT notary cluster to sign valid transactions. Dur
 use the distributed notary key when processing notarisation requests.
 
 For information on which HSMs are supported by Corda Enterprise, see the [platform support matrix](../platform-support-matrix.md).
-Please read the section below for setup instructions and [configuration details](../node/operating/cryptoservice-configuration.md/).
+Please read the section below for setup instructions and [configuration details](../node/operating/cryptoservice-configuration.md).
 
 
 ## Detailed instructions to deploy to Azure Key Vault
@@ -86,7 +86,7 @@ clientId: "<app id from creation of the service principle>"
 protection: "SOFTWARE" # HARDWARE can be specified if using a premium vault
 ```
 
-When the configuration files are ready, register the notary service identity using the notary registration tool and any worker’s node.conf
+When the configuration files are ready, register the notary service identity using the HA Utilities tool and any worker’s node.conf
 file:
 
 ```sh

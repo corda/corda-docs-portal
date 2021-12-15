@@ -18,6 +18,21 @@ weight: 10
 
 # Corda Enterprise Release notes
 
+## Corda Enterprise 4.4.8
+
+Corda Enterprise 4.4.8 is a patch release of Corda Enterprise that fixes an invalid notarization response being sent
+after an internal notary flow retry.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
+
+### Fixed issues
+
+* A fix has been added to prevent a rare invalid notarization response after internal notary flow retry.
+
 ## Corda Enterprise 4.4.7
 
 Corda Enterprise 4.4.7 is a patch release of Corda Enterprise that fixes a memory issue in Corda Enterprise 4.4.6.
@@ -106,7 +121,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * Fixed an error in DNS name resolution when using the [Corda Health Survey tool](../../../../../en/platform/corda/4.4/enterprise/health-survey.md).
 * Fixed an issue where Corda Firewall did not start if its main configuration and its HSM configuration were obfuscated.
 * Fixed an issue where deobfuscation options were missing from [HA Utilities](../../../../../en/platform/corda/4.4/enterprise/ha-utilities.md) in `generate-internal-tunnel-ssl-keystores` mode.
-* Some Corda Enterprise 4.5 features have been backported to allow AKS deployment in Corda Enterprise 4.4.3.
+* Some Corda Enterprise 4.5 features have been backported to allow Azure Kubernetes Service deployment in Corda Enterprise 4.4.3.
 * Fixed `vaultService.updates.subscribe` errors when running inside `STATE_MACHINE_STARTED` event handler.
 * In the `graphiteOptions` section of `node.conf`, `sampleInvervallSeconds` has been changed to `sampleIntervalSeconds`.
 

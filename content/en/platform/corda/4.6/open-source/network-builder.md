@@ -30,7 +30,7 @@ Unlike the official image, a *node.conf* file and CorDapps are embedded into the
 More backends may be added in future. The tool is open source, so contributions to add more
 destinations for the containers are welcome!
 
-Download the Corda Network Builder from `https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-builder/|corda_version|/corda-tools-network-builder-|corda_version|.jar`.
+Download the Corda Network Builder from `https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-builder/|corda_version|/corda-tools-network-builder-|corda_version|-all.jar`.
 
 ## Prerequisites
 
@@ -85,7 +85,7 @@ the underlying Corda nodes may be still starting and SSHing to a node may be not
 * `java -jar <path/to/corda-tools-network-builder.jar> -b AZURE -d .`
 
 {{< note >}}
-The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#pre-requisites).
+The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#prerequisites).
 
 {{< /note >}}
 
@@ -152,7 +152,7 @@ click `Open`
 * Click `Build`
 
 {{< note >}}
-The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#pre-requisites).
+The Azure configuration is handled by the az-cli utility. See the [Prerequisites](#prerequisites).
 
 {{< /note >}}
 All the nodes should eventually move to a `Status` of `INSTANTIATED`. If you run `docker ps` from the terminal to

@@ -22,11 +22,11 @@ title: How to contribute
 There are several ways to identify an area where you can contribute to Corda:
 
 
-* The easiest is just to message one of the [Community Maintainers](contributing-philosophy.md#community-maintainers) saying “I want to help!”. They’ll work
+* The easiest is just to message one of the [Community Maintainers](contributing-philosophy.html#community-maintainers) saying “I want to help!”. They’ll work
 with you to find an area for you to contribute
 * If you have a specific contribution in mind, confirm whether the contribution is appropriate first by reaching out in the
 `#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contacting one of the
-[Community Maintainers](contributing-philosophy.md#community-maintainers) directly
+[Community Maintainers](contributing-philosophy.html#community-maintainers) directly
 * If you do not have a specific contribution in mind, you can also browse the issues labelled as `help wanted` on the
 [Corda GitHub issues](https://github.com/corda/corda/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) page
     * Issues that additionally have the `good first issue` label are considered ideal for first-timers
@@ -53,7 +53,7 @@ accept responsibility for maintaining this feature
 the project maintainers to reconcile this. As the major contributor to Corda, many employees of [R3](https://r3.com) will be working on
 features at any given time. To avoid surprises and foster transparency,
 [our Jira work tracking system is public](https://r3-cev.atlassian.net/projects/CORDA/summary). If in doubt, reach out to one of the
-[Community Maintainers](contributing-philosophy.md#community-maintainers)
+[Community Maintainers](contributing-philosophy.html#community-maintainers)
 
 
 ## Making the required changes
@@ -116,7 +116,7 @@ You should document any changes to Corda’s public API as follows:
 with a full stop. We also start comments with capital letters, even for inline comments. Where Java APIs have
 synonyms (e.g. `%d` and `%date`), we prefer the longer form for legibility reasons. You can configure your IDE
 to highlight these in bright yellow
-* Update the relevant [.rst file(s)](https://github.com/corda/corda/tree/master/docs/source)
+* Update the relevant `.rst` file(s)
 * Include the change in the [changelog](changelog.md) if the change is external and therefore visible to CorDapp
 developers and/or node operators
 * [Build the docs locally](building-the-docs.md) and check that the resulting .html files (under `docs/build/html`) for the modified
@@ -136,11 +136,11 @@ You should merge the changes back into Corda as follows:
 
 
 * Complete the pull-request checklist:
-    * [ ] Have you run the unit, integration and smoke tests as described here? [https://docs.corda.net/head/testing.html](https://docs.corda.net/head/testing.html)
-    * [ ] If you added/changed public APIs, did you write/update the JavaDocs?
-    * [ ] If the changes are of interest to application developers, have you added them to the changelog, and potentially
+    * Have you run the unit, integration and smoke tests as described here? [https://docs.corda.net/head/testing.html](https://docs.corda.net/head/testing.html)
+    * If you added/changed public APIs, did you write/update the JavaDocs?
+    * If the changes are of interest to application developers, have you added them to the changelog, and potentially
 release notes?
-    * [ ] If you are contributing for the first time, please read the agreement in CONTRIBUTING.md now and add to this
+    * If you are contributing for the first time, please read the agreement in CONTRIBUTING.md now and add to this
 Pull Request that you agree to it.
 
 
@@ -151,7 +151,7 @@ accordance with the Developer Certificate of Origin ([https://developercertifica
 
 
 * Request a review by reaching out in the `#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contacting one of
-the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly
+the [Community Maintainers](contributing-philosophy.html#community-maintainers) directly
 * The reviewer will either:
 
 
@@ -165,7 +165,7 @@ the [Community Maintainers](contributing-philosophy.md#community-maintainers) di
 
 
 * (Optional) Open an additional PR to add yourself to the
-[contributors list](https://github.com/corda/corda/blob/master/CONTRIBUTORS.md)>
+[contributors list](https://github.com/corda/corda/blob/release/os/4.7/CONTRIBUTORS.md).
 
 * The format is generally `firstname surname (company)`, but the company can be omitted if desired
 

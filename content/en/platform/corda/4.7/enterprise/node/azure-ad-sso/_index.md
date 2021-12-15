@@ -1,6 +1,8 @@
 ---
+date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-7:
+    identifier: corda-enterprise-4-7-corda-nodes-azure-ad-sso
     parent: corda-enterprise-4-7-corda-nodes
 tags:
 - contexts
@@ -19,8 +21,8 @@ You can operate a single sign on (SSO) set-up between your Corda services and Az
 To set up SSO with Azure AD, you need to:
 
 1. Configure your Azure AD using the Azure online console.
-2. Configure your [Auth Service](../auth-service.md).
-3. If you use the [CENM Command-line Interface Tool](../../../../cenm/1.5/cenm-cli-tool.md), you also need to configure Azure AD to enable commands.
+2. Configure your [Auth Service](../../../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md).
+3. If you use the [CENM Command-line Interface Tool](../../../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md), you also need to configure Azure AD to enable commands.
 
 {{< note >}}
 Some steps in the Auth configuration require reference to your Azure AD account and setup, so you should be able to access both when setting up Azure AD SSO.
@@ -100,7 +102,7 @@ The `synchronizeGroups` setting controls whether the user should be added to the
 
 You can use Group synchronization to keep the memberships of each user up to date in Azure AD. You can use group synchronization to:
 
-* Create groups that do not yet exist. If a user is a member of groups that do not yet exist in Azure AD, you can use group synchronization to automatically have these groups created.  
+* Create groups that do not yet exist. If a user is a member of groups that do not yet exist in Azure AD, you can use group synchronization to automatically have these groups created.
 * Control which of the membership groups should be synchronized. To do this, you can provide a filter string, which has to be a valid `OData4` filter string [https://docs.microsoft.com/en-us/graph/api/group-list?view=graph-rest-1.0&tabs=http](https://docs.microsoft.com/en-us/graph/api/group-list?view=graph-rest-1.0&tabs=http).
 
 #### Enable `Group.Read.All`
@@ -153,7 +155,7 @@ To allow use of the CENM Command-line Interface Tool, you need to enable a few a
 If the custom redirect URI fails, you can select the URI: `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 {{< /note >}}
 
-You can now access Azure login using the [CENM Command-line Interface Tool](../../../../cenm/1.5/cenm-cli-tool.md).
+You can now access Azure login using the [CENM Command-line Interface Tool](../../../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md).
 
 To log in:
 

@@ -189,8 +189,7 @@ You can open log files with any text editor.
 {{< figure alt="azure vm 10 49" width=80% zoom="../resources/azure_vm_10_49.png" >}}
 {{< figure alt="azure syslog" width=80% zoom="../resources/azure_syslog.png" >}}
 
-## Next Steps
+## Join the community
 
-Now you have built a Corda network and used a basic Corda CorDapp do go and visit the [dedicated Corda website](https://www.corda.net)
-
-Or to join the growing Corda community and get straight into the Corda open source codebase, head over to the [Github Corda repo](https://www.github.com/corda)
+Now you have built a Corda network and used a basic Corda CorDapp, you can join the growing Corda community and get straight
+into the Corda open source codebase, head over to the [Github Corda repo](https://www.github.com/corda).

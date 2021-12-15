@@ -87,7 +87,7 @@ The property allows to override `database.initialiseSchema` for the Hibernate DD
 `UPDATE` performs an update of CorDapp schemas, while `VALID` only verifies their integrity and `NONE` performs no check.
 When `initialiseSchema` is set to `false`, then `initialiseAppSchema` may be set as `VALID` or `NONE` only.*Default:* CorDapp schema creation is controlled with `initialiseSchema`.Boolean on whether to run the database migration scripts at startup. In production please keep it false. For more information please
 check [Database management scripts](database-management.md). If migration is not run, on startup, the node will check if it’s running on the correct database version.
-The property is used only when a node runs against a database other than H2, and it’s replaced by the `initialiseSchema` property for other databases.*Default:* falseSome database providers require a schema name when generating DDL and SQL statements. The value is passed to the Hibernate
+The property is used only when a node runs against a database other than H2, and it’s replaced by the `initialiseSchema` property for H2 databases.*Default:* falseSome database providers require a schema name when generating DDL and SQL statements. The value is passed to the Hibernate
 property ‘hibernate.default_schema’. This is optional.Optional property for testing/development against an unsupported database. The value is passed to Hibernate `hibernate.dialect` option.
 All supported databases don’t require this option, as Hibernate sets the correct dialect value out of box.This section is used to configure the JDBC connection and database driver used for the node’s persistence.
 Node database contains example configurations for other database providers.
@@ -119,16 +119,17 @@ Mode used when setting up the Artemis client. Supported modes are: DEFAULT (5 in
 FAIL_FAST (no initial attempts, no reconnect attempts), CONTINUOUS_RETRY (infinite initial and reconnect attempts, starting retry interval of 5 seconds with an exponential back-of multiplier of 1.5 up for up to 5 minutes retry interval).*Default:* DEFAULTList of Artemis Server back-up addresses. If any back-ups are specified, the client will be configured to automatically failover to the first server it can connect to.*Default:* empty list
 
 
-Performance tuning parameters for Corda EnterpriseThe number of threads available to handle flows in parallel. This is the number of flows
+## Performance tuning parameters for Corda Enterprise
+
+The number of threads available to handle flows in parallel. This is the number of flows
 that can run in parallel doing something and/or holding resources like database connections.
-A larger number of flows can be suspended, e.g. waiting for reply from a counterparty.
+A larger number of flows can be suspended, for example, waiting for reply from a counterparty.
 When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
 Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
 up to handle the event. This can have serious performance implications if the flow thread pool is too small,
 as a flow cannot be suspended while in a database transaction, or without checkpointing its state first.
 Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in
-parallel, allowing more than one flow to be active and/or use resources at the same time.The default value is 2 times the number of cores available which was found to be working efficiently in
-performance testing.
+parallel, allowing more than one flow to be active and/or use resources at the same time.
 The ideal value for this parameter depends on a number of factors.
 The main ones are the hardware the node is running on, the performance profile of the
 flows, and the database instance backing the node as datastore. Every thread will open a database connection,

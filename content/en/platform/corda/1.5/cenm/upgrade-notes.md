@@ -259,11 +259,15 @@ each managed service deployment (Identity Manager, Network Map, Zone), and confi
 to be via the Angel Service. Details on the arguments to the Angel Service are covered in the
 [Angel Service documentation](../../../../../en/platform/corda/1.3/cenm/angel-service.md).
 
-## 1.2.1 to 1.2.2
+## 1.2 to 1.2.2
 
-The upgrade process for 1.2.1 to 1.2.2 is a drop-in replacement of the existing `.jar` files with ``<service>-1.2.2.jar``.
+{{< note >}}
+CENM 1.2 was superseded immediately by CENM 1.2.2, with no intervening 1.2.1 release.
+{{< /note >}}
 
-## 1.2 to 1.2.1
+The upgrade process for 1.2 to 1.2.2 is a drop-in replacement of the existing `.jar` files with ``<service>-1.2.2.jar``.
+
+## 1.2 to 1.2.2
 
  **Identity Manager**
 
@@ -272,11 +276,11 @@ The upgrade process for 1.2.1 to 1.2.2 is a drop-in replacement of the existing 
   Ensure the Identity Manager is configured to perform this migration
   by setting ``runMigration`` property to ``true``.
 
-  The upgrade process is otherwise just a drop-in replacement of the existing `.jar` files with ``<service>-1.2.1.jar``.
+  The upgrade process is otherwise just a drop-in replacement of the existing `.jar` files with ``<service>-1.2.2.jar``.
   Ensure you stop the service before replacing the `.jar` files.
   Ensure that there are no orphan processes running after shout down.
 
-## 1.1 to 1.2.1
+## 1.1 to 1.2.2
 
 See the upgrade note for 1.1 to 1.2.
 

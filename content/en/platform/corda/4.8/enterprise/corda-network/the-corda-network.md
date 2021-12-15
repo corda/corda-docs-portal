@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-corda-network
-    name: "Corda Network Foundation"
+    name: "Corda Network"
 title: Corda Network
 weight: 500
 ---
@@ -15,7 +15,7 @@ weight: 500
 [Corda Network](https://corda.network/) is a publicly-available internet of Corda nodes operated by network participants. Each
 node is identified by a certificate issued by the network’s identity service, and is also discoverable on a network map.
 
-Corda Network went live in December 2018, and is currently governed by the independent, not-for-profit Corda Network Foundation. See the [governance model](https://corda.network/corda-network-foundation/about-the-foundation/) for more detail.
+Corda Network went live in December 2018.
 
 ## Benefits of Corda Network
 

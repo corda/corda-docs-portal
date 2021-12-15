@@ -188,6 +188,7 @@ Any CorDapp JAR that offers contracts and states in any of these packages must b
 This ensures that when a node encounters an owned contract it can uniquely identify it and knows that all other nodes can do the same.
 Encountering an owned contract in a JAR that is not signed by the rightful owner is most likely a sign of malicious behaviour, and should be reported.
 The transaction verification logic will throw an exception when this happens.
+
 Read more about Package ownership in the [Package namespace ownership](../node/deploy/env-dev.html#package-namespace-ownership) section.
 
 
@@ -217,9 +218,12 @@ discuss and accept the parameters.
 
 The fact a new set of parameters is being advertised shows up in the node logs with the message
 “Downloaded new network parameters”, and programs connected via RPC can receive `ParametersUpdateInfo` by using
-the `CordaRPCOps.networkParametersFeed` method. Typically a zone operator would also email node operators to let them
+the `CordaRPCOps.networkParametersFeed` method. Typically, a zone operator would also email node operators to let them
 know about the details of the impending change, along with the justification, how to object, deadlines and so on.
 
+{{< note >}} You can add notary entries to your network parameters, but they cannot be deleted. Even after an existing notary identity is revoked
+and a replacement is registered to the network, the original notary will continue to appear in the list of available
+notaries. Use explicit notary selection in your CordApp to avoid issues when adding a new notary to the network parameters. {{< /note >}}
 
 ### Automatic Acceptance
 

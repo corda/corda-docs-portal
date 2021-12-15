@@ -47,7 +47,7 @@ This is a standalone Gradle project within the Corda repository that will clone 
 `core-deterministic` and `serialization-deterministic` are generated from Corda’s `core` and `serialization`
 modules respectively using both [ProGuard](https://www.guardsquare.com/en/proguard) and Corda’s `JarFilter` Gradle
 plugin. Corda developers configure these tools by applying Corda’s `@KeepForDJVM` and `@DeleteForDJVM`
-annotations to elements of `core` and `serialization` as described [here](#deterministic-annotations).The build generates each of Corda’s deterministic JARs in six steps:
+annotations to elements of `core` and `serialization` as described [here](#deterministic-corda-modules).The build generates each of Corda's deterministic JARs in six steps:
 
 * Some *very few* classes in the original JAR must be replaced completely. This is typically because the original  class uses something like `ThreadLocal`, which is not available in the deterministic Java APIs, and yet the class is still required by the deterministic JAR. We must keep such classes to a minimum!
 * The patched JAR is analysed by ProGuard for the first time using the following rule:

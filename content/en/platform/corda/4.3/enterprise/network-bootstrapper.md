@@ -303,7 +303,7 @@ are updating an existing network, the value in the existing network parameters f
 
 {{< note >}}
 All fields can be used with placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
-variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node-administration.md#hiding-sensitive-data).
+variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node-administration.html#hiding-sensitive-data).
 
 {{< /note >}}
 The available configuration fields are listed below:
@@ -314,7 +314,7 @@ The minimum supported version of the Corda platform that is required for nodes i
 
 
 * **maxMessageSize**:
-The maximum permitted message size, in bytes. This is currently ignored but will be used in a future release.
+The maximum permitted message size, in bytes.
 
 
 * **maxTransactionSize**:
@@ -328,7 +328,7 @@ for information on valid inputs.
 
 
 * **packageOwnership**:
-A list of package owners. See [Package namespace ownership](#id1) for more information. For each package owner, the following fields
+A list of package owners. See [Package namespace ownership](#package-namespace-ownership) for more information. For each package owner, the following fields
 are required:
 
 
@@ -406,7 +406,7 @@ The alias for the name associated with the certificate to be associated with the
 
 
 Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an example, we will initialise a simple network and then register and unregister a package namespace.
-Checkout the Example CorDapp and follow the instructions to build it [here](https://docs.corda.net/tutorial-cordapp.html#building-the-example-cordapp).
+Checkout the Example CorDapp and follow the instructions to build it [here](tutorial-cordapp.html#building-the-example-cordapp).
 
 {{< note >}}
 You can point to any existing bootstrapped Corda network (this will have the effect of updating the associated network parameters file).

@@ -105,7 +105,6 @@ For performance runs, the nodes run with pretty standard configuration. However,
 
 
 * The JVM gets set up with 8 gigabyte heapsize and using the G1 garbage collector.
-* The database transaction isolation level is set to `READ_COMMITTED`.
 * In the tuning part of the Enterprise configuration, a generous number of flow and RPC threads are configured.
 * Dev mode is turned off for all nodes including the notary.
 

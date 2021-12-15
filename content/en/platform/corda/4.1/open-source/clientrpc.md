@@ -21,7 +21,7 @@ title: Interacting with a node
 
 ## Overview
 
-To interact with your node, you need to write a client in a JVM-compatible language using the [CordaRPCClient](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class.
+To interact with your node, you need to write a client in a JVM-compatible language using the [CordaRPCClient](https://docs.r3.com/en/api-ref/corda/4.6/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) class.
 This class allows you to connect to your node via a message queue protocol and provides a simple RPC interface for
 interacting with the node. You make calls on a JVM object as normal, and the marshalling back-and-forth is handled for
 you.
@@ -30,7 +30,7 @@ you.
 {{< warning >}}
 The built-in Corda webserver is deprecated and unsuitable for production use. If you want to interact with
 your node via HTTP, you will need to stand up your own webserver that connects to your node using the
-[CordaRPCClient](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. You can find an example of how to do this using the popular Spring Boot server
+[CordaRPCClient](https://docs.r3.com/en/api-ref/corda/4.6/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) class. You can find an example of how to do this using the popular Spring Boot server
 [here](https://github.com/corda/spring-webserver).
 
 {{< /warning >}}
@@ -40,14 +40,14 @@ your node via HTTP, you will need to stand up your own webserver that connects t
 
 ## Connecting to a node via RPC
 
-To use [CordaRPCClient](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html), you must add `net.corda:corda-rpc:$corda_release_version` as a `cordaCompile` dependency
+To use [CordaRPCClient](https://docs.r3.com/en/api-ref/corda/4.6/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html), you must add `net.corda:corda-rpc:$corda_release_version` as a `cordaCompile` dependency
 in your client’s `build.gradle` file.
 
-[CordaRPCClient](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
-[CordaRPCConnection](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/net/corda/core/messaging/CordaRPCOps.html)
+[CordaRPCClient](https://docs.r3.com/en/api-ref/corda/4.6/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) has a `start` method that takes the node’s RPC address and returns a [CordaRPCConnection](https://docs.r3.com/en/api-ref/corda/4.6/open-source/javadoc/net/corda/client/rpc/CordaRPCConnection.html).
+[CordaRPCConnection](https://docs.r3.com/en/api-ref/corda/4.6/open-source/javadoc/net/corda/client/rpc/CordaRPCConnection.html) has a `proxy` method that takes an RPC username and password and returns a [CordaRPCOps](https://docs.r3.com/en/api-ref/corda/4.6/open-source/javadoc/net/corda/core/messaging/CordaRPCOps.html)
 object that you can use to interact with the node.
 
-Here is an example of using [CordaRPCClient](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) to connect to a node and log the current time on its internal clock:
+Here is an example of using [CordaRPCClient](https://docs.r3.com/en/api-ref/corda/4.6/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) to connect to a node and log the current time on its internal clock:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -125,9 +125,9 @@ class ClientRpcExample {
 
 
 {{< warning >}}
-The returned [CordaRPCConnection](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of
+The returned [CordaRPCConnection](https://docs.r3.com/en/api-ref/corda/4.6/open-source/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of
 server side resources. When you’re done with it, call `close` on it. Alternatively you may use the `use`
-method on [CordaRPCClient](https://api.corda.net/api/corda-os/4.1/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html) which cleans up automatically after the passed in lambda finishes. Don’t create
+method on [CordaRPCClient](https://docs.r3.com/en/api-ref/corda/4.6/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html) which cleans up automatically after the passed in lambda finishes. Don’t create
 a new proxy for every call you make - reuse an existing one.
 
 {{< /warning >}}
@@ -368,11 +368,11 @@ supported types of such data source, identified by the `dataSource.type` field:
 
 
 
-* **INMEMORY**: 
+* **INMEMORY**:
 A static list of user credentials and permissions specified by the `users` field.
 
 
-* **DB**: 
+* **DB**:
 An external RDBMS accessed via the JDBC connection described by `connection`. Note that, unlike the `INMEMORY`
 case, in a user database permissions are assigned to *roles* rather than individual users. The current implementation
 expects the database to store data according to the following schema:
@@ -533,13 +533,11 @@ The only way to confirm is to perform a business-level query and retry according
 In case users require such a functionality to write a resilient RPC client we have a sample that showcases how this can be implemented and also
 a thorough test that demonstrates it works as expected.
 
-The code that performs the reconnecting logic is: [ReconnectingCordaRPCOps.kt](https://github.com/corda/corda/blob/master/client/rpc/src/main/kotlin/net/corda/client/rpc/internal/ReconnectingCordaRPCOps.kt).
-
 {{< note >}}
 This sample code is not exposed as an official Corda API, and must be included directly in the client codebase and adjusted.
 
 {{< /note >}}
-The usage is showcased in the: [RpcReconnectTests.kt](https://github.com/corda/corda/blob/master/node/src/integration-test/kotlin/net/corda/node/services/rpc/RpcReconnectTests.kt).
+
 In case resiliency is a requirement, then it is recommended that users will write a similar test.
 
 How to initialize the *ReconnectingCordaRPCOps*:
@@ -644,7 +642,3 @@ Note that RPC TLS does not use mutual authentication, and delegates fine grained
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
 `@CordaSerializable` annotation.  See [Object serialization](serialization.md). An example is shown in [Using the client RPC API](tutorial-clientrpc-api.md).
-
-
-
-

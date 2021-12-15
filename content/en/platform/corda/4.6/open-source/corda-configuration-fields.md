@@ -309,15 +309,15 @@ Please do not change.
 
 ## `notary`
 
-  Optional configuration object which if present configures the node to run as a notary. If running as part of a HA notary cluster, please
-  specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` configuration as described below. For a single-node notary only the `validating` property is required.
+This optional object configures the node to run as a notary. Please
+specify the `serviceLegalName` and either the `mysql` (deprecated) or `jpa` configuration as described below, and set the `validating` boolean to true or false.
 
 * `validating`
   * Boolean to determine whether the notary is a validating or non-validating one.
   * Default: false
 * `serviceLegalName`
-  * If the node is part of a distributed cluster, specify the legal name of the cluster.
-    At runtime, Corda checks whether this name matches the name of the certificate of the notary cluster.
+  * Specify the legal name of the cluster or node. Single node notaries still need to register a separate identity.
+    At runtime, Corda checks whether this name matches the name of the certificate of the notary.
   * Default: not defined
 * `etaMessageThresholdSeconds`
   * If the wait time estimate on the internal queue exceeds this value, the notary may send
@@ -576,6 +576,6 @@ Deprecated. Use rpcSettings instead.**
   This option is disabled by default and is independent from `devMode`.
   {{< /note >}}
 
-  For full details, see [Automatic detection of unrestorable checkpoints](checkpoint-tooling.md#automatic-detection-of-unrestorable-checkpoints).
+  For full details, see [Automatic detection of unrestorable checkpoints](checkpoint-tooling.html#automatic-detection-of-unrestorable-checkpoints).
 
   *Default:* not defined
