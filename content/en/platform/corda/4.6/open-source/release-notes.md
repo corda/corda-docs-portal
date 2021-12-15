@@ -22,7 +22,7 @@ title: Release notes
 ### Updated December 15 2021
 
 {{< note >}}
-The Latest version of Corda 4.6 has been updated to Log4j 2.15.0. A further update is underway to address security issues with Log4j 2.15.0. Check the releases and alerts banner for more information and expected release of the new update.
+The latest version of Corda 4.6 has been updated to Log4j 2.15.0. A further update is underway to address security issues with Log4j 2.15.0. Check the releases and alerts banner for more information and expected release date of the next update.
 {{< /note >}} 
 
 ## Corda 4.6
