@@ -70,7 +70,7 @@ We provide some [backup recommendations](node-administration.html#backup-recomme
 Ensure your node is running Corda 3.2 or later.
 Corda 3.2 required a database table name change and column type change in PostgreSQL.
 These changes need to be applied to the database before upgrading to Corda 4.0.
-Refer to [Corda 3.2 release notes](https://docs.corda.net/releases/release-V3.4/upgrade-notes.html#v3-1-to-v3-2)
+Refer to [Corda 3.2 release notes](https://github.com/corda/corda-docs-portal/blob/main/archived-docs/corda-os/3.2/upgrade-notes.md)
 for further information.
 
 
@@ -82,7 +82,7 @@ node requires.
 
 
 {{< important >}}
-Corda 4 requires Java 8u171 or any higher Java 8 patchlevel. Java 9+ is not currently supported.
+Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not currently supported.
 
 
 {{< /important >}}
