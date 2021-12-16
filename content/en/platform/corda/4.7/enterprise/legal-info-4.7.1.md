@@ -3,6 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-7:
     parent: corda-enterprise-4-7-release-notes
+    identifier: corda-enterprise-4-7-1-legal-info
     weight: 310
 tags:
 - legal

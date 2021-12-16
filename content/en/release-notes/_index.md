@@ -17,7 +17,13 @@ This page provides updates on all major alerts, fixes and forthcoming patch rele
 
 ## Apache Log4j announcement
 
-### Updated December 15 2021
+### Update December 16 2021
+
+Patch releases to upgrade Corda and CENM to a safe version of Apache Log4j have been accelerated. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue) for new dates. Many patches have been brought forward and are now due for release on December 16.
+
+For details of each release, and to get access to downloads, check the release notes page for your version of Corda and CENM in the docs.
+
+### Update December 15 2021
 
 {{< note >}}
 A new vulnerability has been discovered in version 2.15.0 of the log4j logging library, as described here: https://nvd.nist.gov/vuln/detail/CVE-2021-45046.
@@ -61,16 +67,16 @@ This table was last updated on December 15 2021 11:15 GMT.
 
 | Version with new patch | Patch target shipping date    | Interim mitigation available |
 | :------------- | :------------- | :------------- |
-| Corda OS/CE 4.8.5      | Dec 16      | Yes |
-| Corda OS/CE 4.6.7      | Dec 16      | Yes |
-| Corda OS/CE 4.5.8      | Dec 17      | Yes |
-| Corda OS/CE 4.7.5      | Dec 17      | Yes |
-| Corda OS/CE 4.4.10      | Dec 20      | Yes |
-| Corda OS/CE 4.3.10      | Dec 20      | Yes |
+| Corda OS/CE 4.8.5      | **Released** Dec 16      | Yes |
+| Corda OS/CE 4.6.7      | **Released** Dec 16      | Yes |
+| Corda OS/CE 4.5.8      | Dec 16      | Yes |
+| Corda OS/CE 4.7.5      | **Released** Dec 16     | Yes |
+| Corda OS/CE 4.4.10      | Dec 16      | Yes |
+| Corda OS/CE 4.3.10      | Dec 16      | Yes |
 | CENM 1.2.5      | Dec 17      | No |
 | CENM 1.5.3      | Dec 17      | Yes |
-| CENM 1.3.4      | Dec 20      | Yes |
-| CENM 1.4.3      | Dec 20      | Yes |
+| CENM 1.3.4      | Dec 17      | Yes |
+| CENM 1.4.3      | Dec 17      | Yes |
 
 {{< note >}}
 These patch releases are valid for the stated supported versions of Corda and CENM only. If you are not using a supported version of Corda or CENM, please upgrade to one of the above versions.
