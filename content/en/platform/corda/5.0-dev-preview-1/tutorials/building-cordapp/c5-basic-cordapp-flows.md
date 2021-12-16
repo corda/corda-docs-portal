@@ -14,13 +14,15 @@ title: Write flows
 
 In Corda, flows automate the process of agreeing ledger updates. They are a sequence of steps that tell the node how to achieve a specific ledger update, such as issuing an asset or making a deposit. Nodes communicate using these flows in point-to-point interactions, rather than a global broadcast system. Network participants must specify what information needs to be sent, to which counterparties.
 
-Built-in flows are provided in Corda to automate common tasks, such as gathering signatures from counterparty nodes or notarising and recording a transaction. As a developer, you only need to implement flows for the business logic of your specific use case.
+Top-level flows encapsulate the business logic behind the interaction between the users and your CorDapp. They can have multiple subflows and can be started via RPC.
 
-The `Flow` interface is used to implement a flow. When you use this interface, it defines the `call` method where the business logic goes. Flows access the Corda 5 API through injectable services using the `@CordaInject` tag. See the [services documentation](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/injectable-services.md) for a list of all services available in the Corda 5 Developer Preview.
+Subflows or built-in flows are common tasks performed in Corda, such as gathering signatures from counterparty nodes or notarising and recording a transaction. As a developer, you only need to implement flows for the business logic of your specific use case.
+
+The `Flow` interface is used to implement a flow. When you use this interface, your business logic will override the `call` method. Flows access version 2 of the Corda API through injectable services using the `@CordaInject` tag. See the [services documentation](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/injectable-services.md) for a list of all services available in the Corda 5 Developer Preview.
 
 Using the `Flow` interface allows you to add the services you need, and leave out those that you don't. This makes your CorDapp much more lightweight, and will reduce development time in future production-ready versions of Corda 5.
 
-This tutorial walks you through writing the three flows you need in your sample CorDapp:
+This tutorial walks you through writing the three top-level flows you need in your sample CorDapp:
 
 * <a href="#write-the-createandissuemarsvoucher-flow">`CreateAndIssueMarsVoucher`</a>
 * <a href="#write-the-createboardingticket-flow">`CreateBoardingTicket`</a>
@@ -173,22 +175,34 @@ class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private va
     lateinit var jsonMarshallingService: JsonMarshallingService
 ```
 
-#### Add the flow implementation
+#### Write your business logic
+
+##### Add the flow implementation
 
 Next you must add the flow implementation to the initiating flow by encapsulating it within the `call` method.
 
 1. Add the `@Suspendable` annotation.
 2. Add the `call` method with the return type `SignedTransactionDigest`.
 3. Parse your parameters using the `mapOfParams` value. Since the parameters the flow will use come in JSON format, the JSON object must be parsed to extract the parameters so the flow can run.
-4. Add exceptions for when required fields (`voucherDesc`, `holder`, `recipientParty`) are not found.
-5. Insert a method for finding the notary.
+4. Add appropriate error handling - exceptions must be thrown when required fields (`voucherDesc`, `holder`, `recipientParty`) are not found.
+5. Insert the following method for finding the notary: `notaryLookup.notaryIdentities.**<name of the notary>**()`.
 6. Build the output `MarsVoucher` state with a `UniqueIdentifier`.
-7. Build the transaction using a `txCommand` and the `transactionBuilderFactory` service you added when injecting services.
-8. Verify that the transaction is valid using the `txBuilder.verify` method.
-9. Sign the transaction using the `txBuilder.sign` method.
-10. Send the state to the counterparty and receive it back with their signature. Use the `flowMessaging` service to send the state to the `recipientParty`. Use the `flowEngine` service with the subflow `CollectSignaturesFlow` to get the signature of the counterparty.
-11. Notarize and record the transaction in both parties' vaults using `FinalityFlow` with a `fullySignedTx`.
-12. Return a `SignedTransactionDigest`. Use the `jsonMarshallingService` to parse the transaction's output. Include the transaction's output states, ID, and signatures.
+
+##### Build the transaction
+
+Your transaction is a proposal to the ledger that the counterparty must agree to. You must ensure that the proposal adheres the rules of the smart contract and sign it before sending it to the counterparty. The proposal here is that you'll create a voucher for a trip to Mars and then issue that voucher to a designated party - Peter.
+
+1. Build the transaction using a `txCommand` and the `transactionBuilderFactory` service you added when injecting services.
+2. Verify that the transaction is valid using the `txBuilder.verify` method.
+3. Sign the transaction using the `txBuilder.sign` method.
+
+##### Interact with the counterparty
+
+This is where you send the proposal to Peter. When consensus that the transaction's elements are unique and understood is achieved, the transaction is notarized in both parties' vaults.
+
+1. Send the state to the counterparty and receive it back with their signature. Use the `flowMessaging` service to send the state to the `recipientParty`. Use the `flowEngine` service with the subflow `CollectSignaturesFlow` to get the signature of the counterparty.
+2. Get the transaction notarized and recorded in both parties' vaults using `FinalityFlow` with a `fullySignedTx`.
+3. Return a `SignedTransactionDigest`. Use the `jsonMarshallingService` to parse the transaction's output. Include the transaction's output states, ID, and signatures.
 
 After adding these elements, your code should look like this:
 
