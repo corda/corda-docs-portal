@@ -4,14 +4,14 @@ menu:
   corda-enterprise-4-7:
     parent: corda-enterprise-4-7-release-notes
     identifier: corda-enterprise-4-7-5-legal-info
-    weight: 330
+    weight: 340
 tags:
 - legal
 - info
-title: Third-party software licence information - CE 4.7.3
+title: Third-party software licence information - CE 4.7.5
 ---
 
-# Corda Enterprise 4.7.3 third-party software notices and licence information
+# Corda Enterprise 4.7.5 third-party software notices and licence information
 
 {{< note >}}
 This is a direct upgrade from 4.7.3. No version 4.7.4 was released.
