@@ -61,22 +61,22 @@ Refer to https://nvd.nist.gov/vuln/detail/CVE-2021-44228 or https://logging.apac
 
 ## Corda and CENM patch release timetable for Apache Log4J issue
 
-This table was last updated on December 15 2021 11:15 GMT.
+This table was last updated on December 16 2021 17:15 GMT.
 
 **All patches listed upgrade to Log4j 2.16.0**
 
-| Version with new patch | Patch target shipping date    | Interim mitigation available |
-| :------------- | :------------- | :------------- |
-| Corda OS/CE 4.8.5      | **Released** Dec 16      | Yes |
-| Corda OS/CE 4.6.7      | **Released** Dec 16      | Yes |
-| Corda OS/CE 4.5.8      | Dec 16      | Yes |
-| Corda OS/CE 4.7.5      | **Released** Dec 16     | Yes |
-| Corda OS/CE 4.4.10      | Dec 16      | Yes |
-| Corda OS/CE 4.3.10      | Dec 16      | Yes |
-| CENM 1.2.5      | Dec 17      | No |
-| CENM 1.5.3      | Dec 17      | Yes |
-| CENM 1.3.4      | Dec 17      | Yes |
-| CENM 1.4.3      | Dec 17      | Yes |
+| Version with new patch | Patch target shipping date | Interim mitigation available |
+|:---------------------- |:-------------------------- |:---------------------------- |
+| Corda OS/CE 4.8.5      | **Released** Dec 16        | Yes                          |
+| Corda OS/CE 4.6.7      | **Released** Dec 16        | Yes                          |
+| Corda OS/CE 4.5.8      | **Released** Dec 16        | Yes                          |
+| Corda OS/CE 4.7.5      | **Released** Dec 16        | Yes                          |
+| Corda OS/CE 4.4.10     | **Released** Dec 16        | Yes                          |
+| Corda OS/CE 4.3.10     | **Released** Dec 16        | Yes                          |
+| CENM 1.2.5             | Dec 17                     | No                           |
+| CENM 1.5.3             | Dec 17                     | Yes                          |
+| CENM 1.3.4             | Dec 17                     | Yes                          |
+| CENM 1.4.3             | Dec 17                     | Yes                          |
 
 {{< note >}}
 These patch releases are valid for the stated supported versions of Corda and CENM only. If you are not using a supported version of Corda or CENM, please upgrade to one of the above versions.
