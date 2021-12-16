@@ -14,13 +14,15 @@ title: Write flows
 
 In Corda, flows automate the process of agreeing ledger updates. They are a sequence of steps that tell the node how to achieve a specific ledger update, such as issuing an asset or making a deposit. Nodes communicate using these flows in point-to-point interactions, rather than a global broadcast system. Network participants must specify what information needs to be sent, to which counterparties.
 
-Built-in flows are provided in Corda to automate common tasks, such as gathering signatures from counterparty nodes or notarising and recording a transaction. As a developer, you only need to implement flows for the business logic of your specific use case.
+Top-level flows encapsulate the business logic behind the interaction between the users and your CorDapp. They can have multiple subflows and can be started via RPC.
 
-The `Flow` interface is used to implement a flow. When you use this interface, it defines the `call` method where the business logic goes. Flows access the Corda 5 API through injectable services using the `@CordaInject` tag. See the [services documentation](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/injectable-services.md) for a list of all services available in the Corda 5 Developer Preview.
+Subflows or built-in flows are common tasks performed in Corda, such as gathering signatures from counterparty nodes or notarising and recording a transaction. As a developer, you only need to implement flows for the business logic of your specific use case.
+
+The `Flow` interface is used to implement a flow. When you use this interface, your business logic will override the `call` method. Flows access version 2 of the Corda API through injectable services using the `@CordaInject` tag. See the [services documentation](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/injectable-services.md) for a list of all services available in the Corda 5 Developer Preview.
 
 Using the `Flow` interface allows you to add the services you need, and leave out those that you don't. This makes your CorDapp much more lightweight, and will reduce development time in future production-ready versions of Corda 5.
 
-This tutorial walks you through writing the three flows you need in your sample CorDapp:
+This tutorial walks you through writing the three top-level flows you need in your sample CorDapp:
 
 * <a href="#write-the-createandissuemarsvoucher-flow">`CreateAndIssueMarsVoucher`</a>
 * <a href="#write-the-createboardingticket-flow">`CreateBoardingTicket`</a>
@@ -173,22 +175,34 @@ class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private va
     lateinit var jsonMarshallingService: JsonMarshallingService
 ```
 
-#### Add the flow implementation
+#### Write your business logic
+
+##### Add the flow implementation
 
 Next you must add the flow implementation to the initiating flow by encapsulating it within the `call` method.
 
 1. Add the `@Suspendable` annotation.
 2. Add the `call` method with the return type `SignedTransactionDigest`.
 3. Parse your parameters using the `mapOfParams` value. Since the parameters the flow will use come in JSON format, the JSON object must be parsed to extract the parameters so the flow can run.
-4. Add exceptions for when required fields (`voucherDesc`, `holder`, `recipientParty`) are not found.
-5. Insert a method for finding the notary.
+4. Add appropriate error handling - exceptions must be thrown when required fields (`voucherDesc`, `holder`, `recipientParty`) are not found.
+5. Insert the following method for finding the notary: `notaryLookup.notaryIdentities.**<name of the notary>**()`.
 6. Build the output `MarsVoucher` state with a `UniqueIdentifier`.
-7. Build the transaction using a `txCommand` and the `transactionBuilderFactory` service you added when injecting services.
-8. Verify that the transaction is valid using the `txBuilder.verify` method.
-9. Sign the transaction using the `txBuilder.sign` method.
-10. Send the state to the counterparty and receive it back with their signature. Use the `flowMessaging` service to send the state to the `recipientParty`. Use the `flowEngine` service with the subflow `CollectSignaturesFlow` to get the signature of the counterparty.
-11. Notarize and record the transaction in both parties' vaults using `FinalityFlow` with a `fullySignedTx`.
-12. Return a `SignedTransactionDigest`. Use the `jsonMarshallingService` to parse the transaction's output. Include the transaction's output states, ID, and signatures.
+
+##### Build the transaction
+
+Your transaction is a proposal to the ledger that the counterparty must agree to. You must ensure that the proposal adheres the rules of the smart contract and sign it before sending it to the counterparty. The proposal here is that you'll create a voucher for a trip to Mars and then issue that voucher to a designated party - Peter.
+
+1. Build the transaction using a `txCommand` and the `transactionBuilderFactory` service you added when injecting services.
+2. Verify that the transaction is valid using the `txBuilder.verify` method.
+3. Sign the transaction using the `txBuilder.sign` method.
+
+##### Interact with the counterparty
+
+This is where you send the proposal to Peter. When consensus that the transaction's elements are unique and understood is achieved, the transaction is notarized in both parties' vaults.
+
+1. Send the state to the counterparty and receive it back with their signature. Use the `flowMessaging` service to send the state to the `recipientParty`. Use the `flowEngine` service with the subflow `CollectSignaturesFlow` to get the signature of the counterparty.
+2. Get the transaction notarized and recorded in both parties' vaults using `FinalityFlow` with a `fullySignedTx`.
+3. Return a `SignedTransactionDigest`. Use the `jsonMarshallingService` to parse the transaction's output. Include the transaction's output states, ID, and signatures.
 
 After adding these elements, your code should look like this:
 
@@ -290,7 +304,7 @@ class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private va
 
 ### Write the responder flow
 
-Now that you've written the initiating flow, write the responder flow. The responder flow in the `CreateAndIssueMarsVoucher` flow is very simple, as you don't need to verify anything.
+Now that you've written the initiating flow, write the responder flow that responds to the request to update the ledger. The responder flow in the `CreateAndIssueMarsVoucher` flow is very simple and in the context of the Mission Mars CorDapp, you don't need to verify anything. However, when signing a responder flow in a "real-life context", do not sign it before verifying its contents and ensuring you are accepting what you want to accept.
 
 1. Add the `@InitiatedBy` annotation. This indicates that this is the responder flow.
 
@@ -449,7 +463,7 @@ Start writing your initiating flow following the same process used when writing 
     * `holder`
     * `recipientParty`
 
-7. Insert a method for finding the notary.
+7. Insert the following method for finding the notary: `notaryLookup.notaryIdentities.**<name of the notary>**()`
 
 #### Implement queries
 
@@ -460,16 +474,18 @@ In the implementation of this initiating flow, you must query the `MarsVoucher` 
 1. Use a `cursor` to point to a specific line in the query results.
 2. Add a `persistenceService.query` to get the `StateAndRef` of the `MarsVoucher`.
 3. Use the [predefined query](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.html#query-for-states-when-your-state-does-not-have-a-mapped-schema) `findByUuidAndStateStatus` to find the `MarsVoucher` you need by the state's unique identifier and status.
-4. Because you need to return a `StateAndRef`, use Corda's built-in `IdentityContractStatePostProcessor`.
-5. Use the `poll` function to set a maximum poll size and timeout duration for the query.
+4. Because you need to return a `StateAndRef`, use Corda's built-in `IdentityStateAndRefPostProcessor`.
+5. Because you need to return a `ContractState`, use Corda's built-in `IdentityContractStatePostProcessor`.
+6. Use the `poll` function to set a maximum poll size and timeout duration for the query.
 
 ##### Add a query for the `BoardingTicket`
 
 1. Use an additional cursor (`cursor2`) to point to a specific line in the query results.
 2. Add a `persistenceService.query` to get the `StateAndRef` of the `BoardingTicket`.
 3. Use the [predefined query](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.html#query-for-states-when-your-state-does-not-have-a-mapped-schema) `findByStateStatusAndContractStateClassName` to find the `BoardingTicket` you need by the state's status and contract state class name.
-4. Because you need to return a `StateAndRef`, use Corda's built-in `IdentityContractStatePostProcessor`.
-5. Use the `poll` function to set a maximum poll size and timeout duration for the query.
+4. Because you need to return a `StateAndRef`, use Corda's built-in `IdentityStateAndRefPostProcessor`.
+5. Because you need to return a `ContractState`, use Corda's built-in `IdentityContractStatePostProcessor`.
+6. Use the `poll` function to set a maximum poll size and timeout duration for the query.
 
 Your code should now look like this:
 
@@ -543,9 +559,11 @@ Finish the initiating flow by continuing with the same steps you followed when c
 2. Build the transaction using the `TransactionBuilderFactory` service.
 3. Verify that the transaction is valid with the `txBuilder.verify` method.
 4. Sign the transaction using the `txBuilder.sign` method.
-5. Send the state to the counterparty using the `flowMessaging` service, then receive it using the `FlowEngine` and the subflow `CollectSignaturesFlow`.
-6. Notarize and record the transaction in both parties' vaults using the `FlowEngine` service and the subflow `FinalityFlow`.
+5. Send the state to Peter using the `flowMessaging` service, then receive it using the `FlowEngine` and the subflow `CollectSignaturesFlow`.
+6. Get the transaction notarized in both parties' vaults using the `FlowEngine` service and the subflow `FinalityFlow`.
+   After the transaction is performed, the issuer will have the consumed state in their vault and they won't have a reference to the new state. The new state generated by this transaction will be stored in the counterparty's vault.
 7. Return a `SignedTransactionDigest`.
+
 
 ### Write the responder flow
 
