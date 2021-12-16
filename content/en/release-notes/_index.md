@@ -73,7 +73,7 @@ This table was last updated on December 15 2021 11:15 GMT.
 | Corda OS/CE 4.7.5      | **Released** Dec 16     | Yes |
 | Corda OS/CE 4.4.10      | Dec 16      | Yes |
 | Corda OS/CE 4.3.10      | Dec 16      | Yes |
-| CENM 1.2.5      | Dec 16      | No |
+| CENM 1.2.5      | Dec 17      | No |
 | CENM 1.5.3      | Dec 17      | Yes |
 | CENM 1.3.4      | Dec 17      | Yes |
 | CENM 1.4.3      | Dec 17      | Yes |
