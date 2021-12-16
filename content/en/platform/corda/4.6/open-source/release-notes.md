@@ -19,11 +19,15 @@ title: Release notes
 
 ## Apache Log4j update
 
-### Updated December 15 2021
+### Updated December 16 2021
 
-{{< note >}}
-The latest version of Corda 4.6 has been updated to Log4j 2.15.0. A further update is underway to address security issues with Log4j 2.15.0. Check the releases and alerts banner for more information and expected release date of the next update.
-{{< /note >}} 
+Download the [latest version of Corda 4.6](https://github.com/corda/corda) to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
+
+{{< warning >}}
+
+Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). This is the most secure way to mitigate any risks associated with this vulnerability.
+
+{{< /warning >}}
 
 ## Corda 4.6
 
