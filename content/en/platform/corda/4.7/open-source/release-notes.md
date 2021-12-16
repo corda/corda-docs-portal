@@ -17,7 +17,19 @@ title: Release notes
 
 # Corda release notes
 
-## Corda 4.7
+## Apache Log4j update
+
+### Updated December 16 2021
+
+Download the [latest version of Corda 4.7](https://github.com/corda/corda) to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
+
+{{< warning >}}
+
+Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). This is the most secure way to mitigate any risks associated with this vulnerability.
+
+{{< /warning >}}
+
+## Corda 4.7 release notes
 
 Welcome to the Corda 4.7 release notes. This release introduces several new features and enhancements, and fixes a number of known issues from previous releases.
 
