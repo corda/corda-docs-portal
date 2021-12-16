@@ -2,7 +2,7 @@
 date: '2021-08-12T12:00:00Z'
 menu:
   corda-enterprise-4-5:
-    identifier: corda-enterprise-4-5-6-legal-info
+    identifier: corda-enterprise-4-5-8-legal-info
     parent: corda-enterprise-4-5-release-notes
     weight: 314
 tags:
