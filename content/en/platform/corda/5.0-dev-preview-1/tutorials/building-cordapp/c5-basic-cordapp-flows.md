@@ -185,7 +185,7 @@ Next you must add the flow implementation to the initiating flow by encapsulatin
 2. Add the `call` method with the return type `SignedTransactionDigest`.
 3. Parse your parameters using the `mapOfParams` value. Since the parameters the flow will use come in JSON format, the JSON object must be parsed to extract the parameters so the flow can run.
 4. Add appropriate error handling - exceptions must be thrown when required fields (`voucherDesc`, `holder`, `recipientParty`) are not found.
-5. Insert the following method for finding the notary: `notaryLookup.notaryIdentities.**<name of the notary>**()`.
+5. Insert the following method for finding the notary: `notaryLookup.notaryIdentities.<notary name>()`.
 6. Build the output `MarsVoucher` state with a `UniqueIdentifier`.
 
 ##### Build the transaction
@@ -267,7 +267,7 @@ class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private va
         val recipientParty = identityService.partyFromName(target) ?: throw NoSuchElementException("No party found for X500 name $target")
 
         //Find the notary.
-        val notary = notaryLookup.notaryIdentities.first()
+        val notary = notaryLookup.notaryIdentities.<notary name>()
 
         //Building the output MarsVoucher state.
         val uniqueID = UniqueIdentifier()
@@ -308,7 +308,7 @@ Now that you've written the initiating flow, write the responder flow that respo
 
 1. Add the `@InitiatedBy` annotation. This indicates that this is the responder flow.
 
-2. Add in an empty responder flow:
+2. Add in a responder flow:
 
 ```kotlin
 @InitiatedBy(CreateAndIssueMarsVoucherInitiator::class)
@@ -336,6 +336,7 @@ The `CreateBoardingTicket` flow lets Mars Express self-issue a `BoardingTicket` 
 Now that you've written the `CreateAndIssueMarsVoucher` flow, try writing the `CreateBoardingTicket` flow.
 
 You will need these variables:
+
 * `ticketDescription`
 * `daysUntilLaunch`
 
@@ -404,7 +405,7 @@ data class CreateBoardingTicketInitiator @JsonConstructor constructor(private va
         }
 
         //Find notary.
-        val notary = notaryLookup.notaryIdentities.first()
+        val notary = notaryLookup.notaryIdentities.<notary name>()
 
         //Building the output BoardingTicket state.
         val basket = BoardingTicket(description = ticketDescription,marsExpress = flowIdentity.ourIdentity,daysUntilLaunch = daysUntilLaunch)
@@ -446,6 +447,7 @@ Since this flow is performing a redemption, you must have both an initiating flo
 Start writing your initiating flow following the same process used when writing the <a href="#write-the-createandissuemarsvoucher-flow">`CreateAndIssueMarsVoucher`</a> flow.
 
 1. Add these annotations: `@InitiatingFlow`, `@StartableByRPC`.
+
 2. Define the `RedeemBoardingTicketWithVoucherInitiator` class with a `@JsonConstructor`, `RpcStartFlowRequestParameters`, and returning a `SignedTransactionDigest`.
 3. Inject these services:
     * `FlowEngine`
@@ -459,12 +461,13 @@ Start writing your initiating flow following the same process used when writing 
 
 4. Add the `@Suspendable` annotation.
 5. Encapsulate the flow implementation into a call method that returns the `SignedTransactionDigest`.
+
 6. Parse these parameters and add exceptions for when these parameters are incorrect or not present:
     * `voucherID`
     * `holder`
     * `recipientParty`
 
-7. Insert the following method for finding the notary: `notaryLookup.notaryIdentities.**<name of the notary>**()`
+7. Insert the following method for finding the notary: `notaryLookup.notaryIdentities.<notary name>()`
 
 #### Implement queries
 
@@ -527,7 +530,7 @@ class RedeemBoardingTicketWithVoucherInitiator @JsonConstructor constructor(priv
         val recipientParty = identityService.partyFromName(holder) ?: throw NoSuchElementException("No party found for X500 name $holder")
 
         //Find notary.
-        val notary = notaryLookup.notaryIdentities.first()
+        val notary = notaryLookup.notaryIdentities.<notary name>()
 
         //Query the MarsVoucher and the boardingTicket.
         val cursor = persistenceService.query<StateAndRef<MarsVoucher>>(
@@ -642,7 +645,7 @@ class RedeemBoardingTicketWithVoucherInitiator @JsonConstructor constructor(priv
         val recipientParty = identityService.partyFromName(holder) ?: throw NoSuchElementException("No party found for X500 name $holder")
 
         //Find notary.
-        val notary = notaryLookup.notaryIdentities.first()
+        val notary = notaryLookup.notaryIdentities.<notary name>()
 
         //Query the MarsVoucher and the boardingTicket.
         val cursor = persistenceService.query<StateAndRef<MarsVoucher>>(
