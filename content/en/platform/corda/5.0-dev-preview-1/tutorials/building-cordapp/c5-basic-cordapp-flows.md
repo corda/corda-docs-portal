@@ -121,9 +121,9 @@ In this sample CorDapp, add these services:
 * `FlowIdentity`
 * `FlowMessaging`
 * `TransactionBuilderFactory`
-* `IdentityService`
+* `IdentityService`: Provides methods to retrieve `Party` and `AnonymousParty` instances.
 * `NotaryLookupService`
-* `JsonMarshallingService`
+* `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers.
 
 After you've added the services, your code should look like this:
 
@@ -452,10 +452,11 @@ Start writing your initiating flow following the same process used when writing 
     * `FlowIdentity`
     * `FlowMessaging`
     * `TransactionBuilderFactory`
-    * `IdentityService`
+    * `IdentityService`: Provides methods to retrieve `Party` and `AnonymousParty` instances.
     * `NotaryLookupService`
-    * `JsonMarshallingService`
+    * `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers.
     * `PersistenceService`
+
 4. Add the `@Suspendable` annotation.
 5. Encapsulate the flow implementation into a call method that returns the `SignedTransactionDigest`.
 6. Parse these parameters and add exceptions for when these parameters are incorrect or not present:
