@@ -84,7 +84,7 @@ This table was last updated on December 17 2021 14:30 GMT.
 | CENM 1.3.4             | Dec 20                     | Yes                          |
 | CENM 1.4.3             | Dec 21                     | Yes                          |
 | Corda 5 Developer Preview | Dec 21                  | NA - not used in production  |
-| Business Network Manager tool 1.1.1 | Dec 17        | No                           |
+| Business Network Manager tool 1.1.1 | **Released** Dec 17        | No                           |
 | Business Network Manager tool 1.0.1 | Dec 20        | No                           |
 
 {{< note >}}
