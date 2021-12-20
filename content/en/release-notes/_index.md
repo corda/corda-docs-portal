@@ -20,7 +20,7 @@ This page provides updates on all major alerts, fixes and forthcoming patch rele
 ### Update December 20 2021
 
 Investigations are in progress following the release of Log4j 2.17.0. As Corda’s explicit disabling of Java
-serialisation is an effective countermeasure against the vulnerabilities, the update to Log4j 2.17.0 (or the latest version
+serialization is an effective countermeasure against the vulnerabilities, the update to Log4j 2.17.0 (or the latest version
 at that time) will be available at the end of January 2022.
 
 CENM 1.3.4 and Business Network Manager tool 1.1.1 updates have been released. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue)
