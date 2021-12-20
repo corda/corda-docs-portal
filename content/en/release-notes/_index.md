@@ -21,9 +21,9 @@ This page provides updates on all major alerts, fixes and forthcoming patch rele
 
 Investigations are in progress following the release of Log4j 2.17.0. As Corda’s explicit disabling of Java
 serialisation is an effective countermeasure against the vulnerabilities, the update to Log4j 2.17.0 (or the latest version
-at that time) will be available in xxx.
+at that time) will be available end of January 2022.
 
-CENM 1.5.3, CENM 1.3.4, CENM management console (Gateway Plugin), and Business Network Manager tool 1.1.1 updates have
+CENM 1.3.4, CENM management console (Gateway Plugin), and Business Network Manager tool 1.1.1 updates have
 been released. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue)
 for the updated schedule of outstanding patches.
 
@@ -92,7 +92,7 @@ This table was last updated on December 20 2021 11:30 GMT.
 | Corda OS/CE 4.4.10     | **Released** Dec 16        | Yes                          |
 | Corda OS/CE 4.3.10     | **Released** Dec 16        | Yes                          |
 | CENM 1.2.5             | **Released** Dec 17        | No                           |
-| CENM 1.5.3             | Dec 20                     | Yes                          |
+| CENM 1.5.3             | Dec 21                     | Yes                          |
 | CENM 1.3.4             | **Released** Dec 20        | Yes                          |
 | CENM 1.4.3             | Dec 21                     | Yes                          |
 | Corda 5 Developer Preview                | Dec 21                  | NA - not used in production  |
