@@ -17,7 +17,19 @@ This page provides updates on all major alerts, fixes and forthcoming patch rele
 
 ## Apache Log4j announcement
 
-### Updated December 15 2021
+### Update December 17 2021
+
+All planned Corda OS and Corda Enterprise updates have been released. CENM 1.2.5 has been released. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue) for updated schedule of outstanding patches. Some CENM patches have been pushed back from Dec 17 to Dec 20.
+
+All fixes move dependencies to latest secure patch of Apache Log4j - 2.16.0.
+
+### Update December 16 2021
+
+Patch releases to upgrade Corda and CENM to a safe version of Apache Log4j have been accelerated. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue) for new dates. Many patches have been brought forward and are now due for release on December 16.
+
+For details of each release, and to get access to downloads, check the release notes page for your version of Corda and CENM in the docs.
+
+### Update December 15 2021
 
 {{< note >}}
 A new vulnerability has been discovered in version 2.15.0 of the log4j logging library, as described here: https://nvd.nist.gov/vuln/detail/CVE-2021-45046.
@@ -55,22 +67,28 @@ Refer to https://nvd.nist.gov/vuln/detail/CVE-2021-44228 or https://logging.apac
 
 ## Corda and CENM patch release timetable for Apache Log4J issue
 
-This table was last updated on December 15 2021 11:15 GMT.
+This table was last updated on December 20 2021 11:30 GMT.
 
 **All patches listed upgrade to Log4j 2.16.0**
 
-| Version with new patch | Patch target shipping date    | Interim mitigation available |
-| :------------- | :------------- | :------------- |
-| Corda OS/CE 4.8.5      | Dec 16      | Yes |
-| Corda OS/CE 4.6.7      | Dec 16      | Yes |
-| Corda OS/CE 4.5.8      | Dec 17      | Yes |
-| Corda OS/CE 4.7.5      | Dec 17      | Yes |
-| Corda OS/CE 4.4.10      | Dec 20      | Yes |
-| Corda OS/CE 4.3.10      | Dec 20      | Yes |
-| CENM 1.2.5      | Dec 17      | No |
-| CENM 1.5.3      | Dec 17      | Yes |
-| CENM 1.3.4      | Dec 20      | Yes |
-| CENM 1.4.3      | Dec 20      | Yes |
+| Version with new patch | Patch target shipping date | Interim mitigation available |
+|:---------------------- |:-------------------------- |:---------------------------- |
+| Corda OS/CE 4.8.5      | **Released** Dec 16        | Yes                          |
+| Corda OS/CE 4.6.7      | **Released** Dec 16        | Yes                          |
+| Corda OS/CE 4.5.8      | **Released** Dec 16        | Yes                          |
+| Corda OS/CE 4.7.5      | **Released** Dec 16        | Yes                          |
+| Corda OS/CE 4.4.10     | **Released** Dec 16        | Yes                          |
+| Corda OS/CE 4.3.10     | **Released** Dec 16        | Yes                          |
+| CENM 1.2.5             | **Released** Dec 17        | No                           |
+| CENM 1.5.3             | Dec 20                     | Yes                          |
+| CENM 1.3.4             | Dec 20                     | Yes                          |
+| CENM 1.4.3             | Dec 21                     | Yes                          |
+| Corda 5 Developer Preview                | Dec 21                  | NA - not used in production  |
+| Business Network Manager tool 1.1.1      | **Released** Dec 17     | No                           |
+| Business Network Manager tool 1.0.1      | Dec 22                  | No                           |
+| CENM management console (Gateway Plugin) | Dec 20                  | No                           |
+| Node management console                  | Dec 21                  | No                           |
+| Flow management console                  | Dec 21                  | No                           |
 
 {{< note >}}
 These patch releases are valid for the stated supported versions of Corda and CENM only. If you are not using a supported version of Corda or CENM, please upgrade to one of the above versions.
