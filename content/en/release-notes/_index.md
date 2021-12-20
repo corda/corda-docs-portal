@@ -67,7 +67,7 @@ Refer to https://nvd.nist.gov/vuln/detail/CVE-2021-44228 or https://logging.apac
 
 ## Corda and CENM patch release timetable for Apache Log4J issue
 
-This table was last updated on December 20 2021 14:30 GMT.
+This table was last updated on December 20 2021 12:00 GMT.
 
 **All patches listed upgrade to Log4j 2.16.0**
 
