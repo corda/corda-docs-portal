@@ -21,10 +21,9 @@ This page provides updates on all major alerts, fixes and forthcoming patch rele
 
 Investigations are in progress following the release of Log4j 2.17.0. As Corda’s explicit disabling of Java
 serialisation is an effective countermeasure against the vulnerabilities, the update to Log4j 2.17.0 (or the latest version
-at that time) will be available end of January 2022.
+at that time) will be available at the end of January 2022.
 
-CENM 1.3.4, CENM management console (Gateway Plugin), and Business Network Manager tool 1.1.1 updates have
-been released. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue)
+CENM 1.3.4 and Business Network Manager tool 1.1.1 updates have been released. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue)
 for the updated schedule of outstanding patches.
 
 All fixes move dependencies to Log4j 2.16.0.
@@ -79,7 +78,7 @@ Refer to https://nvd.nist.gov/vuln/detail/CVE-2021-44228 or https://logging.apac
 
 ## Corda and CENM patch release timetable for Apache Log4J issue
 
-This table was last updated on December 20 2021 11:30 GMT.
+This table was last updated on December 20 2021 16:30 GMT.
 
 **All patches listed upgrade to Log4j 2.16.0**
 
@@ -98,7 +97,7 @@ This table was last updated on December 20 2021 11:30 GMT.
 | Corda 5 Developer Preview                | Dec 21                  | NA - not used in production  |
 | Business Network Manager tool 1.1.1      | **Released** Dec 17     | No                           |
 | Business Network Manager tool 1.0.1      | Dec 22                  | No                           |
-| CENM management console (Gateway Plugin) | Dec 20                  | No                           |
+| CENM management console (Gateway Plugin) | Dec 21                  | No                           |
 | Node management console                  | Dec 21                  | No                           |
 | Flow management console                  | Dec 21                  | No                           |
 
