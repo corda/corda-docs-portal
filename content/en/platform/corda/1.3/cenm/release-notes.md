@@ -16,9 +16,15 @@ title: Release notes
 
 # Release notes
 
-## Corda Enterprise Network Manager 1.3.3
+## Corda Enterprise Network Manager 1.3.4
 
-CENM 1.3.3 fixes an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version 2.16.0.
+{{< note >}}
+
+This is a direct upgrade from 1.3.2 No version 1.3.3 was released.
+
+{{< /note >}}
+
+CENM 1.3.4 fixes an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version 2.16.0.
 
 {{< warning >}}
 Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). This is the most secure way to mitigate any risks associated with this vulnerability.
