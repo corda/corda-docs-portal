@@ -17,11 +17,23 @@ This page provides updates on all major alerts, fixes and forthcoming patch rele
 
 ## Apache Log4j announcement
 
+### Update December 20 2021
+
+Investigations are in progress following the release of Log4j 2.17.0. As Corda’s explicit disabling of Java
+serialisation is an effective countermeasure against the vulnerabilities, the update to Log4j 2.17.0/the latest version
+will be available in xxx.
+
+CENM 1.5.3, CENM 1.3.4, CENM management console (Gateway Plugin), and Business Network Manager tool 1.1.1 updates have
+been released. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue)
+for the updated schedule of outstanding patches.
+
+All fixes move dependencies to Log4j 2.16.0.
+
 ### Update December 17 2021
 
-All planned Corda OS and Corda Enterprise updates have been released. CENM 1.2.5 has been released. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue) for updated schedule of outstanding patches. Some CENM patches have been pushed back from Dec 17 to Dec 20.
+All planned Corda OS and Corda Enterprise updates have been released. CENM 1.2.5 has been released. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue) for the updated schedule of outstanding patches. Some CENM patches have been pushed back from Dec 17 to Dec 20.
 
-All fixes move dependencies to latest secure patch of Apache Log4j - 2.16.0.
+All fixes move dependencies to the latest secure patch of Apache Log4j - 2.16.0.
 
 ### Update December 16 2021
 
