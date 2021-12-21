@@ -1,5 +1,5 @@
 ---
-date: '2021-08-02'
+date: '2021-12-21'
 menu:
   corda-enterprise-4-5:
     identifier: "corda-enterprise-4-5-node-minor-version-upgrade"
@@ -33,7 +33,7 @@ The protocol tolerates node outages. Peers on the network wait for your node to 
 Node operators must drain nodes (or CorDapps on nodes) before they can upgrade them. Draining brings all [flows](cordapps/api-flows.md) that are currently running to a smooth halt. The node finishes any work already in progress, and queues any new work. This process frees CorDapps from the requirement to migrate workflows from an arbitrary point to another arbitrary point—a task that would rapidly become unfeasible as workflow
 and protocol complexity increases.
 
-To drain a node, run `gracefulShutdown`. This waits for the all currently running flows to be completed and then shuts the node down.
+To drain a node, run `gracefulShutdown`. This waits for all running flows to be completed and then shuts the node down.
 
 {{< warning >}}
 The length of time a node takes to drain varies. It depends on how your CorDapps are designed and whether any CorDapps are
@@ -47,7 +47,7 @@ For a smooth node draining process, avoid long-running flows.
 
 Replace the `corda.jar` with the latest version of Corda.
 
-Download the latest version of Corda from [our Artifactory site](https://software.r3.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
+Download the latest version of Corda from [Artifactory](https://software.r3.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
 Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java the
 node requires.
 
@@ -59,7 +59,7 @@ Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not cur
 
 Start the node in the normal way.
 
-The node will perform any automatic data migrations required, which may take some
+The node performs any required automatic data migrations, which may take some
 time. If the migration process is interrupted, restart the node to continue. The node stops automatically when migration is complete.
 
 ## Step 4: Undrain the node
@@ -73,5 +73,5 @@ Your upgrade is complete.
 ## Notes
 
 {{< warning >}}
-You must align the multi-RPC client version with the node version. That means that both must be running the same version of Corda Enterprise. See [Querying flow data](node/operating/querying-flow-data.md) for more information.
+You must align the multi-RPC client version with the node version. Both must be running the same version of Corda Enterprise. See [Querying flow data](node/operating/querying-flow-data.md) for more information.
 {{< /warning >}}
