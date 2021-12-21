@@ -87,7 +87,7 @@ Refer to https://nvd.nist.gov/vuln/detail/CVE-2021-44228 or https://logging.apac
 
 ## Corda and CENM patch release timetable for Apache Log4J issue
 
-This table was last updated on December 21 2021 16:45 GMT.
+This table was last updated on December 21 2021 17:00 GMT.
 
 **All patches listed upgrade to Log4j 2.16.0**
 
@@ -102,7 +102,7 @@ This table was last updated on December 21 2021 16:45 GMT.
 | CENM 1.2.5                               | **Released** Dec 17        | No                           |
 | CENM 1.5.3                               | **Released** Dec 21        | Yes                          |
 | CENM 1.3.4                               | **Released** Dec 20        | Yes                          |
-| CENM 1.4.3                               | Dec 21                     | Yes                          |
+| CENM 1.4.3                               | Dec 22                     | Yes                          |
 | Corda 5 Developer Preview                | Jan 7                      | NA - not used in production  |
 | Business Network Manager tool 1.1.1      | **Released** Dec 17        | No                           |
 | Business Network Manager tool 1.0.1      | Dec 22                     | No                           |
