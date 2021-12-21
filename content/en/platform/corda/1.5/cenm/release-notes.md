@@ -33,7 +33,7 @@ Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https:
 
 ### Fixed issues
 
-We have updated the Log4j dependency to version 2.16.0 to mitigate CVE-2021-44228.
+We have updated the Log4j dependency to version 2.16.0 to mitigate CVE-2021-44228. This includes an update to the [CENM Management Console](../../../../../en/platform/corda/1.5/cenm/cenm-console.md). 
 
 ## Corda Enterprise Network Manager 1.5.1
 
