@@ -38,10 +38,6 @@ To use the CENM management console, you must install it as a *plug-in* to your G
 
 The CENM management console is accessed via the [Gateway Service](../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md). Once you have added the plugin binaries to the correct directory on the machine that hosts your Gateway Service, you can access the web service from any browser.
 
-{{< note >}}
-Apache Log4j dependency has been updated to version 2.16.0. This is to prevent exposure to security issues raised with earlier versions of Log4j 2.
-{{< /note >}}
-
 To install the CENM management console:
 
 1. Download the latest Gateway Service binaries from [Artifactory](https://software.r3.com).
