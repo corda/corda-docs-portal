@@ -44,7 +44,7 @@ The plug-in consists of two `.jar` files:
 These files can be downloaded from Artifactory: <a href="https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-gateway-plugins">`corda-gatewayplugins`</a>.
 
 {{< note >}}
-Apache Log4j dependency has been updated to version 2.16.0. This is to prevent exposure to security issues raised with earlier versions of Log4j.
+In version 1.0.2, Apache Log4j dependency has been updated to version 2.16.0. This is to prevent exposure to security issues raised with earlier versions of Log4j.
 {{< /note >}}
 
 ## Installation
