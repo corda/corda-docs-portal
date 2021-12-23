@@ -19,7 +19,7 @@ This page provides updates on all major alerts, fixes and forthcoming patch rele
 
 ### Update December 22 2021
 
-An update for CENM 1.4.3 has been released. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue) for the updated schedule of outstanding patches.
+An update for CENM 1.4.3 has been released, and version 1.0.2 has been released for the node management and flow management consoles. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue) for the updated schedule of outstanding patches.
 
 All fixes move dependencies to Log4j 2.16.0.
 
@@ -93,7 +93,7 @@ Refer to https://nvd.nist.gov/vuln/detail/CVE-2021-44228 or https://logging.apac
 
 ## Corda and CENM patch release timetable for Apache Log4J issue
 
-This table was last updated on December 22 2021 10:30 GMT.
+This table was last updated on December 22 2021 15:30 GMT.
 
 **All patches listed upgrade to Log4j 2.16.0**
 
@@ -111,10 +111,10 @@ This table was last updated on December 22 2021 10:30 GMT.
 | CENM 1.4.3                               | **Released** Dec 22        | Yes                          |
 | Corda 5 Developer Preview                | Jan 7                      | NA - not used in production  |
 | Business Network Manager tool 1.1.1      | **Released** Dec 17        | No                           |
-| Business Network Manager tool 1.0.1      | Dec 22                     | No                           |
+| Business Network Manager tool 1.0.1      | Dec 23                     | No                           |
 | CENM management console (Gateway Plugin) | **Released** Dec 21        | No                           |
-| Node management console                  | Dec 22                     | No                           |
-| Flow management console                  | Dec 22                     | No                           |
+| Node management console 1.0.2            | **Released** Dec 22        | No                           |
+| Flow management console 1.0.2            | **Released** Dec 22        | No                           |
 
 {{< note >}}
 These patch releases are valid for the stated supported versions of Corda and CENM only. If you are not using a supported version of Corda or CENM, please upgrade to one of the above versions.
