@@ -498,13 +498,7 @@ You can find the following useful fields in the output:
 
 ### Work with flows
 
-Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows. You may also find it useful to query flow data.
-
-
-#### Query flow data
-
-The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](querying-flow-data.html#querying-flow-data-via-the-node-shell).
-
+Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows.
 
 #### Start a flow
 
