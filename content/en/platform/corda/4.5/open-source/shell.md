@@ -146,7 +146,13 @@ The standalone shell is a standalone application interacting with a Corda node v
 
 ### Starting the standalone shell
 
-Run the following command from the terminal:
+To run `corda-shell`:
+
+1. Download the shell `.jar` file for your version of Corda—for example, `shell-cli-4.5.jar`.
+
+2. Add the `.jar` file to your environment variables.
+
+3. Run the following command from the terminal:
 
 ```bash
 corda-shell [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
