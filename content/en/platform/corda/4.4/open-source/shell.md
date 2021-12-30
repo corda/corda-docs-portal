@@ -153,7 +153,7 @@ To run `corda-shell`:
 
 1. Download the shell `.jar` file for your version of Corda—for example, `shell-cli-4.4.jar`.
 
-2. Add the `.jar` file to your environment variables.
+2. Add `corda-shell` to your environment variable that points to the `.jar` file.
 
 3. Run the following command from the terminal:
 
