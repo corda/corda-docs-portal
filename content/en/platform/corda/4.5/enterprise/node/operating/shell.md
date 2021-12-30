@@ -491,7 +491,7 @@ You can find the following useful fields in the output:
 
 ### Work with flows
 
-Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows. You can also perform several commands that help to manage flows that have encountered an error. These are: `retry`, `pause`, `pauseAll`, `retryAllPaused`, `pauseAllHospitalized`, and `retryAllPausedHospitalized`.
+Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows.
 
 #### Start a flow
 
