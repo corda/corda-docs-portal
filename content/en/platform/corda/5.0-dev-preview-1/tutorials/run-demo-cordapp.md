@@ -121,7 +121,7 @@ While this is *not* the recommended approach, you can also output the contents t
 
 7. Check the CorDapp's status using [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md):
 ```
-corda-cli network status -n solar-system`
+corda-cli network status -n solar-system
 ```
 
   You'll be able to see the status of the node. The nodes are up and running when their status is `Ready`.
@@ -134,7 +134,7 @@ Take note of the `HTTP RPC port` for each node. You will use these later when yo
 
 In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
 ```
-corda-cli package install -n solar-system corda5-solar-system-1.0-SNAPSHOT-package.cpb`
+corda-cli package install -n solar-system corda5-solar-system-1.0-SNAPSHOT-package.cpb
 ```
 
 In this command, you must specify the network and the `.cpb` file. Depending on the Gradle setup, the `.cpb` will be in one of the build folders and the name may be different.
