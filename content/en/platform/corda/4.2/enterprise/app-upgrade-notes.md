@@ -668,7 +668,7 @@ may result in queries returning more states than expected if the node is using o
 Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
-* The [new withEntityManager API](release-notes.html#jpa-access-in-flows-and-services) for using JPA inside your flows and services.
+* The [new withEntityManager API](api-persistence.html#jpa-support) for using JPA inside your flows and services.
 * [Reference States](api-states.md#reference-states), that let you use an input state without consuming it.
 * [State Pointers](api-states.md#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 
