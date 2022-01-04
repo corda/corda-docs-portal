@@ -606,7 +606,7 @@ You will be able to use this feature if the compatibility zone you plan to deplo
 
 to check the correctness of the transaction. Please take this into account for your own schedule planning.You can read more about signature constraints and what they do in [API: Contract Constraints](api-contract-constraints.md). The `TransactionBuilder` class will
 automatically use them if your application JAR is signed. **We recommend all JARs are signed**. To learn how to sign your JAR files, read
-[Signing the CorDapp JAR](cordapp-build-systems.html#cordapp-build-system-signing-cordapp-jar-ref). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
+[Signing the CorDapp JAR](cordapp-build-systems.html#signing-the-cordapp-jar). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
 with developer certificates is deployed to a production node, the node will refuse to start. Therefore to deploy apps built for Corda 4
 to production you will need to generate signing keys and integrate them with the build process.
 
