@@ -308,7 +308,9 @@ Now that you've written the initiating flow, write the responder flow that respo
 
 1. Add the `@InitiatedBy` annotation. This indicates that this is the responder flow.
 
-2. Add in a responder flow:
+2. Add in a responder flow.
+
+When the responder receives a half-signed transaction from an initiating party, it is most likely being asked to sign the transaction. The responder flow will go through some checks on the transaction (implemented in the responder flow). If all the checks are passed, it will sign the transaction and return it back to the initiating party. Next, it will add a fully-signed transaction to its local ledger. This is done by the `ReceiveFinalityFlow` subflow.
 
 ```kotlin
 @InitiatedBy(CreateAndIssueMarsVoucherInitiator::class)
