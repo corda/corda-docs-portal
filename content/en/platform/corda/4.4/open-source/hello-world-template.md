@@ -57,7 +57,7 @@ git clone https://github.com/corda/cordapp-template-java.git ; cd cordapp-templa
 ## Opening the template in IntelliJ
 
 Once the template is download, open it in IntelliJ by following the instructions here:
-[Running a sample CorDapp](https://docs.corda.net/tutorial-cordapp.html#opening-the-example-cordapp-in-intellij).
+[Running a sample CorDapp](../../../../../en/platform/corda/4.4/open-source/tutorial-cordapp.html#opening-the-sample-cordapp-in-intellij-idea).
 
 
 ## Template structure

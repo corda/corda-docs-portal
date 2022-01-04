@@ -301,8 +301,8 @@ the borrower from unilaterally updating the ledger in a way that only benefits t
 After completing this tutorial, your CorDapp should look like this:
 
 
-* Java: [https://github.com/corda/corda-tut2-solution-java](https://github.com/corda/corda-tut2-solution-java)
-* Kotlin: [https://github.com/corda/corda-tut2-solution-kotlin](https://github.com/corda/corda-tut2-solution-kotlin)
+* [Java](https://github.com/corda/corda-tut2-solution-java)
+* [Kotlin](https://github.com/corda/corda-tut2-solution-kotlin)
 
 You should now be ready to develop your own CorDapps. You can also find a list of sample CorDapps
 [here](https://www.corda.net/samples/). You are now ready to learn more about the Corda API.

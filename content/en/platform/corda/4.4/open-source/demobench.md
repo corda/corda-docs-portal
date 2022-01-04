@@ -25,7 +25,7 @@ DemoBench is a standalone desktop application that makes it easy to configure an
 
 ## Downloading
 
-Installers compatible with the latest Corda release can be downloaded from the [Corda website](www.corda.net).
+Installers compatible with the latest Corda release can be downloaded from the [Corda website](https://docs.r3.com/).
 
 
 
