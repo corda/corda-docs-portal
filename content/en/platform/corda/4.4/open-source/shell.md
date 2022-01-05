@@ -151,7 +151,7 @@ The standalone shell is a standalone application interacting with a Corda node v
 
 To run `corda-shell`:
 
-1. Download the shell `.jar` file for your version of Corda—for example, `shell-cli-4.4.jar`.
+1. Download the shell `.jar` file for your version of Corda from [Artifactory](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-shell-cli/)—for example, `corda-tools-shell-cli-4.4.jar`.
 
 2. Add `corda-shell` to your environment variable that points to the `.jar` file.
 
