@@ -471,7 +471,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 
 There is an example project that demonstrates this in the `samples` folder of the Corda Git repository, called `cordapp-configuration` .
-API documentation can be found at [api/kotlin/corda/net.corda.core.cordapp/index.html](https://api.corda.net/api/corda-os/4.4/html/api/kotlin/corda/net.corda.core.cordapp/index.html).
+API documentation can be found at [api/kotlin/corda/net.corda.core.cordapp/index.html](https:///api/corda-os/4.4/html/api/kotlin/corda/net.corda.core.cordapp/index.html).
 
 
 ## Minimum and target platform version
@@ -611,8 +611,8 @@ Future versions of Corda will de-couple this custom schema dependency to remove 
 As of Corda 4, CorDapp Contract JARs must be installed on a node by a trusted uploader, either by
 
 
-* installing manually as per [Installing the CorDapp JAR](#cordapp-install-ref) and re-starting the node.
-* uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC](clientrpc.html#clientrpc-connect-ref))
+* installing manually as per [Installing the CorDapp JAR](#installing-the-cordapp-jar) and re-starting the node.
+* uploading the attachment JAR to the node via RPC, either programmatically (see [Connecting to a node via RPC](clientrpc.html#reconnecting-rpc-clients))
 or via the [Node shell](shell.md) by issuing the following command:
 
 `>>> run uploadAttachment jar: path/to/the/file.jar`
