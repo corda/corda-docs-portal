@@ -148,7 +148,7 @@ The standalone shell is a standalone application interacting with a Corda node v
 
 To run `corda-shell`:
 
-1. Download the shell `.jar` file for your version of Corda—for example, `shell-cli-4.4.jar`.
+1. Download the shell `.jar` file for your version of Corda from [Artifactory](https://software.r3.com/ui/repos/tree/General/corda-enterprise-for-customers)—for example, `corda-tools-shell-cli-4.4.jar`.
 
 2. Add `corda-shell` to your environment variable that points to the `.jar` file.
 
@@ -496,7 +496,7 @@ You can find the following useful fields in the output:
 
 ### Work with flows
 
-Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows. 
+Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows.
 
 #### Start a flow
 
