@@ -88,7 +88,7 @@ signed by the same public keys, and uploaded by a trusted uploader. This allows 
 of a contract without having to manually install that version, provided a newer version is installed. Similarly, non-contract attachments
 are whitelisted if another attachment is present on the node that is signed by the same public key.
 * Package namespace ownership configurations can be now be set as described in
-[Package namespace ownership](generating-a-node.html#node-package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
+[Package namespace ownership](generating-a-node.html#package-namespace-ownership), when using the Cordformation plugin version 4.0.43.
 * Wildcards can now be used when specifying RPC permissions, for example `StartFlow.foo.bar.*` will allow users to start any flow in the
 `foo.bar` package. See [rpcUsers](corda-configuration-file.html#corda-configuration-file-rpc-users) for more information.
 * `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:+CrashOnOutOfMemoryError` have been added to the default JVM options of the node.
@@ -137,7 +137,7 @@ complements `database.initialiseSchema` to disable DDL handling altogether.
 Updated all samples to reflect new conventions.
 * Introduction of unique CorDapp version identifiers in jar manifests for contract and flows/services CorDapps.
 Updated all sample CorDapps to reflect new conventions.
-See [CorDapp separation](cordapp-build-systems.html#cordapp-separation-ref) for further information.
+See [CorDapp separation](cordapp-build-systems.html#separation-of-cordapp-contracts-flows-and-services) for further information.
 * Automatic Constraints propagation for hash-constrained states to signature-constrained states.
 This allows Corda 4 signed CorDapps using signature constraints to consume existing hash constrained states generated
 by unsigned CorDapps in previous versions of Corda.
