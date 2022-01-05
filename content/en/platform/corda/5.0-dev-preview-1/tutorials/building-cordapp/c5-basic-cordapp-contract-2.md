@@ -115,6 +115,54 @@ class BoardingTicketContract : Contract {
 }
 ```
 
+### Add the contract's ID
+
+To identify your contract when building transactions, add its ID.
+
+{{< note >}}
+This ID is not used in the production environment, but it is used in testing scenarios. It's best practice to add it to the contract.
+{{< /note >}}
+
+This is what your code should look like now:
+
+```kotlin
+package net.corda.missionMars.contracts;
+
+class BoardingTicketContract : Contract {
+
+  // Used to indicate the transaction's intent.
+  interface Commands : CommandData {
+        class CreateTicket : Commands
+        class RedeemTicket : Commands
+  }
+companion object {
+    // This is used to identify the contract when building a transaction.
+    const val ID = "net.corda.missionMars.contracts.BoardingTicketContract"
+}
+```
+
+### Add `verify` methods
+
+As in the `MarsVoucherContract`, you must add a `verify` method that is automatically triggered when a transaction is executed. Use the `verify` method to confirm that the transaction components are following the restrictions that you want to implement with the contract.
+
+In the `BoardingTicketContract`, the `verify` method must confirm that when creating the ticket:
+
+* The transaction only outputs one `BoardingTicket` state.
+* The output `BoardingTicket` state must have a clear description of trip information.
+* The output `BoardingTicket` state must have a launch date later than the time the ticket is created.
+
+The contract must also verify transaction components for when the ticket is redeemed:
+
+* The transaction must consume two states (`MarsVoucher` and `BoardingTicket`).
+* The issuer of the `BoardingTicket` must be the space company that creates the `BoardingTicket`.
+* The output `BoardingTicket` state must have a launch date later than the time the ticket is created.
+
+{{< note >}}
+These are simplified verifications for the purpose of this example. When writing your own CorDapp, components of the `verify` method should be strong representations of your CorDapp's business logic.
+{{< /note >}}
+
+
+
 ### Check your work
 
 Once you've written the `BoardingTicketContract`, your code should look like this:
