@@ -471,7 +471,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 
 There is an example project that demonstrates this in the `samples` folder of the Corda Git repository, called `cordapp-configuration` .
-API documentation can be found at [api/kotlin/corda/net.corda.core.cordapp/index.html](https:///api/corda-os/4.4/html/api/kotlin/corda/net.corda.core.cordapp/index.html).
+API documentation can be found at [api/kotlin/corda/net.corda.core.cordapp/index.html](../../../../../en/api-ref/corda/4.8/open-source/kotlin/corda/net.corda.core.cordapp/index.md).
 
 
 ## Minimum and target platform version
