@@ -484,8 +484,8 @@ In the implementation of this initiating flow, you must query the `MarsVoucher` 
 1. Use a `cursor` to point to a specific line in the query results.
 2. Add a `persistenceService.query` to get the `StateAndRef` of the `MarsVoucher`.
 3. Use the [predefined query](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.html#query-for-states-when-your-state-does-not-have-a-mapped-schema) `findByUuidAndStateStatus` to find the `MarsVoucher` you need by the state's unique identifier and status.
-4. Because you need to return a `StateAndRef`, use Corda's built-in `Corda.IdentityStateAndRefPostProcessor`.
-5. Because you need to return a `ContractState`, use Corda's built-in `IdentityContractStatePostProcessor`.
+4. To return a `StateAndRef`, use Corda's built-in `Corda.IdentityStateAndRefPostProcessor`.
+5. To return a `ContractState`, use Corda's built-in `IdentityContractStatePostProcessor`.
 6. Use the `poll` function to set a maximum poll size and timeout duration for the query.
 
 ##### Add a query for the `BoardingTicket`
@@ -493,8 +493,8 @@ In the implementation of this initiating flow, you must query the `MarsVoucher` 
 1. Use an additional cursor (`cursor2`) to point to a specific line in the query results.
 2. Add a `persistenceService.query` to get the `StateAndRef` of the `BoardingTicket`.
 3. Use the [predefined query](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/persistence/query-api.html#query-for-states-when-your-state-does-not-have-a-mapped-schema) `findByStateStatusAndContractStateClassName` to find the `BoardingTicket` you need by the state's status and contract state class name.
-4. Because you need to return a `StateAndRef`, use Corda's built-in `Corda.IdentityStateAndRefPostProcessor`.
-5. Because you need to return a `ContractState`, use Corda's built-in `IdentityContractStatePostProcessor`.
+4. To return a `StateAndRef`, use Corda's built-in `Corda.IdentityStateAndRefPostProcessor`.
+5. To return a `ContractState`, use Corda's built-in `IdentityContractStatePostProcessor`.
 6. Use the `poll` function to set a maximum poll size and timeout duration for the query.
 
 Your code should now look like this:
