@@ -95,4 +95,4 @@ The nodes’ webservers always run in a separate process, and cannot be attached
 
 ## By enabling remote debugging on a node
 
-See [Enabling remote debugging](node-commandline.md#enabling-remote-debugging).
+See [Enabling remote debugging](node-commandline.html#enabling-remote-debugging).
