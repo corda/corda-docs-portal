@@ -116,7 +116,7 @@ This table was last updated on December 24 2021 09:00 GMT.
 | CENM 1.5.3                               | **Released** Dec 21        | Yes                          |
 | CENM 1.3.4                               | **Released** Dec 20        | Yes                          |
 | CENM 1.4.3                               | **Released** Dec 22        | Yes                          |
-| Corda 5 Developer Preview                | Jan 7                      | NA - not used in production  |
+| Corda 5 Developer Preview                | By Feb 1                   | NA - not used in production  |
 | Business Network Manager tool 1.1.1      | **Released** Dec 17        | No                           |
 | Business Network Manager tool 1.0.1      | **Released** Dec 24        | No                           |
 | CENM management console (Gateway Plugin) | **Released** Dec 21        | No                           |
