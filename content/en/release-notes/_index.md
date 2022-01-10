@@ -32,8 +32,9 @@ All fixes move dependencies to Log4j 2.16.0.
 
 ### Update December 21 2021
 
-Investigations are in progress following the release of Log4j 2.17.0. As Corda’s explicit disabling of Java
-serialization is an effective countermeasure against the vulnerabilities, the update to Log4j 2.17.0 (or the latest version at that time) will be available at the end of January 2022.
+Investigations are in progress following the release of Log4j 2.17.0. However, as effective countermeasures against the
+vulnerabilities identified in earlier versions have now been implemented, the update to Log4j 2.17.0 (or the latest
+version at that time) will be available at the end of January 2022.
 
 Updates for CENM 1.5.3 and the CENM Management Console have been released. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue) for the updated schedule of outstanding patches.
 
