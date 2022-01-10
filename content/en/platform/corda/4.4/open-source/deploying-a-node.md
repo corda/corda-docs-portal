@@ -53,7 +53,7 @@ handling, and ensures the Corda service is run at boot.
 `sudo adduser --system --no-create-home --group corda`
 
 * Create a directory called `/opt/corda` and change its ownership to the user you want to use to run Corda:`mkdir /opt/corda; chown corda:corda /opt/corda`
-* Download the [Corda jar](https://r3.bintray.com/corda/net/corda/corda/)
+* Download the [Corda jar](https://software.r3.com:443/artifactory/corda-releases/net/corda/corda/4.4)
 (under `/4.4/corda-4.4.jar`) and place it in `/opt/corda`
 * Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
@@ -91,7 +91,7 @@ communicate with your node.
 * Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
 * Enter an email address which will be used as an administrative contact during the registration process. This is
 only visible to the permissioning service.
-* Enter your node’s desired legal name (see [Node identity](node-naming.md#node-naming) for more details).
+* Enter your node’s desired legal name (see [Node identity](node-naming.md) for more details).
 * If required, add RPC users
 
 
@@ -244,7 +244,7 @@ communicate with your node.
 * Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
 * Enter an email address which will be used as an administrative contact during the registration process. This is
 only visible to the permissioning service.
-* Enter your node’s desired legal name (see [Node identity](node-naming.md#node-naming) for more details).
+* Enter your node’s desired legal name (see [Node identity](node-naming.md) for more details).
 * If required, add RPC users
 
 

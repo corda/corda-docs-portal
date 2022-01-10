@@ -22,7 +22,7 @@ title: Checking API stability
 # Checking API stability
 
 We have committed not to alter Corda’s API so that developers will not have to keep rewriting their CorDapps with each
-new Corda release. The stable Corda modules are listed [here](api-stability-guarantees.md#internal-apis-and-stability-guarantees). Our CI process runs an “API Stability”
+new Corda release. The stable Corda modules are listed [here](api-stability-guarantees.md). Our CI process runs an “API Stability”
 check for each GitHub pull request in order to check that we don’t accidentally introduce an API-breaking change.
 
 
@@ -48,7 +48,7 @@ its signature somehow altered.
 * Addition of a new method to an interface or abstract class. Types that have been annotated as `@DoNotImplement` are
 excluded from this check. (This annotation is also inherited across subclasses and sub-interfaces.)
 * Exposure of an internal type via a public API. Internal types are considered to be anything in a `*.internal.` package
-or anything in a module that isn’t in the stable modules list [here](api-stability-guarantees.md#internal-apis-and-stability-guarantees).
+or anything in a module that isn’t in the stable modules list [here](api-stability-guarantees.md).
 
 Developers can execute these commands themselves before submitting their PR, to ensure that they haven’t inadvertently
 broken Corda’s API.

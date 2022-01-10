@@ -8,7 +8,7 @@ section_menu: corda-5-dev-preview
 title: Installing Corda CLI
 ---
 
-Instructions on how to install the Corda CLI tool.
+You can install Corda CLI manually or through automated installation. Before installing via either of these methods, ensure that you have [Docker](https://www.docker.com/) version 18.06.0 or higher installed.
 
 ## Automated installation
 

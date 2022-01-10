@@ -46,7 +46,7 @@ The environment is therefore more aligned to the testing of the operational char
 * Access to the appropriate environment has been agreed with your project representative with sufficient advance notice (4 weeks is standard but may be longer if you have special service requirements) to ensure appropriate SLAs can be in place. Your project representative will be able to supply the booking template.
 
 {{< note >}}
-Corda Network Pre-Production is governed by an [independent Foundation](https://corda.network/governance/index.html).
+Corda Network Pre-Production is governed by an [independent Foundation](https://corda.network/corda-network-foundation/about-the-foundation/).
 {{< /note >}}
 
 ## Joining the Pre-Production environment

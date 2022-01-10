@@ -219,8 +219,8 @@ parts:
 After completing this tutorial, your CorDapp should look like this:
 
 
-* Java: [https://github.com/corda/corda-tut1-solution-java](https://github.com/corda/corda-tut1-solution-java)
-* Kotlin: [https://github.com/corda/corda-tut1-solution-kotlin](https://github.com/corda/corda-tut1-solution-kotlin)
+* [Java](https://github.com/corda/corda-tut1-solution-java)
+* [Kotlin](https://github.com/corda/corda-tut1-solution-kotlin)
 
 
 ## Next steps
