@@ -185,7 +185,7 @@ Next you must add the flow implementation to the initiating flow by encapsulatin
 2. Add the `call` method with the return type `SignedTransactionDigest`.
 3. Parse your parameters using the `mapOfParams` value. Since the parameters the flow will use come in JSON format, the JSON object must be parsed to extract the parameters so the flow can run.
 4. Add appropriate error handling - exceptions must be thrown when required fields (`voucherDesc`, `holder`, `recipientParty`) are not found.
-5. Insert the following method for finding the notary: `notaryLookup.notaryIdentities.<notary name>()`.
+5. Insert the following method for finding the notary: `notaryLookup.getNotary(CordaX500Name.parse("O=notary, L=London, C=GB"))!!`.
 6. Build the output `MarsVoucher` state with a `UniqueIdentifier`.
 
 ##### Build the transaction
@@ -267,7 +267,7 @@ class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private va
         val recipientParty = identityService.partyFromName(target) ?: throw NoSuchElementException("No party found for X500 name $target")
 
         //Find the notary.
-        val notary = notaryLookup.notaryIdentities.<notary name>()
+        val notary = notaryLookup.getNotary(CordaX500Name.parse("O=notary, L=London, C=GB"))!!
 
         //Building the output MarsVoucher state.
         val uniqueID = UniqueIdentifier()
@@ -408,7 +408,7 @@ data class CreateBoardingTicketInitiator @JsonConstructor constructor(private va
         }
 
         //Find notary.
-        val notary = notaryLookup.notaryIdentities.<notary name>()
+        val notary = notaryLookup.getNotary(CordaX500Name.parse("O=notary, L=London, C=GB"))!!
 
         //Building the output BoardingTicket state.
         val basket = BoardingTicket(description = ticketDescription,marsExpress = flowIdentity.ourIdentity,daysUntilLaunch = daysUntilLaunch)
@@ -473,7 +473,7 @@ Start writing your initiating flow following the same process used when writing 
     * `holder`
     * `recipientParty`
 
-7. Insert the following method for finding the notary: `notaryLookup.notaryIdentities.<notary name>()`
+7. Insert the following method for finding the notary: `notaryLookup.getNotary(CordaX500Name.parse("O=notary, L=London, C=GB"))!!`
 
 #### Implement queries
 
@@ -536,7 +536,7 @@ class RedeemBoardingTicketWithVoucherInitiator @JsonConstructor constructor(priv
         val recipientParty = identityService.partyFromName(holder) ?: throw NoSuchElementException("No party found for X500 name $holder")
 
         //Find notary.
-        val notary = notaryLookup.notaryIdentities.<notary name>()
+        val notary = notaryLookup.getNotary(CordaX500Name.parse("O=notary, L=London, C=GB"))!!
 
         //Query the MarsVoucher and the boardingTicket.
         val cursor = persistenceService.query<StateAndRef<MarsVoucher>>(
@@ -652,7 +652,7 @@ class RedeemBoardingTicketWithVoucherInitiator @JsonConstructor constructor(priv
         val recipientParty = identityService.partyFromName(holder) ?: throw NoSuchElementException("No party found for X500 name $holder")
 
         //Find notary.
-        val notary = notaryLookup.notaryIdentities.<notary name>()
+        val notary = notaryLookup.getNotary(CordaX500Name.parse("O=notary, L=London, C=GB"))!!
 
         //Query the MarsVoucher and the boardingTicket.
         val cursor = persistenceService.query<StateAndRef<MarsVoucher>>(
