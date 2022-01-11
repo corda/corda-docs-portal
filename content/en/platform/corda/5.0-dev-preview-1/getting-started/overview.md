@@ -34,7 +34,7 @@ version of Java when returning to Corda 4 development work after using the Corda
 To install the Corda 5 Developer Preview:
 
 ### Install Docker
-1. Install Docker. You will use it to run a local Corda network.
+1. Install Docker version 18.06.0 or higher. You will use it to run a local Corda network.
 
    After installing Docker, open Docker Desktop and perform one of the following steps:
   * If you are a Mac user, go to **Preferences** and configure Docker Desktop to have at least 6GB of RAM and use 6 cores.

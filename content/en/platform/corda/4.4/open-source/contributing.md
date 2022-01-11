@@ -33,7 +33,7 @@ with you to find an area for you to contribute.
     * Browse the issues labelled `help wanted` on the
 [Corda GitHub issues](https://github.com/corda/corda/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) page. Issues labeled `good first issue` are ideal for first-timers.
 * If you have a specific contribution in mind, message the
-`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contact one of the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly to confirm if it is appropriate before starting development.
+`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contact one of the [Community Maintainers](contributing-philosophy.html#community-maintainers) directly to confirm if it is appropriate before starting development.
 
 
 
@@ -56,7 +56,7 @@ accept responsibility for maintaining it.
 the project maintainers to reconcile this. As the major contributor to Corda, many employees of [R3](https://r3.com) are working on
 features at any given time. To avoid surprises and foster transparency,
 [our Jira work tracking system is public](https://r3-cev.atlassian.net/projects/CORDA/summary). If in doubt, reach out to one of the
-[Community Maintainers](contributing-philosophy.md#community-maintainers).
+[Community Maintainers](contributing-philosophy.html#community-maintainers).
 
 
 ## Making changes to Corda
@@ -139,7 +139,7 @@ developers and/or node operators.
 1. Create a pull request (PR) from your fork to the equivalent branch of the Corda repo.
 
     * Complete the PR checklist in the **comments box**.
-      * Have you run [unit, integration and smoke tests](https://docs.corda.net/head/testing.html)?
+      * Have you run [unit, integration and smoke tests](testing.md)?
       * If you added/changed public APIs, did you write/update the JavaDocs?
       * If the changes are of interest to application developers, have you added them to the changelog and release notes where applicable?
       * If you are contributing for the first time, please read the contribution guidelines above and indicate your agreement.
@@ -147,7 +147,7 @@ developers and/or node operators.
     * Add the following statement to confirm that your contribution is your own original work: “I hereby certify that my contribution is in accordance with the Developer Certificate of Origin ([https://developercertificate.org/](https://developercertificate.org/)).”
 
 2. Request a review by reaching out in the `#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contacting one of
-the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly. The reviewer will either:
+the [Community Maintainers](contributing-philosophy.html#community-maintainers) directly. The reviewer will either:
     * Accept and merge your PR.
     * Leave comments requesting changes via the GitHub PR interface.
 

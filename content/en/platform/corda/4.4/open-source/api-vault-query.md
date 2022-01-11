@@ -35,9 +35,9 @@ Corda provides a number of flexible query mechanisms for accessing the Vault:
 
 
 * Vault Query API
-* Using a JDBC session (as described in [Persistence](api-persistence.md#jdbc-session))
+* Using a JDBC session (as described in [Persistence](api-persistence.html#jdbc-session))
 * Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries
-* Custom 3rd party Data Access frameworks such as [Spring Data](http://projects.spring.io/spring-data)
+* Custom 3rd party Data Access frameworks such as [Spring Data](https://spring.io/projects/spring-data)
 
 The majority of query requirements can be satisfied by using the Vault Query API, which is exposed via the
 `VaultService` for use directly by flows:
@@ -178,7 +178,7 @@ There are four implementations of this interface which can be chained together t
 
 
 * `VaultQueryCriteria` provides filterable criteria on attributes within the **VAULT_STATES** table. Filterable attributes include one or more of the following: status (`UNCONSUMED`,
-`CONSUMED`), state reference, contract state type, notary name, soft locked states, timestamps (`RECORDED`, `CONSUMED`), state constraints (see [Constraint Types](api-contract-constraints.md#implicit-constraint-types)), relevancy (`ALL`, `RELEVANT`, `NON_RELEVANT`), and participants (exact or any match).
+`CONSUMED`), state reference, contract state type, notary name, soft locked states, timestamps (`RECORDED`, `CONSUMED`), state constraints (see [Constraint Types](api-contract-constraints.html#types-of-contract-constraints)), relevancy (`ALL`, `RELEVANT`, `NON_RELEVANT`), and participants (exact or any match).
 {{< note >}}
 Sensible defaults are defined for frequently used attributes (`status` = `UNCONSUMED`, always include soft
 locked states).{{< /note >}}
