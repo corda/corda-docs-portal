@@ -24,9 +24,10 @@ To integrate a Jira deployment with the CENM CSR/CRR approval workflow plugin, i
     * Create tickets
     * Change ticket statuses
 
+
 3. Assign the user to the CSR and CRR projects.
 
-4. Supply the user credentials to the [CENM identity manager configuration](identity-manager.md).
+4. Supply the user credentials to the [CENM identity manager configuration](identity-manager.html#jira-workflow).
 
 ## Project Workflow
 
