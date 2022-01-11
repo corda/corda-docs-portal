@@ -10,40 +10,35 @@ title: JIRA Set-Up
 ---
 
 
-# JIRA Set-Up
+# Jira Setup
 
-The following are the instructions on setting up the JIRA in order to satisfy minimal requirements from the point of view
-of the Identity Manager Certificate Signing Request (CSR)/Certificate Revocation Request (CRR) approval workflow. This will enable
-a user to integrate such JIRA deployment with the CENM CSR/CRR approval workflow plugin.
+To integrate a Jira deployment with the CENM CSR/CRR approval workflow plugin, it must meet the requirements of the Identity Manager Certificate Signing Request (CSR)/Certificate Revocation Request (CRR) approval workflow.
 
+## Configure projects and users
 
-## User Set-Up
-
-Create a user with an administrative permissions and make sure it is assigned to the default groups:
-`jira-administrators` and `jira-software-users`. The following shows an example for a `Test` user setup.
-
-![jira 7](/en/images/jira-7.png "jira 7")
-
-## Project Set-Up
-
-Create two projects (one for Certificate Signing Requests and one for Certificate Revocation Requests) of the type of
-`Process Management`. The following shows final settings for both projects.
+1. Create two `Process Management` projects: one for CSRs and one for CRRs. The final settings for both projects should look like this:
 
 ![jira 6](/en/images/jira-6.png "jira 6")
 
+2. Create a user with permission to:
+    * Create tickets
+    * Change ticket statuses
+
+3. Assign the user to the CSR and CRR projects.
+
+4. Supply the user credentials to the CENM identity manager configuration.
+
 ## Project Workflow
 
-Make sure that both projects (CSR and CRR) have the following workflow configured.
+Make sure that both projects (CSR and CRR) have this workflow configured:
 
 ![jira 1](/en/images/jira-1.png "jira 1")
-Tickets are moved from `Approved` status to `Done` automatically, once the request is signed by the HSM.
+When the HSM signs a request, the tickets move from the `Approved` status to `Done` automatically.
 
 
 ## Custom fields
 
-Additionally, the following 3 custom fields need to be created and configured in JIRA:
-
-
+You also need to create three custom fields:
 
 * Request ID
 * Reject Reason
@@ -51,7 +46,7 @@ Additionally, the following 3 custom fields need to be created and configured in
 
 
 {{< note >}}
-These fields are global and applicable to both CSR and CRR projects. Screen selection (see snippets below) alows
+These fields are global and applicable to both CSR and CRR projects. Screen selection (see snippets below) allows
 for field assignment to a specific project.
 
 {{< /note >}}
