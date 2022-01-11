@@ -10,7 +10,7 @@ title: JIRA Set-Up
 ---
 
 
-# Jira Setup
+# Jira setup
 
 To integrate a Jira deployment with the CENM CSR/CRR approval workflow plugin, it must meet the requirements of the Identity Manager Certificate Signing Request (CSR)/Certificate Revocation Request (CRR) approval workflow.
 
@@ -29,9 +29,9 @@ To integrate a Jira deployment with the CENM CSR/CRR approval workflow plugin, i
 
 4. Supply the user credentials to the [CENM identity manager configuration](identity-manager.html#jira-workflow).
 
-## Project Workflow
+## Configure projects' workflow
 
-Make sure that both projects (CSR and CRR) have this workflow configured:
+Configure the following workflow for both projects (CSR and CRR):
 
 ![jira 1](/en/images/jira-1.png "jira 1")
 When the HSM signs a request, the tickets move from the `Approved` status to `Done` automatically.
