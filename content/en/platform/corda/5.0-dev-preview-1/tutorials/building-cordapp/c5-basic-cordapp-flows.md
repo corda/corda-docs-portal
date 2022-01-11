@@ -12,11 +12,11 @@ tags:
 title: Write flows
 ---
 
-In Corda, flows automate the process of agreeing ledger updates. They are a sequence of steps that tell the node how to achieve a specific ledger update, such as issuing an asset or making a deposit. Nodes communicate using these flows in point-to-point interactions, rather than a global broadcast system. Network participants must specify what information needs to be sent, to which counterparties.
+In Corda, flows automate the process of agreeing ledger updates. They are a sequence of steps that tell the node how to achieve a specific ledger update, such as issuing an asset or making a deposit. Nodes communicate using these flows in point-to-point interactions, rather than a global broadcast system. Network participants must specify what information needs to be sent, to which counterparties. However, flows are not specifically about a single node, it is getting the network to update the relevant ledgers.
 
-Top-level flows encapsulate the business logic behind the interaction between the users and your CorDapp. They can have multiple subflows and can be started via RPC.
+Top-level flows that we're interested in in this tutorial encapsulate the business logic behind the interaction between the users and your CorDapp. They can have multiple subflows and can be started via RPC. However, not all top-level flows rule interactions with users, some could be, for example, admin or maintenance flows.
 
-Subflows or built-in flows are common tasks performed in Corda, such as gathering signatures from counterparty nodes or notarising and recording a transaction. As a developer, you only need to implement flows for the business logic of your specific use case.
+The Corda-provided subflows are common tasks performed in Corda, such as gathering signatures from counterparty nodes or notarising and recording a transaction. As a developer, you only need to implement flows for the business logic of your specific use case.
 
 The `Flow` interface is used to implement a flow. When you use this interface, your business logic will override the `call` method. Flows access version 2 of the Corda API through injectable services using the `@CordaInject` tag. See the [services documentation](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/injectable-services.md) for a list of all services available in the Corda 5 Developer Preview.
 
@@ -190,19 +190,22 @@ Next you must add the flow implementation to the initiating flow by encapsulatin
 
 ##### Build the transaction
 
-Your transaction is a proposal to the ledger that the counterparty must agree to. You must ensure that the proposal adheres the rules of the smart contract and sign it before sending it to the counterparty. The proposal here is that you'll create a voucher for a trip to Mars and then issue that voucher to a designated party - Peter.
+Your transaction is a proposal to the ledger that the counterparty must agree to. You must ensure that the proposal adheres to the rules of the smart contract and you must sign it before sending it to the counterparty. Also, ensure your transaction is valid from a business perspective. The proposal here is that you'll create a voucher for a trip to Mars and then issue that voucher to a notary and a designated party - Peter.
 
 1. Build the transaction using a `txCommand` and the `transactionBuilderFactory` service you added when injecting services.
 2. Verify that the transaction is valid using the `txBuilder.verify` method.
 3. Sign the transaction using the `txBuilder.sign` method.
+   Once the transaction is signed, you cannot remove a signature from it.
 
 ##### Interact with the counterparty
 
-This is where you send the proposal to Peter. When consensus that the transaction's elements are unique and understood is achieved, the transaction is notarized in both parties' vaults.
+This is where you send the proposal to Peter. When consensus that the transaction's elements are unique and understood is achieved, the transaction is notarized by the notary and stored in both parties' vaults.
 
 1. Send the state to the counterparty and receive it back with their signature. Use the `flowMessaging` service to send the state to the `recipientParty`. Use the `flowEngine` service with the subflow `CollectSignaturesFlow` to get the signature of the counterparty.
+   Also, you must handle the case where the counterparty rejects the transaction.
 2. Get the transaction notarized and recorded in both parties' vaults using `FinalityFlow` with a `fullySignedTx`.
 3. Return a `SignedTransactionDigest`. Use the `jsonMarshallingService` to parse the transaction's output. Include the transaction's output states, ID, and signatures.
+   This is optional and only relevant to the RPC-invoked flows as a way to return data to an interface.
 
 After adding these elements, your code should look like this:
 
