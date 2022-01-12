@@ -564,6 +564,7 @@ cd cenm-deployment/k8s/helm
 # These Helm charts trigger public IP allocation
 helm install cenm-idman-ip idman-ip --set prefix=cenm
 helm install cenm-notary-ip notary-ip --set prefix=cenm
+helm install cenm-gateway-ip gateway-ip --set prefix=cenm
 
 # Install HSM chart
 helm install cenm-hsm hsm --set prefix=cenm
