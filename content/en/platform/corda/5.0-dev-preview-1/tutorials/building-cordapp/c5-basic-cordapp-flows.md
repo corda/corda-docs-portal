@@ -12,7 +12,7 @@ tags:
 title: Write flows
 ---
 
-In Corda, flows automate the process of agreeing ledger updates. They are a sequence of steps that tell the node how to achieve a specific ledger update, such as issuing an asset or making a deposit. Nodes communicate using these flows in point-to-point interactions, rather than a global broadcast system. Network participants must specify what information needs to be sent, to which counterparties. However, flows are not specifically about a single node, it is getting the network to update the relevant ledgers.
+In Corda, flows automate the process of agreeing ledger updates. They are a sequence of steps that tell a group of nodes how to achieve a specific ledger update, such as issuing an asset or making a deposit. Each node enacts as part of the transaction and they communicate using these flows in point-to-point interactions, rather than a global broadcast system. Network participants must specify what information needs to be sent, to which counterparties.
 
 Top-level flows that we're interested in in this tutorial encapsulate the business logic behind the interaction between the users and your CorDapp. They can have multiple subflows and can be started via RPC. However, not all top-level flows rule interactions with users, some could be, for example, admin or maintenance flows.
 
@@ -117,13 +117,13 @@ Use the `@CordaInject` annotation to define a field to be set by Corda before th
 
 In this sample CorDapp, add these services:
 
-* `FlowEngine`: Provides basic control over a flow it is injected into, such as calling subflows, performing asynchronous tasks and putting the flow to sleep for a period of time.
-* `FlowIdentity`: Allows obtaining the identity of the node running the flow.
-* `FlowMessaging`: Allows creating and closing flow sessions as well as sending and receiving data between flows via a flow session.
-* `TransactionBuilderFactory`: Used for constructing, verifying and signing the transactions.
-* `IdentityService`: Provides methods to retrieve `Party` and `AnonymousParty` instances.
-* `NotaryLookupService`: Allows finding information on notaries in the network.
-* `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers.
+* `FlowEngine`: Provides basic control over a flow it is injected into, such as calling subflows, performing asynchronous tasks and putting the flow to sleep for a period of time. This flow needs `FlowEngine` because you are utilizing subflows such as `FinalityFlow` and `CollectSignaturesFlow`.
+* `FlowIdentity`: Allows obtaining the identity of the node running the flow. You must inject this service because one of the output states needs its own identity.
+* `FlowMessaging`: Allows creating and closing flow sessions as well as sending and receiving data between flows via a flow session. Use this service to create flow sessions that allow communication between counterparties.
+* `TransactionBuilderFactory`: Used for constructing, verifying and signing the transactions. In this case, it builds a transaction.
+* `IdentityService`: Provides methods to retrieve `Party` and `AnonymousParty` instances. You need it because your flow involves counterparties.
+* `NotaryLookupService`: Allows finding information on notaries in the network. Add it because your transaction requires a notary.
+* `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers. You need it because in Corda 5 all flow parameters are in the JSON format.
 
 After you've added the services, your code should look like this:
 
@@ -186,6 +186,13 @@ Next you must add the flow implementation to the initiating flow by encapsulatin
 3. Parse your parameters using the `mapOfParams` value. Since the parameters the flow will use come in JSON format, the JSON object must be parsed to extract the parameters so the flow can run.
 4. Add appropriate error handling - exceptions must be thrown when required fields (`voucherDesc`, `holder`, `recipientParty`) are not found.
 5. Insert the following method for finding the notary: `notaryLookup.getNotary(CordaX500Name.parse("O=notary, L=London, C=GB"))!!`.
+
+{{< note >}}
+
+In Corda 5 the notary is predefined. You will be "spending" your state with a particular notary tieing that state to it (notary change excepted). Thus, you cannot just pick the first one as the list order may change, especially in a multi-network or app environment where different notaries are whitelisted for different apps. You can find the full status of the notary by starting the network and printing out its status.
+
+{{< /note >}}
+
 6. Build the output `MarsVoucher` state with a `UniqueIdentifier`.
 
 ##### Build the transaction
@@ -202,7 +209,7 @@ Your transaction is a proposal to the ledger that the counterparty must agree to
 This is where you send the proposal to Peter. When consensus that the transaction's elements are unique and understood is achieved, the transaction is notarized by the notary and stored in both parties' vaults.
 
 1. Send the state to the counterparty and receive it back with their signature. Use the `flowMessaging` service to send the state to the `recipientParty`. Use the `flowEngine` service with the subflow `CollectSignaturesFlow` to get the signature of the counterparty.
-   Also, you must handle the case where the counterparty rejects the transaction.
+   In this specific example, there is no possibility for the counterparty to reject the transaction. However, when writing your CorDapps, you must handle the case where the counterparty rejects it.
 2. Get the transaction notarized and recorded in both parties' vaults using `FinalityFlow` with a `fullySignedTx`.
 3. Return a `SignedTransactionDigest`. Use the `jsonMarshallingService` to parse the transaction's output. Include the transaction's output states, ID, and signatures.
    This is optional and only relevant to the RPC-invoked flows as a way to return data to an interface.
@@ -347,11 +354,11 @@ You will need these variables:
 
 You must inject these services:
 
-* `FlowEngine`: Provides basic control over a flow it is injected into, such as calling subflows, performing asynchronous tasks and putting the flow to sleep for a period of time.
-* `FlowIdentity`: Allows obtaining the identity of the node running the flow.
-* `TransactionBuilderFactory`: Used for constructing, verifying and signing the transactions.
-* `NotaryLookupService`: Allows finding information on notaries in the network.
-* `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers.
+* `FlowEngine`: Provides basic control over a flow it is injected into, such as calling subflows, performing asynchronous tasks and putting the flow to sleep for a period of time. This flow needs `FlowEngine` because you are utilizing subflows such as `FinalityFlow`.
+* `FlowIdentity`: Allows obtaining the identity of the node running the flow. You must inject this service because one of the output states needs its own identity.
+* `TransactionBuilderFactory`: Used for constructing, verifying and signing the transactions. In this case, it builds a transaction.
+* `NotaryLookupService`: Allows finding information on notaries in the network. Add it because your transaction requires a notary.
+* `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers. You need it because in Corda 5 all flow parameters are in the JSON format.
 
 {{< note >}}
 This flow only needs an initiating flow; you don't need to include a responder flow. However, you must still add the `@InitiatingFlow` annotation.
@@ -459,13 +466,13 @@ Start writing your initiating flow following the same process used when writing 
 2. Define the `RedeemBoardingTicketWithVoucherInitiator` class with a `@JsonConstructor`, `RpcStartFlowRequestParameters`, and returning a `SignedTransactionDigest`.
 3. Inject these services:
 
-    * `FlowEngine`: Provides basic control over a flow it is injected into, such as calling subflows, performing asynchronous tasks and putting the flow to sleep for a period of time.
-    * `FlowIdentity`: Allows obtaining the identity of the node running the flow.
-    * `FlowMessaging`: Allows creating and closing flow sessions as well as sending and receiving data between flows via a flow session.
-    * `TransactionBuilderFactory`: Used for constructing, verifying and signing the transactions.
-    * `IdentityService`: Provides methods to retrieve `Party` and `AnonymousParty` instances.
-    * `NotaryLookupService`: Allows finding information on notaries in the network.
-    * `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers.
+    * `FlowEngine`: Provides basic control over a flow it is injected into, such as calling subflows, performing asynchronous tasks and putting the flow to sleep for a period of time. This flow needs `FlowEngine` because you are utilizing subflows such as `FinalityFlow` and `CollectSignaturesFlow`.
+    * `FlowIdentity`: Allows obtaining the identity of the node running the flow. You must inject this service because one of the output states needs its own identity.
+    * `FlowMessaging`: Allows creating and closing flow sessions as well as sending and receiving data between flows via a flow session. Use this service to create flow sessions that allow communication between counterparties.
+    * `TransactionBuilderFactory`: Used for constructing, verifying and signing the transactions. In this case, it builds a transaction.
+    * `IdentityService`: Provides methods to retrieve `Party` and `AnonymousParty` instances. You need it because your flow involves counterparties.
+    * `NotaryLookupService`: Allows finding information on notaries in the network. Add it because your transaction requires a notary.
+    * `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers. You need it because in Corda 5 all flow parameters are in the JSON format.
     * `PersistenceService`: Provides an API for interacting with the database. It has functions mirroring Java's EntityManager for working with entities. Also, it provides functions for executing predefined named queries and polling for results. It hides the complexity of asynchronously interacting with the database which in a HA environment could be running on a separate process.
 
 4. Add the `@Suspendable` annotation.
