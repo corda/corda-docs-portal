@@ -125,12 +125,10 @@ The deployment steps are given below:
 
 #### 3. Create storage class and namespace
 
-Run the following instruction once the previous points have been cleared:
-
-`All the examples below use the namespace **cenm**`
+Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
 ```bash
-kubectl apply -f deployment/k8s/cenm.yaml
+kubectl apply -f ./k8s/cenm.yaml
 export nameSpace=cenm
 kubectl config set-context $(kubectl config current-context) --namespace=${nameSpace}
 ```
@@ -475,7 +473,7 @@ The example below shows a PostgresSQL installation that runs inside the same Kub
 
 #### Example PostgreSQL database setup inside the Kubernetes cluster
 
-A PostgreSQL database can be installed inside the Kubernetes cluster using a third-party [Bitami Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/postgresql):
+A PostgreSQL database can be installed inside the Kubernetes cluster using a third-party [Bitnami Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/postgresql):
 
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -491,7 +489,7 @@ the following DDL commands:
 ```bash
 CREATE DATABASE <DATABASE>;
 CREATE USER <USER> WITH PASSWORD '<PASSWORD>';
-GRANT ALL PRIVILEGES ON DATABASE <USER> to <DATABASE>;
+GRANT ALL PRIVILEGES ON DATABASE <DATABASE> to <USER>;
 ```
 
 For each service (Identity Manager, Network Map, Zone, and Auth), use different `<DATABASE>` name and `<USER>` -
