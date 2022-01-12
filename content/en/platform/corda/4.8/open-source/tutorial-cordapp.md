@@ -84,7 +84,7 @@ The project containing the sample CorDapp opens.
 
 
 
-### Step 3: Deploy the CorDapp locally
+## Step 3: Deploy the CorDapp locally
 
 1. Open the command line from the `cordapp-example` directory.
 2. Run the `deployNodes` Gradle task:
@@ -93,14 +93,15 @@ The project containing the sample CorDapp opens.
 
    This builds three nodes with the CorDapp installed on them.
 
-3. When the build finishes, go to the `workflows-java/build/nodes` or `workflows-kotlin/build/nodes` folder.
+3. When the build finishes, go to the `build/nodes` folder.
 
-You will see the following output:
+   You will see the following output:
+
       * A folder for each generated node
       * A `runnodes` shell script for running all the nodes simultaneously on OSX
       * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
-    See **Appendix B** for the node structure.
+See **Appendix B** for the node structure.
 
 
 {{< note >}}
@@ -109,7 +110,7 @@ in [Building and installing a CorDapp](cordapp-build-systems.md).
 {{< /note >}}
 
 
-### Step 4: Launch the sample CorDapp
+## Step 4: Launch the sample CorDapp
 
 To start the nodes and the sample CorDapp:
 
@@ -131,11 +132,13 @@ Look for the `Started Server in X seconds` message &mdash; don’t rely on the %
 
 
 {{< warning >}}
-On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](shell.md).
+On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](shell.md).
 {{< /warning >}}
 
 
-The `runnodes` script creates a node tab/window for each node. It usually takes about 60 seconds for all the nodes to start. Each node displays “Welcome to the Corda interactive shell” along with a prompt.
+The `runnodes` script creates a node tab/window for each node. It usually takes about 60 seconds for all the nodes to start. Each node displays “Welcome to the Corda interactive shell” along with a prompt. Whilst the `runnodes` script terminates, the two commands to start Party A and B do not and should be run in separate terminal windows.
+
+4. **Optional:** If not all the nodes start successfully the first time, close the terminals and run the script again.
 
 ```none
    ______               __
@@ -198,7 +201,7 @@ anti-XSS, anti-XSRF or other security techniques. Do not use this code in produc
 
 #### Create an IOU via the endpoint
 
-You can create an IOU by sending a `PUT` request to the `/create-iou` endpoint directly, or by using the
+You can create an IOU by sending a `POST` request to the `/create-iou` endpoint directly, or by using the
 the web form served from the home directory.
 
 To create an IOU between PartyA and PartyB, run the following command:
@@ -207,7 +210,7 @@ To create an IOU between PartyA and PartyB, run the following command:
 curl -i -X POST 'http://localhost:50005/create-iou?iouValue=12&partyName=O=PartyB,L=New%20York,C=US' -H 'Content-Type: application/x-www-form-urlencoded'
 ```
 
-Note that both PartyA’s port number (`50005`) and PartyB are referenced in the PUT request path. This command
+Note that both PartyA’s port number (`50005`) and PartyB are referenced in the POST request path. This command
 instructs PartyA to agree an IOU with PartyB. Once the process is complete, both nodes will have a signed, notarised
 copy of the IOU.
 
@@ -277,21 +280,30 @@ Corda provides several frameworks for writing unit and integration tests for Cor
 
 
 First, run an integration test to calibrate your environment.
-1. Go to `Workflows` > `src` > `IntegrationTest` > `DriverBasedTest`.
-2. Select the **green arrow** next to the test code. This will open the Run Terminal.
+1. Go to:
+   * Kotlin: `workflows > src > integrationTest > kotlin > net.corda.samples.example > DriverBasedTest`
+   * Java: `workflows > src > integrationTest > java > net.corda.samples.example > DriverBasedTest`
+
+2. Select the **green arrow** next to the test code. This will open the `Run Terminal`.
 
 ### Contract tests
 
 You can run the CorDapp’s contract tests by running the `Run Contract Tests - Java` run configuration.
 
-1. Go to `Workflow` > `src` > `test` > `ContractTests`.
+1. Go to:
+   * Kotlin: `contracts > src > test > kotlin > net.corda.samples.example.contracts > ContractTests`
+   * Java: `contracts > src > test > java > net.corda.samples.example.contracts > ContractTests`
+
 2. Select the arrow next to the test code. Choose the arrow at the top to run all the tests at once, or select the arrow next to a particular section to test it individually.
 
 ### Flow tests
 
 You can run the CorDapp’s flow tests by running the `Run Flow Tests - Java` run configuration.
 
-1. Go to `Workflow` > `src` > `test` > `FlowTests`.
+1. Go to:
+   * Kotlin: `workflows > src > test > kotlin > net.corda.samples.example > FlowTests.kt`
+   * Java: `workflows > src > test> java > net.corda.samples.example > FlowTests`
+
 2. Select the **arrow** next to the test code. Choose the arrow at the top to run all the tests at once, or select the arrow next to a particular section to test it individually.
 
 ### Debug a test
