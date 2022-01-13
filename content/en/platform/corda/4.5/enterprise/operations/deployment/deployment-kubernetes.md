@@ -199,7 +199,7 @@ Use the CENM [Command Line Interface (CLI) Tool](../../../../../../../en/platfor
 To star CENM CLI Tool run Docker command starting Docker container with the tool:
 
   ```bash
-  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.4-zulu-openjdk8u242
+  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.3-zulu-openjdk8u242
   ```
 
 The welcome message will appear:
@@ -392,7 +392,7 @@ Once you have created an Azure Key Vault that you want to use, perform the follo
 
 The HSM pod is a helper pod, which loads a defined Docker image and attempts to load the folder containing the HSM-related
 files as a volume for the other pods to use. Follow the steps below:
-1. <a href="../../../../../../../en/platform/corda/1.4/cenm/signing-service.html#azure-key-vault">Create the library `.jar`</a>
+1. <a href="../../../../../../../en/platform/corda/1.3/cenm/signing-service.html#azure-key-vault">Create the library `.jar`</a>
 2. Create a Docker image containing the `.jar` file and the `.pkcs12` file used as the key store path.
 
 The Docker image and the directory where these files are stored must be specified in the relevant variables in the HSM `values.yaml` file.

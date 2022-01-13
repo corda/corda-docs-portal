@@ -201,7 +201,7 @@ Use the CENM [Command Line Interface (CLI) Tool](../../../../1.4/cenm/cenm-cli-t
 To star CENM CLI Tool run Docker command starting Docker container with the tool:
 
   ```bash
-  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.5.0-zulu-openjdk8u242
+  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.4-zulu-openjdk8u242
   ```
 
 The welcome message will appear:
