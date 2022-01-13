@@ -53,7 +53,7 @@ Payments can only be triggered by a member of a network if one of the following 
 
 The CorDapps that make up the Corda Payments solution are made available to Corda Enterprise and trial customers by agreement. Once your Corda account manager has arranged access, you can download the Corda Payments files via the Corda Enterprise Customer Hub trial login.
 
-To install Corda Payments Technical Preview, go to the TRial section of the [Corda Customer Hub](https://customerhub.r3.com/s/r3-customcommunitylogin).
+To install Corda Payments Technical Preview, go to the Trial section of the [Corda Customer Hub](https://customerhub.r3.com/s/r3-customcommunitylogin).
 
 ## Get access to the Modulr Sandbox for individual nodes
 
