@@ -22,8 +22,8 @@ By following this guide, you can:
 
 You must have:
 
-* Access to the Corda Enterprise Customer Hub.
-* A Corda Payments-enabled CorDapp.
+* Access to the [Corda Enterprise Customer Hub](https://customerhub.r3.com/s/r3-customcommunitylogin) Trial area.
+* A [Corda Payments-enabled CorDapp](payments-sdk.md).
 * Modulr sandbox credentials.
 
 ## Set up Modulr Sandbox for Payments Agent
@@ -51,9 +51,9 @@ Payments can only be triggered by a member of a network if one of the following 
 
 ##  Download files from Customer Hub
 
-The CorDapps that make up the Corda Payments solution are made available to Corda Enterprise customers by agreement. Once your Corda account manager has arranged access, you can download the Corda Payments files via the Corda Enterprise Customer Hub.
+The CorDapps that make up the Corda Payments solution are made available to Corda Enterprise and trial customers by agreement. Once your Corda account manager has arranged access, you can download the Corda Payments files via the Corda Enterprise Customer Hub trial login.
 
-To install Corda Payments Technical Preview, go to the [Corda Customer Hub](https://customerhub.r3.com/s/).
+To install Corda Payments Technical Preview, go to the Trial section of the [Corda Customer Hub](https://customerhub.r3.com/s/r3-customcommunitylogin).
 
 ## Get access to the Modulr Sandbox for individual nodes
 
@@ -69,7 +69,7 @@ Set the following properties:
 
 Example:
 ```
-payments-jar-location=/Users/Bob/Downloads/corda-payments-1.0.0-TechPreview-1.0
+payments-jar-location=/Users/Bob/Downloads/corda-payments-1.0.0-TechPreview-1.2
 
 account-id-1=A120NXXX
 account-id-2=A120NXXX
