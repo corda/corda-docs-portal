@@ -9,7 +9,7 @@ menu:
 tags:
 - tutorial
 - cordapp
-title: Write a contract
+title: Write a simple contract
 ---
 
 [Contracts](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-contracts.md) define the rules of how states can evolve. A CorDapp can have more than one contract, and each contract defines rules for one or more states. The contract governs the execution of [transactions](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-transactions.html) that update the ledger by marking zero or more existing ledger states as historic (the inputs), and producing zero or more new ledger states (the outputs). The contract(s) ensures that input and output states in transactions are valid and prevents invalid transactions from occurring. All parties that wish to transact in a network must run the same contract(s) for any transaction they’re a party to, verifying that the transaction is valid.
@@ -99,11 +99,13 @@ data class MarsVoucher (
 
 Each command is associated with a list of signers. The public keys listed in a contract's commands indicate the transaction's required signers.
 
-In the `MarsVoucherContract`, you need a command that issues an instance of the `MarsVoucher`, which creates a new state on the ledger.
+In the `MarsVoucherContract`, you need a command that issues an instance of the `MarsVoucher`, which creates a new state on the ledger. You also need a command that transfers the `MarsVoucher` state to a new holder.
 
 1. Extend the `CommandData` interface into a new interface called `Commands`.
 
 2. Within the `Commands` interface, create a class named `Issue`, implementing its parent interface.
+
+3. Within the `Commands` interface, create a class named `Transfer`, implementing its parent interface.
 
 This is what your code should look like now:
 
@@ -115,6 +117,7 @@ class MarsVoucherContract : Contract {
   // Used to indicate the transaction's intent.
   interface Commands : CommandData {
       class Issue : Commands
+      class Transfer: Commands
   }
 
 }
@@ -138,6 +141,7 @@ class MarsVoucherContract : Contract {
   // Used to indicate the transaction's intent.
   interface Commands : CommandData {
       class Issue : Commands
+      class Transfer: Commands
   }
 
 companion object {
@@ -151,7 +155,11 @@ companion object {
 
 The `verify` method is automatically triggered when your transaction is executed. It verifies that the transaction components are following the restrictions implemented inside the contract's `verify` method.
 
-In this case, the `verify` method must confirm that there will only be one `MarsVoucher` state as an output of the transaction. It must also confirm that relevant trip information (the `voucherDesc`) is included in the state.
+In this case, the `verify` method must confirm:
+* That there will only be one `MarsVoucher` state as an output of the transaction.
+* That relevant trip information (the `voucherDesc`) is included in the state.
+* That when the `MarsVoucher` state is transferred, the transaction consumes one `MarsVoucher` state.
+* That the holder cannot issue the `MarsVoucher` to themselves.
 
 1. If you're using IntelliJ, you will see an error indicator under the class name and implementation. This indicates that the class is missing the required method. Hover over the class definition, then:
 
@@ -180,7 +188,7 @@ This is a Corda-specific helper method used for writing contracts only.
 You have now finished writing the `MarsVoucherContract`. Your code should now look like this:
 
 ```kotlin
-package net.corda.missionMars.contracts;
+package net.corda.missionMars.contracts
 
 import net.corda.missionMars.states.MarsVoucher
 import net.corda.v5.ledger.contracts.CommandData
@@ -188,6 +196,8 @@ import net.corda.v5.ledger.contracts.Contract
 import net.corda.v5.ledger.contracts.requireThat
 import net.corda.v5.ledger.transactions.LedgerTransaction
 
+
+//Domain Specific Language
 class MarsVoucherContract : Contract {
 
     override fun verify(tx: LedgerTransaction) {
@@ -206,17 +216,31 @@ class MarsVoucherContract : Contract {
             is BoardingTicketContract.Commands.RedeemTicket-> requireThat {
                 //Transaction verification will happen in BoardingTicket Contract
             }
+            is Commands.Transfer -> requireThat {
+                "This transaction should consume one Marsvoucher states".using(tx.inputStates.size == 1)
+                val input = tx.inputsOfType(MarsVoucher::class.java)[0]
+                val output = tx.outputsOfType(MarsVoucher::class.java)[0]
+                "You cannot gift the voucher to yourself".using(input.holder != output.holder)
+                null
+            }
         }
     }
 
+
+
+
+
     // Used to indicate the transaction's intent.
     interface Commands : CommandData {
+        //In our hello-world app, We will have two commands.
         class Issue : Commands
+        class Transfer: Commands
     }
 
     companion object {
         // This is used to identify our contract when building a transaction.
-        const val ID = "com.tutorial.contracts.MarsVoucherContract"
+        @JvmStatic
+        val ID = "net.corda.missionMars.contracts.MarsVoucherContract"
     }
 }
 ```

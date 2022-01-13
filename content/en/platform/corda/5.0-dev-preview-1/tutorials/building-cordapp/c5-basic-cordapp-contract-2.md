@@ -9,7 +9,7 @@ menu:
 tags:
 - tutorial
 - cordapp
-title: Write contracts
+title: Write a complex contract
 ---
 
 Now that you've written your first contract, write the `BoardingTicketContract`.
