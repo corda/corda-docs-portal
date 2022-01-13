@@ -161,11 +161,7 @@ The contract must also verify transaction components for when the ticket is rede
 These are simplified verifications for the purpose of this example. When writing your own CorDapp, components of the `verify` method should be strong representations of your CorDapp's business logic.
 {{< /note >}}
 
-
-
-### Check your work
-
-Once you've written the `BoardingTicketContract`, your code should look like this:
+Once you've added the verify methods to your `BoardingTicketContract`, your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.contracts
