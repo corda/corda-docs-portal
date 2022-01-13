@@ -145,9 +145,7 @@ version.BuildInfo{Version:"v3.1.2", GitCommit:"afe70585407b420d0097d07b21c47dc51
 
 #### (3) Create storage class, namespace and RBAC
 
-Run the following instruction once the previous points have been cleared:
-
-`All examples below are using namespace **cenm**`
+Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
 > Note: edit k8s/cenm.yaml and modify RoleBinding/everything-in-cenm to include your user(s) Azure group
 

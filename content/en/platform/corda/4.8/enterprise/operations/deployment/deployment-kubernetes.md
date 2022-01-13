@@ -564,15 +564,15 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 
 {{< table >}}
 
-| Service           | Image Name                           | Tag |
-|-------------------|--------------------------------------|-----|
-| Identity Manager  | acrcenm.azurecr.io/nmap/nmap         | 1.5 |
-| Network Map       | acrcenm.azurecr.io/nmap/nmap         | 1.5 |
-| Signing           | acrcenm.azurecr.io/signer/signer     | 1.5 |
-| Zone              | acrcenm.azurecr.io/zone/zone         | 1.5 |
-| Auth              | acrcenm.azurecr.io/auth/auth         | 1.5 |
-| Gateway           | acrcenm.azurecr.io/gateway/gateway   | 1.5 |
-| PKI Tool          | acrcenm.azurecr.io/pkitool/pkitool   | 1.5 |
-| Notary            | acrcenm.azurecr.io/notary/notary     | 1.5 |
+| Service           | Image Name                           | Tag   |
+|-------------------|--------------------------------------|-------|
+| Identity Manager  | acrcenm.azurecr.io/nmap/nmap         | 1.5.x |
+| Network Map       | acrcenm.azurecr.io/nmap/nmap         | 1.5.x |
+| Signing           | acrcenm.azurecr.io/signer/signer     | 1.5.x |
+| Zone              | acrcenm.azurecr.io/zone/zone         | 1.5.x |
+| Auth              | acrcenm.azurecr.io/auth/auth         | 1.5.x |
+| Gateway           | acrcenm.azurecr.io/gateway/gateway   | 1.5.x |
+| PKI Tool          | acrcenm.azurecr.io/pkitool/pkitool   | 1.5.x |
+| Notary            | acrcenm.azurecr.io/notary/notary     | 1.5.x |
 
 {{< /table >}}
