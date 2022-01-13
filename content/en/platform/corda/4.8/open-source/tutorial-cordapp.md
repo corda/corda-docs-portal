@@ -552,8 +552,7 @@ The key files and directories are as follows:
 * The **root directory** contains some gradle files, a `README`, a `LICENSE`, and a `TRADEMARK` statement.
 * **clients** contains the source code for Spring Boot integration.
 * **config** contains the Log4j 2 configuration.
-* **contracts-java** and **workflows-java** contain the source code for the sample CorDapp written in Java.
-* **contracts-kotlin** and **workflows-kotlin** contain the same source code, but written in Kotlin. CorDapps can be developed in either Java and Kotlin.
+* **contracts** and **workflows** contain the source code for the sample CorDapp. CorDapps can be developed in either Java and Kotlin.
 * **gradle** contains the Gradle Wrapper, which allows the use of Gradle without installing it yourself and worrying about which version is required.
 * **lib** contains the Quasar jar, which rewrites your CorDapp’s flows to be checkpointable.
 
