@@ -38,7 +38,7 @@ To add the Corda Payments SDK:
 ```
 buildscript {
     ext {
-        corda_release_version = '4.8'
+        corda_release_version = '4.8.5'
         corda_payments_release_group = "com.r3.payments"
         corda_payments_release_version = "1.0.0-TechPreview-1.2"
     }
