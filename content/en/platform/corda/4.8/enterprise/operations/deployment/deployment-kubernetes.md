@@ -33,7 +33,7 @@ This deployment guide is intended for use by either of the following types of CE
 The reference deployment for Corda Enterprise Network Manager runs on [Kubernetes](https://kubernetes.io/) hosted on Microsoft Azure Cloud.
 Microsoft Azure provides a dedicated service to deploy a Kubernetes cluster - [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
 You must have an active Azure subscription to be able to deploy CENM.
-The next section [Deploy your network](#Deploy-your-network) contains links to the official Microsoft installation guide.
+The next section [Deploy your network](#deploy-your-network) contains links to the official Microsoft installation guide.
 The Kubernetes cluster must have access to a private Docker repository to obtain CENM Docker images.
 
 Your local machine operating system should be Linux, Mac OS, or a Unix-compatible environment for Windows
@@ -41,7 +41,7 @@ Your local machine operating system should be Linux, Mac OS, or a Unix-compatibl
 The deployment process is driven from your local machine using a Bash script and several third-party tools:
 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest),
 [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [Helm](https://helm.sh/).
-The following section [Deploy your network](#Deploy-your-network) provides links to official installation guides of the required tools.
+The following section [Deploy your network](#deploy-your-network) provides links to official installation guides of the required tools.
 In addition, the CENM Command-Line Interface (CLI) tool is required so you can connect to, and manage CENM (however, this is not required for deployment).
 
 ### Compatibility
@@ -396,7 +396,7 @@ Once you have created an Azure Key Vault that you want to use, perform the follo
 
 The HSM pod is a helper pod, which loads a defined Docker image and attempts to load the folder containing the HSM-related
 files as a volume for the other pods to use. Follow the steps below:
-1. Create the library jar.
+1. <a href="../../../../../../../en/platform/corda/1.5/cenm/signing-service.html#azure-key-vault">Create the library `.jar`</a>
 2. Create a Docker image containing the `.jar` file and the `.pkcs12` file used as the key store path.
 
 The Docker image and the directory where these files are stored must be specified in the relevant variables in the HSM `values.yaml` file.
