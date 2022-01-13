@@ -158,7 +158,7 @@ The contract must also verify transaction components for when the ticket is rede
 * The output `BoardingTicket` state must have a launch date later than the time the ticket is created.
 
 {{< note >}}
-These are simplified verifications for the purpose of this example. When writing your own CorDapp, components of the `verify` method should be strong representations of your CorDapp's business logic.
+These are simplified verifications for the purpose of this example. When writing your own CorDapp, components of the `verify` method should be strong representations of your CorDapp's business logic. The contract controls how states evolve on the ledger, so the components of your verification ensure that the conditions of your business rules are met.
 {{< /note >}}
 
 Once you've added the verify methods to your `BoardingTicketContract`, your code should look like this:
