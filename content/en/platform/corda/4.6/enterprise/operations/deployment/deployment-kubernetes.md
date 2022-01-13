@@ -571,6 +571,6 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 | Auth              | acrcenm.azurecr.io/auth/auth         | 1.4 |
 | Gateway           | acrcenm.azurecr.io/gateway/gateway   | 1.4 |
 | PKI Tool          | acrcenm.azurecr.io/pkitool/pkitool   | 1.4 |
-| Notary            | acrcenm.azurecr.io/notary/notary     | 1.4 |
+| Notary            | acrcenm.azurecr.io/notary/notary     | 4.5 |
 
 {{< /table >}}

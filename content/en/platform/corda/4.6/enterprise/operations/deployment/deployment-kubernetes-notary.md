@@ -36,7 +36,7 @@ helm install cenm-notary notary --set notaryPublicIP=X.X.X.X --set prefix=cenm -
 | ----------------------------- | -------------------------------------------------------- | --------------------- |
 | `bashDebug`                   | Display additional information while running bash scripts (useful while investigating issues) | `false` |
 | `dockerImage.name`            | URL to Notary Docker image                     | `acrcenm.azurecr.io/notary/notary` |
-| `dockerImage.tag`             | Docker image Tag | `1.2` |
+| `dockerImage.tag`             | Docker image Tag | `4.5.2-zulu-openjdk8u242` |
 | `dockerImage.pullPolicy`      | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `volumeSizeNotaryBin`         | Volume size for the `bin/` directory                     | `2Gi` |
 | `volumeSizeNotaryEtc`         | Volume size for the `etc/` directory                     | `10Mi` |
