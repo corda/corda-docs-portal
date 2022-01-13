@@ -25,12 +25,22 @@ Welcome to the Corda 4.4 release notes. Please read these carefully to understan
 features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.4
 comes with those same guarantees. States and apps valid in Corda 3.0 are usable in Corda 4.4.
 
+## Apache Log4j update
 
+### Updated December 16 2021
+
+Download the [latest version of Corda 4.4](https://github.com/corda/corda) to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
+
+{{< warning >}}
+
+Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). This is the most secure way to mitigate any risks associated with this vulnerability.
+
+{{< /warning >}}
 
 ## Corda 4.4
 
 Corda 4.4 lays the foundation of a new open core approach for the Corda codebase. This involved a refactoring of the
-main functional components of Corda. Please consult [the CorDapp overview](cordapp-overview.md/) to get an overview of
+main functional components of Corda. Please consult [the CorDapp overview](cordapp-overview.md) to get an overview of
 the practical impact on CorDapp development.
 
 Furthermore, Corda 4.4 introduces improvements to the flow framework API and a new diagnostic `ServiceHub` call, and includes
@@ -440,7 +450,7 @@ of tools Corda offers. Now, following the release of Corda Enterprise 4.0, we ar
 and documentation updates to bring additional stability and quality of life improvements to those developing on the Corda platform.
 
 Information on Corda Enterprise 4.0 can be found [here](https://www.r3.com/wp-content/uploads/2019/05/CordaEnterprise4_Enhancements_FS.pdf) and
-[here](https://docs.corda.net/docs/corda-enterprise/4.0/release-notes-enterprise.html). (It’s worth noting that normally this document would have started with a comment
+[here](../../../../../en/platform/corda/4.0/enterprise/release-notes-enterprise.md). (It’s worth noting that normally this document would have started with a comment
 about whether or not you’d been recently domiciled under some solidified mineral material regarding the release of Corda Enterprise 4.0. Alas, we made
 that joke when we shipped the first release of Corda after Enterprise 3.0 shipped, so the thunder has been stolen and repeating ourselves would be terribly gauche.)
 
@@ -654,7 +664,7 @@ Learn more about this new feature by reading the [Upgrading CorDapps to newer Pl
 
 #### State pointers
 
-[State Pointers](api-states.md#state-pointers) formalize a recommended design pattern, in which states may refer to other states
+[State Pointers](api-states.html#state-pointers) formalize a recommended design pattern, in which states may refer to other states
 on the ledger by `StateRef` (a pair of transaction hash and output index that is sufficient to locate
 any information on the global ledger). State pointers work together with the reference states feature
 to make it easy for data to point to the latest version of any other piece of data, with the right

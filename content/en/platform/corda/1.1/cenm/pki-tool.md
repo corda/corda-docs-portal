@@ -809,8 +809,8 @@ certificates = {
 ```docker
 hsmLibraries = [{
     type = GEMALTO_HSM
-    jars = ["/path/to/primusX.jar"]
-    sharedLibDir = "/path/to/shared/lib/dir/"
+    jars = ["/path/to/LunaProvider.jar"]
+    sharedLibDir = "/path/to/shared-libraries/dir/"
 }]
 
 defaultPassword = "password"
@@ -960,7 +960,7 @@ certificates = {
 ```docker
 hsmLibraries = [{
     type = AZURE_KEY_VAULT_HSM
-    jars = ["/path/to/akvLibraries.jar"]
+    jars = ["/path/to/azure-keyvault-with-deps.jar"]
 }]
 
 defaultPassword = "password"

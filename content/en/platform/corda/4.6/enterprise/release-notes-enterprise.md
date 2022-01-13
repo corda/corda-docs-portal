@@ -16,6 +16,42 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.6.7
+
+Corda Enterprise 4.6.7 is a patch release of Corda Enterprise that fixes an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version 2.16.0.
+
+To get started with this upgrade, request the download link by raising a ticket with [support](https://r3-cev.atlassian.net/servicedesk/customer/portal/2).
+
+{{< warning >}}
+
+Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). This is the most secure way to mitigate any risks associated with this vulnerability.
+
+{{< /warning >}}
+
+### Upgrade recommendation
+
+As a developer, you should urgently upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+
+As a node operator, you should urgently upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html).
+
+### Fixed issues
+
+In this patch release:
+
+Log4j dependency updated to version 2.16.0 to mitigate CVE-2021-44228.
+
+## Corda Enterprise 4.6.6
+
+{{< warning >}}
+Patch 4.6.6 contains dependency Log4j 2.15.0. A new vulnerability has been discovered in version 2.15.0 of the log4j logging library, as described here: https://nvd.nist.gov/vuln/detail/CVE-2021-45046. Apache has released version 2.16.0 of the library to address the issue. Corda Enterprise 4.8.5 is due for release December 17 2021.
+{{< /warning >}}
+
+Corda Enterprise 4.8.4 is a patch release of Corda Enterprise that attempted to fix an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
+
+### Upgrade recommendation
+
+When available, update to the next patch release, **Corda Enterprise 4.6.7**, as soon as possible. Consider upgrading to the latest Corda Enterprise 4.8.5 version.
+
 ## Corda Enterprise 4.6.5
 
 Corda Enterprise 4.6.5 is a patch release of Corda Enterprise that fixes an invalid notarization response being sent
@@ -420,7 +456,7 @@ For more information, see [Importing Percona notary data to CockroachDB](../../.
 
 ### Notary identity configuration
 
-When registering a notary, the new field `notary.serviceLegalName` must be defined. This allows single-node notaries to be upgraded to HA notaries.
+When registering a notary, the new field `notary.serviceLegalName` must be defined. This upgrades single-node notaries to high availability.
 
 For more information, see [Notary service overview](../../../../../en/platform/corda/4.6/enterprise/notary/ha-notary-service-overview.md).
 

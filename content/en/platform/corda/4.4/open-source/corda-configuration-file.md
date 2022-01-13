@@ -47,7 +47,7 @@ Please do NOT use double quotes (`"`) in configuration keys.
 
 Node setup will log `Config files should not contain " in property names. Please fix: [key]` as an error when it finds double quotes around keys.
 This prevents configuration errors when mixing keys containing `.` wrapped with double quotes and without them e.g.: The property
-`"dataSourceProperties.dataSourceClassName" = "val"` in [Reference.conf](#reference-conf) would be not overwritten by the property
+`"dataSourceProperties.dataSourceClassName" = "val"` in [Reference.conf](#referenceconf) would be not overwritten by the property
 `dataSourceProperties.dataSourceClassName = "val2"` in *node.conf*.
 
 {{< warning >}}
@@ -74,7 +74,7 @@ for more information.
 
 It is possible to add placeholders to the `node.conf` file to override particular settings via environment variables. In this case the
 `rpcSettings.address` property will be overridden by the `RPC_ADDRESS` environment variable, and the node will fail to load if this
-environment variable isn’t present (see: [Hiding sensitive data](node-administration.md#hiding-sensitive-data) for more information).
+environment variable isn’t present (see: [Hiding sensitive data](node-administration.html#hiding-sensitive-data) for more information).
 
 ```groovy
 rpcSettings {

@@ -234,7 +234,7 @@ clientId: "a3d72387-egfa-4bc2-9cba-b0b27c63540e"
 protection: "HARDWARE"
 ```
 
-The drivers directory needs to contain an uber jar, built by the gradle script below.
+The `drivers` directory needs to contain an uber jar, built by the gradle script below.
 
 First copy the following text in to a new file called build.gradle anywhere on your file system.
 Please do not change any of your existing build.gradle files.
@@ -246,17 +246,18 @@ plugins {
 }
 
 repositories {
-    jcenter()
+  jcenter()
 }
 
 dependencies {
-    compile 'com.microsoft.azure:azure-keyvault:1.2.1'
-    compile 'com.microsoft.azure:adal4j:1.6.4'
+  compile 'com.microsoft.azure:azure-keyvault:1.2.1'
+  compile 'com.microsoft.azure:adal4j:1.6.4'
+  compile 'com.nimbusds:oauth2-oidc-sdk:7.1.1'
 }
 
 shadowJar {
-    relocate 'okhttp3', 'shadow.okhttp3'
-    archiveName = 'azure-keyvault-with-deps.jar'
+  relocate 'okhttp3', 'shadow.okhttp3'
+  archiveName = 'azure-keyvault-with-deps.jar'
 }
 ```
 

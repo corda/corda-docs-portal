@@ -11,7 +11,7 @@ tags:
 title: Managing Business Network membership
 ---
 
-# Business Network membership management
+# Business Network membership management V1.0.1
 
 This Corda platform extension allows you to create and manage business networks - as a node operator, this means you can define and create a logical network based on a set of common CorDapps as well as a shared business context.
 
@@ -20,8 +20,12 @@ Corda nodes outside of your business network are not aware of its members. The n
 In a business network, there is at least one *authorised member*. This member has sufficient permissions to execute management operations over the network and its members.
 
 {{< warning >}}
-In this version, it is possible for an authorised member - such as the Business Network Operator - to remove permissions from itself, potentially leaving the network in a state where no member can perform management operations.  In such a case, permissions can be granted back by other members who are authorised to do so. If there are none left, there is no way of recovering.
+It is possible for an authorized member - such as the Business Network Operator - to remove permissions from itself, potentially leaving the network in a state where no member can perform management operations. In such a case, permissions can be granted back by other members who are authorized to do so. If there are no authorized members left, there is no way to recover management operations permissions.
 {{< /warning >}}
+
+## Release notes: version 1.0.1
+
+Apache Log4j dependency has been updated to version 2.16.0. This is to prevent exposure to security issues raised with earlier versions of Log4j.
 
 ## Creating and managing a business network
 
