@@ -326,9 +326,9 @@ If your test fails, run a Gradle test instead of a unit test.
 * [Build a CorDapp](cordapp-build-systems.md)
 
 
-## Appendix A: Project structure
+## Appendix A: Projects' structure
 
-The `cordapp-example` folder is structured as follows:
+The `cordapp-example` Java folder is structured as follows:
 
 
 ```none
@@ -339,52 +339,54 @@ The `cordapp-example` folder is structured as follows:
 │   └── src
 │       └── main
 │           ├── java
-│           │   └── com
-│           │       └── example
-│           │           └── server
-│           │               ├── CONSTANTS.java
-│           │               ├── MainController.java
-│           │               ├── NodeRPCConnection.java
-│           │               └── Server.java
-│           │  
+│           │   └── net
+│           │       └── corda
+│           │             └── samples
+│           │                   └── example
+│           │                         ├── webserver
+│           │                         │      ├── Controller.java
+│           │                         │      ├── NodeRPCConnection.java
+│           │                         │      └── Starter.java
+│           │                         │
+│           │                         └── Client.java
+│           │                     
 │           └── resources
-│               ├── application.properties
-│               └── public
-│                   ├── index.html
-│                   └── js
-│                       └── angular-module.js
+│                    └── static
+│                           ├── index.html
+│                           └── app.js
+│                       
 ├── config
-│   ├── dev
-│      └── log4j2.xml
+│     ├── dev
+│     │     └── log4j2.xml
+│     └── test
+│            └── log4j2.xml
 │  
 │  
-├── contracts-java
+├── contracts
 │   ├── build.gradle
 │   └── src
-│       └── main
-│           └── java
-│               └── com
-│                   └── example
-│                       ├── contract
-│                       │   └── IOUContract.java
-│                       ├── schema
-│                       │   ├── IOUSchema.java
-│                       │   └── IOUSchemaV1.java
-│                       └── state
-│                           └── IOUState.java
-├── contracts-kotlin
-│   ├── build.gradle
-│   └── src
-│       └── main
-│           └── kotlin
-│               └── com
-│                   └── example
-│                       ├── contract
-│                       │   └── IOUContract
-│                       ├── schema
-│                       │   └── IOUSchema.kt
-│                       └── state
-│                           └── IOUState
+│       ├── main
+│       │    └── java
+│       │        └── net
+│       │              └── corda
+│       │                     └── samples
+│       │                          └── example
+│       │                                ├── contract
+│       │                                │     └── IOUContract.java
+│       │                                ├── schema
+│       │                                │     ├── IOUSchema.java
+│       │                                │     └── IOUSchemaV1.java
+│       │                                └── states
+│       │                                      └── IOUState.java
+│       └── test
+│            └── java
+│                 └── net
+│                      └── corda
+│                            └── samples
+│                                  └── example
+│                                        └── contracts
+│                                              ├── ContractTests.java
+│                                              └── StateTests.java
 ├── gradle
 │   └── wrapper
 │       ├── gradle-wrapper.jar
@@ -394,61 +396,154 @@ The `cordapp-example` folder is structured as follows:
 │   ├── README.txt
 │   └── quasar.jar
 │ 
-├── workflows-java
+├── workflows
 │   ├── build.gradle
 │   └── src
-│       ├── integrationTest
-│       │   └── java
-│       │       └── com
-│       │           └── example
-│       │               └── DriverBasedTests.java
-│       ├── main
-│       │   └── java
-│       │       └── com
-│       │           └── example
-│       │               └── flow
-│       │                   └── ExampleFlow.java
-│       └── test
-│           └── java
-│               └── com
-│                   └── example
-│                       ├── NodeDriver.java
-│                       ├── contract
-│                       │   └── IOUContractTests.java
-│                       └── flow
-│                           └── IOUFlowTests.java
-├──  workflows-kotlin
-│    ├── build.gradle
-│    └── src
 │        ├── integrationTest
-│        │   └── kotlin
-│        │       └── com
-│        │           └── example
-│        │               └── DriverBasedTests.kt
+│        │   └── java
+│        │        └── net
+│        │             └── corda
+│        │                  └── samples
+│        │                         └── example
+│        │                                └── DriverBasedTests.java
 │        ├── main
-│        │   └── kotlin
-│        │       └── com
-│        │           └── example
-│        │               └── flow
-│        │                   └── ExampleFlow.kt
+│        │   ├── java
+│        │   │    └── net
+│        │   │        └── corda
+│        │   │              └── samples
+│        │   │                     └── example
+│        │   │                           └── flows
+│        │   │                                 └── ExampleFlow.java
+│        │   └── resources
+│        │            └── migration
+│        │                     ├── iou.changelog-master.xml
+│        │                     └── iou.changelog-v1.xml
+│        │
 │        └── test
-│            └── kotlin
-│                └── com
-│                    └── example
-│                        ├── NodeDriver.kt
-│                        ├── contract
-│                        │   └── IOUContractTests.kt
-│                        └── flow
-│                            └── IOUFlowTests.kt
+│            └── java
+│                └── net
+│                     └── corda
+│                           └── samples
+│                                 └── example
+│                                        └── FlowTests.java
+│
+├── LICENCE
+├── README.md
+├── TRADEMARK
 ├── build.gradle
 ├── gradle.properties
 ├── gradlew
 ├── gradlew.bat
+├── repositories.gradle
+└── settings.gradle
+
+```
+
+The `cordapp-example` Kotlin folder is structured as follows:
+
+
+```none
+.
+
+├── clients
+│   ├── build.gradle
+│   └── src
+│       └── main
+│           ├── kotlin
+│           │   └── net
+│           │       └── corda
+│           │             └── samples
+│           │                   └── example
+│           │                         ├── webserver
+│           │                         │      ├── Controller.kt
+│           │                         │      ├── NodeRPCConnection.kt
+│           │                         │      └── Server.kt
+│           │                         │
+│           │                         └── Client.kt
+│           │                     
+│           └── resources
+│                    └── static
+│                           ├── index.html
+│                           └── app.js
+├── config
+│   ├── dev
+│   │   └── log4j2.xml
+│   └──test
+│        └── log4j2.xml
+│  
+│
+├── contracts
+│   ├── build.gradle
+│   └── src
+│       ├── main
+│       │    └── kotlin
+│       │        └── net
+│       │            └── corda
+│       │                 └── samples
+│       │                       └── example
+│       │                             ├── contract
+│       │                             │     └── IOUContract.kt
+│       │                             ├── schema
+│       │                             │     └── IOUSchema.kt
+│       │                             └── states
+│       │                                   └── IOUState.kt                                                    
+│       └── test
+│            └── kotlin
+│                 └── net
+│                      └── corda
+│                            └── samples
+│                                  └── example
+│                                        └── contracts
+│                                              ├── ContractTests.kt
+│                                              └── StateTests.kt
+│           
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+│ 
+│
+├──  workflows
+│    ├── build.gradle
+│    └── src
+│        ├── integrationTest
+│        │   └── kotlin
+│        │       └── net
+│        │            └── corda
+│        │                 └── samples
+│        │                         └── example
+│        │                                └── DriverBasedTests.kt
+│        ├── main
+│        │   ├── kotlin
+│        │   │    └── net
+│        │   │        └── corda
+│        │   │              └── samples
+│        │   │                     └── example
+│        │   │                           └── flows
+│        │   │                                 └── ExampleFlow.kt
+│        │   └── resources
+│        │            └── migration
+│        │                     ├── iou.changelog-master.xml
+│        │                     └── iou.changelog-v1.xml
+│        │
+│        └── test
+│            └── kotlin
+│                └── net
+│                     └── corda
+│                           └── samples
+│                                 └── example
+│                                        └── FlowTests.kt
 ├── LICENCE
 ├── README.md
+├── TRADEMARK
+├── build.gradle
+├── constans.properties
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
 ├── repositories.gradle
-├── settings.gradle
-└── TRADEMARK
+└── settings.gradle
+
 
 ```
 
