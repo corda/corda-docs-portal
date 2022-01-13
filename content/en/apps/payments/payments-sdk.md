@@ -18,14 +18,14 @@ All code samples are in Kotlin.
 
 You must have access to:
 
-* The Corda Enterprise Customer Hub.
+* The [Corda Customer Hub](https://customerhub.r3.com/s/r3-customcommunitylogin) trial area.
 * Modulr Sandbox. This is so you can [test your CorDapp on a local environment](send-payments.html#set-up-modulr-sandbox-for-payments-agent).
 
 ## Access Corda Payments on Corda Customer Hub
 
 The CorDapps that make up the Corda Payments solution are made available to Corda Enterprise customers by agreement. Once your Corda account manager has arranged access, you can download the Corda Payments files via the Corda Enterprise Customer Hub.
 
-To install Corda Payments Technical Preview, go to the [Corda Customer Hub](https://customerhub.r3.com/s/).
+To install Corda Payments Technical Preview, go to the [Corda Customer Hub](https://customerhub.r3.com/s/r3-customcommunitylogin).
 
 ## Add Corda Payments SDK dependencies to an existing CorDapp
 
@@ -38,9 +38,9 @@ To add the Corda Payments SDK:
 ```
 buildscript {
     ext {
-        corda_release_version = '4.7'
+        corda_release_version = '4.8'
         corda_payments_release_group = "com.r3.payments"
-        corda_payments_release_version = "1.0.0-TechPreview-1.0"
+        corda_payments_release_version = "1.0.0-TechPreview-1.2"
     }
 }
 ```
