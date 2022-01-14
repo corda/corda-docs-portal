@@ -350,7 +350,7 @@ Now that you've written the `CreateAndIssueMarsVoucher` flow, try writing the `C
 You will need these variables:
 
 * `ticketDescription`
-* `daysUntilLaunch`
+* `launchDate`
 
 You must inject these services:
 
@@ -413,7 +413,7 @@ data class CreateBoardingTicketInitiator @JsonConstructor constructor(private va
         val ticketDescription = with(mapOfParams["ticketDescription"] ?: throw BadRpcStartFlowRequestException("BoardingTicket State Parameter \"ticketDescription\" missing.")) {
             this
         }
-        val daysUntilLaunch = with(mapOfParams["daysUntilLaunch"] ?: throw BadRpcStartFlowRequestException("BoardingTicket State Parameter \"daysUntilLaunch\" missing.")) {
+        val launchDate = with(mapOfParams["launchDate"] ?: throw BadRpcStartFlowRequestException("BoardingTicket State Parameter \"launchDate\" missing.")) {
             this.toInt()
         }
 
@@ -421,7 +421,7 @@ data class CreateBoardingTicketInitiator @JsonConstructor constructor(private va
         val notary = notaryLookup.getNotary(CordaX500Name.parse("O=notary, L=London, C=GB"))!!
 
         //Building the output BoardingTicket state.
-        val basket = BoardingTicket(description = ticketDescription,marsExpress = flowIdentity.ourIdentity,daysUntilLaunch = daysUntilLaunch)
+        val basket = BoardingTicket(description = ticketDescription,marsExpress = flowIdentity.ourIdentity,launchDate = launchDate)
 
 
         //Building the transaction.
