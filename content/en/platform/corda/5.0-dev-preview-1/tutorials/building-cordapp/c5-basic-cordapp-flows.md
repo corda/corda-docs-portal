@@ -189,7 +189,7 @@ Next you must add the flow implementation to the initiating flow by encapsulatin
 
 {{< note >}}
 
-In Corda 5 the notary is predefined. You will be "spending" your state with a particular notary tieing that state to it (notary change excepted). Thus, you cannot just pick the first one as the list order may change, especially in a multi-network or app environment where different notaries are whitelisted for different apps. You can find the full status of the notary by starting the network and printing out its status.
+In Corda 5, the notary is predefined. You will be "spending" your state with a particular notary tieing that state to it (notary change excepted). Thus, you cannot just pick the first one as the list order may change, especially in a multi-network or app environment where different notaries are whitelisted for different apps. You can find the full status of the notary by starting the network and printing out its status.
 
 {{< /note >}}
 
