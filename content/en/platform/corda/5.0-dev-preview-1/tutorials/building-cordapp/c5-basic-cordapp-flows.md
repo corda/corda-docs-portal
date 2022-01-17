@@ -16,7 +16,7 @@ In Corda, flows automate the process of agreeing ledger updates. They are a sequ
 
 In this tutorial, top-level flows refer to those that encapsulate the business logic behind the interaction between the users and your CorDapp. They can have multiple subflows and can be started via RPC. However, not all top-level flows govern interactions with users, some could be admin or maintenance flows for example.
 
-The Corda-provided subflows are common tasks performed in Corda, such as gathering signatures from counterparty nodes or notarising and recording a transaction. As a developer, you only need to implement flows for the business logic of your specific use case.
+The Corda-provided subflows are common tasks performed in Corda, such as gathering signatures from counterparty nodes or notarizing and recording a transaction. As a developer, you only need to implement flows for the business logic of your specific use case.
 
 The `Flow` interface is used to implement a flow. When you use this interface, your business logic will override the `call` method. Flows access version 2 of the Corda API through injectable services using the `@CordaInject` tag. See the [services documentation](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/injectable-services.md) for a list of all services available in the Corda 5 Developer Preview.
 
