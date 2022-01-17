@@ -14,7 +14,7 @@ title: Write flows
 
 In Corda, flows automate the process of agreeing ledger updates. They are a sequence of steps that tell a group of nodes how to achieve a specific ledger update, such as issuing an asset or making a deposit. Each node enacts as part of the transaction and they communicate using these flows in point-to-point interactions, rather than a global broadcast system. Network participants must specify what information needs to be sent, to which counterparties.
 
-Top-level flows that we're interested in in this tutorial encapsulate the business logic behind the interaction between the users and your CorDapp. They can have multiple subflows and can be started via RPC. However, not all top-level flows rule interactions with users, some could be, for example, admin or maintenance flows.
+In this tutorial, top-level flows refer to those that encapsulate the business logic behind the interaction between the users and your CorDapp. They can have multiple subflows and can be started via RPC. However, not all top-level flows govern interactions with users, some could be admin or maintenance flows for example.
 
 The Corda-provided subflows are common tasks performed in Corda, such as gathering signatures from counterparty nodes or notarising and recording a transaction. As a developer, you only need to implement flows for the business logic of your specific use case.
 
