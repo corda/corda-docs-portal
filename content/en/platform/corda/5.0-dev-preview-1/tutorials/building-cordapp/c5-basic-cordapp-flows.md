@@ -461,7 +461,7 @@ Start writing your initiating flow following the same process used when writing 
 
 1. Add these annotations:
    * `@InitiatingFlow`: Indicates that this flow is the initiating flow.
-   * `@StartableByRPC`: This annotation allows the flow to be started by RPC. You **must** use this annotation if you want to run the flow with the RPC Client.
+   * `@StartableByRPC`: Allows the flow to be started by RPC. You **must** use this annotation if you want to run the flow with the RPC Client.
 
 2. Define the `RedeemBoardingTicketWithVoucherInitiator` class with a `@JsonConstructor`, `RpcStartFlowRequestParameters`, and returning a `SignedTransactionDigest`.
 3. Inject these services:
