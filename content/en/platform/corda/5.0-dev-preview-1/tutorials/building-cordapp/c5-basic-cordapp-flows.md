@@ -12,7 +12,7 @@ tags:
 title: Write flows
 ---
 
-In Corda, flows automate the process of agreeing ledger updates. They are a sequence of steps that tell a group of nodes how to achieve a specific ledger update, such as issuing an asset or making a deposit. Each node enacts as part of the transaction and they communicate using these flows in point-to-point interactions, rather than a global broadcast system. Network participants must specify what information needs to be sent, to which counterparties.
+In Corda, flows automate the process of agreeing ledger updates. They are a sequence of steps that tell a group of nodes how to achieve a specific ledger update, such as issuing an asset or making a deposit. Each node has a specific role to play in the transaction and they communicate using these flows in point-to-point interactions, rather than a global broadcast system. Network participants must specify what information needs to be sent, to which counterparties.
 
 In this tutorial, top-level flows refer to those that encapsulate the business logic behind the interaction between the users and your CorDapp. They can have multiple subflows and can be started via RPC. However, not all top-level flows govern interactions with users, some could be admin or maintenance flows for example.
 
@@ -118,11 +118,11 @@ Use the `@CordaInject` annotation to define a field to be set by Corda before th
 In this sample CorDapp, add these services:
 
 * `FlowEngine`: Provides basic control over a flow it is injected into, such as calling subflows, performing asynchronous tasks and putting the flow to sleep for a period of time. This flow needs `FlowEngine` because you are utilizing subflows such as `FinalityFlow` and `CollectSignaturesFlow`.
-* `FlowIdentity`: Allows obtaining the identity of the node running the flow. You must inject this service because one of the output states needs its own identity.
-* `FlowMessaging`: Allows creating and closing flow sessions as well as sending and receiving data between flows via a flow session. Use this service to create flow sessions that allow communication between counterparties.
+* `FlowIdentity`: Obtains the identity of the node running the flow. You must inject this service because one of the output states needs its own identity.
+* `FlowMessaging`: Used for creating and closing flow sessions as well as sending and receiving data between flows via a flow session. Use this service to create flow sessions that allow communication between counterparties.
 * `TransactionBuilderFactory`: Constructs, verifies and signs the transactions. In this case, it builds a transaction.
 * `IdentityService`: Provides methods to retrieve `Party` and `AnonymousParty` instances. You need it because your flow involves counterparties.
-* `NotaryLookupService`: Allows finding information on notaries in the network. Add it because your transaction requires a notary.
+* `NotaryLookupService`: Finds information on notaries in the network. Add it because your transaction requires a notary.
 * `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers. You need it because in Corda 5 all flow parameters are in the JSON format.
 
 After you've added the services, your code should look like this:
@@ -355,9 +355,9 @@ You will need these variables:
 You must inject these services:
 
 * `FlowEngine`: Provides basic control over a flow it is injected into, such as calling subflows, performing asynchronous tasks and putting the flow to sleep for a period of time. This flow needs `FlowEngine` because you are utilizing subflows such as `FinalityFlow`.
-* `FlowIdentity`: Allows obtaining the identity of the node running the flow. You must inject this service because one of the output states needs its own identity.
+* `FlowIdentity`: Obtains the identity of the node running the flow. You must inject this service because one of the output states needs its own identity.
 * `TransactionBuilderFactory`: Used for constructing, verifying and signing the transactions. In this case, it builds a transaction.
-* `NotaryLookupService`: Allows finding information on notaries in the network. Add it because your transaction requires a notary.
+* `NotaryLookupService`: Finds information on notaries in the network. Add it because your transaction requires a notary.
 * `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers. You need it because in Corda 5 all flow parameters are in the JSON format.
 
 {{< note >}}
@@ -467,11 +467,11 @@ Start writing your initiating flow following the same process used when writing 
 3. Inject these services:
 
     * `FlowEngine`: Provides basic control over a flow it is injected into, such as calling subflows, performing asynchronous tasks and putting the flow to sleep for a period of time. This flow needs `FlowEngine` because you are utilizing subflows such as `FinalityFlow` and `CollectSignaturesFlow`.
-    * `FlowIdentity`: Allows obtaining the identity of the node running the flow. You must inject this service because one of the output states needs its own identity.
-    * `FlowMessaging`: Allows creating and closing flow sessions as well as sending and receiving data between flows via a flow session. Use this service to create flow sessions that allow communication between counterparties.
+    * `FlowIdentity`: Obtains the identity of the node running the flow. You must inject this service because one of the output states needs its own identity.
+    * `FlowMessaging`: Used for creating and closing flow sessions as well as sending and receiving data between flows via a flow session. Use this service to create flow sessions that allow communication between counterparties.
     * `TransactionBuilderFactory`: Used for constructing, verifying and signing the transactions. In this case, it builds a transaction.
     * `IdentityService`: Provides methods to retrieve `Party` and `AnonymousParty` instances. You need it because your flow involves counterparties.
-    * `NotaryLookupService`: Allows finding information on notaries in the network. Add it because your transaction requires a notary.
+    * `NotaryLookupService`: Finds information on notaries in the network. Add it because your transaction requires a notary.
     * `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers. You need it because in Corda 5 all flow parameters are in the JSON format.
     * `PersistenceService`: Provides an API for interacting with the database. It has functions mirroring Java's `EntityManager` for working with entities. Also, it provides functions for executing predefined named queries and polling for results. It hides the complexity of asynchronously interacting with the database which, in a high-availability environment, could be running on a separate process.
 
