@@ -858,3 +858,7 @@ All classes listed below belong to the `com.r3.corda.metering.filter` package.
 | ```Filter.ByCorDapp.ByTransactionType``` | Matches only the meterings related to transactions of the specified transaction type (helpers are available to specify ledger-updating transactions and non-ledger-updating transactions) |
 
 {{< /table >}}
+
+{{< note }}
+The metering collection functionality Filtering by CorDapp name is case insensitive for MSSQL Server. For more information, see [Database configuration - SQL Server](node/operating/node-database-admin.html#sql-server-3)
+{{< /note >}}
