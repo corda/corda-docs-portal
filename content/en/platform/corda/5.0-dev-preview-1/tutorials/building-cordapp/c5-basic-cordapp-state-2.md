@@ -42,7 +42,7 @@ Include these variables in the `BoardingTicket` data class:
 * `description`: Trip information. Use type `String`.
 * `marsExpress`: The space travel company issuing the ticket. Use type `Party`.
 * `owner`: The party exchanging the voucher for the ticket. Use type `Party`.
-* `daysUntilLaunch`: The number of days until the launch date. Use type `int`.
+* `launchDate`: The number of days until the launch date. Use type `LocalDate`.
 
 This is what your code should look like now:
 
@@ -55,7 +55,7 @@ data class BoardingTicket(
         var description : String, //Trip information
         var marsExpress : Party, //Party selling the ticket
         var owner: Party, //The party who exchanges the ticket for the voucher
-        var daysUntilLaunch: Int) {
+        var launchDate: LocalDate) {
 
     }
 ```
@@ -80,7 +80,7 @@ data class BoardingTicket(
         var description : String, //Trip information
         var marsExpress : Party, //Party selling the ticket
         var owner: Party, //The party who exchanges the ticket for the voucher
-        var daysUntilLaunch: Int)
+        var launchDate: LocalDate)
     : ContractState, JsonRepresentable {
 
     override val participants: List<AbstractParty> get() = listOf<AbstractParty>(marsExpress,owner)
@@ -95,7 +95,7 @@ data class BoardingTicket(
 There are several ways to return your parameters in a JSON string. This tutorial shows you one method, but you are not restricted to using this specific method in Corda.
 {{< /note >}}
 
-1. Create a data transfer object that encapsulates the data of your `BoardingTicket` state—`BoardingTicketDto`. Include the same variables as the `BoardingTicket` class (`description`, `marsExpress`, `owner`, and `daysUntilLaunch`) and mark all variable types as `String`.
+1. Create a data transfer object that encapsulates the data of your `BoardingTicket` state—`BoardingTicketDto`. Include the same variables as the `BoardingTicket` class (`description`, `marsExpress`, `owner`, and `launchDate`) and mark all variable types as `String`.
 2. Create a function that instantiates the `BoardingTicketDto`.
 3. Create an override function that converts the `BoardingTicketDto` variables to JSON using the `toJson` method.
 
@@ -116,7 +116,7 @@ data class BoardingTicket(
         var description : String, //Trip information
         var marsExpress : Party, //Party selling the ticket
         var owner: Party, //The party who exchanges the ticket for the voucher
-        var daysUntilLaunch: Int)
+        var launchDate: LocalDate)
     : ContractState, JsonRepresentable {
 
     override val participants: List<AbstractParty> get() = listOf<AbstractParty>(marsExpress,owner)
@@ -126,7 +126,7 @@ data class BoardingTicket(
                 description,
                 marsExpress.name.toString(),
                 owner.name.toString(),
-                daysUntilLaunch.toString()
+                launchDate.toString()
         )
     }
 
@@ -139,7 +139,7 @@ data class BoardingTicketDto(
         var description : String, //Ticket information
         var marsExpress : String, //Origin of the ticket
         var owner: String, //The person who exchanges the ticket for the voucher
-        var daysUntilLaunch: String
+        var launchDate: String
 )
 ```
 ### Define a secondary constructor and helper method to change the ticket owner
@@ -168,19 +168,19 @@ data class BoardingTicket(
         var description : String, //Trip information
         var marsExpress : Party, //Party selling the ticket
         var owner: Party, //The party who exchanges the ticket for the voucher
-        var daysUntilLaunch: Int)
+        var launchDate: LocalDate)
     : ContractState, JsonRepresentable {
 
     //Secondary Constructor
-    constructor(description: String, marsExpress: Party, daysUntilLaunch: Int) : this(
+    constructor(description: String, marsExpress: Party, launchDate: LocalDate) : this(
             description = description,
             marsExpress = marsExpress,
             owner = marsExpress,
-            daysUntilLaunch = daysUntilLaunch
+            launchDate = launchDate
     )
 
     fun changeOwner(buyer: Party): BoardingTicket {
-        return BoardingTicket(description, marsExpress, buyer, daysUntilLaunch)
+        return BoardingTicket(description, marsExpress, buyer, launchDate)
     }
 
     override val participants: List<AbstractParty> get() = listOf<AbstractParty>(marsExpress,owner)
@@ -190,7 +190,7 @@ data class BoardingTicket(
                 description,
                 marsExpress.name.toString(),
                 owner.name.toString(),
-                daysUntilLaunch.toString()
+                launchDate.toString()
         )
     }
 
@@ -203,7 +203,7 @@ data class BoardingTicketDto(
         var description : String, //Ticket information
         var marsExpress : String, //Origin of the ticket
         var owner: String, //The person who exchanges the ticket for the voucher
-        var daysUntilLaunch: String
+        var launchDate: String
 )
 ```
 
