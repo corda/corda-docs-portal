@@ -704,7 +704,7 @@ For a single-node notary, you must specify the `validating` and `serviceLegalNam
         ```json
           jpa {
             connectionRetries=2
-            dataSource {
+            dataSource.[VALUE] {
               autoCommit="false"
               jdbcUrl="jdbc:postgresql://10.18.1.1,10.18.1.2,10.18.1.3/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8&user=corda"
               username="corda"
@@ -816,7 +816,7 @@ Options for the RPC server exposed by the Node.
 **Important: The RPC SSL certificate is used by RPC clients to authenticate the connection.  The Node operator must provide RPC clients with a truststore containing the certificate they can trust.  We advise Node operators to not use the P2P keystore for RPC.  The node can be run with the "generate-rpc-ssl-settings" command, which generates a secure keystore and truststore that can be used to secure the RPC connection. You can use this if you have no special requirements.**
 
 * `address`
-  * host and port for the RPC server binding. Specifying 0.0.0.0 (as host) is a convention allowing the host to bind all of it's network interfaces when listening on a socket. By itself 0.0.0.0 is non-routeable. i.e. not a proper address.
+  * host and port for the RPC server binding. Specifying 0.0.0.0 (as host) is a convention allowing the host to bind all of its network interfaces when listening on a socket. By itself 0.0.0.0 is non-routable; i.e., not a proper address.
   * *Default:* not defined
 * `adminAddress`
   * host and port for the RPC admin binding (this is the endpoint that the node process will connect to).  This needs to follow the same host rules as address setting (see above).
@@ -825,7 +825,7 @@ Options for the RPC server exposed by the Node.
   * boolean, indicates whether the node will connect to a standalone broker for RPC.
   * *Default:* false
 * `useSsl`
-  * boolean, indicates whether or not the node should require clients to use SSL for RPC connections.
+  * boolean, indicates whether the node should require clients to use SSL for RPC connections.
   * *Default:* false
 * `ssl`
   * (mandatory if `useSsl=true`) SSL settings for the RPC server.
