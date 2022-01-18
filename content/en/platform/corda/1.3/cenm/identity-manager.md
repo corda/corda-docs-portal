@@ -52,6 +52,10 @@ On success you should see a message similar to:
 Network management web services started on localhost:1300 with [RegistrationWebService, CertificateRevocationWebService, MonitoringWebServer]
 ```
 
+{{< note >}}
+The Identity Manager Service can handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280).
+{{< /note >}}
+
 
 ## Configuration
 
