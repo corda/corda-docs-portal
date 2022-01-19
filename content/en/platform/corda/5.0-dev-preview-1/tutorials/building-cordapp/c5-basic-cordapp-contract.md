@@ -232,7 +232,7 @@ class MarsVoucherContract : Contract {
 
     // Used to indicate the transaction's intent.
     interface Commands : CommandData {
-        //In our hello-world app, We will have two commands.
+        //In our Mission Mars app, we have two commands.
         class Issue : Commands
         class Transfer: Commands
     }

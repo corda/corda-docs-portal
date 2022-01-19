@@ -42,7 +42,7 @@ Include these variables in the `BoardingTicket` data class:
 * `description`: Trip information. Use type `String`.
 * `marsExpress`: The space travel company issuing the ticket. Use type `Party`.
 * `owner`: The party exchanging the voucher for the ticket. Use type `Party`.
-* `launchDate`: The number of days until the launch date. Use type `LocalDate`.
+* `launchDate`: The date of the trip launch. Use type `LocalDate`.
 
 This is what your code should look like now:
 
@@ -95,7 +95,7 @@ data class BoardingTicket(
 There are several ways to return your parameters in a JSON string. This tutorial shows you one method, but you are not restricted to using this specific method in Corda.
 {{< /note >}}
 
-1. Create a data transfer object that encapsulates the data of your `BoardingTicket` state—`BoardingTicketDto`. Include the same variables as the `BoardingTicket` class (`description`, `marsExpress`, `owner`, and `launchDate`) and mark all variable types as `String`.
+1. Create a data transfer object that encapsulates the data of your `BoardingTicket` state—`BoardingTicketDto`. Include the same variables as the `BoardingTicket` class (`description`, `marsExpress`, `owner`, and `launchDate`) and define all variable types as `String`.
 2. Create a function that instantiates the `BoardingTicketDto`.
 3. Create an override function that converts the `BoardingTicketDto` variables to JSON using the `toJson` method.
 
