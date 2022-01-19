@@ -244,4 +244,4 @@ class CreateAndIssueMarsVoucherTest {
 
 ## Create integration tests for the `CreateBoardingTicket` flow and the `RedeemBoardingTicketWithVoucher` flow
 
-Now that you've written the integration test for `CreateAndIssueMarsVoucher`, try writing the tests for the two other flows in your CorDapp: `CreateBoardingTicket` and `RedeemBoardingTicketWithVoucher`. Check your work against the [missionmars solution](https://github.com/corda/samples-kotlin-corda5/tree/main/tutorial/missionmars).
+Now that you've written the integration test for `CreateAndIssueMarsVoucher`, try writing the tests for the two other flows in your CorDapp: `CreateBoardingTicket` and `RedeemBoardingTicketWithVoucher`. Check your work against the [missionmars solution](https://github.com/corda/samples-kotlin-corda5/tree/main/Tutorial/missionmars).

@@ -50,8 +50,6 @@ The network definition `.yaml` file is a template for the network you want to de
 5. Add the following parameters to the newly-created `mission-mars.yaml` file:
 
 ```
-registry: engineering-docker.software.r3.com
-
 nodes:
   PartyA:
     debug: true
@@ -62,6 +60,7 @@ nodes:
       angelenos:
         password: password
         permissions: [ "ALL" ]
+
   PartyB:
     x500: "C=US, L=New York, O=Peter, OU=INC"
     users:
@@ -70,6 +69,16 @@ nodes:
       londoner:
         password: password
         permissions: [ "ALL" ]
+
+  PartyC:
+    x500: "C=US, L=San Diego, O=Friend, OU=LLC"
+    users:
+      user1:
+        password: test
+      newyorker:
+        password: password
+        permissions: [ "ALL" ]
+
   notary:
     notary: true
 ```
