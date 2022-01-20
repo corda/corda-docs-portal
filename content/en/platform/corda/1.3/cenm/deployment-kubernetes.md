@@ -172,7 +172,7 @@ You can use the following bootstrap options when running bootstrap:
 Usage:
 
 ```bash
-cd network-services/deployment/k8s/helm
+cd k8s/helm
 ./bootstrap.cenm <option>
 ```
 
@@ -192,7 +192,7 @@ kubectl get pods -o wide
 If your external IPs have been already allocated you can reuse them by specifying their services names:
 
 ```bash
-cd network-services/deployment/k8s/helm
+cd k8s/helm
 ./bootstrap.cenm -i idman-ip -n notary-ip
 ```
 

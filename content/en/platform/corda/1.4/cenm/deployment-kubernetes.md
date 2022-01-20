@@ -46,7 +46,7 @@ In addition, the CENM Command-Line Interface (CLI) tool is required so you can c
 
 ### Compatibility
 
-The deployment scripts are compatible with Corda Enterprise Network Manager version 1.3 and 1.4 only.
+The deployment scripts are compatible with Corda Enterprise Network Manager version 1.4.
 The deployed network runs on Kubernetes minimum version 1.16.9 and Helm minimum version 3.1.1.
 
 ## Deployment
@@ -128,8 +128,8 @@ The deployment steps are given below:
 Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
 ```bash
-kubectl apply -f ./k8s/storage-class-[aws|azure].yaml
-kubectl apply -f ./k8s/rbac.yaml
+kubectl apply -f k8s/storage-class-[aws|azure].yaml
+kubectl apply -f k8s/rbac.yaml
 export nameSpace=cenm
 kubectl config set-context $(kubectl config current-context) --namespace=${nameSpace}
 ```
@@ -173,7 +173,7 @@ You can use the following bootstrap options when running bootstrap:
 Usage:
 
 ```bash
-cd network-services/deployment/k8s/helm
+cd k8s/helm
 ./bootstrap.cenm <option>
 ```
 
@@ -193,7 +193,7 @@ kubectl get pods -o wide
 If your external IPs have been already allocated you can reuse them by specifying their services names:
 
 ```bash
-cd network-services/deployment/k8s/helm
+cd k8s/helm
 ./bootstrap.cenm -i idman-ip -n notary-ip
 ```
 
