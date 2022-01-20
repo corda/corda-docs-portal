@@ -185,7 +185,7 @@ This is a Corda-specific helper method used for writing contracts only.
 
 {{< /note >}}
 
-You have now finished writing the `MarsVoucherContract`. Your code should now look like this:
+You have now finished writing the `MarsVoucherContract`. Your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.contracts

@@ -14,9 +14,9 @@ title: Write a complex contract
 
 Now that you've written your first contract, write the `BoardingTicketContract`.
 
-The `BoardingTicketState` will be used on two occasions: when the ticket is created by Mars Express and when the ticket is redeemed by the customer. This means that the `BoardingTicketContract` should have a `Commands` interface that carries two commands corresponding to the contract's two intentions.
+The `BoardingTicketState` is used when the Mars Express creates the ticket and when the customer redeems the ticket. This means that the `BoardingTicketContract` needs a `Commands` interface with commands for both uses.
 
-The rules inside the `requireThat` Corda DSL helper method are:
+The `requireThat` Corda DSL helper method has two sets of rules.
 
 * For the `CreateTicket` command:
 
@@ -44,9 +44,9 @@ First, create the `BoardingTicketContract`. This contract verifies actions perfo
 
 ### Create the contract class
 
-As noted when creating the `MarsVoucherContract`, Corda states typically have a corresponding contract class to document the rules/policy of that state when used in a transaction. To declare the contract class:
+Corda states typically have a corresponding contract class to document the rules/policy of that state when used in a transaction. To declare the contract class:
 
-Add the class name `BoardingTicketContract` that implements the `Contract` class.
+Add the class name `BoardingTicketContract`, which implements the `Contract` class.
 
 This is what your code should look like now:
 
@@ -143,7 +143,7 @@ companion object {
 
 ### Add `verify` methods
 
-As in the `MarsVoucherContract`, you must add a `verify` method that is automatically triggered when a transaction is executed. Use the `verify` method to confirm that the transaction components are following the restrictions that you want to implement with the contract.
+You must add a `verify` method that triggers automatically when a transaction executes. Use the `verify` method to confirm that the transaction components are following the restrictions that you want to implement with the contract.
 
 In the `BoardingTicketContract`, the `verify` method must confirm that when creating the ticket:
 
