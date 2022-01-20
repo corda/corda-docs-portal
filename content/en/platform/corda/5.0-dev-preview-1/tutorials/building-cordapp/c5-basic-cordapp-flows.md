@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     identifier: corda-corda-5.0-dev-preview-1-tutorial-c5-basic-cordapp-flows
     parent: corda-5-dev-preview-1-tutorials-building-cordapp
-    weight: 1040
+    weight: 1050
 tags:
 - tutorial
 - cordapp
