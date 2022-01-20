@@ -27,7 +27,7 @@ The host and port on which the service runs
 See [CENM Database Configuration](../../../../../en/platform/corda/1.5/cenm/config-database.md)
 * **shell**:
 *(Optional)*  See [Shell Configuration Parameters](../../../../../en/platform/corda/1.5/cenm/config-shell.md)
-* **enmListener**:
+* **enmListener** (optional in a simple test deployment):
 Details on how the service will communicate with the rest of the CENM deployment.
   * **port**:
   The port that the service will bind to, and other CENM components will connect to.
@@ -37,11 +37,11 @@ Details on how the service will communicate with the rest of the CENM deployment
   Informs whether a client should attempt to reconnect if the connection is dropped.
   * **ssl**:
   See [SSL Settings](../../../../../en/platform/corda/1.5/cenm/config-ssl.md)
-* **checkRevocation**:
+* **checkRevocation** (optional, defaults to `false` if omitted):
 If set to true, the Network Map will check with the Identity Manager’s revocation service to find out if the registering node is revoked.
 * **pollingInterval**:
 How often nodes registering with the network map should check back for new entries.
-* **identityManager**:
+* **identityManager** (optional in a simple test deployment):
 Details where the issuance service is on the network
   * **host**:
   The host the Identity Manager Service is running on.
@@ -49,7 +49,7 @@ Details where the issuance service is on the network
   The port that its `enmListener` is bound to.
   * **ssl**:
   See [SSL Settings](../../../../../en/platform/corda/1.5/cenm/config-ssl.md) for details.
-* **revocation**:
+* **revocation** (optional in a simple test deployment):
 Details where the revocation service is on the network
   * **host**:
   The host that the Identity Manager Service is running on.
