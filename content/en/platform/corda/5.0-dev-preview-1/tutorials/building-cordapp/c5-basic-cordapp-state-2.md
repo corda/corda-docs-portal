@@ -5,11 +5,11 @@ menu:
   corda-5-dev-preview:
     identifier: corda-corda-5.0-dev-preview-1-tutorial-c5-basic-cordapp-state-2
     parent: corda-5-dev-preview-1-tutorials-building-cordapp
-    weight: 1030
+    weight: 1035
 tags:
 - tutorial
 - cordapp
-title: "Write an advanced state"
+title: "Write a complex state"
 ---
 
 Now that you have created a state to represent a voucher, you must create a `BoardingTicket` state to represent the ticket that the customer receives when they redeem their `MarsVoucher`. This state has some additional complexity—it uses a secondary constructor and helper method to change the owner of the `BoardingTicket`.

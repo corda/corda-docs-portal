@@ -5,14 +5,14 @@ menu:
   corda-5-dev-preview:
     identifier: corda-corda-5.0-dev-preview-1-tutorial-c5-basic-cordapp-contract-2
     parent: corda-5-dev-preview-1-tutorials-building-cordapp
-    weight: 1050
+    weight: 1045
 tags:
 - tutorial
 - cordapp
 title: Write a complex contract
 ---
 
-Now that you've written your first contract, write the `BoardingTicketContract`.
+Before you try writing a complex contract, make sure you try [a simple one first](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-contract.md). Then, you're ready to write this `BoardingTicketContract`.
 
 The `BoardingTicketState` is used when the Mars Express creates the ticket and when the customer redeems the ticket. This means that the `BoardingTicketContract` needs a `Commands` interface with commands for both uses.
 
