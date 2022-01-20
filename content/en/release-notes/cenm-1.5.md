@@ -8,8 +8,6 @@ title: CENM 1.5 release
 weight: 50
 ---
 
-## Corda Enterprise Network Manager (CENM) 1.5
-
 The Corda Enterprise Network Manager (CENM) lets Corda Enterprise customers deploy, operate, and set consensus rules for their networks. CENM versions are released separately from Corda Enterprise versions and follow an independent version sequence. The latest version of CENM is [CENM 1.5](../../en/platform/corda/1.5/cenm/release-notes.md), which introduces a new CENM management console, single sign-on functionality for Azure AD for Corda services, and the ability to reissue node legal identity keys and certificates. While this release is backward-compatible, you should consider upgrading to this release from earlier versions of CENM.
 
 ### Previous versions of CENM

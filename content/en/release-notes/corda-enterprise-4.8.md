@@ -8,8 +8,6 @@ title: Corda Enterprise 4.8 release
 weight: 30
 ---
 
-## Corda Enterprise 4.8
-
 Corda Enterprise 4.8 is a long-term support release, with commitments to wire and API stability. It introduces several fixes and improvements. States and CorDapps from version 3.0 and above are compatible with Corda Enterprise 4.8. See the [full 4.8 release notes](../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
 
 ### Previous versions of Corda Enterprise

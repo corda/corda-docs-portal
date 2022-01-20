@@ -8,8 +8,6 @@ title: Corda Open Source 4.8 release
 weight: 20
 ---
 
-## Corda open source 4.8
-
 Corda open source 4.8 is the latest open source version of Corda, with commitments to wire and API stability. It introduces several fixes and improvements. States and CorDapps from version 3.0 and above are compatible with Corda 4.8. See the [full 4.8 release notes](../../en/platform/corda/4.8/open-source/release-notes.md).
 
 ### Previous versions of Corda open source
