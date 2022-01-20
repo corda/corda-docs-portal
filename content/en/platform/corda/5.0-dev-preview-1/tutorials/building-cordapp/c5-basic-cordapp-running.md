@@ -31,7 +31,7 @@ Before you run your Mission Mars CorDapp, you may want to compare your files to 
 
 ## Deploy your CorDapp to a local Corda 5 network
 
-1. Compile the CorDapp's code into the Corda package files (`.cpk`s) by running the `./gradlew clean build` command from the root of your project.
+1. Compile the CorDapp's code into the Corda package files (`.cpk`s) by running the `./gradlew clean build` command from the root of your project. See the [Gradle plugin page](../../../../../../en/platform/corda/5.0-dev-preview-1/packaging/gradle-plugin/overview.md) for more information about using this plugin.
 
 2. Assemble your `.cpk` files into a single Corda package bundle (`.cpb`) file using the CorDapp Builder CLI:
 
@@ -50,8 +50,6 @@ The network definition `.yaml` file is a template for the network you want to de
 5. Add the following parameters to the newly-created `mission-mars.yaml` file:
 
 ```
-registry: engineering-docker.software.r3.com
-
 nodes:
   PartyA:
     debug: true
@@ -62,6 +60,7 @@ nodes:
       angelenos:
         password: password
         permissions: [ "ALL" ]
+
   PartyB:
     x500: "C=US, L=New York, O=Peter, OU=INC"
     users:
@@ -70,6 +69,16 @@ nodes:
       londoner:
         password: password
         permissions: [ "ALL" ]
+
+  PartyC:
+    x500: "C=US, L=San Diego, O=Friend, OU=LLC"
+    users:
+      user1:
+        password: test
+      newyorker:
+        password: password
+        permissions: [ "ALL" ]
+
   notary:
     notary: true
 ```

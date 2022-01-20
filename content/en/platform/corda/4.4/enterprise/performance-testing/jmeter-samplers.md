@@ -107,12 +107,12 @@ If the custom sampler uses flows or states from another CorDapp that is not pack
 requires instantiating classes to serialize them. The easiest way to achieve this is to add it to the list of additional search paths. A typical invocation would be similar to the following:
 
 ```kotlin
-java -jar jmeter-corda.jar <other args...> -XaddditionalSearchPaths=/home/<user>/mySampler.jar;/home/<user>/myCorDapp.jar
+java -jar jmeter-corda.jar <other args...> -XaddditionalSearchPaths="/home/<user>/mySampler.jar;/home/<user>/myCorDapp.jar"
 ```
 or:
 
 ```kotlin
-java -jar jmeter-corda.jar <other args...> -XaddditionalSearchPaths=/home/<user>/mySampler.jar;<node installation dir>/cordapps/myCordapp.jar
+java -jar jmeter-corda.jar <other args...> -XaddditionalSearchPaths="/home/<user>/mySampler.jar;<node installation dir>/cordapps/myCordapp.jar"
 ```
 
 When using JMeter servers for remote invocation, the exact same version of the sampler JAR needs to be deployed on each
