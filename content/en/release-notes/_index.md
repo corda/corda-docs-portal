@@ -11,6 +11,7 @@ project: releases
 version: 'releases'
 title: Alerts
 ---
+
 # Alerts and releases
 
 This page provides updates on all major alerts, fixes and forthcoming patch releases. Check the top of the page for most urgent alerts. Scroll down for [current release information](#current-releases).
