@@ -451,7 +451,7 @@ data class CreateBoardingTicketInitiator @JsonConstructor constructor(private va
 
 ## Write the `GiftVoucherToFriend` flow
 
-In Corda, you can transfer a state to someone else. The `GiftVoucherToFriend` flow lets you transfer the ownership of the issued voucher to another person.
+In Corda, you can transfer a state to another party on the network. The `GiftVoucherToFriend` flow lets you transfer the ownership of the issued voucher to another person.
 
 Now that you've written the `CreateAndIssueMarsVoucher` and `CreateBoardingTicket` flows, try writing the `GiftVoucherToFriend` flow.
 
