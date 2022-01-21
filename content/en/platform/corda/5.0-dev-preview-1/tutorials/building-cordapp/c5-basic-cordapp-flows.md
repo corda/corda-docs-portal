@@ -468,7 +468,7 @@ You must inject these services:
 * `TransactionBuilderFactory`: Used for constructing, verifying, and signing transactions. In this case, it builds a transaction.
 * `IdentityService`: Provides methods to retrieve Party and AnonymousParty instances. You need it because your flow involves counterparties.
 * `NotaryLookupService`: Finds information on notaries in the network. Add it because your transaction requires a notary.
-* `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers. You need it because in Corda 5 all flow parameters are in the JSON format.
+* `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers. You need it because in Corda 5 all flow parameters are in JSON format.
 * `PersistenceService`: Provides an API for interacting with the database. It has functions mirroring Java’s EntityManager for working with entities. Also, it provides functions for executing predefined named queries and polling for results. It hides the complexity of asynchronously interacting with the database which, in a high-availability environment, could be running on a separate process.
 
 {{< note >}}
