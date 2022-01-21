@@ -142,7 +142,7 @@ There are several ways to return your parameters in a JSON string. This tutorial
 2. Create a function that instantiates the `MarsVoucherDto` and populates the template with the actual variables of the class.
 3. Create an [override function](https://kotlinlang.org/docs/inheritance.html#overriding-methods) that converts the `MarsVoucherDto` to JSON using the `toJson` method.
 
-You've finished writing the `MarsVoucher` state. This is what your code should look like now:
+Your code should look like this:
 
 ```kotlin
 package net.corda.missionMars.states
@@ -182,6 +182,63 @@ data class MarsVoucherDto(
       val issuer: String, //The party who issued the voucher
       val holder: String, //The party who currently owns the voucher
       val linearId: String,//LinearState required variable
+)
+```
+
+### Create a function to transfer the `MarsVoucher` state
+
+As a user of the Mission Mars CorDapp, you may want to transfer a `MarsVoucher` state that you buy to another user. Maybe you want to gift them a trip to Mars.
+
+Create a function called `changeOwner` that allows the `MarsVoucher` state to be transferred to a new owner.
+
+You've finished writing the `MarsVoucher` state. This is what your code should look like now:
+
+```kotlin
+package net.corda.missionMars.states
+
+import com.google.gson.Gson
+import net.corda.missionMars.contracts.MarsVoucherContract
+import net.corda.v5.application.identity.AbstractParty
+import net.corda.v5.application.identity.Party
+import net.corda.v5.application.utilities.JsonRepresentable
+import net.corda.v5.ledger.UniqueIdentifier
+import net.corda.v5.ledger.contracts.BelongsToContract
+import net.corda.v5.ledger.contracts.LinearState
+
+@BelongsToContract(MarsVoucherContract::class)
+data class MarsVoucher (
+        val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars."
+        val issuer: Party, //The person who issued the voucher.
+        val holder: Party, //The person who currently owns the voucher.
+        override val linearId: UniqueIdentifier,//LinearState required variable.
+) : LinearState, JsonRepresentable{
+
+    override val participants: List<AbstractParty> get() = listOf<AbstractParty>(issuer,holder)
+
+    fun toDto(): MarsVoucherDto {
+        return MarsVoucherDto(
+                voucherDesc,
+                issuer.name.toString(),
+                holder.name.toString(),
+                linearId.toString()
+        )
+    }
+
+    fun changeOwner(newOwner: Party): MarsVoucher {
+        return MarsVoucher(voucherDesc, issuer, newOwner, linearId)
+    }
+
+
+    override fun toJsonString(): String {
+        return Gson().toJson(this.toDto())
+    }
+}
+
+data class MarsVoucherDto(
+        val voucherDesc : String,//For example: "One voucher can be exchanged for one ticket to Mars."
+        val issuer: String, //The person who issued the voucher.
+        val holder: String, //The person who currently owns the voucher.
+        val linearId: String,//LinearState required variable.
 )
 ```
 
