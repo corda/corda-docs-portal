@@ -457,7 +457,7 @@ Now that you've written the `CreateAndIssueMarsVoucher` and `CreateBoardingTicke
 
 You will need these variables:
 
-* `voucherID`
+* `voucherID`: ID of the issued voucher whose ownership is to be transferred.
 * `holder`: The new voucher owner.
 
 You must inject these services:
