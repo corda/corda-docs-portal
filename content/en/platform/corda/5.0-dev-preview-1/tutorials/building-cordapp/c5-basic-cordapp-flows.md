@@ -465,7 +465,7 @@ You must inject these services:
 * `FlowEngine`: Provides basic control over a flow it is injected into, such as calling subflows, performing asynchronous tasks and putting the flow to sleep for a period of time. This flow needs `FlowEngine` because you are utilizing subflows such as `FinalityFlow`.
 * `FlowIdentity`: Obtains the identity of the node running the flow. You must inject this service because one of the output states needs its own identity.
 * `FlowMessaging`: Used for creating and closing flow sessions as well as sending and receiving data between flows via a flow session. Use this service to create flow sessions that allow communication between counterparties.
-* `TransactionBuilderFactory`: Used for constructing, verifying and signing the transactions. In this case, it builds a transaction.
+* `TransactionBuilderFactory`: Used for constructing, verifying, and signing transactions. In this case, it builds a transaction.
 * `IdentityService`: Provides methods to retrieve Party and AnonymousParty instances. You need it because your flow involves counterparties.
 * `NotaryLookupService`: Finds information on notaries in the network. Add it because your transaction requires a notary.
 * `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers. You need it because in Corda 5 all flow parameters are in the JSON format.
