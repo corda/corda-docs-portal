@@ -472,7 +472,7 @@ You must inject these services:
 * `PersistenceService`: Provides an API for interacting with the database. It has functions mirroring Java’s EntityManager for working with entities. Also, it provides functions for executing predefined named queries and polling for results. It hides the complexity of asynchronously interacting with the database which, in a high-availability environment, could be running on a separate process.
 
 {{< note >}}
-Similarly to the `CreateAndIssueMarsVoucher` flow, this flows needs a responder flow that responds to the request to update the ledger. Also, you need to query the MarsVoucher and the BoardingTicket.
+Similarly to the `CreateAndIssueMarsVoucher` flow, this flows needs a responder flow that responds to the request to update the ledger. Also, you need to query the `MarsVoucher` and the `BoardingTicket`.
 {{< /note >}}
 
 After you've written the `GiftVoucherToFriend` flow, it should look like this:
