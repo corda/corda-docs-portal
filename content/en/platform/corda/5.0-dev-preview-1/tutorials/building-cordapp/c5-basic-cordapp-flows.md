@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     identifier: corda-corda-5.0-dev-preview-1-tutorial-c5-basic-cordapp-flows
     parent: corda-5-dev-preview-1-tutorials-building-cordapp
-    weight: 1040
+    weight: 1050
 tags:
 - tutorial
 - cordapp
@@ -451,13 +451,14 @@ data class CreateBoardingTicketInitiator @JsonConstructor constructor(private va
 
 ## Write the `GiftVoucherToFriend` flow
 
-The `GiftVoucherToFriend` flow lets you to transfer the ownership of the issued voucher.
+In Corda, you can transfer a state to someone else. The `GiftVoucherToFriend` flow lets you transfer the ownership of the issued voucher to another person.
 
 Now that you've written the `CreateAndIssueMarsVoucher` and `CreateBoardingTicket` flows, try writing the `GiftVoucherToFriend` flow.
 
 You will need these variables:
 
-* voucherID
+* `voucherID`
+* `holder`
 
 You must inject these services:
 
@@ -471,7 +472,7 @@ You must inject these services:
 * `PersistenceService`: Provides an API for interacting with the database. It has functions mirroring Java’s EntityManager for working with entities. Also, it provides functions for executing predefined named queries and polling for results. It hides the complexity of asynchronously interacting with the database which, in a high-availability environment, could be running on a separate process.
 
 {{< note >}}
-This flow only needs an initiating flow; you don't need to include a responder flow. However, you must still add the `@InitiatingFlow` annotation.
+Similarly to the `CreateAndIssueMarsVoucher` flow, this flows needs a responder flow that responds to the request to update the ledger. Also, you need to query the MarsVoucher and the BoardingTicket.
 {{< /note >}}
 
 After you've written the `GiftVoucherToFriend` flow, it should look like this:
