@@ -458,7 +458,7 @@ Now that you've written the `CreateAndIssueMarsVoucher` and `CreateBoardingTicke
 You will need these variables:
 
 * `voucherID`
-* `holder`
+* `holder`: The new voucher owner.
 
 You must inject these services:
 
@@ -472,7 +472,7 @@ You must inject these services:
 * `PersistenceService`: Provides an API for interacting with the database. It has functions mirroring Java’s EntityManager for working with entities. Also, it provides functions for executing predefined named queries and polling for results. It hides the complexity of asynchronously interacting with the database which, in a high-availability environment, could be running on a separate process.
 
 {{< note >}}
-Like the `CreateAndIssueMarsVoucher` flow, the `GiftVoucherToFriend` flow needs a [responder flow](#write-the-responder-flow) that responds to the request to update the ledger. 
+Like the `CreateAndIssueMarsVoucher` flow, the `GiftVoucherToFriend` flow needs a [responder flow](#write-the-responder-flow) that responds to the request to update the ledger.
 
 You also need to query the `MarsVoucher` and the `BoardingTicket`. Refer to the section on [implementing queries](#implement-queries) for the `RedeemBoardingTicketWithVoucher` for guidance.
 {{< /note >}}
