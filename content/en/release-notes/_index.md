@@ -29,7 +29,7 @@ A patch has been released to move dependencies to Log4j 2.17.1 for:
 * Flow management console 1.0.3
 * Business Network membership management 1.1.2
 
-You can find more information about this patch release in the [release notes](#previous-versions-of-corda-enterprise).
+You can find more information about this patch release in the [release notes](../../en/release-notes/corda-enterprise-4.8.html#previous-versions-of-corda-enterprise).
 
 ### Update December 24 2021
 
