@@ -9,7 +9,7 @@ menu:
 tags:
 - tutorial
 - cordapp
-title: Write a contract
+title: Write a simple contract
 ---
 
 [Contracts](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-contracts.md) define the rules of how states can evolve. A CorDapp can have more than one contract, and each contract defines rules for one or more states. The contract governs the execution of [transactions](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/key-concepts/key-concepts-transactions.html) that update the ledger by marking zero or more existing ledger states as historic (the inputs), and producing zero or more new ledger states (the outputs). The contract(s) ensures that input and output states in transactions are valid and prevents invalid transactions from occurring. All parties that wish to transact in a network must run the same contract(s) for any transaction they’re a party to, verifying that the transaction is valid.
@@ -99,11 +99,13 @@ data class MarsVoucher (
 
 Each command is associated with a list of signers. The public keys listed in a contract's commands indicate the transaction's required signers.
 
-In the `MarsVoucherContract`, you need a command that issues an instance of the `MarsVoucher`, which creates a new state on the ledger.
+In the `MarsVoucherContract`, you need a command that issues an instance of the `MarsVoucher`, which creates a new state on the ledger. You also need a command that transfers the `MarsVoucher` state to a new holder.
 
 1. Extend the `CommandData` interface into a new interface called `Commands`.
 
 2. Within the `Commands` interface, create a class named `Issue`, implementing its parent interface.
+
+3. Within the `Commands` interface, create a class named `Transfer`, implementing its parent interface.
 
 This is what your code should look like now:
 
@@ -115,6 +117,7 @@ class MarsVoucherContract : Contract {
   // Used to indicate the transaction's intent.
   interface Commands : CommandData {
       class Issue : Commands
+      class Transfer: Commands
   }
 
 }
@@ -138,6 +141,7 @@ class MarsVoucherContract : Contract {
   // Used to indicate the transaction's intent.
   interface Commands : CommandData {
       class Issue : Commands
+      class Transfer: Commands
   }
 
 companion object {
@@ -151,7 +155,11 @@ companion object {
 
 The `verify` method is automatically triggered when your transaction is executed. It verifies that the transaction components are following the restrictions implemented inside the contract's `verify` method.
 
-In this case, the `verify` method must confirm that there will only be one `MarsVoucher` state as an output of the transaction. It must also confirm that relevant trip information (the `voucherDesc`) is included in the state.
+In this case, the `verify` method must confirm:
+* That there will only be one `MarsVoucher` state as an output of the transaction.
+* That relevant trip information (the `voucherDesc`) is included in the state.
+* That when the `MarsVoucher` state is transferred, the transaction consumes one `MarsVoucher` state.
+* That the holder cannot issue the `MarsVoucher` to themselves.
 
 1. If you're using IntelliJ, you will see an error indicator under the class name and implementation. This indicates that the class is missing the required method. Hover over the class definition, then:
 
@@ -177,10 +185,10 @@ This is a Corda-specific helper method used for writing contracts only.
 
 {{< /note >}}
 
-You have now finished writing the `MarsVoucherContract`. Your code should now look like this:
+You have now finished writing the `MarsVoucherContract`. Your code should look like this:
 
 ```kotlin
-package net.corda.missionMars.contracts;
+package net.corda.missionMars.contracts
 
 import net.corda.missionMars.states.MarsVoucher
 import net.corda.v5.ledger.contracts.CommandData
@@ -188,6 +196,8 @@ import net.corda.v5.ledger.contracts.Contract
 import net.corda.v5.ledger.contracts.requireThat
 import net.corda.v5.ledger.transactions.LedgerTransaction
 
+
+//Domain Specific Language
 class MarsVoucherContract : Contract {
 
     override fun verify(tx: LedgerTransaction) {
@@ -206,94 +216,35 @@ class MarsVoucherContract : Contract {
             is BoardingTicketContract.Commands.RedeemTicket-> requireThat {
                 //Transaction verification will happen in BoardingTicket Contract
             }
-        }
-    }
-
-    // Used to indicate the transaction's intent.
-    interface Commands : CommandData {
-        class Issue : Commands
-    }
-
-    companion object {
-        // This is used to identify our contract when building a transaction.
-        const val ID = "com.tutorial.contracts.MarsVoucherContract"
-    }
-}
-```
-
-## Create the `BoardingTicketContract`
-
-Now that you’ve written your first contract, try writing the `BoardingTicketContract` using the following information.
-
-The `BoardingTicketState` will be used on two occasions, which means that the `BoardingTicketContract` should have a `Commands` interface that carries two commands corresponding to the contract’s two intentions:
-
-* Mars Express creates the ticket to go to Mars. This intention is expressed by the `CreateTicket` command.
-* Peter redeems the `BoardingTicket` state. This intention is expressed by the `RedeemTicket` command.
-
-The rules inside the `requireThat` Corda DSL helper method are:
-
-* For the `CreateTicket` command:
-    * The transaction should only output one `BoardingTicket` state.
-    * The output `BoardingTicket` state should have a clear description of the space trip.
-    * The output `BoardingTicket` state should have a launch date later than the creation time.
-* For the `RedeemTicket` command:
-    * The transaction should consume two states.
-    * The issuer of the `BoardingTicket` should be the space company that created the boarding ticket.
-    * The output `BoardingTicket` state should have a launch date later than the creation time.
-
-## Check your work
-
-Once you’ve written the `BoardingTicketContract`, your code should look like this:
-
-```kotlin
-package net.corda.missionMars.contracts
-
-import net.corda.missionMars.states.BoardingTicket
-import net.corda.missionMars.states.MarsVoucher
-import net.corda.v5.ledger.contracts.CommandData
-import net.corda.v5.ledger.contracts.Contract
-import net.corda.v5.ledger.contracts.requireThat
-import net.corda.v5.ledger.transactions.LedgerTransaction
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.util.*
-
-class BoardingTicketContract : Contract {
-    override fun verify(tx: LedgerTransaction) {
-        //Extract the command from the transaction.
-        val commandData = tx.commands[0].value
-        val output = tx.outputsOfType(BoardingTicket::class.java)[0]
-
-        when (commandData) {
-            is Commands.CreateTicket -> requireThat {
-                "This transaction should only output one BoardingTicket state".using(tx.outputs.size == 1)
-                "The output BoardingTicket state should have clear description of space trip information".using(output.description != "")
-                "The output BoardingTicket state should have a launching date later then the creation time".using(output.daysUntilLaunch > 0)
-                null
-            }
-            is Commands.RedeemTicket -> requireThat {
+            is Commands.Transfer -> requireThat {
+                "This transaction should consume one Marsvoucher states".using(tx.inputStates.size == 1)
                 val input = tx.inputsOfType(MarsVoucher::class.java)[0]
-                "This transaction should consume two states".using(tx.inputStates.size == 2)
-                "The issuer of the BoardingTicket should be the space company which creates the boarding ticket".using(input.issuer == output.marsExpress)
-                "The output BoardingTicket state should have a launching date later then the creation time".using(output.daysUntilLaunch > 0)
+                val output = tx.outputsOfType(MarsVoucher::class.java)[0]
+                "You cannot gift the voucher to yourself".using(input.holder != output.holder)
                 null
             }
         }
     }
 
+
+
+
+
     // Used to indicate the transaction's intent.
     interface Commands : CommandData {
-        class CreateTicket : Commands
-        class RedeemTicket : Commands
+        //In our Mission Mars app, we have two commands.
+        class Issue : Commands
+        class Transfer: Commands
     }
 
     companion object {
         // This is used to identify our contract when building a transaction.
-        const val ID = "net.corda.missionMars.contracts.BoardingTicketContract"
+        @JvmStatic
+        val ID = "net.corda.missionMars.contracts.MarsVoucherContract"
     }
 }
 ```
 
 ## Next steps
 
-Follow the [Write flows](../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-flows.md) tutorial to continue on this learning path.
+Now that you have written the first contract for the Mission Mars CorDapp, <a href="../../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-contract-2.md">write the `BoardingTicket` contract</a>.  
