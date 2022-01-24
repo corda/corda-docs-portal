@@ -18,6 +18,19 @@ This page provides updates on all major alerts, fixes and forthcoming patch rele
 
 ## Apache Log4j announcement
 
+### Update January 25 2022
+
+A patch has been released to move dependencies to Log4j 2.17.1 for:
+* Corda Enterprise 4.7.6
+* Corda Enterprise 4.6.8
+* Corda Enterprise 4.5.9
+* Corda Enterprise 4.4.11
+* Node management console 1.0.3
+* Flow management console 1.0.3
+* Business Network membership management 1.1.2
+
+You can find more information about this patch release in the [release notes](#previous-versions-of-corda-enterprise).
+
 ### Update December 24 2021
 
 Business Network Manager tool 1.0.1 update has been released. Please check the [patch release timetable](#corda-and-cenm-patch-release-timetable-for-apache-log4j-issue)
