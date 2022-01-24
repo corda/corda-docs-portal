@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     identifier: corda-corda-5.0-dev-preview-1-tutorial-c5-basic-cordapp-running
     parent: corda-5-dev-preview-1-tutorials-building-cordapp
-    weight: 1050
+    weight: 1055
 tags:
 - tutorial
 - cordapp
@@ -31,7 +31,7 @@ Before you run your Mission Mars CorDapp, you may want to compare your files to 
 
 ## Deploy your CorDapp to a local Corda 5 network
 
-1. Compile the CorDapp's code into the Corda package files (`.cpk`s) by running the `./gradlew clean build` command from the root of your project.
+1. Compile the CorDapp's code into the Corda package files (`.cpk`s) by running the `./gradlew clean build` command from the root of your project. See the [Gradle plugin page](../../../../../../en/platform/corda/5.0-dev-preview-1/packaging/gradle-plugin/overview.md) for more information about using this plugin.
 
 2. Assemble your `.cpk` files into a single Corda package bundle (`.cpb`) file using the CorDapp Builder CLI:
 
