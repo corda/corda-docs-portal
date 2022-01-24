@@ -466,10 +466,10 @@ You must inject these services:
 * `FlowIdentity`: Obtains the identity of the node running the flow. You must inject this service because one of the output states needs its own identity.
 * `FlowMessaging`: Used for creating and closing flow sessions as well as sending and receiving data between flows via a flow session. Use this service to create flow sessions that allow communication between counterparties.
 * `TransactionBuilderFactory`: Used for constructing, verifying, and signing transactions. In this case, it builds a transaction.
-* `IdentityService`: Provides methods to retrieve Party and AnonymousParty instances. You need it because your flow involves counterparties.
+* `IdentityService`: Provides methods to retrieve `Party` and `AnonymousParty` instances. You need it because your flow involves counterparties.
 * `NotaryLookupService`: Finds information on notaries in the network. Add it because your transaction requires a notary.
 * `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers. You need it because in Corda 5 all flow parameters are in JSON format.
-* `PersistenceService`: Provides an API for interacting with the database. It has functions mirroring Java’s EntityManager for working with entities. Also, it provides functions for executing predefined named queries and polling for results. It hides the complexity of asynchronously interacting with the database which, in a high-availability environment, could be running on a separate process.
+* `PersistenceService`: Provides an API for interacting with the database. It has functions mirroring Java’s `EntityManager` for working with entities. Also, it provides functions for executing predefined named queries and polling for results. It hides the complexity of asynchronously interacting with the database which, in a high-availability environment, could be running on a separate process.
 
 {{< note >}}
 Like the `CreateAndIssueMarsVoucher` flow, the `GiftVoucherToFriend` flow needs a [responder flow](#write-the-responder-flow) that responds to the request to update the ledger.
