@@ -167,7 +167,7 @@ Read more in [Ledger](../../../../../../../en/platform/corda/4.5/open-source/key
 
 ### Attachments
 
-Read more in [Working with attachments](../../../../../../../en/tutorials/corda/4.5/os/supplementary-tutorials/tutorial-attachments.md) and [Node services](../../../../../../../en/platform/corda/4.5/enterprise/node-services.md).
+Read more in [Working with attachments](../../../../../../../en/platform/corda/4.5/open-source/tutorial-attachments.md) and [Node services](../../../../../../../en/platform/corda/4.5/enterprise/node-services.md).
 
 ![attachments tables](/en/images/attachments_tables.png "attachments tables")
 
