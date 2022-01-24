@@ -19,7 +19,9 @@ Corda nodes outside of your business network are not aware of its members. The n
 
 In a business network, there is at least one *authorised member*. This member has sufficient permissions to execute management operations over the network and its members.
 
-### In version 1.1
+### In version 1.1.2
+
+Apache Log4j dependency has been upgraded to version 2.17.1. This is to prevent exposure to security issues raised with earlier versions of Log4j 2.
 
 In this version, you can:
 
