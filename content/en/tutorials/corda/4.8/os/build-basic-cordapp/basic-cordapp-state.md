@@ -174,7 +174,7 @@ public class AppleStamp implements LinearState {
 
 ### Add the constructor
 
-Add a constructor to initalize the objects in the `AppleStamp` state.
+Add a constructor to initialize the objects in the `AppleStamp` state.
 
 If you're using IntelliJ, you can generate the constructor with a shortcut.
 
