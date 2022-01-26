@@ -12,11 +12,12 @@ menu:
 tags:
 - concepts
 - ecosystem
-title: Network
+- network
+title: Networks
 ---
 
 
-# Network
+# Networks
 
 ## Summary
 
@@ -26,6 +27,8 @@ title: Network
 * *The network is permissioned, with access requiring a certificate from the network operator*
 
 ## Network structure
+
+For people or businesses to transact on Corda, they need to have an *identity* to represent them on the network, and the ability to communicate with other identities on the network. That identity is a [node](key-concepts-node.md).
 
 A Corda network is a peer-to-peer network of **nodes**. Each node represents a legal entity, and each runs the Corda software (an instance of Corda and one or more Corda applications, known as **CorDapps**).
 
