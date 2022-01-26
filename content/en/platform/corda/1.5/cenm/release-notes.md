@@ -12,7 +12,6 @@ tags:
 title: Release notes
 ---
 
-
 # Corda Enterprise Network Manager release notes
 
 ## Corda Enterprise Network Manager 1.5.4
