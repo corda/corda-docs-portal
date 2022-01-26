@@ -43,7 +43,6 @@ In this patch release:
 * io.netty : netty-codec : 4.1.67.Final
 * Contracts reuse the same instance of the LedgerTransaction and can maliciously or accidentally mutate state
 
-
 ## Corda Enterprise 4.8.5
 
 Corda Enterprise 4.8.5 is a patch release of Corda Enterprise that fixes an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version 2.16.0.
