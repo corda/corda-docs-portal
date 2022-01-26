@@ -64,7 +64,7 @@ As a node operator, you should urgently upgrade to the [latest released version 
 
 In this patch release:
 
-Log4j dependency updated to version 2.16.0 to mitigate CVE-2021-44228.
+* Log4j dependency updated to version 2.16.0 to mitigate CVE-2021-44228.
 
 ## Corda Enterprise 4.8.4
 
