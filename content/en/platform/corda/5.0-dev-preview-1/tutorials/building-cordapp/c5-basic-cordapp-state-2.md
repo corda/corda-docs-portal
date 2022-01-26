@@ -46,6 +46,8 @@ Include these variables in the `BoardingTicket` data class:
 
 This is what your code should look like now:
 
+{{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -59,6 +61,26 @@ data class BoardingTicket(
 
     }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.states;
+
+import net.corda.v5.application.identity.Party;
+
+public class BoardingTicket {
+
+    //Private Variables
+    private String description;
+    private Party marsExpress;
+    private Party owner;
+    private LocalDate launchDate;
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Implement the `ContractState` interface
 
@@ -68,6 +90,8 @@ Use <a href="../../../../../../en/platform/corda/4.8/open-source/api-states.html
 
 Your code should look like this now:
 
+{{< tabs name="tabs-2" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -86,6 +110,62 @@ data class BoardingTicket(
     override val participants: List<AbstractParty> get() = listOf<AbstractParty>(marsExpress,owner)
   }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.states;
+
+import net.corda.v5.application.identity.AbstractParty;
+import net.corda.v5.application.identity.Party;
+import net.corda.v5.ledger.contracts.ContractState;
+import net.corda.v5.serialization.annotations.ConstructorForDeserialization;
+
+
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
+public class BoardingTicket implements ContractState {
+
+    //Private Variables
+    private String description;
+    private Party marsExpress;
+    private Party owner;
+    private LocalDate launchDate;
+
+    //Constructors
+    @ConstructorForDeserialization
+    public BoardingTicket(String description, Party marsExpress, Party owner, LocalDate launchDate) {
+        this.description = description;
+        this.marsExpress = marsExpress;
+        this.owner = owner;
+        this.launchDate = launchDate;
+    }
+
+    public BoardingTicket(String description, Party marsExpress, LocalDate launchDate) {
+        this.description = description;
+        this.marsExpress = marsExpress;
+        this.owner = marsExpress;
+        this.launchDate = launchDate;
+    }
+
+    //Getters
+    public String getDescription() {return description;}
+    public Party getMarsExpress() {return marsExpress;}
+    public Party getOwner() {return owner;}
+    public LocalDate getlaunchDate() {return launchDate;}
+
+    @NotNull
+    @Override
+    public List<AbstractParty> getParticipants() {
+        return Arrays.asList(marsExpress, owner);
+    }
+
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Implement the `JsonRepresentable` interface to use the Corda RPC Client
 
@@ -101,6 +181,8 @@ There are several ways to return your parameters in a JSON string. This tutorial
 
 Your code should now look like this:
 
+{{< tabs name="tabs-3" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -142,6 +224,73 @@ data class BoardingTicketDto(
         var launchDate: String
 )
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.states;
+
+import net.corda.v5.application.identity.AbstractParty;
+import net.corda.v5.application.identity.Party;
+import net.corda.v5.application.utilities.JsonRepresentable;
+import net.corda.v5.ledger.contracts.BelongsToContract;
+import net.corda.v5.ledger.contracts.ContractState;
+import net.corda.v5.serialization.annotations.ConstructorForDeserialization;
+import org.jetbrains.annotations.NotNull;
+
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
+public class BoardingTicket implements ContractState, JsonRepresentable {
+
+    //Private Variables
+    private String description;
+    private Party marsExpress;
+    private Party owner;
+    private LocalDate launchDate;
+
+    //Constructors
+    @ConstructorForDeserialization
+    public BoardingTicket(String description, Party marsExpress, Party owner, LocalDate launchDate) {
+        this.description = description;
+        this.marsExpress = marsExpress;
+        this.owner = owner;
+        this.launchDate = launchDate;
+    }
+
+    public BoardingTicket(String description, Party marsExpress, LocalDate launchDate) {
+        this.description = description;
+        this.marsExpress = marsExpress;
+        this.owner = marsExpress;
+        this.launchDate = launchDate;
+    }
+
+    //Getters
+    public String getDescription() {return description;}
+    public Party getMarsExpress() {return marsExpress;}
+    public Party getOwner() {return owner;}
+    public LocalDate getlaunchDate() {return launchDate;}
+
+    @NotNull
+    @Override
+    public String toJsonString() {
+        return "description : " + this.description +
+                " marsExpress : " + this.marsExpress.getName().toString() +
+                " owner : " + this.owner.getName().toString() +
+                " launchDate : " + this.launchDate.toString();
+    }
+
+    @NotNull
+    @Override
+    public List<AbstractParty> getParticipants() {
+        return Arrays.asList(marsExpress, owner);
+    }
+
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 ### Define a secondary constructor and helper method to change the ticket owner
 
 The `BoardingTicket` state is involved in two transactions. In the first transaction, Mars Express self-issues the `BoardingTicket`. The `marsExpress` party then fills both the `owner` and `marsExpress` fields of the transaction. In the second transaction, an ownership transfer occurs. Since you cannot change an immutable object, this creates a new instance of the `BoardingTicket` state on the ledger. While states are immutable, the ledger as a whole is mutable as states are created and consumed.
@@ -153,6 +302,10 @@ To implement this functionality:
 
 You've finished writing the `BoardingTicket` state. Your code should look like this:
 
+
+
+{{< tabs name="tabs-4" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -206,6 +359,79 @@ data class BoardingTicketDto(
         var launchDate: String
 )
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.states;
+
+import net.corda.v5.application.identity.AbstractParty;
+import net.corda.v5.application.identity.Party;
+import net.corda.v5.application.utilities.JsonRepresentable;
+import net.corda.v5.ledger.contracts.BelongsToContract;
+import net.corda.v5.ledger.contracts.ContractState;
+import net.corda.v5.serialization.annotations.ConstructorForDeserialization;
+import org.jetbrains.annotations.NotNull;
+
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
+public class BoardingTicket implements ContractState, JsonRepresentable {
+
+    //Private Variables
+    private String description;
+    private Party marsExpress;
+    private Party owner;
+    private LocalDate launchDate;
+
+    //Constructors
+    @ConstructorForDeserialization
+    public BoardingTicket(String description, Party marsExpress, Party owner, LocalDate launchDate) {
+        this.description = description;
+        this.marsExpress = marsExpress;
+        this.owner = owner;
+        this.launchDate = launchDate;
+    }
+
+    public BoardingTicket(String description, Party marsExpress, LocalDate launchDate) {
+        this.description = description;
+        this.marsExpress = marsExpress;
+        this.owner = marsExpress;
+        this.launchDate = launchDate;
+    }
+
+    //Getters
+    public String getDescription() {return description;}
+    public Party getMarsExpress() {return marsExpress;}
+    public Party getOwner() {return owner;}
+    public LocalDate getlaunchDate() {return launchDate;}
+
+    //helper method
+    public BoardingTicket changeOwner(Party owner){
+        BoardingTicket newOwnerState = new BoardingTicket(this.description,this.marsExpress,owner,this.launchDate);
+        return newOwnerState;
+    }
+
+    @NotNull
+    @Override
+    public String toJsonString() {
+        return "description : " + this.description +
+                " marsExpress : " + this.marsExpress.getName().toString() +
+                " owner : " + this.owner.getName().toString() +
+                " launchDate : " + this.launchDate.toString();
+    }
+
+    @NotNull
+    @Override
+    public List<AbstractParty> getParticipants() {
+        return Arrays.asList(marsExpress, owner);
+    }
+
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ## Next steps
 
