@@ -34,9 +34,20 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
 1. Clone the CorDapp template repo in the directory of your choice:
 
+   {{< tabs name="tabs-1" >}}
+   {{% tab name="kotlin" %}}
    ```kotlin
    git clone https://github.com/corda/corda5-cordapp-template-kotlin.git
    ```
+   {{% /tab %}}
+
+   {{% tab name="java" %}}
+   ```java
+   git clone https://github.com/corda/corda5-cordapp-template-java.git
+   ```
+   {{% /tab %}}
+
+   {{< /tabs >}}
 
 2. Open `corda5-cordapp-template-kotlin` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
@@ -71,6 +82,8 @@ Include these variables in the `MarsVoucher` data class:
 
 Your code should now look like this:
 
+{{< tabs name="tabs-2" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -82,6 +95,25 @@ data class MarsVoucher (
         val holder: Party, //The party who currently owns the voucher
 )
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.states;
+
+import net.corda.v5.application.identity.Party;
+
+public class MarsVoucher {
+
+    private String voucherDesc;
+    private Party issuer;
+    private Party holder;
+    private UniqueIdentifier linearId;
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Implement the `LinearState` interface
 
@@ -106,6 +138,9 @@ The `LinearState` makes sense for this use case, but there are several types of 
 
 Your code should now look like this:
 
+
+{{< tabs name="tabs-3" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -127,6 +162,53 @@ data class MarsVoucher (
     }
 )
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.states;
+
+import net.corda.v5.application.identity.AbstractParty;
+import net.corda.v5.application.identity.Party;
+import net.corda.v5.ledger.UniqueIdentifier;
+import net.corda.v5.ledger.contracts.LinearState;
+
+public class MarsVoucher implements LinearState {
+
+    private String voucherDesc;
+    private Party issuer;
+    private Party holder;
+    private UniqueIdentifier linearId;
+
+    /* Constructor of your Corda state */
+    public MarsVoucher(String voucherDesc, Party issuer, Party holder, UniqueIdentifier linearId) {
+        this.voucherDesc = voucherDesc;
+        this.issuer = issuer;
+        this.holder = holder;
+        this.linearId = linearId;
+    }
+
+    //getters
+    public String getVoucherDesc() { return voucherDesc; }
+    public Party getIssuer() { return issuer; }
+    public Party getHolder() { return holder; }
+
+    /* This method will indicate who are the participants and required signers when
+     * this state is used in a transaction. */
+    @NotNull
+    @Override
+    public List<AbstractParty> getParticipants() { return Arrays.asList(this.issuer, this.holder); }
+
+    @NotNull
+    @Override
+    public UniqueIdentifier getLinearId() {
+        return this.linearId;
+    }
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Implement the `JsonRepresentable` interface to use the Corda RPC Client
 
@@ -144,6 +226,8 @@ There are several ways to return your parameters in a JSON string. This tutorial
 
 Your code should look like this:
 
+{{< tabs name="tabs-4" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -184,6 +268,67 @@ data class MarsVoucherDto(
       val linearId: String,//LinearState required variable
 )
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.states;
+
+import net.corda.v5.application.identity.AbstractParty;
+import net.corda.v5.application.identity.Party;
+import net.corda.v5.application.utilities.JsonRepresentable;
+import net.corda.v5.ledger.UniqueIdentifier;
+import net.corda.v5.ledger.contracts.BelongsToContract;
+import net.corda.v5.ledger.contracts.LinearState;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Arrays;
+import java.util.List;
+public class MarsVoucher implements LinearState, JsonRepresentable {
+
+    private String voucherDesc;
+    private Party issuer;
+    private Party holder;
+    private UniqueIdentifier linearId;
+
+    /* Constructor of your Corda state */
+    public MarsVoucher(String voucherDesc, Party issuer, Party holder, UniqueIdentifier linearId) {
+        this.voucherDesc = voucherDesc;
+        this.issuer = issuer;
+        this.holder = holder;
+        this.linearId = linearId;
+    }
+
+    //getters
+    public String getVoucherDesc() { return voucherDesc; }
+    public Party getIssuer() { return issuer; }
+    public Party getHolder() { return holder; }
+
+    @NotNull
+    @Override
+    public String toJsonString() {
+        return "voucherDesc : " + this.voucherDesc +
+                " issuer : " + this.issuer.getName().toString() +
+                " holder : " + this.holder.getName().toString() +
+                " linearId: " + this.linearId.toString();
+    }
+
+    /* This method will indicate who are the participants and required signers when
+     * this state is used in a transaction. */
+    @NotNull
+    @Override
+    public List<AbstractParty> getParticipants() { return Arrays.asList(this.issuer, this.holder); }
+
+    @NotNull
+    @Override
+    public UniqueIdentifier getLinearId() {
+        return this.linearId;
+    }
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Create a function to transfer the `MarsVoucher` state
 
@@ -193,6 +338,8 @@ Create a function called `changeOwner` that allows the `MarsVoucher` state to be
 
 You've finished writing the `MarsVoucher` state. This is what your code should look like now:
 
+{{< tabs name="tabs-5" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -241,6 +388,74 @@ data class MarsVoucherDto(
         val linearId: String,//LinearState required variable.
 )
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.states;
+
+import net.corda.v5.application.identity.AbstractParty;
+import net.corda.v5.application.identity.Party;
+import net.corda.v5.application.utilities.JsonRepresentable;
+import net.corda.v5.ledger.UniqueIdentifier;
+import net.corda.v5.ledger.contracts.BelongsToContract;
+import net.corda.v5.ledger.contracts.LinearState;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Arrays;
+import java.util.List;
+public class MarsVoucher implements LinearState, JsonRepresentable {
+
+    private String voucherDesc;
+    private Party issuer;
+    private Party holder;
+    private UniqueIdentifier linearId;
+
+    /* Constructor of your Corda state */
+    public MarsVoucher(String voucherDesc, Party issuer, Party holder, UniqueIdentifier linearId) {
+        this.voucherDesc = voucherDesc;
+        this.issuer = issuer;
+        this.holder = holder;
+        this.linearId = linearId;
+    }
+
+    //helper method
+    public MarsVoucher changeOwner(Party holder){
+        MarsVoucher newOwnerState = new MarsVoucher(this.voucherDesc,this.issuer,holder,this.linearId);
+        return newOwnerState;
+    }
+
+
+    //getters
+    public String getVoucherDesc() { return voucherDesc; }
+    public Party getIssuer() { return issuer; }
+    public Party getHolder() { return holder; }
+
+    @NotNull
+    @Override
+    public String toJsonString() {
+        return "voucherDesc : " + this.voucherDesc +
+                " issuer : " + this.issuer.getName().toString() +
+                " holder : " + this.holder.getName().toString() +
+                " linearId: " + this.linearId.toString();
+    }
+
+    /* This method will indicate who are the participants and required signers when
+     * this state is used in a transaction. */
+    @NotNull
+    @Override
+    public List<AbstractParty> getParticipants() { return Arrays.asList(this.issuer, this.holder); }
+
+    @NotNull
+    @Override
+    public UniqueIdentifier getLinearId() {
+        return this.linearId;
+    }
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ## Next steps
 
