@@ -17,6 +17,33 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.8.6
+
+Corda Enterprise 4.8.6 is a patch release of Corda Enterprise
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html).
+
+### Fixed issues
+
+In this patch release:
+
+* Add extensions RPC APIs to the ENT API docs
+
+* Artemis keystore details have been added to the bridge configuration example in the [Firewall component overview](../../../../../en/platform/corda/4.8/enterprise/corda-firewall-component.html#full-production-ha-dmz-ready-mode-hotcold-node-hotwarm-bridge).
+* Work has been carried on the serializer configuration in order to fix an issue where a node could not restore its flow from checkpoints in cases of failure.
+* The issue of instances of the `ValidatingNotaryFlow` being incorrectly marked as an `IdempotentFlow` has been fixed.
+* Suspected bug in `SendTransactionFlow / ReceiveTransactionFlow` causing ledger inconsistency.
+* runSender task uses myLegalName instead of serviceLegalName for notarisation
+* CE 4.8.6 - Urgent exposed vulnerability in log4j (Fixed in Log4J v 2.17.1)
+* io.github.classgraph : classgraph : 4.8.90
+* io.netty : netty-codec : 4.1.67.Final
+* Contracts reuse the same instance of the LedgerTransaction and can maliciously or accidentally mutate state
+
+
 ## Corda Enterprise 4.8.5
 
 Corda Enterprise 4.8.5 is a patch release of Corda Enterprise that fixes an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version 2.16.0.
