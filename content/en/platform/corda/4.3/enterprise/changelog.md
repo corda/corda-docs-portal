@@ -625,7 +625,7 @@ with verifying certificate paths loaded from a Java Keystore where they contain 
     * The identity negotiation flow is now called `SwapIdentitiesFlow`, renamed from `TransactionKeyFlow`.
     * generateSpend() now creates a new confidential identity for the change address rather than using the identity of the
 input state owner.
-    * Please see the documentation key-concepts-identity and [API: Identity](api-identity.md) for more details.
+    * Please see the documentation on [Identities](../../../../../en/platform/corda/4.3/open-source/key-concepts-ecosystem.html#identities-and-discovery) and [API: Identity](api-identity.md) for more details.
 
 
 
