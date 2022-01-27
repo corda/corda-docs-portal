@@ -50,6 +50,8 @@ Add the class name `BoardingTicketContract`, which implements the `Contract` cla
 
 This is what your code should look like now:
 
+{{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.contracts;
 
@@ -57,6 +59,19 @@ class BoardingTicketContract : Contract {
 
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.contracts;
+
+public class BoardingTicketContract implements Contract {
+
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Connect the `BoardingTicketContract` to the `BoardingTicket` state
 
@@ -67,6 +82,8 @@ After creating the contract class in a CorDapp, you must connect the contract to
 
 Transactions involving the `BoardingTicket` state are now verified using the `BoardingTicketContract`.
 
+{{< tabs name="tabs-2" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -86,6 +103,35 @@ data class BoardingTicket(
         var launchDate: LocalDate)
 ...
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.states;
+
+import net.corda.missionMars.contracts.BoardingTicketContract;
+import net.corda.v5.application.identity.AbstractParty;
+import net.corda.v5.application.identity.Party;
+import net.corda.v5.ledger.contracts.BelongsToContract;
+import net.corda.v5.ledger.contracts.ContractState;
+import org.jetbrains.annotations.NotNull;
+import java.time.LocalDate;
+
+@BelongsToContract(BoardingTicketContract.class)
+public class BoardingTicket implements ContractState {
+
+    //Private Variables
+    private String description;
+    private Party marsExpress;
+    private Party owner;
+    private LocalDate launchDate;
+
+    ......
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Define commands
 
@@ -101,6 +147,8 @@ The `BoardingTicketContract` requires two commands:
 
 Your code should now look like this:
 
+{{< tabs name="tabs-3" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.contracts;
 
@@ -114,6 +162,23 @@ class BoardingTicketContract : Contract {
 
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+public class BoardingTicketContract implements Contract {
+
+    // Used to indicate the transaction's intent.
+    public interface Commands extends CommandData {
+        //In our hello-world app, We will only have one command.
+        class CreateTicket implements BoardingTicketContract.Commands {}
+        class RedeemTicket implements BoardingTicketContract.Commands {}
+    }
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Add the contract's ID
 
@@ -125,6 +190,8 @@ This ID is not used in the production environment, but it is used in testing sce
 
 This is what your code should look like now:
 
+{{< tabs name="tabs-4" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.contracts;
 
@@ -140,6 +207,26 @@ companion object {
     const val ID = "net.corda.missionMars.contracts.BoardingTicketContract"
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+public class BoardingTicketContract implements Contract {
+
+    // Used to indicate the transaction's intent.
+    public interface Commands extends CommandData {
+        //In our hello-world app, We will only have one command.
+        class CreateTicket implements BoardingTicketContract.Commands {}
+        class RedeemTicket implements BoardingTicketContract.Commands {}
+    }
+
+    // This is used to identify our contract when building a transaction.
+    public static final String ID = "net.corda.missionMars.contracts.BoardingTicketContract";
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Add `verify` methods
 
@@ -163,6 +250,8 @@ These are simplified verifications for the purpose of this example. When writing
 
 Once you've added the verify methods to your `BoardingTicketContract`, your code should look like this:
 
+{{< tabs name="tabs-5" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.contracts
 
@@ -216,6 +305,73 @@ class BoardingTicketContract : Contract {
     }
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.contracts;
+
+import net.corda.missionMars.states.BoardingTicket;
+import net.corda.missionMars.states.MarsVoucher;
+import net.corda.v5.ledger.contracts.CommandData;
+import net.corda.v5.ledger.contracts.Contract;
+import net.corda.v5.ledger.transactions.LedgerTransaction;
+import org.jetbrains.annotations.NotNull;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import static net.corda.v5.ledger.contracts.ContractsDSL.requireThat;
+
+public class BoardingTicketContract implements Contract {
+
+    // This is used to identify our contract when building a transaction.
+    public static final String ID = "net.corda.missionMars.contracts.BoardingTicketContract";
+
+    @Override
+    public void verify(@NotNull LedgerTransaction tx) {
+        final CommandData commandData = tx.getCommands().get(0).getValue();
+        BoardingTicket output = tx.outputsOfType(BoardingTicket.class).get(0);
+
+        if (commandData instanceof BoardingTicketContract.Commands.CreateTicket) {
+            //Using Corda DSL function requireThat to replicate conditions-checks
+            requireThat(require -> {
+                require.using("This transaction should only output one BoardingTicket state", tx.getOutputs().size() == 1);
+                require.using("The output BoardingTicket state should have clear description of space trip information", !(output.getDescription().equals("")));
+                LocalDateTime current = LocalDateTime.now();
+                LocalDate today = LocalDate.of(current.getYear(),current.getMonth(),current.getDayOfMonth());
+                LocalDate launchDay = output.getlaunchDate();
+                require.using("The output BoardingTicket state should have a launching date later then the creation time", launchDay.isAfter(today));
+                return null;
+            });
+        }else if(commandData instanceof BoardingTicketContract.Commands.RedeemTicket) {
+            MarsVoucher input = tx.inputsOfType(MarsVoucher.class).get(0);
+            requireThat(require -> {
+                require.using("This transaction should consume two states", tx.getInputStates().size() == 2);
+                require.using("The issuer of the BoardingTicket should be the space company which creates the boarding ticket", input.getIssuer().equals(output.getMarsExpress()));
+                LocalDateTime current = LocalDateTime.now();
+                LocalDate today = LocalDate.of(current.getYear(),current.getMonth(),current.getDayOfMonth());
+                LocalDate launchDay = output.getlaunchDate();
+                require.using("The output BoardingTicket state should have a launching date later then the creation time", launchDay.isAfter(today));
+                return null;
+            });
+        }
+
+    }
+
+    // Used to indicate the transaction's intent.
+    public interface Commands extends CommandData {
+        //In our hello-world app, We will only have one command.
+        class CreateTicket implements BoardingTicketContract.Commands {}
+        class RedeemTicket implements BoardingTicketContract.Commands {}
+    }
+}
+
+
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 
 ## Next steps
