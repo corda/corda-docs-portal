@@ -24,7 +24,7 @@ Corda Developer Preview 1.1 fixes the security issue caused by the Apache Log4j 
 
 * The Log4j dependency has been updated to version 2.17.1 to fix pre-existing Log4j issues.
 
-## In this developer preview
+## Corda 5 Developer Preview 1.0
 
 Intended for local deployment, experimental development, and testing only, this preview includes:
 
