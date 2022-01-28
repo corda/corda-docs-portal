@@ -33,19 +33,19 @@ On Corda, people and business interact by communicating over a peer-to-peer netw
 {{< figure alt="network" width=80% zoom="/en/images/network.png" >}}
 Corda is different from other distributed ledgers because all communication between nodes is point-to-point, and only shared on a need-to-know basis. It's also encrypted using transport-layer security. There are *no global broadcasts* to all parties on a network, but all of the nodes in a network can send messages directly to other nodes. If the recipient is offline, the message waits in an outbound queue until they are online again—just like an email.
 
-## How do I join a network?
+## Join a network
 
 Unlike traditional blockchain, Corda networks are semi-private. To join a network, you must obtain a certificate from the network operator. This
 certificate maps the node's identity on Corda to a real-world legal identity and a [public key](https://www.investopedia.com/terms/p/public-key.asp).
 
 The network operator enforces rules that stipulate what information nodes must provide and the know-your-customer (KYC) processes they must undergo before being granted this certificate.
 
-## How are nodes identified on a network?
+## Node identities 
 The *network map service* matches each node identity to an IP address. Nodes use these IP addresses to send messages to each other.
 
 Nodes can also generate confidential identities for individual transactions. The certificate chain linking a
 confidential identity to a node identity or real-world legal identity is only distributed on a need-to-know
 basis. Nodes can use confidential identities to protect themselves in the event that an attacker gets access to an unencrypted transaction. The attackers cannot identify the participants without additional information.
 
-## How do nodes find each other on a network?
+## Find other nodes on a network
 Corda nodes discover each other via a *network map service*. You can think of this service as a phone book, which publishes a list of peer nodes that includes metadata about who they are and what services they can offer.
