@@ -22,16 +22,16 @@ title: Networks
 ## Summary
 
 * *People and businesses using Corda can communicate over a peer-to-peer network.*
-* *A Corda network is made up of nodes, which represent real-world legal identities. Each of which runs an instance of Corda and one or more CorDapps.*
+* *A Corda network is made up of nodes, which represent real-world legal identities. Each node runs an instance of Corda and one or more CorDapps.*
 * *Nodes communicate point-to-point—not by global broadcast.*
 * *Each node has a certificate that maps its network identity to a real-world legal identity.*
 * *Corda networks are semi-private—you need a certificate from the network operator to join.*
 
 ## What is a network?
-On Corda, people and business interact by communicating over a peer-to-peer network of [Corda nodes](key-concepts-node.md). Each node represents a legal entity running Corda and one or more Corda distributed applications, known as **CorDapps**.
+On Corda, people and business interact by communicating over a peer-to-peer network of [Corda nodes](key-concepts-node.md). Each node represents a legal entity running Corda and one or more Corda distributed applications, known as [CorDapps](cordapp-overview.md).
 
 {{< figure alt="network" width=80% zoom="/en/images/network.png" >}}
-Corda is different from other distributed ledgers because all communication between nodes is point-to-point, and only shared on a need-to-know basis. It's also encrypted using transport-layer security. There are **no global broadcasts** to all parties on a network, but all of the nodes in a network can send messages directly to other nodes. If the recipient is offline, the message waits in an outbound queue until they are online again—just like email.
+Corda is different from other distributed ledgers because all communication between nodes is point-to-point, and only shared on a need-to-know basis. It's also encrypted using transport-layer security. There are *no global broadcasts* to all parties on a network, but all of the nodes in a network can send messages directly to other nodes. If the recipient is offline, the message waits in an outbound queue until they are online again—just like an email.
 
 ## How do I join a network?
 
@@ -45,7 +45,7 @@ The *network map service* matches each node identity to an IP address. Nodes use
 
 Nodes can also generate confidential identities for individual transactions. The certificate chain linking a
 confidential identity to a node identity or real-world legal identity is only distributed on a need-to-know
-basis. Nodes can use confidential identities to protect themselves in the event that an attacker gets access to an unencrypted transaction, they cannot identify the participants without additional information.
+basis. Nodes can use confidential identities to protect themselves in the event that an attacker gets access to an unencrypted transaction. The attackers cannot identify the participants without additional information.
 
 ## How do nodes find each other on a network?
 Corda nodes discover each other via a *network map service*. You can think of this service as a phone book, which publishes a list of peer nodes that includes metadata about who they are and what services they can offer.
