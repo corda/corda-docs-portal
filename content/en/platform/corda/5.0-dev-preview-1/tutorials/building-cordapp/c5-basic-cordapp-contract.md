@@ -57,6 +57,8 @@ When adding imports, ignore `BoardingTicketContract` that is in red—you will a
 
 This is what your code should look like now:
 
+{{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.contracts;
 
@@ -64,6 +66,19 @@ class MarsVoucherContract : Contract {
 
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.contracts;
+
+public class MarsVoucherContract implements Contract {
+
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Connect the `MarsVoucherContract` to the `MarsVoucher` state
 
@@ -74,6 +89,8 @@ After creating the contract class in a CorDapp, you must connect the contract to
 
 Transactions involving the `MarsVoucher` state are now verified using the `MarsVoucherContract`.
 
+{{< tabs name="tabs-2" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -92,6 +109,34 @@ data class MarsVoucher (
         override val linearId: UniqueIdentifier,//LinearState required variable
 ) ...
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.states;
+
+import net.corda.missionMars.contracts.MarsVoucherContract;
+import net.corda.v5.application.identity.AbstractParty;
+import net.corda.v5.application.identity.Party;
+import net.corda.v5.application.utilities.JsonRepresentable;
+import net.corda.v5.ledger.UniqueIdentifier;
+import net.corda.v5.ledger.contracts.BelongsToContract;
+import net.corda.v5.ledger.contracts.LinearState;
+
+@BelongsToContract(MarsVoucherContract.class)
+public class MarsVoucher implements LinearState, JsonRepresentable {
+
+    private String voucherDesc;
+    private Party issuer;
+    private Party holder;
+    private UniqueIdentifier linearId;
+
+    ......
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Define commands
 
@@ -109,6 +154,8 @@ In the `MarsVoucherContract`, you need a command that issues an instance of the 
 
 This is what your code should look like now:
 
+{{< tabs name="tabs-3" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.contracts;
 
@@ -122,6 +169,23 @@ class MarsVoucherContract : Contract {
 
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+public class MarsVoucherContract implements Contract {
+
+    // Used to indicate the transaction's intent.
+    public interface Commands extends CommandData {
+        //In our hello-world app, We will only have one command.
+        class Issue implements MarsVoucherContract.Commands {}
+        class Transfer implements MarsVoucherContract.Commands {}
+    }
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Add the contract's ID
 
@@ -133,6 +197,8 @@ This ID is not used in the production environment, but it is used in testing sce
 
 This is what your code should look like now:
 
+{{< tabs name="tabs-4" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.contracts;
 
@@ -150,6 +216,26 @@ companion object {
   }
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+public class MarsVoucherContract implements Contract {
+
+    // Used to indicate the transaction's intent.
+    public interface Commands extends CommandData {
+        //In our hello-world app, We will only have one command.
+        class Issue implements MarsVoucherContract.Commands {}
+        class Transfer implements MarsVoucherContract.Commands {}
+    }
+
+    // This is used to identify our contract when building a transaction.
+    public static final String ID = "net.corda.missionMars.contracts.MarsVoucherContract";
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Add the `verify` method
 
@@ -187,6 +273,8 @@ This is a Corda-specific helper method used for writing contracts only.
 
 You have now finished writing the `MarsVoucherContract`. Your code should look like this:
 
+{{< tabs name="tabs-5" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.contracts
 
@@ -244,6 +332,65 @@ class MarsVoucherContract : Contract {
     }
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+```java
+package net.corda.missionMars.contracts;
+
+import net.corda.missionMars.states.MarsVoucher;
+import net.corda.v5.ledger.contracts.CommandData;
+import net.corda.v5.ledger.contracts.Contract;
+import net.corda.v5.ledger.transactions.LedgerTransaction;
+import org.jetbrains.annotations.NotNull;
+
+import static net.corda.v5.ledger.contracts.ContractsDSL.requireThat;
+
+public class MarsVoucherContract implements Contract {
+    // This is used to identify our contract when building a transaction.
+    public static final String ID = "net.corda.missionMars.contracts.MarsVoucherContract";
+
+    @Override
+    public void verify(@NotNull LedgerTransaction tx) {
+        final CommandData commandData = tx.getCommands().get(0).getValue();
+        if (commandData instanceof MarsVoucherContract.Commands.Issue) {
+            //Retrieve the output state of the transaction
+            MarsVoucher output = tx.outputsOfType(MarsVoucher.class).get(0);
+
+            //Using Corda DSL function requireThat to replicate conditions-checks
+            requireThat(require -> {
+                require.using("This transaction should only have one MarsVoucher state as output", tx.getOutputs().size() == 1);
+                require.using("The output MarsVoucher state should have clear description of the type of Space trip information", !(output.getVoucherDesc().equals("")));
+                return null;
+            });
+        }else if(commandData instanceof MarsVoucherContract.Commands.Transfer){
+            //Retrieve the output state of the transaction
+            MarsVoucher output = tx.outputsOfType(MarsVoucher.class).get(0);
+            MarsVoucher input = tx.inputsOfType(MarsVoucher.class).get(0);
+            requireThat(require -> {
+                require.using("You cannot gift the voucher to yourself", !(input.getHolder().equals(output.getHolder())));
+                return null;
+            });
+
+        }else if(commandData instanceof BoardingTicketContract.Commands.RedeemTicket){
+            //Transaction verification will happen in BoardingTicket Contract
+        }
+    }
+
+    // Used to indicate the transaction's intent.
+    public interface Commands extends CommandData {
+        //In our hello-world app, We will only have one command.
+        class Issue implements MarsVoucherContract.Commands {}
+        class Transfer implements MarsVoucherContract.Commands {}
+
+    }
+}
+
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ## Next steps
 
