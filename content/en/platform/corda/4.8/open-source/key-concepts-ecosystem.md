@@ -48,4 +48,4 @@ confidential identity to a node identity or real-world legal identity is only di
 basis. Nodes can use confidential identities to protect themselves in the event that an attacker gets access to an unencrypted transaction, they cannot identify the participants without additional information.
 
 ## How do nodes find each other on a network?
-Corda nodes discover each other via a **network map service**. You can think of this service as a phone book, which publishes a list of peer nodes that includes metadata about who they are and what services they can offer.
+Corda nodes discover each other via a *network map service*. You can think of this service as a phone book, which publishes a list of peer nodes that includes metadata about who they are and what services they can offer.
