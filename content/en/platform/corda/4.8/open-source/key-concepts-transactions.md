@@ -21,10 +21,10 @@ title: Transactions
 # Summary
 
 * *Transactions are proposals to update the ledger*
-* *A transaction proposal will only be committed if:*
-  * *It doesn’t contain double-spends*
-  * *It is contractually valid*
-  * *It is signed by the required parties*
+* *A transaction proposal is only committed if:*
+  * *It doesn’t contain double-spends.*
+  * *It is contractually valid.*
+  * *It is signed by the required parties.*
 
 ## Video
 
@@ -32,10 +32,7 @@ title: Transactions
 
 ## Overview
 
-Corda uses a *UTXO* (unspent transaction output) model where every state on the ledger is immutable. The ledger
-evolves over time by applying *transactions*. Transactions update the ledger by marking zero or more existing ledger states
-as historic (the *inputs*), and producing zero or more new ledger states (the *outputs*). Transactions represent a
-single link in the state sequences seen in [States](key-concepts-states.md).
+Every [state](key-concepts-states.md) on the Corda ledger is *immutable*—it can't be changed. This is called an *UTXO* (unspent transaction output) model. Transactions update the ledger by marking zero or more existing ledger states as historic (the *inputs*), and producing zero or more new ledger states (the *outputs*). Transactions represent a single link in the state sequences seen in [States](key-concepts-states.md).
 
 Here is an example of an update transaction, with two inputs and two outputs:
 
@@ -56,8 +53,7 @@ There are two basic types of transactions:
 ## Transaction chains
 
 When creating a new transaction, the output states that the transaction proposes do not exist yet, and must
-therefore be created by the proposer or proposers of the transaction. However, the input states already exist as the outputs of
-previous transactions. We therefore include them in the proposed transaction by reference.
+therefore be created by the proposer or proposers of the transaction. However, the input states already exist as the outputs of previous transactions. We therefore include them in the proposed transaction by reference.
 
 These input states references are a combination of:
 
@@ -188,9 +184,7 @@ transaction can be committed. The notary pool enforces time-window validity. We 
 
 ### Notary
 
-A notary pool is a network service that provides uniqueness consensus by attesting that, for a given transaction,
-it has not already signed other transactions that consume any of the proposed transaction’s input states.
-The notary pool provides the point of finality in the system.
+A notary pool is a network service that provides uniqueness consensus by attesting that, for a given transaction, it has not already signed other transactions that consume any of the proposed transaction’s input states. The notary pool provides the point of finality in the system.
 
 Note that if the notary entity is absent then the transaction is not notarised at all. This is intended for
 issuance/genesis transactions that don’t consume any other states and thus can’t double spend anything.
