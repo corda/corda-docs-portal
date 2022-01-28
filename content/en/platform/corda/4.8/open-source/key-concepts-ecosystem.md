@@ -41,7 +41,7 @@ certificate maps the node's identity on Corda to a real-world legal identity and
 The network operator enforces rules that stipulate what information nodes must provide and the know-your-customer (KYC) processes they must undergo before being granted this certificate.
 
 ## How are nodes identified on a network?
-The network map service maps each node identity to an IP address. Nodes use these IP addresses to send messages to each other.
+The *network map service* matches each node identity to an IP address. Nodes use these IP addresses to send messages to each other.
 
 Nodes can also generate confidential identities for individual transactions. The certificate chain linking a
 confidential identity to a node identity or real-world legal identity is only distributed on a need-to-know
