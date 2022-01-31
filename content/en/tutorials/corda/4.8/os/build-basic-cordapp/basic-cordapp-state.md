@@ -71,7 +71,11 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
    If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../platform/corda/4.8/open-source/tutorial-cordapp.html#step-2-open-the-sample-cordapp-in-intellij-idea).
 
-4. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `AppleStamp`. This changes all instances of `template` in the project to `applestamp`
+4. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `tutorial`. This changes all instances of the `template` package in the project to `tutorial`.
+
+{{< note >}}
+In this case we have named the package `tutorial` because it is the tutorial CorDapp. When building your own CorDapp, name the package appropriately for your use case. This can be the same name as the CorDapp itself.
+{{< /note >}}
 
 ## Create the `AppleStamp` state
 
@@ -174,7 +178,7 @@ public class AppleStamp implements LinearState {
 
 ### Add the constructor
 
-Add a constructor to initalize the objects in the `AppleStamp` state.
+Add a constructor to initialize the objects in the `AppleStamp` state.
 
 If you're using IntelliJ, you can generate the constructor with a shortcut.
 
@@ -458,7 +462,7 @@ public class BasketOfApples implements ContractState {
         return owner;
     }
 
-    public int getweight() {
+    public int getWeight() {
         return weight;
     }
 
