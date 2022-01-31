@@ -21,7 +21,7 @@ title: Ledger
 ## Summary
 
 * *The ledger refers to all facts that are shared between the nodes of a network.*
-* *Each node will have a different view of the ledger, depending on the facts in which it participates.*
+* *Each node will have a different view of the ledger, depending on the facts it shares.*
 * *Two nodes are always guaranteed to see the exact same version of any on-ledger facts that they share.*
 
 ## Video
@@ -52,7 +52,7 @@ completely different set of facts to each other.
 On Corda, there is no central or general agent which operates on behalf of all of the nodes on the network. Instead,
 each node maintains its own vault which contains all of its known facts.
 
-You can think of this vault as being a database or simple table. In this diagram, facts 1 and 7 appear on both Alice's
+You can think of a vault as being a database or simple table. In this diagram, facts 1 and 7 appear on both Alice's
 vault and Bob's vault, and are therefore shared facts:
 
 {{< figure alt="ledger table" width=80% zoom="/en/images/ledger-table.png" >}}
