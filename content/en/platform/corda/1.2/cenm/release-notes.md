@@ -17,6 +17,14 @@ title: Release notes
 
 # Release notes
 
+## Corda Enterprise Network Manager 1.2.6
+
+CENM 1.2.6 fixes an urgent security issue caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version v2.17.1.
+
+### Fixed issues
+
+* The Log4j dependency has been updated to version 2.17.1 to fix pre-existing Log4j issues.
+
 ## Corda Enterprise Network Manager 1.2.5
 
 {{< note >}}

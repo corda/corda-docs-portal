@@ -39,7 +39,7 @@ As a node operator, you should urgently upgrade to the [latest released version 
 
 In this patch release:
 
-Log4j dependency updated to version 2.16.0 to mitigate CVE-2021-44228.
+* Log4j dependency updated to version 2.16.0 to mitigate CVE-2021-44228.
 
 ## Corda Enterprise 4.8.4
 
@@ -88,7 +88,7 @@ In this patch release:
 * A new FutureX configuration option has been introduced: `loginOnce`. This allows users to login only once, to match JWT continuous-keep-alive functionality. To enable this setting, use the updated configuration documentation. By default, `loginOnce` is set to `false`.
 * There are now additional log entries from configured FutureX crypto service detailing when operation on the crypto service starts and ends.
 * Notary support for Cockroach DB version 21.1.7.
-* A fix to prevent a rare invalid notarisation response after internal notary flow retry.
+* A fix to prevent a rare invalid notarization response after internal notary flow retry.
 * Vulnerability fixes have been added to protect against Denial of Service (DoS) attacks via unchecked attachment files.
 * Vulnerability fixes have been added to prevent sensitive information being retrievable from MSSQL databases via DDL script using the Data Management Tool.
 * Corda Archive Service has been updated to prevent sensitive information being exposed in log files.
