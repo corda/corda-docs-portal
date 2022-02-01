@@ -60,7 +60,7 @@ modelled:
 * A transaction occurring at any time before the given time, such as before a bankruptcy event.
 * A transaction occurring at some point roughly around the given time, such as on a specific day.
 
-If a time-window needs to be converted to an absolute time, such for display purposes, there is a utility method to
+If a time-window needs to be converted to an absolute time, such as for display purposes, there is a utility method to
 calculate the mid-point.
 
 {{< note >}}
