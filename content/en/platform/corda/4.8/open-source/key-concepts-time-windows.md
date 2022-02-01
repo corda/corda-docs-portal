@@ -22,7 +22,7 @@ title: Time-windows
 ## Summary
 
 * *If a transaction includes a time-window, it can only be committed during that window*
-* *The notary is the timestamping authority, refusing to commit transactions outside of that window*
+* *The notary is the timestamping authority and refuses to commit transactions outside the time-window*
 * *Time-windows can have a start and end time, or be open at either end*
 
 ## Video
@@ -31,45 +31,40 @@ title: Time-windows
 
 ## Time in a distributed system
 
-A notary also act as the *timestamping authority*, verifying that a transaction occurred during a specific time-window
-before notarising it.
+The [notary cluster](../../../../../en/platform/corda/4.8/open-source/key-concepts-notaries.md) acts as the *timestamping authority*.
+It verifies that a transaction occurred during a specific time-window before notarizing it.
 
-For a time-window to be meaningful, its implications must be binding on the party requesting it. A party can obtain a
-time-window signature in order to prove that some event happened *before*, *on*, or *after* a particular point in time.
-However, if the party is not also compelled to commit to the associated transaction, it has a choice of whether or not
-to reveal this fact until some point in the future. As a result, we need to ensure that the notary either has to also
-sign the transaction within some time tolerance, or perform timestamping *and* notarisation at the same time. The
-latter is the chosen behaviour for this model.
+A party obtains a time-window signature in order to prove a transaction happened *before*, *on*, or *after* a particular point in time.
+As long as the party is not required to commit to the associated transaction, it can choose to reveal this fact at some point in the future. As a result the notary
+timestamps and notarizes at the same time.
 
-There will never be exact clock synchronisation between the party creating the transaction and the notary.
-This is not only due to issues of physics and network latency, but also because between inserting the command and
-getting the notary to sign there may be many other steps (e.g. sending the transaction to other parties involved in the
-trade, requesting human sign-off…). Thus the time at which the transaction is sent for notarisation may be quite
-different to the time at which the transaction was created.
+Thus, the time at which the transaction is sent for notarization may be
+different to the transaction creation time. There will never be exact clock synchronization between the party creating the transaction and the notary for two reasons:
+* Issues of physics and network latency
+* Between inserting the command and getting the notary to sign there may be many other steps, such as sending the transaction to other parties involved in the
+trade, or requesting human sign-off.
 
 ## Time-windows
 
-For this reason, times in transactions are specified as time *windows*, not absolute times. In a distributed system
-there can never be “true time”, only an approximation of it. Time windows can be open-ended (i.e. specify only one of
-“before” and “after”) or they can be fully bounded.
+Times in transactions are specified as time *windows*, not absolute times. Time-windows can be open-ended, and specify only
+“before” **or** “after”, or they can be fully bounded.
 
 {{< figure alt="time window" width=80% zoom="/en/images/time-window.gif" >}}
 
-In this way, we express the idea that the *true value* of the fact “the current time” is actually unknowable. Even when
-both a before and an after time are included, the transaction could have occurred at any point within that time-window.
+When both a before and an after time are included, the transaction could have occurred at any point within that time-window.
 
-By creating a range that can be either closed or open at one end, we allow all of the following situations to be
+By creating a range that can be either closed or open at one end, we allow all the following situations to be
 modelled:
 
-* A transaction occurring at some point after the given time (e.g. after a maturity event)
-* A transaction occurring at any time before the given time (e.g. before a bankruptcy event)
-* A transaction occurring at some point roughly around the given time (e.g. on a specific day)
+* A transaction occurring at some point after the given time, such as after a maturity event.
+* A transaction occurring at any time before the given time, such as before a bankruptcy event.
+* A transaction occurring at some point roughly around the given time, such as on a specific day.
 
-If a time window needs to be converted to an absolute time (e.g. for display purposes), there is a utility method to
-calculate the mid point.
+If a time-window needs to be converted to an absolute time, such for display purposes, there is a utility method to
+calculate the mid-point.
 
 {{< note >}}
-It is assumed that the time feed for a notary is GPS/NaviStar time as defined by the atomic
-clocks at the US Naval Observatory. This time feed is extremely accurate and available globally for free.
+It is assumed that the time feed for a notary is [GPS/NaviStar time as defined by the atomic
+clocks at the US Naval Observatory](https://www.usno.navy.mil/USNO/time/display-clocks/simpletime). This time feed is extremely accurate and available globally for free.
 
 {{< /note >}}
