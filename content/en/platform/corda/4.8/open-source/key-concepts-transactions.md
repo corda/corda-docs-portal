@@ -21,7 +21,7 @@ title: Transactions
 # Summary
 
 * *Transactions are proposals to update the ledger*
-* *A transaction proposal is only committed if:*
+* *A transaction proposal is only committed to the ledger if:*
   * *It doesn’t contain double-spends.*
   * *It is contractually valid.*
   * *It is signed by the required parties.*
@@ -32,46 +32,48 @@ title: Transactions
 
 ## Overview
 
-Every [state](key-concepts-states.md) on the Corda ledger is *immutable*—it can't be changed. This is called an *UTXO* (unspent transaction output) model. Transactions update the ledger by marking zero or more existing ledger states as historic (the *inputs*), and producing zero or more new ledger states (the *outputs*). Transactions represent a single link in the state sequences seen in [States](key-concepts-states.md).
+Transactions update the [ledger](key-concepts-ledger.md) by consuming [states](key-concepts-states.md) and creating new ones. You can't edit the ledger—the only way to change it is to add new transactions to it.
 
-Here is an example of an update transaction, with two inputs and two outputs:
+A transaction consists of [states](key-concepts-states.md), commands, [attachments](https://docs.r3.com/en/tutorials/corda/4.8/os/supplementary-tutorials/tutorial-attachments.html), and a [time window](key-concepts-time-windows.md).
+
+Every [state](key-concepts-states.md) is *immutable*—it can't be changed. This is called an *UTXO* (unspent transaction output) model. Transactions update the ledger by marking zero or more existing ledger states "historic" (the *inputs*), and producing zero or more new ledger states (the *outputs*).
+
+Here is an example of a transaction with two inputs and two outputs:
 
 {{< figure alt="basic tx" width=80% zoom="/en/images/basic-tx.png" >}}
-A transaction can contain any number of inputs, outputs and references of any type:
+A transaction can contain any number of inputs, outputs and references of any type. Transactions can:
 
-* They can include many different state types (states may represent cash or bonds, for example)
-* They can be issuances (have zero inputs) or exits (have zero outputs)
-* They can merge or split fungible assets (for example, they may combine a $2 state and a $5 state into a $7 cash state)
+* Include different types of states representing multiple financial instruments, such as cash or bonds.
+* *Issue* states, by creating a transaction without inputs. These states won't replace any existing states because none are marked "historic".
+* *Exit* states, by creating transactions without outputs. This doesn't create any new states to replace existing ones.
+* Merge or split fungible assets. For example, they may combine a $2 state and a $5 state into a $7 cash state.
 
-Transactions are *atomic*; either all of the transaction’s proposed changes are accepted, or none are.
+Transactions are *atomic*. Either all of the transaction’s proposed changes are accepted, or none are.
 
 There are two basic types of transactions:
 
-* Notary-change transactions (used to change a state’s notary - see [Notaries](key-concepts-notaries.md))
-* General transactions (used for everything else)
+* Notary-change transactions, to change a state’s [notary](key-concepts-notaries.md).
+* General transactions, for everything else.
 
-## Transaction chains
+## Transaction backchains
 
-When creating a new transaction, the output states that the transaction proposes do not exist yet, and must
-therefore be created by the proposer or proposers of the transaction. However, the input states already exist as the outputs of previous transactions. We therefore include them in the proposed transaction by reference.
+Transaction backchains let a [node](key-concepts-node.md) verify that each input was generated from a valid series of transactions. This is called "walking the chain." If you need to break this chain (for example, because you want to increase performance by reducing the number of transactions the node has to check, or because you want to keep the previous transactions private) you can [reissue states](reissuing-states.md).
 
-These input states references are a combination of:
+Backchains are created as *input state references* link together over time. Input state references let you use the outputs of previous transactions as the inputs of new transactions.
 
-* The hash of the transaction that created the input
-* The input’s index in the outputs of the previous transaction
+Input state references consist of:
 
-This situation can be illustrated as follows:
+* The [hash](https://www.investopedia.com/terms/h/hash.asp) of the transaction that created the input.
+* The input’s index (location in the backchain) in the outputs of the previous transaction.
+
+You can see how this works in this example transaction:
 
 {{< figure alt="tx chain" width=80% zoom="/en/images/tx-chain.png" >}}
-These input state references link transactions together over time, forming what is known as a *transaction chain*.
 
-{{< note >}}
-See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
-{{< /note >}}
 
-## Committing transactions
+## Committing transactions to the ledger
 
-Initially, a transaction is just a **proposal** to update the ledger. It represents the future state of the ledger
+Initially, a transaction is just a proposal to update the ledger. It represents the future state of the ledger
 that is desired by the transaction builders:
 
 {{< figure alt="uncommitted tx" width=80% zoom="/en/images/uncommitted_tx.png" >}}
@@ -84,28 +86,24 @@ If all of the required signatures are gathered, the transaction becomes committe
 {{< figure alt="committed tx" width=80% zoom="/en/images/committed_tx.png" >}}
 This means that:
 
-* The transaction’s inputs are marked as historic, and cannot be used in any future transactions
-* The transaction’s outputs become part of the current state of the ledger
+* The transaction’s inputs are marked as historic, and cannot be used in any future transactions.
+* The transaction’s outputs become part of the current state of the ledger.
 
 ## Transaction validity
 
-Each required signer should only sign the transaction if the following two conditions hold:
+Each required signer should only sign the transaction if it is:
 
-* **Transaction validity**: For both the proposed transaction, and every transaction in the chain of transactions
-that created the current proposed transaction’s inputs:>
+* *Valid*. The proposed transaction and every transaction the backchain of the proposed inputs must be signed by all the required parties and [contractually valid](key-concepts-contracts.md).
 
-  * The transaction is digitally signed by all the required parties
-  * The transaction is *contractually valid* (see [Contracts](key-concepts-contracts.md))
+* *Unique*: No other committed transaction has consumed any of the inputs to
+the proposed transaction.
 
-* **Transaction uniqueness**: There exists no other committed transaction that has consumed any of the inputs to
-our proposed transaction (see [Consensus](key-concepts-consensus.md))
-
-If the transaction gathers all of the required signatures, but the preceding conditions do not hold, the transaction’s outputs
-will not be valid and will not be accepted as inputs to subsequent transactions.
+If the transaction gathers all the required signatures without meeting these conditions, the transaction’s outputs
+are not valid and will not be accepted as inputs to subsequent transactions.
 
 ## Reference states
 
-As mentioned in [States](key-concepts-states.md), some states need to be referred to by the contracts of other input or output
+Some states need to be referred to by the contracts of other input or output
 states but not updated/consumed. This is where reference states come in. When a state is added to the references list of
 a transaction, instead of the inputs or outputs list, it is treated as a *reference state*. There are two important
 differences between regular states and reference states:
