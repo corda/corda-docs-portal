@@ -32,25 +32,26 @@ title: Notaries
 ## Overview
 
 The notary cluster is Corda's uniqueness consensus service. The notary's role is to ensure a
-transaction contains only unique input states. The cluster's signature is obtained once it verifies
-that a proposed transaction’s input states have not already been consumed by a prior transaction. Upon determining this, the notary cluster will either:
+transaction contains only unique input states.
 
-* Sign the transaction in cases where all input states are found to be unique.
-* Reject the transaction and flag that a double-spend attempt has occurred in cases where any of the input states are identical to those already encountered in a previous transaction.
+After it examines a proposed transaction's input states, a notary either:
 
-Every state has an appointed notary cluster, so the cluster will only notarize a transaction if it is the appointed notary cluster of all the transaction’s input states.
+* Signs the transaction, if all the input states are unique.
+* Rejects the transaction and flags it as a  double-spend attempt if the input states match any from a previous transaction.
+
+Every state has an appointed notary cluster. The cluster only notarizes transactions if it is the appointed notary cluster for all the transaction’s input states.
 
 ## Validation
 
-A notary cluster can be configured to provide validity consensus by validating each transaction
-before committing it. There are therefore two notary deployments available:
+Notary clusters can provide validity consensus by validating each transaction
+before committing it. There are two types of notary deployment:
 
-* The non-validating notary, where the transaction **is not** checked for validity
-* The validating notary, where the transaction **is** checked for validity
+* The non-validating notary, where the transaction **is not** checked for validity.
+* The validating notary, where the transaction **is** checked for validity.
 
 ### Data visibility
 
-Below is a summary of which specific transaction components have to be revealed to each type of notary:
+Specific transaction components must be revealed to each type of notary:
 
 {{< table >}}
 
@@ -79,28 +80,25 @@ reveal what kind of state it is or its contents.
 
 Each Corda network can have multiple notary clusters. This has several benefits:
 
-* **Privacy** - with both validating and non-validating notary clusters on the same network, nodes can choose the preferred
-notary cluster on a per-transaction basis.
+* **Privacy** -  Nodes can choose the most suitable notary cluster for a specific transaction.
 * **Load balancing** - spreading the transaction load over multiple notary clusters allows higher transaction
 throughput for the platform overall.
-* **Low latency** - latency can be minimized by choosing a notary cluster physically closer to the transacting parties.
+* **Low latency** - Nodes can speed up transactions by choosing the closest notary cluster to the transacting parties.
 
 ### Changing notaries
 
-Remember that a notary cluster will only sign a transaction if it is the appointed notary cluster of all the
-transaction’s input states. However, there are cases in which it may be necessary to change a state’s appointed notary cluster.
-These include:
+Notaries only sign transactions if they are the appointed notary for all the
+transaction’s input states. It's possible to change a state’s appointed notary.
+You might need to change a state's appointed notary if:
 
-* When a single transaction needs to consume several states that have different appointed notary clusters
-* When a node would prefer to use a different notary cluster for a given transaction due to privacy or efficiency
-concerns
+* A single transaction needs to consume several states that have different appointed notary clusters.
+* A node would prefer to use a different notary cluster for a given transaction for increased privacy or reduced latency.
 
-Before these transactions can be created, the states must first all be re-pointed to the same notary cluster. This is
-achieved using a special `notary-change` transaction that takes:
+Before you create these transactions, you must re-point all the states to the same notary cluster. You can do this 
+using a special `notary-change` transaction that takes:
 
 * A single input state
 * An output state identical to the input state, except that the appointed notary cluster has been changed
 
-The input state’s appointed notary cluster will sign the transaction if it does not constitute a double-spend, at which
-point a state will enter existence with all the properties of the old state, but with a different appointed notary
+The input state’s appointed notary cluster signs the transaction if it does not constitute a double-spend. The state then has all the properties of the old state, but with a different appointed notary
 cluster.
