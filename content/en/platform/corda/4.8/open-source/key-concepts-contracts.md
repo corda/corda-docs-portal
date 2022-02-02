@@ -16,7 +16,7 @@ title: Contracts
 ---
 
 
-# Contracts
+# Smart contracts
 
 ## Summary
 
@@ -28,24 +28,35 @@ title: Contracts
 
 {{% vimeo 214168839 %}}
 
+
+*Smart contracts* digitize agreements by turning the contract terms into code that executes automatically when the terms are met. This means:
+* Parties don’t have to trust each other to follow through on the agreement terms.
+* No external enforcement is required.
+* The contract is always interpreted the same way.
+
+The contract code is replicated on a the [nodes](key-concepts-node.md) in a [network](key-concepts-ecosystem.md). The network members have to reach a [consensus](key-concepts-consensus.md) that the terms of the agreement have been met before they execute the contract.
+
+Putting a contract on Corda gives it unique features:
+* It can't be changed, only replaced with an updated version.
+* Once executed, the results are irreversible.
+
+
 {{< note >}}
 See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
 {{< /note >}}
 
-## Transaction verification
+## Contract validity
 
-Recall that a transaction is only valid if it is digitally signed by all required signers. However, even if a
-transaction gathers all the required signatures, it is only valid if it is also **contractually valid**.
+[Transactions](key-concepts-transactions.md) must be digitally signed by all required signers. However, even if a
+transaction gathers all the required signatures, it can't be executed unless it is also *contractually valid*.
 
-**Contract validity** is defined as follows:
+*Contract validity* means that:
 
-* Each transaction state specifies a *contract* type
+* Each transaction [state](key-concepts-states.md) specifies a *contract* type.
 * A *contract* takes a transaction as input, and states whether the transaction is considered valid based on the
 contract’s rules
 * A transaction is only valid if the contract of **every input state** and **every output state** considers it to be
-valid
-
-We can picture this situation as follows:
+valid.
 
 {{< figure alt="tx validation" width=80% zoom="/en/images/tx-validation.png" >}}
 The contract code has access to the full capabilities of the language,
@@ -62,61 +73,41 @@ A transaction that is not contractually valid is not a valid proposal to update 
 committed to the ledger. In this way, contracts impose rules on the evolution of states over time that are
 independent of the willingness of the required signers to sign a given transaction.
 
-## The contract sandbox
+## Determinism
 
-Transaction verification must be *deterministic* - a contract should either **always accept** or **always reject** a
-given transaction. For example, transaction validity cannot depend on the time at which validation is conducted, or
-the amount of information the peer running the contract holds. This is a necessary condition to ensure that all peers
-on the network reach consensus regarding the validity of a given ledger update.
+For the nodes on a network to reach consensus about a proposed update to the [ledger](key-concepts-ledger.md), transaction verification must be *deterministic*. That means contracts must **always accept** or **always reject** a given transaction. For example, a transaction's validity cannot depend on the time it was validated, or the amount of information the node running the contract holds.
 
-Future versions of Corda will evaluate transactions in a strictly deterministic sandbox. The sandbox has a whitelist that
-prevents the contract from importing libraries that could be a source of non-determinism. This includes libraries
-that provide the current time, random number generators, libraries that provide file system access or networking
-libraries, for example. Ultimately, the only information available to the contract when verifying the transaction is
-the information included in the transaction itself.
-
-**Tip:** Developers can pre-verify that their CorDapps are deterministic by linking their CorDapps against the deterministic modules
-(see the [Deterministic Corda Modules](deterministic-modules.md)).
+Developers can pre-verify that their CorDapps are deterministic by using [deterministic modules](deterministic-modules.md)).
 
 ## Contract limitations
 
-Since a contract has no access to information from the outside world, it can only check the transaction for internal
-validity. It cannot check, for example, that the transaction is in accordance with what was originally agreed with the
+Contracts don't have access to information from the outside world (unless they use an [oracle](key-concepts-oracles.md). It can only check the transaction for internal validity. It cannot check, for example, that the transaction is in accordance with what was originally agreed with the
 counterparties.
 
-Peers should therefore check the contents of a transaction before signing it, *even if the transaction is
-contractually valid*, to see whether they agree with the proposed ledger update. A peer is under no obligation to
+Nodes should check the contents of a transaction before signing it, *even if the transaction is
+contractually valid*, to see whether they agree with the proposed ledger update. Nodes have no obligation to
 sign a transaction just because it is contractually valid. For example, they may be unwilling to take on a loan that
 is too large, or may disagree on the amount of cash offered for an asset.
-
-## Oracles
-
-Sometimes, transaction validity will depend on some external piece of information, such as an exchange rate. In
-these cases, an oracle is required. See [Oracles](key-concepts-oracles.md) for further details.
 
 ## Legal prose
 
 {{% vimeo 213879293 %}}
 
-Each contract also refers to a legal prose document that states the rules governing the evolution of the state over
+Smart contracts refer to legal prose documents that state the rules governing the evolution of the [state](key-concepts-states.md) over
 time in a way that is compatible with traditional legal systems. This document can be relied upon in the case of
 legal disputes.
 
 ## Encumbrances
 
-All contract states can be *encumbered* by up to one other state. This is called an **encumbrance**. The encumbrance reference is optional in the `ContractState` interface.
-
-The encumbrance state, if present, forces additional controls over the encumbered state, since the encumbrance state
-contract will also be verified during the execution of the transaction. For example, a contract state could be
-encumbered with a time-lock contract state; the state is then only processable in a transaction that verifies that the
+You may want to restrict a specific state with an *encumberance*. The encumbrance state, if present, forces additional controls over the encumbered state, because the encumbrance state contract is also verified during the transaction execution. For example, a contract state could be
+encumbered with a time-lock contract state. In that case, the state can only be processed in a transaction that verifies that the
 time specified in the encumbrance time-lock has passed.
 
 The encumbered state refers to its encumbrance by index, and the referred encumbrance state is an output state in a
-particular position on the same transaction that created the encumbered state. Note that an encumbered state that is
-being consumed must have its encumbrance consumed in the same transaction, otherwise the transaction is not valid.
+particular position on the same transaction that created the encumbered state. Encumbered states and their encumberances must be consumed in the same transaction, otherwise the transaction is not valid.
 
-When you construct a transaction that generates the encumbered state, you must place the encumbrance in the corresponding output
-position of that transaction. And when you subsequently consume that encumbered state, the same encumbrance state must be
-available somewhere within the input set of states.
+When you construct a transaction that generates an encumbered state, you must place the encumbrance in the corresponding output
+position of that transaction. When you consume that encumbered state, the same encumbrance state must be
+available in the input set of states.
 
 See an example of an encumbrance in the <a href="https://github.com/corda/reissue-cordapp/blob/master/contracts/src/main/kotlin/com/r3/corda/lib/reissuance/contracts/ReissuanceLockContract.kt">`ReissuanceLockContract`</a> and <a href="https://github.com/corda/reissue-cordapp/blob/master/workflows/src/main/kotlin/com/r3/corda/lib/reissuance/flows/ReissueStates.kt">`ReissueStatesFlow`</a> of the [Reissuance CorDapp](https://github.com/corda/reissue-cordapp).
