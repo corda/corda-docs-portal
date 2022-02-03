@@ -527,6 +527,38 @@ name = "Operating a Corda Node"
 parent = "corda-enterprise-4-7-corda-nodes"
 weight = 60
 
+[[corda-enterprise-4-8]]
+identifier = "corda-enterprise-4-9-notaries"
+name = "Corda Notaries"
+weight = 35
+
+[[corda-enterprise-4-8]]
+identifier = "corda-enterprise-4-9-corda-networks"
+name = "Corda Networks"
+weight = 40
+
+[[corda-enterprise-4-8]]
+identifier = "corda-enterprise-4-9-corda-nodes-operating"
+name = "Operating a Corda Node"
+parent = "corda-enterprise-4-9-corda-nodes"
+weight = 60
+
+[[corda-enterprise-4-8]]
+identifier = "corda-enterprise-4-9-notaries"
+name = "Corda Notaries"
+weight = 35
+
+[[corda-enterprise-4-8]]
+identifier = "corda-enterprise-4-9-corda-networks"
+name = "Corda Networks"
+weight = 40
+
+[[corda-enterprise-4-8]]
+identifier = "corda-enterprise-4-9-corda-nodes-operating"
+name = "Operating a Corda Node"
+parent = "corda-enterprise-4-9-corda-nodes"
+weight = 60
+
 [[corda-enterprise-4-9]]
 identifier = "corda-enterprise-4-9-notaries"
 name = "Corda Notaries"
