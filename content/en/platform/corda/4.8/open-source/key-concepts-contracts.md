@@ -12,7 +12,10 @@ menu:
 tags:
 - concepts
 - contracts
-title: Contracts
+- smart contracts
+- validity
+- contractual validity
+title: Smart contracts
 ---
 
 
@@ -20,9 +23,10 @@ title: Contracts
 
 ## Summary
 
-* *A transaction is contractually valid if all of its input and output states are acceptable according to the contract.*
-* *Contracts are written in Java or Kotlin.*
-* *Contract execution is deterministic, and transaction acceptance is based on the transaction’s contents alone.*
+* Smart contract digitize agreements by turning them into code that executes automatically if the contract terms are met.
+* Nodes don't need to trust each other to follow through on contract terms, because the terms are enforced by the code.
+* Smart contracts govern the evolution of [states](key-concepts-states.md) over time.
+* Even if a [transaction](key-concepts-transactions.md) gathers all the required signatures, it can't be committed to the ledger unless it is contractually valid.
 
 ## Video
 
@@ -40,53 +44,44 @@ Putting a contract on Corda gives it unique features:
 * It can't be changed, only replaced with an updated version.
 * Once executed, the results are irreversible.
 
+## Smart contract languages
+Corda smart contracts must be written in [Kotlin](https://kotlinlang.org/) or [Java](https://www.java.com/en/).
+
+## Contractual validity
+
+[Transactions](key-concepts-transactions.md) must be digitally signed by all required signers. However, even if a
+transaction gathers all the required signatures, it can't be executed unless it is also *contractually valid*. A transaction that is not contractually valid is not a valid proposal to update the ledger, and can never be committed to the ledger. This means that contracts can impose rules on the evolution of states over time that are independent of the willingness of the required signers to sign a given transaction.
+
+Each transaction [state](key-concepts-states.md) specifies a *contract type*. The contract specified takes the transaction as input, and determines if the transaction is valid based on the
+contract's internal rules. The contract must evaluate every input state and every output state.
+
+{{< figure alt="tx validation" width=80% zoom="/en/images/tx-validation.png" >}}
+The contract code can:
+
+* Check the number of inputs, outputs, commands, or attachments.
+* Check for [time windows](key-concepts-time-windows.md).
+* Check the contents of all components.
+* Evaluate looping constructs, variable assignments, function calls, and helper methods, and other aspects of the transaction code.
+* Group similar states to validate them as a group. For example, it can impose a rule on the combined value of all the cash
+states.
 
 {{< note >}}
 See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
 {{< /note >}}
 
-## Contract validity
-
-[Transactions](key-concepts-transactions.md) must be digitally signed by all required signers. However, even if a
-transaction gathers all the required signatures, it can't be executed unless it is also *contractually valid*.
-
-*Contract validity* means that:
-
-* Each transaction [state](key-concepts-states.md) specifies a *contract* type.
-* A *contract* takes a transaction as input, and states whether the transaction is considered valid based on the
-contract’s rules
-* A transaction is only valid if the contract of **every input state** and **every output state** considers it to be
-valid.
-
-{{< figure alt="tx validation" width=80% zoom="/en/images/tx-validation.png" >}}
-The contract code has access to the full capabilities of the language,
-including:
-
-* Checking the number of inputs, outputs, commands, or attachments
-* Checking whether there is a time window or not
-* Checking the contents of any of these components
-* Looping constructs, variable assignment, function calls, helper methods, and so on
-* Grouping similar states to validate them as a group; for example, imposing a rule on the combined value of all the cash
-states
-
-A transaction that is not contractually valid is not a valid proposal to update the ledger, and thus can never be
-committed to the ledger. In this way, contracts impose rules on the evolution of states over time that are
-independent of the willingness of the required signers to sign a given transaction.
-
 ## Determinism
 
 For the nodes on a network to reach consensus about a proposed update to the [ledger](key-concepts-ledger.md), transaction verification must be *deterministic*. That means contracts must **always accept** or **always reject** a given transaction. For example, a transaction's validity cannot depend on the time it was validated, or the amount of information the node running the contract holds.
 
-Developers can pre-verify that their CorDapps are deterministic by using [deterministic modules](deterministic-modules.md)).
+Developers can pre-verify that their CorDapps are deterministic by linking them to [deterministic modules](deterministic-modules.md)).
 
 ## Contract limitations
 
-Contracts don't have access to information from the outside world (unless they use an [oracle](key-concepts-oracles.md). It can only check the transaction for internal validity. It cannot check, for example, that the transaction is in accordance with what was originally agreed with the
-counterparties.
+By design, contracts don't have access to information from the outside world (unless they use an [oracle](key-concepts-oracles.md). They can only check transactions for internal validity. For example, a contract wouldn't know that the transaction is in accordance with what the parties involved originally agreed.
 
-Nodes should check the contents of a transaction before signing it, *even if the transaction is
-contractually valid*, to see whether they agree with the proposed ledger update. Nodes have no obligation to
-sign a transaction just because it is contractually valid. For example, they may be unwilling to take on a loan that
+You should check the contents of a transaction before signing it, *even if the transaction is
+contractually valid*, to see if you agree with the proposed ledger update. You have no obligation to
+sign a transaction just because it is contractually valid. For example, you may not want to take on a loan that
 is too large, or may disagree on the amount of cash offered for an asset.
 
 ## Legal prose
