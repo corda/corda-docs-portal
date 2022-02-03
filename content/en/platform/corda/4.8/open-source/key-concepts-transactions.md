@@ -57,7 +57,7 @@ There are two basic types of transactions:
 
 ## Transaction backchains
 
-Transaction backchains let a [node](key-concepts-node.md) verify that each input was generated from a valid series of transactions. This is called "walking the chain." If you need to break this chain (for example, because you want to increase performance by reducing the number of transactions the node has to check, or because you want to keep the previous transactions private) you can [reissue states](reissuing-states.md).
+Transaction backchains let a [node](key-concepts-node.md) verify that each input was generated from a valid series of transactions. This is called "walking the chain." If you need to break this chain (for example, because you want to increase performance by reducing the number of transactions the node has to check, or because you want to keep previous transactions private) you can [reissue states](reissuing-states.md).
 
 Backchains are created as *input state references* link together over time. Input state references let you use the outputs of previous transactions as the inputs of new transactions.
 
@@ -77,7 +77,7 @@ Initially, a transaction is just a proposal to update the ledger. It represents 
 that is desired by the transaction builders:
 
 {{< figure alt="uncommitted tx" width=80% zoom="/en/images/uncommitted_tx.png" >}}
-To become reality, the transaction must receive signatures from all of the *required signers* (see **Commands**, below). Each
+To become reality, the transaction must receive signatures from all of the *required signers*. Each
 required signer appends their signature to the transaction to indicate that they approve the proposal:
 
 {{< figure alt="tx with sigs" width=80% zoom="/en/images/tx_with_sigs.png" >}}
@@ -91,15 +91,15 @@ This means that:
 
 ## Transaction validity
 
-Each required signer should only sign the transaction if it is:
+Just gathering the required signatures is not enough to commit a transaction to the ledger. It must also be:
 
 * *Valid*. The proposed transaction and every transaction the backchain of the proposed inputs must be signed by all the required parties and [contractually valid](key-concepts-contracts.md).
-
 * *Unique*: No other committed transaction has consumed any of the inputs to
-the proposed transaction.
+the proposed transaction. [Uniqueness](key-concepts-consensus.md#uniqueness-consensus) is determined by a [notary](key-concepts-notaries.md).
 
 If the transaction gathers all the required signatures without meeting these conditions, the transaction’s outputs
 are not valid and will not be accepted as inputs to subsequent transactions.
+
 
 ## Reference states
 
