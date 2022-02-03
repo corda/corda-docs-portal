@@ -19,9 +19,9 @@ title: Consensus
 
 ## Summary
 
-* *To be committed, transactions must achieve both validity and uniqueness consensus*
-* *Validity consensus requires contractual validity of the transaction and all its dependencies*
-* *Uniqueness consensus prevents double-spends*
+* Transactions must achieve *validity consensus* **and** *uniqueness consensus* to be committed to the ledger.
+* *Validity consensus* determines if a transaction accepted by the [smart contracts](key-concepts-contracts.md) it references.
+* *Uniqueness consensus* prevents double-spends.
 
 ## Video
 
