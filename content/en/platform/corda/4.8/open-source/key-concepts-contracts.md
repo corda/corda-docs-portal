@@ -61,7 +61,7 @@ The contract code can:
 * Check the number of inputs, outputs, commands, or attachments.
 * Check for [time windows](key-concepts-time-windows.md).
 * Check the contents of all components.
-* Evaluate looping constructs, variable assignments, function calls, and helper methods, and other aspects of the transaction code.
+* Evaluate looping constructs, variable assignments, function calls, helper methods, and other aspects of the transaction code.
 * Group similar states to validate them as a group. For example, it can impose a rule on the combined value of all the cash
 states.
 
