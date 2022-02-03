@@ -20,11 +20,11 @@ title: Transactions
 
 # Summary
 
-* *Transactions are proposals to update the ledger*
-* *A transaction proposal is only committed to the ledger if:*
-  * *It doesn’t contain double-spends.*
-  * *It is contractually valid.*
-  * *It is signed by the required parties.*
+* Transactions are proposals to update the ledger.
+* A transaction proposal is only committed to the ledger it:
+  * Ioesn’t contain double-spends.
+  * It is contractually valid.
+  * It is signed by the required parties.
 
 ## Video
 
