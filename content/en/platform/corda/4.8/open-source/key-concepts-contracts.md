@@ -38,7 +38,7 @@ title: Smart contracts
 * No external enforcement is required.
 * The contract is always interpreted the same way.
 
-The contract code is replicated on a the [nodes](key-concepts-node.md) in a [network](key-concepts-ecosystem.md). The network members have to reach a [consensus](key-concepts-consensus.md) that the terms of the agreement have been met before they execute the contract.
+The contract code is replicated on the [nodes](key-concepts-node.md) in a [network](key-concepts-ecosystem.md). The network members have to reach a [consensus](key-concepts-consensus.md) that the terms of the agreement have been met before they execute the contract.
 
 Putting a contract on Corda gives it unique features:
 * It can't be changed, only replaced with an updated version.
