@@ -20,8 +20,8 @@ title: Consensus
 ## Summary
 
 * Transactions must achieve *validity consensus* **and** *uniqueness consensus* to be committed to the ledger.
-* *Validity consensus* determines if a transaction accepted by the [smart contracts](key-concepts-contracts.md) it references.
-* *Uniqueness consensus* prevents double-spends.
+* Validity consensus determines if a transaction is accepted by the [smart contracts](key-concepts-contracts.md) it references.
+* Uniqueness consensus prevents double-spends.
 
 ## Video
 
@@ -42,7 +42,7 @@ Validity consensus checks that, for the proposed transaction and for every trans
 This called *walking the chain*.
 
 For example, if a node proposes a transaction
-transferring a treasury bond. The bond transfer is only valid if:
+transferring a treasury bond, the bond transfer is only valid if:
 
 * The treasury bond was issued by the central bank in a valid issuance transaction.
 * Every subsequent transaction in which the bond changed hands was also valid.
@@ -66,7 +66,7 @@ proposals:
 * A transaction transferring the $1,000,000 to Bob in exchange for £800,000.
 * A transaction transferring the $1,000,000 to Charlie in exchange for €900,000.
 
-Both transactions will achieve validity consensus, yet Alice has managed to “double-spend” his USD to get double the amount of GBP and EUR:
+Both transactions will achieve validity consensus, yet Alice has managed to “double-spend” her USD to get double the amount of GBP and EUR:
 
 {{< figure alt="uniqueness consensus" width=80% zoom="/en/images/uniqueness-consensus.png" >}}
 
