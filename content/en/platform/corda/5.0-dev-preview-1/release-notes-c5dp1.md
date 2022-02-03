@@ -16,7 +16,7 @@ The Corda 5 Developer Preview, released on 28 September 2021, showcases the core
 Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we can make the upcoming versions of Corda work harder for you than ever.
 {{< /note >}}
 
-## In this developer preview
+## Corda 5 Developer Preview 1.0
 
 Intended for local deployment, experimental development, and testing only, this preview includes:
 
