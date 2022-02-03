@@ -357,7 +357,7 @@ dataSource.password = ""
 `enterpriseConfiguration`
   Allows fine-grained controls of various features only available in the enterprise version of Corda.
 
-  `mutualExclusion`
+  `mutualExclusionConfiguration`
     Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).
 
   `on`
