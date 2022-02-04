@@ -20,10 +20,10 @@ title: Notaries
 
 ## Summary
 
-* *Notary clusters prevent “double-spends”*
-* *Notary clusters are also time-stamping authorities. If a transaction includes a time-window, it can only be notarized during that window*
-* *Notary clusters may optionally also validate transactions, in which case they are called “validating” notaries, as opposed to “non-validating”*
-* *A network can have several notary clusters*
+* The notary service prevents “double-spends”.
+* The notary also acts as the time-stamping authority. If a transaction includes a time window, it can only be notarized during that window.
+* Notary clusters may optionally also validate transactions, in which case they are called “validating” notaries, as opposed to “non-validating”.
+* A network can have several notary clusters, all running different [consensus algorithms](../../../../../en/platform/corda/4.8/open-source/key-concepts-consensus.md).
 
 ## Video
 
@@ -31,7 +31,7 @@ title: Notaries
 
 ## Overview
 
-The notary cluster is Corda's uniqueness consensus service. The notary's role is to ensure a
+The notary is Corda's uniqueness consensus service. It prevents double-spends by ensuring each transaction contains only unique input states. A notary service is formed by one or more notary workers that together form a notary cluster. The notary's role is to ensure a
 transaction contains only unique input states. The cluster's signature is obtained once it verifies
 that a proposed transaction’s input states have not already been consumed by a prior transaction. Upon determining this, the notary cluster will either:
 
@@ -45,8 +45,8 @@ Every state has an appointed notary cluster, so the cluster will only notarize a
 A notary cluster can be configured to provide validity consensus by validating each transaction
 before committing it. There are therefore two notary deployments available:
 
-* The non-validating notary, where the transaction **is not** checked for validity
-* The validating notary, where the transaction **is** checked for validity
+* The non-validating notary, where the transaction **is not** checked for validity.
+* The validating notary, where the transaction **is** checked for validity.
 
 ### Data visibility
 
