@@ -20,11 +20,11 @@ title: Nodes
 
 ## Summary
 
-* *A node is JVM run-time with a unique network identity running the Corda software*
+* *A node is JVM run-time with a unique network identity running the Corda software.*
 * *The node has two interfaces with the outside world:*
   * *A network layer, for interacting with other nodes*
   * *RPC, for interacting with the node’s owner*
-* *The node’s functionality is extended by installing CorDapps in the plugin registry*
+* *The node’s functionality is extended by installing CorDapps in the plugin registry.*
 
 ## Video
 
@@ -32,19 +32,18 @@ title: Nodes
 
 ## Node architecture
 
-A Corda node is a JVM run-time environment with a unique identity on the network that hosts Corda services and
-CorDapps.
-
-We can visualize the node’s internal architecture as follows:
+A Corda node is a JVM runtime environment with a unique network identity that hosts Corda services and
+CorDapps. This is a visualization of the node’s internal architecture:
 
 {{< figure alt="node architecture" width=80% zoom="/en/images/node-architecture.png" >}}
+
 The core elements of the architecture are:
 
 * A persistence layer for storing data
 * A network interface for interacting with other nodes
 * An RPC interface for interacting with the node’s owner
 * A service hub for allowing the node’s flows to call upon the node’s other services
-* A cordapp interface and provider for extending the node by installing CorDapps
+* A CorDapp interface and provider for extending the node by installing CorDapps
 
 ## Persistence layer
 
