@@ -73,15 +73,14 @@ You can see how this works in this example transaction:
 
 ## Committing transactions to the ledger
 
-Initially, a transaction is just a proposal to update the ledger. It represents the future state of the ledger
-that is desired by the transaction builders:
+Initially, a transaction is only a proposal to update the ledger. It represents the future state of the ledger desired by the transaction builders.
 
 {{< figure alt="uncommitted tx" width=80% zoom="/en/images/uncommitted_tx.png" >}}
-To become reality, the transaction must receive signatures from all of the *required signers*. Each
-required signer appends their signature to the transaction to indicate that they approve the proposal:
+To become reality, the transaction must receive signatures from all the *required signers*. Each
+required signer appends their signature to the transaction to approve the proposal.
 
 {{< figure alt="tx with sigs" width=80% zoom="/en/images/tx_with_sigs.png" >}}
-If all of the required signatures are gathered, the transaction becomes committed:
+If the transaction gathers the required signatures, it is committed:
 
 {{< figure alt="committed tx" width=80% zoom="/en/images/committed_tx.png" >}}
 This means that:
