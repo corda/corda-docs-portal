@@ -31,7 +31,7 @@ title: Transactions
 
 ## Transactions on Corda
 
-You can't edit the Corda ledger—the only way to change it is to add new transactions to it. A transactions update the [ledger](key-concepts-ledger.md) by consuming existing [input states](key-concepts-states.md) and outputting new states. The states the transaction consumes are marked "historic".
+You can't edit the Corda ledger—the only way to change it is to add new transactions to it. A transaction updates the [ledger](key-concepts-ledger.md) by consuming existing [input states](key-concepts-states.md) and outputting new states. The states the transaction consumes are marked "historic".
 
 Every [state](key-concepts-states.md) is *immutable*—it can't be changed. This is called an *UTXO* (unspent transaction output) model.
 
@@ -162,7 +162,7 @@ attachments are `.zip` or `.jar` files with content that the node can use when v
 
 ### Time windows
 
-You may only want a proposed transaction to be approved during a certain period if time. For example:
+You may only want a proposed transaction to be approved during a certain period of time. For example:
 
 * An option that can only be exercised after a certain date.
 * A bond that may only be redeemed before its expiry date.
