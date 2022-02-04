@@ -20,11 +20,11 @@ title: Nodes
 
 ## Summary
 
-* *A node is JVM run-time with a unique network identity running the Corda software.*
-* *The node has two interfaces with the outside world:*
-  * *A network layer, for interacting with other nodes*
-  * *RPC, for interacting with the node’s owner*
-* *The node’s functionality is extended by installing CorDapps in the plugin registry.*
+* A node is JVM run-time with a unique network identity running the Corda software.
+* The node has two interfaces with the outside world:
+  * A network layer, for interacting with other nodes
+  * RPC, for interacting with the node’s owner
+* The node’s functionality is extended by installing CorDapps in the plugin registry.
 
 ## Video
 
@@ -32,18 +32,18 @@ title: Nodes
 
 ## Node architecture
 
-A Corda node is a JVM runtime environment with a unique network identity that hosts Corda services and
-CorDapps. This is a visualization of the node’s internal architecture:
+A Corda node is a JVM runtime environment with a unique network identity. A node hosts Corda services and
+CorDapps. Here is a visualization of the node’s internal architecture:
 
 {{< figure alt="node architecture" width=80% zoom="/en/images/node-architecture.png" >}}
 
 The core elements of the architecture are:
 
-* A persistence layer for storing data
-* A network interface for interacting with other nodes
-* An RPC interface for interacting with the node’s owner
-* A service hub for allowing the node’s flows to call upon the node’s other services
-* A CorDapp interface and provider for extending the node by installing CorDapps
+* A persistence layer for storing data.
+* A network interface for communication between nodes.
+* An RPC interface for interacting with the node’s owner.
+* The service hub allows the node’s flows to call upon the node’s other services.
+* A CorDapp interface and provider for extending the node by installing CorDapps.
 
 ## Persistence layer
 
@@ -69,11 +69,11 @@ are documented in [API: RPC operations](api-rpc.md).
 Internally, the node has access to a rich set of services that are used during flow execution to coordinate ledger
 updates. The key services provided are:
 
-* Information on other nodes on the network and the services they offer
-* Access to the contents of the vault and the storage service
-* Access to, and generation of, the node’s public-private keypairs
-* Information about the node itself
-* The current time, as tracked by the node
+* Information on other nodes on the network and the services they offer.
+* Access to the contents of the vault and the storage service.
+* Access to, and generation of, the node’s public-private key pairs.
+* Information about the node itself.
+* The current time, as tracked by the node.
 
 ## The CorDapp provider
 
