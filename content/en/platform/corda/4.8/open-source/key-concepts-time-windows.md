@@ -21,9 +21,9 @@ title: Time-windows
 
 ## Summary
 
-* *If a transaction includes a time-window, it can only be committed during that window*
-* *The notary is the timestamping authority and refuses to commit transactions outside the time-window*
-* *Time-windows can have a start and end time, or be open at either end*
+* *If a transaction includes a time window, it can only be committed during that window*
+* The notary is the timestamping authority. The notary only commits transactions that are inside the time window. 
+* Time windows can have a start and end time, or be open at either end.
 
 ## Video
 
@@ -34,12 +34,9 @@ title: Time-windows
 The [notary cluster](../../../../../en/platform/corda/4.8/open-source/key-concepts-notaries.md) acts as the *timestamping authority*.
 It verifies that a transaction occurred during a specific time-window before notarizing it.
 
-A party obtains a time-window signature in order to prove a transaction happened *before*, *on*, or *after* a particular point in time.
-As long as the party is not required to commit to the associated transaction, it can choose to reveal this fact at some point in the future. As a result the notary
-timestamps and notarizes at the same time.
+[Nodes](key-concepts-node.md) get time-window signatures to prove a transaction happened before, during, or after a specific time. The notary timestamps and notarizes at the same time, so if the node doesn't need to commit to the associated transaction, it can reveal the time window in the future. 
 
-Thus, the time at which the transaction is sent for notarization may be
-different to the transaction creation time. There will never be exact clock synchronization between the party creating the transaction and the notary for two reasons:
+A node may not send a transaction to the notary right away—they might need to circulate the transaction to other nodes involved in the transaction, or request human sign-off. Even if the node sends it as soon as it's generated, the node's clock and the notary's clock will never be perfectly in sync due to latency and physics. This means that the timestamp on a transaction is usually different from the time it was created.  
 * Issues of physics and network latency
 * Between inserting the command and getting the notary to sign there may be many other steps, such as sending the transaction to other parties involved in the
 trade, or requesting human sign-off.
@@ -53,18 +50,15 @@ Times in transactions are specified as time *windows*, not absolute times. Time-
 
 When both a before and an after time are included, the transaction could have occurred at any point within that time-window.
 
-By creating a range that can be either closed or open at one end, we allow all the following situations to be
-modelled:
+Time windows let you represent transactions that follow different models, such as those that occur:
 
-* A transaction occurring at some point after the given time, such as after a maturity event.
-* A transaction occurring at any time before the given time, such as before a bankruptcy event.
-* A transaction occurring at some point roughly around the given time, such as on a specific day.
+* At some point after the given time, such as after a maturity event.
+* At any time before the given time, such as before a bankruptcy event.
+* Around the given time, such as on a specific day.
 
-If a time-window needs to be converted to an absolute time, such as for display purposes, there is a utility method to
-calculate the mid-point.
+If you need to convert a time window to an absolute time, such as for display purposes, you can use a utility method to calculate the midpoint.
 
 {{< note >}}
-It is assumed that the time feed for a notary is [GPS/NaviStar time as defined by the atomic
-clocks at the US Naval Observatory](https://www.usno.navy.mil/USNO/time/display-clocks/simpletime). This time feed is extremely accurate and available globally for free.
+Most notaries use [GPS/NaviStar time](https://www.usno.navy.mil/USNO/time/display-clocks/simpletime) as defined by the atomic clocks at the US Naval Observatory. This time feed is extremely accurate and available globally for free.
 
 {{< /note >}}
