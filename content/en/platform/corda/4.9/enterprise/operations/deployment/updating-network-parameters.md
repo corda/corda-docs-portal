@@ -38,7 +38,7 @@ At a high level, the process is as follows:
 
 ## Editing network parameters configuration
 
-See [Setting the Network Parameters](../../../../4.8/enterprise/network/network-map.html#network-parameters)
+See [Setting the Network Parameters](../../../../4.9/enterprise/network/network-map.html#network-parameters)
 for information on the network parameters configuration file format and options. You can find supplementary information in the [CENM Network Map documentation](../../../../1.5/cenm/network-map.html#network-parameters).
 
 When updating the network parameters, ensure that the network parameters file has the
@@ -98,7 +98,7 @@ security actions:
 Before the `updateDeadline` time, nodes will have to run the `acceptNewNetworkParameters()` RPC command to accept
 new parameters. This will not
 activate the new network parameters on the nodes - it will only inform the Network Map Service that the node has agreed to the
-update. See [the Corda node RPC API](../../../../../../../en/tutorials/corda/4.8/os/supplementary-tutorials/tutorial-clientrpc-api.md) for further details.
+update. See [the Corda node RPC API](../../../../../../../en/tutorials/corda/4.9/os/supplementary-tutorials/tutorial-clientrpc-api.md) for further details.
 
 To list network participants that have or have not accepted the new network parameters,
 run the following command:
@@ -122,7 +122,7 @@ parameter hash mismatch. The nodes that did not accept the parameter update will
 will be unable to restart until they accept. The nodes that accepted can be restarted and continue as normal.
 
 {{< note >}}
-Corda 4.8 does not support hotswapping of Network Parameters within a node. As a result, all nodes will shut down in this situation, regardless of whether they have accepted the parameter update or not.
+Corda 4.9 does not support hotswapping of Network Parameters within a node. As a result, all nodes will shut down in this situation, regardless of whether they have accepted the parameter update or not.
 {{< /note >}}
 
 ## Sign the network map

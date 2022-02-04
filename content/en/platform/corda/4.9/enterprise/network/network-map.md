@@ -110,7 +110,7 @@ the network, along with the network parameters file and identity certificates. G
 online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
-More information can be found in [Network Bootstrapper](../../../../../../en/platform/corda/4.8/enterprise/network-bootstrapper.md).
+More information can be found in [Network Bootstrapper](../../../../../../en/platform/corda/4.9/enterprise/network-bootstrapper.md).
 
 
 
@@ -193,7 +193,7 @@ Read more about package ownership in the [Package namespace ownership](../node/d
 
 
 {{< note >}}
-To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.8, see [Corda versioning](../cordapps/versioning.md).
+To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.9, see [Corda versioning](../cordapps/versioning.md).
 
 {{< /note >}}
 More parameters will be added in future releases to regulate things like allowed port numbers, whether or not IPv6

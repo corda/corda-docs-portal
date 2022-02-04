@@ -25,12 +25,12 @@ To gain support for JSON serialization of common Corda data types:
 method.
 
 You can use variations of this method to get alternative Jacksons configurations. For example, if you have an RPC
-connection to the node (see [Interacting with the node](../../../../../en/platform/corda/4.8/enterprise/node/operating/clientrpc.md)) then your JSON ObjectMapper can resolve identities found in objects. The `ObjectMapper` provides a straightforward, flexible way to parse and generate JSON response objects.
+connection to the node (see [Interacting with the node](../../../../../en/platform/corda/4.9/enterprise/node/operating/clientrpc.md)) then your JSON ObjectMapper can resolve identities found in objects. The `ObjectMapper` provides a straightforward, flexible way to parse and generate JSON response objects.
 
 For the full API details, see the:
 
-* [Kotlin API docs](../../../../../en/api-ref/corda/4.8/open-source/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
-* [JavaDoc](../../../../../en/api-ref/corda/4.8/open-source/javadoc/net/corda/client/jackson/JacksonSupport.html)
+* [Kotlin API docs](../../../../../en/api-ref/corda/4.9/open-source/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
+* [JavaDoc](../../../../../en/api-ref/corda/4.9/open-source/javadoc/net/corda/client/jackson/JacksonSupport.html)
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}

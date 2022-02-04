@@ -55,13 +55,13 @@ R3 provides CorDapp templates in Java and Kotlin to help you get started:
 * [Kotlin CorDapp template ](https://github.com/corda/cordapp-template-kotlin)
 
 Use the branch of the template that corresponds to the major version of Corda that you are using. For example,
-if you are building a CorDapp on Corda 4.8, use the `release-V4` branch.
+if you are building a CorDapp on Corda 4.9, use the `release-V4` branch.
 
 
 ### Build system
 
 The templates are built using Gradle. A Gradle wrapper is provided in the `wrapper` folder, and the dependencies are
-defined in the `build.gradle` files. See [Building and installing a CorDapp](../../../../../../en/platform/corda/4.8/enterprise/cordapps/cordapp-build-systems.md) for more information.
+defined in the `build.gradle` files. See [Building and installing a CorDapp](../../../../../../en/platform/corda/4.9/enterprise/cordapps/cordapp-build-systems.md) for more information.
 
 No templates are currently provided for Maven or other build systems.
 

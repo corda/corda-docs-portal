@@ -51,7 +51,7 @@ To bootstrap a test network:
 1. Download the [Corda Network Boostrapper](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-network-bootstrapper) for the version of Corda you want the nodes to run.
 2. Create a directory containing a node config file (ending in “_node.conf”) for each node you want to create.
 3. Set “devMode” to `true`.
-4. Run the command `java -jar network-bootstrapper-4.8.jar --dir <nodes-root-dir>`.
+4. Run the command `java -jar network-bootstrapper-4.9.jar --dir <nodes-root-dir>`.
 
 If you were to run this command on a directory containing these files:
 
@@ -100,7 +100,7 @@ added to the [contract whitelist](###whitelist-contracts).
 
 
 ### Create a contracts whitelist
-If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist](https://docs.corda.net/docs/4.8/enterprise/cordapps/api-contract-constraints.html) for the network.
+If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist](https://docs.corda.net/docs/4.9/enterprise/cordapps/api-contract-constraints.html) for the network.
 
 {{< note >}}
 If you want to whitelist the CorDapps without copying them to each node, run them using the `--copy-cordapps=No` option.
@@ -124,7 +124,7 @@ net.corda.finance.contracts.asset.Cash
 net.corda.finance.contracts.asset.CommercialPaper
 ```
 
-Before you add `exclude_whitelist.txt` or `include_whitelist.txt` files, refer to [contract constraints](https://docs.corda.net/docs/4.8/enterprise/cordapps/api-contract-constraints.html) to understand different constraint types.
+Before you add `exclude_whitelist.txt` or `include_whitelist.txt` files, refer to [contract constraints](https://docs.corda.net/docs/4.9/enterprise/cordapps/api-contract-constraints.html) to understand different constraint types.
 
 
 
@@ -180,7 +180,7 @@ First, run the Network Bootstrapper as usual. Your network structure will look l
 
 Then, run the Network Bootstrapper again from the root directory:
 
-`java -jar network-bootstrapper-4.8.jar --dir <nodes-root-dir>`
+`java -jar network-bootstrapper-4.9.jar --dir <nodes-root-dir>`
 
 You will produce this result:
 
@@ -252,7 +252,7 @@ For example, you could take this pre-generated network:
 
 Then run the Network Bootstrapper again from the root directory:
 
-`java -jar network-bootstrapper-4.8.jar --dir <nodes-root-dir>`
+`java -jar network-bootstrapper-4.9.jar --dir <nodes-root-dir>`
 
 To produce:
 
@@ -302,11 +302,11 @@ You can use the `--minimum-platform-version`, `--max-message-size`, `--max-trans
 
 You can provide a file to override the network parameters using:
 
-`java -jar network-bootstrapper-4.8.jar --network-parameter-overrides=<path_to_file>`
+`java -jar network-bootstrapper-4.9.jar --network-parameter-overrides=<path_to_file>`
 
 Or the short form version:
 
-`java -jar network-bootstrapper-4.8.jar -n=<path_to_file>`
+`java -jar network-bootstrapper-4.9.jar -n=<path_to_file>`
 
 The network parameter overrides file is a HOCON file with several configuration fields, all of which are optional. If you don't provide a field, it will be ignored. If a field is not provided and you are bootstrapping a new network, a sensible default value will be used. If a field is not provided
 when you are updating an existing network, the value in the existing network parameters file will be used.
@@ -417,7 +417,7 @@ To register a package, you need to provide the:
 
 We've created a sample CorDapp (available in [Java](https://github.com/corda/samples-java/tree/master/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Basic/cordapp-example)) you can use to practice initializing a simple network and registering and unregistering a package namespace.
 
-1. Check the sample CorDapp out, then follow the [instructions to build it](../../../../../en/platform/corda/4.8/open-source/tutorial-cordapp.html#building-the-example-cordapp).
+1. Check the sample CorDapp out, then follow the [instructions to build it](../../../../../en/platform/corda/4.9/open-source/tutorial-cordapp.html#building-the-example-cordapp).
 
 {{< note >}}
 You can point to any existing bootstrapped network on Corda. This will update the associated network parameters file for that network).
@@ -507,4 +507,4 @@ bootstrapper [-hvV] [--copy-cordapps=<copyCordapps>] [--dir=<dir>]
 
 ### Sub-commands
 
-`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extentions for CLI applications](../../../../../en/platform/corda/4.8/open-source/cli-application-shell-extensions.html#shell-extensions-for-cli-applications).
+`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extentions for CLI applications](../../../../../en/platform/corda/4.9/open-source/cli-application-shell-extensions.html#shell-extensions-for-cli-applications).

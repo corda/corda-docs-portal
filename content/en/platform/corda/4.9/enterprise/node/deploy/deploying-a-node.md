@@ -51,12 +51,12 @@ handling, and ensures the Corda service is run at boot.
 `sudo adduser --system --no-create-home --group corda`
 
 * Create a directory called `/opt/corda` and change its ownership to the user you want to use to run Corda:`mkdir /opt/corda; chown corda:corda /opt/corda`
-* Place the Enterprise Corda JAR `corda-4.8.jar` in `/opt/corda`
+* Place the Enterprise Corda JAR `corda-4.9.jar` in `/opt/corda`
 * (Optional) Copy the Corda webserver JAR provided to your organization
-(under `/corda-webserver-4.8.jar`) and place it in `/opt/corda`
+(under `/corda-webserver-4.9.jar`) and place it in `/opt/corda`
 * Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
-* Save the below as `/opt/corda/node.conf`. See [Node configuration](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-file.md) for a description of these options:
+* Save the below as `/opt/corda/node.conf`. See [Node configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md) for a description of these options:
 
 ```none
 p2pAddress = "example.com:10002"
@@ -251,18 +251,18 @@ at boot, and means the Corda service stays running with no users connected to th
 
 
 
-* Create a Corda directory and copy the Enterprise Corda JAR `corda-4.8.jar`.
+* Create a Corda directory and copy the Enterprise Corda JAR `corda-4.9.jar`.
 Here’s an example using PowerShell:
 
 ```shell
 mkdir C:\Corda
-copy PATH_TO_CORDA_JAR/corda-4.8.jar C:\Corda\corda.jar
+copy PATH_TO_CORDA_JAR/corda-4.9.jar C:\Corda\corda.jar
 ```
 
 
 * Create a directory called `cordapps` in `C:\Corda\` and save your CorDapp jar file to it. Alternatively,
 download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
-* Save the below as `C:\Corda\node.conf`. See [Node configuration](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-file.md) for a description of these options:
+* Save the below as `C:\Corda\node.conf`. See [Node configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md) for a description of these options:
 
 ```none
  p2pAddress = "example.com:10002"
@@ -350,7 +350,7 @@ telnet.
 
 ### Database schema initialisation
 
-From Corda 4.8, the database schema objects are not automatically initialised during the first run of the node. There are two ways to initialise the database schema sets:
+From Corda 4.9, the database schema objects are not automatically initialised during the first run of the node. There are two ways to initialise the database schema sets:
 
 #### Use `initial-registration`
 
@@ -372,11 +372,11 @@ Start the node with the `run-migration-scripts` sub-command with `--core-schemas
 java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 ```
 
-See [Node command-line options](../../../../../../../en/platform/corda/4.8/enterprise/node/node-commandline.md) for more details.
+See [Node command-line options](../../../../../../../en/platform/corda/4.9/enterprise/node/node-commandline.md) for more details.
 
 ### Database schema migration
 
-From Corda 4.8, the database schema migration process requires you to explicitly perform the following actions. This step is only required when upgrading to Corda 4.8 from a previous version.
+From Corda 4.9, the database schema migration process requires you to explicitly perform the following actions. This step is only required when upgrading to Corda 4.9 from a previous version.
 
 #### Update configuration
 

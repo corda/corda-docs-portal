@@ -105,7 +105,7 @@ movement of the asset.
 transaction in B’s local vault, and then sending it on to S who also checks it and commits the transaction to S’s
 local vault.
 
-You can find the implementation of this flow in the file [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.8/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt).
+You can find the implementation of this flow in the file [TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.9/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt).
 
 Assuming no malicious termination, they both end the flow being in possession of a valid, signed transaction that
 represents an atomic asset swap.
@@ -227,18 +227,18 @@ For security reasons, we do not want Corda nodes to be able to just receive inst
 via messaging, since this has been exploited in other Java application containers in the past.  Instead, we require
 every class contained in messages to be whitelisted. Some classes are whitelisted by default (see `DefaultWhitelist`),
 but others outside of that set need to be whitelisted either by using the annotation `@CordaSerializable` or via the
-plugin framework.  See [Object serialization](../../../../../en/platform/corda/4.8/enterprise/serialization.md).  You can see above that the `SellerTradeInfo` has been annotated.
+plugin framework.  See [Object serialization](../../../../../en/platform/corda/4.9/enterprise/serialization.md).  You can see above that the `SellerTradeInfo` has been annotated.
 
 
 ## Starting your flow
 
 The `StateMachineManager` is the class responsible for taking care of all running flows in a node. It knows
-how to register handlers with the messaging system (see [Networking and messaging](../../../../../en/platform/corda/4.8/enterprise/messaging.md)) and iterate the right state machine
+how to register handlers with the messaging system (see [Networking and messaging](../../../../../en/platform/corda/4.9/enterprise/messaging.md)) and iterate the right state machine
 when messages arrive. It provides the send/receive/sendAndReceive calls that let the code request network
 interaction and it will save/restore serialised versions of the fiber at the right times.
 
 Flows can be invoked in several ways. For instance, they can be triggered by scheduled events (in which case they need to
-be annotated with `@SchedulableFlow`), see [Scheduling events](../../../../../en/platform/corda/4.8/enterprise/event-scheduling.md) to learn more about this. They can also be triggered
+be annotated with `@SchedulableFlow`), see [Scheduling events](../../../../../en/platform/corda/4.9/enterprise/event-scheduling.md) to learn more about this. They can also be triggered
 directly via the node’s RPC API from your app code (in which case they need to be annotated with *StartableByRPC*). It’s
 possible for a flow to be of both types.
 
@@ -316,7 +316,7 @@ override fun call(): SignedTransaction {
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.8/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.9/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -439,7 +439,7 @@ private fun assembleSharedTX(assetForSale: StateAndRef<OwnableState>, tradeReque
 {{% /tab %}}
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.8/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.9/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -618,7 +618,7 @@ val txId = subFlow(signTransactionFlow).id
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.8/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.9/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -656,7 +656,7 @@ loaded off disk again.
 If a node has flows still in a suspended state, with flow continuations written to disk, it will not be
 possible to upgrade that node to a new version of Corda or your app, because flows must be completely “drained”
 before an upgrade can be performed, and must reach a finished state for draining to complete (see
-[Draining the node](../../../../../en/platform/corda/4.8/enterprise/upgrading-cordapp.html#draining-the-node) for details). While there are mechanisms for “evolving” serialised data held
+[Draining the node](../../../../../en/platform/corda/4.9/enterprise/upgrading-cordapp.html#draining-the-node) for details). While there are mechanisms for “evolving” serialised data held
 in the vault, there are no equivalent mechanisms for updating serialised checkpoint data. For this
 reason it is not a good idea to design flows with the intention that they should remain in a suspended
 state for a long period of time, as this will obstruct necessary upgrades to Corda itself. Any
@@ -759,7 +759,7 @@ private static final ProgressTracker.Step RECORDING = new ProgressTracker.Step(
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.8/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.9/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -801,7 +801,7 @@ private static final ProgressTracker.Step VERIFYING_AND_SIGNING = new ProgressTr
 
 
 
-[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.8/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
+[TwoPartyTradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.9/finance/workflows/src/main/kotlin/net/corda/finance/flows/TwoPartyTradeFlow.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 

@@ -1,6 +1,6 @@
 ---
 aliases:
-- /releases/4.8/node-metrics.html
+- /releases/4.9/node-metrics.html
 date: '2020-04-16T19:30:25Z'
 menu:
   corda-enterprise-4-9:
@@ -17,7 +17,7 @@ weight: 200
 
 A Corda node exports a number of metrics for the purpose of monitoring the health of the node via JMX. These metrics are described below.
 
-For more information on how to monitor a node, see [Node administration](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/node-administration.md), [Node monitoring and logging](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/overview.md), and [Node monitoring scenarios](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/monitoring-scenarios.md).
+For more information on how to monitor a node, see [Node administration](../../../../../../../../en/platform/corda/4.9/enterprise/node/operating/node-administration.md), [Node monitoring and logging](../../../../../../../../en/platform/corda/4.9/enterprise/node/operating/monitoring-and-logging/overview.md), and [Node monitoring scenarios](../../../../../../../../en/platform/corda/4.9/enterprise/node/operating/monitoring-and-logging/monitoring-scenarios.md).
 
 ## Metric accuracy and performance
 

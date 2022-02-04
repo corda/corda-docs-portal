@@ -363,7 +363,7 @@ This approach provides at-least-once guarantees. It cannot provide exactly-once 
 
 ## Building the Multi RPC Client
 
-The Multi RPC Client in Corda open source can be used as an extension of the [net.corda.core.messaging.CordaRPCOps](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/net/corda/core/messaging/RPCOps.html) remote interface.
+The Multi RPC Client in Corda Community Edition can be used as an extension of the [net.corda.core.messaging.CordaRPCOps](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/net/corda/core/messaging/RPCOps.html) remote interface.
 
 To interact with your node via this interface, you need to build a client that uses the [MultiRPCClient](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class.
 

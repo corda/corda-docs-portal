@@ -8,10 +8,10 @@ menu:
 tags:
 - legal
 - info
-title: Third-party software licence information - CE 4.8.2
+title: Third-party software licence information - CE 4.9.2
 ---
 
-# Corda Enterprise 4.8.2 third-party software notices and licence information
+# Corda Enterprise 4.9.2 third-party software notices and licence information
 
 **Do not translate or localise.**
 
@@ -608,7 +608,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 None
-io.github.classgraph : classgraph : 4.8.90
+io.github.classgraph : classgraph : 4.9.90
 Licenced Under
 MIT
 Copyright Statements

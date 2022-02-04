@@ -8,10 +8,10 @@ menu:
 tags:
 - legal
 - info
-title: Third-party software licence information - CE 4.8
+title: Third-party software licence information - CE 4.9
 ---
 
-# Corda Enterprise 4.8 third-party software notices and licence information
+# Corda Enterprise 4.9 third-party software notices and licence information
 
 **Do not translate or localize**
 
@@ -4462,7 +4462,7 @@ Copyright (c) 2004-2017 QOS.ch
 http://www.slf4j.org/
 http://www.slf4j.org/license.html
 
-classgraph 4.8.90
+classgraph 4.9.90
 Copyright (c) 2019 Luke Hutchison
 https://github.com/classgraph/classgraph
 https://github.com/classgraph/classgraph/blob/master/LICENSE-ClassGraph.txt
@@ -4660,7 +4660,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ================================================
 END OF THIRD PARTY NOTICES FOR
-Corda Enterprise V. 4.8
+Corda Enterprise V. 4.9
 ================================================
 
 ----------------------END OF OPEN SOURCE LICENSES -----------------------

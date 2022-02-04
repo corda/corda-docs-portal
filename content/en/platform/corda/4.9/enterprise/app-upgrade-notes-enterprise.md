@@ -9,43 +9,43 @@ tags:
 - upgrade
 - notes
 - enterprise
-title: Upgrading a CorDapp to Corda Enterprise 4.8
+title: Upgrading a CorDapp to Corda Enterprise 4.9
 weight: 20
 ---
 
-# Upgrading a CorDapp to Corda Enterprise 4.8
+# Upgrading a CorDapp to Corda Enterprise 4.9
 
 {{< warning >}}
-Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.8/enterprise/notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise 4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.9, read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.9/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 ## Upgrading from Corda open source
 
-Before upgrading to Corda Enterprise 4.8, upgrade your CorDapp to Corda open source 4.8. See [upgrading CorDapps to newer platform versions](../../../../../en/platform/corda/4.8/enterprise/app-upgrade-notes.md) for detailed instructions.
+Before upgrading to Corda Enterprise 4.9, upgrade your CorDapp to Corda open source 4.9. See [upgrading CorDapps to newer platform versions](../../../../../en/platform/corda/4.9/enterprise/app-upgrade-notes.md) for detailed instructions.
 
 You don't need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
 be compatible with nodes running open source, then compile it against Corda open source 4.x.
 However, if you want to leverage specific features of Corda Enterprise, such as third-party commercial database support, and don't envisage your CorDapp being run
-in an open source production environment, then follow the [re-compiling for Corda Enterprise 4.8](#re-compiling-for-corda-enterprise-48) guide.
+in an open source production environment, then follow the [re-compiling for Corda Enterprise 4.9](#re-compiling-for-corda-enterprise-48) guide.
 
 {{< note >}}
 Corda Enterprise and Corda open source public APIs are currently identical. However, this may change for future releases.
-See [Corda and Corda Enterprise compatibility](../../../../../en/platform/corda/4.8/enterprise/version-compatibility.md) guarantees for further information.
+See [Corda and Corda Enterprise compatibility](../../../../../en/platform/corda/4.9/enterprise/version-compatibility.md) guarantees for further information.
 
 {{< /note >}}
 
 
-### Re-compiling for Corda Enterprise 4.8
+### Re-compiling for Corda Enterprise 4.9
 
-To re-compile your CorDapp for Corda Enterprise 4.8, you need to:
+To re-compile your CorDapp for Corda Enterprise 4.9, you need to:
 
 1. Update your Gradle build file as follows.
 
 ```shell
 ext.corda_release_distribution = 'com.r3.corda'
 ext.corda_core_release_distribution = 'net.corda'
-ext.corda_release_version = '4.8'
-ext.corda_core_release_version = '4.8'
+ext.corda_release_version = '4.9'
+ext.corda_core_release_version = '4.9'
 ext.corda_gradle_plugins_version = '5.0.12'
 ext.kotlin_version = '1.2.71'
 ext.quasar_version = '0.7.13_r3'
@@ -85,7 +85,7 @@ You can do either of the following:
 * Upgrade your `quasar.jar` file to the version consistent with your Corda version.
 * Delete your `lib` directory and switch to using the Gradle test runner.
 
-You can find instructions for both options in [running tests in Intellij](../../../../../en/platform/corda/4.8/enterprise/testing.html#running-tests-in-intellij).
+You can find instructions for both options in [running tests in Intellij](../../../../../en/platform/corda/4.9/enterprise/testing.html#running-tests-in-intellij).
 
 4. Check you're using Corda Gradle plugins version 5.0.12, and that Corda Enterprise dependencies are referenced with the right distribution.
 
@@ -104,7 +104,7 @@ testCompile "$corda_release_distribution:corda-node-driver:$corda_release_versio
 ```
 
 {{< note >}}
-Corda Enterprise 4.8 binaries are not publicly available. To make the dependencies available for development, either
+Corda Enterprise 4.9 binaries are not publicly available. To make the dependencies available for development, either
 create a mirror repository and upload them there, or add them to your local Maven repository.
 
 You can request a copy of the Corda Enterprise Developer Pack (contains a Maven repository mirror
@@ -146,7 +146,7 @@ Therefore, you have to add the following variables to your build configuration:
 
 ```shell
 ext.corda_core_release_distribution = 'net.corda'
-ext.corda_core_release_version = '4.8'
+ext.corda_core_release_version = '4.9'
 ```
 
 Any dependency on `corda-core` (or `corda-serialization`) has to use these new variables to depend on the open source version of those
@@ -165,4 +165,4 @@ cordaCompile "$ext.corda_core_release_distribution:corda-core:$ext.corda_core_re
 
 ## Upgrading from Corda Enterprise 3.x
 
-You can only upgrade to Corda Enterprise 4.8 from a previous 4.x version. To upgrade from 3.x, first upgrade to 4.x and then to 4.8. For example, 3.3 to 4.5, and then 4.5 to 4.8.
+You can only upgrade to Corda Enterprise 4.9 from a previous 4.x version. To upgrade from 3.x, first upgrade to 4.x and then to 4.9. For example, 3.3 to 4.5, and then 4.5 to 4.9.

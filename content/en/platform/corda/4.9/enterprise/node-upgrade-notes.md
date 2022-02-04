@@ -9,25 +9,25 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrading a node to Corda Enterprise 4.8
-aliases: /docs/4.8/enterprise/node/operating/cm-upgrading-node.html
+title: Upgrading a node to Corda Enterprise 4.9
+aliases: /docs/4.9/enterprise/node/operating/cm-upgrading-node.html
 weight: 10
 ---
 
-# Upgrading a node to Corda Enterprise 4.8
+# Upgrading a node to Corda Enterprise 4.9
 
-Follow these steps to upgrade a node from Corda Enterprise 4.x to Corda Enterprise 4.8.
+Follow these steps to upgrade a node from Corda Enterprise 4.x to Corda Enterprise 4.9.
 
 If you are upgrading from Corda Enterprise 3.x, you must first:
 1. Upgrade your node to Corda Enterprise 3.3, if you haven't already. If your node is running on an earlier version, follow the steps in Upgrade a Corda 3.X Enterprise Node (available in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/archived-docs) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repo).
 2. Upgrade from Corda Enterprise 3.3 to Corda Enterprise 4.5.
-3. Upgrade from Corda 4.5 to Corda Enterprise 4.8.
+3. Upgrade from Corda 4.5 to Corda Enterprise 4.9.
 
 {{< warning >}}
-Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise 4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.9, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
-Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](../../../../../en/platform/corda/4.8/open-source/api-stability-guarantees.md). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
+Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](../../../../../en/platform/corda/4.9/open-source/api-stability-guarantees.md). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
 
 1. [Drain the node](#step-1-drain-the-node).
 2. [Make a backup of the directories in your node and database](#step-2-make-a-backup-of-your-nodes-directories-and-database).
@@ -63,7 +63,7 @@ For a smooth node draining process avoid long-running flows.
 
 Back up your data before upgrading, in case you need to roll back if there’s a problem. Make a copy of the node’s data directory or, if you use an external non-H2 database, consult your database user guide to learn how to make backups.
 
-For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](../../../../../en/platform/corda/4.8/enterprise/node/operating/node-administration.html#backup-recommendations). 
+For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](../../../../../en/platform/corda/4.9/enterprise/node/operating/node-administration.html#backup-recommendations). 
 
 
 
@@ -264,7 +264,7 @@ You only need to perform this step for the H2 database.
 
 {{< /note >}}
 
-The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x. For example, if you're upgrading from 4.5 to 4.8.
+The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x. For example, if you're upgrading from 4.5 to 4.9.
 
 The Database Management Tool can execute the remaining data upgrade.
 The tool can connect with *restricted* database permissions as the schema structure was created in step three.
@@ -288,7 +288,7 @@ The value of `myLegalName` must exactly match the node name used in the database
 3. Change the database user to one with *restricted permissions*. This ensures the database cannot be altered. To complete the data migration, run:
 
 ```shell
-java -jar tools-database-manager-4.8-RC03.jar execute-migration -b . --core-schemas --app-schemas
+java -jar tools-database-manager-4.9-RC03.jar execute-migration -b . --core-schemas --app-schemas
 ```
 
 
