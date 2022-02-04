@@ -29,9 +29,9 @@ You may want to limit some entities interacting with a transaction to specific p
 * An [oracle](key-concepts-oracles.md) only needs to see the commands specific to it.
 * A [non-validating notary](key-concepts-notaries.md) only needs to see a transaction’s [input states](key-concepts-states.md).
 
-You can achieve this using *filtered transactions*. The node proposing the transaction “tears off” any parts of the transaction that the oracle or notary doesn’t need to see before presenting it to them for signing. This is possible using a *Merkle tree*—a cryptographic scheme used to provide proofs of inclusion and data integrity. Merkle trees are widely used in peer-to-peer networks, blockchain systems and Git.
+You can achieve this using *filtered transactions*. The node proposing the transaction “tears off” any parts of the transaction that the oracle or notary doesn’t need to see before presenting it to them for signing. This is possible using a *Merkle tree*—a cryptographic scheme used to provide proofs of inclusion and data integrity. Merkle trees guarantee that the parts of the transaction you tore off cannot later be changed without invalidating the oracle’s digital signature.Merkle trees are widely used in peer-to-peer networks, blockchain systems and Git.
 
-Merkle trees guarantee that the parts of the transaction you tore off cannot later be changed without invalidating the oracle’s digital signature.
+
 
 ### Transaction Merkle trees
 
@@ -62,7 +62,7 @@ verification of data integrity. Every change in transaction on a leaf level will
 
 ### Hiding data
 
-Hiding data and providing the proof that it formed a part of a transaction is done by constructing partial Merkle trees
+To hide data Hiding data and providing the proof that it formed a part of a transaction is done by constructing partial Merkle trees
 (or Merkle branches). A Merkle branch is a set of hashes, that given the leaves’ data, is used to calculate the
 root’s hash. Then, that hash is compared with the hash of a whole transaction and if they match it means that data we
 obtained belongs to that particular transaction. In the following we provide concrete examples on the data visible to a
@@ -80,12 +80,11 @@ proof that no related command (that the Oracle should see) has been maliciously 
 sub-trees (violet nodes) are also provided in the current Corda protocol. The latter is required for special cases, i.e.,
 when required to know if a component group is empty or not.
 
-Having all of the aforementioned data, one can calculate the root of the top tree and compare it with original
-transaction identifier - we have a proof that this command and time-window belong to this transaction.
+You can use this data to calculate the root of the top tree and compare it with original
+transaction identifier. Then, you have a proof that that command and time window belong to the transaction.
 
-Along the same lines, if we want to send the same transaction to a non-validating notary we should hide all components
-apart from input states, time-window and the notary information. This data is enough for the notary to know which
-input states should be checked for double-spending, if the time-window is valid and if this transaction should be
-notarised by this notary.
+To send the same transaction to a non-validating notary, hide all components
+apart from input states, time window, and the notary information. This data is enough for the notary to know which
+input states to check for double-spending, if the time-window is valid, and if the transaction is being notarized by the correct notary.
 
 {{< figure alt="SubMerkleTree Notary" width=80% zoom="/en/images/SubMerkleTree_Notary.png" >}}
