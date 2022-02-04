@@ -20,29 +20,24 @@ title: Transaction tear-offs
 
 ## Summary
 
-* *Hide transaction components for privacy purposes*
-* *Oracles and non-validating notaries can only see their “related” transaction components, but not the full transaction details*
+* [Transaction](key-concepts-transactions.md) tear-offs hide components of the transaction for privacy purposes.
+* Use them to make sure [oracles](key-concepts-oracles.md) and non-validating [notaries](key-concepts-notaries.md) can only see transaction components relevant to them.
 
 ## Overview
 
-There are cases where some of the entities involved on the transaction could only have partial visibility on the
-transaction parts. For instance, when an oracle should sign a transaction, the only information it needs to see is their
-embedded, related to this oracle, command(s). Similarly, a non-validating notary only needs to see a transaction’s input
-states. Providing any additional transaction data to the oracle would constitute a privacy leak.
+You may want to limit some entities interacting with a transaction to specific parts of it to preserve privacy. For example:
+* An [oracle](key-concepts-oracles.md) only needs to see the commands specific to it.
+* A [non-validating notary](key-concepts-notaries.md) only needs to see a transaction’s [input states](key-concepts-states.md).
 
-To combat this, we use the concept of filtered transactions, in which the transaction proposer(s) uses a nested Merkle
-tree approach to “tear off” any parts of the transaction that the oracle/notary doesn’t need to see before presenting it
-to them for signing. A Merkle tree is a well-known cryptographic scheme that is commonly used to provide proofs of
-inclusion and data integrity. Merkle trees are widely used in peer-to-peer networks, blockchain systems and git.
+You can achieve this using *filtered transactions*. The node proposing the transaction “tears off” any parts of the transaction that the oracle or notary doesn’t need to see before presenting it to them for signing. This is possible using a *Merkle tree*—a cryptographic scheme used to provide proofs of inclusion and data integrity. Merkle trees are widely used in peer-to-peer networks, blockchain systems and Git.
 
-The advantage of a Merkle tree is that the parts of the transaction that were torn off when presenting the transaction
-to the oracle cannot later be changed without also invalidating the oracle’s digital signature.
+Merkle trees guarantee that the parts of the transaction you tore off cannot later be changed without invalidating the oracle’s digital signature.
 
 ### Transaction Merkle trees
 
 A Merkle tree is constructed from a transaction by splitting the transaction into leaves, where each leaf contains
 either an input, an output, a command, or an attachment. The final nested tree structure also contains the
-other fields of the transaction, such as the time-window, the notary and the required signers. As shown in the picture
+other fields of the transaction, such as the time window, the notary and the required signers. As shown in the picture
 below, the only component type that is requiring two trees instead of one is the command, which is split into
 command data and required signers for visibility purposes.
 
