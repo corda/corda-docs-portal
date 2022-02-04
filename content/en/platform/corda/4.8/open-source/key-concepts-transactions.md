@@ -21,8 +21,8 @@ title: Transactions
 # Summary
 
 * Transactions are proposals to update the ledger.
-* A transaction proposal is only committed to the ledger it:
-  * Ioesn’t contain double-spends.
+* A transaction proposal is only committed to the ledger if:
+  * It doesn’t contain double-spends.
   * It is contractually valid.
   * It is signed by the required parties.
 
@@ -59,7 +59,7 @@ There are two basic types of transactions:
 
 Transaction backchains let a [node](key-concepts-node.md) verify that each input was generated from a valid series of transactions. This is called "walking the chain." If you need to break this chain (for example, because you want to increase performance by reducing the number of transactions the node has to check, or because you want to keep previous transactions private) you can [reissue states](reissuing-states.md).
 
-Backchains are created as *input state references* link together over time. Input state references let you use the outputs of previous transactions as the inputs of new transactions.
+Backchains are created as *input state references* linked together over time. Input state references let you use the outputs of previous transactions as the inputs of new transactions.
 
 Input state references consist of:
 
@@ -92,8 +92,8 @@ This means that:
 
 Just gathering the required signatures is not enough to commit a transaction to the ledger. It must also be:
 
-* *Valid*. The proposed transaction and every transaction the backchain of the proposed inputs must be signed by all the required parties and [contractually valid](key-concepts-contracts.md).
-* *Unique*: No other committed transaction has consumed any of the inputs to
+* *Valid:* The proposed transaction and every transaction the backchain of the proposed inputs must be signed by all the required parties and [contractually valid](key-concepts-contracts.md).
+* *Unique:* No other committed transaction has consumed any of the inputs to
 the proposed transaction. [Uniqueness](key-concepts-consensus.md#uniqueness-consensus) is determined by a [notary](key-concepts-notaries.md).
 
 If the transaction gathers all the required signatures without meeting these conditions, the transaction’s outputs
