@@ -23,62 +23,54 @@ title: Transaction tear-offs
 * [Transaction](key-concepts-transactions.md) tear-offs hide components of the transaction for privacy purposes.
 * Use them to make sure [oracles](key-concepts-oracles.md) and non-validating [notaries](key-concepts-notaries.md) can only see transaction components relevant to them.
 
-## Overview
+## Use cases
 
 You may want to limit some entities interacting with a transaction to specific parts of it to preserve privacy. For example:
 * An [oracle](key-concepts-oracles.md) only needs to see the commands specific to it.
 * A [non-validating notary](key-concepts-notaries.md) only needs to see a transaction’s [input states](key-concepts-states.md).
 
-You can achieve this using *filtered transactions*. The node proposing the transaction “tears off” any parts of the transaction that the oracle or notary doesn’t need to see before presenting it to them for signing. This is possible using a *Merkle tree*—a cryptographic scheme used to provide proofs of inclusion and data integrity. Merkle trees guarantee that the parts of the transaction you tore off cannot later be changed without invalidating the oracle’s digital signature.Merkle trees are widely used in peer-to-peer networks, blockchain systems and Git.
+You can achieve this using *Merkle trees*. These let the node proposing the transaction “tear off” any parts of the transaction that the oracle or notary doesn’t need to see before presenting it to them for signing. Merkel trees are a cryptographic scheme that provides proofs of inclusion and data integrity. They guarantee that the parts of the transaction you tore off cannot later be changed without invalidating the oracle’s digital signature. Merkle trees are widely used in peer-to-peer networks, blockchain systems and Git.
 
 
 
-### Transaction Merkle trees
+### Merkle trees on Corda
 
-A Merkle tree is constructed from a transaction by splitting the transaction into leaves, where each leaf contains
+Merkle trees split transactions into "leaves". Each leaf contains
 either an input, an output, a command, or an attachment. The final nested tree structure also contains the
-other fields of the transaction, such as the time window, the notary and the required signers. As shown in the picture
-below, the only component type that is requiring two trees instead of one is the command, which is split into
+other fields of the transaction, such as the time window, the notary and the required signers. The only component type that requires two trees instead of one is the command, which is split into
 command data and required signers for visibility purposes.
-
-Corda is using a patent-pending approach using nested Merkle trees per component type. Briefly, a component sub-tree
-is generated for each component type (i.e., inputs, outputs, attachments). Then, the roots of these sub-trees
-form the leaves of the top Merkle tree and finally the root of this tree represents the transaction id.
-
-Another important feature is that a nonce is deterministically generated for each component in a way that each nonce
-is independent. Then, we use the nonces along with their corresponding components to calculate the component hash,
-which is the actual Merkle tree leaf. Nonces are required to protect against brute force attacks that otherwise would
-reveal the content of low-entropy hashed values (i.e., a single-word text attachment).
-
-After computing the leaves, each Merkle tree is built in the normal way by hashing the concatenation of nodes’ hashes
-below the current one together. It’s visible on the example image below, where `H` denotes sha256 function, “+” - concatenation.
-
 {{< figure alt="merkleTreeFull" width=80% zoom="/en/images/merkleTreeFull.png" >}}
-The transaction has three input states, two output states, two commands, one attachment, a notary and a time-window.
-Notice that if a tree is not a full binary tree, leaves are padded to the nearest
-power of 2 with zero hash (since finding a pre-image of sha256(x) == 0 is hard computational task) - marked light
-green above. Finally, the hash of the root is the identifier of the transaction, it’s also used for signing and
-verification of data integrity. Every change in transaction on a leaf level will change its identifier.
+
+Corda uses one nested Merkle tree per component type. A component sub-tree
+is generated for each component type (for example, inputs, outputs, or attachments). The roots of these sub-trees
+form the leaves of the top Merkle tree, and the root of the tree represents the transaction ID.
+
+Corda also deterministically generates an independent *nonce* for each component. This is a unique number added to the [hash](https://www.investopedia.com/terms/h/hash.asp). Then, it uses the nonces and their corresponding components to calculate the component hash, which is the actual Merkle tree leaf. Nonces protect against brute force attacks that otherwise would reveal the content of hashed values that can't generate much randomness, such as a single-word text attachment.
+
+After computing the leaves, each Merkle tree is built by hashing the concatenation of nodes’ hashes
+together. You can see this in the diagram, where `H` denotes sha256 function, “+” - concatenation.
+
+The transaction has three input states, two output states, two commands, one attachment, a notary, and a time window.
+If a tree is not a full binary tree, its leaves are padded to the nearest
+power of 2 with zero hash (since finding a pre-image of sha256(x) == 0 is a hard computational task). The hash of the root is the identifier of the transaction. This is used for signing and
+verification of data integrity. Any change in a transaction on a leaf level changes its identifier.
 
 ### Hiding data
 
-To hide data Hiding data and providing the proof that it formed a part of a transaction is done by constructing partial Merkle trees
-(or Merkle branches). A Merkle branch is a set of hashes, that given the leaves’ data, is used to calculate the
-root’s hash. Then, that hash is compared with the hash of a whole transaction and if they match it means that data we
-obtained belongs to that particular transaction. In the following we provide concrete examples on the data visible to a
-an oracle and a non-validating notary, respectively.
+To hide data and provide proof that it formed a part of a transaction, you can construct partial Merkle trees,
+or *Merkle branches*. A Merkle branch is a set of hashes, that given the leaves’ data, is used to calculate the
+root’s hash. Then, you can compare that hash with the hash of a whole transaction. If they match, it means that the data
+obtained belongs to that particular transaction.
 
-Let’s assume that only the first command should be visible to an Oracle. We should also provide guarantees that all of
-the commands requiring a signature from this oracle should be visible to the oracle entity, but not the rest. Here is how
-this filtered transaction will be represented in the Merkle tree structure.
+In this example, assume that only the first command should be visible to the oracle. You must provide guarantees that all
+the commands the oracle needs to sign are visible to the oracle entity, but no other data. The transaction would be represented in the Merkle tree structure like this:
 
 {{< figure alt="SubMerkleTree Oracle" width=80% zoom="/en/images/SubMerkleTree_Oracle.png" >}}
-Blue nodes and `H(c2)` are provided to the Oracle service, while the black ones are omitted. `H(c2)` is required, so
-that the Oracle can compute `H(commandData)` without being to able to see the second command, but at the same time
-ensuring `CommandData1` is part of the transaction. It is highlighted that all signers are visible, so as to have a
-proof that no related command (that the Oracle should see) has been maliciously filtered out. Additionally, hashes of
-sub-trees (violet nodes) are also provided in the current Corda protocol. The latter is required for special cases, i.e.,
-when required to know if a component group is empty or not.
+
+The blue nodes and `H(c2)` are provided to the oracle service, while the black ones are omitted. The oracle needs `H(c2)` so it can compute `H(commandData)` without being to able to see the second command. At the same time, this
+ensures that `CommandData1` is part of the transaction. All signers are visible as
+proof that no related command has been maliciously filtered out. Additionally, hashes of
+sub-trees (violet nodes) are provided in the current Corda protocol. These are required for special cases, such as if the oracle needs to know if a component group is empty or not.
 
 You can use this data to calculate the root of the top tree and compare it with original
 transaction identifier. Then, you have a proof that that command and time window belong to the transaction.
