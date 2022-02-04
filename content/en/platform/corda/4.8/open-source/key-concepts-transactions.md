@@ -20,23 +20,20 @@ title: Transactions
 
 # Summary
 
-* Transactions are proposals to update the ledger.
-* A transaction proposal is only committed to the ledger if:
-  * It doesn’t contain double-spends.
-  * It is contractually valid.
-  * It is signed by the required parties.
+* A transaction is a proposal to update the ledger. It is only committed to the ledger if it:
+  * Doesn’t contain double-spends.
+  * Is contractually valid.
+  * Is signed by the required parties.
 
 ## Video
 
 {{% vimeo 213879807 %}}
 
-## Overview
+## Transactions on Corda
 
-Transactions update the [ledger](key-concepts-ledger.md) by consuming [states](key-concepts-states.md) and creating new ones. You can't edit the ledger—the only way to change it is to add new transactions to it.
+You can't edit the Corda ledger—the only way to change it is to add new transactions to it. A transactions update the [ledger](key-concepts-ledger.md) by consuming existing [input states](key-concepts-states.md) and outputting new states. The states the transaction consumes are marked "historic".
 
-A transaction consists of [states](key-concepts-states.md), commands, [attachments](https://docs.r3.com/en/tutorials/corda/4.8/os/supplementary-tutorials/tutorial-attachments.html), and a [time window](key-concepts-time-windows.md).
-
-Every [state](key-concepts-states.md) is *immutable*—it can't be changed. This is called an *UTXO* (unspent transaction output) model. Transactions update the ledger by marking zero or more existing ledger states "historic" (the *inputs*), and producing zero or more new ledger states (the *outputs*).
+Every [state](key-concepts-states.md) is *immutable*—it can't be changed. This is called an *UTXO* (unspent transaction output) model.
 
 Here is an example of a transaction with two inputs and two outputs:
 
@@ -45,7 +42,7 @@ A transaction can contain any number of inputs, outputs and references of any ty
 
 * Include different types of states representing multiple financial instruments, such as cash or bonds.
 * *Issue* states, by creating a transaction without inputs. These states won't replace any existing states because none are marked "historic".
-* *Exit* states, by creating transactions without outputs. This doesn't create any new states to replace existing ones.
+* *Exit* states, by creating transactions without outputs. This doesn't create any new states to replace the ones consumed.
 * Merge or split fungible assets. For example, they may combine a $2 state and a $5 state into a $7 cash state.
 
 Transactions are *atomic*. Either all of the transaction’s proposed changes are accepted, or none are.
@@ -76,7 +73,7 @@ You can see how this works in this example transaction:
 Initially, a transaction is only a proposal to update the ledger. It represents the future state of the ledger desired by the transaction builders.
 
 {{< figure alt="uncommitted tx" width=80% zoom="/en/images/uncommitted_tx.png" >}}
-To become reality, the transaction must receive signatures from all the *required signers*. Each
+To be committed to the ledger, the transaction must receive signatures from all the *required signers*. Each
 required signer appends their signature to the transaction to approve the proposal.
 
 {{< figure alt="tx with sigs" width=80% zoom="/en/images/tx_with_sigs.png" >}}
@@ -117,13 +114,12 @@ As well as input states and output states, transactions contain:
 
 * Commands
 * Attachments
-* Time-Window
-* Notary
+* Time windows
+* A notary
 
-For example, suppose we have a transaction where Alice uses a £5 cash payment to pay off £5 of an IOU with Bob.
-This transaction comprises two commands: a settlement command which reduces the amount outstanding on the IOU, and a payment command which changes the ownership of £5 from Alice to Bob. It also
-has two supporting attachments, and will only be notarised by NotaryClusterA if the notary pool
-receives it within the specified time-window. This transaction would look as follows:
+For example, suppose Alice uses $5 cash to pay off $5 of an IOU with Bob.
+This transaction contains a *settlement command* which reduces the amount outstanding on the IOU, and a *payment command* which changes the ownership of $5 from Alice to Bob. It also has two supporting attachments, and is notarized by `NotaryClusterA` if the notary pool
+receives it within the specified time window:
 
 {{< figure alt="full tx" width=80% zoom="/en/images/full-tx.png" >}}
 
@@ -131,27 +127,23 @@ receives it within the specified time-window. This transaction would look as fol
 
 {{% vimeo 213881538 %}}
 
-Suppose we have a transaction with a cash state and a bond state as inputs, and a cash state and a bond state as
-outputs. This transaction could represent two different scenarios:
+If you had a transaction with a cash state and a bond state as inputs, and a cash state and a bond state as
+outputs, it could represent either a bond purchase or a coupon payment on a bond.
 
-* A bond purchase
-* A coupon payment on a bond
+You would need to impose different rules for what constitutes a valid transaction depending on whether
+it is a purchase or a coupon payment. For example, in the case of a purchase, you would require a change in the bond’s
+current owner, but not for a coupon payment.
 
-We can imagine that we’d want to impose different rules on what constitutes a valid transaction depending on whether
-this is a purchase or a coupon payment. For example, in the case of a purchase, we would require a change in the bond’s
-current owner, whereas in the case of a coupon payment, we would require that the ownership of the bond does not
-change.
+You can make these adjustments to the rules using *commands*. Including a command in a transaction lets you indicate the transaction’s intent,
+affecting how you check the validity of the transaction.
 
-For this, we have *commands*. Including a command in a transaction allows us to indicate the transaction’s intent,
-affecting how we check the validity of the transaction.
+Each command is associated with a list of *signers*. By taking the union of all the public keys
+listed in the commands, you get the list of the transaction’s required signers. In this example:
 
-Each command is also associated with a list of one or more *signers*. By taking the union of all the public keys
-listed in the commands, we get the list of the transaction’s required signers. In our example, we might imagine that:
+* In a coupon payment on a bond, only the owner of the bond needs to sign.
+* In a cash payment, only the owner of the cash needs to sign.
 
-* In a coupon payment on a bond, only the owner of the bond is required to sign
-* In a cash payment, only the owner of the cash is required to sign
-
-We can visualize this situation as follows:
+This situation would look like this:
 
 {{< figure alt="commands" width=80% zoom="/en/images/commands.png" >}}
 
@@ -159,30 +151,27 @@ We can visualize this situation as follows:
 
 {{% vimeo 213879328 %}}
 
-Sometimes, we have a large piece of data that can be reused across many different transactions. Some examples:
+You might have a large piece of data that can be reused for several transactions, such as:
 
-* A calendar of public holidays
-* Supporting legal documentation
-* A table of currency codes
+* A calendar of public holidays.
+* Supporting legal documentation.
+* A table of currency codes.
 
-For this use case, we have *attachments*. Each transaction can refer to zero or more attachments by hash. These
-attachments are ZIP/JAR files containing arbitrary content. The information in these files can then be
-used when checking the transaction’s validity.
+You can achieve this with *attachments*. Transactions can refer to attachments by the attachment's [hash](https://www.investopedia.com/terms/h/hash.asp). These
+attachments are `.zip` or `.jar` files with content that the node can use when verifying a [smart contract](key-concepts-contracts.md).
 
-### Time-window
+### Time windows
 
-In some cases, we want a proposed transaction to only be approved during a certain time-window. For example:
+You may only want a proposed transaction to be approved during a certain period if time. For example:
 
-* An option can only be exercised after a certain date
-* A bond may only be redeemed before its expiry date
+* An option that can only be exercised after a certain date.
+* A bond that may only be redeemed before its expiry date.
 
-In such cases, we can add a *time-window* to the transaction. Time-windows specify the time period during which the
-transaction can be committed. The notary pool enforces time-window validity. We discuss time-windows in the section on [Time-windows](key-concepts-time-windows.md).
+You can enforce this by adding a [time window](key-concepts-time-windows.md) to the transaction, which specifies when the
+transaction can be committed. The [notary](key-concepts-notaries.md) enforces time window validity.
 
 ### Notary
 
-A notary pool is a network service that provides uniqueness consensus by attesting that, for a given transaction, it has not already signed other transactions that consume any of the proposed transaction’s input states. The notary pool provides the point of finality in the system.
+[Notaries](key-concepts-notaries.md) provide [uniqueness consensus](key-concepts-consensus.md) by attesting that, for a given transaction, it has not already signed other transactions that consume any of the proposed transaction’s input states. This is the final check before a transaction is committed to the ledger.
 
-Note that if the notary entity is absent then the transaction is not notarised at all. This is intended for
-issuance/genesis transactions that don’t consume any other states and thus can’t double spend anything.
-For more information on the notary services, see [Notaries](key-concepts-notaries.md).
+You may not need to include a notary if you are creating an issuance transaction, because they do not consume any other states and cannot double-spend.
