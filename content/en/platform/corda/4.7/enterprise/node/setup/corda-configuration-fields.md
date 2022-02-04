@@ -214,7 +214,7 @@ The email address responsible for node administration, used by the Compatibility
 
 Allows fine-grained controls of various features only available in the enterprise version of Corda.
 
-* `mutualExclusion`
+* `mutualExclusionConfiguration`
   * Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).
 * `on`
   * Enables the logic. Values can be either true or false.
