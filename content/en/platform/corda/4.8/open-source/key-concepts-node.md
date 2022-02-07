@@ -79,23 +79,22 @@ updates. The key services provided are:
 
 The CorDapp provider is where new CorDapps are installed to extend the behavior of the node.
 
-The node also has several CorDapps installed by default to handle common tasks such as:
+Several CorDapps are installed on the node by default to handle common tasks such as:
 
-* Retrieving transactions and attachments from counterparties
-* Upgrading contracts
-* Broadcasting agreed ledger updates for recording by counterparties
+* Retrieving transactions and attachments from counterparties.
+* Upgrading contracts.
+* Broadcasting agreed ledger updates for recording by counterparties.
 
 ## Draining mode
 
-In order to operate a clean shutdown of a node, it is important than no flows are in-flight, meaning no checkpoints should
-be persisted. The node is able to be put in draining mode, during which:
+In order to shut down a node cleanly, it is important that no flows are in-flight, meaning no checkpoints are
+persisted. Node operators can enable draining mode, which ensures:
 
-* Commands requiring to start new flows through RPC will be rejected.
-* Scheduled flows due will be ignored.
-* Initial P2P session messages will not be processed, meaning peers will not be able to initiate new flows involving the node.
-* All other activities will proceed as usual, ensuring that the number of in-flight flows will strictly diminish.
+* Commands requiring any new, RPC-initiated flows are rejected.
+* Initial P2P session messages are not processed, meaning peers are not able to initiate new flows involving the node.
+* All other activities proceed as usual, ensuring that the number of in-flight flows only goes down, not up.
 
-As their number reaches zero, it is safe to shut the node down.
-This property is durable, meaning that restarting the node will not reset it to its default value and that a RPC command is required.
+Once the number of activities reaches zero, it is safe to shut the node down.
+The draining mode property is durable, meaning that restarting the node does not reset it to its default value and that an RPC command is required.
 
 The node can be safely shut down via a drain using the shell.
