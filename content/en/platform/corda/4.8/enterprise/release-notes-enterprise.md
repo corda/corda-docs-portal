@@ -19,6 +19,7 @@ weight: 1
 
 ## Corda Enterprise 4.8.6
 
+
 Corda Enterprise 4.8.6 is a patch release of Corda Enterprise which includes dependency upgrades and fixes for minor flow and ledger issues.
 
 ### Upgrade recommendation
