@@ -20,9 +20,11 @@ This page provides updates on all major alerts, fixes and forthcoming patch rele
 
 ### Update February 7 2022
 
+
 A patch has been released to move dependencies to Log4j 2.17.1 for Corda Enterprise 4.8.6.
 
 You can find more information about this patch release in the [Corda Enterprise release notes](../../en/release-notes/corda-enterprise-4.8.html#previous-versions-of-corda-enterprise).
+
 
 ### Update February 1 2022
 
