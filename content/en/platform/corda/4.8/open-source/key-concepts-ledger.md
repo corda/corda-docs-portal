@@ -30,10 +30,9 @@ title: Ledger
 
 ## Visibility of data on the ledger
 
-In Corda, there is *no single central store of data*. Instead, each node maintains its own database of facts in which it
-participates. For example, if there are nodes representing Alice and Bob on the network and Alice loans Bob some money,
+Corda does not have a central store of data. Each node maintains its own database of *facts*–things it knows to be true based on its interactions. For example, if there are nodes representing Alice and Bob on the network and Alice loans Bob some money,
 both Alice and Bob will store an identical record of the facts about that loan. If the only parties involved with the
-loan are Alice and Bob, then they will be the only nodes that ever see or store this data.
+loan are Alice and Bob, then they are the only nodes that ever see or store this data.
 
 This diagram shows a network with five nodes (Alice, Bob, Carl, Demi, and Ed). Each numbered circle on an intersection
 represents a fact shared between two or more nodes:
@@ -45,7 +44,7 @@ any facts with Carl, Demi, or Ed.
 
 Each node only sees a subset of facts—their own facts and those that they share with others. No single node can view
 the ledger in its entirety. For example, in the diagram Alice and Demi don’t share any facts, so they see a
-completely different set of facts to each other.
+completely different set of facts from each other.
 
 ## Shared facts
 
