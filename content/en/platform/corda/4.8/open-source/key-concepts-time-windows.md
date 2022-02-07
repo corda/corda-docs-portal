@@ -21,7 +21,7 @@ title: Time-windows
 
 ## Summary
 
-* *If a transaction includes a time window, it can only be committed during that window*
+* If a transaction includes a time window, it can only be committed during that window
 * The notary is the timestamping authority. The notary only commits transactions that are inside the time window.
 * Time windows can have a start and end time, or be open at either end.
 
