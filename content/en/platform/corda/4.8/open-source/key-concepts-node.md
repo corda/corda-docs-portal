@@ -21,9 +21,9 @@ title: Nodes
 ## Summary
 
 * A node is JVM run-time with a unique network identity running the Corda software.
-* The node has two interfaces with the outside world:
-  * A network layer, for interacting with other nodes
-  * RPC, for interacting with the node’s owner
+* The node interfaces with the outside world through:
+  * The [network](key-concepts-ecosystem.md), which lets it interact with other nodes.
+  * RPC, which lets the node's owner interact with it.
 * The node’s functionality is extended by installing CorDapps in the plugin registry.
 
 ## Video
@@ -42,7 +42,7 @@ The core elements of the architecture are:
 * A persistence layer for storing data.
 * A network interface for communication between nodes.
 * An RPC interface for interacting with the node’s owner.
-* The service hub allows the node’s flows to call upon the node’s other services.
+* The service hub lets the node’s flows call services in the node.
 * A CorDapp interface and provider for extending the node by installing CorDapps.
 
 ## Persistence layer
@@ -69,7 +69,7 @@ are documented in [API: RPC operations](api-rpc.md).
 Internally, the node has access to a rich set of services that are used during flow execution to coordinate ledger
 updates. The key services provided are:
 
-* Information on other nodes on the network and the services they offer.
+* Information about other nodes on the network and the services they offer.
 * Access to the contents of the vault and the storage service.
 * Access to, and generation of, the node’s public-private key pairs.
 * Information about the node itself.
@@ -79,7 +79,7 @@ updates. The key services provided are:
 
 The CorDapp provider is where new CorDapps are installed to extend the behavior of the node.
 
-Several CorDapps are installed on the node by default to handle common tasks such as:
+Your node comes with several default CorDapps installed, which handle common tasks such as:
 
 * Retrieving transactions and attachments from counterparties.
 * Upgrading contracts.
