@@ -20,7 +20,9 @@ title: Nodes
 
 ## Summary
 
-* A node is JVM run-time with a unique network identity running the Corda software.
+* Nodes represent individuals and businesses on a Corda network.
+  * 'People and businesses' are usually represented as 'parties and counterparties'.
+* A node is [JVM](https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html) runtime with a unique network identity running the Corda software.
 * The node has two interfaces with the outside world:
   * A network layer, for interacting with other nodes
   * RPC, for interacting with the node’s owner
@@ -32,7 +34,7 @@ title: Nodes
 
 ## Node architecture
 
-A Corda node is a JVM runtime environment with a unique network identity. A node hosts Corda services and
+A Corda node is a JVM runtime environment with a [unique network identity](../../../../../en/platform/corda/4.8/open-source/key-concepts-ecosystem.html#node-identities). A node hosts Corda services and
 CorDapps. Here is a visualization of the node’s internal architecture:
 
 {{< figure alt="node architecture" width=80% zoom="/en/images/node-architecture.png" >}}
@@ -70,14 +72,15 @@ Internally, the node has access to a rich set of services that are used during f
 updates. The key services provided are:
 
 * Information on other nodes on the network and the services they offer.
-* Access to the contents of the vault and the storage service.
-* Access to, and generation of, the node’s public-private key pairs.
+* Access to the contents of the [vault](../../../../../en/platform/corda/4.8/open-source/key-concepts-vault.html) and the storage service.
+* Access to the node’s public-private key pairs.
+* Generation of new public-private key pairs.
 * Information about the node itself.
 * The current time, as tracked by the node.
 
 ## The CorDapp provider
 
-The CorDapp provider is where new CorDapps are installed to extend the behavior of the node.
+New CorDapps are installed using the CorDapp provider and are used to extend the behavior of the node.
 
 Several CorDapps are installed on the node by default to handle common tasks such as:
 
@@ -87,14 +90,16 @@ Several CorDapps are installed on the node by default to handle common tasks suc
 
 ## Draining mode
 
-In order to shut down a node cleanly, it is important that no flows are in-flight, meaning no checkpoints are
-persisted. Node operators can enable draining mode, which ensures:
+Nodes can be decommissioned from the network, but in order to shut down a node cleanly, it is important that no node processes (or ['flows'](../../../../../en/platform/corda/4.8/open-source/key-concepts-flows.html)) are active,
+meaning no [checkpoints](../../../../../en/platform/corda/4.8/open-source/contributing-flow-internals.html#checkpoints) are persisted. Checkpoints freeze a flow and capture its current
+status, and they are automatically saved to the database when a flow suspends or resumes. A flow can be replayed from the last checkpoint if the node restarts, with this automatic checkpointing
+ensuring durability against crashes and restarts. It is important that all of this in-progress data is cleared in anticipation of shutting down a node. The draining mode ensures that before shutting down:
 
 * Commands requiring any new, RPC-initiated flows are rejected.
 * Initial P2P session messages are not processed, meaning peers are not able to initiate new flows involving the node.
-* All other activities proceed as usual, ensuring that the number of in-flight flows only goes down, not up.
+* All other activities proceed as usual, ensuring that the number of in-progress flows only goes down, not up.
 
 Once the number of activities reaches zero, it is safe to shut the node down.
 The draining mode property is durable, meaning that restarting the node does not reset it to its default value and that an RPC command is required.
 
-The node can be safely shut down via a drain using the shell.
+The node can be safely shut down via a drain using the [shell](../../../../../en/platform/corda/4.8/open-source/shell.md), Corda's embedded command line.
