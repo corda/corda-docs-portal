@@ -26,52 +26,28 @@ Before you start building states, read [Key concepts: States](../../../../../pla
 
 The easiest way to write any CorDapp is to start from a template. This ensures that you have the correct files to begin building.
 
-1. Navigate to the Kotlin and Java template repositories and decide which you'd like to clone:
-  * https://github.com/corda/cordapp-template-kotlin
-  * https://github.com/corda/cordapp-template-java
+1. Clone the [Java template repository](https://github.com/corda/cordapp-template-java).
+
 
 2. Open a terminal window in the directory where you want to download the CorDapp template.
 
+
 3. Run the following command:
 
-   {{< tabs name="tabs-1" >}}
-   {{% tab name="kotlin" %}}
-   ```kotlin
-   git clone https://github.com/corda/cordapp-template-kotlin.git
-   ```
-   {{% /tab %}}
-
-   {{% tab name="java" %}}
    ```java
    git clone https://github.com/corda/cordapp-template-java.git
    ```
-   {{% /tab %}}
 
-   {{< /tabs >}}
+4. After you have cloned the repository, navigate to the subdirectory:
 
-3. After you have cloned the repository you wish to use, navigate to the correct subdirectory:
-
-   {{< tabs name="tabs-2" >}}
-   {{% tab name="kotlin" %}}
-   ```kotlin
-   cd cordapp-template-kotlin
-   ```
-   {{% /tab %}}
-
-   {{% tab name="java" %}}
    ```java
    cd cordapp-template-java
    ```
-   {{% /tab %}}
-
-   {{< /tabs >}}
 
 
-3. After you clone the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+3. After you clone the CorDapp template, open the `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/). If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../platform/corda/4.8/open-source/tutorial-cordapp.html#step-2-open-the-sample-cordapp-in-intellij-idea).
 
-   If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../platform/corda/4.8/open-source/tutorial-cordapp.html#step-2-open-the-sample-cordapp-in-intellij-idea).
-
-4. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `tutorial`. This changes all instances of the `template` package in the project to `tutorial`.
+4. [Rename the module](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `tutorial`. This changes all instances of the `template` package in the project to `tutorial`. At the dropdown menu that appears, choose 'Rename module'.
 
 {{< note >}}
 In this case we have named the package `tutorial` because it is the tutorial CorDapp. When building your own CorDapp, name the package appropriately for your use case. This can be the same name as the CorDapp itself.
@@ -386,9 +362,9 @@ Private variables:
 * `owner` - The person exchanging the basket of apples for the voucher (Farmer Bob). Use type `Party`.
 * `weight` - The weight of the basket of apples. Use type `int`.
 
-The `BasketOfApples` state is involved in two transactions. In the first transaction, Farmer Bob self-issues the `BasketOfApples`. The `Farm` party then fills both the `owner` and `farm` fields of the transaction. You could compact the transaction to carry only these parameters: `public BasketOfApple(String description, Party farm, int weight) {}`
+The `BasketOfApples` state is involved in two transactions. In the first transaction, Farmer Bob self-issues the `BasketOfApples`. The `Farm` party then fills both the `owner` and `farm` fields of the transaction. You could compact the transaction to carry only these parameters: `public BasketOfApples(String description, Party farm, int weight) {}`
 
-If you are writing in Java, when you have multiple constructors in one state class, you must annotate which constructor is the base for serialization. This constructor will most likely carry all relevant information for the state. For example, the constructor `public BasketOfApple(String description, Party farm, int weight) {}`), does not have an `owner` field. You must create another constructor that has all fields, and annotate this constructor with `@ConstructorForDeserialization`.
+If you are writing in Java, when you have multiple constructors in one state class, you must annotate which constructor is the base for serialization. This constructor will most likely carry all relevant information for the state. For example, the constructor `public BasketOfApples(String description, Party farm, int weight) {}`), does not have an `owner` field. You must create another constructor that has all fields, and annotate this constructor with `@ConstructorForDeserialization`.
 
 ### Check your work
 
