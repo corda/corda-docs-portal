@@ -33,13 +33,6 @@ Before you install the downloaded files, verify the integrity of each file to en
   * `32a0ff85dec62a65c498f82afd38c39e9068522f` (sha1)
   * `9c74482c54cf2801f061cfa82618f4bb` (md5)
 
-* corda-node-cli.zip
-  * `4e2a74770d6e7451fc946c2444a362a28aab3c61` (sha1)
-  * `c11442575add9b5c484bcb9c11ec5976` (md5)
-* corda-node-cli.tar
-  * `e00424809501b17dbee07e487f89cb7c2fe6e8e3` (sha1)
-  * `9298826af64363282d10295f50e4f175`  (md5)
-
 ## corda-cli
 
 * corda-cli.zip
