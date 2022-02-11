@@ -20,9 +20,9 @@ title: States
 
 ## Summary
 
-* *States represent on-ledger facts*
-* *States are evolved by marking the current state as historic and creating an updated state*
-* *Each node has a vault where it stores any relevant states to itself*
+* States represent facts on the ledger.
+* Facts evolve by marking the outdated state as historic and creating a new state.
+* Each node has a vault where it stores any relevant states to itself.
 
 ## Video
 
@@ -30,7 +30,7 @@ title: States
 
 ## Overview
 
-A *state* is an immutable object representing a fact known by one or more Corda nodes at a specific point in time.
+A state is an immutable object representing a fact known by one or more Corda nodes at a specific point in time.
 States can contain arbitrary data, allowing them to represent facts of any kind (e.g. stocks, bonds, loans, KYC data,
 identity information…).
 
