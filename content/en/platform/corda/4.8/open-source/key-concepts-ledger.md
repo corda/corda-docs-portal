@@ -48,16 +48,15 @@ completely different set of facts from each other.
 
 ## Shared facts
 
-On Corda, there is no central or general agent which operates on behalf of all of the nodes on the network. Instead,
-each node maintains its own vault which contains all of its known facts.
+On Corda, no central ledger records facts for all of the nodes on a network. Instead,
+each node maintains its own vault, which contains all of its known facts.
 
 You can think of a vault as being a database or simple table. In this diagram, facts 1 and 7 appear on both Alice's
 vault and Bob's vault, and are therefore shared facts:
 
 {{< figure alt="ledger table" width=80% zoom="/en/images/ledger-table.png" >}}
 
-Corda guarantees that when a fact is shared across multiple nodes on the network, it evolves in lockstep in each of
-these nodes' vaults. This means that Alice and Bob will both see an *exactly identical version* of shared facts 1 and 7.
+When multiple nodes on a network share an evolving fact, the changes to the fact update at the same time in each node's vault. This means that Alice and Bob will both see an *identical version* of shared facts 1 and 7.
 
 On-ledger facts don't have to be shared between nodes. For example, fact 11 in Alice's vault is not shared with Bob.
 Facts that are not shared are *unilateral facts*.
