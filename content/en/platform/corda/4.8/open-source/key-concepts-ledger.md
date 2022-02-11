@@ -20,7 +20,7 @@ title: Ledger
 
 ## Summary
 
-* A distributed ledger is a database of facts that's replicated, shared, and synchronized across multiple participants.
+* A distributed ledger is a database of facts that's replicated, shared, and synchronized across multiple participants on a network.
 * Participants are referred to as nodes and their copy of the ledger is held in their vault.
 * Each node has a different view of the ledger, depending on the facts it shares.
 * Nodes who share a fact must reach consensus before it’s committed to the ledger.
