@@ -20,9 +20,9 @@ title: Ledger
 
 ## Summary
 
-* *The ledger refers to all facts that are shared between the nodes of a network.*
-* *Each node will have a different view of the ledger, depending on the facts it shares.*
-* *Two nodes are always guaranteed to see the exact same version of any on-ledger facts that they share.*
+* The ledger is all the facts shared between the nodes in a network.
+* Each node has a different view of the ledger, depending on the facts it shares.
+* Two nodes always see the exact same version of any on-ledger facts they share.
 
 ## Video
 
@@ -61,7 +61,5 @@ When multiple nodes on a network share an evolving fact, the changes to the fact
 On-ledger facts don't have to be shared between nodes. For example, fact 11 in Alice's vault is not shared with Bob.
 Facts that are not shared are *unilateral facts*.
 
-{{< note >}}
-Although there is no central ledger, you can broadcast a basic fact to all nodes of a network using the network map
+Although there is no central ledger, you can broadcast a basic fact to all nodes of a network using the [network map](../../../../../en/platform/corda/4.8/open-source/network-map.md)
 service.
-{{< /note >}}
