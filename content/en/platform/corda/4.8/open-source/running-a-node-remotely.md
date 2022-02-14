@@ -2,13 +2,12 @@
 aliases:
 - /head/running-a-node-remotely.html
 - /HEAD/running-a-node-remotely.html
-  - /running-a-node.html
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-os-4-8:
     identifier: corda-os-4-8-running-a-node-remotely
     parent: corda-os-4-8-running-a-node
-    weight: 1140
+    weight: 1150
 tags:
 - running
 - node

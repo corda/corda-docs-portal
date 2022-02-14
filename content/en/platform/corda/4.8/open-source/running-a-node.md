@@ -8,7 +8,7 @@ menu:
   corda-os-4-8:
     identifier: corda-os-4-8-running-a-node
     parent: corda-os-4-8-corda-nodes-index
-    weight: 1140
+    weight: 1130
 tags:
 - running
 - node

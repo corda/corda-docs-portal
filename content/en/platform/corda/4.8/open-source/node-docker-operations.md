@@ -8,7 +8,7 @@ menu:
   corda-os-4-8:
     identifier: corda-os-4-8-node-docker-operations
     parent: corda-os-4-8-corda-nodes-index
-    weight: 1110
+    weight: 1140
 tags:
 - node
 - docker
