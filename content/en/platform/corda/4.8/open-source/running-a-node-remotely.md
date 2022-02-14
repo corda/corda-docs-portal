@@ -9,10 +9,10 @@ menu:
     identifier: corda-os-4-8-running-a-node-remotely
     parent: corda-os-4-8-running-a-node
     weight: 1140
-    tags:
+tags:
 - running
 - node
-  title: Running nodes remotely
+title: Running nodes remotely
 ---
 
 # Running nodes remotely
