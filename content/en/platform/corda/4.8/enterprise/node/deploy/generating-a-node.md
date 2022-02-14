@@ -10,7 +10,6 @@ title: Creating nodes locally
 weight: 4
 ---
 
-
 # Creating nodes locally
 
 Local nodes are used for testing and demo purposes only.
@@ -32,7 +31,7 @@ The remaining node files and directories will be generated at runtime. These are
 
 ### Run the database migration script if upgrading
 
-{{< note >}} This step is only required when upgrading Corda Enterpise. {{< /note >}}
+{{< note >}} This step is only required when upgrading Corda Enterprise. {{< /note >}}
 
 1. Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
 2. Start the node with `run-migration-scripts` sub-command with `--core-schemas` and `--app-schemas`:
