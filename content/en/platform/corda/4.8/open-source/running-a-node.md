@@ -34,15 +34,27 @@ java -jar corda.jar
 ```
 
 By default, the node will look for a configuration file called `node.conf` and a CorDapps folder called `cordapps`
-in the current working directory. You can override the configuration file and workspace paths on the command line (e.g.
-`java -jar ./corda.jar --config-file=test.conf --base-directory=/opt/corda/nodes/test`).
+in the current working directory. You can override the configuration file and workspace paths on the command line:
+
+```shell
+java -jar ./corda.jar --config-file=test.conf --base-directory=/opt/corda/nodes/test`).
+````
 
 If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command.
-If you get the `Incompatible database schema version detected, please run schema migration scripts` error message you will need to run the migration scripts.
-One way of doing so is with `java -jar corda.jar run-migration-scripts --core-schemas --app-schemas`. See [Node command-line options](node-commandline.md) for
-more options and further details.
+You may get an error message stating:
 
-### Setting JVM arguments
+```shell
+Incompatible database schema version detected, please run schema migration scripts
+```
+If this is the case, you will need to run the migration scripts.
+One way of doing so is with
+```shell
+java -jar corda.jar run-migration-scripts --core-schemas --app-schemas`.
+ ```
+
+See [Node command-line options](node-commandline.md) for more options and further details.
+
+## Setting JVM arguments
 
 There are several ways to set JVM arguments for the node process (particularly the garbage collector and the memory settings).
 They are listed here in order of increasing priority - if the same flag is set in a way mentioned later in the list below, it will override
@@ -110,7 +122,7 @@ custom = {
 }
 ```
 
-### Command-line options
+## Command-line options
 
 You can optionally start a node using the following command-line options:
 
@@ -128,7 +140,7 @@ You can optionally start a node using the following command-line options:
 * `--version`, `-V`: Print version information and exit.
 
 
-#### Sub-commands
+### Sub-commands
 
 `clear-network-cache`: Clears the local copy of the network map - it will be restored from the server or the file system on node start-up.
 
@@ -149,7 +161,7 @@ Parameters:
 `validate-configuration`: Validates the actual configuration without starting the node.
 
 
-### Enabling remote debugging
+## Enabling remote debugging
 
 To enable remote debugging of the node, run the node with the following JVM arguments:
 
