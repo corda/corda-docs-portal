@@ -43,7 +43,7 @@ To install the Corda 5 Developer Preview:
 2. Install Docker Compose using a shell such as Bash, or Git Bash for Windows.
 
 ### Get the Corda 5 Developer Preview from Maven Central
-3. Get access to [Maven Central](https://repo1.maven.org/maven2/net/corda/corda/5.0.0-DevPreview-1.0/), R3’s artifact management solution.
+3. Get access to [Maven Central](https://repo1.maven.org/maven2/net/corda/corda/5.0.0-DevPreview-1.0.1/), R3’s artifact management solution.
 
 ### Get the command-line interfaces (CLIs)
 4. [Install the Corda CLI tool](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/installing-corda-cli.md).
