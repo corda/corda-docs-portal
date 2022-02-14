@@ -19,7 +19,7 @@ title: Node docker operations
 
 This page contains a repository of example manual node configuration operations using Docker. Before executing any of these commands,
 ensure the Corda docker image has been correctly configured. For more information on this, see the [Official Corda Docker Image](../../../../../en/platform/corda/4.8/open-source/docker-image.md).
-Information on non-Docker local node operations can be found in the [running nodes locally](../../../../../en/platform/corda/4.8/open-source/running-a-node.md) page.
+Information on local node operations that do not use Docker can be found in the [running nodes locally](../../../../../en/platform/corda/4.8/open-source/running-a-node.md) page.
 
 ## Running a node connected to a Compatibility Zone in Docker
 
