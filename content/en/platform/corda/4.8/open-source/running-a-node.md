@@ -21,10 +21,10 @@ title: Running nodes locally
 
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
-[Creating nodes locally](generating-a-node.md).
+[Creating nodes locally](generating-a-node.md). For node operations using Docker, visit the [Docker operations](../../../../en/platform/corda/4.8/open-source/node-docker-operations.md) page.
 {{< /note >}}
 
-There are several ways to run a Corda node locally for testing purposes.
+There are several ways to run a Corda node locally for testing purposes:
 
 ## Starting a Corda node from the command prompt
 

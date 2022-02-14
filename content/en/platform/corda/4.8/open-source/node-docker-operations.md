@@ -12,9 +12,7 @@ menu:
 tags:
 - node
 - docker
-- compatibility-zone
-- database-migration
-  title: Node docker operations
+title: Node docker operations
 ---
 
 # Docker operations
