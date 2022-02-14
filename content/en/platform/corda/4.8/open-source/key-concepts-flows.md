@@ -20,8 +20,8 @@ title: Flows
 
 ## Summary
 
-* Flows automate the process of agreeing ledger updates.
-* Communication between nodes only occurs in the context of these flows, and is point-to-point.
+* Communication between nodes is point-to-point using flows.
+* Flows automate the process of agreeing ledger updates between two or more nodes.
 * Built-in flows are provided to automate common tasks.
 
 ## Video
@@ -30,7 +30,7 @@ title: Flows
 
 ## Point-to-point messaging
 
-Corda networks use point-to-point messaging, instead of a global broadcast. To update the ledger, network participants
+Corda networks use point-to-point messaging, instead of a global broadcast model. To update the ledger, network participants
 must specify what information needs to be sent, to which counterparties, and in what order.
 
 Here is a visualisation of Alice and Bob agreeing a ledger update using this process:
@@ -39,27 +39,26 @@ Here is a visualisation of Alice and Bob agreeing a ledger update using this pro
 
 ## The flow framework
 
-Rather than having to specify these steps manually, Corda automates the process using *flows*. A flow is a sequence
+Rather than having to specify these steps manually, Corda automates the process using **flows**. A flow is a sequence
 of steps that tells a node how to achieve a specific ledger update, such as issuing an asset or settling a trade.
 
-Here is the flow's sequence of steps to perform the ledger update between Alice and Bob:
+Here is a diagram showing the flow's steps used between Alice and Bob to perform the ledger update:
 
 {{< figure alt="flow sequence" width=80% zoom="/en/images/flow-sequence.png" >}}
 
 ## Running flows
 
-Once a given business process has been encapsulated in a flow and installed on the node as part of a CorDapp, the node’s
-owner can instruct the node to kick off this business process at any time using an RPC call. The flow abstracts all
-the networking, I/O and concurrency issues away from the node owner.
+Node operators use RPC calls to instruct their node to start a specific flow. The flow abstracts all
+the networking, I/O, and concurrency issues away from the node operator.
 
 All activity on the node occurs in the context of these flows. Unlike contracts, flows do not execute in a sandbox,
-meaning that nodes can perform actions such as networking, I/O and use sources of randomness within the execution of a
+meaning that nodes can perform actions such as networking, I/O, and use sources of randomness within the execution of a
 flow.
 
 ### Inter-node communication
 
-Nodes communicate by passing messages between flows. Each node has zero or more flow classes which it is registered to
-respond to messages from.
+Messages are passed from an active flow on one node to an active flow on another node. You can specify which flow classes
+a node can respond to and with what flow it responds with.
 
 For example, Alice is a node on the network and wishes to agree a ledger update with Bob, another network node. To
 communicate with Bob:
