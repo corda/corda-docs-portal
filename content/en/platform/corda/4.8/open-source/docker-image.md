@@ -18,10 +18,10 @@ title: Official Corda Docker Image
 
 # Official Corda Docker Image
 
-* You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE (Community Edition) is sufficient. Please refer to [Docker CE documentation](https://www.docker.com/community-edition)
-    and [Docker Compose documentation](https://docs.docker.com/compose/install/) for installation instructions for all
-    major operating systems.
+* To install the Corda Docker image, first ensure both `Docker` and `docker-compose` are installed and enabled. Docker CE (Community Edition) is sufficient. Please refer to [Docker CE documentation](https://www.docker.com/community-edition)
+    and [Docker Compose documentation](https://docs.docker.com/compose/install/) for installation instructions for all major operating systems.
 * The official Corda docker image can be found at the [Corda Docker hub](https://hub.docker.com/u/corda). The latest version is `corda/corda-zulu-java1.8-4.8.6` and is found [here](https://hub.docker.com/r/corda/corda-zulu-java1.8-4.8.6).
+* Ensure you have a valid [node.conf file](../../../../../en/platform/corda/4.8/open-source/node-database-tables.md) and a valid set of certificates.
 * Run the docker image using the [`docker run` command](https://docs.docker.com/engine/reference/commandline/run/).
 
 {{< note >}}
