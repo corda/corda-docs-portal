@@ -22,7 +22,7 @@ title: Official Corda Docker Image
     and [Docker Compose documentation](https://docs.docker.com/compose/install/) for installation instructions for all major operating systems.
 * The official Corda docker image can be found at the [Corda Docker hub](https://hub.docker.com/u/corda). The latest version is `corda/corda-zulu-java1.8-4.8.6` and is found [here](https://hub.docker.com/r/corda/corda-zulu-java1.8-4.8.6).
 * Ensure you have a valid [node.conf file](../../../../../en/platform/corda/4.8/open-source/node-database-tables.md) and a valid set of certificates.
-* Run the docker image using the [`docker run` command](https://docs.docker.com/engine/reference/commandline/run/).
+* Run the docker image using the [docker run command](https://docs.docker.com/engine/reference/commandline/run/).
 
 {{< note >}}
 Before running any Corda Enterprise Docker images, accept the license agreement and indicate this by setting the environment variable `ACCEPT_LICENSE` to `YES` or `Y` on your machine. If you do not do this, none of the Docker containers will start.
