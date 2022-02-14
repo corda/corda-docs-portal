@@ -6,8 +6,8 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-os-4-8:
     identifier: corda-os-4-8-running-a-node-remotely
-    parent: corda-os-4-8-running-a-node
-    weight: 1150
+    parent: corda-os-4-8-corda-nodes-index
+    weight: 1140
 tags:
 - running
 - node
