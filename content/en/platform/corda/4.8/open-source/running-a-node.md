@@ -18,7 +18,6 @@ title: Running nodes locally
 
 # Running nodes locally
 
-
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
 [Creating nodes locally](generating-a-node.md). For node operations using Docker, visit the [Docker operations](../../../../en/platform/corda/4.8/open-source/node-docker-operations.md) page.
@@ -36,9 +35,12 @@ java -jar corda.jar
 
 By default, the node will look for a configuration file called `node.conf` and a CorDapps folder called `cordapps`
 in the current working directory. You can override the configuration file and workspace paths on the command line (e.g.
-`./corda.jar --config-file=test.conf --base-directory=/opt/corda/nodes/test`).
+`java -jar ./corda.jar --config-file=test.conf --base-directory=/opt/corda/nodes/test`).
 
-If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](node-commandline.md) for details.
+If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command.
+If you get the `Incompatible database schema version detected, please run schema migration scripts` error message you will need to run the migration scripts.
+One way of doing so is with `java -jar corda.jar run-migration-scripts --core-schemas --app-schemas`. See [Node command-line options](node-commandline.md) for
+more options and further details.
 
 ### Setting JVM arguments
 
