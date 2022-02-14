@@ -18,6 +18,12 @@ This page provides updates on all major alerts, fixes and forthcoming patch rele
 
 ## Apache Log4j announcement
 
+### Update February 11 2022
+
+A patch has been released to move dependencies to Log4j 2.17.1 for Corda 5 Developer Preview 1.0.1.
+
+You can find more information about this patch release in the [Corda 5 Developer Preview release notes](../../en/platform/corda/5.0-dev-preview-1/release-notes-c5dp1.md).
+
 ### Update February 7 2022
 
 
@@ -133,23 +139,23 @@ Refer to https://nvd.nist.gov/vuln/detail/CVE-2021-44228 or https://logging.apac
 
 ## Corda and CENM patch release timetable for Apache Log4J issue
 
-This table was last updated on February 07 2022 12:00 GMT.
+This table was last updated on February 11 2022 14:00 GMT.
 
 **All patches listed upgrade to Log4j 2.16.0, except Corda 5 Developer Preview 1.1 which is an upgrade to Log4j 2.17.1**
 
 | Version with new patch                   | Patch target shipping date | Interim mitigation available |
 |:---------------------------------------- |:-------------------------- |:---------------------------- |
 | Corda OS/CE 4.8.5                        | **Released** Dec 16        | Yes                          |
+| Corda OS/CE 4.7.5                        | **Released** Dec 16        | Yes                          |
 | Corda OS/CE 4.6.7                        | **Released** Dec 16        | Yes                          |
 | Corda OS/CE 4.5.8                        | **Released** Dec 16        | Yes                          |
-| Corda OS/CE 4.7.5                        | **Released** Dec 16        | Yes                          |
 | Corda OS/CE 4.4.10                       | **Released** Dec 16        | Yes                          |
 | Corda OS/CE 4.3.10                       | **Released** Dec 16        | Yes                          |
-| CENM 1.2.5                               | **Released** Dec 17        | No                           |
 | CENM 1.5.3                               | **Released** Dec 21        | Yes                          |
-| CENM 1.3.4                               | **Released** Dec 20        | Yes                          |
 | CENM 1.4.3                               | **Released** Dec 22        | Yes                          |
-| Corda 5 Developer Preview 1.1            | TBC                        | NA - not used in production  |
+| CENM 1.3.4                               | **Released** Dec 20        | Yes                          |
+| CENM 1.2.5                               | **Released** Dec 17        | No                           |
+| Corda 5 Developer Preview 1.1            | **Released** Feb 11        | NA - not used in production  |
 | Business Network Manager tool 1.1.1      | **Released** Dec 17        | No                           |
 | Business Network Manager tool 1.0.1      | **Released** Dec 24        | No                           |
 | CENM management console (Gateway Plugin) | **Released** Dec 21        | No                           |

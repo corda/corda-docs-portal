@@ -18,7 +18,7 @@ CorDapp Builder CLI can be installed automatically or manually.
 
 ### Automatic installation
 
-1. Download the [universal installer](https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0/cordapp-builder-installer.jar).
+1. Download the [universal installer](https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0.1/cordapp-builder-installer.jar).
 2. Run the following command.
     ```bash
     java -jar cordapp-builder-installer.jar
@@ -37,7 +37,7 @@ If a previous installation of CorDapp Builder CLI exists, remove it. See [deleti
 
 #### Steps
 
-1. Download the latest stable <a href="https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0/cordapp-builder.tar">`.tar`</a> or <a href="https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0/cordapp-builder.zip">`.zip`</a> file.
+1. Download the latest stable <a href="https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0.1/cordapp-builder.tar">`.tar`</a> or <a href="https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0.1/cordapp-builder.zip">`.zip`</a> file.
 
 2. Create a new `bin/cordapp-builder` directory under the current users home directory.
 

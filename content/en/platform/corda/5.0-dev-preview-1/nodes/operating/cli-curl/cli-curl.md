@@ -17,7 +17,7 @@ Use this guide to interact with your node using the Corda Node command-line inte
 
 The Corda Node command-line interface (CLI) allows you to interact with nodes using the new HTTP-RPC API. It offers a convenient way of calling HTTP-RPC methods, and formats their results so that they are easy to understand.
 
-Download either the Corda Node CLI's <a href="https://download.corda.net/corda-node-cli/5.0.0-DevPreview-1.0/corda-node-cli.tar">`.tar`</a> or <a href="https://download.corda.net/corda-node-cli/5.0.0-DevPreview-1.0/corda-node-cli.zip">`.zip`</a> file.
+Download either the Corda Node CLI's <a href="https://download.corda.net/corda-node-cli/5.0.0-DevPreview-1.0.1/corda-node-cli.tar">`.tar`</a> or <a href="https://download.corda.net/corda-node-cli/5.0.0-DevPreview-1.0.1/corda-node-cli.zip">`.zip`</a> file.
 
 {{< note >}}
 
