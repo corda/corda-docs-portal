@@ -19,10 +19,9 @@ title: Cordform plug-in
 Corda provides two `gradle` plug-ins called `Cordform` and `Dockerform`. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Cordform plug-in. Visit the [Dockerform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-dockerform.md) page for Dockerform configuration options.
 
 * A `Cordform` task creates nodes in the `build/nodes` directory. The example `Cordform` task used in this document creates three nodes: `Notary`, `PartyA`, and `PartyB`, however you are free to spin up more nodes, specify what nodes you need on the network, change node names, and update node configurations.
-
 * `Cordform` tasks require you to deploy each Corda node and database separately.
 
-* Tasks using the Cordform plug-in
+## Tasks using the Cordform plug-in
 
 Run this example task to create the following three nodes in the `build/nodes` directory:
 
@@ -102,7 +101,7 @@ Make sure to use Corda gradle plug-in version 5.0.10 or above.
 
 The configuration values used in the example are described below.
 
-#### Required configuration
+### Required configuration
 
 * `name` &lt;string&gt; - use this configuration option to specify the legal identity name of the Corda node. For more information, see [myLegalName](corda-configuration-fields.html#mylegalname). For example:
 
@@ -131,7 +130,7 @@ rpcSettings {
 }
 ```
 
-#### Optional configuration
+### Optional configuration
 
 * `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required**> for Notary nodes. For more information, see [Notary](corda-configuration-fields.html#notary).
 
@@ -205,7 +204,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-#### Package namespace ownership
+### Package namespace ownership
 
 To configure [package namespace ownership](../../4.8/enterprise/node/deploy/env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](network-bootstrapper.md) tool. For example:
 
@@ -225,7 +224,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-#### Sign CorDapp `.jar` files
+### Sign CorDapp `.jar` files
 
 The default Cordform behaviour is to deploy CorDapp `.jar` files “as built”.
 
@@ -284,7 +283,7 @@ The snippet below configures contracts classes from the Finance CorDapp to be ve
       //...
   ```
 
-#### Optional migration step
+### Optional migration step
 
 If you are migrating your database schema from an older Corda version to Corda 4.8, you must add the following parameter to the node section in the `build.gradle` and set it to `true`, as follows:
 
@@ -294,7 +293,7 @@ If you are migrating your database schema from an older Corda version to Corda 4
 
 This step runs the full schema migration process as the last step of the Cordform task, and leave the nodes ready to run.
 
-#### Run the Cordform task
+### Run the Cordform task
 
 To create the nodes defined in the `deployNodes` task example above, run the following command in a command prompt or a terminal window, from the root of the project where the `deployNodes` task is defined:
 

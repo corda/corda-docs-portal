@@ -108,9 +108,6 @@ custom = {
 }
 ```
 
-
-
-
 ### Command-line options
 
 You can optionally start a node using the following command-line options:
@@ -169,13 +166,11 @@ This command will start the node with JMX metrics accessible via HTTP on port 70
 
 See [Monitoring via Jolokia](node-administration.html#monitoring-jolokia) for further details.
 
-
 ## Starting all nodes at once on a local machine from the command prompt
 
+### Cordform
 
-### Native
-
-If you created your nodes using `deployNodes`, a `runnodes` shell script (or batch file on Windows) will have been
+If you created your nodes using the [Cordform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-cordform.md) `deployNodes` gradle task, a `runnodes` shell script (or batch file on Windows) will have been
 generated to allow you to quickly start up all nodes and their webservers. You should only use `runnodes` for testing
 purposes.
 
@@ -195,12 +190,12 @@ fail to start.
 
 If you receive an `OutOfMemoryError` exception when interacting with the nodes, you need to increase the amount of
 Java heap memory available to them, which you can do when running them individually. See
-[Starting a Corda node from the command line](#starting-a-corda-node-from-the-command-prompt).
+[Starting a Corda node from the command line](../../../../../en/platform/corda/4.8/open-source/running-a-node.html#starting-a-corda-node-from-the-command-prompt).
 
 
-### docker-compose
+### Dockerform
 
-If you created your nodes using [Dockerform](generating-a-node.md), the `docker-compose.yml` file has been created and configured appropriately. Navigate to `build/nodes` directory and run the `docker-compose up` command. This will start up nodes inside a new, internal network. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
+If you created your nodes using [Dockerform](generating-a-node-dockerform.md), the `docker-compose.yml` file has been created and configured appropriately. Navigate to `build/nodes` directory and run the `docker-compose up` command. This will start up nodes inside a new, internal network. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
 
 {{< warning >}}
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
@@ -210,30 +205,11 @@ major operating systems.
 {{< /warning >}}
 
 {{< note >}}
-Before running any Corda Enterprise Docker images, you must accept the license agreement and indicate that you have done this by setting the environment variable `ACCEPT_LICENSE` to `YES` or `Y` on your machine. If you do not do this, none of the Docker containers will start.
+Before running any Corda Docker images, you must accept the license agreement and indicate that you have done this by setting the environment variable `ACCEPT_LICENSE` to `YES` or `Y` on your machine. If you do not do this, none of the Docker containers will start.
 
 As an alternative, you can specify this parameter when running the `docker-compose up` command, for example:
 `ACCEPT_LICENSE=Y docker-compose up`
 {{< /note >}}
-
-## Starting all nodes at once on a remote machine from the command line
-
-By default, a [Cordform](generating-a-node.md) task will run all the generated nodes on the same host machine.
-In order to run the nodes remotely, you can deploy them locally and then copy them to a remote server.
-If after copying the nodes to the remote machine you encounter errors related to a `localhost` resolution, you should follow the additional steps below.
-
-To create nodes locally and run on a remote machine, perform the following steps:
-
-* Configure a Cordform task and deploy the nodes locally as described in [Creating nodes locally](generating-a-node.md).
-* Copy the generated directory structure to a remote machine, for example using Secure Copy.
-* Optionally, add database configuration settings if they could not be configured in the first step and the local machine does not have access to the remote database.
-In each top-level `[NODE NAME]_node.conf` configuration file, add the database settings and copy the JDBC driver `.jar` file (if required).
-Edit the top-level `[NODE NAME]_node.conf` files only and not the files inside the node sub-directories (for example, `node.conf`).
-* Optionally, bootstrap the network on the remote machine. This is an optional step when a remote machine does not accept `localhost` addresses, or if the generated nodes are configured to run on another host’s IP address. If needed, change the host addresses in the top-level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress`, `rpcSettings.address`, and  `rpcSettings.adminAddress`. Run the network bootstrapper tool to regenerate the nodes network map: `java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`. For more information, see [Network bootstrapper](network-bootstrapper.md).
-* Run nodes on the remote machine using the `runnodes` command.
-
-The steps described above enable you to create the same test deployment as a `deployNodes` Gradle task would create on a local machine.
-
 
 ## Database migrations
 

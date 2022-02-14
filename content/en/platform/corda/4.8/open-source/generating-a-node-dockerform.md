@@ -5,9 +5,9 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-os-4-8:
-    identifier: corda-os-4-8-cordform-plugin
+    identifier: corda-os-4-8-dockerform-plugin
     parent: corda-os-4-8-generating-a-node
-    weight: 1050
+    weight: 1100
 tags:
 - dockerform
 - node
@@ -19,12 +19,9 @@ title: Dockerform plug-in
 Corda provides two `gradle` plug-ins: `Cordform` and `Dockerform`. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Dockerform plug-in. Visit the [Cordform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-cordform.md) page for Cordform configuration options.
 
 * Nodes deployed via `Dockerform` use Docker containers. A `Dockerform` task is similar to `Cordform` but it provides an extra file that enables you to easily spin up nodes using `docker-compose`. This creates a `docker-compose` file that enables you to run a single command to control the deployment of Corda nodes and databases (instead of deploying each node/database manually).
-
-### Specific requirements
-
 * `Dockerform` tasks require Docker to be installed on the local host.
 
-### Tasks using the Dockerform plug-in
+## Tasks using the Dockerform plug-in
 
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
 (Community Edition) is sufficient. Please refer to [Docker CE documentation](https://www.docker.com/community-edition)
@@ -71,7 +68,7 @@ As an alternative, you can specify this parameter when running the `docker-compo
 `ACCEPT_LICENSE=Y docker-compose up`
 {{< /note >}}
 
-#### Specify an external database
+### Specify an external database
 
 You can configure `Dockerform` to use a standalone database to test with non-H2 databases. For example, to use PostgresSQL, you need to make the following changes to your Cordapp project:
 
@@ -268,7 +265,7 @@ You can use the following configuration parameters in the `postgres.gradle` file
 
 To make the database files persistent across multiple `docker-compose` runs, you must set the `dbDataVolume` parameter. If this variable is commented out, the database files will be removed after every `docker-compose` run.
 
-#### Run the Dockerform task
+### Run the Dockerform task
 
 To run the Dockerform task, follow the steps below.
 

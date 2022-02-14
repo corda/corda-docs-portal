@@ -22,7 +22,7 @@ Local nodes are used for testing and demo purposes only.
 
 There are two ways you can create a node locally:
 * __Manually__: create a local directory, add the relevant node and CorDapp files, and configure them.
-* __Automatically__: use the __Cordform__ or __Dockerform__ gradle plug-ins, which automatically generate and configure a local set of nodes.
+* __Automatically__: use the [__Cordform__](../../../../../en/platform/corda/4.8/open-source/generating-a-node-cordform.md) or [__Dockerform__](../../../../../en/platform/corda/4.8/open-source/generating-a-node-dockerform.md) gradle plug-ins, which automatically generate and configure a local set of nodes.
 
 ## Create a local node manually
 
@@ -46,9 +46,7 @@ The remaining node files and directories will be generated at runtime. These are
 java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 ```
 
-The node will perform any automatic data migrations required, which may take some time. If the migration process is interrupted, it can be continued simply by starting the node again, without harm. The node will stop automatically when migration is complete.
-
-See [Upgrading your node to Corda 4.8](node-upgrade-notes.md) for more information.
+The node will perform any automatic data migrations required, which may take some time. If the migration process is interrupted, it can be continued simply by starting the node again, without harm. The node will stop automatically when migration is complete. See [Upgrading your node to Corda 4.8](node-upgrade-notes.md) for more information.
 
 ## Use Cordform and Dockerform to create a set of local nodes automatically
 
