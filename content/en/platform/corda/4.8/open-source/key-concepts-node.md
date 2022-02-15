@@ -26,7 +26,7 @@ title: Nodes
 * The node has two interfaces with the outside world:
   * A network layer, for interacting with other nodes
   * RPC, for interacting with the node’s owner
-* The node’s functionality is extended by installing CorDapps in the plugin registry.
+* You can add extra functions to your node by installing [CorDapps](link to intro to CorDapps) in the plugin registry. CorDapps are distributed applications that let you accomplish different objectives with Corda.
 
 ## Video
 
@@ -34,7 +34,7 @@ title: Nodes
 
 ## Node architecture
 
-A Corda node is a JVM runtime environment with a [unique network identity](../../../../../en/platform/corda/4.8/open-source/key-concepts-ecosystem.html#node-identities). A node hosts Corda services and
+A Corda node is a Java Virtual Machine (JVM) runtime environment with a [unique network identity](../../../../../en/platform/corda/4.8/open-source/key-concepts-ecosystem.html#node-identities). A node hosts Corda services and
 CorDapps. Here is a visualization of the node’s internal architecture:
 
 {{< figure alt="node architecture" width=80% zoom="/en/images/node-architecture.png" >}}
