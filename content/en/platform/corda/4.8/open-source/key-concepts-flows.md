@@ -84,7 +84,7 @@ logic behind common processes such as:
 * Gathering signatures from counterparty nodes.
 * Verifying a chain of transactions.
 
-Further information on the available built-in flows can be found in [API: Flows](api-flows.md).
+For further information on the available built-in flows, go to [API: Flows](api-flows.md).
 
 ## Concurrency
 
