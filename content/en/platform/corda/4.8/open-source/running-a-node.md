@@ -18,16 +18,22 @@ title: Running nodes locally
 
 # Running nodes locally
 
+This page contains information on three methods for locally running nodes:
+
+* Nodes can be run manually from a local machine.
+* The [Dockerform](#dockerform) or [Cordform](#cordform) gradle plugins can also be used to run nodes locally.
+* Running nodes remotely is also possible - find instructions on how to do this [here](running-a-node-remotely.md).
+
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
-[Creating nodes locally](generating-a-node.md). For node operations using Docker, visit the [Docker operations](../../../../en/platform/corda/4.8/open-source/node-docker-operations.md) page.
+[Creating nodes locally](generating-a-node.md). For node operations using Docker, visit the [Docker operations](node-docker-operations.md) page.
 {{< /note >}}
 
 There are several ways to run a Corda node locally for testing purposes:
 
 ## Starting a Corda node from the command prompt
 
-You can run a node by opening a terminal / command prompt window in the node’s directory and running the following command:
+You can run a node by opening a terminal/command prompt window in the node’s directory and running the following command:
 
 ```shell
 java -jar corda.jar
@@ -156,7 +162,7 @@ Parameters:
 
 `generate-rpc-ssl-settings`: Generates the SSL keystore and truststore for a secure RPC connection.
 
-`install-shell-extensions`: Installs a `corda` alias and auto completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications](cli-application-shell-extensions.md).
+`install-shell-extensions`: Installs a `corda` alias and auto-completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications](cli-application-shell-extensions.md).
 
 `validate-configuration`: Validates the actual configuration without starting the node.
 
@@ -184,9 +190,9 @@ See [Monitoring via Jolokia](node-administration.html#monitoring-jolokia) for fu
 
 ### Cordform
 
-If you created your nodes using the [Cordform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-cordform.md) `deployNodes` gradle task, a `runnodes` shell script (or batch file on Windows) will have been
-generated to allow you to quickly start up all nodes and their webservers. You should only use `runnodes` for testing
-purposes.
+The [Cordform](generating-a-node-cordform.md) gradle plugin (as used by the `deployNodes` gradle task)  generates a `runnodes` script. Executing
+this allows you to quickly start up all nodes and their webservers. Only use`runnodes` for testing purposes.
+
 
 Start the nodes with `runnodes` by running the following command from the root of the project:
 
@@ -206,10 +212,10 @@ If you receive an `OutOfMemoryError` exception when interacting with the nodes, 
 Java heap memory available to them, which you can do when running them individually. See
 [Starting a Corda node from the command line](../../../../../en/platform/corda/4.8/open-source/running-a-node.html#starting-a-corda-node-from-the-command-prompt).
 
-
 ### Dockerform
 
-If you created your nodes using [Dockerform](generating-a-node-dockerform.md), the `docker-compose.yml` file has been created and configured appropriately. Navigate to `build/nodes` directory and run the `docker-compose up` command. This will start up nodes inside a new, internal network. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
+If you created your nodes using [Dockerform](generating-a-node-dockerform.md), a `docker-compose.yml` file has been created. You can use `docker-compose` to bring up a cluster of Corda nodes. See `prepareDockerNodes` in the [generating nodes locally](generating-a-node.md) for more information on this.
+In order to start up the nodes in a new, internal network, go to the `build/nodes` directory and run the `docker-compose up` command. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
 
 {{< warning >}}
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE

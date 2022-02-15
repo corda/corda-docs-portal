@@ -24,9 +24,3 @@ title: Official Corda Docker Image
 * Ensure you have a valid [node.conf file](../../../../../en/platform/corda/4.8/open-source/node-database-tables.md) and a valid set of certificates.
 * Run the docker image using the [docker run command](https://docs.docker.com/engine/reference/commandline/run/).
 
-{{< note >}}
-Before running any Corda Enterprise Docker images, accept the license agreement and indicate this by setting the environment variable `ACCEPT_LICENSE` to `YES` or `Y` on your machine. If you do not do this, none of the Docker containers will start.
-
-As an alternative, you can specify this parameter when running the `docker-compose up` command, for example:
-`ACCEPT_LICENSE=Y docker-compose up`
-{{< /note >}}

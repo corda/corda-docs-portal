@@ -22,7 +22,7 @@ Local nodes are used for testing and demo purposes only.
 
 There are two ways you can create a node locally:
 * __Manually__: create a local directory, add the relevant node and CorDapp files, and configure them.
-* __Automatically__: use the [Cordform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-cordform.md) or [Dockerform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-dockerform.md) gradle plug-ins, which automatically generate and configure a local set of nodes.
+* __Automatically__: use the [Cordform](generating-a-node-cordform.md) or [Dockerform](generating-a-node-dockerform.md) gradle plug-ins, which automatically generate and configure a local set of nodes.
 
 ## Create a local node manually
 
