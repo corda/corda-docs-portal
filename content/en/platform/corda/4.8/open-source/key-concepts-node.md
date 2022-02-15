@@ -21,7 +21,6 @@ title: Nodes
 ## Summary
 
 * Nodes represent individuals and businesses on a Corda network.
-  * 'People and businesses' are usually represented as 'parties and counterparties'.
 * A node is [JVM](https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html) runtime with a unique network identity running the Corda software.
 * The node has two interfaces with the outside world:
   * A network layer, for interacting with other nodes
