@@ -18,11 +18,10 @@ title: Node Docker operations
 # Docker operations
 
 This page contains a repository of example manual node configuration operations using Docker. Before executing any of these commands,
-ensure the Corda docker image has been correctly configured. For more information on this, see the [Official Corda Docker Image](docker-image.md).
+ensure the Corda Docker image has been correctly configured. For more information on this, see the [Official Corda Docker Image](docker-image.md).
 
-Instead of bringing up a corda node with corda.jar directly we can run the node in a container using the Corda docker image.
-This similar to executing the jar directly, except that we need to mount directories into the container that a corda node would normally have, set up port forwarding and environment variables.
-The same command variables can be used in running the container as when running the jar. See [generating a node](generating-a-node.md) and [running nodes locally](running-a-node.md) page.
+The Corda Docker image run the node in a container. This is similar to executing the jar directly, except with the need to mount directories into the container that a Corda node would normally have. It is also necessary to set up
+port-forwarding and environment variables. The same command variables can be used in running the container as when running the jar. See [generating a node](generating-a-node.md) and [running nodes locally](running-a-node.md) page.
 
 ## Running a node connected to a Compatibility Zone in Docker
 
@@ -60,7 +59,7 @@ If using the H2 database:
 * Persistence - the folder to hold the H2 database files must be mounted at location `/opt/corda/persistence`
 
 {{< note >}}
-If there is no dataSourceProperties key in the node.conf, the docker container overrides the url for H2 to point to the persistence directory by default so that the database can be accessed outside the container
+If there is no dataSourceProperties key in the node.conf, the Docker container overrides the url for H2 to point to the persistence directory by default so that the database can be accessed outside the container
 
 {{< /note >}}
 
