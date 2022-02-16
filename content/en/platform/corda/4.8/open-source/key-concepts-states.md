@@ -21,7 +21,7 @@ title: States
 ## Summary
 
 * States represent facts on the **[ledger](key-concepts-ledger.md)**.
-* Facts evolve on the ledger by participants creating new states and marking outdated states as historic.
+* Facts evolve on the ledger when participants create new states and mark outdated states as historic.
 * Each node has a vault where it stores the states it shares with other nodes.
 
 ## Video
@@ -31,19 +31,18 @@ title: States
 ## Overview
 
 A state is an immutable object representing a fact known by one or more nodes at a specific point in time.
-States can contain arbitrary data, allowing them to represent facts of any kind. For example, stocks, bonds, loans, KYC data,
-or identity information.
+You can use states to represent any type of data, and any kind of fact. For example, a financial instrument, Know Your Customer (KYC) data, or identity information.
 
 This state represents an IOU—an agreement that Alice owes Bob £10:
 
 {{< figure alt="state" width=80% zoom="/en/images/state.png" >}}
 
-As well as information about the fact itself, the state also contains a reference to the
+In addition to information about the fact, the state contains a reference to the
 **[contract](key-concepts-contracts.md)**. Contracts govern the evolution of states.
 
 ## State sequences
 
-As states are immutable, they cannot be modified. Therefore, Corda uses **state sequences** to track the evolution of facts.
+States are immutable: you can't change them. Corda uses **state sequences** to track the evolution of facts.
 When a fact changes, one of the state's participants creates a new state and marks the outdated state as historic.
 
 For example, if Alice pays Bob £5, the state sequence would be:
