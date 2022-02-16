@@ -38,7 +38,7 @@ To build the latest version of Corda 4.8:
    `git checkout origin/release/os/4.8`
 4. Run the command:
    `./gradlew assemble`
-5. The `corda.jar` file is `node/capsule/build/libs/corda-4.8-SNAPSHOT.jar`. Replace your node's `corda.jar` by following the instructions for [upgrading your node to Corda 4.8](node-upgrade-notes.md).
+5. The `corda.jar` file is `node/capsule/build/libs/corda-4.8-SNAPSHOT.jar`. Replace your node's `corda.jar` by following the instructions on [upgrading your node to Corda 4.8](node-upgrade-notes.md).
 
 ## Corda 4.8 release notes
 
