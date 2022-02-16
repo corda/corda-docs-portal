@@ -170,7 +170,7 @@ These patch releases are valid for the stated supported versions of Corda Enterp
 
 Patch releases are not available for Corda OS.
 
-Corda OS 4.4-4.8 Log4j dependency has been updated to v2.17.1.
+Corda OS 4.3-4.8 Log4j dependency has been updated to v2.17.1.
 
 ## Current releases
 
