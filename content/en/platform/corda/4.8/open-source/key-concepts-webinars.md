@@ -2,7 +2,7 @@
   date: '2022-02-19'
   menu:
   corda-os-4-8:
-  identifier: corda-os-4-8-key-concepts
+  identifier: corda-os-4-8-key-concepts-webinar
   parent: corda-os-4-8-development
   weight: 81
   tags:
