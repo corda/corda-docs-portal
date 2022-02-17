@@ -1,18 +1,17 @@
 ---
-  date: '2022-02-15'
-  menu:
+date: '2022-02-15'
+menu:
   corda-os-4-8:
-  identifier: corda-os-4-8-key-concepts-webinar
-  parent: corda-os-4-8-development
-  weight: 81
-  tags:
+    identifier: corda-os-4-8-key-concepts-webinar
+    parent: corda-os-4-8-development
+    weight: 81
+tags:
 - concepts
-  - webinar
-  -videos
-  title: Key concept webinars
+- webinar
+title: Key concept webinar series
 ---
 
-# Key concept webinar series
+# Key concept webinars
 
 Watch this series of webinars to learn more about the big ideas that make Corda work. You can also read our [key concept documentation](key-concepts.md), the [Corda Whitepaper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/), and [Corda Technical Whitepaper](https://www.r3.com/white-papers/corda-technical-whitepaper/).
 
