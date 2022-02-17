@@ -383,7 +383,7 @@ You can use the Corda CLI `package` command to inspect the contents of Corda pac
 ### Options
 
 `-h, --help`
-See a list of available `network` subcommands and descriptions.
+See a list of available package subcommands and descriptions.
 
 `--stacktrace`
 Print out the stacktrace for all exceptions.
