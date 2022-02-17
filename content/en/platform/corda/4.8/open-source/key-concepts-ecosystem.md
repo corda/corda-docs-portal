@@ -13,7 +13,9 @@ tags:
 - concepts
 - ecosystem
 - network
-title: Networks
+- identity
+- discovery
+title: Networks, identity, and discovery
 ---
 
 
@@ -40,7 +42,7 @@ certificate maps the node's identity on Corda to a real-world legal identity and
 
 The network operator enforces rules that stipulate what information nodes must provide and the know-your-customer (KYC) processes they must undergo before being granted this certificate.
 
-## Node identities 
+## Node identities
 The *network map service* matches each node identity to an IP address. Nodes use these IP addresses to send messages to each other.
 
 Nodes can also generate confidential identities for individual transactions. The certificate chain linking a
