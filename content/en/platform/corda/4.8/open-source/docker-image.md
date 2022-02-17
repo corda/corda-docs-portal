@@ -24,3 +24,8 @@ title: Official Corda Docker Image
 * Ensure you have a valid [node.conf file](../../../../../en/platform/corda/4.8/open-source/node-database-tables.md) and a valid set of certificates.
 * Run the docker image using the [docker run command](https://docs.docker.com/engine/reference/commandline/run/).
 
+## Getting started
+
+* For information on using use docker for development purposes, visit the [creating a node](generating-a-node.md) page.
+* if you've already set up your node and want to learn how to use your code using docker, go to the [running a node locally](running-a-node.md) page.
+* if you want to learn more about docker deployments and how to deploy to a compatibility zone, go to the [docker deployments](node-docker-deployments.md) page.

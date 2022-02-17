@@ -21,12 +21,12 @@ title: Running nodes locally
 This page contains information on three methods for locally running nodes:
 
 * Nodes can be run manually from a local machine.
-* The [Dockerform](#dockerform) or [Cordform](#cordform) gradle plugins can also be used to run nodes locally.
+* The [Dockerform](generating-a-node-dockerform.md) or [Cordform](generating-a-node-cordform.md) gradle plugins can also be used to run nodes locally.
 * Running nodes remotely is also possible - find instructions on how to do this [here](running-a-node-remotely.md).
 
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
-[Creating nodes locally](generating-a-node.md). For node operations using Docker, visit the [Docker operations](node-docker-operations.md) page.
+[Creating nodes locally](generating-a-node.md). For node operations using Docker, visit the [Docker deployments](node-docker-deployments.md) page.
 {{< /note >}}
 
 There are several ways to run a Corda node locally for testing purposes:
