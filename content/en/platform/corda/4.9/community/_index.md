@@ -12,27 +12,38 @@ title: Corda Community Edition 4.9
 version: 'Community Edition 4.9'
 ---
 
-# Welcome to Corda
+# Corda Community Edition
 
-[Corda](https://www.corda.net/) is an open-source blockchain platform. If you’d like a quick introduction to blockchains and how Corda is different, then watch this short video:
+Corda Community Edition is a free to use, Open Source version of Corda, with added optional benefits. By choosing to develop using this edition of Corda, you can access affordable technical support to help you take your project to market with confidence.
 
-{{< vimeo 205410473 >}}
+## What's new in Corda Community Edition
 
-**Want to start coding on Corda?** Familiarise yourself with the [key concepts](../../../../../en/platform/corda/4.8/open-source/key-concepts.md), then read
-our tutorial [Building your first basic CorDapp](../../../../../en/tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-intro.md).
+Along with the free-to-use Corda platform, Corda Community Edition comes with an affordable support package from R3, the makers of Corda. Check the [Community Edition support matrix](http://corda.net/support) to see which flexible package suits you best.
 
-**Want background reading material?** The [introductory white paper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/) describes Corda’s mission and philosophy. It’s suitable for a business
-audience. The [technical white paper](https://www.r3.com/white-papers/corda-technical-whitepaper/) describes the architecture and protocol.
+## Get ready to code on Corda Community Edition in three steps
 
-**Questions or comments?** Get in touch on [Slack](http://cordaledger.slack.com) or ask a question on
-[Stack Overflow](https://stackoverflow.com/questions/tagged/corda).
+Get ready for Corda Community Edition and start coding in three steps.
 
-{{< note >}}
-**Release notes**
+1. Install the required software:
+    * Java 8 JDK
+    * IntelliJ IDEA
+    * Git
+    * Gradle
 
-* For all Corda open source release notes, see the [Corda release notes](../../../../../en/platform/corda/4.8/open-source/release-notes.md) page.
-* For the latest Corda Enterprise release notes, see the [Corda Enterprise 4.8 release notes](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
-* For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](../../../../../en/platform/corda/1.5/cenm/release-notes.md) page.
-{{< /note >}}
+For more help finding these, use the [setup guide](getting-set-up.md).
 
-We look forward to seeing what you can do with Corda!
+2. Run the appropriate command to clone the CorDapp samples repository. CorDapps are applications that run on a Corda network:
+
+* Java: `git clone http://github.com/corda/samples-java`
+* Kotlin: `git clone http://github.com/corda/samples-kotlin`
+
+3. Follow the [tutorials](tutorials-index.md) to set up a Corda network and start coding your CorDapps.
+
+## Upgrade to Corda Community Edition from Corda open source
+
+If you are already using an open source version of Corda (Corda 4.1- Corda 4.8) and want to upgrade to Corda Community Edition, you can choose to:
+
+* Download the `.tar` file.
+* Use the Docker Image.
+
+Follow the upgrade guides to make sure your [node](node-upgrade-nodes.md) and [CorDapps](upgrade-cordapps.md) are upgraded correctly.
