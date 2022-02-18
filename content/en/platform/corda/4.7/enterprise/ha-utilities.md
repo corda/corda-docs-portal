@@ -405,4 +405,6 @@ contain the notary service certificate chain. See [HSM Support](../../../../../e
 
 ## Node Certificate Rotation Tool
 
-For more information about this tool, contact your R3 account manager.
+This tool enables the reissuing of node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in [Corda Enterprise Network Manager](../../../../../en/platform/corda/1.5/cenm.html). You must not change the node's `myLegalName` during certificate rotation.
+
+For more information about this feature, contact your R3 account manager.
