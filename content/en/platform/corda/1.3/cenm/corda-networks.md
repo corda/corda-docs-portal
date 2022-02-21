@@ -85,8 +85,8 @@ For more information, see [Sub Zones](sub-zones.md)
 
 ### Operating a Segregated Sub Zone
 
-From the perspective of a mature CENM deployment, operating a sub zone post CENM 0.3 is the same as operating a single
-network under the old paradigm where there was only the one zone.
+In all supported versions (CENM 1.2 onwards), operating a sub zone is the same as operating a single
+network under the old paradigm where there was only one zone.
 
 Each Network Map that represents a segregated sub zone is configured separately from the others as a distinct entity
 unaware of one another
