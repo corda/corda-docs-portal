@@ -16,33 +16,30 @@ title: Cordform plug-in
 
 # Cordform plug-in
 
-Corda provides two `gradle` plug-ins called `Cordform` and `Dockerform`. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Cordform plug-in. Visit the [Dockerform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-dockerform.md) page for Dockerform configuration options.
+Corda provides two `gradle` plug-ins - `Cordform` and `Dockerform`. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Cordform plug-in. Visit the [Dockerform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-dockerform.md) page for Dockerform configuration options.
 
 * A `Cordform` task creates nodes in the `build/nodes` directory. The example `Cordform` task used in this document creates three nodes: `Notary`, `PartyA`, and `PartyB`, however you are free to spin up more nodes, specify what nodes you need on the network, change node names, and update node configurations.
 * `Cordform` tasks require you to deploy each Corda node and database separately.
 
 ## Tasks using the Cordform plug-in
 
-Run this example task to create the following three nodes in the `build/nodes` directory:
+The following example, as defined in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V4/build.gradle#L120), shows a `Cordform` task called `deployNodes` that creates three nodes:
+* A `Notary` node, which:
+  * Provides a validating Notary service.
+  * Runs the `corda-finance` CorDapp.
 
-A `Notary` node, which:
-
-* Provides a validating Notary service.
-* Runs the `corda-finance` CorDapp.
-
-`PartyA` and `PartyB` nodes, each of which:
-
-* Does not provide any services.
-* Runs the `corda-finance` CorDapp.
-* Has an RPC (Remote Procedure Call) user (`user1`), which enables you to log in the node via RPC.
+* `PartyA` and `PartyB` nodes, each of which:
+  * Does not provide any services.
+  * Runs the `corda-finance` CorDapp.
+  * Has an RPC (Remote Procedure Call) user (`user1`), which enables you to log in the node via RPC.
 
 All three nodes also include any CorDapps defined in the project's source directories, even if these CorDapps are not listed in each node's `cordapps` setting. As a result, if you run the `deployNodes` task from the template CorDapp, for example, it will automatically build and add the template CorDapp to each node.
 
 {{< note >}}
-The three nodes described here are just an example. `Cordform` allows you specify any number of nodes and you can define their configurations and names as needed.
+The three nodes described here are just an example. `Cordform` allows you to specify any number of nodes and define their configurations and names as needed.
 {{< /note >}}
 
-The following example, as defined in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V4/build.gradle#L120), shows a `Cordform` task called `deployNodes` that creates the three nodes described above: `Notary`, `PartyA`, and `PartyB`.
+Run this example task to create the three nodes in the `build/nodes` directory:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
