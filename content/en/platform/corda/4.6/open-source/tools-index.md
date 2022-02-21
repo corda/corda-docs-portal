@@ -24,6 +24,5 @@ wish to try the [Blob Inspector](blob-inspector.md).
 
 * [Corda Network Builder](network-builder.md)
 * [Network Bootstrapper](network-bootstrapper.md)
-* [DemoBench - Warning - DemoBench is deprecated in Corda 4.6](demobench.md)
 * [Node Explorer](node-explorer.md)
 * [Checkpoint Tooling](checkpoint-tooling.md)

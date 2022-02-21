@@ -83,8 +83,15 @@ CREATE LOGIN my_login WITH PASSWORD = 'my_password';
 CREATE USER my_user FOR LOGIN my_login;
 ```
 
-By default the password must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols,
-e.g. *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes.
+By default the password must contain characters from three of the following four sets:
+
+* Uppercase letters
+* Lowercase letters
+* Digits
+* Symbols
+
+For example, *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes. See the [Azure SQL password policy](https://docs.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-ver15#password-complexity) for more information.
+
 Use different passwords for *my_admin_user* and *my_user*.
 
 Connect to a user database as the administrator (replace *master* with a user database in the connection string).

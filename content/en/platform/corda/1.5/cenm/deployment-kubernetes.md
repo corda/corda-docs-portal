@@ -46,6 +46,12 @@ The deployment process is driven from your local machine using a Bash script and
 The following section [Deploy your network](#deploy-your-network) provides links to official installation guides of the required tools.
 In addition, the CENM Command-Line Interface (CLI) tool is required so you can connect to, and manage CENM (however, this is not required for deployment).
 
+{{< note >}}
+
+For the best CENM deployment performance with Kubernetes, you must set up the AKS cluster and its storage accounts in the same geographical region.
+
+{{< /note >}}
+
 ### Compatibility
 
 The deployment scripts are compatible with Corda Enterprise Network Manager version 1.5.

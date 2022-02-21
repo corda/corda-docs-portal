@@ -43,6 +43,7 @@ Before you run the sample CorDapp:
     * The [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md).
     * The [CorDapp Builder](../../../../../en/platform/corda/5.0-dev-preview-1/packaging/cordapp-builder.md).
     * The [Corda Node CLI](../../../../../en/platform/corda/5.0-dev-preview-1/nodes/operating/cli-curl/cli-curl.md).
+    * The [CorDapp CPK and CPB Gradle plugins](../../../../../en/platform/corda/5.0-dev-preview-1/packaging/gradle-plugin/overview.md)
 
 If you're new to Corda, check out the [CorDapp documentation](../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/overview.md) for key concepts.
 

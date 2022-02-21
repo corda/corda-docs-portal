@@ -325,14 +325,6 @@ systemProperties = { "net.corda.djvm" = true }
 This will cause your node to sandbox every call to `Contract.verify`. If your transaction contains a source of non-determinism,
 transaction verification will fail.
 
-Alternatively, you can enable the DJVM when creating nodes via DemoBench by ticking the `Deterministic Contract Verification` checkbox
-when creating the initial notary node.
-
-{{< warning >}}
-**DemoBench** is deprecated in Corda 4.6 and Corda Enterprise 4.6.
-{{< /warning >}}
-
-
 ### Using the Command-line Tool
 
 You can download and unpack `corda-djvm-cli.zip` from the R3 Artifactory.
