@@ -158,7 +158,7 @@ sshd {
 You can extend the `deployNodes` task with more `node {}` blocks to generate as many nodes as necessary for your application.
 
 {{< warning >}}
-When adding nodes, make sure that there are no port clashes!
+When adding nodes, make sure that there are no port clashes.
 {{< /warning >}}
 
 To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [Node configuration](corda-configuration-file.md) format of `node.conf`. The properties set there will be appended to the generated node configuration.
@@ -167,7 +167,7 @@ To extend node configuration beyond the properties defined in the `deployNodes` 
 If you add a property to the additional configuration file that has already been created by the `deployNodes` task, both properties will be present in generated node configuration.
 {{< /note >}}
 
-Alternatively, you can also add the path to the additional configuration file while running the gradle task via the `-PconfigFile` command-line option. However, this will result in the same configuration file being applied to all nodes.
+You can also add the path to the additional configuration file while running the gradle task via the `-PconfigFile` command-line option. However, this will result in the same configuration file being applied to all nodes.
 
 Following on from the previous example, the `PartyB` node in the next example below has additional configuration options added from a file called `none-b.conf`:
 
@@ -221,10 +221,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 
 ## Sign CorDapp `.jar` files
 
-The default Cordform behaviour is to deploy CorDapp `.jar` files “as built”.
-
-* Prior to Corda 4.0, all CorDapp `.jar` files were unsigned.
-* As of Corda 4.0, CorDapp `.jar` files created by the gradle `cordapp` plug-in are signed by a Corda development certificate by default.
+CorDapp `.jar` files created by the gradle `cordapp` plug-in are signed by a Corda development certificate by default.
 
 You can use the Cordform `signing` entry to override and customise the signing of CorDapp `.jar` files.
 Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract Constraints](api-contract-constraints.md).
@@ -233,19 +230,20 @@ The signing task may use an external keystore, or create a new one.
 You can use the following parameters in the `signing` entry:
 
 
-* `enabled` - the control flag to enable the signing process. It is set to `false` by default. Set to `true` to enable signing.
-* `all` - if set to `true` (default), all CorDapps inside the `cordapp` sub-directory will be signed. If set to `false`, only the generated Cordapp will be signed.
-* `options` - any relevant parameters of [SignJar ANT task](https://ant.apache.org/manual/Tasks/signjar.html) and [GenKey ANT task](https://ant.apache.org/manual/Tasks/genkey.html). By default the `.jar` file is signed by a Corda development key. You can specify the external keystore can be specified. The minimal list of required options is shown below. For other options, see [SignJar task](https://ant.apache.org/manual/Tasks/signjar.html).
-  * `keystore` - the path to the keystore file. The default setting is `cordadevcakeys.jks`. The keystore is shipped with the plug-in.
-  * `alias` - the alias to sign under. The default value is `cordaintermediateca`.
-  * `storepass` - the keystore password. The default value is `cordacadevpass`.
-  * `keypass` - the private key password, if it is different from the keystore password. The default value is `cordacadevkeypass`.
-  * `storetype` - the keystore type. The default value is `JKS`.
-  * `dname` - the distinguished name for the entity. Only use this option when `generateKeystore` is set to `true` (see below).
-  * `keyalg` - the method to use when generating a name-value pair. The default value is `RSA` because Corda does not support `DSA`. Only use this option when `generateKeystore` is set to `true` (see below).
-* `generateKeystore` - the flag to generate a keystore. The default value is `false`. If set to `true`, an "ad hoc" keystore is created and its key is used instead of the default Corda development key or any external key. The same `options` to specify an external keystore are used to define the newly created keystore. In addition,
-  `dname` and `keyalg` are required. Other options are described in [GenKey task](https://ant.apache.org/manual/Tasks/genkey.html). If the existing keystore is already present, the task will reuse it. However if the file is inside the `build` directory,
-  then it will be deleted when the gradle `clean` task is run.
+* `enabled` is the control flag to enable the signing process. It is set to `false` by default. Set to `true` to enable signing.
+* `all`, if set to `true` (default), all CorDapps inside the `cordapp` sub-directory will be signed. If set to `false`, only the generated Cordapp will be signed.
+* `options` covers any relevant parameters of [SignJar ANT task](https://ant.apache.org/manual/Tasks/signjar.html) and [GenKey ANT task](https://ant.apache.org/manual/Tasks/genkey.html). By default, the `.jar` file is signed by a Corda development key. You can specify the external keystore can be specified. The minimal list of required options is shown below. For other options, see [SignJar task](https://ant.apache.org/manual/Tasks/signjar.html).
+  * `keystore` is the path to the keystore file. The default setting is `cordadevcakeys.jks`. The keystore is shipped with the plug-in.
+  * `alias` is the alias to sign under. The default value is `cordaintermediateca`.
+  * `storepass` is the keystore password. The default value is `cordacadevpass`.
+  * `keypass` is the private key password, if it is different from the keystore password. The default value is `cordacadevkeypass`.
+  * `storetype` is the keystore type. The default value is `JKS`.
+  * `dname` is the distinguished name for the entity. Only use this option when `generateKeystore` is set to `true` (see below).
+  * `keyalg` is the method to use when generating a name-value pair. The default value is `RSA` because Corda does not support `DSA`. Only use this option when `generateKeystore` is set to `true` (see below).
+* `generateKeystore` is the flag to generate a keystore. The default value is `false`. If set to `true`, an "ad hoc" keystore is created and its key is used instead of the default Corda development key or any external key. The same `options` to specify an external keystore are used to define the newly created keystore. In addition,
+  `dname` and `keyalg` are required.
+  * Other options are described in [GenKey task](https://ant.apache.org/manual/Tasks/genkey.html). If the existing keystore is already present, the task will reuse it. However if the file is inside the `build` directory,
+    then it will be deleted when the gradle `clean` task is run.
 
 The example below shows the minimal set of `options` required to create a dummy keystore:
 
@@ -267,7 +265,7 @@ The example below shows the minimal set of `options` required to create a dummy 
       //...
   ```
 
-Contracts classes from signed CorDapp `.jar` files are checked by signature constraints by default.
+Contract classes from signed CorDapp `.jar` files are checked by signature constraints by default.
 You can force them to be checked by zone constraints by adding contract class names to the `includeWhitelist` entry - the list will generate an `include_whitelist.txt` file used internally by the [Network Bootstrapper](network-bootstrapper.md) tool.
 Before you add `includeWhitelist` to the `deployNodes` task, see [Contract Constraints](api-contract-constraints.md) to understand the implications of using different constraint types.
 The snippet below configures contracts classes from the Finance CorDapp to be verified using zone constraints instead of signature constraints:

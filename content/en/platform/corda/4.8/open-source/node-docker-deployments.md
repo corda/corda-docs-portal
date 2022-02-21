@@ -59,8 +59,7 @@ If using the H2 database:
 * Persistence - the folder to hold the H2 database files must be mounted at location `/opt/corda/persistence`
 
 {{< note >}}
-If there is no dataSourceProperties key in the node.conf, the Docker container overrides the url for H2 to point to the persistence directory by default so that the database can be accessed outside the container
-
+If there is no `dataSourceProperties` key in the node.conf, the Docker container overrides the url for H2 to point to the persistence directory by default so that the database can be accessed outside the container.
 {{< /note >}}
 
 ## Running a node connected to a Bootstrapped Network
