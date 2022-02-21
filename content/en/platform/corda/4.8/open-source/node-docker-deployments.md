@@ -18,10 +18,10 @@ title: Docker deployments
 # Docker deployments
 
 This page contains a repository of example manual node configuration operations using Docker. Before executing any of these commands,
-ensure the Corda Docker image has been correctly configured. For more information on this, see the [Official Corda Docker Image](docker-image.md).
+ensure the [Corda Docker image](docker-image.md) has been correctly configured.
 
-The node runs in a container. This is similar to executing the jar directly, except with the need to mount directories into the container that a Corda node would normally have. It is also necessary to set up
-port-forwarding and environment variables. The same command variables can be used in running the container as when running the jar. See the [generating a node](generating-a-node.md) and [running nodes locally](running-a-node.md) pages.
+The node runs in a container. This is similar to executing the `.jar` directly, except with the need to mount directories into the container that a Corda node would normally have. It is also necessary to set up
+port-forwarding and environment variables. The same command variables can be used in running the container as when running the `.jar`. See the [generating a node](generating-a-node.md) and [running nodes locally](running-a-node.md) pages.
 
 ## Running a node connected to a Compatibility Zone in Docker
 
@@ -87,7 +87,7 @@ docker run -ti \
         corda/corda-zulu-java1.8-4.8:latest
 ```
 
-There is a new mount `/home/user/sharedFolder/node-infos:/opt/corda/additional-node-infos` which is used to hold the `nodeInfo` of all the nodes within the network.
+The mount `/home/user/sharedFolder/node-infos:/opt/corda/additional-node-infos` is used to hold the `nodeInfo` of all the nodes within the network.
 As the node within the container starts up, it will place its own nodeInfo into this directory. This will allow other nodes also using this folder to see this new node.
 
 

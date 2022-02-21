@@ -39,7 +39,7 @@ All three nodes also include any CorDapps defined in the project's source direct
 The three nodes described here are just an example. `Cordform` allows you to specify any number of nodes and define their configurations and names as needed.
 {{< /note >}}
 
-Run this example task to create the three nodes in the `build/nodes` directory:
+Run this example task to create the three nodes in the `build/nodes` directory. Make sure to use [Corda gradle plug-in version 5.0.10](https://github.com/corda/corda-gradle-plugins/releases) or above:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -92,33 +92,29 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-{{< note >}}
-Make sure to use Corda gradle plug-in version 5.0.10 or above.
-{{< /note >}}
+## Minimum configuration
 
-The configuration values used in the example are described below.
+There are four mandatory fields that must be set for the Cordform plugin:
 
-### Required configuration
-
-* `name` &lt;string&gt; - use this configuration option to specify the legal identity name of the Corda node. For more information, see [myLegalName](corda-configuration-fields.html#mylegalname). For example:
+1. `name` &lt;string&gt; is used to specify the legal identity name of the Corda node. For more information, see [myLegalName](corda-configuration-fields.html#mylegalname). For example:
 
 ```kotlin
 name "O=PartyA,L=London,C=GB"
 ```
 
-* `p2pAddress` &lt;string&gt; - use this configuration option to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress](corda-configuration-fields.html#p2paddress). **Required if `p2pPort` is not specified**. For example:
+2. `p2pAddress` &lt;string&gt; is used to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress](corda-configuration-fields.html#p2paddress). **Required if `p2pPort` is not specified**. For example:
 
 ```kotlin
 p2pAddress "example.com:10002"
 ```
 
-* `p2pPort` &lt;integer&gt; - use this configuration option to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress](corda-configuration-fields.html#p2paddress). For example:
+3. `p2pPort` &lt;integer&gt; is used to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress](corda-configuration-fields.html#p2paddress). For example:
 
 ```kotlin
 p2pPort 10006  // "localhost:10006"
 ```
 
-* `rpcSettings` &lt;config&gt; - use this configuration option to specify RPC settings for the node. For more information, see [rpcSettings](corda-configuration-fields.html#rpcsettings). For example:
+4. `rpcSettings` &lt;config&gt; is used to specify RPC settings for the node. For more information, see [rpcSettings](corda-configuration-fields.html#rpcsettings). For example:
 
 ```kotlin
 rpcSettings {
@@ -127,29 +123,31 @@ rpcSettings {
 }
 ```
 
-### Optional configuration
+## Optional configuration
 
-* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required**> for Notary nodes. For more information, see [Notary](corda-configuration-fields.html#notary).
+In addition to the four mandatory configuration fields, there are a number of optional configuration options to meet the needs of more specific plugin deployments:
 
-* `devMode` &lt;boolean&gt; - use this configuration option to enable development mode when you set its value to `true`. For more information, see [devMode](corda-configuration-fields.html#devmode). For example:
+* `notary` &lt;config&gt; is used to specify the node as a Notary node. **Required**> for Notary nodes. For more information, see [Notary](corda-configuration-fields.html#notary).
+
+* `devMode` &lt;boolean&gt; is used to enable development mode when you set its value to `true`. For more information, see [devMode](corda-configuration-fields.html#devmode). For example:
 
 ```kotlin
 devMode true
 ```
 
-* `rpcUsers` &lt;list&gt; - use this configuration option to set the RPC users for the node. For more information, see [rpcUsers](corda-configuration-fields.html#rpcusers). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
+* `rpcUsers` &lt;list&gt; is used to set the RPC users for the node. For more information, see [rpcUsers](corda-configuration-fields.html#rpcusers). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
 
 ```kotlin
 rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
 ```
 
-* `configFile` &lt;string&gt; - use this configuration option to generate an extended node configuration. For example:
+* `configFile` &lt;string&gt; is used to generate an extended node configuration. For example:
 
 ```kotlin
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
 ```
 
-* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](corda-configuration-fields.html#sshd). For example:
+* `sshdPort` &lt;integer&gt; is used to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](corda-configuration-fields.html#sshd). For example:
 
 ```kotlin
 sshd {
@@ -201,7 +199,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-### Package namespace ownership
+## Package namespace ownership
 
 To configure [package namespace ownership](../../4.8/enterprise/node/deploy/env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](network-bootstrapper.md) tool. For example:
 
@@ -221,7 +219,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-### Sign CorDapp `.jar` files
+## Sign CorDapp `.jar` files
 
 The default Cordform behaviour is to deploy CorDapp `.jar` files “as built”.
 
@@ -280,9 +278,9 @@ The snippet below configures contracts classes from the Finance CorDapp to be ve
       //...
   ```
 
-### Optional migration step
+## Optional migration step
 
-If you are migrating your database schema from an older Corda version to Corda 4.8, you must add the following parameter to the node section in the `build.gradle` and set it to `true`, as follows:
+If you are migrating your database schema from an older Corda version to Corda 4.8, you must add the following parameter to the node section in the `build.gradle` and set it to `true`:
 
   ```
           runSchemaMigration = true
@@ -290,7 +288,7 @@ If you are migrating your database schema from an older Corda version to Corda 4
 
 This step runs the full schema migration process as the last step of the Cordform task, and leave the nodes ready to run.
 
-### Run the Cordform task
+## Run the Cordform task
 
 To create the nodes defined in the `deployNodes` task example above, run the following command in a command prompt or a terminal window, from the root of the project where the `deployNodes` task is defined:
 
