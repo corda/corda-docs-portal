@@ -17,7 +17,7 @@ title: Docker deployments
 
 # Docker deployments
 
-This page contains a repository of example manual node configuration operations using Docker. Before executing any of these commands,
+This page contains a repository of example manual node operations using Docker. Before executing any of these commands,
 ensure the [Corda Docker image](docker-image.md) has been correctly configured.
 
 The node runs in a container. This is similar to executing the `.jar` directly, except with the need to mount directories into the container that a Corda node would normally have. It is also necessary to set up
