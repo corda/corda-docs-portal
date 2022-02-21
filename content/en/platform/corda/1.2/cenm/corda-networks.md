@@ -20,7 +20,7 @@ title: Corda Networks
 
 A Corda network is a collection of nodes with a vetted, unique identity that share a common “root of trust”
 upon which all certificates and signatures are ultimately chained back to. The tooling that enables this infrastructure
-is provided by the Enterprise Network Manager suite of tools, specifically the Identity Manager component.
+is provided by the Corda Enterprise Network Manager (CENM) suite of tools, specifically the Identity Manager component.
 
 As part of their boot-strapping process nodes submit their identity (public key and x500 name) to the Identity Manager
 of the network they wish to join. From there a number of things happen:
