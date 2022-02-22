@@ -89,9 +89,9 @@ Your node comes with several default CorDapps installed, which handle common tas
 
 ## Draining mode
 
-Nodes can be decommissioned from the network, but in order to shut down a node cleanly, it is important that no node processes (or ['flows'](../../../../../en/platform/corda/4.8/open-source/key-concepts-flows.md)) are active,
-meaning no [checkpoints](../../../../../en/platform/corda/4.8/open-source/contributing-flow-internals.html#checkpoints) are persisted. Nodes can be drained and decommissioned for a number of reasons, including for the investigation
-of performance and latency issues, maintenance, and necessary upgrading work.
+It is often necessary to spin down nodes. Planned maintenance is a common administrative task and nodes can be drained and decommissioned for a number of reasons, including for the investigation
+of performance and latency issues, maintenance, and necessary upgrading work.. Nodes can be decommissioned from the network, but in order to shut down a node cleanly, it is important that no node processes (or ['flows'](../../../../../en/platform/corda/4.8/open-source/key-concepts-flows.md)) are active,
+meaning no [checkpoints](../../../../../en/platform/corda/4.8/open-source/contributing-flow-internals.html#checkpoints) are persisted.
 
 Checkpoints freeze a flow and capture its current status, and they are automatically saved to the database when a flow suspends or resumes. A flow can be replayed from the last checkpoint if the node restarts, with this automatic checkpointing
 ensuring durability against crashes and restarts. It is important that all of this in-progress data is cleared in anticipation of shutting down a node. The draining mode ensures that before shutting down:
