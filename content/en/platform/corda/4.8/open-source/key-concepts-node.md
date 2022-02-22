@@ -104,9 +104,3 @@ Once the number of activities reaches zero, it is safe to shut the node down.
 The draining mode property is durable, meaning that restarting the node does not reset it to its default value and that an RPC command is required.
 
 The node can be safely shut down via a drain using the [shell](../../../../../en/platform/corda/4.8/open-source/shell.md), Corda's embedded command line.
-
-This section needs to be refocused on core concepts. In this case, we need some more info. The header for this section should probably be something like "shutting down a node". We probably also need some info on spinning up a node.
-
-Why drain a node? (to shut it down) Use cases?
-What's a checkpoint/what does "in-flight" mean?
-Who's a node owner? Who's a node operator? What's the difference, and what can each do?
