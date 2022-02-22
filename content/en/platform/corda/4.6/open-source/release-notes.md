@@ -21,7 +21,7 @@ title: Release notes
 
 ### Updated December 16 2021
 
-Corda 4.6 was updated on December 16th 2022 to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
+Corda 4.6 was updated on December 16th 2021 to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
 
 {{< warning >}}
 
