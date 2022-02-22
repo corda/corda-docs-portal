@@ -7,7 +7,7 @@ tags:
 - running
 - node
 title: Running nodes remotely
-weight: 10
+weight: 6
 ---
 
 # Running nodes remotely
