@@ -7,7 +7,7 @@ tags:
 - docker
 - image
 title: Docker deployments
-weight: 125
+weight: 130
 ---
 
 # Docker deployments
