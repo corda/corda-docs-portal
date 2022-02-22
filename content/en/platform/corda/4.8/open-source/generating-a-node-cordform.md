@@ -169,7 +169,7 @@ If you add a property to the additional configuration file that has already been
 
 You can also add the path to the additional configuration file while running the gradle task via the `-PconfigFile` command-line option. However, this will result in the same configuration file being applied to all nodes.
 
-Following on from the previous example, the `PartyB` node in the next example below has additional configuration options added from a file called `none-b.conf`:
+The `PartyB` node in the next example has additional configuration options added from a file called `none-b.conf`:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
