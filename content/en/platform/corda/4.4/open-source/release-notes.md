@@ -29,13 +29,24 @@ comes with those same guarantees. States and apps valid in Corda 3.0 are usable 
 
 ### Updated December 16 2021
 
-Download the [latest version of Corda 4.4](https://github.com/corda/corda) to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
+Corda 4.4 was updated on December 16th 2021 to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
 
 {{< warning >}}
 
 Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). This is the most secure way to mitigate any risks associated with this vulnerability.
 
 {{< /warning >}}
+
+To build the latest version of Corda 4.4:
+
+1. Open a terminal window in the directory where you want to download the Corda repository.
+2. Clone the Corda repository by running this command:
+   `git clone https://github.com/corda/corda.git`
+3. Checkout the release branch for Corda 4.4 by running this command:
+   `git checkout origin/release/os/4.4`
+4. Run the command:
+   `./gradlew assemble`
+5. Find `node/capsule/build/libs/corda-4.4-SNAPSHOT.jar`, this replaces your node's current `corda.jar`. To replace the superseded `.jar` file, follow the instructions on [upgrading your node to Corda 4.4](node-upgrade-notes.md).
 
 ## Corda 4.4
 
