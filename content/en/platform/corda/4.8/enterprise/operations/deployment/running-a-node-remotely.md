@@ -2,6 +2,7 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-8:
+    identifier: corda-enterprise-4-8-operations-guide-deployment-node-running-remotely
     parent: corda-enterprise-4-8-operations-guide-deployment-node
 tags:
 - running
