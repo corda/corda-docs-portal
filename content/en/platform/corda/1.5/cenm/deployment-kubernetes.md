@@ -581,7 +581,7 @@ idmanPublicIP=$(kubectl get svc cenm-idman-ip -o jsonpath='{.status.loadBalancer
 # These Helm charts bootstrap the rest of the CENM services
 helm install cenm-pki pki --set idmanPublicIP=${idmanPublicIP} --set prefix=cenm --set acceptLicense=Y
 helm install cenm-auth auth --set prefix=cenm --set acceptLicense=Y
-helm install cenm-farm farm --set prefix=cenm --set acceptLicense=Y
+helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=Y
 helm install cenm-zone zone --set prefix=cenm --set acceptLicense=Y
 helm install cenm-signer signer --set idmanPublicIP=${idmanPublicIP} --set prefix=cenm --set acceptLicense=Y
 helm install cenm-idman idman --set prefix=cenm --set acceptLicense=Y
@@ -594,7 +594,7 @@ helm install cenm-notary notary --set notaryPublicIP=${notaryPublicIP} --set pre
 helm install cenm-nmap nmap --set prefix=cenm --set acceptLicense=Y
 
 # Run this command to display the IP address of the CENM CLI endpoint
-kubectl get svc cenm-farm -o jsonpath='{.status.loadBalancer.ingress[0].*}'
+kubectl get svc cenm-gateway -o jsonpath='{.status.loadBalancer.ingress[0].*}'
 
 # Run this command to display the IP address of NetworkMap
 kubectl get svc cenm-nmap -o jsonpath='{.status.loadBalancer.ingress[0].*}'
