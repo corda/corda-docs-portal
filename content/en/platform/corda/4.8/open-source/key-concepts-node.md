@@ -89,9 +89,11 @@ Your node comes with several default CorDapps installed, which handle common tas
 
 ## Draining mode
 
-Nodes can be decommissioned from the network, but in order to shut down a node cleanly, it is important that no node processes (or ['flows'](../../../../../en/platform/corda/4.8/open-source/key-concepts-flows.html)) are active,
-meaning no [checkpoints](../../../../../en/platform/corda/4.8/open-source/contributing-flow-internals.html#checkpoints) are persisted. Checkpoints freeze a flow and capture its current
-status, and they are automatically saved to the database when a flow suspends or resumes. A flow can be replayed from the last checkpoint if the node restarts, with this automatic checkpointing
+Nodes can be decommissioned from the network, but in order to shut down a node cleanly, it is important that no node processes (or ['flows'](../../../../../en/platform/corda/4.8/open-source/key-concepts-flows.md)) are active,
+meaning no [checkpoints](../../../../../en/platform/corda/4.8/open-source/contributing-flow-internals.html#checkpoints) are persisted. Nodes can be drained and decommissioned for a number of reasons, including for the investigation
+of performance and latency issues, maintenance, and necessary upgrading work.
+
+Checkpoints freeze a flow and capture its current status, and they are automatically saved to the database when a flow suspends or resumes. A flow can be replayed from the last checkpoint if the node restarts, with this automatic checkpointing
 ensuring durability against crashes and restarts. It is important that all of this in-progress data is cleared in anticipation of shutting down a node. The draining mode ensures that before shutting down:
 
 * Commands requiring any new, RPC-initiated flows are rejected.
@@ -102,3 +104,9 @@ Once the number of activities reaches zero, it is safe to shut the node down.
 The draining mode property is durable, meaning that restarting the node does not reset it to its default value and that an RPC command is required.
 
 The node can be safely shut down via a drain using the [shell](../../../../../en/platform/corda/4.8/open-source/shell.md), Corda's embedded command line.
+
+This section needs to be refocused on core concepts. In this case, we need some more info. The header for this section should probably be something like "shutting down a node". We probably also need some info on spinning up a node.
+
+Why drain a node? (to shut it down) Use cases?
+What's a checkpoint/what does "in-flight" mean?
+Who's a node owner? Who's a node operator? What's the difference, and what can each do?
