@@ -54,11 +54,11 @@ To add a class to the whitelist, you must either:
 class itself, on any super-class of the class, on any interface implemented by the class or its super-classes, or on any
 interface extended by an interface implemented by the class or its super-classes. This is the preferred method.
 * Implement the `SerializationWhitelist` interface and specify a list of whitelisted classes.
-* It is also possible to whitelist types for serialization using the [java.util.ServiceLoader](https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html) mechanism. The name of the class must appear in a text file on the classpath under the path:
+  * Provide a subclass of this using the [java.util.ServiceLoader](https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html) mechanism. The name of the class must appear in a text file on the classpath under the path:
 
-    ```
-    META-INF/services/net.corda.core.serialization.SerializationWhitelist
-    ```
+      ```
+      META-INF/services/net.corda.core.serialization.SerializationWhitelist
+      ```
 
 The built-in default whitelist (see the `DefaultWhitelist` class) allows common JDK classes for
 convenience. You cannot edit the default whitelist.
