@@ -85,7 +85,7 @@ for your deployment needs.
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|20.1.7|PostgreSQL JDBCDriver 42.2.9|
+|CockroachDB|x86-64|20.2.x|PostgreSQL JDBCDriver 42.2.9|
 |Oracle RAC|x86-64|19c|Oracle JDBC 8|
 
 {{< /table >}}

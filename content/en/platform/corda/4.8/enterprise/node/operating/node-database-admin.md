@@ -480,7 +480,7 @@ Replace the placeholders *<host>*, *<port>* and *<database>* with appropriate va
 The `database.schema` is the database schema name assigned to the user.
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity.
 
-Copy PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
+Copy PostgreSQL JDBC Driver *42.2.9* version *JDBC 4.2* into the `drivers` directory.
 
 
 ### 2.3. Extract the DDL script using Database Management Tool
@@ -902,7 +902,7 @@ The value of `database.schema` is automatically wrapped in double quotes to pres
 (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
 This behaviour differs from Corda Open Source where the value is not wrapped in double quotes.
 
-Place the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).
+Place the PostgreSQL JDBC Driver *42.2.9* version *JDBC 4.2* in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).
 
 
 
