@@ -54,7 +54,7 @@ To add a class to the whitelist, you must either:
 class itself, on any super-class of the class, on any interface implemented by the class or its super-classes, or on any
 interface extended by an interface implemented by the class or its super-classes. This is the preferred method.
 * Implement the `SerializationWhitelist` interface and specify a list of whitelisted classes.
-  * Provide a subclass of this using the [java.util.ServiceLoader](https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html) mechanism. The name of the class must appear in a text file on the classpath under the path:
+  * Use the [java.util.ServiceLoader](https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html) mechanism to add a subclass to this. The name of the class must appear in a text file on the classpath under the path:
 
       ```
       META-INF/services/net.corda.core.serialization.SerializationWhitelist
