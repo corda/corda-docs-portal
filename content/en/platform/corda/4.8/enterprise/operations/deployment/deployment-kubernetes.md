@@ -132,8 +132,8 @@ You can find the files required for the following steps in [CENM deployment repo
 Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
 ```bash
-kubectl apply -f k8s/storage-class-[aws|azure].yaml
-kubectl apply -f k8s/rbac.yaml
+kubectl apply -f ./k8s/storage-class-[aws|azure].yaml
+kubectl apply -f ./k8s/cenm.yaml
 export nameSpace=cenm
 kubectl config set-context $(kubectl config current-context) --namespace=${nameSpace}
 ```

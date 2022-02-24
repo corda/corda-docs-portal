@@ -309,7 +309,7 @@ The ```<logs-container>``` object container determines where the logs will be dr
 where you can get a live view of the logs:
 ```bash
 kubectl logs -c logs-auth <pod-name>   //for auth
-kubectl logs -c logs-gateway <pod-name>   //for gateway
+kubectl logs -c logs-farm <pod-name>   //for farm
 kubectl logs -c logs-idman <pod-name>   //for identity manager
 kubectl logs -c logs-nmap <pod-name>   //for network map
 kubectl logs -c logs-signer <pod-name>   //for signer
@@ -608,13 +608,13 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 
 | Service           | Image name                                                |
 |-------------------|-----------------------------------------------------------|
-| Identity Manager  | `corda/enterprise-identitymanager:1.3-zulu-openjdk8u242 ` |
-| Network Map       | `corda/enterprise-networkmap:1.3-zulu-openjdk8u242`       |
-| Signing           | `corda/enterprise-signer:1.3-zulu-openjdk8u242`           |
-| Zone              | `corda/enterprise-zone:1.3-zulu-openjdk8u242`             |
-| Auth              | `corda/enterprise-auth:1.3-zulu-openjdk8u242`             |
-| Farm              | `corda/enterprise-farm:1.3-zulu-openjdk8u242`             |
-| PKI Tool          | `corda/enterprise-pkitool:1.3-zulu-openjdk8u242`          |
-| Notary            | `corda/enterprise-notary:4.4-zulu-openjdk8u242`           |
+| Identity Manager  | `corda/enterprise-identitymanager:1.3.5-zulu-openjdk8u242` |
+| Network Map       | `corda/enterprise-networkmap:1.3.5-zulu-openjdk8u242`       |
+| Signing           | `corda/enterprise-signer:1.3.5-zulu-openjdk8u242`           |
+| Zone              | `corda/enterprise-zone:1.3.5-zulu-openjdk8u242`             |
+| Auth              | `corda/enterprise-auth:1.0.3-zulu-openjdk8u242`             |
+| Farm              | `corda/enterprise-farm:1.0.2-zulu-openjdk8u242`             |
+| PKI Tool          | `corda/enterprise-pkitool:1.3.5-zulu-openjdk8u242`          |
+| Notary            | `corda/enterprise-notary:4.4.11-zulu-openjdk8u242`           |
 
 {{< /table >}}
