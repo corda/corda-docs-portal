@@ -464,7 +464,7 @@ public class RedeemApples {
                     .withRelevancyStatus(Vault.RelevancyStatus.RELEVANT);
             StateAndRef appleStampStateAndRef = getServiceHub().getVaultService().queryBy(AppleStamp.class, inputCriteria).getStates().get(0);
 
-            //Query output basketOfApples
+            //Query output BasketOfApples
             QueryCriteria.VaultQueryCriteria outputCriteria = new QueryCriteria.VaultQueryCriteria()
                     .withStatus(Vault.StateStatus.UNCONSUMED)
                     .withRelevancyStatus(Vault.RelevancyStatus.RELEVANT);
