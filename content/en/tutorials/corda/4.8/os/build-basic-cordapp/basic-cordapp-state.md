@@ -22,32 +22,57 @@ After you have completed this tutorial, you will know how to create and implemen
 
 Before you start building states, read [Key concepts: States](../../../../../platform/corda/4.8/open-source/key-concepts-states.md).
 
+
 ## Clone the CorDapp template repo
 
 The easiest way to write any CorDapp is to start from a template. This ensures that you have the correct files to begin building.
 
-1. Clone the [Java template repository](https://github.com/corda/cordapp-template-java).
-
+1. Navigate to the Kotlin and Java template repositories and decide which you'd like to clone:
+* https://github.com/corda/cordapp-template-kotlin
+* https://github.com/corda/cordapp-template-java
 
 2. Open a terminal window in the directory where you want to download the CorDapp template.
 
+33. Run the following command:
 
-3. Run the following command:
+{{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+git clone https://github.com/corda/cordapp-template-kotlin.git
+```
+{{% /tab %}}
 
-   ```java
-   git clone https://github.com/corda/cordapp-template-java.git
+{{% tab name="java" %}}
+```java
+git clone https://github.com/corda/cordapp-template-java.git
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
+3. After you have cloned the repository you wish to use, navigate to the correct subdirectory:
+
+   {{< tabs name="tabs-2" >}}
+   {{% tab name="kotlin" %}}
+   ```kotlin
+   cd cordapp-template-kotlin
    ```
+   {{% /tab %}}
 
-4. After you have cloned the repository, navigate to the subdirectory:
-
+   {{% tab name="java" %}}
    ```java
    cd cordapp-template-java
    ```
+   {{% /tab %}}
+
+   {{< /tabs >}}
 
 
-3. After you clone the CorDapp template, open the `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/). If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../platform/corda/4.8/open-source/tutorial-cordapp.html#step-2-open-the-sample-cordapp-in-intellij-idea).
+3. After you clone the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../platform/corda/4.8/open-source/tutorial-cordapp.html#step-2-open-the-sample-cordapp-in-intellij-idea).
 
-4. [Rename the module](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `tutorial`. This changes all instances of the `template` package in the project to `tutorial`. At the dropdown menu that appears, choose 'Rename module'.
+
+4. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `tutorial`. This changes all instances of the `template` package in the project to `tutorial`. At the dropdown menu that appears, choose 'Rename module'.
 
 {{< note >}}
 In this case we have named the package `tutorial` because it is the tutorial CorDapp. When building your own CorDapp, name the package appropriately for your use case. This can be the same name as the CorDapp itself.
