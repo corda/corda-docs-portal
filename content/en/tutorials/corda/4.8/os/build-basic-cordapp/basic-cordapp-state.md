@@ -33,7 +33,7 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 
 2. Open a terminal window in the directory where you want to download the CorDapp template.
 
-33. Run the following command:
+3. Run the following command:
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}
@@ -68,11 +68,11 @@ git clone https://github.com/corda/cordapp-template-java.git
    {{< /tabs >}}
 
 
-3. After you clone the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+4. After you clone the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../platform/corda/4.8/open-source/tutorial-cordapp.html#step-2-open-the-sample-cordapp-in-intellij-idea).
 
 
-4. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `tutorial`. This changes all instances of the `template` package in the project to `tutorial`. At the dropdown menu that appears, choose 'Rename module'.
+5. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `tutorial`. This changes all instances of the `template` package in the project to `tutorial`. At the dropdown menu that appears, choose 'Rename module'.
 
 {{< note >}}
 In this case we have named the package `tutorial` because it is the tutorial CorDapp. When building your own CorDapp, name the package appropriately for your use case. This can be the same name as the CorDapp itself.
