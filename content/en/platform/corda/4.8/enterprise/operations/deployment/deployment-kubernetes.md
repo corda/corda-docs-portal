@@ -108,7 +108,7 @@ The deployment steps are given below:
 - Download the Docker image with CENM [Command-Line Interface (CLI) tool](../../../../1.5/cenm/cenm-cli-tool.md) so you can manage CENM services:
 
     ```bash
-    docker pull corda/enterprise-cenm-cli:1.5.0-zulu-openjdk8u242
+    docker pull corda/enterprise-cenm-cli:1.5.4-zulu-openjdk8u242
     ```
 
 #### 2. Set up the Kubernetes cluster
@@ -123,7 +123,11 @@ The deployment steps are given below:
 - Connect to [your cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal#connect-to-the-cluster)
   from your local machine.
 
-#### 3. Create storage class and namespace
+#### 3. Download CENM deployment scripts
+
+You can find the files required for the following steps in [CENM deployment repo](https://github.com/corda/cenm-deployment).
+
+#### 4. Create storage class and namespace
 
 Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
@@ -135,10 +139,6 @@ kubectl config set-context $(kubectl config current-context) --namespace=${nameS
 ```
 
 You can verify this with the command `kubectl get ns`.
-
-#### 4. Download CENM deployment scripts
-
-You can find the files required for the following steps in [CENM deployment repo](https://github.com/corda/cenm-deployment).
 
 #### 5. External database setup
 
@@ -203,7 +203,7 @@ Use the CENM [Command Line Interface (CLI) Tool](../../../../1.5/cenm/cenm-cli-t
 To start the CENM CLI Tool, run Docker command starting a Docker container with the tool:
 
   ```bash
-  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.5.0-zulu-openjdk8u242
+  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.5.4-zulu-openjdk8u242
   ```
 
 The welcome message will appear:

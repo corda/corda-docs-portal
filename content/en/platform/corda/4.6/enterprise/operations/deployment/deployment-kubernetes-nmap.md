@@ -39,7 +39,7 @@ helm install nmap nmap --set shell.password="superDifficultPassword"
 | `volumeSizeNmapLogs`          | Volume size for the `logs/` directory                    | `10Gi` |
 | `volumeSizeNmapH2`            | Volume size for the `h2/` directory                      | `10Gi` |
 | `dockerImage.repository`      | URL to Network Map Docker image repository               | `corda/enterprise-networkmap` |
-| `dockerImage.tag`             | Docker image tag | `1.4` |
+| `dockerImage.tag`             | Docker image tag | `1.4.4-zulu-openjdk8u242` |
 | `dockerImage.pullPolicy`      | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `dockerImageCli.repository`   | URL to CLI image repository | `corda/enterprise-cenm-cli` |
 | `dockerImageCli.tag`          | Docker image tag | `1.4` |

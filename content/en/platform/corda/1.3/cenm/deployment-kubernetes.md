@@ -129,7 +129,11 @@ The deployment steps are given below:
 - Connect to [your cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal#connect-to-the-cluster)
   from your local machine.
 
-#### 3. Create storage class and namespace
+#### 3. Download CENM deployment scripts
+
+You can find the files required for the following steps in [CENM deployment repo](https://github.com/corda/cenm-deployment).
+
+#### 4. Create storage class and namespace
 
 Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
@@ -140,10 +144,6 @@ kubectl config set-context $(kubectl config current-context) --namespace=${nameS
 ```
 
 You can verify this with the command `kubectl get ns`.
-
-#### 4. Download CENM deployment scripts
-
-You can find the files required for the following steps in [CENM deployment repo](https://github.com/corda/cenm-deployment).
 
 #### 5. External database setup
 

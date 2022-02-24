@@ -129,7 +129,11 @@ The deployment steps are given below:
 - Connect to [your cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal#connect-to-the-cluster)
   from your local machine.
 
-#### 3. Create storage class and namespace
+#### 3. Download CENM deployment scripts
+
+You can find the files required for the following steps in [CENM deployment repo](https://github.com/corda/cenm-deployment).
+
+#### 4. Create storage class and namespace
 
 Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
@@ -141,10 +145,6 @@ kubectl config set-context $(kubectl config current-context) --namespace=${nameS
 ```
 
 You can verify this with the command `kubectl get ns`.
-
-#### 4. Download CENM deployment scripts
-
-You can find the files required for the following steps in [CENM deployment repo](https://github.com/corda/cenm-deployment).
 
 #### 5. External database setup
 
@@ -568,7 +568,6 @@ cd cenm-deployment/k8s/helm
 # These Helm charts trigger public IP allocation
 helm install cenm-idman-ip idman-ip --set prefix=cenm
 helm install cenm-notary-ip notary-ip --set prefix=cenm
-helm install cenm-gateway-ip gateway-ip --set prefix=cenm
 
 # Install HSM chart
 helm install cenm-hsm hsm --set prefix=cenm
@@ -609,13 +608,13 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 
 | Service           | Image name                                                |
 |-------------------|-----------------------------------------------------------|
-| Identity Manager  | `corda/enterprise-identitymanager:1.4-zulu-openjdk8u242 ` |
-| Network Map       | `corda/enterprise-networkmap:1.4-zulu-openjdk8u242`       |
-| Signing           | `corda/enterprise-signer:1.4-zulu-openjdk8u242`           |
-| Zone              | `corda/enterprise-zone:1.4-zulu-openjdk8u242`             |
-| Auth              | `corda/enterprise-auth:1.4-zulu-openjdk8u242`             |
-| Gateway           | `corda/enterprise-gateway:1.4-zulu-openjdk8u242`          |
-| PKI Tool          | `corda/enterprise-pkitool:1.4-zulu-openjdk8u242`          |
-| Notary            | `corda/enterprise-notary:4.5-zulu-openjdk8u242`           |
+| Identity Manager  | `corda/enterprise-identitymanager:1.4.4-zulu-openjdk8u242` |
+| Network Map       | `corda/enterprise-networkmap:1.4.4-zulu-openjdk8u242`       |
+| Signing           | `corda/enterprise-signer:1.4.4-zulu-openjdk8u242`           |
+| Zone              | `corda/enterprise-zone:1.4.4-zulu-openjdk8u242`             |
+| Auth              | `corda/enterprise-auth:1.0.3-zulu-openjdk8u242`             |
+| Gateway           | `corda/enterprise-gateway:1.1.2-zulu-openjdk8u242`          |
+| PKI Tool          | `corda/enterprise-pkitool:1.4.4-zulu-openjdk8u242`          |
+| Notary            | `corda/enterprise-notary:4.4.11-zulu-openjdk8u242`           |
 
 {{< /table >}}

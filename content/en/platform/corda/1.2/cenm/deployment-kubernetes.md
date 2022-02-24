@@ -143,7 +143,11 @@ version.BuildInfo{Version:"v3.1.2", GitCommit:"afe70585407b420d0097d07b21c47dc51
 - Ensure you have your cluster subscription [as your active subscription](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az-account-set)
 - [Connect to your cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal#connect-to-the-cluster)
 
-#### (3) Create storage class, namespace and RBAC
+#### (3) Download helm charts and installation scripts
+
+You can find the files required in the following steps on the [CENM deployment repo](https://github.com/corda/cenm-deployment).
+
+#### (4) Create storage class, namespace and RBAC
 
 Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
@@ -156,10 +160,6 @@ kubectl config set-context $(kubectl config current-context) --namespace=${nameS
 ```
 
 You can verify this with `kubectl get ns`
-
-#### (4) Download helm charts and installation scripts
-
-You can find the files required in the following steps on the [CENM deployment repo](https://github.com/corda/cenm-deployment).
 
 ----
 
