@@ -132,8 +132,8 @@ You can find the files required for the following steps in [CENM deployment repo
 Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
 ```bash
-kubectl apply -f ./k8s/storage-class-[aws|azure].yaml
-kubectl apply -f ./k8s/cenm.yaml
+kubectl apply -f k8s/storage-class-[aws|azure].yaml
+kubectl apply -f k8s/cenm.yaml
 export nameSpace=cenm
 kubectl config set-context $(kubectl config current-context) --namespace=${nameSpace}
 ```
@@ -152,7 +152,7 @@ and an explanation of CENM database configuration options.
 
 **Option 1.** Bootstrap by allocating new external IP addresses
 
-To bootstrap your network, run the `bootstrap.cenm` script from the `/k8s/helm` directory.
+To bootstrap your network, run the `bootstrap.cenm` script from the `k8s/helm` directory.
 The script includes the `--ACCEPT_LICENSE Y` argument, which is mandatory and confirms that you have read and accepted the license agreement.
 
 ```bash

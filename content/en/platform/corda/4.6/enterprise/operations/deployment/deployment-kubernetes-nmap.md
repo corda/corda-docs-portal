@@ -42,7 +42,7 @@ helm install nmap nmap --set shell.password="superDifficultPassword"
 | `dockerImage.tag`             | Docker image tag | `1.4.4-zulu-openjdk8u242` |
 | `dockerImage.pullPolicy`      | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `dockerImageCli.repository`   | URL to CLI image repository | `corda/enterprise-cenm-cli` |
-| `dockerImageCli.tag`          | Docker image tag | `1.4` |
+| `dockerImageCli.tag`          | Docker image tag | `1.4.4-zulu-openjdk8u242` |
 | `dockerImageCli.pullPolicy`   | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `nmapJar.xmx`                 | Value for java -Xmx memory settings | `1G` |
 | `nmapJar.path`                | The directory where the Network Map Service `.jar` file is stored | `bin` |

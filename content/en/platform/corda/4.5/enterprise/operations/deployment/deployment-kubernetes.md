@@ -105,7 +105,7 @@ The deployment steps are given below:
 - Download the Docker image with CENM [Command-Line Interface (CLI) tool](../../../../../../../en/platform/corda/1.3/cenm/cenm-cli-tool.md) so you can manage CENM services:
 
     ```bash
-    docker pull corda/enterprise-cenm-cli:1.3-zulu-openjdk8u242
+    docker pull corda/enterprise-cenm-cli:1.3.5-zulu-openjdk8u242
     ```
 
 #### 2. Set up the Kubernetes cluster
@@ -129,8 +129,8 @@ You can find the files required for the following steps in [CENM deployment repo
 Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
 ```bash
-kubectl apply -f ./k8s/storage-class-[aws|azure].yaml
-kubectl apply -f ./k8s/cenm.yaml
+kubectl apply -f k8s/storage-class-[aws|azure].yaml
+kubectl apply -f k8s/cenm.yaml
 export nameSpace=cenm
 kubectl config set-context $(kubectl config current-context) --namespace=${nameSpace}
 ```
@@ -148,7 +148,7 @@ and an explanation of CENM database configuration options.
 #### 6. Bootstrap CENM
 **Option 1.** Bootstrap by allocating new external IP addresses
 
-To bootstrap your network, run the `bootstrap.cenm` script from the `/k8s/helm` directory.
+To bootstrap your network, run the `bootstrap.cenm` script from the `k8s/helm` directory.
 The script includes the `--ACCEPT_LICENSE Y` argument, which is mandatory and confirms that you have read and accepted the license agreement.
 
 ```bash
@@ -199,7 +199,7 @@ Use the CENM [Command Line Interface (CLI) Tool](../../../../../../../en/platfor
 To star CENM CLI Tool run Docker command starting Docker container with the tool:
 
   ```bash
-  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.3-zulu-openjdk8u242
+  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.3.5-zulu-openjdk8u242
   ```
 
 The welcome message will appear:
