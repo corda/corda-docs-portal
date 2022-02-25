@@ -25,7 +25,7 @@ title: Nodes
 * The node interfaces with the outside world through:
   * The [network](key-concepts-ecosystem.md), which lets it interact with other nodes.
   * Remote Procedure Call (RPC), which lets the node's owner interact with it.
-* You can add extra functions to your node by installing [CorDapps](link to intro to CorDapps) in the plugin registry. CorDapps are distributed applications that let you accomplish different objectives with Corda.
+* You can add extra functions to your node by installing [CorDapps](cordapp-overview.md) in the plugin registry. CorDapps are distributed applications that let you accomplish different objectives with Corda.
 
 ## Video
 
