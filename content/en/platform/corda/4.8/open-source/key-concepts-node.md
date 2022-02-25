@@ -18,7 +18,6 @@ title: Nodes
 
 # Nodes
 
-## Summary
 
 * Nodes represent individuals and businesses on a Corda network.
 * A node runs within a [Java Virtual Machine (JVM)](https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html) and has a unique network identity running the Corda software.
