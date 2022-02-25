@@ -72,7 +72,7 @@ git clone https://github.com/corda/cordapp-template-java.git
 If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../../platform/corda/4.8/open-source/tutorial-cordapp.html#step-2-open-the-sample-cordapp-in-intellij-idea).
 
 
-5. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `tutorial`. This changes all instances of the `template` package in the project to `tutorial`. At the dropdown menu that appears, choose 'Rename module'.
+5. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `tutorial`. This changes all instances of the `template` package in the project to `tutorial`. In the drop-down menu that appears, select **Rename module**.
 
 {{< note >}}
 In this case we have named the package `tutorial` because it is the tutorial CorDapp. When building your own CorDapp, name the package appropriately for your use case. This can be the same name as the CorDapp itself.
