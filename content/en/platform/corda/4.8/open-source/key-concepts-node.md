@@ -24,7 +24,7 @@ title: Nodes
 * A node runs within a [Java Virtual Machine (JVM)](https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html) and has a unique network identity running the Corda software.
 * The node interfaces with the outside world through:
   * The [network](key-concepts-ecosystem.md), which lets it interact with other nodes.
-  * Remote Procedure Call (RPC), which lets the node's owner interact with it.
+  * Remote procedure Call (RPC), which lets the node's owner interact with it.
 * You can add extra functions to your node by installing [CorDapps](cordapp-overview.md) in the plugin registry. CorDapps are distributed applications that let you accomplish different objectives with Corda.
 
 ## Video
@@ -50,10 +50,10 @@ The core elements of the architecture are:
 
 The persistence layer has two parts:
 
-* The **vault**, where the node stores any relevant current and historic states
-* The **storage service**, where it stores transactions, attachments and flow checkpoints
+* The **vault**, where the node stores any relevant current and historic states.
+* The **storage service**, where it stores transactions, attachments, and flow checkpoints.
 
-The node’s owner can query the node’s storage using the RPC interface (see below).
+The node’s owner can query the node’s storage using the [RPC interface](#rpc-interface).
 
 ## Network interface
 
@@ -71,7 +71,7 @@ Internally, the node has access to a rich set of services that are used during f
 updates. The key services are:
 
 * Information about other nodes on the network and the services they offer.
-* Access to the contents of the [vault](../../../../../en/platform/corda/4.8/open-source/key-concepts-vault.html) and the storage service.
+* Access to the contents of the [vault](../../../../../en/platform/corda/4.8/open-source/key-concepts-vault.md) and the storage service.
 * Access to the node’s public-private key pairs.
 * Generation of new public-private key pairs.
 * Information about the node itself.
@@ -90,11 +90,11 @@ Your node comes with several default CorDapps installed, which handle common tas
 ## Draining mode
 
 You may want to decommission or shut down a node for various activities, such as planned maintenance and upgrades, or investigating
-performance or latency issues. To shut down a node cleanly, you must drain it so that no node processes (or ['flows'](../../../../../en/platform/corda/4.8/open-source/key-concepts-flows.md)) are active.
+performance or latency issues. To shut down a node cleanly, you must drain it so that no node processes (or **[flows](../../../../../en/platform/corda/4.8/open-source/key-concepts-flows.md)**) are active.
 
-Checkpoints ensure durability against crashes and restarts by freezing a flow and capturing its current status, which is automatically saved to the database. When the node is restarted, it replays the flow from the last checkpoint. 
+Checkpoints ensure durability against crashes and restarts, by freezing a flow and capturing its current status which is automatically saved to the database. When the node is restarted, it replays the flow from the last checkpoint.
 
-The draining mode ensures that before shutting down:
+Draining mode ensures that before shutting down:
 
 * Commands requiring any new, RPC-initiated flows are rejected.
 * Initial P2P session messages are not processed, meaning peers are not able to initiate new flows involving the node.
