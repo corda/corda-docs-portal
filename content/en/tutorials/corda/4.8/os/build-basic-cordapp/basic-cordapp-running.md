@@ -115,7 +115,7 @@ Finally, Peter goes to the orchard to pick up his apples and redeems his voucher
 
 2. Now you can query `PartyB` again to verify if they redeemed their `AppleStamp` voucher correctly:
 
-`run vaultQuery contractStateType: com.tutorial.states.BasketOfApple`
+`run vaultQuery contractStateType: com.tutorial.states.BasketOfApples`
 
 ## Next steps
 
