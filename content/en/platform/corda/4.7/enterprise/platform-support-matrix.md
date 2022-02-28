@@ -32,7 +32,7 @@ for your deployment needs.
 {{< /warning >}}
 
 
-Docker Images
+## Docker Images
 
 The Docker images used for the Kubernetes deployment are listed below for reference:
 
