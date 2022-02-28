@@ -30,19 +30,19 @@ This deployment guide is intended for use by either of the following types of CE
 
 ### Prerequisites
 
-The reference deployment for Corda Enterprise Network Manager runs on [Kubernetes](https://kubernetes.io/) hosted on Microsoft Azure Cloud.
-Microsoft Azure provides a dedicated service to deploy a Kubernetes cluster - [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
-You must have an active Azure subscription to be able to deploy CENM.
-The next section [Deploy your network](#deploy-your-network) contains links to the official Microsoft installation guide.
-The Kubernetes cluster must have access to a private Docker repository to obtain CENM Docker images.
-
-Your local machine operating system should be Linux, Mac OS, or a Unix-compatible environment for Windows
+* Your local machine operating system should be Linux, Mac OS, or a Unix-compatible environment for Windows
 (for example, [Cygwin](https://www.cygwin.com/)) as the deployment uses Bash scripts.
-The deployment process is driven from your local machine using a Bash script and several third-party tools:
-[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest),
-[Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [Helm](https://helm.sh/).
-The following section [Deploy your network](#deploy-your-network) provides links to official installation guides of the required tools.
-In addition, the CENM Command-Line Interface (CLI) tool is required so you can connect to, and manage CENM (however, this is not required for deployment).
+
+* The deployment process is driven from your local machine using a Bash script and several third-party tools:
+  * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+  * [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+  * [Helm](https://helm.sh/)
+
+* The [Deploy your network](#deploy-your-network) section provides links to installation guides of the required tools.
+The reference deployment for Corda Enterprise Network Manager runs on [Kubernetes](https://kubernetes.io/) hosted on Microsoft Azure Cloud. You must have an active Azure subscription to be able to deploy CENM.
+Microsoft Azure provides a dedicated service to deploy a Kubernetes cluster - [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/). The Kubernetes cluster must have access to a private Docker repository to obtain CENM Docker images.
+
+* The CENM Command-Line Interface (CLI) tool is required so you can connect to, and manage CENM (however, this is not required for deployment).
 
 {{< note >}}
 
@@ -64,7 +64,7 @@ Each service runs in its own dedicated Kubernetes pod, with the exception of the
 
 {{< note >}}
 Naturally, the following command will not show a dedicated Angel Service pod:
-kubectl get pods -o wide
+`kubectl get pods -o wide`
 
 The Angel Service and its managed service must both be healthy in order for the pod they are running on to healthy. This means that the pod has a status `RUNNING` if both services are running fine, and a status `DOWN` if **any** of the two services (or both) is down.
 {{< /note >}}
@@ -355,7 +355,7 @@ database {
 
 Use the CENM [Command-Line (CLI) tool](cenm-cli-tool.md) to run commands to update the network parameters.
 
-See the official CENM documentation for more information about the list of available [network parameters](./config-network-parameters.html)
+See the CENM documentation for more information about the list of available [network parameters](./config-network-parameters.html)
 and instructions on [updating network parameters](./updating-network-parameters.html).
 
 ### Run Flag Day
@@ -602,19 +602,4 @@ echo ${idmanPublicIP}
 
 ## Appendix A: Docker Images
 
-The Docker images used for the Kubernetes deployment are listed below for reference:
-
-{{< table >}}
-
-| Service           | Image name                                                |
-|-------------------|-----------------------------------------------------------|
-| Identity Manager  | `corda/enterprise-identitymanager:1.3.5-zulu-openjdk8u242` |
-| Network Map       | `corda/enterprise-networkmap:1.3.5-zulu-openjdk8u242`       |
-| Signing           | `corda/enterprise-signer:1.3.5-zulu-openjdk8u242`           |
-| Zone              | `corda/enterprise-zone:1.3.5-zulu-openjdk8u242`             |
-| Auth              | `corda/enterprise-auth:1.0.3-zulu-openjdk8u242`             |
-| Farm              | `corda/enterprise-farm:1.0.2-zulu-openjdk8u242`             |
-| PKI Tool          | `corda/enterprise-pkitool:1.3.5-zulu-openjdk8u242`          |
-| Notary            | `corda/enterprise-notary:4.4.11-zulu-openjdk8u242`           |
-
-{{< /table >}}
+Visit the [platform support matrix](../../../../../../../en/platform/corda/4.5/enterprise/platform-support-matrix.html#docker-images) for information on Corda Docker Images for version 1.3
