@@ -32,12 +32,11 @@ for your deployment needs.
 {{< /warning >}}
 
 
-Docker Images
+## Docker Images
 
 The Docker images used for the Kubernetes deployment are listed below for reference:
 
 {{< table >}}
-
 | Service           | Image name                                                  |
 |-------------------|-------------------------------------------------------------|
 | Identity Manager  | `corda/enterprise-identitymanager:1.5.4-zulu-openjdk8u242`  |
@@ -48,7 +47,6 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 | Gateway           | `corda/enterprise-gateway:1.5.4-zulu-openjdk8u242`          |
 | PKI Tool          | `corda/enterprise-pkitool:1.5.4-zulu-openjdk8u242`          |
 | Notary            | `corda/enterprise-notary:4.5.9-zulu-openjdk8u242`           |
-
 {{< /table >}}
 
 
