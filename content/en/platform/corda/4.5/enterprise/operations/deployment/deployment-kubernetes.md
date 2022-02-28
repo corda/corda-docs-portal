@@ -105,7 +105,7 @@ The deployment steps are given below:
 - Download the Docker image with CENM [Command-Line Interface (CLI) tool](../../../../../../../en/platform/corda/1.3/cenm/cenm-cli-tool.md) so you can manage CENM services:
 
     ```bash
-    docker pull corda/enterprise-cenm-cli:1.3-zulu-openjdk8u242
+    docker pull corda/enterprise-cenm-cli:1.3.5-zulu-openjdk8u242
     ```
 
 #### 2. Set up the Kubernetes cluster
@@ -120,23 +120,22 @@ The deployment steps are given below:
 - Connect to [your cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal#connect-to-the-cluster)
   from your local machine.
 
-#### 3. Create storage class and namespace
+#### 3. Download CENM deployment scripts
 
-Run the following instruction once the previous points have been cleared:
+You can find the files required for the following steps in [CENM deployment repo](https://github.com/corda/cenm-deployment).
 
-`All the examples below use the namespace **cenm**`
+#### 4. Create storage class and namespace
+
+Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
 ```bash
-kubectl apply -f deployment/k8s/cenm.yaml
+kubectl apply -f k8s/storage-class-[aws|azure].yaml
+kubectl apply -f k8s/cenm.yaml
 export nameSpace=cenm
 kubectl config set-context $(kubectl config current-context) --namespace=${nameSpace}
 ```
 
 You can verify this with the command `kubectl get ns`.
-
-#### 4. Download CENM deployment scripts
-
-You can find the files required for the following steps in [CENM deployment repo](https://github.com/corda/cenm-deployment).
 
 #### 5. External database setup
 
@@ -149,7 +148,7 @@ and an explanation of CENM database configuration options.
 #### 6. Bootstrap CENM
 **Option 1.** Bootstrap by allocating new external IP addresses
 
-To bootstrap your network, run the `bootstrap.cenm` script from the `/k8s/helm` directory.
+To bootstrap your network, run the `bootstrap.cenm` script from the `k8s/helm` directory.
 The script includes the `--ACCEPT_LICENSE Y` argument, which is mandatory and confirms that you have read and accepted the license agreement.
 
 ```bash
@@ -170,7 +169,7 @@ You can use the following bootstrap options when running bootstrap:
 Usage:
 
 ```bash
-cd network-services/deployment/k8s/helm
+cd k8s/helm
 ./bootstrap.cenm <option>
 ```
 
@@ -190,7 +189,7 @@ kubectl get pods -o wide
 If your external IPs have been already allocated you can reuse them by specifying their services names:
 
 ```bash
-cd network-services/deployment/k8s/helm
+cd k8s/helm
 ./bootstrap.cenm -i idman-ip -n notary-ip
 ```
 
@@ -200,7 +199,7 @@ Use the CENM [Command Line Interface (CLI) Tool](../../../../../../../en/platfor
 To star CENM CLI Tool run Docker command starting Docker container with the tool:
 
   ```bash
-  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli cenm-cli:1.3-zulu-openjdk8u242
+  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.3.5-zulu-openjdk8u242
   ```
 
 The welcome message will appear:
@@ -393,7 +392,7 @@ Once you have created an Azure Key Vault that you want to use, perform the follo
 
 The HSM pod is a helper pod, which loads a defined Docker image and attempts to load the folder containing the HSM-related
 files as a volume for the other pods to use. Follow the steps below:
-1. [Create the library jar](#using-azure-key-vault).
+1. <a href="../../../../../../../en/platform/corda/1.3/cenm/signing-service.html#azure-key-vault">Create the library `.jar`</a>
 2. Create a Docker image containing the `.jar` file and the `.pkcs12` file used as the key store path.
 
 The Docker image and the directory where these files are stored must be specified in the relevant variables in the HSM `values.yaml` file.
@@ -451,7 +450,7 @@ The example below shows a PostgresSQL installation that runs inside the same Kub
 
 #### Example PostgreSQL database setup inside the Kubernetes cluster
 
-A PostgreSQL database can be installed inside the Kubernetes cluster using a third-party [Bitami Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/postgresql):
+A PostgreSQL database can be installed inside the Kubernetes cluster using a third-party [Bitnami Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/postgresql):
 
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -523,13 +522,13 @@ where each command creates a CENM service consisting of the following:
 * Identity Manager Service
 * Network Map Service
 * Auth Service
-* FARM Service
+* Farm Service
 * Corda Notary
 
 They need to be run in the correct order, as shown below:
 
 ```bash
-cd network-services/deployment/k8s/helm
+cd k8s/helm
 
 # These Helm charts trigger public IP allocation
 helm install idman-ip idman-ip
@@ -561,15 +560,15 @@ The Docker images used for the Kubernetes deployment are listed below for refere
 
 {{< table >}}
 
-| Service           | Image Name                         | Tag |
-|-------------------|------------------------------------|-----|
-| Identity Manager  | acrcenm.azurecr.io/nmap/nmap       | 1.3 |
-| Network Map       | acrcenm.azurecr.io/nmap/nmap       | 1.3 |
-| Signing           | acrcenm.azurecr.io/signer/signer   | 1.3 |
-| Zone              | acrcenm.azurecr.io/zone/zone       | 1.3 |
-| Auth              | acrcenm.azurecr.io/auth/auth       | 1.3 |
-| Farm              | acrcenm.azurecr.io/farm/farm       | 1.3 |
-| PKI Tool          | acrcenm.azurecr.io/pkitool/pkitool | 1.3 |
-| Notary            | acrcenm.azurecr.io/notary/notary   | 1.3 |
+| Service           | Image name                                                |
+|-------------------|-----------------------------------------------------------|
+| Identity Manager  | `corda/enterprise-identitymanager:1.3.5-zulu-openjdk8u242` |
+| Network Map       | `corda/enterprise-networkmap:1.3.5-zulu-openjdk8u242`       |
+| Signing           | `corda/enterprise-signer:1.3.5-zulu-openjdk8u242`           |
+| Zone              | `corda/enterprise-zone:1.3.5-zulu-openjdk8u242`             |
+| Auth              | `corda/enterprise-auth:1.0.3-zulu-openjdk8u242`             |
+| Farm              | `corda/enterprise-farm:1.0.2-zulu-openjdk8u242`             |
+| PKI Tool          | `corda/enterprise-pkitool:1.3.5-zulu-openjdk8u242`          |
+| Notary            | `corda/enterprise-notary:4.4.11-zulu-openjdk8u242`           |
 
 {{< /table >}}

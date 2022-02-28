@@ -35,6 +35,21 @@ for your deployment needs.
 
 The Docker Images for Corda Enterprise 4.8 can be found [here](../../../../../en/platform/corda/4.8/enterprise/operations/deployment/deployment-kubernetes.html#appendix-a-docker-images).
 
+## JDKs supported in development
+
+Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
+
+{{< table >}}
+
+|Supported JDKs|Latest supported version|
+|-----------------------------------|-----------|
+|[Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)|8u321|
+|[Amazon Corretto 8](https://aws.amazon.com/corretto/)|8.252.09.1|
+|[Red Hat's OpenJDK](https://developers.redhat.com/products/openjdk/overview/)|8u322|
+|[Zulu's OpenJDK](https://www.azul.com/)|8u322b06|
+
+{{< /table >}}
+
 ## Operating systems supported in production
 
 {{< table >}}
