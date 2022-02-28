@@ -34,8 +34,8 @@ helm install cenm-auth auth --set prefix=cenm --set acceptLicense=Y --set volume
 | Parameter  | Description   | Default value    |
 | ---------- | ------------- | -----------------|
 | `bashDebug`                   | Display additional information while running bash scripts (useful while investigating issues) | `false` |
-| `authImage.repository`        | URL to Network Map Docker image repository | `acrcenm.azurecr.io/auth/auth` |
-| `authImage.tag`               | Docker image tag | `1.4` |
+| `authImage.repository`        | URL to Network Map Docker image repository | `corda/enterprise-auth` |
+| `authImage.tag`               | Docker image tag | `1.0.3-zulu-openjdk8u242` |
 | `authImage.pullPolicy`        | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `database.driverClassName`    | Auth Service database connection details | `org.h2.Driver` |
 | `database.jdbcDriver`         | Auth Service database connection details | `""`
