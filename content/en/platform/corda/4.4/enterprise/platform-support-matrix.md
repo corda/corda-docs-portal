@@ -42,11 +42,6 @@ for your deployment needs.
 
 {{< /warning >}}
 
-## Docker Images
-
-The Docker Images for Corda Enterprise 4.4 can be found [here](../../../../../en/platform/corda/4.4/enterprise/operations/deployment/deployment-kubernetes.html#appendix-a-docker-images).
-
-
 ## Operating systems supported in production
 
 

@@ -31,9 +31,26 @@ which outlines the end of public updates of Java SE 8 for commercial use, please
 for your deployment needs.
 {{< /warning >}}
 
-## Docker Images
 
-The Docker Images for Corda Enterprise 4.7 can be found [here](../../../../../en/platform/corda/4.7/enterprise/operations/deployment/deployment-kubernetes.html#appendix-a-docker-images).
+Docker Images
+
+The Docker images used for the Kubernetes deployment are listed below for reference:
+
+{{< table >}}
+
+| Service           | Image name                                                  |
+|-------------------|-------------------------------------------------------------|
+| Identity Manager  | `corda/enterprise-identitymanager:1.5.4-zulu-openjdk8u242`  |
+| Network Map       | `corda/enterprise-networkmap:1.5.4-zulu-openjdk8u242`       |
+| Signing           | `corda/enterprise-signer:1.5.4-zulu-openjdk8u242`           |
+| Zone              | `corda/enterprise-zone:1.5.4-zulu-openjdk8u242`             |
+| Auth              | `corda/enterprise-auth:1.5.4-zulu-openjdk8u242`             |
+| Gateway           | `corda/enterprise-gateway:1.5.4-zulu-openjdk8u242`          |
+| PKI Tool          | `corda/enterprise-pkitool:1.5.4-zulu-openjdk8u242`          |
+| Notary            | `corda/enterprise-notary:4.5.9-zulu-openjdk8u242`           |
+
+{{< /table >}}
+
 
 ## Operating systems supported in production
 

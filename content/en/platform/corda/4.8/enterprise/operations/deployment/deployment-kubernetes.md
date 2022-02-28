@@ -560,19 +560,4 @@ kubectl get svc --namespace cenm nmap --template "{{ range (index .status.loadBa
 
 ## Appendix A: Docker Images
 
-The Docker images used for the Kubernetes deployment are listed below for reference:
-
-{{< table >}}
-
-| Service           | Image name                                                  |
-|-------------------|-------------------------------------------------------------|
-| Identity Manager  | `corda/enterprise-identitymanager:1.5.4-zulu-openjdk8u242`  |
-| Network Map       | `corda/enterprise-networkmap:1.5.4-zulu-openjdk8u242`       |
-| Signing           | `corda/enterprise-signer:1.5.4-zulu-openjdk8u242`           |
-| Zone              | `corda/enterprise-zone:1.5.4-zulu-openjdk8u242`             |
-| Auth              | `corda/enterprise-auth:1.5.4-zulu-openjdk8u242`             |
-| Gateway           | `corda/enterprise-gateway:1.5.4-zulu-openjdk8u242`          |
-| PKI Tool          | `corda/enterprise-pkitool:1.5.4-zulu-openjdk8u242`          |
-| Notary            | `corda/enterprise-notary:4.5.9-zulu-openjdk8u242`           |
-
-{{< /table >}}
+Visit the [platform support matrix](../../../../../../../en/platform/corda/4.8/enterprise/platform-support-matrix.html#docker-images) for information on Corda Docker Images for version 4.8.
