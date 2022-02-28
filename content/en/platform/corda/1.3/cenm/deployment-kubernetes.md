@@ -42,7 +42,7 @@ This deployment guide is intended for use by either of the following types of CE
 The reference deployment for Corda Enterprise Network Manager runs on [Kubernetes](https://kubernetes.io/) hosted on Microsoft Azure Cloud. You must have an active Azure subscription to be able to deploy CENM.
 Microsoft Azure provides a dedicated service to deploy a Kubernetes cluster - [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/). The Kubernetes cluster must have access to a private Docker repository to obtain CENM Docker images.
 
-* The CENM Command-Line Interface (CLI) tool is required so you can connect to, and manage CENM (however, this is not required for deployment).
+* The CENM Command-Line Interface (CLI) tool is required to connect to and manage CENM. It is not required for deployment.
 
 {{< note >}}
 
