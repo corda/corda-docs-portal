@@ -371,7 +371,7 @@ public class PackageApples {
             //final Party notary = getServiceHub().getNetworkMapCache().getNotary(CordaX500Name.parse("O=Notary,L=London,C=GB")); // METHOD 2
 
             //Create the output object
-            BasketOfApple basket = new BasketOfApple(this.appleDescription,this.getOurIdentity(),this.weight);
+            BasketOfApples basket = new BasketOfApple(this.appleDescription,this.getOurIdentity(),this.weight);
 
             //Building transaction
             TransactionBuilder txBuilder = new TransactionBuilder(notary)
@@ -464,15 +464,15 @@ public class RedeemApples {
                     .withRelevancyStatus(Vault.RelevancyStatus.RELEVANT);
             StateAndRef appleStampStateAndRef = getServiceHub().getVaultService().queryBy(AppleStamp.class, inputCriteria).getStates().get(0);
 
-            //Query output basketOfApple
-            QueryCriteria outputCriteria = new QueryCriteria.VaultQueryCriteria()
+            //Query output BasketOfApples
+            QueryCriteria.VaultQueryCriteria outputCriteria = new QueryCriteria.VaultQueryCriteria()
                     .withStatus(Vault.StateStatus.UNCONSUMED)
                     .withRelevancyStatus(Vault.RelevancyStatus.RELEVANT);
             StateAndRef basketOfAppleStateAndRef = getServiceHub().getVaultService().queryBy(BasketOfApple.class, outputCriteria).getStates().get(0);
-            BasketOfApple originalBasketOfApple = (BasketOfApple) basketOfAppleStateAndRef.getState().getData();
+            BasketOfApples originalBasketOfApples = (BasketOfApples) basketOfAppleStateAndRef.getState().getData();
 
             //Modify output to address the owner change
-            BasketOfApple output = originalBasketOfApple.changeOwner(buyer);
+            BasketOfApples output = originalBasketOfApple.changeOwner(buyer);
 
             //Build Transaction
             TransactionBuilder txBuilder = new TransactionBuilder(notary)
