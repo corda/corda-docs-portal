@@ -12,11 +12,11 @@ menu:
 tags:
 - docker
 - image
-title: Official Corda Docker Image
+title: Official Corda Docker image
 ---
 
 
-# Official Corda Docker Image
+# Official Corda Docker image
 
 The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/r/corda/corda-zulu-java1.8-4.8.6) is `corda/corda-zulu-java1.8-4.8.6`.
 
@@ -29,7 +29,7 @@ The official Corda Docker image is found at the [Corda Docker hub](https://hub.d
 
 ## Getting started
 
-The `docker run` command runs the Docker Image. [Docker run](https://docs.docker.com/engine/reference/commandline/run/) is explained in more detail in the Docker documentation. Once `docker run` is used,
+The `docker run` command runs the Docker image. [Docker run](https://docs.docker.com/engine/reference/commandline/run/) is explained in more detail in the Docker documentation. Once `docker run` is used,
 the container process that runs is isolated in that it has its own file system, its own networking, and its own isolated process tree separate from the host.
 
 * For information on using docker for development purposes, visit the [creating a node](generating-a-node.md) page.
