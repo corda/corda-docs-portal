@@ -42,8 +42,6 @@ for your deployment needs.
 
 {{< /warning >}}
 
-
-
 ## Operating systems supported in production
 
 
