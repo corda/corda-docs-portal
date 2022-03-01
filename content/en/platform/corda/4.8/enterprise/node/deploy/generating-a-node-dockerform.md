@@ -269,7 +269,7 @@ Make sure to use Corda gradle plugin version 5.0.10 or above.
 {{< /note >}}
 
 {{% warning %}}
-The docker image name must be specified by using the `dockerImage` property.
+The Docker image name must be specified by using the `dockerImage` property.
 {{% /warning %}}
 
 ```groovy
