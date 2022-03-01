@@ -31,6 +31,25 @@ which outlines the end of public updates of Java SE 8 for commercial use, please
 for your deployment needs.
 {{< /warning >}}
 
+## Docker Images
+
+The Docker images used for the Kubernetes deployment are listed below for reference:
+
+{{< table >}}
+
+| Service           | Image name                                                |
+|-------------------|-----------------------------------------------------------|
+| Identity Manager  | `corda/enterprise-identitymanager:1.3.5-zulu-openjdk8u242` |
+| Network Map       | `corda/enterprise-networkmap:1.3.5-zulu-openjdk8u242`       |
+| Signing           | `corda/enterprise-signer:1.3.5-zulu-openjdk8u242`           |
+| Zone              | `corda/enterprise-zone:1.3.5-zulu-openjdk8u242`             |
+| Auth              | `corda/enterprise-auth:1.0.3-zulu-openjdk8u242`             |
+| Farm              | `corda/enterprise-farm:1.0.2-zulu-openjdk8u242`             |
+| PKI Tool          | `corda/enterprise-pkitool:1.3.5-zulu-openjdk8u242`          |
+| Notary            | `corda/enterprise-notary:4.4.11-zulu-openjdk8u242`           |
+
+{{< /table >}}
+
 ## Operating systems supported in production
 
 {{< table >}}
