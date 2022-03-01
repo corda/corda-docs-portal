@@ -24,7 +24,7 @@ The official Corda Docker image is found at the [Corda Docker hub](https://hub.d
 
 ## Getting started
 
-The `docker run` command runs the Docker Image. [Docker run](https://docs.docker.com/engine/reference/commandline/run/) is explained in more detail in the Docker documentation. Once `docker run` is used,
+The `docker run` command runs the Docker image. [Docker run](https://docs.docker.com/engine/reference/commandline/run/) is explained in more detail in the Docker documentation. Once `docker run` is used,
 the container process that runs is isolated in that it has its own file system, its own networking, and its own isolated process tree separate from the host.
 
 * For information on using docker for development purposes, visit the [creating a node](../../../../../en/platform/corda/4.8/enterprise/operations/deployment/generating-a-node.md) page.
