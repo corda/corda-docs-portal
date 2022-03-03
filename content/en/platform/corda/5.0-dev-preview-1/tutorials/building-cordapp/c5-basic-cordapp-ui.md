@@ -83,7 +83,7 @@ Once the Mission Mars CorDapp UI is up and running, you can use it to test the C
 
 3. Go to the **CREATE TICKET** tab to test the `CreateBoardingTicket` flow.
 
-   a. Provide ticket description and the number of days until launch.
+   a. Provide ticket description and launch date.
 
    b. Click **START FLOW**.
 
