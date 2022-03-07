@@ -20,7 +20,7 @@ This feature enables you to make flow starts more reliable by relating a flow to
 
 You can use this feature to enable an RPC client to reconnect to an existing flow after a disconnect between the client and the node. This eliminates the need to write custom logic that allows you to check if a flow has already been invoked. Corda can then reliably handle this logic without custom code, so that node restarts or flow retries can be handled in a reliable manner.
 
-You can also enable an RPC client to signal to Corda to retain the flow's result or exception, so that it could be reclaimed at any time in the future.  
+You can also enable an RPC client to signal to Corda to retain the flow's result or exception, so that it could be reclaimed at any time in the future.
 
 ## Steps and examples
 
@@ -44,6 +44,8 @@ If a flow with the provided `clientId` exists, then the API return its future. O
 * If the `clientId` matches a flow, then the rest of the arguments passed to `startFlowDynamicWithClientId` are ignored - these do not need to match any arguments that the existing flow had started with.
 * The `startFlowDynamicWithClientId` API behaviour described above does not apply for the pre-existing start flow APIs (`startFlow` and `startTrackedFlow`) - in those cases a new start flow request always equals a new spawned flow.
 * Overloaded methods named `startFlowWithClientId` have been added in `CordaRPCOps` (only available for Kotlin).
+* A limit of **five** non-whitelisted arguments can be passed to the flow constructor using the `CordaRPCOps.startFlow` method.
+  Compound objects can be passed as long as they are [whitelisted](serialization.html#whitelisting) using the `@CordaSerializable` annotation.
 {{< /note >}}
 
 To start a flow with a `clientId`:
