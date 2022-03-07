@@ -17,10 +17,10 @@ weight: 145
 
 ## Logging
 
-Corda's logging component is [Log4j 2](https://logging.apache.org/log4j/2.x/), and uses an [SLF4J ](https://www.slf4j.org/interface)
+Corda's logging feature uses a [Log4j 2](https://logging.apache.org/log4j/2.x/) component and an [SLF4J ](https://www.slf4j.org/interface)
 interface as its abstraction layer. The latest Corda logging configuration file can be found on [GitHub](https://github.com/corda/corda/blob/release/os/4.10/config/dev/log4j2.xml).
 
-* Default node log files are stored to the `logs` subdirectory of the working directory and are rotated from time to time.
+* By default, node log files are stored to the `logs` subdirectory of the working directory and are rotated from time to time.
 * Passing the `--log-to-console` command line flag logs printing to the console.
 * The default logging level is `INFO` which can be adjusted by the `--logging-level` command line argument. This configuration option will affect all modules.
   * [Hibernate](http://hibernate.org/orm/)
