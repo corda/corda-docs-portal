@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RPCConnectionListener.onPermanentFailure - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.ext</a>&nbsp;/&nbsp;<a href="index.html">RPCConnectionListener</a>&nbsp;/&nbsp;<a href="./on-permanent-failure.html">onPermanentFailure</a><br/>
+<br/>
+<h1>onPermanentFailure</h1>
+<a name="net.corda.client.rpc.ext.RPCConnectionListener$onPermanentFailure(net.corda.client.rpc.ext.RPCConnectionListener.ConnectionContext((net.corda.client.rpc.ext.RPCConnectionListener.I)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onPermanentFailure</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.ext.RPCConnectionListener$onPermanentFailure(net.corda.client.rpc.ext.RPCConnectionListener.ConnectionContext((net.corda.client.rpc.ext.RPCConnectionListener.I)))/context">context</span><span class="symbol">:</span>&nbsp;<span class="identifier">ConnectionContext</span><span class="symbol">&lt;</span><span class="identifier">I</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>This is a terminal notification to inform that:</p>
+<ul><li>it has never been possible to connect due to incorrect credentials or endpoints addresses supplied. In this case
+<a href="-connection-context/connection-opt.html">ConnectionContext.connectionOpt</a> will be <code>null</code>;
+or</li>
+<li>no further reconnection will be performed as maximum number of attempts has been reached. In this case
+<a href="-connection-context/connection-opt.html">ConnectionContext.connectionOpt</a> may not be <code>null</code>.</li>
+</ul>
+</BODY>
+</HTML>

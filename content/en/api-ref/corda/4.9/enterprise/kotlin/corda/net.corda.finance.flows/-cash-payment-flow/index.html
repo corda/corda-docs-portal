@@ -1,0 +1,113 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CashPaymentFlow - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="./index.html">CashPaymentFlow</a><br/>
+<br/>
+<h1>CashPaymentFlow</h1>
+<code><span class="identifier">@StartableByRPC</span> <span class="identifier">@InitiatingFlow</span> <span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CashPaymentFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-abstract-cash-flow/index.html"><span class="identifier">AbstractCashFlow</span></a><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span></code>
+<p>Initiates a flow that sends cash to a recipient.</p>
+<h3>Parameters</h3>
+<p><a name="amount"></a>
+<code>amount</code> - the amount of a currency to pay to the recipient.</p>
+<p><a name="recipient"></a>
+<code>recipient</code> - the party to pay the currency to.</p>
+<p><a name="issuerConstraint"></a>
+<code>issuerConstraint</code> - if specified, the payment will be made using only cash issued by the given parties.</p>
+<p><a name="anonymous"></a>
+<code>anonymous</code> - whether to anonymous the recipient party. Should be true for normal usage, but may be false</p>
+<p><a name="notary"></a>
+<code>notary</code> - if not specified, the first notary of the network map is selected
+for testing purposes.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-payment-request/index.html">PaymentRequest</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">PaymentRequest</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AbstractRequest</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A straightforward constructor that constructs spends using cash states of any issuer.</p>
+<code><span class="identifier">CashPaymentFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party)/amount">amount</span><span class="symbol">:</span>&nbsp;<span class="identifier">Amount</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party)/recipient">recipient</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">CashPaymentFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean)/amount">amount</span><span class="symbol">:</span>&nbsp;<span class="identifier">Amount</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean)/recipient">recipient</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean)/anonymous">anonymous</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span></code><code><span class="identifier">CashPaymentFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean, net.corda.core.identity.Party)/amount">amount</span><span class="symbol">:</span>&nbsp;<span class="identifier">Amount</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean, net.corda.core.identity.Party)/recipient">recipient</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean, net.corda.core.identity.Party)/anonymous">anonymous</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean, net.corda.core.identity.Party)/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">CashPaymentFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.finance.flows.CashPaymentFlow.PaymentRequest)/request">request</span><span class="symbol">:</span>&nbsp;<span class="identifier">PaymentRequest</span><span class="symbol">)</span></code>
+<p>Initiates a flow that sends cash to a recipient.</p>
+<code><span class="identifier">CashPaymentFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean, net.corda.core.utilities.ProgressTracker, kotlin.collections.Set((net.corda.core.identity.Party)), net.corda.core.identity.Party)/amount">amount</span><span class="symbol">:</span>&nbsp;<span class="identifier">Amount</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean, net.corda.core.utilities.ProgressTracker, kotlin.collections.Set((net.corda.core.identity.Party)), net.corda.core.identity.Party)/recipient">recipient</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean, net.corda.core.utilities.ProgressTracker, kotlin.collections.Set((net.corda.core.identity.Party)), net.corda.core.identity.Party)/anonymous">anonymous</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean, net.corda.core.utilities.ProgressTracker, kotlin.collections.Set((net.corda.core.identity.Party)), net.corda.core.identity.Party)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<span class="identifier">ProgressTracker</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean, net.corda.core.utilities.ProgressTracker, kotlin.collections.Set((net.corda.core.identity.Party)), net.corda.core.identity.Party)/issuerConstraint">issuerConstraint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><span class="identifier">Party</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptySet()<span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashPaymentFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.Party, kotlin.Boolean, net.corda.core.utilities.ProgressTracker, kotlin.collections.Set((net.corda.core.identity.Party)), net.corda.core.identity.Party)/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="amount.html">amount</a></h4>
+</td>
+<td>
+<p>the amount of a currency to pay to the recipient.</p>
+<code><span class="keyword">val </span><span class="identifier">amount</span><span class="symbol">: </span><span class="identifier">Amount</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="anonymous.html">anonymous</a></h4>
+</td>
+<td>
+<p>whether to anonymous the recipient party. Should be true for normal usage, but may be false</p>
+<code><span class="keyword">val </span><span class="identifier">anonymous</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="issuer-constraint.html">issuerConstraint</a></h4>
+</td>
+<td>
+<p>if specified, the payment will be made using only cash issued by the given parties.</p>
+<code><span class="keyword">val </span><span class="identifier">issuerConstraint</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><span class="identifier">Party</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary.html">notary</a></h4>
+</td>
+<td>
+<p>if not specified, the first notary of the network map is selected
+for testing purposes.</p>
+<code><span class="keyword">val </span><span class="identifier">notary</span><span class="symbol">: </span><span class="identifier">Party</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="recipient.html">recipient</a></h4>
+</td>
+<td>
+<p>the party to pay the currency to.</p>
+<code><span class="keyword">val </span><span class="identifier">recipient</span><span class="symbol">: </span><span class="identifier">Party</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Result</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

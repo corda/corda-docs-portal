@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MockNetwork.runNetwork - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="index.html">MockNetwork</a>&nbsp;/&nbsp;<a href="./run-network.html">runNetwork</a><br/>
+<br/>
+<h1>runNetwork</h1>
+<a name="net.corda.testing.node.MockNetwork$runNetwork(kotlin.Int)"></a>
+<code><span class="identifier">@JvmOverloads</span> <span class="keyword">fun </span><span class="identifier">runNetwork</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$runNetwork(kotlin.Int)/rounds">rounds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;-1<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Asks every node in order to process any queued up inbound messages. This may in turn result in nodes
+sending more messages to each other, thus, a typical usage is to call runNetwork with the <a href="run-network.html#net.corda.testing.node.MockNetwork$runNetwork(kotlin.Int)/rounds">rounds</a>
+parameter set to -1 (the default) which simply runs as many rounds as necessary to result in network
+stability (no nodes sent any messages in the last round).</p>
+</BODY>
+</HTML>

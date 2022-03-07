@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AbstractCashSelection.unconsumedCashStatesForSpending - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.workflows.asset.selection</a>&nbsp;/&nbsp;<a href="index.html">AbstractCashSelection</a>&nbsp;/&nbsp;<a href="./unconsumed-cash-states-for-spending.html">unconsumedCashStatesForSpending</a><br/>
+<br/>
+<h1>unconsumedCashStatesForSpending</h1>
+<a name="net.corda.finance.workflows.asset.selection.AbstractCashSelection$unconsumedCashStatesForSpending(net.corda.core.node.ServiceHub, net.corda.core.contracts.Amount((java.util.Currency)), kotlin.collections.Set((net.corda.core.identity.AbstractParty)), net.corda.core.identity.Party, java.util.UUID, kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)))"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">fun </span><span class="identifier">unconsumedCashStatesForSpending</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows.asset.selection.AbstractCashSelection$unconsumedCashStatesForSpending(net.corda.core.node.ServiceHub, net.corda.core.contracts.Amount((java.util.Currency)), kotlin.collections.Set((net.corda.core.identity.AbstractParty)), net.corda.core.identity.Party, java.util.UUID, kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)))/services">services</span><span class="symbol">:</span>&nbsp;<span class="identifier">ServiceHub</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.AbstractCashSelection$unconsumedCashStatesForSpending(net.corda.core.node.ServiceHub, net.corda.core.contracts.Amount((java.util.Currency)), kotlin.collections.Set((net.corda.core.identity.AbstractParty)), net.corda.core.identity.Party, java.util.UUID, kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)))/amount">amount</span><span class="symbol">:</span>&nbsp;<span class="identifier">Amount</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.AbstractCashSelection$unconsumedCashStatesForSpending(net.corda.core.node.ServiceHub, net.corda.core.contracts.Amount((java.util.Currency)), kotlin.collections.Set((net.corda.core.identity.AbstractParty)), net.corda.core.identity.Party, java.util.UUID, kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)))/onlyFromIssuerParties">onlyFromIssuerParties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><span class="identifier">AbstractParty</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptySet()<span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.AbstractCashSelection$unconsumedCashStatesForSpending(net.corda.core.node.ServiceHub, net.corda.core.contracts.Amount((java.util.Currency)), kotlin.collections.Set((net.corda.core.identity.AbstractParty)), net.corda.core.identity.Party, java.util.UUID, kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)))/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.AbstractCashSelection$unconsumedCashStatesForSpending(net.corda.core.node.ServiceHub, net.corda.core.contracts.Amount((java.util.Currency)), kotlin.collections.Set((net.corda.core.identity.AbstractParty)), net.corda.core.identity.Party, java.util.UUID, kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)))/lockId">lockId</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.AbstractCashSelection$unconsumedCashStatesForSpending(net.corda.core.node.ServiceHub, net.corda.core.contracts.Amount((java.util.Currency)), kotlin.collections.Set((net.corda.core.identity.AbstractParty)), net.corda.core.identity.Party, java.util.UUID, kotlin.collections.Set((net.corda.core.utilities.OpaqueBytes)))/withIssuerRefs">withIssuerRefs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><span class="identifier">OpaqueBytes</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptySet()<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">StateAndRef</span><span class="symbol">&lt;</span><span class="identifier">State</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Query to gather Cash states that are available and retry if they are temporarily unavailable.</p>
+<h3>Parameters</h3>
+<p><a name="services"></a>
+<code>services</code> - The service hub to allow access to the database session</p>
+<p><a name="amount"></a>
+<code>amount</code> - The amount of currency desired (ignoring issues, but specifying the currency)</p>
+<p><a name="onlyFromIssuerParties"></a>
+<code>onlyFromIssuerParties</code> - If empty the operation ignores the specifics of the issuer,
+otherwise the set of eligible states wil be filtered to only include those from these issuers.</p>
+<p><a name="notary"></a>
+<code>notary</code> - If null the notary source is ignored, if specified then only states marked
+with this notary are included.</p>
+<p><a name="lockId"></a>
+<code>lockId</code> - The FlowLogic.runId.uuid of the flow, which is used to soft reserve the states.
+Also, previous outputs of the flow will be eligible as they are implicitly locked with this id until the flow completes.</p>
+<p><a name="withIssuerRefs"></a>
+<code>withIssuerRefs</code> - If not empty the specific set of issuer references to match against.</p>
+<p><strong>Return</strong><br/>
+The matching states that were found. If sufficient funds were found these will be locked,
+otherwise what is available is returned unlocked for informational purposes.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,497 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>alltypes - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<h3>All Types</h3>
+<table>
+<tbody>
+<tr>
+<h5><a href="../net.corda.finance.flows/-abstract-cash-flow/index.html">net.corda.finance.flows.AbstractCashFlow</a></h5>
+<p>Initiates a flow that produces an Issue/Move or Exit Cash transaction.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset.selection/-abstract-cash-selection/index.html">net.corda.finance.workflows.asset.selection.AbstractCashSelection</a></h5>
+<p>Pluggable interface to allow for different cash selection provider implementations
+Default implementation in finance workflow module uses H2 database and a custom function within H2 to perform aggregation.
+Custom implementations must implement this interface and declare their implementation in
+<code>META-INF/services/net.corda.finance.workflows.asset.selection.AbstractCashSelection</code>.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.finance)
+<h5><a href="../net.corda.finance/net.corda.core.contracts.-amount/index.html">net.corda.core.contracts.Amount</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-attachment-resolution-exception/index.html">net.corda.testing.dsl.AttachmentResolutionException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc.proxy/-audit-data-r-p-c-ops/index.html">net.corda.client.rpc.proxy.AuditDataRPCOps</a></h5>
+<p>RPC client side interface for RPC audit data retrieval and removal</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-exception/index.html">net.corda.finance.flows.CashException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-exit-flow/index.html">net.corda.finance.flows.CashExitFlow</a></h5>
+<p>Initiates a flow that produces an cash exit transaction.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-exit-responder-flow/index.html">net.corda.finance.flows.CashExitResponderFlow</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-issue-and-payment-flow/index.html">net.corda.finance.flows.CashIssueAndPaymentFlow</a></h5>
+<p>Initiates a flow that self-issues cash and then send this to a recipient.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-issue-flow/index.html">net.corda.finance.flows.CashIssueFlow</a></h5>
+<p>Initiates a flow that self-issues cash (which should then be sent to recipient(s) using a payment transaction).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-payment-flow/index.html">net.corda.finance.flows.CashPaymentFlow</a></h5>
+<p>Initiates a flow that sends cash to a recipient.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-payment-receiver-flow/index.html">net.corda.finance.flows.CashPaymentReceiverFlow</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.test/-cash-schema.html">net.corda.finance.test.CashSchema</a></h5>
+<p>An object used to fully qualify the <a href="../net.corda.finance.test/-cash-schema.html">CashSchema</a> family name (i.e. independent of version).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset.selection/-cash-selection-h2-impl/index.html">net.corda.finance.workflows.asset.selection.CashSelectionH2Impl</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset.selection/-cash-selection-oracle-impl/index.html">net.corda.finance.workflows.asset.selection.CashSelectionOracleImpl</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset.selection/-cash-selection-postgre-s-q-l-impl/index.html">net.corda.finance.workflows.asset.selection.CashSelectionPostgreSQLImpl</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset/-cash-utils/index.html">net.corda.finance.workflows.asset.CashUtils</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-cluster-spec/index.html">net.corda.testing.node.ClusterSpec</a></h5>
+<p>Abstract class specifying information about the consensus algorithm used for a cluster of nodes.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows/-commercial-paper-utils/index.html">net.corda.finance.workflows.CommercialPaperUtils</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-connection-failure-exception/index.html">net.corda.client.rpc.ConnectionFailureException</a></h5>
+<p>Signals that the underlying <a href="../net.corda.client.rpc/-r-p-c-connection/index.html">RPCConnection</a> dropped.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-corda-r-p-c-client/index.html">net.corda.client.rpc.CordaRPCClient</a></h5>
+<p>An RPC client connects to the specified server and allows you to make calls to the server that perform various
+useful tasks. Please see the Client RPC section of docs.corda.net to learn more about how this API works. A brief
+description is provided here.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-corda-r-p-c-client-configuration/index.html">net.corda.client.rpc.CordaRPCClientConfiguration</a></h5>
+<p>Can be used to configure the RPC client connection.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-corda-r-p-c-connection/index.html">net.corda.client.rpc.CordaRPCConnection</a></h5>
+<p>This class is essentially just a wrapper for an <code>RPCConnection&lt;CordaRPCOps&gt;</code> and can be treated identically.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.finance.workflows)
+<h5><a href="../net.corda.finance.workflows/net.corda.core.messaging.-corda-r-p-c-ops/index.html">net.corda.core.messaging.CordaRPCOps</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc.reconnect/-could-not-start-flow-exception/index.html">net.corda.client.rpc.reconnect.CouldNotStartFlowException</a></h5>
+<p>Thrown when a flow start command died before receiving a <a href="#">net.corda.core.messaging.FlowHandle</a>.
+On catching this exception, the typical behaviour is to run a "logical retry", meaning only retry the flow if the expected outcome did not occur.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.finance)
+<h5><a href="../net.corda.finance/java.util.-currency/index.html">java.util.Currency</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.database/-database-constants/index.html">net.corda.testing.database.DatabaseConstants</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-database-snapshot/index.html">net.corda.testing.node.DatabaseSnapshot</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.database/-db-script-runner/index.html">net.corda.testing.database.DbScriptRunner</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.tools/-deployment-health-check-test-utils/index.html">net.corda.testing.tools.DeploymentHealthCheckTestUtils</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.finance)
+<h5><a href="../net.corda.finance/kotlin.-double/index.html">kotlin.Double</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-double-spent-inputs/index.html">net.corda.testing.dsl.DoubleSpentInputs</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-driver-d-s-l/index.html">net.corda.testing.driver.DriverDSL</a></h5>
+<p>Underlying interface for the driver DSL. Do not instantiate directly, instead use the <a href="../net.corda.testing.driver/driver.html">driver</a> function.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-driver-parameters/index.html">net.corda.testing.driver.DriverParameters</a></h5>
+<p>Builder for configuring a <a href="../net.corda.testing.driver/driver.html">driver</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-duplicate-output-label/index.html">net.corda.testing.dsl.DuplicateOutputLabel</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-enforce-verify-or-fail.html">net.corda.testing.dsl.EnforceVerifyOrFail</a></h5>
+<p>If you jumped here from a compiler error make sure the last line of your test tests for a transaction verify or fail.
+This is a dummy type that can only be instantiated by functions in this module. This way we can ensure that all tests
+will have as the last line either an accept or a failure test. The name is deliberately long to help make sense of
+the triggered diagnostic.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset.selection/-enterprise-cash-selection-s-q-l-server-impl/index.html">net.corda.finance.workflows.asset.selection.EnterpriseCashSelectionSQLServerImpl</a></h5>
+<p>SQL Server / SQL Azure</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.nodeapi.flow.hospital/-flow-cordapp-context/index.html">net.corda.nodeapi.flow.hospital.FlowCordappContext</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.nodeapi.flow.hospital/-flow-info/index.html">net.corda.nodeapi.flow.hospital.FlowInfo</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.nodeapi.flow.hospital/-flow-invocation-context/index.html">net.corda.nodeapi.flow.hospital.FlowInvocationContext</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.testing.flows)
+<h5><a href="../net.corda.testing.flows/net.corda.core.flows.-flow-logic/index.html">net.corda.core.flows.FlowLogic</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc.proxy/-flow-r-p-c-ops/index.html">net.corda.client.rpc.proxy.FlowRPCOps</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.nodeapi.flow.hospital/-flow-state/index.html">net.corda.nodeapi.flow.hospital.FlowState</a></h5>
+<p>State of the flow on latest checkpoint</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.nodeapi.flow.hospital/-flow-status-query/index.html">net.corda.nodeapi.flow.hospital.FlowStatusQuery</a></h5>
+<p>Defines filters to lists flows with a checkpoint in the node that have not completed</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.nodeapi.flow.hospital/-flow-status-query-v2/index.html">net.corda.nodeapi.flow.hospital.FlowStatusQueryV2</a></h5>
+<p>Defines filters to lists flows with a checkpoint in the node that have not completed</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.nodeapi.flow.hospital/-flow-time-window/index.html">net.corda.nodeapi.flow.hospital.FlowTimeWindow</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-graceful-reconnect/index.html">net.corda.client.rpc.GracefulReconnect</a></h5>
+<p>GracefulReconnect provides the opportunity to perform certain logic when the RPC encounters a connection disconnect
+during communication with the node.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.http/-http-api/index.html">net.corda.testing.http.HttpApi</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.http/-http-utils/index.html">net.corda.testing.http.HttpUtils</a></h5>
+<p>A small set of utilities for making HttpCalls, aimed at demos and tests.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-in-memory-messaging-network/index.html">net.corda.testing.node.InMemoryMessagingNetwork</a></h5>
+<p>An in-memory network allows you to manufacture <a href="#">MockNodeMessagingService</a>s for a set of participants. Each
+<a href="#">MockNodeMessagingService</a> maintains a queue of messages it has received, and a background thread that dispatches
+messages one by one to registered handlers. Alternatively, a messaging system may be manually pumped, in which
+case no thread is created and a caller is expected to force delivery one at a time (this is useful for unit
+testing).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-in-process/index.html">net.corda.testing.driver.InProcess</a></h5>
+<p>Interface which represents an in process node and exposes available services.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.finance)
+<h5><a href="../net.corda.finance/kotlin.-int/index.html">kotlin.Int</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.nodeapi.flow.hospital/-invocation-source/index.html">net.corda.nodeapi.flow.hospital.InvocationSource</a></h5>
+<p>Defines how the flow was started</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.jackson/-jackson-support/index.html">net.corda.client.jackson.JacksonSupport</a></h5>
+<p>Utilities and serialisers for working with JSON representations of basic types. This adds Jackson support for
+the java.time API, some core types, and Kotlin data classes.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-jmx-policy/index.html">net.corda.testing.driver.JmxPolicy</a></h5>
+<p>A class containing configuration information for Jolokia JMX, to be used when creating a node via the <a href="../net.corda.testing.driver/driver.html">driver</a>.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.testing.flows)
+<h5><a href="../net.corda.testing.flows/kotlin.reflect.-k-class/index.html">kotlin.reflect.KClass</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-ledger-d-s-l/index.html">net.corda.testing.dsl.LedgerDSL</a></h5>
+<p>This is the class that defines the syntactic sugar of the ledger Test DSL and delegates to the contained interpreter,
+and what is actually used in <code>ledger { (...) }</code>. Add convenience functions here, or if you want to extend the DSL
+functionality then first add your primitive to <a href="../net.corda.testing.dsl/-ledger-d-s-l-interpreter/index.html">LedgerDSLInterpreter</a> and then add the convenience defaults/extension
+methods here.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-ledger-d-s-l-interpreter/index.html">net.corda.testing.dsl.LedgerDSLInterpreter</a></h5>
+<p>This interface defines the bare bone functionality that a Ledger DSL interpreter should implement.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.database/-list-populator/index.html">net.corda.testing.database.ListPopulator</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.finance)
+<h5><a href="../net.corda.finance/kotlin.-long/index.html">kotlin.Long</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.testing.flows)
+<h5><a href="../net.corda.testing.flows/kotlin.collections.-map/index.html">kotlin.collections.Map</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-max-rpc-retry-exception/index.html">net.corda.client.rpc.MaxRpcRetryException</a></h5>
+<p>Thrown to indicate an RPC operation has been retried for the <a href="#">maxNumberOfRetries</a> unsuccessfully.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.services/-mock-attachment-storage/index.html">net.corda.testing.services.MockAttachmentStorage</a></h5>
+<p>A mock implementation of <a href="#">AttachmentStorage</a> for use within tests</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-net-flow-time-out/index.html">net.corda.testing.node.MockNetFlowTimeOut</a></h5>
+<p>MockNetFlowTimeOut can be used to configure flow time out settings for a node via the mock network API.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-net-notary-config/index.html">net.corda.testing.node.MockNetNotaryConfig</a></h5>
+<p>MockNetNotaryConfig can be used to configure a node to be a notary via the mock network API. Internally
+this will be translated into a NotaryConfiguration and passed to the respective node.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-network/index.html">net.corda.testing.node.MockNetwork</a></h5>
+<p>A mock node brings up a suite of in-memory services in a fast manner suitable for unit testing.
+Components that do IO are either swapped out for mocks, or pointed to a <a href="#">Jimfs</a> in memory filesystem or an in
+memory H2 database instance.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-network-notary-spec/index.html">net.corda.testing.node.MockNetworkNotarySpec</a></h5>
+<p>The spec for a notary which will used by the <a href="../net.corda.testing.node/-mock-network/index.html">MockNetwork</a> to automatically start a notary node. This notary will
+become part of the network parameters used by all the nodes.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-network-parameters/index.html">net.corda.testing.node.MockNetworkParameters</a></h5>
+<p>Immutable builder for configuring a <a href="../net.corda.testing.node/-mock-network/index.html">MockNetwork</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-node-config-overrides/index.html">net.corda.testing.node.MockNodeConfigOverrides</a></h5>
+<p>This is a data class to configure overrides to the node configuration used in the mock network
+without having to expose/use the actual (internal) node configuration interface on the API.
+When passing one of these to <a href="#">createNode</a> or <a href="#">createUnstartedNode</a> functions, the bits that are
+set will be injected into the node configuration for the node to be created.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-node-parameters/index.html">net.corda.testing.node.MockNodeParameters</a></h5>
+<p>Immutable builder for configuring a <a href="../net.corda.testing.node/-started-mock-node/index.html">StartedMockNode</a> or an <a href="../net.corda.testing.node/-unstarted-mock-node/index.html">UnstartedMockNode</a> via <a href="../net.corda.testing.node/-mock-network/create-node.html">MockNetwork.createNode</a> and
+<a href="../net.corda.testing.node/-mock-network/create-unstarted-node.html">MockNetwork.createUnstartedNode</a>. Kotlin users can also use the named parameters overloads of those methods which
+are more convenient.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-services/index.html">net.corda.testing.node.MockServices</a></h5>
+<p>An implementation of <a href="#">ServiceHub</a> that is designed for in-memory unit tests of contract validation logic. It has
+enough functionality to do tests of code that queries the vault, inserts to the vault, and constructs/checks
+transactions. However it isn't enough to test flows and other aspects of an app that require a network. For that
+you should investigate <a href="../net.corda.testing.node/-mock-network/index.html">MockNetwork</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc.ext/-multi-r-p-c-client/index.html">net.corda.client.rpc.ext.MultiRPCClient</a></h5>
+<p>An RPC client connects to the specified server and allows to make calls using specified remote interface to the server that perform various
+useful tasks. Please see the Client RPC section of <a href="http://docs.corda.net">Corda Documentation</a> to learn more about how this API works.
+Only a brief description is provided here.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc.proxy/-node-flow-status-rpc-ops/index.html">net.corda.client.rpc.proxy.NodeFlowStatusRpcOps</a></h5>
+<p>An RPC extension which provides access to the FlowHospital</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-node-handle/index.html">net.corda.testing.driver.NodeHandle</a></h5>
+<p>A base interface which represents a node as part of the <a href="../net.corda.testing.driver/driver.html">driver</a> dsl, extended by <a href="../net.corda.testing.driver/-in-process/index.html">InProcess</a> and <a href="../net.corda.testing.driver/-out-of-process/index.html">OutOfProcess</a></p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc.proxy/-node-health-check-rpc-ops/index.html">net.corda.client.rpc.proxy.NodeHealthCheckRpcOps</a></h5>
+<p>RPC client side interface for health check data retrieval.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-node-parameters/index.html">net.corda.testing.driver.NodeParameters</a></h5>
+<p>Parameters for creating a node for <a href="../net.corda.testing.driver/-driver-d-s-l/start-node.html">DriverDSL.startNode</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc.proxy/-node-status-rpc-ops/index.html">net.corda.client.rpc.proxy.NodeStatusRpcOps</a></h5>
+<p>An RPC extension which provides access to the Node Status</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-notary-handle/index.html">net.corda.testing.driver.NotaryHandle</a></h5>
+<p>Object ecapsulating a notary started automatically by the driver.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-notary-spec/index.html">net.corda.testing.node.NotarySpec</a></h5>
+<p>A notary spec for describing a notary which will be started automatically by the driver and which will be part of
+the network parameters used by all the nodes.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset/-obligation-utils/index.html">net.corda.finance.workflows.asset.ObligationUtils</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.client.rpc)
+<h5><a href="../net.corda.client.rpc/rx.-observable/index.html">rx.Observable</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-out-of-process/index.html">net.corda.testing.driver.OutOfProcess</a></h5>
+<p>Interface which represents an out of process node and exposes its process handle.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-output-state-lookup/index.html">net.corda.testing.dsl.OutputStateLookup</a></h5>
+<p>This interface defines output state lookup by label. It is split from the interpreter interfaces so that outputs may
+be looked up both in ledger{..} and transaction{..} blocks.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-permission-exception/index.html">net.corda.client.rpc.PermissionException</a></h5>
+<p>Thrown to indicate that the calling user does not have permission for something they have requested (for example
+calling a method).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-port-allocation/index.html">net.corda.testing.driver.PortAllocation</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-r-p-c-connection/index.html">net.corda.client.rpc.RPCConnection</a></h5>
+<p>Holds a <a href="../net.corda.client.rpc/-r-p-c-connection/proxy.html">proxy</a> object implementing <a href="../net.corda.client.rpc/-r-p-c-connection/index.html#I">I</a> that forwards requests to the RPC server. The server version can be queried
+via this interface.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc.ext/-r-p-c-connection-listener/index.html">net.corda.client.rpc.ext.RPCConnectionListener</a></h5>
+<p>A listener that can be attached to <a href="../net.corda.client.rpc.ext/-multi-r-p-c-client/index.html">MultiRPCClient</a> to be notified about important RPC connectivity events.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-r-p-c-exception/index.html">net.corda.client.rpc.RPCException</a></h5>
+<p>Thrown to indicate a fatal error in the RPC system itself, as opposed to an error generated by the invoked method.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-r-p-c-since-version/index.html">net.corda.client.rpc.RPCSinceVersion</a></h5>
+<p>Records the protocol version in which this RPC was added.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.test/-sample-cash-schema-v1/index.html">net.corda.finance.test.SampleCashSchemaV1</a></h5>
+<p>First version of a cash contract ORM schema that maps all fields of the <a href="#">Cash</a> contract state as it stood
+at the time of writing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.test/-sample-cash-schema-v2/index.html">net.corda.finance.test.SampleCashSchemaV2</a></h5>
+<p>Second version of a cash contract ORM schema that extends the <a href="#">CommonSchemaV1.FungibleState</a> abstract schema.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.test/-sample-cash-schema-v3/index.html">net.corda.finance.test.SampleCashSchemaV3</a></h5>
+<p>First version of a cash contract ORM schema that maps all fields of the <a href="#">Cash</a> contract state as it stood
+at the time of writing.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.finance.workflows)
+<h5><a href="../net.corda.finance.workflows/net.corda.core.node.-service-hub/index.html">net.corda.core.node.ServiceHub</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.testing.node)
+<h5><a href="../net.corda.testing.node/net.corda.core.node.-service-hub/index.html">net.corda.core.node.ServiceHub</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-started-mock-node/index.html">net.corda.testing.node.StartedMockNode</a></h5>
+<p>A class that represents a started mock node for testing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.jackson/-string-to-class-parser/index.html">net.corda.client.jackson.StringToClassParser</a></h5>
+<p>This class parses strings in a format designed for human usability into objects usually to support
+representation of a query object pattern. The strings accepted by this class are a minor variant of
+<a href="http://www.yaml.org/spec/1.2/spec.html">Yaml</a> and can be easily typed at a command line. Intended use cases include
+things like queries in the Corda shell.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.jackson/-string-to-method-call-parser/index.html">net.corda.client.jackson.StringToMethodCallParser</a></h5>
+<p>This class parses strings in a format designed for human usability into <a href="../net.corda.client.jackson/-string-to-method-call-parser/-parsed-method-call/index.html">ParsedMethodCall</a> objects representing a
+ready-to-invoke call on the given target object. The strings accepted by this class are a minor variant of
+<a href="http://www.yaml.org/spec/1.2/spec.html">Yaml</a> and can be easily typed at a command line. Intended use cases include
+things like the Corda shell, text-based RPC dispatch, simple scripting and so on.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.nodeapi.flow.hospital/-suspension-metadata/index.html">net.corda.nodeapi.flow.hospital.SuspensionMetadata</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.nodeapi.flow.hospital/-suspension-source/index.html">net.corda.nodeapi.flow.hospital.SuspensionSource</a></h5>
+<p>Reason why the flow was suspended</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-test-clock/index.html">net.corda.testing.node.TestClock</a></h5>
+<p>A <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Clock.html">Clock</a> that can have the time advanced for use in testing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-test-cordapp/index.html">net.corda.testing.node.TestCordapp</a></h5>
+<p>Encapsulates a CorDapp that exists on the current classpath, which can be pulled in for testing. Use <a href="../net.corda.testing.node/-test-cordapp/find-cordapp.html">TestCordapp.findCordapp</a>
+to locate an existing CorDapp.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html">net.corda.testing.dsl.TestLedgerDSLInterpreter</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.testing.flows)
+<h5><a href="../net.corda.testing.flows/net.corda.testing.node.internal.-test-started-node/index.html">net.corda.testing.node.internal.TestStartedNode</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html">net.corda.testing.dsl.TestTransactionDSLInterpreter</a></h5>
+<p>This interpreter builds a transaction, and <a href="#">TransactionDSL.verifies</a> that the resolved transaction is correct. Note
+that transactions corresponding to input states are not verified. Use <a href="#">LedgerDSL.verifies</a> for that.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-transaction-d-s-l/index.html">net.corda.testing.dsl.TransactionDSL</a></h5>
+<p>Underlying class for the transaction DSL. Do not instantiate directly, instead use the <a href="#">transaction</a> function.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-transaction-d-s-l-interpreter/index.html">net.corda.testing.dsl.TransactionDSLInterpreter</a></h5>
+<p>This interface defines the bare bone functionality that a Transaction DSL interpreter should implement.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.client.jackson)
+<h5><a href="../net.corda.client.jackson/net.corda.core.utilities.-try/index.html">net.corda.core.utilities.Try</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-two-party-deal-flow/index.html">net.corda.finance.flows.TwoPartyDealFlow</a></h5>
+<p>Classes for manipulating a two party deal or agreement.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-two-party-trade-flow/index.html">net.corda.finance.flows.TwoPartyTradeFlow</a></h5>
+<p>This asset trading flow implements a "delivery vs payment" type swap. It has two parties (B and S for buyer
+and seller) and the following steps:</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.utils/-unknown-calendar/index.html">net.corda.finance.workflows.utils.UnknownCalendar</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-unrecoverable-r-p-c-exception/index.html">net.corda.client.rpc.UnrecoverableRPCException</a></h5>
+<p>Thrown to indicate a fatal error in the RPC system which cannot be recovered from and so needs some manual support.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-unstarted-mock-node/index.html">net.corda.testing.node.UnstartedMockNode</a></h5>
+<p>A class that represents an unstarted mock node for testing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-user/index.html">net.corda.testing.node.User</a></h5>
+<p>Object encapsulating a node rpc user and their associated permissions for use when testing using the <a href="#">driver</a></p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-verifier-type/index.html">net.corda.testing.driver.VerifierType</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-verifies/index.html">net.corda.testing.dsl.Verifies</a></h5>
+<p>This interface asserts that the DSL at hand is capable of verifying its underlying construct(ledger/transaction).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-webserver-handle/index.html">net.corda.testing.driver.WebserverHandle</a></h5>
+<p>Class which represents a handle to a webserver process and its <a href="#">NetworkHostAndPort</a> for testing purposes.</p>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TestCordapp - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="./index.html">TestCordapp</a><br/>
+<br/>
+<h1>TestCordapp</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">TestCordapp</span></code>
+<p>Encapsulates a CorDapp that exists on the current classpath, which can be pulled in for testing. Use <a href="find-cordapp.html">TestCordapp.findCordapp</a>
+to locate an existing CorDapp.</p>
+<p>This is a replacement API to <a href="../../net.corda.testing.driver/-driver-parameters/extra-cordapp-packages-to-scan.html">DriverParameters.extraCordappPackagesToScan</a> and <a href="../-mock-network/cordapp-packages.html">MockNetwork.cordappPackages</a> as they create custom jars
+which do not preserve any CorDapp metadata.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="../../net.corda.testing.driver/-driver-parameters/cordapps-for-all-nodes.html">DriverParameters.cordappsForAllNodes</a></p>
+<p><a href="../../net.corda.testing.driver/-node-parameters/additional-cordapps.html">NodeParameters.additionalCordapps</a></p>
+<p><a href="../-mock-network-parameters/cordapps-for-all-nodes.html">MockNetworkParameters.cordappsForAllNodes</a></p>
+<p><a href="../-mock-node-parameters/additional-cordapps.html">MockNodeParameters.additionalCordapps</a></p>
+</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Encapsulates a CorDapp that exists on the current classpath, which can be pulled in for testing. Use <a href="find-cordapp.html">TestCordapp.findCordapp</a>
+to locate an existing CorDapp.</p>
+<code><span class="identifier">TestCordapp</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="config.html">config</a></h4>
+</td>
+<td>
+<p>Returns the config for on this CorDapp, defaults to empty if not specified.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">config</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="with-config.html">withConfig</a></h4>
+</td>
+<td>
+<p>Returns a copy of this <a href="./index.html">TestCordapp</a> but with the specified CorDapp config.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withConfig</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.TestCordapp$withConfig(kotlin.collections.Map((kotlin.String, kotlin.Any)))/config">config</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TestCordapp</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="find-cordapp.html">findCordapp</a></h4>
+</td>
+<td>
+<p>Scans the current classpath to find the CorDapp that contains the given package. All the CorDapp's metdata present in its
+MANIFEST are inherited. If more than one location containing the package is found then an exception is thrown. An exception
+is also thrown if no CorDapp is found.</p>
+<code><span class="keyword">fun </span><span class="identifier">findCordapp</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.TestCordapp.Companion$findCordapp(kotlin.String)/scanPackage">scanPackage</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TestCordapp</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
