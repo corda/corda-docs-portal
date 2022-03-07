@@ -18,7 +18,7 @@ weight: 145
 ## Logging
 
 Corda's logging component is [Log4j 2](https://logging.apache.org/log4j/2.x/), and uses an [SLF4J ](https://www.slf4j.org/interface)
-interface as its abstraction layer. The latest Corda logging config file can be found on [GitHub](https://github.com/corda/corda/blob/release/os/4.10/config/dev/log4j2.xml).
+interface as its abstraction layer. The latest Corda logging configuration file can be found on [GitHub](https://github.com/corda/corda/blob/release/os/4.10/config/dev/log4j2.xml).
 
 * Default node log files are stored to the `logs` subdirectory of the working directory and are rotated from time to time.
 * Passing the `--log-to-console` command line flag logs printing to the console.
@@ -32,11 +32,10 @@ interface as its abstraction layer. The latest Corda logging config file can be 
 
 ### Custom logging
 
-The command to configure a custom logging file route is:
+Custom logging settings can be set [using Log4j](https://logging.apache.org/log4j/2.x/manual/configuration.html). The command to configure a custom logging file route is:
 
 `java -Dlog4j2.configurationFile=<myfile.xml> -jar corda.jar`
 
-Custom logging settings can be set [using Log4j](https://logging.apache.org/log4j/2.x/manual/configuration.html).
 Logger settings can be completely overridden with a Log4j2 configuration file assigned to the `log4j.configurationFile` system property.
 Additionally, detailed logging around interactions with the database or HSM can be enabled by setting the `logging-level` to `TRACE` and
 will be printed out in a separate file in the same location as the other log files, with a filename prefix of 'details'. This type of
@@ -150,7 +149,7 @@ Create a file `sql.xml` in the current working directory. Add the following text
 
 Note the addition of a logger named `org.hibernate` that has set this particular logger level to `debug`.
 
-Now start the node as usual but with the additional parameter `log4j.configurationFile` set to the filename as above, e.g.
+Now start the node as usual but with the additional parameter `log4j.configurationFile` set to the filename as above:
 
 `java <Your existing startup options here> -Dlog4j.configurationFile=sql.xml -jar corda.jar`
 
