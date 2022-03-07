@@ -18,21 +18,18 @@ weight: 145
 ## Logging
 
 Corda's logging feature uses a [Log4j 2](https://logging.apache.org/log4j/2.x/) component and an [SLF4J ](https://www.slf4j.org/interface)
-interface as its abstraction layer. The latest Corda logging configuration file can be found on [GitHub](https://github.com/corda/corda/blob/release/os/4.10/config/dev/log4j2.xml).
+interface as its abstraction layer. You can find the latest Corda logging configuration file on [GitHub](https://github.com/corda/corda/blob/release/os/4.10/config/dev/log4j2.xml).
 
 * By default, node log files are stored to the `logs` subdirectory of the working directory and are rotated from time to time.
 * Passing the `--log-to-console` command line flag logs printing to the console.
 * The default logging level is `INFO` which can be adjusted by the `--logging-level` command line argument. This configuration option will affect all modules.
-  * [Hibernate](http://hibernate.org/orm/)
-    (the JPA provider used by Corda) specific log messages of level `WARN` and above will be logged to the diagnostic log file,
-    which is stored in the same location as other log files (`logs` subdirectory by default). This is because Hibernate may log
-    messages at WARN and ERROR that are handled internally by Corda and do not need operator attention. If they do, they will be
-    logged by Corda itself in the main node log file.
+  * [Hibernate](http://hibernate.org/orm/) is Corda's JPA provider. Hibernate-specific `WARN` and `ERROR` messages are logged to the diagnostic log file,
+    which is stored in the `logs` subdirectory by default. Corda handles these messages internally, and they usually do not need operator attention. If they do, Corda logs them in the main node log file.
 * Aborted flows are marked with `ERROR` or `TERMINATE`.
 
 ### Custom logging
 
-Custom logging settings can be set [using Log4j](https://logging.apache.org/log4j/2.x/manual/configuration.html). The command to configure a custom logging file route is:
+You can set custom logging settings using [Log4j](https://logging.apache.org/log4j/2.x/manual/configuration.html). The command to configure a custom logging file route is:
 
 `java -Dlog4j2.configurationFile=<myfile.xml> -jar corda.jar`
 
