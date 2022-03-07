@@ -19,22 +19,28 @@ title: Vault
 # Vault
 
 
-The vault is a node's database that is used to store current and historic states where the node is a participant.The vault contains data extracted from the ledger that is considered relevant to the node’s owner, stored in a relational model that can be easily queried and worked with.
+A Corda vault is a database containing all data from the ledger relevant to you as the node's owner. The database keeps track of both spent and unspent (consumed and unconsumed) states. From a business perspective, this means a record of all the transaction states that can be spent by you, as well as a record of all spent states from transactions relevant to you. It can be compared to a conceptual wallet in crypto currency - a record of what you have spent, and how much you have available to spend.
 
-The vault keeps track of both unconsumed and consumed states:
-
-* **Unconsumed** or unspent states represent:  
+**Unspent** or unconsumed states represent:  
     * Fungible states available for spending.
     * States available to transfer to another party.
     * Linear states available for evolution. For example, in response to a lifecycle event on a deal.
-* **Consumed** or spent states represent ledger immutable state. These are kept for the purpose of:
+
+**Spent** or consumed states represent a ledger immutable state. These are kept for the purpose of:
     * Transaction reporting.
     * Audit and archives, including the ability to perform joins with app-private data, like customer notes.
 
-As with a cryptocurrency wallet, the Corda vault can create transactions that send value to
-another party by combining fungible states and possibly adding a change output that makes the values balance (this
-process is usually referred to as ‘coin selection’). Vault spending ensures that transactions respect the fungibility
-rules in order to ensure that the issuer and reference data is preserved as the assets pass from hand to hand.
+Similar to a cryptocurrency wallet, data in your Corda vault can be used to create transactions that send value to another party by combining [fungible states](key-concepts-states.md), and possibly adding a change output that makes the values balance. This process is referred to as ‘coin selection’.
+
+'Spending' from the vault in this way ensures that transactions respect fungibility rules. The issuer and reference data is preserved as the assets pass from hand to hand.
+
+## The Archive
+
+To prevent a node database from being overwhelmed with data, you can use the Archive service to remove all but the minimum required data relating to consumed transactions. If you plan your CorDapp design accordingly, you can ensure that your spent states are moved to the archive regularly. By using the archive, your vault does not get weighed down by the full backchain data, but retains the essential information to maintain ledger integrity.
+
+Find out more about the [Archive Service](archive-service.md).
+
+## Softlocking to prevent double spend attempts
 
 A feature called **soft locking** provides the ability to automatically or explicitly reserve states to prevent
 multiple transactions within the same node from trying to use the same output simultaneously. Whilst this scenario would
