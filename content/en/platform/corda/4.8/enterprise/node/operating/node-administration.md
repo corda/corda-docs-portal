@@ -20,35 +20,27 @@ weight: 145
 Corda's logging component is [Log4j 2](https://logging.apache.org/log4j/2.x/), and uses an [SLF4J ](https://www.slf4j.org/interface)
 interface as its abstraction layer. The latest Corda logging config file can be found on [GitHub](https://github.com/corda/corda/blob/release/os/4.10/config/dev/log4j2.xml).
 
-By default, the node log files are stored to the `logs` subdirectory of the working directory and are rotated from time to time.
-Additionally, passing the `--log-to-console` command line flag logs printing to the console. The default logging level is `INFO`
-which can be adjusted by the `--logging-level` command line argument. This configuration option will affect all modules. [Hibernate](http://hibernate.org/orm/)
-(the JPA provider used by Corda) specific log messages of level `WARN` and above will be logged to the diagnostic log file,
-which is stored in the same location as other log files (`logs` subdirectory by default). This is because Hibernate may log
-messages at WARN and ERROR that are handled internally by Corda and do not need operator attention. If they do, they will be
-logged by Corda itself in the main node log file.
-
-{{< note >}}
-
-Aborted flows are marked with `ERROR` and `TERMINATE`.
-
-{{< /note >}}
+* Default node log files are stored to the `logs` subdirectory of the working directory and are rotated from time to time.
+* Passing the `--log-to-console` command line flag logs printing to the console.
+* The default logging level is `INFO` which can be adjusted by the `--logging-level` command line argument. This configuration option will affect all modules.
+  * [Hibernate](http://hibernate.org/orm/)
+    (the JPA provider used by Corda) specific log messages of level `WARN` and above will be logged to the diagnostic log file,
+    which is stored in the same location as other log files (`logs` subdirectory by default). This is because Hibernate may log
+    messages at WARN and ERROR that are handled internally by Corda and do not need operator attention. If they do, they will be
+    logged by Corda itself in the main node log file.
+* Aborted flows are marked with `ERROR` or `TERMINATE`.
 
 ### Custom logging
 
-The command to configure a custom logging file is:
+The command to configure a custom logging file route is:
 
 `java -Dlog4j2.configurationFile=<myfile.xml> -jar corda.jar`
 
-Custom logging settings can be configured [using Log4j](https://logging.apache.org/log4j/2.x/manual/configuration.html).
-
-It may be the case that you require to amend the log level of a particular subset of modules (e.g., if you’d like to take
-a closer look at hibernate activity). So, for more bespoke logging configuration, the logger settings can be completely
-overridden with a [Log4j2](https://logging.apache.org/log4j/2.x) configuration file assigned to the `log4j.configurationFile`
-system property. Additionally, detailed logging around interactions with the database or HSM can be enabled by setting the `logging-level`
-to `TRACE` and will be printed out in a separate file (name will be prefixed with *details*) in the same location as the
-other log files. This type of logging is better structured to allow for log processing by 3rd party tools. MDC is also
-enabled for it. Currently, the following statement types are supported:
+Custom logging settings can be set [using Log4j](https://logging.apache.org/log4j/2.x/manual/configuration.html).
+Logger settings can be completely overridden with a Log4j2 configuration file assigned to the `log4j.configurationFile` system property.
+Additionally, detailed logging around interactions with the database or HSM can be enabled by setting the `logging-level` to `TRACE` and
+will be printed out in a separate file in the same location as the other log files, with a filename prefix of 'details'. This type of
+logging is better structured to allow for log processing by third party tools. MDC is also enabled for it. Currently, the following statement types are supported:
 
 *
     * fields: *action*, *id*, *uploader*
