@@ -12,8 +12,15 @@ tags:
 title: Release notes
 ---
 
-
 # Corda Enterprise Network Manager release notes
+
+## Corda Enterprise Network Manager 1.5.4
+
+CENM 1.5.4 fixes an urgent security issue caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version v2.17.1.
+
+### Fixed issues
+
+* The Log4j dependency has been updated to version 2.17.1 to fix pre-existing Log4j issues.
 
 ## Corda Enterprise Network Manager 1.5.3
 
@@ -33,7 +40,7 @@ Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https:
 
 ### Fixed issues
 
-We have updated the Log4j dependency to version 2.16.0 to mitigate CVE-2021-44228. This includes an update to the [CENM Management Console](../../../../../en/platform/corda/1.5/cenm/cenm-console.md). 
+We have updated the Log4j dependency to version 2.16.0 to mitigate CVE-2021-44228. This includes an update to the [CENM Management Console](../../../../../en/platform/corda/1.5/cenm/cenm-console.md).
 
 ## Corda Enterprise Network Manager 1.5.1
 
@@ -114,7 +121,7 @@ CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on
 
 #### Certificate rotation: ability to reissue node legal identity keys and certificates
 
-Corda Enterprise 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing CENM to re-register a node (including a notary node) with a new certificate in the Network Map.
+Corda Enterprise 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing CENM to re-register a node (including a notary node) with a new certificate in the Network Map. You must not change the node's `myLegalName` during certificate rotation.
 
 {{< warning >}}
 The introduction of this functionality may require changes to your custom Identity Manager Workflow Plugins, regardless of using certificate reissuance functionality in your system. Make sure to check the [Upgrading Corda Enterprise Network Manager](../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md) page.

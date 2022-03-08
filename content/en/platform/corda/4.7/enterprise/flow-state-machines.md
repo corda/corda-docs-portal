@@ -250,6 +250,11 @@ flow are checked against a whitelist, which can be extended by apps themselves a
 of inlined Kotlin extension functions of the form `CordaRPCOps.startFlow` which help with invoking flows in a type
 safe manner.
 
+{{< note >}}
+A limit of **five** non-whitelisted arguments can be passed to the flow constructor using the `CordaRPCOps.startFlow` method.
+Compound objects can be passed as long as they are [whitelisted](serialization.html#whitelisting) using the `@CordaSerializable` annotation.
+{{< /note >}}
+
 The process of starting a flow returns a `FlowHandle` that you can use to observe the result, and which also contains
 a permanent identifier for the invoked flow in the form of the `StateMachineRunId`. Should you also wish to track the
 progress of your flow (see [Progress tracking](#progress-tracking)) then you can invoke your flow instead using

@@ -12,8 +12,11 @@ title: SSL Settings
 
 # SSL Settings
 
-You can configure SSL at both the client and listener ends of the CENM stack. The presence of the SSL
-configuration entity enables the SSL communication between the two parties.
+You can configure SSL at both the client and listener ends of the CENM stack. The presence of the SSL configuration entity enables the SSL communication between the two parties.
+
+{{< note >}}
+If you enable SSL on `adminPort` of one service, you must enable SSL on all other services.
+{{< /note >}}
 
 {{< note >}}
 When you enable SSL between two CENM components, the connection between them is mutually authenticated.

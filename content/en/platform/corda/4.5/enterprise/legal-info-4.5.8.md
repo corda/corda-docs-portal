@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-5:
     identifier: corda-enterprise-4-5-8-legal-info
     parent: corda-enterprise-4-5-release-notes
-    weight: 314
+    weight: 315
 tags:
 - legal
 - info

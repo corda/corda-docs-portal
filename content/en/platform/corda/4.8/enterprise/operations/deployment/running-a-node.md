@@ -22,16 +22,6 @@ You should already have generated your node(s) with their CorDapps installed by 
 {{< /note >}}
 There are several ways to run a Corda node locally for testing purposes.
 
-
-## Starting a Corda node using DemoBench
-
-See the instructions in demobench.
-
-{{< warning >}}
-**DemoBench** is deprecated.
-{{< /warning >}}
-
-
 ## Starting a Corda node from the command line
 
 Run a node by opening a terminal window in the node’s folder and running:

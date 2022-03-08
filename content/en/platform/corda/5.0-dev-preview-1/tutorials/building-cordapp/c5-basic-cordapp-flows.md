@@ -52,12 +52,29 @@ The `CreateAndIssueMarsVoucher` flow action requires interaction between the iss
 
 After you create the `CreateAndIssueMarsVoucher` file, your code should look like this:
 
+{{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.flows
 
 class CreateAndIssueMarsVoucher {
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.flows;
+
+public class CreateAndIssueMarsVoucher {
+
+    public static class CreateAndIssueMarsVoucherInitiator {
+    }
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 #### Add annotations
 
@@ -66,6 +83,8 @@ class CreateAndIssueMarsVoucher {
 
 So far, your code should look like this:
 
+{{< tabs name="tabs-2" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.flows
 
@@ -77,6 +96,24 @@ import net.corda.v5.application.flows.StartableByRPC
 class CreateAndIssueMarsVoucher {
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.flows;
+
+public class CreateAndIssueMarsVoucher {
+
+    @InitiatingFlow
+    @StartableByRPC
+    public static class CreateAndIssueMarsVoucherInitiator {
+    }
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
 
 #### Define the `CreateAndIssueMarsVoucherInitiator` class
 
@@ -96,6 +133,8 @@ To ensure that values are returned in JSON format, use the new return type `Sign
 
 After adding these elements, your code should look like this:
 
+{{< tabs name="tabs-3" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 import net.corda.v5.application.flows.*
 import net.corda.v5.ledger.transactions.SignedTransactionDigest
@@ -108,6 +147,39 @@ class CreateAndIssueMarsVoucher2 @JsonConstructor constructor(private val params
     }
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.flows;
+
+public class CreateAndIssueMarsVoucher {
+
+    @InitiatingFlow
+    @StartableByRPC
+    public static class CreateAndIssueMarsVoucherInitiator implements Flow<SignedTransactionDigest> {
+
+        //Private variable
+        private RpcStartFlowRequestParameters params;
+
+        //Constructor
+        @JsonConstructor
+        public CreateAndIssueMarsVoucherInitiator(RpcStartFlowRequestParameters params) {
+            this.params = params;
+        }
+
+        @Override
+        @Suspendable
+        public SignedTransactionDigest call() {
+            TODO("Not yet implemented");
+        }
+    }
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
 
 #### Inject services
 
@@ -127,6 +199,8 @@ In this sample CorDapp, add these services:
 
 After you've added the services, your code should look like this:
 
+{{< tabs name="tabs-4" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.flows
 
@@ -174,6 +248,51 @@ class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private va
     @CordaInject
     lateinit var jsonMarshallingService: JsonMarshallingService
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.flows;
+
+import net.corda.v5.application.flows.flowservices.FlowEngine;
+import net.corda.v5.application.flows.flowservices.FlowIdentity;
+import net.corda.v5.application.flows.flowservices.FlowMessaging;
+import net.corda.v5.application.services.IdentityService;
+import net.corda.v5.application.services.json.JsonMarshallingService;
+import net.corda.v5.ledger.services.NotaryLookupService;
+import net.corda.v5.ledger.transactions.SignedTransaction;
+import net.corda.v5.ledger.transactions.SignedTransactionDigest;
+
+public class CreateAndIssueMarsVoucher {
+
+    @InitiatingFlow
+    @StartableByRPC
+    public static class CreateAndIssueMarsVoucherInitiator implements Flow<SignedTransactionDigest> {
+
+        //Node Injectables
+        @CordaInject
+        private FlowEngine flowEngine;
+        @CordaInject
+        private FlowIdentity flowIdentity;
+        @CordaInject
+        private FlowMessaging flowMessaging;
+        @CordaInject
+        private TransactionBuilderFactory transactionBuilderFactory;
+        @CordaInject
+        private IdentityService identityService;
+        @CordaInject
+        private NotaryLookupService notaryLookupService;
+        @CordaInject
+        private JsonMarshallingService jsonMarshallingService;
+
+        .......
+    }
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
 
 #### Write your business logic
 
@@ -216,6 +335,8 @@ This is where you send the proposal to Peter. When consensus that the transactio
 
 After adding these elements, your code should look like this:
 
+{{< tabs name="tabs-5" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.flows
 
@@ -311,6 +432,120 @@ class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private va
     }
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+public class CreateAndIssueMarsVoucher {
+
+    @InitiatingFlow
+    @StartableByRPC
+    public static class CreateAndIssueMarsVoucherInitiator implements Flow<SignedTransactionDigest> {
+
+        //Node Injectables
+        @CordaInject
+        private FlowEngine flowEngine;
+        @CordaInject
+        private FlowIdentity flowIdentity;
+        @CordaInject
+        private FlowMessaging flowMessaging;
+        @CordaInject
+        private TransactionBuilderFactory transactionBuilderFactory;
+        @CordaInject
+        private IdentityService identityService;
+        @CordaInject
+        private NotaryLookupService notaryLookupService;
+        @CordaInject
+        private JsonMarshallingService jsonMarshallingService;
+
+        //Private variable
+        private RpcStartFlowRequestParameters params;
+
+        //Constructor
+        @JsonConstructor
+        public CreateAndIssueMarsVoucherInitiator(RpcStartFlowRequestParameters params) {
+            this.params = params;
+        }
+
+        @Override
+        @Suspendable
+        public SignedTransactionDigest call() {
+
+            //Getting Notary
+            Party notary = notaryLookupService.getNotary(CordaX500Name.parse("O=notary, L=London, C=GB"));
+
+            //Retrieve JSON params
+            Map<String, String> parametersMap = jsonMarshallingService.parseJson(params.getParametersInJson(), Map.class);
+
+            //Retrieve State parameter fields from JSON
+            Party issuer = flowIdentity.getOurIdentity();
+            String voucherDesc;
+            if (!parametersMap.containsKey("voucherDesc"))
+                throw new BadRpcStartFlowRequestException("MarsVoucher State Parameter \"voucherDesc\" missing.");
+            else
+                voucherDesc = parametersMap.get("voucherDesc");
+            CordaX500Name target;
+            if (!parametersMap.containsKey("holder"))
+                throw new BadRpcStartFlowRequestException("MarsVoucher State Parameter \"holder\" missing.");
+            else
+                target = CordaX500Name.parse(parametersMap.get("holder"));
+            Party holder;
+            holder = identityService.partyFromName(target);
+
+            //Building the output MarsVoucher state
+            UniqueIdentifier uniqueID = new UniqueIdentifier();
+            MarsVoucher newVoucher = new MarsVoucher(voucherDesc, issuer, holder, uniqueID);
+            Command txCommand = new Command(new MarsVoucherContract.Commands.Issue(), Arrays.asList(issuer.getOwningKey(), holder.getOwningKey()));
+
+            //Build transaction
+            TransactionBuilder transactionBuilder = transactionBuilderFactory.create()
+                    .setNotary(notary)
+                    .addOutputState(newVoucher, MarsVoucherContract.ID)
+                    .addCommand(txCommand);
+
+            // Verify that the transaction is valid.
+            transactionBuilder.verify();
+
+            // Sign the transaction.
+            SignedTransaction partialSignedTx = transactionBuilder.sign();
+
+            // Send the state to the counterparty, and receive it back with their signature.
+            FlowSession receiverSession = flowMessaging.initiateFlow(holder);
+
+            SignedTransaction fullySignedTx = flowEngine.subFlow(
+                    new CollectSignaturesFlow(partialSignedTx, Arrays.asList(receiverSession)));
+
+            // Notarise and record the transaction in both parties' vaults
+            SignedTransaction notarisedTx = flowEngine.subFlow(
+                    new FinalityFlow(fullySignedTx, Arrays.asList(receiverSession)));
+
+            // Return Json output
+            return new SignedTransactionDigest(notarisedTx.getId(),
+                    Collections.singletonList(jsonMarshallingService.formatJson(notarisedTx.getTx().getOutputStates().get(0))),
+                    notarisedTx.getSigs());
+        }
+
+        public FlowEngine getFlowEngine() {
+            return flowEngine;
+        }
+
+        public NotaryLookupService getNotaryLookup() {
+            return this.notaryLookupService;
+        }
+
+        public IdentityService getIdentityService() {
+            return identityService;
+        }
+
+        public JsonMarshallingService getJsonMarshallingService() {
+            return jsonMarshallingService;
+        }
+    }
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Write the responder flow
 
@@ -322,6 +557,8 @@ Now that you've written the initiating flow, write the responder flow that respo
 
 When the responder receives a half-signed transaction from an initiating party, it is most likely being asked to sign the transaction. The responder flow will go through some checks on the transaction (implemented in the responder flow). If all the checks are passed, it will sign the transaction and return it back to the initiating party. Next, it will add a fully-signed transaction to its local ledger. This is done by the `ReceiveFinalityFlow` subflow.
 
+{{< tabs name="tabs-6" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 @InitiatedBy(CreateAndIssueMarsVoucherInitiator::class)
 class CreateAndIssueMarsVoucherResponder(val otherPartySession: FlowSession) : Flow<SignedTransaction> {
@@ -340,10 +577,50 @@ class CreateAndIssueMarsVoucherResponder(val otherPartySession: FlowSession) : F
     }
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+@InitiatedBy(CreateAndIssueMarsVoucherInitiator.class)
+    public static class CreateAndIssueMarsVoucherResponder implements Flow<SignedTransaction> {
+
+        //Node Injectables
+        @CordaInject
+        private FlowEngine flowEngine;
+
+        //private variable
+        private FlowSession counterpartySession;
+
+        //Constructor
+        public CreateAndIssueMarsVoucherResponder(FlowSession counterpartySession) {
+            this.counterpartySession = counterpartySession;
+        }
+
+        @Suspendable
+        @Override
+        public SignedTransaction call() throws FlowException {
+            SignedTransaction signedTransaction = flowEngine.subFlow(
+                    new CreateAndIssueMarsVoucherResponder.signingTransaction(counterpartySession));
+            return flowEngine.subFlow(new ReceiveFinalityFlow(counterpartySession, signedTransaction.getId()));
+        }
+
+        public static class signingTransaction extends SignTransactionFlow {
+            signingTransaction(FlowSession counterpartySession) {
+                super(counterpartySession);
+            }
+            @Override
+            protected void checkTransaction(@NotNull SignedTransaction stx) {
+            }
+        }
+    }
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ## Write the `CreateBoardingTicket` flow
 
-The `CreateBoardingTicket` flow lets Mars Express self-issue a `BoardingTicket` to later be exchanged with Peter's voucher.
+The `CreateBoardingTicket` flow lets Mars Express self-issue a `BoardingTicket` to later be exchanged with the voucher.
 
 Now that you've written the `CreateAndIssueMarsVoucher` flow, try writing the `CreateBoardingTicket` flow.
 
@@ -366,6 +643,8 @@ This flow only needs an initiating flow; you don't need to include a responder f
 
 After you've written the `CreateBoardingTicket` flow, it should look like this:
 
+{{< tabs name="tabs-7" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.flows
 
@@ -448,6 +727,504 @@ data class CreateBoardingTicketInitiator @JsonConstructor constructor(private va
     }
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.flows;
+
+import net.corda.missionMars.contracts.BoardingTicketContract;
+import net.corda.missionMars.contracts.MarsVoucherContract;
+import net.corda.missionMars.states.BoardingTicket;
+import net.corda.systemflows.FinalityFlow;
+import net.corda.v5.application.flows.*;
+import net.corda.v5.application.flows.flowservices.FlowEngine;
+import net.corda.v5.application.flows.flowservices.FlowIdentity;
+import net.corda.v5.application.identity.CordaX500Name;
+import net.corda.v5.application.identity.Party;
+import net.corda.v5.application.injection.CordaInject;
+import net.corda.v5.application.services.IdentityService;
+import net.corda.v5.application.services.json.JsonMarshallingService;
+import net.corda.v5.base.annotations.Suspendable;
+import net.corda.v5.ledger.contracts.Command;
+import net.corda.v5.ledger.services.NotaryLookupService;
+import net.corda.v5.ledger.transactions.SignedTransaction;
+import net.corda.v5.ledger.transactions.SignedTransactionDigest;
+import net.corda.v5.ledger.transactions.TransactionBuilder;
+import net.corda.v5.ledger.transactions.TransactionBuilderFactory;
+import net.corda.v5.legacyapi.flows.FlowLogic;
+
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
+
+public class CreateBoardingTicket {
+
+    @InitiatingFlow
+    @StartableByRPC
+    public static class CreateBoardingTicketInitiator implements Flow<SignedTransactionDigest> {
+
+        //Node Injectables
+        @CordaInject
+        private FlowEngine flowEngine;
+        @CordaInject
+        private FlowIdentity flowIdentity;
+        @CordaInject
+        private TransactionBuilderFactory transactionBuilderFactory;
+        @CordaInject
+        private NotaryLookupService notaryLookupService;
+        @CordaInject
+        private JsonMarshallingService jsonMarshallingService;
+
+        //Private variable
+        private RpcStartFlowRequestParameters params;
+
+        //Constructor
+        @JsonConstructor
+        public CreateBoardingTicketInitiator(RpcStartFlowRequestParameters params) {
+            this.params = params;
+        }
+
+        @Override
+        @Suspendable
+        public SignedTransactionDigest call() {
+
+            //Getting Notary
+            Party notary = notaryLookupService.getNotary(CordaX500Name.parse("O=notary, L=London, C=GB"));
+
+            //Retrieve JSON params
+            Map<String, String> parametersMap = jsonMarshallingService.parseJson(params.getParametersInJson(), Map.class);
+
+            //Retrieve State parameter fields from JSON
+            String ticketDescription;
+            if(!parametersMap.containsKey("ticketDescription"))
+                throw new BadRpcStartFlowRequestException("BoardingTicket State Parameter \"ticketDescription\" missing.");
+            else
+                ticketDescription = parametersMap.get("ticketDescription");
+
+            LocalDate launchDate;
+            if(!parametersMap.containsKey("launchDate"))
+                throw new BadRpcStartFlowRequestException("BoardingTicket State Parameter \"launchDate\" missing.");
+            else
+                launchDate = LocalDate.parse(parametersMap.get("launchDate"));
+
+            //Building the output MarsVoucher state
+            Party marsExpress = flowIdentity.getOurIdentity();
+            BoardingTicket ticket = new BoardingTicket(ticketDescription,marsExpress,launchDate);
+            Command txCommand = new Command(new BoardingTicketContract.Commands.CreateTicket(), Arrays.asList(marsExpress.getOwningKey()));
+
+            //Build transaction
+            TransactionBuilder transactionBuilder = transactionBuilderFactory.create()
+                    .setNotary(notary)
+                    .addOutputState(ticket, BoardingTicketContract.ID)
+                    .addCommand(txCommand);
+
+
+            // Verify that the transaction is valid.
+            transactionBuilder.verify();
+
+            // Sign the transaction.
+            SignedTransaction partialSignedTx = transactionBuilder.sign();
+
+            // Notarise and record the transaction in both parties' vaults
+            SignedTransaction notarisedTx = flowEngine.subFlow(
+                    new FinalityFlow(partialSignedTx, Collections.emptyList()));
+
+            // Return Json output
+            return new SignedTransactionDigest(notarisedTx.getId(),
+                    Collections.singletonList(jsonMarshallingService.formatJson(notarisedTx.getTx().getOutputStates().get(0))),
+                    notarisedTx.getSigs());
+        }
+        public FlowEngine getFlowEngine() {
+            return flowEngine;
+        }
+
+        public NotaryLookupService getNotaryLookup() {
+            return this.notaryLookupService;
+        }
+
+        public JsonMarshallingService getJsonMarshallingService() {
+            return jsonMarshallingService;
+        }
+    }
+
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
+
+## Write the `GiftVoucherToFriend` flow
+
+In Corda, you can transfer a state to another party on the network. The `GiftVoucherToFriend` flow lets you transfer the ownership of the issued voucher to another person.
+
+Now that you've written the `CreateAndIssueMarsVoucher` and `CreateBoardingTicket` flows, try writing the `GiftVoucherToFriend` flow.
+
+You will need these variables:
+
+* `voucherID`: ID of the issued voucher whose ownership is to be transferred.
+* `holder`: The new voucher owner.
+
+You must inject these services:
+
+* `FlowEngine`: Provides basic control over a flow it is injected into, such as calling subflows, performing asynchronous tasks and putting the flow to sleep for a period of time. This flow needs `FlowEngine` because you are utilizing subflows such as `FinalityFlow`.
+* `FlowIdentity`: Obtains the identity of the node running the flow. You must inject this service because one of the output states needs its own identity.
+* `FlowMessaging`: Used for creating and closing flow sessions as well as sending and receiving data between flows via a flow session. Use this service to create flow sessions that allow communication between counterparties.
+* `TransactionBuilderFactory`: Used for constructing, verifying, and signing transactions. In this case, it builds a transaction.
+* `IdentityService`: Provides methods to retrieve `Party` and `AnonymousParty` instances. You need it because your flow involves counterparties.
+* `NotaryLookupService`: Finds information on notaries in the network. Add it because your transaction requires a notary.
+* `JsonMarshallingService`: Parses arbitrary content in and out of JSON using standard, approved mappers. You need it because in Corda 5 all flow parameters are in JSON format.
+* `PersistenceService`: Provides an API for interacting with the database. It has functions mirroring Java’s `EntityManager` for working with entities. Also, it provides functions for executing predefined named queries and polling for results. It hides the complexity of asynchronously interacting with the database which, in a high-availability environment, could be running on a separate process.
+
+{{< note >}}
+Like the `CreateAndIssueMarsVoucher` flow, the `GiftVoucherToFriend` flow needs a [responder flow](#write-the-responder-flow) that responds to the request to update the ledger.
+
+You also need to query the `MarsVoucher` and the `BoardingTicket`. Refer to the section on [implementing queries](#implement-queries) for the `RedeemBoardingTicketWithVoucher` for guidance.
+{{< /note >}}
+
+After you've written the `GiftVoucherToFriend` flow, it should look like this:
+
+{{< tabs name="tabs-8" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+
+package net.corda.missionMars.flows
+
+import net.corda.missionMars.contracts.BoardingTicketContract
+import net.corda.missionMars.contracts.MarsVoucherContract
+import net.corda.missionMars.states.MarsVoucher
+import net.corda.systemflows.CollectSignaturesFlow
+import net.corda.systemflows.FinalityFlow
+import net.corda.systemflows.ReceiveFinalityFlow
+import net.corda.systemflows.SignTransactionFlow
+import net.corda.v5.application.flows.*
+import net.corda.v5.application.flows.flowservices.FlowEngine
+import net.corda.v5.application.flows.flowservices.FlowIdentity
+import net.corda.v5.application.flows.flowservices.FlowMessaging
+import net.corda.v5.application.identity.CordaX500Name
+import net.corda.v5.application.injection.CordaInject
+import net.corda.v5.application.services.IdentityService
+import net.corda.v5.application.services.json.JsonMarshallingService
+import net.corda.v5.application.services.json.parseJson
+import net.corda.v5.application.services.persistence.PersistenceService
+import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.base.util.seconds
+import net.corda.v5.ledger.contracts.Command
+import net.corda.v5.ledger.contracts.StateAndRef
+import net.corda.v5.ledger.services.NotaryLookupService
+import net.corda.v5.ledger.services.vault.StateStatus
+import net.corda.v5.ledger.transactions.SignedTransaction
+import net.corda.v5.ledger.transactions.SignedTransactionDigest
+import net.corda.v5.ledger.transactions.TransactionBuilderFactory
+import java.util.*
+import kotlin.NoSuchElementException
+
+@InitiatingFlow
+@StartableByRPC
+class GiftVoucherToFriendInitiator @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters) : Flow<SignedTransactionDigest> {
+
+    @CordaInject
+    lateinit var flowEngine: FlowEngine
+    @CordaInject
+    lateinit var flowIdentity: FlowIdentity
+    @CordaInject
+    lateinit var flowMessaging: FlowMessaging
+    @CordaInject
+    lateinit var transactionBuilderFactory: TransactionBuilderFactory
+    @CordaInject
+    lateinit var identityService: IdentityService
+    @CordaInject
+    lateinit var jsonMarshallingService: JsonMarshallingService
+    @CordaInject
+    lateinit var persistenceService: PersistenceService
+
+    @Suspendable
+    override fun call(): SignedTransactionDigest {
+
+        // parse parameters
+        val mapOfParams: Map<String, String> = jsonMarshallingService.parseJson(params.parametersInJson)
+        val voucherID = with(mapOfParams["voucherID"] ?: throw BadRpcStartFlowRequestException("MarsVoucher State Parameter \"voucherID\" missing.")) {
+            this
+        }
+        val holder = with(mapOfParams["holder"] ?: throw BadRpcStartFlowRequestException("BoardingTicket State Parameter \"holder\" missing.")) {
+            CordaX500Name.parse(this)
+        }
+        val recipientParty = identityService.partyFromName(holder) ?: throw NoSuchElementException("No party found for X500 name $holder")
+
+        //Query the MarsVoucher & the boardingTicket
+        val cursor = persistenceService.query<StateAndRef<MarsVoucher>>(
+                "LinearState.findByUuidAndStateStatus",
+                mapOf(
+                        "uuid" to UUID.fromString(voucherID),
+                        "stateStatus" to StateStatus.UNCONSUMED
+                ),
+                "Corda.IdentityStateAndRefPostProcessor"
+        )
+        val marsVoucherStateAndRef = cursor.poll(100, 20.seconds).values.first()
+        val inputMarsVoucher = marsVoucherStateAndRef.state.data
+
+        if (inputMarsVoucher.holder != flowIdentity.ourIdentity){
+            throw FlowException("Only the voucher current holder can initiate a gifting transaction")
+        }
+
+        //Building the output
+        val outputMarsVoucher = inputMarsVoucher.changeOwner(recipientParty)
+
+        //Get the Notary from inputRef
+        val notary = marsVoucherStateAndRef.state.notary
+
+        //Building the transaction
+        val signers = (inputMarsVoucher.participants + recipientParty).map { it.owningKey }
+        val txCommand = Command(MarsVoucherContract.Commands.Transfer(), signers)
+        val txBuilder = transactionBuilderFactory.create()
+                .setNotary(notary)
+                .addInputState(marsVoucherStateAndRef)
+                .addOutputState(outputMarsVoucher, MarsVoucherContract.ID)
+                .addCommand(txCommand)
+
+        // Verify that the transaction is valid.
+        txBuilder.verify()
+
+        // Sign the transaction.
+        val partSignedTx = txBuilder.sign()
+
+        // Send the state to the counterparty, and receive it back with their signature.
+        val sessions = (inputMarsVoucher.participants - flowIdentity.ourIdentity + recipientParty).map { flowMessaging.initiateFlow(it) }.toSet()
+        val fullySignedTx = flowEngine.subFlow(
+                CollectSignaturesFlow(
+                        partSignedTx, sessions,
+                )
+        )
+        // Notarise and record the transaction in both parties' vaults.
+        val notarisedTx = flowEngine.subFlow(
+                FinalityFlow(
+                        fullySignedTx, sessions,
+                )
+        )
+
+        return SignedTransactionDigest(
+                notarisedTx.id,
+                notarisedTx.tx.outputStates.map { it -> jsonMarshallingService.formatJson(it) },
+                notarisedTx.sigs
+        )
+    }
+
+
+    }
+
+@InitiatedBy(GiftVoucherToFriendInitiator::class)
+class GiftVoucherToFriendResponder(val otherPartySession: FlowSession) : Flow<SignedTransaction> {
+    @CordaInject
+    lateinit var flowEngine: FlowEngine
+
+    @Suspendable
+    override fun call(): SignedTransaction {
+        val signTransactionFlow = object : SignTransactionFlow(otherPartySession) {
+            override fun checkTransaction(stx: SignedTransaction) {
+
+            }
+        }
+        val txId = flowEngine.subFlow(signTransactionFlow).id
+        return flowEngine.subFlow(ReceiveFinalityFlow(otherPartySession, expectedTxId = txId))
+    }
+}
+
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.flows;
+
+import net.corda.missionMars.contracts.BoardingTicketContract;
+import net.corda.missionMars.contracts.MarsVoucherContract;
+import net.corda.missionMars.states.MarsVoucher;
+import net.corda.systemflows.CollectSignaturesFlow;
+import net.corda.systemflows.FinalityFlow;
+import net.corda.systemflows.ReceiveFinalityFlow;
+import net.corda.systemflows.SignTransactionFlow;
+import net.corda.v5.application.flows.*;
+import net.corda.v5.application.flows.flowservices.FlowEngine;
+import net.corda.v5.application.flows.flowservices.FlowIdentity;
+import net.corda.v5.application.flows.flowservices.FlowMessaging;
+import net.corda.v5.application.identity.AbstractParty;
+import net.corda.v5.application.identity.CordaX500Name;
+import net.corda.v5.application.identity.Party;
+import net.corda.v5.application.injection.CordaInject;
+import net.corda.v5.application.services.IdentityService;
+import net.corda.v5.application.services.json.JsonMarshallingService;
+import net.corda.v5.application.services.persistence.PersistenceService;
+import net.corda.v5.base.annotations.Suspendable;
+import net.corda.v5.base.stream.Cursor;
+import net.corda.v5.ledger.contracts.StateAndRef;
+import net.corda.v5.ledger.services.NotaryLookupService;
+import net.corda.v5.ledger.services.vault.StateStatus;
+import net.corda.v5.ledger.transactions.SignedTransaction;
+import net.corda.v5.ledger.transactions.SignedTransactionDigest;
+import net.corda.v5.ledger.transactions.TransactionBuilder;
+import net.corda.v5.ledger.transactions.TransactionBuilderFactory;
+import net.corda.v5.legacyapi.flows.FlowLogic;
+import org.jetbrains.annotations.NotNull;
+
+import java.time.Duration;
+import java.util.*;
+
+public class GiftVoucherToFriend {
+
+    @InitiatingFlow
+    @StartableByRPC
+    public static class GiftVoucherToFriendInitiator implements Flow<SignedTransactionDigest> {
+
+        //Node Injectables
+        @CordaInject
+        private FlowEngine flowEngine;
+        @CordaInject
+        private FlowIdentity flowIdentity;
+        @CordaInject
+        private FlowMessaging flowMessaging;
+        @CordaInject
+        private TransactionBuilderFactory transactionBuilderFactory;
+        @CordaInject
+        private IdentityService identityService;
+        @CordaInject
+        private NotaryLookupService notaryLookupService;
+        @CordaInject
+        private JsonMarshallingService jsonMarshallingService;
+        @CordaInject
+        private PersistenceService persistenceService;
+        //Private variable
+        private RpcStartFlowRequestParameters params;
+
+        //Constructor
+        @JsonConstructor
+        public GiftVoucherToFriendInitiator(RpcStartFlowRequestParameters params) {
+            this.params = params;
+        }
+
+        @Override
+        @Suspendable
+        public SignedTransactionDigest call() {
+
+            //Retrieve JSON params
+            Map<String, String> parametersMap = jsonMarshallingService.parseJson(params.getParametersInJson(), Map.class);
+
+            //Retrieve State parameter fields from JSON
+            //Voucher ID
+            String voucherID;
+            if(!parametersMap.containsKey("voucherID"))
+                throw new BadRpcStartFlowRequestException("MarsVoucher State Parameter \"voucherID\" missing.");
+            else
+                voucherID = parametersMap.get("voucherID");
+            //RecipientParty
+            CordaX500Name holder;
+            if(!parametersMap.containsKey("holder"))
+                throw new BadRpcStartFlowRequestException("MarsVoucher State Parameter \"holder\" missing.");
+            else
+                holder = CordaX500Name.parse(parametersMap.get("holder"));
+            Party recipientParty;
+            recipientParty = identityService.partyFromName(holder);
+
+            //Query the MarsVoucher & the boardingTicket
+            Map <String, Object> namedParameters = new LinkedHashMap<String,Object>();
+            namedParameters.put("uuid", UUID.fromString(voucherID));
+            namedParameters.put("stateStatus", StateStatus.UNCONSUMED);
+            Cursor cursor = persistenceService.query(
+                    "LinearState.findByUuidAndStateStatus",
+                    namedParameters,
+                    "Corda.IdentityStateAndRefPostProcessor"
+            );
+            StateAndRef<MarsVoucher> marsVoucherStateAndRef = (StateAndRef<MarsVoucher>) cursor.poll(100, Duration.ofSeconds(20)).getValues().get(0);
+            MarsVoucher inputMarsVoucher = marsVoucherStateAndRef.getState().getData();
+
+            //Check if the initiator is indeed the holder of the mars voucher
+            if(!(inputMarsVoucher.getHolder().getOwningKey().equals(flowIdentity.getOurIdentity().getOwningKey())))
+                throw new FlowException("Only the voucher current holder can initiate a gifting transaction");
+
+            //Building the output
+            MarsVoucher outputMarsVoucher = inputMarsVoucher.changeOwner(recipientParty);
+
+            //Get the Notary from inputRef
+            Party notary = marsVoucherStateAndRef.getState().getNotary();
+
+            TransactionBuilder transactionBuilder = transactionBuilderFactory.create()
+                    .setNotary(notary)
+                    .addInputState(marsVoucherStateAndRef)
+                    .addOutputState(outputMarsVoucher, MarsVoucherContract.ID)
+                    .addCommand(new MarsVoucherContract.Commands.Transfer(),
+                            Arrays.asList(recipientParty.getOwningKey(),
+                                    inputMarsVoucher.getHolder().getOwningKey(),
+                                    inputMarsVoucher.getIssuer().getOwningKey()));
+
+            // Verify that the transaction is valid.
+            transactionBuilder.verify();
+
+            // Sign the transaction.
+            SignedTransaction partialSignedTx = transactionBuilder.sign();
+
+            // Send the state to the counterparty, and receive it back with their signature.
+            List<FlowSession> receiverSession = new ArrayList<>();
+
+            for (AbstractParty participant: inputMarsVoucher.getParticipants()) {
+                Party partyToInitiateFlow = (Party) participant;
+                if (!partyToInitiateFlow.getOwningKey().equals(flowIdentity.getOurIdentity().getOwningKey())) {
+                    receiverSession.add(flowMessaging.initiateFlow(partyToInitiateFlow));
+                }
+            }
+            receiverSession.add(flowMessaging.initiateFlow(recipientParty));
+
+            SignedTransaction fullySignedTx = flowEngine.subFlow(
+                    new CollectSignaturesFlow(partialSignedTx, receiverSession));
+
+            // Notarise and record the transaction in both parties' vaults
+            SignedTransaction notarisedTx = flowEngine.subFlow(
+                    new FinalityFlow(fullySignedTx, receiverSession));
+
+            // Return Json output
+            return new SignedTransactionDigest(notarisedTx.getId(),
+                    Collections.singletonList(jsonMarshallingService.formatJson(notarisedTx.getTx().getOutputStates().get(0))),
+                    notarisedTx.getSigs());
+        }
+    }
+
+
+    @InitiatedBy(GiftVoucherToFriendInitiator.class)
+    public static class GiftVoucherToFriendResponder implements Flow<SignedTransaction> {
+
+        //Node Injectables
+        @CordaInject
+        private FlowEngine flowEngine;
+
+        //private variable
+        private FlowSession counterpartySession;
+
+        //Constructor
+        public GiftVoucherToFriendResponder(FlowSession counterpartySession) {
+            this.counterpartySession = counterpartySession;
+        }
+
+        @Suspendable
+        @Override
+        public SignedTransaction call() throws FlowException {
+            SignedTransaction signedTransaction = flowEngine.subFlow(
+                    new CreateAndIssueMarsVoucher.CreateAndIssueMarsVoucherResponder.signingTransaction(counterpartySession));
+            return flowEngine.subFlow(new ReceiveFinalityFlow(counterpartySession, signedTransaction.getId()));
+        }
+
+        public static class signingTransaction extends SignTransactionFlow {
+            signingTransaction(FlowSession counterpartySession) {
+                super(counterpartySession);
+            }
+            @Override
+            protected void checkTransaction(@NotNull SignedTransaction stx) {
+            }
+        }
+    }
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ## Write the `RedeemBoardingTicketWithVoucher` flow
 
@@ -509,6 +1286,8 @@ In the implementation of this initiating flow, you must query the `MarsVoucher` 
 
 Your code should now look like this:
 
+{{< tabs name="tabs-9" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 @InitiatingFlow
 @StartableByRPC
@@ -570,6 +1349,166 @@ class RedeemBoardingTicketWithVoucherInitiator @JsonConstructor constructor(priv
         val boardingTicketStateAndRef= cursor2.poll(100, 20.seconds).values.first()
         val originalBoardingTicketState= boardingTicketStateAndRef.state.data
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.flows;
+
+import net.corda.missionMars.contracts.BoardingTicketContract;
+import net.corda.missionMars.contracts.MarsVoucherContract;
+import net.corda.missionMars.states.MarsVoucher;
+import net.corda.systemflows.CollectSignaturesFlow;
+import net.corda.systemflows.FinalityFlow;
+import net.corda.systemflows.ReceiveFinalityFlow;
+import net.corda.systemflows.SignTransactionFlow;
+import net.corda.v5.application.flows.*;
+import net.corda.v5.application.flows.flowservices.FlowEngine;
+import net.corda.v5.application.flows.flowservices.FlowIdentity;
+import net.corda.v5.application.flows.flowservices.FlowMessaging;
+import net.corda.v5.application.identity.AbstractParty;
+import net.corda.v5.application.identity.CordaX500Name;
+import net.corda.v5.application.identity.Party;
+import net.corda.v5.application.injection.CordaInject;
+import net.corda.v5.application.services.IdentityService;
+import net.corda.v5.application.services.json.JsonMarshallingService;
+import net.corda.v5.application.services.persistence.PersistenceService;
+import net.corda.v5.base.annotations.Suspendable;
+import net.corda.v5.base.stream.Cursor;
+import net.corda.v5.ledger.contracts.StateAndRef;
+import net.corda.v5.ledger.services.NotaryLookupService;
+import net.corda.v5.ledger.services.vault.StateStatus;
+import net.corda.v5.ledger.transactions.SignedTransaction;
+import net.corda.v5.ledger.transactions.SignedTransactionDigest;
+import net.corda.v5.ledger.transactions.TransactionBuilder;
+import net.corda.v5.ledger.transactions.TransactionBuilderFactory;
+import net.corda.v5.legacyapi.flows.FlowLogic;
+import org.jetbrains.annotations.NotNull;
+
+import java.time.Duration;
+import java.util.*;
+
+public class GiftVoucherToFriend {
+
+    @InitiatingFlow
+    @StartableByRPC
+    public static class GiftVoucherToFriendInitiator implements Flow<SignedTransactionDigest> {
+
+        //Node Injectables
+        @CordaInject
+        private FlowEngine flowEngine;
+        @CordaInject
+        private FlowIdentity flowIdentity;
+        @CordaInject
+        private FlowMessaging flowMessaging;
+        @CordaInject
+        private TransactionBuilderFactory transactionBuilderFactory;
+        @CordaInject
+        private IdentityService identityService;
+        @CordaInject
+        private NotaryLookupService notaryLookupService;
+        @CordaInject
+        private JsonMarshallingService jsonMarshallingService;
+        @CordaInject
+        private PersistenceService persistenceService;
+        //Private variable
+        private RpcStartFlowRequestParameters params;
+
+        //Constructor
+        @JsonConstructor
+        public GiftVoucherToFriendInitiator(RpcStartFlowRequestParameters params) {
+            this.params = params;
+        }
+
+        @Override
+        @Suspendable
+        public SignedTransactionDigest call() {
+
+            //Retrieve JSON params
+            Map<String, String> parametersMap = jsonMarshallingService.parseJson(params.getParametersInJson(), Map.class);
+
+            //Retrieve State parameter fields from JSON
+            //Voucher ID
+            String voucherID;
+            if(!parametersMap.containsKey("voucherID"))
+                throw new BadRpcStartFlowRequestException("MarsVoucher State Parameter \"voucherID\" missing.");
+            else
+                voucherID = parametersMap.get("voucherID");
+            //RecipientParty
+            CordaX500Name holder;
+            if(!parametersMap.containsKey("holder"))
+                throw new BadRpcStartFlowRequestException("MarsVoucher State Parameter \"holder\" missing.");
+            else
+                holder = CordaX500Name.parse(parametersMap.get("holder"));
+            Party recipientParty;
+            recipientParty = identityService.partyFromName(holder);
+
+            //Query the MarsVoucher & the boardingTicket
+            Map <String, Object> namedParameters = new LinkedHashMap<String,Object>();
+            namedParameters.put("uuid", UUID.fromString(voucherID));
+            namedParameters.put("stateStatus", StateStatus.UNCONSUMED);
+            Cursor cursor = persistenceService.query(
+                    "LinearState.findByUuidAndStateStatus",
+                    namedParameters,
+                    "Corda.IdentityStateAndRefPostProcessor"
+            );
+            StateAndRef<MarsVoucher> marsVoucherStateAndRef = (StateAndRef<MarsVoucher>) cursor.poll(100, Duration.ofSeconds(20)).getValues().get(0);
+            MarsVoucher inputMarsVoucher = marsVoucherStateAndRef.getState().getData();
+
+            //Check if the initiator is indeed the holder of the mars voucher
+            if(!(inputMarsVoucher.getHolder().getOwningKey().equals(flowIdentity.getOurIdentity().getOwningKey())))
+                throw new FlowException("Only the voucher current holder can initiate a gifting transaction");
+
+            //Building the output
+            MarsVoucher outputMarsVoucher = inputMarsVoucher.changeOwner(recipientParty);
+
+            //Get the Notary from inputRef
+            Party notary = marsVoucherStateAndRef.getState().getNotary();
+
+            TransactionBuilder transactionBuilder = transactionBuilderFactory.create()
+                    .setNotary(notary)
+                    .addInputState(marsVoucherStateAndRef)
+                    .addOutputState(outputMarsVoucher, MarsVoucherContract.ID)
+                    .addCommand(new MarsVoucherContract.Commands.Transfer(),
+                            Arrays.asList(recipientParty.getOwningKey(),
+                                    inputMarsVoucher.getHolder().getOwningKey(),
+                                    inputMarsVoucher.getIssuer().getOwningKey()));
+
+            // Verify that the transaction is valid.
+            transactionBuilder.verify();
+
+            // Sign the transaction.
+            SignedTransaction partialSignedTx = transactionBuilder.sign();
+
+            // Send the state to the counterparty, and receive it back with their signature.
+            List<FlowSession> receiverSession = new ArrayList<>();
+
+            for (AbstractParty participant: inputMarsVoucher.getParticipants()) {
+                Party partyToInitiateFlow = (Party) participant;
+                if (!partyToInitiateFlow.getOwningKey().equals(flowIdentity.getOurIdentity().getOwningKey())) {
+                    receiverSession.add(flowMessaging.initiateFlow(partyToInitiateFlow));
+                }
+            }
+            receiverSession.add(flowMessaging.initiateFlow(recipientParty));
+
+            SignedTransaction fullySignedTx = flowEngine.subFlow(
+                    new CollectSignaturesFlow(partialSignedTx, receiverSession));
+
+            // Notarise and record the transaction in both parties' vaults
+            SignedTransaction notarisedTx = flowEngine.subFlow(
+                    new FinalityFlow(fullySignedTx, receiverSession));
+
+            // Return Json output
+            return new SignedTransactionDigest(notarisedTx.getId(),
+                    Collections.singletonList(jsonMarshallingService.formatJson(notarisedTx.getTx().getOutputStates().get(0))),
+                    notarisedTx.getSigs());
+        }
+    }
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 #### Finish the initiating flow
 
@@ -591,6 +1530,8 @@ Finish the initiating flow by continuing with the same steps you followed when c
 Now that you've written the initiating flow, try writing the responder flow.
 Once you're done, your code should look like this:
 
+{{< tabs name="tabs-10" >}}
+{{% tab name="kotlin" %}}
 ```kotlin
 package net.corda.missionMars.flows
 
@@ -745,6 +1686,206 @@ class RedeemBoardingTicketWithVoucherResponder(val otherPartySession: FlowSessio
     }
 }
 ```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+package net.corda.missionMars.flows;
+
+import net.corda.missionMars.contracts.BoardingTicketContract;
+import net.corda.missionMars.states.BoardingTicket;
+import net.corda.missionMars.states.MarsVoucher;
+import net.corda.systemflows.CollectSignaturesFlow;
+import net.corda.systemflows.FinalityFlow;
+import net.corda.systemflows.ReceiveFinalityFlow;
+import net.corda.systemflows.SignTransactionFlow;
+import net.corda.v5.application.flows.*;
+import net.corda.v5.application.flows.flowservices.FlowEngine;
+import net.corda.v5.application.flows.flowservices.FlowIdentity;
+import net.corda.v5.application.flows.flowservices.FlowMessaging;
+import net.corda.v5.application.identity.CordaX500Name;
+import net.corda.v5.application.identity.Party;
+import net.corda.v5.application.injection.CordaInject;
+import net.corda.v5.application.services.IdentityService;
+import net.corda.v5.application.services.json.JsonMarshallingService;
+import net.corda.v5.application.services.persistence.PersistenceService;
+import net.corda.v5.base.annotations.Suspendable;
+import net.corda.v5.base.stream.Cursor;
+import net.corda.v5.ledger.contracts.StateAndRef;
+import net.corda.v5.ledger.services.NotaryLookupService;
+import net.corda.v5.ledger.services.vault.SetBasedVaultQueryFilter;
+import net.corda.v5.ledger.services.vault.StateStatus;
+import net.corda.v5.ledger.transactions.SignedTransaction;
+import net.corda.v5.ledger.transactions.SignedTransactionDigest;
+import net.corda.v5.ledger.transactions.TransactionBuilder;
+import net.corda.v5.ledger.transactions.TransactionBuilderFactory;
+import net.corda.v5.legacyapi.flows.FlowLogic;
+import org.jetbrains.annotations.NotNull;
+
+import java.time.Duration;
+import java.util.*;
+
+public class RedeemBoardingTicketWithVoucher {
+
+    @InitiatingFlow
+    @StartableByRPC
+    public static class RedeemBoardingTicketWithVoucherInitiator implements Flow<SignedTransactionDigest> {
+
+        //Node Injectables
+        @CordaInject
+        private FlowEngine flowEngine;
+        @CordaInject
+        private FlowIdentity flowIdentity;
+        @CordaInject
+        private FlowMessaging flowMessaging;
+        @CordaInject
+        private TransactionBuilderFactory transactionBuilderFactory;
+        @CordaInject
+        private IdentityService identityService;
+        @CordaInject
+        private NotaryLookupService notaryLookupService;
+        @CordaInject
+        private JsonMarshallingService jsonMarshallingService;
+        @CordaInject
+        private PersistenceService persistenceService;
+
+        //Private variable
+        private RpcStartFlowRequestParameters params;
+
+        //Constructor
+        @JsonConstructor
+        public RedeemBoardingTicketWithVoucherInitiator(RpcStartFlowRequestParameters params) {
+            this.params = params;
+        }
+
+        @Override
+        @Suspendable
+        public SignedTransactionDigest call() {
+
+            //Retrieve JSON params
+            Map<String, String> parametersMap = jsonMarshallingService.parseJson(params.getParametersInJson(), Map.class);
+
+            //Retrieve State parameter fields from JSON
+
+            //Voucher ID
+            String voucherID;
+            if(!parametersMap.containsKey("voucherID"))
+                throw new BadRpcStartFlowRequestException("MarsVoucher State Parameter \"voucherID\" missing.");
+            else
+                voucherID = parametersMap.get("voucherID");
+            //RecipientParty
+            CordaX500Name holder;
+            if(!parametersMap.containsKey("holder"))
+                throw new BadRpcStartFlowRequestException("BoardingTicket State Parameter \"holder\" missing.");
+            else
+                holder = CordaX500Name.parse(parametersMap.get("holder"));
+            Party recipientParty;
+            recipientParty = identityService.partyFromName(holder);
+
+            //Query the MarsVoucher & the boardingTicket
+            Map <String, Object> namedParameters = new LinkedHashMap<String,Object>();
+            namedParameters.put("uuid", UUID.fromString(voucherID));
+            namedParameters.put("stateStatus", StateStatus.UNCONSUMED);
+            Cursor cursor = persistenceService.query(
+                    "LinearState.findByUuidAndStateStatus",
+                    namedParameters,
+                    "Corda.IdentityStateAndRefPostProcessor"
+            );
+            StateAndRef<MarsVoucher> marsVoucherStateAndRef = (StateAndRef<MarsVoucher>) cursor.poll(100, Duration.ofSeconds(20)).getValues().get(0);
+
+            Map <String, Object> namedParameters2 = new LinkedHashMap<String,Object>();
+            namedParameters2.put("stateStatus", StateStatus.UNCONSUMED);
+            Set<String> ContractStateClassName = new LinkedHashSet<>();
+            ContractStateClassName.add(BoardingTicket.class.getName());
+
+            Cursor cursor2 = persistenceService.query(
+                    "VaultState.findByStateStatus",
+                    namedParameters2,
+                    new SetBasedVaultQueryFilter.Builder()
+                            .withContractStateClassNames(ContractStateClassName)
+                            .build(),
+                    "Corda.IdentityStateAndRefPostProcessor"
+            );
+            StateAndRef<BoardingTicket> boardingTicketStateAndRef = (StateAndRef<BoardingTicket>) cursor2.poll(100, Duration.ofSeconds(20)).getValues().get(0);
+            BoardingTicket originalBoardingTicketState= boardingTicketStateAndRef.getState().getData();
+
+            //Building the output
+            BoardingTicket outputBoardingTicket = originalBoardingTicketState.changeOwner(recipientParty);
+
+            //Getting Notary
+            Party notary = boardingTicketStateAndRef.getState().getNotary();
+
+            //Build transaction
+            TransactionBuilder transactionBuilder = transactionBuilderFactory.create()
+                    .setNotary(notary)
+                    .addInputState(marsVoucherStateAndRef)
+                    .addInputState(boardingTicketStateAndRef)
+                    .addOutputState(outputBoardingTicket, BoardingTicketContract.ID)
+                    .addCommand(new BoardingTicketContract.Commands.RedeemTicket(),
+                            Arrays.asList(recipientParty.getOwningKey(),flowIdentity.getOurIdentity().getOwningKey()));
+
+            // Verify that the transaction is valid.
+            transactionBuilder.verify();
+
+            // Sign the transaction.
+            SignedTransaction partialSignedTx = transactionBuilder.sign();
+
+            // Send the state to the counterparty, and receive it back with their signature.
+            FlowSession receiverSession = flowMessaging.initiateFlow(recipientParty);
+
+            SignedTransaction fullySignedTx = flowEngine.subFlow(
+                    new CollectSignaturesFlow(partialSignedTx, Arrays.asList(receiverSession)));
+
+            // Notarise and record the transaction in both parties' vaults
+            SignedTransaction notarisedTx = flowEngine.subFlow(
+                    new FinalityFlow(fullySignedTx, Arrays.asList(receiverSession)));
+
+            // Return Json output
+            return new SignedTransactionDigest(notarisedTx.getId(),
+                    Collections.singletonList(jsonMarshallingService.formatJson(notarisedTx.getTx().getOutputStates().get(0))),
+                    notarisedTx.getSigs());
+        }
+    }
+
+
+    @InitiatedBy(RedeemBoardingTicketWithVoucherInitiator.class)
+    public static class RedeemBoardingTicketWithVoucherResponder implements Flow<SignedTransaction> {
+
+        //Node Injectables
+        @CordaInject
+        private FlowEngine flowEngine;
+
+        //private variable
+        private FlowSession counterpartySession;
+
+        //Constructor
+        public RedeemBoardingTicketWithVoucherResponder(FlowSession counterpartySession) {
+            this.counterpartySession = counterpartySession;
+        }
+
+        @Suspendable
+        @Override
+        public SignedTransaction call() throws FlowException {
+            SignedTransaction signedTransaction = flowEngine.subFlow(
+                    new CreateAndIssueMarsVoucher.CreateAndIssueMarsVoucherResponder.signingTransaction(counterpartySession));
+            return flowEngine.subFlow(new ReceiveFinalityFlow(counterpartySession, signedTransaction.getId()));
+        }
+
+        public static class signingTransaction extends SignTransactionFlow {
+            signingTransaction(FlowSession counterpartySession) {
+                super(counterpartySession);
+            }
+            @Override
+            protected void checkTransaction(@NotNull SignedTransaction stx) {
+            }
+        }
+    }
+
+}
+```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ## Next steps
 
