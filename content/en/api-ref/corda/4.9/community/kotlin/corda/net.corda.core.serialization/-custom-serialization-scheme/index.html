@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CustomSerializationScheme - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.serialization</a>&nbsp;/&nbsp;<a href="./index.html">CustomSerializationScheme</a><br/>
+<br/>
+<h1>CustomSerializationScheme</h1>
+<code><span class="keyword">interface </span><span class="identifier">CustomSerializationScheme</span></code><ul><li></li>
+</ul>
+<p>Implement this interface to add your own Serialization Scheme. This is an experimental feature. All methods in this class MUST be
+thread safe i.e. methods from the same instance of this class can be called in different threads simultaneously.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="deserialize.html">deserialize</a></h4>
+</td>
+<td>
+<p>This method must deserialize the data stored <a href="deserialize.html#net.corda.core.serialization.CustomSerializationScheme$deserialize(net.corda.core.utilities.ByteSequence, java.lang.Class((net.corda.core.serialization.CustomSerializationScheme.deserialize.T)), net.corda.core.serialization.SerializationSchemeContext)/bytes">bytes</a> into an instance of <a href="deserialize.html#T">T</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">deserialize</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization.CustomSerializationScheme$deserialize(net.corda.core.utilities.ByteSequence, java.lang.Class((net.corda.core.serialization.CustomSerializationScheme.deserialize.T)), net.corda.core.serialization.SerializationSchemeContext)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization.CustomSerializationScheme$deserialize(net.corda.core.utilities.ByteSequence, java.lang.Class((net.corda.core.serialization.CustomSerializationScheme.deserialize.T)), net.corda.core.serialization.SerializationSchemeContext)/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization.CustomSerializationScheme$deserialize(net.corda.core.utilities.ByteSequence, java.lang.Class((net.corda.core.serialization.CustomSerializationScheme.deserialize.T)), net.corda.core.serialization.SerializationSchemeContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-scheme-context/index.html"><span class="identifier">SerializationSchemeContext</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-scheme-id.html">getSchemeId</a></h4>
+</td>
+<td>
+<p>This method must return an id used to uniquely identify the Scheme. This should be unique within a network as serialized data might
+be sent over the wire.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getSchemeId</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="serialize.html">serialize</a></h4>
+</td>
+<td>
+<p>This method must be able to serialize any object <a href="serialize.html#T">T</a> into a ByteSequence.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">serialize</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization.CustomSerializationScheme$serialize(net.corda.core.serialization.CustomSerializationScheme.serialize.T, net.corda.core.serialization.SerializationSchemeContext)/obj">obj</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization.CustomSerializationScheme$serialize(net.corda.core.serialization.CustomSerializationScheme.serialize.T, net.corda.core.serialization.SerializationSchemeContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-scheme-context/index.html"><span class="identifier">SerializationSchemeContext</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

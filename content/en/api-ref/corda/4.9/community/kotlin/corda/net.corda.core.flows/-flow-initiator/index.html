@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowInitiator - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">FlowInitiator</a><br/>
+<br/>
+<h1>FlowInitiator</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">FlowInitiator</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html"><span class="identifier">Principal</span></a></code>
+<p>Please note that <a href="./index.html">FlowInitiator</a> has been superceded by <a href="../../net.corda.core.context/-invocation-context/index.html">net.corda.core.context.InvocationContext</a>, which offers
+more detail for the same event.</p>
+<p>FlowInitiator holds information on who started the flow. We have different ways of doing that: via <a href="-r-p-c/index.html">FlowInitiator.RPC</a>,
+communication started by peer nodes (<a href="-peer/index.html">FlowInitiator.Peer</a>), scheduled flows (<a href="-scheduled/index.html">FlowInitiator.Scheduled</a>)
+or via the Corda Shell (<a href="-shell/index.html">FlowInitiator.Shell</a>).</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-peer/index.html">Peer</a></h4>
+</td>
+<td>
+<p>Started when we get new session initiation request.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Peer</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowInitiator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-r-p-c/index.html">RPC</a></h4>
+</td>
+<td>
+<p>Started using <a href="../../net.corda.core.messaging/-corda-r-p-c-ops/start-flow-dynamic.html">net.corda.core.messaging.CordaRPCOps.startFlowDynamic</a>.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">RPC</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowInitiator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-scheduled/index.html">Scheduled</a></h4>
+</td>
+<td>
+<p>Started as scheduled activity.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Scheduled</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowInitiator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-service/index.html">Service</a></h4>
+</td>
+<td>
+<p>Started by a CordaService.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Service</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowInitiator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-shell/index.html">Shell</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">Shell</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowInitiator</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="invocation-context.html">invocationContext</a></h4>
+</td>
+<td>
+<p>Returns an <a href="../../net.corda.core.context/-invocation-context/index.html">InvocationContext</a>, which is equivalent to this object but expressed using the successor to this
+class hierarchy (which is now deprecated). The returned object has less information than it could have, so
+prefer to use fetch an invocation context directly if you can (e.g. in <a href="../../net.corda.core.messaging/-state-machine-info/index.html">net.corda.core.messaging.StateMachineInfo</a>)</p>
+<code><span class="keyword">val </span><span class="identifier">invocationContext</span><span class="symbol">: </span><a href="../../net.corda.core.context/-invocation-context/index.html"><span class="identifier">InvocationContext</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

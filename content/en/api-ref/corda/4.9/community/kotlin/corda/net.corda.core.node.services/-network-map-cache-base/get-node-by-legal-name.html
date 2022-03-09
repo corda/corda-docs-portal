@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NetworkMapCacheBase.getNodeByLegalName - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="index.html">NetworkMapCacheBase</a>&nbsp;/&nbsp;<a href="./get-node-by-legal-name.html">getNodeByLegalName</a><br/>
+<br/>
+<h1>getNodeByLegalName</h1>
+<a name="net.corda.core.node.services.NetworkMapCacheBase$getNodeByLegalName(net.corda.core.identity.CordaX500Name)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getNodeByLegalName</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCacheBase$getNodeByLegalName(net.corda.core.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a><span class="symbol">?</span></code>
+<p>Return a <a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a> which has the given legal name for one of its identities, or null if no such node is found.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - If more than one matching node is found, in the case of a distributed service identity
+(such as with a notary cluster). For such a scenerio use <a href="get-nodes-by-legal-name.html">getNodesByLegalName</a> instead.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ContractUpgradeFlow.Authorise.<init> - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="../index.html">ContractUpgradeFlow</a>&nbsp;/&nbsp;<a href="index.html">Authorise</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.flows.ContractUpgradeFlow.Authorise$&lt;init&gt;(net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)), java.lang.Class((net.corda.core.contracts.UpgradedContract((net.corda.core.contracts.ContractState, )))))"></a>
+<code><span class="identifier">Authorise</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.ContractUpgradeFlow.Authorise$<init>(net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)), java.lang.Class((net.corda.core.contracts.UpgradedContract((net.corda.core.contracts.ContractState, )))))/stateAndRef">stateAndRef</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.ContractUpgradeFlow.Authorise$<init>(net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)), java.lang.Class((net.corda.core.contracts.UpgradedContract((net.corda.core.contracts.ContractState, )))))/upgradedContractClass">upgradedContractClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../../net.corda.core.contracts/-upgraded-contract/index.html"><span class="identifier">UpgradedContract</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Authorise a contract state upgrade.</p>
+<p>This will store the upgrade authorisation in persistent store, and will be queried by <a href="#">ContractUpgradeFlow.Acceptor</a>
+during contract upgrade process. Invoking this flow indicates the node is willing to upgrade the <a href="../../../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a> using
+the <a href="../../../net.corda.core.contracts/-upgraded-contract/index.html">UpgradedContract</a> class.</p>
+<p>This flow will NOT initiate the upgrade process. To start the upgrade process, see <a href="../-initiate/index.html">Initiate</a>.</p>
+</BODY>
+</HTML>

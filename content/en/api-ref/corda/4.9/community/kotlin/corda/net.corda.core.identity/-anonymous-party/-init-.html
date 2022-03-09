@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AnonymousParty.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.identity</a>&nbsp;/&nbsp;<a href="index.html">AnonymousParty</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.identity.AnonymousParty$&lt;init&gt;(java.security.PublicKey)"></a>
+<code><span class="identifier">AnonymousParty</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.AnonymousParty$<init>(java.security.PublicKey)/owningKey">owningKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span></code>
+<p>The <a href="index.html">AnonymousParty</a> class contains enough information to uniquely identify a <a href="../-party/index.html">Party</a> while excluding private
+information such as name. It is intended to represent a party on the distributed ledger.</p>
+<h3>Flow sessions</h3>
+<p>Anonymous parties can be used to communicate using the <a href="../../net.corda.core.flows/-flow-logic/initiate-flow.html">FlowLogic.initiateFlow</a> method. Message routing is simply routing to the well-known
+<a href="../-party/index.html">Party</a> the anonymous party belongs to. This mechanism assumes the party initiating the communication knows who the anonymous party is.</p>
+</BODY>
+</HTML>

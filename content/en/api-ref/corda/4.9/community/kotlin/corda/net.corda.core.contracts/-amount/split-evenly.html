@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Amount.splitEvenly - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="index.html">Amount</a>&nbsp;/&nbsp;<a href="./split-evenly.html">splitEvenly</a><br/>
+<br/>
+<h1>splitEvenly</h1>
+<a name="net.corda.core.contracts.Amount$splitEvenly(kotlin.Int)"></a>
+<code><span class="keyword">fun </span><span class="identifier">splitEvenly</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.Amount$splitEvenly(kotlin.Int)/partitions">partitions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>This method provides a token conserving divide mechanism.</p>
+<h3>Parameters</h3>
+<p><a name="partitions"></a>
+<code>partitions</code> - the number of amounts to divide the current quantity into.</p>
+<p><strong>Return</strong><br/>
+'partitions' separate Amount objects which sum to the same quantity as this Amount
+and differ by no more than a single token in size.</p>
+</BODY>
+</HTML>

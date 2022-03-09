@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CoreTransaction - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="./index.html">CoreTransaction</a><br/>
+<br/>
+<h1>CoreTransaction</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">CoreTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a></code>
+<p>A transaction with the minimal amount of information required to compute the unique transaction <a href="#">id</a>, and
+resolve a <a href="../-full-transaction/index.html">FullTransaction</a>. This type of transaction, wrapped in <a href="../-signed-transaction/index.html">SignedTransaction</a>, gets transferred across the
+wire and recorded to storage.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A transaction with the minimal amount of information required to compute the unique transaction <a href="#">id</a>, and
+resolve a <a href="../-full-transaction/index.html">FullTransaction</a>. This type of transaction, wrapped in <a href="../-signed-transaction/index.html">SignedTransaction</a>, gets transferred across the
+wire and recorded to storage.</p>
+<code><span class="identifier">CoreTransaction</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="inputs.html">inputs</a></h4>
+</td>
+<td>
+<p>The inputs of this transaction, containing state references only.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">inputs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters-hash.html">networkParametersHash</a></h4>
+</td>
+<td>
+<p>Hash of the network parameters that were in force when the transaction was notarised. Null means, that the transaction
+was created on older version of Corda (before 4), resolution will default to initial parameters.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">networkParametersHash</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="references.html">references</a></h4>
+</td>
+<td>
+<p>The reference inputs of this transaction, containing the state references only.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">references</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-contract-upgrade-filtered-transaction/index.html">ContractUpgradeFilteredTransaction</a></h4>
+</td>
+<td>
+<p>A filtered version of the <a href="../-contract-upgrade-wire-transaction/index.html">ContractUpgradeWireTransaction</a>. In comparison with a regular <a href="../-filtered-transaction/index.html">FilteredTransaction</a>, there
+is no flexibility on what parts of the transaction to reveal – the inputs, notary and network parameters hash fields are always visible and the
+rest of the transaction is always hidden. Its only purpose is to hide transaction data when using a non-validating notary.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ContractUpgradeFilteredTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-contract-upgrade-wire-transaction/index.html">ContractUpgradeWireTransaction</a></h4>
+</td>
+<td>
+<p>A special transaction for upgrading the contract of a state.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ContractUpgradeWireTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-notary-change-wire-transaction/index.html">NotaryChangeWireTransaction</a></h4>
+</td>
+<td>
+<p>A special transaction for changing the notary of a state. It only needs specifying the state(s) as input(s),
+old and new notaries. Output states can be computed by applying the notary modification to corresponding inputs
+on the fly.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NotaryChangeWireTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-traversable-transaction/index.html">TraversableTransaction</a></h4>
+</td>
+<td>
+<p>Implemented by <a href="../-wire-transaction/index.html">WireTransaction</a> and <a href="../-filtered-transaction/index.html">FilteredTransaction</a>. A TraversableTransaction allows you to iterate
+over the flattened components of the underlying transaction structure, taking into account that some
+may be missing in the case of this representing a "torn" transaction. Please see the user guide section
+"Transaction tear-offs" to learn more about this feature.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">TraversableTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

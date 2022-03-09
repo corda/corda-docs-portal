@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Commodity - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.contracts</a>&nbsp;/&nbsp;<a href="./index.html">Commodity</a><br/>
+<br/>
+<h1>Commodity</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Commodity</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-tokenizable-asset-info/index.html"><span class="identifier">TokenizableAssetInfo</span></a></code>
+<p>Class representing a commodity, as an equivalent to the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html">Currency</a> class. This exists purely to enable the
+<a href="#">CommodityContract</a> contract, and is likely to change in future.</p>
+<h3>Parameters</h3>
+<p><a name="commodityCode"></a>
+<code>commodityCode</code> - a unique code for the commodity. No specific registry for these is currently defined, although
+this is likely to change in future.</p>
+<p><a name="displayName"></a>
+<code>displayName</code> - human readable name for the commodity.</p>
+<p><a name="defaultFractionDigits"></a>
+<code>defaultFractionDigits</code> - the number of digits normally after the decimal point when referring to quantities of
+this commodity.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Class representing a commodity, as an equivalent to the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html">Currency</a> class. This exists purely to enable the
+<a href="#">CommodityContract</a> contract, and is likely to change in future.</p>
+<code><span class="identifier">Commodity</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.Commodity$<init>(kotlin.String, kotlin.String, kotlin.Int)/commodityCode">commodityCode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.Commodity$<init>(kotlin.String, kotlin.String, kotlin.Int)/displayName">displayName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.Commodity$<init>(kotlin.String, kotlin.String, kotlin.Int)/defaultFractionDigits">defaultFractionDigits</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="commodity-code.html">commodityCode</a></h4>
+</td>
+<td>
+<p>a unique code for the commodity. No specific registry for these is currently defined, although
+this is likely to change in future.</p>
+<code><span class="keyword">val </span><span class="identifier">commodityCode</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="default-fraction-digits.html">defaultFractionDigits</a></h4>
+</td>
+<td>
+<p>the number of digits normally after the decimal point when referring to quantities of
+this commodity.</p>
+<code><span class="keyword">val </span><span class="identifier">defaultFractionDigits</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="display-name.html">displayName</a></h4>
+</td>
+<td>
+<p>human readable name for the commodity.</p>
+<code><span class="keyword">val </span><span class="identifier">displayName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="display-token-size.html">displayTokenSize</a></h4>
+</td>
+<td>
+<p>The nominal display unit size of a single token, potentially with trailing decimal display places if the scale parameter is non-zero.</p>
+<code><span class="keyword">val </span><span class="identifier">displayTokenSize</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-instance.html">getInstance</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getInstance</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.Commodity.Companion$getInstance(kotlin.String)/commodityCode">commodityCode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Commodity</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

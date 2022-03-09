@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TwoPartyDealFlow - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="./index.html">TwoPartyDealFlow</a><br/>
+<br/>
+<h1>TwoPartyDealFlow</h1>
+<code><span class="keyword">object </span><span class="identifier">TwoPartyDealFlow</span></code>
+<p>Classes for manipulating a two party deal or agreement.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-acceptor/index.html">Acceptor</a></h4>
+</td>
+<td>
+<p>One side of the flow for inserting a pre-agreed deal.</p>
+<code><span class="keyword">class </span><span class="identifier">Acceptor</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Secondary</span><span class="symbol">&lt;</span><span class="identifier">AutoOffer</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-auto-offer/index.html">AutoOffer</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">AutoOffer</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-handshake/index.html">Handshake</a></h4>
+</td>
+<td>
+<p>This object is serialised to the network and is the first flow message the seller sends to the buyer.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Handshake</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-instigator/index.html">Instigator</a></h4>
+</td>
+<td>
+<p>One side of the flow for inserting a pre-agreed deal.</p>
+<code><span class="keyword">class </span><span class="identifier">Instigator</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Primary</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-primary/index.html">Primary</a></h4>
+</td>
+<td>
+<p>Abstracted bilateral deal flow participant that initiates communication/handshake.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Primary</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-secondary/index.html">Secondary</a></h4>
+</td>
+<td>
+<p>Abstracted bilateral deal flow participant that is recipient of initial communication.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Secondary</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

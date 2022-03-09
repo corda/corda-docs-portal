@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>UpgradedContract - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="./index.html">UpgradedContract</a><br/>
+<br/>
+<h1>UpgradedContract</h1>
+<code><span class="keyword">interface </span><span class="identifier">UpgradedContract</span><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">OldState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">NewState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-contract/index.html"><span class="identifier">Contract</span></a></code>
+<p>Interface which can upgrade state objects issued by a contract to a new state object issued by a different contract.
+The upgraded contract should specify the legacy contract class name, and provide an upgrade function that will convert
+legacy contract states into states defined by this contract.</p>
+<p>In addition to the legacy contract class name, you can also specify the legacy contract constraint by implementing
+<a href="../-upgraded-contract-with-legacy-constraint/index.html">UpgradedContractWithLegacyConstraint</a> instead. Otherwise, the default <a href="../-whitelisted-by-zone-attachment-constraint/index.html">WhitelistedByZoneAttachmentConstraint</a> will
+be used for verifying the validity of an upgrade transaction.</p>
+<h3>Parameters</h3>
+<p><a name="OldState"></a>
+<code>OldState</code> - the old contract state (can be <a href="../-contract-state/index.html">ContractState</a> or other common supertype if this supports upgrading
+more than one state).</p>
+<p><a name="NewState"></a>
+<code>NewState</code> - the upgraded contract state.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="legacy-contract.html">legacyContract</a></h4>
+</td>
+<td>
+<p>Name of the contract this is an upgraded version of, used as part of verification of upgrade transactions.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">legacyContract</span><span class="symbol">: </span><a href="../-contract-class-name.html"><span class="identifier">ContractClassName</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="upgrade.html">upgrade</a></h4>
+</td>
+<td>
+<p>Upgrade contract's state object to a new state object.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">upgrade</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.UpgradedContract$upgrade(net.corda.core.contracts.UpgradedContract.OldState)/state">state</span><span class="symbol">:</span>&nbsp;<span class="identifier">OldState</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">NewState</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-upgraded-contract-with-legacy-constraint/index.html">UpgradedContractWithLegacyConstraint</a></h4>
+</td>
+<td>
+<p>This interface allows specifying a custom legacy contract constraint for upgraded contracts. The default for <a href="./index.html">UpgradedContract</a>
+is <a href="../-whitelisted-by-zone-attachment-constraint/index.html">WhitelistedByZoneAttachmentConstraint</a>.</p>
+<code><span class="keyword">interface </span><span class="identifier">UpgradedContractWithLegacyConstraint</span><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">OldState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">NewState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">UpgradedContract</span></a><span class="symbol">&lt;</span><span class="identifier">OldState</span><span class="symbol">,</span>&nbsp;<span class="identifier">NewState</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

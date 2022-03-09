@@ -8,7 +8,27 @@ title: Corda downloads
 weight: 200
 ---
 
-To use Corda, you can access the latest version in one of three ways:
+## Corda Enterprise downloads
+
+Corda Enterprise is accessed via R3's customer hub.
+
+{{< table >}}
+
+| Corda Enterprise version | Link |
+| :------------- | :------------- |
+| 4.9 | Customer Hub |
+| 4.8 | Customer Hub |
+| 4.7 | Customer Hub |
+| 4.6 | Customer Hub |
+| 4.5 | Customer Hub |
+| 4.4 | Customer Hub |
+
+{{< /table >}}
+
+
+## Corda Community Edition downloads
+
+To use Corda Community Edition, you can access the latest version in one of three ways:
 
 * Clone the github repository, then follow the tutorials to set up your nodes and developer environment.
 * Download the latest `.tar` file that contains the required Corda `.jars`.
@@ -20,14 +40,8 @@ The table below provides links to download Corda:
 
 {{< table >}}
 
-| Corda version | .tar    | Docker | Github repo |
-| :------------- | :------------- | :-------------- | :-------------- |
-| Corda Enterprise 4.4   | LINK | LINK  | LINK  |
-| Corda Enterprise 4.5   | LINK | LINK  | LINK  |
-| Corda Enterprise 4.6   | LINK | LINK  | LINK  |
-| Corda Enterprise 4.7   | LINK | LINK  | LINK  |
-| Corda Enterprise 4.8   | LINK | LINK  | LINK  |
-| Corda Enterprise 4.9   | LINK | LINK  | LINK  |
-| Corda Community Edition | LINK | LINK  | LINK  |
+| Corda Community Edition version | .tar    | Docker | Github repo |
+| :------------- | :------------- | :------------- | :------------- |
+| 4.9 | LINK | LINK  | LINK  |
 
 {{< /table >}}

@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Obligation - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.contracts.asset</a>&nbsp;/&nbsp;<a href="./index.html">Obligation</a><br/>
+<br/>
+<h1>Obligation</h1>
+<code><span class="keyword">class </span><span class="identifier">Obligation</span><span class="symbol">&lt;</span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-contract/index.html"><span class="identifier">Contract</span></a></code>
+<p>An obligation contract commits the obligor to delivering a specified amount of a fungible asset (for example the
+<a href="../-cash/index.html">Cash</a> contract) at a specified future point in time. Settlement transactions may split and merge contracts across
+multiple input and output states. The goal of this design is to handle amounts owed, and these contracts are expected
+to be netted/merged, with settlement only for any remainder amount.</p>
+<h3>Parameters</h3>
+<p><a name="P"></a>
+<code>P</code> - the product the obligation is for payment of.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-commands/index.html">Commands</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Commands</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-command-data.html"><span class="identifier">CommandData</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-lifecycle/index.html">Lifecycle</a></h4>
+</td>
+<td>
+<p>Represents where in its lifecycle a contract state is, which in turn controls the commands that can be applied
+to the state. Most states will not leave the <a href="-lifecycle/-n-o-r-m-a-l.html">NORMAL</a> lifecycle. Note that settled (as an end lifecycle) is
+represented by absence of the state on transaction output.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Lifecycle</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-state/index.html">State</a></h4>
+</td>
+<td>
+<p>A state representing the obligation of one party (obligor) to deliver a specified number of
+units of an underlying asset (described as token.acceptableIssuedProducts) to the beneficiary
+no later than the specified time.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">State</span><span class="symbol">&lt;</span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-fungible-asset/index.html"><span class="identifier">FungibleAsset</span></a><span class="symbol">&lt;</span><span class="identifier">Terms</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../../net.corda.finance.contracts/-nettable-state.html"><span class="identifier">NettableState</span></a><span class="symbol">&lt;</span><span class="identifier">State</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<a href="../-multilateral-net-state/index.html"><span class="identifier">MultilateralNetState</span></a><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-terms/index.html">Terms</a></h4>
+</td>
+<td>
+<p>Subset of state, containing the elements specified when issuing a new settlement contract.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Terms</span><span class="symbol">&lt;</span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>An obligation contract commits the obligor to delivering a specified amount of a fungible asset (for example the
+<a href="../-cash/index.html">Cash</a> contract) at a specified future point in time. Settlement transactions may split and merge contracts across
+multiple input and output states. The goal of this design is to handle amounts owed, and these contracts are expected
+to be netted/merged, with settlement only for any remainder amount.</p>
+<code><span class="identifier">Obligation</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="verify.html">verify</a></h4>
+</td>
+<td>
+<p>Takes an object that represents a state transition, and ensures the inputs/outputs/commands make sense.
+Must throw an exception if there's a problem that should prevent state transition. Takes a single object
+rather than an argument so that additional data can be added without breaking binary compatibility with
+existing contract code.</p>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Obligation$verify(net.corda.core.transactions.LedgerTransaction)/tx">tx</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-p-r-o-g-r-a-m_-i-d.html">PROGRAM_ID</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">PROGRAM_ID</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

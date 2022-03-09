@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>KeyManagementService.freshKeyAndCert - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="index.html">KeyManagementService</a>&nbsp;/&nbsp;<a href="./fresh-key-and-cert.html">freshKeyAndCert</a><br/>
+<br/>
+<h1>freshKeyAndCert</h1>
+<a name="net.corda.core.node.services.KeyManagementService$freshKeyAndCert(net.corda.core.identity.PartyAndCertificate, kotlin.Boolean)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">freshKeyAndCert</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.KeyManagementService$freshKeyAndCert(net.corda.core.identity.PartyAndCertificate, kotlin.Boolean)/identity">identity</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.KeyManagementService$freshKeyAndCert(net.corda.core.identity.PartyAndCertificate, kotlin.Boolean)/revocationEnabled">revocationEnabled</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a></code>
+<p>Generates a new random <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a>, adds it to the internal key storage, then generates a corresponding <a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html">X509Certificate</a> and adds it
+to the identity service. Associates the public key to an external ID. Returns the public part of the pair.</p>
+<h3>Parameters</h3>
+<p><a name="identity"></a>
+<code>identity</code> - identity to generate a key and certificate for. Must be an identity this node has CA privileges for.</p>
+<p><a name="revocationEnabled"></a>
+<code>revocationEnabled</code> - whether to check revocation status of certificates in the certificate path.</p>
+<p><strong>Return</strong><br/>
+X.509 certificate and path to the trust root.</p>
+<a name="net.corda.core.node.services.KeyManagementService$freshKeyAndCert(net.corda.core.identity.PartyAndCertificate, kotlin.Boolean, java.util.UUID)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">freshKeyAndCert</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.KeyManagementService$freshKeyAndCert(net.corda.core.identity.PartyAndCertificate, kotlin.Boolean, java.util.UUID)/identity">identity</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.KeyManagementService$freshKeyAndCert(net.corda.core.identity.PartyAndCertificate, kotlin.Boolean, java.util.UUID)/revocationEnabled">revocationEnabled</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.KeyManagementService$freshKeyAndCert(net.corda.core.identity.PartyAndCertificate, kotlin.Boolean, java.util.UUID)/externalId">externalId</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a></code>
+<p>Generates a new random <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a>, adds it to the internal key storage, then generates a corresponding
+<a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html">X509Certificate</a> and adds it to the identity service.</p>
+<h3>Parameters</h3>
+<p><a name="identity"></a>
+<code>identity</code> - identity to generate a key and certificate for. Must be an identity this node has CA privileges for.</p>
+<p><a name="revocationEnabled"></a>
+<code>revocationEnabled</code> - whether to check revocation status of certificates in the certificate path.</p>
+<p><a name="externalId"></a>
+<code>externalId</code> - ID to associate the newly created <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> with.</p>
+<p><strong>Return</strong><br/>
+X.509 certificate and path to the trust root.</p>
+</BODY>
+</HTML>

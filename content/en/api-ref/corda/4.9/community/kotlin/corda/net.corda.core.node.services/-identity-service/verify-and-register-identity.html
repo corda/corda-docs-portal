@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>IdentityService.verifyAndRegisterIdentity - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="index.html">IdentityService</a>&nbsp;/&nbsp;<a href="./verify-and-register-identity.html">verifyAndRegisterIdentity</a><br/>
+<br/>
+<h1>verifyAndRegisterIdentity</h1>
+<a name="net.corda.core.node.services.IdentityService$verifyAndRegisterIdentity(net.corda.core.identity.PartyAndCertificate)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">verifyAndRegisterIdentity</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$verifyAndRegisterIdentity(net.corda.core.identity.PartyAndCertificate)/identity">identity</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">?</span></code>
+<p>Verify and then store an identity.</p>
+<h3>Parameters</h3>
+<p><a name="identity"></a>
+<code>identity</code> - a party and the certificate path linking them to the network trust root.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the certificate path is invalid.</p>
+<p><strong>Return</strong><br/>
+the issuing entity, if known.</p>
+</BODY>
+</HTML>

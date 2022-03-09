@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaRPCOps.acceptNewNetworkParameters - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.messaging</a>&nbsp;/&nbsp;<a href="index.html">CordaRPCOps</a>&nbsp;/&nbsp;<a href="./accept-new-network-parameters.html">acceptNewNetworkParameters</a><br/>
+<br/>
+<h1>acceptNewNetworkParameters</h1>
+<a name="net.corda.core.messaging.CordaRPCOps$acceptNewNetworkParameters(net.corda.core.crypto.SecureHash)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">acceptNewNetworkParameters</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.messaging.CordaRPCOps$acceptNewNetworkParameters(net.corda.core.crypto.SecureHash)/parametersHash">parametersHash</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Accept network parameters with given hash, hash is obtained through <a href="network-parameters-feed.html">networkParametersFeed</a> method.
+Information is sent back to the zone operator that the node accepted the parameters update - this process cannot be
+undone.
+Only parameters that are scheduled for update can be accepted, if different hash is provided this method will fail.
+Note: This operation may be restricted only to node administrators.</p>
+<h3>Parameters</h3>
+<p><a name="parametersHash"></a>
+<code>parametersHash</code> - hash of network parameters to accept</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if network map advertises update with different parameters hash then the one accepted by node's operator.</p>
+<p><a name="IOException"></a>
+<code>IOException</code> - if failed to send the approval to network map</p>
+</BODY>
+</HTML>

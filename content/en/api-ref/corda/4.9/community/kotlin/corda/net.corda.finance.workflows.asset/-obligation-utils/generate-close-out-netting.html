@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ObligationUtils.generateCloseOutNetting - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.workflows.asset</a>&nbsp;/&nbsp;<a href="index.html">ObligationUtils</a>&nbsp;/&nbsp;<a href="./generate-close-out-netting.html">generateCloseOutNetting</a><br/>
+<br/>
+<h1>generateCloseOutNetting</h1>
+<a name="net.corda.finance.workflows.asset.ObligationUtils$generateCloseOutNetting(net.corda.core.transactions.TransactionBuilder, net.corda.core.identity.AbstractParty, kotlin.Array((net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.asset.Obligation.State((net.corda.finance.workflows.asset.ObligationUtils.generateCloseOutNetting.P)))))))"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">generateCloseOutNetting</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows.asset.ObligationUtils$generateCloseOutNetting(net.corda.core.transactions.TransactionBuilder, net.corda.core.identity.AbstractParty, kotlin.Array((net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.asset.Obligation.State((net.corda.finance.workflows.asset.ObligationUtils.generateCloseOutNetting.P)))))))/tx">tx</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-transaction-builder/index.html"><span class="identifier">TransactionBuilder</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.ObligationUtils$generateCloseOutNetting(net.corda.core.transactions.TransactionBuilder, net.corda.core.identity.AbstractParty, kotlin.Array((net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.asset.Obligation.State((net.corda.finance.workflows.asset.ObligationUtils.generateCloseOutNetting.P)))))))/signer">signer</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.finance.workflows.asset.ObligationUtils$generateCloseOutNetting(net.corda.core.transactions.TransactionBuilder, net.corda.core.identity.AbstractParty, kotlin.Array((net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.asset.Obligation.State((net.corda.finance.workflows.asset.ObligationUtils.generateCloseOutNetting.P)))))))/inputs">inputs</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">State</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Generate a transaction performing close-out netting of two or more states.</p>
+<h3>Parameters</h3>
+<p><a name="signer"></a>
+<code>signer</code> - the party which will sign the transaction. Must be one of the obligor or beneficiary.</p>
+<p><a name="inputs"></a>
+<code>inputs</code> - two or more states, which must be compatible for bilateral netting (same issuance definitions,
+and same parties involved).</p>
+</BODY>
+</HTML>

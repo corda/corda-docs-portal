@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ContractUpgradeFilteredTransaction - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="./index.html">ContractUpgradeFilteredTransaction</a><br/>
+<br/>
+<h1>ContractUpgradeFilteredTransaction</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ContractUpgradeFilteredTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a></code>
+<p>A filtered version of the <a href="../-contract-upgrade-wire-transaction/index.html">ContractUpgradeWireTransaction</a>. In comparison with a regular <a href="../-filtered-transaction/index.html">FilteredTransaction</a>, there
+is no flexibility on what parts of the transaction to reveal – the inputs, notary and network parameters hash fields are always visible and the
+rest of the transaction is always hidden. Its only purpose is to hide transaction data when using a non-validating notary.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-filtered-component/index.html">FilteredComponent</a></h4>
+</td>
+<td>
+<p>Contains the serialized component and the associated nonce for computing the transaction id.</p>
+<code><span class="keyword">class </span><span class="identifier">FilteredComponent</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Old version of <a href="./index.html">ContractUpgradeFilteredTransaction</a> constructor for ABI compatibility.</p>
+<code><span class="identifier">ContractUpgradeFilteredTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeFilteredTransaction$<init>(kotlin.collections.Map((kotlin.Int, net.corda.core.transactions.ContractUpgradeFilteredTransaction.FilteredComponent)), kotlin.collections.Map((kotlin.Int, net.corda.core.crypto.SecureHash)))/visibleComponents">visibleComponents</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">FilteredComponent</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeFilteredTransaction$<init>(kotlin.collections.Map((kotlin.Int, net.corda.core.transactions.ContractUpgradeFilteredTransaction.FilteredComponent)), kotlin.collections.Map((kotlin.Int, net.corda.core.crypto.SecureHash)))/hiddenComponents">hiddenComponents</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>A filtered version of the <a href="../-contract-upgrade-wire-transaction/index.html">ContractUpgradeWireTransaction</a>. In comparison with a regular <a href="../-filtered-transaction/index.html">FilteredTransaction</a>, there
+is no flexibility on what parts of the transaction to reveal – the inputs, notary and network parameters hash fields are always visible and the
+rest of the transaction is always hidden. Its only purpose is to hide transaction data when using a non-validating notary.</p>
+<code><span class="identifier">ContractUpgradeFilteredTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeFilteredTransaction$<init>(kotlin.collections.Map((kotlin.Int, net.corda.core.transactions.ContractUpgradeFilteredTransaction.FilteredComponent)), kotlin.collections.Map((kotlin.Int, net.corda.core.crypto.SecureHash)), net.corda.core.crypto.DigestService)/visibleComponents">visibleComponents</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">FilteredComponent</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeFilteredTransaction$<init>(kotlin.collections.Map((kotlin.Int, net.corda.core.transactions.ContractUpgradeFilteredTransaction.FilteredComponent)), kotlin.collections.Map((kotlin.Int, net.corda.core.crypto.SecureHash)), net.corda.core.crypto.DigestService)/hiddenComponents">hiddenComponents</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeFilteredTransaction$<init>(kotlin.collections.Map((kotlin.Int, net.corda.core.transactions.ContractUpgradeFilteredTransaction.FilteredComponent)), kotlin.collections.Map((kotlin.Int, net.corda.core.crypto.SecureHash)), net.corda.core.crypto.DigestService)/digestService">digestService</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-digest-service/index.html"><span class="identifier">DigestService</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="digest-service.html">digestService</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">digestService</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-digest-service/index.html"><span class="identifier">DigestService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hidden-components.html">hiddenComponents</a></h4>
+</td>
+<td>
+<p>Hashes of the transaction components that are not revealed in this transaction.
+Required for computing the transaction id.</p>
+<code><span class="keyword">val </span><span class="identifier">hiddenComponents</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="inputs.html">inputs</a></h4>
+</td>
+<td>
+<p>The inputs of this transaction, containing state references only.</p>
+<code><span class="keyword">val </span><span class="identifier">inputs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters-hash.html">networkParametersHash</a></h4>
+</td>
+<td>
+<p>Hash of the network parameters that were in force when the transaction was notarised. Null means, that the transaction
+was created on older version of Corda (before 4), resolution will default to initial parameters.</p>
+<code><span class="keyword">val </span><span class="identifier">networkParametersHash</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary.html">notary</a></h4>
+</td>
+<td>
+<p>If present, the notary for this transaction. If absent then the transaction is not notarised at all.
+This is intended for issuance/genesis transactions that don't consume any other states and thus can't
+double spend anything.</p>
+<code><span class="keyword">val </span><span class="identifier">notary</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="outputs.html">outputs</a></h4>
+</td>
+<td>
+<p>Ordered list of states defined by this transaction, along with the associated notaries.</p>
+<code><span class="keyword">val </span><span class="identifier">outputs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-transaction-state/index.html"><span class="identifier">TransactionState</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="references.html">references</a></h4>
+</td>
+<td>
+<p>The reference inputs of this transaction, containing the state references only.</p>
+<code><span class="keyword">val </span><span class="identifier">references</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="visible-components.html">visibleComponents</a></h4>
+</td>
+<td>
+<p>Transaction components that are exposed.</p>
+<code><span class="keyword">val </span><span class="identifier">visibleComponents</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">FilteredComponent</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="copy.html">copy</a></h4>
+</td>
+<td>
+<p>Old version of <a href="copy.html">ContractUpgradeFilteredTransaction.copy</a> for ABI compatibility.</p>
+<code><span class="keyword">fun </span><span class="identifier">copy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeFilteredTransaction$copy(kotlin.collections.Map((kotlin.Int, net.corda.core.transactions.ContractUpgradeFilteredTransaction.FilteredComponent)), kotlin.collections.Map((kotlin.Int, net.corda.core.crypto.SecureHash)))/visibleComponents">visibleComponents</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">FilteredComponent</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeFilteredTransaction$copy(kotlin.collections.Map((kotlin.Int, net.corda.core.transactions.ContractUpgradeFilteredTransaction.FilteredComponent)), kotlin.collections.Map((kotlin.Int, net.corda.core.crypto.SecureHash)))/hiddenComponents">hiddenComponents</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ContractUpgradeFilteredTransaction</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

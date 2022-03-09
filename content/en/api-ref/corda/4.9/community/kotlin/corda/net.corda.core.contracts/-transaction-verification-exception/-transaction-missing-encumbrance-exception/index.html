@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionVerificationException.TransactionMissingEncumbranceException - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="../index.html">TransactionVerificationException</a>&nbsp;/&nbsp;<a href="./index.html">TransactionMissingEncumbranceException</a><br/>
+<br/>
+<h1>TransactionMissingEncumbranceException</h1>
+<code><span class="keyword">class </span><span class="identifier">TransactionMissingEncumbranceException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../index.html"><span class="identifier">TransactionVerificationException</span></a></code>
+<p>If a state is encumbered (the <a href="../../-transaction-state/encumbrance.html">TransactionState.encumbrance</a> field is set) then its encumbrance must be used
+as an input to any transaction that uses it. In this way states can be tied together in chains, thus composing
+logic. Note that encumbrances aren't fully supported by all aspects of the platform at this time so if you use
+them, you may find transactions created by the platform don't always respect the encumbrance rule.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>If a state is encumbered (the <a href="../../-transaction-state/encumbrance.html">TransactionState.encumbrance</a> field is set) then its encumbrance must be used
+as an input to any transaction that uses it. In this way states can be tied together in chains, thus composing
+logic. Note that encumbrances aren't fully supported by all aspects of the platform at this time so if you use
+them, you may find transactions created by the platform don't always respect the encumbrance rule.</p>
+<code><span class="identifier">TransactionMissingEncumbranceException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.TransactionVerificationException.TransactionMissingEncumbranceException$<init>(net.corda.core.crypto.SecureHash, kotlin.Int, net.corda.core.contracts.TransactionVerificationException.Direction)/txId">txId</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TransactionVerificationException.TransactionMissingEncumbranceException$<init>(net.corda.core.crypto.SecureHash, kotlin.Int, net.corda.core.contracts.TransactionVerificationException.Direction)/missing">missing</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TransactionVerificationException.TransactionMissingEncumbranceException$<init>(net.corda.core.crypto.SecureHash, kotlin.Int, net.corda.core.contracts.TransactionVerificationException.Direction)/inOut">inOut</span><span class="symbol">:</span>&nbsp;<span class="identifier">Direction</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="in-out.html">inOut</a></h4>
+</td>
+<td>
+<p>whether the issue exists in the input list or output list.</p>
+<code><span class="keyword">val </span><span class="identifier">inOut</span><span class="symbol">: </span><span class="identifier">Direction</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="missing.html">missing</a></h4>
+</td>
+<td>
+<p>the index of the state missing the encumbrance.</p>
+<code><span class="keyword">val </span><span class="identifier">missing</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ReceiveFinalityFlow.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">ReceiveFinalityFlow</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.flows.ReceiveFinalityFlow$&lt;init&gt;(net.corda.core.flows.FlowSession, net.corda.core.crypto.SecureHash, net.corda.core.node.StatesToRecord)"></a>
+<code><span class="identifier">ReceiveFinalityFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.ReceiveFinalityFlow$<init>(net.corda.core.flows.FlowSession, net.corda.core.crypto.SecureHash, net.corda.core.node.StatesToRecord)/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.ReceiveFinalityFlow$<init>(net.corda.core.flows.FlowSession, net.corda.core.crypto.SecureHash, net.corda.core.node.StatesToRecord)/expectedTxId">expectedTxId</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.ReceiveFinalityFlow$<init>(net.corda.core.flows.FlowSession, net.corda.core.crypto.SecureHash, net.corda.core.node.StatesToRecord)/statesToRecord">statesToRecord</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-states-to-record/index.html"><span class="identifier">StatesToRecord</span></a>&nbsp;<span class="symbol">=</span>&nbsp;ONLY_RELEVANT<span class="symbol">)</span></code>
+<p>The receiving counterpart to <a href="../-finality-flow/index.html">FinalityFlow</a>.</p>
+<p>All parties who are receiving a finalised transaction from a sender flow must subcall this flow in their own flows.</p>
+<p>It's typical to have already signed the transaction proposal in the same workflow using <a href="../-sign-transaction-flow/index.html">SignTransactionFlow</a>. If so
+then the transaction ID can be passed in as an extra check to ensure the finalised transaction is the one that was signed
+before it's committed to the vault.</p>
+<h3>Parameters</h3>
+<p><a name="otherSideSession"></a>
+<code>otherSideSession</code> - The session which is providing the transaction to record.</p>
+<p><a name="expectedTxId"></a>
+<code>expectedTxId</code> - Expected ID of the transaction that's about to be received. This is typically retrieved from
+<a href="../-sign-transaction-flow/index.html">SignTransactionFlow</a>. Setting it to null disables the expected transaction ID check.</p>
+<p><a name="statesToRecord"></a>
+<code>statesToRecord</code> - Which states to commit to the vault. Defaults to <a href="../../net.corda.core.node/-states-to-record/-o-n-l-y_-r-e-l-e-v-a-n-t.html">StatesToRecord.ONLY_RELEVANT</a>.</p>
+</BODY>
+</HTML>

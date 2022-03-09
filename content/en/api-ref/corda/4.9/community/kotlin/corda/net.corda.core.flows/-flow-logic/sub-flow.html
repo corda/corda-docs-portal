@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowLogic.subFlow - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowLogic</a>&nbsp;/&nbsp;<a href="./sub-flow.html">subFlow</a><br/>
+<br/>
+<h1>subFlow</h1>
+<a name="net.corda.core.flows.FlowLogic$subFlow(net.corda.core.flows.FlowLogic((net.corda.core.flows.FlowLogic.subFlow.R)))"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">subFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$subFlow(net.corda.core.flows.FlowLogic((net.corda.core.flows.FlowLogic.subFlow.R)))/subLogic">subLogic</span><span class="symbol">:</span>&nbsp;<a href="index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code>
+<p>Invokes the given subflow. This function returns once the subflow completes successfully with the result
+returned by that subflow's <a href="call.html">call</a> method. If the subflow has a progress tracker, it is attached to the
+current step in this flow's progress tracker.</p>
+<p>If the subflow is not an initiating flow (i.e. not annotated with <a href="../-initiating-flow/index.html">InitiatingFlow</a>) then it will continue to use
+the existing sessions this flow has created with its counterparties. This allows for subflows which can act as
+building blocks for other flows, for example removing the boilerplate of common sequences of sends and receives.</p>
+<h3>Exceptions</h3>
+<p><a name="FlowException"></a>
+<code>FlowException</code> - This is either thrown by <a href="sub-flow.html#net.corda.core.flows.FlowLogic$subFlow(net.corda.core.flows.FlowLogic((net.corda.core.flows.FlowLogic.subFlow.R)))/subLogic">subLogic</a> itself or propagated from any of the remote
+<a href="index.html">FlowLogic</a>s it communicated with. The subflow can be retried by catching this exception.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,92 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowProgressHandleImpl - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.messaging</a>&nbsp;/&nbsp;<a href="./index.html">FlowProgressHandleImpl</a><br/>
+<br/>
+<h1>FlowProgressHandleImpl</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">FlowProgressHandleImpl</span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-flow-progress-handle/index.html"><span class="identifier">FlowProgressHandle</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">FlowProgressHandleImpl</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.messaging.FlowProgressHandleImpl$<init>(net.corda.core.flows.StateMachineRunId, net.corda.core.concurrent.CordaFuture((net.corda.core.messaging.FlowProgressHandleImpl.A)), rx.Observable((kotlin.String)), net.corda.core.messaging.DataFeed((kotlin.Int, )), net.corda.core.messaging.DataFeed((kotlin.collections.List((kotlin.Pair((kotlin.Int, kotlin.String)))), )))/id">id</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-state-machine-run-id/index.html"><span class="identifier">StateMachineRunId</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.FlowProgressHandleImpl$<init>(net.corda.core.flows.StateMachineRunId, net.corda.core.concurrent.CordaFuture((net.corda.core.messaging.FlowProgressHandleImpl.A)), rx.Observable((kotlin.String)), net.corda.core.messaging.DataFeed((kotlin.Int, )), net.corda.core.messaging.DataFeed((kotlin.collections.List((kotlin.Pair((kotlin.Int, kotlin.String)))), )))/returnValue">returnValue</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.concurrent/-corda-future/index.html"><span class="identifier">CordaFuture</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.FlowProgressHandleImpl$<init>(net.corda.core.flows.StateMachineRunId, net.corda.core.concurrent.CordaFuture((net.corda.core.messaging.FlowProgressHandleImpl.A)), rx.Observable((kotlin.String)), net.corda.core.messaging.DataFeed((kotlin.Int, )), net.corda.core.messaging.DataFeed((kotlin.collections.List((kotlin.Pair((kotlin.Int, kotlin.String)))), )))/progress">progress</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.FlowProgressHandleImpl$<init>(net.corda.core.flows.StateMachineRunId, net.corda.core.concurrent.CordaFuture((net.corda.core.messaging.FlowProgressHandleImpl.A)), rx.Observable((kotlin.String)), net.corda.core.messaging.DataFeed((kotlin.Int, )), net.corda.core.messaging.DataFeed((kotlin.collections.List((kotlin.Pair((kotlin.Int, kotlin.String)))), )))/stepsTreeIndexFeed">stepsTreeIndexFeed</span><span class="symbol">:</span>&nbsp;<a href="../-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.FlowProgressHandleImpl$<init>(net.corda.core.flows.StateMachineRunId, net.corda.core.concurrent.CordaFuture((net.corda.core.messaging.FlowProgressHandleImpl.A)), rx.Observable((kotlin.String)), net.corda.core.messaging.DataFeed((kotlin.Int, )), net.corda.core.messaging.DataFeed((kotlin.collections.List((kotlin.Pair((kotlin.Int, kotlin.String)))), )))/stepsTreeFeed">stepsTreeFeed</span><span class="symbol">:</span>&nbsp;<a href="../-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<p>The started state machine's ID.</p>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="../../net.corda.core.flows/-state-machine-run-id/index.html"><span class="identifier">StateMachineRunId</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress.html">progress</a></h4>
+</td>
+<td>
+<p>The stream of progress tracker events.</p>
+<code><span class="keyword">val </span><span class="identifier">progress</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="return-value.html">returnValue</a></h4>
+</td>
+<td>
+<p>A <a href="../../net.corda.core.concurrent/-corda-future/index.html">CordaFuture</a> of the flow's return value.</p>
+<code><span class="keyword">val </span><span class="identifier">returnValue</span><span class="symbol">: </span><a href="../../net.corda.core.concurrent/-corda-future/index.html"><span class="identifier">CordaFuture</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="steps-tree-feed.html">stepsTreeFeed</a></h4>
+</td>
+<td>
+<p><a href="../-data-feed/index.html">DataFeed</a> of current steps tree, see <a href="#">ProgressTracker</a></p>
+<code><span class="keyword">val </span><span class="identifier">stepsTreeFeed</span><span class="symbol">: </span><a href="../-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="steps-tree-index-feed.html">stepsTreeIndexFeed</a></h4>
+</td>
+<td>
+<p><a href="../-data-feed/index.html">DataFeed</a> of current step in the steps tree, see <a href="#">ProgressTracker</a></p>
+<code><span class="keyword">val </span><span class="identifier">stepsTreeIndexFeed</span><span class="symbol">: </span><a href="../-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="close.html">close</a></h4>
+</td>
+<td>
+<p>Use this function for flows whose returnValue and progress are not going to be used or tracked, so as to free up
+server resources.
+Note that it won't really close if one subscribes on progress <a href="#">Observable</a>, but then forgets to unsubscribe.</p>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="copy.html">copy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">copy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.messaging.FlowProgressHandleImpl$copy(net.corda.core.flows.StateMachineRunId, net.corda.core.concurrent.CordaFuture((net.corda.core.messaging.FlowProgressHandleImpl.A)), rx.Observable((kotlin.String)))/id">id</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-state-machine-run-id/index.html"><span class="identifier">StateMachineRunId</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.FlowProgressHandleImpl$copy(net.corda.core.flows.StateMachineRunId, net.corda.core.concurrent.CordaFuture((net.corda.core.messaging.FlowProgressHandleImpl.A)), rx.Observable((kotlin.String)))/returnValue">returnValue</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.concurrent/-corda-future/index.html"><span class="identifier">CordaFuture</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.FlowProgressHandleImpl$copy(net.corda.core.flows.StateMachineRunId, net.corda.core.concurrent.CordaFuture((net.corda.core.messaging.FlowProgressHandleImpl.A)), rx.Observable((kotlin.String)))/progress">progress</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">FlowProgressHandleImpl</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ParametersUpdateInfo - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.messaging</a>&nbsp;/&nbsp;<a href="./index.html">ParametersUpdateInfo</a><br/>
+<br/>
+<h1>ParametersUpdateInfo</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ParametersUpdateInfo</span></code>
+<p>Data class containing information about the scheduled network parameters update. The info is emitted every time node
+receives network map with <a href="#">ParametersUpdate</a> which wasn't seen before. For more information see: <a href="../-corda-r-p-c-ops/network-parameters-feed.html">CordaRPCOps.networkParametersFeed</a>
+and <a href="../-corda-r-p-c-ops/accept-new-network-parameters.html">CordaRPCOps.acceptNewNetworkParameters</a>.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Data class containing information about the scheduled network parameters update. The info is emitted every time node
+receives network map with <a href="#">ParametersUpdate</a> which wasn't seen before. For more information see: <a href="../-corda-r-p-c-ops/network-parameters-feed.html">CordaRPCOps.networkParametersFeed</a>
+and <a href="../-corda-r-p-c-ops/accept-new-network-parameters.html">CordaRPCOps.acceptNewNetworkParameters</a>.</p>
+<code><span class="identifier">ParametersUpdateInfo</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.messaging.ParametersUpdateInfo$<init>(net.corda.core.crypto.SecureHash, net.corda.core.node.NetworkParameters, kotlin.String, java.time.Instant)/hash">hash</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.ParametersUpdateInfo$<init>(net.corda.core.crypto.SecureHash, net.corda.core.node.NetworkParameters, kotlin.String, java.time.Instant)/parameters">parameters</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-network-parameters/index.html"><span class="identifier">NetworkParameters</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.ParametersUpdateInfo$<init>(net.corda.core.crypto.SecureHash, net.corda.core.node.NetworkParameters, kotlin.String, java.time.Instant)/description">description</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.ParametersUpdateInfo$<init>(net.corda.core.crypto.SecureHash, net.corda.core.node.NetworkParameters, kotlin.String, java.time.Instant)/updateDeadline">updateDeadline</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="description.html">description</a></h4>
+</td>
+<td>
+<p>description of the update</p>
+<code><span class="keyword">val </span><span class="identifier">description</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash.html">hash</a></h4>
+</td>
+<td>
+<p>new <a href="../../net.corda.core.node/-network-parameters/index.html">NetworkParameters</a> hash</p>
+<code><span class="keyword">val </span><span class="identifier">hash</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parameters.html">parameters</a></h4>
+</td>
+<td>
+<p>new <a href="../../net.corda.core.node/-network-parameters/index.html">NetworkParameters</a> data structure</p>
+<code><span class="keyword">val </span><span class="identifier">parameters</span><span class="symbol">: </span><a href="../../net.corda.core.node/-network-parameters/index.html"><span class="identifier">NetworkParameters</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="update-deadline.html">updateDeadline</a></h4>
+</td>
+<td>
+<p>deadline for accepting this update using <a href="../-corda-r-p-c-ops/accept-new-network-parameters.html">CordaRPCOps.acceptNewNetworkParameters</a></p>
+<code><span class="keyword">val </span><span class="identifier">updateDeadline</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
