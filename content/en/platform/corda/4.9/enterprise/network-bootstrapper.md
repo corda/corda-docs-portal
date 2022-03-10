@@ -1,6 +1,5 @@
 ---
 date: '2021-08-25'
-menu:
 corda-enterprise-4-9:
 parent: corda-enterprise-4-9-cordapps-debugging
 tags:
