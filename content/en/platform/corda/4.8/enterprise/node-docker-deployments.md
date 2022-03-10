@@ -40,7 +40,7 @@ docker run -ti \
         corda/corda-zulu-java1.8-4.8:latest
 ```
 
-As the node runs within a container, several mount points are required:
+As the node runs within a container, you must provide the following mount points:
 
 
 * CorDapps - CorDapps must be mounted at location `/opt/corda/cordapps`
@@ -49,7 +49,6 @@ As the node runs within a container, several mount points are required:
 * Logging - all log files will be written to location `/opt/corda/logs`
 
 If using the H2 database:
-
 
 * Persistence - the folder to hold the H2 database files must be mounted at location `/opt/corda/persistence`
 
@@ -82,7 +81,7 @@ docker run -ti \
 ```
 
 The mount `/home/user/sharedFolder/node-infos:/opt/corda/additional-node-infos` is used to hold the `nodeInfo` of all the nodes within the network.
-As the node within the container starts up, it will place its own nodeInfo into this directory. This will allow other nodes also using this folder to see this new node.
+As the node within the container starts up, it will place its own nodeInfo into this directory. This allows other nodes also using this folder to see this new node.
 
 
 ## Generating configs and certificates
@@ -98,7 +97,7 @@ Requirements: A Compatibility Zone, the Zone Trust Root and authorisation to joi
 It is possible to use the image to automate the process of joining an existing Zone as detailed [here](../../../../../en/platform/corda/4.8/enterprise/network/compatibility-zones.md)
 
 The first step is to obtain the Zone Trust Root, and place it within a directory. In the below example, the Trust Root is stored at `/home/user/docker/certificates/network-root-truststore.jks`.
-It is possible to configure the name of the Trust Root file by setting the `TRUST_STORE_NAME` environment variable in the container.
+You can configure the name of the Trust Root file by setting the `TRUST_STORE_NAME` environment variable in the container.
 
 ```shell
 docker run -ti --net="host" \
