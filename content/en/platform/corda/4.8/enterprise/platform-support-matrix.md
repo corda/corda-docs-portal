@@ -31,6 +31,38 @@ which outlines the end of public updates of Java SE 8 for commercial use, please
 for your deployment needs.
 {{< /warning >}}
 
+## Docker Images
+
+The Docker images used for the Kubernetes deployment are listed below for reference:
+
+{{< table >}}
+| Service           | Image name                                                  |
+|-------------------|-------------------------------------------------------------|
+| Identity Manager  | `corda/enterprise-identitymanager:1.5.4-zulu-openjdk8u242`  |
+| Network Map       | `corda/enterprise-networkmap:1.5.4-zulu-openjdk8u242`       |
+| Signing           | `corda/enterprise-signer:1.5.4-zulu-openjdk8u242`           |
+| Zone              | `corda/enterprise-zone:1.5.4-zulu-openjdk8u242`             |
+| Auth              | `corda/enterprise-auth:1.5.4-zulu-openjdk8u242`             |
+| Gateway           | `corda/enterprise-gateway:1.5.4-zulu-openjdk8u242`          |
+| PKI Tool          | `corda/enterprise-pkitool:1.5.4-zulu-openjdk8u242`          |
+| Notary            | `corda/enterprise-notary:4.5.9-zulu-openjdk8u242`           |
+{{< /table >}}
+
+## JDKs supported in development
+
+Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
+
+{{< table >}}
+
+|Supported JDKs|Latest supported version|
+|-----------------------------------|-----------|
+|[Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)|8u321|
+|[Amazon Corretto 8](https://aws.amazon.com/corretto/)|8.252.09.1|
+|[Red Hat's OpenJDK](https://developers.redhat.com/products/openjdk/overview/)|8u322|
+|[Zulu's OpenJDK](https://www.azul.com/)|8u322b06|
+
+{{< /table >}}
+
 ## Operating systems supported in production
 
 {{< table >}}
@@ -85,7 +117,7 @@ for your deployment needs.
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|20.1.7|PostgreSQL JDBCDriver 42.2.9|
+|CockroachDB|x86-64|20.2.x|PostgreSQL JDBCDriver 42.2.9|
 |Oracle RAC|x86-64|19c|Oracle JDBC 8|
 
 {{< /table >}}

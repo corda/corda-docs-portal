@@ -270,7 +270,7 @@ The value of `myLegalName` must exactly match the node name that is used in the 
 3. Change the database user to one with *restricted permissions*. This ensures no database alteration is performed by this step.To run the remaining data migration, run:
 
 ```shell
-java -jar tools-database-manager-4.0-RC03.jar execute-migration -b .
+java -jar tools-database-manager-4.5-RC03.jar execute-migration -b .
 ```
 
 

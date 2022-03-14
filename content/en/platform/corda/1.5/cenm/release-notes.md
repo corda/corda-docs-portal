@@ -121,7 +121,7 @@ CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on
 
 #### Certificate rotation: ability to reissue node legal identity keys and certificates
 
-Corda Enterprise 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing CENM to re-register a node (including a notary node) with a new certificate in the Network Map.
+Corda Enterprise 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing CENM to re-register a node (including a notary node) with a new certificate in the Network Map. You must not change the node's `myLegalName` during certificate rotation.
 
 {{< warning >}}
 The introduction of this functionality may require changes to your custom Identity Manager Workflow Plugins, regardless of using certificate reissuance functionality in your system. Make sure to check the [Upgrading Corda Enterprise Network Manager](../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md) page.
