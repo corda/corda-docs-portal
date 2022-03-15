@@ -20,9 +20,9 @@ title: States
 
 ## Summary
 
-* *States represent on-ledger facts*
-* *States are evolved by marking the current state as historic and creating an updated state*
-* *Each node has a vault where it stores any relevant states to itself*
+* States represent facts on the **[ledger](key-concepts-ledger.md)**.
+* Facts evolve on the ledger when participants create new states and mark outdated states as historic.
+* Each node has a vault where it stores the states it shares with other nodes.
 
 ## Video
 
@@ -30,48 +30,42 @@ title: States
 
 ## Overview
 
-A *state* is an immutable object representing a fact known by one or more Corda nodes at a specific point in time.
-States can contain arbitrary data, allowing them to represent facts of any kind (e.g. stocks, bonds, loans, KYC data,
-identity information…).
+A state is an immutable object representing a fact known by one or more nodes at a specific point in time.
+You can use states to represent any type of data, and any kind of fact. For example, a financial instrument, Know Your Customer (KYC) data, or identity information.
 
-For example, the following state represents an IOU - an agreement that Alice owes Bob an amount X:
+This state represents an IOU—an agreement that Alice owes Bob £10:
 
 {{< figure alt="state" width=80% zoom="/en/images/state.png" >}}
-Specifically, this state represents an IOU of £10 from Alice to Bob.
 
-As well as any information about the fact itself, the state also contains a reference to the *contract* that governs
-the evolution of the state over time. We discuss contracts in [Contracts](key-concepts-contracts.md).
+In addition to information about the fact, the state contains a reference to the
+**[contract](key-concepts-contracts.md)**. Contracts govern the evolution of states.
 
 ## State sequences
 
-As states are immutable, they cannot be modified directly to reflect a change in the state of the world.
+States are immutable: you can't change them. Corda uses **state sequences** to track the evolution of facts.
+When a fact changes, one of the state's participants creates a new state and marks the outdated state as historic.
 
-Instead, the lifecycle of a shared fact over time is represented by a **state sequence**. When a state needs to be
-updated, we create a new version of the state representing the new state of the world, and mark the existing state as
-historic.
-
-This sequence of state replacements gives us a full view of the evolution of the shared fact over time. We can
-picture this situation as follows:
+For example, if Alice pays Bob £5, the state sequence would be:
 
 {{< figure alt="state sequence" width=80% zoom="/en/images/state-sequence.png" >}}
 
 ## The vault
 
-Each node on the network maintains a *vault* - a database where it tracks all the current and historic states that it
-is aware of, and which it considers to be relevant to itself:
+Each node on the network maintains a **vault**. This is the node's database used to store current and historic states
+where the node is a participant. For example:
 
 {{< figure alt="vault simple" width=80% zoom="/en/images/vault-simple.png" >}}
-We can think of the ledger from each node’s point of view as the set of all the current (i.e. non-historic) states that
-it is aware of.
+
+From each node's point of view, the ledger is the current (non-historic) states where that node is a participant.
 
 ## Reference states
 
-Not all states need to be updated by the parties which use them. In the case of reference data, there is a common pattern
-where one party creates reference data, which is then used (but not updated) by other parties. For this use-case, the
-states containing reference data are referred to as “reference states”. Syntactically, reference states are no different
-to regular states. However, they are treated different by Corda transactions. See [Transactions](key-concepts-transactions.md) for
-more details.
+Not all states need to be updated by the parties which use them. In the case of reference data, one party can create
+a state containing reference data. This state can be used (but not updated) by other parties. For this use-case, the
+states containing reference data are referred to as **reference states**. Reference states are no different
+to regular states. However, they are handled differently in Corda **[transactions](key-concepts-transactions.md)**.
 
 ## Reissuing states
 
-See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
+Corda uses a state reissuance mechanism that allows you to break transaction backchains. Read about
+**[reissuing states](reissuing-states.md)** with a guaranteed state replacement.
