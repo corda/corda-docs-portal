@@ -1,0 +1,51 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:net.corda.client.jackson$getOrReport(net.corda.core.utilities.Try((net.corda.client.jackson.getOrReport.T)), java.io.PrintWriter)net.corda.client.jackson/net.corda.core.utilities.-try/get-or-report.html
+$dokka.location:net.corda.client.rpc$notUsed(rx.Observable((net.corda.client.rpc.notUsed.T)))net.corda.client.rpc/rx.-observable/not-used.html
+$dokka.location:net.corda.finance$DOLLARS#kotlin.Doublenet.corda.finance/kotlin.-double/-d-o-l-l-a-r-s.html
+$dokka.location:net.corda.finance$DOLLARS#kotlin.Intnet.corda.finance/kotlin.-int/-d-o-l-l-a-r-s.html
+$dokka.location:net.corda.finance$DOLLARS#kotlin.Longnet.corda.finance/kotlin.-long/-d-o-l-l-a-r-s.html
+$dokka.location:net.corda.finance$POUNDS#kotlin.Doublenet.corda.finance/kotlin.-double/-p-o-u-n-d-s.html
+$dokka.location:net.corda.finance$POUNDS#kotlin.Intnet.corda.finance/kotlin.-int/-p-o-u-n-d-s.html
+$dokka.location:net.corda.finance$POUNDS#kotlin.Longnet.corda.finance/kotlin.-long/-p-o-u-n-d-s.html
+$dokka.location:net.corda.finance$SWISS_FRANCS#kotlin.Doublenet.corda.finance/kotlin.-double/-s-w-i-s-s_-f-r-a-n-c-s.html
+$dokka.location:net.corda.finance$SWISS_FRANCS#kotlin.Intnet.corda.finance/kotlin.-int/-s-w-i-s-s_-f-r-a-n-c-s.html
+$dokka.location:net.corda.finance$SWISS_FRANCS#kotlin.Longnet.corda.finance/kotlin.-long/-s-w-i-s-s_-f-r-a-n-c-s.html
+$dokka.location:net.corda.finance$issued by(java.util.Currency, net.corda.core.contracts.PartyAndReference)net.corda.finance/java.util.-currency/issued by.html
+$dokka.location:net.corda.finance$issued by(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.contracts.PartyAndReference)net.corda.finance/net.corda.core.contracts.-amount/issued by.html
+$dokka.location:net.corda.finance$issuedBy(java.util.Currency, net.corda.core.contracts.PartyAndReference)net.corda.finance/java.util.-currency/issued-by.html
+$dokka.location:net.corda.finance$issuedBy(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.contracts.PartyAndReference)net.corda.finance/net.corda.core.contracts.-amount/issued-by.html
+$dokka.location:net.corda.finance.workflows$getCashBalance(net.corda.core.messaging.CordaRPCOps, java.util.Currency)net.corda.finance.workflows/net.corda.core.messaging.-corda-r-p-c-ops/get-cash-balance.html
+$dokka.location:net.corda.finance.workflows$getCashBalance(net.corda.core.node.ServiceHub, java.util.Currency)net.corda.finance.workflows/net.corda.core.node.-service-hub/get-cash-balance.html
+$dokka.location:net.corda.finance.workflows$getCashBalances(net.corda.core.messaging.CordaRPCOps)net.corda.finance.workflows/net.corda.core.messaging.-corda-r-p-c-ops/get-cash-balances.html
+$dokka.location:net.corda.finance.workflows$getCashBalances(net.corda.core.node.ServiceHub)net.corda.finance.workflows/net.corda.core.node.-service-hub/get-cash-balances.html
+$dokka.location:net.corda.testing.flows$from(kotlin.collections.Map((net.corda.core.flows.FlowSession, net.corda.core.utilities.UntrustworthyData((kotlin.Any)))), net.corda.core.flows.FlowSession)net.corda.testing.flows/kotlin.collections.-map/from.html
+$dokka.location:net.corda.testing.flows$from(kotlin.reflect.KClass((net.corda.testing.flows.from.T)), net.corda.core.flows.FlowSession)net.corda.testing.flows/kotlin.reflect.-k-class/from.html
+$dokka.location:net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))net.corda.testing.flows/net.corda.core.flows.-flow-logic/receive-all.html
+$dokka.location:net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))net.corda.testing.flows/net.corda.core.flows.-flow-logic/receive-all.html
+$dokka.location:net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))net.corda.testing.flows/net.corda.core.flows.-flow-logic/receive-all.html
+$dokka.location:net.corda.testing.flows$registerCordappFlowFactory(net.corda.testing.node.internal.TestStartedNode, kotlin.reflect.KClass((net.corda.core.flows.FlowLogic((kotlin.Any)))), kotlin.Int, kotlin.Function1((net.corda.core.flows.FlowSession, net.corda.testing.flows.registerCordappFlowFactory.P)))net.corda.testing.flows/net.corda.testing.node.internal.-test-started-node/register-cordapp-flow-factory.html
+$dokka.location:net.corda.testing.flows$registerCoreFlowFactory(net.corda.testing.node.internal.TestStartedNode, java.lang.Class((net.corda.core.flows.FlowLogic((kotlin.Any)))), java.lang.Class((net.corda.testing.flows.registerCoreFlowFactory.T)), kotlin.Function1((net.corda.core.flows.FlowSession, net.corda.testing.flows.registerCoreFlowFactory.T)), kotlin.Boolean)net.corda.testing.flows/net.corda.testing.node.internal.-test-started-node/register-core-flow-factory.html
+$dokka.location:net.corda.testing.node$ledger(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.LedgerDSL((net.corda.testing.dsl.TestTransactionDSLInterpreter, net.corda.testing.dsl.TestLedgerDSLInterpreter)), kotlin.Unit)))net.corda.testing.node/net.corda.core.node.-service-hub/ledger.html
+$dokka.location:net.corda.testing.node$transaction(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.TransactionDSL((net.corda.testing.dsl.TransactionDSLInterpreter)), net.corda.testing.dsl.EnforceVerifyOrFail)))net.corda.testing.node/net.corda.core.node.-service-hub/transaction.html
+net.corda.client.jackson
+net.corda.client.rpc
+net.corda.client.rpc.ext
+net.corda.client.rpc.proxy
+net.corda.client.rpc.reconnect
+net.corda.finance
+net.corda.finance.flows
+net.corda.finance.test
+net.corda.finance.workflows
+net.corda.finance.workflows.asset
+net.corda.finance.workflows.asset.selection
+net.corda.finance.workflows.utils
+net.corda.nodeapi.flow.hospital
+net.corda.testing.database
+net.corda.testing.driver
+net.corda.testing.dsl
+net.corda.testing.flows
+net.corda.testing.http
+net.corda.testing.node
+net.corda.testing.services
+net.corda.testing.tools

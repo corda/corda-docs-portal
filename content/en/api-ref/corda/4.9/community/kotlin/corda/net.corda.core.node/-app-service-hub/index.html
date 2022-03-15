@@ -1,0 +1,127 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AppServiceHub - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node</a>&nbsp;/&nbsp;<a href="./index.html">AppServiceHub</a><br/>
+<br/>
+<h1>AppServiceHub</h1>
+<code><span class="keyword">interface </span><span class="identifier">AppServiceHub</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-service-hub/index.html"><span class="identifier">ServiceHub</span></a></code>
+<p>A <a href="../../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> annotated class requires a constructor taking a
+single parameter of type <a href="./index.html">AppServiceHub</a>.
+With the <a href="./index.html">AppServiceHub</a> parameter a <a href="../../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> is able to access to privileged operations.
+In particular such a <a href="../../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> can initiate and track flows marked
+with <a href="../../net.corda.core.flows/-startable-by-service/index.html">net.corda.core.flows.StartableByService</a>.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="database.html">database</a></h4>
+</td>
+<td>
+<p>Accessor to <a href="../../net.corda.core.node.services.vault/-corda-transaction-support/index.html">CordaTransactionSupport</a> in order to perform sensitive actions within new, independent top level transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">database</span><span class="symbol">: </span><a href="../../net.corda.core.node.services.vault/-corda-transaction-support/index.html"><span class="identifier">CordaTransactionSupport</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="register.html">register</a></h4>
+</td>
+<td>
+<p>Allows to register <a href="../../net.corda.core.node.services/-service-lifecycle-observer/index.html">ServiceLifecycleObserver</a> such that it will start receiving <a href="../../net.corda.core.node.services/-service-lifecycle-event/index.html">net.corda.core.node.services.ServiceLifecycleEvent</a>s</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">register</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.AppServiceHub$register(kotlin.Int, net.corda.core.node.services.ServiceLifecycleObserver)/priority">priority</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SERVICE_PRIORITY_NORMAL<span class="symbol">, </span><span class="identifier" id="net.corda.core.node.AppServiceHub$register(kotlin.Int, net.corda.core.node.services.ServiceLifecycleObserver)/observer">observer</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node.services/-service-lifecycle-observer/index.html"><span class="identifier">ServiceLifecycleObserver</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Convenience method to be able to add an arbitrary function as a <a href="register.html">register</a> callback.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">register</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.AppServiceHub$register(kotlin.Int, kotlin.Function1((net.corda.core.node.services.ServiceLifecycleEvent, net.corda.core.node.AppServiceHub.register.T)))/priority">priority</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SERVICE_PRIORITY_NORMAL<span class="symbol">, </span><span class="identifier" id="net.corda.core.node.AppServiceHub$register(kotlin.Int, kotlin.Function1((net.corda.core.node.services.ServiceLifecycleEvent, net.corda.core.node.AppServiceHub.register.T)))/func">func</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="../../net.corda.core.node.services/-service-lifecycle-event/index.html"><span class="identifier">ServiceLifecycleEvent</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start-flow.html">startFlow</a></h4>
+</td>
+<td>
+<p>Start the given flow with the given arguments. <a href="start-flow.html#net.corda.core.node.AppServiceHub$startFlow(net.corda.core.flows.FlowLogic((net.corda.core.node.AppServiceHub.startFlow.T)))/flow">flow</a> must be annotated
+with <a href="../../net.corda.core.flows/-startable-by-service/index.html">net.corda.core.flows.StartableByService</a>.
+TODO it is assumed here that the flow object has an appropriate classloader.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">startFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.AppServiceHub$startFlow(net.corda.core.flows.FlowLogic((net.corda.core.node.AppServiceHub.startFlow.T)))/flow">flow</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.messaging/-flow-handle/index.html"><span class="identifier">FlowHandle</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start-tracked-flow.html">startTrackedFlow</a></h4>
+</td>
+<td>
+<p>Start the given flow with the given arguments, returning an <a href="#">Observable</a> with a single observation of the
+result of running the flow. <a href="start-tracked-flow.html#net.corda.core.node.AppServiceHub$startTrackedFlow(net.corda.core.flows.FlowLogic((net.corda.core.node.AppServiceHub.startTrackedFlow.T)))/flow">flow</a> must be annotated with <a href="../../net.corda.core.flows/-startable-by-service/index.html">net.corda.core.flows.StartableByService</a>.
+TODO it is assumed here that the flow object has an appropriate classloader.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">startTrackedFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.AppServiceHub$startTrackedFlow(net.corda.core.flows.FlowLogic((net.corda.core.node.AppServiceHub.startTrackedFlow.T)))/flow">flow</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.messaging/-flow-progress-handle/index.html"><span class="identifier">FlowProgressHandle</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-s-e-r-v-i-c-e_-p-r-i-o-r-i-t-y_-h-i-g-h.html">SERVICE_PRIORITY_HIGH</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">SERVICE_PRIORITY_HIGH</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-s-e-r-v-i-c-e_-p-r-i-o-r-i-t-y_-l-o-w.html">SERVICE_PRIORITY_LOW</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">SERVICE_PRIORITY_LOW</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-s-e-r-v-i-c-e_-p-r-i-o-r-i-t-y_-n-o-r-m-a-l.html">SERVICE_PRIORITY_NORMAL</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">SERVICE_PRIORITY_NORMAL</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.finance.workflows/get-cash-balance.html">getCashBalance</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="../-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">.</span><span class="identifier">getCashBalance</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows$getCashBalance(net.corda.core.node.ServiceHub, java.util.Currency)/currency">currency</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.finance.workflows/get-cash-balances.html">getCashBalances</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="../-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">.</span><span class="identifier">getCashBalances</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.testing.node/ledger.html">ledger</a></h4>
+</td>
+<td>
+<p>Creates and tests a ledger built by the passed in dsl.</p>
+<code><span class="keyword">fun </span><a href="../-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">.</span><span class="identifier">ledger</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node$ledger(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.LedgerDSL((net.corda.testing.dsl.TestTransactionDSLInterpreter, net.corda.testing.dsl.TestLedgerDSLInterpreter)), kotlin.Unit)))/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a>&nbsp;<span class="symbol">=</span>&nbsp;TestIdentity.fresh("ledger notary").party<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node$ledger(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.LedgerDSL((net.corda.testing.dsl.TestTransactionDSLInterpreter, net.corda.testing.dsl.TestLedgerDSLInterpreter)), kotlin.Unit)))/script">script</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.testing.dsl/-ledger-d-s-l/index.html"><span class="identifier">LedgerDSL</span></a><span class="symbol">&lt;</span><a href="../../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html"><span class="identifier">TestTransactionDSLInterpreter</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html"><span class="identifier">TestLedgerDSLInterpreter</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.testing.dsl/-ledger-d-s-l/index.html"><span class="identifier">LedgerDSL</span></a><span class="symbol">&lt;</span><a href="../../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html"><span class="identifier">TestTransactionDSLInterpreter</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html"><span class="identifier">TestLedgerDSLInterpreter</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.testing.node/transaction.html">transaction</a></h4>
+</td>
+<td>
+<p>Creates a ledger with a single transaction, built by the passed in dsl.</p>
+<code><span class="keyword">fun </span><a href="../-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">.</span><span class="identifier">transaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node$transaction(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.TransactionDSL((net.corda.testing.dsl.TransactionDSLInterpreter)), net.corda.testing.dsl.EnforceVerifyOrFail)))/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a>&nbsp;<span class="symbol">=</span>&nbsp;TestIdentity.fresh("transaction notary").party<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node$transaction(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.TransactionDSL((net.corda.testing.dsl.TransactionDSLInterpreter)), net.corda.testing.dsl.EnforceVerifyOrFail)))/script">script</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.testing.dsl/-transaction-d-s-l/index.html"><span class="identifier">TransactionDSL</span></a><span class="symbol">&lt;</span><a href="../../net.corda.testing.dsl/-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="../../net.corda.testing.dsl/-enforce-verify-or-fail.html"><span class="identifier">EnforceVerifyOrFail</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.testing.dsl/-ledger-d-s-l/index.html"><span class="identifier">LedgerDSL</span></a><span class="symbol">&lt;</span><a href="../../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html"><span class="identifier">TestTransactionDSLInterpreter</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html"><span class="identifier">TestLedgerDSLInterpreter</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

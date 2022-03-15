@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MockNetworkParameters.networkSendManuallyPumped - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="index.html">MockNetworkParameters</a>&nbsp;/&nbsp;<a href="./network-send-manually-pumped.html">networkSendManuallyPumped</a><br/>
+<br/>
+<h1>networkSendManuallyPumped</h1>
+<a name="net.corda.testing.node.MockNetworkParameters$networkSendManuallyPumped"></a>
+<code><span class="keyword">val </span><span class="identifier">networkSendManuallyPumped</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>If false then messages will not be routed from sender to receiver until you use
+the <a href="../-mock-network/run-network.html">MockNetwork.runNetwork</a> method. This is useful for writing single-threaded unit test code that can examine the
+state of the mock network before and after a message is sent, without races and without the receiving node immediately
+sending a response. The default is false, so you must call runNetwork.</p>
+<h3>Property</h3>
+<p><a name="networkSendManuallyPumped"></a>
+<code>networkSendManuallyPumped</code> - If false then messages will not be routed from sender to receiver until you use
+the <a href="../-mock-network/run-network.html">MockNetwork.runNetwork</a> method. This is useful for writing single-threaded unit test code that can examine the
+state of the mock network before and after a message is sent, without races and without the receiving node immediately
+sending a response. The default is false, so you must call runNetwork.</p>
+</BODY>
+</HTML>

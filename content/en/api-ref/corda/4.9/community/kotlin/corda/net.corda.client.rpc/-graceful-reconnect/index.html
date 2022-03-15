@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GracefulReconnect - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc</a>&nbsp;/&nbsp;<a href="./index.html">GracefulReconnect</a><br/>
+<br/>
+<h1>GracefulReconnect</h1>
+<code><span class="keyword">class </span><span class="identifier">GracefulReconnect</span></code>
+<p>GracefulReconnect provides the opportunity to perform certain logic when the RPC encounters a connection disconnect
+during communication with the node.</p>
+<p>NOTE: The callbacks provided may be executed on a separate thread to that which called the RPC command.</p>
+<h3>Parameters</h3>
+<p><a name="onDisconnect"></a>
+<code>onDisconnect</code> - implement this callback to perform logic when the RPC disconnects on connection disconnect</p>
+<p><a name="onReconnect"></a>
+<code>onReconnect</code> - implement this callback to perform logic when the RPC has reconnected after connection disconnect</p>
+<p><a name="maxAttempts"></a>
+<code>maxAttempts</code> - the maximum number of attempts per each individual RPC call. A negative number indicates infinite
+    number of retries.  The default value is 5.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">GracefulReconnect</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.GracefulReconnect$<init>(java.lang.Runnable, java.lang.Runnable, kotlin.Int)/onDisconnect">onDisconnect</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html"><span class="identifier">Runnable</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.GracefulReconnect$<init>(java.lang.Runnable, java.lang.Runnable, kotlin.Int)/onReconnect">onReconnect</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html"><span class="identifier">Runnable</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.GracefulReconnect$<init>(java.lang.Runnable, java.lang.Runnable, kotlin.Int)/maxAttempts">maxAttempts</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span></code>
+<p>GracefulReconnect provides the opportunity to perform certain logic when the RPC encounters a connection disconnect
+during communication with the node.</p>
+<code><span class="identifier">GracefulReconnect</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.GracefulReconnect$<init>(kotlin.Function0((kotlin.Unit)), kotlin.Function0((kotlin.Unit)), kotlin.Int)/onDisconnect">onDisconnect</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{}<span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.GracefulReconnect$<init>(kotlin.Function0((kotlin.Unit)), kotlin.Function0((kotlin.Unit)), kotlin.Int)/onReconnect">onReconnect</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{}<span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.GracefulReconnect$<init>(kotlin.Function0((kotlin.Unit)), kotlin.Function0((kotlin.Unit)), kotlin.Int)/maxAttempts">maxAttempts</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="max-attempts.html">maxAttempts</a></h4>
+</td>
+<td>
+<p>the maximum number of attempts per each individual RPC call. A negative number indicates infinite
+    number of retries.  The default value is 5.</p>
+<code><span class="keyword">val </span><span class="identifier">maxAttempts</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-disconnect.html">onDisconnect</a></h4>
+</td>
+<td>
+<p>implement this callback to perform logic when the RPC disconnects on connection disconnect</p>
+<code><span class="keyword">val </span><span class="identifier">onDisconnect</span><span class="symbol">: </span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-reconnect.html">onReconnect</a></h4>
+</td>
+<td>
+<p>implement this callback to perform logic when the RPC has reconnected after connection disconnect</p>
+<code><span class="keyword">val </span><span class="identifier">onReconnect</span><span class="symbol">: </span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,127 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>InMemoryMessagingNetwork - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="./index.html">InMemoryMessagingNetwork</a><br/>
+<br/>
+<h1>InMemoryMessagingNetwork</h1>
+<code><span class="identifier">@ThreadSafe</span> <span class="keyword">class </span><span class="identifier">InMemoryMessagingNetwork</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-singleton-serialize-as-token/index.html"><span class="identifier">SingletonSerializeAsToken</span></a></code>
+<p>An in-memory network allows you to manufacture <a href="#">MockNodeMessagingService</a>s for a set of participants. Each
+<a href="#">MockNodeMessagingService</a> maintains a queue of messages it has received, and a background thread that dispatches
+messages one by one to registered handlers. Alternatively, a messaging system may be manually pumped, in which
+case no thread is created and a caller is expected to force delivery one at a time (this is useful for unit
+testing).</p>
+<h3>Parameters</h3>
+<p><a name="servicePeerAllocationStrategy"></a>
+<code>servicePeerAllocationStrategy</code> - defines the strategy to be used when determining which peer to send to in case
+    a service is addressed.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-distributed-service-handle/index.html">DistributedServiceHandle</a></h4>
+</td>
+<td>
+<p>A class which represents information about nodes offering the same distributed service on the <a href="./index.html">InMemoryMessagingNetwork</a>.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">DistributedServiceHandle</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.messaging/-message-recipient-group.html"><span class="identifier">MessageRecipientGroup</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-latency-calculator/index.html">LatencyCalculator</a></h4>
+</td>
+<td>
+<p>Implement this interface in order to inject artificial latency between sender/recipient pairs.</p>
+<code><span class="keyword">interface </span><span class="identifier">LatencyCalculator</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-message-transfer/index.html">MessageTransfer</a></h4>
+</td>
+<td>
+<p>A class which represents a message being transferred from sender to recipients, within the <a href="#">InMemoryMessageNetwork</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">MessageTransfer</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-mock-messaging-service/index.html">MockMessagingService</a></h4>
+</td>
+<td>
+<p>A class that provides an abstraction over the nodes' messaging service that also contains the ability to
+receive messages from the queue for testing purposes.</p>
+<code><span class="keyword">class </span><span class="identifier">MockMessagingService</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-peer-handle/index.html">PeerHandle</a></h4>
+</td>
+<td>
+<p>A class which represents information about an entity on the <a href="./index.html">InMemoryMessagingNetwork</a>.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">PeerHandle</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.messaging/-single-message-recipient.html"><span class="identifier">SingleMessageRecipient</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-service-peer-allocation-strategy/index.html">ServicePeerAllocationStrategy</a></h4>
+</td>
+<td>
+<p>How traffic is allocated in the case where multiple nodes share a single identity, which happens for notaries
+in a cluster. You don't normally ever need to change this: it is mostly useful for testing notary implementations.</p>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">ServicePeerAllocationStrategy</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="endpoints-external.html">endpointsExternal</a></h4>
+</td>
+<td>
+<p>Get a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a> of all the <a href="-mock-messaging-service/index.html">MockMessagingService</a> endpoints</p>
+<code><span class="keyword">val </span><span class="identifier">endpointsExternal</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">MockMessagingService</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="received-messages.html">receivedMessages</a></h4>
+</td>
+<td>
+<p>A stream of (sender, message, recipients) triples containing messages once they have been received.</p>
+<code><span class="keyword">val </span><span class="identifier">receivedMessages</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">MessageTransfer</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sent-messages.html">sentMessages</a></h4>
+</td>
+<td>
+<p>A stream of (sender, message, recipients) triples containing messages once they have been sent by <a href="pump-send.html">pumpSend</a>.</p>
+<code><span class="keyword">val </span><span class="identifier">sentMessages</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">MessageTransfer</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="pump-send.html">pumpSend</a></h4>
+</td>
+<td>
+<p>Send the next queued message to the requested recipient(s) within the network</p>
+<code><span class="keyword">fun </span><span class="identifier">pumpSend</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.InMemoryMessagingNetwork$pumpSend(kotlin.Boolean)/block">block</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MessageTransfer</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="stop.html">stop</a></h4>
+</td>
+<td>
+<p>Stop all nodes within the network and clear any buffered messages</p>
+<code><span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

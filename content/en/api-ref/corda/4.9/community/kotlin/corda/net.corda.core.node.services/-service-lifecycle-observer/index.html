@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ServiceLifecycleObserver - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="./index.html">ServiceLifecycleObserver</a><br/>
+<br/>
+<h1>ServiceLifecycleObserver</h1>
+<code><span class="identifier">@FunctionalInterface</span> <span class="keyword">interface </span><span class="identifier">ServiceLifecycleObserver</span></code>
+<p>Specifies that given <a href="../-corda-service/index.html">CordaService</a> is interested to know about important milestones of Corda Node lifecycle and potentially react to them.
+Subscription can be performed using <a href="../../net.corda.core.node/-app-service-hub/register.html">net.corda.core.node.AppServiceHub.register</a> method from a constructor of <a href="../-corda-service/index.html">CordaService</a>.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="on-service-lifecycle-event.html">onServiceLifecycleEvent</a></h4>
+</td>
+<td>
+<p>A handler for <a href="../-service-lifecycle-event/index.html">ServiceLifecycleEvent</a>s.
+Default implementation does nothing.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onServiceLifecycleEvent</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.ServiceLifecycleObserver$onServiceLifecycleEvent(net.corda.core.node.services.ServiceLifecycleEvent)/event">event</span><span class="symbol">:</span>&nbsp;<a href="../-service-lifecycle-event/index.html"><span class="identifier">ServiceLifecycleEvent</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

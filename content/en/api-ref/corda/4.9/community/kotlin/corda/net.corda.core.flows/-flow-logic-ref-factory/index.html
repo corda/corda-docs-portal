@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowLogicRefFactory - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">FlowLogicRefFactory</a><br/>
+<br/>
+<h1>FlowLogicRefFactory</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">FlowLogicRefFactory</span></code>
+<p>The public factory interface for creating validated <a href="../-flow-logic-ref.html">FlowLogicRef</a> instances as part of the scheduling framework.</p>
+<p>Typically this would be used from within the nextScheduledActivity method of a SchedulableState to specify
+the flow to run at the scheduled time.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="create.html">create</a></h4>
+</td>
+<td>
+<p>Construct a FlowLogicRef. This is intended for cases where the calling code has the relevant class already
+and can provide it directly.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogicRefFactory$create(java.lang.Class((net.corda.core.flows.FlowLogic((kotlin.Any)))), kotlin.Array((kotlin.Any)))/flowClass">flowClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.core.flows.FlowLogicRefFactory$create(java.lang.Class((net.corda.core.flows.FlowLogic((kotlin.Any)))), kotlin.Array((kotlin.Any)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-flow-logic-ref.html"><span class="identifier">FlowLogicRef</span></a></code>
+<p>Construct a FlowLogicRef. This is intended for cases where the calling code does not want to require the flow
+class on the classpath for all cases where the calling code is loaded.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogicRefFactory$create(kotlin.String, kotlin.Array((kotlin.Any)))/flowClassName">flowClassName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.core.flows.FlowLogicRefFactory$create(kotlin.String, kotlin.Array((kotlin.Any)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-flow-logic-ref.html"><span class="identifier">FlowLogicRef</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-flow-logic.html">toFlowLogic</a></h4>
+</td>
+<td>
+<p>Converts a <a href="../-flow-logic-ref.html">FlowLogicRef</a> object that was obtained from the calls above into a <a href="../-flow-logic/index.html">FlowLogic</a>, after doing some
+validation to ensure it points to a legitimate flow class.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">toFlowLogic</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogicRefFactory$toFlowLogic(net.corda.core.flows.FlowLogicRef)/ref">ref</span><span class="symbol">:</span>&nbsp;<a href="../-flow-logic-ref.html"><span class="identifier">FlowLogicRef</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

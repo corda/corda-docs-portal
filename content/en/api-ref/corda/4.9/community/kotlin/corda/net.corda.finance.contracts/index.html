@@ -1,0 +1,212 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.finance.contracts - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.finance.contracts</a><br/>
+<br/>
+<h2>Package net.corda.finance.contracts</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-accrual-adjustment/index.html">AccrualAdjustment</a></h4>
+</td>
+<td>
+<p>Simple enum for returning accurals adjusted or unadjusted.
+We don't actually do anything with this yet though, so it's ignored for now.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">AccrualAdjustment</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-bilateral-nettable-state/index.html">BilateralNettableState</a></h4>
+</td>
+<td>
+<p>Interface for state objects that support being netted with other state objects.</p>
+<code><span class="keyword">interface </span><span class="identifier">BilateralNettableState</span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-bilateral-nettable-state/index.html"><span class="identifier">BilateralNettableState</span></a><span class="symbol">&lt;</span><span class="identifier">N</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-business-calendar/index.html">BusinessCalendar</a></h4>
+</td>
+<td>
+<p>A business calendar performs date calculations that take into account national holidays and weekends. This is a
+typical feature of financial contracts, in which a business may not want a payment event to fall on a day when
+no staff are around to handle problems.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">BusinessCalendar</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-commercial-paper/index.html">CommercialPaper</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CommercialPaper</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract/index.html"><span class="identifier">Contract</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-commodity/index.html">Commodity</a></h4>
+</td>
+<td>
+<p>Class representing a commodity, as an equivalent to the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html">Currency</a> class. This exists purely to enable the
+<a href="#">CommodityContract</a> contract, and is likely to change in future.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Commodity</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-tokenizable-asset-info/index.html"><span class="identifier">TokenizableAssetInfo</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-date-roll-convention/index.html">DateRollConvention</a></h4>
+</td>
+<td>
+<p>This reflects what happens if a date on which a business event is supposed to happen actually falls upon a non-working day.
+Depending on the accounting requirement, we can move forward until we get to a business day, or backwards.
+There are some additional rules which are explained in the individual cases below.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">DateRollConvention</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-date-roll-direction/index.html">DateRollDirection</a></h4>
+</td>
+<td>
+<p>This is utilised in the <a href="-date-roll-convention/index.html">DateRollConvention</a> class to determine which way we should initially step when
+finding a business day.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">DateRollDirection</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-day-count-basis-day/index.html">DayCountBasisDay</a></h4>
+</td>
+<td>
+<p>This forms the day part of the "Day Count Basis" used for interest calculation.
+Note that the first character cannot be a number (enum naming constraints), so we drop that
+in the toString lest some people get confused.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">DayCountBasisDay</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-day-count-basis-year/index.html">DayCountBasisYear</a></h4>
+</td>
+<td>
+<p>This forms the year part of the "Day Count Basis" used for interest calculation.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">DayCountBasisYear</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-deal-state/index.html">DealState</a></h4>
+</td>
+<td>
+<p>Interface representing an agreement that exposes various attributes that are common. Implementing it simplifies
+implementation of general flows that manipulate many agreement types.</p>
+<code><span class="keyword">interface </span><span class="identifier">DealState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-linear-state/index.html"><span class="identifier">LinearState</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-expression/index.html">Expression</a></h4>
+</td>
+<td>
+<p>Represents a textual expression of e.g. a formula</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Expression</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-fix/index.html">Fix</a></h4>
+</td>
+<td>
+<p>A <a href="-fix/index.html">Fix</a> represents a named interest rate, on a given day, for a given duration. It can be embedded in a tx.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Fix</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-command-data.html"><span class="identifier">CommandData</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-fixable-deal-state/index.html">FixableDealState</a></h4>
+</td>
+<td>
+<p>Interface adding fixing specific methods.</p>
+<code><span class="keyword">interface </span><span class="identifier">FixableDealState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-deal-state/index.html"><span class="identifier">DealState</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-fix-of/index.html">FixOf</a></h4>
+</td>
+<td>
+<p>A <a href="-fix-of/index.html">FixOf</a> identifies the question side of a fix: what day, tenor and type of fix ("LIBOR", "EURIBOR" etc)</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">FixOf</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-frequency/index.html">Frequency</a></h4>
+</td>
+<td>
+<p>Frequency at which an event occurs - the enumerator also casts to an integer specifying the number of times per year
+that would divide into (eg annually = 1, semiannual = 2, monthly = 12 etc).</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Frequency</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-multilateral-nettable-state/index.html">MultilateralNettableState</a></h4>
+</td>
+<td>
+<p>Interface for state objects that support being netted with other state objects.</p>
+<code><span class="keyword">interface </span><span class="identifier">MultilateralNettableState</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-net-command/index.html">NetCommand</a></h4>
+</td>
+<td>
+<p>A common netting command for contracts whose states can be netted.</p>
+<code><span class="keyword">interface </span><span class="identifier">NetCommand</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-command-data.html"><span class="identifier">CommandData</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-nettable-state.html">NettableState</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">NettableState</span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-bilateral-nettable-state/index.html"><span class="identifier">BilateralNettableState</span></a><span class="symbol">&lt;</span><span class="identifier">N</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-bilateral-nettable-state/index.html"><span class="identifier">BilateralNettableState</span></a><span class="symbol">&lt;</span><span class="identifier">N</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="-multilateral-nettable-state/index.html"><span class="identifier">MultilateralNettableState</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-net-type/index.html">NetType</a></h4>
+</td>
+<td>
+<p>Enum for the types of netting that can be applied to state objects. Exact behaviour
+for each type of netting is left to the contract to determine.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">NetType</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-payment-rule/index.html">PaymentRule</a></h4>
+</td>
+<td>
+<p>Whether the payment should be made before the due date, or after it.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">PaymentRule</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-tenor/index.html">Tenor</a></h4>
+</td>
+<td>
+<p>Placeholder class for the Tenor datatype - which is a standardised duration of time until maturity</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Tenor</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-c-p_-p-r-o-g-r-a-m_-i-d.html">CP_PROGRAM_ID</a></h4>
+</td>
+<td>
+<p>This is an ultra-trivial implementation of commercial paper, which is essentially a simpler version of a corporate
+bond. It can be seen as a company-specific currency. A company issues CP with a particular face value, say $100,
+but sells it for less, say $90. The paper can be redeemed for cash at a given date in the future. Thus this example
+would have a 10% interest rate with a single repayment. Commercial paper is often rolled over (the maturity date
+is adjusted as if the paper was redeemed and immediately repurchased, but without having to front the cash).</p>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">CP_PROGRAM_ID</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

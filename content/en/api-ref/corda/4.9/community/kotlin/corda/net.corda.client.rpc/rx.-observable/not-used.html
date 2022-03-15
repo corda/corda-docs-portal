@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>notUsed - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc</a>&nbsp;/&nbsp;<a href="index.html">rx.Observable</a>&nbsp;/&nbsp;<a href="./not-used.html">notUsed</a><br/>
+<br/>
+<h1>notUsed</h1>
+<a name="net.corda.client.rpc$notUsed(rx.Observable((net.corda.client.rpc.notUsed.T)))"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">notUsed</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>This function should be invoked on any unwanted Observables returned from RPC to release the server resources.</p>
+<p>subscribe({}, {}) was used instead of simply calling subscribe()
+because if an {@code onError} emission arrives (eg. due to an non-correct transaction, such as 'Not sufficient funds')
+then {@link OnErrorNotImplementedException} is thrown. As we won't handle exceptions from unused Observables,
+empty inputs are used to subscribe({}, {}).</p>
+</BODY>
+</HTML>

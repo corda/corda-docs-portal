@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowProgressHandle.close - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.messaging</a>&nbsp;/&nbsp;<a href="index.html">FlowProgressHandle</a>&nbsp;/&nbsp;<a href="./close.html">close</a><br/>
+<br/>
+<h1>close</h1>
+<a name="net.corda.core.messaging.FlowProgressHandle$close()"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Use this function for flows whose returnValue and progress are not going to be used or tracked, so as to free up
+server resources.
+Note that it won't really close if one subscribes on progress <a href="#">Observable</a>, but then forgets to unsubscribe.</p>
+</BODY>
+</HTML>

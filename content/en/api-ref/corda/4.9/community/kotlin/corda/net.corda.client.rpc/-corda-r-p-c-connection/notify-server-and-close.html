@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaRPCConnection.notifyServerAndClose - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc</a>&nbsp;/&nbsp;<a href="index.html">CordaRPCConnection</a>&nbsp;/&nbsp;<a href="./notify-server-and-close.html">notifyServerAndClose</a><br/>
+<br/>
+<h1>notifyServerAndClose</h1>
+<a name="net.corda.client.rpc.CordaRPCConnection$notifyServerAndClose()"></a>
+<code><span class="keyword">fun </span><span class="identifier">notifyServerAndClose</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Closes this client gracefully by sending a notification to the server, so it can immediately clean up resources.
+If the server is not available this method may block for a short period until it's clear the server is not
+coming back.</p>
+<p>Note: this will also be the implementation of <a href="../-r-p-c-connection/close.html">close</a> so won't be needed when using <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/use.html">use</a> or <code>try-with-resources</code>
+blocks.</p>
+</BODY>
+</HTML>

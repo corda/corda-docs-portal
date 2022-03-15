@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CriteriaExpression - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services.vault</a>&nbsp;/&nbsp;<a href="./index.html">CriteriaExpression</a><br/>
+<br/>
+<h1>CriteriaExpression</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">CriteriaExpression</span><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-aggregate-function-expression/index.html">AggregateFunctionExpression</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">AggregateFunctionExpression</span><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">, </span><span class="identifier">C</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CriteriaExpression</span></a><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-binary-logical/index.html">BinaryLogical</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">BinaryLogical</span><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CriteriaExpression</span></a><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-column-predicate-expression/index.html">ColumnPredicateExpression</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ColumnPredicateExpression</span><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">, </span><span class="identifier">C</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CriteriaExpression</span></a><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-not/index.html">Not</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Not</span><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">CriteriaExpression</span></a><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

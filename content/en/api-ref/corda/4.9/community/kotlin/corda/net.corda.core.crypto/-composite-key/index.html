@@ -1,0 +1,171 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CompositeKey - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="./index.html">CompositeKey</a><br/>
+<br/>
+<h1>CompositeKey</h1>
+<code><span class="keyword">class </span><span class="identifier">CompositeKey</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>A tree data structure that enables the representation of composite public keys, which are used to represent
+the signing requirements for multi-signature scenarios such as RAFT notary services. A composite key is a list
+of leaf keys and their contributing weight, and each leaf can be a conventional single key or a composite key.
+Keys contribute their weight to the total if they are matched by the signature.</p>
+<p>For complex scenarios, such as <em>"Both Alice and Bob need to sign to consume a state S"</em>, we can represent
+the requirement by creating a tree with a root <a href="./index.html">CompositeKey</a>, and Alice and Bob as children.
+The root node would specify <em>weights</em> for each of its children and a <em>threshold</em> – the minimum total weight required
+(e.g. the minimum number of child signatures required) to satisfy the tree signature requirement.</p>
+<p>Using these constructs we can express e.g. 1 of N (OR) or N of N (AND) signature requirements. By nesting we can
+create multi-level requirements such as <em>"either the CEO or 3 of 5 of his assistants need to sign"</em>.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-builder/index.html">Builder</a></h4>
+</td>
+<td>
+<p>A helper class for building a <a href="./index.html">CompositeKey</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-node-and-weight/index.html">NodeAndWeight</a></h4>
+</td>
+<td>
+<p>Holds node - weight pairs for a CompositeKey. Ordered first by weight, then by node's hashCode.
+Each node should be assigned with a positive weight to avoid certain types of weight underflow attacks.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NodeAndWeight</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><span class="identifier">NodeAndWeight</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="https://www.bouncycastle.org/docs/docs1.5on/org/bouncycastle/asn1/ASN1Object.html"><span class="identifier">ASN1Object</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="children.html">children</a></h4>
+</td>
+<td>
+<p>Τhe order of the children may not be the same to what was provided in the builder.</p>
+<code><span class="keyword">val </span><span class="identifier">children</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">NodeAndWeight</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="leaf-keys.html">leafKeys</a></h4>
+</td>
+<td>
+<p>Set of all leaf keys of that <a href="./index.html">CompositeKey</a>.</p>
+<code><span class="keyword">val </span><span class="identifier">leafKeys</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="threshold.html">threshold</a></h4>
+</td>
+<td>
+<p>specifies the minimum total weight required (in the simple case – the minimum number of child
+signatures required) to satisfy the sub-tree rooted at this node.</p>
+<code><span class="keyword">val </span><span class="identifier">threshold</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="check-validity.html">checkValidity</a></h4>
+</td>
+<td>
+<p>This method will detect graph cycles in the full composite key structure to protect against infinite loops when
+traversing the graph and key duplicates in the each layer. It also checks if the threshold and weight constraint
+requirements are met, while it tests for aggregated-weight integer overflow.
+In practice, this method should be always invoked on the root <a href="./index.html">CompositeKey</a>, as it inherently
+validates the child nodes (all the way till the leaves).</p>
+<code><span class="keyword">fun </span><span class="identifier">checkValidity</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="equals.html">equals</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.CompositeKey$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-algorithm.html">getAlgorithm</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAlgorithm</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-encoded.html">getEncoded</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getEncoded</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-format.html">getFormat</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getFormat</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-code.html">hashCode</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-fulfilled-by.html">isFulfilledBy</a></h4>
+</td>
+<td>
+<p>Takes single <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> and checks if <a href="./index.html">CompositeKey</a> requirements hold for that key.</p>
+<code><span class="keyword">fun </span><span class="identifier">isFulfilledBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.CompositeKey$isFulfilledBy(java.security.PublicKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Function checks if the public keys corresponding to the signatures are matched against the leaves of the composite
+key tree in question, and the total combined weight of all children is calculated for every intermediary node.
+If all thresholds are satisfied, the composite key requirement is considered to be met.</p>
+<code><span class="keyword">fun </span><span class="identifier">isFulfilledBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.CompositeKey$isFulfilledBy(kotlin.collections.Iterable((java.security.PublicKey)))/keysToCheck">keysToCheck</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-k-e-y_-a-l-g-o-r-i-t-h-m.html">KEY_ALGORITHM</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">KEY_ALGORITHM</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-instance.html">getInstance</a></h4>
+</td>
+<td>
+<p>Build a composite key from a DER encoded form.</p>
+<code><span class="keyword">fun </span><span class="identifier">getInstance</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.CompositeKey.Companion$getInstance(kotlin.ByteArray)/encoded">encoded</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code><code><span class="keyword">fun </span><span class="identifier">getInstance</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.CompositeKey.Companion$getInstance(org.bouncycastle.asn1.ASN1Primitive)/asn1">asn1</span><span class="symbol">:</span>&nbsp;<a href="https://www.bouncycastle.org/docs/docs1.5on/org/bouncycastle/asn1/ASN1Primitive.html"><span class="identifier">ASN1Primitive</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

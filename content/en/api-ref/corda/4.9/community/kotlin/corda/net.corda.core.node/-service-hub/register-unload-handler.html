@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ServiceHub.registerUnloadHandler - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node</a>&nbsp;/&nbsp;<a href="index.html">ServiceHub</a>&nbsp;/&nbsp;<a href="./register-unload-handler.html">registerUnloadHandler</a><br/>
+<br/>
+<h1>registerUnloadHandler</h1>
+<a name="net.corda.core.node.ServiceHub$registerUnloadHandler(kotlin.Function0((kotlin.Unit)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">registerUnloadHandler</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$registerUnloadHandler(kotlin.Function0((kotlin.Unit)))/runOnStop">runOnStop</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Allows the registration of a callback that may inform services when the app is shutting down.</p>
+<p>The intent is to allow the cleaning up of resources - e.g. releasing ports.</p>
+<p>You should not rely on this to clean up executing flows - that's what quasar is for.</p>
+<p>Please note that the shutdown handler is not guaranteed to be called. In production the node process may crash,
+be killed by the operating system and other forms of fatal termination may occur that result in this code never
+running. So you should use this functionality only for unit/integration testing or for code that can optimise
+this shutdown e.g. by cleaning up things that would otherwise trigger a slow recovery process next time the
+node starts.</p>
+</BODY>
+</HTML>

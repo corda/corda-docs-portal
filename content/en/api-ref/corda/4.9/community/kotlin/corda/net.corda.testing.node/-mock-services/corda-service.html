@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MockServices.cordaService - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="index.html">MockServices</a>&nbsp;/&nbsp;<a href="./corda-service.html">cordaService</a><br/>
+<br/>
+<h1>cordaService</h1>
+<a name="net.corda.testing.node.MockServices$cordaService(java.lang.Class((net.corda.testing.node.MockServices.cordaService.T)))"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialize-as-token/index.html"><span class="identifier">SerializeAsToken</span></a><span class="symbol">&gt;</span> <span class="identifier">cordaService</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockServices$cordaService(java.lang.Class((net.corda.testing.node.MockServices.cordaService.T)))/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code>
+<p>Return the singleton instance of the given Corda service type. This is a class that is annotated with
+<a href="../../net.corda.core.node.services/-corda-service/index.html">CordaService</a> and will have automatically been registered by the node.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - If <a href="../../net.corda.core.node/-service-hub/corda-service.html#net.corda.core.node.ServiceHub$cordaService(java.lang.Class((net.corda.core.node.ServiceHub.cordaService.T)))/type">type</a> is not annotated with <a href="../../net.corda.core.node.services/-corda-service/index.html">CordaService</a> or if the instance is not found.</p>
+</BODY>
+</HTML>

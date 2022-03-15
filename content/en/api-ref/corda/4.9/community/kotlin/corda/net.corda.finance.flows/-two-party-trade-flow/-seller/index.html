@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TwoPartyTradeFlow.Seller - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="../index.html">TwoPartyTradeFlow</a>&nbsp;/&nbsp;<a href="./index.html">Seller</a><br/>
+<br/>
+<h1>Seller</h1>
+<code><span class="keyword">class </span><span class="identifier">Seller</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-a-w-a-i-t-i-n-g_-p-r-o-p-o-s-a-l.html">AWAITING_PROPOSAL</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">AWAITING_PROPOSAL</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-v-e-r-i-f-y-i-n-g_-a-n-d_-s-i-g-n-i-n-g/index.html">VERIFYING_AND_SIGNING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">VERIFYING_AND_SIGNING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">Seller</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Seller$<init>(net.corda.core.flows.FlowSession, net.corda.core.contracts.StateAndRef((net.corda.core.contracts.OwnableState)), net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.PartyAndCertificate, net.corda.core.utilities.ProgressTracker)/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.flows/-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Seller$<init>(net.corda.core.flows.FlowSession, net.corda.core.contracts.StateAndRef((net.corda.core.contracts.OwnableState)), net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.PartyAndCertificate, net.corda.core.utilities.ProgressTracker)/assetToSell">assetToSell</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-ownable-state/index.html"><span class="identifier">OwnableState</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Seller$<init>(net.corda.core.flows.FlowSession, net.corda.core.contracts.StateAndRef((net.corda.core.contracts.OwnableState)), net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.PartyAndCertificate, net.corda.core.utilities.ProgressTracker)/price">price</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Seller$<init>(net.corda.core.flows.FlowSession, net.corda.core.contracts.StateAndRef((net.corda.core.contracts.OwnableState)), net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.PartyAndCertificate, net.corda.core.utilities.ProgressTracker)/myParty">myParty</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Seller$<init>(net.corda.core.flows.FlowSession, net.corda.core.contracts.StateAndRef((net.corda.core.contracts.OwnableState)), net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.PartyAndCertificate, net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Seller.tracker()<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="progress-tracker.html">progressTracker</a></h4>
+</td>
+<td>
+<p>Override this to provide a <a href="../../../net.corda.core.utilities/-progress-tracker/index.html">ProgressTracker</a>. If one is provided and stepped, the framework will do something
+helpful with the progress reports e.g record to the audit service. If this flow is invoked as a subflow of another,
+then the tracker will be made a child of the current step in the parent. If it's null, this flow doesn't track
+progress.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">progressTracker</span><span class="symbol">: </span><a href="../../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<p>This is where you fill out your business logic.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="tracker.html">tracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">tracker</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

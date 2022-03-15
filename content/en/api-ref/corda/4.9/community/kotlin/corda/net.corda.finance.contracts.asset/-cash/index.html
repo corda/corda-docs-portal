@@ -1,0 +1,127 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Cash - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.contracts.asset</a>&nbsp;/&nbsp;<a href="./index.html">Cash</a><br/>
+<br/>
+<h1>Cash</h1>
+<code><span class="keyword">class </span><span class="identifier">Cash</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-on-ledger-asset/index.html"><span class="identifier">OnLedgerAsset</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">Commands</span><span class="symbol">,</span>&nbsp;<span class="identifier">State</span><span class="symbol">&gt;</span></code>
+<p>A cash transaction may split and merge money represented by a set of (issuer, depositRef) pairs, across multiple
+input and output states. Imagine a Bitcoin transaction but in which all UTXOs had a colour
+(a blend of issuer+depositRef) and you couldn't merge outputs of two colours together, but you COULD put them in
+the same transaction.</p>
+<p>The goal of this design is to ensure that money can be withdrawn from the ledger easily: if you receive some money
+via this contract, you always know where to go in order to extract it from the R3 ledger, no matter how many hands
+it has passed through in the intervening time.</p>
+<p>At the same time, other contracts that just want money and don't care much who is currently holding it in their
+vaults can ignore the issuer/depositRefs and just examine the amount fields.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-commands/index.html">Commands</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Commands</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-command-data.html"><span class="identifier">CommandData</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-state/index.html">State</a></h4>
+</td>
+<td>
+<p>A state representing a cash claim against some party.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">State</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-fungible-asset/index.html"><span class="identifier">FungibleAsset</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../../net.corda.core.schemas/-queryable-state/index.html"><span class="identifier">QueryableState</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A cash transaction may split and merge money represented by a set of (issuer, depositRef) pairs, across multiple
+input and output states. Imagine a Bitcoin transaction but in which all UTXOs had a colour
+(a blend of issuer+depositRef) and you couldn't merge outputs of two colours together, but you COULD put them in
+the same transaction.</p>
+<code><span class="identifier">Cash</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="derive-state.html">deriveState</a></h4>
+</td>
+<td>
+<p>Derive a new transaction state based on the given example, with amount and owner modified. This allows concrete
+implementations to have fields in their state which we don't know about here, and we simply leave them untouched
+when sending out "change" from spending/exiting.</p>
+<code><span class="keyword">fun </span><span class="identifier">deriveState</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$deriveState(net.corda.core.contracts.TransactionState((net.corda.finance.contracts.asset.Cash.State)), net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), net.corda.core.identity.AbstractParty)/txState">txState</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-transaction-state/index.html"><span class="identifier">TransactionState</span></a><span class="symbol">&lt;</span><span class="identifier">State</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$deriveState(net.corda.core.contracts.TransactionState((net.corda.finance.contracts.asset.Cash.State)), net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), net.corda.core.identity.AbstractParty)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$deriveState(net.corda.core.contracts.TransactionState((net.corda.finance.contracts.asset.Cash.State)), net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), net.corda.core.identity.AbstractParty)/owner">owner</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-transaction-state/index.html"><span class="identifier">TransactionState</span></a><span class="symbol">&lt;</span><span class="identifier">State</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="extract-commands.html">extractCommands</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">extractCommands</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$extractCommands(kotlin.collections.Collection((net.corda.core.contracts.CommandWithParties((net.corda.core.contracts.CommandData)))))/commands">commands</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-command-with-parties/index.html"><span class="identifier">CommandWithParties</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-command-data.html"><span class="identifier">CommandData</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-command-with-parties/index.html"><span class="identifier">CommandWithParties</span></a><span class="symbol">&lt;</span><span class="identifier">Commands</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="generate-exit-command.html">generateExitCommand</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">generateExitCommand</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$generateExitCommand(net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))))/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Exit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="generate-issue.html">generateIssue</a></h4>
+</td>
+<td>
+<p>Puts together an issuance transaction from the given template, that starts out being owned by the given pubkey.</p>
+<code><span class="keyword">fun </span><span class="identifier">generateIssue</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.Issued((java.util.Currency)), kotlin.Long, net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/tx">tx</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-transaction-builder/index.html"><span class="identifier">TransactionBuilder</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.Issued((java.util.Currency)), kotlin.Long, net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/tokenDef">tokenDef</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.Issued((java.util.Currency)), kotlin.Long, net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/pennies">pennies</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.Issued((java.util.Currency)), kotlin.Long, net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/owner">owner</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.Issued((java.util.Currency)), kotlin.Long, net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code>
+<p>Puts together an issuance transaction for the specified amount that starts out being owned by the given pubkey.</p>
+<code><span class="keyword">fun </span><span class="identifier">generateIssue</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/tx">tx</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-transaction-builder/index.html"><span class="identifier">TransactionBuilder</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/owner">owner</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="generate-move-command.html">generateMoveCommand</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">generateMoveCommand</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Move</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="verify.html">verify</a></h4>
+</td>
+<td>
+<p>Takes an object that represents a state transition, and ensures the inputs/outputs/commands make sense.
+Must throw an exception if there's a problem that should prevent state transition. Takes a single object
+rather than an argument so that additional data can be added without breaking binary compatibility with
+existing contract code.</p>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash$verify(net.corda.core.transactions.LedgerTransaction)/tx">tx</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-p-r-o-g-r-a-m_-i-d.html">PROGRAM_ID</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">PROGRAM_ID</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

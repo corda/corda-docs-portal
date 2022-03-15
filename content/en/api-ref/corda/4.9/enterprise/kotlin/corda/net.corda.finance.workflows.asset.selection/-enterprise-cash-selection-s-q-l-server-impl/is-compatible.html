@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>EnterpriseCashSelectionSQLServerImpl.isCompatible - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.workflows.asset.selection</a>&nbsp;/&nbsp;<a href="index.html">EnterpriseCashSelectionSQLServerImpl</a>&nbsp;/&nbsp;<a href="./is-compatible.html">isCompatible</a><br/>
+<br/>
+<h1>isCompatible</h1>
+<a name="net.corda.finance.workflows.asset.selection.EnterpriseCashSelectionSQLServerImpl$isCompatible(java.sql.DatabaseMetaData)"></a>
+<code><span class="keyword">protected</span> <span class="keyword">fun </span><span class="identifier">isCompatible</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows.asset.selection.EnterpriseCashSelectionSQLServerImpl$isCompatible(java.sql.DatabaseMetaData)/metadata">metadata</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/sql/DatabaseMetaData.html"><span class="identifier">DatabaseMetaData</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Upon dynamically loading configured Cash Selection algorithms declared in META-INF/services
+this method determines whether the loaded implementation is compatible and usable with the currently
+loaded JDBC driver.
+Note: the first loaded implementation to pass this check will be used at run-time.</p>
+</BODY>
+</HTML>

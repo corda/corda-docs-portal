@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>JacksonSupport.SignedTransactionMixin - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.client.jackson</a>&nbsp;/&nbsp;<a href="../index.html">JacksonSupport</a>&nbsp;/&nbsp;<a href="./index.html">SignedTransactionMixin</a><br/>
+<br/>
+<h1>SignedTransactionMixin</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><s><span class="identifier">SignedTransactionMixin</span></s></code><br/>
+<strong>Deprecated:</strong> This is an internal class, do not use<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">SignedTransactionMixin</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-id.html">getId</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getId</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-inputs.html">getInputs</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getInputs</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-notary.html">getNotary</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getNotary</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-notary-change-tx.html">getNotaryChangeTx</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getNotaryChangeTx</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.transactions/-notary-change-wire-transaction/index.html"><span class="identifier">NotaryChangeWireTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-required-signing-keys.html">getRequiredSigningKeys</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getRequiredSigningKeys</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-sigs.html">getSigs</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getSigs</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-transaction.html">getTransaction</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getTransaction</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.transactions/-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-tx.html">getTx</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getTx</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.transactions/-wire-transaction/index.html"><span class="identifier">WireTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-tx-bits.html">getTxBits</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getTxBits</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.serialization/-serialized-bytes/index.html"><span class="identifier">SerializedBytes</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.transactions/-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

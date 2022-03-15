@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SerializationFactory.deserialize - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.serialization</a>&nbsp;/&nbsp;<a href="index.html">SerializationFactory</a>&nbsp;/&nbsp;<a href="./deserialize.html">deserialize</a><br/>
+<br/>
+<h1>deserialize</h1>
+<a name="net.corda.core.serialization.SerializationFactory$deserialize(net.corda.core.utilities.ByteSequence, java.lang.Class((net.corda.core.serialization.SerializationFactory.deserialize.T)), net.corda.core.serialization.SerializationContext)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">deserialize</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization.SerializationFactory$deserialize(net.corda.core.utilities.ByteSequence, java.lang.Class((net.corda.core.serialization.SerializationFactory.deserialize.T)), net.corda.core.serialization.SerializationContext)/byteSequence">byteSequence</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization.SerializationFactory$deserialize(net.corda.core.utilities.ByteSequence, java.lang.Class((net.corda.core.serialization.SerializationFactory.deserialize.T)), net.corda.core.serialization.SerializationContext)/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization.SerializationFactory$deserialize(net.corda.core.utilities.ByteSequence, java.lang.Class((net.corda.core.serialization.SerializationFactory.deserialize.T)), net.corda.core.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-context/index.html"><span class="identifier">SerializationContext</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code>
+<p>Deserialize the bytes in to an object, using the prefixed bytes to determine the format.</p>
+<h3>Parameters</h3>
+<p><a name="byteSequence"></a>
+<code>byteSequence</code> - The bytes to deserialize, including a format header prefix.</p>
+<p><a name="clazz"></a>
+<code>clazz</code> - The class or superclass or the object to be deserialized, or <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a> or <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html">Object</a> if unknown.</p>
+<p><a name="context"></a>
+<code>context</code> - A context that configures various parameters to deserialization.</p>
+</BODY>
+</HTML>

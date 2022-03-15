@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TwoPartyDealFlow.Instigator - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="../index.html">TwoPartyDealFlow</a>&nbsp;/&nbsp;<a href="./index.html">Instigator</a><br/>
+<br/>
+<h1>Instigator</h1>
+<code><span class="keyword">class </span><span class="identifier">Instigator</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Primary</span></code>
+<p>One side of the flow for inserting a pre-agreed deal.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>One side of the flow for inserting a pre-agreed deal.</p>
+<code><span class="identifier">Instigator</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Instigator$<init>(net.corda.core.flows.FlowSession, net.corda.finance.flows.TwoPartyDealFlow.AutoOffer, net.corda.core.utilities.ProgressTracker)/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Instigator$<init>(net.corda.core.flows.FlowSession, net.corda.finance.flows.TwoPartyDealFlow.AutoOffer, net.corda.core.utilities.ProgressTracker)/payload">payload</span><span class="symbol">:</span>&nbsp;<span class="identifier">AutoOffer</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Instigator$<init>(net.corda.core.flows.FlowSession, net.corda.finance.flows.TwoPartyDealFlow.AutoOffer, net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<span class="identifier">ProgressTracker</span>&nbsp;<span class="symbol">=</span>&nbsp;Primary.tracker()<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="notary-party.html">notaryParty</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">notaryParty</span><span class="symbol">: </span><span class="identifier">Party</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="other-side-session.html">otherSideSession</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">otherSideSession</span><span class="symbol">: </span><span class="identifier">FlowSession</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="payload.html">payload</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">payload</span><span class="symbol">: </span><span class="identifier">AutoOffer</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress-tracker.html">progressTracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">progressTracker</span><span class="symbol">: </span><span class="identifier">ProgressTracker</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="check-proposal.html">checkProposal</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">checkProposal</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Instigator$checkProposal(net.corda.core.transactions.SignedTransaction)/stx">stx</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignedTransaction</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

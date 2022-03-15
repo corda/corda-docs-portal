@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>WithReferencedStatesFlow.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">WithReferencedStatesFlow</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.flows.WithReferencedStatesFlow$&lt;init&gt;(net.corda.core.utilities.ProgressTracker, kotlin.Function0((net.corda.core.flows.FlowLogic((net.corda.core.flows.WithReferencedStatesFlow.T)))))"></a>
+<code><span class="identifier">WithReferencedStatesFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.WithReferencedStatesFlow$<init>(net.corda.core.utilities.ProgressTracker, kotlin.Function0((net.corda.core.flows.FlowLogic((net.corda.core.flows.WithReferencedStatesFlow.T)))))/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a>&nbsp;<span class="symbol">=</span>&nbsp;tracker()<span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.WithReferencedStatesFlow$<init>(net.corda.core.utilities.ProgressTracker, kotlin.Function0((net.corda.core.flows.FlowLogic((net.corda.core.flows.WithReferencedStatesFlow.T)))))/flowLogicProducer">flowLogicProducer</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Given a flow which uses reference states, the <a href="index.html">WithReferencedStatesFlow</a> will execute the flow as a subFlow.
+If the flow fails due to a <a href="../-notary-error/-conflict/index.html">NotaryError.Conflict</a> for a reference state, then WithReferencedStatesFlow will be suspended until the
+state refs for the reference states are consumed. In this case, a consumption means that:</p>
+<ol><li>the owner of the reference state has updated the state with a valid, notarised transaction</li>
+<li>the owner of the reference state has shared the update with the node attempting to run the flow which uses the
+    reference state</li>
+<li>The node has successfully committed the transaction updating the reference state (and all the dependencies), and
+    added the updated reference state to the vault.</li>
+</ol>
+<p>WARNING: Caution should be taken when using this flow as it facilitates automated re-running of flows which use
+reference states. The flow using reference states should include checks to ensure that the reference data is
+reasonable, especially if some economics transaction depends upon it.</p>
+<h3>Parameters</h3>
+<p><a name="progressTracker"></a>
+<code>progressTracker</code> - a progress tracker instance.</p>
+<p><a name="flowLogicProducer"></a>
+<code>flowLogicProducer</code> - a lambda which creates the <a href="../-flow-logic/index.html">FlowLogic</a> instance using reference states. This will be executed at least once.
+It is recommended a new <a href="../-flow-logic/index.html">FlowLogic</a> instance be returned each time.</p>
+</BODY>
+</HTML>

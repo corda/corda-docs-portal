@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CompositeKey.NodeAndWeight - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="../index.html">CompositeKey</a>&nbsp;/&nbsp;<a href="./index.html">NodeAndWeight</a><br/>
+<br/>
+<h1>NodeAndWeight</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NodeAndWeight</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><span class="identifier">NodeAndWeight</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="https://www.bouncycastle.org/docs/docs1.5on/org/bouncycastle/asn1/ASN1Object.html"><span class="identifier">ASN1Object</span></a></code>
+<p>Holds node - weight pairs for a CompositeKey. Ordered first by weight, then by node's hashCode.
+Each node should be assigned with a positive weight to avoid certain types of weight underflow attacks.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Holds node - weight pairs for a CompositeKey. Ordered first by weight, then by node's hashCode.
+Each node should be assigned with a positive weight to avoid certain types of weight underflow attacks.</p>
+<code><span class="identifier">NodeAndWeight</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.CompositeKey.NodeAndWeight$<init>(java.security.PublicKey, kotlin.Int)/node">node</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.CompositeKey.NodeAndWeight$<init>(java.security.PublicKey, kotlin.Int)/weight">weight</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="node.html">node</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">node</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="weight.html">weight</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">weight</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="compare-to.html">compareTo</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">compareTo</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.CompositeKey.NodeAndWeight$compareTo(net.corda.core.crypto.CompositeKey.NodeAndWeight)/other">other</span><span class="symbol">:</span>&nbsp;<span class="identifier">NodeAndWeight</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-a-s-n1-primitive.html">toASN1Primitive</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toASN1Primitive</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://www.bouncycastle.org/docs/docs1.5on/org/bouncycastle/asn1/ASN1Primitive.html"><span class="identifier">ASN1Primitive</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

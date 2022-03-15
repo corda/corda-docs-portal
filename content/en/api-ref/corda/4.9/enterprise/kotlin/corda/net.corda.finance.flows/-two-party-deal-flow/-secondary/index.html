@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TwoPartyDealFlow.Secondary - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="../index.html">TwoPartyDealFlow</a>&nbsp;/&nbsp;<a href="./index.html">Secondary</a><br/>
+<br/>
+<h1>Secondary</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Secondary</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowLogic</span><span class="symbol">&lt;</span><span class="identifier">SignedTransaction</span><span class="symbol">&gt;</span></code>
+<p>Abstracted bilateral deal flow participant that is recipient of initial communication.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-c-o-l-l-e-c-t-i-n-g_-s-i-g-n-a-t-u-r-e-s.html">COLLECTING_SIGNATURES</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">COLLECTING_SIGNATURES</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-r-e-c-e-i-v-i-n-g.html">RECEIVING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">RECEIVING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-r-e-c-o-r-d-i-n-g.html">RECORDING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">RECORDING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-s-i-g-n-i-n-g.html">SIGNING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">SIGNING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-v-e-r-i-f-y-i-n-g.html">VERIFYING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">VERIFYING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Abstracted bilateral deal flow participant that is recipient of initial communication.</p>
+<code><span class="identifier">Secondary</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Secondary$<init>(net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<span class="identifier">ProgressTracker</span>&nbsp;<span class="symbol">=</span>&nbsp;Secondary.tracker()<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="other-side-session.html">otherSideSession</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">otherSideSession</span><span class="symbol">: </span><span class="identifier">FlowSession</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress-tracker.html">progressTracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">progressTracker</span><span class="symbol">: </span><span class="identifier">ProgressTracker</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="assemble-shared-t-x.html">assembleSharedTX</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">assembleSharedTX</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Secondary$assembleSharedTX(net.corda.finance.flows.TwoPartyDealFlow.Handshake((net.corda.finance.flows.TwoPartyDealFlow.Secondary.U)))/handshake">handshake</span><span class="symbol">:</span>&nbsp;<span class="identifier">Handshake</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-triple/index.html"><span class="identifier">Triple</span></a><span class="symbol">&lt;</span><span class="identifier">TransactionBuilder</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">TransactionSignature</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SignedTransaction</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="validate-handshake.html">validateHandshake</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">validateHandshake</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.TwoPartyDealFlow.Secondary$validateHandshake(net.corda.finance.flows.TwoPartyDealFlow.Handshake((net.corda.finance.flows.TwoPartyDealFlow.Secondary.U)))/handshake">handshake</span><span class="symbol">:</span>&nbsp;<span class="identifier">Handshake</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Handshake</span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="tracker.html">tracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">tracker</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ProgressTracker</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

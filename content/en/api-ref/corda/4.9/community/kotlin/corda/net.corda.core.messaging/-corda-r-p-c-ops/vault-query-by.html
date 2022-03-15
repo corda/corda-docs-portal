@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaRPCOps.vaultQueryBy - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.messaging</a>&nbsp;/&nbsp;<a href="index.html">CordaRPCOps</a>&nbsp;/&nbsp;<a href="./vault-query-by.html">vaultQueryBy</a><br/>
+<br/>
+<h1>vaultQueryBy</h1>
+<a name="net.corda.core.messaging.CordaRPCOps$vaultQueryBy(net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort, java.lang.Class((net.corda.core.messaging.CordaRPCOps.vaultQueryBy.T)))"></a>
+<code><span class="identifier">@RPCReturnsObservables</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <span class="identifier">vaultQueryBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.messaging.CordaRPCOps$vaultQueryBy(net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort, java.lang.Class((net.corda.core.messaging.CordaRPCOps.vaultQueryBy.T)))/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node.services.vault/-query-criteria/index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.CordaRPCOps$vaultQueryBy(net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort, java.lang.Class((net.corda.core.messaging.CordaRPCOps.vaultQueryBy.T)))/paging">paging</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node.services.vault/-page-specification/index.html"><span class="identifier">PageSpecification</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.CordaRPCOps$vaultQueryBy(net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort, java.lang.Class((net.corda.core.messaging.CordaRPCOps.vaultQueryBy.T)))/sorting">sorting</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node.services.vault/-sort/index.html"><span class="identifier">Sort</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.CordaRPCOps$vaultQueryBy(net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort, java.lang.Class((net.corda.core.messaging.CordaRPCOps.vaultQueryBy.T)))/contractStateType">contractStateType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Returns a snapshot of vault states for a given query criteria (and optional order and paging specification)</p>
+<p>Generic vault query function which takes a <a href="../../net.corda.core.node.services.vault/-query-criteria/index.html">QueryCriteria</a> object to define filters,
+optional <a href="../../net.corda.core.node.services.vault/-page-specification/index.html">PageSpecification</a> and optional <a href="../../net.corda.core.node.services.vault/-sort/index.html">Sort</a> modification criteria (default unsorted),
+and returns a <a href="../../net.corda.core.node.services/-vault/-page/index.html">Vault.Page</a> object containing the following:</p>
+<ol><li>states as a List of  (page number and size defined by <a href="../../net.corda.core.node.services.vault/-page-specification/index.html">PageSpecification</a>)</li>
+<li>states metadata as a List of <a href="../../net.corda.core.node.services/-vault/-state-metadata/index.html">Vault.StateMetadata</a> held in the Vault States table.</li>
+<li>total number of results available if <a href="../../net.corda.core.node.services.vault/-page-specification/index.html">PageSpecification</a> supplied (otherwise returns -1)</li>
+<li>status types used in this query: UNCONSUMED, CONSUMED, ALL</li>
+<li>other results (aggregate functions with/without using value groups)</li>
+</ol>
+<h3>Exceptions</h3>
+<p><a name="VaultQueryException"></a>
+<code>VaultQueryException</code> - 
+<p>if the query cannot be executed for any reason
+    (missing criteria or parsing error, paging errors, unsupported query, underlying database error)</p>
+
+
+<p>Notes
+If no <a href="../../net.corda.core.node.services.vault/-page-specification/index.html">PageSpecification</a> is provided, a maximum of <a href="../../net.corda.core.node.services.vault/-d-e-f-a-u-l-t_-p-a-g-e_-s-i-z-e.html">DEFAULT_PAGE_SIZE</a> results will be returned.
+API users must specify a <a href="../../net.corda.core.node.services.vault/-page-specification/index.html">PageSpecification</a> if they are expecting more than <a href="../../net.corda.core.node.services.vault/-d-e-f-a-u-l-t_-p-a-g-e_-s-i-z-e.html">DEFAULT_PAGE_SIZE</a> results,
+otherwise a <a href="../../net.corda.core.node.services/-vault-query-exception/index.html">VaultQueryException</a> will be thrown alerting to this condition.
+It is the responsibility of the API user to request further pages and/or specify a more suitable <a href="../../net.corda.core.node.services.vault/-page-specification/index.html">PageSpecification</a>.</p>
+</p>
+</BODY>
+</HTML>

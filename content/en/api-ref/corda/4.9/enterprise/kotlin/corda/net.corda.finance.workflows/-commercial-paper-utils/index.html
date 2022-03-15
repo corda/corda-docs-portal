@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CommercialPaperUtils - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.workflows</a>&nbsp;/&nbsp;<a href="./index.html">CommercialPaperUtils</a><br/>
+<br/>
+<h1>CommercialPaperUtils</h1>
+<code><span class="keyword">object </span><span class="identifier">CommercialPaperUtils</span></code>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="generate-issue.html">generateIssue</a></h4>
+</td>
+<td>
+<p>Returns a transaction that issues commercial paper, owned by the issuing parties key. Does not update
+an existing transaction because you aren't able to issue multiple pieces of CP in a single transaction
+at the moment: this restriction is not fundamental and may be lifted later.</p>
+<code><span class="keyword">fun </span><span class="identifier">generateIssue</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateIssue(net.corda.core.contracts.PartyAndReference, net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), java.time.Instant, net.corda.core.identity.Party)/issuance">issuance</span><span class="symbol">:</span>&nbsp;<span class="identifier">PartyAndReference</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateIssue(net.corda.core.contracts.PartyAndReference, net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), java.time.Instant, net.corda.core.identity.Party)/faceValue">faceValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">Amount</span><span class="symbol">&lt;</span><span class="identifier">Issued</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateIssue(net.corda.core.contracts.PartyAndReference, net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), java.time.Instant, net.corda.core.identity.Party)/maturityDate">maturityDate</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateIssue(net.corda.core.contracts.PartyAndReference, net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), java.time.Instant, net.corda.core.identity.Party)/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TransactionBuilder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="generate-move.html">generateMove</a></h4>
+</td>
+<td>
+<p>Updates the given partial transaction with an input/output/command to reassign ownership of the paper.</p>
+<code><span class="keyword">fun </span><span class="identifier">generateMove</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateMove(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.CommercialPaper.State)), net.corda.core.identity.AbstractParty)/tx">tx</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionBuilder</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateMove(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.CommercialPaper.State)), net.corda.core.identity.AbstractParty)/paper">paper</span><span class="symbol">:</span>&nbsp;<span class="identifier">StateAndRef</span><span class="symbol">&lt;</span><span class="identifier">State</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateMove(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.CommercialPaper.State)), net.corda.core.identity.AbstractParty)/newOwner">newOwner</span><span class="symbol">:</span>&nbsp;<span class="identifier">AbstractParty</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="generate-redeem.html">generateRedeem</a></h4>
+</td>
+<td>
+<p>Intended to be called by the issuer of some commercial paper, when an owner has notified us that they wish
+to redeem the paper. We must therefore send enough money to the key that owns the paper to satisfy the face
+value, and then ensure the paper is removed from the ledger.</p>
+<code><span class="keyword">fun </span><span class="identifier">generateRedeem</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateRedeem(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.CommercialPaper.State)), net.corda.core.node.ServiceHub, net.corda.core.identity.PartyAndCertificate)/tx">tx</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionBuilder</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateRedeem(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.CommercialPaper.State)), net.corda.core.node.ServiceHub, net.corda.core.identity.PartyAndCertificate)/paper">paper</span><span class="symbol">:</span>&nbsp;<span class="identifier">StateAndRef</span><span class="symbol">&lt;</span><span class="identifier">State</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateRedeem(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.CommercialPaper.State)), net.corda.core.node.ServiceHub, net.corda.core.identity.PartyAndCertificate)/services">services</span><span class="symbol">:</span>&nbsp;<span class="identifier">ServiceHub</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateRedeem(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.CommercialPaper.State)), net.corda.core.node.ServiceHub, net.corda.core.identity.PartyAndCertificate)/ourIdentity">ourIdentity</span><span class="symbol">:</span>&nbsp;<span class="identifier">PartyAndCertificate</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

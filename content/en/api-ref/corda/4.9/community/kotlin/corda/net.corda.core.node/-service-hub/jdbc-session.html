@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ServiceHub.jdbcSession - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node</a>&nbsp;/&nbsp;<a href="index.html">ServiceHub</a>&nbsp;/&nbsp;<a href="./jdbc-session.html">jdbcSession</a><br/>
+<br/>
+<h1>jdbcSession</h1>
+<a name="net.corda.core.node.ServiceHub$jdbcSession()"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">jdbcSession</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html"><span class="identifier">Connection</span></a></code>
+<p>Exposes a JDBC connection (session) object using the currently configured database.
+Applications can use this to execute arbitrary SQL queries (native, direct, prepared, callable)
+against its Node database tables (including custom contract tables defined by extending
+<a href="../../net.corda.core.schemas/-queryable-state/index.html">net.corda.core.schemas.QueryableState</a>).</p>
+<p>When used within a flow, this session automatically forms part of the enclosing flow transaction boundary,
+and thus queryable data will include everything committed as of the last checkpoint.</p>
+<p>We want to make sure users have a restricted access to administrative functions, this function will return a <a href="#">RestrictedConnection</a> instance.
+The following methods are blocked:</p>
+<ul><li>abort(executor: Executor?)</li>
+<li>clearWarnings()</li>
+<li>close()</li>
+<li>commit()</li>
+<li>setSavepoint()</li>
+<li>setSavepoint(name : String?)</li>
+<li>releaseSavepoint(savepoint: Savepoint?)</li>
+<li>rollback()</li>
+<li>rollback(savepoint: Savepoint?)</li>
+<li>setCatalog(catalog : String?)</li>
+<li>setTransactionIsolation(level: Int)</li>
+<li>setTypeMap(map: MutableMap&lt;String, Class&lt;*&gt;&gt;?)</li>
+<li>setHoldability(holdability: Int)</li>
+<li>setSchema(schema: String?)</li>
+<li>setNetworkTimeout(executor: Executor?, milliseconds: Int)</li>
+<li>setAutoCommit(autoCommit: Boolean)</li>
+<li>setReadOnly(readOnly: Boolean)</li>
+</ul>
+<h3>Exceptions</h3>
+<p><a name="IllegalStateException"></a>
+<code>IllegalStateException</code> - if called outside of a transaction.</p>
+<p><strong>Return</strong><br/>
+A <a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html">Connection</a></p>
+</BODY>
+</HTML>

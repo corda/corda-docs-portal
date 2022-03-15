@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AbstractStateReplacementFlow.Instigator - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="../index.html">AbstractStateReplacementFlow</a>&nbsp;/&nbsp;<a href="./index.html">Instigator</a><br/>
+<br/>
+<h1>Instigator</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Instigator</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">S</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">M</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>The <a href="./index.html">Instigator</a> assembles the transaction for state replacement and sends out change proposals to all participants
+(<a href="../-acceptor/index.html">Acceptor</a>) of that state. If participants agree to the proposed change, they each sign the transaction.
+Finally, <a href="./index.html">Instigator</a> sends the transaction containing all participants' signatures to the notary for signature, and
+then back to each participant so they can record it and use the new updated state for future transactions.</p>
+<h3>Parameters</h3>
+<p><a name="S"></a>
+<code>S</code> - the input contract state type</p>
+<p><a name="T"></a>
+<code>T</code> - the output contract state type, this can be different from <a href="index.html#S">S</a>. For example, in contract upgrade, the output state type can be different from the input state type after the upgrade process.</p>
+<p><a name="M"></a>
+<code>M</code> - the type of a class representing proposed modification by the instigator.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-n-o-t-a-r-y.html">NOTARY</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">NOTARY</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-s-i-g-n-i-n-g.html">SIGNING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">SIGNING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>The <a href="./index.html">Instigator</a> assembles the transaction for state replacement and sends out change proposals to all participants
+(<a href="../-acceptor/index.html">Acceptor</a>) of that state. If participants agree to the proposed change, they each sign the transaction.
+Finally, <a href="./index.html">Instigator</a> sends the transaction containing all participants' signatures to the notary for signature, and
+then back to each participant so they can record it and use the new updated state for future transactions.</p>
+<code><span class="identifier">Instigator</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.AbstractStateReplacementFlow.Instigator$<init>(net.corda.core.contracts.StateAndRef((net.corda.core.flows.AbstractStateReplacementFlow.Instigator.S)), net.corda.core.flows.AbstractStateReplacementFlow.Instigator.M, net.corda.core.utilities.ProgressTracker)/originalState">originalState</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.AbstractStateReplacementFlow.Instigator$<init>(net.corda.core.contracts.StateAndRef((net.corda.core.flows.AbstractStateReplacementFlow.Instigator.S)), net.corda.core.flows.AbstractStateReplacementFlow.Instigator.M, net.corda.core.utilities.ProgressTracker)/modification">modification</span><span class="symbol">:</span>&nbsp;<span class="identifier">M</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.AbstractStateReplacementFlow.Instigator$<init>(net.corda.core.contracts.StateAndRef((net.corda.core.flows.AbstractStateReplacementFlow.Instigator.S)), net.corda.core.flows.AbstractStateReplacementFlow.Instigator.M, net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Instigator.tracker()<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="modification.html">modification</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">modification</span><span class="symbol">: </span><span class="identifier">M</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="original-state.html">originalState</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">originalState</span><span class="symbol">: </span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress-tracker.html">progressTracker</a></h4>
+</td>
+<td>
+<p>Override this to provide a <a href="../../../net.corda.core.utilities/-progress-tracker/index.html">ProgressTracker</a>. If one is provided and stepped, the framework will do something
+helpful with the progress reports e.g record to the audit service. If this flow is invoked as a subflow of another,
+then the tracker will be made a child of the current step in the parent. If it's null, this flow doesn't track
+progress.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">progressTracker</span><span class="symbol">: </span><a href="../../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="assemble-tx.html">assembleTx</a></h4>
+</td>
+<td>
+<p>Build the upgrade transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">assembleTx</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">UpgradeTx</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<p>This is where you fill out your business logic.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-participant-sessions.html">getParticipantSessions</a></h4>
+</td>
+<td>
+<p>Initiate sessions with parties we want signatures from.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getParticipantSessions</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="../../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="tracker.html">tracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">tracker</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

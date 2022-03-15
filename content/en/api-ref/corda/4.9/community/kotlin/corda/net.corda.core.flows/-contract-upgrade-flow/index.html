@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ContractUpgradeFlow - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">ContractUpgradeFlow</a><br/>
+<br/>
+<h1>ContractUpgradeFlow</h1>
+<code><span class="keyword">object </span><span class="identifier">ContractUpgradeFlow</span></code>
+<p>A flow to be used for authorising and upgrading state objects of an old contract to a new contract.</p>
+<p>This assembles the transaction for contract upgrade and sends out change proposals to all participants
+of that state. If participants agree to the proposed change, they each sign the transaction.
+Finally, the transaction containing all signatures is sent back to each participant so they can record it and
+use the new updated state for future transactions.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-authorise/index.html">Authorise</a></h4>
+</td>
+<td>
+<p>Authorise a contract state upgrade.</p>
+<code><span class="keyword">class </span><span class="identifier">Authorise</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Void.html"><span class="identifier">Void</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-deauthorise/index.html">Deauthorise</a></h4>
+</td>
+<td>
+<p>Deauthorise a contract state upgrade.
+This will remove the upgrade authorisation from persistent store (and prevent any further upgrade)</p>
+<code><span class="keyword">class </span><span class="identifier">Deauthorise</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Void.html"><span class="identifier">Void</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-initiate/index.html">Initiate</a></h4>
+</td>
+<td>
+<p>This flow begins the contract upgrade process.</p>
+<code><span class="keyword">class </span><span class="identifier">Initiate</span><span class="symbol">&lt;</span><span class="identifier">OldState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">NewState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Instigator</span><span class="symbol">&lt;</span><span class="identifier">OldState</span><span class="symbol">,</span>&nbsp;<span class="identifier">NewState</span><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../net.corda.core.contracts/-upgraded-contract/index.html"><span class="identifier">UpgradedContract</span></a><span class="symbol">&lt;</span><span class="identifier">OldState</span><span class="symbol">,</span>&nbsp;<span class="identifier">NewState</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

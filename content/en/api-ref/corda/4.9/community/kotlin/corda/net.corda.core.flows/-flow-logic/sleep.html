@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowLogic.sleep - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowLogic</a>&nbsp;/&nbsp;<a href="./sleep.html">sleep</a><br/>
+<br/>
+<h1>sleep</h1>
+<a name="net.corda.core.flows.FlowLogic.Companion$sleep(java.time.Duration, kotlin.Boolean)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="identifier">@JvmStatic</span> <span class="identifier">@JvmOverloads</span> <span class="keyword">fun </span><span class="identifier">sleep</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic.Companion$sleep(java.time.Duration, kotlin.Boolean)/duration">duration</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html"><span class="identifier">Duration</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic.Companion$sleep(java.time.Duration, kotlin.Boolean)/maySkipCheckpoint">maySkipCheckpoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>If on a flow, suspends the flow and only wakes it up after at least <a href="sleep.html#net.corda.core.flows.FlowLogic.Companion$sleep(java.time.Duration, kotlin.Boolean)/duration">duration</a> time has passed.  Otherwise,
+just sleep for <a href="sleep.html#net.corda.core.flows.FlowLogic.Companion$sleep(java.time.Duration, kotlin.Boolean)/duration">duration</a>.  This sleep function is not designed to aid scheduling, for which you should
+consider using <a href="../../net.corda.core.contracts/-schedulable-state/index.html">net.corda.core.contracts.SchedulableState</a>.  It is designed to aid with managing contention
+for which you have not managed via another means.</p>
+<p>Warning: long sleeps and in general long running flows are highly discouraged, as there is currently no
+support for flow migration! This method will throw an exception if you attempt to sleep for longer than
+5 minutes.</p>
+</BODY>
+</HTML>

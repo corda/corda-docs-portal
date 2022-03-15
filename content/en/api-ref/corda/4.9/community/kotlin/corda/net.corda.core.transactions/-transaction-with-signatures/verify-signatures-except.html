@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionWithSignatures.verifySignaturesExcept - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="index.html">TransactionWithSignatures</a>&nbsp;/&nbsp;<a href="./verify-signatures-except.html">verifySignaturesExcept</a><br/>
+<br/>
+<h1>verifySignaturesExcept</h1>
+<a name="net.corda.core.transactions.TransactionWithSignatures$verifySignaturesExcept(kotlin.Array((java.security.PublicKey)))"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">verifySignaturesExcept</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.core.transactions.TransactionWithSignatures$verifySignaturesExcept(kotlin.Array((java.security.PublicKey)))/allowedToBeMissing">allowedToBeMissing</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<a name="net.corda.core.transactions.TransactionWithSignatures$verifySignaturesExcept(kotlin.collections.Collection((java.security.PublicKey)))"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">verifySignaturesExcept</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.TransactionWithSignatures$verifySignaturesExcept(kotlin.collections.Collection((java.security.PublicKey)))/allowedToBeMissing">allowedToBeMissing</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Verifies the signatures on this transaction and throws if any are missing which aren't passed as parameters.
+In this context, "verifying" means checking they are valid signatures and that their public keys are in
+the <a href="required-signing-keys.html">requiredSigningKeys</a> set.</p>
+<p>Normally you would not provide any keys to this function, but if you're in the process of building a partial
+transaction and you want to access the contents before you've signed it, you can specify your own keys here
+to bypass that check.</p>
+<h3>Exceptions</h3>
+<p><a name="SignatureException"></a>
+<code>SignatureException</code> - if any signatures are invalid or unrecognised.</p>
+<p><a name="SignaturesMissingException"></a>
+<code>SignaturesMissingException</code> - if any signatures should have been present but were not.</p>
+</BODY>
+</HTML>

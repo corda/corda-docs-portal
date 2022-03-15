@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DigitalSignature - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="./index.html">DigitalSignature</a><br/>
+<br/>
+<h1>DigitalSignature</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">DigitalSignature</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a></code>
+<p>A wrapper around a digital signature.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-with-key/index.html">WithKey</a></h4>
+</td>
+<td>
+<p>A digital signature that identifies who the public key is owned by.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">WithKey</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">DigitalSignature</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A wrapper around a digital signature.</p>
+<code><span class="identifier">DigitalSignature</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigitalSignature$<init>(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../is-zero.html">isZero</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">.</span><span class="identifier">isZero</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.serialization/deserialize.html">deserialize</a></h4>
+</td>
+<td>
+<p>Convenience extension method for deserializing a ByteSequence, utilising the defaults.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../../net.corda.core.utilities/-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a><span class="symbol">.</span><span class="identifier">deserialize</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization$deserialize(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/serializationFactory">serializationFactory</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialization-factory/index.html"><span class="identifier">SerializationFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SerializationFactory.defaultFactory<span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization$deserialize(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialization-context/index.html"><span class="identifier">SerializationContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;serializationFactory.defaultContext<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.serialization/deserialize-with-compatible-context.html">deserializeWithCompatibleContext</a></h4>
+</td>
+<td>
+<p>Additionally returns <a href="../../net.corda.core.serialization/-serialization-context/index.html">SerializationContext</a> which was used for encoding.
+It might be helpful to know <a href="../../net.corda.core.serialization/-serialization-context/index.html">SerializationContext</a> to use the same encoding in the reply.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../../net.corda.core.utilities/-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a><span class="symbol">.</span><span class="identifier">deserializeWithCompatibleContext</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization$deserializeWithCompatibleContext(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/serializationFactory">serializationFactory</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialization-factory/index.html"><span class="identifier">SerializationFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SerializationFactory.defaultFactory<span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization$deserializeWithCompatibleContext(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialization-context/index.html"><span class="identifier">SerializationContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;serializationFactory.defaultContext<span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.serialization/-object-with-compatible-context/index.html"><span class="identifier">ObjectWithCompatibleContext</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../hash-as.html">hashAs</a></h4>
+</td>
+<td>
+<p>Compute the <a href="../hash-as.html#net.corda.core.crypto$hashAs(net.corda.core.utilities.OpaqueBytes, kotlin.String)/algorithm">algorithm</a> hash for the contents of the <a href="../../net.corda.core.utilities/-opaque-bytes/index.html">OpaqueBytes</a>.</p>
+<code><span class="keyword">fun </span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">.</span><span class="identifier">hashAs</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$hashAs(net.corda.core.utilities.OpaqueBytes, kotlin.String)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../sha256.html">sha256</a></h4>
+</td>
+<td>
+<p>Compute the SHA-256 hash for the contents of the <a href="../../net.corda.core.utilities/-opaque-bytes/index.html">OpaqueBytes</a>.</p>
+<code><span class="keyword">fun </span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">.</span><span class="identifier">sha256</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-transaction-signature/index.html">TransactionSignature</a></h4>
+</td>
+<td>
+<p>A wrapper over the signature output accompanied by signer's public key and signature metadata.
+This is similar to <a href="-with-key/index.html">DigitalSignature.WithKey</a>, but targeted to DLT transaction (or block of transactions) signatures.</p>
+<code><span class="keyword">class </span><span class="identifier">TransactionSignature</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">DigitalSignature</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

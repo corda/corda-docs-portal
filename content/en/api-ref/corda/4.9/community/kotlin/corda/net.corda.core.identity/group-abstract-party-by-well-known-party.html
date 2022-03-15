@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>groupAbstractPartyByWellKnownParty - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="index.html">net.corda.core.identity</a>&nbsp;/&nbsp;<a href="./group-abstract-party-by-well-known-party.html">groupAbstractPartyByWellKnownParty</a><br/>
+<br/>
+<h1>groupAbstractPartyByWellKnownParty</h1>
+<a name="net.corda.core.identity$groupAbstractPartyByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((net.corda.core.identity.AbstractParty)), kotlin.Boolean)"></a>
+<code><span class="keyword">fun </span><span class="identifier">groupAbstractPartyByWellKnownParty</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity$groupAbstractPartyByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((net.corda.core.identity.AbstractParty)), kotlin.Boolean)/serviceHub">serviceHub</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$groupAbstractPartyByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((net.corda.core.identity.AbstractParty)), kotlin.Boolean)/parties">parties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$groupAbstractPartyByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((net.corda.core.identity.AbstractParty)), kotlin.Boolean)/ignoreUnrecognisedParties">ignoreUnrecognisedParties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="-party/index.html"><span class="identifier">Party</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Group each <a href="-abstract-party/index.html">AbstractParty</a> by the well known party using the <a href="../net.corda.core.node/-services-for-resolution/identity-service.html">ServiceHub.identityService</a>, in preparation for
+creating <a href="#">FlowSession</a>s, for example.</p>
+<h3>Parameters</h3>
+<p><a name="parties"></a>
+<code>parties</code> - the <a href="-abstract-party/index.html">AbstractParty</a>s to group.</p>
+<p><a name="ignoreUnrecognisedParties"></a>
+<code>ignoreUnrecognisedParties</code> - if this is false, throw an exception if some of the <a href="-abstract-party/index.html">AbstractParty</a>s cannot be mapped
+to a <a href="-party/index.html">Party</a>.</p>
+<p><strong>Return</strong><br/>
+a map of well known <a href="-party/index.html">Party</a> to associated <a href="-abstract-party/index.html">AbstractParty</a>s.</p>
+<a name="net.corda.core.identity$groupAbstractPartyByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((net.corda.core.identity.AbstractParty)))"></a>
+<code><span class="keyword">fun </span><span class="identifier">groupAbstractPartyByWellKnownParty</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity$groupAbstractPartyByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((net.corda.core.identity.AbstractParty)))/serviceHub">serviceHub</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$groupAbstractPartyByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((net.corda.core.identity.AbstractParty)))/parties">parties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="-party/index.html"><span class="identifier">Party</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Group each <a href="-abstract-party/index.html">AbstractParty</a> by the well known party using the <a href="../net.corda.core.node/-services-for-resolution/identity-service.html">ServiceHub.identityService</a>, in preparation for
+creating <a href="#">FlowSession</a>s, for example. Throw an exception if some of the <a href="-abstract-party/index.html">AbstractParty</a>s cannot be mapped
+to a <a href="-party/index.html">Party</a>.</p>
+<h3>Parameters</h3>
+<p><a name="parties"></a>
+<code>parties</code> - the <a href="-abstract-party/index.html">AbstractParty</a>s to group.</p>
+<p><strong>Return</strong><br/>
+a map of well known <a href="-party/index.html">Party</a> to associated <a href="-abstract-party/index.html">AbstractParty</a>s.</p>
+</BODY>
+</HTML>

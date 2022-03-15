@@ -1,0 +1,270 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.core.utilities - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.core.utilities</a><br/>
+<br/>
+<h2>Package net.corda.core.utilities</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-byte-sequence/index.html">ByteSequence</a></h4>
+</td>
+<td>
+<p>An abstraction of a byte array, with offset and size that does no copying of bytes unless asked to.</p>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">ByteSequence</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><a href="-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-id/index.html">Id</a></h4>
+</td>
+<td>
+<p>Represents a unique, timestamped id.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">Id</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">VALUE</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-network-host-and-port/index.html">NetworkHostAndPort</a></h4>
+</td>
+<td>
+<p>Tuple of host and port. Use <a href="-network-host-and-port/parse.html">NetworkHostAndPort.parse</a> on untrusted data.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NetworkHostAndPort</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-non-empty-set/index.html">NonEmptySet</a></h4>
+</td>
+<td>
+<p>An immutable ordered non-empty set.</p>
+<code><span class="keyword">class </span><span class="identifier">NonEmptySet</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-opaque-bytes/index.html">OpaqueBytes</a></h4>
+</td>
+<td>
+<p>A simple class that wraps a byte array and makes the equals/hashCode/toString methods work as you actually expect.
+In an ideal JVM this would be a value type and be completely overhead free. Project Valhalla is adding such
+functionality to Java, but it won't arrive for a few years yet!</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">OpaqueBytes</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-opaque-bytes-sub-sequence/index.html">OpaqueBytesSubSequence</a></h4>
+</td>
+<td>
+<p>Class is public for serialization purposes.</p>
+<code><span class="keyword">class </span><span class="identifier">OpaqueBytesSubSequence</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-progress-tracker/index.html">ProgressTracker</a></h4>
+</td>
+<td>
+<p>A progress tracker helps surface information about the progress of an operation to a user interface or API of some
+kind. It lets you define a set of <em>steps</em> that represent an operation. A step is represented by an object (typically
+a singleton).</p>
+<code><span class="keyword">class </span><span class="identifier">ProgressTracker</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-property-delegate/index.html">PropertyDelegate</a></h4>
+</td>
+<td>
+<p>Simple interface encapsulating the implicit Kotlin contract for immutable property delegates.</p>
+<code><span class="keyword">interface </span><span class="identifier">PropertyDelegate</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-sgx-support/index.html">SgxSupport</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">SgxSupport</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-try/index.html">Try</a></h4>
+</td>
+<td>
+<p>Representation of an operation that has either succeeded with a result (represented by <a href="-try/-success/index.html">Success</a>) or failed with an
+exception (represented by <a href="-try/-failure/index.html">Failure</a>).</p>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-untrustworthy-data/index.html">UntrustworthyData</a></h4>
+</td>
+<td>
+<p>A small utility to approximate taint tracking: if a method gives you back one of these, it means the data came from
+a remote source that may be incentivised to pass us junk that violates basic assumptions and thus must be checked
+first. The wrapper helps you to avoid forgetting this vital step. Things you might want to check are:</p>
+<code><span class="keyword">class </span><span class="identifier">UntrustworthyData</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-uuid-generator/index.html">UuidGenerator</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">UuidGenerator</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-variable-property-delegate/index.html">VariablePropertyDelegate</a></h4>
+</td>
+<td>
+<p>Simple interface encapsulating the implicit Kotlin contract for mutable property delegates.</p>
+<code><span class="keyword">interface </span><span class="identifier">VariablePropertyDelegate</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-property-delegate/index.html"><span class="identifier">PropertyDelegate</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="java.lang.management.-thread-info/index.html">java.lang.management.ThreadInfo</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="java.security.-public-key/index.html">java.security.PublicKey</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="java.util.concurrent.-future/index.html">java.util.concurrent.Future</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.-any/index.html">kotlin.Any</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.-byte-array/index.html">kotlin.ByteArray</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.collections.-collection/index.html">kotlin.collections.Collection</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.-int/index.html">kotlin.Int</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.-long/index.html">kotlin.Long</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.-string/index.html">kotlin.String</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="org.slf4j.-logger/index.html">org.slf4j.Logger</a></h4>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-m-a-x_-h-a-s-h_-h-e-x_-s-i-z-e.html">MAX_HASH_HEX_SIZE</a></h4>
+</td>
+<td>
+<p>The maximum supported field-size for hash HEX-encoded outputs (e.g. database fields).
+This value is enough to support hash functions with outputs up to 512 bits (e.g. SHA3-512), in which
+case 128 HEX characters are required.
+130 was selected instead of 128, to allow for 2 extra characters that will be used as hash-scheme identifiers.</p>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">MAX_HASH_HEX_SIZE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="detailed-logger.html">detailedLogger</a></h4>
+</td>
+<td>
+<p>Returns the logger used for detailed logging.</p>
+<code><span class="keyword">fun </span><span class="identifier">detailedLogger</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Logger</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="logger-for.html">loggerFor</a></h4>
+</td>
+<td>
+<p>Usually you won't need this method:</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">loggerFor</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Logger</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parse-public-key-base58.html">parsePublicKeyBase58</a></h4>
+</td>
+<td>
+<p>Method to return the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> object given its Base58-<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> representation.</p>
+<code><span class="keyword">fun </span><span class="identifier">parsePublicKeyBase58</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities$parsePublicKeyBase58(kotlin.String)/base58String">base58String</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="thread-dump-as-string.html">threadDumpAsString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">threadDumpAsString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="transient.html">transient</a></h4>
+</td>
+<td>
+<p>A simple wrapper that enables the use of Kotlin's <code>val x by transient { ... }</code> syntax. Such a property
+will not be serialized, and if it's missing (or the first time it's accessed), the initializer will be
+used to set it up.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">transient</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities$transient(kotlin.Function0((net.corda.core.utilities.transient.T)))/initializer">initializer</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="-property-delegate/index.html"><span class="identifier">PropertyDelegate</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unwrap.html">unwrap</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">, </span><span class="identifier">R</span><span class="symbol">&gt;</span> <a href="-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">unwrap</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities$unwrap(net.corda.core.utilities.UntrustworthyData((net.corda.core.utilities.unwrap.T)), kotlin.Function1((net.corda.core.utilities.unwrap.T, net.corda.core.utilities.unwrap.R)))/validator">validator</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">R</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

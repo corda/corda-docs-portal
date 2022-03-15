@@ -1,0 +1,273 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SignedTransaction - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="./index.html">SignedTransaction</a><br/>
+<br/>
+<h1>SignedTransaction</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SignedTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-transaction-with-signatures/index.html"><span class="identifier">TransactionWithSignatures</span></a></code>
+<p>SignedTransaction wraps a serialized WireTransaction. It contains one or more signatures, each one for
+a public key (including composite keys) that is mentioned inside a transaction command. SignedTransaction is the top level transaction type
+and the type most frequently passed around the network and stored. The identity of a transaction is the hash of Merkle root
+of a WireTransaction, therefore if you are storing data keyed by WT hash be aware that multiple different STs may
+map to the same key (and they could be different in important ways, like validity!). The signatures on a
+SignedTransaction might be invalid or missing: the type does not imply validity.
+A transaction ID should be the hash of the <a href="../-wire-transaction/index.html">WireTransaction</a> Merkle tree root. Thus adding or removing a signature does not change it.</p>
+<h3>Parameters</h3>
+<p><a name="sigs"></a>
+<code>sigs</code> - a list of signatures from individual (non-composite) public keys. This is passed as a list of signatures
+when verifying composite key signatures, but may be used as individual signatures where a single key is expected to
+sign.</p>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-signatures-missing-exception/index.html">SignaturesMissingException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SignaturesMissingException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-named-by-hash/index.html"><span class="identifier">NamedByHash</span></a><span class="symbol">, </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/SignatureException.html"><span class="identifier">SignatureException</span></a><span class="symbol">, </span><a href="../../net.corda.core/-corda-throwable/index.html"><span class="identifier">CordaThrowable</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">SignedTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$<init>(net.corda.core.transactions.CoreTransaction, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)))/ctx">ctx</span><span class="symbol">:</span>&nbsp;<a href="../-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$<init>(net.corda.core.transactions.CoreTransaction, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)))/sigs">sigs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>SignedTransaction wraps a serialized WireTransaction. It contains one or more signatures, each one for
+a public key (including composite keys) that is mentioned inside a transaction command. SignedTransaction is the top level transaction type
+and the type most frequently passed around the network and stored. The identity of a transaction is the hash of Merkle root
+of a WireTransaction, therefore if you are storing data keyed by WT hash be aware that multiple different STs may
+map to the same key (and they could be different in important ways, like validity!). The signatures on a
+SignedTransaction might be invalid or missing: the type does not imply validity.
+A transaction ID should be the hash of the <a href="../-wire-transaction/index.html">WireTransaction</a> Merkle tree root. Thus adding or removing a signature does not change it.</p>
+<code><span class="identifier">SignedTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$<init>(net.corda.core.serialization.SerializedBytes((net.corda.core.transactions.CoreTransaction)), kotlin.collections.List((net.corda.core.crypto.TransactionSignature)))/txBits">txBits</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialized-bytes/index.html"><span class="identifier">SerializedBytes</span></a><span class="symbol">&lt;</span><a href="../-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$<init>(net.corda.core.serialization.SerializedBytes((net.corda.core.transactions.CoreTransaction)), kotlin.collections.List((net.corda.core.crypto.TransactionSignature)))/sigs">sigs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="core-transaction.html">coreTransaction</a></h4>
+</td>
+<td>
+<p>Lazily calculated access to the deserialised/hashed transaction data.</p>
+<code><span class="keyword">val </span><span class="identifier">coreTransaction</span><span class="symbol">: </span><a href="../-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<p>The id of the contained <a href="../-wire-transaction/index.html">WireTransaction</a>.</p>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="inputs.html">inputs</a></h4>
+</td>
+<td>
+<p>Helper to access the inputs of the contained transaction.</p>
+<code><span class="keyword">val </span><span class="identifier">inputs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters-hash.html">networkParametersHash</a></h4>
+</td>
+<td>
+<p>Helper to access the network parameters hash for the contained transaction.</p>
+<code><span class="keyword">val </span><span class="identifier">networkParametersHash</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary.html">notary</a></h4>
+</td>
+<td>
+<p>Helper to access the notary of the contained transaction.</p>
+<code><span class="keyword">val </span><span class="identifier">notary</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary-change-tx.html">notaryChangeTx</a></h4>
+</td>
+<td>
+<p>Returns the contained <a href="../-notary-change-wire-transaction/index.html">NotaryChangeWireTransaction</a>, or throws if this is a normal transaction.</p>
+<code><span class="keyword">val </span><s><span class="identifier">notaryChangeTx</span></s><span class="symbol">: </span><a href="../-notary-change-wire-transaction/index.html"><span class="identifier">NotaryChangeWireTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="references.html">references</a></h4>
+</td>
+<td>
+<p>Helper to access the unspendable inputs of the contained transaction.</p>
+<code><span class="keyword">val </span><span class="identifier">references</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="required-signing-keys.html">requiredSigningKeys</a></h4>
+</td>
+<td>
+<p>Specifies all the public keys that require signatures for the transaction to be valid.</p>
+<code><span class="keyword">val </span><span class="identifier">requiredSigningKeys</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sigs.html">sigs</a></h4>
+</td>
+<td>
+<p>a list of signatures from individual (non-composite) public keys. This is passed as a list of signatures
+when verifying composite key signatures, but may be used as individual signatures where a single key is expected to
+sign.</p>
+<code><span class="keyword">val </span><span class="identifier">sigs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="tx.html">tx</a></h4>
+</td>
+<td>
+<p>Returns the contained <a href="../-wire-transaction/index.html">WireTransaction</a>, or throws if this is a notary change or contract upgrade transaction.</p>
+<code><span class="keyword">val </span><span class="identifier">tx</span><span class="symbol">: </span><a href="../-wire-transaction/index.html"><span class="identifier">WireTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="tx-bits.html">txBits</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">txBits</span><span class="symbol">: </span><a href="../../net.corda.core.serialization/-serialized-bytes/index.html"><span class="identifier">SerializedBytes</span></a><span class="symbol">&lt;</span><a href="../-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="build-filtered-transaction.html">buildFilteredTransaction</a></h4>
+</td>
+<td>
+<p>Helper function to directly build a <a href="../-filtered-transaction/index.html">FilteredTransaction</a> using provided filtering functions,
+without first accessing the <a href="tx.html">WireTransaction</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">buildFilteredTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$buildFilteredTransaction(java.util.function.Predicate((kotlin.Any)))/filtering">filtering</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html"><span class="identifier">Predicate</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-filtered-transaction/index.html"><span class="identifier">FilteredTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-key-descriptions.html">getKeyDescriptions</a></h4>
+</td>
+<td>
+<p>Get a human readable description of where signatures are required from, and are missing, to assist in debugging
+the underlying cause.</p>
+<code><span class="keyword">fun </span><span class="identifier">getKeyDescriptions</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$getKeyDescriptions(kotlin.collections.Set((java.security.PublicKey)))/keys">keys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html"><span class="identifier">ArrayList</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-notary-change-transaction.html">isNotaryChangeTransaction</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">isNotaryChangeTransaction</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="plus.html">plus</a></h4>
+</td>
+<td>
+<p>Alias for <a href="with-additional-signature.html">withAdditionalSignature</a> to let you use Kotlin operator overloading.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">plus</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$plus(net.corda.core.crypto.TransactionSignature)/sig">sig</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Alias for <a href="with-additional-signatures.html">withAdditionalSignatures</a> to let you use Kotlin operator overloading.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">plus</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$plus(kotlin.collections.Collection((net.corda.core.crypto.TransactionSignature)))/sigList">sigList</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="resolve-base-transaction.html">resolveBaseTransaction</a></h4>
+</td>
+<td>
+<p>Resolves the underlying base transaction and then returns it, handling any special case transactions such as
+<a href="../-notary-change-wire-transaction/index.html">NotaryChangeWireTransaction</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">resolveBaseTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$resolveBaseTransaction(net.corda.core.node.ServicesForResolution)/servicesForResolution">servicesForResolution</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-services-for-resolution/index.html"><span class="identifier">ServicesForResolution</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-base-transaction/index.html"><span class="identifier">BaseTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="resolve-contract-upgrade-transaction.html">resolveContractUpgradeTransaction</a></h4>
+</td>
+<td>
+<p>If <a href="core-transaction.html">coreTransaction</a> is a <a href="../-contract-upgrade-wire-transaction/index.html">ContractUpgradeWireTransaction</a>, loads the input states and resolves it to a
+<a href="../-contract-upgrade-ledger-transaction/index.html">ContractUpgradeLedgerTransaction</a> so the signatures can be verified.</p>
+<code><span class="keyword">fun </span><span class="identifier">resolveContractUpgradeTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$resolveContractUpgradeTransaction(net.corda.core.node.ServicesForResolution)/services">services</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-services-for-resolution/index.html"><span class="identifier">ServicesForResolution</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-contract-upgrade-ledger-transaction/index.html"><span class="identifier">ContractUpgradeLedgerTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="resolve-notary-change-transaction.html">resolveNotaryChangeTransaction</a></h4>
+</td>
+<td>
+<p>If <a href="#">transaction</a> is a <a href="../-notary-change-wire-transaction/index.html">NotaryChangeWireTransaction</a>, loads the input states and resolves it to a
+<a href="../-notary-change-ledger-transaction/index.html">NotaryChangeLedgerTransaction</a> so the signatures can be verified.</p>
+<code><span class="keyword">fun </span><span class="identifier">resolveNotaryChangeTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$resolveNotaryChangeTransaction(net.corda.core.node.ServicesForResolution)/services">services</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-services-for-resolution/index.html"><span class="identifier">ServicesForResolution</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-notary-change-ledger-transaction/index.html"><span class="identifier">NotaryChangeLedgerTransaction</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">resolveNotaryChangeTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$resolveNotaryChangeTransaction(net.corda.core.node.ServiceHub)/services">services</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-notary-change-ledger-transaction/index.html"><span class="identifier">NotaryChangeLedgerTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="resolve-transaction-with-signatures.html">resolveTransactionWithSignatures</a></h4>
+</td>
+<td>
+<p>Resolves the underlying transaction with signatures and then returns it, handling any special case transactions
+such as <a href="../-notary-change-wire-transaction/index.html">NotaryChangeWireTransaction</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">resolveTransactionWithSignatures</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$resolveTransactionWithSignatures(net.corda.core.node.ServicesForResolution)/services">services</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-services-for-resolution/index.html"><span class="identifier">ServicesForResolution</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-transaction-with-signatures/index.html"><span class="identifier">TransactionWithSignatures</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-ledger-transaction.html">toLedgerTransaction</a></h4>
+</td>
+<td>
+<p>Checks the transaction's signatures are valid, optionally calls <a href="../-transaction-with-signatures/verify-required-signatures.html">verifyRequiredSignatures</a> to
+check all required signatures are present, and then calls <a href="../-wire-transaction/to-ledger-transaction.html">WireTransaction.toLedgerTransaction</a>
+with the passed in <a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a> to resolve the dependencies, returning an unverified
+LedgerTransaction.</p>
+<code><span class="keyword">fun </span><span class="identifier">toLedgerTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$toLedgerTransaction(net.corda.core.node.ServiceHub, kotlin.Boolean)/services">services</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$toLedgerTransaction(net.corda.core.node.ServiceHub, kotlin.Boolean)/checkSufficientSignatures">checkSufficientSignatures</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><a href="../-ledger-transaction/index.html"><span class="identifier">LedgerTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="verify.html">verify</a></h4>
+</td>
+<td>
+<p>Checks the transaction's signatures are valid, optionally calls <a href="../-transaction-with-signatures/verify-required-signatures.html">verifyRequiredSignatures</a> to check
+all required signatures are present. Resolves inputs and attachments from the local storage and performs full
+transaction verification, including running the contracts.</p>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$verify(net.corda.core.node.ServiceHub, kotlin.Boolean)/services">services</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$verify(net.corda.core.node.ServiceHub, kotlin.Boolean)/checkSufficientSignatures">checkSufficientSignatures</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-additional-signature.html">withAdditionalSignature</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withAdditionalSignature</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$withAdditionalSignature(java.security.KeyPair, net.corda.core.crypto.SignatureMetadata)/keyPair">keyPair</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$withAdditionalSignature(java.security.KeyPair, net.corda.core.crypto.SignatureMetadata)/signatureMetadata">signatureMetadata</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-signature-metadata/index.html"><span class="identifier">SignatureMetadata</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Returns the same transaction but with an additional (unchecked) signature.</p>
+<code><span class="keyword">fun </span><span class="identifier">withAdditionalSignature</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$withAdditionalSignature(net.corda.core.crypto.TransactionSignature)/sig">sig</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-additional-signatures.html">withAdditionalSignatures</a></h4>
+</td>
+<td>
+<p>Returns the same transaction but with an additional (unchecked) signatures.</p>
+<code><span class="keyword">fun </span><span class="identifier">withAdditionalSignatures</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.SignedTransaction$withAdditionalSignatures(kotlin.collections.Iterable((net.corda.core.crypto.TransactionSignature)))/sigList">sigList</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

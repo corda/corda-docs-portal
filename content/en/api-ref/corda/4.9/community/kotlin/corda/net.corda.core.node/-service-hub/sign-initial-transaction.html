@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ServiceHub.signInitialTransaction - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node</a>&nbsp;/&nbsp;<a href="index.html">ServiceHub</a>&nbsp;/&nbsp;<a href="./sign-initial-transaction.html">signInitialTransaction</a><br/>
+<br/>
+<h1>signInitialTransaction</h1>
+<a name="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder, java.security.PublicKey)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">signInitialTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder, java.security.PublicKey)/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-transaction-builder/index.html"><span class="identifier">TransactionBuilder</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Helper method to construct an initial partially signed transaction from a <a href="../../net.corda.core.transactions/-transaction-builder/index.html">TransactionBuilder</a>
+using keys stored inside the node. Signature metadata is added automatically.</p>
+<h3>Parameters</h3>
+<p><a name="builder"></a>
+<code>builder</code> - The <a href="../../net.corda.core.transactions/-transaction-builder/index.html">TransactionBuilder</a> to seal with the node's signature.
+Any existing signatures on the builder will be preserved.</p>
+<p><a name="publicKey"></a>
+<code>publicKey</code> - The <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> matched to the internal <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">java.security.PrivateKey</a> to use in signing this transaction.
+If the passed in key is actually a CompositeKey the code searches for the first child key hosted within this node
+to sign with.</p>
+<p><strong>Return</strong><br/>
+Returns a SignedTransaction with the new node signature attached.</p>
+<a name="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">signInitialTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder)/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-transaction-builder/index.html"><span class="identifier">TransactionBuilder</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Helper method to construct an initial partially signed transaction from a TransactionBuilder
+using the default identity key contained in the node. The legal identity key is used to sign.</p>
+<h3>Parameters</h3>
+<p><a name="builder"></a>
+<code>builder</code> - The TransactionBuilder to seal with the node's signature.
+Any existing signatures on the builder will be preserved.</p>
+<p><strong>Return</strong><br/>
+Returns a SignedTransaction with the new node signature attached.</p>
+<a name="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder, kotlin.collections.Iterable((java.security.PublicKey)))"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">signInitialTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder, kotlin.collections.Iterable((java.security.PublicKey)))/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-transaction-builder/index.html"><span class="identifier">TransactionBuilder</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder, kotlin.collections.Iterable((java.security.PublicKey)))/signingPubKeys">signingPubKeys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Helper method to construct an initial partially signed transaction from a <a href="../../net.corda.core.transactions/-transaction-builder/index.html">TransactionBuilder</a>
+using a set of keys all held in this node.</p>
+<h3>Parameters</h3>
+<p><a name="builder"></a>
+<code>builder</code> - The <a href="../../net.corda.core.transactions/-transaction-builder/index.html">TransactionBuilder</a> to seal with the node's signature.
+Any existing signatures on the builder will be preserved.</p>
+<p><a name="signingPubKeys"></a>
+<code>signingPubKeys</code> - A list of <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a>s used to lookup the matching <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">java.security.PrivateKey</a> and sign.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - is thrown if any keys are unavailable locally.</p>
+<p><strong>Return</strong><br/>
+Returns a <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> with the new node signature attached.</p>
+</BODY>
+</HTML>
