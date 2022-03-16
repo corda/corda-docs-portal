@@ -10,20 +10,9 @@ weight: 200
 
 ## Corda Enterprise downloads
 
-Corda Enterprise is accessed via R3's customer hub.
+Corda Enterprise is accessed via R3's customer hub. If you are an existing Corda Enterprise customer, you can find all downloads on [R3's customer hub](https://customerhub.r3.com/s/).
 
-{{< table >}}
-
-| Corda Enterprise version | Link |
-| :------------- | :------------- |
-| 4.9 | Customer Hub |
-| 4.8 | Customer Hub |
-| 4.7 | Customer Hub |
-| 4.6 | Customer Hub |
-| 4.5 | Customer Hub |
-| 4.4 | Customer Hub |
-
-{{< /table >}}
+If you are new to Corda and would like to experience Corda Enterprise, you can [register for a trial now](https://www.corda.net/get-corda/).
 
 
 ## Corda Community Edition downloads
@@ -42,6 +31,6 @@ The table below provides links to download Corda:
 
 | Corda Community Edition version | .tar    | Docker | Github repo |
 | :------------- | :------------- | :------------- | :------------- |
-| 4.9 | LINK | LINK  | LINK  |
+|[4.9](/en/platform/corda/4.9/community.html) | LINK | LINK  | [Github](https://github.com/corda/corda)  |
 
 {{< /table >}}
