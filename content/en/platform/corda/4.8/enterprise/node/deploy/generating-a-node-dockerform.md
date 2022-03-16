@@ -11,7 +11,7 @@ title: Dockerform plug-in
 weight: 1
 ---
 
-### Tasks using the Dockerform plug-in
+# Tasks using the Dockerform plug-in
 
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
 (Community Edition) is sufficient. Please refer to [Docker CE documentation](https://www.docker.com/community-edition)
@@ -58,7 +58,7 @@ As an alternative, you can specify this parameter when running the `docker-compo
 `ACCEPT_LICENSE=Y docker-compose up`
 {{< /note >}}
 
-#### Specify an external database
+## Specify an external database
 
 You can configure `Dockerform` to use a standalone database to test with non-H2 databases. For example, to use PostgresSQL, you need to make the following changes to your CorDapp project:
 
@@ -254,7 +254,7 @@ You can use the following configuration parameters in the `postgres.gradle` file
 
 To make the database files persistent across multiple `docker-compose` runs, you must set the `dbDataVolume` parameter. If this variable is commented out, the database files will be removed after every `docker-compose` run.
 
-#### Run the Dockerform task
+## Run the Dockerform task
 
 To run the Dockerform task, follow the steps below.
 
@@ -331,8 +331,8 @@ If you do not specify the sshd port number for a node, it will use the default v
 
 This command creates the nodes in the `build/nodes` directory. A node directory is generated for each node defined in the `prepareDockerNodes` task. The task also creates a `docker-compose.yml` file in the `build/nodes` directory.
 
-{{< note >}}
-**External database configuration**
+
+## External database configuration
 
 If you configure an external database, a `Postgres_Dockerfile` file and `Postgres_init.sh` file are also generated in the `build` directory. If you make any changes to your CorDapp source or `prepareDockerNodes` task, you will need to re-run the task to see the changes take effect.
 
@@ -343,4 +343,4 @@ In this case, each Corda node is associated with a Postgres database. Only one C
 The connection settings to the Postgres database are provided to each node through the `postgres.gradle` file. The Postgres JDBC driver is provided via Maven as part of the `cordaDrive` gradle configuration, which is also specified in the dependencies block of the `postgres.gradle` file.
 
 Note that this feature is not designed for users to access the database via elevated or admin rights - you must only use such configuration changes for testing/development purposes.
-{{< /note >}}
+
