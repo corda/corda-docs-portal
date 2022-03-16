@@ -23,7 +23,7 @@ A Corda vault is a database containing all data from the ledger relevant to a no
 
 ### Spent and unspent states
 
-**Unspent** or unconsumed states represent:
+**Unspent** or unconsumed states represent:  
     * Fungible states available for spending.
     * States available to transfer to another party.
     * Linear states available for evolution. For example, in response to a lifecycle event on a deal.

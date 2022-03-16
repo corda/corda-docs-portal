@@ -15,10 +15,10 @@ weight: 9
 
 # Upgrading the notary to a new version of Corda Enterprise
 
-## Version 4.9
+## Version 4.8
 
 {{< warning >}}
-This release addresses a security issue in the JPA notary if the Corda database management tool was used during notary backing database setup. Corda implementations that do not use the Corda database management tool during notary setup are unaffected and no action is required. After upgrading to Corda Enterprise 4.9, you must re-run the Corda database management tool to apply the security fix.
+This release addresses a security issue in the JPA notary if the Corda database management tool was used during notary backing database setup. Corda implementations that do not use the Corda database management tool during notary setup are unaffected and no action is required. After upgrading to Corda Enterprise 4.8, you must re-run the Corda database management tool to apply the security fix.
 {{< /warning >}}
 
 ## Version 4.7

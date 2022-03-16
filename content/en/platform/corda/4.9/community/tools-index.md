@@ -20,10 +20,7 @@ title: Tools
 Corda provides various command line and GUI tools to help you as you work. Along with those below, you may also
 wish to try the [Blob Inspector](blob-inspector.md).
 
-
-
 * [Corda Network Builder](network-builder.md)
 * [Network Bootstrapper](network-bootstrapper.md)
-* [DemoBench - **Warning** - DemoBench is deprecated in Corda 4.8](demobench.md)
 * [Node Explorer](node-explorer.md)
 * [Checkpoint Tooling](checkpoint-tooling.md)

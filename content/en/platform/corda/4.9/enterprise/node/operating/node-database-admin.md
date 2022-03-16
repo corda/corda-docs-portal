@@ -83,8 +83,15 @@ CREATE LOGIN my_login WITH PASSWORD = 'my_password';
 CREATE USER my_user FOR LOGIN my_login;
 ```
 
-By default the password must contain characters from three of the following four sets: uppercase letters, lowercase letters, digits, and symbols,
-e.g. *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes.
+By default the password must contain characters from three of the following four sets:
+
+* Uppercase letters
+* Lowercase letters
+* Digits
+* Symbols
+
+For example, *C0rdaAP4ssword* is a valid password. Passwords are delimited with single quotes. See the [Azure SQL password policy](https://docs.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-ver15#password-complexity) for more information.
+
 Use different passwords for *my_admin_user* and *my_user*.
 
 Connect to a user database as the administrator (replace *master* with a user database in the connection string).
@@ -473,7 +480,7 @@ Replace the placeholders *<host>*, *<port>* and *<database>* with appropriate va
 The `database.schema` is the database schema name assigned to the user.
 The value of `database.schema` is automatically wrapped in double quotes to preserve case-sensitivity.
 
-Copy PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
+Copy PostgreSQL JDBC Driver *42.2.9* version *JDBC 4.2* into the `drivers` directory.
 
 
 ### 2.3. Extract the DDL script using Database Management Tool
@@ -895,7 +902,7 @@ The value of `database.schema` is automatically wrapped in double quotes to pres
 (without quotes, PostgresSQL would treat *AliceCorp* as the value *alicecorp*).
 This behaviour differs from Corda Open Source where the value is not wrapped in double quotes.
 
-Place the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).
+Place the PostgreSQL JDBC Driver *42.2.9* version *JDBC 4.2* in the node directory `drivers` described in [Common Configuration Steps](#3-corda-node-configuration).
 
 
 

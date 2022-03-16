@@ -465,7 +465,7 @@ Permission strings are case-insensitive.
 
 ### Connecting to a node with `MultiRPCClient`
 
-The code snippet below demonstrates how to use the [MultiRPCClient](../../../../../../../en/api-ref/corda/4.9/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class  to build a Multi RPC Client and define the following:
+The code snippet below demonstrates how to use the [MultiRPCClient](../../../../../../../en/api-ref/corda/4.9/community/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class  to build a Multi RPC Client and define the following:
 
 * Endpoint address
 * Interface class to be used for communication (in this example, `NodeHealthCheckRpcOps::class.java`, which is used to communicate with the `net.corda.client.rpc.proxy.NodeHealthCheckRpcOps` interface)
@@ -523,14 +523,14 @@ As some internal resources are allocated to `MultiRPCClient`, it is recommended 
 You can pass in multiple endpoint addresses when constructing `MultiRPCClient`.
 If you do so, `MultiRPCClient` will operate in fail-over mode and if one of the endpoints becomes unreachable, it will automatically re-try the connection using a round-robin policy.
 
-For more information, see the API documentation for [MultiRPCClient](../../../../../../../en/api-ref/corda/4.9/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html).
+For more information, see the API documentation for [MultiRPCClient](../../../../../../../en/api-ref/corda/4.9/community/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html).
 
 ### Adding RPC connection listeners
 
 If the reconnection cycle has started, the previously supplied `RPCConnection` may become interrupted and `proxy` will throw an
 `RPCException` every time the remote method is called.
 
-To be notified when the connection has been re-established or, indeed, to receive notifications throughout the lifecycle of every connection, you can add one or more [RPCConnectionListeners](../../../../../../../en/api-ref/corda/4.9/open-source/javadoc/net/corda/client/rpc/ext/RPCConnectionListener.html) to `MultiRPCClient`.
+To be notified when the connection has been re-established or, indeed, to receive notifications throughout the lifecycle of every connection, you can add one or more [RPCConnectionListeners](../../../../../../../en/api-ref/corda/4.9/community/javadoc/net/corda/client/rpc/ext/RPCConnectionListener.html) to `MultiRPCClient`.
 For more information, see [RPCConnectionListener](../../../../../../../en/api-ref/corda/4.9/open-source/javadoc/net/corda/client/rpc/ext/RPCConnectionListener.html) in the API documentation.
 
 ### Specifying RPC connection parameters

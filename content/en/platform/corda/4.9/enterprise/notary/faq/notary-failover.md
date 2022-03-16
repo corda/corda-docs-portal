@@ -49,4 +49,3 @@ Previously notarized transactions are saved so that future repeated requests can
 ## If there is a network outage/partition, how does this affect the notary?
 
 We are prioritizing consistency over availability. Therefore the service will halt on the minority side of a network partition.
-
