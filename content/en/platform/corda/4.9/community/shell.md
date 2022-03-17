@@ -29,6 +29,12 @@ The Corda shell is an embedded or standalone command line that allows an adminis
 * UNIX style pipes for both text and objects, an `egrep` command and a command for working with columnar data.
 * Shutting the node down.
 
+There are two ways of using the Corda shell:
+
+* A standalone application which you can run using `corda-standalone-shell`.
+* A driver within your node, accessible via the `corda-shell.jar`.
+
+The standalone application is the only way to use the shell and keep a log of your commands.
 
 ## Permissions
 
@@ -143,84 +149,48 @@ Windows does not provide a built-in SSH tool. An alternative such as [PuTTY](htt
 
 The standalone shell is a standalone application interacting with a Corda node via RPC calls. RPC node permissions are necessary for authentication and authorisation. Certain operations, such as starting flows, require access to the CorDapp `.jar` files.
 
-
 ### Starting the standalone shell
 
-To run `corda-shell`:
+YOu can access the standalone shell from [software.r3.com](https://software.r3.com).
 
-1. Download the shell `.jar` file for your version of Corda from [Artifactory](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-shell-cli/)—for example, `corda-tools-shell-cli-4.8.jar`.
+Run the `corda-standalone-shell` jar using:
 
-2. Add `corda-shell` to your environment variable that points to the `.jar` file.
+    ```shell
+     java -jar corda-standalone-shell-4.9.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
+        [--truststore-file=<trustStoreFile>]
+        [--truststore-password=<trustStorePassword>]
+        [--truststore-type=<trustStoreType>] [--user=<user>] [-a=<host>]
+        [-c=<cordappDirectory>] [-f=<configFile>] [-o=<commandsDirectory>]
+        [-p=<port>]
+    ```
 
-3. Run the following command from the terminal:
+  Where:
 
-```bash
-corda-shell [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
-            [--truststore-file=<trustStoreFile>]
-            [--truststore-password=<trustStorePassword>]
-            [--truststore-type=<trustStoreType>] [--user=<user>] [-a=<host>]
-            [-c=<cordappDirectory>] [-f=<configFile>] [-o=<commandsDirectory>]
-            [-p=<port>] [COMMAND]
-```
+    - `config-file=<configFile>`, `--f`: The path to the shell configuration file, used instead of providing the rest of the command line options.
+    - `cordapp-directory=<cordappDirectory>`, `-c`: The path to the directory containing CorDapp jars, CorDapps are required when starting flows.
+    - `commands-directory=<commandsDirectory>`, `-o`: The path to the directory containing additional CRaSH shell commands.
+    - `host`, `-a`: The host address of the Corda node.
+    - `port`, `-p`: The RPC port of the Corda node.
+    - `user=<user>`: The RPC user name.
+    - `password=<password>`: The RPC user password. If not provided it will be prompted for on startup.
+    - `truststore-password=<trustStorePassword>`: The password to unlock the TrustStore file.
+    - `truststore-file=<trustStoreFile>`: The path to the TrustStore file.
+    - `truststore-type=<trustStoreType>`: The type of the TrustStore (for example, JKS).
+    - `verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
+    - `logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
+    - `help`, `-h`: Show this help message and exit.
+    - `version`, `-V`: Print version information and exit.
 
-Where:
+## Use the shell from a driver within your node
 
-* `--config-file=<configFile>`, `--f` The path to the shell configuration file, used instead of providing the rest of the command line options.
-* `--cordapp-directory=<cordappDirectory>`, `-c` The path to the directory containing CorDapp jars, CorDapps are required when starting flows.
-* `--commands-directory=<commandsDirectory>`, `-o` The path to the directory containing additional CRaSH shell commands.
-* `--host`, `-a`: The host address of the Corda node.
-* `--port`, `-p`: The RPC port of the Corda node.
-* `--user=<user>`: The RPC user name.
-* `--password=<password>` The RPC user password. If not provided it will be prompted for on startup.
-* `--truststore-password=<trustStorePassword>`: The password to unlock the TrustStore file.
-* `--truststore-file=<trustStoreFile>`: The path to the TrustStore file.
-* `--truststore-type=<trustStoreType>`: The type of the TrustStore (for example, JKS).
-* `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
-* `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
-* `--help`, `-h`: Show this help message and exit.
-* `--version`, `-V`: Print version information and exit.
+Install the `corda-shell` `.jar` in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
+By default, a Corda node does not run the shell.
 
-Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](cli-application-shell-extensions.md) for more info.
+    When using `cordaformation` the shell can be included in generated node's by including the following in the `build.gradle` file containing `deployNodes`:
 
-The format of `config-file`:
-
-```bash
-node {
-    addresses {
-        rpc {
-            host : "localhost"
-            port : 10006
-        }
-    }
-    user : demo
-    password : demo
-}
-shell {
-        workDir : /path/to/dir
-}
-extensions {
-    cordapps {
-        path : /path/to/cordapps/dir
-    }
-}
-ssl {
-    keystore {
-        path: "/path/to/keystore"
-        type: "JKS"
-        password: password
-    }
-    trustore {
-        path: "/path/to/trusttore"
-        type: "JKS"
-        password: password
-    }
-}
-```
-
-{{< note >}}
-SSH server is not supported inside the standalone shell.
-
-{{< /note >}}
+    ```groovy
+    cordaDriver "net.corda:corda-shell:4.9"
+    ```
 
 ## Shell Safe Mode
 
