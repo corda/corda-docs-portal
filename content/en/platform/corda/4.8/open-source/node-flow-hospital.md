@@ -8,7 +8,7 @@ menu:
   corda-os-4-8:
     identifier: corda-os-4-8-node-flow-hospital
     parent: corda-os-4-8-corda-nodes-index
-    weight: 1150
+    weight: 2000
 tags:
 - node
 - flow
