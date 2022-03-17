@@ -14,7 +14,6 @@ weight: 5
 
 # Running nodes locally
 
-
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
 [Creating nodes locally](generating-a-node.md).

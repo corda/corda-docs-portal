@@ -65,14 +65,14 @@ anything set earlier.
 
 
 * **Default arguments in capsule**:
-The capsuled Corda node has default flags set to `-Xmx512m -XX:+UseG1GC` - this gives the node (a relatively
-low) 512 MB of heap space and turns on the G1 garbage collector, ensuring low pause times for garbage collection.
+  The capsuled Corda node has default flags set to `-Xmx512m -XX:+UseG1GC` - this gives the node (a relatively
+  low) 512 MB of heap space and turns on the G1 garbage collector, ensuring low pause times for garbage collection.
 
 When `devMode` is explicitly set to `false` the default node memory size will be enlarged to 4G: `-Xmx4G -XX:+UseG1GC`.
 
 
 * **Node configuration**:
-The node configuration file can specify custom default JVM arguments by adding a section like:
+  The node configuration file can specify custom default JVM arguments by adding a section like:
 
 ```none
 custom = {
@@ -85,8 +85,8 @@ to set e.g. the memory, you also need to set the garbage collector, or it will r
 
 
 * **Capsule specific system property**:
-You can use a special system property that Capsule understands to set JVM arguments only for the Corda
-process, not the launcher that actually starts it:
+  You can use a special system property that Capsule understands to set JVM arguments only for the Corda
+  process, not the launcher that actually starts it:
 
 ```kotlin
 java -Dcapsule.jvm.args="-Xmx1G" -jar corda.jar
@@ -99,13 +99,13 @@ can only be set on one process at a time, e.g. a debug port.
 
 
 * **Command line flag**:
-You can set JVM args on the command line that apply to the launcher process and the node process as in the example
-above. This will override any value for the same flag set any other way, but will leave any other JVM arguments alone.
+  You can set JVM args on the command line that apply to the launcher process and the node process as in the example
+  above. This will override any value for the same flag set any other way, but will leave any other JVM arguments alone.
 
 
 * **OutOfMemoryError handling**:
-In addition to the JVM arguments listed above, the capsuled Corda node has two flags that cause the node to stop
-on out-of-memory error and generate the corresponding diagnostic files:
+  In addition to the JVM arguments listed above, the capsuled Corda node has two flags that cause the node to stop
+  on out-of-memory error and generate the corresponding diagnostic files:
 
 ```kotlin
 -XX:+HeapDumpOnOutOfMemoryError -XX:+CrashOnOutOfMemoryError
@@ -172,7 +172,7 @@ Parameters:
 * `--skip-schema-creation`: Skips the default database migration step.
 
 {{< note >}}
-Node `initial-registration` now includes the creation of `identity-private-key` keystore alias. For more information, see [node folder structure](../../node/setup/node-structure.md). Previously, only `cordaclientca` and `cordaclienttls` aliases were created during `initial-registration`, while `identity-private-key` was generated on demand on the first node run. Hence, in Corda 4.9 the content of `nodekeystore.jks` is never altered during a regular node run (except for `devMode = true`, where the certificates directory can be filled with pre-configured keystores).
+Node `initial-registration` now includes the creation of `identity-private-key` keystore alias. For more information, see [node folder structure](../../node/setup/node-structure.md). Previously, only `cordaclientca` and `cordaclienttls` aliases were created during `initial-registration`, while `identity-private-key` was generated on demand on the first node run. Hence, in Corda 4.8 the content of `nodekeystore.jks` is never altered during a regular node run (except for `devMode = true`, where the certificates directory can be filled with pre-configured keystores).
 {{< /note >}}
 
 `run-migration-scripts`: From version 4.6, a Corda node can no longer modify/create schema on the fly in normal run mode - schema setup or changes must be
@@ -259,27 +259,6 @@ major operating systems.
 {{< /warning >}}
 
 
-
-## Starting all nodes at once on a remote machine from the command line
-
-By default, `Cordform` expects the nodes it generates to be run on the same machine where they were generated.
-In order to run the nodes remotely, the nodes can be deployed locally and then copied to a remote server.
-If after copying the nodes to the remote machine you encounter errors related to `localhost` resolution, you will additionally need to follow the steps below.
-
-To create nodes locally and run on a remote machine perform the following steps:
-
-
-* Configure Cordform task and deploy the nodes locally as described in [Creating nodes locally](generating-a-node.md).
-* Copy the generated directory structure to a remote machine using e.g. Secure Copy.
-* Optionally, add database configuration settings if they weren’t specified in the first step.This step needs to be performed if the local machine doesn’t have access to the remote database (a database couldn’t be configured in the first step).
-In each top level `[NODE NAME]_node.conf` configuration file add the database settings and copy the JDBC driver JAR (if required).
-Edit the top level `[NODE NAME]_node.conf` files only and not the files (`node.conf`) inside the node subdirectories.
-* Optionally, bootstrap the network on the remote machine.This is optional step when a remote machine doesn’t accept `localhost` addresses, or the generated nodes are configured to run on another host’s IP address.If required change host addresses in top level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress` , `rpcSettings.address` and  `rpcSettings.adminAddress`.Run the network bootstrapper tool to regenerate the nodes network map (see for more explanation network-bootstrapper):`java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`
-* Run nodes on the remote machine using [runnodes command](#starting-all-nodes-at-once-on-a-local-machine-from-the-command-line).
-
-The above steps create a test deployment as `deployNodes` Gradle task would do on a local machine.
-
-
 ## Database migrations
 
 Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
@@ -300,9 +279,9 @@ Should any of those critical resources become not available, Corda Node will be 
 shut itself down reporting the cause as an error message to the Node’s log file.
 
 {{< note >}}
-On some operating systems when PC is going to sleep whilst Corda Node is running, imbedded into Node Artemis message broker reports
+On some operating systems when PC is going to sleep whilst Corda Node is running, embedded into Node Artemis message broker reports
 the loss of heartbeat event which in turn causes loss of connectivity to Artemis. In such circumstances Corda Node will exit reporting broker
 connectivity problem in the log.
 
 {{< /note >}}
-Once critical resources node relies upon are available again, it is safe for Node operator to re-start the node for normal operation.
+Once critical resources the node relies upon are available again, it is safe for Node operator to re-start the node for normal operation.
