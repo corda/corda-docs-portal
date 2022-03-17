@@ -1,14 +1,14 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-8:
-    identifier: corda-enterprise-4-8-corda-nodes-deploying-node-generating-dockerform
-    parent: corda-enterprise-4-8-corda-nodes-deploying-generate
+  corda-enterprise-4-9:
+    identifier: corda-enterprise-4-9-corda-nodes-deploying-node-generating-dockerform
+    parent: corda-enterprise-4-9-corda-nodes-deploying-generate
 tags:
 - generating
 - node
-  title: Dockerform plug-in
-  weight: 1
+title: Dockerform plug-in
+weight: 1
 ---
 
 # Tasks using the Dockerform plug-in
@@ -28,7 +28,7 @@ Dockerform supports the following configuration options for each node:
 
 You do not need to specify the node ports because every node has a separate container so no ports conflicts will occur. Every node will expose port `10003` for RPC connections. Docker will then map these to available ports on your host machine.
 
-You should interact with each node via its shell over SSH - see the [node configuration options](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-file.md) for more information.
+You should interact with each node via its shell over SSH - see the [node configuration options](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md) for more information.
 
 To enable the shell, you need to set the `sshdPort` number for each node in the gradle task - this is explained in the section [run the Dockerform task](#run-the-dockerform-task) further below. For example:
 

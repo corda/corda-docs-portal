@@ -4,14 +4,14 @@ aliases:
 - /HEAD/generating-a-node-cordform.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-os-4-9:
+  corda-community-4-9:
     identifier: corda-community-4-9-cordform-plugin
     parent: corda-community-4-9-generating-a-node
-weight: 1000
+    weight: 1000
 tags:
 - cordform
 - node
-  title: Cordform plug-in
+title: Cordform plug-in
 ---
 
 # Cordform plug-in

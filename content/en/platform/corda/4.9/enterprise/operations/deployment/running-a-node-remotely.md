@@ -7,8 +7,8 @@ menu:
 tags:
 - running
 - node
-  title: Running nodes remotely
-  weight: 6
+title: Running nodes remotely
+weight: 6
 ---
 
 # Running nodes remotely

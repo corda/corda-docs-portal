@@ -1,27 +1,17 @@
 ---
-aliases:
-- /head/generating-a-node-dockerform.html
-- /HEAD/generating-a-node-dockerform.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-9:
-    identifier: corda-community-4-9-dockerform-plugin
-    parent: corda-community-4-9-generating-a-node
-    weight: 1100
+  corda-enterprise-4-9:
+    identifier: corda-enterprise-4-9-operations-guide-deployment-node-generating-dockerform
+    parent: corda-enterprise-4-9-operations-guide-deployment-node-generating
 tags:
-- dockerform
+- generating
 - node
 title: Dockerform plug-in
+weight: 3
 ---
 
-# Dockerform plug-in
-
-Corda provides two `gradle` plug-ins: `Cordform` and `Dockerform`. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Dockerform plug-in. Visit the [Cordform](../../../../../en/platform/corda/4.9/community/generating-a-node-cordform.md) page for Cordform configuration options.
-
-* Nodes deployed via `Dockerform` use Docker containers. A `Dockerform` task is similar to `Cordform` but it provides an extra file that enables you to easily spin up nodes using `docker-compose`. This creates a `docker-compose` file that enables you to run a single command to control the deployment of Corda nodes and databases (instead of deploying each node/database manually).
-* `Dockerform` tasks require Docker to be installed on the local host.
-
-## Tasks using the Dockerform plug-in
+### Tasks using the Dockerform plug-in
 
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
 (Community Edition) is sufficient. Please refer to [Docker CE documentation](https://www.docker.com/community-edition)
@@ -38,7 +28,7 @@ Dockerform supports the following configuration options for each node:
 
 You do not need to specify the node ports because every node has a separate container so no ports conflicts will occur. Every node will expose port `10003` for RPC connections. Docker will then map these to available ports on your host machine.
 
-You should interact with each node via its shell over SSH - see the [node configuration options](corda-configuration-file.md) for more information.
+You should interact with each node via its shell over SSH - see the [node configuration options](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md) for more information.
 
 To enable the shell, you need to set the `sshdPort` number for each node in the gradle task - this is explained in the section [run the Dockerform task](#run-the-dockerform-task) further below. For example:
 
@@ -62,17 +52,17 @@ Make sure to use Corda gradle plugin version 5.0.10 or above. If you do not spec
 The Docker image associated with each node can be configured in the `Dockerform` task. This will initialise *every* node in the `Dockerform` task with the specified Docker image. If you need nodes with different Docker images, you can edit the `docker-compose.yml` file with your preferred image.
 
 {{< note >}}
-If you are running any Corda Enterprise Docker images, you must first accept the license agreement and indicate that you have done this by setting the environment variable `ACCEPT_LICENSE` to `YES` or `Y` on your machine. If you do not do this, none of the Docker containers will start.
+Before running any Corda Enterprise Docker images, you must accept the license agreement and indicate that you have done this by setting the environment variable `ACCEPT_LICENSE` to `YES` or `Y` on your machine. If you do not do this, none of the Docker containers will start.
 
 As an alternative, you can specify this parameter when running the `docker-compose up` command, for example:
 `ACCEPT_LICENSE=Y docker-compose up`
 {{< /note >}}
 
-### Specify an external database
+#### Specify an external database
 
-You can configure `Dockerform` to use a standalone database to test with non-H2 databases. For example, to use PostgresSQL, you need to make the following changes to your Cordapp project:
+You can configure `Dockerform` to use a standalone database to test with non-H2 databases. For example, to use PostgresSQL, you need to make the following changes to your CorDapp project:
 
-1. Create a file called `postgres.gradle` in your CorDapp directory, and insert the following code block:
+1. Create a file called `postgres.gradle` in your Cordapp directory, and insert the following code block:
 
 ```groovy
 ext {
@@ -109,7 +99,6 @@ ext {
                     ]
             ],
             database: [
-                    runMigration             : true,
                     schema                   : dbSchema
             ],
             dockerConfig: [
@@ -265,7 +254,7 @@ You can use the following configuration parameters in the `postgres.gradle` file
 
 To make the database files persistent across multiple `docker-compose` runs, you must set the `dbDataVolume` parameter. If this variable is commented out, the database files will be removed after every `docker-compose` run.
 
-### Run the Dockerform task
+#### Run the Dockerform task
 
 To run the Dockerform task, follow the steps below.
 
@@ -273,13 +262,14 @@ To run the Dockerform task, follow the steps below.
 The node configuration described here is just an example. `Dockerform` allows you specify any number of nodes and you can define their configurations and names as needed.
 {{< /note >}}
 
-1. Open the `build.gradle` file of your Cordapp project and add a new gradle task, as shown in the example below.
+1. Open the `build.gradle` file of your CorDapp project and add a new gradle task, as shown in the example below.
 
 {{< note >}}
 Make sure to use Corda gradle plugin version 5.0.10 or above.
 {{< /note >}}
+
 {{% warning %}}
-The docker image name must be specified by using the `dockerImage` property.
+The Docker image name must be specified by using the `dockerImage` property.
 {{% /warning %}}
 
 ```groovy
@@ -326,7 +316,7 @@ task prepareDockerNodes(type: net.corda.plugins.Dockerform, dependsOn: ['jar']) 
     }
 
     // This property needs to be outside the node {...} elements
-    dockerImage = "corda/corda-zulu-java1.8-4.4"
+    dockerImage = "corda/corda-zulu-java1.8-4.8"
 }
 ```
 

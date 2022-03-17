@@ -5,14 +5,14 @@ aliases:
 - /node-docker-deployments.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-os-4-8:
+  corda-community-4-9:
     identifier: corda-community-4-9-node-docker-deployments
-    parent: corda-community-4-9-corda-nodes-index
-weight: 1150
-  tags:
+    parent: corda-community-4-8-corda-nodes-index
+    weight: 1150
+tags:
 - node
 - docker
-  title: Docker deployments
+title: Docker deployments
 ---
 
 # Docker deployments
@@ -42,7 +42,7 @@ docker run -ti \
         -v /path/to/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-java1.8-4.9:latest
+        corda/corda-zulu-java1.8-4.8:latest
 ```
 
 As the node runs within a container, several mount points are required:
@@ -83,7 +83,7 @@ docker run -ti \
         -v /home/user/sharedFolder/network-parameters:/opt/corda/network-parameters \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-java1.8-4.9:latest
+        corda/corda-zulu-java1.8-4.8:latest
 ```
 
 The mount `/home/user/sharedFolder/node-infos:/opt/corda/additional-node-infos` is used to hold the `nodeInfo` of all the nodes within the network.
@@ -117,7 +117,7 @@ docker run -ti --net="host" \
         -e RPC_USER="PartyA"      \
         -v /home/user/docker/config:/etc/corda          \
         -v /home/user/docker/certificates:/opt/corda/certificates \
-        corda/corda-zulu-java1.8-4.9:latest config-generator --generic --exit-on-generate
+        corda/corda-zulu-java1.8-4.8:latest config-generator --generic --exit-on-generate
 ```
 
 Several environment variables must also be passed to the container to allow it to register:
@@ -151,7 +151,7 @@ docker run -ti \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-java1.8-4.9:latest
+        corda/corda-zulu-java1.8-4.8:latest
 ```
 
 # Performing Database Migrations
@@ -170,7 +170,7 @@ docker run -ti \
         -v /home/user/docker/docker/persistence:/opt/corda/persistence \
         -v /home/user/docker/docker/logs:/opt/corda/logs \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
-        entdocker.software.r3.com/corda-enterprise-java1.8-4.9:latest db-migrate-create-jars
+        entdocker.software.r3.com/corda-enterprise-java1.8-4.8:latest db-migrate-create-jars
 ```
 
 After the container has finished executing, there will be two new jars in `/home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps`: `migration-corda-insurance.jar` and `migration-corda-kyc.jar`.
@@ -187,7 +187,7 @@ docker run -ti \
         -v $(pwd)/docker/persistence:/opt/corda/persistence \
         -v $(pwd)/docker/logs:/opt/corda/logs \
         -v $(pwd)/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
-        entdocker.software.r3.com/corda-enterprise-java1.8-4.9:latest db-migrate-execute-migration
+        entdocker.software.r3.com/corda-enterprise-java1.8-4.8:latest db-migrate-execute-migration
 ```
 
 If the container is launched with the `db-migrate-execute-migration` command, the migration is directly applied to the database.

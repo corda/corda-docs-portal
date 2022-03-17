@@ -1,24 +1,16 @@
 ---
-aliases:
-- /head/running-a-node-remotely.html
-- /HEAD/running-a-node-remotely.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-9:
-    identifier: corda-community-4-9-running-a-node-remotely
-    parent: corda-community-4-9-corda-nodes-index
-    weight: 1140
+  corda-enterprise-4-9:
+    parent: corda-enterprise-4-9-corda-nodes-deploying
 tags:
 - running
 - node
 title: Running nodes remotely
+weight: 6
 ---
 
 # Running nodes remotely
-
-{{< note >}}
-The remote node running method described in this page is designed for testing use. For production-grade deployments visit the [node deployments page](node-docker-deployments.md).
-{{< /note >}}
 
 By default, a [Cordform](generating-a-node-cordform.md) task will run all the generated nodes on the same host machine.
 In order to run the nodes remotely, you can deploy them locally and then copy them to a remote server.
