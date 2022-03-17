@@ -16,6 +16,8 @@ version: 'Community Edition 4.9'
 
 Corda Community Edition is a free to use, open source version of Corda, with added optional support. By choosing to develop using this edition of Corda, you can access affordable technical support to help you take your project to market with confidence.
 
+{{< vimeo 205410473 >}}
+
 ## What's new in Corda Community Edition
 
 Along with the free-to-use Corda platform, Corda Community Edition comes with an affordable support package from R3, the makers of Corda. Check the [Community Edition support matrix](http://corda.net/support) to see which flexible package suits you best.
@@ -47,5 +49,3 @@ If you are already using an open source version of Corda (Corda 4.1- Corda 4.8) 
 * Use the Docker Image.
 
 Follow the upgrade guides to make sure your [node](community/node-upgrade-notes.md) and [CorDapps](community/upgrade-cordapps.md) are upgraded correctly.
-To see Docker guides. See all versions of Corda Community.
-See end of life schedule. 
