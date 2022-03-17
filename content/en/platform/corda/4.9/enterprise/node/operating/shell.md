@@ -24,6 +24,12 @@ The Corda shell is an embedded or standalone command line that allows an adminis
 * UNIX style pipes for both text and objects, an `egrep` command and a command for working with columnar data.
 * Shutting the node down.
 
+There are two ways of using the Corda shell:
+
+* A standalone application which you can run using `corda-standalone-shell`.
+* A driver within your node, accessible via the `corda-shell.jar`.
+
+The standalone application is the only way to use the shell and keep a log of your commands.
 
 ## Permissions
 
@@ -58,7 +64,7 @@ There are also operations that allow starting/killing the flows or even stopping
 * Starting flows requires `InvokeRpc.registeredFlows` and `InvokeRpc.wellKnownPartyFromX500Name`, as well as a permission for the flow being started.
 * Killing flows (`flow kill`) requires `InvokeRpc.killFlow`. This currently allows the user to kill *any* flow, so please be careful when granting it!
 
-Description of RPC operations can be found in the [RPC operations](../../../../../../../en/platform/corda/4.9/enterprise/api-rpc.md) documentation.
+Description of RPC operations can be found in the [RPC operations](api-rpc.md) documentation.
 
 {{< note >}}
 `InvokeRpc.startTrackedFlowDynamic` permission gives permission to run all existing flows.
@@ -138,84 +144,48 @@ Windows does not provide a built-in SSH tool. An alternative such as [PuTTY](htt
 
 The standalone shell is a standalone application interacting with a Corda node via RPC calls. RPC node permissions are necessary for authentication and authorisation. Certain operations, such as starting flows, require access to the CorDapp `.jar` files.
 
-
 ### Starting the standalone shell
 
-To run `corda-shell`:
+YOu can access the standalone shell from [software.r3.com](https://software.r3.com).
 
-1. Download the shell `.jar` file for your version of Corda from [Artifactory](https://software.r3.com/ui/repos/tree/General/corda-enterprise-for-customers)—for example, `corda-tools-shell-cli-4.9.jar`.
+Run the `corda-standalone-shell` jar using:
 
-2. Add `corda-shell` to your environment variable that points to the `.jar` file.
+    ```shell
+     java -jar corda-standalone-shell-4.9.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
+        [--truststore-file=<trustStoreFile>]
+        [--truststore-password=<trustStorePassword>]
+        [--truststore-type=<trustStoreType>] [--user=<user>] [-a=<host>]
+        [-c=<cordappDirectory>] [-f=<configFile>] [-o=<commandsDirectory>]
+        [-p=<port>]
+    ```
 
-3. Run the following command from the terminal:
+  Where:
 
-```bash
-corda-shell [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
-            [--truststore-file=<trustStoreFile>]
-            [--truststore-password=<trustStorePassword>]
-            [--truststore-type=<trustStoreType>] [--user=<user>] [-a=<host>]
-            [-c=<cordappDirectory>] [-f=<configFile>] [-o=<commandsDirectory>]
-            [-p=<port>] [COMMAND]
-```
+    - `config-file=<configFile>`, `--f`: The path to the shell configuration file, used instead of providing the rest of the command line options.
+    - `cordapp-directory=<cordappDirectory>`, `-c`: The path to the directory containing CorDapp jars, CorDapps are required when starting flows.
+    - `commands-directory=<commandsDirectory>`, `-o`: The path to the directory containing additional CRaSH shell commands.
+    - `host`, `-a`: The host address of the Corda node.
+    - `port`, `-p`: The RPC port of the Corda node.
+    - `user=<user>`: The RPC user name.
+    - `password=<password>`: The RPC user password. If not provided it will be prompted for on startup.
+    - `truststore-password=<trustStorePassword>`: The password to unlock the TrustStore file.
+    - `truststore-file=<trustStoreFile>`: The path to the TrustStore file.
+    - `truststore-type=<trustStoreType>`: The type of the TrustStore (for example, JKS).
+    - `verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
+    - `logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
+    - `help`, `-h`: Show this help message and exit.
+    - `version`, `-V`: Print version information and exit.
 
-Where:
+## Use the shell from a driver within your node
 
-* `--config-file=<configFile>`, `--f` The path to the shell configuration file, used instead of providing the rest of the command line options.
-* `--cordapp-directory=<cordappDirectory>`, `-c` The path to the directory containing CorDapp jars, CorDapps are required when starting flows.
-* `--commands-directory=<commandsDirectory>`, `-o` The path to the directory containing additional CRaSH shell commands.
-* `--host`, `-a`: The host address of the Corda node.
-* `--port`, `-p`: The RPC port of the Corda node.
-* `--user=<user>`: The RPC user name.
-* `--password=<password>` The RPC user password. If not provided it will be prompted for on startup.
-* `--truststore-password=<trustStorePassword>`: The password to unlock the TrustStore file.
-* `--truststore-file=<trustStoreFile>`: The path to the TrustStore file.
-* `--truststore-type=<trustStoreType>`: The type of the TrustStore (for example, JKS).
-* `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
-* `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
-* `--help`, `-h`: Show this help message and exit.
-* `--version`, `-V`: Print version information and exit.
+Install the `corda-shell` `.jar` in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
+By default, a Corda node does not run the shell.
 
-Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/cli-application-shell-extensions.md) for more info.
+    When using `cordaformation` the shell can be included in generated node's by including the following in the `build.gradle` file containing `deployNodes`:
 
-The format of `config-file`:
-
-```bash
-node {
-    addresses {
-        rpc {
-            host : "localhost"
-            port : 10006
-        }
-    }
-    user : demo
-    password : demo
-}
-shell {
-        workDir : /path/to/dir
-}
-extensions {
-    cordapps {
-        path : /path/to/cordapps/dir
-    }
-}
-ssl {
-    keystore {
-        path: "/path/to/keystore"
-        type: "JKS"
-        password: password
-    }
-    trustore {
-        path: "/path/to/trusttore"
-        type: "JKS"
-        password: password
-    }
-}
-```
-
-{{< note >}}
-SSH server is not supported inside the standalone shell.
-
-{{< /note >}}
+    ```groovy
+    cordaDriver "net.corda:corda-shell:4.9"
+    ```
 
 ## Shell Safe Mode
 
@@ -223,7 +193,7 @@ This is a new mode added in the Enterprise 4.3 release to prevent the CRaSH shel
 
 When a shell is running in unsafe mode, the shell behaviour will be the same as before and will include CRaSH built-in commands. By default the internal shell will run in safe mode but will still be have the ability to execute RPC client calls as before based on existing RPC permissions. No Corda functionality is affected by this change; only the ability to access to the CRaSH shell embedded commands.
 
-  When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items in their RPC permission list, see [Working with the CordaRPCClient API](../../../../../../../en/tutorials/corda/4.9/os/supplementary-tutorials/tutorial-clientrpc-api.md) for more information about the RPC Client API. These shell changes arealso applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onwards). It may be possible that, in the future, the CRaSH shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they are technically not part of Corda functionality.
+When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items in their RPC permission list, see [Working with the CordaRPCClient API](../../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-clientrpc-api.md) for more information about the RPC Client API. These shell changes arealso applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onwards). It may be possible that, in the future, the CRaSH shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they are technically not part of Corda functionality.
 
 ### Getting help
 
@@ -242,7 +212,6 @@ You can use the shell to:
 * Output information about the flows running on the node.
 * Work with flows.
 * Check if a transaction is recorded on the node.
-* Extract healthcheck information about a running node.
 * View and change `run` command output format.
 * Shut down the node.
 
@@ -251,7 +220,7 @@ You can use the shell to:
 The shell interacts with the node by issuing RPCs (remote procedure calls). You make an RPC from the shell by typing `run`, followed by the name of the desired RPC method.
 
 You can find a list of the available RPC methods
-[here](../../../../../../../en/api-ref/corda/4.9/open-source/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
+[here](https://docs.corda.net/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
 
 Some RPCs return a stream of events that will be shown on screen until you press Ctrl-C.
 
@@ -337,7 +306,7 @@ otherResults: []
 
 ### Upload and download attachments
 
-The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](../../../../../../../en/tutorials/corda/4.9/os/supplementary-tutorials/tutorial-attachments.html#uploading-an-attachment) tutorial.
+The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](../../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-attachments.html#uploading-an-attachment) tutorial.
 
 
 ### Extract attachment information
@@ -491,12 +460,12 @@ You can find the following useful fields in the output:
 
 ### Work with flows
 
-Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows. You can also perform several commands that help to manage flows that have encountered an error. These are: `retry`, `pause`, `pauseAll`, `retryAllPaused`, `pauseAllHospitalized`, and `retryAllPausedHospitalized`.  You may also find it useful to query flow data.
+Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows. You may also find it useful to query flow data.
 
 
 #### Query flow data
 
-The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/querying-flow-data.html#querying-flow-data-via-the-node-shell).
+The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](../../4.8/enterprise/node/operating/querying-flow-data.html#querying-flow-data-via-the-node-shell).
 
 
 #### Start a flow
@@ -618,106 +587,6 @@ net.corda.finance.internal.CashConfigDataFlow
 ```
 
 
-#### Retry a flow
-
-Use this command to retry a specific flow that is running on the node, identified by its UUID.
-
-##### Example command
-
-`flow retry f6e08ab5-7a79-4225-a62d-1da910ce269e`
-
-##### Example output
-
-`Retrying flow [f6e08ab5-7a79-4225-a62d-1da910ce269e] succeeded`
-
-
-#### Pause a flow
-
-Use this command to pause a specific flow that is running on the node, identified by its UUID.
-
-##### Example command
-
-`flow pause dbf76170-a3bf-4704-85a1-274b1b442430`
-
-##### Example output
-
-If the flow is paused successfully, you will see an output similar to the output below:
-
-`Paused flow [dbf76170-a3bf-4704-85a1-274b1b442430]`
-
-If the flow is not paused successfully, you will receive an error message.
-
-
-#### Pause all flows
-
-Use this command to pause all flows that are running on the node.
-
-##### Command
-
-`flow pauseAll`
-
-##### Output
-
-If all flows are paused successfully, you will see the following output:
-
-`Pausing all flows succeeded.`
-
-If this action is not successful, you will receive an error message.
-
-
-#### Retry all paused flows
-
-Use this command to retry all paused flows on the node.
-
-##### Command
-
-`flow retryAllPaused`
-
-##### Output
-
-If all flows are retried successfully, you will see the following output:
-
-`Retrying all paused flows succeeded.`
-
-If this action is not successful, you will receive an error message.
-
-
-#### Pause all hospitalized flows
-
-Use this command to pause all [hospitalized flows](../../../../../../../en/platform/corda/4.9/enterprise/node/node-flow-hospital.md).
-
-##### Command
-
-`flow pauseAllHospitalized`
-
-##### Output
-
-If all hospitalized flows are paused successfully, you will see the following output:
-
-`Pausing all Hospitalized flows succeeded.`
-
-If this action is not successful, you will receive an error message.
-
-
-#### Retry all paused, hospitalized flows
-
-Use this command to retry all paused flows that were hospitalized before they were paused.
-
-##### Command
-
-`flow retryAllPausedHospitalized`
-
-##### Output
-
-If all flows are retried successfully, you will see the following output:
-
-`Retrying all paused hospitalized flows succeeded.`
-
-If not, you will receive an error message.
-
-
-
-
 ### Check if a transaction is recorded on the node
 
 Use the `hashLookup` command to check if a transaction matching a specified Id hash value is recorded on the node. If you do not have the needed transaction Id at hand, run `vaultQuery` to find the Id.
@@ -737,22 +606,6 @@ If the transaction **is not** recorded on the node, the following will be return
 If the transaction **is** recorded on the node, this will be confirmed as below:
 
 `Found a matching transaction with Id: F69A7626ACC27042FEEAE187E6BFF4CE666E6F318DC2B32BE9FAF87DF687930C`
-
-
-### Extract healthcheck information
-
-Use the `healthcheck` shell command to extract healthcheck information about the running node. This produces the Corda node's JVM runtime information in a JSON format.
-
-#### Command
-
-`healthcheck runtimeInfo`
-
-#### Example output
-
-The output will be similar to the output shown below:
-
-{{< codesample file="/content/en/platform/corda/4.9/codesamples/healthcheck-runtimeInfo.txt" >}}
-
 
 ### View and update the `run` command output format
 
@@ -786,9 +639,7 @@ You can shut the node down via shell:
 * `run gracefulShutdown` will put the node into draining mode, and shut down when there are no flows running.
 * `run shutdown` will shut the node down immediately.
 
-{{< note >}}
-Please note that RPC users can run the `gracefulShutdown` command without `InvokeRpc.gracefulShutdown` permission if they have `InvokeRpc.terminate` and `InvokeRpc.stateMachinesFeed` permissions.
-{{< /note >}}
+
 
 
 ### Parameter syntax
@@ -806,7 +657,7 @@ class is referenced as `net.corda.finance.contracts.asset.Cash$State` (note the 
 
 {{< note >}}
 If your CorDapp is written in Java, named arguments won’t work unless you compiled the node using the
-`-parameters` argument to `javac`. See the documentation on [Creating nodes locally](../../../../../../../en/platform/corda/4.9/enterprise/node/deploy/generating-a-node.md) to learn how to specify it via Gradle.
+`-parameters` argument to `javac`. See the documentation on [Creating nodes locally](generating-a-node.md) to learn how to specify it via Gradle.
 {{< /note >}}
 
 
