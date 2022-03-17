@@ -5,7 +5,7 @@ menu:
   projects:
     name: Releases
     weight: 9
-    identifier: homepage-releases
+    identifier: logj4patches
     project: releases
     project: releases
 version: 'releases'
