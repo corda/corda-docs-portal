@@ -17,6 +17,13 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.9
+
+Corda Enterprise 4.9 features many security improvements, along with a stand alone Shell for controlling the node via command line. You can also now access the `flowrpcops` API.
+
+* The `flowrpcops` API is available and documented. You can use this to start, pause, and retry flows and hospitalized flows.
+* Access to node health data and node status.
+
 ## Corda Enterprise 4.8.6
 
 
