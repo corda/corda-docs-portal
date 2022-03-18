@@ -7,7 +7,7 @@ menu:
     weight: 9
     identifier: logj4patches
     project: releases
-    project: releases
+project: releases
 version: 'releases'
 title: Log4j patches
 ---
