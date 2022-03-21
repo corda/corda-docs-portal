@@ -8,10 +8,10 @@ menu:
 tags:
 - legal
 - info
-title: Third-party software licence information - CE 4.9.5
+title: Third-party software licence information - CE 4.8.5
 ---
 
-# Corda: Enterprise Edition  4.9.5 third-party software notices and licence information
+# Corda: Enterprise Edition  4.8.5 third-party software notices and licence information
 
 **Do not translate or localise.**
 
