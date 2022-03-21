@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-9:
     identifier: corda-community-4-9-node-docker-deployments
-    parent: corda-community-4-8-corda-nodes-index
+    parent: corda-community-4-9-corda-nodes-index
     weight: 1150
 tags:
 - node

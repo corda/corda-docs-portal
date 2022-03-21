@@ -24,6 +24,8 @@ The Corda shell is an embedded or standalone command line that allows an adminis
 * UNIX style pipes for both text and objects, an `egrep` command and a command for working with columnar data.
 * Shutting the node down.
 
+## Ways to use the Corda Shell
+
 There are two ways of using the Corda shell:
 
 * A standalone application which you can run using `corda-standalone-shell`.
