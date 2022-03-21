@@ -88,7 +88,7 @@ If you find yourself in this position, or if your other disaster recovery proced
 
 ## Who can use Collaborative Recovery
 
-Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda Enterprise](../../../../../../../en/platform/corda/4.9/enterprise#corda-enterprise-vs-corda-open-source:-feature-comparison) nodes.
+Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda: Enterprise Edition ](../../../../../../../en/platform/corda/4.9/enterprise#corda-enterprise-vs-corda-open-source:-feature-comparison) nodes.
 
 Collaborative Recovery is an Enterprise, CorDapp-level solution and is not shipped as a part of Corda itself. Only nodes that have the Collaborative Recovery CorDapps installed can participate in Collaborative Recovery. In mixed networks that consist of both Open Source and Enterprise nodes, only the Enterprise nodes of the right version that have the Collaborative Recovery CorDapps installed will be able to participate in Collaborative Recovery.
 
@@ -205,9 +205,9 @@ the node has been recovered from a backup that was behind the current state of t
 
 Scenarios such as when a node's database is manually tampered with are not fully supported in Version 1.2.
 
-## Compatibility with other Corda Enterprise libraries
+## Compatibility with other Corda: Enterprise Edition  libraries
 
-If you are using other R3 Corda Enterprise libraries, you may need to take extra steps to ensure Collaborative Recovery will work if it is ever needed.
+If you are using other R3 Corda: Enterprise Edition  libraries, you may need to take extra steps to ensure Collaborative Recovery will work if it is ever needed.
 
 ### Tokens SDK - fully compatible
 

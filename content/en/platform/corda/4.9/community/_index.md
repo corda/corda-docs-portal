@@ -5,26 +5,26 @@ menu:
     weight: -640
   corda-community-4-9:
     weight: 1
-    name: Corda Community Edition 4.9
+    name: Corda: Community Edition 4.9
 project: corda
 section_menu: corda-community-4-9
-title: Corda Community Edition 4.9
+title: Corda: Community Edition 4.9
 version: 'Community Edition 4.9'
 ---
 
-# Corda Community Edition
+# Corda: Community Edition
 
-Corda Community Edition is a free to use, open source version of Corda, with added optional support. By choosing to develop using this edition of Corda, you can access affordable technical support to help you take your project to market with confidence.
+Corda: Community Edition is a free to use, open source version of Corda, with added optional support. By choosing to develop using this edition of Corda, you can access affordable technical support to help you take your project to market with confidence.
 
 {{< vimeo 205410473 >}}
 
-## What's new in Corda Community Edition
+## What's new in Corda: Community Edition
 
-Along with the free-to-use Corda platform, Corda Community Edition comes with an affordable support package from R3, the makers of Corda. Check the [Community Edition support matrix](http://corda.net/support) to see which flexible package suits you best.
+Along with the free-to-use Corda platform, Corda: Community Edition comes with an affordable support package from R3, the makers of Corda. Check the [Community Edition support matrix](http://corda.net/support) to see which flexible package suits you best.
 
-## Set up Corda Community Edition in three steps
+## Set up Corda: Community Edition in three steps
 
-To start using Corda Community Edition if you have never used Corda before:
+To start using Corda: Community Edition if you have never used Corda before:
 
 1. Install the required software:
     * Java 8 JDK
@@ -41,9 +41,9 @@ For more help finding these, use the [setup guide](community/getting-set-up.md).
 
 3. Follow the [tutorials](tutorial-cordapp.md) to set up a Corda network and start coding your CorDapps.
 
-## Upgrade to Corda Community Edition from Corda open source
+## Upgrade to Corda: Community Edition from Corda open source
 
-If you are already using an open source version of Corda (Corda 4.1- Corda 4.8) and want to upgrade to Corda Community Edition, you can choose to:
+If you are already using an open source version of Corda (Corda 4.1- Corda 4.8) and want to upgrade to Corda: Community Edition, you can choose to:
 
 * Download the `.tar` file.
 * Use the Docker Image.

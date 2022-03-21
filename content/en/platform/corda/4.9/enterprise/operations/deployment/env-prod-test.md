@@ -15,7 +15,7 @@ weight: 1
 
 # Deploying in a testing or production environment
 
-These instructions will guide the user through the UAT or production configuration to deploy the following components. They are intended for firms deploying Corda Enterprise.
+These instructions will guide the user through the UAT or production configuration to deploy the following components. They are intended for firms deploying Corda: Enterprise Edition .
 
 
 * Corda Node
@@ -31,12 +31,12 @@ There are alternative approaches to how these components are deployed. For the p
 
 ## Deployment scenarios for testing and production environments
 
-When deploying Corda Enterprise in a testing environment the Node, Bridge, and Float components should be deployed in a non-HA configuration as shown in the following diagram.
+When deploying Corda: Enterprise Edition  in a testing environment the Node, Bridge, and Float components should be deployed in a non-HA configuration as shown in the following diagram.
 
 
 {{< figure alt="nonha" width=80% zoom="../../resources/nonha.png" >}}
 
-When deploying Corda Enterprise in a production environment, the Node, Bridge, and Float components should be deployed in a high-availability configuration.
+When deploying Corda: Enterprise Edition  in a production environment, the Node, Bridge, and Float components should be deployed in a high-availability configuration.
 
 
 {{< figure alt="ha" width=80% zoom="../../resources/ha.png" >}}
@@ -340,7 +340,7 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 [float.conf](../../resources/float.conf)
 
-A full list of the parameters that can be utilized in these configuration files can be found in [Configuring the Corda Enterprise Firewall](corda-firewall-configuration-fields.md).
+A full list of the parameters that can be utilized in these configuration files can be found in [Configuring the Corda: Enterprise Edition  Firewall](corda-firewall-configuration-fields.md).
 
 
 ### Corda 3.x vs Corda 4.x Firewall Upgrade

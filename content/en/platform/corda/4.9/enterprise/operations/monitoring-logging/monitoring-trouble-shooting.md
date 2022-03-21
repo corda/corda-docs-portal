@@ -12,7 +12,7 @@ weight: 20
 ---
 # Troubleshooting, health-checking, and recovering your node
 
-If you are a Corda Enterprise Network Manager (CENM) services user in your Corda Enterprise environment, you can make use of the CENM node troubleshooting guide.
+If you are a Corda: Enterprise Edition  Network Manager (CENM) services user in your Corda: Enterprise Edition  environment, you can make use of the CENM node troubleshooting guide.
 
 Here you can find [troubleshooting solutions](../../../../1.5/cenm/troubleshooting-common-issues.md) to issues such as:
 

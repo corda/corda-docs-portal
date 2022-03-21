@@ -47,18 +47,18 @@ LedgerGraph then deletes a constructed graph when the Archive Service `create-sn
 
 ## Installation requirements
 
-* **Corda Enterprise**
+* **Corda: Enterprise Edition **
 
-    Corda nodes _must_ be running Corda Enterprise NOT Corda Open Source.
+    Corda nodes _must_ be running Corda: Enterprise Edition  NOT Corda Open Source.
 
 * **Node Minimum Platform Version (MPV)** > 6
 
-    LedgerGraph requires operative Corda nodes to have a Minimum Platform Version (MPV) of 6 or greater, which corresponds with Corda Enterprise 4.4 or newer.
+    LedgerGraph requires operative Corda nodes to have a Minimum Platform Version (MPV) of 6 or greater, which corresponds with Corda: Enterprise Edition  4.4 or newer.
 
 
 ### Database requirements
 
-LedgerGraph CorDapps are tested against Corda Enterprise and will work according to the [support matrix](../../platform-support-matrix.md).
+LedgerGraph CorDapps are tested against Corda: Enterprise Edition  and will work according to the [support matrix](../../platform-support-matrix.md).
 
 ## Install LedgerGraph
 
@@ -439,7 +439,7 @@ A list of strings that provide a description of the errors that were encountered
 ### Software Requirements
 
 The **LedgerGraph** CorDapp requires participating Corda nodes to be:
-- Using Corda Enterprise, not Corda Open Source (OS).
+- Using Corda: Enterprise Edition , not Corda Open Source (OS).
 - Corda Minimum Platform Version (MPV) > 6.
 - Running on top of a supported [database technology](../../platform-support-matrix.md).
 

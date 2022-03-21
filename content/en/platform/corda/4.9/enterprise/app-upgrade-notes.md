@@ -15,7 +15,7 @@ weight: 30
 # Upgrading a CorDapp to a newer platform version
 
 {{< warning >}}
-Corda Enterprise 4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.9, read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.9/enterprise/notary/upgrading-the-ha-notary-service.md).
+Corda: Enterprise Edition  4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda: Enterprise Edition  4.9, read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.9/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 This guide shows you how to upgrade your CorDapp from previous platform versions to benefit
@@ -74,7 +74,7 @@ Follow the steps below for each upgrade path.
 1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file](../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md).
 2. Update any missing core schema changes by either running the [Database Management Tool](../../../../../en/platform/corda/4.9/enterprise/database-management-tool.md) (recommended) or running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
 
-#### Upgrade a node from Corda 3.x or Corda Enterprise 3.x
+#### Upgrade a node from Corda 3.x or Corda: Enterprise Edition  3.x
 
 Version 4.6 doesn't retro-fit the database changelog when upgrading from versions older than 4.0. Therefore, you need to upgrade to a previous 4.x version before upgrading to 4.6. For example, 3.3 to 4.5, and then 4.5 to 4.6.
 
@@ -228,7 +228,7 @@ You also need to add `corda-dependencies` to your list of repositories to make t
 repositories {
     mavenCentral()
     jcenter()
-    // ... Repository access for Corda Enterprise and any other dependencies
+    // ... Repository access for Corda: Enterprise Edition  and any other dependencies
     maven { url "https://software.r3.com/artifactory/corda-dependencies" } // access to the patched Quasar version
 }
 ```

@@ -25,4 +25,4 @@ weight: 30
 * [Notary sizing considerations](notary-sizing.md)
 * [Handling flag days](handling-flag-days.md)
 * [Scaling A Notary Cluster](scaling-a-notary-cluster.md)
-* [Upgrading the notary to a new version of Corda Enterprise](upgrading-the-ha-notary-service.md)
+* [Upgrading the notary to a new version of Corda: Enterprise Edition ](upgrading-the-ha-notary-service.md)

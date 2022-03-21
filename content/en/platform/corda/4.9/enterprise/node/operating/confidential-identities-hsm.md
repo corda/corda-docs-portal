@@ -28,7 +28,7 @@ When using a confidential identity, the keys are stored in the node database in 
 
 ## Using confidential identities with an HSM
 
-By using an HSM, the confidential identity keys can be stored in the node database in an encrypted form. There are two supported modes for combining HSMs and confidential identities on Corda Enterprise; **wrapped** and **degraded wrapped**. Both of these modes are more secure than using confidential identities without an HSM.
+By using an HSM, the confidential identity keys can be stored in the node database in an encrypted form. There are two supported modes for combining HSMs and confidential identities on Corda: Enterprise Edition ; **wrapped** and **degraded wrapped**. Both of these modes are more secure than using confidential identities without an HSM.
 
 ### Native mode
 

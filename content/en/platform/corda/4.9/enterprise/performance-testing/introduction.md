@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-9:
     identifier: corda-enterprise-4-9-performance-testing
-    name: "Corda Enterprise Performance Testing"
+    name: "Corda: Enterprise Edition  Performance Testing"
 tags:
 - introduction
 title: Introduction
@@ -16,7 +16,7 @@ weight: 400
 
 ## Corda Performance Test Suite
 
-Use the Corda Enterprise performance test suite to stress/soak test a Corda installation, driving either a single
+Use the Corda: Enterprise Edition  performance test suite to stress/soak test a Corda installation, driving either a single
 node or a small network of nodes including a notary. It uses [Apache JMeter](https://jmeter.apache.org) to start flows on nodes via RPC calls, and
 capture the start/return rates and thus throughput of the system under test.
 
@@ -81,7 +81,7 @@ client.
 
 ### jmeter-corda
 
-Apache JMeter can be fairly tricky to run in a specific configuration - therefore the Corda Enterprise performance test
+Apache JMeter can be fairly tricky to run in a specific configuration - therefore the Corda: Enterprise Edition  performance test
 suite provides a wrapper around JMeter that comes in a fat JAR with all required dependencies and a default configuration,
 and sets up the required directories and config files that JMeter needs to start. It is also bundled with a set of default
 Corda performance test samplers. On top of that, it supports opening SSH tunnels to machines running remote JMeter server
@@ -92,7 +92,7 @@ instances.
 
 The performance test suite contains two CorDapps that can be used for performance testing:
 *  A performance test CorDapp called `perftest-cordapp.jar`, which is roughly modelled on the
-finance CorDapp shipped with Corda Enterprise. It contains a number of flows that issue tokens and pay these to other
+finance CorDapp shipped with Corda: Enterprise Edition . It contains a number of flows that issue tokens and pay these to other
 parties. For example, there are flows that issue and pay tokens with or without using coin selection, or others that create arbitrary
 numbers of change output or coin input states to test the behaviour of the system when using various transaction sizes
 and shapes.

@@ -19,7 +19,7 @@ For developer information on upgrading CorDapps, see [release new CorDapp versio
 
 {{< warning >}}
 
-To be compatible with Corda Enterprise, CorDapps need to bundle database migration scripts. See [database management scripts](../../../../../en/platform/corda/4.9/enterprise/cordapps/database-management.md) for more information.
+To be compatible with Corda: Enterprise Edition , CorDapps need to bundle database migration scripts. See [database management scripts](../../../../../en/platform/corda/4.9/enterprise/cordapps/database-management.md) for more information.
 
 {{< /warning >}}
 

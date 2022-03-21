@@ -69,7 +69,7 @@ and an HSM that conforms to your organisation's security policies.
 The Corda Firewall consists of the Float and Bridge components. A high-availability implementation of Corda Firewall
 requires Zookeeper v3.5.4 running as an external cluster and both the Float and Bridge components running as external clusters.
 
-The following HSMs are compatible with Corda Enterprise:
+The following HSMs are compatible with Corda: Enterprise Edition :
 
 {{< table >}}
 

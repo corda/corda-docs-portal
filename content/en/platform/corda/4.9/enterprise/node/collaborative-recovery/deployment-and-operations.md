@@ -75,9 +75,9 @@ The database tables are managed via Liquibase migration scripts that are shipped
 No manual schema alterations should be performed at any time.
 {{< /note >}}
 [Database Management Tool](../operating/node-database.html#database-management-tool)
-that is shipped as a part of Corda Enterprise.
+that is shipped as a part of Corda: Enterprise Edition .
 
-Collaborative Recovery CorDapps are compatible with the full range of the [databases supported by Corda Enterprise](../../platform-support-matrix.html#node-databases).
+Collaborative Recovery CorDapps are compatible with the full range of the [databases supported by Corda: Enterprise Edition ](../../platform-support-matrix.html#node-databases).
 
 The contents of the Collaborative Recovery tables should *not* be altered manually. The tables are not envisioned to grow large in size.
 The space complexities are outlined below:

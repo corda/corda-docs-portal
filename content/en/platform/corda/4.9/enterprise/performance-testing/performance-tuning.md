@@ -21,7 +21,7 @@ Time to tune the node.
 
 ## Tweaking the node settings
 
-The main parameters that can be tweaked for a Corda Enterprise node are:
+The main parameters that can be tweaked for a Corda: Enterprise Edition  node are:
 
 * The number of flow threads (the number of flows that can be live and active in the state machine at the same time). The default
 value for this is twice the number of processor cores available on the machine, capped at 30.
@@ -35,7 +35,7 @@ create their own messaging handling thread infrastructure.
 On a server machine with many processor cores, this can lead to over a 100 threads sharing 512 megabyte of memory - this leaves the
 threads fighting for resources, and memory contention and very poor performance will be the result.
 
-In Corda Enterprise, these properties can be controlled via the node configuration.
+In Corda: Enterprise Edition , these properties can be controlled via the node configuration.
 It is recommended to keep a diary of changes during the tweaking of any parameters, or ideally have the node configuration under version
 control so it is easy to go back and check settings for previous results.
 

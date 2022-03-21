@@ -16,7 +16,7 @@ title: Node Maintenance Mode
 
 The Node Maintenance Mode feature enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a "_cron-like_" scheduling algorithm.
 
-Node Maintenance Mode is designed in a scalable way - maintenance tasks are discovered by Corda Enterprise through the use of an internal API.
+Node Maintenance Mode is designed in a scalable way - maintenance tasks are discovered by Corda: Enterprise Edition  through the use of an internal API.
 
 ## Supported maintenance tasks
 
@@ -95,8 +95,8 @@ For more information on the HOCON period format see [HOCON-period-format](https:
 
 It may be possible that maintenance windows overrun. This could happen due to one of two reasons, as follows:
 
-* The nominal duration specified was insufficient for the tasks to fully complete. In this case Corda Enterprise will emit a log warning (as explained in the duration section in the explanation of parameters above). There is no other effect on the operation of Corda Enterprise.
-* The actual duration, which the maintenance window takes to run, ended **after** the start of the next maintenance window. This is a slightly more serious situation in that the next maintenance window will **NOT** be run. Only one maintenance window can run at any one time and maintenance will only start at the **beginning** of its specified window. Therefore, even a slight overrun in a previous maintenance window can prevent a later one from being run. If this happens, Corda Enterprise will emit a log warning, as shown in the example below:
+* The nominal duration specified was insufficient for the tasks to fully complete. In this case Corda: Enterprise Edition  will emit a log warning (as explained in the duration section in the explanation of parameters above). There is no other effect on the operation of Corda: Enterprise Edition .
+* The actual duration, which the maintenance window takes to run, ended **after** the start of the next maintenance window. This is a slightly more serious situation in that the next maintenance window will **NOT** be run. Only one maintenance window can run at any one time and maintenance will only start at the **beginning** of its specified window. Therefore, even a slight overrun in a previous maintenance window can prevent a later one from being run. If this happens, Corda: Enterprise Edition  will emit a log warning, as shown in the example below:
 
 ```
 [WARN ] 2020-08-28T14:22:41,005Z [pool-12-thread-1] maintenance.MaintenanceScheduler - The maintenance window scheduled to run at 2020-08-28T14:22:38 (UTC) was missed due to an earlier window at 2020-08-28T14:22:31 (UTC) not finishing until 2020-08-28T14:22:41 (UTC)

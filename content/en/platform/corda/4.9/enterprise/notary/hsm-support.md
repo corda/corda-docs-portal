@@ -42,13 +42,13 @@ See the *enterpriseConfiguration* section of the corda-configuration-file doc fo
 When the private keys are stored in a HSM, only the certificates are stored in the keystore file.
 
 The associated certificates for the distributed notary identity and node certificate authority are issued by the Identity Manager on the
-network. See [Welcome to the Corda Enterprise Network Manager](../../../1.5/cenm.html) for more information. The legal identity certificate is issued by the node certificate authority.
+network. See [Welcome to the Corda: Enterprise Edition  Network Manager](../../../1.5/cenm.html) for more information. The legal identity certificate is issued by the node certificate authority.
 
 The worker specific legal identity key pair is used for P2P messaging, whereas the single distributed notary identity key pair is used by
 all the notary workers of the CFT notary cluster to sign valid transactions. During operation, each notary worker will access the HSM and
 use the distributed notary key when processing notarisation requests.
 
-For information on which HSMs are supported by Corda Enterprise, see the [platform support matrix](../platform-support-matrix.md).
+For information on which HSMs are supported by Corda: Enterprise Edition , see the [platform support matrix](../platform-support-matrix.md).
 Please read the section below for setup instructions and [configuration details](../node/operating/cryptoservice-configuration.md/).
 
 

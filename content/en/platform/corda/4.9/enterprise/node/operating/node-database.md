@@ -16,7 +16,7 @@ weight: 1
 
 The Corda platform, and the installed CorDapps store their data in a relational database (see [State Persistence](../../../../../../../en/platform/corda/4.9/enterprise/cordapps/state-persistence.md)).
 
-Corda Enterprise supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
+Corda: Enterprise Edition  supports a range of commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
 This document provides an overview of required database permissions, related ways to create database schema objects,
 and explains how a Corda node verifies the correct database schema version.
 
@@ -90,7 +90,7 @@ It is safe to run at startup if you have implemented the usual best practices fo
 ### Database Management Tool
 
 The database management tool is distributed as a standalone JAR file named `tools-database-manager-${corda_version}.jar`.
-It is intended to be used by Corda Enterprise node administrators who want more control over database changes made in production
+It is intended to be used by Corda: Enterprise Edition  node administrators who want more control over database changes made in production
 environments.
 
 The following sections document the available subcommands suitable for a node operator or database administrator.

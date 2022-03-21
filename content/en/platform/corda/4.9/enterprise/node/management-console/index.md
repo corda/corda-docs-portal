@@ -34,7 +34,7 @@ You can also interact with the node in the following ways:
 * Gracefully stop the node.
 * Kill the node (without draining first).
 
-It has a front end written in React, and a REST service written in Kotlin, which makes RPC calls to Corda Enterprise.
+It has a front end written in React, and a REST service written in Kotlin, which makes RPC calls to Corda: Enterprise Edition .
 
 The plug-in consists of two `.jar` files:
 

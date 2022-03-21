@@ -8,15 +8,15 @@ tags:
 - hot
 - cold
 - deployment
-title: Hot-cold high-availability deployment for Corda Enterprise
+title: Hot-cold high-availability deployment for Corda: Enterprise Edition 
 weight: 3
 ---
 
-# Hot-cold high-availability deployment for Corda Enterprise
+# Hot-cold high-availability deployment for Corda: Enterprise Edition 
 
 ## Overview
 
-This section describes hot-cold availability of Corda Enterprise nodes and their associated configuration setup. In such a set-up,
+This section describes hot-cold availability of Corda: Enterprise Edition  nodes and their associated configuration setup. In such a set-up,
 there is one back-up instance that can be started if the primary instance stops. Each instance of Corda should be hosted
 on a separate server and represent the same entity in the Corda network.
 
@@ -34,7 +34,7 @@ route traffic from the public IP address to the *hot* instance
 
 This guide will cover all the steps required to configure and deploy the nodes as well as configuring the above mentioned
 resources for both **Microsoft Azure** and **Amazon Web Services**. The image below illustrates the environment that will
-result from following the guide. There will be two Corda Enterprise nodes, one active and the other inactive. Each node will represent
+result from following the guide. There will be two Corda: Enterprise Edition  nodes, one active and the other inactive. Each node will represent
 the same legal identity inside the Corda network. Both will share a database and a network file system.
 
 {{< figure alt="hot cold" width=80% zoom="../../resources/hot-cold.png" >}}
@@ -42,7 +42,7 @@ the same legal identity inside the Corda network. Both will share a database and
 ## Configuring the load balancer
 
 In a hot-cold environment, the load balancer is used to redirect incoming traffic (P2P, RPC and HTTP) towards the active
-Corda Enterprise node instance. The internet facing IP address of the load balancer will be advertised to the rest of the Corda network
+Corda: Enterprise Edition  node instance. The internet facing IP address of the load balancer will be advertised to the rest of the Corda network
 by each node as their P2P addresses. This is done by configuring the load balancer IP as the node’s P2P address in its
 configuration file. The back-end pool of the load balancer should include both machines hosting the nodes to be able to redirect traffic to
 them. A load balancing rule should be created for each port configured in the nodes’ configuration files (P2P, RPC and HTTP).

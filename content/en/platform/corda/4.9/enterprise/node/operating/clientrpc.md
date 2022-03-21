@@ -15,7 +15,7 @@ weight: 3
 
 To interact with your node, you need to build an RPC client. This RPC client enables you to connect to a specified server and to make calls to the server that perform various useful tasks. The RPC client must be written in a JVM-compatible language.
 
-Corda Enterprise supports two types of RPC client:
+Corda: Enterprise Edition  supports two types of RPC client:
 * **Corda RPC Client**, which is used if you want to interact with your node via the `CordaRPCOps` remote interface only.
 * **Multi RPC Client**, which is used if you want to interact with your node via any of the other remote interfaces that the Corda node provides.
 
@@ -355,14 +355,14 @@ This approach provides at-least-once guarantees. It cannot provide exactly-once 
 
 ## Building the Multi RPC Client
 
-Corda Enterprise exposes a number of custom, remote RPC interfaces.
+Corda: Enterprise Edition  exposes a number of custom, remote RPC interfaces.
 
 To interact with your node via any of the following interfaces, you need to build a client that uses the [MultiRPCClient](../../../../../../../en/api-ref/corda/4.9/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class:
 
 * `net.corda.client.rpc.proxy.AuditDataRPCOps` - This interface enables you to audit the log of RPC activity.
 * `net.corda.client.rpc.proxy.FlowRPCOps` - This interface enables you to retry a previously hospitalised flow.
 * `net.corda.client.rpc.proxy.NodeFlowStatusRpcOps` - This interface enables external applications to query and view the status of the flows which are currently under monitoring by the Flow Hospital.
-* `net.corda.client.rpc.proxy.NodeHealthCheckRpcOps` - This interface enables you to get a report about the health of the Corda Enterprise node.
+* `net.corda.client.rpc.proxy.NodeHealthCheckRpcOps` - This interface enables you to get a report about the health of the Corda: Enterprise Edition  node.
 * `net.corda.client.rpc.proxy.notary.NotaryQueryRpcOps` - This interface enables you to perform a spend audit for a particular state reference.
 
 All of these interfaces are located in the `:client:extensions-rpc` module.
@@ -372,7 +372,7 @@ All of these interfaces are located in the `:client:extensions-rpc` module.
 {{< /note >}}
 
 {{< note >}}
-`CordaRPCClient` enables you to interact with the `CordaRPCOps` remote interface. However, if you intend to interact with any of the other remote interfaces that the Corda Enterprise provides, you need to build a client that uses the [MultiRPCClient](../../../../../../../en/api-ref/corda/4.9/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class.
+`CordaRPCClient` enables you to interact with the `CordaRPCOps` remote interface. However, if you intend to interact with any of the other remote interfaces that the Corda: Enterprise Edition  provides, you need to build a client that uses the [MultiRPCClient](../../../../../../../en/api-ref/corda/4.9/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class.
 {{< /note >}}
 
 ### Pre-requisites
@@ -389,7 +389,7 @@ dependencies {
 ```
 ### Defining RPC users and permissions
 
-On the Corda Enterprise node side, you must define one or more RPC users and grant permissions to those users to invoke remote methods. To do this, you must edit the `node.conf` file.
+On the Corda: Enterprise Edition  node side, you must define one or more RPC users and grant permissions to those users to invoke remote methods. To do this, you must edit the `node.conf` file.
 
 #### Granting all permissions
 

@@ -9,13 +9,13 @@ tags:
 - operations
 - deployment
 - planning
-title: Corda Enterprise Operations Guide
+title: Corda: Enterprise Edition  Operations Guide
 weight: 10
 ---
 
 # Corda for Project Planners
 
-A deployment of Corda Enterprise requires a variety of machines and resources depending on the role of each member
+A deployment of Corda: Enterprise Edition  requires a variety of machines and resources depending on the role of each member
 of the Corda project, and the architecture of the deployment. It's important to define the role your organisation
 will play before beginning a project on Corda.
 
@@ -63,7 +63,7 @@ The Business Network Operator is responsible for all major components of the Cor
 of Corda this includes: Nodes, an HA notary cluster, an HA Corda Firewall, an HSM, the certificate hierarchy of the network,
 identity manager, and network map.
 
-This likely includes a Corda Enterprise Network Manager as well as Corda Enterprise.
+This likely includes a Corda: Enterprise Edition  Network Manager as well as Corda: Enterprise Edition .
 
 **Development and testing environments**
 

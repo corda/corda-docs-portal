@@ -180,7 +180,7 @@ Retrying a `UNDER OBSERVATION` or `PAUSED` flow causes the state machine to rest
 The `FlowState` of `PAUSED` flows' is not held in memory in order to reduce memory usage. Instead, it is reloaded from the database if the flow is retried.
 {{< /note >}}
 
-### Touch points with other Corda Enterprise features
+### Touch points with other Corda: Enterprise Edition  features
 
 If a flow that is currently `PAUSED` is killed, then that flow will still be killed in the normal way (including propagating exceptions to counterparties).
 

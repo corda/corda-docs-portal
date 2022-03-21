@@ -13,18 +13,18 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrading your node to Corda Community Edition 4.9
+title: Upgrading your node to Corda: Community Edition 4.9
 ---
 
 
-# Upgrading your node to Corda Community Edition 4.9
+# Upgrading your node to Corda: Community Edition 4.9
 
 Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and should not require changes to
 applications. It consists of the following steps:
 
 * Drain the node.
 * Make a backup of your node directories and/or database.
-* Download the required version of Corda Community Edition from [software.r3.com](https://software.r3.com).
+* Download the required version of Corda: Community Edition from [software.r3.com](https://software.r3.com).
 * Replace the `corda.jar` file with the new version.
 * Start up the node. This step may incur a delay whilst any needed database migrations are applied.
 * Undrain it to re-enable processing of new inbound flows.

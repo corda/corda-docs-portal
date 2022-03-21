@@ -13,7 +13,7 @@ weight: 700
 
 # Practical considerations
 
-This page is listing some practical considerations and tips that might be useful when performance testing Corda Enterprise.
+This page is listing some practical considerations and tips that might be useful when performance testing Corda: Enterprise Edition .
 
 
 
@@ -27,7 +27,7 @@ a test system to a blank slate state. **Never** do this to a production system -
 {{< /warning >}}
 
 
-The Corda Enterprise test cluster at R3 uses an automated set-up to deploy Corda to the test machines, and in the process
+The Corda: Enterprise Edition  test cluster at R3 uses an automated set-up to deploy Corda to the test machines, and in the process
 completely wipes the database - so resetting the state of the Corda test network is a matter of running a fresh installation
 and waiting a handful of minutes. This is the recommended set-up when running performance testing regularly, but might be too
 involved for occasional performance tests that can be run on manually-deployed clusters.

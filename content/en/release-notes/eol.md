@@ -16,6 +16,7 @@ Definitions:
 * **End of security**: This release will no longer be eligible for security patches after the date shown.
 * **End of support**: Support, provided by R3, is not available after this date.
 
+Visit the [R3 Support pages](https://www.r3.com/support/) to read the full support policy. 
 
 All dates refer to the end of the month indicated.
 

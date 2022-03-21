@@ -15,11 +15,11 @@ weight: 4
 
 In this section, you will learn how the node records [Remote Procedure Call (RPC)](../../../../../../../en/platform/corda/4.9/enterprise/api-rpc.md) audit data.
 
-This feature is distributed as part of Corda Enterprise.
+This feature is distributed as part of Corda: Enterprise Edition .
 
 ## RPC audit data
 
-RPC actions play a vital part in the process of triggering commands and flows on a node. In a variety of cases you will need to track the usage of RPC actions - for example, when there are security and regulatory concerns. To do so, you can use the Corda Enterprise node's capability to record audit information about RPC actions as they are received, prior to executing each action.
+RPC actions play a vital part in the process of triggering commands and flows on a node. In a variety of cases you will need to track the usage of RPC actions - for example, when there are security and regulatory concerns. To do so, you can use the Corda: Enterprise Edition  node's capability to record audit information about RPC actions as they are received, prior to executing each action.
 
 The data recorded by the node is listed below:
 

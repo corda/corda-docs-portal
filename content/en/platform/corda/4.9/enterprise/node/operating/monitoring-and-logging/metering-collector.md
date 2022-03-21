@@ -12,13 +12,13 @@ title: Metering collection tool
 weight: 400
 ---
 
-All Corda Enterprise nodes record metering data, the metering collection tool is used to collect data from the node. Node metering data can also be collected using the [metering client](../../../../../../../../en/platform/corda/4.9/enterprise/node/operating/monitoring-and-logging/metering-rpc.md).
+All Corda: Enterprise Edition  nodes record metering data, the metering collection tool is used to collect data from the node. Node metering data can also be collected using the [metering client](../../../../../../../../en/platform/corda/4.9/enterprise/node/operating/monitoring-and-logging/metering-rpc.md).
 
-The metering collection tool provides a mechanism for collecting metering data from nodes and notaries running Corda Enterprise. The metering collection tool is a CorDapp that includes a number of flows which return data from the node.
+The metering collection tool provides a mechanism for collecting metering data from nodes and notaries running Corda: Enterprise Edition . The metering collection tool is a CorDapp that includes a number of flows which return data from the node.
 
 ## Corda metering data
 
-The Corda Enterprise metering process is based on the signing of transactions.
+The Corda: Enterprise Edition  metering process is based on the signing of transactions.
 
 Once a transaction is signed, it cannot be modified without invalidating this signature. Each transaction signature is a _signing event_. The node records a small piece of data whenever a signing event occurs. This data describes which entity signed the transaction, what CorDapps and commands were involved, and the time when the signing event occurred.
 
@@ -27,7 +27,7 @@ Signing events are recorded on a "per node" basis, so transaction signatures app
 The time when a transaction is signed is not exposed outside of the node.
 {{< /note >}}
 
-Notaries running on Corda Enterprise are also metered. The data recorded for notaries indicates what notarisation requests were made and who made them.
+Notaries running on Corda: Enterprise Edition  are also metered. The data recorded for notaries indicates what notarisation requests were made and who made them.
 
 ### How metering data is shared
 
@@ -74,7 +74,7 @@ It is very important that you create the configuration file correctly. To do so,
 
 ## Install the metering collection tool
 
-The metering collection tool is distributed as part of Corda Enterprise 4.9 under the name `corda-tools-metering-collector-4.9.jar`. You must place this `.jar` file in the `cordapps` directory of the node.
+The metering collection tool is distributed as part of Corda: Enterprise Edition  4.9 under the name `corda-tools-metering-collector-4.9.jar`. You must place this `.jar` file in the `cordapps` directory of the node.
 
 ## Use the metering collection flows
 

@@ -15,7 +15,7 @@ weight: 3
 
 # Notary database migration
 
-With the MySQL notary being deprecated, Corda Enterprise notary operators should consider moving to a database supported by the JPA notary
+With the MySQL notary being deprecated, Corda: Enterprise Edition  notary operators should consider moving to a database supported by the JPA notary
 instead.
 
 

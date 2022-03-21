@@ -120,7 +120,7 @@ The tool generates the archive of the collected files in the same directory it i
 
 ## Deployment health check
 
-The Corda Health Survey is designed to perform connectivity and configuration checks on a Corda Enterprise Node. The tool supports the following deployment configurations:
+The Corda Health Survey is designed to perform connectivity and configuration checks on a Corda: Enterprise Edition  Node. The tool supports the following deployment configurations:
 
 * Node with internal Artemis broker
 * Node with external Artemis broker
@@ -186,7 +186,7 @@ This check runs only if the `revocationConfig` property in the Float configurati
 ## Disabling the Corda Health Survey in production
 
 The tool relies on dedicated Artemis queues to relay configuration and runtime information from the Corda Firewall components. This functionality is enabled by default.
-After verifying a production deployment, operators are advised to disable the health checking functionality (in order to use the standard Artemis setup for Corda Enterprise) by adding the following entry in the Node configuration file:
+After verifying a production deployment, operators are advised to disable the health checking functionality (in order to use the standard Artemis setup for Corda: Enterprise Edition ) by adding the following entry in the Node configuration file:
 
 ```
 enterpriseConfiguration { healthCheck = false }

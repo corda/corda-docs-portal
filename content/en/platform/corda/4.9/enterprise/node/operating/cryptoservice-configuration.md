@@ -3,16 +3,16 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-9:
     identifier: corda-enterprise-4-9-corda-nodes-operating-hsm
-    name: "Using an HSM with Corda Enterprise"
+    name: "Using an HSM with Corda: Enterprise Edition "
     parent: corda-enterprise-4-9-corda-nodes-operating
 tags:
 - cryptoservice
 - configuration
-title: Using an HSM with Corda Enterprise
+title: Using an HSM with Corda: Enterprise Edition 
 weight: 2
 ---
 
-# Using an HSM with Corda Enterprise
+# Using an HSM with Corda: Enterprise Edition 
 
 By default, the private keys that belong to the node CA, legal identity and TLS are stored in key store files in the node’s certificates
 directory. Users may wish to instead store this key in a hardware security module (HSM) or similar.
@@ -70,7 +70,7 @@ Available configuration options for HSM usage are given below with information a
 
 ## Utimaco
 
-Corda Enterprise nodes can be configured to store their legal identity keys in [Utimaco’s SecurityServer Se Gen2](https://hsm.utimaco.com/products-hardware-security-modules/general-purpose-hsm/securityserver-se-gen2/) running firmware version 4.21.1.
+Corda: Enterprise Edition  nodes can be configured to store their legal identity keys in [Utimaco’s SecurityServer Se Gen2](https://hsm.utimaco.com/products-hardware-security-modules/general-purpose-hsm/securityserver-se-gen2/) running firmware version 4.21.1.
 
 In the `node.conf`, the `cryptoServiceName` needs to be set to “UTIMACO”, and `cryptoServiceConf` should contain the path to the configuration for Utimaco, as shown below.
 
@@ -141,7 +141,7 @@ In addition to the configuration, the node needs to access binaries provided by 
 
 ## Gemalto Luna
 
-Corda Enterprise nodes can be configured to store their legal identity keys in [Gemalto Luna](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm) HSMs running firmware version 7.0.3.
+Corda: Enterprise Edition  nodes can be configured to store their legal identity keys in [Gemalto Luna](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm) HSMs running firmware version 7.0.3.
 
 In the `node.conf`, the `cryptoServiceName` must set to “GEMALTO_LUNA”, and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down.
 
@@ -169,7 +169,7 @@ Note that the Gemalto’s JCA provider (version 7.3) has to be installed as desc
 
 ## Futurex
 
-Corda Enterprise nodes can be configured to store their legal identity keys in [Futurex Vectera Plus](https://www.futurex.com/products/vectera-series) HSMs running firmware version 6.1.5.8.
+Corda: Enterprise Edition  nodes can be configured to store their legal identity keys in [Futurex Vectera Plus](https://www.futurex.com/products/vectera-series) HSMs running firmware version 6.1.5.8.
 
 In the `node.conf`, the `cryptoServiceName` needs to be set to “FUTUREX”, and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down.
 
@@ -298,7 +298,7 @@ To set up Azure Managed Identities, see the [Microsoft Azure Managed Identities 
 
 ## Securosys Primus X
 
-Corda Enterprise nodes can be configured to store their legal identity keys in [Securosys Primus X](https://www.securosys.ch/product/high-availability-high-performance-hardware-security-module) HSMs running firmware version 2.7.4.
+Corda: Enterprise Edition  nodes can be configured to store their legal identity keys in [Securosys Primus X](https://www.securosys.ch/product/high-availability-high-performance-hardware-security-module) HSMs running firmware version 2.7.4.
 
 In the `node.conf`, the `cryptoServiceName` needs to be set to “PRIMUS_X”, and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down.
 
@@ -334,7 +334,7 @@ In addition to the configuration, the Securosys’ Primus X JCA provider (versio
 
 ## nCipher nShield
 
-Corda Enterprise nodes can be configured to generate keys in [nCipher nShield Connect](https://www.ncipher.com/products/general-purpose-hsms/nshield-connect) HSMs running firmware version 12.50.11.
+Corda: Enterprise Edition  nodes can be configured to generate keys in [nCipher nShield Connect](https://www.ncipher.com/products/general-purpose-hsms/nshield-connect) HSMs running firmware version 12.50.11.
 
 Security World Software has to be installed and configured for use with nCipherKM JCA/JCE Cryptographic Service Provider (CSP), as described in the documentation for nShield.
 
@@ -377,7 +377,7 @@ The communication with the HSM is achieved via a daemon middleware process (call
 
 ## AWS CloudHSM
 
-Corda Enterprise nodes can be configured to generate keys in [AWS CloudHSM](https://aws.amazon.com/cloudhsm/) using [AWS CloudHSM Software Library for Java](https://docs.aws.amazon.com/cloudhsm/latest/userguide/java-library.html).
+Corda: Enterprise Edition  nodes can be configured to generate keys in [AWS CloudHSM](https://aws.amazon.com/cloudhsm/) using [AWS CloudHSM Software Library for Java](https://docs.aws.amazon.com/cloudhsm/latest/userguide/java-library.html).
 
 {{< note >}}
 See [Install and Use the AWS CloudHSM Software Library for Java](https://docs.aws.amazon.com/cloudhsm/latest/userguide/java-library-install.html) for the list of supported operating systems.
