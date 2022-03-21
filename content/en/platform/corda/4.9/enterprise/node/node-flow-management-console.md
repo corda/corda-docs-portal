@@ -15,7 +15,7 @@ weight: 155
 
 The flow management console allows you to see the state of the flows running on a node and perform some operations on them. It runs as part of the [Gateway Service](gateway-service.md).
 
-It has a front end written in React, and a REST service written in Kotlin, which makes RPC calls to Corda: Enterprise Edition .
+It has a front end written in React, and a REST service written in Kotlin, which makes RPC calls to Corda Enterprise.
 
 It consists of two `.jar` files:
 

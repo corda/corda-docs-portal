@@ -15,7 +15,7 @@ weight: 20
 
 ## Introduction
 
-This deployment guide provides a set of simple steps for a test deployment of Corda: Enterprise Edition  Network Manager (CENM)
+This deployment guide provides a set of simple steps for a test deployment of Corda Enterprise Network Manager (CENM)
 on a Kubernetes cluster in Azure Cloud.
 The deployment uses Bash scripts and Helm templates provided with CENM Docker images.
 
@@ -39,14 +39,14 @@ This deployment guide is intended for use by either of the following types of CE
   * [Helm](https://helm.sh/)
 
 * The [Deploy your network](#deploy-your-network) section provides links to installation guides for the required tools.
-The reference deployment for Corda: Enterprise Edition  Network Manager runs on [Kubernetes](https://kubernetes.io/) hosted on Microsoft Azure Cloud. You must have an active Azure subscription to be able to deploy CENM.
+The reference deployment for Corda Enterprise Network Manager runs on [Kubernetes](https://kubernetes.io/) hosted on Microsoft Azure Cloud. You must have an active Azure subscription to be able to deploy CENM.
 Microsoft Azure provides a dedicated service to deploy a Kubernetes cluster - [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/). The Kubernetes cluster must have access to a private Docker repository to obtain CENM Docker images.
 
 * The CENM Command-Line Interface (CLI) tool is required to connect to and manage CENM. It is not required for deployment.
 
 ### Compatibility
 
-The deployment scripts are compatible with Corda: Enterprise Edition  Network Manager version 1.5.
+The deployment scripts are compatible with Corda Enterprise Network Manager version 1.5.
 The deployed network runs on Kubernetes minimum version 1.16.9 and Helm minimum version 3.1.1.
 
 ## Deployment
@@ -209,7 +209,7 @@ To start the CENM CLI Tool, run Docker command starting a Docker container with 
 The welcome message will appear:
 
   ```bash
-  Corda: Enterprise Edition  NETWORK MANAGER – SOFTWARE EVALUATION LICENSE AGREEMENT has been accepted, Corda: Enterprise Edition  NETWORK MANAGER will now continue.   The Software Evaluation License Agreement for this product can be viewed from https://www.r3.com/corda-enterprise-network-manager-evaluation-license.
+  CORDA ENTERPRISE NETWORK MANAGER – SOFTWARE EVALUATION LICENSE AGREEMENT has been accepted, CORDA ENTERPRISE NETWORK MANAGER will now continue.   The Software Evaluation License Agreement for this product can be viewed from https://www.r3.com/corda-enterprise-network-manager-evaluation-license.
   A copy of the Software Evaluation License Agreement also exists within the /license directory in the container.
 
   Type "./cenm <COMMAND>" to run CENM CLI or "./cenm -h" to display help.

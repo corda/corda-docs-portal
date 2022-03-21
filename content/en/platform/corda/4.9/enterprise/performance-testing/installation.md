@@ -12,7 +12,7 @@ weight: 200
 
 # Obtaining and installing the performance test suite
 
-As a registered user of Corda: Enterprise Edition , you can get the performance test suite as a zip file from the same location where the Corda
+As a registered user of Corda Enterprise, you can get the performance test suite as a zip file from the same location where the Corda
 Enterprise artifacts are available. Look for a file called `jmeter-corda-<version>-testsuite.zip`.
 
 

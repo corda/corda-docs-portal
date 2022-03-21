@@ -17,7 +17,7 @@ Node performance optimisation can be achieved by adjusting node configuration, n
 
 ## Adjusting the node settings
 
-The main parameters that can be tweaked for a Corda: Enterprise Edition  node are
+The main parameters that can be tweaked for a Corda Enterprise node are
 
 
 * The number of flow threads (the number of flows that can be live and active in the state machine at the same time). The default value for this is twice the number of processor cores available on the machine, capped at 30.
@@ -26,7 +26,7 @@ The main parameters that can be tweaked for a Corda: Enterprise Edition  node ar
 
 For a machine with *n* cores, this will create up to *3*n* Corda threads. On top of that, the messaging system (Artemis and Netty) will create their own messaging handling thread infrastructure. On a server machine with many processor cores, this can lead to over a 100 threads sharing 512 megabyte of memory - this leaves the threads fighting for resources, and memory contention and very poor performance will be the result.
 
-In Corda: Enterprise Edition , these properties can be controlled via the node configuration. It is recommended to keep a diary of changes during the tweaking of any parameters, or ideally have the node configuration under version control so it is easy to go back and check settings for previous results.
+In Corda Enterprise, these properties can be controlled via the node configuration. It is recommended to keep a diary of changes during the tweaking of any parameters, or ideally have the node configuration under version control so it is easy to go back and check settings for previous results.
 
 
 ## Adjusting the memory

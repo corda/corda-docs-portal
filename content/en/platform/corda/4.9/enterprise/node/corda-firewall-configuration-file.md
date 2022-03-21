@@ -9,12 +9,12 @@ tags:
 - firewall
 - configuration
 - file
-title: Configuring the Corda: Enterprise Edition  Firewall
+title: Configuring the Corda Enterprise Firewall
 weight: 1
 ---
 
 
-# Configuring the Corda: Enterprise Edition  Firewall
+# Configuring the Corda Enterprise Firewall
 
 
 ## File location
@@ -119,7 +119,7 @@ the `TLS` socket server key and certificates into the `FloatOuter`. The process 
 
 ## Fields
 
-The configuration fields are listed in [Corda: Enterprise Edition  Firewall configuration fields](corda-firewall-configuration-fields.md).
+The configuration fields are listed in [Corda Enterprise Firewall configuration fields](corda-firewall-configuration-fields.md).
 
 
 ## Complete example
@@ -251,7 +251,7 @@ should have different DB connectivity URLs.
 For nodes’ High Availability(HA) functionality to work properly, databases the nodes connect to should be remote databases with transactional guarantees.
 Please see Hot-cold high availability deployment. I.e. HA nodes cannot be using local H2 database.
 
-In the example below we will be using Azure SQL DB, however it can be any database Corda: Enterprise Edition  supports.
+In the example below we will be using Azure SQL DB, however it can be any database Corda Enterprise supports.
 
 Two empty schemas should be created for `Entity A` and `Entity B` and upon first startup of the node the necessary tables will be created automatically.
 
@@ -262,7 +262,7 @@ Initially, the nodes configuration is performed on `vmNodesPrimary` host and the
 
 Files `artemis/artemis.jks` and `artemis/artemis-truststore.jks` should be copied from [Artemis keystore generation](#artemis-keystore-generation) stage.
 
-Corda FAT Jar `corda.jar` from Corda: Enterprise Edition  distribution should also be copied into base directory.
+Corda FAT Jar `corda.jar` from Corda Enterprise distribution should also be copied into base directory.
 
 Any CorDapps the node is meant to be working with should be installed into `cordapps` directory.
 
@@ -464,12 +464,12 @@ Copy the `network-parameters` file and the artemis certificates into the `entity
 #### CorDapps installation
 
 In the node’s base directory create `cordapps` sub-directory and install all the required CorDapps you intend to work with.
-In this example we are going to use Finance CorDapp which is supplied as part of Corda: Enterprise Edition  distribution.
+In this example we are going to use Finance CorDapp which is supplied as part of Corda Enterprise distribution.
 
 
 #### DB drivers installation
 
-As discussed above each of the nodes will be using database to store node’s data. Corda: Enterprise Edition  supports a number of databases, however in order
+As discussed above each of the nodes will be using database to store node’s data. Corda Enterprise supports a number of databases, however in order
 for a Corda Node to store its data in the DB, a JDBC driver needs to be installed into `drivers` sub-directory.
 
 In this example we are using MSSql Server DB, therefore `mssql-jdbc-6.4.0.jre8.jar` will be installed.
@@ -537,7 +537,7 @@ healthCheckPhrase = "HelloCorda"
 Files `tunnel/float.jks` and `tunnel/tunnel-truststore.jks` should be copied from [Tunnel keystore generation](#tunnel-keystore-generation) stage.
 `network-parameters` file should be copied from one of the node hosts, which has already been produced from [Nodes keystores generation](#nodes-keystores-generation) stage.
 
-`corda-firewall.jar` is included into Corda: Enterprise Edition  distribution and should be copied into base directory on `vmFloat1` and `vmFloat2` hosts.
+`corda-firewall.jar` is included into Corda Enterprise distribution and should be copied into base directory on `vmFloat1` and `vmFloat2` hosts.
 
 For reference, base directory for `vmFloat1` and `vmFloat2` should look as follows:
 
@@ -622,7 +622,7 @@ File copy from previous stages:
 * File `network-root-truststore.jks`  along with the password to read this keystore provided by the CN owner.
 * File `network-parameters` should be copied from [Nodes keystores generation](#nodes-keystores-generation) stage.
 
-`corda-firewall.jar` is included into Corda: Enterprise Edition  distribution and should be copied into Bridge base directory on `vmInfra1` and `vmInfra2` hosts.
+`corda-firewall.jar` is included into Corda Enterprise distribution and should be copied into Bridge base directory on `vmInfra1` and `vmInfra2` hosts.
 
 Configuration file: `firewall.conf` for `vmInfra1` should look as follows:
 

@@ -22,7 +22,7 @@ Although the Configuration Obfuscator does protect the node against trawling att
 {{< /warning >}}
 
 {{< note >}}
-The Configuration Obfuscator tool can only be used with configuration files for Corda: Enterprise Edition  4.4 (and above) nodes, Corda Firewall, and Corda Network Enterprise Manager (CENM) 1.3 (and above) services. Corda configuration files obfuscated with older versions of Corda: Enterprise Edition  can still be deobfuscated by Corda: Enterprise Edition  4.4 and above. Configuration files obfuscated with CENM 1.1 and 1.2 can be deobfuscated with CENM 1.3 (and above), but further obfuscation must be done using the new version of the Configuration Obfuscator tool.
+The Configuration Obfuscator tool can only be used with configuration files for Corda Enterprise 4.4 (and above) nodes, Corda Firewall, and Corda Network Enterprise Manager (CENM) 1.3 (and above) services. Corda configuration files obfuscated with older versions of Corda Enterprise can still be deobfuscated by Corda Enterprise 4.4 and above. Configuration files obfuscated with CENM 1.1 and 1.2 can be deobfuscated with CENM 1.3 (and above), but further obfuscation must be done using the new version of the Configuration Obfuscator tool.
 {{< /note >}}
 
 ## How obfuscation works
@@ -53,7 +53,7 @@ To deobfuscate that configuration file, you must provide the same seed and passp
 
 ## How deobfuscation works
 
-You deobfuscate an obfuscated configuration file by starting the respective node, Firewall component, or service (for example, a [Corda: Enterprise Edition  Network Manager service](../../../../../en/platform/corda/1.5/cenm.html)).
+You deobfuscate an obfuscated configuration file by starting the respective node, Firewall component, or service (for example, a [Corda Enterprise Network Manager service](../../../../../en/platform/corda/1.5/cenm.html)).
 
 You cannot use the Configuration Obfuscator tool to deobfuscate an obfuscated file directly. This is intentional in order to prevent a potential security risk where plain text passwords could be revealed by just running the tool again.
 
@@ -61,7 +61,7 @@ The node or service itself deobfuscates the configuration object internally on s
 
 ## Obfuscate using the command-line tool
 
-The command-line tool is included in Corda: Enterprise Edition  as a `.jar` file with a name `corda-tools-config-obfuscator-<version>.jar`, where `<version>` stands for the Corda: Enterprise Edition  version (for example, `corda-tools-config-obfuscator-4.9.jar` or `corda-tools-config-obfuscator-4.9.jar`).
+The command-line tool is included in Corda Enterprise as a `.jar` file with a name `corda-tools-config-obfuscator-<version>.jar`, where `<version>` stands for the Corda Enterprise version (for example, `corda-tools-config-obfuscator-4.9.jar` or `corda-tools-config-obfuscator-4.9.jar`).
 
 ### Usage
 
@@ -201,7 +201,7 @@ $ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=m
 
 ## Deobfuscate an obfuscated configuration file
 
-You deobfuscate an obfuscated configuration file by starting the respective node, Firewall component, or service (for example, a [Corda: Enterprise Edition  Network Manager service](../../../../../en/platform/corda/1.5/cenm.html)).
+You deobfuscate an obfuscated configuration file by starting the respective node, Firewall component, or service (for example, a [Corda Enterprise Network Manager service](../../../../../en/platform/corda/1.5/cenm.html)).
 
 When you need your node, Firewall component, or service, to deobfuscate an obfuscated configuration file, you must pass them the same seed and passhprase used when that configuration file was deobfuscated. There are two ways you can do that, as described below.
 

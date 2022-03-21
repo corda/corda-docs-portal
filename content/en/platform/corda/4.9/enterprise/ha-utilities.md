@@ -15,7 +15,7 @@ weight: 30
 Setting up multiple nodes behind shared Corda Firewall require preparation of various keystores and config files, which can be time consuming and error prone.
 The HA Utilities aims to provide tools to streamline the node provision and deployment process.
 
-The tool is distributed as part of Corda: Enterprise Edition  in the form of runnable `.jar.` file - `corda-tools-ha-utilities-4.9.jar`.
+The tool is distributed as part of Corda Enterprise in the form of runnable `.jar.` file - `corda-tools-ha-utilities-4.9.jar`.
 
 To run simply pass in the file or URL as the first parameter:
 
@@ -405,6 +405,6 @@ contain the notary service certificate chain. See [HSM Support](notary/hsm-suppo
 
 ## Node Certificate Rotation Tool
 
-This tool enables the reissuing of node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in [Corda: Enterprise Edition  Network Manager](../../../../../en/platform/corda/1.5/cenm.html). You must not change the node's `myLegalName` during certificate rotation.
+This tool enables the reissuing of node legal identity keys and certificates, allowing for re-registration of a node (including a notary node) with a new certificate in the Network Map in [Corda Enterprise Network Manager](../../../../../en/platform/corda/1.5/cenm.html). You must not change the node's `myLegalName` during certificate rotation.
 
 For more information about this feature, contact your R3 account manager.

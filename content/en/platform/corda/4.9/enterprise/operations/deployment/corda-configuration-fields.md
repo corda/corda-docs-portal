@@ -280,7 +280,7 @@ Allows fine-grained controls of various features only available in the enterpris
   * If the `maintenanceMode` sub-section is provided, then **ALL** `maintenanceMode` parameters (as described below) must be supplied and must also pass configuration validation at start-up.
   * Parameters:
     * `schedule` is a *“cron-like”* expression, which is used to control at what time(s) the maintenance tasks are run. The format follows the existing cron standards using a 6-part time specification but omits the command line part of the expression as would be present in a Unix cron expression. Times are in **UTC**. See an example in [Node Maintenance Mode](../../node/operating/maintenance-mode.html#configuration-of-node-maintenance-mode). For more information on *cron* (with examples) please see [cron-wiki](https://en.wikipedia.org/wiki/Cron) and note that the examples shown will include the *<command to execute>* part which is not present in the Corda `schedule`. The tasks that get run are not dependent on this configuration item and are determined *within* Corda. The following example will run maintenance at 14:30 and 15:30 (UTC) on Fridays (‘5’ in final column): `schedule = "00 30 14,15 * * 5"`.
-    * `duration` is the maximum time that a maintenance window is expected to take to run all tasks. At start-up, Corda will check for all maintenance events that occur within the following week. If there is an overlap (due the specified duration being longer than the interval between any two adjacent maintenance windows), Corda: Enterprise Edition  will emit a *warning* to the log which will precisely specify the overlap scenario but no further action will be taken. Additionally, if the time that the maintenance tasks *actually* take to run exceeds the specified duration, a warning will be emitted to the log but the maintenance tasks will not be interrupted. The purpose of the duration parameter is to allow the user to check that there are no overlaps and to allow monitoring of overrunning activities via log messaging and monitoring. The duration is specified in HOCON *duration* format with suffixes of `‘h’ (hours), ‘m’ (minutes) and ‘s’ (seconds)` - for example, `‘1h’` to mean one hour. For additional information on HOCON duration format parsing, see [HOCON-duration-format](https://github.com/lightbend/config/blob/master/HOCON.html#duration-format).
+    * `duration` is the maximum time that a maintenance window is expected to take to run all tasks. At start-up, Corda will check for all maintenance events that occur within the following week. If there is an overlap (due the specified duration being longer than the interval between any two adjacent maintenance windows), Corda Enterprise will emit a *warning* to the log which will precisely specify the overlap scenario but no further action will be taken. Additionally, if the time that the maintenance tasks *actually* take to run exceeds the specified duration, a warning will be emitted to the log but the maintenance tasks will not be interrupted. The purpose of the duration parameter is to allow the user to check that there are no overlaps and to allow monitoring of overrunning activities via log messaging and monitoring. The duration is specified in HOCON *duration* format with suffixes of `‘h’ (hours), ‘m’ (minutes) and ‘s’ (seconds)` - for example, `‘1h’` to mean one hour. For additional information on HOCON duration format parsing, see [HOCON-duration-format](https://github.com/lightbend/config/blob/master/HOCON.html#duration-format).
     * `rpcAuditDataRetentionPeriod` is a parameter to the RPC table maintenance task and specifies how long records should be kept for within the table for. The parameter is in HOCON *period* format - for example, `‘365d’, ‘1w’`. In general, the following suffixes should be sufficient: `‘d’ (days), ‘w’ (weeks), ‘m’ (months), ‘y’ (years)`. For more information on the HOCON period format see [HOCON-period-format](https://github.com/lightbend/config/blob/master/HOCON.html#period-format). The end of the retention period will be the current time (in UTC) minus the duration.
   * [Node Maintenance Mode](../../node/operating/maintenance-mode.html#configuration-of-node-maintenance-mode) uses the `processedMessageCleanup` parameters (see below).
 * `processedMessageCleanup`
@@ -319,11 +319,11 @@ Allows fine-grained controls of various features only available in the enterpris
 
 ## Tuning
 
-Tuning is a section within the Corda Node configuration file that contains performance tuning parameters for Corda: Enterprise Edition  Nodes.
+Tuning is a section within the Corda Node configuration file that contains performance tuning parameters for Corda Enterprise Nodes.
 
 ## `backchainFetchBatchSize`
 
-This is an optimisation for sharing transaction backchains. Corda: Enterprise Edition  nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
+This is an optimisation for sharing transaction backchains. Corda Enterprise nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
 
 *Default:* 50
 
@@ -337,7 +337,7 @@ When a response arrives, a suspended flow will be woken up if there are any avai
 Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
 up to handle the event. This can have serious performance implications if the flow thread pool is too small, as a flow cannot be suspended while in a database transaction, or without checkpointing its state first.
 
-Corda: Enterprise Edition  allows the node operators to configure the number of threads the state machine manager can use to execute flows in parallel, allowing more than one flow to be active and/or use resources at the same time.
+Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in parallel, allowing more than one flow to be active and/or use resources at the same time.
 
 The ideal value for this parameter depends on a number of factors. These include the hardware the node is running on, the performance profile of the flows, and the database instance backing the node as datastore. Every thread will open a database connection, so for n threads, the database system must have at least n+1 connections available. Also, the database
 must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
@@ -349,7 +349,7 @@ architecture. For these reasons, the default size for the flow framework thread 
   in parallel without queueing. The default value is set to the number of available processor cores.
   * Incoming RPC calls are queued until a thread from this
   pool is available to handle the connection, prepare any required data and start the requested flow. As  this
-  might be a non-trivial amount of work, the size of this pool can be configured in Corda: Enterprise Edition .
+  might be a non-trivial amount of work, the size of this pool can be configured in Corda Enterprise.
   * On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow threads being idle while the payload is being deserialized and the flow invocation run.
   * If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this * number slightly.
   * Valid values for this property are between 4 (that is the number used for the single threaded state * machine in open source) and the number of flow threads.
@@ -903,7 +903,7 @@ This is the non-secret value for the development certificates automatically gene
 ## `useOpenSsl`
 
 If set to true, the node will use a native SSL implementation for TLS rather than the JVM SSL. The native SSL library currently shipped with
-Corda: Enterprise Edition  is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to `false`. This configuration offers higher performance than the built-in library, but you can't use it with the Corda Firewall or an HSM—so this configuration is only recommended for private networks where there is a requirement to extract maximum performance.
+Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to `false`. This configuration offers higher performance than the built-in library, but you can't use it with the Corda Firewall or an HSM—so this configuration is only recommended for private networks where there is a requirement to extract maximum performance.
 
 ## `useTestClock`
 

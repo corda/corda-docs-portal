@@ -14,7 +14,7 @@ weight: 30
 
 # Database schema setup
 
-Corda: Enterprise Edition  supports the commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
+Corda Enterprise supports the commercial 3rd party databases: Azure SQL, SQL Server, Oracle, and PostgreSQL.
 This document provides instructions describing how to create database schemas (user permissions, the Corda node’s tables, and other database objects),
 and how to configure Corda nodes to connect to a database with *restricted permissions* for production use.
 If you just need a quick database setup for testing/development, please refer to [Simplified database schema setup for development](node-database-developer.md).

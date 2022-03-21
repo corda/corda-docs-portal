@@ -10,7 +10,7 @@ weight: 1
 
 # Importing Percona notary data to CockroachDB
 
-Corda: Enterprise Edition  supports two highly-available notary implementations: MySQL and JPA notaries. The MySQL notary requires
+Corda Enterprise supports two highly-available notary implementations: MySQL and JPA notaries. The MySQL notary requires
 a Percona database, and is a **deprecated** implementation.
 
 To migrate from a MySQL notary to a JPA notary you must change the backend database and database schema. After

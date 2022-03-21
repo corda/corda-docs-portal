@@ -9,13 +9,13 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrading a node to a minor version of Corda: Enterprise Edition  4.9
+title: Upgrading a node to a minor version of Corda Enterprise 4.9
 weight: 11
 ---
 
-# Upgrading a node to a minor version of Corda: Enterprise Edition  4.9
+# Upgrading a node to a minor version of Corda Enterprise 4.9
 
-Follow these steps to upgrade a node from Corda: Enterprise Edition  4.9 to Corda: Enterprise Edition  4.9.x.
+Follow these steps to upgrade a node from Corda Enterprise 4.9 to Corda Enterprise 4.9.x.
 
 Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](../../../../../en/platform/corda/4.9/open-source/api-stability-guarantees.md). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
 
@@ -73,5 +73,5 @@ Your upgrade is complete.
 ## Notes
 
 {{< warning >}}
-You must align the multi-RPC client version with the node version. Both must be running the same version of Corda: Enterprise Edition . See [Querying flow data](node/operating/querying-flow-data.md) for more information.
+You must align the multi-RPC client version with the node version. Both must be running the same version of Corda Enterprise. See [Querying flow data](node/operating/querying-flow-data.md) for more information.
 {{< /warning >}}

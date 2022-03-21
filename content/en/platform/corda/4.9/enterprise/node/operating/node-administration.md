@@ -173,7 +173,7 @@ database should be via the usual database tools mechanisms, including access con
 
 ## Monitoring your node
 
-This section covers monitoring performance and health of a node in Corda: Enterprise Edition  with Jolokia and Graphite. General best practices for monitoring (e.g. setting up TCP checks for the ports the node communicates on, database health checks etc.) are not covered here but should be followed.
+This section covers monitoring performance and health of a node in Corda Enterprise with Jolokia and Graphite. General best practices for monitoring (e.g. setting up TCP checks for the ports the node communicates on, database health checks etc.) are not covered here but should be followed.
 
 
 

@@ -26,7 +26,7 @@ The network map server also distributes the parameters file that define values f
 to agree on to remain in sync.
 
 {{< note >}}
-In Corda: Enterprise Edition  no implementation of the HTTP network map server is provided. This is because the details of how
+In Corda Enterprise no implementation of the HTTP network map server is provided. This is because the details of how
 a compatibility zone manages its membership (the databases, ticketing workflows, HSM hardware etc) is expected to vary
 between operators, so we provide a simple REST based protocol for uploading/downloading NodeInfos and managing
 network parameters. A future version of Corda may provide a simple “stub” implementation for running test zones.

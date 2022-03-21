@@ -16,7 +16,7 @@ weight: 60
 
 # Integrating an HSM
 
-While Corda: Enterprise Edition  supports a variety of HSMs for storing legal identity and confidential identity keys, you can also integrate other HSMs with Corda: Enterprise Edition  using Corda: Enterprise Edition  APIs. Once HSM integration has been written, HSMs can be tested against Corda: Enterprise Edition  using the HSM Technical Compatibility Kit (TCK), a test suite [available here](hsm-integration-tck.md).
+While Corda Enterprise supports a variety of HSMs for storing legal identity and confidential identity keys, you can also integrate other HSMs with Corda Enterprise using Corda Enterprise APIs. Once HSM integration has been written, HSMs can be tested against Corda Enterprise using the HSM Technical Compatibility Kit (TCK), a test suite [available here](hsm-integration-tck.md).
 
 To help write integration for your HSM, there is an example HSM implementation available as part of the `com.r3.corda:corda-enterprise-utils:4.9` resources. We'll go over this example HSM here to explain what the components are, and how they work.
 
@@ -29,7 +29,7 @@ In the example HSM there are five key files:
   - The HSM integration, called `AWSCloudCryptoService.java`.
 
 
-We'll go through each of these files and use them as a basis for explaining how to integrate an HSM with Corda: Enterprise Edition .
+We'll go through each of these files and use them as a basis for explaining how to integrate an HSM with Corda Enterprise.
 
 ## The HSM configuration file
 
@@ -41,7 +41,7 @@ The HSM configuration contains the basic configuration information required by t
 
 Ensure that the configuration options required by the HSM correspond to the configuration options in this file.
 
-The `samePartition` section is required by Corda: Enterprise Edition  tools to manage multiple public keys being used to access shared HSMs.
+The `samePartition` section is required by Corda Enterprise tools to manage multiple public keys being used to access shared HSMs.
 
 ## The configuration parser
 
@@ -57,7 +57,7 @@ The factory class `AWSCloudCryptoServiceProvider` implements the `CryptoServiceP
 
 {{< codesample file="/content/en/platform/corda/4.9/codesamples/AWSCloudCryptoServiceProvider.java" >}}
 
-Corda: Enterprise Edition  uses a service loader class to discover implementations of `CryptoServiceProvider`.
+Corda Enterprise uses a service loader class to discover implementations of `CryptoServiceProvider`.
 
 The class takes the configuration information and creates an instance of the `CryptoService` - in this case `AWSCloudCryptoService` - including an X500 identifier and the configuration information defined in `AWSCloudConfiguration.java`.
 

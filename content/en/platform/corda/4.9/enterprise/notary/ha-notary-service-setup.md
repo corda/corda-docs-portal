@@ -8,15 +8,15 @@ tags:
 - notary
 - service
 - setup
-title: Corda: Enterprise Edition  HA notary service set-up
+title: Corda Enterprise HA notary service set-up
 weight: 110
 ---
 
 
-# Corda: Enterprise Edition  HA notary service set-up
+# Corda Enterprise HA notary service set-up
 
-The Corda: Enterprise Edition  notary service can be configured in high-availability (HA) mode. For the Corda: Enterprise Edition  notary
-service to operate in HA mode, a high-availability database is required. See [Corda: Enterprise Edition  notary service overview](ha-notary-service-overview.md) for more information.
+The Corda Enterprise notary service can be configured in high-availability (HA) mode. For the Corda Enterprise notary
+service to operate in HA mode, a high-availability database is required. See [Corda Enterprise notary service overview](ha-notary-service-overview.md) for more information.
 
 Running an HA notary requires the following:
 
@@ -28,13 +28,13 @@ For a list of databases supported by each of the above notary implementations, p
 
 ## Prerequisites
 
-Before setting up an HA notary, your Corda: Enterprise Edition  distribution should contain all the following `.JAR` files,
+Before setting up an HA notary, your Corda Enterprise distribution should contain all the following `.JAR` files,
 configuration information, and capabilities:
 
 * The notary worker and database machines need to be configured to use reliable and trusted time servers. The time
 source has to be monotonic and support leap second smearing.
 * Java runtime
-* Corda: Enterprise Edition  JAR
+* Corda Enterprise JAR
 * [Notary Health Check](../notary-healthcheck.md) Tool
 * HA Utilities JAR to run [notary registration](../ha-utilities.html#notary-registration)
 * Root access to a Linux machine or VM to install the selected database

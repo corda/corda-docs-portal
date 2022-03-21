@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-9:
     identifier: corda-enterprise-4-9-corda-nodes-firewall
-    name: "Corda: Enterprise Edition  Firewall"
+    name: "Corda Enterprise Firewall"
     parent: corda-enterprise-4-9-corda-nodes
 tags:
 - corda
@@ -18,7 +18,7 @@ weight: 64
 
 The Corda Firewall (bridge/float) component is designed for enterprise deployments and acts as an application-level
 firewall and protocol break on all internet-facing endpoints. The `corda-firewall.jar` encapsulates the peer
-network functionality of the basic Corda: Enterprise Edition  node, so that it can be operated separately from the security sensitive
+network functionality of the basic Corda Enterprise node, so that it can be operated separately from the security sensitive
 JVM runtime of the node. This gives separation of functionality and ensures that the legal identity keys are not
 used in the same process as the internet TLS connections. Only the bridge component is initiating connections to the
 float further increasing the isolation of the node’s internet access point. Also, it adds support for enterprise deployment
@@ -39,7 +39,7 @@ Enterprise, the in-node version should be turned off and a standalone and HA ver
 The *float* component refers to the inbound socket listener, packet filtering and DMZ compatible component. In the
 simple all-in-one node, all inbound peer connections terminate directly onto an embedded Artemis broker component
 hosted within the node. The connection authentication and packet filtering is managed directly via Artemis
-permission controls managed directly inside the node JVM. For Corda: Enterprise Edition  deployments, we provide a more
+permission controls managed directly inside the node JVM. For Corda Enterprise deployments, we provide a more
 secure and configurable isolation component that is available using code inside `corda-firewall.jar`. This
 component is designed to provide a clear protocol break and thus prevents the node and Artemis server ever being
 directly exposed to peers. For simpler deployments with no DMZ, the float and bridge logic can also be run as a
@@ -133,7 +133,7 @@ from the local bridge to the original node’s float and then on to the original
 
 
 * A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md))
-* Corda: Enterprise Edition  JAR
+* Corda Enterprise JAR
 
 The simplest development deployment of the node is without firewall and thus just use the embedded bridge and Peer-to-Peer
 Artemis with the node as TLS endpoint and to have the outgoing packets use the internal bridge functionality.
@@ -149,7 +149,7 @@ where this is the only available option:
 
 
 * A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md))
-* Corda: Enterprise Edition  JAR
+* Corda Enterprise JAR
 * Corda Firewall JAR
 
 The next simplest deployment is when combined Bridge/Float component is segregated away from Corda Node.
@@ -222,7 +222,7 @@ networkParametersPath = network-parameters
 
 
 * A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md))
-* Corda: Enterprise Edition  JAR
+* Corda Enterprise JAR
 * Corda Firewall JAR
 
 This is a more complete deployment which includes a DMZ and separate processes for outbound and inbound connectivity. The process deployed into DMZ is
@@ -318,7 +318,7 @@ floatOuterConfig {
 
 
 * A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md))
-* Corda: Enterprise Edition  JAR
+* Corda Enterprise JAR
 * Corda Firewall JAR
 * SOCKS Proxy
 
@@ -413,14 +413,14 @@ floatOuterConfig {
 
 
 * A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md))
-* Corda: Enterprise Edition  JAR
+* Corda Enterprise JAR
 * Corda Firewall JAR
 * Zookeeper v3.6.1
 * Optional: SOCKS Proxy
 
 Finally, we show a full HA solution as recommended for production. This does require adding an external ZooKeeper
 cluster to provide `Bridge` leader election. Also there will be extra instances of the `Bridge` and `Float` processes. This allows
-hot-warm operation of all the `Bridge` and `Float` instances. The Corda: Enterprise Edition  node must be run as hot-cold HA too.
+hot-warm operation of all the `Bridge` and `Float` instances. The Corda Enterprise node must be run as hot-cold HA too.
 
 Highlighted in the diagram is the addition of the `haConfig` section to point at `zookeeper` and also the use of secondary
 addresses in the `alternateArtemisAddresses` to allow node failover and in the `floatAddresses` to point at a
@@ -554,7 +554,7 @@ More specifically, in order to ensure optimal performance it is required:
 
 
 * A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md))
-* Corda: Enterprise Edition  JAR
+* Corda Enterprise JAR
 * Corda Firewall JAR
 * Apache Artemis v2.6.2 or RedHat amq broker v7.2.2
 * Optional: Zookeeper v3.6.1 if using Bridge cluster

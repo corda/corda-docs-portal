@@ -525,7 +525,7 @@ In this scenario, we'll make the following assumptions:
 
 * Our actors, parties A (us) and B (the other party) are on a two-party Corda network comprised of their nodes and a notary).
 
-* Both party nodes are running Corda: Enterprise Edition  and have LedgerSync and LedgerRecover installed.
+* Both party nodes are running Corda Enterprise and have LedgerSync and LedgerRecover installed.
 
 * We (party A) have experienced a disaster in which
     * our vault became corrupt,

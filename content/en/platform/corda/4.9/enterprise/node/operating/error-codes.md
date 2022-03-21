@@ -57,6 +57,6 @@ corresponding codes will contain a message with the error code and a link pointi
 
 {{< /table >}}
 
-## Corda: Enterprise Edition  Network Manager error codes
+## Corda Enterprise Network Manager error codes
 
-For a list of error codes specific to Corda: Enterprise Edition  Network Manager (CENM), see [CENM error codes](../../../../../../../en/platform/corda/1.5/cenm/cenm-error-codes.md).
+For a list of error codes specific to Corda Enterprise Network Manager (CENM), see [CENM error codes](../../../../../../../en/platform/corda/1.5/cenm/cenm-error-codes.md).

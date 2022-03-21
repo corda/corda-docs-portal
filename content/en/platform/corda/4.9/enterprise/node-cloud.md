@@ -6,23 +6,23 @@ menu:
 tags:
 - node
 - cloud
-title: Corda: Enterprise Edition  cloud images
+title: Corda Enterprise cloud images
 weight: 130
 ---
 
 
-# Corda: Enterprise Edition  cloud images
+# Corda Enterprise cloud images
 
 Corda Enteprise is avaliable as a Virtual Machine image on AWS and Azure.
-These are simple Linux VM images with a JDK supported by both cloud providers and Corda: Enterprise Edition .
-Alongside the Corda: Enterprise Edition  JAR the image contains an example `node.conf` file and `dbconfig.conf` file for H2 DB.
+These are simple Linux VM images with a JDK supported by both cloud providers and Corda Enterprise.
+Alongside the Corda Enterprise JAR the image contains an example `node.conf` file and `dbconfig.conf` file for H2 DB.
 There is also the systemd service (called `corda`) ready to use.
 
 
-## Corda: Enterprise Edition  for Azure
+## Corda Enterprise for Azure
 
 {{< note >}}
-Corda: Enterprise Edition  for Azure is based on Ubuntu Linux and has Azul Enterprise OpenJDK installed.
+Corda Enterprise for Azure is based on Ubuntu Linux and has Azul Enterprise OpenJDK installed.
 
 {{< /note >}}
 Follow the standard Azure procedure to create a VM.
@@ -85,10 +85,10 @@ sudo systemctl status corda
 ```
 
 
-## Corda: Enterprise Edition  for AWS
+## Corda Enterprise for AWS
 
 {{< note >}}
-Corda: Enterprise Edition  for AWS is based on Amazon Linux 2 and has Corretto JDK installed.
+Corda Enterprise for AWS is based on Amazon Linux 2 and has Corretto JDK installed.
 
 {{< /note >}}
 Follow the standard AWS procedure to install VM.

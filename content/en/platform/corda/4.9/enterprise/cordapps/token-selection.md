@@ -39,7 +39,7 @@ In addition, if you use Tokens SDK 1.2.2, token selection also checks whether it
 
 ## Token selection with multithreaded SMM
 
-A multithreaded environment is characterised by running tokens with Corda: Enterprise Edition  where the number of flow workers is configured to be > 1.
+A multithreaded environment is characterised by running tokens with Corda Enterprise where the number of flow workers is configured to be > 1.
 
 You can only use in-memory selection in a multithreaded environment. This is  because a cache of available tokens balances are maintained for querying in the JVM. This means the query time to select available tokens is extremely fast, preventing the need for soft-locking tokens in the DB. Tokens are simply selected, added to a transaction and spent.
 

@@ -97,7 +97,7 @@ As part of the configuration process, you can choose to create a backup schema. 
 The Archive Service requires:
 
 * Node minimum platform version 6.
-* Corda: Enterprise Edition  minimum version 4.4.
+* Corda Enterprise minimum version 4.4.
 * [LedgerGraph V1.2](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/ledger-graph.md).
 * Collaborative Recovery V 1.2 (if you use Collaborative Recovery).
 

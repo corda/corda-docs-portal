@@ -10,14 +10,14 @@ tags:
 - release
 - notes
 - enterprise
-title: Corda: Enterprise Edition  release notes
+title: Corda Enterprise Edition  release notes
 weight: 1
 ---
 
 
-# Corda: Enterprise Edition  release notes
+# Corda Enterprise Edition  release notes
 
-## Corda: Enterprise Edition  4.9
+## Corda Enterprise Edition  4.9
 
 Corda: Enterprise Edition  4.9 features many security improvements, along with a stand alone Shell for controlling the node via command line. You can also now access the `flowrpcops` API
 

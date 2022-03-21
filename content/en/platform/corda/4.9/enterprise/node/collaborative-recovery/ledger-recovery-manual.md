@@ -31,7 +31,7 @@ set of transactions IDs is extremely large.
 
 Manual Recovery processes executed via the LedgerRecover CorDapp require participating Corda nodes to be:
 
-- Using Corda: Enterprise Edition , not Corda Open Source (OS)
+- Using Corda Enterprise, not Corda Open Source (OS)
 - Corda Minimum Platform Version (MPV) > 6
 - Running on top of a supported [database technology](../../platform-support-matrix.md)
 
@@ -453,7 +453,7 @@ In this scenario, we'll make the following assumptions:
 
 * The actors, Parties A and B are on a two-party Corda network, comprised of their nodes and a notary.
 
-* Both nodes are running Corda: Enterprise Edition  and have both LedgerSync and LedgerRecovery installed.
+* Both nodes are running Corda Enterprise and have both LedgerSync and LedgerRecovery installed.
 *  Both nodes have backups of their vaults.
 *  PartyA has experienced a disaster in which their vault became corrupt.
 *  PartyA subsequently restored from the backup.

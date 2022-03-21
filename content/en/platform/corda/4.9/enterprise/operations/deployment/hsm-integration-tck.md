@@ -17,7 +17,7 @@ weight: 70
 
 # Testing an HSM integration
 
-To test an HSM implementation both Corda: Enterprise Edition  and the HSM must be deployed. This guide will run through testing
+To test an HSM implementation both Corda Enterprise and the HSM must be deployed. This guide will run through testing
 an example HSM using the Technical Compatibility Kit (TCK) when deployed virtually to AWS.
 
 This is an example configuration to demonstrate running the TCK and showing the results.
@@ -29,7 +29,7 @@ For this process you must have completed the following tasks:
 - Install Git Bash and OpenSSL.
 - Create a signing key and certificate using OpenSSL.
 - Have access to an AWS instance.
-- Download Corda: Enterprise Edition  utilities `.jar` file from [Artifactory](https://software.r3.com/artifactory/r3-corda-releases).
+- Download Corda Enterprise utilities `.jar` file from [Artifactory](https://software.r3.com/artifactory/r3-corda-releases).
 
 ## Steps
 
@@ -43,7 +43,7 @@ For this process you must have completed the following tasks:
 8. Authenticate the HSM client.
 9. Install the JCE provider.
 10. Activate the HSM cluster and set user passwords.
-11. Set up Corda: Enterprise Edition  and the TCK.
+11. Set up Corda Enterprise and the TCK.
 12. Run the TCK tests.
 
 ### Step One: Create the virtual private cloud
@@ -235,7 +235,7 @@ which will change the user type to _Crypto Officer_ (CO).
     quit
     ```
 
-### Step Eleven: Setting up Corda: Enterprise Edition  and TCK
+### Step Eleven: Setting up Corda Enterprise and TCK
 
 1. Navigate to the **HSM** directory.
 

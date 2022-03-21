@@ -317,7 +317,7 @@ If no `MappedSchema` object is specified, the tool generates one SQL file for ea
 Test the migration by running with the database management tool and inspecting the output file.
 
 
-## Considerations for migrating open source CorDapps to Corda: Enterprise Edition 
+## Considerations for migrating open source CorDapps to Corda Enterprise
 
 If you upgrade a node to Enterprise, then any CorDapps running on the node must contain Liquibase scripts.
 Any custom tables (which are required by CorDapps) were created manually or by Hibernate upon node startup.

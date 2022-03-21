@@ -49,7 +49,7 @@ There is some performance decrease to be expected when using both Archiving and 
 ## System requirements
 
 The **LedgerSync** CorDapp requires participating Corda nodes to
- - be using Corda: Enterprise Edition , not Corda Open Source (OS); and
+ - be using Corda Enterprise, not Corda Open Source (OS); and
  - be using Corda Minimum Platform Version (MPV) >= 6; and
  - have the matching version of the LedgerGraph CorDapp installed; and
  - running on top of a supported [database technology](../../platform-support-matrix.md).
@@ -468,7 +468,7 @@ In this scenario, we'll make the following assumptions:
 
 * Our actors, parties A (us) and B (the other party) are on a two-party Corda network comprised of their nodes and a notary.
 
-* Both party nodes are running Corda: Enterprise Edition  and have LedgerSync installed.
+* Both party nodes are running Corda Enterprise and have LedgerSync installed.
 
 * Both parties, A and B, perform regular backups of their own vaults.
 

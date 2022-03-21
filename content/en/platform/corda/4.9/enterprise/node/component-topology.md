@@ -92,7 +92,7 @@ In most cases, nodes are deployed with this architecture:
 
 {{< figure alt="nodebridgefloat nbrs" width=80% zoom="../resources/nodebridgefloat_nbrs.png" figcaption="A typical node deployment.">}}
 
-Most production deployments of Corda: Enterprise Edition  include nodes, vaults, and firewalls.
+Most production deployments of Corda Enterprise include nodes, vaults, and firewalls.
 
 The diagram highlights that:
 

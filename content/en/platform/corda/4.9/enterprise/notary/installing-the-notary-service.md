@@ -136,7 +136,7 @@ notary {
 
 ## Configuration Obfuscation
 
-Corda: Enterprise Edition  comes with a tool for obfuscating secret values in configuration files, which is strongly recommended for production deployments.
+Corda Enterprise comes with a tool for obfuscating secret values in configuration files, which is strongly recommended for production deployments.
 For a notary worker node, the database IP addresses, database user credentials, `keyStore` and `trustStore` password fields in
 the configuration file should be obfuscated. Usage instructions can be found on the [Configuration Obfuscator](../tools-config-obfuscator.md) page.
 

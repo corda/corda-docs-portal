@@ -14,7 +14,7 @@ weight: 1
 
 # Deploying in a testing or production environment
 
-These instructions will guide the user through the UAT or production configuration to deploy the following components. They are intended for firms deploying Corda: Enterprise Edition .
+These instructions will guide the user through the UAT or production configuration to deploy the following components. They are intended for firms deploying Corda Enterprise.
 
 
 * Corda Node
@@ -30,12 +30,12 @@ There are alternative approaches to how these components are deployed. For the p
 
 ## Deployment scenarios for testing and production environments
 
-When deploying Corda: Enterprise Edition  in a testing environment the Node, Bridge, and Float components should be deployed in a non-HA configuration as shown in the following diagram.
+When deploying Corda Enterprise in a testing environment the Node, Bridge, and Float components should be deployed in a non-HA configuration as shown in the following diagram.
 
 
 {{< figure alt="nonha" width=80% zoom="../../resources/nonha.png" >}}
 
-When deploying Corda: Enterprise Edition  in a production environment, the Node, Bridge, and Float components should be deployed in a high-availability configuration.
+When deploying Corda Enterprise in a production environment, the Node, Bridge, and Float components should be deployed in a high-availability configuration.
 
 
 {{< figure alt="ha" width=80% zoom="../../resources/ha.png" >}}
@@ -339,7 +339,7 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 [float.conf](../../resources/float.conf)
 
-A full list of the parameters that can be utilized in these configuration files can be found in [Configuring the Corda: Enterprise Edition  Firewall](../../../../../../../en/platform/corda/4.9/enterprise/node/corda-firewall-configuration-file.md).
+A full list of the parameters that can be utilized in these configuration files can be found in [Configuring the Corda Enterprise Firewall](../../../../../../../en/platform/corda/4.9/enterprise/node/corda-firewall-configuration-file.md).
 
 
 ### Corda 3.x vs Corda 4.x Firewall Upgrade

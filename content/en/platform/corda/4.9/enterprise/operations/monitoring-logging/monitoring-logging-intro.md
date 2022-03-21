@@ -14,7 +14,7 @@ weight: 30
 ---
 # Monitoring and maintaining the health of your node
 
-When you are responsible for a node in a Corda: Enterprise Edition  environment, you have a number of tools available to help you maintain the health and efficiency of your node. These tools range from general metrics monitoring using tools such as Jolokia or Graphite to Corda-built tools that allow you to run health-checks, and even check that your node is in sync with the rest of your ledger and help you recover data from a disaster scenario.
+When you are responsible for a node in a Corda Enterprise environment, you have a number of tools available to help you maintain the health and efficiency of your node. These tools range from general metrics monitoring using tools such as Jolokia or Graphite to Corda-built tools that allow you to run health-checks, and even check that your node is in sync with the rest of your ledger and help you recover data from a disaster scenario.
 
 In this operational guide, you will find introductions to the main tools available to you for logging, monitoring and maximising the performance of your Corda Node.
 
@@ -31,13 +31,13 @@ Monitoring and logging topics:
 * [Basics of monitoring your node](#monitoring---the-basics).
 * [Node metrics](metrics-monitoring-scenarios.md).
 * [Node monitoring scenarios](metrics-monitoring-scenarios.md).
-* [Troubleshooting Corda: Enterprise Edition  Network Manager (CENM) services on your node](monitoring-trouble-shooting.md).
-* [The Corda: Enterprise Edition  Health Survey tool](monitoring-trouble-shooting.html#corda-health-survey-tool).
+* [Troubleshooting Corda Enterprise Network Manager (CENM) services on your node](monitoring-trouble-shooting.md).
+* [The Corda Enterprise Health Survey tool](monitoring-trouble-shooting.html#corda-health-survey-tool).
 * [Using Ledger Sync to check the status of data on your node and the rest of the ledger](monitoring-trouble-shooting.html#ledger-sync).
 
 ## Logging - the basics
 
-Your Corda: Enterprise Edition  node automatically keeps a log of how it is performing. You can retrieve logs kept by the node using simple command line instructions.
+Your Corda Enterprise node automatically keeps a log of how it is performing. You can retrieve logs kept by the node using simple command line instructions.
 
 By default the node log files are stored to the logs subdirectory of the working directory and are rotated from time to time. You can have logging printed to the console as well by passing the --log-to-console command line flag. The default logging level is INFO which can be adjusted by the --logging-level command line argument. This configuration option will affect all modules. Hibernate (the JPA provider used by Corda) specific log messages of level WARN and above will be logged to the diagnostic log file, which is stored in the same location as other log files (logs subdirectory by default). This is because Hibernate may log messages at WARN and ERROR that are handled internally by Corda and do not need operator attention. If they do, they will be logged by Corda itself in the main node log file.
 
@@ -85,3 +85,4 @@ The prefix should clearly indicate the node where the metrics are coming from, a
 in the graphite metric hierarchy.
 The graphite server must be running with python pickle transport enabled. Please refer to the documentation on
 [https://graphiteapp.org](https://graphiteapp.org) on how to install and run a graphite server.
+

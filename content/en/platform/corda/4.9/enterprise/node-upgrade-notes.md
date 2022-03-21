@@ -9,22 +9,22 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrading a node to Corda: Enterprise Edition  4.9
+title: Upgrading a node to Corda Enterprise 4.9
 aliases: /docs/4.9/enterprise/node/operating/cm-upgrading-node.html
 weight: 10
 ---
 
-# Upgrading a node to Corda: Enterprise Edition  4.9
+# Upgrading a node to Corda Enterprise 4.9
 
-Follow these steps to upgrade a node from Corda: Enterprise Edition  4.x to Corda: Enterprise Edition  4.9.
+Follow these steps to upgrade a node from Corda Enterprise 4.x to Corda Enterprise 4.9.
 
-If you are upgrading from Corda: Enterprise Edition  3.x, you must first:
-1. Upgrade your node to Corda: Enterprise Edition  3.3, if you haven't already. If your node is running on an earlier version, follow the steps in Upgrade a Corda 3.X Enterprise Node (available in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/archived-docs) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repo).
-2. Upgrade from Corda: Enterprise Edition  3.3 to Corda: Enterprise Edition  4.5.
-3. Upgrade from Corda 4.5 to Corda: Enterprise Edition  4.9.
+If you are upgrading from Corda Enterprise 3.x, you must first:
+1. Upgrade your node to Corda Enterprise 3.3, if you haven't already. If your node is running on an earlier version, follow the steps in Upgrade a Corda 3.X Enterprise Node (available in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/archived-docs) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repo).
+2. Upgrade from Corda Enterprise 3.3 to Corda Enterprise 4.5.
+3. Upgrade from Corda 4.5 to Corda Enterprise 4.9.
 
 {{< warning >}}
-Corda: Enterprise Edition  4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda: Enterprise Edition  4.9, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise 4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.9, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](../../../../../en/platform/corda/4.9/open-source/api-stability-guarantees.md). If you are working with a stable API, you don't need to update your CorDapps. To upgrade:
@@ -352,5 +352,5 @@ Your upgrade is complete.
 ## Notes
 
 {{< warning >}}
-You must align the multi-RPC client version with the node version. That means that both must be running the same version of Corda: Enterprise Edition . See [Querying flow data](node/operating/querying-flow-data.md) for more information.
+You must align the multi-RPC client version with the node version. That means that both must be running the same version of Corda Enterprise. See [Querying flow data](node/operating/querying-flow-data.md) for more information.
 {{< /warning >}}

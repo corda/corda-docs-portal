@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-9:
     identifier: corda-enterprise-4-9-corda-nodes-notaries
-    name: "Notary options in Corda: Enterprise Edition "
+    name: "Notary options in Corda Enterprise"
     parent: corda-enterprise-4-9-notaries
 tags:
 - ha
@@ -17,13 +17,13 @@ weight: 10
 
 # Notary service overview
 
-Corda: Enterprise Edition  comes with two notary types:
+Corda Enterprise comes with two notary types:
 
 * **Single-node**: a simple notary service that persists notarisation requests in the node’s database. It is easy to configure
 and can be used for testing, or networks that do not have strict availability requirements.
 * **Highly available**: a clustered notary service operated by a single party, able to tolerate crash faults.
 
-Corda: Enterprise Edition  provides two notary highly available (HA) notary implementations:
+Corda Enterprise provides two notary highly available (HA) notary implementations:
 
 * MySQL notary (deprecated)
 * JPA notary

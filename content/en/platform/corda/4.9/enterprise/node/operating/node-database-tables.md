@@ -603,7 +603,7 @@ The actual content of the states can be retrieved from the `NODE_TRANSACTIONS` t
 
 ## Node RPC audit data
 
-RPC actions play a vital part in the process of triggering commands and flows on a node. In a variety of cases you will need to track the usage of RPC actions - for example, when there are security and regulatory concerns. To do so, you can use the Corda: Enterprise Edition  node's capability to record audit information about RPC actions as they are received, prior to executing each action.
+RPC actions play a vital part in the process of triggering commands and flows on a node. In a variety of cases you will need to track the usage of RPC actions - for example, when there are security and regulatory concerns. To do so, you can use the Corda Enterprise node's capability to record audit information about RPC actions as they are received, prior to executing each action.
 
 Read more in [Recording of RPC audit data](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/rpc-audit-data-recording.md)
 

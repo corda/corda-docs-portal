@@ -17,14 +17,14 @@ As a node operator, you can query a node to retrieve flow checkpoint data which 
 
 A checkpoint is a record of flow data taken at key points during a flow's operation, typically whenever the flow is suspended and waiting for a response or message. Querying this checkpoint data enables you to inspect the status of any flows being executed on your node and can assist you in troubleshooting issues that may arise in relation to flows.
 
-With Corda: Enterprise Edition , you can query flow data in the following ways:
+With Corda Enterprise, you can query flow data in the following ways:
 
 * You can [query flow data via RPC](#querying-flow-data-via-rpc)
 * You can [query flow data via the node shell](#querying-flow-data-via-the-node-shell)
 
 ## Querying flow data via RPC
 
-Corda: Enterprise Edition  exposes a number of custom, remote RPC interfaces, which enable you to interact with your node. For a list of all the remote interfaces that are available in Corda: Enterprise Edition , see [Building a Multi RPC Client](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/clientrpc.html#building-the-multi-rpc-client).
+Corda Enterprise exposes a number of custom, remote RPC interfaces, which enable you to interact with your node. For a list of all the remote interfaces that are available in Corda Enterprise, see [Building a Multi RPC Client](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/clientrpc.html#building-the-multi-rpc-client).
 
 The `net.corda.client.rpc.proxy.NodeFlowStatusRpcOps` interface is an RPC extension which enables external applications to query and view the status of the flows which are currently being monitored by the Flow Hospital.
 
@@ -47,7 +47,7 @@ val flowStatusRPCOPs = conn.proxy
 To view the full code sample, see [NodeFlowStatusRpcOps.kt](../../resources/extensions-rpc/NodeFlowStatusRpcOps.kt).
 
 {{< warning >}}
-The Multi RPC Client version must be aligned with the node version, meaning that both must be running the same Corda: Enterprise Edition  version.
+The Multi RPC Client version must be aligned with the node version, meaning that both must be running the same Corda Enterprise version.
 {{< /warning >}}
 
 For details of how to build a Multi RPC Client, see [Building a Multi RPC Client](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/clientrpc.html#building-the-multi-rpc-client). See also [MultiRPCClient](../../../../../../../en/api-ref/corda/4.9/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.

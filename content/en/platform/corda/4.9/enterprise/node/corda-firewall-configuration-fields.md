@@ -14,7 +14,7 @@ tags:
 title: Configuration fields
 weight: 1
 ---
-# Corda: Enterprise Edition  Firewall configuration fields
+# Corda Enterprise Firewall configuration fields
 
 The available configuration fields are listed below. `baseDirectory` is available as a substitution value and contains the absolute path to the firewall’s base directory.
 
@@ -301,7 +301,7 @@ It contains the following fields:
 * [conf](#conf).
 
 ### name
-The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc. See [Using an HSM with Corda: Enterprise Edition ](operating/cryptoservice-configuration.md).
+The name of HSM provider to be used. E.g.: `UTIMACO`, `GEMALTO_LUNA`, etc. See [Using an HSM with Corda Enterprise](operating/cryptoservice-configuration.md).
 
 ### conf
 Absolute path to HSM provider specific configuration that will contain everything necessary to establish connection with HSM.

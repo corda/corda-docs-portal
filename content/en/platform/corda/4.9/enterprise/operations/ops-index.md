@@ -8,14 +8,14 @@ tags:
 - operations
 - deployment
 -
-title: Corda: Enterprise Edition  Operations Guide
+title: Corda Enterprise Operations Guide
 weight: 100
 ---
 
-# Corda: Enterprise Edition  operations guide
+# Corda Enterprise operations guide
 
 The Corda Operations Guide is intended to assist you and your organisation in planning, deploying, and operating an
-instance of Corda: Enterprise Edition . Much of the material you can read here is expanded upon throughout the docs, and can be
+instance of Corda Enterprise. Much of the material you can read here is expanded upon throughout the docs, and can be
 readily found using a search on this documentation site. Wherever there is more material available on a particular
 subject, you can follow a link for the complete documentation.
 

@@ -251,7 +251,7 @@ major operating systems.
 {{< /warning >}}
 
 {{< note >}}
-Before running any Corda: Enterprise Edition  Docker images, you must accept the license agreement and indicate that you have done this by setting the environment variable `ACCEPT_LICENSE` to `YES` or `Y` on your machine. If you do not do this, none of the Docker containers will start.
+Before running any Corda Enterprise Docker images, you must accept the license agreement and indicate that you have done this by setting the environment variable `ACCEPT_LICENSE` to `YES` or `Y` on your machine. If you do not do this, none of the Docker containers will start.
 
 As an alternative, you can specify this parameter when running the `docker-compose up` command, for example:
 `ACCEPT_LICENSE=Y docker-compose up`
