@@ -21,6 +21,10 @@ The Community Edition of Corda does not come with network management support inc
 
 If you require network management, you can consider using the [Network Map Service from Cordite](https://gitlab.com/cordite/network-map-service). Cordite Foundation is a third-party supplier, and not supported by R3.
 
+## Notaries
+
+Experimental notaries, such as **Crash fault-tolerant** and **Byzantine fault-tolerant** notaries, are not available for support in Corda: Community Edition. 
+
 ## JDK support
 
 Corda: Community Edition 4.9 has been tested and verified to work with **Oracle JDK 8 JVM 8u251** and **Azul Zulu Enterprise 8u312**, for Azure deployment downloadable from
