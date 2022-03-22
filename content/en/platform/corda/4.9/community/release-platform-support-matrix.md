@@ -13,7 +13,7 @@ menu:
 
 Corda supports a subset of the platforms that are supported by [Java](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html).
 
-Production use of Corda Enterprise 4.9 is only supported on Linux OS, see details below.
+Production use of Corda: Community Edition 4.9 is only supported on Linux OS, see details below.
 
 ## Network management
 
