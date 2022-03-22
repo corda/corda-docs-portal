@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-9:
     identifier: corda-enterprise-4-9-corda-nodes-deploying-node-generating-dockerform
-    parent: corda-enterprise-4-9-corda-nodes-deploying-generate
+    parent: generating-a-node
 tags:
 - generating
 - node
