@@ -4,7 +4,7 @@ menu:
   versions:
     weight: -650
   corda-enterprise-4-8:
-    weight: 1
+    weight: 2
     name: Corda Enterprise 4.8
 project: corda
 section_menu: corda-enterprise-4-8
