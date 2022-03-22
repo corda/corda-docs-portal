@@ -1,21 +1,18 @@
----
 date: '2021-04-24T00:00:00Z'
-section_menu: releases
 menu:
-  projects:
-    name: Releases
-    weight: 9
-    identifier: logj4patches
-    project: releases
-version: 'releases'
-title: Log4j patches
+  releases:
+    name: Log4j patches
+    identifier: log4j-patches
+    title: Log4j patches
+weight: 40
 ---
 
 # Log4j patch releases
 
+## Apache Log4j vulnerability patches
+
 These patch releases address the Log4j vulnerability discovered December 9, 2021.
 
-## Apache Log4j announcement
 
 ### Update February 11 2022
 
