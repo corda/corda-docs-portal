@@ -28,7 +28,7 @@ Find here the release notes for the latest versions of Corda open source, Corda 
 * [CENM 1.5](../../en/release-notes/cenm-1.5.md)
 
 ## Log4j patches
-Find [all patches](log4j-patches.md) addressing the December 2021 Log4j vulnerability.
+Find [all patches](../../en/release-notes/log4j-patches.md) addressing the December 2021 Log4j vulnerability.
 
 ## Archived release documentation of older, non-supported Corda releases
 
