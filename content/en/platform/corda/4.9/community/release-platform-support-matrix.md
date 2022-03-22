@@ -1,14 +1,11 @@
 ---
-date: '2021-07-26'
-menu:
-  corda-enterprise-4-9:
-    parent: corda-enterprise-4-9-upgrading-menu
-tags:
-- platform
-- support
-- matrix
 title: Platform support matrix
-weight: 90
+date: '2021-07-02'
+menu:
+  corda-community-4-9:
+    identifier: community-platform-support-matrix
+    parent: corda-community-4-9-release-notes
+    weight: 450
 ---
 
 
@@ -17,6 +14,12 @@ weight: 90
 Corda supports a subset of the platforms that are supported by [Java](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html).
 
 Production use of Corda Enterprise 4.9 is only supported on Linux OS, see details below.
+
+## Network management
+
+The Community Edition of Corda does not come with network management support included. You can still consider joining the [Corda Network](https://corda.network).
+
+If you require network management, you can consider using the [Network Map Service from Cordite](https://gitlab.com/cordite/network-map-service). Cordite Foundation is a third-party supplier, and not supported by R3.
 
 ## JDK support
 
@@ -30,23 +33,6 @@ In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/t
 which outlines the end of public updates of Java SE 8 for commercial use, please ensure you have the correct Java support contract in place
 for your deployment needs.
 {{< /warning >}}
-
-## Docker Images
-
-The Docker images used for the Kubernetes deployment are listed below for reference:
-
-{{< table >}}
-| Service           | Image name                                                  |
-|-------------------|-------------------------------------------------------------|
-| Identity Manager  | `corda/enterprise-identitymanager:1.5.4-zulu-openjdk8u242`  |
-| Network Map       | `corda/enterprise-networkmap:1.5.4-zulu-openjdk8u242`       |
-| Signing           | `corda/enterprise-signer:1.5.4-zulu-openjdk8u242`           |
-| Zone              | `corda/enterprise-zone:1.5.4-zulu-openjdk8u242`             |
-| Auth              | `corda/enterprise-auth:1.5.4-zulu-openjdk8u242`             |
-| Gateway           | `corda/enterprise-gateway:1.5.4-zulu-openjdk8u242`          |
-| PKI Tool          | `corda/enterprise-pkitool:1.5.4-zulu-openjdk8u242`          |
-| Notary            | `corda/enterprise-notary:4.5.9-zulu-openjdk8u242`           |
-{{< /table >}}
 
 ## JDKs supported in development
 
@@ -94,9 +80,6 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|------------------------|
-|Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
-|Oracle|x86-64|11gR2|Oracle JDBC 6|
-|Oracle|x86-64|12cR2|Oracle JDBC 8|
 |PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.3|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
 
 {{< /table >}}
