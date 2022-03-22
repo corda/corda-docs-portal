@@ -17,7 +17,7 @@ title: Release notes
 
 # Corda Community Edition 4.9 release notes
 
-**Corda Community Edition** is here. This edition of Corda gives you the freedom of Corda's Open Source platform, with the benefits of affordable support. All the same fundamentals of Corda 4.8 are included, along with security updates, newly available APIs and sample code improvements. You can upgrade your existing Corda projects to Community Edition any time to be eligible for our support packages.
+**Corda Community Edition** is here. This edition of Corda gives you the freedom of Corda's Open Source platform, with the benefits of [affordable support](https://r3.com/support). All the same fundamentals of Corda 4.8 are included, along with security updates, newly available APIs and sample code improvements. You can upgrade your existing Corda projects to Community Edition any time to be eligible for our support packages.
 
 ## Highlights
 
@@ -28,6 +28,10 @@ The Corda Community Edition features:
 * Community Edition Docker images are now available.
 * The `flowrpcops` API is available and documented. You can use this to start, pause, and retry flows and hospitalized flows.
 * Access to node health data and node status.
+
+{{< note >}}
+Support for Corda: Community Edition 4.9 does not include experimental notaries. Check the [Platform Support Matrix](release-platform-support-matrix.md) for more information.
+{{< /note >}}
 
 ## Platform version change
 
