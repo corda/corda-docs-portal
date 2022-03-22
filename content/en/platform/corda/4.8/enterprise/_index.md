@@ -2,9 +2,9 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   versions:
-    weight: -650
+    weight: -645
   corda-enterprise-4-8:
-    weight: 2
+    weight: 1
     name: Corda Enterprise 4.8
 project: corda
 section_menu: corda-enterprise-4-8
