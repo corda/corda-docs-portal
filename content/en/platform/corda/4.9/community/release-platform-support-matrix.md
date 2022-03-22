@@ -23,7 +23,7 @@ If you require network management, you can consider using the [Network Map Servi
 
 ## JDK support
 
-Corda Enterprise 4.9 has been tested and verified to work with **Oracle JDK 8 JVM 8u251** and **Azul Zulu Enterprise 8u312**, for Azure deployment downloadable from
+Corda: Community Edition 4.9 has been tested and verified to work with **Oracle JDK 8 JVM 8u251** and **Azul Zulu Enterprise 8u312**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise 4.9.
