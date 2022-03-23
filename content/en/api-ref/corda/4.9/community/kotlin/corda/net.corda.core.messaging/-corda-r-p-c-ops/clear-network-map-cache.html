@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaRPCOps.clearNetworkMapCache - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.messaging</a>&nbsp;/&nbsp;<a href="index.html">CordaRPCOps</a>&nbsp;/&nbsp;<a href="./clear-network-map-cache.html">clearNetworkMapCache</a><br/>
+<br/>
+<h1>clearNetworkMapCache</h1>
+<a name="net.corda.core.messaging.CordaRPCOps$clearNetworkMapCache()"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">clearNetworkMapCache</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Clear all network map data from local node cache. Notice that after invoking this method your node will lose
+network map data and effectively won't be able to start any flow with the peers until network map is downloaded
+again on next poll - from <code>additional-node-infos</code> directory or from network map server. It depends on the
+polling interval when it happens. You can also use <a href="refresh-network-map-cache.html">refreshNetworkMapCache</a> to force next fetch from network map server
+(not from directory - it will happen automatically).
+If you run local test deployment and want clear view of the network, you may want to clear also <code>additional-node-infos</code>
+directory, because cache can be repopulated from there.</p>
+</BODY>
+</HTML>

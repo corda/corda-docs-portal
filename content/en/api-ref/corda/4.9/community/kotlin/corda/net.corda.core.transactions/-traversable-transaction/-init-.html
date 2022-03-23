@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TraversableTransaction.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="index.html">TraversableTransaction</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.transactions.TraversableTransaction$&lt;init&gt;(kotlin.collections.List((net.corda.core.transactions.ComponentGroup)))"></a>
+<code><span class="identifier">TraversableTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.TraversableTransaction$<init>(kotlin.collections.List((net.corda.core.transactions.ComponentGroup)))/componentGroups">componentGroups</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-component-group/index.html"><span class="identifier">ComponentGroup</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Old version of <a href="index.html">TraversableTransaction</a> constructor for ABI compatibility.</p>
+<a name="net.corda.core.transactions.TraversableTransaction$&lt;init&gt;(kotlin.collections.List((net.corda.core.transactions.ComponentGroup)), net.corda.core.crypto.DigestService)"></a>
+<code><span class="identifier">TraversableTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.TraversableTransaction$<init>(kotlin.collections.List((net.corda.core.transactions.ComponentGroup)), net.corda.core.crypto.DigestService)/componentGroups">componentGroups</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-component-group/index.html"><span class="identifier">ComponentGroup</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.TraversableTransaction$<init>(kotlin.collections.List((net.corda.core.transactions.ComponentGroup)), net.corda.core.crypto.DigestService)/digestService">digestService</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-digest-service/index.html"><span class="identifier">DigestService</span></a><span class="symbol">)</span></code>
+<p>Implemented by <a href="../-wire-transaction/index.html">WireTransaction</a> and <a href="../-filtered-transaction/index.html">FilteredTransaction</a>. A TraversableTransaction allows you to iterate
+over the flattened components of the underlying transaction structure, taking into account that some
+may be missing in the case of this representing a "torn" transaction. Please see the user guide section
+"Transaction tear-offs" to learn more about this feature.</p>
+</BODY>
+</HTML>

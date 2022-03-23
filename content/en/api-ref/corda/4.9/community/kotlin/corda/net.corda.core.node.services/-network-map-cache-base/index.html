@@ -1,0 +1,177 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NetworkMapCacheBase - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="./index.html">NetworkMapCacheBase</a><br/>
+<br/>
+<h1>NetworkMapCacheBase</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">NetworkMapCacheBase</span></code>
+<p>Subset of <a href="../-network-map-cache/index.html">NetworkMapCache</a> that doesn't depend on an <a href="../-identity-service/index.html">IdentityService</a>.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="all-nodes.html">allNodes</a></h4>
+</td>
+<td>
+<p>Return all <a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a>s the node currently is aware of (including ourselves).</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">allNodes</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="changed.html">changed</a></h4>
+</td>
+<td>
+<p>Tracks changes to the network map cache.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">changed</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">MapChange</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="node-ready.html">nodeReady</a></h4>
+</td>
+<td>
+<p>Future to track completion of the NetworkMapService registration.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">nodeReady</span><span class="symbol">: </span><a href="../../net.corda.core.concurrent/-corda-future/index.html"><span class="identifier">CordaFuture</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Void.html"><span class="identifier">Void</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary-identities.html">notaryIdentities</a></h4>
+</td>
+<td>
+<p>A list of notary services available on the network.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">notaryIdentities</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="clear-network-map-cache.html">clearNetworkMapCache</a></h4>
+</td>
+<td>
+<p>Clear all network map data from local node cache.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">clearNetworkMapCache</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-node-by-address.html">getNodeByAddress</a></h4>
+</td>
+<td>
+<p>Look up the node info for a host and port.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getNodeByAddress</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCacheBase$getNodeByAddress(net.corda.core.utilities.NetworkHostAndPort)/address">address</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-network-host-and-port/index.html"><span class="identifier">NetworkHostAndPort</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-node-by-legal-name.html">getNodeByLegalName</a></h4>
+</td>
+<td>
+<p>Return a <a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a> which has the given legal name for one of its identities, or null if no such node is found.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getNodeByLegalName</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCacheBase$getNodeByLegalName(net.corda.core.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-nodes-by-legal-identity-key.html">getNodesByLegalIdentityKey</a></h4>
+</td>
+<td>
+<p>Look up the node information entries for a specific identity key.
+Note that normally there will be only one node for a key, but for clusters of nodes or distributed services there
+can be multiple nodes.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getNodesByLegalIdentityKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCacheBase$getNodesByLegalIdentityKey(java.security.PublicKey)/identityKey">identityKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-nodes-by-legal-name.html">getNodesByLegalName</a></h4>
+</td>
+<td>
+<p>Return a list of <a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a>s which have the given legal name for one of their identities, or an empty list if no
+such nodes are found.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getNodesByLegalName</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCacheBase$getNodesByLegalName(net.corda.core.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-notary.html">getNotary</a></h4>
+</td>
+<td>
+<p>Look up a well known identity of notary by legal name.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getNotary</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCacheBase$getNotary(net.corda.core.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-party-info.html">getPartyInfo</a></h4>
+</td>
+<td>
+<p>Returns information about the party, which may be a specific node or a service</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getPartyInfo</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCacheBase$getPartyInfo(net.corda.core.identity.Party)/party">party</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-party-info/index.html"><span class="identifier">PartyInfo</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-peer-by-legal-name.html">getPeerByLegalName</a></h4>
+</td>
+<td>
+<p>Look up the well known identity of a legal name. This should be used in preference
+to well known identity lookup in the identity service where possible, as the network map is the authoritative
+source of well known identities.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getPeerByLegalName</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCacheBase$getPeerByLegalName(net.corda.core.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-peer-certificate-by-legal-name.html">getPeerCertificateByLegalName</a></h4>
+</td>
+<td>
+<p>Look up a well known identity (including certificate path) of a legal name. This should be used in preference
+to well known identity lookup in the identity service where possible, as the network map is the authoritative
+source of well known identities.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getPeerCertificateByLegalName</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCacheBase$getPeerCertificateByLegalName(net.corda.core.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-notary.html">isNotary</a></h4>
+</td>
+<td>
+<p>Returns true if and only if the given <a href="../../net.corda.core.identity/-party/index.html">Party</a> is a notary, which is defined by the network parameters.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">isNotary</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCacheBase$isNotary(net.corda.core.identity.Party)/party">party</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-validating-notary.html">isValidatingNotary</a></h4>
+</td>
+<td>
+<p>Returns true if and only if the given <a href="../../net.corda.core.identity/-party/index.html">Party</a> is validating notary. For every party that is a validating notary,
+<a href="is-notary.html">isNotary</a> is also true.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">isValidatingNotary</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCacheBase$isValidatingNotary(net.corda.core.identity.Party)/party">party</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="track.html">track</a></h4>
+</td>
+<td>
+<p>Atomically get the current party nodes and a stream of updates. Note that the Observable buffers updates until the
+first subscriber is registered so as to avoid racing with early updates.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">track</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.messaging/-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">MapChange</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-network-map-cache/index.html">NetworkMapCache</a></h4>
+</td>
+<td>
+<p>A network map contains lists of nodes on the network along with information about their identity keys, services
+they provide and host names or IP addresses where they can be connected to. The cache wraps around a map fetched
+from an authoritative service, and adds easy lookup of the data stored within it. Generally it would be initialised
+with a specified network map service, which it fetches data from and then subscribes to updates of.</p>
+<code><span class="keyword">interface </span><span class="identifier">NetworkMapCache</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NetworkMapCacheBase</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

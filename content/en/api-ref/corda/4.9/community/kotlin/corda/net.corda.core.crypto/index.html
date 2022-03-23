@@ -1,0 +1,372 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.core.crypto - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.core.crypto</a><br/>
+<br/>
+<h2>Package net.corda.core.crypto</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-composite-key/index.html">CompositeKey</a></h4>
+</td>
+<td>
+<p>A tree data structure that enables the representation of composite public keys, which are used to represent
+the signing requirements for multi-signature scenarios such as RAFT notary services. A composite key is a list
+of leaf keys and their contributing weight, and each leaf can be a conventional single key or a composite key.
+Keys contribute their weight to the total if they are matched by the signature.</p>
+<code><span class="keyword">class </span><span class="identifier">CompositeKey</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-composite-key-factory/index.html">CompositeKeyFactory</a></h4>
+</td>
+<td>
+<p>Factory for generating composite keys from ASN.1 format key specifications. This is used by <a href="-corda-security-provider/index.html">CordaSecurityProvider</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">CompositeKeyFactory</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyFactorySpi.html"><span class="identifier">KeyFactorySpi</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-composite-signature/index.html">CompositeSignature</a></h4>
+</td>
+<td>
+<p>Dedicated class for storing a set of signatures that comprise <a href="-composite-key/index.html">CompositeKey</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">CompositeSignature</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/Signature.html"><span class="identifier">Signature</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-composite-signatures-with-keys/index.html">CompositeSignaturesWithKeys</a></h4>
+</td>
+<td>
+<p>Custom class for holding signature data. This exists for later extension work to provide a standardised cross-platform
+serialization format.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CompositeSignaturesWithKeys</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-corda-object-identifier/index.html">CordaObjectIdentifier</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">CordaObjectIdentifier</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-corda-security-provider/index.html">CordaSecurityProvider</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CordaSecurityProvider</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html"><span class="identifier">Provider</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-crypto/index.html">Crypto</a></h4>
+</td>
+<td>
+<p>This object controls and provides the available and supported signature schemes for Corda.
+Any implemented <a href="-signature-scheme/index.html">SignatureScheme</a> should be strictly defined here.
+However, only the schemes returned by {@link #listSupportedSignatureSchemes()} are supported.
+Note that Corda currently supports the following signature schemes by their code names:</p>
+<code><span class="keyword">object </span><span class="identifier">Crypto</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-digest-algorithm/index.html">DigestAlgorithm</a></h4>
+</td>
+<td>
+<p>Interface for injecting custom digest implementation bypassing JCA.</p>
+<code><span class="keyword">interface </span><span class="identifier">DigestAlgorithm</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-digest-service/index.html">DigestService</a></h4>
+</td>
+<td>
+<p>The DigestService class is a service that offers the main crypto methods for calculating transaction hashes and
+building Merkle trees. The <a href="-digest-service/default.html">default</a> instance is passed by default to instances of classes like TransactionBuilder
+and as a parameter to MerkleTree.getMerkleTree(...) method. In future the <a href="-digest-service/default.html">default</a> instance can be parametrized
+to initialize with the network default hash algorithm or just a more secure algorithm (e.g. SHA3_256). While the
+SHA2_256 is vulnerable to pre-image attacks, the computeNonce and componentHash methods behaviour is defined by
+the hashTwiceNonce and hashTwiceComponent; with SHA2_256 they both must be set to true to ensure pre-image attack
+won't work (and for backward compatibility), but for other algorithms like SHA3_256 that are not affected, they
+can and should be set to false as hashing twice would not improve security but affect performance.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">DigestService</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-digital-signature/index.html">DigitalSignature</a></h4>
+</td>
+<td>
+<p>A wrapper around a digital signature.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">DigitalSignature</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-dummy-secure-random.html">DummySecureRandom</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">DummySecureRandom</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html"><span class="identifier">SecureRandom</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-merkle-tree/index.html">MerkleTree</a></h4>
+</td>
+<td>
+<p>Creation and verification of a Merkle tree for a <a href="#">WireTransaction</a>.</p>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">MerkleTree</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-null-keys/index.html">NullKeys</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">NullKeys</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-partial-merkle-tree/index.html">PartialMerkleTree</a></h4>
+</td>
+<td>
+<p>Building and verification of Partial Merkle Tree.
+Partial Merkle Tree is a minimal tree needed to check that a given set of leaves belongs to a full Merkle Tree.</p>
+<code><span class="keyword">class </span><span class="identifier">PartialMerkleTree</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-secure-hash/index.html">SecureHash</a></h4>
+</td>
+<td>
+<p>Container for a cryptographically secure hash value.
+Provides utilities for generating a cryptographic hash using different algorithms (currently only SHA-256 supported).</p>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">SecureHash</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signable-data/index.html">SignableData</a></h4>
+</td>
+<td>
+<p>A <a href="-signable-data/index.html">SignableData</a> object is the packet actually signed.
+It works as a wrapper over transaction id and signature metadata.
+Note that when multi-transaction signing (signing a block of transactions) is used, the root of the Merkle tree
+(having transaction IDs as leaves) is actually signed and thus <a href="-signable-data/tx-id.html">txId</a> refers to this root and not a specific transaction.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SignableData</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signature-metadata/index.html">SignatureMetadata</a></h4>
+</td>
+<td>
+<p>SignatureMeta is required to add extra meta-data to a transaction's signature.
+It currently supports platformVersion only, but it can be extended to support a universal digital
+signature model enabling partial signatures and attaching extra information, such as a user's timestamp or other
+application-specific fields.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SignatureMetadata</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signature-scheme/index.html">SignatureScheme</a></h4>
+</td>
+<td>
+<p>This class is used to define a digital signature scheme.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SignatureScheme</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signed-data/index.html">SignedData</a></h4>
+</td>
+<td>
+<p>A serialized piece of data and its signature. Enforces signature validity in order to deserialize the data
+contained within.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SignedData</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-signature/index.html">TransactionSignature</a></h4>
+</td>
+<td>
+<p>A wrapper over the signature output accompanied by signer's public key and signature metadata.
+This is similar to <a href="-digital-signature/-with-key/index.html">DigitalSignature.WithKey</a>, but targeted to DLT transaction (or block of transactions) signatures.</p>
+<code><span class="keyword">class </span><span class="identifier">TransactionSignature</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-digital-signature/index.html"><span class="identifier">DigitalSignature</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-merkle-tree-exception/index.html">MerkleTreeException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">MerkleTreeException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core/-corda-exception/index.html"><span class="identifier">CordaException</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="java.security.-key-pair/index.html">java.security.KeyPair</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="java.security.-private-key/index.html">java.security.PrivateKey</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="java.security.-public-key/index.html">java.security.PublicKey</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.-byte-array/index.html">kotlin.ByteArray</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.collections.-iterable/index.html">kotlin.collections.Iterable</a></h4>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="algorithm.html">algorithm</a></h4>
+</td>
+<td>
+<p>Hash algorithm.</p>
+<code><span class="keyword">val </span><a href="-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">.</span><span class="identifier">algorithm</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-zero.html">isZero</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">.</span><span class="identifier">isZero</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="component-hash.html">componentHash</a></h4>
+</td>
+<td>
+<p>Compute the hash of each serialised component so as to be used as Merkle tree leaf. The resultant output (leaf) is
+calculated using the SHA256d algorithm, thus SHA256(SHA256(nonce || serializedComponent)), where nonce is computed
+from <a href="compute-nonce.html">computeNonce</a>.</p>
+<code><span class="keyword">fun </span><s><span class="identifier">componentHash</span></s><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/opaqueBytes">opaqueBytes</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/privacySalt">privacySalt</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/componentGroupIndex">componentGroupIndex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/internalIndex">internalIndex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code>
+<p>Return the SHA256(SHA256(nonce || serializedComponent)).</p>
+<code><span class="keyword">fun </span><s><span class="identifier">componentHash</span></s><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$componentHash(net.corda.core.crypto.SecureHash, net.corda.core.utilities.OpaqueBytes)/nonce">nonce</span><span class="symbol">:</span>&nbsp;<a href="-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto$componentHash(net.corda.core.crypto.SecureHash, net.corda.core.utilities.OpaqueBytes)/opaqueBytes">opaqueBytes</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="compute-nonce.html">computeNonce</a></h4>
+</td>
+<td>
+<p>Method to compute a nonce based on privacySalt, component group index and component internal index.
+SHA256d (double SHA256) is used to prevent length extension attacks.</p>
+<code><span class="keyword">fun </span><s><span class="identifier">computeNonce</span></s><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$computeNonce(net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/privacySalt">privacySalt</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto$computeNonce(net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/groupIndex">groupIndex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto$computeNonce(net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/internalIndex">internalIndex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="entropy-to-key-pair.html">entropyToKeyPair</a></h4>
+</td>
+<td>
+<p>Returns a key pair derived from the given private key entropy. This is useful for unit tests and other cases where
+you want hard-coded private keys.</p>
+<code><span class="keyword">fun </span><span class="identifier">entropyToKeyPair</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$entropyToKeyPair(java.math.BigInteger)/entropy">entropy</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="generate-key-pair.html">generateKeyPair</a></h4>
+</td>
+<td>
+<p>A simple wrapper that will make it easier to swap out the signature algorithm we use in future.</p>
+<code><span class="keyword">fun </span><span class="identifier">generateKeyPair</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-as.html">hashAs</a></h4>
+</td>
+<td>
+<p>Compute the <a href="hash-as.html#net.corda.core.crypto$hashAs(net.corda.core.utilities.OpaqueBytes, kotlin.String)/algorithm">algorithm</a> hash for the contents of the <a href="../net.corda.core.utilities/-opaque-bytes/index.html">OpaqueBytes</a>.</p>
+<code><span class="keyword">fun </span><a href="../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">.</span><span class="identifier">hashAs</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$hashAs(net.corda.core.utilities.OpaqueBytes, kotlin.String)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="new-secure-random.html">newSecureRandom</a></h4>
+</td>
+<td>
+<p>Get an instance of <a href="https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html">SecureRandom</a> to avoid blocking, due to waiting for additional entropy, when possible.
+In this version, the NativePRNGNonBlocking is exclusively used on Linux OS to utilize dev/urandom because in high traffic
+/dev/random may wait for a certain amount of "noise" to be generated on the host machine before returning a result.</p>
+<code><span class="keyword">fun </span><span class="identifier">newSecureRandom</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html"><span class="identifier">SecureRandom</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="random63-bit-value.html">random63BitValue</a></h4>
+</td>
+<td>
+<p>Returns a random positive non-zero long generated using a secure RNG. This function sacrifies a bit of entropy in order
+to avoid potential bugs where the value is used in a context where negative numbers or zero are not expected.</p>
+<code><span class="keyword">fun </span><span class="identifier">random63BitValue</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="random-hash.html">randomHash</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="-digest-service/index.html"><span class="identifier">DigestService</span></a><span class="symbol">.</span><span class="identifier">randomHash</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="secure-random-bytes.html">secureRandomBytes</a></h4>
+</td>
+<td>
+<p>Generate a securely random <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> of requested number of bytes. Usually used for seeds, nonces and keys.</p>
+<code><span class="keyword">fun </span><span class="identifier">secureRandomBytes</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$secureRandomBytes(kotlin.Int)/numOfBytes">numOfBytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="serialized-hash.html">serializedHash</a></h4>
+</td>
+<td>
+<p>Serialise the object and return the hash of the serialized bytes. Note that the resulting hash may not be deterministic
+across platform versions: serialization can produce different values if any of the types being serialized have changed,
+or if the version of serialization specified by the context changes.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <s><span class="identifier">serializedHash</span></s><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$serializedHash(net.corda.core.crypto.serializedHash.T)/x">x</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sha256.html">sha256</a></h4>
+</td>
+<td>
+<p>Compute the SHA-256 hash for the contents of the <a href="../net.corda.core.utilities/-opaque-bytes/index.html">OpaqueBytes</a>.</p>
+<code><span class="keyword">fun </span><a href="../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">.</span><span class="identifier">sha256</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

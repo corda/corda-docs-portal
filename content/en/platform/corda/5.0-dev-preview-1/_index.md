@@ -6,7 +6,7 @@ project: corda
 version: 'Corda 5 Developer Preview'
 menu:
   versions:
-    weight: -850
+    weight: -648
   corda-5-dev-preview:
     weight: 10
 aliases:

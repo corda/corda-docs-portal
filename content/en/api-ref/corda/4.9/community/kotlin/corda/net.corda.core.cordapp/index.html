@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.core.cordapp - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.core.cordapp</a><br/>
+<br/>
+<h2>Package net.corda.core.cordapp</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-cordapp/index.html">Cordapp</a></h4>
+</td>
+<td>
+<p>Represents a cordapp by registering the JAR that contains it and all important classes for Corda.
+Instances of this class are generated automatically at startup of a node and can get retrieved from
+<a href="-cordapp-provider/get-app-context.html">CordappProvider.getAppContext</a> from the <a href="-cordapp-context/index.html">CordappContext</a> it returns.</p>
+<code><span class="keyword">interface </span><span class="identifier">Cordapp</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cordapp-config/index.html">CordappConfig</a></h4>
+</td>
+<td>
+<p>Provides access to cordapp configuration independent of the configuration provider.</p>
+<code><span class="keyword">interface </span><span class="identifier">CordappConfig</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cordapp-context/index.html">CordappContext</a></h4>
+</td>
+<td>
+<p>An app context provides information about where an app was loaded from, access to its classloader,
+and (in the included <a href="-cordapp/index.html">Cordapp</a> object) lists of annotated classes discovered via scanning the JAR.</p>
+<code><span class="keyword">class </span><span class="identifier">CordappContext</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cordapp-info/index.html">CordappInfo</a></h4>
+</td>
+<td>
+<p>A <a href="-cordapp-info/index.html">CordappInfo</a> describes a single CorDapp currently installed on the node</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CordappInfo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cordapp-provider/index.html">CordappProvider</a></h4>
+</td>
+<td>
+<p>Provides access to what the node knows about loaded applications.</p>
+<code><span class="keyword">interface </span><span class="identifier">CordappProvider</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-cordapp-config-exception/index.html">CordappConfigException</a></h4>
+</td>
+<td>
+<p>Thrown if an exception occurs in accessing or parsing cordapp configuration</p>
+<code><span class="keyword">class </span><span class="identifier">CordappConfigException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html"><span class="identifier">Exception</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

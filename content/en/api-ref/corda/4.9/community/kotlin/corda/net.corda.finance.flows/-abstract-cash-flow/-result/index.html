@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AbstractCashFlow.Result - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="../index.html">AbstractCashFlow</a>&nbsp;/&nbsp;<a href="./index.html">Result</a><br/>
+<br/>
+<h1>Result</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Result</span></code>
+<p>Combined signed transaction and identity lookup map, which is the resulting data from regular cash flows.
+Specialised flows for unit tests differ from this.</p>
+<h3>Parameters</h3>
+<p><a name="stx"></a>
+<code>stx</code> - the signed transaction.</p>
+<p><a name="recipient"></a>
+<code>recipient</code> - the identity used for the other side of the transaction, where applicable (i.e. this is
+null for exit transactions). For anonymous transactions this is the confidential identity generated for the
+transaction, otherwise this is the well known identity.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Combined signed transaction and identity lookup map, which is the resulting data from regular cash flows.
+Specialised flows for unit tests differ from this.</p>
+<code><span class="identifier">Result</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.AbstractCashFlow.Result$<init>(net.corda.core.transactions.SignedTransaction, net.corda.core.identity.AbstractParty)/stx">stx</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.AbstractCashFlow.Result$<init>(net.corda.core.transactions.SignedTransaction, net.corda.core.identity.AbstractParty)/recipient">recipient</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">?</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="recipient.html">recipient</a></h4>
+</td>
+<td>
+<p>the identity used for the other side of the transaction, where applicable (i.e. this is
+null for exit transactions). For anonymous transactions this is the confidential identity generated for the
+transaction, otherwise this is the well known identity.</p>
+<code><span class="keyword">val </span><span class="identifier">recipient</span><span class="symbol">: </span><a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="stx.html">stx</a></h4>
+</td>
+<td>
+<p>the signed transaction.</p>
+<code><span class="keyword">val </span><span class="identifier">stx</span><span class="symbol">: </span><a href="../../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

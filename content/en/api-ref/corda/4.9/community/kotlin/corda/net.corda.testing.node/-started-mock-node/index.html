@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StartedMockNode - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="./index.html">StartedMockNode</a><br/>
+<br/>
+<h1>StartedMockNode</h1>
+<code><span class="keyword">class </span><span class="identifier">StartedMockNode</span></code>
+<p>A class that represents a started mock node for testing.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<p>An identifier for the node. By default this is allocated sequentially in a <a href="../-mock-network/index.html">MockNetwork</a>.</p>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="info.html">info</a></h4>
+</td>
+<td>
+<p>The <a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a> for the underlying node.</p>
+<code><span class="keyword">val </span><span class="identifier">info</span><span class="symbol">: </span><a href="../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="services.html">services</a></h4>
+</td>
+<td>
+<p>The <a href="../../net.corda.core.node/-service-hub/index.html">ServiceHub</a> for the underlying node.</p>
+<code><span class="keyword">val </span><span class="identifier">services</span><span class="symbol">: </span><a href="../../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="find-state-machines.html">findStateMachines</a></h4>
+</td>
+<td>
+<p>Returns the currently live flows of type <a href="find-state-machines.html#net.corda.testing.node.StartedMockNode$findStateMachines(java.lang.Class((net.corda.testing.node.StartedMockNode.findStateMachines.F)))/flowClass">flowClass</a>, and their corresponding result future.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">F</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">findStateMachines</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.StartedMockNode$findStateMachines(java.lang.Class((net.corda.testing.node.StartedMockNode.findStateMachines.F)))/flowClass">flowClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">F</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><span class="identifier">F</span><span class="symbol">,</span>&nbsp;<a href="../../net.corda.core.concurrent/-corda-future/index.html"><span class="identifier">CordaFuture</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="pump-receive.html">pumpReceive</a></h4>
+</td>
+<td>
+<p>Delivers a single message from the internal queue. If there are no messages waiting to be delivered and block
+is true, waits until one has been provided on a different thread via send. If block is false, the return
+result indicates whether a message was delivered or not.</p>
+<code><span class="keyword">fun </span><span class="identifier">pumpReceive</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.StartedMockNode$pumpReceive(kotlin.Boolean)/block">block</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MessageTransfer</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="register-initiated-flow.html">registerInitiatedFlow</a></h4>
+</td>
+<td>
+<p>Manually register an initiating-responder flow pair based on the <a href="../../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a> annotations.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">F</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">registerInitiatedFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.StartedMockNode$registerInitiatedFlow(java.lang.Class((net.corda.testing.node.StartedMockNode.registerInitiatedFlow.F)))/initiatedFlowClass">initiatedFlowClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">F</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">F</span><span class="symbol">&gt;</span></code>
+<p>Register a <em>custom</em> relationship between initiating and receiving flow on a node-by-node basis. This is used when
+we want to manually specify that a particular initiating flow class will have a particular responder.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">F</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">registerInitiatedFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.StartedMockNode$registerInitiatedFlow(java.lang.Class((net.corda.core.flows.FlowLogic((kotlin.Any)))), java.lang.Class((net.corda.testing.node.StartedMockNode.registerInitiatedFlow.F)))/initiatingFlowClass">initiatingFlowClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.StartedMockNode$registerInitiatedFlow(java.lang.Class((net.corda.core.flows.FlowLogic((kotlin.Any)))), java.lang.Class((net.corda.testing.node.StartedMockNode.registerInitiatedFlow.F)))/initiatedFlowClass">initiatedFlowClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">F</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">F</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start-flow.html">startFlow</a></h4>
+</td>
+<td>
+<p>Starts an already constructed flow. Note that you must be on the server thread to call this method.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">startFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.StartedMockNode$startFlow(net.corda.core.flows.FlowLogic((net.corda.testing.node.StartedMockNode.startFlow.T)))/logic">logic</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.concurrent/-corda-future/index.html"><span class="identifier">CordaFuture</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="stop.html">stop</a></h4>
+</td>
+<td>
+<p>Stop the node.</p>
+<code><span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="transaction.html">transaction</a></h4>
+</td>
+<td>
+<p>Executes given statement in the scope of transaction.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">transaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.StartedMockNode$transaction(kotlin.Function0((net.corda.testing.node.StartedMockNode.transaction.T)))/statement">statement</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AmountTransfer.quantityDelta - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="index.html">AmountTransfer</a>&nbsp;/&nbsp;<a href="./quantity-delta.html">quantityDelta</a><br/>
+<br/>
+<h1>quantityDelta</h1>
+<a name="net.corda.core.contracts.AmountTransfer$quantityDelta"></a>
+<code><span class="keyword">val </span><span class="identifier">quantityDelta</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code>
+<p>is a signed Long value representing the exchanged number of tokens. If positive then
+it represents the movement of Math.abs(quantityDelta) tokens away from source and receipt of Math.abs(quantityDelta)
+at the destination. If the quantityDelta is negative then the source will receive Math.abs(quantityDelta) tokens
+and the destination will lose Math.abs(quantityDelta) tokens.
+Where possible the source and destination should be coded to ensure a positive quantityDelta,
+but in various scenarios it may be more consistent to allow positive and negative values.
+For example it is common for a bank to code asset flows as gains and losses from its perspective i.e. always the destination.</p>
+<h3>Property</h3>
+<p><a name="quantityDelta"></a>
+<code>quantityDelta</code> - is a signed Long value representing the exchanged number of tokens. If positive then
+it represents the movement of Math.abs(quantityDelta) tokens away from source and receipt of Math.abs(quantityDelta)
+at the destination. If the quantityDelta is negative then the source will receive Math.abs(quantityDelta) tokens
+and the destination will lose Math.abs(quantityDelta) tokens.
+Where possible the source and destination should be coded to ensure a positive quantityDelta,
+but in various scenarios it may be more consistent to allow positive and negative values.
+For example it is common for a bank to code asset flows as gains and losses from its perspective i.e. always the destination.</p>
+</BODY>
+</HTML>

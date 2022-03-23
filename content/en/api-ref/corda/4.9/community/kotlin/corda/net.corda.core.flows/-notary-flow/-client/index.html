@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NotaryFlow.Client - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="../index.html">NotaryFlow</a>&nbsp;/&nbsp;<a href="./index.html">Client</a><br/>
+<br/>
+<h1>Client</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="identifier">@InitiatingFlow</span> <span class="keyword">class </span><span class="identifier">Client</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BackpressureAwareTimedFlow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>A flow to be used by a party for obtaining signature(s) from a <a href="#">NotaryService</a> ascertaining the transaction
+time-window is correct and none of its inputs have been used in another completed transaction.</p>
+<p>In case of a single-node or Raft notary, the flow will return a single signature. For the BFT notary multiple
+signatures will be returned – one from each replica that accepted the input state commit.</p>
+<p>The transaction to be notarised, <a href="#">stx</a>, should be fully verified before calling this flow.</p>
+<h3>Exceptions</h3>
+<p><a name="NotaryException"></a>
+<code>NotaryException</code> - in case the any of the inputs to the transaction have been consumed
+    by another transaction or the time-window is invalid or
+    the parameters used for this transaction are no longer in force in the network.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-r-e-q-u-e-s-t-i-n-g.html">REQUESTING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">REQUESTING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-v-a-l-i-d-a-t-i-n-g.html">VALIDATING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">VALIDATING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">Client</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.NotaryFlow.Client$<init>(net.corda.core.transactions.SignedTransaction, kotlin.Boolean)/stx">stx</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.NotaryFlow.Client$<init>(net.corda.core.transactions.SignedTransaction, kotlin.Boolean)/skipVerification">skipVerification</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span></code><br/>
+<code><span class="identifier">Client</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.NotaryFlow.Client$<init>(net.corda.core.transactions.SignedTransaction, net.corda.core.utilities.ProgressTracker)/stx">stx</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.NotaryFlow.Client$<init>(net.corda.core.transactions.SignedTransaction, net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a><span class="symbol">)</span></code>
+<p>A flow to be used by a party for obtaining signature(s) from a <a href="#">NotaryService</a> ascertaining the transaction
+time-window is correct and none of its inputs have been used in another completed transaction.</p>
+<code><span class="identifier">Client</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.NotaryFlow.Client$<init>(net.corda.core.transactions.SignedTransaction, net.corda.core.utilities.ProgressTracker, kotlin.Boolean)/stx">stx</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.NotaryFlow.Client$<init>(net.corda.core.transactions.SignedTransaction, net.corda.core.utilities.ProgressTracker, kotlin.Boolean)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.NotaryFlow.Client$<init>(net.corda.core.transactions.SignedTransaction, net.corda.core.utilities.ProgressTracker, kotlin.Boolean)/skipVerification">skipVerification</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="is-timeout-enabled.html">isTimeoutEnabled</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">isTimeoutEnabled</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress-tracker.html">progressTracker</a></h4>
+</td>
+<td>
+<p>Override this to provide a <a href="../../../net.corda.core.utilities/-progress-tracker/index.html">ProgressTracker</a>. If one is provided and stepped, the framework will do something
+helpful with the progress reports e.g record to the audit service. If this flow is invoked as a subflow of another,
+then the tracker will be made a child of the current step in the parent. If it's null, this flow doesn't track
+progress.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">progressTracker</span><span class="symbol">: </span><a href="../../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<p>This is where you fill out your business logic.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="check-transaction.html">checkTransaction</a></h4>
+</td>
+<td>
+<p>Checks that the transaction specifies a valid notary, and verifies that it contains all required signatures
+apart from the notary's.</p>
+<code><span class="keyword">fun </span><span class="identifier">checkTransaction</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notarise.html">notarise</a></h4>
+</td>
+<td>
+<p>Notarises the transaction with the <a href="notarise.html#net.corda.core.flows.NotaryFlow.Client$notarise(net.corda.core.identity.Party)/notaryParty">notaryParty</a>, obtains the notary's signature(s).</p>
+<code><span class="keyword">fun </span><span class="identifier">notarise</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.NotaryFlow.Client$notarise(net.corda.core.identity.Party)/notaryParty">notaryParty</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><a href="../../-notarisation-response/index.html"><span class="identifier">NotarisationResponse</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="validate-response.html">validateResponse</a></h4>
+</td>
+<td>
+<p>Checks that the notary's signature(s) is/are valid.</p>
+<code><span class="keyword">fun </span><span class="identifier">validateResponse</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.NotaryFlow.Client$validateResponse(net.corda.core.utilities.UntrustworthyData((net.corda.core.flows.NotarisationResponse)), net.corda.core.identity.Party)/response">response</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><a href="../../-notarisation-response/index.html"><span class="identifier">NotarisationResponse</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.NotaryFlow.Client$validateResponse(net.corda.core.utilities.UntrustworthyData((net.corda.core.flows.NotarisationResponse)), net.corda.core.identity.Party)/notaryParty">notaryParty</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="tracker.html">tracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">tracker</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

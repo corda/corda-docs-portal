@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CommercialPaperUtils.generateRedeem - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.workflows</a>&nbsp;/&nbsp;<a href="index.html">CommercialPaperUtils</a>&nbsp;/&nbsp;<a href="./generate-redeem.html">generateRedeem</a><br/>
+<br/>
+<h1>generateRedeem</h1>
+<a name="net.corda.finance.workflows.CommercialPaperUtils$generateRedeem(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.CommercialPaper.State)), net.corda.core.node.ServiceHub, net.corda.core.identity.PartyAndCertificate)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="identifier">@Suspendable</span> <span class="keyword">fun </span><span class="identifier">generateRedeem</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateRedeem(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.CommercialPaper.State)), net.corda.core.node.ServiceHub, net.corda.core.identity.PartyAndCertificate)/tx">tx</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionBuilder</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateRedeem(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.CommercialPaper.State)), net.corda.core.node.ServiceHub, net.corda.core.identity.PartyAndCertificate)/paper">paper</span><span class="symbol">:</span>&nbsp;<span class="identifier">StateAndRef</span><span class="symbol">&lt;</span><span class="identifier">State</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateRedeem(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.CommercialPaper.State)), net.corda.core.node.ServiceHub, net.corda.core.identity.PartyAndCertificate)/services">services</span><span class="symbol">:</span>&nbsp;<span class="identifier">ServiceHub</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.CommercialPaperUtils$generateRedeem(net.corda.core.transactions.TransactionBuilder, net.corda.core.contracts.StateAndRef((net.corda.finance.contracts.CommercialPaper.State)), net.corda.core.node.ServiceHub, net.corda.core.identity.PartyAndCertificate)/ourIdentity">ourIdentity</span><span class="symbol">:</span>&nbsp;<span class="identifier">PartyAndCertificate</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Intended to be called by the issuer of some commercial paper, when an owner has notified us that they wish
+to redeem the paper. We must therefore send enough money to the key that owns the paper to satisfy the face
+value, and then ensure the paper is removed from the ledger.</p>
+<h3>Exceptions</h3>
+<p><a name="InsufficientBalanceException"></a>
+<code>InsufficientBalanceException</code> - if the vault doesn't contain enough money to pay the redeemer.</p>
+</BODY>
+</HTML>

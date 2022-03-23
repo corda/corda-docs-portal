@@ -1,0 +1,172 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ContractUpgradeWireTransaction - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="./index.html">ContractUpgradeWireTransaction</a><br/>
+<br/>
+<h1>ContractUpgradeWireTransaction</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ContractUpgradeWireTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a></code>
+<p>A special transaction for upgrading the contract of a state.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-component/index.html">Component</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Component</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">ContractUpgradeWireTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeWireTransaction$<init>(kotlin.collections.List((net.corda.core.utilities.OpaqueBytes)), net.corda.core.contracts.PrivacySalt)/serializedComponents">serializedComponents</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeWireTransaction$<init>(kotlin.collections.List((net.corda.core.utilities.OpaqueBytes)), net.corda.core.contracts.PrivacySalt)/privacySalt">privacySalt</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a>&nbsp;<span class="symbol">=</span>&nbsp;PrivacySalt()<span class="symbol">)</span></code>
+<p>A special transaction for upgrading the contract of a state.</p>
+<code><span class="identifier">ContractUpgradeWireTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeWireTransaction$<init>(kotlin.collections.List((net.corda.core.utilities.OpaqueBytes)), net.corda.core.contracts.PrivacySalt, net.corda.core.crypto.DigestService)/serializedComponents">serializedComponents</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeWireTransaction$<init>(kotlin.collections.List((net.corda.core.utilities.OpaqueBytes)), net.corda.core.contracts.PrivacySalt, net.corda.core.crypto.DigestService)/privacySalt">privacySalt</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeWireTransaction$<init>(kotlin.collections.List((net.corda.core.utilities.OpaqueBytes)), net.corda.core.contracts.PrivacySalt, net.corda.core.crypto.DigestService)/digestService">digestService</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-digest-service/index.html"><span class="identifier">DigestService</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="digest-service.html">digestService</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">digestService</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-digest-service/index.html"><span class="identifier">DigestService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="inputs.html">inputs</a></h4>
+</td>
+<td>
+<p>The inputs of this transaction, containing state references only.</p>
+<code><span class="keyword">val </span><span class="identifier">inputs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="legacy-contract-attachment-id.html">legacyContractAttachmentId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">legacyContractAttachmentId</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters-hash.html">networkParametersHash</a></h4>
+</td>
+<td>
+<p>Hash of the network parameters that were in force when the transaction was notarised. Null means, that the transaction
+was created on older version of Corda (before 4), resolution will default to initial parameters.</p>
+<code><span class="keyword">val </span><span class="identifier">networkParametersHash</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary.html">notary</a></h4>
+</td>
+<td>
+<p>If present, the notary for this transaction. If absent then the transaction is not notarised at all.
+This is intended for issuance/genesis transactions that don't consume any other states and thus can't
+double spend anything.</p>
+<code><span class="keyword">val </span><span class="identifier">notary</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="outputs.html">outputs</a></h4>
+</td>
+<td>
+<p>This transaction does not contain any output states, outputs can be obtained by resolving a
+<a href="../-contract-upgrade-ledger-transaction/index.html">ContractUpgradeLedgerTransaction</a> – outputs will be calculated on demand by applying the contract
+upgrade operation to inputs.</p>
+<code><span class="keyword">val </span><span class="identifier">outputs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-transaction-state/index.html"><span class="identifier">TransactionState</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="privacy-salt.html">privacySalt</a></h4>
+</td>
+<td>
+<p>Required for hiding components in <a href="../-contract-upgrade-filtered-transaction/index.html">ContractUpgradeFilteredTransaction</a>.</p>
+<code><span class="keyword">val </span><span class="identifier">privacySalt</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="references.html">references</a></h4>
+</td>
+<td>
+<p>ContractUpgradeWireTransactions should not contain reference input states.</p>
+<code><span class="keyword">val </span><span class="identifier">references</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="serialized-components.html">serializedComponents</a></h4>
+</td>
+<td>
+<p>Contains all of the transaction components in serialized form.
+This is used for calculating the transaction id in a deterministic fashion, since re-serializing properties
+may result in a different byte sequence depending on the serialization context.</p>
+<code><span class="keyword">val </span><span class="identifier">serializedComponents</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="upgraded-contract-attachment-id.html">upgradedContractAttachmentId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">upgradedContractAttachmentId</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="upgraded-contract-class-name.html">upgradedContractClassName</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">upgradedContractClassName</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="build-filtered-transaction.html">buildFilteredTransaction</a></h4>
+</td>
+<td>
+<p>Constructs a filtered transaction: the inputs, the notary party and network parameters hash are always visible, while the rest are hidden.</p>
+<code><span class="keyword">fun </span><span class="identifier">buildFilteredTransaction</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-contract-upgrade-filtered-transaction/index.html"><span class="identifier">ContractUpgradeFilteredTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="copy.html">copy</a></h4>
+</td>
+<td>
+<p>Old version of <a href="copy.html">ContractUpgradeWireTransaction.copy</a> for sake of ABI compatibility.</p>
+<code><span class="keyword">fun </span><span class="identifier">copy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeWireTransaction$copy(kotlin.collections.List((net.corda.core.utilities.OpaqueBytes)), net.corda.core.contracts.PrivacySalt)/serializedComponents">serializedComponents</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeWireTransaction$copy(kotlin.collections.List((net.corda.core.utilities.OpaqueBytes)), net.corda.core.contracts.PrivacySalt)/privacySalt">privacySalt</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ContractUpgradeWireTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="resolve.html">resolve</a></h4>
+</td>
+<td>
+<p>Resolves input states and contract attachments, and builds a ContractUpgradeLedgerTransaction.</p>
+<code><span class="keyword">fun </span><span class="identifier">resolve</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeWireTransaction$resolve(net.corda.core.node.ServicesForResolution, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)))/services">services</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-services-for-resolution/index.html"><span class="identifier">ServicesForResolution</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeWireTransaction$resolve(net.corda.core.node.ServicesForResolution, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)))/sigs">sigs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-contract-upgrade-ledger-transaction/index.html"><span class="identifier">ContractUpgradeLedgerTransaction</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

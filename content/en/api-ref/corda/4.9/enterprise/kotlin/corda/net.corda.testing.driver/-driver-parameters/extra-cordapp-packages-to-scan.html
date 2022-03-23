@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DriverParameters.extraCordappPackagesToScan - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.driver</a>&nbsp;/&nbsp;<a href="index.html">DriverParameters</a>&nbsp;/&nbsp;<a href="./extra-cordapp-packages-to-scan.html">extraCordappPackagesToScan</a><br/>
+<br/>
+<h1>extraCordappPackagesToScan</h1>
+<a name="net.corda.testing.driver.DriverParameters$extraCordappPackagesToScan"></a>
+<code><span class="keyword">val </span><s><span class="identifier">extraCordappPackagesToScan</span></s><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code><br/>
+<strong>Deprecated:</strong> extraCordappPackagesToScan does not preserve the original CorDapp's versioning and metadata, which may lead to misleading results in tests. Use cordappsForAllNodes instead.<br/>
+<br/>
+<p>A <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a> of additional cordapp packages to scan for any cordapp code, e.g.
+    contract verification code, flows and services. The calling package is automatically included in this list. If this is not desirable
+    then use <a href="cordapps-for-all-nodes.html">cordappsForAllNodes</a> instead.</p>
+<h3>Property</h3>
+<p><a name="extraCordappPackagesToScan"></a>
+<code>extraCordappPackagesToScan</code> - A <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a> of additional cordapp packages to scan for any cordapp code, e.g.
+    contract verification code, flows and services. The calling package is automatically included in this list. If this is not desirable
+    then use <a href="cordapps-for-all-nodes.html">cordappsForAllNodes</a> instead.</p>
+</BODY>
+</HTML>

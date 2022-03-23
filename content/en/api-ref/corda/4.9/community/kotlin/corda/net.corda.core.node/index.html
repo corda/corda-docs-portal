@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.core.node - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.core.node</a><br/>
+<br/>
+<h2>Package net.corda.core.node</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-app-service-hub/index.html">AppServiceHub</a></h4>
+</td>
+<td>
+<p>A <a href="../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> annotated class requires a constructor taking a
+single parameter of type <a href="-app-service-hub/index.html">AppServiceHub</a>.
+With the <a href="-app-service-hub/index.html">AppServiceHub</a> parameter a <a href="../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> is able to access to privileged operations.
+In particular such a <a href="../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> can initiate and track flows marked
+with <a href="../net.corda.core.flows/-startable-by-service/index.html">net.corda.core.flows.StartableByService</a>.</p>
+<code><span class="keyword">interface </span><span class="identifier">AppServiceHub</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-service-hub/index.html"><span class="identifier">ServiceHub</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-network-parameters/index.html">NetworkParameters</a></h4>
+</td>
+<td>
+<p>Network parameters are a set of values that every node participating in the zone needs to agree on and use to
+correctly interoperate with each other.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NetworkParameters</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-node-diagnostic-info/index.html">NodeDiagnosticInfo</a></h4>
+</td>
+<td>
+<p>A <a href="-node-diagnostic-info/index.html">NodeDiagnosticInfo</a> holds information about the current node version.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NodeDiagnosticInfo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-node-info/index.html">NodeInfo</a></h4>
+</td>
+<td>
+<p>Information about a network node that acts on behalf of some party. NodeInfos can be found via the network map
+cache, accessible from a <a href="../net.corda.core.node.services/-network-map-cache/index.html">net.corda.core.node.services.NetworkMapCache</a>. They are also available via RPC
+using the <a href="../net.corda.core.messaging/-corda-r-p-c-ops/network-map-snapshot.html">net.corda.core.messaging.CordaRPCOps.networkMapSnapshot</a> method.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NodeInfo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-notary-info/index.html">NotaryInfo</a></h4>
+</td>
+<td>
+<p>Data class storing information about notaries available in the network.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NotaryInfo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-service-hub/index.html">ServiceHub</a></h4>
+</td>
+<td>
+<p>A service hub is the starting point for most operations you can do inside the node. You are provided with one
+when a class annotated with <a href="../net.corda.core.node.services/-corda-service/index.html">CordaService</a> is constructed, and you have access to one inside flows. Most RPCs
+simply forward to the services found here after some access checking.</p>
+<code><span class="keyword">interface </span><span class="identifier">ServiceHub</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-services-for-resolution/index.html"><span class="identifier">ServicesForResolution</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-services-for-resolution/index.html">ServicesForResolution</a></h4>
+</td>
+<td>
+<p>Subset of node services that are used for loading transactions from the wire into fully resolved, looked up
+forms ready for verification.</p>
+<code><span class="keyword">interface </span><span class="identifier">ServicesForResolution</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-states-to-record/index.html">StatesToRecord</a></h4>
+</td>
+<td>
+<p>Controls whether the transaction is sent to the vault at all, and if so whether states have to be relevant
+or not in order to be recorded. Used in <a href="-service-hub/record-transactions.html">ServiceHub.recordTransactions</a></p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">StatesToRecord</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Annotations</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-auto-acceptable/index.html">AutoAcceptable</a></h4>
+</td>
+<td>
+<p>Tagging a network parameter with this annotation signifies that any update which modifies the parameter could be accepted without
+the need for the node operator to run a manual accept command. If the update contains changes for any non-auto-acceptable parameter
+or the behaviour is switched off via configuration then it will not be auto-accepted</p>
+<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">AutoAcceptable</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-zone-version-too-low-exception/index.html">ZoneVersionTooLowException</a></h4>
+</td>
+<td>
+<p>When a Corda feature cannot be used due to the node's compatibility zone not enforcing a high enough minimum platform
+version.</p>
+<code><span class="keyword">class </span><span class="identifier">ZoneVersionTooLowException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core/-corda-runtime-exception/index.html"><span class="identifier">CordaRuntimeException</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

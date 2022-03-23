@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SerializationSchemeContext.whitelist - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.serialization</a>&nbsp;/&nbsp;<a href="index.html">SerializationSchemeContext</a>&nbsp;/&nbsp;<a href="./whitelist.html">whitelist</a><br/>
+<br/>
+<h1>whitelist</h1>
+<a name="net.corda.core.serialization.SerializationSchemeContext$whitelist"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">whitelist</span><span class="symbol">: </span><a href="../-class-whitelist/index.html"><span class="identifier">ClassWhitelist</span></a></code>
+<p>A whitelist that contains (mostly for security purposes) which classes are authorised to be deserialized.
+A secure implementation will not instantiate any object which is not either whitelisted or annotated with <a href="../-corda-serializable/index.html">CordaSerializable</a> when
+deserializing. To catch classes missing from the whitelist as early as possible it is HIGHLY recommended to also check this
+whitelist when serializing (as well as deserializing) objects.</p>
+</BODY>
+</HTML>

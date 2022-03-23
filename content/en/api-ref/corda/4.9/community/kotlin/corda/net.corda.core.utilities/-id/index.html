@@ -1,0 +1,102 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Id - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.utilities</a>&nbsp;/&nbsp;<a href="./index.html">Id</a><br/>
+<br/>
+<h1>Id</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">Id</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">VALUE</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code>
+<p>Represents a unique, timestamped id.</p>
+<h3>Parameters</h3>
+<p><a name="value"></a>
+<code>value</code> - unique value of the id.</p>
+<p><a name="entityType"></a>
+<code>entityType</code> - optional id entity type.</p>
+<p><a name="timestamp"></a>
+<code>timestamp</code> - timestamp for the id.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Represents a unique, timestamped id.</p>
+<code><span class="identifier">Id</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities.Id$<init>(net.corda.core.utilities.Id.VALUE, kotlin.String, java.time.Instant)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">VALUE</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.utilities.Id$<init>(net.corda.core.utilities.Id.VALUE, kotlin.String, java.time.Instant)/entityType">entityType</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.utilities.Id$<init>(net.corda.core.utilities.Id.VALUE, kotlin.String, java.time.Instant)/timestamp">timestamp</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="entity-type.html">entityType</a></h4>
+</td>
+<td>
+<p>optional id entity type.</p>
+<code><span class="keyword">val </span><span class="identifier">entityType</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="timestamp.html">timestamp</a></h4>
+</td>
+<td>
+<p>timestamp for the id.</p>
+<code><span class="keyword">val </span><span class="identifier">timestamp</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="value.html">value</a></h4>
+</td>
+<td>
+<p>unique value of the id.</p>
+<code><span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><span class="identifier">VALUE</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="equals.html">equals</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities.Id$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-code.html">hashCode</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="new-instance.html">newInstance</a></h4>
+</td>
+<td>
+<p>Creates an id using <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html#now()">Instant.now</a> as timestamp.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">newInstance</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities.Id.Companion$newInstance(net.corda.core.utilities.Id.Companion.newInstance.V, kotlin.String, java.time.Instant)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.utilities.Id.Companion$newInstance(net.corda.core.utilities.Id.Companion.newInstance.V, kotlin.String, java.time.Instant)/entityType">entityType</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.core.utilities.Id.Companion$newInstance(net.corda.core.utilities.Id.Companion.newInstance.V, kotlin.String, java.time.Instant)/timestamp">timestamp</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a>&nbsp;<span class="symbol">=</span>&nbsp;now()<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Id</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

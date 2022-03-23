@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TestTransactionDSLInterpreter - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.dsl</a>&nbsp;/&nbsp;<a href="./index.html">TestTransactionDSLInterpreter</a><br/>
+<br/>
+<h1>TestTransactionDSLInterpreter</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">TestTransactionDSLInterpreter</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">, </span><a href="../-output-state-lookup/index.html"><span class="identifier">OutputStateLookup</span></a></code>
+<p>This interpreter builds a transaction, and <a href="#">TransactionDSL.verifies</a> that the resolved transaction is correct. Note
+that transactions corresponding to input states are not verified. Use <a href="#">LedgerDSL.verifies</a> for that.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">TestTransactionDSLInterpreter</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$<init>(net.corda.testing.dsl.TestLedgerDSLInterpreter, net.corda.core.transactions.TransactionBuilder)/ledgerInterpreter">ledgerInterpreter</span><span class="symbol">:</span>&nbsp;<a href="../-test-ledger-d-s-l-interpreter/index.html"><span class="identifier">TestLedgerDSLInterpreter</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$<init>(net.corda.testing.dsl.TestLedgerDSLInterpreter, net.corda.core.transactions.TransactionBuilder)/transactionBuilder">transactionBuilder</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionBuilder</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="ledger-interpreter.html">ledgerInterpreter</a></h4>
+</td>
+<td>
+<p>A reference to the enclosing ledger{..}'s interpreter.</p>
+<code><span class="keyword">val </span><span class="identifier">ledgerInterpreter</span><span class="symbol">: </span><a href="../-test-ledger-d-s-l-interpreter/index.html"><span class="identifier">TestLedgerDSLInterpreter</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="services.html">services</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">services</span><span class="symbol">: </span><span class="identifier">ServicesForResolution</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="transaction-builder.html">transactionBuilder</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">transactionBuilder</span><span class="symbol">: </span><span class="identifier">TransactionBuilder</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="_attachment.html">_attachment</a></h4>
+</td>
+<td>
+<p>Attaches an attachment containing the named contract to the transaction</p>
+<code><span class="keyword">fun </span><span class="identifier">_attachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$_attachment(kotlin.String)/contractClassName">contractClassName</span><span class="symbol">:</span>&nbsp;<span class="identifier">ContractClassName</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">_attachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$_attachment(kotlin.String, net.corda.core.crypto.SecureHash, kotlin.collections.List((java.security.PublicKey)))/contractClassName">contractClassName</span><span class="symbol">:</span>&nbsp;<span class="identifier">ContractClassName</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$_attachment(kotlin.String, net.corda.core.crypto.SecureHash, kotlin.collections.List((java.security.PublicKey)))/attachmentId">attachmentId</span><span class="symbol">:</span>&nbsp;<span class="identifier">AttachmentId</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$_attachment(kotlin.String, net.corda.core.crypto.SecureHash, kotlin.collections.List((java.security.PublicKey)))/signers">signers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Attaches an attachment containing the named contract to the transaction.</p>
+<code><span class="keyword">fun </span><span class="identifier">_attachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$_attachment(kotlin.String, net.corda.core.crypto.SecureHash, kotlin.collections.List((java.security.PublicKey)), kotlin.collections.Map((kotlin.String, )))/contractClassName">contractClassName</span><span class="symbol">:</span>&nbsp;<span class="identifier">ContractClassName</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$_attachment(kotlin.String, net.corda.core.crypto.SecureHash, kotlin.collections.List((java.security.PublicKey)), kotlin.collections.Map((kotlin.String, )))/attachmentId">attachmentId</span><span class="symbol">:</span>&nbsp;<span class="identifier">AttachmentId</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$_attachment(kotlin.String, net.corda.core.crypto.SecureHash, kotlin.collections.List((java.security.PublicKey)), kotlin.collections.Map((kotlin.String, )))/signers">signers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$_attachment(kotlin.String, net.corda.core.crypto.SecureHash, kotlin.collections.List((java.security.PublicKey)), kotlin.collections.Map((kotlin.String, )))/jarManifestAttributes">jarManifestAttributes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="_tweak.html">_tweak</a></h4>
+</td>
+<td>
+<p>Creates a local scoped copy of the transaction.</p>
+<code><span class="keyword">fun </span><span class="identifier">_tweak</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$_tweak(kotlin.Function1((net.corda.testing.dsl.TransactionDSLInterpreter, net.corda.testing.dsl.EnforceVerifyOrFail)))/dsl">dsl</span><span class="symbol">:</span>&nbsp;<a href="../-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="../-enforce-verify-or-fail.html"><span class="identifier">EnforceVerifyOrFail</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-enforce-verify-or-fail.html"><span class="identifier">EnforceVerifyOrFail</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="attachment.html">attachment</a></h4>
+</td>
+<td>
+<p>Adds an <a href="#">Attachment</a> reference to the transaction.</p>
+<code><span class="keyword">fun </span><span class="identifier">attachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$attachment(net.corda.core.crypto.SecureHash)/attachmentId">attachmentId</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="command.html">command</a></h4>
+</td>
+<td>
+<p>Adds a command to the transaction.</p>
+<code><span class="keyword">fun </span><span class="identifier">command</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$command(kotlin.collections.List((java.security.PublicKey)), net.corda.core.contracts.CommandData)/signers">signers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$command(kotlin.collections.List((java.security.PublicKey)), net.corda.core.contracts.CommandData)/commandData">commandData</span><span class="symbol">:</span>&nbsp;<span class="identifier">CommandData</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="input.html">input</a></h4>
+</td>
+<td>
+<p>Adds an input reference to the transaction. Note that <a href="../-verifies/verifies.html">verifies</a> will resolve this reference.</p>
+<code><span class="keyword">fun </span><span class="identifier">input</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$input(net.corda.core.contracts.StateRef)/stateRef">stateRef</span><span class="symbol">:</span>&nbsp;<span class="identifier">StateRef</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="output.html">output</a></h4>
+</td>
+<td>
+<p>Adds an output to the transaction.</p>
+<code><span class="keyword">fun </span><span class="identifier">output</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$output(kotlin.String, kotlin.String, net.corda.core.identity.Party, kotlin.Int, net.corda.core.contracts.AttachmentConstraint, net.corda.core.contracts.ContractState)/contractClassName">contractClassName</span><span class="symbol">:</span>&nbsp;<span class="identifier">ContractClassName</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$output(kotlin.String, kotlin.String, net.corda.core.identity.Party, kotlin.Int, net.corda.core.contracts.AttachmentConstraint, net.corda.core.contracts.ContractState)/label">label</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$output(kotlin.String, kotlin.String, net.corda.core.identity.Party, kotlin.Int, net.corda.core.contracts.AttachmentConstraint, net.corda.core.contracts.ContractState)/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$output(kotlin.String, kotlin.String, net.corda.core.identity.Party, kotlin.Int, net.corda.core.contracts.AttachmentConstraint, net.corda.core.contracts.ContractState)/encumbrance">encumbrance</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$output(kotlin.String, kotlin.String, net.corda.core.identity.Party, kotlin.Int, net.corda.core.contracts.AttachmentConstraint, net.corda.core.contracts.ContractState)/attachmentConstraint">attachmentConstraint</span><span class="symbol">:</span>&nbsp;<span class="identifier">AttachmentConstraint</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$output(kotlin.String, kotlin.String, net.corda.core.identity.Party, kotlin.Int, net.corda.core.contracts.AttachmentConstraint, net.corda.core.contracts.ContractState)/contractState">contractState</span><span class="symbol">:</span>&nbsp;<span class="identifier">ContractState</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="reference.html">reference</a></h4>
+</td>
+<td>
+<p>Add a reference input state to the transaction. Note that <a href="../-verifies/verifies.html">verifies</a> will resolve this reference.</p>
+<code><span class="keyword">fun </span><span class="identifier">reference</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$reference(net.corda.core.contracts.StateRef)/stateRef">stateRef</span><span class="symbol">:</span>&nbsp;<span class="identifier">StateRef</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="time-window.html">timeWindow</a></h4>
+</td>
+<td>
+<p>Sets the time-window of the transaction.</p>
+<code><span class="keyword">fun </span><span class="identifier">timeWindow</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TestTransactionDSLInterpreter$timeWindow(net.corda.core.contracts.TimeWindow)/data">data</span><span class="symbol">:</span>&nbsp;<span class="identifier">TimeWindow</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="verifies.html">verifies</a></h4>
+</td>
+<td>
+<p>Verifies the ledger/transaction, throws if the verification fails.</p>
+<code><span class="keyword">fun </span><span class="identifier">verifies</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-enforce-verify-or-fail.html"><span class="identifier">EnforceVerifyOrFail</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

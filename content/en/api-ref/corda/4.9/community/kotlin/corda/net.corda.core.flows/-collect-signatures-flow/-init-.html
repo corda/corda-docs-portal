@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CollectSignaturesFlow.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">CollectSignaturesFlow</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.flows.CollectSignaturesFlow$&lt;init&gt;(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.utilities.ProgressTracker)"></a>
+<code><span class="identifier">CollectSignaturesFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.utilities.ProgressTracker)/partiallySignedTx">partiallySignedTx</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.utilities.ProgressTracker)/sessionsToCollectFrom">sessionsToCollectFrom</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a>&nbsp;<span class="symbol">=</span>&nbsp;CollectSignaturesFlow.tracker()<span class="symbol">)</span></code><a name="net.corda.core.flows.CollectSignaturesFlow$&lt;init&gt;(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Iterable((java.security.PublicKey)), net.corda.core.utilities.ProgressTracker)"></a>
+<code><span class="identifier">CollectSignaturesFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Iterable((java.security.PublicKey)), net.corda.core.utilities.ProgressTracker)/partiallySignedTx">partiallySignedTx</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Iterable((java.security.PublicKey)), net.corda.core.utilities.ProgressTracker)/sessionsToCollectFrom">sessionsToCollectFrom</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Iterable((java.security.PublicKey)), net.corda.core.utilities.ProgressTracker)/myOptionalKeys">myOptionalKeys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.CollectSignaturesFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Iterable((java.security.PublicKey)), net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a>&nbsp;<span class="symbol">=</span>&nbsp;CollectSignaturesFlow.tracker()<span class="symbol">)</span></code>
+<p>The <a href="index.html">CollectSignaturesFlow</a> is used to automate the collection of counterparty signatures for a given transaction.</p>
+<p>You would typically use this flow after you have built a transaction with the TransactionBuilder and signed it with
+your key pair. If there are additional signatures to collect then they can be collected using this flow. Signatures
+are collected based upon the <a href="../../net.corda.core.transactions/-wire-transaction/required-signing-keys.html">WireTransaction.requiredSigningKeys</a> property which contains the union of all the PublicKeys
+listed in the transaction's commands as well as a notary's public key, if required. This flow returns a
+<a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> which can then be passed to the <a href="../-finality-flow/index.html">FinalityFlow</a> for notarisation. The other side of this flow is
+the <a href="../-sign-transaction-flow/index.html">SignTransactionFlow</a>.</p>
+<p><strong>WARNING</strong>: This flow ONLY works with <a href="#">ServiceHub.legalIdentityKey</a>s and WILL break if used with randomly generated
+keys by the <a href="../../net.corda.core.node/-service-hub/key-management-service.html">ServiceHub.keyManagementService</a>.</p>
+<p>Usage:</p>
+<ul><li>Call the <a href="index.html">CollectSignaturesFlow</a> flow as a <a href="../-flow-logic/sub-flow.html">subFlow</a> and pass it a <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> which has at least been
+signed by the transaction creator (and possibly an oracle, if required)</li>
+<li>The flow expects that the calling node has signed the provided transaction, if not the flow will fail</li>
+<li>The flow will also fail if:</li>
+</ul>
+<ol><li>The provided transaction is invalid</li>
+<li>Any of the required signing parties cannot be found in the <a href="../../net.corda.core.node/-service-hub/network-map-cache.html">ServiceHub.networkMapCache</a> of the initiator</li>
+<li>If the wrong key has been used by a counterparty to sign the transaction</li>
+<li>The counterparty rejects the provided transaction</li>
+</ol>
+<ul><li>The flow will return a <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> with all the counterparty signatures (but not the notary's!)</li>
+<li>If the provided transaction has already been signed by all counterparties then this flow simply returns the
+provided transaction without contacting any counterparties</li>
+<li>Call the <a href="../-finality-flow/index.html">FinalityFlow</a> with the return value of this flow</li>
+</ul>
+<p>Example - issuing a multi-lateral agreement which requires N signatures:</p>
+<pre><code>    val builder = TransactionBuilder(notaryRef)
+    val issueCommand = Command(Agreement.Commands.Issue(), state.participants)
+
+    builder.withItems(state, issueCommand)
+    builder.toWireTransaction().toLedgerTransaction(serviceHub).verify()
+
+    // Transaction creator signs transaction.
+    val ptx = serviceHub.signInitialTransaction(builder)
+
+    // Call to CollectSignaturesFlow.
+    // The returned signed transaction will have all signatures appended apart from the notary's.
+    val stx = subFlow(CollectSignaturesFlow(ptx))</code></pre>
+<h3>Parameters</h3>
+<p><a name="partiallySignedTx"></a>
+<code>partiallySignedTx</code> - Transaction to collect the remaining signatures for</p>
+<p><a name="sessionsToCollectFrom"></a>
+<code>sessionsToCollectFrom</code> - A session for every party we need to collect a signature from.  Must be an exact match.</p>
+<p><a name="myOptionalKeys"></a>
+<code>myOptionalKeys</code> - set of keys in the transaction which are owned by this node. This includes keys used on commands, not
+just in the states. If null, the default well known identity of the node is used.</p>
+</BODY>
+</HTML>

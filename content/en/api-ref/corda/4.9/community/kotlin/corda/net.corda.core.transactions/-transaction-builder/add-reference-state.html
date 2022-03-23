@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionBuilder.addReferenceState - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="index.html">TransactionBuilder</a>&nbsp;/&nbsp;<a href="./add-reference-state.html">addReferenceState</a><br/>
+<br/>
+<h1>addReferenceState</h1>
+<a name="net.corda.core.transactions.TransactionBuilder$addReferenceState(net.corda.core.contracts.ReferencedStateAndRef((net.corda.core.contracts.ContractState)))"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addReferenceState</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.TransactionBuilder$addReferenceState(net.corda.core.contracts.ReferencedStateAndRef((net.corda.core.contracts.ContractState)))/referencedStateAndRef">referencedStateAndRef</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-referenced-state-and-ref/index.html"><span class="identifier">ReferencedStateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">TransactionBuilder</span></a></code>
+<p>Adds a reference input <a href="../../net.corda.core.contracts/-state-ref/index.html">StateRef</a> to the transaction.</p>
+<p>Note: Reference states are only supported on Corda networks running a minimum platform version of 4.
+<a href="to-wire-transaction.html">toWireTransaction</a> will throw an <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/index.html">IllegalStateException</a> if called in such an environment.</p>
+</BODY>
+</HTML>

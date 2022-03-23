@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionState.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="index.html">TransactionState</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.contracts.TransactionState$&lt;init&gt;(net.corda.core.contracts.TransactionState.T, kotlin.String, net.corda.core.identity.Party, kotlin.Int, net.corda.core.contracts.AttachmentConstraint)"></a>
+<code><span class="identifier">TransactionState</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.TransactionState$<init>(net.corda.core.contracts.TransactionState.T, kotlin.String, net.corda.core.identity.Party, kotlin.Int, net.corda.core.contracts.AttachmentConstraint)/data">data</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TransactionState$<init>(net.corda.core.contracts.TransactionState.T, kotlin.String, net.corda.core.identity.Party, kotlin.Int, net.corda.core.contracts.AttachmentConstraint)/contract">contract</span><span class="symbol">:</span>&nbsp;<a href="../-contract-class-name.html"><span class="identifier">ContractClassName</span></a>&nbsp;<span class="symbol">=</span>&nbsp;requireNotNull(data.requiredContractClassName) {
+            //TODO: add link to docsite page, when there is one.
+            """
+    Unable to infer Contract class name because state class ${data::class.java.name} is not annotated with
+    @BelongsToContract, and does not have an enclosing class which implements Contract. Either annotate ${data::class.java.name}
+    with @BelongsToContract, or supply an explicit contract parameter to TransactionState().
+    """.trimIndent().replace('\n', ' ')
+        }<span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TransactionState$<init>(net.corda.core.contracts.TransactionState.T, kotlin.String, net.corda.core.identity.Party, kotlin.Int, net.corda.core.contracts.AttachmentConstraint)/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TransactionState$<init>(net.corda.core.contracts.TransactionState.T, kotlin.String, net.corda.core.identity.Party, kotlin.Int, net.corda.core.contracts.AttachmentConstraint)/encumbrance">encumbrance</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TransactionState$<init>(net.corda.core.contracts.TransactionState.T, kotlin.String, net.corda.core.identity.Party, kotlin.Int, net.corda.core.contracts.AttachmentConstraint)/constraint">constraint</span><span class="symbol">:</span>&nbsp;<a href="../-attachment-constraint/index.html"><span class="identifier">AttachmentConstraint</span></a>&nbsp;<span class="symbol">=</span>&nbsp;AutomaticPlaceholderConstraint<span class="symbol">)</span></code>
+<p>A wrapper for <a href="../-contract-state/index.html">ContractState</a> containing additional platform-level state information and contract information.
+This is the definitive state that is stored on the ledger and used in transaction outputs.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StateMachineInfo - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.messaging</a>&nbsp;/&nbsp;<a href="./index.html">StateMachineInfo</a><br/>
+<br/>
+<h1>StateMachineInfo</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">StateMachineInfo</span></code>
+<p>Represents information about a flow (the name "state machine" is legacy, Kotlin users can use the <a href="../-flow-info.html">FlowInfo</a> type
+alias). You can access progress tracking, information about why the flow was started and so on.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Represents information about a flow (the name "state machine" is legacy, Kotlin users can use the <a href="../-flow-info.html">FlowInfo</a> type
+alias). You can access progress tracking, information about why the flow was started and so on.</p>
+<code><span class="identifier">StateMachineInfo</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.messaging.StateMachineInfo$<init>(net.corda.core.flows.StateMachineRunId, kotlin.String, net.corda.core.flows.FlowInitiator, net.corda.core.messaging.DataFeed((kotlin.String, )), net.corda.core.context.InvocationContext)/id">id</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-state-machine-run-id/index.html"><span class="identifier">StateMachineRunId</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.StateMachineInfo$<init>(net.corda.core.flows.StateMachineRunId, kotlin.String, net.corda.core.flows.FlowInitiator, net.corda.core.messaging.DataFeed((kotlin.String, )), net.corda.core.context.InvocationContext)/flowLogicClassName">flowLogicClassName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.StateMachineInfo$<init>(net.corda.core.flows.StateMachineRunId, kotlin.String, net.corda.core.flows.FlowInitiator, net.corda.core.messaging.DataFeed((kotlin.String, )), net.corda.core.context.InvocationContext)/initiator">initiator</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-initiator/index.html"><span class="identifier">FlowInitiator</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.StateMachineInfo$<init>(net.corda.core.flows.StateMachineRunId, kotlin.String, net.corda.core.flows.FlowInitiator, net.corda.core.messaging.DataFeed((kotlin.String, )), net.corda.core.context.InvocationContext)/progressTrackerStepAndUpdates">progressTrackerStepAndUpdates</span><span class="symbol">:</span>&nbsp;<a href="../-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.StateMachineInfo$<init>(net.corda.core.flows.StateMachineRunId, kotlin.String, net.corda.core.flows.FlowInitiator, net.corda.core.messaging.DataFeed((kotlin.String, )), net.corda.core.context.InvocationContext)/invocationContext">invocationContext</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.context/-invocation-context/index.html"><span class="identifier">InvocationContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;initiator.invocationContext<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="flow-logic-class-name.html">flowLogicClassName</a></h4>
+</td>
+<td>
+<p>The JVM class name of the flow code.</p>
+<code><span class="keyword">val </span><span class="identifier">flowLogicClassName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<p>A universally unique ID (<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">java.util.UUID</a>) representing this particular instance of the named flow.</p>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="../../net.corda.core.flows/-state-machine-run-id/index.html"><span class="identifier">StateMachineRunId</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="initiator.html">initiator</a></h4>
+</td>
+<td>
+<p>An object representing information about the initiator of the flow. Note that this field is
+superseded by the <a href="invocation-context.html">invocationContext</a> property, which has more detail.</p>
+<code><span class="keyword">val </span><s><span class="identifier">initiator</span></s><span class="symbol">: </span><a href="../../net.corda.core.flows/-flow-initiator/index.html"><span class="identifier">FlowInitiator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="invocation-context.html">invocationContext</a></h4>
+</td>
+<td>
+<p>An <a href="../../net.corda.core.context/-invocation-context/index.html">InvocationContext</a> describing why and by whom the flow was started.</p>
+<code><span class="keyword">val </span><span class="identifier">invocationContext</span><span class="symbol">: </span><a href="../../net.corda.core.context/-invocation-context/index.html"><span class="identifier">InvocationContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress-tracker-step-and-updates.html">progressTrackerStepAndUpdates</a></h4>
+</td>
+<td>
+<p>A <a href="../-data-feed/index.html">DataFeed</a> of the current progress step as a human readable string, and updates to that string.</p>
+<code><span class="keyword">val </span><span class="identifier">progressTrackerStepAndUpdates</span><span class="symbol">: </span><a href="../-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="copy.html">copy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">copy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.messaging.StateMachineInfo$copy(net.corda.core.flows.StateMachineRunId, kotlin.String, net.corda.core.flows.FlowInitiator, net.corda.core.messaging.DataFeed((kotlin.String, )))/id">id</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-state-machine-run-id/index.html"><span class="identifier">StateMachineRunId</span></a>&nbsp;<span class="symbol">=</span>&nbsp;this.id<span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.StateMachineInfo$copy(net.corda.core.flows.StateMachineRunId, kotlin.String, net.corda.core.flows.FlowInitiator, net.corda.core.messaging.DataFeed((kotlin.String, )))/flowLogicClassName">flowLogicClassName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;this.flowLogicClassName<span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.StateMachineInfo$copy(net.corda.core.flows.StateMachineRunId, kotlin.String, net.corda.core.flows.FlowInitiator, net.corda.core.messaging.DataFeed((kotlin.String, )))/initiator">initiator</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-initiator/index.html"><span class="identifier">FlowInitiator</span></a>&nbsp;<span class="symbol">=</span>&nbsp;this.initiator<span class="symbol">, </span><span class="identifier" id="net.corda.core.messaging.StateMachineInfo$copy(net.corda.core.flows.StateMachineRunId, kotlin.String, net.corda.core.flows.FlowInitiator, net.corda.core.messaging.DataFeed((kotlin.String, )))/progressTrackerStepAndUpdates">progressTrackerStepAndUpdates</span><span class="symbol">:</span>&nbsp;<a href="../-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;this.progressTrackerStepAndUpdates<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">StateMachineInfo</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

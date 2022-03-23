@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SerializationSchemeContext - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.serialization</a>&nbsp;/&nbsp;<a href="./index.html">SerializationSchemeContext</a><br/>
+<br/>
+<h1>SerializationSchemeContext</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">SerializationSchemeContext</span></code>
+<p>This is used to pass information into <a href="../-custom-serialization-scheme/index.html">CustomSerializationScheme</a> about how the object should be (de)serialized.
+This context can change depending on the specific circumstances in the node when (de)serialization occurs.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="deserialization-class-loader.html">deserializationClassLoader</a></h4>
+</td>
+<td>
+<p>The class loader to use for deserialization. This is guaranteed to be able to load all the required classes passed into
+<a href="../-custom-serialization-scheme/deserialize.html">CustomSerializationScheme.deserialize</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">deserializationClassLoader</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html"><span class="identifier">ClassLoader</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="properties.html">properties</a></h4>
+</td>
+<td>
+<p>A map of any additional properties specific to the particular use case. If these properties are set via
+<a href="../../net.corda.core.transactions/-transaction-builder/to-wire-transaction.html">toWireTransaction</a> then they might not be available when
+deserializing. If the properties are required when deserializing, they can be added into the blob when serializing and read back
+when deserializing.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">properties</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="whitelist.html">whitelist</a></h4>
+</td>
+<td>
+<p>A whitelist that contains (mostly for security purposes) which classes are authorised to be deserialized.
+A secure implementation will not instantiate any object which is not either whitelisted or annotated with <a href="../-corda-serializable/index.html">CordaSerializable</a> when
+deserializing. To catch classes missing from the whitelist as early as possible it is HIGHLY recommended to also check this
+whitelist when serializing (as well as deserializing) objects.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">whitelist</span><span class="symbol">: </span><a href="../-class-whitelist/index.html"><span class="identifier">ClassWhitelist</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

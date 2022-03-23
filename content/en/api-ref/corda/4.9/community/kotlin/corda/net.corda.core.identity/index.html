@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.core.identity - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.core.identity</a><br/>
+<br/>
+<h2>Package net.corda.core.identity</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-abstract-party/index.html">AbstractParty</a></h4>
+</td>
+<td>
+<p>An <a href="-abstract-party/index.html">AbstractParty</a> contains the common elements of <a href="-party/index.html">Party</a> and <a href="-anonymous-party/index.html">AnonymousParty</a>, specifically the owning key of
+the party. In most cases <a href="-party/index.html">Party</a> or <a href="-anonymous-party/index.html">AnonymousParty</a> should be used, depending on use-case.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">AbstractParty</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-destination.html"><span class="identifier">Destination</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-anonymous-party/index.html">AnonymousParty</a></h4>
+</td>
+<td>
+<p>The <a href="-anonymous-party/index.html">AnonymousParty</a> class contains enough information to uniquely identify a <a href="-party/index.html">Party</a> while excluding private
+information such as name. It is intended to represent a party on the distributed ledger.</p>
+<code><span class="keyword">class </span><span class="identifier">AnonymousParty</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-destination.html"><span class="identifier">Destination</span></a><span class="symbol">, </span><a href="-abstract-party/index.html"><span class="identifier">AbstractParty</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-corda-x500-name/index.html">CordaX500Name</a></h4>
+</td>
+<td>
+<p>X.500 distinguished name data type customised to how Corda uses names. This restricts the attributes to those Corda
+supports, and requires that organisation, locality and country attributes are specified. See also RFC 4519 for
+the underlying attribute type definitions</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CordaX500Name</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-party/index.html">Party</a></h4>
+</td>
+<td>
+<p>The <a href="-party/index.html">Party</a> class represents an entity on the network, which is typically identified by a legal <a href="-party/name.html">name</a> and public key
+that it can sign transactions under. As parties may use multiple keys for signing and, for example, have offline backup
+keys, the "public key" of a party can be represented by a composite construct – a <a href="../net.corda.core.crypto/-composite-key/index.html">CompositeKey</a>, which combines multiple
+cryptographic public key primitives into a tree structure.</p>
+<code><span class="keyword">class </span><span class="identifier">Party</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-destination.html"><span class="identifier">Destination</span></a><span class="symbol">, </span><a href="-abstract-party/index.html"><span class="identifier">AbstractParty</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-party-and-certificate/index.html">PartyAndCertificate</a></h4>
+</td>
+<td>
+<p>A full party plus the X.509 certificate and path linking the party back to a trust root. Equality of
+<a href="-party-and-certificate/index.html">PartyAndCertificate</a> instances is based on the party only, as certificate and path are data associated with the party,
+not part of the identifier themselves.</p>
+<code><span class="keyword">class </span><span class="identifier">PartyAndCertificate</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="exclude-host-node.html">excludeHostNode</a></h4>
+</td>
+<td>
+<p>Remove this node from a map of well known <a href="-party/index.html">Party</a>s.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">excludeHostNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity$excludeHostNode(net.corda.core.node.ServiceHub, kotlin.collections.Map((net.corda.core.identity.Party, net.corda.core.identity.excludeHostNode.T)))/serviceHub">serviceHub</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$excludeHostNode(net.corda.core.node.ServiceHub, kotlin.collections.Map((net.corda.core.identity.Party, net.corda.core.identity.excludeHostNode.T)))/map">map</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="-party/index.html"><span class="identifier">Party</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="-party/index.html"><span class="identifier">Party</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="exclude-notary.html">excludeNotary</a></h4>
+</td>
+<td>
+<p>Remove the <a href="-party/index.html">Party</a> associated with the notary of a <a href="../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> from the a map of <a href="-party/index.html">Party</a>s.  It is a no-op
+if the notary is null.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">excludeNotary</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity$excludeNotary(kotlin.collections.Map((net.corda.core.identity.Party, net.corda.core.identity.excludeNotary.T)), net.corda.core.transactions.SignedTransaction)/map">map</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="-party/index.html"><span class="identifier">Party</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$excludeNotary(kotlin.collections.Map((net.corda.core.identity.Party, net.corda.core.identity.excludeNotary.T)), net.corda.core.transactions.SignedTransaction)/stx">stx</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="-party/index.html"><span class="identifier">Party</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="group-abstract-party-by-well-known-party.html">groupAbstractPartyByWellKnownParty</a></h4>
+</td>
+<td>
+<p>Group each <a href="-abstract-party/index.html">AbstractParty</a> by the well known party using the <a href="../net.corda.core.node/-services-for-resolution/identity-service.html">ServiceHub.identityService</a>, in preparation for
+creating <a href="#">FlowSession</a>s, for example.</p>
+<code><span class="keyword">fun </span><span class="identifier">groupAbstractPartyByWellKnownParty</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity$groupAbstractPartyByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((net.corda.core.identity.AbstractParty)), kotlin.Boolean)/serviceHub">serviceHub</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$groupAbstractPartyByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((net.corda.core.identity.AbstractParty)), kotlin.Boolean)/parties">parties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$groupAbstractPartyByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((net.corda.core.identity.AbstractParty)), kotlin.Boolean)/ignoreUnrecognisedParties">ignoreUnrecognisedParties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="-party/index.html"><span class="identifier">Party</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Group each <a href="-abstract-party/index.html">AbstractParty</a> by the well known party using the <a href="../net.corda.core.node/-services-for-resolution/identity-service.html">ServiceHub.identityService</a>, in preparation for
+creating <a href="#">FlowSession</a>s, for example. Throw an exception if some of the <a href="-abstract-party/index.html">AbstractParty</a>s cannot be mapped
+to a <a href="-party/index.html">Party</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">groupAbstractPartyByWellKnownParty</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity$groupAbstractPartyByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((net.corda.core.identity.AbstractParty)))/serviceHub">serviceHub</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$groupAbstractPartyByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((net.corda.core.identity.AbstractParty)))/parties">parties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="-party/index.html"><span class="identifier">Party</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="group-public-keys-by-well-known-party.html">groupPublicKeysByWellKnownParty</a></h4>
+</td>
+<td>
+<p>Group each <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> by the well known party using the <a href="../net.corda.core.node/-services-for-resolution/identity-service.html">ServiceHub.identityService</a>, in preparation for
+creating <a href="#">FlowSession</a>s, for example.</p>
+<code><span class="keyword">fun </span><span class="identifier">groupPublicKeysByWellKnownParty</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity$groupPublicKeysByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((java.security.PublicKey)), kotlin.Boolean)/serviceHub">serviceHub</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$groupPublicKeysByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((java.security.PublicKey)), kotlin.Boolean)/publicKeys">publicKeys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$groupPublicKeysByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((java.security.PublicKey)), kotlin.Boolean)/ignoreUnrecognisedParties">ignoreUnrecognisedParties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="-party/index.html"><span class="identifier">Party</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Group each <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> by the well known party using the <a href="../net.corda.core.node/-services-for-resolution/identity-service.html">ServiceHub.identityService</a>, in preparation for
+creating <a href="#">FlowSession</a>s, for example.  Throw an exception if some of the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a>s cannot be mapped
+to a <a href="-party/index.html">Party</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">groupPublicKeysByWellKnownParty</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity$groupPublicKeysByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((java.security.PublicKey)))/serviceHub">serviceHub</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$groupPublicKeysByWellKnownParty(net.corda.core.node.ServiceHub, kotlin.collections.Collection((java.security.PublicKey)))/publicKeys">publicKeys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="-party/index.html"><span class="identifier">Party</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="x500-matches.html">x500Matches</a></h4>
+</td>
+<td>
+<p>Check if <a href="x500-matches.html#net.corda.core.identity$x500Matches(kotlin.String, kotlin.Boolean, net.corda.core.identity.CordaX500Name)/x500name">x500name</a> matches the <a href="x500-matches.html#net.corda.core.identity$x500Matches(kotlin.String, kotlin.Boolean, net.corda.core.identity.CordaX500Name)/query">query</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">x500Matches</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity$x500Matches(kotlin.String, kotlin.Boolean, net.corda.core.identity.CordaX500Name)/query">query</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$x500Matches(kotlin.String, kotlin.Boolean, net.corda.core.identity.CordaX500Name)/exactMatch">exactMatch</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.identity$x500Matches(kotlin.String, kotlin.Boolean, net.corda.core.identity.CordaX500Name)/x500name">x500name</span><span class="symbol">:</span>&nbsp;<a href="-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

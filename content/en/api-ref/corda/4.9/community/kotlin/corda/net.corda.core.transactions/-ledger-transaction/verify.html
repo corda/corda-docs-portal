@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>LedgerTransaction.verify - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="index.html">LedgerTransaction</a>&nbsp;/&nbsp;<a href="./verify.html">verify</a><br/>
+<br/>
+<h1>verify</h1>
+<a name="net.corda.core.transactions.LedgerTransaction$verify()"></a>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Verifies this transaction and runs contract code. At this stage it is assumed that signatures have already been verified.</p>
+<p>The contract verification logic is run in a custom classloader created for the current transaction.
+This classloader is only used during verification and does not leak to the client code.</p>
+<p>The reason for this is that classes (contract states) deserialized in this classloader would actually be a different type from what
+the calling code would expect.</p>
+<h3>Exceptions</h3>
+<p><a name="TransactionVerificationException"></a>
+<code>TransactionVerificationException</code> - if anything goes wrong.</p>
+</BODY>
+</HTML>

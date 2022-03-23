@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaRPCOps.networkParametersFeed - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.messaging</a>&nbsp;/&nbsp;<a href="index.html">CordaRPCOps</a>&nbsp;/&nbsp;<a href="./network-parameters-feed.html">networkParametersFeed</a><br/>
+<br/>
+<h1>networkParametersFeed</h1>
+<a name="net.corda.core.messaging.CordaRPCOps$networkParametersFeed()"></a>
+<code><span class="identifier">@RPCReturnsObservables</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">networkParametersFeed</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><a href="../-parameters-update-info/index.html"><span class="identifier">ParametersUpdateInfo</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<a href="../-parameters-update-info/index.html"><span class="identifier">ParametersUpdateInfo</span></a><span class="symbol">&gt;</span></code>
+<p>Returns <a href="../-data-feed/index.html">DataFeed</a> object containing information on currently scheduled parameters update (null if none are currently scheduled)
+and observable with future update events. Any update that occurs before the deadline automatically cancels the current one.
+Only the latest update can be accepted.
+Note: This operation may be restricted only to node administrators.</p>
+</BODY>
+</HTML>

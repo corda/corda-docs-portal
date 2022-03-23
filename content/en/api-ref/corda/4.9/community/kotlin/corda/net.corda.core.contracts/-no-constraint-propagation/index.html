@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NoConstraintPropagation - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="./index.html">NoConstraintPropagation</a><br/>
+<br/>
+<h1>NoConstraintPropagation</h1>
+<code><span class="identifier">@Target</span><span class="symbol">(</span>[AnnotationTarget.CLASS]<span class="symbol">)</span> <span class="identifier">@Inherited</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">NoConstraintPropagation</span></code>
+<p>This annotation should only be added to <a href="../-contract/index.html">Contract</a> classes.
+If the annotation is present, then we assume that <a href="../-contract/verify.html">Contract.verify</a> will ensure that the output states have an acceptable constraint.
+If the annotation is missing, then the default - secure - constraint propagation logic is enforced by the platform.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>This annotation should only be added to <a href="../-contract/index.html">Contract</a> classes.
+If the annotation is present, then we assume that <a href="../-contract/verify.html">Contract.verify</a> will ensure that the output states have an acceptable constraint.
+If the annotation is missing, then the default - secure - constraint propagation logic is enforced by the platform.</p>
+<code><span class="identifier">NoConstraintPropagation</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

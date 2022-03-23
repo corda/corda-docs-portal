@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MockServices.recordTransactions - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="index.html">MockServices</a>&nbsp;/&nbsp;<a href="./record-transactions.html">recordTransactions</a><br/>
+<br/>
+<h1>recordTransactions</h1>
+<a name="net.corda.testing.node.MockServices$recordTransactions(net.corda.core.node.StatesToRecord, kotlin.collections.Iterable((net.corda.core.transactions.SignedTransaction)))"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">recordTransactions</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockServices$recordTransactions(net.corda.core.node.StatesToRecord, kotlin.collections.Iterable((net.corda.core.transactions.SignedTransaction)))/statesToRecord">statesToRecord</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-states-to-record/index.html"><span class="identifier">StatesToRecord</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockServices$recordTransactions(net.corda.core.node.StatesToRecord, kotlin.collections.Iterable((net.corda.core.transactions.SignedTransaction)))/txs">txs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stores the given <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>s in the local transaction storage and then sends them to the vault for
+further processing if <a href="../../net.corda.core.node/-service-hub/record-transactions.html#net.corda.core.node.ServiceHub$recordTransactions(net.corda.core.node.StatesToRecord, kotlin.collections.Iterable((net.corda.core.transactions.SignedTransaction)))/statesToRecord">statesToRecord</a> is not <a href="../../net.corda.core.node/-states-to-record/-n-o-n-e.html">StatesToRecord.NONE</a>.
+This is expected to be run within a database transaction.</p>
+<h3>Parameters</h3>
+<p><a name="txs"></a>
+<code>txs</code> - The transactions to record.</p>
+<p><a name="statesToRecord"></a>
+<code>statesToRecord</code> - how the vault should treat the output states of the transaction.</p>
+</BODY>
+</HTML>

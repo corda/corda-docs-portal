@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>QueryCriteria - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services.vault</a>&nbsp;/&nbsp;<a href="./index.html">QueryCriteria</a><br/>
+<br/>
+<h1>QueryCriteria</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">QueryCriteria</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-generic-query-criteria/index.html"><span class="identifier">GenericQueryCriteria</span></a><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">,</span>&nbsp;<a href="../-i-query-criteria-parser/index.html"><span class="identifier">IQueryCriteriaParser</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">ChainableQueryCriteria</span><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">,</span>&nbsp;<a href="../-i-query-criteria-parser/index.html"><span class="identifier">IQueryCriteriaParser</span></a><span class="symbol">&gt;</span></code>
+<p>Indexing assumptions:
+QueryCriteria assumes underlying schema tables are correctly indexed for performance.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-and-composition/index.html">AndComposition</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AndComposition</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">, </span><span class="identifier">AndVisitor</span><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">,</span>&nbsp;<a href="../-i-query-criteria-parser/index.html"><span class="identifier">IQueryCriteriaParser</span></a><span class="symbol">,</span>&nbsp;<a href="../-sort/index.html"><span class="identifier">Sort</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-common-query-criteria/index.html">CommonQueryCriteria</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">CommonQueryCriteria</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">QueryCriteria</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-fungible-asset-query-criteria/index.html">FungibleAssetQueryCriteria</a></h4>
+</td>
+<td>
+<p>FungibleStateQueryCriteria: provides query by attributes defined in <a href="#">VaultSchema.VaultFungibleStates</a></p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">FungibleAssetQueryCriteria</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CommonQueryCriteria</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-fungible-state-query-criteria/index.html">FungibleStateQueryCriteria</a></h4>
+</td>
+<td>
+<p>FungibleStateQueryCriteria: provides query by attributes defined in <a href="#">VaultSchema.VaultFungibleStates</a></p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">FungibleStateQueryCriteria</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CommonQueryCriteria</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-linear-state-query-criteria/index.html">LinearStateQueryCriteria</a></h4>
+</td>
+<td>
+<p>LinearStateQueryCriteria: provides query by attributes defined in <a href="#">VaultSchema.VaultLinearState</a></p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">LinearStateQueryCriteria</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CommonQueryCriteria</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-or-composition/index.html">OrComposition</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">OrComposition</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">, </span><span class="identifier">OrVisitor</span><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">,</span>&nbsp;<a href="../-i-query-criteria-parser/index.html"><span class="identifier">IQueryCriteriaParser</span></a><span class="symbol">,</span>&nbsp;<a href="../-sort/index.html"><span class="identifier">Sort</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-soft-locking-condition/index.html">SoftLockingCondition</a></h4>
+</td>
+<td>
+<p>Select states based on their locks.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SoftLockingCondition</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-soft-locking-type/index.html">SoftLockingType</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">SoftLockingType</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-time-condition/index.html">TimeCondition</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">TimeCondition</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-time-instant-type/index.html">TimeInstantType</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">TimeInstantType</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-vault-custom-query-criteria/index.html">VaultCustomQueryCriteria</a></h4>
+</td>
+<td>
+<p>VaultCustomQueryCriteria: provides query by custom attributes defined in a contracts
+<a href="#">QueryableState</a> implementation.
+(see Persistence documentation for more information)</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">VaultCustomQueryCriteria</span><span class="symbol">&lt;</span><span class="identifier">L</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.schemas/-state-persistable.html"><span class="identifier">StatePersistable</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CommonQueryCriteria</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-vault-query-criteria/index.html">VaultQueryCriteria</a></h4>
+</td>
+<td>
+<p>VaultQueryCriteria: provides query by attributes defined in <a href="#">VaultSchema.VaultStates</a></p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">VaultQueryCriteria</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CommonQueryCriteria</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="and.html">and</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">and</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria$and(net.corda.core.node.services.vault.QueryCriteria)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">QueryCriteria</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="or.html">or</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">or</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria$or(net.corda.core.node.services.vault.QueryCriteria)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">QueryCriteria</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NodeHandle - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.driver</a>&nbsp;/&nbsp;<a href="./index.html">NodeHandle</a><br/>
+<br/>
+<h1>NodeHandle</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">NodeHandle</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html"><span class="identifier">AutoCloseable</span></a></code>
+<p>A base interface which represents a node as part of the <a href="../driver.html">driver</a> dsl, extended by <a href="../-in-process/index.html">InProcess</a> and <a href="../-out-of-process/index.html">OutOfProcess</a></p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="base-directory.html">baseDirectory</a></h4>
+</td>
+<td>
+<p>The location of the node's base directory</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">baseDirectory</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html"><span class="identifier">Path</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="jmx-address.html">jmxAddress</a></h4>
+</td>
+<td>
+<p>Get the JMX server address for this node, if JMX is enabled</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">jmxAddress</span><span class="symbol">: </span><span class="identifier">NetworkHostAndPort</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="node-info.html">nodeInfo</a></h4>
+</td>
+<td>
+<p>Get the <a href="#">NodeInfo</a> for this node</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">nodeInfo</span><span class="symbol">: </span><span class="identifier">NodeInfo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="p2p-address.html">p2pAddress</a></h4>
+</td>
+<td>
+<p>Get the p2p address for this node</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">p2pAddress</span><span class="symbol">: </span><span class="identifier">NetworkHostAndPort</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="rpc.html">rpc</a></h4>
+</td>
+<td>
+<p>Interface to the node's RPC system. The first RPC user will be used to login if are any, otherwise a default one
+will be added and that will be used.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">rpc</span><span class="symbol">: </span><span class="identifier">CordaRPCOps</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="rpc-address.html">rpcAddress</a></h4>
+</td>
+<td>
+<p>Get the rpc address for this node</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">rpcAddress</span><span class="symbol">: </span><span class="identifier">NetworkHostAndPort</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="rpc-admin-address.html">rpcAdminAddress</a></h4>
+</td>
+<td>
+<p>Get the rpc admin address for this node</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">rpcAdminAddress</span><span class="symbol">: </span><span class="identifier">NetworkHostAndPort</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="rpc-users.html">rpcUsers</a></h4>
+</td>
+<td>
+<p>Get a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a> of <a href="../../net.corda.testing.node/-user/index.html">User</a>'s for this node</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">rpcUsers</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.testing.node/-user/index.html"><span class="identifier">User</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="stop.html">stop</a></h4>
+</td>
+<td>
+<p>Stops the referenced node.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../log-file.html">logFile</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">NodeHandle</span></a><span class="symbol">.</span><span class="identifier">logFile</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/io/File.html"><span class="identifier">File</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-in-process/index.html">InProcess</a></h4>
+</td>
+<td>
+<p>Interface which represents an in process node and exposes available services.</p>
+<code><span class="keyword">interface </span><span class="identifier">InProcess</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NodeHandle</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-out-of-process/index.html">OutOfProcess</a></h4>
+</td>
+<td>
+<p>Interface which represents an out of process node and exposes its process handle.</p>
+<code><span class="keyword">interface </span><span class="identifier">OutOfProcess</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NodeHandle</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

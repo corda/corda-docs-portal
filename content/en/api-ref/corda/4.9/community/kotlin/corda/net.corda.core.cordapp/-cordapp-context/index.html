@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordappContext - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.cordapp</a>&nbsp;/&nbsp;<a href="./index.html">CordappContext</a><br/>
+<br/>
+<h1>CordappContext</h1>
+<code><span class="keyword">class </span><span class="identifier">CordappContext</span></code>
+<p>An app context provides information about where an app was loaded from, access to its classloader,
+and (in the included <a href="../-cordapp/index.html">Cordapp</a> object) lists of annotated classes discovered via scanning the JAR.</p>
+<p>A CordappContext is obtained from <a href="../-cordapp-provider/get-app-context.html">CordappProvider.getAppContext</a> which resides on a <a href="#">ServiceHub</a>. This will be
+used primarily from within flows.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">CordappContext</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.cordapp.CordappContext$<init>(net.corda.core.cordapp.Cordapp, net.corda.core.crypto.SecureHash, java.lang.ClassLoader)/cordapp">cordapp</span><span class="symbol">:</span>&nbsp;<a href="../-cordapp/index.html"><span class="identifier">Cordapp</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.cordapp.CordappContext$<init>(net.corda.core.cordapp.Cordapp, net.corda.core.crypto.SecureHash, java.lang.ClassLoader)/attachmentId">attachmentId</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.cordapp.CordappContext$<init>(net.corda.core.cordapp.Cordapp, net.corda.core.crypto.SecureHash, java.lang.ClassLoader)/classLoader">classLoader</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html"><span class="identifier">ClassLoader</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="attachment-id.html">attachmentId</a></h4>
+</td>
+<td>
+<p>For CorDapps containing <a href="#">Contract</a> or <a href="#">UpgradedContract</a> implementations this will be populated
+with the attachment containing those class files</p>
+<code><span class="keyword">val </span><span class="identifier">attachmentId</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="class-loader.html">classLoader</a></h4>
+</td>
+<td>
+<p>the classloader used to load this cordapp's classes</p>
+<code><span class="keyword">val </span><span class="identifier">classLoader</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html"><span class="identifier">ClassLoader</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="config.html">config</a></h4>
+</td>
+<td>
+<p>Configuration for this CorDapp</p>
+<code><span class="keyword">val </span><span class="identifier">config</span><span class="symbol">: </span><a href="../-cordapp-config/index.html"><span class="identifier">CordappConfig</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="cordapp.html">cordapp</a></h4>
+</td>
+<td>
+<p>The cordapp this context is about</p>
+<code><span class="keyword">val </span><span class="identifier">cordapp</span><span class="symbol">: </span><a href="../-cordapp/index.html"><span class="identifier">Cordapp</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="create.html">create</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.cordapp.CordappContext.Companion$create(net.corda.core.cordapp.Cordapp, net.corda.core.crypto.SecureHash, java.lang.ClassLoader, net.corda.core.cordapp.CordappConfig)/cordapp">cordapp</span><span class="symbol">:</span>&nbsp;<a href="../-cordapp/index.html"><span class="identifier">Cordapp</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.cordapp.CordappContext.Companion$create(net.corda.core.cordapp.Cordapp, net.corda.core.crypto.SecureHash, java.lang.ClassLoader, net.corda.core.cordapp.CordappConfig)/attachmentId">attachmentId</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.cordapp.CordappContext.Companion$create(net.corda.core.cordapp.Cordapp, net.corda.core.crypto.SecureHash, java.lang.ClassLoader, net.corda.core.cordapp.CordappConfig)/classLoader">classLoader</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html"><span class="identifier">ClassLoader</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.cordapp.CordappContext.Companion$create(net.corda.core.cordapp.Cordapp, net.corda.core.crypto.SecureHash, java.lang.ClassLoader, net.corda.core.cordapp.CordappConfig)/config">config</span><span class="symbol">:</span>&nbsp;<a href="../-cordapp-config/index.html"><span class="identifier">CordappConfig</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CordappContext</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RPCConnectionListener.onConnect - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.ext</a>&nbsp;/&nbsp;<a href="index.html">RPCConnectionListener</a>&nbsp;/&nbsp;<a href="./on-connect.html">onConnect</a><br/>
+<br/>
+<h1>onConnect</h1>
+<a name="net.corda.client.rpc.ext.RPCConnectionListener$onConnect(net.corda.client.rpc.ext.RPCConnectionListener.ConnectionContext((net.corda.client.rpc.ext.RPCConnectionListener.I)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onConnect</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.ext.RPCConnectionListener$onConnect(net.corda.client.rpc.ext.RPCConnectionListener.ConnectionContext((net.corda.client.rpc.ext.RPCConnectionListener.I)))/context">context</span><span class="symbol">:</span>&nbsp;<span class="identifier">ConnectionContext</span><span class="symbol">&lt;</span><span class="identifier">I</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>This method will be called to inform that RPC connection is established. <a href="-connection-context/connection-opt.html">ConnectionContext.connectionOpt</a> will not be <code>null</code>.</p>
+<p>If connection is lost RPC client will attempt to re-connect and if this is successful then this method will be called
+again with the <strong>same</strong>  reference of <a href="-connection-context/connection-opt.html">ConnectionContext.connectionOpt</a> as during initial connect. I.e. it is possible to say that once
+established <a href="-connection-context/connection-opt.html">ConnectionContext.connectionOpt</a> stays constant during <a href="./on-connect.html">onConnect</a>/<a href="on-disconnect.html">onDisconnect</a> cycles.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionBuilder.toWireTransaction - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="index.html">TransactionBuilder</a>&nbsp;/&nbsp;<a href="./to-wire-transaction.html">toWireTransaction</a><br/>
+<br/>
+<h1>toWireTransaction</h1>
+<a name="net.corda.core.transactions.TransactionBuilder$toWireTransaction(net.corda.core.node.ServicesForResolution)"></a>
+<code><span class="keyword">fun </span><span class="identifier">toWireTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.TransactionBuilder$toWireTransaction(net.corda.core.node.ServicesForResolution)/services">services</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-services-for-resolution/index.html"><span class="identifier">ServicesForResolution</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-wire-transaction/index.html"><span class="identifier">WireTransaction</span></a></code>
+<p>Generates a <a href="../-wire-transaction/index.html">WireTransaction</a> from this builder, resolves any <a href="../../net.corda.core.contracts/-automatic-placeholder-constraint/index.html">AutomaticPlaceholderConstraint</a>, and selects the attachments to use for this transaction.</p>
+<h3>Exceptions</h3>
+<p><a name="ZoneVersionTooLowException"></a>
+<code>ZoneVersionTooLowException</code> - if there are reference states and the zone minimum platform version is less than 4.</p>
+<p><strong>Returns</strong><br/>
+A new <a href="../-wire-transaction/index.html">WireTransaction</a> that will be unaffected by further changes to this <a href="index.html">TransactionBuilder</a>.</p>
+<a name="net.corda.core.transactions.TransactionBuilder$toWireTransaction(net.corda.core.node.ServicesForResolution, kotlin.Int)"></a>
+<code><span class="keyword">fun </span><span class="identifier">toWireTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.TransactionBuilder$toWireTransaction(net.corda.core.node.ServicesForResolution, kotlin.Int)/services">services</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-services-for-resolution/index.html"><span class="identifier">ServicesForResolution</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.TransactionBuilder$toWireTransaction(net.corda.core.node.ServicesForResolution, kotlin.Int)/schemeId">schemeId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-wire-transaction/index.html"><span class="identifier">WireTransaction</span></a></code>
+<p>Generates a <a href="../-wire-transaction/index.html">WireTransaction</a> from this builder, resolves any <a href="../../net.corda.core.contracts/-automatic-placeholder-constraint/index.html">AutomaticPlaceholderConstraint</a>, and selects the attachments to use for this transaction.</p>
+<h3>Parameters</h3>
+<p><a name="schemeId"></a>
+<code>schemeId</code> - is used to specify the <a href="../../net.corda.core.serialization/-custom-serialization-scheme/index.html">CustomSerializationScheme</a> used to serialize each component of the componentGroups of the <a href="../-wire-transaction/index.html">WireTransaction</a>.
+This is an experimental feature.</p>
+<h3>Exceptions</h3>
+<p><a name="ZoneVersionTooLowException"></a>
+<code>ZoneVersionTooLowException</code> - if there are reference states and the zone minimum platform version is less than 4.</p>
+<p><strong>Returns</strong><br/>
+A new <a href="../-wire-transaction/index.html">WireTransaction</a> that will be unaffected by further changes to this <a href="index.html">TransactionBuilder</a>.</p>
+<a name="net.corda.core.transactions.TransactionBuilder$toWireTransaction(net.corda.core.node.ServicesForResolution, kotlin.Int, kotlin.collections.Map((kotlin.Any, )))"></a>
+<code><span class="keyword">fun </span><span class="identifier">toWireTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.TransactionBuilder$toWireTransaction(net.corda.core.node.ServicesForResolution, kotlin.Int, kotlin.collections.Map((kotlin.Any, )))/services">services</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-services-for-resolution/index.html"><span class="identifier">ServicesForResolution</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.TransactionBuilder$toWireTransaction(net.corda.core.node.ServicesForResolution, kotlin.Int, kotlin.collections.Map((kotlin.Any, )))/schemeId">schemeId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.TransactionBuilder$toWireTransaction(net.corda.core.node.ServicesForResolution, kotlin.Int, kotlin.collections.Map((kotlin.Any, )))/properties">properties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-wire-transaction/index.html"><span class="identifier">WireTransaction</span></a></code>
+<p>Generates a <a href="../-wire-transaction/index.html">WireTransaction</a> from this builder, resolves any <a href="../../net.corda.core.contracts/-automatic-placeholder-constraint/index.html">AutomaticPlaceholderConstraint</a>, and selects the attachments to use for this transaction.</p>
+<h3>Parameters</h3>
+<p><a name="schemeId"></a>
+<code>schemeId</code> - is used to specify the <a href="../../net.corda.core.serialization/-custom-serialization-scheme/index.html">CustomSerializationScheme</a> used to serialize each component of the componentGroups of the <a href="../-wire-transaction/index.html">WireTransaction</a>.
+This is an experimental feature.</p>
+<p><a name="properties"></a>
+<code>properties</code> - a list of properties to add to the <a href="../../net.corda.core.serialization/-serialization-scheme-context/index.html">SerializationSchemeContext</a> these properties can be accessed in <a href="../../net.corda.core.serialization/-custom-serialization-scheme/serialize.html">CustomSerializationScheme.serialize</a>
+when serializing the componentGroups of the wire transaction but might not be available when deserializing.</p>
+<h3>Exceptions</h3>
+<p><a name="ZoneVersionTooLowException"></a>
+<code>ZoneVersionTooLowException</code> - if there are reference states and the zone minimum platform version is less than 4.</p>
+<p><strong>Returns</strong><br/>
+A new <a href="../-wire-transaction/index.html">WireTransaction</a> that will be unaffected by further changes to this <a href="index.html">TransactionBuilder</a>.</p>
+</BODY>
+</HTML>

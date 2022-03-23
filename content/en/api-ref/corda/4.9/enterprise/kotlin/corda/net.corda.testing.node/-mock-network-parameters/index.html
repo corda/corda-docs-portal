@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MockNetworkParameters - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="./index.html">MockNetworkParameters</a><br/>
+<br/>
+<h1>MockNetworkParameters</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">MockNetworkParameters</span></code>
+<p>Immutable builder for configuring a <a href="../-mock-network/index.html">MockNetwork</a>.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">MockNetworkParameters</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$<init>(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/networkSendManuallyPumped">networkSendManuallyPumped</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$<init>(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/threadPerNode">threadPerNode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$<init>(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/servicePeerAllocationStrategy">servicePeerAllocationStrategy</span><span class="symbol">:</span>&nbsp;<span class="identifier">ServicePeerAllocationStrategy</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$<init>(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/notarySpecs">notarySpecs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-mock-network-notary-spec/index.html"><span class="identifier">MockNetworkNotarySpec</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$<init>(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/networkParameters">networkParameters</span><span class="symbol">:</span>&nbsp;<span class="identifier">NetworkParameters</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">MockNetworkParameters</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$<init>(kotlin.collections.Collection((net.corda.testing.node.TestCordapp)))/cordappsForAllNodes">cordappsForAllNodes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../-test-cordapp/index.html"><span class="identifier">TestCordapp</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Immutable builder for configuring a <a href="../-mock-network/index.html">MockNetwork</a>.</p>
+<code><span class="identifier">MockNetworkParameters</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$<init>(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters, kotlin.collections.Collection((net.corda.testing.node.TestCordapp)))/networkSendManuallyPumped">networkSendManuallyPumped</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$<init>(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters, kotlin.collections.Collection((net.corda.testing.node.TestCordapp)))/threadPerNode">threadPerNode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$<init>(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters, kotlin.collections.Collection((net.corda.testing.node.TestCordapp)))/servicePeerAllocationStrategy">servicePeerAllocationStrategy</span><span class="symbol">:</span>&nbsp;<span class="identifier">ServicePeerAllocationStrategy</span>&nbsp;<span class="symbol">=</span>&nbsp;InMemoryMessagingNetwork.ServicePeerAllocationStrategy.Random()<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$<init>(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters, kotlin.collections.Collection((net.corda.testing.node.TestCordapp)))/notarySpecs">notarySpecs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-mock-network-notary-spec/index.html"><span class="identifier">MockNetworkNotarySpec</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;listOf(MockNetworkNotarySpec(DUMMY_NOTARY_NAME))<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$<init>(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters, kotlin.collections.Collection((net.corda.testing.node.TestCordapp)))/networkParameters">networkParameters</span><span class="symbol">:</span>&nbsp;<span class="identifier">NetworkParameters</span>&nbsp;<span class="symbol">=</span>&nbsp;testNetworkParameters()<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$<init>(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters, kotlin.collections.Collection((net.corda.testing.node.TestCordapp)))/cordappsForAllNodes">cordappsForAllNodes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../-test-cordapp/index.html"><span class="identifier">TestCordapp</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptyList()<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="cordapps-for-all-nodes.html">cordappsForAllNodes</a></h4>
+</td>
+<td>
+<p><a href="../-test-cordapp/index.html">TestCordapp</a>s added to all nodes.</p>
+<code><span class="keyword">val </span><span class="identifier">cordappsForAllNodes</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../-test-cordapp/index.html"><span class="identifier">TestCordapp</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters.html">networkParameters</a></h4>
+</td>
+<td>
+<p>The network parameters to be used by all the nodes. <a href="#">NetworkParameters.notaries</a> must be
+empty as notaries are defined by <a href="notary-specs.html">notarySpecs</a>.</p>
+<code><span class="keyword">val </span><span class="identifier">networkParameters</span><span class="symbol">: </span><span class="identifier">NetworkParameters</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-send-manually-pumped.html">networkSendManuallyPumped</a></h4>
+</td>
+<td>
+<p>If false then messages will not be routed from sender to receiver until you use
+the <a href="../-mock-network/run-network.html">MockNetwork.runNetwork</a> method. This is useful for writing single-threaded unit test code that can examine the
+state of the mock network before and after a message is sent, without races and without the receiving node immediately
+sending a response. The default is false, so you must call runNetwork.</p>
+<code><span class="keyword">val </span><span class="identifier">networkSendManuallyPumped</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary-specs.html">notarySpecs</a></h4>
+</td>
+<td>
+<p>The notaries to use in the mock network. By default you get one mock notary and that is usually sufficient.</p>
+<code><span class="keyword">val </span><span class="identifier">notarySpecs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-mock-network-notary-spec/index.html"><span class="identifier">MockNetworkNotarySpec</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="service-peer-allocation-strategy.html">servicePeerAllocationStrategy</a></h4>
+</td>
+<td>
+<p>How messages are load balanced in the case where a single compound identity
+is used by multiple nodes. You rarely if ever need to change that, it's primarily of interest to people testing
+notary code.</p>
+<code><span class="keyword">val </span><span class="identifier">servicePeerAllocationStrategy</span><span class="symbol">: </span><span class="identifier">ServicePeerAllocationStrategy</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="thread-per-node.html">threadPerNode</a></h4>
+</td>
+<td>
+<p>If true then each node will be run in its own thread. This can result in race conditions in
+your code if not carefully written, but is more realistic and may help if you have flows in your app that do long
+blocking operations. The default is false.</p>
+<code><span class="keyword">val </span><span class="identifier">threadPerNode</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="copy.html">copy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">copy</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$copy(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/networkSendManuallyPumped">networkSendManuallyPumped</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$copy(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/threadPerNode">threadPerNode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$copy(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/servicePeerAllocationStrategy">servicePeerAllocationStrategy</span><span class="symbol">:</span>&nbsp;<span class="identifier">ServicePeerAllocationStrategy</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$copy(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/notarySpecs">notarySpecs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-mock-network-notary-spec/index.html"><span class="identifier">MockNetworkNotarySpec</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$copy(kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/networkParameters">networkParameters</span><span class="symbol">:</span>&nbsp;<span class="identifier">NetworkParameters</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">MockNetworkParameters</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-cordapps-for-all-nodes.html">withCordappsForAllNodes</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withCordappsForAllNodes</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$withCordappsForAllNodes(kotlin.collections.Collection((net.corda.testing.node.TestCordapp)))/cordappsForAllNodes">cordappsForAllNodes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../-test-cordapp/index.html"><span class="identifier">TestCordapp</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">MockNetworkParameters</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-network-parameters.html">withNetworkParameters</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withNetworkParameters</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$withNetworkParameters(net.corda.core.node.NetworkParameters)/networkParameters">networkParameters</span><span class="symbol">:</span>&nbsp;<span class="identifier">NetworkParameters</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">MockNetworkParameters</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-network-send-manually-pumped.html">withNetworkSendManuallyPumped</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withNetworkSendManuallyPumped</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$withNetworkSendManuallyPumped(kotlin.Boolean)/networkSendManuallyPumped">networkSendManuallyPumped</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">MockNetworkParameters</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-notary-specs.html">withNotarySpecs</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withNotarySpecs</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$withNotarySpecs(kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)))/notarySpecs">notarySpecs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-mock-network-notary-spec/index.html"><span class="identifier">MockNetworkNotarySpec</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">MockNetworkParameters</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-service-peer-allocation-strategy.html">withServicePeerAllocationStrategy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withServicePeerAllocationStrategy</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$withServicePeerAllocationStrategy(net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy)/servicePeerAllocationStrategy">servicePeerAllocationStrategy</span><span class="symbol">:</span>&nbsp;<span class="identifier">ServicePeerAllocationStrategy</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">MockNetworkParameters</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-thread-per-node.html">withThreadPerNode</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withThreadPerNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetworkParameters$withThreadPerNode(kotlin.Boolean)/threadPerNode">threadPerNode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">MockNetworkParameters</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

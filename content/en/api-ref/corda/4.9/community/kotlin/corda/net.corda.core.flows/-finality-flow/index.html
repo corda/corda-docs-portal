@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FinalityFlow - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">FinalityFlow</a><br/>
+<br/>
+<h1>FinalityFlow</h1>
+<code><span class="identifier">@InitiatingFlow</span> <span class="keyword">class </span><span class="identifier">FinalityFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span></code>
+<p>Verifies the given transaction, then sends it to the named notary. If the notary agrees that the transaction
+is acceptable then it is from that point onwards committed to the ledger, and will be written through to the
+vault. Additionally it will be distributed to the parties reflected in the participants list of the states.</p>
+<p>By default, the initiating flow will commit states that are relevant to the initiating party as indicated by
+<a href="../../net.corda.core.node/-states-to-record/-o-n-l-y_-r-e-l-e-v-a-n-t.html">StatesToRecord.ONLY_RELEVANT</a>. Relevance is determined by the union of all participants to states which have been
+included in the transaction. This default behaviour may be modified by passing in an alternate value for <a href="../../net.corda.core.node/-states-to-record/index.html">StatesToRecord</a>.</p>
+<p>The transaction is expected to have already been resolved: if its dependencies are not available in local
+storage, verification will fail. It must have signatures from all necessary parties other than the notary.</p>
+<p>A list of <a href="../-flow-session/index.html">FlowSession</a>s is required for each non-local participant of the transaction. These participants will receive
+the final notarised transaction by calling <a href="../-receive-finality-flow/index.html">ReceiveFinalityFlow</a> in their counterpart flows. Sessions with non-participants
+can also be included, but they must specify <a href="../../net.corda.core.node/-states-to-record/-a-l-l_-v-i-s-i-b-l-e.html">StatesToRecord.ALL_VISIBLE</a> for statesToRecord if they wish to record the
+contract states into their vaults.</p>
+<p>The flow returns the same transaction but with the additional signatures from the notary.</p>
+<p>NOTE: This is an inlined flow but for backwards compatibility is annotated with <a href="../-initiating-flow/index.html">InitiatingFlow</a>.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-b-r-o-a-d-c-a-s-t-i-n-g.html">BROADCASTING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">BROADCASTING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-extra-constructor-args/index.html">ExtraConstructorArgs</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ExtraConstructorArgs</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-n-o-t-a-r-i-s-i-n-g/index.html">NOTARISING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">NOTARISING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">FinalityFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Set((net.corda.core.identity.Party)), net.corda.core.utilities.ProgressTracker)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Set((net.corda.core.identity.Party)), net.corda.core.utilities.ProgressTracker)/extraRecipients">extraRecipients</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Set((net.corda.core.identity.Party)), net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a><span class="symbol">)</span></code><br/>
+<code><span class="identifier">FinalityFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Set((net.corda.core.identity.Party)))/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Set((net.corda.core.identity.Party)))/extraRecipients">extraRecipients</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">FinalityFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">)</span></code><br/>
+<code><span class="identifier">FinalityFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, net.corda.core.utilities.ProgressTracker)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a><span class="symbol">)</span></code>
+<p>Notarise the given transaction and broadcast it to the given <a href="../-flow-session/index.html">FlowSession</a>s. This list <strong>must</strong> at least include
+all the non-local participants of the transaction. Sessions to non-participants can also be provided.</p>
+<code><span class="identifier">FinalityFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/firstSession">firstSession</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/restSessions">restSessions</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">)</span></code>
+<p>Notarise the given transaction and broadcast it to all the participants.</p>
+<code><span class="identifier">FinalityFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.utilities.ProgressTracker)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.utilities.ProgressTracker)/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a>&nbsp;<span class="symbol">=</span>&nbsp;tracker()<span class="symbol">)</span></code><br/>
+<code><span class="identifier">FinalityFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.node.StatesToRecord, net.corda.core.utilities.ProgressTracker)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.node.StatesToRecord, net.corda.core.utilities.ProgressTracker)/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.node.StatesToRecord, net.corda.core.utilities.ProgressTracker)/statesToRecord">statesToRecord</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-states-to-record/index.html"><span class="identifier">StatesToRecord</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), net.corda.core.node.StatesToRecord, net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a>&nbsp;<span class="symbol">=</span>&nbsp;tracker()<span class="symbol">)</span></code><br/>
+<code><span class="identifier">FinalityFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Collection((net.corda.core.identity.Party)), net.corda.core.utilities.ProgressTracker)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Collection((net.corda.core.identity.Party)), net.corda.core.utilities.ProgressTracker)/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Collection((net.corda.core.identity.Party)), net.corda.core.utilities.ProgressTracker)/oldParticipants">oldParticipants</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FinalityFlow$<init>(net.corda.core.transactions.SignedTransaction, kotlin.collections.Collection((net.corda.core.flows.FlowSession)), kotlin.collections.Collection((net.corda.core.identity.Party)), net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="progress-tracker.html">progressTracker</a></h4>
+</td>
+<td>
+<p>Override this to provide a <a href="../../net.corda.core.utilities/-progress-tracker/index.html">ProgressTracker</a>. If one is provided and stepped, the framework will do something
+helpful with the progress reports e.g record to the audit service. If this flow is invoked as a subflow of another,
+then the tracker will be made a child of the current step in the parent. If it's null, this flow doesn't track
+progress.</p>
+<code><span class="keyword">val </span><span class="identifier">progressTracker</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="transaction.html">transaction</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">transaction</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<p>This is where you fill out your business logic.</p>
+<code><span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-extra-constructor-args.html">getExtraConstructorArgs</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getExtraConstructorArgs</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ExtraConstructorArgs</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="tracker.html">tracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">tracker</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.testing.flows/receive-all.html">receiveAll</a></h4>
+</td>
+<td>
+<p>Suspends until a message has been received for each session in the specified <a href="../../net.corda.testing.flows/receive-all.html#net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))/sessions">sessions</a>.</p>
+<code><span class="keyword">fun </span><a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))/session">session</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/receiveType">receiveType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/session">session</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/session">session</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

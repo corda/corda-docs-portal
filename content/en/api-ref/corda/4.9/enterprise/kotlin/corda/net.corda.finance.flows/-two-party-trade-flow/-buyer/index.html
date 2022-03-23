@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TwoPartyTradeFlow.Buyer - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="../index.html">TwoPartyTradeFlow</a>&nbsp;/&nbsp;<a href="./index.html">Buyer</a><br/>
+<br/>
+<h1>Buyer</h1>
+<code><span class="keyword">class </span><span class="identifier">Buyer</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowLogic</span><span class="symbol">&lt;</span><span class="identifier">SignedTransaction</span><span class="symbol">&gt;</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-c-o-l-l-e-c-t-i-n-g_-s-i-g-n-a-t-u-r-e-s/index.html">COLLECTING_SIGNATURES</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">COLLECTING_SIGNATURES</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-r-e-c-e-i-v-i-n-g.html">RECEIVING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">RECEIVING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-r-e-c-o-r-d-i-n-g.html">RECORDING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">RECORDING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-shared-tx/index.html">SharedTx</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SharedTx</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-s-i-g-n-i-n-g.html">SIGNING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">SIGNING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-v-e-r-i-f-y-i-n-g.html">VERIFYING</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">VERIFYING</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Step</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">Buyer</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Buyer$<init>(net.corda.core.flows.FlowSession, net.corda.core.identity.Party, net.corda.core.contracts.Amount((java.util.Currency)), java.lang.Class((net.corda.core.contracts.OwnableState)))/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Buyer$<init>(net.corda.core.flows.FlowSession, net.corda.core.identity.Party, net.corda.core.contracts.Amount((java.util.Currency)), java.lang.Class((net.corda.core.contracts.OwnableState)))/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Buyer$<init>(net.corda.core.flows.FlowSession, net.corda.core.identity.Party, net.corda.core.contracts.Amount((java.util.Currency)), java.lang.Class((net.corda.core.contracts.OwnableState)))/acceptablePrice">acceptablePrice</span><span class="symbol">:</span>&nbsp;<span class="identifier">Amount</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Buyer$<init>(net.corda.core.flows.FlowSession, net.corda.core.identity.Party, net.corda.core.contracts.Amount((java.util.Currency)), java.lang.Class((net.corda.core.contracts.OwnableState)))/typeToBuy">typeToBuy</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">OwnableState</span><span class="symbol">&gt;</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">Buyer</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Buyer$<init>(net.corda.core.flows.FlowSession, net.corda.core.identity.Party, net.corda.core.contracts.Amount((java.util.Currency)), java.lang.Class((net.corda.core.contracts.OwnableState)), kotlin.Boolean)/sellerSession">sellerSession</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Buyer$<init>(net.corda.core.flows.FlowSession, net.corda.core.identity.Party, net.corda.core.contracts.Amount((java.util.Currency)), java.lang.Class((net.corda.core.contracts.OwnableState)), kotlin.Boolean)/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Buyer$<init>(net.corda.core.flows.FlowSession, net.corda.core.identity.Party, net.corda.core.contracts.Amount((java.util.Currency)), java.lang.Class((net.corda.core.contracts.OwnableState)), kotlin.Boolean)/acceptablePrice">acceptablePrice</span><span class="symbol">:</span>&nbsp;<span class="identifier">Amount</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Buyer$<init>(net.corda.core.flows.FlowSession, net.corda.core.identity.Party, net.corda.core.contracts.Amount((java.util.Currency)), java.lang.Class((net.corda.core.contracts.OwnableState)), kotlin.Boolean)/typeToBuy">typeToBuy</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">OwnableState</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.TwoPartyTradeFlow.Buyer$<init>(net.corda.core.flows.FlowSession, net.corda.core.identity.Party, net.corda.core.contracts.Amount((java.util.Currency)), java.lang.Class((net.corda.core.contracts.OwnableState)), kotlin.Boolean)/anonymous">anonymous</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="progress-tracker.html">progressTracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">progressTracker</span><span class="symbol">: </span><span class="identifier">ProgressTracker</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SignedTransaction</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
