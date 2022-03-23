@@ -39,7 +39,7 @@ For help finding these, use the [setup guide](community/getting-set-up.md).
 * Java: `git clone http://github.com/corda/samples-java`
 * Kotlin: `git clone http://github.com/corda/samples-kotlin`
 
-3. Follow the [tutorials](tutorial-cordapp.md) to set up a Corda network and start coding your CorDapps.
+3. Follow the [tutorials](community/tutorial-cordapp.md) to set up a Corda network and start coding your CorDapps.
 
 ## Upgrade to Corda Community Edition from Corda open source
 
