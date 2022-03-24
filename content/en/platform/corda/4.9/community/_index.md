@@ -20,7 +20,7 @@ Corda Community Edition is a free to use, open source version of Corda, with add
 
 ## What's new in Corda Community Edition
 
-Along with the free-to-use Corda platform, Corda Community Edition comes with an affordable support package from R3, the makers of Corda. Check the [Community Edition support pages](http://r3.com/support-services) to see which flexible package suits you best.
+Along with the free-to-use Corda platform, Corda Community Edition comes with an affordable support package from R3, the makers of Corda. Check the [Community Edition support services](http://r3.com/support) to see which flexible package suits you best.
 
 ## Set up Corda Community Edition in three steps
 
