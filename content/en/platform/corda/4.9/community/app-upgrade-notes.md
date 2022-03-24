@@ -75,7 +75,7 @@ The required steps for each upgrade path are described below.
 
 1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` from the database section of your node configuration file.
 2. Update any missing core schema changes by running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
-3. Add Liquibase resources to CorDapps. In Corda 4.6, CorDapps that introduce custom schema need Liquibase migration scripts allowing them to create the schema upfront. For existing CorDapps that do not have migration scripts in their resources, they can be added as an external migration `.jar` file, as documented in the [Corda Enterprise documentation](../../4.6/enterprise/cordapps/database-management.md#adding-scripts-retrospectively-to-an-existing-cordapp).
+3. Add Liquibase resources to CorDapps. In Corda 4.6, CorDapps that introduce custom schema need Liquibase migration scripts allowing them to create the schema upfront. For existing CorDapps that do not have migration scripts in their resources, they can be added as an external migration `.jar` file, as documented in the [Corda Enterprise documentation](../../4.6/enterprise/cordapps/database-management.html#adding-scripts-retrospectively-to-an-existing-cordapp).
 4. Update the changelog for existing schemas. After upgrading the Corda `.jar` file and adding Liquibase scripts to the CorDapp(s), any custom schemas from the apps are present
 in the database, but the changelog entries in the Liquibase changelog table are missing (as they have been created by Liquibase). This will cause issues when starting the node, and also when running `run-migration-scripts` as tables that already exist cannot be recreated. By running the new sub-command `sync-app-schemas`, changelog entries are created for all existing mapped schemas from CorDapps: `java -jar corda.jar sync-app-schemas`.
 
@@ -143,8 +143,8 @@ The issue here is that a new `Destination` interface introduced in Platform Vers
 used as an `AbstractParty` but has an actual value that is one of `Party` or `AnonymousParty`. These subclasses
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not a valid type for use as an `AbstractParty` later.
-(For more information on `Destination`, see the [Changelog](https://docs.corda.net/docs/corda-os/4.4/changelog.html) for Platform Version 5, or the KDocs for the interface
-[here](https://docs.corda.net/head/api/kotlin/corda/net.corda.core.flows/-destination.html))
+For more information on `Destination`, see the [Changelog](https://docs.corda.net/docs/corda-os/4.4/changelog.html) for Platform Version 5, or the KDocs for the interface
+[here](../../../../api-ref/api-ref-corda-4.html#corda-community-edition-4x-api-reference).
 
 Note that this is a Kotlin-specific issue. Java can instead choose `? extends AbstractParty & Destination` here, which can later be used
 as `AbstractParty`.
@@ -237,7 +237,7 @@ Otherwise just upgrade your installed copy in the usual manner for your operatin
 {{< note >}}
 Platform Version 5 requires a different version of Gradle, so if you’re intending to upgrade past Platform Version 4 you may wish
 to skip updating Gradle here and upgrade directly to the version required by Platform Version 5. You’ll still need to alter the version
-numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#step-2-adjust-the-version-numbers-in-your-gradle-build-files)
+numbers in your Gradle file as shown in this section.
 
 {{< /note >}}
 
@@ -348,7 +348,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-See [CorDapp configuration files](cordapp-build-systems.md) for more information.
+See [CorDapp configuration files](cordapp-build-systems.html#cordapp-configuration-files) for more information.
 
 
 
@@ -641,7 +641,7 @@ Now that it’s calling `ReceiveFinalityFlow`, which effectively does the same t
 
 ### Step 6. Security: Upgrade your use of SwapIdentitiesFlow
 
-The [Confidential identities](api-identity.md) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
+The [Confidential identities](api-identity.html#confidential-identities) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as `FinalityFlow` above, to close problems with confidential identities being injectable into a node
 outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
 the `SwapIdentitiesFlow`.
@@ -788,20 +788,20 @@ to be governed by a contract that is either:
 * The outer class of the state class, if the state is an inner class of a contract. This is a common design pattern.
 * Annotated with `@BelongsToContract` which specifies the contract class explicitly.
 
-Learn more by reading [Contract/State Agreement](api-contract-constraints.md). If an app targets Corda 3 or lower (i.e. does not specify a target version),
+Learn more by reading [Contract/State Agreement](api-contract-constraints.html#contractstate-agreement). If an app targets Corda 3 or lower (i.e. does not specify a target version),
 states that point to contracts outside their package will trigger a log warning but validation will proceed.
 
 
 ### Step 9. Learn about signature constraints and JAR signing
 
-[Signature Constraints](api-contract-constraints.md#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
+[Signature Constraints](api-contract-constraints.html#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to
 deploy application upgrades smoothly and in a decentralised manner. Signature constraints are the new default mode for CorDapps, and
 the act of upgrading your app to use the version 4 Gradle plugins will result in your app being automatically signed, and new states
 automatically using new signature constraints selected automatically based on these signing keys.
 
 You can read more about signature constraints and what they do in [API: Contract Constraints](api-contract-constraints.md). The `TransactionBuilder` class will
 automatically use them if your application JAR is signed. **We recommend all JARs are signed**. To learn how to sign your JAR files, read
-[Signing the CorDapp JAR](cordapp-build-systems.md). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
+[Signing the CorDapp](cordapp-build-systems.html#sign-the-cordapp). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
 with developer certificates is deployed to a production node, the node will refuse to start. Therefore to deploy apps built for Corda 4
 to production you will need to generate signing keys and integrate them with the build process.
 
@@ -863,8 +863,8 @@ Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
 * The [new withEntityManager API](https://api.corda.net/api/corda-os/4.6/html/api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
-* [Reference States](api-states.md#reference-states), that let you use an input state without consuming it.
-* [State Pointers](api-states.md#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
+* [Reference States](api-states.html#reference-states), that let you use an input state without consuming it.
+* [State Pointers](api-states.html#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 
 Please also read the [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) associated with CorDapp upgrading.
 
@@ -881,4 +881,4 @@ You have some choices here:
 * Upgrade your `quasar.jar` to `0.7.12_r3`
 * Delete your `lib` directory and switch to using the Gradle test runner
 
-Instructions for both options can be found in [Running tests in Intellij](tutorial-cordapp.md).
+Instructions for both options can be found in [Running tests in Intellij](testing.html#running-tests-in-intellij).

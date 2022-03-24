@@ -48,4 +48,4 @@ If you are already using an open source version of Corda (Corda 4.1–Corda 4.8)
 * Download the `.tar` [file](https://download.corda.net/corda-community-edition/4.9/community-4.9.tar).
 * Use the Docker image available on [Docker Hub](https://hub.docker.com/repository/docker/corda/community).
 
-Follow the upgrade guides to make sure your [node](community/node-upgrade-notes.md) and [CorDapps](community/upgrade-cordapps.md) are upgraded correctly.
+Follow the upgrade guides to make sure your [node](community/node-upgrade-notes.md) and [CorDapps](community/upgrading-cordapps.md) are upgraded correctly.
