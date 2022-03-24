@@ -26,7 +26,7 @@ Before upgrading to Corda Enterprise 4.9, upgrade your CorDapp to Corda open sou
 You don't need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
 be compatible with nodes running open source, then compile it against Corda open source 4.x.
 However, if you want to leverage specific features of Corda Enterprise, such as third-party commercial database support, and don't envisage your CorDapp being run
-in an open source production environment, then follow the [re-compiling for Corda Enterprise 4.9](#re-compiling-for-corda-enterprise-48) guide.
+in an open source production environment, then follow the [re-compiling for Corda Enterprise 4.9](#re-compiling-for-corda-enterprise-49) guide.
 
 {{< note >}}
 Corda Enterprise and Corda open source public APIs are currently identical. However, this may change for future releases.
@@ -85,7 +85,7 @@ You can do either of the following:
 * Upgrade your `quasar.jar` file to the version consistent with your Corda version.
 * Delete your `lib` directory and switch to using the Gradle test runner.
 
-You can find instructions for both options in [running tests in Intellij](../../../../../en/platform/corda/4.9/enterprise/testing.html#running-tests-in-intellij).
+You can find instructions for both options in [Running tests in IntelliJ](../community/testing.html#running-tests-in-intellij).
 
 4. Check you're using Corda Gradle plugins version 5.0.12, and that Corda Enterprise dependencies are referenced with the right distribution.
 
