@@ -74,6 +74,13 @@ In order to perform the upgrade, follow the following steps:
     * By RPC using the `stateMachinesSnapshot` method and checking that there are no results
     * Via the shell by issuing the following command `run stateMachinesSnapshot`
 
+    {{< note >}}
+
+    The `stateMachinesSnapshot` method ties the flow ID with the `flowName` class. The result shows you all the flows running in your node.
+    You can use the `flow watch` method instead. It omits all the details returned by `stateMachinesSnapshot` that you don't need.
+
+    {{< /note >}}
+
 
 * Once all flows have completed, stop the node
 * Replace the existing JAR with the new one
@@ -91,6 +98,3 @@ Management Tool as detailed [here](../../4.5/enterprise/node/operating/node-oper
 provided by the CorDapp developer to query the vault and run this for all states
     * The contract upgrade initiate flow only needs to be run on one of the participants for each state. The flow will
 automatically upgrade the state on all participants.
-
-
-
