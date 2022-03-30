@@ -17,9 +17,9 @@ When a new CorDapp is installed, associated tables, indexes, foreign-keys, etc. 
 Similarly, when a new version of a CorDapp is installed, its database schema may have changed,
 but the existing data needs to be preserved or changed accordingly.
 
-In Corda Enteprise, CorDapps’ custom tables are created or upgraded automatically based on
+In Corda Enterprise, CorDapps’ custom tables are created or upgraded automatically based on
 Database Management Scripts written in [Liquibase](../node/operating/node-database-tables.html#liquibase-database-migration) format and embedded in CorDapp JARs.
-For Corda Enterpise, any CorDapp having custom tables (`MappedSchema`)  needs to contain a matching Database Management Script, the script should be created during CorDapp development.
+For Corda Enterprise, any CorDapp having custom tables (`MappedSchema`)  needs to contain a matching Database Management Script, the script should be created during CorDapp development.
 
 
 ## Scripts structure
@@ -111,7 +111,7 @@ Corda contains a built-in custom JPA converter for the `AbstractParty` type to a
 ### Database table modification
 
 For any subsequent changes to a table driven by changes in a CorDapp, a new `changeSet` needs to be created.
-The existing `changeSet` cannot be modified, as Liquibase needs to track the what was exactly created.
+The existing `changeSet` cannot be modified, as Liquibase needs to track what was exactly created.
 
 Continuing our example from the previous paragraph, let’s suppose that at some point (maybe for security reasons)
 the `owner_name` column of the `PersistentIOU` entity needs to be stored as a hash instead of the X500 name of the owning party.
@@ -155,7 +155,7 @@ By default Corda expects a Liquibase script file name to be a hyphenated version
 For example, for a `MappedSchema` named *MySchema*, Corda searches for a *my-schema.changelog-master.xml* file
 (*json* and *sql* extensions are also allowed) under *migration* package in CorDapp JARs.
 
-You can also set the name and the location in the `MappedSchema` code by overriding a field `val migrationResource: String`.
+You can also set the name and the location in the `MappedSchema` code by overriding a field `val migration/migrationResource: String`.
 The value should be a namespace and a file name without an extension.
 
 The files need to be on classpath which means they should be located in the resources folder of your CorDapp source code.
