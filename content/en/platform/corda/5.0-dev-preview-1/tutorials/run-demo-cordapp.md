@@ -222,7 +222,7 @@ The flow returns a `200` response, which includes these items in the response bo
     "clientId": "launchpad-1",
     "flowName": "net.corda.solarsystem.flows.LaunchProbeFlow",
     "parameters": {
-      "parametersInJson": "{\"message\": \"Hello Pluto\", \"target\": \"C=GB, L=NINTH, O=PLUTO, OU=DWARF_PLANET\", \"planetaryOnly\":\"true\"}"
+      "parametersInJson": "{\"message\": \"Hello Pluto\", \"target\": \"C=US, L=NINTH, O=PLUTO, OU=DWARF_PLANET\", \"planetaryOnly\":\"true\"}"
     }
   }
 }
