@@ -192,7 +192,7 @@ These usernames and passwords are specified in the `solar-system.yaml` file.
     "clientId": "launchpad-2",
     "flowName": "net.corda.solarsystem.flows.LaunchProbeFlow",
     "parameters": {
-      "parametersInJson": "{\"message\": \"Hello Mars\", \"target\": \"C=GB, L=FIFTH, O=MARS, OU=PLANET\", \"planetaryOnly\":\"true\"}"
+      "parametersInJson": "{\"message\": \"Hello Mars\", \"target\": \"C=GB, L=FOURTH, O=MARS, OU=PLANET\", \"planetaryOnly\":\"true\"}"
     }
   }
 }
@@ -220,9 +220,9 @@ The flow returns a `200` response, which includes these items in the response bo
 {
   "rpcStartFlowRequest": {
     "clientId": "launchpad-1",
-    flowName": "net.corda.solarsystem.flows.LaunchProbeFlow",
+    "flowName": "net.corda.solarsystem.flows.LaunchProbeFlow",
     "parameters": {
-      "parametersInJson": "{\"message\": \"Hello Pluto\", \"target\": \"C=GB, L=FIFTH, O=PLUTO, OU=DWARF_PLANET\", \"planetaryOnly\":\"true\"}"
+      "parametersInJson": "{\"message\": \"Hello Pluto\", \"target\": \"C=GB, L=NINTH, O=PLUTO, OU=DWARF_PLANET\", \"planetaryOnly\":\"true\"}"
     }
   }
 }
