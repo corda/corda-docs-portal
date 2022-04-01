@@ -81,7 +81,7 @@ The `SchedulableState` returns a fixed time based only on the state data. That i
 
 Typically, the flow must include some code to prevent all nodes sharing the state from separately racing to modify it. This leads to competition for notarization between the concurrent nodes. A classic mistake is to put in a time relative to `now` which will keep firing, because we retest the deadline just before we run the proposed flow to sanity check that state hasn't been consumed. The ledger is used to make this idempotent and safe. Ultimately only one update to state can win due to notary and that should mean that a new version of state will return `null` so no more timers are scheduled.
 
-Again, if state misses deadline, it will schedule flow immediately. Modified state can also schedule some new flow at some new time too if that is desired.
+Again, if the state misses the deadline, it will schedule a flow immediately. Modified states can also schedule some new flows at some new time if that is desired.
 
 
 ## An example
