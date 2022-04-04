@@ -192,7 +192,7 @@ These usernames and passwords are specified in the `solar-system.yaml` file.
     "clientId": "launchpad-2",
     "flowName": "net.corda.solarsystem.flows.LaunchProbeFlow",
     "parameters": {
-      "parametersInJson": "{\"message\": \"Hello Mars\", \"target\": \"C=GB, L=FIFTH, O=MARS, OU=PLANET\", \"planetaryOnly\":\"true\"}"
+      "parametersInJson": "{\"message\": \"Hello Mars\", \"target\": \"C=GB, L=FOURTH, O=MARS, OU=PLANET\", \"planetaryOnly\":\"true\"}"
     }
   }
 }
@@ -220,9 +220,9 @@ The flow returns a `200` response, which includes these items in the response bo
 {
   "rpcStartFlowRequest": {
     "clientId": "launchpad-1",
-    flowName": "net.corda.solarsystem.flows.LaunchProbeFlow",
+    "flowName": "net.corda.solarsystem.flows.LaunchProbeFlow",
     "parameters": {
-      "parametersInJson": "{\"message\": \"Hello Pluto\", \"target\": \"C=GB, L=FIFTH, O=PLUTO, OU=DWARF_PLANET\", \"planetaryOnly\":\"true\"}"
+      "parametersInJson": "{\"message\": \"Hello Pluto\", \"target\": \"C=US, L=NINTH, O=PLUTO, OU=DWARF_PLANET\", \"planetaryOnly\":\"true\"}"
     }
   }
 }
@@ -258,7 +258,7 @@ corda-node-cli endpoint set -e earth
 
 4. List the flows to see what is available. These flows are all authenticated, so you must include the node's username and password in this command:
 ```
-corda-node-cli.cmd flow list -u earthling -P password
+corda-node-cli flow list -u earthling -P password
 ```
 This returns the flows available in the CorDapp. This CorDapp only has one flow: `net.corda.solarsystem.flows.LaunchProbeFlow`
 
@@ -271,7 +271,7 @@ The flow returns the `clientId` and the `flowId`.
 
 6. Use the `flowId` from step 5 to check the status of the flow.
 ```
-corda-node-cli.cmd flow status -s <flow ID> -u earthling -P password
+corda-node-cli flow status -s <flow ID> -u earthling -P password
 ```
 
 This returns the same output as checking the flow status on Swagger UI. You see:
