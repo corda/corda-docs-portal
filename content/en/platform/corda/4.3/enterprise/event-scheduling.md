@@ -42,7 +42,7 @@ and the next time sensitive event is determined by any successor contract state.
 Knowing when the next time sensitive event is due to occur is useful, but typically some *activity* is expected to take
 place when this event occurs.  We already have a model for business processes in the form of [flows](flow-state-machines.md),
 so in the platform we have introduced the concept of *scheduled activities* that can invoke flow state machines
-at a scheduled time.  A contract state can optionally described the next scheduled activity for itself.  If it omits
+at a scheduled time.  A contract state can optionally describe the next scheduled activity for itself.  If it omits
 to do so, then nothing will be scheduled.
 
 
@@ -73,6 +73,15 @@ method and if they do not return `null` then that activity is scheduled based on
 `ScheduledActivity` object returned. Be aware that this *only* happens if the vault considers the state
 “relevant”, for instance, because the owner of the node also owns that state. States that your node happens to
 encounter but which aren’t related to yourself will not have any activities scheduled.
+
+
+## Scheduled events flow logic
+
+The `SchedulableState` returns a fixed time based only on the state data. That is because any node that inserts a `SchedulableState` state into their vault, such as the state `isRelevant`, runs the code to calculate the scheduled time. The node then starts a timer counting down to the deadline (if non-null). This process restarts every time the node restarts. When the timer's endpoint is crossed, the flow names are started. Even if the node misses the precise endpoint of the set fixed time, this will still happen. It is the responsibility of that flow to consume and modify the state to change or cancel the timer. Thus, logic will always retry after restart.
+
+Typically, the flow must include some code to prevent all nodes sharing the state from separately racing to modify it. This leads to competition for notarization between the concurrent nodes. If you put in a time relative to `now`, it will keep firing, because you then retest the deadline just before you run the proposed flow to sanity check that state hasn't been consumed. The ledger is used to make this idempotent and safe. Ultimately only one update to state can win due to notary and that should mean that a new version of state will return `null` so no more timers are scheduled.
+
+Again, if the state misses the deadline, it will schedule a flow immediately. Modified states can also schedule some new flows at some new time if that is desired.
 
 
 ## An example
