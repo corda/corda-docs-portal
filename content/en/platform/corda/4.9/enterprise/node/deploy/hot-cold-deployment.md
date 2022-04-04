@@ -341,4 +341,4 @@ The `p2pAddress` should point to the primary node’s machine address and `addit
 
 ## Hot-cold high-availability on Kubernetes clusters
 
-If you have shared infrastructure where all the containers are deployed on Kubernetes cluster, you can't deploy hot-cold. You must deploy a stateful pod and Kubernetes should ensure one node is always running. To avoid accidentally running nodes at the same time if Kubernetes briefly has two pods active, use the [Mutual Exclusion mechanism](#mutual-exclusion). Also, you must mount the `artemis journal` folder as it holds state.
+If you have shared infrastructure where all the containers are deployed on Kubernetes cluster, you shouldn't deploy hot-cold - it is needlessly complicated and not necessary. Instead, deploy a stateful pod where Kubernetes is ensuring that one node is always running. To avoid accidentally running nodes at the same time if Kubernetes briefly has two pods active, use the [Mutual Exclusion mechanism](#mutual-exclusion). Also, you must mount the `artemis journal` folder as it holds state.
