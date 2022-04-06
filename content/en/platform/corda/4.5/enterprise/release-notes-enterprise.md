@@ -16,6 +16,21 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.5.10
+
+Corda Enterprise 4.5.10 is a patch release of Corda Enterprise that fixes an urgent security issue caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version v2.17.1.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html).
+
+### Fixed issues
+
+In this patch release:
+* Backwards compatibility option (accessibility) for `RestrictedConnection` class, ensuring it respects `TargetVersion` correctly.
+
 ## Corda Enterprise 4.5.9
 
 Corda Enterprise 4.5.9 is a patch release of Corda Enterprise that fixes an urgent security issue caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version v2.17.1.
@@ -30,7 +45,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 In this patch release:
 
-Log4j dependency updated to version 2.17.1 to fix pre-existing Log4j issues.
+* Log4j dependency updated to version 2.17.1 to fix pre-existing Log4j issues.
 
 ## Corda Enterprise 4.5.8
 

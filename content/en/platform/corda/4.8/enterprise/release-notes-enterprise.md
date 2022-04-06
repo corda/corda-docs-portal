@@ -17,8 +17,22 @@ weight: 1
 
 # Corda Enterprise release notes
 
-## Corda Enterprise 4.8.6
+## Corda Enterprise 4.8.7
 
+Corda Enterprise 4.8.7 is a patch release of Corda Enterprise that ensures class compatibility.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html).
+
+### Fixed issues
+
+In this patch release:
+* Backwards compatibility option (accessibility) for `RestrictedConnection` class, ensuring it respects `TargetVersion` correctly.
+
+## Corda Enterprise 4.8.6
 
 Corda Enterprise 4.8.6 is a patch release of Corda Enterprise which includes dependency upgrades and fixes for minor flow and ledger issues.
 
