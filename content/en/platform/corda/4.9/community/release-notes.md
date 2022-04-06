@@ -18,7 +18,7 @@ title: Release notes
 
 ## Corda Community Edition 4.9.1
 
-Corda Community Edition 4.9.1 is a patch release of Corda Community Edition which includes [x].
+Corda Community Edition 4.9.1 is a patch release of Corda Community Edition which includes minor bug fixes and dependency upgrades.
 
 ### Fixed issues
 
