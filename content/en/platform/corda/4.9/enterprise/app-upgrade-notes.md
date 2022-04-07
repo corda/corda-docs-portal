@@ -36,6 +36,7 @@ If you do use them, re-namespace them to a package namespace you control and sig
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.9 | 11 |
 | 4.8 | 10 |
 | 4.7 | 9 |
 | 4.6 | 8 |
