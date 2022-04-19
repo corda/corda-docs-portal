@@ -183,7 +183,7 @@ The double-spend table includes records of transactions that attempted a double-
 
 ## Configuring the notary backend - CockroachDB
 
-The JPA notary service is tested against CockroachDB 20.2.x. CockroachDB’s
+The JPA notary service is tested against CockroachDB 21.1.8. CockroachDB’s
 [documentation page](https://www.cockroachlabs.com/docs/v20.2/) explains the installation
 in detail.
 
