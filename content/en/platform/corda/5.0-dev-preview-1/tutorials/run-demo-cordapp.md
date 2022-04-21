@@ -37,13 +37,14 @@ The flow takes in three parameters:
 
 Before you run the sample CorDapp:
 
+* Ensure you have all the [third-party software prerequisites](../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/prerequisites.md).
 * Follow the <a href="../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/overview.html#step-by-step-installation-guide">Step-by-step installation guide</a>.
 * Read about:
     * Setting up a [local network](../../../../../en/platform/corda/5.0-dev-preview-1/getting-started/setup-network.md).
     * The [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md).
     * The [CorDapp Builder](../../../../../en/platform/corda/5.0-dev-preview-1/packaging/cordapp-builder.md).
     * The [Corda Node CLI](../../../../../en/platform/corda/5.0-dev-preview-1/nodes/operating/cli-curl/cli-curl.md).
-    * The [CorDapp CPK and CPB Gradle plugins](../../../../../en/platform/corda/5.0-dev-preview-1/packaging/gradle-plugin/overview.md)
+    * The [CorDapp CPK and CPB Gradle plugins](../../../../../en/platform/corda/5.0-dev-preview-1/packaging/gradle-plugin/overview.md).
 
 If you're new to Corda, check out the [CorDapp documentation](../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/overview.md) for key concepts.
 
@@ -120,18 +121,18 @@ While this is *not* the recommended approach, you can also output the contents t
 6. Wait for the network to be ready with:
 `corda-cli network wait -n solar-system`
 
-7. Check the CorDapp's status using [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md):
+7. Check the network's status using [Corda CLI](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/overview.md):
 ```
 corda-cli network status -n solar-system
 ```
 
-  You'll be able to see the status of the node. The nodes are up and running when their status is `Ready`.
+  You'll be able to see the status of the nodes. The nodes are up and running when their status is `Ready`.
 
 {{< note >}}
 Take note of the `HTTP RPC port` for each node. You will use these later when you [test the CorDapp using Swagger UI](#test-the-sample-cordapp-using-swagger-ui) or [Corda Node CLI](#test-the-sample-cordapp-using-corda-node-cli).
 {{< /note >}}
 
-8. Install the application on the network using Corda CLI.
+8. Install the CorDapp on the network using Corda CLI.
 
 In Corda 4, this process was much more involved. Now you can install the application on the network with a single command:
 ```

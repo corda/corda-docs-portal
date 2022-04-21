@@ -108,31 +108,7 @@ Meanwhile, `SyncKeyMappingFlowHandler` is invoked by all the other (non-initiati
 
 Alice may know all of the confidential identities ahead of time, but Bob does not know about Charlie’s and vice-versa. The assembled transaction therefore has three input states *x*, *y* and *z*, for which only Alice possesses certificates for all confidential identities. `SyncKeyMappingFlow` must send not just Alice’s confidential identity but also any other identities in the transaction to the Bob and Charlie.
 
-## Install the Confidential Identities SDK
-
-### Build Confidential Identities SDK against Corda release branch
-
-You can build the Confidential Identities SDK against the master branch with the following commands:
-
-```
-git clone https://github.com/corda/corda5-confidential-identities.git
-git fetch
-git checkout origin release/2.0
-```
-
-{{< note >}}
-Checkout the version of Corda you wish to install. In the example above `release/2.0` is used.
-{{< /note >}}
-
-Then run `./gradlew clean install` from the root directory.
-
-### What's inside Confidential Identities
-
-The Confidential Identities SDK is a single `.cpk`:
-
-* **ci-workflows**, which contains the flows for creating and syncing confidential identities.
-
-### Add Tokens SDK dependencies to an existing CorDapp
+## Add Tokens SDK dependencies to an existing CorDapp
 
 1. Add a variable for the confidential identities release group and the version you wish to use. Set the Corda version to the one you have installed locally:
 
@@ -162,7 +138,7 @@ The Confidential Identities SDK is a single `.cpk`:
 
 You have installed the Confidential Identities SDK.
 
-### Identity Service API changes from Corda 4
+## Identity Service API changes from Corda 4
 
 Changes to the way confidential identities are handled have prompted updates to some elements of the Identity Service API. The core concepts have not changed—it is still a directory of parties, with their names and public keys.
 
