@@ -14,8 +14,7 @@ tags:
 title: Release notes
 ---
 
-
-# Corda Community Edition 4.9 release notes
+# Corda Community Edition release notes
 
 **Corda Community Edition** is here. This edition of Corda gives you the freedom of Corda's Open Source platform, with the benefits of [affordable support](https://r3.com/support). All the same fundamentals of Corda 4.8 are included, along with security updates, newly available APIs and sample code improvements. You can upgrade your existing Corda projects to Community Edition any time to be eligible for our support packages.
 
@@ -43,7 +42,7 @@ For more information about platform versions, see [Versioning](../../../../../en
 
 Issues fixed in Corda Community 4.9:
 
-* Corda Shell has been removed to its own repository for improved security. You can now use a stand alone shell outside of the node, or from within the node's drivers.
+* Corda Shell has been removed to its own repository for improved security. You can now use a standalone shell outside of the node, or from within the node's drivers.
 * Security updates to prevent possibility of Denial of Service attacks.
 * Improvements to demos and sample code.
 * Improvements to improve compatibility with Intel Macs.
