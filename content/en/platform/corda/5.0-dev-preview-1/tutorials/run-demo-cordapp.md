@@ -265,7 +265,7 @@ This returns the flows available in the CorDapp. This CorDapp only has one flow:
 
 5. Launch the flow to test its functionality. Pass in the parameters in the same JSON format. Unlike in Swagger UI, you do not need to include the `clientId`. However, you do need to add the username and password again.
 ```
-corda-node-cli flow start -n LaunchProbeFlow -A message="hello" -A target="C=US, L=NINTH, O=PLUTO, OU=DWARF_PLANET" -A planetaryOnly=true -u earthling -P password
+corda-node-cli flow start -n LaunchProbeFlow -A message="hello" -A target="C=US, L=NINTH, O=MARS, OU=PLANET" -A planetaryOnly=true -u earthling -P password
 ```
 
 The flow returns the `clientId` and the `flowId`.

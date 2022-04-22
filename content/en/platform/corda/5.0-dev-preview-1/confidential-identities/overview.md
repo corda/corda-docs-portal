@@ -32,7 +32,7 @@ git checkout origin release/2.0
 ```
 
 {{< note >}}
-Checkout the version of Corda you wish to install. In the example above `release/2.0` is used.
+Checkout the version of Confidential Identities you wish to install. In the example above `release/2.0` is used.
 {{< /note >}}
 
 Then run `./gradlew clean install` from the root directory.
