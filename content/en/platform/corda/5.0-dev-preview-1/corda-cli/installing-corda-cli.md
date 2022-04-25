@@ -15,11 +15,15 @@ You can install Corda CLI manually or through automated installation. Before ins
 Use the bash installation script to automate the manual steps. This script downloads Corda CLI, adds it to the path, and sets the
 auto-completion for Corda CLI to your bash/zsh profile. On Windows the script can run on a git-bash terminal.
 
-Run the bash script:
+1. Run the bash script:
 
 ```
 curl "https://download.corda.net/corda-cli/1.0.0-DevPreview/get-corda-cli.sh" | bash
 ```
+
+2. Verify installation by opening a new terminal session and running `corda-cli -v`.
+
+   **Step result:** If successful, this will output details of the installed Corda CLI version.
 
 ## Manual installation
 
