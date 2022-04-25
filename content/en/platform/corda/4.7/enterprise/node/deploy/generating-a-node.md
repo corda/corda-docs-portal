@@ -17,7 +17,7 @@ Local nodes are used for testing and demo purposes only.
 
 There are two ways you can create a node locally:
 * __Manually__: create a local directory, add the relevant node and CorDapp files, and configure them.
-* __Automatically__: use the __Cordform__ or __Dockerform__ gradle plug-ins, which automatically generate and configure a local set of nodes.
+* __Automatically__: use the `cordformation` Gradle plugin to configure and generate a local set of nodes.
 
 ## Create a local node manually
 
@@ -51,9 +51,9 @@ Start the node in the normal way.
 
 
 
-## Use Cordform and Dockerform to create a set of local nodes automatically
+## Use the `cordformation` Gradle plugin to create a set of local nodes automatically
 
-Corda provides two `gradle` plug-ins called `Cordform` and `Dockerform`. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes.
+Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes.
 
 * A `Cordform` task creates nodes in the `build/nodes` directory. The example `Cordform` task used in this document creates three nodes: `Notary`, `PartyA`, and `PartyB`, however you are free to spin up more nodes, specify what nodes you need on the network, change node names, and update node configurations.
 * Nodes deployed via `Dockerform` use Docker containers. A `Dockerform` task is similar to `Cordform` but it provides an extra file that enables you to easily spin up nodes using `docker-compose`. This creates a `docker-compose` file that enables you to run a single command to control the deployment of Corda nodes and databases (instead of deploying each node/database manually).
