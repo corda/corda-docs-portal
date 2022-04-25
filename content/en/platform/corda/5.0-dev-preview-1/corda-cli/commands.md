@@ -372,9 +372,9 @@ bob: bob restarted
 alice: alice restarted
 ````
 
-## CPK inspection tool
+## CPK tool
 
-You can use the Corda CLI `package` command to inspect the contents of Corda package files. Corda package file names can end with `.cpi`, `.cpk` and `.cpb`. This command can also be used to inspect `.jar` files.
+You can use the Corda CLI `package` command to install CorDapps on nodes as well as inspect the contents of Corda package files. Corda package file names can end with `.cpi`, `.cpk` and `.cpb`. This command can also be used to inspect `.jar` files.
 
 ### Syntax
 
