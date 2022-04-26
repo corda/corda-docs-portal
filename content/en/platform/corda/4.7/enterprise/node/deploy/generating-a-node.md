@@ -45,15 +45,26 @@ The node will perform any automatic data migrations required, which may take som
 
 See [Upgrading your node to Corda 4.7](../../node-upgrade-notes.md) for more information.
 
-## Step 7. Start the node in the normal way
-
-Start the node in the normal way.
-
+3. Start the node in the normal way.
 
 
 ## Use the `cordformation` Gradle plugin to create a set of local nodes automatically
 
 Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes.
+
+Apply the `cordformation` plugin to your project, and then you can register instances of the `Cordform` and `Dockerform` tasks:
+
+```
+import net.corda.plugins.Cordform
+
+plugins {
+    id 'net.corda.plugins.cordformation'
+}
+
+tasks.register('deployNodes', Cordform) {
+    // etc
+}
+```
 
 * A `Cordform` task creates nodes in the `build/nodes` directory. The example `Cordform` task used in this document creates three nodes: `Notary`, `PartyA`, and `PartyB`, however you are free to spin up more nodes, specify what nodes you need on the network, change node names, and update node configurations.
 * Nodes deployed via `Dockerform` use Docker containers. A `Dockerform` task is similar to `Cordform` but it provides an extra file that enables you to easily spin up nodes using `docker-compose`. This creates a `docker-compose` file that enables you to run a single command to control the deployment of Corda nodes and databases (instead of deploying each node/database manually).
@@ -64,7 +75,7 @@ Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` t
 * `Dockerform` tasks require Docker to be installed on the local host.
 
 
-### Tasks using the Cordform plug-in
+### Tasks using Cordform
 
 Run this example task to create the following three nodes in the `build/nodes` directory:
 
@@ -141,6 +152,36 @@ Make sure to use Corda gradle plugin version 5.0.10 or above.
 {{< /note >}}
 
 The configuration values used in the example are described below.
+
+You can also turn this behaviour off by adding the following code to your node configuration:
+
+```
+projectCordapp {
+    deploy = false
+}
+```
+
+The `Cordform` and `Dockerform` also support a `nodeDefaults` block, which can
+contain configuration common to all nodes, for example:
+
+```
+nodeDefaults {
+    cordapp project(':contracts')
+    cordapp project(':workflows')
+    runSchemaMigration = true
+    rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]
+}
+```
+
+You can override these defaults for each node:
+
+```
+node {
+    name = "O=Notary,L=London,C=GB"
+    notary = [ validating: true ]
+    rpcUsers = []
+}
+```
 
 #### Required configuration
 
@@ -228,20 +269,20 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-The `drivers` Cordform parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
-To copy the same file to all nodes, define `ext.drivers` in the top level, and reuse it for each node by setting `drivers=ext.drivers`.
+The `drivers` `cordform` parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
 
-```groovy
-task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
-    ext.drivers = ['lib/my_common_jar.jar']
-    [...]
-    node {
-        name "O=PartyB,L=New York,C=US"
-        [...]
-        drivers = ext.drivers + ['lib/my_specific_jar.jar']
-    }
+To add any drivers as dependencies of the `cordaDriver` configuration, use the following code:
+
+```
+dependencies {
+    cordaDriver "net.corda:corda-shell:$corda_release_version"
+    cordaDriver files('lib/my_specific_jar.jar')
 }
 ```
+
+The `Cordform` and `Dockerform` tasks copy the resolved contents of Gradle's
+`cordaDriver` configuration into each node's `drivers` directory before
+running the bootstrapper.
 
 #### Package namespace ownership
 
@@ -340,7 +381,7 @@ To create the nodes defined in the `deployNodes` task example above, run the fol
 
 This command creates the nodes in the `build/nodes` directory. A node directory is generated for each node defined in the `deployNodes` task, plus a `runnodes` shell script (or a batch file on Windows) to run all the nodes at once for testing and development purposes. If you make any changes to your CorDapp source or `deployNodes` task, you will need to re-run the task to see the changes take effect.
 
-### Tasks using the Dockerform plug-in
+### Tasks using Dockerform
 
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
 (Community Edition) is sufficient. Please refer to [Docker CE documentation](https://www.docker.com/community-edition)
