@@ -11,17 +11,31 @@ menu:
 tags:
 - dockerform
 - node
-title: Dockerform plug-in
+title: Dockerform tasks
 ---
 
-# Dockerform plug-in
+# Dockerform tasks
 
-Corda provides two `gradle` plug-ins: `Cordform` and `Dockerform`. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Dockerform plug-in. Visit the [Cordform](../../../../../en/platform/corda/4.9/community/generating-a-node-cordform.md) page for Cordform configuration options.
+Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Dockerform tasks. Visit the [Cordform](../../../../../en/platform/corda/4.9/community/generating-a-node-cordform.md) page for Cordform configuration options.
+
+Apply the `cordformation` plugin to your project, and then you can register instances of the `Cordform` and `Dockerform` tasks:
+
+```
+import net.corda.plugins.Cordform
+
+plugins {
+    id 'net.corda.plugins.cordformation'
+}
+
+tasks.register('deployNodes', Cordform) {
+    // etc
+}
+```
 
 * Nodes deployed via `Dockerform` use Docker containers. A `Dockerform` task is similar to `Cordform` but it provides an extra file that enables you to easily spin up nodes using `docker-compose`. This creates a `docker-compose` file that enables you to run a single command to control the deployment of Corda nodes and databases (instead of deploying each node/database manually).
 * `Dockerform` tasks require Docker to be installed on the local host.
 
-## Tasks using the Dockerform plug-in
+## Tasks using Dockerform
 
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
 (Community Edition) is sufficient. Please refer to [Docker CE documentation](https://www.docker.com/community-edition)
