@@ -7,7 +7,7 @@ menu:
 tags:
 - generating
 - node
-title: Cordform plug-in
+title: Cordform tasks
 weight: 2
 ---
 
