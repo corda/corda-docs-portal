@@ -14,7 +14,7 @@ tags:
 title: Dockerform task
 ---
 
-# Dockerform tasks
+# Dockerform task
 
 Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Dockerform task. Visit the [Cordform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-cordform.md) page for Cordform configuration options.
 
