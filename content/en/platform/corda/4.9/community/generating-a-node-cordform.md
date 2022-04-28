@@ -11,7 +11,7 @@ menu:
 tags:
 - cordform
 - node
-title: Cordform tasks
+title: Cordform task
 ---
 
 # Cordform task
