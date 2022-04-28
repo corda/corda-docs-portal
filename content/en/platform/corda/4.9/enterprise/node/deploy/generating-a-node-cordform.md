@@ -7,7 +7,7 @@ menu:
 tags:
 - generating
 - node
-title: Cordform tasks
+title: Cordform task
 weight: 2
 ---
 
@@ -89,7 +89,7 @@ Make sure to use Corda Gradle plugin version 5.0.10 or above.
 
 The configuration values used in the example are described below.
 
-You can also turn this behaviour off by adding the following code to your node configuration:
+You can turn deploying the local project's CorDapp to each node off by adding the following code to your node configuration:
 
 ```
 projectCordapp {
@@ -205,9 +205,9 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-The `drivers` `cordform` parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
+The `drivers` parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
 
-To add any drivers as dependencies of the `cordaDriver` configuration, use the following code:
+To add any drivers as dependencies of the `cordaDriver` configuration, use the following code (option recommended over using the `drivers` parameter):
 
 ```
 dependencies {

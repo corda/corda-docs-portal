@@ -11,12 +11,12 @@ menu:
 tags:
 - cordform
 - node
-title: Cordform tasks
+title: Cordform task
 ---
 
 # Cordform tasks
 
-Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Cordform tasks. Visit the [Dockerform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-dockerform.md) page for Dockerform configuration options.
+Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Cordform task. Visit the [Dockerform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-dockerform.md) page for Dockerform configuration options.
 
 * A `Cordform` task creates nodes in the `build/nodes` directory. The example `Cordform` task used in this document creates three nodes: `Notary`, `PartyA`, and `PartyB`, however you are free to spin up more nodes, specify what nodes you need on the network, change node names, and update node configurations.
 * `Cordform` tasks require you to deploy each Corda node and database separately.
@@ -92,7 +92,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-You can also turn this behaviour off by adding the following code to your node configuration:
+You can turn deploying the local project's CorDapp to each node off by adding the following code to your node configuration:
 
 ```
 projectCordapp {
@@ -214,9 +214,9 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-The `drivers` `cordform` parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
+The `drivers` parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
 
-To add any drivers as dependencies of the `cordaDriver` configuration, use the following code:
+To add any drivers as dependencies of the `cordaDriver` configuration, use the following code (option recommended over using the `drivers` parameter):
 
 ```
 dependencies {

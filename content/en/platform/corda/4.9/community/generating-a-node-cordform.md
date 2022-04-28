@@ -14,7 +14,7 @@ tags:
 title: Cordform tasks
 ---
 
-# Cordform tasks
+# Cordform task
 
 Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Cordform task. Visit the [Dockerform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-dockerform.md) page for Dockerform configuration options.
 
@@ -92,7 +92,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-You can also turn this behaviour off by adding the following code to your node configuration:
+You can turn deploying the local project's CorDapp to each node off by adding the following code to your node configuration:
 
 ```
 projectCordapp {
@@ -214,9 +214,9 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-The `drivers` `cordform` parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
+The `drivers` parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
 
-To add any drivers as dependencies of the `cordaDriver` configuration, use the following code:
+To add any drivers as dependencies of the `cordaDriver` configuration, use the following code (option recommended over using the `drivers` parameter):
 
 ```
 dependencies {

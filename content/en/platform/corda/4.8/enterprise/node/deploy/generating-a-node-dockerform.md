@@ -7,7 +7,7 @@ menu:
 tags:
 - generating
 - node
-title: Dockerform tasks
+title: Dockerform task
 weight: 1
 ---
 
