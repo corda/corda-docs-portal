@@ -7,11 +7,11 @@ menu:
 tags:
 - generating
 - node
-title: Cordform plug-in
+title: Cordform task
 weight: 2
 ---
 
-# Tasks using the Cordform plug-in
+# Tasks using Cordform
 
 This example task creates the following three nodes in the `build/nodes` directory:
 
@@ -84,10 +84,40 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 
 {{< note >}}
-Make sure to use Corda gradle plugin version 5.0.10 or above.
+Make sure to use Corda Gradle plugin version 5.0.10 or above.
 {{< /note >}}
 
 The configuration values used in the example are described below.
+
+You can turn off deploying the local project's CorDapp to each node by adding the following code to your node configuration:
+
+```
+projectCordapp {
+    deploy = false
+}
+```
+
+The `Cordform` and `Dockerform` also support a `nodeDefaults` block, which can
+contain configuration common to all nodes, for example:
+
+```
+nodeDefaults {
+    cordapp project(':contracts')
+    cordapp project(':workflows')
+    runSchemaMigration = true
+    rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]
+}
+```
+
+You can override these defaults for each node:
+
+```
+node {
+    name = "O=Notary,L=London,C=GB"
+    notary = [ validating: true ]
+    rpcUsers = []
+}
+```
 
 ## Required configuration
 
@@ -175,20 +205,20 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-The `drivers` Cordform parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
-To copy the same file to all nodes, define `ext.drivers` in the top level, and reuse it for each node by setting `drivers=ext.drivers`.
+The `drivers` parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
 
-```groovy
-task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
-    ext.drivers = ['lib/my_common_jar.jar']
-    [...]
-    node {
-        name "O=PartyB,L=New York,C=US"
-        [...]
-        drivers = ext.drivers + ['lib/my_specific_jar.jar']
-    }
+To add any drivers as dependencies of the `cordaDriver` configuration, use the following code (option recommended over using the `drivers` parameter):
+
+```
+dependencies {
+    cordaDriver "net.corda:corda-shell:$corda_release_version"
+    cordaDriver files('lib/my_specific_jar.jar')
 }
 ```
+
+The `Cordform` and `Dockerform` tasks copy the resolved contents of Gradle's
+`cordaDriver` configuration into each node's `drivers` directory before
+running the bootstrapper.
 
 ## Package namespace ownership
 

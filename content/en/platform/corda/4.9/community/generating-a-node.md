@@ -21,7 +21,7 @@ Local nodes are used for testing and demo purposes only.
 
 There are two ways you can create a node locally:
 * __Manually__: create a local directory, add the relevant node and CorDapp files, and configure them.
-* __Automatically__: use the [Cordform](generating-a-node-cordform.md) or [Dockerform](generating-a-node-dockerform.md) gradle plug-ins, which automatically generate and configure a local set of nodes.
+* __Automatically__: use the `cordformation` Gradle plugin to configure and generate a local set of nodes.
 
 ## Create a local node manually
 
@@ -45,11 +45,25 @@ The remaining node files and directories will be generated at runtime. These are
 java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 ```
 
-The node will perform any automatic data migrations required, which may take some time. If the migration process is interrupted, it can be continued simply by starting the node again, without harm. The node will stop automatically when migration is complete. See [Upgrading your node to Corda 4.8](node-upgrade-notes.md) for more information.
+The node will perform any automatic data migrations required, which may take some time. If the migration process is interrupted, it can be continued simply by starting the node again, without harm. The node will stop automatically when migration is complete. See [Upgrading your node to Corda 4.9](node-upgrade-notes.md) for more information.
 
-## Use Cordform or Dockerform to create a set of local nodes automatically
+## Use the `cordformation` Gradle plugin to create a set of local nodes automatically
 
-Corda provides two `gradle` plug-ins: `Cordform` and `Dockerform`. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes.
+Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes.
+
+Apply the `cordformation` plugin to your project, and then you can register instances of the `Cordform` and `Dockerform` tasks:
+
+```
+import net.corda.plugins.Cordform
+
+plugins {
+    id 'net.corda.plugins.cordformation'
+}
+
+tasks.register('deployNodes', Cordform) {
+    // etc
+}
+```
 
 * Nodes deployed via `Dockerform` use Docker containers. A `Dockerform` task is similar to `Cordform` but it provides an extra file that enables you to easily spin up nodes using `docker-compose`. This creates a `docker-compose` file that enables you to run a single command to control the deployment of Corda nodes and databases (instead of deploying each node/database manually).
-* For more information about the plugins, visit the [Dockerform](../../../../../en/platform/corda/4.9/community/generating-a-node-dockerform.md) and [Cordform](../../../../../en/platform/corda/4.8/community/generating-a-node-cordform.md) pages.
+* For more information about the tasks, visit the [Dockerform](../../../../../en/platform/corda/4.9/community/generating-a-node-dockerform.md) and [Cordform](../../../../../en/platform/corda/4.9/community/generating-a-node-cordform.md) pages.
