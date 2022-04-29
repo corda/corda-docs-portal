@@ -5,8 +5,8 @@ date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-3:
     identifier: cenm-1-3-shell
-    parent: cenm-1-3-tools-and-utilities
-    weight: 290
+    parent: cenm-1-3-tools-index
+    weight: 1150
 tags:
 - shell
 title: Embedded Shell

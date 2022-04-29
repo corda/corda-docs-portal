@@ -5,7 +5,6 @@ date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-0:
     identifier: cenm-1-0-tools-index
-    parent: cenm-1-0-tools-and-utilities
     weight: 270
 tags:
 - tools
@@ -46,6 +45,3 @@ There are a number of standalone tools that can help with setting up, running an
 * [Certificate Revocation Request Submission Tool](tool-crr-submission.md)
 * [Private Network Map](private-network-map.md)
 * [Inter-service Communication Health Checking Tool](tool-health-check.md)
-
-
-

@@ -6,7 +6,6 @@ date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-1:
     identifier: cenm-1-1-tools-index
-    parent: cenm-1-1-tools-and-utilities
     weight: 280
 tags:
 - tools
@@ -42,6 +41,3 @@ A small number of tools are available to help with setting up, running and testi
 
 
 * [Config Obfuscation Tool](config-obfuscation-tool.md)
-
-
-
