@@ -33,7 +33,7 @@ In this patch release:
 
 * Fixing of a bug where `SuspensionMeta` in `FlowInfo` shows as null even when a runnable flow has previously been hospitalized.
 * Official Artemis binaries implemented.
-
+* Oracle JDK version 8u322 now supported. 
 ## Corda: Enterprise Edition 4.9
 
 Corda: Enterprise Edition  4.9 features many security improvements, along with a stand alone Shell for controlling the node via command line. You can also now access the `flowrpcops` API
