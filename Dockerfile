@@ -1,5 +1,5 @@
 ARG REGISTRY=library
-FROM ${REGISTRY}/ubuntu:latest
+FROM ${REGISTRY}/ubuntu:focal
 
 RUN apt-get update && \
     apt-get install curl git tar gzip unzip jq -y
