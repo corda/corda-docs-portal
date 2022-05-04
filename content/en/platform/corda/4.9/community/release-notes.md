@@ -16,6 +16,19 @@ title: Release notes
 
 # Corda Community Edition release notes
 
+## Corda Community Edition 4.9.1
+
+Corda Community Edition 4.9.1 is a patch release of Corda Community Edition which includes minor bug fixes and dependency upgrades.
+
+### Fixed issues
+
+In this patch release:
+
+* Fixing of a bug where `SuspensionMeta` in `FlowInfo` shows as null even when a runnable flow has previously been hospitalized.
+* Update Hibernate version to a more secure version that matches Corda Enterprise.
+* Oracle JDK version 8u322 now supported. 
+## Corda Community Edition 4.9
+
 **Corda Community Edition** is here. This edition of Corda gives you the freedom of Corda's Open Source platform, with the benefits of [affordable support](https://r3.com/support). All the same fundamentals of Corda 4.8 are included, along with security updates, newly available APIs and sample code improvements. You can upgrade your existing Corda projects to Community Edition any time to be eligible for our support packages.
 
 ## Highlights
