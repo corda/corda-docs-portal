@@ -42,7 +42,7 @@ docker run -ti \
         -v /path/to/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-java1.8-4.8:latest
+        corda/corda-zulu-java1.8-4.9:latest
 ```
 
 As the node runs within a container, several mount points are required:
@@ -83,7 +83,7 @@ docker run -ti \
         -v /home/user/sharedFolder/network-parameters:/opt/corda/network-parameters \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-java1.8-4.8:latest
+        corda/corda-zulu-java1.8-4.9:latest
 ```
 
 The mount `/home/user/sharedFolder/node-infos:/opt/corda/additional-node-infos` is used to hold the `nodeInfo` of all the nodes within the network.
@@ -117,7 +117,7 @@ docker run -ti --net="host" \
         -e RPC_USER="PartyA"      \
         -v /home/user/docker/config:/etc/corda          \
         -v /home/user/docker/certificates:/opt/corda/certificates \
-        corda/corda-zulu-java1.8-4.8:latest config-generator --generic --exit-on-generate
+        corda/corda-zulu-java1.8-4.9:latest config-generator --generic --exit-on-generate
 ```
 
 Several environment variables must also be passed to the container to allow it to register:
@@ -138,7 +138,8 @@ There are some optional variables which allow customisation of the generated con
 * `MY_P2P_PORT` - The port to advertise the node on (defaults to 10200). If changed, ensure the container is launched with the correct published ports.
 * `MY_RPC_PORT` - The port to open for RPC connections to the node (defaults to 10201). If changed, ensure the container is launched with the correct published ports.
 
-Once the container has finished performing the initial registration, the node can be started as normal
+Once the container has finished performing the initial registration, it should be possible to initialize node's DB
+as follows:
 
 ```shell
 docker run -ti \
@@ -151,43 +152,21 @@ docker run -ti \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-java1.8-4.8:latest
+        corda/corda-zulu-java1.8-4.9:latest run-migration-scripts --core-schemas --app-schemas
 ```
 
-# Performing Database Migrations
-
-The image contains the database-migration tool. It is possible to run this in two modes within a container.
-
-## Generating Migration Jars
-
-In this mode, the database-migration tool will scan the provided CorDapps, and generate corresponding migration jars. These jars will be placed alongside
-the source CorDapps. In this example, there are two CorDapps provided `corda-insurance.jar` and `corda-kyc.jar`
+After that the node can be started as normal:
 
 ```shell
 docker run -ti \
-        -v /home/user/docker/docker/config:/etc/corda \
-        -v /home/user/docker/docker/certificates:/opt/corda/certificates \
-        -v /home/user/docker/docker/persistence:/opt/corda/persistence \
-        -v /home/user/docker/docker/logs:/opt/corda/logs \
+        --memory=2048m \
+        --cpus=2 \
+        -v /home/user/docker/config:/etc/corda \
+        -v /home/user/docker/certificates:/opt/corda/certificates \
+        -v /home/user/docker/persistence:/opt/corda/persistence \
+        -v /home/user/docker/logs:/opt/corda/logs \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
-        entdocker.software.r3.com/corda-enterprise-java1.8-4.8:latest db-migrate-create-jars
+        -p 10200:10200 \
+        -p 10201:10201 \
+        corda/corda-zulu-java1.8-4.9:latest
 ```
-
-After the container has finished executing, there will be two new jars in `/home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps`: `migration-corda-insurance.jar` and `migration-corda-kyc.jar`.
-These will then be loaded as normal CorDapps by the node on next launch.
-
-## Executing Migrations on the Database
-
-It is also possible to use the image to directly perform the migration of the database.
-
-```shell
-docker run -ti \
-        -v $(pwd)/docker/config:/etc/corda \
-        -v $(pwd)/docker/certificates:/opt/corda/certificates \
-        -v $(pwd)/docker/persistence:/opt/corda/persistence \
-        -v $(pwd)/docker/logs:/opt/corda/logs \
-        -v $(pwd)/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
-        entdocker.software.r3.com/corda-enterprise-java1.8-4.8:latest db-migrate-execute-migration
-```
-
-If the container is launched with the `db-migrate-execute-migration` command, the migration is directly applied to the database.
