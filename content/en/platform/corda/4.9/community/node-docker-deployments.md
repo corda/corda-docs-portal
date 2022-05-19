@@ -145,6 +145,7 @@ as follows:
 docker run -ti \
         --memory=2048m \
         --cpus=2 \
+        -e CORDA_ARGS="run-migration-scripts --core-schemas --app-schemas"      \
         -v /home/user/docker/config:/etc/corda \
         -v /home/user/docker/certificates:/opt/corda/certificates \
         -v /home/user/docker/persistence:/opt/corda/persistence \
@@ -152,7 +153,7 @@ docker run -ti \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/corda-zulu-java1.8-4.9:latest run-migration-scripts --core-schemas --app-schemas
+        corda/corda-zulu-java1.8-4.9:latest
 ```
 
 After that the node can be started as normal:
