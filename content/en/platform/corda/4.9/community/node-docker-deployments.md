@@ -3,16 +3,16 @@ aliases:
 - /head/node-docker-deployments.html
 - /HEAD/node-docker-deployment.html
 - /node-docker-deployments.html
-  date: '2020-04-07T12:00:00Z'
-  menu:
+date: '2022-05-26T12:00:00Z'
+menu:
   corda-community-4-9:
-  identifier: corda-community-4-9-node-docker-deployments
-  parent: corda-community-4-9-corda-nodes-index
-  weight: 1150
-  tags:
+    identifier: corda-community-4-9-node-docker-deployments
+    parent: corda-community-4-9-corda-nodes-index
+    weight: 1150
+tags:
 - node
 - docker
-  title: Docker deployments
+title: Docker deployments
 ---
 
 # Docker deployments
