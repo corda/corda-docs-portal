@@ -50,10 +50,9 @@ After you have deployed your CorDapp to a local Corda 5 network and the back-end
    This command installs all necessary [npm](https://docs.npmjs.com/) modules to run the Mission Mars CorDapp UI.
 
 5. Run `npm start`.
-
    This command runs the UI in development mode.
 
-   **Step result:** The Mission Mars CorDapp UI opens in your browser window.
+   The Mission Mars CorDapp UI opens in your browser window.
 
 {{<
   figure
@@ -71,7 +70,7 @@ Once the Mission Mars CorDapp UI is up and running, you can use it to test the C
 
 1. Check your local Corda 5 Network for the existing nodes by clicking the **CHECK** button present under the **CORDA NETWORK** tab.
 
-   **Step result:** Peter's X500 name appears at the top of the page.
+   Peter's X500 name appears at the top of the page.
 
 2. Go to the **ISSUE VOUCHER** tab to test the `CreateAndIssueMarsVoucher` flow:
 
@@ -79,7 +78,7 @@ Once the Mission Mars CorDapp UI is up and running, you can use it to test the C
 
    b. Click **START FLOW**.
 
-   **Step result:** Voucher ID appears at the top of the page.
+   Voucher ID appears at the top of the page.
 
 3. Go to the **CREATE TICKET** tab to test the `CreateBoardingTicket` flow.
 
@@ -87,7 +86,7 @@ Once the Mission Mars CorDapp UI is up and running, you can use it to test the C
 
    b. Click **START FLOW**.
 
-   **Step result:** The **Ticket Ready!** message appears at the top of the page.
+   The **Ticket Ready!** message appears at the top of the page.
 
 4. Go to the **REDEEM VOUCHER** tab to test the `RedeemBoardingTicketWithVoucher` flow.
 
@@ -95,6 +94,6 @@ Once the Mission Mars CorDapp UI is up and running, you can use it to test the C
 
    b. Click **START FLOW**.
 
-   **Step result:** The rocket goes to Mars!
+   The rocket goes to Mars!
 
 5. **Optional:** You can investigate each flow you run in more detail under the **FLOW OUTCOME** tab.

@@ -26,19 +26,23 @@ Before you begin, make sure you [install the Corda 5 Developer Preview](../../..
 
 ## Configure your network
 
-Configure your network by running the following Corda CLI command:
+To configure your network, run the following Corda CLI command:
 
-`corda-cli network config <network-type> <network-name>`
+```console
+corda-cli network config <network-type> <network-name>
+```
 
 Where:
-* `network-type` is the type of the network - currently only `docker-compose` is supported.
+* `network-type` is the type of the network. Currently only `docker-compose` is supported.
 * `network-name` is the name of the network.
 
 For example, to configure the `smoke-tests-network`, use:
 
-`corda-cli network config docker-compose smoke-tests-network`
+```console
+corda-cli network config docker-compose smoke-tests-network
+```
 
-**Step result:** The `smoke-tests-network` has been configured for Docker Compose, and is ready to be deployed.
+This command configures the `smoke-tests-network` for Docker Compose, ready for deployment.
 
 
 ## Create network definitions file
@@ -51,29 +55,29 @@ For example, to configure the `smoke-tests-network`, use:
 
    This is an example of a `.yaml` file with its parameters:
 
-```
-# Nodes in network
-nodes:
-  # Name of the node
-  alice:
-    # (Optional) Specify the X500 name of the node
-    x500: "O=Borrower, C=GB, L=LONDON, CN=blah-Inc"
-    # (Optional) Specify the database type: "postgres:13" or "H2" (default)
-    database: "postgres:13"
-    # (Optional) Enable remote debugging of the Corda node
-    debug: true
-    # (Optional) Specify users and permissions
-    users:
-      fred:
-        password: mySecretPassword
-        permissions: ["ALL"]
-      alfred:
-        password: alfredPassword
-  bob:
-  caroline:
-    # (Optional) Indicate if the node is a notary
-    notary: true
-```
+   ```yaml
+   # Nodes in network
+   nodes:
+     # Name of the node
+     alice:
+       # (Optional) Specify the X500 name of the node
+       x500: "O=Borrower, C=GB, L=LONDON, CN=blah-Inc"
+       # (Optional) Specify the database type: "postgres:13" or "H2" (default)
+       database: "postgres:13"
+       # (Optional) Enable remote debugging of the Corda node
+       debug: true
+       # (Optional) Specify users and permissions
+       users:
+         fred:
+           password: mySecretPassword
+           permissions: ["ALL"]
+         alfred:
+           password: alfredPassword
+     bob:
+     caroline:
+       # (Optional) Indicate if the node is a notary
+       notary: true
+   ```
 
 
 ## Deploy your network
@@ -82,13 +86,17 @@ nodes:
 
    * If you are in the same directory as your `<network-name>.yaml` file, run:
 
-   `corda-cli network deploy -n <network-name> | docker-compose -f - up -d`
+      ```console
+      corda-cli network deploy -n <network-name> | docker-compose -f - up -d
+      ```
 
    * If you are not in the directory of your `<network-name>.yaml` file, run:
 
-   `corda-cli network deploy -n <network-name> -f <network-name.yaml file location> | docker-compose -f - up -d`
+      ```console
+      corda-cli network deploy -n <network-name> -f <network-name.yaml file location> | docker-compose -f - up -d
+      ```
 
-   The `corda-cli network deploy` command will look for the type of network and a network definition file (by default in the local directory) with the name `<network-name>.yaml`. It will output a `.yaml` file to stdout that Docker Compose can use to create your local test network.
+   The `corda-cli network deploy` command looks for the type of network and a network definition file (by default in the local directory) with the name `<network-name>.yaml`. It  outputs a `.yaml` file to stdout that Docker Compose can use to create your local test network.
 
    {{< note >}}
 
@@ -98,7 +106,9 @@ nodes:
 
 2. Wait for the nodes to run. You can monitor nodes starting up by running this command:
 
-   `corda-cli network wait -n <network-name>`
+   ```console
+   corda-cli network wait -n <network-name>
+   ```
 
    This command inspects the logs every few seconds until all the nodes are ready.
 
@@ -111,11 +121,13 @@ nodes:
 
 3. To monitor logs, run this Corda CLI command:
 
-   `corda-cli network deploy -n <network-name> | docker-compose -f - logs -f`
+   ```
+   corda-cli network deploy -n <network-name> | docker-compose -f - logs -f
+   ```
 
     The terminal displays the standard output of all the nodes in the network. Once a network is running, it shows a message similar to: `Running P2PMessaging loop`. You must wait for all the nodes to run. When all nodes have run, an output similar to the output shown below will appear.
 
-    ```
+    ```console
     smoke-tests-network-notary | Loaded 0 CorDapp(s)                     :
     smoke-tests-network-notary | Node for "notary" started up and registered in 17.31 sec
     smoke-tests-network-notary | SSH server listening on port            : 22222

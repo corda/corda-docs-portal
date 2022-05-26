@@ -42,21 +42,21 @@ You need to make a few changes in the `build.gradle` file of your CorDapp to con
 
 1. Register your integration test:
 
-```kotlin
-tasks.register('integrationTest', Test) {
-    description = "Runs integration tests."
-    group = "verification"
+   ```kotlin
+   tasks.register('integrationTest', Test) {
+       description = "Runs integration tests."
+       group = "verification"
 
-    testClassesDirs = project.sourceSets["integrationTest"].output.classesDirs
-    classpath = project.sourceSets["integrationTest"].runtimeClasspath
-}
-```
+       testClassesDirs = project.sourceSets["integrationTest"].output.classesDirs
+       classpath = project.sourceSets["integrationTest"].runtimeClasspath
+   }
+   ```
 
 2. Add a dependency referencing the test library:
 
-```kotlin
-integrationTestImplementation "net.corda:corda-dev-network-lib:$cordaAPIVersion"
-```
+   ```kotlin
+   integrationTestImplementation "net.corda:corda-dev-network-lib:$cordaAPIVersion"
+   ```
 This ensures that your integration tests can use the network created using Corda CLI.
 
 ### Copy the `TemplateFlowTest`
@@ -64,7 +64,6 @@ This ensures that your integration tests can use the network created using Corda
 When writing integration tests, it's helpful to start from the template as some features of your test will be identical to the template.
 
 1. Copy the contents of the `TemplateFlowTest` file.
-
 2. Paste the contents into a new Kotlin file called `CreateAndIssueMarsVoucherTest`.
 
 ### Change `TemplateFlow` to `CreateAndIssueMarsVoucher`

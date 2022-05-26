@@ -14,18 +14,20 @@ Corda Services are classes that provide methods to both flows and other Corda Se
 In technical terms, a Corda Service is any class that needs to be a long-lived singleton that can be injected into flows and other services via the `@CordaInject` dependency injection mechanism. You can use them to create classes external to flows where you can logically group code that isn't directly related to the execution of a flow.
 
 For example:
-
-**Kotlin:**
+{{< tabs name="CordaInject">}}
+{{% tab name="Kotlin"%}}
 ```kotlin
 @CordaInject
 lateinit var transactionService: TransactionService
-```
-**Java:**
+{{% /tab %}}
+
+{{% tab name="Java"%}}
 ```Java
 @CordaInject
 TransactionService transactionService;
 ```
-
+{{% /tab %}}
+{{< /tabs >}}
 This injection is intended for use within custom CorDapp classes instantiated by Corda using reflection. This is currently limited to CorDapp flows, custom Corda Services, and notary services.
 
 For a complete overview of each Corda Service and its methods, use the [Corda 5 Developer Preview list of injectable services](../../../../../../en/platform/corda/5.0-dev-preview-1/cordapps/corda-services/injectable-services.md).

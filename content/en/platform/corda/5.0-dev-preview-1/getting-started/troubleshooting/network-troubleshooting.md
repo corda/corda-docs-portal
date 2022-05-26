@@ -13,7 +13,7 @@ title: Troubleshooting a local Corda 5 network
 If you see this error while trying to use `docker-compose` with your generated `.yaml` config file, you may have an old version of Docker.
 Try to upgrade.
 
-```
+```console
 ERROR: The Compose file is invalid because:
 networks.smoke-tests-network value Additional properties are not allowed ('name' was unexpected)
 ```
@@ -27,7 +27,7 @@ You can increase this in the Docker Desktop: go to **Preferences** and configure
 
 If you are using Docker on Windows, you may get this error when executing the end-to-end tests:
 
-```bash
+```console
 org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:2375 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
 java.lang.RuntimeException: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:2375 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
   at com.github.dockerjava.httpclient5.ApacheDockerHttpClientImpl.execute(ApacheDockerHttpClientImpl.java:153)
@@ -44,7 +44,7 @@ This is because we use the Docker Java API to interact with the Docker daemon (U
 
 If you use Windows, you may see an error like this:
 
-```bash
+```console  
 ERROR: for smoke-tests-network-bootstrapper  Cannot create container for service bootstrapper: status code not OK but 500:  ☺   ˙˙˙˙☺       ♀☻   FDocker.Core, Version=3.0.2.51106, Culture=neutral, PublicKeyToken=null♣☺   ←Docker.Core.DockerException♀      ClassNameMessage♦Data♫InnerExceptionHelpURL►StackTraceString▬RemoteStackTraceString►RemoteStackIndex☼ExcWatsonBuckets☺☺♥♥☺☺☺ ☺ ☺▲System.Collections.IDictionary►System.Excepti☻☻   ♠♥   ←Docker.Core.DockerException♠♦   ▲Filesharing has been cancelled
 ♠♣   Ś‼   at Docker.ApiServices.Mounting.FileSharing.<DoShareAsync>d__8.MoveNext() in C:\workspaces\PR-15138\src\github.com\docker\pinata\win\src\Docker.ApiServices\Mounting\FileSharing.cs:line 0
 --- End of stack trace from previous location where exception was thrown ---
