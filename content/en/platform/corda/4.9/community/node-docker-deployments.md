@@ -138,7 +138,7 @@ There are some optional variables which allow customisation of the generated con
 * `MY_P2P_PORT` - The port to advertise the node on (defaults to 10200). If changed, ensure the container is launched with the correct published ports.
 * `MY_RPC_PORT` - The port to open for RPC connections to the node (defaults to 10201). If changed, ensure the container is launched with the correct published ports.
 
-Once the container has finished performing the initial registration, it is necessary to initialize node's DB as follows:
+Once the container has finished performing the initial registration, you must initialize the node's DB as follows:
 
 ```shell
 docker run -ti \
@@ -155,7 +155,7 @@ docker run -ti \
         corda/community:4.9.1-zulu-openjdk8:latest
 ```
 
-After that the node can be started as normal:
+You can now start the node as normal:
 
 ```shell
 docker run -ti \
