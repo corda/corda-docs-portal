@@ -120,13 +120,13 @@ remain constant and not be dependent on external factors.
 
 Here is a good example, as the client has provided parameters for `transactionTime` that will not change as time passes
 and are not dependent on the timezone of the HTTP-RPC server:
-```
+```console
 where transactionTime between (2021-06-14T09:55:59Z and 2021-06-15T09:55:59Z)
 ```
 
 Here is a bad example, as the client has provided parameters for `transactionTime` that are a function of the current
 server time and will change depending on when the server processes the request.
-```
+```console
 where transactionTime between (T-1 and T)
 ```
 

@@ -62,7 +62,7 @@ class CreateAndIssueMarsVoucher {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.flows;
 
@@ -98,7 +98,7 @@ class CreateAndIssueMarsVoucher {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.flows;
 
@@ -149,7 +149,7 @@ class CreateAndIssueMarsVoucher2 @JsonConstructor constructor(private val params
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.flows;
 
@@ -250,7 +250,7 @@ class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private va
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.flows;
 
@@ -306,11 +306,11 @@ Next you must add the flow implementation to the initiating flow by encapsulatin
 4. Add appropriate error handling - exceptions must be thrown when required fields (`voucherDesc`, `holder`, `recipientParty`) are not found.
 5. Insert the following method for finding the notary: `notaryLookup.getNotary(CordaX500Name.parse("O=notary, L=London, C=GB"))!!`.
 
-{{< note >}}
+  {{< note >}}
 
-In Corda 5, the notary is predefined. You will be "spending" your state with a particular notary tieing that state to it (notary change excepted). Thus, you cannot just pick the first one as the list order may change, especially in a multi-network or app environment where different notaries are whitelisted for different apps. You can find the full status of the notary by starting the network and printing out its status.
+  In Corda 5, the notary is predefined. You will be "spending" your state with a particular notary tieing that state to it (notary change excepted). Thus, you cannot just pick the first one as the list order may change, especially in a multi-network or app environment where different notaries are whitelisted for different apps. You can find the full status of the notary by starting the network and printing out its status.
 
-{{< /note >}}
+  {{< /note >}}
 
 6. Build the output `MarsVoucher` state with a `UniqueIdentifier`.
 
@@ -434,7 +434,7 @@ class CreateAndIssueMarsVoucherInitiator @JsonConstructor constructor(private va
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public class CreateAndIssueMarsVoucher {
 
@@ -579,7 +579,7 @@ class CreateAndIssueMarsVoucherResponder(val otherPartySession: FlowSession) : F
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 @InitiatedBy(CreateAndIssueMarsVoucherInitiator.class)
     public static class CreateAndIssueMarsVoucherResponder implements Flow<SignedTransaction> {
@@ -729,7 +729,7 @@ data class CreateBoardingTicketInitiator @JsonConstructor constructor(private va
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.flows;
 
@@ -1033,7 +1033,7 @@ class GiftVoucherToFriendResponder(val otherPartySession: FlowSession) : Flow<Si
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.flows;
 
@@ -1351,7 +1351,7 @@ class RedeemBoardingTicketWithVoucherInitiator @JsonConstructor constructor(priv
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.flows;
 
@@ -1688,7 +1688,7 @@ class RedeemBoardingTicketWithVoucherResponder(val otherPartySession: FlowSessio
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.flows;
 

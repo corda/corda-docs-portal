@@ -17,13 +17,13 @@ auto-completion for Corda CLI to your bash/zsh profile. On Windows the script ca
 
 1. Run the bash script:
 
-```
-curl "https://download.corda.net/corda-cli/1.0.0-DevPreview/get-corda-cli.sh" | bash
-```
+   ```Bash
+   curl "https://download.corda.net/corda-cli/1.0.0-DevPreview/get-corda-cli.sh" | bash
+   ```
 
 2. Verify installation by opening a new terminal session and running `corda-cli -v`.
 
-   **Step result:** If successful, this will output details of the installed Corda CLI version.
+   If successful, this will output details of the installed Corda CLI version.
 
 ## Manual installation
 
@@ -75,4 +75,4 @@ If a previous installation of Corda CLI exists, remove it. See [Deleting Corda C
 
 6. Verify installation by opening a new terminal session and running `corda-cli -v`.
 
-   **Step result:** If successful, this will output details of the installed Corda CLI version.
+   If successful, this will output details of the installed Corda CLI version.

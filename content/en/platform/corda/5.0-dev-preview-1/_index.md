@@ -62,18 +62,13 @@ Notably, as a developer, you will notice a substantial restructuring of the avai
 A full list of what's new in Corda 5 Developer Preview:
 
 - A Modular API. Corda's core API module has been split into packages and versioned.
-
 - Dependency upgrades to Gradle 6, Java 11, and Kotlin 1.4. This enables the latest Gradle CorDapp packaging plugins, letting you create CorDapps faster.
-
 - Node interaction upgrades. You can interface with a node using HTTP and auto-generate CorDapp endpoints.
-
 - Upgrades to packaging:
   - CorDapps are no longer packaged as `.jar` files.
   - A Corda Package, `.cpk` is now the unit of software that executes within a single sandbox.
   - CorDapps are a set of versioned `.cpks` that define a deployable application.
-
 - A new integration test framework that reflects real node behavior.
-
 - An API for pluggable uniqueness service (notary). This is interface-only.
 
 ### CorDapp Development changes

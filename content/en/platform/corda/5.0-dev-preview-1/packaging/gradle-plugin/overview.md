@@ -35,8 +35,8 @@ Corda package files are the Corda 5 equivalent of Corda 4's "semi-fat" CorDapp `
 Follow these steps to apply the plugin to your Gradle project.
 
 1. In `settings.gradle` for the root Gradle project, make sure the `cordap-configuration` and `cordapp-cpk` plugins are declared.
-
-        pluginManagement {
+    ```gradle
+            pluginManagement {
             plugins {
                 id 'net.corda.cordapp.cordapp-configuration' version cordaReleaseVersion
                 id 'net.corda.plugins.cordapp-cpk' version cpkPluginVersion
@@ -52,7 +52,7 @@ Follow these steps to apply the plugin to your Gradle project.
                 }
             }
         }
-
+    ```    
     Where `cpkPluginVersion` and `cordaReleaseVersion` are both Gradle properties, for example:
 
     ```gradle
@@ -63,20 +63,20 @@ Follow these steps to apply the plugin to your Gradle project.
     The artifacts for this release are available from https://software.r3.com/artifactory/corda-releases/.
 
 2. Make sure the `build.gradle` file for the root project applies the `cordapp-configuration` plugin.
-
+   ```gradle
         plugins {
             id 'net.corda.cordapp.cordapp-configuration'
         }
-
+   ```
 3. Add the following lines to the top of your CPK project's `build.gradle` file.
-
+   ```gradle
         plugins {
             id 'net.corda.plugins.cordapp-cpk'
         }
-
+   ```
     If you just have a single project that builds a `.cpk` file, then you will only have one `build.gradle` file, and the lines from these two steps should be combined.
 
-    ````
+    ````gradle
     plugins {
         id 'net.corda.cordapp.cordapp-configuration'
         id 'net.corda.plugins.cordapp-cpk'
@@ -84,7 +84,7 @@ Follow these steps to apply the plugin to your Gradle project.
     ````
 
 4. Add a `cordapp` block to the CPK project's `build.gradle`. For example,
-
+   ```gradle
         cordapp {
             targetPlatformVersion = 999
             workflow {
@@ -94,7 +94,7 @@ Follow these steps to apply the plugin to your Gradle project.
               vendor = 'R3'
             }
         }
-
+   ```
     The CorDapp block is [described below](#the-cordapp-block). For an example, see the [DSL section](https://github.com/corda/corda-gradle-plugins/tree/master/cordapp-cpk#dsl) of the [cordapp-cpk README](https://github.com/corda/corda-gradle-plugins/tree/master/cordapp-cpk).
 
 #### The `cordapp` block
@@ -192,29 +192,29 @@ The point of the `.cpb` is to contain all of the `.cpk`s that are expected to be
 The CorDapp CPB Gralde plugin automatically applies the CorDapp CPK plugin, so before appling the CPB plugin, you should make sure the CPK plugin is configured as described above.
 
 1. In `settings.gradle` for the root Gradle project, make sure the `cordapp-cpb` plugin is declared.
-
+   ```gradle
         pluginManagement {
             plugins {
                 // Other plugins will also be declared here
                 id 'net.corda.plugins.cordapp-cpb' version cpkPluginVersion
             }
         }
-
+   ```
 2. Add the following lines to the top of the sub-project's `build.gradle` file.
-
+   ```gradle
         plugins {
             id 'net.corda.plugins.cordapp-cpb'
         }
-
+   ```
 The plugin will normally determine all of the CorDapp's transient `.cpk` dependencies, although it is your responsibility to ensure that this set is complete. See [CPK inspection tool](../../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/commands.md) for details of how to inspect the contents of the bundle.
 
 Any extra package references can be added to the bundle using the `cpb` Gradle configuration. For example:
-
+   ```gradle
         dependencies {
             cpb "com.example.foo:some-cpk:1.0.0"
             cpb "com.example.bar:other-cpk:2.0.0"
         }
-
+   ```
 ### Generate the Corda package bundle
 
 To generate the `.cpb` file, run `./gradlew build`. The `.cpk` file will be generated in the normal Gradle output directory.

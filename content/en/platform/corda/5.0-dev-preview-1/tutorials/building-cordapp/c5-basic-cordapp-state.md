@@ -35,14 +35,14 @@ The easiest way to write any CorDapp is to start from a template. This ensures t
 1. Clone the CorDapp template repo in the directory of your choice:
 
    {{< tabs name="tabs-1" >}}
-   {{% tab name="kotlin" %}}
-   ```kotlin
+   {{% tab name="Kotlin" %}}
+   ```console
    git clone https://github.com/corda/corda5-cordapp-template-kotlin.git
    ```
    {{% /tab %}}
 
-   {{% tab name="java" %}}
-   ```java
+   {{% tab name="Java" %}}
+   ```console
    git clone https://github.com/corda/corda5-cordapp-template-java.git
    ```
    {{% /tab %}}
@@ -83,7 +83,7 @@ Include these variables in the `MarsVoucher` data class:
 Your code should now look like this:
 
 {{< tabs name="tabs-2" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -97,7 +97,7 @@ data class MarsVoucher (
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.states;
 
@@ -140,7 +140,7 @@ Your code should now look like this:
 
 
 {{< tabs name="tabs-3" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -164,7 +164,7 @@ data class MarsVoucher (
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.states;
 
@@ -227,7 +227,7 @@ There are several ways to return your parameters in a JSON string. This tutorial
 Your code should look like this:
 
 {{< tabs name="tabs-4" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -270,7 +270,7 @@ data class MarsVoucherDto(
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.states;
 
@@ -339,7 +339,7 @@ Create a function called `changeOwner` that allows the `MarsVoucher` state to be
 You've finished writing the `MarsVoucher` state. This is what your code should look like now:
 
 {{< tabs name="tabs-5" >}}
-{{% tab name="kotlin" %}}
+{{% tab name="Kotlin" %}}
 ```kotlin
 package net.corda.missionMars.states
 
@@ -390,7 +390,7 @@ data class MarsVoucherDto(
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.states;
 

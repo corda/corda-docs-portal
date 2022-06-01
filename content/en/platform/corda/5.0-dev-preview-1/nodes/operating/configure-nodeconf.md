@@ -82,7 +82,7 @@ To configure your node to use SSL encryption for HTTP-RPC, see the [SSL setup](.
 ## Verify HTTP-RPC setup
 Start the node to verify that you have set up HTTP-RPC correctly. You should see:
 
-```
+```Console
 [INFO] 2021-05-28T16:20:25,572Z [net.corda.node.OSGiNodeActivator.start] BasicInfo.printBasicNodeInfo - HTTP RPC address                        : https://mynode:8888 {}
 [INFO] 2021-05-28T16:20:25,573Z [net.corda.node.OSGiNodeActivator.start] BasicInfo.printBasicNodeInfo - Swagger UI available at                 : https://mynode:8888/api/v1/swagger
 [...]

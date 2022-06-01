@@ -91,17 +91,15 @@ The Corda Hashing API comprises `BasicHashingService` and `HashingService`.
 
 * The `HashingService` offers re-hashing of a `SecureHash` using its original digest algorithm through:
 
-
-
-```kotlin
-fun reHash(secureHash: SecureHash): SecureHash
-```
+  ```kotlin
+  fun reHash(secureHash: SecureHash): SecureHash
+  ```
 
 * It offers computing of a random digest of the specified digest algorithm through:
 
-```kotlin
-fun randomHash(digestAlgorithmName: DigestAlgorithmName): SecureHash
-```
+  ```kotlin
+  fun randomHash(digestAlgorithmName: DigestAlgorithmName): SecureHash
+  ```
 
   This method generates a `ByteArray` of the length of the specified digest algorithm with random bytes, and then it computes and returns a digest out of that `ByteArray`.
 
@@ -109,8 +107,8 @@ Example usages:
 
 - Hashing a `String`:
 
-  - Kotlin
-
+  {{< tabs name="String">}}
+  {{% tab name="kotlin"%}}
     ```kotlin
     @StartableByRPC
     class HashingStringFlow @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters) : Flow<Unit> {
@@ -131,9 +129,9 @@ Example usages:
         }
     }
     ```
+    {{% /tab %}}
 
-  - Java
-
+    {{% tab name="java" %}}
     ```java
     @StartableByRPC
     class HashingStringFlow implements Flow<Void> {
@@ -159,12 +157,13 @@ Example usages:
         }
     }
     ```
-
+    {{% /tab %}}
+    {{< /tabs >}}
 - Hashing a `ByteArray`:
 
-  - Kotlin
-
-    ```kotlin
+{{< tabs name="ByteArray">}}
+{{% tab name="kotlin"%}}
+  ```kotlin
     @StartableByRPC
     class HashingByteArrayFlow @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters) : Flow<Unit> {
 
@@ -180,9 +179,9 @@ Example usages:
         }
     }
     ```
+    {{% /tab %}}
 
-  - Java
-
+    {{% tab name="java" %}}
     ```java
     @StartableByRPC
     class HashingByteArrayFlow implements Flow<Void> {
@@ -203,12 +202,13 @@ Example usages:
         }
     }
     ```
-
+    {{% /tab %}}
+    {{< /tabs >}}
 - Hashing digests' concatenation:
 
-  - Kotlin
-
-    ```kotlin
+{{< tabs name="HashingDigestsConcatenation">}}
+{{% tab name="kotlin"%}}
+  ```kotlin
     @StartableByRPC
     class HashingDigestsConcatenationFlow @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters) : Flow<Unit> {
 
@@ -230,9 +230,9 @@ Example usages:
         }
     }
     ```
+    {{% /tab %}}
 
-  - Java
-
+    {{% tab name="java" %}}
     ```java
     @StartableByRPC
     class HashingDigestsConcatenationFlow implements Flow<Void> {
@@ -260,11 +260,12 @@ Example usages:
         }
     }
     ```
-
+    {{% /tab %}}
+    {{< /tabs >}}
 - Create `SecureHash` from String:
 
-  - Kotlin
-
+{{< tabs name="HashingDigestsConcatenation">}}
+{{% tab name="kotlin"%}}
     ```kotlin
     @StartableByRPC
     class CreateSecureHashFromStringFlow @JsonConstructor constructor(private val params: RpcStartFlowRequestParameters) : Flow<Unit> {
@@ -281,9 +282,9 @@ Example usages:
         }
     }
     ```
+    {{% /tab %}}
 
-  - Java
-
+    {{% tab name="java" %}}
     ```java
     @StartableByRPC
     class CreateSecureHashFromStringFlow implements Flow<Void> {
@@ -304,3 +305,5 @@ Example usages:
         }
     }
     ```
+    {{% /tab %}}
+    {{< /tabs >}}
