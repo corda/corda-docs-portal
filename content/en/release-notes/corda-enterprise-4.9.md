@@ -12,7 +12,7 @@ Corda: Enterprise Edition 4.9 is a long-term support release, with commitments t
 
 ### Previous versions of Corda Enterprise
 
-* [Corda: Enterprise Edition 4.9](../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md)
+* [Corda: Enterprise Edition 4.8](../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md)
 * [Corda: Enterprise Edition 4.7](../../en/platform/corda/4.7/enterprise/release-notes-enterprise.md)
 * [Corda: Enterprise Edition 4.6](../../en/platform/corda/4.6/enterprise/release-notes-enterprise.md)
 * [Corda: Enterprise Edition 4.5](../../en/platform/corda/4.5/enterprise/release-notes-enterprise.md)
