@@ -17,6 +17,5 @@ In this section, you will find instruction on how to:
 * Use Corda CLI to manage a local network and work with Corda package files (`.cpk` files).
 
 {{< note >}}
-**Your feedback helps** -
-Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we can make the upcoming versions of Corda work harder for you than ever.
+**Your feedback helps.** Please [send the Documentation Team an e-mail](mailto:docs@r3.com) with your feedback so we can make the upcoming versions of Corda work harder for you than ever.
 {{< /note >}}
