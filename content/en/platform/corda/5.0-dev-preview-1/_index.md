@@ -35,8 +35,7 @@ This is a developer preview of Corda's next major iteration, Corda 5. Here, you 
 * Package your CordApps with a new Gradle plugin that allows for multi-tenancy applications in future releases.
 
 {{< note >}}
-**Your feedback helps** -
-Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we can make the upcoming versions of Corda work harder for you than ever.
+**Your feedback helps.** Please [send the Documentation Team an e-mail](mailto:docs@r3.com) with your feedback so we can make the upcoming versions of Corda work harder for you than ever.
 {{< /note >}}
 
 In this preview, you can:
