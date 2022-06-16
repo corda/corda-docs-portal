@@ -37,6 +37,7 @@ node.conf
 notary {
   jpa {
       connectionRetries={{ number of database replicas }}
+      // Only required if using CockroachDB.
       generateNativeSql = true
 
       // Only required if the schema isn't the default schema of the user.
@@ -47,6 +48,7 @@ notary {
           jdbcUrl="jdbc:dbidentifier://{{ your cluster IPs }}/{{ DB name, e.g. corda }}"
           username={{ DB username }}
           password={{ DB password }}
+        // Only required if using CockroachDB.
           maxLifetime=600000
       }
       database {

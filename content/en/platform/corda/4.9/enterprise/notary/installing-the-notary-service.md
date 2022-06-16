@@ -36,22 +36,24 @@ node.conf
 ```kotlin
 notary {
   jpa {
-      connectionRetries={{ number of database replicas }}
-      generateNativeSql = true
+    connectionRetries={{ number of database replicas }}
+    // Only required if using CockroachDB.
+    generateNativeSql = true
 
-      // Only required if the schema isn't the default schema of the user.
-      database.schema = {{ schema name, e.g. corda_adm }}
+    // Only required if the schema isn't the default schema of the user.
+    database.schema = {{ schema name, e.g. corda_adm }}
 
-      dataSourceProperties {
-          autoCommit="false"
-          jdbcUrl="jdbc:dbidentifier://{{ your cluster IPs }}/{{ DB name, e.g. corda }}"
-          username={{ DB username }}
-          password={{ DB password }}
-          maxLifetime=600000
-      }
-      database {
-          validateSchema = true
-      }
+    dataSourceProperties {
+      autoCommit="false"
+      jdbcUrl="jdbc:dbidentifier://{{ your cluster IPs }}/{{ DB name, e.g. corda }}"
+      username={{ DB username }}
+      password={{ DB password }}
+      // Only required if using CockroachDB.
+      maxLifetime=600000
+    }
+    database {
+      validateSchema = true
+    }
   }
   validating=false
   // Only required for an HA notary.
@@ -62,8 +64,8 @@ compatibilityZoneURL = "https://example.com:1300"
 devMode = false
 
 rpcSettings {
-      address : "localhost:18003"
-      adminAddress : "localhost:18004"
+  address : "localhost:18003"
+  adminAddress : "localhost:18004"
 }
 keyStorePassword = ""
 trustStorePassword = ""
@@ -76,13 +78,13 @@ myLegalName : "O=Worker 1, C=GB, L=London"
 // database that you already have set up. Note that the notarised states
 // are written to the shared notary database configured in `notary.jpa`.
 dataSourceProperties = {
-    dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
-    dataSource.url = "jdbc:postgresql://[HOST]:[PORT]/postgres"
-    dataSource.user = [USER]
-    dataSource.password = [PASSWORD]
+  dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
+  dataSource.url = "jdbc:postgresql://[HOST]:[PORT]/postgres"
+  dataSource.user = [USER]
+  dataSource.password = [PASSWORD]
 }
 database = {
-    schema = [SCHEMA]
+  schema = [SCHEMA]
 }
 jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 
