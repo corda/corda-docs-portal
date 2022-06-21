@@ -323,10 +323,9 @@ Allows fine-grained controls of various features only available in the enterpris
 
 * `tuning`
 
-    * Tuning the Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise Nodes.
+    * The Corda Node configuration file section that contains performance tuning parameters for Corda Enterprise Nodes.
 
     - `backchainFetchBatchSize`
-
     This is an optimization for sharing transaction backchains. Corda Enterprise nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
 
     *Default:* 50
@@ -359,23 +358,19 @@ Allows fine-grained controls of various features only available in the enterpris
     * If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this * number slightly.
     * Valid values for this property are between 4 (that is the number used for the single threaded state * machine in open source) and the number of flow threads.
 
-    - `journalBufferTimeout`
+  - `journalBufferTimeout`
     * The interval (in nanoseconds) at which Artemis messages that are buffered in-memory will be flushed to disk, if the buffer hasn't been filled yet. Setting this to 0 will disable the internal buffer and writes will be written directly to the journal file.
 
-    - `journalBufferSize`
+  - `journalBufferSize`
 
     - The size of the in-memory Artemis buffer for messages, in bytes. Note that there is a lower bound to the buffer size, which is calculated based on the maximum message size of the network parameters to ensure messages of any allowed size can be stored successfully. As a result, any value lower than this bound will be ignored with the appropriate logging. This bound is also used as the default, if no value is specified.
 
-    - `extraNetworkMapKeys`
+  - `extraNetworkMapKeys`
 
       An optional list of private network map UUIDs. Your node will fetch the public network and private network maps based on these keys.
     Private network UUID should be provided by network operator and lets you see nodes not visible on public network.
 
-    {{< note >}}
-
-    This is a temporary feature for on-boarding network participants that limits their visibility for privacy reasons.
-
-    {{< /note >}}
+    **Important: This is a temporary feature for onboarding network participants that limits their visibility for privacy reasons.**
 
     *Default:* not defined
 
