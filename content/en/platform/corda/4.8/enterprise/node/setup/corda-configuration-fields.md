@@ -366,14 +366,14 @@ Allows fine-grained controls of various features only available in the enterpris
 
     - The size of the in-memory Artemis buffer for messages, in bytes. Note that there is a lower bound to the buffer size, which is calculated based on the maximum message size of the network parameters to ensure messages of any allowed size can be stored successfully. As a result, any value lower than this bound will be ignored with the appropriate logging. This bound is also used as the default, if no value is specified.
 
-- `extraNetworkMapKeys`
+## `extraNetworkMapKeys`
 
-  An optional list of private network map UUIDs. Your node will fetch the public network and private network maps based on these keys.
-    Private network UUID should be provided by network operator and lets you see nodes not visible on public network.
+An optional list of private network map UUIDs. Your node will fetch the public network and private network maps based on these keys.
+  Private network UUID should be provided by network operator and lets you see nodes not visible on public network.
 
-  **Important: This is a temporary feature for onboarding network participants that limits their visibility for privacy reasons.**
+**Important: This is a temporary feature for onboarding network participants that limits their visibility for privacy reasons.**
 
-  *Default:* not defined
+*Default:* not defined
 
 ## `flowExternalOperationThreadPoolSize`
 
