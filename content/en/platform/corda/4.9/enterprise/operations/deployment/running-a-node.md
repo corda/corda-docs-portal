@@ -208,9 +208,12 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 `java -Dcapsule.jvm.args="-javaagent:drivers/jolokia-jvm-1.3.7-agent.jar=port=7005" -jar corda.jar`
 
-This command line will start the node with JMX metrics accessible via HTTP on port 7005.
+This command line will start the node with JMX metrics accessible via HTTP on port 7005. The first metric a Corda developer will see when monitoring is the node status, indicating what the node is currently doing.
+The status is published as: `net.corda.Node.Status`, and is available almost immediately at startup.
+
 
 See [Monitoring via Jolokia](../../node/operating/node-administration.html#monitoring-via-jolokia) for further details.
+
 
 
 ## Starting all nodes at once on a local machine from the command line
