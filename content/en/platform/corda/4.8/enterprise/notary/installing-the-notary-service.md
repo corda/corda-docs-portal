@@ -15,15 +15,17 @@ weight: 2
 
 In configuring the notary worker nodes, please note the following:
 
-
 * The X500 name of the notary service is configured in `notary.serviceLegalName`.
 * Put the IP address or host name of the nearest shared DB server first in the JDBC
-URL. When running a DB node and a notary worker node on a single machine, list the
-local IP first
+  URL. When running a DB node and a notary worker node on a single machine, list the
+  local IP first
 * In addition to the connection to the shared DB holding the notary state,
-each notary worker needs to have access to its own local node DB. See the
-*dataSourceProperties* section in the configuration file
+  each notary worker needs to have access to its own local node DB. See the
+  *dataSourceProperties* section in the configuration file
 * Omit `compatibilityZoneURL` and set `devMode = true` when using the bootstrapper
+* When using CockroachDB, set `generateNativeSql = true` in the JPA block. This guarantees the best performance.
+* If using load balancers in front of Cockroach DB nodes, set `maxLifetime` in the `jpa/dataSourceProperties` block. Use a sensible value in milliseconds. A value of `maxLifetime=600000` is equivalent to 10 minutes.
+  * The value should be less than the load balancer idle timeout. This avoids false Hibernate warnings about closed connections.
 
 The configuration below will result in the JPA notary implementation being used:
 
@@ -35,6 +37,8 @@ node.conf
 notary {
   jpa {
       connectionRetries={{ number of database replicas }}
+      // Only required if using CockroachDB.
+      generateNativeSql = true
 
       // Only required if the schema isn't the default schema of the user.
       database.schema = {{ schema name, e.g. corda_adm }}
@@ -44,6 +48,8 @@ notary {
           jdbcUrl="jdbc:dbidentifier://{{ your cluster IPs }}/{{ DB name, e.g. corda }}"
           username={{ DB username }}
           password={{ DB password }}
+        // Only required if using CockroachDB.
+          maxLifetime=600000
       }
       database {
           validateSchema = true
@@ -84,9 +90,6 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 
 ```
 {{% /tab %}}
-
-
-
 
 [node.conf](../resources/node.conf) | ![github](/images/svg/github.svg "github")
 
