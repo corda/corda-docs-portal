@@ -16,7 +16,7 @@ title: Release notes
 
 # Corda Community Edition release notes
 
-## Cord Community Edition 4.9.2
+## Corda Community Edition 4.9.2
 
 Corda Community 4.9.2 is a patch release of Corda Enterprise which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
 
