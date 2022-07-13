@@ -17,6 +17,24 @@ weight: 10
 
 # Corda Enterprise Release notes
 
+## Corda Enterprise 4.4.12
+
+Corda Enterprise 4.4.12 is a patch release of Corda Enterprise focused on security improvements.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html).
+
+### Fixed issues
+
+In this patch release:
+* Disabling Java serialization in the Corda firewall, closing a potential security vulnerability.
+* An error during Docker tests when using the `testPrepareDockerNodesTaskGeneratesYamlFile` command has been rectified. Previously, execution would fail for task `:samples:dockerform-test:configureCordappFatJar`. This was because execution for the
+`:samples:dockerform-test:configureCordappFatJar` would fail due to the absence of the Quasar core JDK jar file `quasar-core-jdk8.jar (co.paralleluniverse:quasar-core:0.7.15_r3)`.
+
+
 ## Corda Enterprise 4.4.11
 
 Corda Enterprise 4.4.11 is a patch release of Corda Enterprise that fixes an urgent security issue caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version v2.17.1.

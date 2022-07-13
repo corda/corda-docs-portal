@@ -16,6 +16,23 @@ title: Release notes
 
 # Corda Community Edition release notes
 
+## Cord Community Edition 4.9.2
+
+Corda Community 4.9.2 is a patch release of Corda Enterprise which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
+
+* A new version of the Gradle plug-in that works with [Gradle 7](https://docs.gradle.org/7.0/release-notes.html) has been released as part of this patch. The plugin can be found in [Jenkins](https://ci01.dev.r3.com/blue/organizations/jenkins/Corda-Gradle-Build-Plugins%2Fcorda-gradle-plugins/detail/release%2F5.1.0-RC01/1/pipeline/).
+  For more information on how to use the plugin, visit its [GitHub repository](https://github.com/corda/samples-kotlin/tree/chrisr3-gradle7).
+
+### Fixed issues
+
+In this patch release:
+
+* The `corda-shell --version` command now always returns the correct version.
+* The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced.
+* Disabling Java serialization in the Corda firewall, closing a potential security vulnerability.
+* Artemis messaging has been implemented to indicate when disk space is low (below 10%).
+* AMQP frame tracing can now be turned on in the Corda node when running embedded Artemis or bridges. This is in addition to the previous ability to turn it on via firewall configuration.
+
 ## Corda Community Edition 4.9.1
 
 Corda Community Edition 4.9.1 is a patch release of Corda Community Edition which includes minor bug fixes and dependency upgrades.
@@ -27,6 +44,7 @@ In this patch release:
 * Fixing of a bug where `SuspensionMeta` in `FlowInfo` shows as null even when a runnable flow has previously been hospitalized.
 * Update Hibernate version to a more secure version that matches Corda Enterprise.
 * Oracle JDK version 8u322 now supported.
+
 ## Corda Community Edition 4.9
 
 **Corda Community Edition** is here. This edition of Corda gives you the freedom of Corda's Open Source platform, with the benefits of [affordable support](https://r3.com/support). All the same fundamentals of Corda 4.8 are included, along with security updates, newly available APIs and sample code improvements. You can upgrade your existing Corda projects to Community Edition any time to be eligible for our support packages.
