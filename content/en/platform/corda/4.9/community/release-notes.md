@@ -27,6 +27,7 @@ In this patch release:
 * Fixing of a bug where `SuspensionMeta` in `FlowInfo` shows as null even when a runnable flow has previously been hospitalized.
 * Update Hibernate version to a more secure version that matches Corda Enterprise.
 * Oracle JDK version 8u322 now supported.
+
 ## Corda Community Edition 4.9
 
 **Corda Community Edition** is here. This edition of Corda gives you the freedom of Corda's Open Source platform, with the benefits of [affordable support](https://r3.com/support). All the same fundamentals of Corda 4.8 are included, along with security updates, newly available APIs and sample code improvements. You can upgrade your existing Corda projects to Community Edition any time to be eligible for our support packages.
@@ -62,3 +63,8 @@ Issues fixed in Corda Community 4.9:
 * An issue affecting Node JVM deadlocks is resolved.
 * An issue with failed attachments from a notary has been fixed.
 * An issue preventing attachments to subflows in certain circumstances has been fixed.
+
+### Database Schema Changes
+
+* The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise 4.7 following updates to certificate rotation functionality.
+  * The reintroduction of this table ensures the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.
