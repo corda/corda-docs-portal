@@ -29,7 +29,7 @@ In this patch release:
 
 * The `corda-shell --version` command now always returns the correct version.
 * The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced.
-* Disabling Java serialization in the Corda firewall, closing a potential security vulnerability.
+* Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
 * Artemis messaging has been implemented to indicate when disk space is low (below 10%).
 * AMQP frame tracing can now be turned on in the Corda node when running embedded Artemis or bridges. This is in addition to the previous ability to turn it on via firewall configuration.
 

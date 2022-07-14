@@ -28,7 +28,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 ### Fixed issues
 
 In this patch release:
-* Disabling Java serialization in the Corda firewall, closing a potential security vulnerability.
+* Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
 
 ## Corda Enterprise 4.7.7
 

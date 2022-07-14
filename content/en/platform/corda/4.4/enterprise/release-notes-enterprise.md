@@ -30,7 +30,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 ### Fixed issues
 
 In this patch release:
-* Disabling Java serialization in the Corda firewall, closing a potential security vulnerability.
+* Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
 * An error during Docker tests when using the `testPrepareDockerNodesTaskGeneratesYamlFile` command has been rectified. Previously, execution would fail for task `:samples:dockerform-test:configureCordappFatJar`. This was because execution for the
 `:samples:dockerform-test:configureCordappFatJar` would fail due to the absence of the Quasar core JDK jar file `quasar-core-jdk8.jar (co.paralleluniverse:quasar-core:0.7.15_r3)`.
 
