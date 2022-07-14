@@ -31,7 +31,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 In this patch release:
 * Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
-* The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced.
+* The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced. Backporting `setUseCaches(false)` from Quasar 0.8 to Quasar 0.7.15_r3 had measurably increased the node’s start-up time. Removing `setUseCaches(false)` restored this lost performance and reduced node start-up time.
 
 ## Corda Enterprise 4.8.7
 
