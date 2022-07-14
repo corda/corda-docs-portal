@@ -56,7 +56,7 @@ The key RPC operations exposed by the node are:
 
 
 * `CordaRPCOps.currentNodeTime`
-    * Returns the current time according to the node’s clock
+    * Returns the current time according to the node’s clock.
 
 
 * `CordaRPCOps.partyFromKey/CordaRPCOps.wellKnownPartyFromX500Name`

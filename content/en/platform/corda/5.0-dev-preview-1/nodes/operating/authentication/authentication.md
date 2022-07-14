@@ -13,7 +13,7 @@ description: >
 
 Use this guide to configure authentication and authorization for HTTP-RPC, using basic authentication or Azure Active Directory (AD) single sign-on (SSO).
 
-Most of the endpoints exposed via HTTP-RPC require authentication. `getProtocolVersion` is the only endpoint that doesn't require authentication.
+Most of the endpoints exposed via HTTP-RPC require authentication. `getProtocolVersion` is the only endpoint that doesn't require authentication. It is also a 'quick RPC'. It bypasses the thread pool that handles other RPCs. This allows the node to reply relatively quickly even if it is busy processing lots of regular RPCs.
 
 You can test the authentication functionality using Swagger UI (if enabled):
 

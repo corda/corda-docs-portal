@@ -703,6 +703,10 @@ are tagged with the `@RPCSinceVersion` annotation. If you try to use a method th
 for, an `UnsupportedOperationException` is thrown. If you want to know the version of the server, just use the
 `protocolVersion` property in Kotlin or `getProtocolVersion` in Java.
 
+{{< note >}}
+`getProtocolVersion` is a 'quick RPC'. It bypasses the thread pool and other regular RPCs waiting in it, allowing the node to reply relatively quickly.
+{{< /note >}}
+
 The RPC client library defaults to requiring the platform version it was built with. That means if you use the client
 library released as part of Corda N, then the node it connects to must be of version N or above. This is checked when
 the client first connects. If you want to override this behaviour, you can alter the `minimumServerProtocolVersion`

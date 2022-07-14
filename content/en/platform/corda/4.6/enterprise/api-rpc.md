@@ -48,11 +48,11 @@ The key RPC operations exposed by the node are:
 
 
 * `CordaRPCOps.nodeInfo`
-    * Returns the network map entry of the node, including its address and identity details as well as the platform version information
+  * Returns the network map entry of the node, including its address and identity details as well as the platform version information
 
 
 * `CordaRPCOps.currentNodeTime`
-    * Returns the current time according to the node’s clock
+  * Returns the current time according to the node’s clock. It is a 'quick RPC'. It bypasses the thread pool and other regular RPCs waiting in it, allowing the node to reply relatively quickly.
 
 
 * `CordaRPCOps.partyFromKey/CordaRPCOps.wellKnownPartyFromX500Name`

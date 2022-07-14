@@ -91,7 +91,8 @@ Start the node to verify that you have set up HTTP-RPC correctly. You should see
 [INFO] 2021-05-28T16:20:27,931Z [NodeLifecycleEventsDistributor-0] flow.StartableFlowsRetriever.get - net.corda.httprpcdemo.workflows.MessageStateIssue {}
 ```
 
-A Swagger UI address is included in the output. Use this address to test the various endpoints. As a simple smoke test, you can use any of the `getProtocolVersion` calls. If the test is successful and HTTP-RPC is configured correctly, it will return a `200 OK` status and an integer in the response body (the actual value depends on which Corda version the node is running).
+A Swagger UI address is included in the output. Use this address to test the various endpoints. As a simple smoke test, you can use any of the `getProtocolVersion` calls. These calls bypass the thread pool that handles regular Corda RPCs. They can be processed quickly even when the pool is processing a large number of other RPCs. If the test is successful and HTTP-RPC is configured correctly, it will return a `200 OK` status and an integer in the response body (the actual value depends on which Corda version the node is running).
+“quick RPCs”. These are RPCs that are not processed by the thread-pool that handles regular Corda RPCs. Instead, quick RPCs bypass the thread pool allowing the node to reply relatively quickly even if it is busy processing lots of regular RPCs.
 
 ### Common errors
 
