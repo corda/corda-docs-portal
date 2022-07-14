@@ -40,11 +40,6 @@ In this patch release:
 * Artemis messaging has been implemented to indicate when disk space is low (below 10%).
 * AMQP frame tracing can now be turned on in the Corda node when running embedded Artemis or bridges. This is in addition to the previous ability to turn it on via firewall configuration.
 
-### Database schema changes
-
-* The `node_named_identities` table has been re-introduced. The table was removed in 4.7 following updates to certificate rotation functionality.
-  * The reintroduction of the table means the behaviour of `rpcOps.wellKnownPartyFromX500Name` no longer functions differently for revoked and non-revoked identities.
-
 ## Corda: Enterprise Edition 4.9.1
 
 Corda Enterprise 4.9.1 is a patch release of Corda Enterprise which includes dependency upgrades and fixes for minor bugs.
