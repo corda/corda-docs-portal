@@ -80,3 +80,8 @@ Issues fixed in Corda Community 4.9:
 * An issue affecting Node JVM deadlocks is resolved.
 * An issue with failed attachments from a notary has been fixed.
 * An issue preventing attachments to subflows in certain circumstances has been fixed.
+
+### Database Schema Changes
+
+* The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise 4.7 following updates to certificate rotation functionality.
+  * The reintroduction of this table ensures the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.
