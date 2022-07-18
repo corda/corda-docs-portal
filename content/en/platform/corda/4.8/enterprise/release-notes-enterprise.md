@@ -33,6 +33,20 @@ In this patch release:
 * Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
 * The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced. Backporting `setUseCaches(false)` from Quasar 0.8 to Quasar 0.7.15_r3 had measurably increased the node’s start-up time. Removing `setUseCaches(false)` restored this lost performance and reduced node start-up time.
 
+### Third party component upgrades
+
+{{< table >}}
+
+|Library|Version 4.6.10|Previous version|
+|---------|-------|-------|
+|Jackson|2.13.3|2.9.7|
+|Netty|4.1.77.Final|4.1.46.Final|
+|Quasar|0.7.15_r3|0.7.13_r3|
+|Shiro|1.8.0|1.4.1|
+|TCNative|2.0.48.Final|2.0.42.Final|
+
+{{< /table >}}
+
 ## Corda Enterprise 4.8.7
 
 Corda Enterprise 4.8.7 is a patch release of Corda Enterprise that ensures class compatibility.

@@ -35,6 +35,22 @@ In this patch release:
 * Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
 * An error during Docker tests when using the `testPrepareDockerNodesTaskGeneratesYamlFile` command has been rectified. Previously, the `:samples:dockerform-test:configureCordappFatJar` task would fail due to the absence of the Quasar core JDK jar file `quasar-core-jdk8.jar (co.paralleluniverse:quasar-core:0.7.15_r3)`.
 
+### Third party component upgrades
+
+{{< table >}}
+
+|Library|Version 4.4.12|Previous version|
+|---------|-------|-------|
+|Bean Utils|1.9.4|1.9.3|
+|Bouncy Castle|1.68|1.66|
+|Hibernate|5.4.32.Final|5.4.3.Final|
+|Netty|4.1.77.Final|4.1.29.Final|
+|Quasar|0.7.15_r3|0.7.13_r3|
+|Shiro|1.8.0|1.4.1|
+|TCNative|2.0.48.Final|2.0.14.Final|
+
+{{< /table >}}
+
 
 ## Corda Enterprise 4.4.11
 

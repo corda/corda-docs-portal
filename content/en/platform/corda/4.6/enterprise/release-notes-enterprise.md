@@ -31,6 +31,22 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 In this patch release:
 * Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
 
+### Third party component upgrades
+
+{{< table >}}
+
+|Library|Version 4.6.10|Previous version|
+|---------|-------|-------|
+|Class Graph|4.8.135|4.8.90|
+|Hibernate|5.4.3.Final|5.4.32.Final/
+|Jackson|2.13.3|2.9.7|
+|Netty|4.1.77.Final|4.1.46.Final|
+|Quasar|0.7.15_r3|0.7.13_r3|
+|Shiro|1.8.0|1.4.1|
+|TCNative|2.0.48.Final|2.0.29.Final|
+
+{{< /table >}}
+
 ## Corda Enterprise 4.6.9
 
 Corda Enterprise 4.6.9 is a patch release of Corda Enterprise that ensures class compatibility.
