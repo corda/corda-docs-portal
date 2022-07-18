@@ -16,7 +16,7 @@ title: Release notes
 
 ## Corda Enterprise Network Manager 1.5.5
 
-In CENM 1.5.5 nodes can be quarantined using the Network Map shell. Several bugs have also been fixed, introducing a more organised operational logic when two nodes being marked as 'current'. Several UI improvements have also been made.
+In CENM 1.5.5 nodes can be quarantined using the Network Map shell. Several bugs have also been fixed, introducing a more organised operational logic when two nodes are marked as 'current'. Several UI improvements have also been made.
 
 * Revoked nodes can now be quarantined on demand, and quarantine functionality has been added to the admin shell.
   * A node is quarantined using its hash. To find the hash, use the command `view nodeInfoHashes` in the admin shell.
