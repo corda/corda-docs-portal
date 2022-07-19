@@ -20,19 +20,16 @@ weight: 1
 
 Corda Enterprise 4.5.11 is a patch release of Corda Enterprise focused on security improvements and fixing an issue with the `gracefulShutdown`.
 
-* Netty has been upgraded to 4.1.77.Final.
-
 ### Upgrade recommendation
 
 As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
-
 As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html).
 
 ### Fixed issues
 
 In this patch release:
 * Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
-* Fixing an issue where the `gracefulShutdown` command intermittently would fail to shut the node down. This issue only affected Corda version 4.5.7.
+* Fixing an issue where the `gracefulShutdown` command intermittently would fail to shut the node down.
 
 ### Third party component upgrades
 
