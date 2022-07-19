@@ -1,5 +1,4 @@
 ---
-
 title: Release files and checksums
 date: '2020-06-22T12:19:11Z'
 menu:
@@ -765,6 +764,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `913aeb3f78b139b4f19769c1d4eeb645f0387501` (sha1)
   * `fa586565a58801d304be5ce8657a6698` (md5)
   * `83129bf666974e2714200e9e2cc1f776d041904b38052c929fc833e57ddc0d89` (sha256)
+
 
 ## Corda Enterprise 4.5.10 release files and checksums
 
