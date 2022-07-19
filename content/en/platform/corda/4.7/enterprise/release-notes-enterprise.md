@@ -36,7 +36,7 @@ In this patch release:
 |Library|Version 4.7.8|Previous version|
 |---------|-------|-------|
 |Class Graph|4.8.135|4.8.90|
-|Hibernate|5.4.3.Final|5.4.32.Final/
+|Hibernate|5.4.32.Final|5.4.3.Final|
 |Jackson|2.13.3|2.9.7|
 |Netty|4.1.77.Final|4.1.46.Final|
 |Quasar|0.7.15_r3|0.7.13_r3|
