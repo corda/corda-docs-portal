@@ -30,13 +30,13 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 In this patch release:
 * Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
-* The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced by automatically closing any `AttachmentsClassLoader` that is evicted from the cache.
+* The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced. This was achieved by fixing a regression introduced in Corda Enterprise 4.8 involving the `ServiceLoader` used to load the `SerializationWhitelist`.
 
 ### Third party component upgrades
 
 {{< table >}}
 
-|Library|Version 4.6.10|Previous version|
+|Library|Version 4.8.8|Previous version|
 |---------|-------|-------|
 |Jackson|2.13.3|2.9.7|
 |Netty|4.1.77.Final|4.1.46.Final|
