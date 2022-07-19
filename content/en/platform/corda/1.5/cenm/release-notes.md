@@ -24,15 +24,15 @@ In CENM 1.5.5 nodes can be quarantined using the Network Map shell. Several bugs
   * To purge a node from quarantine, use its hash and the command: `run purgeQuarantinedNodeInfo nodeInfoHash <hash>`.
   * All commands can also be found by using the `help` command in the Network Map shell.
   * Nodes with revoked certificates will be quarantined automatically.
-* CENM 1.5.5 onwards will now use Log4j's JSON log formatting for the Network Map and Signer, improving legibility and clarity of logs.
+* CENM 1.5.5 now uses Log4j's JSON log formatting for the Network Map and Signer, improving legibility and clarity of logs.
 * The 'Remove Edit' button has now been enabled throughout the configuration process. This means syntax issues can be fixed more quickly and easily.
 
 ### Fixed issues
 
-* If multiple nodes are marked as 'current' in the database and share the same legal name, only the incoming node will be processed. Others will now be suppressed with a warning in the logs.
-* Updated UI's copyright year to current year.
-* In the CRR status view, the defunct Organization filter has been replaced by an operational Reporter filter.
-* Fixed an issue where the CRR submission tool produced an `HTTP ERROR 500` in cases where several CRR requests were sent to the same node.
+* If multiple nodes are marked as 'current' in the database and share the same legal name, only the incoming node is processed. Others are now suppressed with a warning in the logs.
+* The copyright year (as visible in the UI) has been updated to reflect the current year.
+* In the CRR status view, the defunct **Organization** filter has been replaced by an operational **Reporter** filter.
+* The CRR submission tool produced an HTTP ERROR 500 in cases where several CRR requests were sent to the same node. This has now been resolved.
 * Defunct subzones which have been merged into the MainZone will now always be empty, retaining no data.
 
 ## Corda Enterprise Network Manager 1.5.4
