@@ -4,7 +4,7 @@ title: "Getting started"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-gettingstarted
-    weight: 100
+    weight: 2000
 section_menu: corda-5-dev-preview
 ---
 

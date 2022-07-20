@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-api-reference-docs
     name: "API reference"
-    weight: 9850
+    weight: 9000
 section_menu: corda-5-dev-preview
 ---
 

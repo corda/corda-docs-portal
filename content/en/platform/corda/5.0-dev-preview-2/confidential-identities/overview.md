@@ -4,7 +4,7 @@ title: "Confidential Identities SDK"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-confidential-identities
-    weight: 9500
+    weight: 8500
 section_menu: corda-5-dev-preview
 description: >
     Documentation for the Confidential Identities SDK.
