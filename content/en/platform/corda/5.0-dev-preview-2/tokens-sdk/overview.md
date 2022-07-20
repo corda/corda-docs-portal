@@ -6,7 +6,7 @@ aliases:
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-tokens-sdk
-    weight: 9300
+    weight: 8000
 section_menu: corda-5-dev-preview
 description: >
     An introduction to the Tokens SDK.

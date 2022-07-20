@@ -4,7 +4,7 @@ title: "Membership group manager"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-flows
-    weight: 900
+    weight: 6000
 section_menu: corda-5-dev-preview
 ---
 
