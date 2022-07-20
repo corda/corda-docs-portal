@@ -4,7 +4,7 @@ title: "CorDapp development"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-cordapps
-    weight: 9750
+    weight: 350
 section_menu: corda-5-dev-preview
 ---
 
