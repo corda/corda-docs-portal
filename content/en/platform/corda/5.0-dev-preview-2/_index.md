@@ -23,7 +23,7 @@ aliases:
 - ./5.0-dev-preview-2/index.html
 - 5.0-dev-preview-2/index.html
 ---
-<section class="section" style="text-align:center; color:white; background-image:url('bg-dark.jpg');">
+<section class="section" style="text-align:center; color:white; background-image:url('../../../../../public/bg-dark.jpg');">
   <h1>
     Corda 5 Developer Preview 2
   </h1>
@@ -59,7 +59,7 @@ aliases:
           <div class="card-body">
             <h3 class="card-title">
               <span>How-to guides</span></h3>
-            Guides to building CorDapps and more.</p>
+            Follow guides to build CorDapps and more.</p>
           </div>
           <div class="card-footer">
             <a href="5.0-dev-preview-2/how-to/overview.html" class="btn rounded">Tutorials</a>
@@ -82,7 +82,7 @@ aliases:
       <div class="card h-100"  style="text-align: center">
         <div class="card-body">
           <h3 class="card-title">API reference</h3>
-          <p>Javadocs and KDocs for all publicly-exposed APIs in Corda 5 Developer Preview.</p>
+          <p>View <a href="">Javadocs</a> and <a href="">KDocs</a> for all publicly-exposed APIs in Corda 5 Developer Preview 2.</p>
         </div>
         <div class="card-footer">
           <a href="5.0-dev-preview-2/api-ref/overview.html" class="btn rounded">API references</a>
