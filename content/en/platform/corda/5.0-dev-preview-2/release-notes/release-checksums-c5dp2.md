@@ -3,8 +3,8 @@ date: '2020-09-08T12:00:00Z'
 title: "Checksums of release files"
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-2-release-checksums
-    parent: corda-5-dev-preview-2-release-notes
+    identifier: corda-5-dev-preview-release-checksums
+    parent: corda-5-dev-preview-release-notes
     weight: 30
     name: "Checksums of release files"
 section_menu: corda-5-dev-preview
