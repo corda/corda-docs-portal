@@ -9,7 +9,7 @@ menu:
     name: "Highlights"
 section_menu: corda-5-dev-preview
 ---
-*Do we want to highlight 4 changes? briefly mention future features?*
+*Do we want to highlight differneces with Corda 4? briefly mention future features?*
 
 ## Feature 1
 
