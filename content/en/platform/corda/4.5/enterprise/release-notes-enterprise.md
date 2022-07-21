@@ -28,7 +28,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 In this patch release:
 * Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
-* Fixing an issue where the `gracefulShutdown` command intermittently would fail to shut the node down.
+* Fixed an issue where the `gracefulShutdown` command intermittently would fail to shut the node down.
 
 ### Third party component upgrades
 
