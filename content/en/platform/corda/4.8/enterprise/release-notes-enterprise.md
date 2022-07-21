@@ -23,14 +23,13 @@ Corda Enterprise 4.8.8 is a patch release of Corda Enterprise focused on CorDapp
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
-As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html).
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
 
 ### Fixed issues
 
 In this patch release:
 * Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
-* The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced. This was achieved by fixing a regression introduced in Corda Enterprise 4.8 involving the `ServiceLoader` used to load the `SerializationWhitelist`.
+* The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced. This was achieved by fixing a regression introduced in Corda Enterprise 4.8 involving the `ServiceLoader` used to load the `SerializationWhitelist`.
 
 ### Third party component upgrades
 
