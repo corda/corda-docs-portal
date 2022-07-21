@@ -1,6 +1,6 @@
 ---
 date: '2020-07-15T12:00:00Z'
-title: "CorDapp development"
+title: "Architecture"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-architecture
@@ -8,8 +8,8 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-db schmema
-sandboxing (support for multi-tenancy)
-network model - see mgm
-p2p
-Diagrams!!
+* db schmema
+* sandboxing (support for multi-tenancy)
+* network model - see mgm
+* p2p
+* Diagrams!!

@@ -1,6 +1,6 @@
 ---
 date: '2022-06-29'
-title: "Corda 5 Developer Preview 2 Highlights"
+title: "Corda 5 Developer Preview 2 highlights"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-highlights
