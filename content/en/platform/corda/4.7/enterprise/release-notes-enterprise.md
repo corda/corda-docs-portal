@@ -15,6 +15,35 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.7.8
+
+Corda Enterprise 4.7.8 is a patch release of Corda Enterprise focused on security improvements.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+In this patch release:
+* Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
+
+### Third party component upgrades
+
+{{< table >}}
+
+|Library|Version 4.7.8|Previous version|
+|---------|-------|-------|
+|Class Graph|4.8.135|4.8.90|
+|Hibernate|5.4.32.Final|5.4.3.Final|
+|Jackson|2.13.3|2.9.7|
+|Netty|4.1.77.Final|4.1.46.Final|
+|Quasar|0.7.15_r3|0.7.13_r3|
+|Shiro|1.8.0|1.4.1|
+|TCNative|2.0.48.Final|2.0.29.Final|
+
+{{< /table >}}
+
 ## Corda Enterprise 4.7.7
 
 Corda Enterprise 4.7.7 is a patch release of Corda Enterprise that ensures class compatibility.

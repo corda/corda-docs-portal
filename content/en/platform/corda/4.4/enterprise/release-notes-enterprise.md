@@ -17,6 +17,36 @@ weight: 10
 
 # Corda Enterprise Release notes
 
+## Corda Enterprise 4.4.12
+
+Corda Enterprise 4.4.12 is a patch release of Corda Enterprise focused on security improvements.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+In this patch release:
+* Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
+
+### Third party component upgrades
+
+{{< table >}}
+
+|Library|Version 4.4.12|Previous version|
+|---------|-------|-------|
+|Bean Utils|1.9.4|1.9.3|
+|Bouncy Castle|1.68|1.66|
+|Hibernate|5.4.32.Final|5.4.3.Final|
+|Netty|4.1.77.Final|4.1.29.Final|
+|Quasar|0.7.15_r3|0.7.13_r3|
+|Shiro|1.8.0|1.4.1|
+|TCNative|2.0.48.Final|2.0.14.Final|
+
+{{< /table >}}
+
+
 ## Corda Enterprise 4.4.11
 
 Corda Enterprise 4.4.11 is a patch release of Corda Enterprise that fixes an urgent security issue caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version v2.17.1.
