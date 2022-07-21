@@ -4,8 +4,8 @@ linkTitle: "Corda 5 Developer Preview third-party software notices and informati
 title: "Corda 5 Developer Preview third-party software notices and information"
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-1-C5-legal-info
-    parent: corda-5-dev-preview-1-legal-info-overview
+    identifier: corda-5-dev-preview-C5-legal-info
+    parent: corda-5-dev-preview-legal-info-overview
     weight: 60
 project: corda-5
 section_menu: corda-5-dev-preview
