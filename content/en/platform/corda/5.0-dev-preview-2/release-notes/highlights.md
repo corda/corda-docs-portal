@@ -3,13 +3,13 @@ date: '2022-06-29'
 title: "Corda 5 Developer Preview 2 Highlights"
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-1-highlights
-    parent: corda-5-dev-preview-1-release-notes
+    identifier: corda-5-dev-preview-highlights
+    parent: corda-5-dev-preview-release-notes
     weight: 1000
     name: "Highlights"
 section_menu: corda-5-dev-preview
 ---
-*Do we want to highlight differneces with Corda 4? briefly mention future features?*
+*Do we want to highlight differences with Corda 4? briefly mention future features?*
 
 ## Feature 1
 

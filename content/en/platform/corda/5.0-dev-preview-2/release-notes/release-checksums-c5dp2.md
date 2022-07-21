@@ -10,7 +10,7 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-# Checksums of Corda 5 Developer Preview release files *DP1 Content*
+*DP1 Content*
 
 Before you install the downloaded files, verify the integrity of each file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the **checksum** of your downloaded file, then comparing its value to the checksum value provided below.
 

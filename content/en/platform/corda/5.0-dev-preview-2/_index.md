@@ -109,6 +109,7 @@ aliases:
             <li style="text-align: left;"><a href="5.0-dev-preview-2/corda-cli/overview.html">Corda CLI</a></li>
             <li style="text-align: left;"><a href="5.0-dev-preview-2/tokens-sdk/overview.html">Tokens SDK</a></li>
             <li style="text-align: left;"><a href="5.0-dev-preview-2/confidential-identities/overview.html">Confidential-identities</a></li>
+            <li style="text-align: left;"><a href="5.0-dev-preview-2/test/overview.html">Testing</a></li>
           </ul>
         </div>
         <div class="card-footer">

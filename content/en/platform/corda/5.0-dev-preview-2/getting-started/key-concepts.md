@@ -3,10 +3,22 @@ date: '2020-07-15T12:00:00Z'
 title: "Key concepts"
 menu:
   corda-5-dev-preview:
-    parent: corda-5-dev-preview-1-gettingstarted
+    parent: corda-5-dev-preview-gettingstarted
     weight: 100
 section_menu: corda-5-dev-preview
 ---
+*DP 1 content*
+*Also add:
+o	Clusters
+o	Application networks
+o	Corda identities
+o	Packaging - CPB/ CPI
+o	Virtual nodes
+o	Layer cake model
+o	P2P framework
+o	Flow framework
+o	Distributed ledgers (consensual states/ UTXO)*
+
 ## The installer
 
 CorDapps are packaged in a single `.jar` file called CorDapp Package Installer (CPI) containing all the pieces required to join and participate in an application network:
