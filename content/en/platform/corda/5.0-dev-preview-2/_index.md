@@ -35,10 +35,10 @@ aliases:
       <div class="card-body">
         <h3 class="card-title">
           <span>Release notes</span></h3>
-        <p>View <a href="5.0-dev-preview-2/release-notes/highlights.html" class="fw-semibold">highlights</a> and the <a href="5.0-dev-preview-2/release-notes/release-checksums-c5dp1.html" class="fw-semibold">associated checksum files</a> and <a href="5.0-dev-preview-2/release-notes/legal-info/overview.html" class="fw-semibold">license information.</a></p>
+        <p>View <a href="5.0-dev-preview-2/release-notes/highlights.html" class="fw-semibold">highlights</a> and the <a href="5.0-dev-preview-2/release-notes/release-checksums-c5dp1.html" class="fw-semibold">associated checksum files</a> and <a href="5.0-dev-preview-2/legal-info/overview.html" class="fw-semibold">license information.</a></p>
       </div>
       <div class="card-footer">
-        <a href="5.0-dev-preview-2/release-notes/highlights.html" class="btn rounded">Release notes</a>
+        <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html" class="btn rounded">Release notes</a>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@ aliases:
           <div class="card-body">
             <h3 class="card-title">
               <span>Get started</span></h3>
-            <p>Learn <a href="5.0-dev-preview-2/getting-started/key-concepts.html" class="fw-semibold">key concepts</a> and get set up for <a href="5.0-dev-preview-2/getting-started/overview.html" class="fw-semibold">Corda 5 Dev Preview</a>.</p>
+            <p>Learn <a href="5.0-dev-preview-2/getting-started/key-concepts.html" class="fw-semibold">key concepts</a> and <a href="5.0-dev-preview-2/getting-started/overview.html" class="fw-semibold">get set up</a> for Corda 5 Dev Preview.</p>
           </div>
           <div class="card-footer">
             <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Get started</a>
@@ -61,7 +61,7 @@ aliases:
             <p>Learn more about how Corda 5 works.</p>
           </div>
           <div class="card-footer">
-            <a href="en/apps.html" class="btn rounded">Technical concepts</a>
+            <a href="5.0-dev-preview-2/concepts/overview.html" class="btn rounded">Technical concepts</a>
           </div>
         </div>
       </div>
