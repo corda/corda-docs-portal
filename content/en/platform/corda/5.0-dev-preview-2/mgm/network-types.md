@@ -10,4 +10,4 @@ section_menu: corda-5-dev-preview
 ---
 
 * Static
-* Dynamic
+* Dynamic - not in CordaCon release??
