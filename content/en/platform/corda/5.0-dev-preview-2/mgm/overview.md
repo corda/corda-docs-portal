@@ -8,4 +8,4 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-Describes the **membership group manager** (MGM).
+Overview of the **membership group manager** (MGM)....

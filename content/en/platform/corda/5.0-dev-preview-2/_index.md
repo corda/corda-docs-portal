@@ -1,11 +1,12 @@
 ---
 date: '2020-07-15T12:00:00Z'
 title: Corda 5 Developer Preview 2
-section_menu: corda-5-dev-preview
 project: corda
 version: 'Corda 5 Developer Preview 2'
+menu:
+  versions:
+    weight: -648
 aliases:
-
 - ../5.0-dev-preview-2.html
 - ./5.0-dev-preview-2.html
 - 5.0-dev-preview-2.html
