@@ -16,6 +16,26 @@ title: Release notes
 
 # Corda Community Edition release notes
 
+## Corda Community Edition 4.9.2
+
+Corda Community 4.9.2 is a patch release of Corda Enterprise which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
+
+* As part of this patch a new Gradle plugin is provided that supports CorDapp development using Gradle 7. This is in addition to the existing Gradle support. The plugin has been uploaded to Artifactory.
+  * Samples demonstrating Gradle 7 usage are available for:
+    * [Kotlin](https://github.com/corda/samples-kotlin/tree/chrisr3-gradle7)
+    * [Java](https://github.com/corda/samples-java/tree/chrisr3-gradle7)
+  * A readme describing the Gradle 7 plugin is also available on [Github](https://github.com/corda/corda-gradle-plugins/tree/release/5.1/cordapp).
+
+### Fixed issues
+
+In this patch release:
+
+* The `corda-shell --version` command now always returns the correct version.
+* The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced.
+* Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
+* Artemis messaging has been implemented to indicate when disk space is low (below 10%).
+* AMQP frame tracing can now be turned on in the Corda node when running embedded Artemis or bridges. This is in addition to the previous ability to turn it on via firewall configuration.
+
 ## Corda Community Edition 4.9.1
 
 Corda Community Edition 4.9.1 is a patch release of Corda Community Edition which includes minor bug fixes and dependency upgrades.
