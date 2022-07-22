@@ -1,13 +1,11 @@
 ---
 date: '2020-09-24'
-linkTitle: "Corda CLI third-party software notices and information"
 title: "Corda CLI third-party software notices and information"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-cli-legal-info
     parent: corda-5-dev-preview-legal-info-overview
     weight: 60
-project: corda-5
 section_menu: corda-5-dev-preview
 ---
 
