@@ -10,9 +10,6 @@ section_menu: corda-5-dev-preview
 ---
 
 * Overview
-
 * Group Policy (How-to also?)
-
 * Static network member registration (How-to also?)
-
-* "Local development with Kubernetes" How-to*
+* "Local development with Kubernetes" How-to

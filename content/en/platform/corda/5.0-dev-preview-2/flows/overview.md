@@ -10,10 +10,9 @@ section_menu: corda-5-dev-preview
 
 Describe the flows available in Corda 5..
 
-o	Writing
-o	Testing (Unit, Flow)
-o	Debugging
-o	Using injectable service
-o	Integration tests
-o	End to end tests (from a client like postman)
-o	Standard sub flows (eg finality flow – but not till we have the ledger)
+*	Testing (Unit, Flow)
+*	Debugging
+*	Using injectable service
+*	Integration tests
+*	End to end tests (from a client like postman)
+*	Standard sub flows (eg finality flow – but not till we have the ledger)
