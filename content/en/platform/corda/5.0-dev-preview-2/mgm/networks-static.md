@@ -1,6 +1,6 @@
 ---
 date: '2022-07-22'
-title: "Network types"
+title: "Static networks"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-network-static
@@ -15,4 +15,4 @@ section_menu: corda-5-dev-preview
 
 * Static network member registration (How-to also?)
 
-* seee also "Local development with Kubernetes" How-to*
+* "Local development with Kubernetes" How-to*
