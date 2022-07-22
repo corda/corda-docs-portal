@@ -1,5 +1,5 @@
 ---
-date: '2020-07-15T12:00:00Z'
+date: '2022-07-22'
 title: "Network types"
 menu:
   corda-5-dev-preview:
