@@ -9,5 +9,10 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-* Static
-* Dynamic - not in CordaCon release??
+* Overview
+
+* Group Policy (How-to also?)
+
+* Static network member registration (How-to also?)
+
+* seee also "Local development with Kubernetes" How-to*
