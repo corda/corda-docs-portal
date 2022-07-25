@@ -8,4 +8,4 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-General information about building, deploying, and running CorDapps.
+The learning paths in this section describe how to [buliding.html](build), deploy, and run a CorDapp.

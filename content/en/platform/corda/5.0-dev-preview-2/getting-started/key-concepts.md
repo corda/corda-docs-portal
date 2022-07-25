@@ -8,16 +8,16 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 *DP 1 content*
-*Also add:
-o	Clusters
-o	Application networks
-o	Corda identities
-o	Packaging - CPB/ CPI
-o	Virtual nodes
-o	Layer cake model
-o	P2P framework
-o	Flow framework
-o	Distributed ledgers (consensual states/ UTXO)*
+Also add:
+*	Clusters
+*	Application networks
+*	Corda identities
+*	Packaging - CPB/ CPI
+*	Virtual nodes
+*	Layer cake model
+*	P2P framework
+*	Flow framework
+*	Distributed ledgers (consensual states/ UTXO)*
 
 ## The installer
 
