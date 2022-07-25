@@ -78,11 +78,11 @@ aliases:
         <div class="card h-100"  style="text-align: center">
           <div class="card-body">
             <h3 class="card-title">
-              <span>Samples & tutorials</span></h3>
-            <p>Try out <a href="en/samples/overview.html" class="fw-semibold">code samples</a>.</p>
+              <span>Tutorials</span></h3>
+            <p>Follow our <a href="en/tutorials/overview.html" class="fw-semibold">learning paths</a> to create a CorDapp.</p>
           </div>
           <div class="card-footer">
-            <a href="5.0-dev-preview-2/samples/overview.html" class="btn rounded">Samples & tutorials</a>
+            <a href="5.0-dev-preview-2/turotials/overview.html" class="btn rounded">Tutorials</a>
           </div>
         </div>
       </div>
