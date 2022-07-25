@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-highlights
     parent: corda-5-dev-preview-release-notes
-    weight: 1000
+    weight: 10
     name: "Highlights"
 section_menu: corda-5-dev-preview
 ---
