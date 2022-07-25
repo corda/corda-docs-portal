@@ -7,7 +7,7 @@ menu:
   versions:
     weight: -648
     corda-5-dev-preview:
-      weight: 10    
+      weight: 0    
 aliases:
 - ../5.0-dev-preview-2.html
 - ./5.0-dev-preview-2.html
