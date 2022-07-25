@@ -31,6 +31,18 @@ aliases:
     <div class="card h-100"  style="text-align: center">
       <div class="card-body">
         <h3 class="card-title">
+          <span>Overview</span></h3>
+        <p>Read an <a href="5.0-dev-preview-2/architecture/introduction.html" class="fw-semibold">introduction to Corda 5</a> and learn more about its<a href="5.0-dev-preview-2/architecture/overview.html" class="fw-semibold"> architecture.</a></p>
+      </div>
+      <div class="card-footer">
+        <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html" class="btn rounded">Release notes</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100"  style="text-align: center">
+      <div class="card-body">
+        <h3 class="card-title">
           <span>Release notes</span></h3>
         <p>View <a href="5.0-dev-preview-2/release-notes/highlights.html" class="fw-semibold">highlights</a> and the <a href="5.0-dev-preview-2/release-notes/release-checksums-c5dp1.html" class="fw-semibold">associated checksum files</a> and <a href="5.0-dev-preview-2/legal-info/overview.html" class="fw-semibold">license information.</a></p>
       </div>
@@ -82,7 +94,7 @@ aliases:
             <p>Follow our <a href="en/tutorials/overview.html" class="fw-semibold">learning paths</a> to create a CorDapp.</p>
           </div>
           <div class="card-footer">
-            <a href="5.0-dev-preview-2/turotials/overview.html" class="btn rounded">Tutorials</a>
+            <a href="5.0-dev-preview-2/tutorials/overview.html" class="btn rounded">Tutorials</a>
           </div>
         </div>
       </div>
