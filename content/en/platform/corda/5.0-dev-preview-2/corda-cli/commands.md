@@ -10,6 +10,16 @@ description: >
   Corda CLI commands used for managing Corda network and Corda package files.
 ---
 
+## Overview of available commands
+
+The main Corda CLI commands are:
+
+| Command      | Description |
+| ----------- | ----------- |
+| `network`      | Manage a network.       |
+| `package, pkg`   | Commands to handle Corda package files (`.cpk`, `.cpb`, `.cpi`) and `.jar`s.        |
+
+
 ## Get help in the Corda CLI
 
 To access help and get the Corda CLI version number, use the following command structure:
@@ -26,18 +36,6 @@ Print out the stacktrace for all exceptions.
 
 `-v, --version`
 See the current version of the Corda CLI you are using.
-
-
-### Overview of available commands
-
-The main Corda CLI commands are:
-
-`network`
-Manage a network.
-
-`package, pkg`
-Commands to handle Corda package files (`.cpk`, `.cpb`, `.cpi`) and `.jar`s.
-
 
 ## Manage a network
 

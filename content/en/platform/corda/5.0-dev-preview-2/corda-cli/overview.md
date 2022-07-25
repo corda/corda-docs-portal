@@ -10,9 +10,7 @@ title: Corda CLI
 
 *DP1 Content*
 
-Corda CLI is a command line interface utility that is used to deploy a Corda network. In this section, you can find instructions on how to install, delete, and use the Corda CLI tool to manage a Corda network.
-
-In this section, you will find instruction on how to:
+Corda CLI is a command line interface utility that is used to deploy a Corda network. In this section, you will find instruction on how to:
 
 * Install Corda CLI.
 * Delete Corda CLI.
