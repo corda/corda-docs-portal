@@ -1,10 +1,10 @@
 ---
 date: '2022-06-29'
-title: "Installing Corda"
+title: "Installation"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-gettingstarted
-    weight: 300
+    weight: 5000
 section_menu: corda-5-dev-preview
 ---
 

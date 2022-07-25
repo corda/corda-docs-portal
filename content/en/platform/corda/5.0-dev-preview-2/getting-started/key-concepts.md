@@ -4,10 +4,11 @@ title: "Key concepts"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-gettingstarted
-    weight: 100
+    weight: 3000
 section_menu: corda-5-dev-preview
 ---
 *DP 1 content*
+
 Also add:
 *	Clusters
 *	Application networks
@@ -19,24 +20,28 @@ Also add:
 *	Flow framework
 *	Distributed ledgers (consensual states/ UTXO)*
 
-## The installer
+## Packaging
 
-CorDapps are packaged in a single `.jar` file called CorDapp Package Installer (CPI) containing all the pieces required to join and participate in an application network:
+CorDapps are built as a layered package. At the lowest level, a [Corda Package (CPK)](###CorDapp-Packages-(CPKs)) represents a single code-entity authored by a CorDapp developer. For example, a library of flows to perform some task. A [Corda Package Bundle (CPB)](###CorDapp-Package-Bundles-(CPBs)) is built using a collection of these packages, which represents a full application. Finally, information about the network can be added to a CPB to create a [Corda Package Installer (CPI)](###Package-installer-(CPI)) file. When this is installed into the system, the cluster knows that any entity using this file must join the relevant network, and so can handle network onboarding accordingly.
 
-* The location of the network operator.
-* A list of membership requirements.
-* Third party dependencies.
-* CorDapp logic.
-
-### CorDapp Packages (`.cpk`s)
+### CorDapp Packages (CPKs)
 The building blocks of these applications are a new file format called CorDapp Packages (.`cpk`s). This includes workflow and contract packages, additional metadata, a dependency tree and version information. You can independently version `.cpk`s. Each .`cpk` runs in its own sandbox, isolated from other CPKs. This prevents dependency clashes and facilitates faster CorDapp development.
 
-### CorDapp Package Bundles (`.cpb`s)
+### CorDapp Package Bundles (CPBs)
 The application publisher brings the individual `.cpk` files together to make a single CorDapp Package Bundle (`.cpb`). The application publisher is a single entity that coordinates multiple parties to create a single application bundle for a network. When multiple firms compose CorDapps together, it creates a strong technical dependency that facilitates development, distribution, and upgrades.
 
 The application publisher adds the information about the network and the file becomes a CorDapp Package Installer (`.cpi`), which can be distributed to new members to begin onboarding and to existing members to perform upgrades.
 
 The only difference between a development and a production CPI is the network information, so you can use the same software for testing environments.
+
+### Package installer (CPI)
+
+CorDapps are packaged in a single `.jar` file called a CorDapp Package Installer (CPI) containing all the pieces required to join and participate in an application network:
+
+* The location of the network operator.
+* A list of membership requirements.
+* Third party dependencies.
+* CorDapp logic.
 
 ## Virtual nodes
 
