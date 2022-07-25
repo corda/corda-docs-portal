@@ -7,7 +7,7 @@ menu:
   versions:
     weight: -648
     corda-5-dev-preview:
-      weight: 1    
+      weight: 10  
 aliases:
 - ../5.0-dev-preview-2.html
 - ./5.0-dev-preview-2.html
@@ -34,7 +34,7 @@ aliases:
       <div class="card-body">
         <h3 class="card-title">
           <span>Overview</span></h3>
-        <p>Read an <a href="5.0-dev-preview-2/architecture/introduction.html" class="fw-semibold">introduction to Corda 5</a> and learn more about its<a href="5.0-dev-preview-2/architecture/overview.html" class="fw-semibold"> architecture.</a></p>
+        <p>Read an <a href="5.0-dev-preview-2/getting-started/introduction.html" class="fw-semibold">introduction to Corda 5</a> and learn more about its<a href="5.0-dev-preview-2/getting-started/architecture.html" class="fw-semibold"> architecture.</a></p>
       </div>
       <div class="card-footer">
         <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html" class="btn rounded">Release notes</a>
