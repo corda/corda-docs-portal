@@ -4,7 +4,8 @@ title: "Architecture"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-architecture
-    weight: 3000
+    parent: corda-5-dev-preview-gettingstarted
+    weight: 2000
 section_menu: corda-5-dev-preview
 ---
 

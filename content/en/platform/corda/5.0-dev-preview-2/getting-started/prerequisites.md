@@ -4,7 +4,7 @@ title: "Prerequisites"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-gettingstarted
-    weight: 200
+    weight: 4000
 section_menu: corda-5-dev-preview
 ---
 
