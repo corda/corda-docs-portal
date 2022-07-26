@@ -58,7 +58,7 @@ aliases:
           <div class="card-body">
             <h3 class="card-title">
               <span>Get started</span></h3>
-            <p>Learn <a href="5.0-dev-preview-2/getting-started/key-concepts.html" class="fw-semibold">key concepts</a> and <a href="5.0-dev-preview-2/getting-started/overview.html" class="fw-semibold">get set up</a> for Corda 5 Dev Preview.</p>
+            <p>Learn <a href="5.0-dev-preview-2/getting-started/key-concepts.html" class="fw-semibold">key concepts</a> and <a href="5.0-dev-preview-2/getting-started/overview.html" class="fw-semibold">get set up</a> for Corda 5 Dev Preview 2.</p>
           </div>
           <div class="card-footer">
             <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Get started</a>
