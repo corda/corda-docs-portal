@@ -18,20 +18,15 @@ Also add:
 
 ## Packaging
 
-CorDapps are built as a layered package. At the lowest level, a [Corda Package (CPK)](#CorDapp-Packages-(CPKs)) represents a single code-entity authored by a CorDapp developer. For example, a library of flows to perform some task. A [Corda Package Bundle (CPB)](###CorDapp-Package-Bundles-(CPBs)) is built using a collection of these packages, which represents a full application. Finally, information about the network can be added to a CPB to create a [Corda Package Installer (CPI)](###Package-installer-(CPI)) file. When this is installed into the system, the cluster knows that any entity using this file must join the relevant network, and so can handle network onboarding accordingly.
+CorDapps are built as a layered package. At the lowest level, a [Corda Package (CPK)](#cordapp-packages-CPKs) represents a single code-entity authored by a CorDapp developer. For example, a library of flows to perform some task. A [Corda Package Bundle (CPB)](###CorDapp-Package-Bundles-(CPBs)) is built using a collection of these packages, which represents a full application. Finally, information about the network can be added to a CPB to create a [Corda Package Installer (CPI)](###Package-installer-(CPI)) file. When this is installed into the system, the cluster knows that any entity using this file must join the specified network, and so can handle network onboarding accordingly.
 
 ### CorDapp Packages (CPKs)
-The building blocks of CorDapps are a new file format called CorDapp Packages (.`cpk`s). This includes workflow and contract packages, additional metadata, a dependency tree and version information. You can independently version `.cpk`s. Each .`cpk` runs in its own [sandbox](#Sandboxes), isolated from other CPKs. This prevents dependency clashes and facilitates faster CorDapp development.
+The building blocks of CorDapps are a new file format called CorDapp Packages (.`cpk`s). This includes workflow and contract packages, additional metadata, a dependency tree, and version information. You can independently version `.cpk`s. Each .`cpk` runs in its own [sandbox](#sandboxes), isolated from other CPKs. This prevents dependency clashes and facilitates faster CorDapp development.
 
 ### CorDapp Package Bundles (CPBs)
-The application publisher brings the individual `.cpk` files together to make a single CorDapp Package Bundle (`.cpb`). The application publisher is a single entity that coordinates multiple parties to create a single application bundle for a network. When multiple firms compose CorDapps together, it creates a strong technical dependency that facilitates development, distribution, and upgrades.
-
-The application publisher adds the information about the network and the file becomes a CorDapp Package Installer (`.cpi`), which can be distributed to new members to begin onboarding and to existing members to perform upgrades.
-
-The only difference between a development and a production CPI is the network information, so you can use the same software for testing environments.
+The application publisher brings individual `.cpk` files together to make a single CorDapp Package Bundle (`.cpb`). The application publisher is a single entity that coordinates multiple parties to create a single application bundle for a network. When multiple firms compose CorDapps together, it creates a strong technical dependency that facilitates development, distribution, and upgrades.
 
 ### Package installer (CPI)
-
 CorDapps are packaged in a single `.jar` file called a CorDapp Package Installer (CPI) containing all the pieces required to join and participate in an application network:
 
 * The location of the network operator.
@@ -39,37 +34,31 @@ CorDapps are packaged in a single `.jar` file called a CorDapp Package Installer
 * Third party dependencies.
 * CorDapp logic.
 
+The only difference between a development and a production CPI is the network information, so you can use the same software for testing environments.
+
+## Corda identities
+
 ## Virtual nodes
 
-A virtual node represents a Corda identity, a person or business that wants to interact with other people or businesses using Corda. The virtual node also contains everything needed to communicate and transact on Corda: keys, certificates, and storage. This lets the identity join application networks, where they can interact with other group members according to the terms set by the [Membership Group Manager (MGM)](../mgm/overview.html). You can join multiple application networks from one physical node infrastructure using virtual nodes.
+A virtual node represents a [Corda identity](#corda-identities), a person or business that wants to interact with other people or businesses using Corda. A virtual node contains everything needed to communicate and transact on Corda: keys, certificates, and storage. This enables the identity to join application networks, where they can interact with other group members according to the terms set by the [Membership Group Manager (MGM)](../mgm/overview.html). Identities can join multiple application networks from one physical node infrastructure using virtual nodes.
 
 Virtual nodes can be:
-
 * **Multi-tenant.** You can host multiple virtual nodes on one deployment of Corda, at no additional cost.
 * **Portable.** You can move a virtual node from one host to another.
 * **Highly-available.** If you configure your node to be highly available, if it goes down, an identical one takes its place instantly.
 
 ### What is it made of?
-Nothing—it's virtual! You can think of a virtual node as an environment that lets the processor locate a specific [CPI](###Package-installer-(CPI)) file and the flows and contracts associated with that Installer. The Installer includes:
-
-The information a virtual node needs to join a membership group.
-
-CorDapp packages (CPKs), which are bundles of CorDapps—distributed applications that solve specific problems using Corda. The virtual node needs to install a specific set of CorDapps to join application networks.
-
-The flows associated with the CPI let the virtual node communicate with others. The contracts define that virtual node's rules for verifying transactions.
+Nothing — it's virtual! You can think of a virtual node as an environment that enables the processor to locate a specific [CPI](###Package-installer-(CPI)) file. The flows associated with the CPI let the virtual node communicate with others. The contracts define that virtual node's rules for verifying transactions.
 
 ### How does it work?
-To get a node ready to interact with others on application networks, it must be onboarded. The virtual node creates a [sandbox](#sandbox)—an area where the [CPI](###Package-installer-(CPI)) can exist in isolation, meaning it can't see any other tenants on the host deployment, and the other tenants can't see it. It associates that sandbox with a Corda identity and gets its keys, certificates, and storage.
+To get a node ready to interact with others on application networks, it must be onboarded. The virtual node creates a [sandbox](#sandboxes) — an area where the [CPI](###Package-installer-(CPI)) can exist in isolation, meaning it can't see any other tenants on the host deployment, and the other tenants can not see it. It associates that sandbox with a Corda identity and gets its keys, certificates, and storage.
 
-Virtual nodes are built on several processes, which run independently and scale up and down based on need. These are called [workers](#workers), and can include the crypto worker, database worker, flow worker and persistence worker, depending on the topology of a specific deployment.
+Virtual nodes are built on several processes, which run independently and scale up and down based on need. These are called [workers](#workers), and can include the crypto worker, database worker, flow worker, and persistence worker, depending on the topology of a specific deployment.
 
-The processes communicate with each other using a message bus, Kafka. This makes sure the information ends up in the right place at the right time. The message bus:
-
-Captures blobs of data, called events, that the processes generate.
-
-Interprets the data and stores it until the moment it becomes relevant.
-
-Delivers the message to the recipient process when the recipient process requires the information, preventing bottlenecks of information.
+The processes communicate with each other using a message bus, Kafka. This ensures the information ends up in the right place at the right time. The message bus:
+* Captures blobs of data, called events, that the processes generate.
+* Interprets the data and stores it until the moment it becomes relevant.
+* Delivers the message to the recipient process when the recipient process requires the information, preventing bottlenecks of information.
 
 ### How do virtual nodes communicate with each other?
 Virtual nodes communicate using flows. The message bus that links the processes supporting the virtual node also communicates with the Corda gateway. The gateway sends flows between virtual nodes through a secure HTTPS link.
