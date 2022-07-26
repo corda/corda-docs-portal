@@ -9,3 +9,5 @@ section_menu: corda-5-dev-preview
 ---
 
 Overview of the **membership group manager** (MGM)....
+* Static
+* Dynamic - not in CordaCon release??
