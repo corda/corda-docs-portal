@@ -7,6 +7,9 @@ menu:
     weight: 3000
 section_menu: corda-5-dev-preview
 ---
+
+ [Key concepts should give a brief overview - a paragraph should generally suffice. If you find yourself writing more, consider if the content needs it's on concept section.]: #
+
 Also add:
 *	Clusters
 *	Application networks
@@ -18,7 +21,7 @@ Also add:
 
 ## Packaging
 
-CorDapps are built as a layered package. At the lowest level, a [Corda Package (CPK)](#cordapp-packages-CPKs) represents a single code-entity authored by a CorDapp developer. For example, a library of flows to perform some task. A [Corda Package Bundle (CPB)](###CorDapp-Package-Bundles-(CPBs)) is built using a collection of these packages, which represents a full application. Finally, information about the network can be added to a CPB to create a [Corda Package Installer (CPI)](###Package-installer-(CPI)) file. When this is installed into the system, the cluster knows that any entity using this file must join the specified network, and so can handle network onboarding accordingly.
+CorDapps are built as a layered package. At the lowest level, a [Corda Package (CPK)](#cordapp-packages-cpks) represents a single code-entity authored by a CorDapp developer. For example, a library of flows to perform some task. A [Corda Package Bundle (CPB)](#cordapp-package-bundles-cpbs) is built using a collection of these packages, which represents a full application. Finally, information about the network can be added to a CPB to create a [Corda Package Installer (CPI)](#package-installer-cpi) file. When this is installed into the system, the cluster knows that any entity using this file must join the specified network, and so can handle network onboarding accordingly.
 
 ### CorDapp Packages (CPKs)
 The building blocks of CorDapps are a new file format called CorDapp Packages (.`cpk`s). This includes workflow and contract packages, additional metadata, a dependency tree, and version information. You can independently version `.cpk`s. Each .`cpk` runs in its own [sandbox](#sandboxes), isolated from other CPKs. This prevents dependency clashes and facilitates faster CorDapp development.
@@ -38,6 +41,8 @@ The only difference between a development and a production CPI is the network in
 
 ## Corda identities
 
+...
+
 ## Virtual nodes
 
 A virtual node represents a [Corda identity](#corda-identities), a person or business that wants to interact with other people or businesses using Corda. A virtual node contains everything needed to communicate and transact on Corda: keys, certificates, and storage. This enables the identity to join application networks, where they can interact with other group members according to the terms set by the [Membership Group Manager (MGM)](../mgm/overview.html). Identities can join multiple application networks from one physical node infrastructure using virtual nodes.
@@ -47,43 +52,20 @@ Virtual nodes can be:
 * **Portable.** You can move a virtual node from one host to another.
 * **Highly-available.** If you configure your node to be highly available, if it goes down, an identical one takes its place instantly.
 
-### What is it made of?
-Nothing — it's virtual! You can think of a virtual node as an environment that enables the processor to locate a specific [CPI](###Package-installer-(CPI)) file. The flows associated with the CPI let the virtual node communicate with others. The contracts define that virtual node's rules for verifying transactions.
+ You can think of a virtual node as an environment that enables the processor to locate a specific [CPI](#package-installer-cpi) file. The flows associated with the CPI let the virtual node communicate with others.
 
-### How does it work?
-To get a node ready to interact with others on application networks, it must be onboarded. The virtual node creates a [sandbox](#sandboxes) — an area where the [CPI](###Package-installer-(CPI)) can exist in isolation, meaning it can't see any other tenants on the host deployment, and the other tenants can not see it. It associates that sandbox with a Corda identity and gets its keys, certificates, and storage.
-
-Virtual nodes are built on several processes, which run independently and scale up and down based on need. These are called [workers](#workers), and can include the crypto worker, database worker, flow worker, and persistence worker, depending on the topology of a specific deployment.
-
-The processes communicate with each other using a message bus, Kafka. This ensures the information ends up in the right place at the right time. The message bus:
-* Captures blobs of data, called events, that the processes generate.
-* Interprets the data and stores it until the moment it becomes relevant.
-* Delivers the message to the recipient process when the recipient process requires the information, preventing bottlenecks of information.
-
-### How do virtual nodes communicate with each other?
-Virtual nodes communicate using flows. The message bus that links the processes supporting the virtual node also communicates with the Corda gateway. The gateway sends flows between virtual nodes through a secure HTTPS link.
-
-### How do I interact with my virtual node?
-You can use remote procedure calls (RPC). This functionality is exposed by the HTTPS REST API.
-
-You can use RPC to interact with the virtual node using:
-* A command line interface (CLI).
-* curl commands.
-
-Virtual nodes generate a dynamic OpenAPI specification. You can locate this specification to get details of your virtual node's RPC functionality, including the endpoints, operations, operation parameters, and authentication methods.
+ You can read more about virtual nodes [here](../getting-started/architecture/virtualnodes.html).
 
 ## Sandboxes
 
-Sandboxes are security mechanisms for separating running programs. They are the foundation that [virtual nodes](#virtual-nodes) run on, keeping contracts, workflows, and libraries separate from other code. The contents of these sandboxes are packaged up and sent to you to deploy using the [Installer](#the-installer) and participate in exchanges using Corda.
+Sandboxes are security mechanisms for separating running programs. They are the foundation that [virtual nodes](#virtual-nodes) run on, keeping contracts, workflows, and libraries separate from other code. The contents of these sandboxes are packaged up and shared for deployment by creating a [CPI file](#package-installer-CPI).
 
-Each [virtual node](#virual-nodes) runs on top of one or more sandboxes. Unlike isolation, which hides code from users that shouldn't be able to see it, sandboxing prevents code from touching other parts of a system, where it could precipitate a failure or spread vulnerabilities.
+Each [virtual node](#virual-nodes) runs on top of one or more sandboxes. Unlike isolation, which hides code from users that should not be able to see it, sandboxing prevents code from touching other parts of a system, where it could precipitate a failure or spread vulnerabilities.
 
 Typically, a virtual node has sandboxes for its:
 
 * Contract code. When you verify a contract on Corda, it checks that all versions of that contract comply with the code that existed in that sandbox when the contract was signed.
-
 * Workflow.
-
 * Third party libraries, if present.
 
 Each of these sandboxes contains a distributable bundle of CorDapps, with a dependency tree and version information signed by the network publisher in a `.jar` file. This becomes a CorDapp package, which is part of a the software bundle distributed to participants through the [Installer](#the-installer).
