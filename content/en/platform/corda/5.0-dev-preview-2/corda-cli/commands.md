@@ -10,32 +10,15 @@ description: >
   Corda CLI commands used for managing Corda network and Corda package files.
 ---
 
-## Overview of available commands
-
-The main Corda CLI commands are:
+## Main commands
 
 | Command      | Description |
 | ----------- | ----------- |
-| `network`      | Manage a network.       |
-| `package, pkg`   | Commands to handle Corda package files (`.cpk`, `.cpb`, `.cpi`) and `.jar`s.        |
+|  `-v`, `--version`    | Display the current version of the Corda CLI.      |
+| `-h`, `--help`     | Display a list of available commands and descriptions.      |
+| [`network`](#manage-a-network)      | Manage a network.       |
+| `package`, `pkg`   | Commands to handle Corda package files (`.cpk`, `.cpb`, `.cpi`) and `.jar` files.        |
 
-
-## Get help in the Corda CLI
-
-To access help and get the Corda CLI version number, use the following command structure:
-
-`corda-cli [-hv] [--stacktrace] [COMMAND]`
-
-### Options
-
-`-h, --help`
-See a list of available commands and descriptions.
-
-`--stacktrace`
-Print out the stacktrace for all exceptions.
-
-`-v, --version`
-See the current version of the Corda CLI you are using.
 
 ## Manage a network
 
@@ -47,18 +30,23 @@ You can use the `network` command in the Corda CLI to deploy and configure a net
 
 ### Options
 
-`-h, --help`
-See a list of available `network` subcommands and descriptions.
-
-`--stacktrace`
-Print out the stacktrace for all exceptions.
-
+| Option      | Description |
+| ----------- | ----------- |
+| `-h`, `--help`     | Display a list of available `network` subcommands and descriptions.      |
+| `--stacktrace`     | Print out the stacktrace for all exceptions.     |
 
 ### Subcommands
 
-#### **`configure, config, conf`**
+| Subcommand      | Description |
+| ----------- | ----------- |
+| `configure`, `config`, `conf`    | Configures a node or a network.    |
+| `list`, `ls`    | List available networks.    |
+| `deploy`  | Deploy a network.    |
+| `status`  | Get network status.    |
+| `wait`  | Wait for a network to start (by default) or wait for it to terminate (use --terminate).    |
+| `terminate`  | Terminate and remove containers from a running network.    |
+| `restart`  | Restart a node    |
 
-Use this command to configure a node or a network.
 
 ##### Syntax
 
