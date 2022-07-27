@@ -10,6 +10,6 @@ section_menu: corda-5-dev-preview
 ---
 
 * layer cake model
-* db schmema?
+* db schmema - enables persistance
 * p2p
 * Diagrams!!

@@ -9,24 +9,14 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-Corda 5 uses a microservices-like architecture where the overall solution is split into multiple processes called workers. Each worker is responsible for a different area of functionality. For example, the flow worker is responsible for executing CorDapp flow code. Workers communicate via a message bus which, for highly available and scalable deployments, is Kafka. Each worker is packaged up in a container, which can then be orchestrated using Kubernetes. Workers can be horizontally scaled and, by spinning up multiple instances of workers, high availability can be achieved.
+Corda 5 uses a microservices-like architecture where the overall solution is split into multiple processes called workers. Each worker is responsible for a different area of functionality. For example, the flow worker is responsible for executing CorDapp flow code. Workers communicate via a Kafka message bus. Each worker is packaged up in a container, which can then be orchestrated using Kubernetes. Workers can be horizontally scaled and, by adding multiple instances of workers, you can achieve high availability.
 
-The key workers in the system are:
-
-Flow worker
-RPC worker
-DB worker
-Crypto worker
-
-
-----------------
-
-You can think of a worker as something you call and assign a task. The worker takes the task away to work on it, then calls you back when the task is complete. Some workers might pass parts of a task you give them to other specialized workers. You can call multiple workers to complete different tasks based on your needs at a given moment. Workers increase their capacity when they have a lot to do and scale back when they don't. This property makes your Corda deployment resilient and scalable — you can add more workers if you need them, and add replicas of specific workers in case one fails.
-
-### Workers power core elements of the Corda platform.
-* The **flow worker** lets peers communicate and transact.
-* The **database (DB) worker** handles the configuration of virtual nodes, CorDapps, the vault, membership group managers, HSM connections, and RPC.
-* The **all-in-one worker** contains flow, crypto, database, and RPC processors. This is the lowest-cost configuration for small scale work.
+The key workers delivered with Corda are:
+* The **flow worker** — enables peers to communicate and transact.
+* Crypto worker?
+* RPC worker?
+* The **database (DB) worker**  — handles the configuration of virtual nodes, CorDapps, the vault, membership group managers, HSM connections, and RPC.??
+* The **all-in-one worker** — contains flow, crypto, database, and RPC processors. This is the lowest-cost configuration for small scale work.
 
 ### What are they made of?
 Workers are Java Virtual Machine (JVM) processes that run in a cluster. This cluster of processes is what makes a virtual node work. Clusters are not always made from the same set of processes. That depends on the topology of a deployment—for example, if it consists of a single node or of multiple nodes. The cluster itself is made up of reusable components.

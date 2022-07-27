@@ -9,6 +9,9 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
+Group member
+A Corda identity that has been granted admission to a membership group. Synonym for a virtual node.
+
 A virtual node represents a [Corda identity](#corda-identities), a person or business that wants to interact with other people or businesses using Corda. A virtual node contains everything needed to communicate and transact on Corda: keys, certificates, and storage. This enables the identity to join application networks, where they can interact with other group members according to the terms set by the [Membership Group Manager (MGM)](../mgm/overview.html). Identities can join multiple application networks from one physical node infrastructure using virtual nodes.
 
 Virtual nodes can be:
