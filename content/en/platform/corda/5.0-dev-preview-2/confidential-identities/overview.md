@@ -10,7 +10,7 @@ description: >
     Documentation for the Confidential Identities SDK.
 ---
 
-*DP1 Content*
+*DP1 Content - Needed in Corda 5???*
 
 Confidential identities are key pairs where the corresponding X.509 certificate (and path) are not made public, so that parties who are not involved in the transaction cannot identify the owner. They are owned by a well-known identity, which must sign the X.509 certificate. Before constructing a new transaction the initiating party must request that the counter-party generate and exchange a new confidential identity, a process which is managed using `RequestKeyFlow` (discussed below). The public key of this confidential identity is then used when generating output states and commands for the transaction.
 

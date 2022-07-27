@@ -9,9 +9,7 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-* db schmema
-* sandboxing (support for multi-tenancy)
-* virtual nodes
-* network model - see mgm
+* layer cake model
+* db schmema?
 * p2p
 * Diagrams!!
