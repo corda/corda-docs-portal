@@ -71,9 +71,14 @@ Corda networks use point-to-point messaging instead of a global broadcast. Coord
 ##	Distributed ledgers
 
 ...(consensual states/ UTXO)*..
-*Note about what's available in DP 2 and what's coming soon*
+*Note about what's available in DP 2 (nothing?) and what's coming soon - need to be clear what consensual ledge is not! (Sean working on blog post)*
+
+##	Notary
+
+...
+*Note about what's available in DP 2 (nothing?) and what's coming soon*
 
 ##	P2P (peer-to-peer) framework
 
 The P2P layer enables [identities](corda-identities) to exchange messages with each other regardless of whether they reside in the same or different clusters.
-*Note about what's available in DP 2 and what's coming soon*
+*Note about what's available in DP 2 (nothing?) and what's coming soon - layer cake architecture means p2p layer could be used independently - no flow network*
