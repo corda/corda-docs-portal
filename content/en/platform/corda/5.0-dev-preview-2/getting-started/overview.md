@@ -8,7 +8,8 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-What is Corda 5???
+What is Corda 5??? multi-tenancy - host multiple virtual nodes on one deployment of Corda - enabled by sandboxing
+cross-ref to architecture section
 
 An intro to the basics needed to get started with Corda 5.
 * Prerequisites

@@ -31,7 +31,9 @@ The only difference between a development and a production CPI is the network in
 
 ## Identities
 
-A Corda identity is any person or business that wants to interact with other people or businesses using Corda.
+A Corda identity represents any person or business that wants to interact with other people or businesses using Corda.
+
+[An identity claim with a unique X-500 name in a membership group. Each Corda identity is associated with a session key, which validates the P2P sessions. The session key may be part of a PKI certificate according to the membership group defined by the MGM.]:#
 
 ##	Application networks
 
@@ -39,9 +41,9 @@ Networks in Corda 5 are application networks, where all participants are running
 
 ##	Clusters
 
- Clusters support members on multiple networks thanks to multi-tenancy support. Corda 5 supports multiple [Corda identities](#corda-identities) operating in the same cluster via [virtual nodes](#virtual-nodes). A virtual node is linked to a CPI and acts as a single member in a network once registration has been completed. A cluster allocates resources on a per-virtual node basis and ensures that code executing in the context of a particular virtual node is sandboxed away from other virtual nodes and platform code.
+ Clusters allow members on multiple networks thanks to multi-tenancy support. Corda 5 supports multiple [Corda identities](#corda-identities) operating in the same cluster via [virtual nodes](#virtual-nodes). A virtual node is linked to a CPI and acts as a single member in a network once registration has been completed. A cluster allocates resources on a per-virtual node basis and ensures that code executing in the context of a particular virtual node is sandboxed away from other virtual nodes and platform code.
 
- *Note about what's available in DP 2 and what's coming soon*
+ *Note about what's available in DP 2 (no cloud deployments, no multi-cluster) and what's coming soon*
 
 ## Virtual nodes
 
