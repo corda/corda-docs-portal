@@ -8,6 +8,8 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
+What is Corda 5???
+
 An intro to the basics needed to get started with Corda 5.
 * Prerequisites
 * Installing Corda
