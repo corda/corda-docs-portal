@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-cordapps
     identifier: corda-5-dev-preview-cordapps-building
-    weight: 1000
+    weight: 2000
 section_menu: corda-5-dev-preview
 ---
 
