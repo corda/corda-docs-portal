@@ -14,6 +14,28 @@ title: Release notes
 
 # Corda Enterprise Network Manager release notes
 
+## Corda Enterprise Network Manager 1.5.5
+
+In CENM 1.5.5 nodes can be quarantined using the Network Map shell. Several bugs have also been fixed, introducing a more organised operational logic when two nodes are marked as 'current'. Several UI improvements have also been made.
+
+* Revoked nodes can now be quarantined on demand, and quarantine functionality has been added to the admin shell.
+  * A node is quarantined using its hash. To find the hash, use the command `view nodeInfoHashes` in the admin shell.
+  * To view quarantined nodes, use the command: `view quarantinedNodeInfos`.
+  * To purge a node from quarantine, use its hash and the command: `run purgeQuarantinedNodeInfo nodeInfoHash <hash>`.
+  * All commands can also be found by using the `help` command in the Network Map shell.
+  * Nodes with revoked certificates will be quarantined automatically.
+* CENM 1.5.5 now uses Log4j's JSON log formatting for the Network Map and Signer, improving legibility and clarity of logs.
+* The 'Remove Edit' button has now been enabled throughout the configuration process. This means syntax issues can be fixed more quickly and easily.
+
+### Fixed issues
+
+* If multiple nodes are marked as 'current' in the database and share the same legal name, only the incoming node is processed. Others are now suppressed with a warning in the logs.
+* The copyright year (as visible in the UI) has been updated to reflect the current year.
+* In the CRR status view, the defunct **Organization** filter has been replaced by an operational **Reporter** filter.
+* The CRR submission tool produced an HTTP ERROR 500 in cases where several CRR requests were sent to the same node. This has now been resolved.
+* Defunct subzones which have been merged into the MainZone will now always be empty, retaining no data.
+
+
 ## Corda Enterprise Network Manager 1.5.4
 
 CENM 1.5.4 fixes an urgent security issue caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version v2.17.1.
