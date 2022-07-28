@@ -16,7 +16,7 @@ description: >
 | ----------- | ----------- |
 |  `-v`, `--version`    | Display the current version of the Corda CLI.      |
 | `-h`, `--help`     | Display a list of available commands and descriptions.      |
-| `network`      | [Manage a network.](#manage-a-network)       |
+| `network`      | Manage a network.      |
 | `package`, `pkg`   | Commands to handle Corda package files (`.cpk`, `.cpb`, `.cpi`) and `.jar` files.        |
 
 
