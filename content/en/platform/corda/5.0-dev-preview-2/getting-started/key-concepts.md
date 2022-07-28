@@ -29,6 +29,8 @@ CorDapps are packaged in a single `.jar` file called a CorDapp Package Installer
 
 The only difference between a development and a production CPI is the network information, so you can use the same software for testing environments.
 
+The CPI file simplifies the onboarding process. A prospective customer must only obtain a single file, containing all necessary information to be able to request membership. This lets each member understand the pre-requisites of membership, so they can configure required attributes or get artifacts from third parties as needed.
+
 ## Identities
 
 A Corda identity represents any person or business that wants to interact with other people or businesses using Corda.
@@ -36,7 +38,9 @@ A Corda identity represents any person or business that wants to interact with o
 [An identity claim with a unique X-500 name in a membership group. Each Corda identity is associated with a session key, which validates the P2P sessions. The session key may be part of a PKI certificate according to the membership group defined by the MGM.]:#
 
 ##	Application networks
+
 Networks in Corda 5 are application networks, where all participants are running the same CorDapp. Network registration and member distribution is handled by the [Membership Group Manager (MGM)](../mgm/overview.html).
+Customers in regulated markets have strong privacy and governance requirements and thus the majority of CorDapps are launched as private business networks, or released in shared networks but not yet interoperating the way we had anticipated. Application networks embrace this reality, reducing the scope of each network to a single bundle of applications all governed by the same rules.
 
 ##	Clusters
 

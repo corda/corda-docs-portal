@@ -10,7 +10,11 @@ section_menu: corda-5-dev-preview
 ---
 
 
-* layer cake model
+* layer cake model - Corda 5 breaks the operational and developmental power of Corda into layers. Allowing you to choose the technologies that matter to you.
+   * As a developer you can incrementally (bottom up) build your application by engaging with the appropriate layer when it is needed, this mental model is now more directly represented through our APIs.
+   * As a developer you can test specific parts of your application independently (for example, mock a workflow).
+   * As a developer you can decide not to use our implementation of the ledger model and go with your own persistence model etc. opening the platform up to new use cases.
+   * Cherry on top, is our own development velocity as this gives us the ability to develop more rapidly (behind the interfaces and in parallel), introduce new implementations of the layers down the line etc.
 * db schmema - enables persistance
 * p2p
 * Diagrams!!

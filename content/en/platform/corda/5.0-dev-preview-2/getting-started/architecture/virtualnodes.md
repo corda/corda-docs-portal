@@ -8,6 +8,20 @@ menu:
     weight: 2000
 section_menu: corda-5-dev-preview
 ---
+a virtual node is the virtual mapping between application processes, data and identity and keys to form the logical equivalent of a Corda 4 node (such as Alice in Network 1 with App A/B/C).
+
+This is an exciting step forward for:
+
+enabling true (virtual) node multi-tenancy on a shared cluster
+> this is important for managed service providers or developers looking at progressive decentralisation.
+enabling multi-network
+> Alice can join several application networks using the same “client” at no margin cost.
+reducing cost of ownership
+> particularly for operating models where previously multiple nodes were deployed
+improving development/test experience
+> particularly for production-like tests, dynamic configuration of a cluster (with several virtual nodes) allows for a much faster and simpler test set up/ run time.
+Finally — as virtual nodes are just a mapping between processes, data, and keys, they can be…. portable.
+Virtual nodes makes it easy to join multiple networks. Rather than having multiple Corda deployments you can have multiple virtual nodes, allowing you to be easily represented in each network with separate identities.
 
 Group member
 A Corda identity that has been granted admission to a membership group. Synonym for a virtual node.
