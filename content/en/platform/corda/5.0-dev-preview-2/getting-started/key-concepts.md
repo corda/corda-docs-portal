@@ -36,7 +36,6 @@ A Corda identity represents any person or business that wants to interact with o
 [An identity claim with a unique X-500 name in a membership group. Each Corda identity is associated with a session key, which validates the P2P sessions. The session key may be part of a PKI certificate according to the membership group defined by the MGM.]:#
 
 ##	Application networks
-
 Networks in Corda 5 are application networks, where all participants are running the same CorDapp. Network registration and member distribution is handled by the [Membership Group Manager (MGM)](../mgm/overview.html).
 
 ##	Clusters
