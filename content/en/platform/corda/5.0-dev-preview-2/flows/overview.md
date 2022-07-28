@@ -9,6 +9,8 @@ section_menu: corda-5-dev-preview
 ---
 
 Describe the flows available in Corda 5..
+sub-flows - Creating a new scope for initiating sessions and closing them once you leave the scope is one primary use - when to use
+
 
 *	Testing (Unit, Flow)
 *	Debugging
