@@ -25,16 +25,17 @@ Corda Community 4.9.2 is a patch release of Corda Enterprise which includes the 
     * [Kotlin](https://github.com/corda/samples-kotlin/tree/chrisr3-gradle7)
     * [Java](https://github.com/corda/samples-java/tree/chrisr3-gradle7)
   * A readme describing the Gradle 7 plugin is also available on [Github](https://github.com/corda/corda-gradle-plugins/tree/release/5.1/cordapp).
+* Artemis messaging has been implemented to indicate when disk space is low (below 10%).
+* AMQP frame tracing can now be enabled in the Corda node when running embedded Artemis or bridges. This is in addition to the previous ability to turn it on via firewall configuration.
+
 
 ### Fixed issues
 
-In this patch release:
+The following issues were resolved in this patch release:
 
-* The `corda-shell --version` command now always returns the correct version.
+* The `corda-shell --version` command has been updated to always return the correct version.
 * The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced.
 * Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
-* Artemis messaging has been implemented to indicate when disk space is low (below 10%).
-* AMQP frame tracing can now be turned on in the Corda node when running embedded Artemis or bridges. This is in addition to the previous ability to turn it on via firewall configuration.
 
 ## Corda Community Edition 4.9.1
 

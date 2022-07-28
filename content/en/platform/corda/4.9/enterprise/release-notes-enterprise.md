@@ -37,7 +37,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 The following issues were resolved in this patch release:
 
-* The `corda-shell --version` command was updated to always return the correct version.
+* The `corda-shell --version` command has been updated to always return the correct version.
 * The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced.
 * Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
 
