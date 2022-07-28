@@ -17,6 +17,34 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.8.8
+
+Corda Enterprise 4.8.8 is a patch release of Corda Enterprise focused on CorDapp response time and security improvements.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+In this patch release:
+* Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
+* The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced. This was achieved by fixing a regression introduced in Corda Enterprise 4.8 involving the `ServiceLoader` used to load the `SerializationWhitelist`.
+
+### Third party component upgrades
+
+{{< table >}}
+
+|Library|Version 4.8.8|Previous version|
+|---------|-------|-------|
+|Jackson|2.13.3|2.9.7|
+|Netty|4.1.77.Final|4.1.46.Final|
+|Quasar|0.7.15_r3|0.7.13_r3|
+|Shiro|1.8.0|1.4.1|
+|TCNative|2.0.48.Final|2.0.42.Final|
+
+{{< /table >}}
+
 ## Corda Enterprise 4.8.7
 
 Corda Enterprise 4.8.7 is a patch release of Corda Enterprise that ensures class compatibility.
