@@ -16,12 +16,11 @@ description: >
 | ----------- | ----------- |
 |  `-v`, `--version`    | Display the current version of the Corda CLI.      |
 | `-h`, `--help`     | Display a list of available commands and descriptions.      |
-| `network`      | [Manage a network.](#manage-a-network)      |
+| `[network](#manage-a-network)`      | [Manage a network.](#manage-a-network)      |
 | `package`, `pkg`   | Commands to handle Corda package files (`.cpk`, `.cpb`, `.cpi`) and `.jar` files.        |
 
 
 ## Manage a network
-[Manage a network.](#manage-a-network)   
 You can use the `network` command in the Corda CLI to deploy and configure a network, list available networks, get the network's status, wait for a network to start or terminate and to remove containers from a running network. Also, you can use it to configure or restart nodes present in a network.
 
 ### Syntax
