@@ -8,19 +8,7 @@ menu:
     weight: -648
     corda-5-dev-preview:
       weight: 10  
-aliases:
-- ../5.0-dev-preview-2.html
-- ./5.0-dev-preview-2.html
-- 5.0-dev-preview-2.html
-- ../5.0-dev-preview-2/
-- ./5.0-dev-preview-2/
-- 5.0-dev-preview-2/
-- ../5.0-dev-preview-2/overview.html
-- ./5.0-dev-preview-2/overview.html
-- 5.0-dev-preview-2/overview.html
-- ../5.0-dev-preview-2/index.html
-- ./5.0-dev-preview-2/index.html
-- 5.0-dev-preview-2/index.html
+
 ---
 <section class="section" style="text-align:center; color:white; background-image:url('bg-dark.jpg');">
   <h1>

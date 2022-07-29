@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-* sandboxing (support for multi-tenancy)
+*sandboxing (support for multi-tenancy), see Dries' blog*
 
 Sandboxes are security mechanisms for separating running programs. They are the foundation that [virtual nodes](#virtual-nodes) run on, keeping contracts, workflows, and libraries separate from other code. The contents of these sandboxes are packaged up and shared for deployment by creating a [CPI file](#package-installer-CPI).
 
