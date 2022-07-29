@@ -37,7 +37,7 @@ A Corda identity represents any person or business that wants to interact with o
 
 x500 name??
 
-[An identity claim with a unique X-500 name in a membership group. Each Corda identity is associated with a session key, which validates the P2P sessions. The session key may be part of a PKI certificate according to the membership group defined by the MGM.]:#
+An identity claim with a unique X-500 name in a membership group. Each Corda identity is associated with a session key, which validates the P2P sessions. The session key may be part of a PKI certificate according to the membership group defined by the MGM.
 
 ##	Application networks
 
