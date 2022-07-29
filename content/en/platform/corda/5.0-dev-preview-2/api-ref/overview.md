@@ -9,6 +9,4 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-Full documentation for the Corda 5 Developer Preview APIs can be found in the [API reference for Corda](/en/api-ref/corda/5.0-dev-preview-1/open-source/api-ref-corda-5-dev-preview.html).
-
-Within the scope of this preview, you may be more interested in the [Flows](/en/api-ref/corda/5.0-dev-preview-1/open-source/modules/corda-flows/flows/) and [Application](/en/api-ref/corda/5.0-dev-preview-1/open-source/modules/corda-application/application/) API references, as they contain APIs that can be used in a locally deployed CorDapp.
+Links to Javadocs and KDocs.

@@ -8,7 +8,7 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-It is the successor to CENM from Corda 4.
+the successor to CENM from Corda 4.
 
 Overview of the **membership group manager** (MGM)....
 * Static
