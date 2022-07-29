@@ -56,7 +56,7 @@ We aim with our Modular APIs, new tools, and packaging to make developing in Cor
 The new artefact — Installer — combined with simpler Application network — should make your go to market, onboarding and version management experience much simpler.
 The new architecture should give you the flexibility to evolve your operating model as you grow, with the ability to move the operations of virtual nodes across worker clusters.
 The app-based network management and virtual nodes should make Corda less expensive to run for everybody involved.
-Finally, Corda’s new event driven architecture should give us enough headroom to go after the most sophisticated enterprise multi-party use cases and power the next central bank digital currency, global payment network or critical market infrastructure.
+Finally, Corda’s new event driven architecture should give us enough h?eadroom to go after the most sophisticated enterprise multi-party use cases and power the next central bank digital currency, global payment network or critical market infrastructure.
 
 
 
@@ -65,4 +65,4 @@ Finally, Corda’s new event driven architecture should give us enough headroom 
 Corda is a Distributed ledger technology (DLT) platform
 Corda 5 Developer Preview (DP) 2 is a developer preview of the next major iteration of Corda, Corda 5. While this version enables you to solve the same problems as Corda 4, the new Corda 5 architecture and deployment methods are designed to deliver high availability and scalability.
 *
-*
+* What is a CorDapp?
