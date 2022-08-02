@@ -21,18 +21,6 @@ menu:
     <div class="card h-100"  style="text-align: center">
       <div class="card-body">
         <h3 class="card-title">
-          <span>Overview</span></h3>
-        <p>Read an <a href="5.0-dev-preview-2/getting-started/introduction.html" class="fw-semibold">introduction to Corda 5</a> and learn more about its<a href="5.0-dev-preview-2/getting-started/architecture/architecture.html" class="fw-semibold"> architecture.</a></p>
-      </div>
-      <div class="card-footer">
-        <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html" class="btn rounded">Release notes</a>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100"  style="text-align: center">
-      <div class="card-body">
-        <h3 class="card-title">
           <span>Release notes</span></h3>
         <p>View <a href="5.0-dev-preview-2/release-notes/highlights.html" class="fw-semibold">highlights</a> and the <a href="5.0-dev-preview-2/release-notes/release-checksums-c5dp1.html" class="fw-semibold">associated checksum files</a> and <a href="5.0-dev-preview-2/legal-info/overview.html" class="fw-semibold">license information.</a></p>
       </div>
@@ -46,7 +34,8 @@ menu:
           <div class="card-body">
             <h3 class="card-title">
               <span>Get started</span></h3>
-            <p>Learn <a href="5.0-dev-preview-2/getting-started/key-concepts.html" class="fw-semibold">key concepts</a> and <a href="5.0-dev-preview-2/getting-started/overview.html" class="fw-semibold">get set up</a> for Corda 5 Dev Preview 2.</p>
+            <p>Learn <a href="5.0-dev-preview-2/getting-started/key-concepts.html" class="fw-semibold">key concepts</a> and more about the<a href="5.0-dev-preview-2/getting-started/architecture/architecture.html" class="fw-semibold"> architecture</a> of Corda 5.
+            </p><p>Find out the <a href="5.0-dev-preview-2/getting-started/prerequities.html" class="fw-semibold">prerequities</a> and how to <a href="5.0-dev-preview-2/getting-started/installing.html" class="fw-semibold">install</a> Corda 5.</p>
           </div>
           <div class="card-footer">
             <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Get started</a>
