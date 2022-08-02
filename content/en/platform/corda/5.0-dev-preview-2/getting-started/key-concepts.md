@@ -43,6 +43,8 @@ An identity claim with a unique X-500 name in a membership group. Each Corda ide
 
 Networks in Corda 5 are application networks, where all participants are running the same CorDapp. Network registration and member distribution is handled by the [Membership Group Manager (MGM)](../mgm/overview.html). Application networks embrace the reality that regulated markets have strong privacy and governance requirements, reducing the scope of each network to a single bundle of applications all governed by the same rules.
 
+A CorDapp (Corda Distributed Application) is written in Kotlin or Java, compiled into Java bytecode, and then loaded into the Corda process at runtime. This means Corda is effectively an application server.
+
 ##	Clusters
 
  Clusters allow members on multiple networks thanks to multi-tenancy support. Corda 5 supports multiple [Corda identities](#corda-identities) operating in the same cluster via [virtual nodes](#virtual-nodes). A virtual node is linked to a CPI and acts as a single member in a network once registration has been completed. A cluster allocates resources on a per-virtual node basis and ensures that code executing in the context of a particular virtual node is sandboxed away from other virtual nodes and platform code.
