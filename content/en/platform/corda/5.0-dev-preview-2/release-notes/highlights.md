@@ -10,9 +10,9 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-Corda 5 Developer Preview (DP) 2 is a developer preview of the next major iteration of Corda, Corda 5. While this version enables you to solve the same problems as Corda 4, the new Corda 5 architecture and deployment methods are designed to deliver high availability and scalability. Intended for local deployment, experimental development, and testing only, this preview includes:
+Corda 5 Developer Preview (DP) 2 is a developer preview of the next major iteration of Corda, Corda 5. While this version enables you to solve the same problems as Corda 4, the new Corda 5 architecture and deployment methods are designed to deliver high availability and scalability. You care read more about the architecture of Cora 5 [here](../getting-started/architecture/architecture.html). Intended for local deployment, experimental development, and testing only, this preview includes:
 
-*Brief sentence of each of the highlights-see architecture overview section*
+*Brief paragraph of each of the highlights*
 
 ## Feature 1
 

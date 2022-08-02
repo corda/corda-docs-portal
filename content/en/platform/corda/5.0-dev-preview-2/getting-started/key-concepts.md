@@ -41,8 +41,7 @@ An identity claim with a unique X-500 name in a membership group. Each Corda ide
 
 ##	Application networks
 
-Networks in Corda 5 are application networks, where all participants are running the same CorDapp. Network registration and member distribution is handled by the [Membership Group Manager (MGM)](../mgm/overview.html).
-Customers in regulated markets have strong privacy and governance requirements and thus the majority of CorDapps are launched as private business networks, or released in shared networks but not yet interoperating the way we had anticipated. Application networks embrace this reality, reducing the scope of each network to a single bundle of applications all governed by the same rules.
+Networks in Corda 5 are application networks, where all participants are running the same CorDapp. Network registration and member distribution is handled by the [Membership Group Manager (MGM)](../mgm/overview.html). Application networks embrace the reality that regulated markets have strong privacy and governance requirements, reducing the scope of each network to a single bundle of applications all governed by the same rules.
 
 ##	Clusters
 
