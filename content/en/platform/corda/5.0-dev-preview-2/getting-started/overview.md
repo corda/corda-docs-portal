@@ -10,8 +10,6 @@ aliases:
 - /en/get-started/getting-started-with-corda-5.html
 ---
 
-*highlight differences with Corda 4? briefly mention future features?*
-
 what is Corda 5?? This needs to be clear - will be asked over and over!!
 solve the same problems as Corda 4 BUT new infrastructure
 - modular
