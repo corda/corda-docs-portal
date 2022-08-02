@@ -10,6 +10,10 @@ section_menu: corda-5-dev-preview
 ---
 a virtual node is the virtual mapping between application processes, data and identity and keys to form the logical equivalent of a Corda 4 node (such as Alice in Network 1 with App A/B/C).
 
+Furthermore, a Corda instance can take part in multiple, unrelated, ‘Application Networks’, and as you can see in the 2 diagrams, Axel Asher, represented in both the DC and Marvel networks, exists as 2 physical Corda Nodes in Corda 4, but can be supported by 2 ‘Virtual Nodes’ in Corda 5, meaning they can co-exist in the same Corda instance.
+
+Corda 5 introduces the concept of ‘Virtual Nodes’ to allow multi-tenancy. As per Corda 4, a Virtual Node represents an identity (identified by its X500 name), but now, a Corda instance can host multiple Virtual Nodes.
+
 This is an exciting step forward for:
 
 enabling true (virtual) node multi-tenancy on a shared cluster
