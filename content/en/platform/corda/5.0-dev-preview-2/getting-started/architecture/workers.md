@@ -12,6 +12,9 @@ section_menu: corda-5-dev-preview
 
 ## Overview
 
+![Corda 5 microservices-like architecture](overview.png)
+*Corda 5 workers*
+
 Corda 5 uses a microservices-like architecture where the overall solution is split into multiple processes called workers. Each worker is responsible for a different area of functionality. For example, the flow worker is responsible for executing CorDapp flow code. Workers communicate via a Kafka message bus. Each worker is packaged up in a container, which can then be orchestrated using Kubernetes. Workers can be horizontally scaled and, by adding multiple instances of workers, you can achieve high availability.
 
 The key workers delivered with Corda are:
@@ -22,7 +25,7 @@ The key workers delivered with Corda are:
 * **All-in-one worker** — contains flow, crypto, database, and RPC processors. This is the lowest-cost configuration for small scale work.
 [handles the configuration of virtual nodes, CorDapps, the vault, membership group managers, HSM connections, and RPC.??]: #
 
-##
+## Environment
 
 Workers are Java Virtual Machine (JVM) processes that run in a cluster. Clusters are not always made from the same set of processes. That depends on the topology of a deployment. For example, if it consists of a single node or of multiple nodes. The cluster itself is made up of reusable components.
 
@@ -32,7 +35,7 @@ Most clusters operate in a cloud environment or in containers, which can run on 
 * Are self-healing. They can recover from hardware failures, some bugs, and short outages of downstream systems. Recovery from longer term outages is also possible, if there are enough systems available to the cluster to provide acceptable service during the failure.
 * Can easily be started from the orchestration layer using start-up parameters or environment variable in the event of a failover or scaling scenario.
 
-## Components
+## Services
 
 A worker is an entry point to one or more processor bundles, a top-level component of a worker cluster. This is the "main" bundle, bootstrapped by the OSGi framework, that starts the JVM process. The worker encapsulates and directly references the processor. Processors are always independent from each other. All interaction between them goes through the message bus.
 
