@@ -9,9 +9,6 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-Worker redundancy is helpful for availability objectives — if something goes wrong there is an instant failover to the next worker. But it also allows for parallelized event processing, increasing throughput in bursty scenarios.
-This architecture lends itself also to dynamic scaling, as new workers can be added to the cluster with the cluster able to expand and shrink depending on the demand.
-
 Corda 5 uses a microservices-like architecture where the overall solution is split into multiple processes called workers. Each worker is responsible for a different area of functionality. For example, the flow worker is responsible for executing CorDapp flow code. Workers communicate via a Kafka message bus. Each worker is packaged up in a container, which can then be orchestrated using Kubernetes. Workers can be horizontally scaled and, by adding multiple instances of workers, you can achieve high availability.
 [https://www.corda.net/blog/corda-5-the-road-ahead-part-3-introduction-to-the-architecture/]: #
 The key workers delivered with Corda are:
@@ -46,3 +43,7 @@ Libraries are a collection of files, programs, routines, scripts, or functions t
 
 ### Who operates them?
 The organization that deploys and configures a cluster is called the host operator. This may be a different organization than the one that creates the CPI software and manages virtual nodes. The host is the hosting machine for a cluster.
+
+
+Worker redundancy is helpful for availability objectives — if something goes wrong there is an instant failover to the next worker. But it also allows for parallelized event processing, increasing throughput in bursty scenarios.
+This architecture lends itself also to dynamic scaling, as new workers can be added to the cluster with the cluster able to expand and shrink depending on the demand.
