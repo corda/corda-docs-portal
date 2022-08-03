@@ -21,7 +21,7 @@ The building blocks of CorDapps are a new file format called CorDapp Packages (.
 The application publisher brings individual `.cpk` files together to make a single CorDapp Package Bundle (`.cpb`). The application publisher is a single entity that coordinates multiple parties to create a single application bundle for a network. When multiple firms compose CorDapps together, it creates a strong technical dependency that facilitates development, distribution, and upgrades.
 
 ### CorDapp Package Installer (CPI)
-CorDapps are packaged in a single `.jar` file called a CorDapp Package Installer (CPI) containing all the pieces required to join and participate in an application network:
+CorDapps are packaged in a single `.jar` file called a CorDapp Package Installer (.`cpi`) containing all the pieces required to join and participate in an application network:
 * The location of the network operator.
 * A list of membership requirements.
 * Third party dependencies.
@@ -29,21 +29,17 @@ CorDapps are packaged in a single `.jar` file called a CorDapp Package Installer
 
 The only difference between a development and a production CPI is the network information, so you can use the same software for testing environments.
 
-The CPI file simplifies the onboarding process. A prospective customer must only obtain a single file, containing all necessary information to be able to request membership. This lets each member understand the pre-requisites of membership, so they can configure required attributes or get artifacts from third parties as needed.
+The CPI file simplifies the onboarding process. A prospective customer must only obtain a single file that contains all necessary information to be able to request membership. This lets each member understand the pre-requisites of membership and configure required attributes or get artifacts from third parties as needed.
 
 ## Identities
 
-A Corda identity represents any person or business that wants to interact with other people or businesses using Corda.
+A Corda identity represents any person or business that wants to interact with other people or businesses using Corda. Identities are identified by an X500 name.
 
-x500 name??
-
-An identity claim with a unique X-500 name in a membership group. Each Corda identity is associated with a session key, which validates the P2P sessions. The session key may be part of a PKI certificate according to the membership group defined by the MGM.
+[An identity claim with a unique X-500 name in a membership group. Each Corda identity is associated with a session key, which validates the P2P sessions. The session key may be part of a PKI certificate according to the membership group defined by the MGM.]: #
 
 ##	Application networks
 
 Networks in Corda 5 are application networks, where all participants are running the same CorDapp. Network registration and member distribution is handled by the [Membership Group Manager (MGM)](../mgm/overview.html). Application networks embrace the reality that regulated markets have strong privacy and governance requirements, reducing the scope of each network to a single bundle of applications all governed by the same rules.
-
-A CorDapp (Corda Distributed Application) is written in Kotlin or Java, compiled into Java bytecode, and then loaded into the Corda process at runtime. This means Corda is effectively an application server.
 
 ##	Clusters
 
@@ -68,7 +64,7 @@ Sandboxes are security mechanisms for separating running programs. They are the 
 
 ## Workers
 
-You can think of a worker as something you call and assign a task. The worker takes the task away to work on it, then calls you back when the task is complete. Some workers might pass parts of a task you give them to other specialized workers. You can call multiple workers to complete different tasks based on your needs at a given moment. Workers increase their capacity when they have a lot to do and scale back when they don't. This property makes your Corda deployment resilient and scalable — you can add more workers if you need them, and add replicas of specific workers in case one fails. You can read more about workers [here](../getting-started/architecture/workers.html).
+You can think of a worker as something you call and assign a task. The worker takes the task away to work on it, then calls you back when the task is complete. Some workers might pass parts of a task you give them to other specialized workers. You can call multiple workers to complete different tasks based on your needs at a given moment. Workers increase their capacity when they have a lot to do and scale back when they can. This property makes your Corda deployment resilient and scalable — you can add more workers if you need them, and add replicas of specific workers in case one fails. You can read more about workers [here](../getting-started/architecture/workers.html).
 
 ##	Flows
 

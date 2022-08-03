@@ -16,8 +16,10 @@ Corda 5 Developer Preview (DP) 2 is a developer preview of the next major iterat
 
 ## Feature 1
 
-High-level description of feature 1.
+
 
 ## Feature 2
 
-High-level description of feature 1.
+[..a virtual node is the virtual mapping between application processes, data and identity and keys to form the logical equivalent of a Corda 4 node (such as Alice in Network 1 with App A/B/C)...]: #
+
+[enabling true (virtual) node multi-tenancy on a shared cluster - this is important for managed service providers or developers looking at progressive decentralisation. 2. enabling multi-network - Alice can join several application networks using the same “client” at no margin cost.3.reducing cost of ownership -  particularly for operating models where previously multiple nodes were deployed 4. improving development/test experience - particularly for production-like tests, dynamic configuration of a cluster (with several virtual nodes) allows for a much faster and simpler test set up/ run time. 5. Finally — as virtual nodes are just a mapping between processes, data, and keys, they can be…. portable. Virtual nodes makes it easy to join multiple networks. Rather than having multiple Corda deployments you can have multiple virtual nodes, allowing you to be easily represented in each network with separate identities.]: #
