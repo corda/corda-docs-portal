@@ -8,19 +8,19 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-## Corda Software prerequisites
+## Corda software prerequisites
 
 Corda 5 DP 2 has been tested with the following:
 
 | Software      | Description |
 | ----------- | ----------- |
 | Operating systems      | An operating system based on x86 architecture.      |
-| Java   | Azul 11.0.12 as Java runtime environment.<br>You can compile and test CorDapps against these JDKs:<li> Azul11.0.12</li> <li> AdoptOpenJDK-J9</li>   |
+| Java   | Azul 11.0.12 as Java runtime environment.  |
 | Kotlin    | Kotlin plugin version 1.4.    |
 | A docker daemon    | A command-line tool or Docker Desktop 3.5.    |
 | Node databases    | H2 and Postgres13 (driver version 42.2.22 JDBC 42) for node databases.  |
 
-## Corda Hardware prerequisites
+## Corda hardware prerequisites
 
 Corda 5 DP 2 has been tested with the following:
 
@@ -30,7 +30,7 @@ Corda 5 DP 2 has been tested with the following:
 
 
 
-## CorDapp Development Software prerequisites
+## CorDapp development software prerequisites
 
 CorDapp development has been tested with the following:
 
@@ -38,7 +38,7 @@ CorDapp development has been tested with the following:
 | ----------- | ----------- |
 | Operating systems      | <li>Windows 10</li><li>MacOS Catalina</li><li>Linux (Ubuntu 20.04.04)</li>      |
 | IDE      | For example, Intellij IDEA(from JetBrains) with Gradle.      |
-| Java      | Azul Zulu JDK 11      |
+| Java      | You can compile and test CorDapps against these JDKs:<li> Azul11.0.12</li> <li> AdoptOpenJDK-J9</li>     |
 | Gradle    | Packaging and bundling CorDapps requires Gradle 6.0 or above.    |
 
 
@@ -54,7 +54,7 @@ kubectl
 Helm
 
 
-##  CorDapp Development Hardware prerequisites
+##  CorDapp development hardware prerequisites
 
 CorDapp development has been tested with the following:
 
