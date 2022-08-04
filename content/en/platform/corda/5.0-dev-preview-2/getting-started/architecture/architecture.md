@@ -5,13 +5,13 @@ menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-architecture
     parent: corda-5-dev-preview-gettingstarted
-    weight: 2000
+    weight: 3000
 section_menu: corda-5-dev-preview
 ---
 High availability – Being able to operate Corda in a hot/hot, reliable way to provide high uptime.
 
 Multi-tenancy – Support for ‘Virtual Corda Nodes’ to share a single Corda Installation to improve the Total Cost of Ownership (TCO) in certain scenarios. - two instances of same identity on the SAME instance Corda
-a Corda instance can take part in multiple, unrelated, ‘Application Networks’, 
+a Corda instance can take part in multiple, unrelated, ‘Application Networks’,
 
 * layer cake model - Corda 5 breaks the operational and developmental power of Corda into layers. Allowing you to choose the technologies that matter to you.
    * As a developer you can incrementally (bottom up) build your application by engaging with the appropriate layer when it is needed, this mental model is now more directly represented through our APIs.

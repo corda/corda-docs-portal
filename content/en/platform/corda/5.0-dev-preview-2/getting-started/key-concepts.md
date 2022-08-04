@@ -4,7 +4,7 @@ title: "Key concepts"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-gettingstarted
-    weight: 3000
+    weight: 2000
 section_menu: corda-5-dev-preview
 ---
 
