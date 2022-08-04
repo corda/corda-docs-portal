@@ -4,13 +4,20 @@ title: "Testing flows"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-flows-testing
-    service: corda-5-dev-preview-flows
+    parent: corda-5-dev-preview-flows
     weight: 8000
 section_menu: corda-5-dev-preview
 ---
 
-*	Testing (Unit, Flow)
-*	Debugging
+## Test flows
 
-*	Integration tests
-*	End to end tests (from a client like postman)
+**
+As a CorDapp developer,
+I want to be able to run test against my flows which identify errors in the code.
+I want to be able to test sub-components of the Flow Code in isolation (Unit test)
+I want to be able to test individual Flows (single class) with mocked out sub components. (Unit test)
+I want to be able to test individual Flows (single class) with mocked out interactions with the counterparty flow (unit Test)
+I want to be able to run tests which accurately simulate initiator and responder Flows interacting between Virtual Nodes, with a fast (10s of seconds) turn around. (Flow Tests)
+I do not want the overhead of writing large quantities of Mocking code.
+So that I can verify that my Flow code executes according to my expectations/ the spec.
+**
