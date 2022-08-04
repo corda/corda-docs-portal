@@ -88,22 +88,6 @@ menu:
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card h-100"  style="text-align: center">
-        <div class="card-body">
-          <h3 class="card-title">Tools and add-ons</h3>
-          <p>Supercharge your Corda operations and CorDapp design and development with extras.</p>
-          <ul>
-            <li style="text-align: left;"><a href="5.0-dev-preview-2/corda-cli/overview.html">Corda CLI</a></li>
-            <li style="text-align: left;"><a href="5.0-dev-preview-2/tokens-sdk/overview.html">Tokens SDK</a></li>
-            <li style="text-align: left;"><a href="5.0-dev-preview-2/confidential-identities/overview.html">Confidential-identities</a></li>
-            <li style="text-align: left;"><a href="5.0-dev-preview-2/test/overview.html">Testing</a></li>
-          </ul>
-        </div>
-        <div class="card-footer">
-          <a href="en/tools.html" class="btn rounded">Explore tools and add-ons</a>
-        </div>
-      </div>
-    </div>
+
 
 </section>
