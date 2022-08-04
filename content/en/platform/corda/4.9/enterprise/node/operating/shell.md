@@ -27,10 +27,11 @@ The Corda shell is an embedded or standalone command line that allows an adminis
 
 ## Ways of using the Corda shell
 
-There are two ways of using the Corda shell:
+There are three ways of using the Corda shell:
 
 * A standalone application which you can run using `corda-standalone-shell`.
-* A driver within your node, accessible via the `corda-shell.jar`. You can also use SSH to access the shell remotely using this method.
+* A driver within your node, accessible via the `corda-shell.jar`.
+* If you use a driver within your node, you can also use SSH to access the shell remotely. To do that, you must configure the driver to enable the SSH access.
 
 The standalone application is the only way to use the shell and keep a log of your commands.
 
@@ -119,16 +120,22 @@ Where:
   - `help`, `-h`: Show this help message and exit.
   - `version`, `-V`: Print version information and exit.
 
-## Use the shell from a driver within your node
+## Install and access the shell from a driver within your node
 
-Install the `corda-shell` `.jar` in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
+You can install the `corda-shell` `.jar` in your node in two different ways:
+
+* Download the `corda-shell` `.jar` from the [Artifactory](https://software.r3.com/ui/native/corda-releases/net/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
 By default, a Corda node does not run the shell.
 
-When using `cordaformation` the shell can be included in generated node's by including the following in the `build.gradle` file containing `deployNodes`:
+* When using `cordaformation`, the shell can be included in generated nodes by including the following in the `dependencies` block. The `dependencies` block must be in the same `build.gradle` file as the `deployNodes` task:
 
-```
-cordaDriver "net.corda:corda-shell:4.9"
-```
+  ```
+  dependencies {
+          // other dependencies
+          cordaDriver "net.corda:corda-shell:$corda_release_version"
+         // other dependencies
+  }
+  ```
 
 ## The shell via SSH
 
