@@ -11,6 +11,8 @@ section_menu: corda-5-dev-preview
 captures business logic of CorDapps
 Flows allow your CorDapp to communicate with other parties on a network.
 
+Flows are the actions your CorDapp can perform on a network and represent the business logic of your CorDapp. For example, if you are writing a CorDapp to enable the creation of an IOU, you may need to write flows that add the IOU to the network, update who has borrowed and who has lent money, record repayments, update contracts, and update the balance of the loan as the IOU is re-payed or moved to another party.
+
 Describe the flows available in Corda 5..
 sub-flows - Creating a new scope for initiating sessions and closing them once you leave the scope is one primary benefit
 
