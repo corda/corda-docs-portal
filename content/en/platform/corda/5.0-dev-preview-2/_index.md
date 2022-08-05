@@ -40,8 +40,8 @@ menu:
     <div class="card-body">
       <h3 class="card-title">
         <a href="en/get-started.html">
-          <img src='{{ "../../../../../themes/docks/static/icons/agenda-bookmark.svg" | relURL }}' alt="Introduction"  height="48" class="light-only">
-          <img src='{{ "../../../../../themes/docks/static/icons/agenda-bookmark-white.svg" | relURL }}' alt="Introduction"  height="48" class="dark-only">
+          <img src='{{ "../../../../../themes/doks/static/icons/agenda-bookmark.svg" | relURL }}' alt="Introduction"  height="48" class="light-only">
+          <img src='{{ "../../../../../../themes/doks/static/icons/agenda-bookmark-white.svg" | relURL }}' alt="Introduction"  height="48" class="dark-only">
         </a>
         <span>What is Corda 5?</span></h3>
       <p>Learn Corda <a href="5.0-dev-preview-2/getting-started/key-concepts.html" class="fw-semibold">key concepts</a> and about the<a href="5.0-dev-preview-2/getting-started/architecture/architecture.html" class="fw-semibold"> architecture</a> of Corda 5.</a></p>
@@ -74,7 +74,8 @@ menu:
             <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Tutorials</a>
           </div>
         </div>
-      </div>  
+      </div>
+
       <div class="col">
         <div class="card h-100" style="text-align: center">
           <div class="card-body">
@@ -92,9 +93,10 @@ menu:
           <div class="card-body">
             <h3 class="card-title">
               <span>Technical resources</span></h3>
-            <p><li>API docs</li>
-              <li>Release notes</li>
-            </p>
+              <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">API references</a></li>
+                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">API docs</a></li>
+                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Release notes</a></li>
+            </ul>
           </div>
           <div class="card-footer">
             <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Technical rsources</a>
