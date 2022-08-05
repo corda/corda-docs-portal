@@ -42,7 +42,7 @@ menu:
         <a href="en/get-started.html">
           <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  height="48" class="light-only">
           <img src='{{ "../../../../../../themes/doks/static/icons/agenda-bookmark-white.svg" | relURL }}' alt="Introduction"  height="48" class="dark-only">
-        </a>
+        </a><br>
         <span>What is Corda 5?</span></h3>
       <p>Learn Corda <a href="5.0-dev-preview-2/getting-started/key-concepts.html" class="fw-semibold">key concepts</a> and about the <a href="5.0-dev-preview-2/getting-started/architecture/architecture.html" class="fw-semibold">architecture</a> of Corda 5.</a></p>
     </div>
