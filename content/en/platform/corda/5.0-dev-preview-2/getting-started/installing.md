@@ -4,7 +4,7 @@ title: "Installation"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-install
-    weight: 5000
+    weight: 800
 section_menu: corda-5-dev-preview
 ---
 
