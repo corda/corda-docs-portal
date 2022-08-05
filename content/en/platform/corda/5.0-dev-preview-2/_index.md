@@ -75,7 +75,16 @@ menu:
         </div>
       </div>
       <div class="col">
-        <div class="card h-100" style="text-align: center">
+          <div class="card h-100" style="text-align: center">
+            <div class="card-body">
+              <h3 class="card-title">
+                <span>Deploying and operating</span></h3>
+              <p>Learnp </p>
+            </div>
+          </div>
+        </div>
+      <div class="col">
+        <div class="card h-100" >
           <div class="card-body">
             <h3 class="card-title">
               <span>Technical resources</span></h3>
@@ -84,8 +93,17 @@ menu:
                   <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Release notes</a></li>
             </ul>
           </div>
-          <div class="card-footer">
-            <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Technical resources</a>
+        </div>
+      </div>  
+      <div class="col">
+        <div class="card h-100" style="text-align: center">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span>Example use cases</span></h3>
+              <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case name</a></li>
+                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case name</a></li>
+                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case name</a></li>
+            </ul>
           </div>
         </div>
       </div>  
