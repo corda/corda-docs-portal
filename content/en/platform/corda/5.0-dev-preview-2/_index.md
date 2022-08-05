@@ -68,9 +68,9 @@ menu:
           <div class="card-body">
             <h3 class="card-title">
               <span>How do I do more with my CorDapp?</span></h3>
-              <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial 1</a></li>
-                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial 2</a></li>
-                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial 3</a></li>
+              <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
+                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
+                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
             </ul>
           </div>
           <div class="card-footer">
