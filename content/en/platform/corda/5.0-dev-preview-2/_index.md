@@ -56,8 +56,8 @@ menu:
           <div class="card-body">
             <h3 class="card-title">
             <a href="en/get-started.html">
-              <img src="../../../../../../icons/document.svg" alt="Introduction"  style="padding-bottom: 200px;" height="48" class="light-only">
-              <img src="../../../../../../icons/document-white.svg" alt="Introduction"  style="padding-bottom: 200px;" height="48" class="dark-only">
+              <img src="../../../../../../icons/document.svg" alt="Introduction"  style="padding-bottom: 20px;" height="48" class="light-only">
+              <img src="../../../../../../icons/document-white.svg" alt="Introduction"  style="padding-bottom: 20px;" height="48" class="dark-only">
             </a>
               <span>How do I start developing on Corda?</span></h3>
             <p>Learn how to set up your environment and create your first CorDapp.</p>
@@ -71,8 +71,8 @@ menu:
         <div class="card h-100" style="text-align: center">
           <div class="card-body">
             <h3 class="card-title">         <a href="en/get-started.html">
-                      <img src="../../../../../../icons/bullet-list.svg" alt="Introduction"  style="padding-bottom: 200px;" height="48" class="light-only">
-                      <img src="../../../../../../icons/bullet-list-white.svg" alt="Introduction"  style="padding-bottom: 200px;" height="48" class="dark-only">
+                      <img src="../../../../../../icons/bullet-list.svg" alt="Introduction"  style="padding-bottom: 200px;" class="light-only">
+                      <img src="../../../../../../icons/bullet-list-white.svg" alt="Introduction"  style="padding-bottom: 200px;" class="dark-only">
     </a>
               <span>How do I do more with my CorDapp?</span></h3>
               <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
