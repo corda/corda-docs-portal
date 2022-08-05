@@ -40,7 +40,7 @@ menu:
     <div class="card-body">
       <h3 class="card-title">
         <a href="en/get-started.html">
-          <img src='{{ "../../../../../themes/doks/static/icons/agenda-bookmark.svg" | relURL }}' alt="Introduction"  height="48" class="light-only">
+          <img src="../../../../../themes/doks/static/icons/agenda-bookmark.svg" alt="Introduction"  height="48" class="light-only">
           <img src='{{ "../../../../../../themes/doks/static/icons/agenda-bookmark-white.svg" | relURL }}' alt="Introduction"  height="48" class="dark-only">
         </a>
         <span>What is Corda 5?</span></h3>
@@ -56,7 +56,7 @@ menu:
           <div class="card-body">
             <h3 class="card-title">
               <span>How do I start developing on Corda?</span></h3>
-            <p>Learn </p>
+            <p>Learn how to set up your environment and create your first CorDapp.</p>
           </div>
           <div class="card-footer">
             <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Get started</a>
@@ -68,7 +68,10 @@ menu:
           <div class="card-body">
             <h3 class="card-title">
               <span>How do I do more with my CorDapp?</span></h3>
-            <p>Learn </p>
+              <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial 1</a></li>
+                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial 2</a></li>
+                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial 3</a></li>
+            </ul>
           </div>
           <div class="card-footer">
             <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Tutorials</a>
@@ -99,7 +102,7 @@ menu:
             </ul>
           </div>
           <div class="card-footer">
-            <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Technical rsources</a>
+            <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Technical resources</a>
           </div>
         </div>
       </div>  
@@ -108,7 +111,10 @@ menu:
           <div class="card-body">
             <h3 class="card-title">
               <span>Example use cases</span></h3>
-            <p>Learn </p>
+              <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case name</a></li>
+                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case name</a></li>
+                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case name</a></li>
+            </ul>
           </div>
           <div class="card-footer">
             <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Use cases</a>
