@@ -3,7 +3,7 @@ date: '2020-07-15T12:00:00Z'
 title: "Key concepts"
 menu:
   corda-5-dev-preview:
-    parent: corda-5-dev-preview-gettingstarted
+    parent: corda-5-dev-preview-into
     weight: 2000
 section_menu: corda-5-dev-preview
 ---
