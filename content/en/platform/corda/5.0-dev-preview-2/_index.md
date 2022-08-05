@@ -40,8 +40,8 @@ menu:
     <div class="card-body">
       <h3 class="card-title">
         <a href="en/get-started.html">
-          <img src='{{ "icons/agenda-bookmark.svg" | relURL }}' alt="Introduction"  height="48" class="light-only">
-          <img src='{{ "icons/agenda-bookmark-white.svg" | relURL }}' alt="Introduction"  height="48" class="dark-only">
+          <img src='{{ "../../../../../themes/docks/static/icons/agenda-bookmark.svg" | relURL }}' alt="Introduction"  height="48" class="light-only">
+          <img src='{{ "../../../../../themes/docks/static/icons/agenda-bookmark-white.svg" | relURL }}' alt="Introduction"  height="48" class="dark-only">
         </a>
         <span>What is Corda 5?</span></h3>
       <p>Learn Corda <a href="5.0-dev-preview-2/getting-started/key-concepts.html" class="fw-semibold">key concepts</a> and about the<a href="5.0-dev-preview-2/getting-started/architecture/architecture.html" class="fw-semibold"> architecture</a> of Corda 5.</a></p>
@@ -75,16 +75,41 @@ menu:
           </div>
         </div>
       </div>  
-
       <div class="col">
         <div class="card h-100" style="text-align: center">
           <div class="card-body">
             <h3 class="card-title">
-              <span>How do I do more with my CorDapp?</span></h3>
+              <span>Deploying and operating</span></h3>
             <p>Learn </p>
           </div>
           <div class="card-footer">
             <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Get started</a>
+          </div>
+        </div>
+      </div>  
+      <div class="col">
+        <div class="card h-100" style="text-align: center">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span>Technical resources</span></h3>
+            <p><li>API docs</li>
+              <li>Release notes</li>
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Technical rsources</a>
+          </div>
+        </div>
+      </div>  
+      <div class="col">
+        <div class="card h-100" style="text-align: center">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span>Example use cases</span></h3>
+            <p>Learn </p>
+          </div>
+          <div class="card-footer">
+            <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Use cases</a>
           </div>
         </div>
       </div>  
