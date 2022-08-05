@@ -36,7 +36,7 @@ menu:
   </div>
 -->  
 <div class="col">
-  <div class="card h-100"  style="text-align: center">
+    <div class="card h-80">
     <div class="card-body">
       <h3 class="card-title">
         <a href="en/get-started.html">
@@ -84,7 +84,7 @@ menu:
           <div class="card-body">
             <h3 class="card-title">
               <span>Deploying and operating</span></h3>
-            <p>Learn </p>
+            <p>Learnp </p>
           </div>
           <div class="card-footer">
             <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Get started</a>
