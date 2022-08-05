@@ -40,7 +40,7 @@ menu:
     <div class="card-body">
       <h3 class="card-title">
         <a href="en/get-started.html">
-          <img src="../../../../../themes/doks/static/icons/agenda-bookmark.svg" alt="Introduction"  height="48" class="light-only">
+          <img src="../../../../../../themes/doks/static/icons/agenda-bookmark.svg" alt="Introduction"  height="48" class="light-only">
           <img src='{{ "../../../../../../themes/doks/static/icons/agenda-bookmark-white.svg" | relURL }}' alt="Introduction"  height="48" class="dark-only">
         </a>
         <span>What is Corda 5?</span></h3>
@@ -91,6 +91,7 @@ menu:
           </div>
         </div>
       </div>  
+      
       <div class="col">
         <div class="card h-100" style="text-align: center">
           <div class="card-body">
