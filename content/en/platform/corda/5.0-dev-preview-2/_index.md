@@ -79,13 +79,13 @@ menu:
             <div class="card-body">
               <h3 class="card-title">
                 <span>Deploying and operating</span></h3>
-              <p>Learnp </p>
+              <p>Learn....</p>
             </div>
           </div>
         </div>
       <div class="col">
         <div class="card h-100" >
-          <div class="card-body">
+          <div class="card-body" style="text-align: left>
             <h3 class="card-title">
               <span>Technical resources</span></h3>
               <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">API references</a></li>
