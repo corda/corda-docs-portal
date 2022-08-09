@@ -17,6 +17,44 @@ weight: 1
 
 # Corda: Enterprise Edition release notes
 
+## Corda: Enterprise Edition 4.9.2
+
+Corda Enterprise 4.9.2 is a patch release of Corda Enterprise which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
+
+* As part of this patch a new Gradle plugin is provided that supports CorDapp development using Gradle 7. This is in addition to the existing Gradle support. The plugin has been uploaded to Artifactory.
+  * Samples demonstrating Gradle 7 usage are available for:
+    * [Kotlin](https://github.com/corda/samples-kotlin/tree/chrisr3-gradle7)
+    * [Java](https://github.com/corda/samples-java/tree/chrisr3-gradle7)
+  * A readme describing the Gradle 7 plugin is also available on [Github](https://github.com/corda/corda-gradle-plugins/tree/release/5.1/cordapp).
+* Artemis messaging has been implemented to indicate when disk space is low (below 10%).
+* AMQP frame tracing can now be enabled in the Corda node when running embedded Artemis or bridges. This is in addition to the previous ability to turn it on via firewall configuration.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+The following issues were resolved in this patch release:
+
+* The `corda-shell --version` command has been updated to always return the correct version.
+* The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced.
+* Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
+
+### Third party component upgrades
+
+{{< table >}}
+
+|Library|Version 4.9.2|Previous version|
+|---------|-------|-------|
+|Caffeine|2.9.3|2.7.0-r3-fifty|
+|Jackson|2.13.3|2.13.1|
+|Netty|4.1.77.Final|4.1.68.Final|
+|Quasar|0.7.15_r3|0.7.14_r3|
+|Shiro|1.8.0|1.4.1|
+
+{{< /table >}}
+
 ## Corda: Enterprise Edition 4.9.1
 
 Corda Enterprise 4.9.1 is a patch release of Corda Enterprise which includes dependency upgrades and fixes for minor bugs.
