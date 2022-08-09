@@ -39,11 +39,56 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="en/get-started.html">
+      <a href="introduction/introduction.html">
           <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="height: 48" class="light-only">
           <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  style="height: 48" class="dark-only">
-      </a><br>
-        <span>Introduction to Corda</span></h3>
+      <br>
+        <span>Introduction</span></h3></a>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="card h-100"  style="text-align: center">
+    <div class="card-body">
+      <h3 class="card-title">
+      <a href="getting-started/installing.html">
+        <span>Start developing</span></h3></a>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="card h-100"  style="text-align: center">
+    <div class="card-body">
+      <h3 class="card-title">
+      <a href="tutorials/overview.html">
+        <span>Tutorials</span></h3></a>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="card h-100"  style="text-align: center">
+    <div class="card-body">
+      <h3 class="card-title">
+      <a href="deploying/overview.html">
+        <span>Deploying and operating</span></h3></a>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="card h-100"  style="text-align: center">
+    <div class="card-body">
+      <h3 class="card-title">
+      <a href="use-cases/overview.html">
+        <span>Use cases</span></h3></a>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="card h-100"  style="text-align: center">
+    <div class="card-body">
+      <h3 class="card-title">
+      <a href="technical-resource/overview.html">
+        <span>Technical resources</span></h3></a>
     </div>
   </div>
 </div>

@@ -4,7 +4,7 @@ title: "Introduction"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-intro
-    weight: 500
+    weight: 1000
 section_menu: corda-5-dev-preview
 ---
 
