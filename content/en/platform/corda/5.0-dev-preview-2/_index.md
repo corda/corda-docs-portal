@@ -27,7 +27,7 @@ menu:
           <img src='{{ "icons/agenda-bookmark-white.svg" | relURL }}' alt="Get started"  height="48" class="dark-only">
         </a>
           <span>Title</span></h3>
-        <p>.........</a></p>
+        <p>.........</p>
       </div>
       <div class="card-footer">
         <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html" class="btn rounded">Button text</a>
@@ -39,72 +39,12 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-        <span>What is Corda 5?</span></h3>
-      <p>Learn Corda <a href="5.0-dev-preview-2/getting-started/key-concepts.html" class="fw-semibold">key concepts</a> and about the <a href="5.0-dev-preview-2/getting-started/architecture/architecture.html" class="fw-semibold">architecture</a> of Corda 5.</a></p>
-    </div>
-    <div class="card-footer">
-      <a href="5.0-dev-preview-2/introduction.html" class="btn rounded">Introduction</a>
+      <a href="en/get-started.html">
+          <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="height: 48" class="light-only">
+          <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  style="height: 48" class="dark-only">
+      </a><br>
+        <span>Introduction to Corda</span></h3>
     </div>
   </div>
 </div>
-      <div class="col">
-        <div class="card h-100" style="text-align: center">
-          <div class="card-body">
-            <h3 class="card-title">
-              <span>How do I start developing on Corda?</span></h3>
-            <p>Learn how to set up your environment and create your first CorDapp.</p>
-          </div>
-          <div class="card-footer">
-            <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Get started</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100" style="text-align: center">
-          <div class="card-body">
-            <h3 class="card-title">   
-              <span>How do I do more with my CorDapp?</span></h3>
-              <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
-                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
-                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Tutorials</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-          <div class="card h-100" style="text-align: center">
-            <div class="card-body">
-              <h3 class="card-title">
-                <span>Deploying and operating</span></h3>
-              <p>Learn....</p>
-            </div>
-          </div>
-        </div>
-      <div class="col">
-        <div class="card h-100"  style="text-align: left>
-          <div class="card-body">
-            <h3 class="card-title">
-              <span>Technical resources</span></h3>
-              <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">API references</a></li>
-                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">API docs</a></li>
-                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Release notes</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>  
-      <div class="col">
-        <div class="card h-100" style="text-align: center">
-          <div class="card-body">
-            <h3 class="card-title">
-              <span>Example use cases</span></h3>
-              <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case name</a></li>
-                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case name</a></li>
-                  <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case name</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>  
 </section>

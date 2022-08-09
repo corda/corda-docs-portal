@@ -31,6 +31,9 @@ The only difference between a development and a production CPI is the network in
 
 The CPI file simplifies the onboarding process. A prospective customer must only obtain a single file that contains all necessary information to be able to request membership. This lets each member understand the pre-requisites of membership and configure required attributes or get artifacts from third parties as needed.
 
+## CorDapps
+
+
 ## Identities
 
 A Corda identity represents any person or business that wants to interact with other people or businesses using Corda. Identities are identified by an X500 name.
