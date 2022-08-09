@@ -2,7 +2,7 @@
 date: '2021-09-01'
 menu:
   corda-5-dev-preview:
-    parent: corda-5-dev-preview-1-cordacli
+    parent: corda-5-dev-preview-cordacli
     weight: 400
 section_menu: corda-5-dev-preview
 title: "Corda CLI commands"
