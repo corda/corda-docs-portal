@@ -39,32 +39,41 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="5.0-dev-preview-2/introduction/introduction.html">
-          <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="height: 48" class="light-only">
-          <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  style="height: 48" class="dark-only">
-      <br><br>
-        <span>Introduction</span></h3></a>
+        <span>What is Corda 5?</span></h3>
+      <p>Learn Corda <a href="5.0-dev-preview-2/getting-started/key-concepts.html" class="fw-semibold">key concepts</a> and ..</p>
+    </div>
+    <div class="card-footer">
+      <a href="5.0-dev-preview-2/introducyion/introduction.html" class="btn rounded">Introduction</a>
     </div>
   </div>
 </div>
 <div class="col">
-  <div class="card h-100"  style="text-align: center">
-    <div class="card-body">
-      <h3 class="card-title">
-      <a href="5.0-dev-preview-2/getting-started/installing.html">
-        <span>Start developing</span></h3></a>
-    </div>
-  </div>
-</div>
-<div class="col">
-  <div class="card h-100"  style="text-align: center">
-    <div class="card-body">
-      <h3 class="card-title">
-      <a href="5.0-dev-preview-2/tutorials/overview.html">
-        <span>Tutorials</span></h3></a>
-    </div>
-  </div>
-</div>
+       <div class="card h-100" style="text-align: center">
+         <div class="card-body">
+           <h3 class="card-title">
+             <span>How do I start developing on Corda?</span></h3>
+           <p>Learn how to set up your environment and create your first CorDapp.</p>
+         </div>
+         <div class="card-footer">
+           <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Get started</a>
+         </div>
+       </div>
+     </div>
+     <div class="col">
+       <div class="card h-100" style="text-align: center">
+         <div class="card-body">
+           <h3 class="card-title">   
+             <span>How do I do more with my CorDapp?</span></h3>
+             <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
+                 <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
+                 <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
+           </ul>
+         </div>
+         <div class="card-footer">
+           <a href="5.0-dev-preview-2/tutorials/overview.html" class="btn rounded">Tutorials</a>
+         </div>
+       </div>
+     </div>
 <div class="col">
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
