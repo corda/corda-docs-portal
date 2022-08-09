@@ -96,7 +96,7 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <<a href="5.0-dev-preview-2/technical-resources/overview.html">
+      <a href="5.0-dev-preview-2/technical-resources/overview.html">
               <span>Technical resources</span></h3></a>
       <p>Learn about the <a href="5.0-dev-preview-2/api-ref/corda-api.html" class="fw-semibold">Corda API</a> and view the Javadocs and KDocs. Read the Corda 5 <a href="5.0-dev-preview-2/release-notes/highlights.html" class="fw-semibold">Release Notes</a>.</p>
     </div>
