@@ -8,12 +8,13 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-Sandboxes are security mechanisms for separating running programs. They are the foundation that [virtual nodes](#virtual-nodes) run on, keeping contracts, workflows, and libraries separate from other code. The contents of these sandboxes are packaged up and shared for deployment by creating a [CPI file](#cordapp-package-installer-CPI). You can read more about sandboxes [here](../getting-started/architecture/workers.html).
-
-
------
-
 [In Corda 4, we assume that you’re running your own node, which is akin to you playing with your own sand in your own garden. And we also assume that you’re a responsible adult: we trust you to take care and we assume you’re not going to deliberately ruin your grass. So Corda didn’t have a sandbox. In Corda 5 we can’t make these assumptions. In Corda 5, it’s more like the garden is shared amongst multiple houses or apartments. We can’t assume everybody will be careful and some of them may be positively malicious.]: #
+
+Sandboxes are security mechanisms for separating running programs. They are the foundation that [virtual nodes](virtual-nodes.html) run on, keeping contracts, workflows, and libraries separate from other code. The contents of these sandboxes are packaged up and shared for deployment by creating a [CPI file](packaging.html#cordapp-package-installer-CPI).
+
+--
+
+
 
 Sandboxes are security mechanisms for separating running programs. They are an essential part of the high-availability (HA) and multi-tenant architecture of Corda 5, ensuring stability and security.  
 
