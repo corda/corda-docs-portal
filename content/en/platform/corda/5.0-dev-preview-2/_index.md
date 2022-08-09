@@ -40,10 +40,10 @@ menu:
     <div class="card-body">
       <h3 class="card-title">
         <span>What is Corda 5?</span></h3>
-      <p>Learn Corda <a href="5.0-dev-preview-2/introduction/key-concepts.html" class="fw-semibold">key concepts</a> and ..</p>
+      <p>Learn Corda <a href="5.0-dev-preview-2/getting-started/key-concepts.html" class="fw-semibold">key concepts</a> and ..</p>
     </div>
     <div class="card-footer">
-      <a href="5.0-dev-preview-2/introduction/introduction.html" class="btn rounded">Introduction</a>
+      <a href="5.0-dev-preview-2/introducyion/introduction.html" class="btn rounded">Introduction</a>
     </div>
   </div>
 </div>
@@ -96,9 +96,8 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="5.0-dev-preview-2/technical-resources/overview.html">
-              <span>Technical resources</span></h3></a>
-      <p>Learn about the <a href="5.0-dev-preview-2/api-ref/corda-api.html" class="fw-semibold">Corda API</a> and view the Javadocs and KDocs. Read the Corda 5 <a href="5.0-dev-preview-2/release-notes/highlights.html" class="fw-semibold">Release Notes</a>.</p>
+      <a href="5.0-dev-preview-2/technical-resource/overview.html">
+        <span>Technical resources</span></h3></a>
     </div>
   </div>
 </div>
