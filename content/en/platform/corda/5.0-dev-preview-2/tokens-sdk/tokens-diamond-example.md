@@ -5,7 +5,7 @@ aliases:
 - ./tokens-sdk.html
 menu:
   corda-5-dev-preview:
-    parent: corda-5-dev-preview-1-tokens-sdk
+    parent: corda-5-dev-preview-tokens-sdk
     weight: 400
 section_menu: corda-5-dev-preview
 description: >

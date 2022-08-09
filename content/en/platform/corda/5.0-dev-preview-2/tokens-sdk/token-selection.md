@@ -3,7 +3,7 @@ date: '2020-09-10'
 title: "Token selection"
 menu:
   corda-5-dev-preview:
-    parent: corda-5-dev-preview-1-tokens-sdk
+    parent: corda-5-dev-preview-tokens-sdk
     weight: 300
 section_menu: corda-5-dev-preview
 description: >

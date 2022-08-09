@@ -3,8 +3,8 @@ date: '2020-07-15T12:00:00Z'
 title: "Membership group manager"
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-mgm
-    weight: 6000
+    parent: corda-5-dev-preview-key-concepts
+    weight: 9500
 section_menu: corda-5-dev-preview
 ---
 
@@ -24,3 +24,12 @@ Distributes network parameters
 Organizes and schedules Corda and CorDapp upgrades
 Monitors member’s Corda version
 Monitors member’s CorDapp versions
+
+
+Static networks:
+
+
+* Overview
+* Group Policy (How-to also?)
+* Static network member registration (How-to also?)
+* "Local development with Kubernetes" How-to
