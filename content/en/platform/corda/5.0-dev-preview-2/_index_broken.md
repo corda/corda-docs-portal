@@ -7,7 +7,7 @@ menu:
   versions:
     weight: -648
     corda-5-dev-preview:
-      weight: 10  
+      weight: 10
 
 ---
 <section class="section" style="text-align:center; color:white; background-image:url('bg-dark.jpg');">
@@ -34,7 +34,7 @@ menu:
       </div>
     </div>
   </div>
--->  
+-->
 <div class="col">
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
@@ -62,11 +62,11 @@ menu:
      <div class="col">
        <div class="card h-100" style="text-align: center">
          <div class="card-body">
-           <h3 class="card-title">   
+           <h3 class="card-title">
              <span>How do I do more with my CorDapp?</span></h3>
-             <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial one</a></li>
-                 <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial two</a></li>
-                 <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial three</a></li>
+             <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
+                 <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
+                 <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Tutorial</a></li>
            </ul>
          </div>
          <div class="card-footer">
@@ -96,9 +96,9 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="5.0-dev-preview-2/technical-resource/overview.html">
-        <span>Technical resources</span></h3></a>
-        <p>Learn about the <a href="5.0-dev-preview-2/api-ref/corda-api.html" class="fw-semibold">Corda API</a> and view the Javadocs and KDocs. Read the Corda 5 <a href="5.0-dev-preview-2/release-notes/highlights.html" class="fw-semibold">Release Notes</a>.</p>
+      <a href="5.0-dev-preview-2/technical-resources/overview.html">
+              <span>Technical resources</span></h3></a>
+      <p>Learn about the <a href="5.0-dev-preview-2/api-ref/corda-api.html" class="fw-semibold">Corda API</a> and view the Javadocs and KDocs. Read the Corda 5 <a href="5.0-dev-preview-2/release-notes/highlights.html" class="fw-semibold">Release Notes</a>.</p>
     </div>
   </div>
 </div>
