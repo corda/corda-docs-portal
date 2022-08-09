@@ -4,7 +4,7 @@ menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-cordacli
     weight: 4000
-    parent: corda-5-dev-preview-parent
+    parent: corda-5-dev-preview-technical
 section_menu: corda-5-dev-preview
 title: Corda CLI
 ---
