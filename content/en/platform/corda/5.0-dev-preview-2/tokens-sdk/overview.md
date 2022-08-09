@@ -5,14 +5,15 @@ aliases:
 - ./tokens-sdk.html
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-1-tokens-sdk
-    weight: 8000
+    identifier: corda-5-dev-preview-tokens-sdk
+    parent: corda-5-dev-preview-technical
+    weight: 4000
 section_menu: corda-5-dev-preview
 description: >
     An introduction to the Tokens SDK.
 ---
 
-*DP1 Content - Needed in Corda 5???*
+*DP1 Content*
 
 The Tokens SDK provides you with the fastest and easiest way to create tokens that represent any kind of asset on your network. This asset can be anything you want it to be - conceptual, physical, valuable or not. You can create a token to represent something outside of the network, or something that only exists on the ledger - like a Corda-native digital currency.
 
