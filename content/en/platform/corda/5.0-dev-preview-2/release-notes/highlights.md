@@ -4,8 +4,8 @@ title: "Corda 5 Developer Preview 2 highlights"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-highlights
-    parent: corda-5-dev-preview-release-notes
-    weight: 10
+    parent: corda-5-dev-preview-technical
+    weight: 1000
     name: "Highlights"
 section_menu: corda-5-dev-preview
 ---

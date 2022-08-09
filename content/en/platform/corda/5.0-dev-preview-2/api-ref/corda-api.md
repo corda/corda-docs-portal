@@ -3,11 +3,9 @@ date: '2021-04-24T00:00:00Z'
 title: "API reference"
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-api-reference-docs
+    identifier: corda-5-dev-preview-api-docs
     parent: corda-5-dev-preview-technical
-    name: "API reference"
-    weight: 3000
+    name: "Corda API"
+    weight: 2000
 section_menu: corda-5-dev-preview
 ---
-
-Links to Javadocs and KDocs.

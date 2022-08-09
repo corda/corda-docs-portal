@@ -39,10 +39,10 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="introduction/introduction.html">
+      <a href="5.0-dev-preview-2/introduction/introduction.html">
           <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="height: 48" class="light-only">
           <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  style="height: 48" class="dark-only">
-      <br>
+      <br><br>
         <span>Introduction</span></h3></a>
     </div>
   </div>
@@ -51,7 +51,7 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="getting-started/installing.html">
+      <a href="5.0-dev-preview-2/getting-started/installing.html">
         <span>Start developing</span></h3></a>
     </div>
   </div>
@@ -60,7 +60,7 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="tutorials/overview.html">
+      <a href="5.0-dev-preview-2/tutorials/overview.html">
         <span>Tutorials</span></h3></a>
     </div>
   </div>
@@ -69,7 +69,7 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="deploying/overview.html">
+      <a href="5.0-dev-preview-2/deploying/overview.html">
         <span>Deploying and operating</span></h3></a>
     </div>
   </div>
@@ -78,7 +78,7 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="use-cases/overview.html">
+      <a href="5.0-dev-preview-2/use-cases/overview.html">
         <span>Use cases</span></h3></a>
     </div>
   </div>
@@ -87,7 +87,7 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="technical-resource/overview.html">
+      <a href="5.0-dev-preview-2/technical-resource/overview.html">
         <span>Technical resources</span></h3></a>
     </div>
   </div>
