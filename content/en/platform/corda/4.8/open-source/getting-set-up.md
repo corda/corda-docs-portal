@@ -43,7 +43,7 @@ Corda has been tested against the following Java builds:
 
 If you are using Windows, you must also add Java to the PATH environment variable by following the instructions in the [Oracle documentation](https://docs.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html#path).
 
-## Installing the IntelliJ IDEA
+## Installing IntelliJ IDEA
 
 IntelliJ is an IDE that offers strong support for Kotlin and Java development.
 
