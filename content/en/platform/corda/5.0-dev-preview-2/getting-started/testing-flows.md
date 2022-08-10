@@ -1,11 +1,16 @@
 ---
 date: '2020-07-15T12:00:00Z'
-title: "Testing flows"
+title: "Testing and debugging flows"
+menu:
+  corda-5-dev-preview:
+  menu:
+    parent: corda-5-dev-preview-setup
+    identifier: corda-5-dev-preview-test-flows
+    weight: 3000
+section_menu: corda-5-dev-preview
 ---
 
-## Test flows
 
-**
 As a CorDapp developer,
 I want to be able to run test against my flows which identify errors in the code.
 I want to be able to test sub-components of the Flow Code in isolation (Unit test)
