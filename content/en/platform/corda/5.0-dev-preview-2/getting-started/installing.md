@@ -3,12 +3,14 @@ date: '2022-06-29'
 title: "Installation"
 menu:
   corda-5-dev-preview:
+  menu:
+    parent: corda-5-dev-preview-setup
     identifier: corda-5-dev-preview-install
     weight: 2000
 section_menu: corda-5-dev-preview
 ---
 
-## Prequisites
+## Prerequisites
 
 ## Download Corda
 text
