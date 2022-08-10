@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-start
     identifier: corda-5-dev-preview-test-flows
-    weight: 3000
+    weight: 4000
 section_menu: corda-5-dev-preview
 ---
 
