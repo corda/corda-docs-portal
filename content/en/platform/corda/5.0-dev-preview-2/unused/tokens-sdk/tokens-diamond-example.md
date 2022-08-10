@@ -1,15 +1,7 @@
 ---
 date: '2020-09-10'
 title: "Diamonds as Tokens example"
-aliases:
-- ./tokens-sdk.html
-menu:
-  corda-5-dev-preview:
-    parent: corda-5-dev-preview-tokens-sdk
-    weight: 400
-section_menu: corda-5-dev-preview
-description: >
-    An introduction to the Tokens SDK.
+
 ---
 
 In this example workflow, the Tokens SDK is used to create a non-fungible, evolvable token for diamonds. A diamond cannot be split and merged, but its value and other attributes can evolve over time.

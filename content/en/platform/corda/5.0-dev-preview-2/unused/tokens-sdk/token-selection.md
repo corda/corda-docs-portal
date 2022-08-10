@@ -1,13 +1,7 @@
 ---
 date: '2020-09-10'
 title: "Token selection"
-menu:
-  corda-5-dev-preview:
-    parent: corda-5-dev-preview-tokens-sdk
-    weight: 300
-section_menu: corda-5-dev-preview
-description: >
-    An introduction to tokens selection in the Tokens SDK.
+
 ---
 
 When you move or redeem tokens using the Tokens SDK, you can choose which balance of tokens you want to use, and how much from each reserve, in any given transaction.
