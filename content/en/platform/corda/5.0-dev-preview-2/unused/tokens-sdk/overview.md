@@ -1,16 +1,7 @@
 ---
 date: '2020-09-10'
 title: "Tokens SDK"
-aliases:
-- ./tokens-sdk.html
-menu:
-  corda-5-dev-preview:
-    identifier: corda-5-dev-preview-tokens-sdk
-    parent: corda-5-dev-preview-technical
-    weight: 4000
-section_menu: corda-5-dev-preview
-description: >
-    An introduction to the Tokens SDK.
+
 ---
 
 *DP1 Content*
