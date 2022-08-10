@@ -1,10 +1,17 @@
 ---
 date: '2020-07-15T12:00:00Z'
-title: "Membership group manager"
+title: "Identities and membership management"
 
 ---
+## Corda Identity
 
-the successor to CENM from Corda 4.
+A Corda identity represents any person or business that wants to interact with other people or businesses using Corda. Identities are identified by an X500 name.
+
+[An identity claim with a unique X-500 name in a membership group. Each Corda identity is associated with a session key, which validates the P2P sessions. The session key may be part of a PKI certificate according to the membership group defined by the MGM.]: #
+
+## Membership group manager
+
+MGM is the successor to CENM from Corda 4.
 
 Overview of the **membership group manager** (MGM)....
 * Static
