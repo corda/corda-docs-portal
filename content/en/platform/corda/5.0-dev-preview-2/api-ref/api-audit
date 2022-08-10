@@ -4,7 +4,7 @@ title: "Corda API: audit"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-api
-    parent: corda-5-dev-preview-api-audit
+    identifier: corda-5-dev-preview-api-audit
     weight: 1000
 section_menu: corda-5-dev-preview
 ---
