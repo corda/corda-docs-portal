@@ -5,7 +5,6 @@ menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-api
     parent: corda-5-dev-preview-technical
-    name: "Corda API"
     weight: 2000
 section_menu: corda-5-dev-preview
 ---
