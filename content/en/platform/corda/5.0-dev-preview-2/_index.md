@@ -90,7 +90,7 @@ menu:
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/use-cases/overview.html">
         <span>Use cases</span></h3></a>
-        <ul><li><a href="en/platform/corda/4.9/enterprise.html">Use case one</a></li>
+        <ul style="text-align: left;"><li><a href="en/platform/corda/4.9/enterprise.html">Use case one</a></li>
             <li><a href="en/platform/corda/4.9/enterprise.html">Use case two</a></li>
             <li><a href="en/platform/corda/4.9/enterprise.html">Use case three</a></li>
       </ul>
