@@ -3,7 +3,6 @@ date: '2020-07-15T12:00:00Z'
 title: "Prerequisites"
 menu:
   corda-5-dev-preview:
-  menu:
     parent: corda-5-dev-preview-setup
     identifier: corda-5-dev-preview-prereqs
     weight: 1000
