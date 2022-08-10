@@ -1,11 +1,10 @@
 ---
 date: '2021-04-24T00:00:00Z'
-title: "Corda API"
+title: "HTTP RPC API"
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-api
+    identifier: corda-5-dev-preview-api-http-rpc
     parent: corda-5-dev-preview-technical
-    name: "Corda API"
-    weight: 2000
+    weight: 2500
 section_menu: corda-5-dev-preview
 ---
