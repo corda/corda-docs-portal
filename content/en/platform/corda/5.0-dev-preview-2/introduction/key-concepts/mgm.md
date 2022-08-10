@@ -1,7 +1,11 @@
 ---
 date: '2020-07-15T12:00:00Z'
 title: "Identities and membership management"
-
+menu:
+  corda-5-dev-preview:
+    parent: corda-5-dev-preview-key-concepts
+    weight: 4000
+section_menu: corda-5-dev-preview
 ---
 ## Corda Identity
 
