@@ -7,5 +7,5 @@ menu:
     identifier: corda-5-dev-preview-tutorial-deploy-two
     weight: 2000
 section_menu: corda-5-dev-preview
-draft: true
+
 ---
