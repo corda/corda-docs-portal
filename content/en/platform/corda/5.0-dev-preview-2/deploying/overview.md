@@ -1,10 +1,10 @@
 ---
 date: '2021-09-21'
-title: "Deploying and operating"
+title: "Deploying and operating Corda"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-deploy
-    weight: 4000
+    weight: 3000
 section_menu: corda-5-dev-preview
 
 ---
