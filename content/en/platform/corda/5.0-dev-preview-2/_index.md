@@ -40,7 +40,7 @@ menu:
     <div class="card-body">
       <h3 class="card-title">
         <span>What is Corda 5?</span></h3>
-      <p>Learn Corda <a href="5.0-dev-preview-2/introduction/key-concepts.html" class="fw-semibold">key concepts</a> and ..</p>
+      <p>Learn Corda <a href="5.0-dev-preview-2/introduction/key-concepts.html" class="fw-semibold">key concepts</a> and run your first CorDapp.</p>
     </div>
     <div class="card-footer">
       <a href="5.0-dev-preview-2/introduction/introduction.html" class="btn rounded">Introduction</a>
@@ -52,7 +52,7 @@ menu:
          <div class="card-body">
            <h3 class="card-title">
              <span>How do I start developing on Corda?</span></h3>
-           <p>Learn how to set up your environment and create your first CorDapp.</p>
+           <p>Learn how to set up your environment and begin writing flows.</p>
          </div>
          <div class="card-footer">
            <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Get started</a>
@@ -80,6 +80,7 @@ menu:
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/deploying/overview.html">
         <span>Deploying and operating</span></h3></a>
+        <p>Learn how to deploy Corda.</p>
     </div>
   </div>
 </div>
@@ -89,6 +90,10 @@ menu:
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/use-cases/overview.html">
         <span>Use cases</span></h3></a>
+        <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case one</a></li>
+            <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case two</a></li>
+            <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case three</a></li>
+      </ul>
     </div>
   </div>
 </div>
