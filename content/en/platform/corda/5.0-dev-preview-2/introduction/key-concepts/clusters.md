@@ -1,23 +1,13 @@
 ---
 date: '2020-07-15T12:00:00Z'
-title: "Layer architecture"
+title: "Clusters"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-key-concepts
-    weight: 900
+    weight: 9500
 section_menu: corda-5-dev-preview
 ---
 
-High availability – Being able to operate Corda in a hot/hot, reliable way to provide high uptime.
+Clusters allow members on multiple networks thanks to multi-tenancy support. Corda 5 supports multiple Corda identities operating in the same cluster via virtual nodes. A virtual node is linked to a CPI and acts as a single member in a network once registration has been completed. A cluster allocates resources on a per-virtual node basis and ensures that code executing in the context of a particular virtual node is sandboxed away from other virtual nodes and platform code.
 
-Multi-tenancy – Support for ‘Virtual Corda Nodes’ to share a single Corda Installation to improve the Total Cost of Ownership (TCO) in certain scenarios. - two instances of same identity on the SAME instance Corda
-a Corda instance can take part in multiple, unrelated, ‘Application Networks’,
-
-* layer cake model - Corda 5 breaks the operational and developmental power of Corda into layers. Allowing you to choose the technologies that matter to you.
-   * As a developer you can incrementally (bottom up) build your application by engaging with the appropriate layer when it is needed, this mental model is now more directly represented through our APIs.
-   * As a developer you can test specific parts of your application independently (for example, mock a workflow).
-   * As a developer you can decide not to use our implementation of the ledger model and go with your own persistence model etc. opening the platform up to new use cases.
-   * Cherry on top, is our own development velocity as this gives us the ability to develop more rapidly (behind the interfaces and in parallel), introduce new implementations of the layers down the line etc.
-* db schmema - enables persistance
-* p2p
-* Diagrams!!
+Note about what's available in DP 2 (no cloud deployments, no multi-cluster) and what's coming soon
