@@ -4,7 +4,7 @@ title: "Testing and debugging flows"
 menu:
   corda-5-dev-preview:
   menu:
-    parent: corda-5-dev-preview-setup
+    parent: corda-5-dev-preview-start
     identifier: corda-5-dev-preview-test-flows
     weight: 3000
 section_menu: corda-5-dev-preview

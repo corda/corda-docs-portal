@@ -4,7 +4,7 @@ title: "Writing flows"
 menu:
   corda-5-dev-preview:
   menu:
-    parent: corda-5-dev-preview-setup
+    parent: corda-5-dev-preview-start
     identifier: corda-5-dev-preview-write-flows
     weight: 2000
 section_menu: corda-5-dev-preview
