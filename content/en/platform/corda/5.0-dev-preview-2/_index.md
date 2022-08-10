@@ -52,7 +52,7 @@ menu:
          <div class="card-body">
            <h3 class="card-title">
              <span>How do I start developing on Corda?</span></h3>
-           <p>Learn how to set up your environment and begin writing flows.</p>
+           <p>Learn how to set up your environment and begin writing CorDapps.</p>
          </div>
          <div class="card-footer">
            <a href="5.0-dev-preview-2/getting-started/overview.html" class="btn rounded">Get started</a>
