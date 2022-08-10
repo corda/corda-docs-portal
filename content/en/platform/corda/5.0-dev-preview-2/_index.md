@@ -90,9 +90,9 @@ menu:
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/use-cases/overview.html">
         <span>Use cases</span></h3></a>
-        <ul><li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case one</a></li>
-            <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case two</a></li>
-            <li style="text-align: left;"><a href="en/platform/corda/4.9/enterprise.html">Use case three</a></li>
+        <ul><li><a href="en/platform/corda/4.9/enterprise.html">Use case one</a></li>
+            <li><a href="en/platform/corda/4.9/enterprise.html">Use case two</a></li>
+            <li><a href="en/platform/corda/4.9/enterprise.html">Use case three</a></li>
       </ul>
     </div>
   </div>
@@ -101,7 +101,7 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="5.0-dev-preview-2/technical-resource/overview.html">
+      <a href="5.0-dev-preview-2/technical-resources/overview.html">
         <span>Technical resources</span></h3></a>
         <p>Learn about the <a href="5.0-dev-preview-2/api-ref/corda-api.html" class="fw-semibold">Corda API</a> and view the <a href="5.0-dev-preview-2/api-ref/api-refs.html" class="fw-semibold">Javadocs and KDocs</a>. Read the Corda 5 <a href="5.0-dev-preview-2/release-notes/highlights.html" class="fw-semibold">Release Notes</a>.</p>
     </div>
