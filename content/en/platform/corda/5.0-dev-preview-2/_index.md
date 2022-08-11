@@ -42,7 +42,6 @@ section_menu: corda-5-dev-preview
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
         <span>Introduction to Corda 5</span></h3></a>
-      <p>Learn Corda <a href="5.0-dev-preview-2/introduction/key-concepts.html" class="fw-semibold">key concepts</a> and run your first CorDapp.</p>
     </div>
   </div>
 </div>
@@ -52,7 +51,6 @@ section_menu: corda-5-dev-preview
            <h3 class="card-title">
            <a href="5.0-dev-preview-2/deploying/overview.html">
              <span>Start developing on Corda</span></h3></a>
-           <p>Learn how to set up your environment and begin writing CorDapps.</p>
          </div>
        </div>
      </div>
@@ -62,7 +60,6 @@ section_menu: corda-5-dev-preview
            <h3 class="card-title">  
            <a href="5.0-dev-preview-2/tutorials/overview.html">
              <span>Tutorials</span></h3></a>
-             <p>Follow a series of tutorials to guide you through Corda practices.</p>
          </div>
        </div>
      </div>
@@ -72,7 +69,6 @@ section_menu: corda-5-dev-preview
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/deploying/overview.html">
         <span>Deploying and operating Corda</span></h3></a>
-        <p>Learn how to deploy and operate Corda.</p>
     </div>
   </div>
 </div>
@@ -82,7 +78,6 @@ section_menu: corda-5-dev-preview
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/use-cases/overview.html">
         <span>Use cases</span></h3></a>
-        <p>Explore a series of industry-specific applications.</p>
       </ul>
     </div>
   </div>
@@ -93,7 +88,6 @@ section_menu: corda-5-dev-preview
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/technical-resources/overview.html">
         <span>Technical resources</span></h3></a>
-        <p>Learn about the <a href="5.0-dev-preview-2/api-ref/corda-api.html" class="fw-semibold">Corda API</a> and view the <a href="5.0-dev-preview-2/api-ref/api-refs.html" class="fw-semibold">Javadocs and KDocs</a>. Read the Corda 5 <a href="5.0-dev-preview-2/release-notes/highlights.html" class="fw-semibold">Release Notes</a>.</p>
     </div>
   </div>
 </div>

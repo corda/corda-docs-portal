@@ -8,10 +8,6 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-You can think of a worker as something you call and assign a task. The worker takes the task away to work on it, then calls you back when the task is complete. Some workers might pass parts of a task you give them to other specialized workers. You can call multiple workers to complete different tasks based on your needs at a given moment. Workers increase their capacity when they have a lot to do and scale back when they can. This property makes your Corda deployment resilient and scalable — you can add more workers if you need them, and add replicas of specific workers in case one fails. You can read more about workers [here](../getting-started/architecture/workers.html).
-
-------
-
 [https://www.corda.net/blog/corda-5-the-road-ahead-part-3-introduction-to-the-architecture/]: #
 
 ## Overview
