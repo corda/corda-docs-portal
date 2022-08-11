@@ -9,5 +9,5 @@ section_menu: corda-5-dev-preview
 ---
 
 The following tutorials are available for Corda 5 Developer Preview:
-* Tutorial 1
-* Tutorial 2
+* <a href="tutorial-one.html">Tutorial 1</a>
+* <a href="tutorial-two.html">Tutorial 2</a>
