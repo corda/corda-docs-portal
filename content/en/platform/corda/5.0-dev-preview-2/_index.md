@@ -1,6 +1,6 @@
 ---
 date: '2020-07-15T12:00:00Z'
-title: Corda 5 Developer Preview 2
+title: Corda 5 Developer Preview
 project: corda
 version: 'Corda 5 Developer Preview 2'
 menu:
