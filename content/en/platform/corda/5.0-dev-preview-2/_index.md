@@ -76,8 +76,8 @@ section_menu: corda-5-dev-preview
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="5.0-dev-preview-2/technical-resources/overview.html">
-        <span>Technical resources</span></h3></a>
+      <a href="5.0-dev-preview-2/use-cases/overview.html">
+        <span>Use cases</span></h3></a>
     </div>
   </div>
 </div>
@@ -85,8 +85,8 @@ section_menu: corda-5-dev-preview
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="5.0-dev-preview-2/use-cases/overview.html">
-        <span>Use cases</span></h3></a>
+      <a href="5.0-dev-preview-2/technical-resources/overview.html">
+        <span>Technical resources</span></h3></a>
     </div>
   </div>
 </div>
