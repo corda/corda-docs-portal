@@ -1,13 +1,14 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2020-07-15T12:00:00Z'
+title: Corda 5 Developer Preview 2
+project: corda
+version: 'Corda 5 Developer Preview 2'
 menu:
   versions:
     weight: -648
-  corda-5-dev-preview:
-    weight: 1
-section_menu: corda-5-dev-preview:
-title: Corda 5 Developer Preview 2
-version: 'Corda 5 Developer Preview 2'
+    corda-5-dev-preview:
+      weight: 10  
+    section_menu: corda-5-dev-preview      
 ---
 <section class="section" style="text-align:center; color:white; background-image:url('bg-dark.jpg');">
   <h1>
