@@ -80,10 +80,9 @@ section_menu: corda-5-dev-preview
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="5.0-dev-preview-2/use-cases/overview.html">
-        <span>Use cases</span></h3></a>
-        <p>Explore a series of industry-specific applications.</p>
-      </ul>
+      <a href="5.0-dev-preview-2/technical-resources/overview.html">
+        <span>Technical resources</span></h3></a>
+        <p>Learn about the <a href="5.0-dev-preview-2/api-ref/corda-api.html" class="fw-semibold">Corda API</a> and view the <a href="5.0-dev-preview-2/api-ref/api-refs.html" class="fw-semibold">Javadocs and KDocs</a>. Read the Corda 5 <a href="5.0-dev-preview-2/release-notes/highlights.html" class="fw-semibold">Release Notes</a>.</p>
     </div>
   </div>
 </div>
@@ -91,9 +90,9 @@ section_menu: corda-5-dev-preview
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="5.0-dev-preview-2/technical-resources/overview.html">
-        <span>Technical resources</span></h3></a>
-        <p>Learn about the <a href="5.0-dev-preview-2/api-ref/corda-api.html" class="fw-semibold">Corda API</a> and view the <a href="5.0-dev-preview-2/api-ref/api-refs.html" class="fw-semibold">Javadocs and KDocs</a>. Read the Corda 5 <a href="5.0-dev-preview-2/release-notes/highlights.html" class="fw-semibold">Release Notes</a>.</p>
+      <a href="5.0-dev-preview-2/use-cases/overview.html">
+        <span>Use cases</span></h3></a>
+        <p>Explore a series of industry-specific applications.</p>
     </div>
   </div>
 </div>
