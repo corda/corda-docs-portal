@@ -9,9 +9,9 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-This section describes key Corda 5 concepts:
+This section describes the key concepts of Corda 5.
 
-
+<!--
 
 ##	Distributed ledgers
 
@@ -30,3 +30,4 @@ This section describes key Corda 5 concepts:
 The P2P layer enables [identities](corda-identities) to exchange messages with each other regardless of whether they reside in the same or different clusters.
 
 *Note about what's available in DP 2 (nothing?) and what's coming soon - layer cake architecture means p2p layer could be used independently - no flow network*
+-->

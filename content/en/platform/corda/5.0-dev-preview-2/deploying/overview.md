@@ -8,3 +8,5 @@ menu:
 section_menu: corda-5-dev-preview
 
 ---
+This section describes how to deploy and operate Corda.
+*Describe limitations in DP2*
