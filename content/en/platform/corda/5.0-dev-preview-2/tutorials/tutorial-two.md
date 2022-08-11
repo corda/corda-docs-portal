@@ -1,6 +1,6 @@
 ---
 date: '2021-09-21'
-title: "Tutorials"
+title: "Tutorial two"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-tutorials

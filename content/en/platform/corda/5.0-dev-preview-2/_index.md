@@ -7,6 +7,7 @@ menu:
   versions:
     weight: -648
     corda-5-dev-preview:
+    identifier: corda-5-dev-preview-homepage
       weight: 10  
     section_menu: corda-5-dev-preview      
 ---
