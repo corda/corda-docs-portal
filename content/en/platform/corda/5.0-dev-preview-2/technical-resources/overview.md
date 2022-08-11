@@ -7,3 +7,4 @@ menu:
     weight: 5000
 section_menu: corda-5-dev-preview
 ---
+This section describes contains the Developer Preview 2 Release Notes and explores the Corda API in detail.

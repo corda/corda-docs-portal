@@ -7,3 +7,4 @@ menu:
     weight: 2000
 section_menu: corda-5-dev-preview
 ---
+This section describes how to set-up your environment and begin writing CorDapps.

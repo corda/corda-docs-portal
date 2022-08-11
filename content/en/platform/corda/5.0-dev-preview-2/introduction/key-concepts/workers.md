@@ -10,8 +10,6 @@ section_menu: corda-5-dev-preview
 
 [https://www.corda.net/blog/corda-5-the-road-ahead-part-3-introduction-to-the-architecture/]: #
 
-## Overview
-
 ![Corda 5 microservices-like architecture](overview.png)
 *Corda 5 workers*
 
