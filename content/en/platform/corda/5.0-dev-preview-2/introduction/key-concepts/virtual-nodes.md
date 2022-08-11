@@ -8,20 +8,6 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-A virtual node represents a [Corda identity](#corda-identities) and contains everything needed to communicate and transact on Corda: keys, certificates, and storage. This enables the identity to join application networks, where they can interact with other group members according to the terms set by the [Membership Group Manager (MGM)](../mgm/overview.html). Identities can join multiple application networks from one physical node infrastructure using virtual nodes.
-
-Virtual nodes can be:
-* **Multi-tenant.** You can host multiple virtual nodes on one deployment of Corda, at no additional cost.
-* **Portable.** You can move a virtual node from one host to another.
-* **Highly-available.** If you configure your node to be highly available, if it goes down, an identical one takes its place instantly.
-
- You can think of a virtual node as an environment that enables the processor to locate a specific [CPI](#cordapp-package-installer-cpi) file. The flows associated with the CPI let the virtual node communicate with others. You can read more about virtual nodes [here](../getting-started/architecture/virtualnodes.html).
-
-
-
------
-
-
 ## Overview
 
 Corda 5 introduces the concept of virtual nodes to allow multi-tenancy. A virtual node, or group member, is a [Corda identity](../key-concepts.html#corda-identities) granted admission to a membership group. A virtual node contains everything needed to communicate and transact on Corda: keys, certificates, and storage. This enables the identity to join application networks, where they can interact with other group members according to the terms set by the [Membership Group Manager (MGM)](../../mgm/overview.html). Identities can join multiple application networks from one physical node infrastructure using virtual nodes.
