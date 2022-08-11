@@ -1,6 +1,6 @@
 ---
 date: '2021-09-21'
-title: "Digital assets use case"
+title: "Digital assets"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-use-cases

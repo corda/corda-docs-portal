@@ -6,10 +6,10 @@ version: 'Corda 5 Developer Preview 2'
 menu:
   versions:
     weight: -648
-    corda-5-dev-preview:
-      identifier: corda-5-dev-preview-homepage
-      weight: 10  
-    section_menu: corda-5-dev-preview      
+  corda-5-dev-preview:
+    identifier: corda-5-dev-preview-homepage
+    weight: 1000  
+section_menu: corda-5-dev-preview      
 ---
 <section class="section" style="text-align:center; color:white; background-image:url('bg-dark.jpg');">
   <h1>
