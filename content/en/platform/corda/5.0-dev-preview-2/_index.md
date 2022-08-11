@@ -41,7 +41,9 @@ section_menu: corda-5-dev-preview
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
-        <span>Introduction to Corda 5</span></h3></a>
+          <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="height: 48" class="light-only">
+          <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  style="height: 48" class="dark-only">
+          <span>Introduction to Corda 5</span></h3></a>
     </div>
   </div>
 </div>
