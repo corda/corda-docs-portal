@@ -71,7 +71,7 @@ version: 'Corda 5 Developer Preview 2'
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/deploying/overview.html">
-        <span>Deploying and operating</span></h3></a>
+        <span>Deploying and operating Corda</span></h3></a>
         <p>Learn how to deploy and operate Corda.</p>
     </div>
   </div>
