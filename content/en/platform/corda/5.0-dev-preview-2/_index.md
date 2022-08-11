@@ -1,14 +1,15 @@
 ---
-date: '2020-07-15T12:00:00Z'
-title: Corda 5 Developer Preview 2
-project: corda
-version: 'Corda 5 Developer Preview 2'
+date: '2020-04-07T12:00:00Z'
 menu:
   versions:
     weight: -648
-    corda-5-dev-preview:
-      weight: 10  
-    section_menu: corda-5-dev-preview      
+  corda-5-dev-preview:
+    weight: 1
+    name: Corda 5 Developer Preview 2
+project: corda
+section_menu: corda-5-dev-preview:
+title: Corda 5 Developer Preview 2
+version: 'Corda 5 Developer Preview 2'
 ---
 <section class="section" style="text-align:center; color:white; background-image:url('bg-dark.jpg');">
   <h1>
@@ -39,7 +40,8 @@ menu:
   <div class="card h-100"  style="text-align: center">
     <div class="card-body">
       <h3 class="card-title">
-        <span>Introduction to Corda 5</span></h3>
+      <a href="5.0-dev-preview-2/introduction/introduction.html">
+        <span>Introduction to Corda 5</span></h3></a>
       <p>Learn Corda <a href="5.0-dev-preview-2/introduction/key-concepts.html" class="fw-semibold">key concepts</a> and run your first CorDapp.</p>
     </div>
   </div>
@@ -48,7 +50,8 @@ menu:
        <div class="card h-100" style="text-align: center">
          <div class="card-body">
            <h3 class="card-title">
-             <span>Start developing on Corda</span></h3>
+           <a href="5.0-dev-preview-2/deploying/overview.html">
+             <span>Start developing on Corda</span></h3></a>
            <p>Learn how to set up your environment and begin writing CorDapps.</p>
          </div>
        </div>
@@ -56,8 +59,9 @@ menu:
      <div class="col">
        <div class="card h-100" style="text-align: center">
          <div class="card-body">
-           <h3 class="card-title">   
-             <span>Tutorials</span></h3>
+           <h3 class="card-title">  
+           <a href="5.0-dev-preview-2/tutorials/overview.html">
+             <span>Tutorials</span></h3></a>
              <p>Follow a series of tutorials to guide you through Corda practices.</p>
          </div>
        </div>
