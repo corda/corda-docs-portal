@@ -37,7 +37,7 @@ section_menu: corda-5-dev-preview
   </div>
 -->  
 <div class="col">
-  <div class="card h-100"  style="text-align: center">
+  <div class="card h-80">
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
