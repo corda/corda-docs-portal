@@ -41,7 +41,7 @@ section_menu: corda-5-dev-preview
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
-          <br><span>Introduction to Corda 5</span></h3></a>
+          <span>Introduction to Corda 5</span></h3></a>
     </div>
   </div>
 </div>
