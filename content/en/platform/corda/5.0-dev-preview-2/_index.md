@@ -50,7 +50,7 @@ section_menu: corda-5-dev-preview
          <div class="card-body">
            <h3 class="card-title">
            <a href="5.0-dev-preview-2/deploying/overview.html">
-             <span>Start developing on Corda</span></h3></a>
+             <span>Developing on Corda</span></h3></a>
          </div>
        </div>
      </div>
