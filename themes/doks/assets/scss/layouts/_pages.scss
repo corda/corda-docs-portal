@@ -7,6 +7,38 @@
   content: "";
 }
 
+.card {
+  h3.card-title {
+    text-align: center;
+
+    a {
+      display: block;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .card-body {
+    text-align: center;
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .card-footer {
+    text-align: center;
+    background: none;
+    border: none;
+    margin-bottom: 2rem;
+  }
+
+  &.no-border {
+    .card-body {
+      padding-bottom: 0;
+    }
+  }
+}
+
 .anchor {
   visibility: hidden;
   padding-left: 0.5rem;
