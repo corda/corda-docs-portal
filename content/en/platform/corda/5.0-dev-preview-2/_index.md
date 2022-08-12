@@ -24,8 +24,8 @@ section_menu: corda-5-dev-preview
       <div class="card-body">
         <h3 class="card-title">
         <a href="en/get-started.html">
-          <img src='{{ "icons/agenda-bookmark.svg" | relURL }}' alt="Get started"  height="48" class="light-only">
-          <img src='{{ "icons/agenda-bookmark-white.svg" | relURL }}' alt="Get started"  height="48" class="dark-only">
+        <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="height: 48" class="light-only">
+        <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  style="height: 48" class="dark-only">
         </a>
           <span>Title</span></h3>
         <p>.........</p>
@@ -41,8 +41,6 @@ section_menu: corda-5-dev-preview
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
-          <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="height: 48" class="light-only">
-          <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  style="height: 48" class="dark-only">
           <br><span>Introduction to Corda 5</span></h3></a>
     </div>
   </div>
