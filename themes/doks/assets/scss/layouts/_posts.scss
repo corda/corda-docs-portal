@@ -4,7 +4,7 @@
   transition: transform 0.3s;
 }
 
-.home .card:hover,
+.home .card:hover, .page .card:hover,
 .contributors.list .card:hover,
 .blog.list .card:hover {
   transform: scale(1.025);
