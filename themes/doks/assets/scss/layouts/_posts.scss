@@ -1,16 +1,19 @@
 .home .card,
+.page .card:hover,
 .contributors.list .card,
 .blog.list .card {
   transition: transform 0.3s;
 }
 
-.home .card:hover, .page .card:hover,
+.home .card:hover,
+.page .card:hover,
 .contributors.list .card:hover,
 .blog.list .card:hover {
   transform: scale(1.025);
 }
 
 .home .card-body,
+.page .card:hover,
 .contributors.list .card-body,
 .blog.list .card-body {
   padding: 0 2rem 2rem;
