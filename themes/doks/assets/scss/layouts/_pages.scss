@@ -9,6 +9,11 @@
 
 .card {
 
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.025);
+  }
   h3.card-title {
     text-align: center;
 
@@ -20,7 +25,7 @@
 
   .card-body {
     text-align: center;
-
+    padding: 0 2rem 2rem;
     p {
       margin-bottom: 0.5rem;
     }
