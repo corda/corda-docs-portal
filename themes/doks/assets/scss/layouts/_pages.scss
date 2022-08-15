@@ -7,6 +7,14 @@
   content: "";
 }
 
+&.dark{
+  .card {
+    a {
+      color: $gray-100;
+    }
+  }
+}
+
 .card {
 
   transition: transform 0.3s;
