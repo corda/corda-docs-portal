@@ -1,5 +1,5 @@
 .home .card,
-.page .card:hover,
+.page .card,
 .contributors.list .card,
 .blog.list .card {
   transition: transform 0.3s;
@@ -13,7 +13,7 @@
 }
 
 .home .card-body,
-.page .card:hover,
+.page .card-body,
 .contributors.list .card-body,
 .blog.list .card-body {
   padding: 0 2rem 2rem;
