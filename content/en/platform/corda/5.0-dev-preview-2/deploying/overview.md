@@ -4,7 +4,7 @@ title: "Deploying and operating Corda"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-deploy
-    weight: 3000
+    weight: 3050
 section_menu: corda-5-dev-preview
 
 ---

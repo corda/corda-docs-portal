@@ -43,7 +43,7 @@ section_menu: corda-5-dev-preview
       <a href="5.0-dev-preview-2/introduction/introduction.html">
       <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="height: 24" class="light-only card-img-top img-fluid">
       <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  style="height: 48" class="dark-only card-img-top">
-      <span>Introduction to Corda 5</span></h3></a>
+      <span>Introduction</span></h3></a>
     </div>
   </div>
 </div>
@@ -51,26 +51,26 @@ section_menu: corda-5-dev-preview
        <div class="card h-100">
          <div class="card-body">
            <h3 class="card-title">
-           <a href="5.0-dev-preview-2/deploying/overview.html">
-             <span>Developing on Corda</span></h3></a>
+           <a href="5.0-dev-preview-2/getting-started/overview.html">
+             <span>Getting started</span></h3></a>
          </div>
        </div>
      </div>
+<div class="col">
+       <div class="card h-100">
+         <div class="card-body">
+           <h3 class="card-title">  
+           <a href="5.0-dev-preview-2/developing/overview.html">
+             <span>Developing</span></h3></a>
+         </div>
+       </div>
+</div>     
 <div class="col">
   <div class="card h-100">
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/deploying/overview.html">
-        <span>Deploying and operating Corda</span></h3></a>
-    </div>
-  </div>
-</div>
-<div class="col">
-  <div class="card h-100">
-    <div class="card-body">
-      <h3 class="card-title">  
-      <a href="5.0-dev-preview-2/tutorials/overview.html">
-        <span>Tutorials</span></h3></a>
+        <span>Deploying and operating</span></h3></a>
     </div>
   </div>
 </div>
@@ -87,8 +87,8 @@ section_menu: corda-5-dev-preview
   <div class="card h-100">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="5.0-dev-preview-2/technical-resources/overview.html">
-        <span>Technical resources</span></h3></a>
+      <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html">
+        <span>Release Notes</span></h3></a>
     </div>
   </div>
 </div>
