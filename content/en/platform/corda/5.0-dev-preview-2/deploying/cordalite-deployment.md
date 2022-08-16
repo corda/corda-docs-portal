@@ -8,5 +8,8 @@ menu:
     weight: 1000
 section_menu: corda-5-dev-preview
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0d488337d (new structure)
 ---
