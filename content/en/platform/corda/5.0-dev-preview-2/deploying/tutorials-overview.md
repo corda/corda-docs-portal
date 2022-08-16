@@ -2,6 +2,7 @@
 date: '2021-09-21'
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 title: "Deployment tutorials"
 menu:
   corda-5-dev-preview:
@@ -16,6 +17,9 @@ menu:
 >>>>>>> b4b474e27 (new structure)
 =======
 title: "Deployment Tutorials"
+=======
+title: "Deployment tutorials"
+>>>>>>> 5bc5fd9a6 (remove icon)
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-tutorials-deploy
