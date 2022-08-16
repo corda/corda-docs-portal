@@ -8,4 +8,4 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-This will contain a high-level intro to what is wonderful about Corda 5!!
+This will contain a high-level intro to what has changed and is wonderful about Corda 5!!

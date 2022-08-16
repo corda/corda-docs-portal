@@ -1,10 +1,10 @@
 ---
 date: '2021-09-21'
-title: "Development Tutorials"
+title: "Deployment Tutorials"
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-tutorials-dev
-    parent: corda-5-dev-preview-start
+    identifier: corda-5-dev-preview-tutorials-deploy
+    parent: corda-5-dev-preview-deploy
     weight: 5000
 section_menu: corda-5-dev-preview
 ---
