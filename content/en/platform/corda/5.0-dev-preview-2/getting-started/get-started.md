@@ -1,6 +1,6 @@
 ---
 date: '2020-07-15T12:00:00Z'
-title: "Developing on Corda"
+title: "Getting started"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-start
