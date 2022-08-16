@@ -4,7 +4,7 @@ title: "Tutorial one"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-tutorials-dev
-    identifier: corda-5-dev-preview-tutorial-one
+    identifier: corda-5-dev-preview-tutorial-dev-one
     weight: 1000
 section_menu: corda-5-dev-preview
 ---

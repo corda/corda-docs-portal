@@ -1,6 +1,6 @@
 ---
 date: '2021-09-21'
-title: "Deploying and operating Corda"
+title: "Deploying and operating"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-deploy
