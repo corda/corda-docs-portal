@@ -6,6 +6,7 @@ menu:
     identifier: corda-5-dev-preview-deploy
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     weight: 3050
 section_menu: corda-5-dev-preview
 =======
@@ -13,6 +14,9 @@ section_menu: corda-5-dev-preview
 =======
     weight: 3000
 >>>>>>> 189814a25 (clean-up)
+=======
+    weight: 3050
+>>>>>>> b4b474e27 (new structure)
 section_menu: corda-5-dev-preview
 
 >>>>>>> 69910b3c2 (add tutorials and use cases)
