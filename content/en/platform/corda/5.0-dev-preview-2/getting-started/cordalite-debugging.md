@@ -4,7 +4,7 @@ title: "Debugging with Corda Lite"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-start
-    identifier: corda-5-dev-preview-cordalite-running
+    identifier: corda-5-dev-preview-cordalite-debugging
     weight: 6000
 section_menu: corda-5-dev-preview
 ---
