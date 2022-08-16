@@ -1,11 +1,11 @@
 ---
 date: '2021-09-21'
-title: "Local Kubernetes cluster"
+title: "Cordalite"
 menu:
   corda-5-dev-preview:
-    identifier: corda-5-dev-preview-deploy-local
+    identifier: corda-5-dev-preview-deploy-cordalite
     parent: corda-5-dev-preview-deploy-options
-    weight: 2000
+    weight: 1000
 section_menu: corda-5-dev-preview
 
 ---
