@@ -11,9 +11,9 @@ menu:
     weight: 1000  
 section_menu: corda-5-dev-preview      
 ---
-<head>
+<!--<head>
   <link rel="stylesheet" href="themes/doks/assets/scss/layouts/_home.scss">
-</head>
+</head>-->
 
 <section class="section" style="text-align:center; color:white; background-image:url('bg-dark.jpg');">
   <h1>
@@ -45,8 +45,8 @@ section_menu: corda-5-dev-preview
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
-      <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  height="48" class="light-only">
-      <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  height="48" class="dark-only"><br>
+      <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="max-width: 100%; background: $white; padding: 0rem; border: 0; height: 48;" class="light-only">
+      <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction" style="max-width: 100%; background: $black; padding: 0rem; border: 0; height: 48;" class="light-only"> class="dark-only"><br>
       <span>Introduction</span></h3></a>
     </div>
   </div>
