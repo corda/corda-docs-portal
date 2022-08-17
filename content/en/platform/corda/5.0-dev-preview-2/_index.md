@@ -65,7 +65,8 @@ section_menu: corda-5-dev-preview
          <div class="card-body">
            <h3 class="card-title">  
            <a href="5.0-dev-preview-2/developing/overview.html">
-           <img src="../../../../../../icons/R3_OpenSource_Red.png" alt="Developing"  style="padding: 1rem; border: 0;" height: 48;" class="light-only"><br>
+           <img src="../../../../../../icons/R3_OpenSource_Red.png" alt="Developing"  style="padding: 1rem; border: 0; height: 48;" class="light-only">
+           <img src="../../../../../../icons/R3_OpenSource_Red.png" alt="Developing"  style="padding: 1rem; border: 0; height: 48;" class="light-only"><br>
              <span>Developing</span></h3></a>
          </div>
        </div>
