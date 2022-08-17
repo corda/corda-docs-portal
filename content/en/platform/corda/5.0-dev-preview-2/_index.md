@@ -41,7 +41,7 @@ section_menu: corda-5-dev-preview
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
-      <img src='{{ "icons/agenda-bookmark.svg" | relURL }}' alt="Get started"  height="48" class="light-only">
+      <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  height="48" class="light-only">
       <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  height="48" class="dark-only">
       <span>Introduction</span></h3></a>
     </div>
