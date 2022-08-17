@@ -43,10 +43,10 @@ section_menu: corda-5-dev-preview
 <div class="col">
   <div class="card h-100">
     <div class="card-body">
+    <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="padding: 1rem; border: 0; height: 48;" class="light-only">
+    <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction" style="background: #202020; padding: 1rem; border: 0; height: 48;" class="dark-only"></br>
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
-      <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="padding: 1rem; border: 0; height: 48;" class="light-only">
-      <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction" style="background: #202020; padding: 1rem; border: 0; height: 48;" class="dark-only"></br>
       <span>Introduction</span></h3></a>
     </div>
   </div>
@@ -86,7 +86,7 @@ section_menu: corda-5-dev-preview
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/use-cases/overview.html">
-      <img src="5.0-dev-preview-2icons/use-cases.png" alt="Use cases"  style="padding: 1rem; border: 0; height: 48;"></br>
+      <img src="5.0-dev-preview-2/icons/use-cases.png" alt="Use cases"  style="padding: 1rem; border: 0; height: 48;"></br>
         <span>Use cases</span></h3></a>
     </div>
   </div>
@@ -96,7 +96,7 @@ section_menu: corda-5-dev-preview
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html">
-      <img src="5.0-dev-preview-2icons/release-notes.png" alt="Release notes"  style="padding: 1rem; border: 0; height: 48;"></br>
+      <img src="5.0-dev-preview-2/icons/release-notes.png" alt="Release notes"  style="padding: 1rem; border: 0; height: 48;"></br>
         <span>Release Notes</span></h3></a>
     </div>
   </div>
