@@ -42,11 +42,11 @@ section_menu: corda-5-dev-preview
 -->  
 <div class="col">
   <div class="card h-100">
-    <div class="card-body">    <a href="5.0-dev-preview-2/introduction/introduction.html">
-    <img src="5.0-dev-preview-2/icons/corda.svg" alt="Introduction" style="padding: 1rem; border: 0; height: 24;" class="light-only">
-    <img src="5.0-dev-preview-2/icons/corda.svg" alt="Introduction" style="background: #202020; padding: 1rem; border: 0; height: 24;" class="dark-only"></a>
+    <div class="card-body">    
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
+      <img src="5.0-dev-preview-2/icons/corda.svg" alt="Introduction" style="padding: 1rem; border: 0; height: 12;" class="light-only">
+      <img src="5.0-dev-preview-2/icons/corda.svg" alt="Introduction" style="background: #202020; padding: 1rem; border: 0; height: 24;" class="dark-only"></br>
       <span>Introduction</span></h3></a>
     </div>
   </div>
@@ -55,9 +55,9 @@ section_menu: corda-5-dev-preview
        <div class="card h-100">
          <div class="card-body">
            <h3 class="card-title">
-           <img src="5.0-dev-preview-2/icons/get-started.png" alt="Getting started" style="padding: 1rem; border: 0; height: 36;" class="light-only">
-           <img src="5.0-dev-preview-2/icons/get-started.png" alt="Getting started"  style="background: #202020; padding: 1rem; border: 0; height: 48;" class="dark-only">
            <a href="5.0-dev-preview-2/getting-started/overview.html">
+           <img src="5.0-dev-preview-2/icons/get-started.png" alt="Getting started" style="padding: 1rem; border: 0; height: 6;" class="light-only">
+           <img src="5.0-dev-preview-2/icons/get-started.png" alt="Getting started"  style="background: #202020; padding: 1rem; border: 0; height: 48;" class="dark-only"></br>
              <span>Getting started</span></h3></a>
          </div>
        </div>
@@ -65,9 +65,10 @@ section_menu: corda-5-dev-preview
 <div class="col">
        <div class="card h-100">
          <div class="card-body">
-         <img src="5.0-dev-preview-2/icons/develop.png" alt="Developing" style="padding: 1rem; border: 0; height: 36;">
            <h3 class="card-title">  
            <a href="5.0-dev-preview-2/developing/overview.html">
+            <img src="5.0-dev-preview-2/icons/develop.png" alt="Developing" style="padding: 1rem; border: 0; height: 6;" class="light-only">
+            <img src="5.0-dev-preview-2/icons/develop.png" alt="Developing" style="background: #202020; padding: 1rem; border: 0; height: 48;" class="dark-only"></br>
              <span>Developing</span></h3></a>
          </div>
        </div>
@@ -75,9 +76,10 @@ section_menu: corda-5-dev-preview
 <div class="col">
   <div class="card h-100">
     <div class="card-body">
-    <img src="5.0-dev-preview-2/icons/deploy.png" alt="Deploy" style="padding: 1rem; border: 0; height: 36;">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/deploying/overview.html">
+          <img src="5.0-dev-preview-2/icons/deploy.png" alt="Deploy" style="padding: 1rem; border: 0; height: 6;" class="light-only">
+              <img src="5.0-dev-preview-2/icons/deploy.png" alt="Deploy" style="background: #202020; padding: 1rem; border: 0; height: 48;" class="dark-only"></br>
         <span>Deploying and operating</span></h3></a>
     </div>
   </div>
@@ -87,7 +89,11 @@ section_menu: corda-5-dev-preview
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/use-cases/overview.html">
-      <img src="5.0-dev-preview-2/icons/use-cases.png" alt="Use cases" style="padding: 1rem; border: 0; height: 48;"></br>
+      <img src="5.0-dev-preview-2/icons/use-cases.png" alt="Use cases" style="padding: 1rem; border: 0; height: 6;" class="light-only">
+      <img src="5.0-dev-preview-2/icons/use-cases.png" alt="Use cases" style="background: #202020; padding: 1rem; border: 0; height: 48;" class="dark-only"></br>
+<span>Deploying and operating</span></h3></a>
+</div>
+</div>
         <span>Use cases</span></h3></a>
     </div>
   </div>
@@ -97,7 +103,9 @@ section_menu: corda-5-dev-preview
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html">
-      <img src="5.0-dev-preview-2/icons/release-notes.png" alt="Release notes" style="padding: 1rem; border: 0; height: 48;"></br>
+      <img src="5.0-dev-preview-2/icons/release-notes.png" alt="Release notes" style="padding: 1rem; border: 0; height: 6;" class="light-only">
+      <img src="5.0-dev-preview-2/icons/release-notes.png" alt="Release notes" style="background: #202020; padding: 1rem; border: 0; height: 48;" class="dark-only"></br>
+
         <span>Release Notes</span></h3></a>
     </div>
   </div>
