@@ -12,7 +12,7 @@ menu:
 section_menu: corda-5-dev-preview      
 ---
 <head>
-  <link rel="stylesheet" href="../../../../../../themes/doks/assets/scss/layouts/_home.scss">
+  <link rel="stylesheet" href="themes/doks/assets/scss/layouts/_home.scss">
 </head>
 
 <section class="section" style="text-align:center; color:white; background-image:url('bg-dark.jpg');">
