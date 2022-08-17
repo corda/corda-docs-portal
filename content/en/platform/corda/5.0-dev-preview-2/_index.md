@@ -42,9 +42,9 @@ section_menu: corda-5-dev-preview
 -->  
 <div class="col">
   <div class="card h-100">
-    <div class="card-body">
-    <img src="5.0-dev-preview-2/icons/intro.jpg" alt="Introduction" style="padding: 1rem; border: 0; height: 48;" class="light-only">
-    <img src="5.0-dev-preview-2/icons/intro.jpg" alt="Introduction" style="background: #202020; padding: 1rem; border: 0; height: 48;" class="dark-only">
+    <div class="card-body">    <a href="5.0-dev-preview-2/introduction/introduction.html">
+    <img src="5.0-dev-preview-2/icons/corda.svg" alt="Introduction" style="padding: 1rem; border: 0; height: 24;" class="light-only">
+    <img src="5.0-dev-preview-2/icons/corda.svg" alt="Introduction" style="background: #202020; padding: 1rem; border: 0; height: 24;" class="dark-only"></a>
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
       <span>Introduction</span></h3></a>
@@ -55,10 +55,9 @@ section_menu: corda-5-dev-preview
        <div class="card h-100">
          <div class="card-body">
            <h3 class="card-title">
-           <a href="5.0-dev-preview-2/getting-started/overview.html">
            <img src="5.0-dev-preview-2/icons/get-started.png" alt="Getting started" style="padding: 1rem; border: 0; height: 36;" class="light-only">
            <img src="5.0-dev-preview-2/icons/get-started.png" alt="Getting started"  style="background: #202020; padding: 1rem; border: 0; height: 48;" class="dark-only">
-           </br>
+           <a href="5.0-dev-preview-2/getting-started/overview.html">
              <span>Getting started</span></h3></a>
          </div>
        </div>
@@ -66,9 +65,9 @@ section_menu: corda-5-dev-preview
 <div class="col">
        <div class="card h-100">
          <div class="card-body">
+         <img src="5.0-dev-preview-2/icons/develop.png" alt="Developing" style="padding: 1rem; border: 0; height: 36;">
            <h3 class="card-title">  
            <a href="5.0-dev-preview-2/developing/overview.html">
-           <img src="5.0-dev-preview-2/icons/develop.png" alt="Developing" style="padding: 1rem; border: 0; height: 36;"></br>
              <span>Developing</span></h3></a>
          </div>
        </div>
@@ -76,9 +75,9 @@ section_menu: corda-5-dev-preview
 <div class="col">
   <div class="card h-100">
     <div class="card-body">
+    <img src="5.0-dev-preview-2/icons/deploy.png" alt="Deploy" style="padding: 1rem; border: 0; height: 36;">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/deploying/overview.html">
-      <img src="5.0-dev-preview-2/icons/deploy.png" alt="Deploy" style="padding: 1rem; border: 0; height: 36;"></br>
         <span>Deploying and operating</span></h3></a>
     </div>
   </div>
