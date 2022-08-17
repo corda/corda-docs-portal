@@ -45,8 +45,8 @@ section_menu: corda-5-dev-preview
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
-      <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="max-width: 100%; padding: 3rem; border: 0; height: 48;" class="light-only">
-      <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction" style="max-width: 100%; background: #000000; padding: 0rem; border: 0; height: 48;" class="dark-only"><br>
+      <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="padding: 1rem; border: 0; height: 48;" class="light-only">
+      <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction" style="background: #2596be; padding: 0rem; border: 0; height: 48;" class="dark-only"><br>
       <span>Introduction</span></h3></a>
     </div>
   </div>
@@ -65,7 +65,7 @@ section_menu: corda-5-dev-preview
          <div class="card-body">
            <h3 class="card-title">  
            <a href="5.0-dev-preview-2/developing/overview.html">
-           <img src="../../../../../../icons/R3_OpenSource_Red.png" alt="Developing"  style="max-width: 100%; padding: 3rem; border: 0; height: 48;" class="light-only">
+           <img src="../../../../../../icons/R3_OpenSource_Red.png" alt="Developing"  style="max-width: 100%; padding: 1rem; border: 0; height: 48;" class="light-only">
              <span>Developing</span></h3></a>
          </div>
        </div>
