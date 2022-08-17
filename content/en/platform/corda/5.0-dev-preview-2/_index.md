@@ -11,6 +11,10 @@ menu:
     weight: 1000  
 section_menu: corda-5-dev-preview      
 ---
+<head>
+  <link rel="stylesheet" href="../../../../../../themes/doks/assets/scss/layouts/_home.scss">
+</head>
+
 <section class="section" style="text-align:center; color:white; background-image:url('bg-dark.jpg');">
   <h1>
     Corda 5 Developer Preview 2
@@ -42,7 +46,7 @@ section_menu: corda-5-dev-preview
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
       <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  height="48" class="light-only">
-      <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  height="48" class="dark-only">
+      <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  height="48" class="dark-only"><br>
       <span>Introduction</span></h3></a>
     </div>
   </div>
