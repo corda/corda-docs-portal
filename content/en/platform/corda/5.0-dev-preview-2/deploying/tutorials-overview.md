@@ -1,11 +1,5 @@
 ---
 date: '2021-09-21'
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> fdbd1a14a10ebadf73157f02101ed8195e0b7d38
 title: "Deployment tutorials"
 menu:
   corda-5-dev-preview:
