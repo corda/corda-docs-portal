@@ -27,6 +27,7 @@ menu:
 >>>>>>> 98f9c730a (new structure)
     weight: 5000
 section_menu: corda-5-dev-preview
+draft: true
 ---
 
 The following tutorials are available for Corda 5 Developer Preview 2:

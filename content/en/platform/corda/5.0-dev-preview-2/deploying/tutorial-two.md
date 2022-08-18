@@ -10,6 +10,7 @@ menu:
 <<<<<<< HEAD
     weight: 2000
 section_menu: corda-5-dev-preview
+<<<<<<< HEAD
 
 =======
     parent: corda-5-dev-preview-tutorials
@@ -22,4 +23,7 @@ section_menu: corda-5-dev-preview
     weight: 2000
 section_menu: corda-5-dev-preview
 >>>>>>> b4b474e27 (new structure)
+=======
+draft: true
+>>>>>>> fdbd1a14a (set deploy to draft)
 ---
