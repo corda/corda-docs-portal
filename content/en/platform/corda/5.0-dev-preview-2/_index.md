@@ -41,7 +41,7 @@ section_menu: corda-5-dev-preview
   </div>
 -->  
 <div class="col">
-  <div class="card h-120">
+  <div class="card h-100">
     <div class="card-body">    
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
@@ -52,7 +52,7 @@ section_menu: corda-5-dev-preview
   </div>
 </div>
 <div class="col">
-       <div class="card h-120">
+       <div class="card h-100">
          <div class="card-body">
            <h3 class="card-title">
            <a href="5.0-dev-preview-2/getting-started/overview.html">
@@ -63,7 +63,7 @@ section_menu: corda-5-dev-preview
        </div>
      </div>
 <div class="col">
-       <div class="card h-120">
+       <div class="card h-100">
          <div class="card-body">
            <h3 class="card-title">  
            <a href="5.0-dev-preview-2/developing/overview.html">
@@ -74,7 +74,7 @@ section_menu: corda-5-dev-preview
        </div>
 </div>     
 <div class="col">
-  <div class="card h-120">
+  <div class="card h-100">
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/deploying/overview.html">
@@ -85,7 +85,7 @@ section_menu: corda-5-dev-preview
   </div>
 </div>
 <div class="col">
-  <div class="card h-120">
+  <div class="card h-100">
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/use-cases/overview.html">
@@ -96,7 +96,7 @@ section_menu: corda-5-dev-preview
   </div>
 </div>
 <div class="col">
-  <div class="card h-120">
+  <div class="card h-100">
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html">
