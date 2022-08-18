@@ -11,29 +11,8 @@ menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-tutorials-deploy
     parent: corda-5-dev-preview-deploy
-<<<<<<< HEAD
-=======
-title: "Development Tutorials"
-menu:
-  corda-5-dev-preview:
-    identifier: corda-5-dev-preview-tutorials-dev
-    parent: corda-5-dev-preview-start
->>>>>>> b4b474e27 (new structure)
-=======
-title: "Deployment Tutorials"
-=======
-title: "Deployment tutorials"
->>>>>>> 5bc5fd9a6 (remove icon)
-menu:
-  corda-5-dev-preview:
-    identifier: corda-5-dev-preview-tutorials-deploy
-    parent: corda-5-dev-preview-deploy
->>>>>>> 98f9c730a (new structure)
-=======
->>>>>>> fdbd1a14a10ebadf73157f02101ed8195e0b7d38
     weight: 5000
 section_menu: corda-5-dev-preview
-draft: true
 ---
 
 The following tutorials are available for Corda 5 Developer Preview 2:
