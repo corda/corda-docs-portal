@@ -5,6 +5,7 @@ menu:
   corda-5-dev-preview:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     parent: corda-5-dev-preview-tutorials-deploy
     identifier: corda-5-dev-preview-tutorial-deploy-one
 <<<<<<< HEAD
@@ -26,4 +27,11 @@ section_menu: corda-5-dev-preview
 =======
 draft: true
 >>>>>>> fdbd1a14a (set deploy to draft)
+=======
+    parent: corda-5-dev-preview-tutorials-deploy
+    identifier: corda-5-dev-preview-tutorial-deploy-one
+    weight: 1000
+section_menu: corda-5-dev-preview
+draft: true
+>>>>>>> fdbd1a14a10ebadf73157f02101ed8195e0b7d38
 ---

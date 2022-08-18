@@ -7,6 +7,7 @@ menu:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     weight: 3050
 section_menu: corda-5-dev-preview
 <<<<<<< HEAD
@@ -24,6 +25,11 @@ section_menu: corda-5-dev-preview
 =======
 draft: true
 >>>>>>> fdbd1a14a (set deploy to draft)
+=======
+    weight: 3050
+section_menu: corda-5-dev-preview
+draft: true
+>>>>>>> fdbd1a14a10ebadf73157f02101ed8195e0b7d38
 ---
 This section describes how to deploy and operate Corda.
 *Describe limitations in DP2*
