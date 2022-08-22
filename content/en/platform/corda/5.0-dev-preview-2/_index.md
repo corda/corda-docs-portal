@@ -11,10 +11,6 @@ menu:
     weight: 1000  
 section_menu: corda-5-dev-preview      
 ---
-<!--<head>
-  <link rel="stylesheet" href="themes/doks/assets/scss/layouts/_home.scss">
-</head>-->
-
 <section class="section" style="text-align:center; color:white; background-image:url('bg-dark.jpg');">
   <h1>
     Corda 5 Developer Preview 2
@@ -22,24 +18,6 @@ section_menu: corda-5-dev-preview
 </section>
 <section class="section">
   <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5">
-<!--
-  <div class="col">
-    <div class="card h-100"  style="text-align: center">
-      <div class="card-body">
-        <h3 class="card-title">
-        <a href="en/get-started.html">
-        <img src="../../../../../../icons/agenda-bookmark.svg" alt="Introduction"  style="height: 48" class="light-only">
-        <img src="../../../../../../icons/agenda-bookmark-white.svg" alt="Introduction"  style="height: 48" class="dark-only">
-        </a>
-          <span>Title</span></h3>
-        <p>.........</p>
-      </div>
-      <div class="card-footer">
-        <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html" class="btn rounded">Button text</a>
-      </div>
-    </div>
-  </div>
--->  
 <div class="col">
   <div class="card h-100">
     <div class="card-body">    
