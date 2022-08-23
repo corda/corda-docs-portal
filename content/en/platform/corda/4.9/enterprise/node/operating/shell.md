@@ -92,7 +92,7 @@ The standalone shell is a standalone application interacting with a Corda node v
 
 You can access the standalone shell from [software.r3.com](https://software.r3.com).
 
-Run the `corda-standalone-shell` .jar using:
+Run the `corda-standalone-shell` `.jar` using:
 
 ```
  java -jar corda-standalone-shell-4.9.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
