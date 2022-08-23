@@ -92,7 +92,7 @@ The standalone shell is a standalone application interacting with a Corda node v
 
 You can access the standalone shell from [software.r3.com](https://software.r3.com).
 
-Run the `corda-standalone-shell` jar using:
+Run the `corda-standalone-shell` .jar using:
 
 ```
  java -jar corda-standalone-shell-4.9.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
@@ -112,9 +112,9 @@ Where:
   - `port`, `-p`: The RPC port of the Corda node.
   - `user=<user>`: The RPC user name.
   - `password=<password>`: The RPC user password. If not provided it will be prompted for on startup.
-  - `truststore-password=<trustStorePassword>`: The password to unlock the TrustStore file.
-  - `truststore-file=<trustStoreFile>`: The path to the TrustStore file.
-  - `truststore-type=<trustStoreType>`: The type of the TrustStore (for example, JKS).
+  - `truststore-password=<trustStorePassword>`: The password to unlock the node's `truststore.jks` file.
+  - `truststore-file=<trustStoreFile>`: The path to the node's `truststore.jks` file.
+  - `truststore-type=<trustStoreType>`: The type of the node's trustStore file (in this case, it's `.jks`).
   - `verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
   - `logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
   - `help`, `-h`: Show this help message and exit.
@@ -124,16 +124,18 @@ Where:
 
 You can install the shell in your node in two different ways:
 
-* Download the `corda-shell` `.jar` from the [Artifactory](https://software.r3.com/ui/native/corda-releases/net/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
+* Download the `corda-shell` `.jar` from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
 By default, a Corda node does not run the shell.
 
-* When using `cordaformation`, the shell can be included in generated nodes by including the following in the `dependencies` block. The `dependencies` block must be in the same `build.gradle` file as the `deployNodes` task:
+* When using `cordaformation`, the shell can be included in the generated nodes by adding the following in the `dependencies` block. The `dependencies` block must be in the same `build.gradle` file as the `deployNodes` task:
 
   ```
   dependencies {
-          // other dependencies
+          .
+          .
+          .
           cordaDriver "net.corda:corda-shell:$corda_release_version"
-         // other dependencies
+         .
   }
   ```
 
