@@ -85,7 +85,7 @@ The parameter is in HOCON *period* format - for example, `‘365d’, ‘1w’`.
 
 For more information on the HOCON period format see [HOCON-period-format](https://github.com/lightbend/config/blob/master/HOCON.md#period-format). The end of the retention period will be the current time (in UTC) minus the duration.
 
-### Message cleanup
+## Message clean-up
 
 To configure Corda to clean-up old entries from the `NODE_MESSAGE_IDS` [table](node-database-tables.html#node-state-machine), add the configuration sub-section `processedMessageCleanup` in addition to the `maintenanceMode` sub-section.
 The `processedMessageCleanup` sub-section (also part of the `enterpriseConfiguration` top-level [configuration section](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration)) contains the configuration used to run the message ID clean-up background process (also called `NodeJanitor`) at shutdown. The size should be fairly constant. The same rules apply for calculation of default values as when the activity runs at shutdown.
