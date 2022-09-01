@@ -27,7 +27,7 @@ The following maintenance tasks are currently supported:
 
 ## Configuration of Node Maintenance Mode
 
-Node Maintenance Mode is configured by an optional configuration sub-section named `maintenanceMode` within the `enterpriseConfiguration` top-level [configuration section](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration).
+You can configure Node Maintenance Mode in an optional configuration sub-section named `maintenanceMode` within the `enterpriseConfiguration` top-level [configuration section](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration).
 
 By default, no maintenance activities are performed if the `maintenanceMode` section is not provided. Without this section, Corda behaves as if maintenance mode is not available.
 
