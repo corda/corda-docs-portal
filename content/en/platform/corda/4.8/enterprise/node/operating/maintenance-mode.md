@@ -23,7 +23,7 @@ Node Maintenance Mode is designed in a scalable way - maintenance tasks are disc
 The following maintenance tasks are currently supported:
 
 - Perform RPC Audit table clean-up
-- Run message ID clean up
+- Run message ID clean-up
 
 ## Configuration of Node Maintenance Mode
 
