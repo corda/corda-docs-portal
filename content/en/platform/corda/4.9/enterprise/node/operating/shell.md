@@ -105,7 +105,20 @@ Run the `corda-standalone-shell` `.jar` using:
 
 Where:
 
-  - `config-file=<configFile>`, `--f`: The path to the shell configuration file, used instead of providing the rest of the command line options.
+  - `config-file=<configFile>`, `--f`: The path to the shell configuration file, used instead of providing the rest of the command line options. The configuration file options map the command line options described below, one on each line. Here's an example of a configuration file:
+
+  ```
+  extensions.commands.path
+  extensions.cordapps.path
+  node.user
+  node.password
+  node.addresses.rpc.host
+  node.addresses.rpc.port
+  ssl.truststore.path
+  ssl.truststore.password
+  ssl.truststore.type
+  ```
+
   - `cordapp-directory=<cordappDirectory>`, `-c`: The path to the directory containing CorDapp jars, CorDapps are required when starting flows.
   - `commands-directory=<commandsDirectory>`, `-o`: The path to the directory containing additional CRaSH shell commands.
   - `host`, `-a`: The host address of the Corda node.
