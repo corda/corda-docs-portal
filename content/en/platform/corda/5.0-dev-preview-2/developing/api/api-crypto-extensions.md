@@ -27,7 +27,7 @@ We recommend adding the custom digest code in a separate Java module.
 
 
 
-> Note that the digest algorithm have to be cryptographically strong, like MD5 is not a strong algorithm and thus is not supported by the library so don't add that to your CorDapp.
+*Note:*  Digest algorithms must be cryptographically strong. For example, MD5 is not a strong algorithm and so is not supported by the library.
 
 
 
