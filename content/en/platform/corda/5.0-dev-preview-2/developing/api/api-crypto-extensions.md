@@ -11,7 +11,7 @@ section_menu: corda-5-dev-preview
 
 # Overview
 
-The `corda-crypto` module as a part of the `Corda Crypto API` consisting of several modules. The module defines low level services that can be used to extend functionality of the Corda Crypto Library by implemnting them in a CPK.
+The `corda-crypto` module is one of several modules of the `Corda Crypto API`. The module defines low level services that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK.
 
 The dependencies on Corda Crypto API are shown in the diagram bellow. 
 
