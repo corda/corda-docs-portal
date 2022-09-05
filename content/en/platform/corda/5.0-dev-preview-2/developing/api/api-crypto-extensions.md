@@ -37,7 +37,7 @@ Corda picks up any custom algorithms at run time.
 
 The Double SHA-256 is supported by the platform but lets assume that you want to support Triple SHA-256 where the first pass calculates the message digest and consequent passes calulate digest of the the previous pass result.
 
-In Kotlin he code may look like bellow:
+In Kotlin the code may look as follows:
 
 ```kotlin
 package com.example.crypto
