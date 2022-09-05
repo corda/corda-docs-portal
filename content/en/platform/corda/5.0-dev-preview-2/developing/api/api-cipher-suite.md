@@ -15,7 +15,7 @@ section_menu: corda-5-dev-preview
 
 
 
-The `corda-cipher-suite` module as a part of the `Corda Crypto API` consisting of several modules. The module defines code artifacts that are required to implement integrations with HSMs beyond supported by R3. The module is used by Corda Platform.
+The `corda-cipher-suite` module is one of several modules of the `Corda Crypto API`. The module defines code artifacts that are required to implement integrations with HSMs beyond those supported by R3. The module is used by the Corda platform.
 
 
 
