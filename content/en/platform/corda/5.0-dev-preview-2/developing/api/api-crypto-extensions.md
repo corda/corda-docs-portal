@@ -31,7 +31,7 @@ Corda picks up any custom algorithms at run time.
 
 
 
-> The custom algorithms cannot be used as implicit part of the digital signing, e.g. you cannot specify the signature spec like 'SHA-256-TRIPLEwithRSA'. If you still wish to use it for signing you have to calculate the digest first and then sign/verify the produced hash using built-in signature specs.
+> Custom algorithms cannot be used as an implicit part of the digital signing. For example, you cannot specify a signature specification such as 'SHA-256-TRIPLEwithRSA'. You must calculate the digest first and then sign/verify the produced hash using built-in signature specs.
 
 
 
