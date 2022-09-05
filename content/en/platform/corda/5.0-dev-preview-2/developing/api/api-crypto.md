@@ -11,7 +11,7 @@ section_menu: corda-5-dev-preview
 
 # Overview
 
-The `corda-crypto` module as a part of the `Corda Crypto API` consisting of several modules. The module defines low level artifacts such as classes which are use as method arguments and return values, exceptions, constants, and helper functions that are used by other parts of the Corda Platform as well as a CorDapp.
+The `corda-crypto` module is one of several modules of the `Corda Crypto API`. The module defines low level artifacts such as classes which are use as method arguments and return values, exceptions, constants, and helper functions that are used by other parts of the Corda platform as well as a CorDapp.
 
 The dependencies on Corda Crypto API are shown in the diagram bellow. 
 
