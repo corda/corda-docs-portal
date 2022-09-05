@@ -11,23 +11,16 @@ section_menu: corda-5-dev-preview
 
 The `corda-crypto` module is one of several modules of the `Corda Crypto API`. The module defines low-level services that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK. The dependencies on Corda Crypto API are shown in the diagram below.
 
-{{</*
-  figure
-	 src="public-crypto-api-usage.png"
-	 zoom="public-crypto-api-usage.png"
-   width=38%
-	 figcaption="Corda Crypto API"
-	 alt="Corda Crypto API dependencies"
-*/>}}
+{{< figure src="public-crypto-api-usage.png" figcaption="Corda Crypto API" alt="Corda Crypto API dependencies" >}}
 
 # Extending supported digest algorithms
 
 The Corda Crypto Library implements a wide variety of digest algorithms out of the box. However, you can use a digest algorithm that is not supported by the library by simply implementing some interfaces and adding the code into the CPK with the CorDapp code. Corda picks up any custom algorithms at run time. We recommend adding custom digest code in a separate Java module.
 
-{{</* note */>}}
-Digest algorithms must be cryptographically strong. For example, MD5 is not a strong algorithm and so is not supported by the library.
-Custom algorithms cannot be used as an implicit part of the digital signing. For example, you cannot specify a signature specification such as 'SHA-256-TRIPLEwithRSA'. You must calculate the digest first and then sign/verify the produced hash using built-in signature specs.
-{{</* /note */>}}
+{{< note >}}
+* Digest algorithms must be cryptographically strong. For example, MD5 is not a strong algorithm and so is not supported by the library.
+* Custom algorithms cannot be used as an implicit part of the digital signing. For example, you cannot specify a signature specification such as 'SHA-256-TRIPLEwithRSA'. You must calculate the digest first and then sign/verify the produced hash using built-in signature specs.
+{{< /note >}}
 
 The Double SHA-256 is supported by the platform but lets assume that you want to support Triple SHA-256 where the first pass calculates the message digest and consequent passes calculate digest of the previous pass result. In Kotlin the code may look as follows:
 
@@ -105,11 +98,8 @@ dependencies {
     cordaProvided 'org.slf4j:slf4j-api'
 }
 ```
-
-
-
-{{</* note */>}}
+{{< note >}}
 You must reference `net.corda:corda-crypto-extensions`.
-{{</* /note */>}}
+{{< /note >}}
 
 For the CorDApp packaging instructions, see the relevant documentation.
