@@ -19,7 +19,7 @@ The `corda-cipher-suite` module is one of several modules of the `Corda Crypto A
 
 
 
-The dependencies on Corda Crypto API are shown in the diagram bellow. 
+The dependencies on the Corda Crypto API are shown in the diagram below. 
 
 
 
