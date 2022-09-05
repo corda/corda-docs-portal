@@ -21,7 +21,7 @@ The dependencies on Corda Crypto API are shown in the diagram bellow.
 
 The Corda Crypto Library implements a wide variety of digest algorithms out of the box. However, you can use a digest algorithm that is not supported by the library by implementing couple of interfaces and adding the code into the CPK with the CorDapp code.
 
-The custom algorithms will be picked by the platform at the run time.
+Corda picks up any custom algorithms at run time.
 
  It's recommended to put the custom digest code into separate JAVA module.
 
