@@ -5,6 +5,6 @@ menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-api-ledger
     parent: corda-5-dev-preview-api
-    weight: 5000
+    weight: 5500
 section_menu: corda-5-dev-preview
 ---
