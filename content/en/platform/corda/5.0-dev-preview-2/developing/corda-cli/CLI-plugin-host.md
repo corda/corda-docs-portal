@@ -8,72 +8,19 @@ menu:
 section_menu: corda-5-dev-preview
 title: Corda CLI Plug-In Host
 ---
-## Setup/Build
 
-run `./gradlew build`
+Corda CLI is built using the [pf4j](https://pf4j.org/) plugin system.
+This enables developers to independently develop a plugin tailored for their needs without risk of polluting the CLI with excess commands.
 
-* This will produce:
-  * one jar, named corda-cli.jar, located in the `app/build/libs/` directory
-  * an example plugin located in `build/plugins` directory.
-* The example plugin is:
-  * `plugin-example-example-plugin-0.0.1.jar`
+This page describes the guidelines that must be followed when writing a plugin that is to be added to the plugin module in `corda-runtime-os`.
 
-## Running The CLI Script
+## Location
 
-As part of the build process scripts are generated in the 'build/generatedScripts' directory. This ensures scripts will always refer to the correct version of the corda-cli.jar. Running './gradlew build' will trigger copying of scripts from the root 'scripts' directory to 'build/generatedScripts' and update the version referenced in the scripts accordingly, along with generation of the needed Jars. You may also manually trigger this task with './gradlew generateVersionedScripts' if required, but the corda-cli jar must be generated and present in the 'app\build\libs' to execute these scripts.
-
-In the build/generatedScripts directory there is a windows cmd and shell command script that can be called after a gradlew Build. `corda-cli.cmd` etc
-
-## The Plugins
-
-### Example Plugin One
-
-Root Command: `example-plugin`
-Sub Commands included:
-
-1. `sub-command` - Prints a welcome message.
-
-## Config
-
-### Logging config
-
-Corda CLI will log everything to a file in the users home directory located in `~/.corda/cli/logs` by default, this behaviour can be changed by editing the corda-cli.cmd/sh files.
-There are two options available to users.
-- `-DlogLevel` - The minimum level you wish to be logged  
-- `-DlogFile` - Where you want the log file to be located
-
-you can add these flags as Java Parameters before the jar file is called.
-
-### Plugin Config
-
-You can also change the plugin directory by editing these files.
-- `-Dpf4j.pluginsDir` will change the directory plugins are loaded from
-
-
-----------------------
-
-
-
-# Corda CLI Host - Developer Guidelines for Writing Plugins
-
-## Introduction
-
-Corda CLI is built using a plugin system [pf4j](https://pf4j.org/).
-This allows developers to independently develop a plugin tailored for there needs without worrying about polluting the cli with excess commands.
-
-There are a few guidelines that must be followed when writing a plugin that is to be added to the plugin module in corda-runtime-os.
-
-## Plugin Location
-
-The best place to develop plugins is in the [corda-runtime-os](https://github.com/corda/corda-runtime-os) repository under the `tools:plugins:` module
-
-Under this module please create a new module for your plugin, and add it to settings.gradle in the project root.
-
+Develop plugins in the [corda-runtime-os](https://github.com/corda/corda-runtime-os) repository under the `tools:plugins:` module. Under this module, create a new module for your plugin, and add it to `settings.gradle` in the project root.
 
 ## Starting With Gradle
-In the new module you should have a new `build.gradle` file. Start by setting up a few important parts of the plugin ecosystem.
-
-first create a plugin block and import cli plugin packager like so:
+The new module should have a new `build.gradle` file. Start by setting up a few important parts of the plugin ecosystem.
+1. Create a plugin block and import the CLI plugin package.
 
 ```groovy
 plugins{
@@ -82,7 +29,7 @@ plugins{
 ```
 
 this will allow the plugin to be compiled into a special fat jar that deals with certain dependency issues and allows the use of `cliPlugin` configuration to configure the plugin. This should be placed after dependencies.
-And example of the configuration can be seen here:
+An example of the configuration can be seen here:
 
 ```groovy
 cliPlugin{
@@ -251,3 +198,48 @@ some suggestions:
 ### Help
 
 Your plugin should also provide comprehensive help, read more [here](https://picocli.info/quick-guide.html#_help_options)
+
+-------------
+## Setup/Build
+
+run `./gradlew build`
+
+* This will produce:
+  * one jar, named corda-cli.jar, located in the `app/build/libs/` directory
+  * an example plugin located in `build/plugins` directory.
+* The example plugin is:
+  * `plugin-example-example-plugin-0.0.1.jar`
+
+## Running The CLI Script
+
+As part of the build process scripts are generated in the 'build/generatedScripts' directory. This ensures scripts will always refer to the correct version of the corda-cli.jar. Running './gradlew build' will trigger copying of scripts from the root 'scripts' directory to 'build/generatedScripts' and update the version referenced in the scripts accordingly, along with generation of the needed Jars. You may also manually trigger this task with './gradlew generateVersionedScripts' if required, but the corda-cli jar must be generated and present in the 'app\build\libs' to execute these scripts.
+
+In the build/generatedScripts directory there is a windows cmd and shell command script that can be called after a gradlew Build. `corda-cli.cmd` etc
+
+## The Plugins
+
+### Example Plugin One
+
+Root Command: `example-plugin`
+Sub Commands included:
+
+1. `sub-command` - Prints a welcome message.
+
+## Config
+
+### Logging config
+
+Corda CLI will log everything to a file in the users home directory located in `~/.corda/cli/logs` by default, this behaviour can be changed by editing the corda-cli.cmd/sh files.
+There are two options available to users.
+- `-DlogLevel` - The minimum level you wish to be logged  
+- `-DlogFile` - Where you want the log file to be located
+
+you can add these flags as Java Parameters before the jar file is called.
+
+### Plugin Config
+
+You can also change the plugin directory by editing these files.
+- `-Dpf4j.pluginsDir` will change the directory plugins are loaded from
+
+
+----------------------
