@@ -116,7 +116,7 @@ dependencies {
 
 
 
-> Note that you will need to reference the `net.corda:corda-crypto-extensions`
+*Note:* You must reference `net.corda:corda-crypto-extensions`.
 
 
 
