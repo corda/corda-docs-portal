@@ -23,7 +23,7 @@ The Corda Crypto Library implements a wide variety of digest algorithms out of t
 
 Corda picks up any custom algorithms at run time.
 
- It's recommended to put the custom digest code into separate JAVA module.
+We recommend adding the custom digest code in a separate Java module.
 
 
 
