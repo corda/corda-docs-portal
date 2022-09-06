@@ -30,7 +30,7 @@ The Corda shell is an embedded or standalone command line that allows an adminis
 There are three ways of using the Corda shell:
 
 * A standalone application which you can run using `corda-standalone-shell`.
-* A driver within your node, accessible via the `corda-shell.jar`.
+* A driver within your node, accessible via `corda-shell.jar`.
 * If you use a driver within your node, you can also use SSH to access the shell remotely. To do that, you must configure the driver to enable the SSH access.
 
 The standalone application is the only way to use the shell and keep a log of your commands.
