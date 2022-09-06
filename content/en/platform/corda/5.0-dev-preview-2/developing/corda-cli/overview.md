@@ -9,10 +9,11 @@ section_menu: corda-5-dev-preview
 title: Corda CLI
 ---
 
-*DP1 Content - changes???*
-
-Corda CLI is a command line interface utility that is used to deploy a Corda network. In this section, you will find instruction on how to:
-
-* Install Corda CLI.
-* Delete Corda CLI.
-* Use Corda CLI to manage a local network and work with Corda package files (`.cpk` files).
+db-config - Ben
+initial-config - Ben
+mgm - charlie/yash
+network - charlie/yash
+package - Kyriakos
+secret-config - Ben
+topic-config - Ben
+virtual-node - Me
