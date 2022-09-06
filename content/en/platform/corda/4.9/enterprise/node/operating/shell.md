@@ -105,7 +105,7 @@ Run the `corda-standalone-shell` `.jar` using:
 
 Where:
 
-  - `config-file=<configFile>`, `--f`: The path to the shell configuration file, used instead of providing the rest of the command line options. The configuration file options map the command line options described below, one on each line. Here's an example of a configuration file:
+  - `config-file=<configFile>`, `--f`: The path to the shell configuration file, used instead of providing the rest of the command line options. The configuration file options map the command line options described below, one on each line. The following is an example of a configuration file:
 
   ```
   extensions.commands.path
