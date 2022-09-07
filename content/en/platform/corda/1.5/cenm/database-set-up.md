@@ -579,7 +579,7 @@ This section provides additional vendor-specific database configuration details.
 
 ### SQL Server
 
-The database collation for SQL Server can be case insensitive, but case differences in node-info will be treated by CENM as if they were for different nodes. See [Collations and Case Sensitivity documentation](https://docs.microsoft.com/en-us/ef/core/miscellaneous/collations-and-case-sensitivity) for more information.
+The database collation for SQL Server can be case insensitive, but CENM treats case differences in `node-info` as if they were for different nodes. See [Collations and Case Sensitivity documentation](https://docs.microsoft.com/en-us/ef/core/miscellaneous/collations-and-case-sensitivity) for more information.
 
 ### Oracle
 
