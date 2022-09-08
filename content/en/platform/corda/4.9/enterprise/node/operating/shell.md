@@ -105,7 +105,7 @@ Run the `corda-standalone-shell` `.jar` using:
 
 Where:
 
-  - `config-file=<configFile>`, `--f`: The path to the shell configuration file, used instead of providing the rest of the command line options. The configuration file options map the command line options described below, one on each line. The following is an example of a configuration file:
+  - `config-file=<configFile>`, `--f`: The path to the shell configuration file, used instead of providing the rest of the command line options. The configuration file options map the command line options described below, one on each line. The following is the full list of options that can be provided in a configuration file to replace the command line options:
 
   ```
   extensions.commands.path
@@ -117,6 +117,16 @@ Where:
   ssl.truststore.path
   ssl.truststore.password
   ssl.truststore.type
+  ```
+
+  The following is an example of a configuration file:
+
+  ```
+  node.addresses.rpc.host=localhost
+  node.addresses.rpc.port=10006
+  extensions.cordapps.path=~/src/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps
+  node.user=bankUser
+  node.password=test
   ```
 
   - `cordapp-directory=<cordappDirectory>`, `-c`: The path to the directory containing CorDapp jars, CorDapps are required when starting flows.
