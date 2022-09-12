@@ -11,15 +11,15 @@ section_menu: corda-5-dev-preview
 ## Layered architecture
 
 The Corda platform is a layered toolbox that you can approach from the bottom up, pulling in more advanced concepts only when needed. There are currently three distinct layers:
-1.	[P2P layer](#p2p-Layer)
-2.	[Flow layer](#flow-Layer)
-3.	[Ledger layer](#ledger-Layer)
+1.	[P2P layer](#p2p-layer)
+2.	[Flow layer](#flow-layer)
+3.	[Ledger layer](#ledger-layer)
 
-*Diagram?*
+{{< figure src="images/layered-architecture.png" figcaption="Corda 5 architecture" alt="Layered architecture of Corda 5" >}}
 
 ### P2P layer
 
-The P2P layer allows an identity to establish a session with another identity on an [application network](#application-networks)at their published address, regardless of whether they reside in the same or different clusters.
+The P2P layer allows an identity to establish a session with another identity on an [application network](#application-networks)at their published address, regardless of whether they reside in the same or different [clusters](#clusters).
 It manages the lifecycle, link establishment, connection recovery, back pressure, caching, heart beating, transmission, message chunking, etc for communications intended to flow between identities.
 
 {{< note >}}
@@ -35,10 +35,10 @@ Support will be available in a future release as there is great value in an end-
 
 The flow layer builds on top of the P2P layer. It expands the capabilities it expresses with [flows](#flows).
 Flows allow Developers to encapsulate complex business logic that orchestrates actions by multiple parties into simple, linear code.
-Under the hood, Corda takes that simple code and breaks it into asynchronous messages executed across the network with responses flowing to where they should.
+Corda takes that simple code and breaks it into asynchronous messages executed across the network with responses flowing to where they should.
 This is transparent to Developers.
 
-If Alice needs to talk to Bob and have Bob get Charlie to agree and send that to Claire, this is the layer to embrace.
+For example, if Alice needs to talk to Bob and have Bob get Charlie to agree and send that to Claire, the flow layer is required.
 It is about the orchestration of events, passing information that requires agreeing, viewing, and actioning.
 CorDapps can drive third party systems here and respond to incoming events.
 
@@ -75,7 +75,8 @@ CorDapps are built as a layered [package](#packaging).
 
 ## Application networks
 
-Corda is a permissioned blockchain and to use a [CorDapp](#cordapps) users must be approved and their identity tested to a set of rules. Corda does not care what those rules are.
+Corda is a permissioned blockchain and to use a [CorDapp](#cordapps) entities must be approved and their identity verified against a set of rules.
+Corda does not care what those rules are.
 Rules can be as lax as allowing anyone to join who asks or as strict as requiring a full KYC process.
 Corda facilitates these rules through the [Membership Group Manager (MGM)](#membership-management).
 
@@ -90,15 +91,16 @@ From the perspective of one of those customers, it is who they are allowed to in
 
 ## Membership management
 
-The **Membership Group Manager (MGM)** enables network operators to set the rules for their [application network](#application-networks), approves or declines new members, and distributes membership lists to the other members.
-The MGM is a CorDapp which runs as a virtual node, allowing you to create/operate many application networks using the same Corda deployment.
+The **Membership Group Manager (MGM)** enables network operators to set the rules for their [application network](#application-networks). It approves or declines new members and distributes membership lists to members.
+The MGM is a CorDapp which runs as a virtual node, allowing you to create and operate many application networks using the same Corda deployment.
 
 Entities permitted to join an application network are represented by a public/private keypair optionally attested by a certificate authority as belonging to an X500 identity.
-The application network operator sets the rules in the CPI as to which certificate authority it trusts to attest that an identity matches. The operator can run any additional checks they wish.
+The application network operator sets the rules in the CPI as to which certificate authority it trusts to attest that an identity matches.
+The operator can run any additional checks they wish.
 The keypair is used to sign things within the context of the application by the identity, attesting that it agrees to what is being proposed.
 
 {{< note >}}
-Currently, the MGM allows each network member to be aware of every other member. However, this is a result of development time and interest from the community, not a “hard rule” for application networks.
+Currently, the MGM allows each network member to be aware of every other member. However, this is a result of development time and interest from the community, not a fixed restriction of application networks.
 {{< /note >}}
 
 ## Virtual nodes
@@ -110,9 +112,9 @@ At the time of onboarding, the overhead of an identity relates only to the load 
 The overhead of keeping onboarded identities available to transact with other members is not fixed and identities are transient, only active when actually required.
 
 A **virtual node** is the combination of the context of an identity and the temporary compute instances created to execute [flows](#flows) on behalf of that identity.
-An instance of a virtual node is created for long enough to handle the execution steps needed and then allowed to dematerialize.
+An instance of a virtual node is created for long enough to handle the required execution steps and then allowed to dematerialize.
 {{< figure src="images/virtual-node.png" figcaption="Virtual node interaction" alt="Virtual node" >}}
-At any point in time, many instances of a virtual node may be executing. The number limited to the availability of [flow workers](#workers), with an additional number of flows inflight with other virtual node instances suspended in a checkpoint store.
+At any point in time, many instances of a virtual node may be executing, limited only by the availability of [flow workers](#workers). An additional number of flows may be inflight with other virtual node instances suspended in a checkpoint store.
 
 This is achieved by a state machine that enables each node to schedule various operations for each step of a flow.
 {{< figure src="images/state-machines.png" figcaption="State machines executing flows for multiple identities" alt="State machine" >}}
@@ -125,10 +127,11 @@ As shown, the flow framework acts as a distributed state machine designed to sch
 
 **Sandboxes** are an essential part of the high-availability (HA) and multi-tenant architecture of Corda 5, ensuring stability and security.
 Sandboxes are the foundation that virtual nodes run on, keeping contracts, workflows, and libraries separate from other code. Each [virtual node](#virtual-nodes) runs on top of one or more sandboxes.
-Isolating CorDapp classes and dependencies in this way also isolates them from the Corda host process. Since Corda itself is executing third-party code, that execution environment needs sandboxing from the host, Corda, to prevent the CorDapp from having access to system-level permissions and privileges. CorDapps do not share libraries with Corda itself and therefore can use their own version of 3rd party dependencies, for example.
-Sandboxes provide the ability to install and upgrade CorDapps without impacting other CorDapps operating in the same Corda instance. You can upgrade CorDapps without the need to stop existing flows or the host process and potentially load multiple versions of a particular CorDapp or library.
 
-The code encapsulated within a [CorDapp](#cordapps) is executed by the [workers](#workers) in a [Corda Cluster](#corda-clusters). The majority of the time, this is the flows within the compiled [CPK](#cordapp-packages-cpks) on behalf of a specific user. Since Corda itself is executing third-party code, that execution environment needs sandboxing from the host, Corda, to prevent the CorDapp from having access to system-level permissions and privileges. Much like processes in a modern operating system, they are run on behalf of an identity, and they cannot access the information they shouldn’t.
+The code encapsulated within a [CorDapp](#cordapps) is executed by the [workers](#workers) in a [Corda Cluster](#corda-clusters).
+The majority of the time, this is the [flows](#flows) within the compiled [CPK](#cordapp-packages-cpks) on behalf of a specific user.
+Since Corda itself is executing third-party code, CorDapp execution environments must be sandboxed from the host, Corda, to prevent the CorDapp from having access to system-level permissions and privileges. 
+Much like processes in a modern operating system, workers are run on behalf of an identity, with only the appropriate information accessible.
 
 Sandboxes, whilst crucial to the execution of Corda, are a concept that the majority of CorDapp developers never need to concern themselves with. The guarantee made by the platform is that when executed, CorDapp code will not allow the user running it access to any part of the system it should not.
 
@@ -163,7 +166,7 @@ Just like a regular application, your [CorDapp](#cordapps) must be packaged for 
 
 ### CorDapp Packages (CPKs)
 CPKs are the Corda equivalent of a software library. They represent testable, reusable, sub-components of a final application.
-Under the hood, each CPK runs in its own [sandbox](#sandboxes), isolated from other CPKs.
+Corda runs each CPK runs in its own [sandbox](#sandboxes), isolated from other CPKs.
 
 ### CorDapp Package Bundles (CPBs)
 CPBs are complete applications minus the “run time information” needed to onboard entities into it.
@@ -171,7 +174,7 @@ CPBs represent the final efforts of the development team, a discrete and testabl
 
 ### CorDapp Package Installer (CPI)
 Corda is only useful when many entities are using a CorDapp to transact.
-The set of entities that can use an application is called an application network.
+The set of entities that can use an application is called an [application network](#application-networks).
 These have rules and other meta information beyond the simple code in the CPKs.
 CPIs contain the CPB and all of the information required to join and participate in an application network.
 
