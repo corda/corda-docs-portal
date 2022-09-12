@@ -54,7 +54,7 @@ The layer is itself pluggable, enabling you to select different models of ledger
 When the lifecycle of data continues beyond the parties first interacting with it, the ledger layer allows its evolution without the input of the creating party.
 Ledger code adds the ability to cryptographically verify proposed changes to data such that no parties can repudiate they agreed.
 Future versions will contain the following ledger models:
-*	[Consensual ](#consensual )
+*	[Consensual ](#consensual)
 *	[UTXO](#UTXO)
 
 #### Consensual
@@ -70,14 +70,14 @@ The ledger layer is not available in this Developer Preview of Corda 5.
 Similar to operating systems, Corda, and DLT in general, is valuable to Developers who they enable but require applications to be useful to users.
 Distributed applications (Dapps) deployed on Corda are known as **CorDapps**.
 CorDapps encapsulate the logic that brings parties into agreement through [flows](#flows).
-The set of all possible entities granted permission by the [MGM](#mgm) to use a CorDapp is known as an [application network](#application-networks).
+The set of all possible entities granted permission by the [MGM](#membership-management) to use a CorDapp is known as an [application network](#application-networks).
 CorDapps are built as a layered [package](#packaging).
 
 ## Application networks
 
 Corda is a permissioned blockchain and to use a [CorDapp](#cordapps) users must be approved and their identity tested to a set of rules. Corda does not care what those rules are.
 Rules can be as lax as allowing anyone to join who asks or as strict as requiring a full KYC process.
-Corda facilitates these rules through the [Membership Group Manager (MGM)](#mgm).
+Corda facilitates these rules through the [Membership Group Manager (MGM)](#membership-management).
 
 It is up to a network operator to determine their needs and requirements.
 Participants joining a network are agreeing to the rules of the network and understand that all other participants were vetted to the same level.
@@ -105,7 +105,7 @@ Currently, the MGM allows each network member to be aware of every other member.
 
 Corda 5 virtualizes the execution of [flow](#flows) process steps, allowing flows for multiple identities and from multiple CorDapps to be executed within the same compute environment at the same time.
 
-Virtual nodes reduce the overhead of each identity on an [application network](#networks).
+Virtual nodes reduce the overhead of each identity on an [application network](#application-networks).
 At the time of onboarding, the overhead of an identity relates only to the load it brings to the system rather than incurring a cost for simply existing.
 The overhead of keeping onboarded identities available to transact with other members is not fixed and identities are transient, only active when actually required.
 
@@ -134,7 +134,7 @@ Sandboxes, whilst crucial to the execution of Corda, are a concept that the majo
 
 ## Flows
 
-As described in the [flow layer](#flow-layer) section of the [architecture overview](#architecture), **flows** are the mechanism through which a [CorDapp](#cordapps) encapsulates the logic of its application that brings parties into agreement over something.
+As described in the [flow layer](#flow-layer) section of the [architecture overview](#layered-architecture), **flows** are the mechanism through which a [CorDapp](#cordapps) encapsulates the logic of its application that brings parties into agreement over something.
 This logic is written in a sequential manner, allowing developers to focus on the logic itself rather than the integration of the logic into an asynchronous event-based system.
 
 Flows utilize the Corda API to perform the required actions to solve a business problem, such as:
@@ -161,15 +161,15 @@ Just like a regular application, your [CorDapp](#cordapps) must be packaged for 
 2. [Corda Package Bundle (CPB)](#cordapp-package-bundles-cpbs) — built using a collection of CPKs, which represents a full application.
 3. [Corda Package Installer (CPI)](#cordapp-package-installer-cpi) — contains the CPB and information about the network.
 
-## CorDapp Packages (CPKs)
+### CorDapp Packages (CPKs)
 CPKs are the Corda equivalent of a software library. They represent testable, reusable, sub-components of a final application.
 Under the hood, each CPK runs in its own [sandbox](#sandboxes), isolated from other CPKs.
 
-## CorDapp Package Bundles (CPBs)
+### CorDapp Package Bundles (CPBs)
 CPBs are complete applications minus the “run time information” needed to onboard entities into it.
 CPBs represent the final efforts of the development team, a discrete and testable application, encapsulating the solution to a problem that can be deployed to form an [application network](#application-networks).
 
-## CorDapp Package Installer (CPI)
+### CorDapp Package Installer (CPI)
 Corda is only useful when many entities are using a CorDapp to transact.
 The set of entities that can use an application is called an application network.
 These have rules and other meta information beyond the simple code in the CPKs.
@@ -186,4 +186,4 @@ A **Corda cluster** is the term for the set of all workers deployed into a Kuber
 A single cluster can encapsulate the entirety of an application network or just a part. It can host identities for many networks or just a single one. It can even host applications of a single identity. The architecture depends on the use case executed. If the members of an application network are mature enough to host their own code, to truly be decentralised, then their identity, their [virtual node](#virtual-nodes), will be executed within their own cluster and other identities may be on a cluster managed by a third party. The [application network](#application-networks) emerges above all of this.
 
 *Note about what's available in DP 2 (no cloud deployments, no multi-cluster) and what's coming soon*
-*Cross-ref to local Kubernetes depolyment*
+*Cross-ref to local Kubernetes deployment*
