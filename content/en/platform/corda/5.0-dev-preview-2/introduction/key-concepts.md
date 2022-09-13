@@ -17,13 +17,13 @@ The Corda platform is a layered toolbox that you can approach from the bottom up
 
 {{< figure src="images/layered-architecture.png" figcaption="Corda 5 architecture" alt="Layered architecture of Corda 5" >}}
 
-### P2P layer
+### P2P Layer
 
-The P2P layer allows an identity to establish a session with another identity on an [application network](#application-networks)at their published address, regardless of whether they reside in the same or different [clusters](#clusters).
-It manages the lifecycle, link establishment, connection recovery, back pressure, caching, heart beating, transmission, message chunking, etc for communications intended to flow between identities.
+The P2P Layer allows an identity to establish a communication session with another identity on an [application network](#application-networks)at their published address, regardless of whether they reside in the same or different [clusters](#clusters).
+It manages the lifecycle, link establishment, connection recovery, back pressure, caching, heart beating, transmission, message chunking, etc for communications intended to flow between identities. It has two primary components; the Gateway and Link Manager.
 
 {{< note >}}
-The P2P layer is not officially exposed to CorDapp Developers to access natively in this Developer Preview of Corda 5 and so its implementation in CorDapps is not currently supported.
+The P2P Layer is not officially exposed to CorDapp Developers to access natively in this Developer Preview of Corda 5 and so its implementation in CorDapps is not currently supported.
 Support will be available in a future release as there is great value in an end-to-end authenticated messaging system that can multiplex thousands of messages whilst remaining HA and secure and also embodying a strong identity model.
 {{< /note >}}
 <!--
@@ -31,27 +31,28 @@ Support will be available in a future release as there is great value in an end-
 *Note about what's available in DP 2 (nothing?) and what's coming soon - layer cake architecture means p2p layer could be used independently - no flow network*
 -->
 
-### Flow layer
+### Flow Layer
 
-The flow layer builds on top of the P2P layer. It expands the capabilities it expresses with [flows](#flows).
-Flows allow Developers to encapsulate complex business logic that orchestrates actions by multiple parties into simple, linear code.
+The Flow Layer expands the capabilities of the P2P Layer with the introduction of the flow framework.
+[Flows](#flows) allow Developers to encapsulate complex business logic that orchestrates actions by multiple parties into simple, linear code.
 Corda takes that simple code and breaks it into asynchronous messages executed across the network with responses flowing to where they should.
 This is transparent to Developers.
 
-For example, if Alice needs to talk to Bob and have Bob get Charlie to agree and send that to Claire, the flow layer is required.
+For example, if Alice needs to talk to Bob and have Bob get Charlie to agree and send that to Claire, the Flow Layer is required.
 It is about the orchestration of events, passing information that requires agreeing, viewing, and actioning.
-CorDapps can drive third party systems here and respond to incoming events.
+This layer integrates with the system of record and triggers events.
+CorDapps can drive third party systems here and respond to incoming events. 
 
-The flow layer is accessed through a series of APIs that allow for the creation of flows.
+The Flow Layer is accessed through a series of APIs that allow for the creation of flows.
 This is where the business problem is solved and the majority of code is written.
 This is the code that is built, packaged, distributed, installed, and executed.
 
-### Ledger layer
+### Ledger Layer
 
-The ledger layer addresses business problems that require some form of distributed ledger.
+The Ledger Layer addresses business problems that require some form of distributed ledger.
 This layer solves problems where orchestrating parties must verify something is true without trusting one another.
 The layer is itself pluggable, enabling you to select different models of ledgers as needed.
-When the lifecycle of data continues beyond the parties first interacting with it, the ledger layer allows its evolution without the input of the creating party.
+When the lifecycle of data continues beyond the parties first interacting with it, the Ledger Layer allows its evolution without the input of the creating party.
 Ledger code adds the ability to cryptographically verify proposed changes to data such that no parties can repudiate they agreed.
 Future versions will contain the following ledger models:
 *	[Consensual ](#consensual)
@@ -82,7 +83,7 @@ Corda facilitates these rules through the [Membership Group Manager (MGM)](#memb
 
 It is up to a network operator to determine their needs and requirements.
 Participants joining a network are agreeing to the rules of the network and understand that all other participants were vetted to the same level.
-The set of all possible entities onboarded according to the rules of the network is referred to as the **application network**.
+The set of all possible entities onboarded according to the rules of the network is referred to as the **application network**. It is the sum of all members and the states they have created and transacted between them.
 This is all of the possible users permitted to use an application.
 For the operator of an application, it is their complete list of customers.
 From the perspective of one of those customers, it is who they are allowed to interact with.
@@ -91,7 +92,8 @@ From the perspective of one of those customers, it is who they are allowed to in
 
 ## Membership management
 
-The **Membership Group Manager (MGM)** enables network operators to set the rules for their [application network](#application-networks). It approves or declines new members and distributes membership lists to members.
+The **Membership Group Manager (MGM)** enables network operators to set the rules for their [application network](#application-networks). 
+It approves or declines new members and distributes membership lists to members. Lists are signed and verifiable to prevent tampering, ensuring [virtual nodes](#virtual-nodes) can trust each other.
 The MGM is a CorDapp which runs as a virtual node, allowing you to create and operate many application networks using the same Corda deployment.
 
 Entities permitted to join an application network are represented by a public/private keypair optionally attested by a certificate authority as belonging to an X500 identity.
@@ -100,7 +102,8 @@ The operator can run any additional checks they wish.
 The keypair is used to sign things within the context of the application by the identity, attesting that it agrees to what is being proposed.
 
 {{< note >}}
-Currently, the MGM allows each network member to be aware of every other member. However, this is a result of development time and interest from the community, not a fixed restriction of application networks.
+Currently, the MGM allows each network member to be aware of every other member. 
+However, based on feedback, we could introduce additional models. For example, a broker model where each client is only aware of the brokers but the brokers are aware of every other node.
 {{< /note >}}
 
 ## Virtual nodes
@@ -137,7 +140,7 @@ Sandboxes, whilst crucial to the execution of Corda, are a concept that the majo
 
 ## Flows
 
-As described in the [flow layer](#flow-layer) section of the [architecture overview](#layered-architecture), **flows** are the mechanism through which a [CorDapp](#cordapps) encapsulates the logic of its application that brings parties into agreement over something.
+As described in the [Flow Layer](#flow-layer) section of the [architecture overview](#layered-architecture), **flows** are the mechanism through which a [CorDapp](#cordapps) encapsulates the logic of its application that brings parties into agreement over something.
 This logic is written in a sequential manner, allowing developers to focus on the logic itself rather than the integration of the logic into an asynchronous event-based system.
 
 Flows utilize the Corda API to perform the required actions to solve a business problem, such as:
