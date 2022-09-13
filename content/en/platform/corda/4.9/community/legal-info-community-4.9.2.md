@@ -2,7 +2,7 @@
 aliases:
 - /head/legal-info.html
 - /HEAD/legal-info.html
-  - /legal-info.html
+- /legal-info.html
 date: '2021-04-22T09:00:00Z'
 menu:
   corda-community-4-9:
