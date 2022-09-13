@@ -9,11 +9,11 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-The `corda-membership` module defines interfaces which provide information about a member (a [virtual node](../introduction/key-concepts/virtual-nodes.html] in a group), and a membership group. The interfaces in this module should not be implemented by CorDapp developers. Instead, instances are to be retrieved through lookup services.
+The `corda-membership` module defines interfaces that provide information about a member (a [virtual node](../introduction/key-concepts.html#virtual-nodes) in a group), and a membership group. The interfaces in this module should not be implemented by CorDapp developers. Instead, instances can be retrieved through lookup services.
 
 This module consists primarily of the following two root classes:
-* [MemberInfo](#`MemberInfo`)
-* [GroupParameters](#`GroupParameters`)
+* [MemberInfo](#memberinfo)
+* [GroupParameters](#groupparameters)
 
 ## `MemberInfo`
 The `MemberInfo` interface exposes properties of a virtual node's membership. This includes the x500 name, ledger keys, and status. This information is a combination of information provided during network registration and metadata assigned to the member by the network manager (MGM).
