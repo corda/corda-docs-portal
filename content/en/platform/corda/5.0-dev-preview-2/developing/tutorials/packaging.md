@@ -82,7 +82,7 @@ To generate a group policy file:
 ```shell
 ./corda-cli.sh mgm groupPolicy > TestGroupPolicy.json
 ```
-For more information about `mgm` commmands, see [CLI commands](../corda-cli/commands.html#mgm).
+For more information about `mgm` commmands, see [CLI commands](../../corda-cli/commands.html#mgm).
 ## Building a CPI
 
 The gradle plugin builds the CPB. To create a CPB for a CPI:
