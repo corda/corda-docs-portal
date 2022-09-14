@@ -38,10 +38,10 @@ The Flow Layer expands the capabilities of the P2P Layer with the introduction o
 Corda takes that simple code and breaks it into asynchronous messages executed across the network with responses flowing to where they should.
 This is transparent to Developers.
 
-For example, if Alice needs to talk to Bob and have Bob seek Charlie's agreement, before sending the agreed proposal to Claire, the Flow Layer is required. 
+For example, if Alice needs to talk to Bob and have Bob seek Charlie's agreement, before sending the agreed proposal to Claire, the Flow Layer is required.
 It is about the orchestration of events, passing information that requires agreeing, viewing, and actioning.
 This layer integrates with the system of record and triggers events.
-CorDapps can drive third-party systems here and respond to incoming events. 
+CorDapps can drive third-party systems here and respond to incoming events.
 
 The Flow Layer is accessed through a series of APIs that allow for the creation of flows.
 This is where the business problem is solved and the majority of code is written.
@@ -62,7 +62,7 @@ Future versions will contain the following ledger models:
 <<< Ask @Christian Sailer >>>
 #### UTXO
 <<< Ask @Christian Sailer >>>
-
+{{< note >}}
 The ledger layer is not available in this Developer Preview of Corda 5.
 {{< /note >}}
 
@@ -82,7 +82,7 @@ Corda facilitates these rules through the [Membership Group Manager (MGM)](#memb
 
 It is up to a network operator to determine their needs and requirements.
 Participants joining a network are agreeing to the rules of the network and understand that all other participants were vetted to the same level.
-The set of all possible entities onboarded according to the rules of the network is referred to as the **application network**. 
+The set of all possible entities onboarded according to the rules of the network is referred to as the **application network**.
 It is the sum of all members and the states that they have created and transacted between them.
 This is all of the possible users permitted to use an application.
 For the operator of an application, it is their complete list of customers.
@@ -92,7 +92,7 @@ From the perspective of one of those customers, it is who they are allowed to in
 
 ## Membership management
 
-The **Membership Group Manager (MGM)** enables network operators to set the rules for their [application network](#application-networks). 
+The **Membership Group Manager (MGM)** enables network operators to set the rules for their [application network](#application-networks).
 It approves or declines new members and distributes membership lists to members. Lists are signed and verifiable to prevent tampering, ensuring [virtual nodes](#virtual-nodes) can trust each other.
 The MGM is a CorDapp which runs as a virtual node, allowing you to create and operate many application networks using the same Corda deployment.
 
@@ -102,7 +102,7 @@ The operator can run any additional checks they wish.
 The keypair is used to sign things within the context of the application by the identity, attesting that it agrees to what is being proposed.
 
 {{< note >}}
-Currently, the MGM allows each network member to be aware of every other member. 
+Currently, the MGM allows each network member to be aware of every other member.
 However, based on feedback, we could introduce additional models. For example, a broker model where each client is only aware of the brokers, but the brokers are aware of every other node.
 {{< /note >}}
 
@@ -133,7 +133,7 @@ Sandboxes are the foundation that virtual nodes run on, keeping contracts, workf
 
 The code encapsulated within a [CorDapp](#cordapps) is executed by the [workers](#workers) in a [Corda Cluster](#corda-clusters).
 The majority of the time, this is the [flows](#flows) within the compiled [CPK](#cordapp-packages-cpks) on behalf of a specific user.
-Since Corda itself is executing third-party code, CorDapp execution environments must be sandboxed from the host, Corda, to prevent the CorDapp from having access to system-level permissions and privileges. 
+Since Corda itself is executing third-party code, CorDapp execution environments must be sandboxed from the host, Corda, to prevent the CorDapp from having access to system-level permissions and privileges.
 Much like processes in a modern operating system, workers are run on behalf of an identity, with only the appropriate information accessible.
 
 Sandboxes, whilst crucial to the execution of Corda, are a concept that the majority of CorDapp developers never need to concern themselves with. The guarantee made by the platform is that when executed, CorDapp code will not allow the user running it access to any part of the system it should not.
