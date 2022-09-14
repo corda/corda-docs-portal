@@ -9,11 +9,11 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-This section describes how to package your CorDapp as CPKs, CPBs, and CPIs. You can read more about the CorDapp packaging format in the [Key concepts](../introduction/key-concepts.html#packaging) section.
+This section describes how to package your CorDapp as CPKs, CPBs, and CPIs. You can read more about the CorDapp packaging format in the [Key concepts](../../introduction/key-concepts.html#packaging) section.
 
 ## Before you start
 
-You will need a working copy of [`corda-cli`](./corda-cli/overview.html).
+You will need a working copy of [corda-cli](./corda-cli/overview.html).
 
 <!--## Configure the plugin in gradle???
 
@@ -52,7 +52,7 @@ To generate a code signing key for signing the CPI:
     ```shell
     keytool -genkeypair -alias "signing key 1" -keystore signingkeys.pfx -storepass "keystore password" -dname "cn=CPI Plugin Example - Signing Key 1, o=R3, L=London, c=GB" -keyalg RSA -storetype pkcs12 -validity 4000
     ```
-2. If we are using the gradle plugin default signing key, we need to import it into our key store. Save the following text into a file named `gradle-plugin-default-key.pem`
+2. If you are using the gradle plugin default signing key, you must import it into our key store. Save the following text into a file named `gradle-plugin-default-key.pem`
     ```text
     -----BEGIN CERTIFICATE-----
     MIIB7zCCAZOgAwIBAgIEFyV7dzAMBggqhkjOPQQDAgUAMFsxCzAJBgNVBAYTAkdC
@@ -68,13 +68,13 @@ To generate a code signing key for signing the CPI:
     zU+Rc5yMtcOY4/moZUq36r0Ilg==
     -----END CERTIFICATE-----
     ```
-3. Import `gradle-plugin-default-key.pem` into the keystore
+3. Import `gradle-plugin-default-key.pem` into the keystore:
     ```shell
     keytool -importcert -keystore signingkeys.pfx -storepass "keystore password" -noprompt -alias gradle-plugin-default-key -file gradle-plugin-default-key.pem
     ```
-{< note >}
+{{< note >}}
 This key can be generated once and kept for reuse.
-{< /note >}
+{{< /note >}}
 
 ## Generating a group policy file
 
@@ -82,8 +82,8 @@ To generate a group policy file:
 ```shell
 ./corda-cli.sh mgm groupPolicy > TestGroupPolicy.json
 ```
-For more information about `mgm` commmands, see [CLI commands](./corda-cli/commands.html#mgm).
-## Build a CPI
+For more information about `mgm` commmands, see [CLI commands](../corda-cli/commands.html#mgm).
+## Building a CPI
 
 The gradle plugin builds the CPB. To create a CPB for a CPI:
 ```shell
@@ -98,20 +98,20 @@ The gradle plugin builds the CPB. To create a CPB for a CPI:
     --key "signing key 1"
 ```
 
-## Import trusted code signing certificates into Corda
+## Importing trusted code signing certificates
 
 Corda validates that uploaded CPIs are signed with a trusted key. To trust your signing keys, upload them with these commands:
 
-1. Import the gradle plugin default key into Corda
+1. Import the gradle plugin default key into Corda:
     ```shell
     curl --insecure -u admin:admin -X PUT -F alias="gradle-plugin-default-key" -F certificate=@gradle-plugin-default-key.pem https://localhost:8888/api/v1/certificates/codesigner
     ```
-2. Export the signing key certificate from the key store
+2. Export the signing key certificate from the key store:
     ```shell
     keytool -exportcert -rfc -alias "signing key 1" -keystore signingkeys.pfx -storepass "keystore password" -file signingkey1.pem
     ```
-3. Import the signing key into Corda
+3. Import the signing key into Corda:
     ```shell
     curl --insecure -u admin:admin -X PUT -F alias="signingkey1-2022" -F certificate=@signingkey1.pem https://localhost:8888/api/v1/certificates/codesigner
     ```
-{< note >}Use an alias that will be unique over time. Consider how certificate expiry will require new certificates with the same x500 name as existing certificates and define a naming convention that covers that use case.{< /note >}
+{{< note >}}Use an alias that will be unique over time. Consider how certificate expiry will require new certificates with the same x500 name as existing certificates and define a naming convention that covers that use case.{{< /note >}}
