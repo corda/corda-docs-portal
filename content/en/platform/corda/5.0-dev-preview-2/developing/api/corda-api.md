@@ -17,5 +17,3 @@ The following sections describe the Corda API modules:
 * [membership](api-membership.html)
 * [persistence](api-persistence.html)
 * [serialisation](api-serialisation.html)
-
-You can also view the [Javadoc](test.html) and [KDoc](test.html) API reference documentation.
