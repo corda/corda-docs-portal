@@ -142,7 +142,7 @@ If they are not specified, JPA uses defaults.
       // your code goes here
   ```
 
-2. To create a Dog entity that writes a row to the database:
+2. To create a `Dog` entity that writes a row to the database, use the following code:
   ```java
   val dog = Dog(dogId, "dog", Instant.now(), "none")
   persistenceService.persist(dog)
