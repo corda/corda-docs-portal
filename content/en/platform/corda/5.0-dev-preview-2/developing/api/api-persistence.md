@@ -8,7 +8,7 @@ menu:
     weight: 7000
 section_menu: corda-5-dev-preview
 ---
-Corda 5 supports CRUD (Create, Read, Update, Delete) operations for user-defined types. This is achieved using JPA annotated entities and, to manage DB migrations, Liquibase.
+Corda 5 supports CRUD (Create, Read, Update, Delete) operations for user-defined types. This is achieved using JPA-annotated entities and, to manage database migrations, Liquibase.
 
 ## Defining custom tables using Liquibase migrations
 
