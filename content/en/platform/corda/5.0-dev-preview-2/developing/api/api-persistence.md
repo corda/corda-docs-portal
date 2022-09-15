@@ -167,7 +167,7 @@ If they are not specified, JPA uses defaults.
   val dogs = persistenceService.findAll(Dog::class.java).execute()
   ```
 
-4. To update a record, use the merge operation. For example, to change the name of a dog and set the owner to null:
+4. To update a record, use the merge operation. For example, to change the name of a `Dog` and set the owner to null:
 ```java
 val newDogName = input.getValue("name")
 persistenceService.merge(Dog(dogId, newDogName, Instant.now(), "none"))
