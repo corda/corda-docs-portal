@@ -16,14 +16,14 @@ Corda 5 supports CRUD (Create, Read, Update, Delete) operations for user-defined
 When Corda creates a [virtual node](../../introduction/key-concepts.html#virtual-nodes) for a CorDapp (as part of a [CPI](../../introduction/key-concepts.html#cordapp-package-installer-cpi)), it requires associated tables, indexes, foreign-keys, etc.
 To create these, you must embed Liquibase files into the CorDapp [CPK](../../introduction/key-concepts.html#cordapp-packages-cpks).
 
-Liquibase manages DB changes in a “Change Log” which references one or more Change Sets.
+Liquibase manages DB changes in a “Change Log” which references one or more change sets.
 You must specify the top level `databaseChangeLog` in a resource file in the CPK called `migration/db.changelog-master.xml`.
 This file can reference one or more files including `changeSet`.
 
 You should organise these change sets with future changes in mind.
 For example, we recommend a single `include` per version of the table.
 Once a `changeSet` is deployed, it cannot be changed and any change must be provided as a `changeSet` with a new `id`.
-We suggest adding a version in the id, for example, `<table-name>-v1`.
+We suggest adding a version in the `id`, for example, `<table-name>-v1`.
 
 Example of `src/resources/migration/db.changelog-master.xml`:
 ```xml
