@@ -66,7 +66,7 @@ To run the migrations:
 
   The migrations run when the virtual node is created and logging shows the migrations executing.
   If you have direct database access, you should see the tables being created.
-  If you are using Postgres, make sure to look under the correct schema, since each virtual node creates a new schema, unless an external VNode DB was provided during VNode creation.
+  If you are using Postgres, make sure to look under the correct schema, since each virtual node creates a new schema, unless an external VNode database was provided during VNode creation.
 
 ## Mapping your new tables to JPA entities
 
