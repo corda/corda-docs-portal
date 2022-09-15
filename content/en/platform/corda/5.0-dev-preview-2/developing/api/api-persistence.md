@@ -176,5 +176,5 @@ All of the operations available are defined in the public interface: Persistence
 <!-- add link to KDocs -->
 
 {{< note >}}
-Currently, inputs and outputs to `PersistenceService`` must fit inside a ~1MB (972,800 bytes) Kafka message. This size limit will be removed in future versions.
+Currently, inputs and outputs to `PersistenceService`` must fit in a ~1MB (972,800 bytes) Kafka message. This size limit will be removed in future versions.
 {{< /note >}}
