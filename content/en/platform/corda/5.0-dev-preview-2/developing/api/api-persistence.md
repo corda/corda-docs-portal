@@ -55,7 +55,7 @@ The referenced `include` file should also be a resource file in `src/resources/m
 </databaseChangeLog>
 ```
 {{< note >}}
-The include file reference is resolved relative to the resources path in the CPK and not relative to the current directory.
+The `include` file reference is resolved relative to the resources path in the CPK and not relative to the current directory.
 {{< /note >}}
 
 ## Running the migrations
