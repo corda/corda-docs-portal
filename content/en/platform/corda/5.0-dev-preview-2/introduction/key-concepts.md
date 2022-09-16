@@ -131,7 +131,7 @@ As shown, the flow framework acts as a distributed state machine designed to sch
 Sandboxes are the foundation that virtual nodes run on, keeping contracts, workflows, and libraries separate from other code. Each [virtual node](#virtual-nodes) runs on top of one or more sandboxes.
 
 The code encapsulated within a [CorDapp](#cordapps) is executed by the [workers](#workers) in a [Corda Cluster](#corda-clusters).
-The majority of the time, this is the [flows](#flows) within the compiled [CPK](#cordapp-packages-cpks) on behalf of a specific user.
+The majority of the time, this is the [flows](#flows) within the compiled [CPK](#corda-packages-cpks) on behalf of a specific user.
 Since Corda itself is executing third-party code, CorDapp execution environments must be sandboxed from the host, Corda, to prevent the CorDapp from having access to system-level permissions and privileges.
 Much like processes in a modern operating system, workers are run on behalf of an identity, with only the appropriate information accessible.
 
@@ -162,9 +162,9 @@ It is through this scaling that Corda achieves its HA guarantees.
 ## Packaging
 
 Just like a regular application, your [CorDapp](#cordapps) must be packaged for distribution and installation. Corda takes a three-layered model to its packaging design to allow maximum reusability and portability:
-1. [Corda Package (CPK)](#cordapp-packages-cpks) — represents a single code-entity authored by a CorDapp developer.
-2. [Corda Package Bundle (CPB)](#cordapp-package-bundles-cpbs) — built using a collection of CPKs, which represents a full application.
-3. [Corda Package Installer (CPI)](#cordapp-package-installer-cpi) — contains the CPB and information about the network.
+1. [Corda Package (CPK)](#corda-packages-cpks) — represents a single code-entity authored by a CorDapp developer.
+2. [Corda Package Bundle (CPB)](#corda-package-bundles-cpbs) — built using a collection of CPKs, which represents a full application.
+3. [Corda Package Installer (CPI)](#corda-package-installer-cpi) — contains the CPB and information about the network.
 
 ### Corda Packages (CPKs)
 CPKs are the Corda equivalent of a software library. They represent testable, reusable, sub-components of a final application.

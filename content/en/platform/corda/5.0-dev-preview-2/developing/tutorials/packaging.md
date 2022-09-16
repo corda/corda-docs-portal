@@ -13,7 +13,7 @@ This section describes how to package your CorDapp as CPKs, CPBs, and CPIs. You 
 
 ## Before you start
 
-You will need a working copy of [corda-cli](./corda-cli/overview.html).
+You must install [Corda CLI](./corda-cli/overview.html).
 
 <!--## Configure the plugin in gradle???
 
