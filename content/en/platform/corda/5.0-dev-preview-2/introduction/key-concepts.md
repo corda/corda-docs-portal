@@ -166,15 +166,15 @@ Just like a regular application, your [CorDapp](#cordapps) must be packaged for 
 2. [Corda Package Bundle (CPB)](#cordapp-package-bundles-cpbs) — built using a collection of CPKs, which represents a full application.
 3. [Corda Package Installer (CPI)](#cordapp-package-installer-cpi) — contains the CPB and information about the network.
 
-### CorDapp Packages (CPKs)
+### Corda Packages (CPKs)
 CPKs are the Corda equivalent of a software library. They represent testable, reusable, sub-components of a final application.
 Corda runs each CPK runs in its own [sandbox](#sandboxes), isolated from other CPKs.
 
-### CorDapp Package Bundles (CPBs)
+### Corda Package Bundles (CPBs)
 CPBs are complete applications minus the “run time information” needed to onboard entities into it.
 CPBs represent the final efforts of the development team, a discrete and testable application, encapsulating the solution to a problem that can be deployed to form an [application network](#application-networks).
 
-### CorDapp Package Installer (CPI)
+### Corda Package Installer (CPI)
 Corda is only useful when many entities are using a CorDapp to transact.
 The set of entities that can use an application is called an [application network](#application-networks).
 These have rules and other meta information beyond the simple code in the CPKs.
