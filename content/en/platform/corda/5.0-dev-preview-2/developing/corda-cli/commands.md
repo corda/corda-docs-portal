@@ -3,7 +3,7 @@ date: '2020-09-08T12:00:00Z'
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-cordacli-commands
-    weight: 1000
+    weight: 2000
     parent: corda-5-dev-preview-cordacli
 section_menu: corda-5-dev-preview
 title: "Corda CLI commands"
