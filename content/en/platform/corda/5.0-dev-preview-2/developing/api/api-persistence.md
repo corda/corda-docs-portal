@@ -143,7 +143,7 @@ If they are not specified, JPA uses defaults.
   ```
 
 2. To create a `Dog` entity that writes a row to the database, use the following code:
-  ```java
+  ```kotlin
   val dog = Dog(dogId, "dog", Instant.now(), "none")
   persistenceService.persist(dog)
   ```
