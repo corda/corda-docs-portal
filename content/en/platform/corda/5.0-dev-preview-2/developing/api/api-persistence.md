@@ -153,7 +153,7 @@ If they are not specified, JPA uses defaults.
   {{< /note >}}
 
 3. To load a row from the database by ID, use the following code:
-  ```java
+  ```kotlin
   val dog = persistenceService.find(Dog::class.java, dogId)
   return if (dog == null) {
       "no dog found"
