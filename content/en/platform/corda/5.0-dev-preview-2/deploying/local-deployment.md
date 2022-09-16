@@ -1,5 +1,5 @@
 ---
-date: '2021-09-21'
+date: '2022-09-13'
 title: "Local Kubernetes cluster"
 menu:
   corda-5-dev-preview:
@@ -8,3 +8,4 @@ menu:
     weight: 2000
 section_menu: corda-5-dev-preview
 ---
+*overview of k8s deployment and link to tutorial*

@@ -9,6 +9,6 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-The following tutorials are available for Corda 5 Developer Preview 2:
-* [Tutorial 1](tutorial-one.html)
+The following deployment tutorials are available for Corda 5 Developer Preview 2:
+* [Deploying to a Kubernetes cluster](tutorial-k8s.html)
 * [Tutorial 2](tutorial-two.html)
