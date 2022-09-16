@@ -163,7 +163,7 @@ If they are not specified, JPA uses defaults.
   ```
 
   Alternatively, to load all entities and create `Dog` instances for every record in the `Dog` table in the database, use the following code:
-  ```java
+  ```kotlin
   val dogs = persistenceService.findAll(Dog::class.java).execute()
   ```
 
