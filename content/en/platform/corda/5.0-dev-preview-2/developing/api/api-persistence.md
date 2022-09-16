@@ -130,7 +130,7 @@ If they are not specified, JPA uses defaults.
 ## Using the persistence API from a CorDapp flow
 
 1. Define a reference to the persistence service. This should be supplied via the Corda dependency injection system:
-  ```java
+  ```kotlin
   import net.corda.v5.application.flows.CordaInject
   import net.corda.v5.application.flows.RPCStartableFlow
   import net.corda.v5.application.persistence.PersistenceService
