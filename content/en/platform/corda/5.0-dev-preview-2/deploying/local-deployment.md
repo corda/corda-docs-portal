@@ -83,8 +83,10 @@ The chart is installed into a Kubernetes namespace using the Helm CLI.
     kubectl create namespace corda
     ```
 
-**Note:** The commands that follow all assume that you are using a namespace called `corda`.
+{{< note >}}
+The commands that follow all assume that you are using a namespace called `corda`.
 Modify the `-n corda` option on each `kubectl` command if you use a different namespace.
+{{< /note >}}
 
 ## Install Corda pre-requisites
 
@@ -111,30 +113,28 @@ One option to obtain these in a local development environment is via the umbrell
     helm install prereqs -n corda charts/corda-dev --render-subchart-notes --timeout 10m --wait
     ```
 
-    The `--wait` option ensures all of the pods are ready before returning and the `--render-subchart-notes` option gives you a brief overview of the connection details.
+    The `--wait` option ensures all of the pods are ready before returning. The `--render-subchart-notes` option gives you a brief overview of the connection details.
     The timeout is set to 10 minutes to allow time to pull the images from Docker Hub.
     The process should take significantly less time than this on subsequent installs.
 
 ## Build the Corda Docker images
 
-The Corda Docker images need to be built from source.
+The Corda Docker images must be built from source.
 
 1. If you’re using minikube, configure your shell to use the Docker daemon inside minikube so that built images are available directly to the cluster:
 
     {{< tabs name="Setting Docker environment for minikube">}}
     {{% tab name="Bash"%}}
 
-    ```bash
-    eval $(minikube docker-env)
-    ```
+```bash
+eval $(minikube docker-env)
 
     {{% /tab %}}
 
     {{% tab name="PowerShell" %}}
 
-    ```pwsh
-    minikube docker-env --shell=powershell | Invoke-Expression
-    ```
+```pwsh
+minikube docker-env --shell=powershell | Invoke-Expression
 
     {{% /tab %}}
     {{< /tabs >}}
@@ -179,7 +179,7 @@ They also set the initial admin user password to `admin`.
    helm install corda -n corda charts/corda --values values.yaml --wait
    ```
 
-When the commmand completes, the RPC endpoint should ready to access.
+When the commmand completes, the RPC endpoint should be ready to access.
 
 ### Troubleshooting
 
