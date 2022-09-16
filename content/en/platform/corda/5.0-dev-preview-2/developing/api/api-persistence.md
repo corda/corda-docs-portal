@@ -74,7 +74,7 @@ CorDapps should use JPA annotated POJOs for data access objects.
 Each class requires `@CordaSerializable` and `@Entity` annotations.
 The following is an example that also defines some named JPQL queries:
 
-```java
+```kotlin
 @CordaSerializable
 @Entity(name = "dog")
 @NamedQueries(
