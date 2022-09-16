@@ -8,14 +8,13 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   tutorials:
-    identifier: corda-community-4-9-supplementary-tutorials-index
-    parent: tutorials-corda-4-9
+    identifier: corda-os-4-8-supplementary-tutorials-index
+    parent: tutorials-corda-4-8
     weight: 1030
 tags:
 - tutorials
 title: Supplementary tutorials
 ---
-
 
 #  Supplementary tutorials
 

@@ -1,16 +1,18 @@
 ---
+aliases:
+- /en/tutorials/corda/4.8/os.html
 date: '2021-09-27'
 section_menu: tutorials
 menu:
   tutorials:
-    name: Corda 4.9 tutorials
-    weight: 197
-    identifier: tutorials-corda-4-9
+    name: Corda 4.8 tutorials
+    weight: 198
+    identifier: tutorials-corda-4-8
 project: tutorials
-title: Corda 4.9 tutorials
+title: Corda 4.8 tutorials
 ---
 
-The Corda 4.9 tutorials show you how to build a basic CorDapp and add advanced features to fit your business needs.
+The Corda 4.8 tutorials show you how to build a basic CorDapp and add advanced features to fit your business needs.
 
 Follow the [Building your first CorDapp](build-basic-cordapp/basic-cordapp-intro.md) learning path to learn how to:
 
