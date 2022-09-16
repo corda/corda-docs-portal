@@ -10,5 +10,5 @@ section_menu: corda-5-dev-preview
 ---
 
 The following tutorials are available for Corda 5 Developer Preview 2:
-* [Tutorial 1](tutorial-one.html)
+* [CorDapp packaging](packaging.html)
 * [Tutorial 2](tutorial-two.html)
