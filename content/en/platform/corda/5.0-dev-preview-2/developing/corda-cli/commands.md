@@ -32,11 +32,11 @@ To generate GroupPolicy using file input:
 ```shell
 ./corda-cli.sh mgm groupPolicy --file="app/build/resources/src.yaml"
 ```
-{< note >}
+{{< note >}}
 * Only one of `memberNames` and `members` blocks may be present.
 * As ingle endpoint is assumed for all members when `memberNames` is used.
 * Endpoint information specified under `members` overrides endpoint information set at the root level. An error is thrown if endpoint information is not provided at all.
-{< /note >}
+{{< /note >}}
 #### Sample files
 
 JSON with `memberNames`:
@@ -91,11 +91,11 @@ To generate GroupPolicy using file input:
 ```shell
 ./corda-cli.sh mgm groupPolicy --name="C=GB, L=London, O=Member1" --name="C=GB, L=London, O=Member2" --endpoint-protocol=5 --endpoint="http://dummy-url"
 ```
-{< note >}
+{{< note >}}
 * Passing one or more `--name` arguments without specifying endpoint information throws an error.
 * Not passing any `--name` arguments returns a GroupPolicy with an empty list of static members.
 * A single endpoint is assumed for all members.
-{< /note >}
+{{< /note >}}
 
 ## Package
 The `package` commands execute operations for working with CPB and CPI files.
