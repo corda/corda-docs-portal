@@ -9,7 +9,7 @@ section_menu: corda-5-dev-preview
 title: Corda CLI
 ---
 
-db-config - Ben
+<!--db-config - Ben
 initial-config - Ben
 mgm - charlie/yash
 network - charlie/yash
@@ -17,3 +17,6 @@ package - Kyriakos
 secret-config - Ben
 topic-config - Ben
 virtual-node - Me
+-->
+The Corda CLI is a command line tool which provides tooling for working with Corda clusters.
+The [CSDE Template] handles calls to the Corda CLI. However, if you prefer, you can perform command line instructions directly. 
