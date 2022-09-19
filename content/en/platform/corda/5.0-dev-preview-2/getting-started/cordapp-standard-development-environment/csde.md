@@ -25,13 +25,13 @@ The CSDE is experimental. The decision whether or not we release it as part of C
 1. To obtain the CSDE template, clone the [`CSDE-Cordapp-Template-Kotlin` repository](https://github.com/corda/CSDE-cordapp-template-kotlin):
 
   ```sh
-  # git clone https://github.com/corda/CSDE-cordapp-template-kotlin.git <name of the folder to put it in>
+  git clone https://github.com/corda/CSDE-cordapp-template-kotlin.git <name of the folder to put it in>
   ```
 
 2. Change to the new directory and checkout *<insert final tag>*:
 
   ```sh
-  # git checkout xxx
+  git checkout xxx
   ```
 
   You should initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo.
@@ -80,5 +80,5 @@ The `deployCorDapp` task does the following to compile and deploy the CorDapp to
 3. Generates the [virtual nodes](../../../introduction/key-concepts.html#virtual-nodes) with the CPI.
 
 ### Debug Configuration
-In the toolbar, you can select the `DebugCorDapp` run configuration, which allows you to debug the running Corda from IntelliJ.
+In the toolbar, you can select the `DebugCorDapp` run configuration to debug the running Corda from IntelliJ.
 {{< figure src="debugging.png" figcaption="CSDE DebugCorDapp" alt="Menu in IntelliJ to debug Corda" >}}
