@@ -7,7 +7,7 @@ menu:
     weight: 2000
 section_menu: corda-5-dev-preview
 ---
-This section guides Developers who are new to Corda 5 from setting up Corda through to writing, compiling, and running their first basic CorDapp.
+This section guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic CorDapp.
 
 <!--It includes:
 
@@ -24,9 +24,9 @@ Deploying Cordapps to a local Corda Cluster (Combined Worker).-->
 {{< note >}}
 Developer Preview 2 is, as the name suggests, a developer preview. It is not a product released and supported by R3. As a result:
 * Do not release anything built on Developer Preview 2 into Production.
-* There is no support For Developer Preview 2, although we are keen to receive community feedback.
-* There are no guarantees around API stability, nor any expectation that the APIs will be stable.
-* The tooling described in this section is experimental, it may or may not make it in to the GA release of Corda 5.
+* There is no support For Developer Preview 2 but we are keen to receive community feedback.
+* There are no guarantees around API stability.
+* The tooling described in this section is experimental and may or may not make it in to the GA release of Corda 5.
 * There are going to be bugs. If you raise a bug with us, we will consider them for fixing.
 {{< /note >}}
 
@@ -48,8 +48,8 @@ This documentation does not assume any prior knowledge of Corda 4.
 
 ## Ledger
 
-As at the cut for Developer Preview 2, the Corda 5 [Ledger](../../introduction/key-concepts.html#ledger-layer) is not at the stage of development where it can be usefully previewed, hence there is no Ledger in Developer Preview 2.
-There are however some of the Ledger building blocks around cryptography, serialization, and persistence and so with a bit of extra work you can still prototype useful Distributed Ledger applications.
+As at the cut for Developer Preview 2, the Corda 5 [ledger](../introduction/key-concepts.html#ledger-layer) is not at the stage of development where it can be usefully previewed, hence there is no ledger in Developer Preview 2.
+There are however some of the ledger building blocks around cryptography, serialization, and persistence and so with a bit of extra work you can still prototype useful distributed ledger applications.
 
 ## Other sources of documentation
 

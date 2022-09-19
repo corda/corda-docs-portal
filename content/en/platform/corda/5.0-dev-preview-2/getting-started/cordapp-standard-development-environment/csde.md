@@ -23,9 +23,9 @@ The CSDE is experimental. The decision whether or not we release it as part of C
 
 ## Downloading the CSDE template
 
-1. To obtain the CSDE template, clone the [`CSDE-Cordapp-Template-Kotlin` repository](https://github.com/corda/CSDE-cordapp-template-kotlin):
+1. To obtain the CSDE template, clone the `[CSDE-Cordapp-Template-Kotlin` repository](https://github.com/corda/CSDE-cordapp-template-kotlin):
 
-   ```bash
+   ```sh
    git clone https://github.com/corda/CSDE-cordapp-template-kotlin.git <local folder>
    ```
 
@@ -35,7 +35,7 @@ The CSDE is experimental. The decision whether or not we release it as part of C
    git checkout xxx
    ```
 
-  You should initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo.
+   You should initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo.
 
 3. Open the project in IntelliJ and let the import process complete.
   When complete, the project structure looks as follows:
@@ -45,7 +45,7 @@ The CSDE is experimental. The decision whether or not we release it as part of C
 
 This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a CorDapp.
 
-### Project Structure
+### Project structure
 On the left, you can see the folder structure created, ready for CorDapps development.
 {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
 
@@ -80,6 +80,6 @@ The `deployCorDapp` task does the following to compile and deploy the CorDapp to
 2. Uploads the CPI to the combined worker.
 3. Generates the [virtual nodes](../../../introduction/key-concepts.html#virtual-nodes) with the CPI.
 
-### Debug Configuration
+### Debug configuration
 In the toolbar, you can select the `DebugCorDapp` run configuration to debug the running Corda from IntelliJ.
 {{< figure src="debugging.png" figcaption="CSDE DebugCorDapp" alt="Menu in IntelliJ to debug Corda" >}}

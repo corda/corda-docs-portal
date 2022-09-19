@@ -28,7 +28,7 @@ If you want to experiment with multi-worker cluster deployments, you will also n
 * Kubernetes (incl. kubectl)
 * Helm
 
-However, Developer Preview 2 focuses on the developer rather than operator experience so [Kubernetes deployments](../../deploying/local-deployment) are not required to use Developer Preview 2.
+However, Developer Preview 2 focuses on the developer rather than operator experience so [Kubernetes deployments](content\en\platform\corda\5.0-dev-preview-2\deploying\local-deployment.md) are not required to use Developer Preview 2.
 
 ## Hardware prerequisites
 
