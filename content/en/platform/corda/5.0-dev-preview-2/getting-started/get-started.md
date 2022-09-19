@@ -7,7 +7,7 @@ menu:
     weight: 2000
 section_menu: corda-5-dev-preview
 ---
-This section guides Developers who are new to Corda 5 from set up through to writing, compiling, and running their first basic Cordapp.
+This section guides Developers who are new to Corda 5 from setting up Corda through to writing, compiling, and running their first basic CorDapp.
 
 <!--It includes:
 

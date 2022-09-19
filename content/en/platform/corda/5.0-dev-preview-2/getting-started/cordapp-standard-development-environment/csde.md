@@ -16,23 +16,24 @@ The CSDE is obtained by cloning our `CSDE-Cordapp-Template-Kotlin` repository to
 * Debug configuration for debugging a local Corda cluster.
 * The `MyFirstFlow` code which forms the basis of the Getting Started documentation.
 * The ability to configure the members of the local Corda network.
+
 {{< note >}}
-The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0, will in part be based on your feedback.  
+The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your feedback.  
 {{< /note >}}
 
 ## Downloading the CSDE template
 
 1. To obtain the CSDE template, clone the [`CSDE-Cordapp-Template-Kotlin` repository](https://github.com/corda/CSDE-cordapp-template-kotlin):
 
-  ```sh
-  git clone https://github.com/corda/CSDE-cordapp-template-kotlin.git <name of the folder to put it in>
-  ```
+   ```bash
+   git clone https://github.com/corda/CSDE-cordapp-template-kotlin.git <local folder>
+   ```
 
 2. Change to the new directory and checkout *<insert final tag>*:
 
-  ```sh
-  git checkout xxx
-  ```
+   ```sh
+   git checkout xxx
+   ```
 
   You should initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo.
 
