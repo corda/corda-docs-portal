@@ -7,5 +7,3 @@ menu:
     weight: 6000
 section_menu: corda-5-dev-preview
 ---
-
-This will contain a high-level intro to what has changed and is wonderful about Corda 5!!
