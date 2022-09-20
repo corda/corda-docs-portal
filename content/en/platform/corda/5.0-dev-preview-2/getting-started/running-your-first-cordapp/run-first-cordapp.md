@@ -4,7 +4,7 @@ title: "Running your first CorDapp"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-start
-    identifier: corda-5-dev-preview-csde
+    identifier: corda-5-dev-preview-run-first-cordapp
     weight: 3000
 section_menu: corda-5-dev-preview
 ---
