@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-tutorials-dev
     parent: corda-5-dev-preview-develop
-    weight: 1000
+    weight: 900
 section_menu: corda-5-dev-preview
 ---
 
