@@ -23,7 +23,7 @@ However, you must wait approximately one minute for Corda to finish its start-up
 Currently, we do not have a liveness detector for Corda in the CSDE so we check liveness by manually hitting an endpoint.
 
 ## Testing Liveness and Swagger
-Corda exposes [HTTP REST API](content\en\platform\corda\5.0-dev-preview-2\developing\rest-api\rest-api.html) endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
+Corda exposes [HTTP REST API](../../developing/rest-api/rest-api.html) endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
 
 ### Displaying the Swagger UI
 To display the Swagger UI, use the following link:

@@ -50,7 +50,7 @@ On the left, you can see the folder structure created, ready for CorDapps develo
 {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
 
 You will write your flow code in `src/main/kotlin/<your package path>` and your flow tests in `src/main/kotlin/<your package path>`.
-(For Java, it will be `src/main/java/<your package path>` and `src/test/java/<your package path>` respectively.)
+(For Java, use `src/main/java/<your package path>` and `src/test/java/<your package path>` respectively.)
 
 ### Gradle helpers for the Combined Worker
 On the right, you can see the Gradle tasks that we have included to help you work with a local deployment of Corda using the combined worker:
@@ -76,9 +76,9 @@ The `stopCorda` task does the following:
 
 The `deployCorDapp` task does the following to compile and deploy the CorDapp to the combined worker:
 
-1. Compiles the [CPB](../../../introduction/key-concepts.html#corda-package-bundles-cpbs) and [CPI](../../../introduction/key-concepts.html#corda-package-installer-cpi).
+1. Compiles the [CPB](../../introduction/key-concepts.html#corda-package-bundles-cpbs) and [CPI](../../introduction/key-concepts.html#corda-package-installer-cpi).
 2. Uploads the CPI to the combined worker.
-3. Generates the [virtual nodes](../../../introduction/key-concepts.html#virtual-nodes) with the CPI.
+3. Generates the [virtual nodes](../../introduction/key-concepts.html#virtual-nodes) with the CPI.
 
 ### Debug configuration
 In the toolbar, you can select the `DebugCorDapp` run configuration to debug the running Corda from IntelliJ.
