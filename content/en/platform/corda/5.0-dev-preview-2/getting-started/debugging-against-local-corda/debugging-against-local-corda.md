@@ -1,6 +1,6 @@
 ---
 date: '2022-09-20'
-title: "Your first flow"
+title: "Debugging against local Corda"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-start
@@ -27,7 +27,7 @@ To debug:
    The CorDapp stops execution at the breakpoint and you can inspect the stack.
    {{< figure src="pause-at-breakpoint.png" figcaption="Pause at breakpoint in IntelliJ" >}}   
   {{< note >}}
-  If you wait too long to resume, the flow will fail. The logs will contatin one or more of the following messages:
+  If you wait too long to resume, the flow will fail. The logs will contain one or more of the following messages:
 
    `2022-09-20 18:43:20.278 [Thread-94] ERROR net.corda.flow.pipeline.impl.FlowEventPipelineImpl - Flow execution timeout, Flow marked as failed, interrupt attempted`
    `java.util.concurrent.TimeoutException: null`
