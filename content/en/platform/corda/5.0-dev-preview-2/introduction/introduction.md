@@ -8,7 +8,6 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-## Introduction
 Corda is a platform that enables you to build permissioned blockchain networks, create applications that solve a business problem that requires parties to come to some agreement, and interact in a completely secure ecosystem.
 Corda 5 was designed with an understanding that it is the job of a platform job to serve those running software on it.
 
