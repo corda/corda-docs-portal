@@ -23,10 +23,10 @@ The CSDE is experimental. The decision whether or not we release it as part of C
 
 ## Downloading the CSDE template
 
-1. To obtain the CSDE template, clone the `[CSDE-Cordapp-Template-Kotlin` repository](https://github.com/corda/CSDE-cordapp-template-kotlin):
+1. To obtain the CSDE template, clone the [CSDE-Cordapp-Template-Kotlin repository](https://github.com/corda/CSDE-cordapp-template-kotlin):
 
    ```sh
-   git clone https://github.com/corda/CSDE-cordapp-template-kotlin.git <local folder>
+   git clone https://github.com/corda/CSDE-cordapp-template-kotlin.git <local-folder>
    ```
 
 2. Change to the new directory and checkout *<insert final tag>*:
