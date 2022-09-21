@@ -26,7 +26,7 @@ capturing the change must be added (whilst it can be omitted any interoperabilit
 supports two modifications to enumerated types, adding new constants, and renaming existing constants
 
 {{< warning >}}
-Once added evolution annotations MUST NEVER be removed from a class, doing so will break
+Once added, evolution annotations MUST NEVER be removed from a class, doing so will break
 both forward and backward compatibility for this version of the class and any version moving
 forward.
 {{< /warning >}}
@@ -49,7 +49,7 @@ the new one) a deserializing system should treat any instances of the new one as
 {{< note >}}
 Ultimately, this may mean some design compromises are required. If an enumeration is
 planned as being often extended and no sensible defaults will exist then including a constant
-in the original version of the class that all new additions can default to may make sense.
+in the original version of the class that all new additions can default to, may make sense.
 {{< /note >}}
 
 ## Evolution Transmission
@@ -120,7 +120,7 @@ enum class Example {
 ```
 
 {{< note >}}
-The parameters to the `CordaSerializationTransformRename` annotation are defined as ‘to’ and ‘from,
+The parameters to the `CordaSerializationTransformRename` annotation are defined as ‘to’ and ‘from’,
 so in the above example it can be read as constant D (given that is how the class now exists) was renamed
 from C
 
@@ -183,7 +183,7 @@ enum class Example {
 ```
 
 {{< note >}}
-The parameters to the `CordaSerializationTransformEnumDefault` annotation are defined as ‘new’ and ‘old’,
+The parameters to the `CordaSerializationTransformEnumDefault` annotation are defined as ‘newName’ and ‘oldName’,
 so in the above example it can be read as constant D should be treated as constant C if you, the deserializing
 node, don’t know anything about constant D
 {{< /note >}}
@@ -331,7 +331,7 @@ enum class OngoingExample { A, B, CAT, D, E, F }
 
 ## Unsupported Evolutions
 
-The following evolutions are not currently supports
+The following evolutions are not currently supported:
 
 * Removing constants
 * Reordering constants
