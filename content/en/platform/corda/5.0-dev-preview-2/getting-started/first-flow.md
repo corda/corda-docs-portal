@@ -8,15 +8,15 @@ menu:
     weight: 5000
 section_menu: corda-5-dev-preview
 ---
-Now that we have the Simulator test framework for triggering and testing flows, we can look at the anatomy of the `MyFirstFlow` and `MyFirstResponderFlow` flows.
-Although these are basic flows, they do illustrate a number of the main features of Corda 5 flows.
+<!-- Now that we have the Simulator test framework for triggering and testing flows, we can look at the anatomy of the `MyFirstFlow` and `MyFirstResponderFlow` flows.-->
+The `MyFirstFlow` and `MyFirstResponderFlow` flows are basic flows that illustrate the main features of Corda 5 flows.
 Many of the features will be familiar to those Developers who have written Corda 4 CorDapps. However, there are some important differences when using Corda 5:
 * Services are injected on an as-needed basis.  
-* Flows are started via http-rpc, rather than a Java client sending Java classes over AMQP
-* Initiating and Responder flows are linked with a protocol rather than class names.
+* Flows are started via HTTP RPC, rather than a Java client sending Java classes over AMQP.
+* Initiating and responder flows are linked with a protocol rather than class names.
 * Singletons should be avoided in flow code because there is no guarantee that the same flow worker will continue to execute a flow after it has been check-pointed and restarted.
-Although these seem a little strange at first, once you get used to them they will become second nature.
-It is also worth noting that as of Developer Preview 2, there is no ledger service available to the flows. This means that you can not create tokens, transactions, or states yet.
+<!--Although these changes seem a little strange at first, once you get used to them they will become second nature.-->
+It is also worth noting that, as of Developer Preview 2, there is no ledger service available to the flows. This means that you can not create tokens, transactions, or states yet.
 
 ## MyFirstFlow use case
 The use case in the example is very simple:
