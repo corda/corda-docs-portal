@@ -42,7 +42,7 @@ To Java Developers used to working with Corda 4, or those who have some familiar
 
 ## Corda 4 vs Corda 5
 
-Corda 5 is a complete re-write of Corda 4. This was necessary to achieve the massive gains in non-functional performance that Corda 5 offers. When writing CorDapps, some things will appear familiar and some things will feel different. For example, the basic mechanism of flows is similar, whereas the structure of the Corda Network, the way flows are tested, and the way flows are instantiated (via REST) have changed significantly.
+Corda 5 is a complete re-write of Corda 4. This was necessary to achieve the massive gains in non-functional performance that Corda 5 offers. When writing CorDapps, some things will appear familiar and some things will feel different. For example, the basic mechanism of flows is similar, whereas the structure of the Corda network, the way flows are tested, and the way flows are instantiated (via REST) have changed significantly. You can read more about these changes in the [Introduction](../introduction/introduction.html).
 
 This documentation does not assume any prior knowledge of Corda 4.
 
