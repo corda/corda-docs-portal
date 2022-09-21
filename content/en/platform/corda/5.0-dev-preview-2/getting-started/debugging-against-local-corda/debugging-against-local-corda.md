@@ -16,7 +16,7 @@ To debug:
 1. Start corda using the startCorda Gradle Helper (if not already started).
 2. Deploy your CorDapp using deployCordapp (if not already deployed).
 3. Select the DebugCorDapp run configuration.
-{{< figure src="debugging-against-local-corda.png" figcaption="CSDE DebugCorDapp run configuration in IntelliJ" >}}
+{{< figure src="select-debug-configuration.png" figcaption="CSDE DebugCorDapp run configuration in IntelliJ" >}}
 4. Click the debug button.
 {{< figure src="click-debug.png" figcaption="Debug button in IntelliJ" >}}
    The following message is displayed to indicate a successful connection:
