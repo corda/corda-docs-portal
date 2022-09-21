@@ -45,14 +45,16 @@ If the Swagger UI is already open whilst starting Corda, you must hit an endpoin
 
  To access the Corda cluster, you must authorize Swagger:
  1. Click the green **Authorise** button.
-{{< figure src="authorize-button.png" figcaption="Swagger Authorize button" alt="Button in Swagger UI to authorize access to the Corda cluster" >}}
+{{< figure src="authorize-button.png"  width="50%" figcaption="Swagger Authorize button" alt="Button in Swagger UI to authorize access to the Corda cluster" >}}
    The **Available authorizations** window is displayed.
-2. Enter the username and password. For the purposes of experimental development, the username for the combined worker is set to  `admin` and the password is `admin`.
-{{< figure src="authorize.png" width="50%" figcaption="Swagger Authorize authorizations window" alt="Authorize authorizations window in Swagger UI to authorize access to the Corda cluster" >}}
+2. If necessary, click **Logout**.
+3. Enter the username and password. For the purposes of experimental development, the username for the combined worker is set to  `admin` and the password is `admin`.
+{{< figure src="authorize.png" figcaption="Swagger Authorize authorizations window" alt="Authorize authorizations window in Swagger UI to authorize access to the Corda cluster" >}}
+4. Click **Authorise** and then **Close**.
 
 ### Hitting endpoints
 
-Now you are authorised, you can start hitting endpoints. The easiest one to try is `/cpi`  because it is the first one on the swagger page and it requires no arguments:
+Once authorised, you can start hitting endpoints. The easiest one to try is `/cpi`  because it is the first one on the swagger page and it requires no arguments:
 1. Expand the `GET /cpi` row and click **Try it out**.
 {{< figure src="get-cpi.png" figcaption="Try it out button for GET /cpi" alt="Expanded GET /cpi with Try it out button" >}}
 2. Click the **Execute** button to hit the endpoint.
