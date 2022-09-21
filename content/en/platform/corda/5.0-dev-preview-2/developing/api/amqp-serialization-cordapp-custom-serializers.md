@@ -14,17 +14,12 @@ section_menu: corda-5-dev-preview
 # Pluggable Serializers for CorDapps
 
 
-To be serializable by Corda Java classes must be compiled with the -parameters switch to enable matching of its properties
+To be serializable by Corda, Java classes must be compiled with the -parameters switch to enable matching of its properties
 to constructor parameters. This is important because Corda’s internal AMQP serialization scheme will only construct
 objects using their constructors. However, when recompilation isn’t possible, or classes are built in such a way that
 they cannot be easily modified for simple serialization, CorDapps can provide custom proxy serializers that Corda
 can use to move from types it cannot serialize to an interim representation that it can with the transformation to and
 from this proxy object being handled by the supplied serializer.
-
-
-## Serializer Location
-
-Custom serializer classes should follow the rules for including classes found in [Building and installing a CorDapp](cordapp-build-systems.md)
 
 
 ## Writing a Custom Serializer
@@ -33,10 +28,10 @@ Serializers must
 
 
 
-* Inherit from `net.corda.core.serialization.SerializationCustomSerializer`
+* Inherit from `net.corda.v5.serialization.SerializationCustomSerializer`
 * Provide a proxy class to transform the object to and from
 * Implement the `toProxy` and `fromProxy` methods
-* Be either included into the CorDapp Jar or made available in the system class path of the running process
+* Be included into the CorDapp package
 
 
 Serializers inheriting from `SerializationCustomSerializer` have to implement two methods and two types.
@@ -82,7 +77,7 @@ class into a form we can serialize. Continuing the above example, this could be 
 ```java
 /**
  * The class lacks a public constructor that takes parameters it can associate
- * with its properties and is thus not serializable by the CORDA serialization
+ * with its properties and is thus not serializable by the Corda serialization
  * framework.
  */
 class Example {
@@ -116,7 +111,7 @@ public class ExampleProxy {
      * can be mapped to the properties of the class via getter methods.
      */
     public int getProxiedA() { return proxiedA; }
-    public int getProxiedB() { return  proxiedB; }
+    public int getProxiedB() { return proxiedB; }
 
     public ExampleProxy(int proxiedA, int proxiedB) {
         this.proxiedA = proxiedA;
@@ -126,7 +121,7 @@ public class ExampleProxy {
 
 /**
  * Finally this is the custom serializer that will automatically loaded into the serialization
- * framework when the CorDapp Jar is scanned at runtime.
+ * framework when the CorDapp package is loaded at runtime.
  */
 public class ExampleSerializer implements SerializationCustomSerializer<Example, ExampleProxy> {
 
@@ -243,7 +238,7 @@ into the serialized byte stream.
 {{< /important >}}
 
 
-## Whitelisting
+## Allow list
 
-By writing a custom serializer for a class it has the effect of adding that class to the whitelist, meaning such
-classes don’t need explicitly adding to the CorDapp’s whitelist.
+By writing a custom serializer for a class it has the effect of adding that class to the allow list, meaning such
+classes don’t need the `@CordaSerializable` annotation.
