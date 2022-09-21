@@ -107,4 +107,5 @@ The `package` commands execute operations for working with CPB and CPI files.
 | --verify         | |
 | --sign         | |
 | --create-cpi         | |
+
 You can learn how to package your CorDapp in the Developer tutorial [here](../tutorials/packaging.html).
