@@ -10,9 +10,9 @@ section_menu: corda-5-dev-preview
 ---
 
 * [Overview](#introduction)
-* [Default Class Evolution](amqp-serialization-default-evolution)
-* [Enum Evolution](amqp-serialization-enum-evolution)
-* [Pluggable Serializers for CorDapps](amqp-serialization-cordapp-custom-serializers)
+* [Default Class Evolution](amqp-serialization-default-evolution.html)
+* [Enum Evolution](amqp-serialization-enum-evolution.html)
+* [Pluggable Serializers for CorDapps](amqp-serialization-cordapp-custom-serializers.html)
 
 
 ## Introduction
