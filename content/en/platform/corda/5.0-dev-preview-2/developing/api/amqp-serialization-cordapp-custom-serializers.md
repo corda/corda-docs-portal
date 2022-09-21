@@ -1,21 +1,13 @@
 ---
-aliases:
-- /head/cordapp-custom-serializers.html
-- /HEAD/cordapp-custom-serializers.html
-- /cordapp-custom-serializers.html
-date: '2020-04-07T12:00:00Z'
+date: '2022-09-21T14:27:00+01:00'
+title: "Pluggable Serializers for CorDapps"
 menu:
-  corda-os-4-8:
-    identifier: corda-os-4-8-cordapp-custom-serializers
-    parent: corda-os-4-8-serialization-index
-    weight: 1020
-tags:
-- cordapp
-- custom
-- serializers
-title: Pluggable Serializers for CorDapps
+  corda-5-dev-preview:
+    identifier: corda-5-dev-preview-api-serialisation-cordapp-custom-serializers
+    parent: corda-5-dev-preview-api-serialisation
+    weight: 8000
+section_menu: corda-5-dev-preview
 ---
-
 
 
 

@@ -1,20 +1,14 @@
 ---
-aliases:
-- /head/serialization-enum-evolution.html
-- /HEAD/serialization-enum-evolution.html
-- /serialization-enum-evolution.html
-date: '2020-04-07T12:00:00Z'
+date: '2022-09-21T14:27:00+01:00'
+title: "Enum Evolution"
 menu:
-  corda-os-4-8:
-    identifier: corda-os-4-8-serialization-enum-evolution
-    parent: corda-os-4-8-serialization-index
-    weight: 1040
-tags:
-- serialization
-- enum
-- evolution
-title: Enum Evolution
+  corda-5-dev-preview:
+    identifier: corda-5-dev-preview-api-serialisation-enum-evolution
+    parent: corda-5-dev-preview-api-serialisation
+    weight: 8000
+section_menu: corda-5-dev-preview
 ---
+
 
 # Enum Evolution
 

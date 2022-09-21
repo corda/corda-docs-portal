@@ -1,21 +1,13 @@
 ---
-aliases:
-- /head/serialization-default-evolution.html
-- /HEAD/serialization-default-evolution.html
-- /serialization-default-evolution.html
-date: '2020-04-07T12:00:00Z'
+date: '2022-09-21T14:27:00+01:00'
+title: "Default Class Evolution"
 menu:
-  corda-os-4-8:
-    identifier: corda-os-4-8-serialization-default-evolution
-    parent: corda-os-4-8-serialization-index
-    weight: 1030
-tags:
-- serialization
-- default
-- evolution
-title: Default Class Evolution
+  corda-5-dev-preview:
+    identifier: corda-5-dev-preview-api-serialisation-default-evolution
+    parent: corda-5-dev-preview-api-serialisation
+    weight: 8000
+section_menu: corda-5-dev-preview
 ---
-
 
 
 
