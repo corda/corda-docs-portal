@@ -29,7 +29,7 @@ To debug:
   {{< note >}}
   If you wait too long to resume, the flow will fail. The logs will contain one or more of the following messages:
 
-   `2022-09-20 18:43:20.278 [Thread-94] ERROR net.corda.flow.pipeline.impl.FlowEventPipelineImpl - Flow execution timeout, Flow marked as failed, interrupt attempted`
-   `java.util.concurrent.TimeoutException: null`
-   `net.corda.flow.pipeline.exceptions.FlowEventException: Received a Wakeup for flow [f9a83184-2f83-4587-aca4-e622f4b1bfee] that does not exist`
+   * `2022-09-20 18:43:20.278 [Thread-94] ERROR net.corda.flow.pipeline.impl.FlowEventPipelineImpl - Flow execution timeout, Flow marked as failed, interrupt attempted`
+   * `java.util.concurrent.TimeoutException: null`
+   * `net.corda.flow.pipeline.exceptions.FlowEventException: Received a Wakeup for flow [f9a83184-2f83-4587-aca4-e622f4b1bfee] that does not exist`
    {{< /note >}}   
