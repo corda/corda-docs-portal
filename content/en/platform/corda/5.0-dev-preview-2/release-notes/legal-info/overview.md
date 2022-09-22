@@ -13,4 +13,4 @@ section_menu: corda-5-dev-preview
 * [corda-api](api.html).
 * [corda-runtime-os](runtime-os.html).
 * [corda-gradle-plugins](gradle.html).
-* [corda-api](api.html).
+* [CSDE-cordapp-template-kotlin](CSDE-cordapp-template-kotlin.html).
