@@ -24,7 +24,7 @@ The transformation to and from this proxy object is handled by the supplied seri
 
 ## Writing a custom serializer
 
-Serializers must
+Serializers must:
 
 
 
