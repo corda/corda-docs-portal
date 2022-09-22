@@ -73,7 +73,7 @@ data class Example1 (val a: Int, b: String, c: Int) { // (Version B)
 {{< /tabs >}}
 
 For this to work, we would have to add a new constructor that allows nodes with the class at version B to create an
-instance from serialised form of that class from an older version, in this case version A as per our example
+instance from serialized form of that class from an older version; in this case version A as per our example
 above. A sensible default for the missing value is provided for instantiation of the non null property.
 
 {{< note >}}
