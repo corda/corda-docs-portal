@@ -74,7 +74,7 @@ data class Example1 (val a: Int, b: String, c: Int) { // (Version B)
 
 For this to work, we would have to add a new constructor that allows nodes with the class at version B to create an
 instance from serialized form of that class from an older version; in this case version A as per our example
-above. A sensible default for the missing value is provided for instantiation of the non null property.
+above. A sensible default for the missing value is provided for instantiation of the non-null property.
 
 {{< note >}}
 The `@DeprecatedConstructorForDeserialization` annotation is important, this signifies to the
