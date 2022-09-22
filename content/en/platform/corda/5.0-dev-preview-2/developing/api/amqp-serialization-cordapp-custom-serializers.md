@@ -198,7 +198,7 @@ In the above examples
 
 The proxy object should be thought of as an intermediate representation that the serialization framework
 can reason about. One is being written for a class because, for some reason, that class cannot be
-introspected successfully but that framework. It is therefore important to note that the proxy class must
+introspected successfully but that framework. 
 only contain elements that the framework can reason about.
 
 The proxy class itself is distinct from the proxy serializer. The serializer must refer to the unserializable
