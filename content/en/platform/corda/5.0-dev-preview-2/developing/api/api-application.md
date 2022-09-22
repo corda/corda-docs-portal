@@ -18,3 +18,35 @@ The `corda-application` module provides the fundamental building blocks required
 - `corda-serialization`.
 
 By depending on `corda-application`, your Cordapp does not need to directly depend on the modules listed above.
+
+`corda-application` provides a number of packages. The key package for defining flows is `flows`, which contains the interfaces to implement and annotations to use to customize flow behaviour. The remaining packages provide some services for use within a flow. A description of each of these packages is provided below. For further details of what is present in each of these packages and what is available via these APIs, consult the API documentation.
+
+### `crypto`
+
+The `crypto` package provides services and types for performing cryptographic operations. The key services are the `SigningService` for signing objects, and the `DigitalSignatureVerificationService` for verifying signatures.
+
+### `flows`
+
+The `flows` package contains interfaces and annotations for defining flows. The key interfaces are `RPCStartableFlow` for flows expected to be started via the REST API, and `ResponderFlow` for flows expected to be started via a peer-to-peer session. Annotations in this package are used to customize flow behaviour by marking properties for service injection (`@CordaInject`) or marking either side of a peer-to-peer session (`@InitiatingFlow` and `@InitiatedBy`).
+
+### `marshalling`
+
+The `marshalling` package provides services for working with parameters input over the REST API, and generating suitable output to return via the REST API. The main service is `JSONMarshallingService`, which allows you to work with JSON input and output data.
+
+### `membership`
+
+The `membership` package provides services for working with membership groups. The `MemberLookup` service allows a flow to discover what counterparties are available in the membership group, or retrieve full details of a counterparty with a given name.
+
+### `messaging`
+
+The `messaging` package provides services and types for creating and working with peer-to-peer sessions. The `FlowMessaging` service allows you to create new sessions with counterparties. Once created, a `FlowSession` can be used to send and receive messages from a peer.
+
+A flow created via a peer-to-peer message (one implementing `ResponderFlow` in the `flows` package) will be given a `FlowSession` instance for communicating with the peer that initiated the flow.
+
+### `persistence`
+
+The `persistence` package provides services for performing persistence operations, mainly reading and writing data to and from the database. The `PersistenceService` is the main service for providing this functionality.
+
+### `serialization`
+
+The `serialization` package provides services for working with data marked as `@CordaSerializable`, in order to render it into a form suitable for sending to a counterparty. Usually this is handled by the messaging layer (see the `messaging` package), but if you require access to serialization directly it is exposed here. The main service for serailization is the `SerializationService`. At present, the only scheme available via this service is AMQP.
