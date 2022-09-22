@@ -47,8 +47,8 @@ In the case of adding new constants the developer must chose which constant (tha
 the new one) a deserializing system should treat any instances of the new one as.
 
 {{< note >}}
-Ultimately, this may mean some design compromises are required. If an enumeration is
-planned as being often extended and no sensible defaults will exist then including a constant
+Ultimately, this may mean some design compromises are required. If you expect that an enumeration will be
+extended often and no sensible defaults exist, including a constant
 in the original version of the class that all new additions can default to, may make sense.
 {{< /note >}}
 
