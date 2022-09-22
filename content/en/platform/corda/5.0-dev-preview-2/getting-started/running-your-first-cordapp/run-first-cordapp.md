@@ -13,7 +13,7 @@ The CSDE includes flows and tests for a very simple CorDapp, which you can run "
 The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.MyFirstFlow.kt` file. This is also the code described in the [first flow section](../first-flow.html).
 
 ## Starting the Corda combined worker
-To run the flow, you must first start a local combined-worker version of Corda. CSDE includes helper Gradle tasks to do this.
+To run the flow, you must first start a local combined worker version of Corda. CSDE includes helper Gradle tasks to do this.
 {{< figure src="starting-corda.png" width="50%" figcaption="CSDE startCorda task" alt="CSDE task to start the combined worker in IntelliJ" >}}
 
 The `startCorda` task should complete relatively quickly with this message:

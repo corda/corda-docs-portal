@@ -52,7 +52,7 @@ On the left, you can see the folder structure created, ready for CorDapps develo
 You will write your flow code in `src/main/kotlin/<your package path>` and your flow tests in `src/main/kotlin/<your package path>`.
 (For Java, use `src/main/java/<your package path>` and `src/test/java/<your package path>` respectively.)
 
-### Gradle helpers for the Combined Worker
+### Gradle helpers for the combined worker
 On the right, you can see the Gradle tasks that we have included to help you work with a local deployment of Corda using the combined worker:
 {{< figure src="gradle-helpers.png" figcaption="CSDE gradle helpers" alt="CSDE gradle tasks in IntelliJ" >}}
 The **combined worker** is a Corda cluster that runs all of the workers in one JVM process.
