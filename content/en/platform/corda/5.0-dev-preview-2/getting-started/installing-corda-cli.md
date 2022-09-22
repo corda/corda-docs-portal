@@ -25,4 +25,4 @@ To install Corda CLI:
 
    If successful, this command lists the Corda CLI commands.
 
-For more information about working directly with the Corda CLI, see [Corda CLI](../../developing/corda-cli/overview.html).
+For information about working directly with the Corda CLI, see [Corda CLI](../developing/corda-cli/overview.html).
