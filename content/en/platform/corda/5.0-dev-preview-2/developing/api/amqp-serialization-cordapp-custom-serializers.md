@@ -227,7 +227,7 @@ for the `Example` type requires synthesising one for `ExampleSerializer.Proxy`. 
 one for `Example` and so on until we get a `StackOverflowException`.
 
 The solution, as shown initially, is to create the intermediate form (the Proxy object) purely in terms
-the serialization framework can reason about.
+which the serialization framework can reason about.
 
 
 {{< important >}}
