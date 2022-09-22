@@ -22,7 +22,7 @@ can use these serializers to move from a type it cannot serialize to an interim 
 The transformation to and from this proxy object is handled by the supplied serializer.
 
 
-## Writing a Custom Serializer
+## Writing a custom serializer
 
 Serializers must
 
