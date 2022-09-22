@@ -9,7 +9,8 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-*DP1 Content*
 
-* [Corda 5 Developer Preview third-party software notices and information](corda-5-dev-preview.html).
-* [Corda CLI third-party software notices and information](corda-cli.html).
+* [corda-api](api.html).
+* [corda-runtime-os](runtime-os.html).
+* [corda-gradle-plugins](gradle.html).
+* [corda-api](api.html).
