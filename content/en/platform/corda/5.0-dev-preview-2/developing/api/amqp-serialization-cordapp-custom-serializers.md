@@ -1,6 +1,6 @@
 ---
 date: '2022-09-21T14:27:00+01:00'
-title: "Pluggable Serializers for CorDapps"
+title: "Pluggable serializers for CorDapps"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-api-serialisation-cordapp-custom-serializers
@@ -8,12 +8,6 @@ menu:
     weight: 8000
 section_menu: corda-5-dev-preview
 ---
-
-
-
-# Pluggable serializers for CorDapps
-
-
 To be serializable by Corda, Java classes must be compiled with the -parameters switch to enable matching of its properties
 to constructor parameters. This is important because Corda’s internal AMQP serialization scheme will only construct
 objects using their constructors. However, when recompilation is not possible, or classes are built in such a way that
@@ -21,21 +15,14 @@ they cannot be easily modified for simple serialization, CorDapps can provide cu
 can use these serializers to move from a type it cannot serialize to an interim representation that it can serialize.
 The transformation to and from this proxy object is handled by the supplied serializer.
 
-
 ## Writing a custom serializer
 
 Serializers must:
-
-
-
 * Inherit from `net.corda.v5.serialization.SerializationCustomSerializer`
 * Provide a proxy class to transform the object to and from
 * Implement the `toProxy` and `fromProxy` methods
 * Be included in the CorDapp package
-
-
 Serializers inheriting from `SerializationCustomSerializer` have to implement two methods and two types.
-
 
 ## Example
 
@@ -188,17 +175,14 @@ class ExampleSerializer : SerializationCustomSerializer<Example, ExampleSerializ
 {{< /tabs >}}
 
 In the above examples
-
-
 * `ExampleSerializer` is the actual serializer that will be loaded by the framework to serialize instances of the `Example` type.
 * `ExampleSerializer.Proxy`, in the Kotlin example, and `ExampleProxy`, in the Java example, is the intermediate representation used by the framework to represent instances of `Example` within the wire format.
 
-
-## The proxy object
+## Proxy object
 
 The proxy object should be thought of as an intermediate representation that the serialization framework
 can reason about. One is being written for a class because, for some reason, that class cannot be
-introspected successfully but that framework. 
+introspected successfully but that framework.
 only contain elements that the framework can reason about.
 
 The proxy class itself is distinct from the proxy serializer. The serializer must refer to the unserializable
@@ -233,10 +217,7 @@ which the serialization framework can reason about.
 {{< important >}}
 When composing a proxy object for a class be aware that everything within that structure will be written
 into the serialized byte stream.
-
-
 {{< /important >}}
-
 
 ## Allow list
 

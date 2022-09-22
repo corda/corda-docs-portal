@@ -1,6 +1,6 @@
 ---
 date: '2022-09-21T14:27:00+01:00'
-title: "Enum Evolution"
+title: "Enum evolution"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-api-serialisation-enum-evolution
@@ -8,10 +8,6 @@ menu:
     weight: 8000
 section_menu: corda-5-dev-preview
 ---
-
-
-# Enum Evolution
-
 In the continued development of a CorDapp an enumerated type that was fit for purpose at one time may
 require changing. Normally, this would be problematic as anything serialised (and kept in a vault) would
 run the risk of being unable to be deserialized in the future or older versions of the app still alive
@@ -31,7 +27,7 @@ both forward and backward compatibility for this version of the class and any ve
 forward.
 {{< /warning >}}
 
-## The Purpose of Annotating Changes
+## Purpose of annotating changes
 
 The biggest hurdle to allowing enum constants to be changed is that there will exist instances of those
 classes, either serialized in a vault or on nodes with the old, unmodified, version of the class that we
@@ -52,14 +48,14 @@ extended often and no sensible defaults exist, including a constant
 in the original version of the class that all new additions can default to, may make sense.
 {{< /note >}}
 
-## Evolution Transmission
+## Evolution transmission
 
 An object serializer, on creation, will inspect the class it represents for any evolution annotations.
 If a class is thus decorated those rules will be encoded as part of any serialized representation of a
 data structure containing that class. This ensures that on deserialization the deserializing object will
 have access to any transformative rules it needs to build a local instance of the serialized object.
 
-## Evolution Precedence
+## Evolution precedence
 
 On deserialization (technically on construction of a serialization object that facilitates serialization
 and deserialization) a class’s fingerprint is compared to the fingerprint received as part of the AMQP
@@ -94,7 +90,7 @@ Thus, on deserialization, there will be two options to chose from in terms of tr
 
 Which set is used will simply be the largest.
 
-## Renaming Constants
+## Renaming constants
 
 Renamed constants are marked as such with the `@CordaSerializationTransformRenames` meta annotation that
 wraps a list of `@CordaSerializationTransformRename` annotations. Each rename requires an instance in the
@@ -157,7 +153,7 @@ If either of these covenants are inadvertently broken, a `NotSerializableExcepti
 by the serialization engine as soon as they are detected. Usually, this occurs the first time the object is serialized.
 However, in some circumstances, it could be at the point of deserialization.
 
-## Adding Constants
+## Adding constants
 
 Enumeration constants can be added with the `@CordaSerializationTransformEnumDefaults` meta annotation that
 wraps a list of `CordaSerializationTransformEnumDefault` annotations. For each constant added an annotation
@@ -284,7 +280,7 @@ depending on how the deserializing node understands the class.
 * New constants can be renamed at a later date using the appropriate annotation
 * When renamed, if a defaulting annotation refers to the old name, it should be left as is
 
-## Combining Evolutions
+## Combining evolutions
 
 Renaming constants and adding constants can be combined over time as a class changes freely. Added constants can
 in turn be renamed and everything will continue to be deserializeable. For example, consider the following enum:
@@ -329,7 +325,7 @@ Subsequently is is fine to add an additional new constant that references the re
 enum class OngoingExample { A, B, CAT, D, E, F }
 ```
 
-## Unsupported Evolutions
+## Unsupported evolutions
 
 The following evolutions are not currently supported:
 

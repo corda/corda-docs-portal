@@ -1,6 +1,6 @@
 ---
 date: '2022-09-21T14:27:00+01:00'
-title: "Default Class Evolution"
+title: "Default class evolution"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-api-serialisation-default-evolution
@@ -8,24 +8,13 @@ menu:
     weight: 8000
 section_menu: corda-5-dev-preview
 ---
-
-
-
-# Default Class Evolution
-
-
 Whilst more complex evolutionary modifications to classes require annotating, Corda’s serialization
 framework supports several minor modifications to classes without any external modification except
 the actual code changes. These are:
-
-
-
 * Adding nullable properties
 * Adding non nullable properties if, and only if, an annotated constructor is provided
 * Removing properties
 * Reordering constructor parameters
-
-
 
 ## Adding nullable properties
 
@@ -49,7 +38,6 @@ at version B as the framework would treat it as a removed property.
 
 A node with the class at version B will be able to deserialize a serialized version A of `Example1` without
 any modification as the property is nullable and will thus provide null to the constructor.
-
 
 ## Adding non-nullable properties
 
@@ -206,7 +194,7 @@ Example3 (1, 2, 3, 4, 5)    // example IV
 {{< /tabs >}}
 
 
-## Removing Properties
+## Removing properties
 
 Property removal is effectively a mirror of adding properties (both nullable and non nullable) given that this functionality
 is required to facilitate the addition of properties. When this state is detected by the serialization framework, properties
@@ -232,7 +220,7 @@ no capacity to guess at what values should or could be used as sensible defaults
 them to null.
 
 
-## Reordering Constructor Parameter Order
+## Reordering constructor parameter order
 
 Properties (in Kotlin this corresponds to constructor parameters) may be reordered freely. The evolution serializer will create a
 mapping between how a class was serialized and its current constructor parameter order. This is important to our AMQP framework as it
@@ -284,4 +272,3 @@ data class Example5 (val b: String, val a: Int)
 {{% /tab %}}
 
 {{< /tabs >}}
-
