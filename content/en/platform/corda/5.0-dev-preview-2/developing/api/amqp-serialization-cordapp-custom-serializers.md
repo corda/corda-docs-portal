@@ -31,7 +31,7 @@ Serializers must
 * Inherit from `net.corda.v5.serialization.SerializationCustomSerializer`
 * Provide a proxy class to transform the object to and from
 * Implement the `toProxy` and `fromProxy` methods
-* Be included into the CorDapp package
+* Be included in the CorDapp package
 
 
 Serializers inheriting from `SerializationCustomSerializer` have to implement two methods and two types.
