@@ -44,7 +44,7 @@ data class Example1 (val a: Int, b: String, c: Int?) // (Version B)
 
 {{< /tabs >}}
 
-A node with version A of class `Example1`  will be able to deserialize a blob serialized by a node with it
+A node with version A of class `Example1` will be able to deserialize a blob serialized by a node with it
 at version B as the framework would treat it as a removed property.
 
 A node with the class at version B will be able to deserialize a serialized version A of `Example1` without
