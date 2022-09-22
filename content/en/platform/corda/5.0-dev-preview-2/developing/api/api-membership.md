@@ -1,6 +1,6 @@
 ---
 date: '2022-09-06'
-title: "membership"
+title: "net.corda.v5.membership"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-api-membership

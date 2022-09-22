@@ -1,6 +1,6 @@
 ---
 date: '2022-09-20'
-title: "Testing CorDapps with Simulator"
+title: "Fast feedback with Simulator"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-start

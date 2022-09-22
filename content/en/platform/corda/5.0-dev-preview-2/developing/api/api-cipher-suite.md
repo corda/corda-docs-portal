@@ -1,6 +1,6 @@
 ---
 date: '2021-04-24T00:00:00Z'
-title: "cipher-suite"
+title: "net.corda.v5.cipher.suite"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-api-cipher-suite
