@@ -194,7 +194,7 @@ In the above examples
 * `ExampleSerializer.Proxy`, in the Kotlin example, and `ExampleProxy`, in the Java example, is the intermediate representation used by the framework to represent instances of `Example` within the wire format.
 
 
-## The Proxy Object
+## The proxy object
 
 The proxy object should be thought of as an intermediate representation that the serialization framework
 can reason about. One is being written for a class because, for some reason, that class cannot be
