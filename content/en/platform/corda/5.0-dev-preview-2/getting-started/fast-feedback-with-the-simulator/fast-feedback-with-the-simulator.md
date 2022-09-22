@@ -10,7 +10,7 @@ section_menu: corda-5-dev-preview
 ---
 When writing any application, including CorDapps, it is helpful to have a fast feedback loop: code - test - debug - modify.
 This accelerates the development process.
-Although it is possible to develop directly against a Corda cluster (as described in [Running your first CorDapp](../running-first-cordapp/run-first-cordapp.html)), to deploy a CorDapp onto a Corda cluster is time consuming and unit testing by manually hitting endpoints is clumsy.
+Although it is possible to develop directly against a Corda cluster (as described in [Running your first CorDapp](../running-your-first-cordapp/run-first-cordapp.html)), to deploy a CorDapp onto a Corda cluster is time consuming and unit testing by manually hitting endpoints is clumsy.
 
 To make the development process much slicker, R3 have developed **Simulator**.
 Simulator is a lightweight testing and demo tool that simulates a Corda 5 network, enabling you to run CorDapps, demonstrate realistic behaviour, and receive feedback on how the CorDapp is likely to behave with a real Corda network.
@@ -22,7 +22,7 @@ As Simulator is not executing Corda code, the error messages are likely to be di
 {{< /note >}}
 
 ## Using Simulator
-Simulator is designed to be used within a normal Java or Kotlin testing framework. In this documentation, we describe using JUnit. `[MyFirstFlow]`(../first-flow.html) has a corresponding test class `MyFirstFlowTest` that demonstrates how to use Simulator. This file is in `/src/test/kotlin/com.r3.developers.csdetemplate.MyFirstFlowTest.kt` in the [CSDE](../cordapp-standard-development-environment/csde.html) template repository.
+Simulator is designed to be used within a normal Java or Kotlin testing framework. In this documentation, we describe using JUnit. [MyFirstFlow](../first-flow.html) has a corresponding test class `MyFirstFlowTest` that demonstrates how to use Simulator. This file is in `/src/test/kotlin/com.r3.developers.csdetemplate.MyFirstFlowTest.kt` in the [CSDE](../cordapp-standard-development-environment/csde.html) template repository.
 
 The full listing with explanatory comments:
 ```kotlin
