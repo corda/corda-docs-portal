@@ -326,8 +326,7 @@ We can now start sending messages to the responder:
 
            val receivedMessage = session.receive(Message::class.java)
    ```
-   <!-------------->
-The responder flow then obtains it’s own identity from it’s injected memberLookup Service, creates a response and sends the response back using session.send()
+   The responder flow then obtains its own identity from its injected `memberLookup` service, creates a response, and sends the response back using `session.send()`:
 ```kotlin
         val ourIdentity = memberLookup.myInfo().name
 
@@ -338,28 +337,28 @@ The responder flow then obtains it’s own identity from it’s injected memberL
 
         session.send(response)
 ```        
-There is no return value for a ResponderFlow.
+   There is no return value for a ResponderFlow.
 
-Back on the Initiating virtual node, Corda will detect that there is a send coming in from the responder and rehydrate the initiating flow from the database and resume it from where it was check-pointed.
+   Back on the Initiating virtual node, Corda detects the send coming from the responder and rehydrates the initiating flow from the database and resumes it from where it was checkpointed.
 
-The response is received and response.message is returned by the flow.
+   The response is received and `response.message` is returned by the flow.
 ```kotlin
         val response = session.receive(Message::class.java)
 
         return response.message
 ```        
-The response from the Initiating Flow is always a String so it can be returned when the flow status is queried by http-rpc.
+   The response from the initiating flow is always a Strinh, which can be returned when the flow status is queried by HTTP-RPC.
 
-## Other Considerations for FlowSessions
-It is important that the sends and receives in the initiator and responder flows match up. If the initiator sends a Foo and the responder expects a Bar, the flow will hang and likely result in a timeout error.
+## Other considerations for FlowSessions
+It is important that the sends and receives in the initiator and responder flows match. If the initiator sends a Foo and the responder expects a Bar, the flow hangs and likely results in a timeout error.
 
-As with Corda 4 there is a sendAndReceive method on FlowSession which will send a payload, check-point the flow then wait for a response to be received. (Not used in this example)
+As with Corda 4, there is also a `sendAndReceive` method on `FlowSession` that sends a payload, check-points the flow, and then waits for a response to be received:
 ```kotlin
 val response = sendAndReceive(<ReceiveType>::class.java, payload)
 ```
-In Corda 4 when payloads were received they were wrapped in an UntrustworthyData class which required unwrapping:
+In Corda 4, when payloads were received they were wrapped in an `UntrustworthyData` class which required unwrapping:
 ```kotlin
 // (Corda 4)
 val Corda4Response = sendAndReceive(<ReceiveType>::class.java, payload).unwrap {<validationcode>}
 ```
-This has been removed in Corda 5 because we found CorDapp writers used other methods to validate the data.         
+This has been removed in Corda 5 because CorDapp Developers usually use other methods to validate the data.         
