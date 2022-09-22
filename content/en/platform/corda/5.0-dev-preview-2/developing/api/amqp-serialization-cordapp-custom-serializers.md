@@ -61,7 +61,7 @@ public final class Example {
 }
 ```
 
-Without a custom serializer we cannot serialize this class as there is no public constructor that facilitates the
+Without a custom serializer, we cannot serialize this class as there is no public constructor that facilitates the
 initialisation of all of its properties.
 
 {{< note >}}
