@@ -154,8 +154,8 @@ enum class Example {
 * A constant cannot be renamed to a value that matches any previous name of any other constant.
 
 If either of these covenants are inadvertently broken, a `NotSerializableException` will be thrown
-by the serialization engine as soon as they are detected. Normally this will be the first time an object doing
-so is serialized. However, in some circumstances, it could be at the point of deserialization.
+by the serialization engine as soon as they are detected. Usually, this occurs the first time the object is serialized.
+However, in some circumstances, it could be at the point of deserialization.
 
 ## Adding Constants
 
