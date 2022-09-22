@@ -1,12 +1,12 @@
 ---
 date: '2020-12-10T12:00:00Z'
 menu:
-  corda-enterprise-4-8:
-    identifier: release-notes-archiving-4-8
-    parent: corda-enterprise-4-8-corda-nodes-archive-service
+  tools:
+    identifier: release-notes-archiving
+    parent: tools-archiving
     name: "Release notes"
 title: Archive Service release notes
-weight: 155
+weight: 705
 ---
 
 # Archive Service release notes

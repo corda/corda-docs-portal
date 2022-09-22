@@ -1,13 +1,13 @@
 ---
 date: '2022-09-15'
 menu:
-  corda-enterprise-4-7:
-    parent: archive-service-4-7-release-notes
+  tools:
+    parent: release-notes-archiving
 tags:
 - release
 - checksums
-title: Checksums of release files
-weight: 170
+title: Checksums of Archive Service release files
+weight: 710
 ---
 
 # Checksums of Archive Service release files
