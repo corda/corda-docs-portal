@@ -51,7 +51,7 @@ A node with the class at version B will be able to deserialize a serialized vers
 any modification as the property is nullable and will thus provide null to the constructor.
 
 
-## Adding Non Nullable Properties
+## Adding non-nullable properties
 
 If a non null property is added, unlike nullable properties, some additional code is required for
 this to work. Consider a similar example to our nullable example above
