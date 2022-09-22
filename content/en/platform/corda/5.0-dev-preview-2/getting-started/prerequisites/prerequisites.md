@@ -13,7 +13,7 @@ section_menu: corda-5-dev-preview
 
 Corda 5 DP 2 has been tested with the following:
 
-| Software      | Specification |
+| Software      | Version |
 | ----------- | ----------- |
 | Operating systems      | <li>Mac OS (intel and ARM)</li><li>Windows 10/11</li><li>Linux</li>     |
 | Java   | Azul Zulu JDK 11 (Other versions should work but have not been extensively tested.)  |
