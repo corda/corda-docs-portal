@@ -27,7 +27,7 @@ the actual code changes. These are:
 
 
 
-## Adding Nullable Properties
+## Adding nullable properties
 
 The serialization framework allows nullable properties to be freely added. For example:
 
