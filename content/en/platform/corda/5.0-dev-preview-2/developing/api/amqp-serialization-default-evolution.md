@@ -77,7 +77,7 @@ instance from serialized form of that class from an older version; in this case 
 above. A sensible default for the missing value is provided for instantiation of the non-null property.
 
 {{< note >}}
-The `@DeprecatedConstructorForDeserialization` annotation is important, this signifies to the
+The `@DeprecatedConstructorForDeserialization` annotation is important; this signifies to the
 serialization framework that this constructor should be considered for building instances of the
 object when evolution is required.
 
