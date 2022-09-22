@@ -155,4 +155,4 @@ First the test class instantiates `MemberX500Name` for two actors. `MemberX500Na
            // Check that the flow has returned the expected string
            assert(flowResponse == "Hello Alice, best wishes from Bob")
    ```        
-If the assert evaluates to true, the test has passed.
+   If the assert evaluates to true, the test has passed.
