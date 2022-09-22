@@ -89,7 +89,7 @@ As before, instances of the class at version A will be able to deserialize seria
 will simply treat them as if the property has been removed (as from its perspective, they will have been).
 
 
-### Constructor Versioning
+### Constructor versioning
 
 If, over time, multiple non-nullable properties are added, then a class will potentially have to be able
 to deserialize a number of different forms of the class. Being able to select the correct constructor is
