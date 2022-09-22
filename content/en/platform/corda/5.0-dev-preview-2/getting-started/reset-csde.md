@@ -21,9 +21,9 @@ This section describes how to reset the CSDE to handle these situations or other
 * Runs the Gradle `clean` task to remove any CPI build artifacts.
 
 The instructions in this section use the following terms:
-* <project-root-dir> — the project directory of the Intellij project contained in the repo.
+* `project-root-dir` — the project directory of the Intellij project contained in the repo.
    For example, if you have git-cloned the `corda/CSDE-cordapp-template-kotlin` to `/Users/charlie.smith/DevWork/DevExWork` then `<project-root-dir>` is `/Users/charlie.smith/DevWork/DevExWork/CSDE-cordapp-template-kotlin`.
-* <user-home> — the user home directory.
+* `user-home` — the user home directory.
    * On Windows, this is typically something like `C:\Users\Charlie.Smith`.
    * On MacOS, this is typically something like `/Users/charlie.smith`.
    * On Linux, this typically something like `/home/charlie.smith`.
