@@ -224,7 +224,7 @@ class ExampleSerializer : SerializationCustomSerializer<Example, ExampleSerializ
 
 However, this will not work because what we’ve created is a recursive loop whereby synthesising a serializer
 for the `Example` type requires synthesising one for `ExampleSerializer.Proxy`. However, that requires
-one for `Example` and so on and so forth until we get a `StackOverflowException`.
+one for `Example` and so on until we get a `StackOverflowException`.
 
 The solution, as shown initially, is to create the intermediate form (the Proxy object) purely in terms
 the serialization framework can reason about.
