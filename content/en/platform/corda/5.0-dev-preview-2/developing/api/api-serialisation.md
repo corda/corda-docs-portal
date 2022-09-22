@@ -283,7 +283,7 @@ objects to be deserialised:
 
 * A Java Bean getter for each of the properties in the constructor, with a name of the form `getX`.  For example, for a constructor
   parameter `foo`, there must be a getter called `getFoo()`.  If `foo` is a boolean, the getter may
-  optionally be called `isFoo()` (this is why the class must be compiled with parameter names turned on)
+  optionally be called `isFoo()`. This is why the class must be compiled with parameter names turned on.
 * A constructor which takes all of the properties that you wish to record in the serialized form.  This is required in
   order for the serialization framework to reconstruct an instance of your class
 * If more than one constructor is provided, the serialization framework needs to know which one to use.  The `@ConstructorForDeserialization`
@@ -367,8 +367,8 @@ class Example {
 
 
 {{< warning >}}
-We do not recommend this pattern! Corda tries to use immutable data structures throughout, and if you
-rely heavily on mutable JavaBean style objects then you may sometimes find the API behaves in unintuitive ways.
+We do not recommend this pattern. Corda tries to use immutable data structures throughout and if you
+rely heavily on mutable JavaBean style objects, you may sometimes find the API behaves in unintuitive ways.
 
 {{< /warning >}}
 

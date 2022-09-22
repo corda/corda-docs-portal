@@ -72,7 +72,7 @@ than the version we will be deserializing it into. What we cannot know is which 
 not by examining the fingerprint
 
 {{< note >}}
-Corda’s AMQP fingerprinting for enumerated types include the type name and the enum constants
+Corda’s AMQP fingerprinting for enumerated types include the type name and the enum constants.
 {{< /note >}}
 
 Newer vs older is important as the deserializer needs to use the more recent set of transforms to ensure it
@@ -81,7 +81,7 @@ by length of the list of all transforms. This is sufficient as transform annotat
 
 
 {{< warning >}}
-technically there is nothing to prevent annotations being removed in newer versions. However,
+Technically there is nothing to prevent annotations being removed in newer versions. However,
 this will break backward compatibility and should thus be avoided unless a rigorous upgrade procedure
 is in place to cope with all deployed instances of the class and all serialised versions existing
 within vaults.
@@ -97,7 +97,7 @@ Which set is used will simply be the largest.
 ## Renaming Constants
 
 Renamed constants are marked as such with the `@CordaSerializationTransformRenames` meta annotation that
-wraps a list of `@CordaSerializationTransformRename` annotations. Each rename requiring an instance in the
+wraps a list of `@CordaSerializationTransformRename` annotations. Each rename requires an instance in the
 list.
 
 Each instance must provide the new name of the constant as well as the old. For example, consider the following enumeration:
@@ -122,7 +122,7 @@ enum class Example {
 {{< note >}}
 The parameters to the `CordaSerializationTransformRename` annotation are defined as ‘to’ and ‘from’,
 so in the above example it can be read as constant D (given that is how the class now exists) was renamed
-from C
+from C.
 
 {{< /note >}}
 In the case where a single rename has been applied the meta annotation may be omitted. Thus, the following is
@@ -150,10 +150,10 @@ enum class Example {
 
 ### Rules
 
-* A constant cannot be renamed to match an existing constant, this is enforced through language constraints
-* A constant cannot be renamed to a value that matches any previous name of any other constant
+* A constant cannot be renamed to match an existing constant. This is enforced through language constraints.
+* A constant cannot be renamed to a value that matches any previous name of any other constant.
 
-If either of these covenants are inadvertently broken, a `NotSerializableException` will be thrown on detection
+If either of these covenants are inadvertently broken, a `NotSerializableException` will be thrown
 by the serialization engine as soon as they are detected. Normally this will be the first time an object doing
 so is serialized. However, in some circumstances, it could be at the point of deserialization.
 
@@ -185,11 +185,11 @@ enum class Example {
 {{< note >}}
 The parameters to the `CordaSerializationTransformEnumDefault` annotation are defined as ‘newName’ and ‘oldName’,
 so in the above example it can be read as constant D should be treated as constant C if you, the deserializing
-node, don’t know anything about constant D
+node, don’t know anything about constant D.
 {{< /note >}}
 
 {{< note >}}
-Just as with the `CordaSerializationTransformRename` transformation if a single transform is being applied
+Just as with the `CordaSerializationTransformRename` transformation, if a single transform is being applied,
 then the meta transform may be omitted.
 
 {{< tabs name="tabs-7" >}}
@@ -207,7 +207,7 @@ enum class Example {
 
 {{< /note >}}
 New constants may default to any other constant older than them, including constants that have also been added
-since inception. In this example, having added D (above) we add the constant E and chose to default it to D
+since inception. In this example, having added D (above) we add the constant E and chose to default it to D.
 
 {{< tabs name="tabs-8" >}}
 {{% tab name="kotlin" %}}
@@ -226,7 +226,7 @@ enum class Example {
 
 {{< note >}}
 Alternatively, we could have decided both new constants should have been defaulted to the first
-element
+element:
 
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
