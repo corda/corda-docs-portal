@@ -11,7 +11,7 @@ section_menu: corda-5-dev-preview
 
 
 
-# Pluggable Serializers for CorDapps
+# Pluggable serializers for CorDapps
 
 
 To be serializable by Corda, Java classes must be compiled with the -parameters switch to enable matching of its properties
