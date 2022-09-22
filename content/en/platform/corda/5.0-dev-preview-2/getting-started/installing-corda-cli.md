@@ -18,7 +18,7 @@ To install Corda CLI:
 1. Run the bash script:
 
    ```Bash
-   curl "corda-cli-downloader-5.0.0.0-DevPreview-2.sh" | sudo bash
+   curl "https://xxxxxxxxxx/corda-cli-downloader-5.0.0.0-DevPreview-2.sh" | sudo bash
    ```
 
 2. Verify installation by opening a new terminal session and running `./corda-cli.sh`.
