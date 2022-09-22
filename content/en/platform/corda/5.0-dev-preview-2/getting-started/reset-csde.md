@@ -22,7 +22,7 @@ This section describes how to reset the CSDE to handle these situations or other
 
 The instructions in this section use the following terms:
 * `project-root-dir` — the project directory of the Intellij project contained in the repo.
-   For example, if you have git-cloned the `corda/CSDE-cordapp-template-kotlin` to `/Users/charlie.smith/DevWork/DevExWork` then `<project-root-dir>` is `/Users/charlie.smith/DevWork/DevExWork/CSDE-cordapp-template-kotlin`.
+   For example, if you git-cloned the `corda/CSDE-cordapp-template-kotlin` to `/Users/charlie.smith/DevWork/DevExWork` then `<project-root-dir>` is `/Users/charlie.smith/DevWork/DevExWork/CSDE-cordapp-template-kotlin`.
 * `user-home` — the user home directory.
    * On Windows, this is typically something like `C:\Users\Charlie.Smith`.
    * On MacOS, this is typically something like `/Users/charlie.smith`.
@@ -45,13 +45,13 @@ To rest the CSDE:
          ```
 2. Check if these commands were successful:
    * On Linux/MacOS, run:
-   ```shell
-   ps | grep corda-combined-worker
-   ```
+      ```shell
+      ps | grep corda-combined-worker
+      ```
    * On Windows, run:
-   ```shell
-   Get-CimInstance -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'"
-   ```
+      ```shell
+      Get-CimInstance -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'"
+      ```
 3. To stop any `CSDEpostgresql` containers run:
    ```shell
    docker stop CSDEpostgresql
