@@ -82,7 +82,7 @@ serialization framework that this constructor should be considered for building 
 object when evolution is required.
 
 Furthermore, the integer parameter passed to the constructor if the annotation indicates a precedence
-order, see the discussion below.
+order; see the discussion below.
 
 {{< /note >}}
 As before, instances of the class at version A will be able to deserialize serialized forms of example B as it
