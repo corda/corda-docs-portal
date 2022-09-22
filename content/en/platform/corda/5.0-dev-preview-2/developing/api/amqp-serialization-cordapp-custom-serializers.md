@@ -191,7 +191,7 @@ In the above examples
 
 
 * `ExampleSerializer` is the actual serializer that will be loaded by the framework to serialize instances of the `Example` type.
-* `ExampleSerializer.Proxy`, in the Kotlin example, and `ExampleProxy` in the Java example, is the intermediate representation used by the framework to represent instances of `Example` within the wire format.
+* `ExampleSerializer.Proxy`, in the Kotlin example, and `ExampleProxy`, in the Java example, is the intermediate representation used by the framework to represent instances of `Example` within the wire format.
 
 
 ## The Proxy Object
