@@ -205,7 +205,7 @@ The proxy class itself is distinct from the proxy serializer. The serializer mus
 type in the `toProxy` and `fromProxy` methods.
 
 For example, the first thought a developer may have when implementing a proxy class is to simply *wrap* an
-instance of the object being proxied. This is shown below
+instance of the object being proxied. This is shown below:
 
 ```kotlin
 class ExampleSerializer : SerializationCustomSerializer<Example, ExampleSerializer.Proxy> {
