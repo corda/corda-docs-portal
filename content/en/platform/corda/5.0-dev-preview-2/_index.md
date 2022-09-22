@@ -11,7 +11,7 @@ menu:
     weight: 1000  
 section_menu: corda-5-dev-preview      
 ---
-<section class="section" style="text-align:center; color:white; background-image:url('5.0-dev-preview-2/icons/get-started.png');">
+<section class="section" style="text-align:center; color:white; background-image:url('5.0-dev-preview-2/icons/bg-dark.png');">
   <h1>
     Corda 5 Developer Preview 2
   </h1>
