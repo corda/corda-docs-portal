@@ -54,7 +54,7 @@ any modification as the property is nullable and will thus provide null to the c
 ## Adding non-nullable properties
 
 If a non-null property is added, unlike nullable properties, some additional code is required for
-this to work. Consider a similar example to our nullable example above
+this to work. Consider a similar example to our nullable example above:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
