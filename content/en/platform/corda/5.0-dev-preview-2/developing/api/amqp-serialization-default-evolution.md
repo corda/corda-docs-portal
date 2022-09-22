@@ -91,7 +91,7 @@ will simply treat them as if the property has been removed (as from its perspect
 
 ### Constructor Versioning
 
-If, over time, multiple non nullable properties are added, then a class will potentially have to be able
+If, over time, multiple non-nullable properties are added, then a class will potentially have to be able
 to deserialize a number of different forms of the class. Being able to select the correct constructor is
 important to ensure the maximum information is extracted.
 
