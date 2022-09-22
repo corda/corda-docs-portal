@@ -4,7 +4,7 @@ section_menu: tools
 menu:
   tools:
     name: Collaborative recovery
-    weight: 700
+    weight: 600
     identifier: tools-collaborative-recovery
 title: Collaborative Recovery
 ---

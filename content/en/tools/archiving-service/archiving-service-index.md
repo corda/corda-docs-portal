@@ -4,7 +4,7 @@ section_menu: tools
 menu:
   tools:
     name: The Archive Service
-    weight: 600
+    weight: 700
     identifier: tools-archiving
 title: The Archive Service
 ---

@@ -1,14 +1,14 @@
 ---
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-7:
-    identifier: archive-service-1-0-2-4-7-legal-info
-    parent: archive-service-4-7-release-notes
+  tools:
+    identifier: archive-service-1-0-2-legal-info
+    parent: release-notes-archiving
+    weight: 715
 tags:
 - legal
 - info
 title: Third-party software licence information - Archive Service 1.0.2
-weight: 180
 ---
 
 # Archive Service 1.0.2 third-party software notices and licence information

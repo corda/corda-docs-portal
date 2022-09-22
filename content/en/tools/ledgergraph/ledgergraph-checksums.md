@@ -4,7 +4,7 @@ menu:
   tools:
     parent: tools-ledgergraph
     identifer: ledger-graph-checksums
-title: Checksums of release files
+title: Checksums of LedgerGraph release files
 weight: 802
 ---
 
