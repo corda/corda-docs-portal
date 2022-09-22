@@ -13,7 +13,7 @@ This section describes how to package your CorDapp as CPKs, CPBs, and CPIs. You 
 
 ## Before you start
 
-You must install [Corda CLI](./corda-cli/overview.html).
+You must install [Corda CLI](../corda-cli/overview.html).
 
 <!--## Configure the plugin in gradle???
 
@@ -82,7 +82,7 @@ To generate a group policy file:
 ```shell
 ./corda-cli.sh mgm groupPolicy > TestGroupPolicy.json
 ```
-For more information about `mgm` commmands, see [CLI commands](../../corda-cli/commands.html#mgm).
+For more information about `mgm` commmands, see [CLI commands](../corda-cli/commands.html#mgm).
 ## Building a CPI
 
 The gradle plugin builds the CPB. To create a CPB for a CPI:
