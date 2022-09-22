@@ -28,7 +28,7 @@ Corda exposes [HTTP REST API](../../developing/rest-api/rest-api.html) endpoints
 ### Displaying the Swagger UI
 To display the Swagger UI, use the following link:
 
-https://localhost:8888/api/v1/swagger#/
+[https://localhost:8888/api/v1/swagger#/](https://localhost:8888/api/v1/swagger#/)
 
 {{< note >}}
 * A message about certificates may be displayed. You will need to click through to the page. <** get more details here **>
