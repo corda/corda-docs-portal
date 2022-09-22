@@ -15,7 +15,7 @@ section_menu: corda-5-dev-preview
 
 
 Whilst more complex evolutionary modifications to classes require annotating, Corda’s serialization
-framework supports several minor modifications to classes without any external modification save
+framework supports several minor modifications to classes without any external modification except
 the actual code changes. These are:
 
 
