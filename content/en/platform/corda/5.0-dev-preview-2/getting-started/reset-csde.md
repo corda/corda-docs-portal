@@ -4,7 +4,7 @@ title: "Resetting the CSDE"
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-start
-    identifier: corda-5-dev-preview-flow
+    identifier: corda-5-dev-preview-reset
     weight: 8000
 section_menu: corda-5-dev-preview
 ---
