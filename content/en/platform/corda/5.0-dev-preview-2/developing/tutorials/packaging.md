@@ -80,7 +80,7 @@ This key can be generated once and kept for reuse.
 
 To generate a group policy file:
 ```shell
-./corda-cli.sh mgm groupPolicy > TestGroupPolicy.json
+./corda-cli.sh mgm groupPolicy > GroupPolicy.json
 ```
 For more information about `mgm` commmands, see [CLI commands](../corda-cli/commands.html#mgm).
 ## Building a CPI
@@ -89,7 +89,7 @@ The gradle plugin builds the CPB. To create a CPB for a CPI:
 ```shell
 ./corda-cli.sh package create-cpi \
     --cpb mycpb.cpb \
-    --group-policy TestGroupPolicy.json \
+    --group-policy GroupPolicy.json \
     --cpi-name "cpi name" \
     --cpi-version "1.0.0.0-SNAPSHOT" \
     --file output.cpi \
