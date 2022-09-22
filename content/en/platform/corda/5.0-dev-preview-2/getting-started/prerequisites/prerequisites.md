@@ -57,6 +57,6 @@ ControlCe 18519 <your user name>  33u  IPv6 0x775d6960b58a6055      0t0  TCP *:a
 To disable Airplay Receiver:
 1. Select **Sharing** in **Preferences**.
 2. Clear the **AirPlay Receiver** check box.
-   {{< figure src="switch-off-airplay.png" figcaption="AirPlay Receiver in Preferences" alt="Disabling AirPlay Receiver to unblock port 7000" >}}
+   {{< figure src="switch-off-airplay.png" width="50%" figcaption="AirPlay Receiver in Preferences" alt="Disabling AirPlay Receiver to unblock port 7000" >}}
 
 We hope to fix this clash in a future release.
