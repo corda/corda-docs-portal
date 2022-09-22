@@ -1,6 +1,6 @@
 ---
 date: '2021-09-21'
-title: "Cordalite"
+title: "Combined worker"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-deploy-cordalite
