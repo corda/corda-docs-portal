@@ -1,6 +1,7 @@
 ---
 date: '2021-09-21'
 title: "CorDapp packaging"
+draft: true
 menu:
   corda-5-dev-preview:
     parent: corda-5-dev-preview-tutorials-dev
