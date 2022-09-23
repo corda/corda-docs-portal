@@ -8,6 +8,4 @@ menu:
 section_menu: corda-5-dev-preview
 ---
 
-The following use cases are available for Corda 5 Developer Preview:
-* Use case 1
-* Use case 2
+Corda 5 use cases will be documented in a future release.
