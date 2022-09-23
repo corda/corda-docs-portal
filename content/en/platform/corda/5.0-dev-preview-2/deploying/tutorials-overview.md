@@ -1,6 +1,7 @@
 ---
 date: '2021-09-21'
 title: "Deployment tutorials"
+draft: true
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-tutorials-deploy

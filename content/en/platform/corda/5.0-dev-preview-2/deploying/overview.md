@@ -7,5 +7,5 @@ menu:
     weight: 3050
 section_menu: corda-5-dev-preview
 ---
-This section describes how to deploy and operate Corda.
-*Describe limitations in DP2*
+The focus of the Corda 5 Developer Preview 2 is enabling CorDapp Developers to write, compile, and run their first basic CorDapps for Corda 5.
+The deployment and operation of Corda 5 will be explored in future releases. In the meantime, you can experiment with building and deploying Corda to a Kubernetes cluster on your local development machine by reading more on the [corda-runtime-os wiki](https://github.com/corda/corda-runtime-os/wiki/Local-development-with-Kubernetes).
