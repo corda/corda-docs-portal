@@ -28,7 +28,7 @@ As mentioned above, the [Membership Group Manager (MGM)]((key-concepts.html#memb
 ## Corda CLI
 
 ## Packaging
-CorDapps are no longer created as fat JAR files but are now built using the Corda [packaging](key-concepts/packaging.html) format to enhance distributability and reuse.
+CorDapps are no longer created as fat JAR files but are now built using the Corda [packaging](key-concepts.html#packaging) format to enhance distributability and reuse.
 
 ## Interface Based APIs
 
