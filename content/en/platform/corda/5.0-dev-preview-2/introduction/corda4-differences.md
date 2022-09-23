@@ -15,7 +15,7 @@ Membership of a Corda Network was granted through Corda operating as a certifica
 This was achieved through the use of the Identity Manager and Network Map services run as part of the CENM product.
 
 Corda 5 radically alters the way identities are onboarded to a network.
-Identities can present an identity certificate to the new [Membership Group Manager (MGM)](key-concepts/mgm.html) when requesting registration. The choice to do so is optional, a policy set by the network operator, as is the choice of the root certificate to trust and thus which CAs will be considered as suitable.
+Identities can present an identity certificate to the new [Membership Group Manager (MGM)](key-concepts.html#membership-management) when requesting registration. The choice to do so is optional, a policy set by the network operator, as is the choice of the root certificate to trust and thus which CAs will be considered as suitable.
 As a result, registration of an identity is done directly with the MGM, without the prior step of obtaining a Corda Identity Certificate. Membership permission and onboarding is still conducted by the network operator during this phase, and as ever, it is up to that operator to set the rules they wish to apply to the attestation that a registrant is who they claim to be.
 
 ## MGM
