@@ -1,11 +1,11 @@
 ---
-date: '2020-07-15T12:00:00Z'
-title: Corda 5 Developer Preview
+date: '2022-09-23'
+title: Corda 5 Developer Preview 2
 project: corda
 version: 'Corda 5 Developer Preview 2'
 menu:
   versions:
-    weight: -648
+    weight: -650
   corda-5-dev-preview2:
     identifier: corda-5-dev-preview2-homepage
     weight: 1000  
