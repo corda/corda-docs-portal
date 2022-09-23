@@ -69,7 +69,7 @@ Future versions will contain the following ledger models:
 Similar to operating systems, Corda, and DLT in general, is valuable to Developers who they enable but require applications to be useful to users.
 Distributed applications (Dapps) deployed on Corda are known as **CorDapps**.
 CorDapps encapsulate the logic that brings parties into agreement through [flows](#flows).
-The set of all possible entities granted permission by the [MGM](#membership-management) to use a CorDapp is known as an [application network](#application-networks).
+The set of all possible entities granted permission by the [Membership Group Manager (MGM)](#membership-management) to use a CorDapp is known as an [application network](#application-networks).
 CorDapps are built as a layered [package](#packaging).
 
 ## Application networks
