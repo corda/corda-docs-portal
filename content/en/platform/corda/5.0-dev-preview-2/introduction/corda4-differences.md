@@ -19,7 +19,7 @@ Identities can present an identity certificate to the new [Membership Group Mana
 As a result, registration of an identity is done directly with the MGM, without the prior step of obtaining a Corda Identity Certificate. Membership permission and onboarding is still conducted by the network operator during this phase, and as ever, it is up to that operator to set the rules they wish to apply to the attestation that a registrant is who they claim to be.
 
 ## MGM
-As mentioned above, the [Membership Group Manager (MGM)](key-concepts/mgm.html) replaces the CENM suite ** entry to a network. Unlike CENM, the MGM operates as a part of the Corda infrastructure natively and does not require additional servers and services to operate.
+As mentioned above, the [Membership Group Manager (MGM)]((key-concepts.html#membership-management)) replaces the CENM suite ** entry to a network. Unlike CENM, the MGM operates as a part of the Corda infrastructure natively and does not require additional servers and services to operate.
 
 ## Application Networks
 
