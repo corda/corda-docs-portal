@@ -130,7 +130,7 @@ If they are not specified, JPA uses defaults.
 ## Using the persistence API from a CorDapp flow
 
 1. Define a reference to the persistence service. This should be supplied via the Corda dependency injection system:
-   ```kotlin
+```kotlin
   import net.corda.v5.application.flows.CordaInject
   import net.corda.v5.application.flows.RPCStartableFlow
   import net.corda.v5.application.persistence.PersistenceService
@@ -140,37 +140,37 @@ If they are not specified, JPA uses defaults.
       lateinit var persistenceService: PersistenceService
 
       // your code goes here
-   ```
+```
 2. To create a `Dog` entity that writes a row to the database, use the following code:
-   ```kotlin
+```kotlin
   val dog = Dog(dogId, "dog", Instant.now(), "none")
   persistenceService.persist(dog)
-   ```   
+ ```   
 
    {{< note >}}
   All persistence operations are processed over the message bus.
    {{< /note >}}
 
 3. To load a row from the database by ID, use the following code:
-   ```kotlin
+```kotlin
   val dog = persistenceService.find(Dog::class.java, dogId)
   return if (dog == null) {
       "no dog found"
   } else {
       "found dog id='${dog.id}' name='${dog.name}"
   }
-   ```
-
-  Alternatively, to load all entities and create `Dog` instances for every record in the `Dog` table in the database, use the following code:
-```kotlin
-  val dogs = persistenceService.findAll(Dog::class.java).execute()
 ```
 
+  Alternatively, to load all entities and create `Dog` instances for every record in the `Dog` table in the database, use the following code:
+  ```kotlin
+  val dogs = persistenceService.findAll(Dog::class.java).execute()
+  ```
+
 4. To update a record, use the merge operation. For example, to change the name of a `Dog` and set the owner to null:
-   ```kotlin
+```kotlin
 val newDogName = input.getValue("name")
 persistenceService.merge(Dog(dogId, newDogName, Instant.now(), "none"))
-   ```
+```
 All of the operations available are defined in the public interface: `PersistenceService`.
 <!-- add link to KDocs -->
 
