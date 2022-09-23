@@ -72,7 +72,7 @@ class MyFirstFlowTest {
     }
 }
 ```
-To run the test, click the green triangle next to the test method and select Run **MyFirstFlowTest…**:
+To run the test, click the green triangle next to the test method and select **Run 'MyFirstFlowTest…'**:
 {{< figure src="run-test.png" width="50%" figcaption="Run MyFirstFlowTest" alt="Command to run MyFirstFlowTest in IntelliJ" >}}
 
 Alternatively, if you have multiple tests in the class, you could click the double triangle next to the class declaration to run all of the tests in the class.
