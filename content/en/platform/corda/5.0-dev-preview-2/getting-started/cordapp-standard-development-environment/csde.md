@@ -1,6 +1,6 @@
 ---
 date: '2022-09-19'
-title: "Cordapp Standard Development Environment (CSDE)"
+title: "CorDapp Standard Development Environment (CSDE)"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-start
