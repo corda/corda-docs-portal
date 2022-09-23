@@ -7,6 +7,7 @@ menu:
     parent: corda-5-dev-preview-cordacli
 section_menu: corda-5-dev-preview
 title: "Corda CLI commands"
+draft: true
 ---
 ## MGM
 
