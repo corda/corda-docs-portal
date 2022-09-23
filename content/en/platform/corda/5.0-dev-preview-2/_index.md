@@ -5,7 +5,7 @@ project: corda
 version: 'Corda 5 Developer Preview 2'
 menu:
   versions:
-    weight: -650
+    weight: -649
   corda-5-dev-preview2:
     identifier: corda-5-dev-preview2-homepage
     weight: 1000  
