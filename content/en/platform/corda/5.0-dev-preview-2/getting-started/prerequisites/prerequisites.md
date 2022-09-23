@@ -2,11 +2,11 @@
 date: '2022-09-19'
 title: "Third-party prerequisites"
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     parent: corda-5-dev-preview-start
     identifier: corda-5-dev-preview-prereqs
     weight: 1000
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 
 ## Software prerequisites

@@ -2,11 +2,11 @@
 date: '2021-04-24T00:00:00Z'
 title: "net.corda.v5.crypto.extensions"
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     identifier: corda-5-dev-preview-api-crypto-extensions
     parent: corda-5-dev-preview-api
     weight: 4000
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 
 The `corda-crypto` module is one of several modules of the `Corda Crypto API`. The module defines low-level services that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK. The dependencies on Corda Crypto API are shown in the diagram below.

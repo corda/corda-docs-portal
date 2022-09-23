@@ -2,11 +2,11 @@
 date: '2022-09-21T14:27:00+01:00'
 title: "net.corda.v5.serialization"
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     identifier: corda-5-dev-preview-api-serialisation
     parent: corda-5-dev-preview-api
     weight: 8000
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 Object serialization is the process of converting objects into a stream of bytes and, deserialization, the reverse
 process of creating objects from a stream of bytes.  It takes place every time we store transactions in the database.

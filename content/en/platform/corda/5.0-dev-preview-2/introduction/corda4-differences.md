@@ -2,11 +2,11 @@
 date: '2022-09-10'
 title: "Changes from Corda 4"
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     parent: corda-5-dev-preview-intro
     identifier: corda-5-dev-preview-c4-differences
     weight: 3000
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 
 ## Relaxed PKI

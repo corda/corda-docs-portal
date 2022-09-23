@@ -2,11 +2,11 @@
 date: '2021-04-24T00:00:00Z'
 title: "net.corda.v5.application"
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     identifier: corda-5-dev-preview-api-application
     parent: corda-5-dev-preview-api
     weight: 1000
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 The `corda-application` module provides the fundamental building blocks required to create a [flow](../../introduction/key-concepts.html#flows) and so all CorDapps use this module.
 

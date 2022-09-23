@@ -2,12 +2,12 @@
 date: '2022-09-22'
 title: "corda-api"
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     identifier: corda-5-dev-preview-C5-legal-info-api
     parent: corda-5-dev-preview-legal-info-overview
     weight: 1000
 project: corda-5
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 # Attribution Report for Corda API
 

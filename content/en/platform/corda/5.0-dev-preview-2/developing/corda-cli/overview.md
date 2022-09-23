@@ -1,11 +1,11 @@
 ---
 date: '2020-09-08T12:00:00Z'
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     identifier: corda-5-dev-preview-cordacli
     weight: 4000
     parent: corda-5-dev-preview-develop
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 title: Corda CLI
 ---
 

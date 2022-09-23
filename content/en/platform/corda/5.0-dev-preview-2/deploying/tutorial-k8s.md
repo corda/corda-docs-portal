@@ -3,11 +3,11 @@ date: '2021-09-21'
 title: "Deploying to a Kubernetes cluster"
 draft: true
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     parent: corda-5-dev-preview-tutorials-deploy
     identifier: corda-5-dev-preview-tutorial-deploy-k8s
     weight: 1000
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 This section describes how to build and deploy Corda to a Kubernetes cluster on your local development machine.
 

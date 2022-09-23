@@ -2,11 +2,11 @@
 date: '2022-09-19'
 title: "Cordapp Standard Development Environment (CSDE)"
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     parent: corda-5-dev-preview-start
     identifier: corda-5-dev-preview-csde
     weight: 2000
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 To make the process of prototyping CorDapps on Developer Preview 2 more straight-forward, we have developed the CorDapp Standard Development Environment (CSDE).
 The CSDE is obtained by cloning our `CSDE-Cordapp-Template-Kotlin` repository to your local machine. The CSDE provides:

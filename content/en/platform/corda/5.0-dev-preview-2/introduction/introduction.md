@@ -2,10 +2,10 @@
 date: '2020-07-15T12:00:00Z'
 title: "Introduction"
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     identifier: corda-5-dev-preview-intro
     weight: 1050
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 
 Corda is a platform that enables you to build permissioned blockchain networks, create applications that solve a business problem that requires parties to come to some agreement, and interact in a completely secure ecosystem.

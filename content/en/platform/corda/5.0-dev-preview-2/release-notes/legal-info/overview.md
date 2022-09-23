@@ -2,11 +2,11 @@
 date: '2021-09-24'
 title: "Third-party software notices and information"
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     identifier: corda-5-dev-preview-legal-info-overview
     parent: corda-5-dev-preview-release-notes
     weight: 20
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 
 

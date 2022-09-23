@@ -3,11 +3,11 @@ date: '2021-09-21'
 title: "Deployment tutorials"
 draft: true
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     identifier: corda-5-dev-preview-tutorials-deploy
     parent: corda-5-dev-preview-deploy
     weight: 5000
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 
 The following deployment tutorials are available for Corda 5 Developer Preview 2:

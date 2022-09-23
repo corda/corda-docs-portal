@@ -2,11 +2,11 @@
 date: '2022-09-20'
 title: "Debugging against local Corda"
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     parent: corda-5-dev-preview-start
     identifier: corda-5-dev-preview-debugging
     weight: 6000
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 The CSDE includes an IntelliJ run-time configuration which allows you to attach IntelliJ’s debugger to the local Corda cluster.
 {{< note >}}

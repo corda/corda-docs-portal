@@ -2,11 +2,11 @@
 date: '2022-09-06'
 title: "net.corda.v5.membership"
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     identifier: corda-5-dev-preview-api-membership
     parent: corda-5-dev-preview-api
     weight: 6000
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 
 The `corda-membership` module defines interfaces that provide information about a member (a [virtual node](../introduction/key-concepts.html#virtual-nodes) in a group), and a membership group. The interfaces in this module should not be implemented by CorDapp developers. Instead, instances can be retrieved through lookup services.

@@ -2,11 +2,11 @@
 date: '2022-09-21T14:27:00+01:00'
 title: "Pluggable serializers for CorDapps"
 menu:
-  corda-5-dev-preview:
+  corda-5-dev-preview2:
     identifier: corda-5-dev-preview-api-serialisation-cordapp-custom-serializers
     parent: corda-5-dev-preview-api-serialisation
     weight: 8000
-section_menu: corda-5-dev-preview
+section_menu: corda-5-dev-preview2
 ---
 To be serializable by Corda, Java classes must be compiled with the -parameters switch to enable matching of its properties
 to constructor parameters. This is important because Corda’s internal AMQP serialization scheme will only construct
