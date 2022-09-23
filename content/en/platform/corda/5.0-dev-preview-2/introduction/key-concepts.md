@@ -113,7 +113,7 @@ Virtual nodes reduce the overhead of each identity on an [application network](#
 At the time of onboarding, the overhead of an identity relates only to the load it brings to the system rather than incurring a cost for simply existing.
 The overhead of keeping onboarded identities available to transact with other members is not fixed and identities are transient, only active when actually required.
 
-A **virtual node** is the combination of the context of an identity and the temporary compute instances created to execute [flows](#flows) on behalf of that identity.
+A virtual node is the combination of the context of an identity and the temporary compute instances created to execute [flows](#flows) on behalf of that identity.
 An instance of a virtual node is created for long enough to handle the required execution steps and then allowed to dematerialize.
 {{< figure src="images/virtual-node.png" figcaption="Virtual node interaction" alt="Virtual node" >}}
 At any point in time, many instances of a virtual node may be executing, limited only by the availability of [flow workers](#workers). An additional number of flows may be inflight with other virtual node instances suspended in a checkpoint store.
