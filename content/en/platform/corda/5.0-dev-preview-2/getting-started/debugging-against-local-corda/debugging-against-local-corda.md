@@ -14,7 +14,7 @@ Currently there is a time out issue when debugging Corda. As the local Corda clu
 {{< /note >}}
 To debug:
 1. [Start the Corda combined worker using the startCorda Gradle helper](../running-your-first-cordapp/run-first-cordapp.html#starting-the-corda-combined-worker), if not already started.
-2. [Deploy your CorDapp using `deployCordapp`](run-first-cordapp.html#deploying-a-cordapp), if not already deployed.
+2. [Deploy your CorDapp using deployCordapp](../running-your-first-cordapp/run-first-cordapp.html#deploying-a-cordapp), if not already deployed.
 3. Select the `DebugCorDapp` run configuration.
 {{< figure src="select-debug-configuration.png" figcaption="CSDE DebugCorDapp run configuration in IntelliJ" >}}
 4. Click the debug button.
