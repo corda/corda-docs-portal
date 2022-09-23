@@ -80,7 +80,7 @@ section_menu: corda-5-dev-preview2
       <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html">
       <img src="5.0-dev-preview-2/icons/release-notes.png" alt="Release notes" style="padding: 1rem; border: 0;" class="light-only" height="124">
       <img src="5.0-dev-preview-2/icons/release-notes.png" alt="Release notes" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-              <span>Release Notes</span></h3></a>
+              <span>Release notes</span></h3></a>
     </div>
   </div>
 </div>
