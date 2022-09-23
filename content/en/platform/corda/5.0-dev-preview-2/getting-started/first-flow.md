@@ -11,7 +11,7 @@ section_menu: corda-5-dev-preview2
 <!-- Now that we have the Simulator test framework for triggering and testing flows, we can look at the anatomy of the `MyFirstFlow` and `MyFirstResponderFlow` flows.-->
 The `MyFirstFlow` and `MyFirstResponderFlow` flows are basic flows that illustrate the main features of Corda 5 flows.
 Many of the features will be familiar to those Developers who have written Corda 4 CorDapps. However, there are some important differences when using Corda 5:
-* Services are injected on an as-needed basis.  
+* Services are injected on an as-needed basis.
 * Flows are started via HTTP RPC, rather than a Java client sending Java classes over AMQP.
 * Initiating and responder flows are linked with a protocol rather than class names.
 * Singletons should be avoided in flow code because there is no guarantee that the same flow worker will continue to execute a flow after it has been check-pointed and restarted.
@@ -190,7 +190,7 @@ There are two helper classes:
    ```kotlin
    class MyFirstFlowStartArgs(val otherMember: MemberX500Name)
    ```
-   The [MyFirstFlowTest](./testing-cordapps-with-the-simulator/) Simulator example uses this class.
+   The [MyFirstFlowTest](fast-feedback-with-the-simulator/fast-feedback-with-the-simulator.md) Simulator example uses this class.
 * Message class —  specifies the message sent from the initiator to the responder and subsequently the message sent back from the responder to the initiator.  Note, as this is a class defined in the CorDapp and it is going to be sent ‘down the wire’ between two virtual nodes, it requires the @CordaSerializable annotation.
    ```kotlin
    @CordaSerializable
@@ -215,7 +215,7 @@ When running on Corda, the log files are updated.
     private companion object {
         val log = contextLogger()
     }
-```    
+```
 The log files for CSDE are located in the logs folder in the root of the project.
 The CSDE starts a new log file each time a new instance of Corda is created or when the log file grows too large.
 Because the Corda combined worker runs all of the Corda processes in one JVM process, there are a lot of log entries.
@@ -236,11 +236,11 @@ In the initiating flow:
 ```kotlin
     @Suspendable
     override fun call(requestBody: RPCRequestData): String { ... }
-```    
+```
 In the responder flow:
 ```kotlin
     @Suspendable
-    override fun call(session: FlowSession) { ... }        
+    override fun call(session: FlowSession) { ... }
 ```
 ## Injecting service
 Corda 5 requires a CorDapp Developer to explicitly specify which Corda services are required by the flow. In this simple example we use three services:
@@ -268,7 +268,7 @@ class MyFirstFlow: RPCStartableFlow {
     ...
 
     }
-```    
+```
 The services are then available in the call function. For example to initiate a `FlowSession` with the other party:
 ```kotlin
     val session = flowMessaging.initiateFlow(otherMember)
@@ -287,11 +287,11 @@ It does this using the `getRequestBodyAs()` method. This takes the `jsonMarshall
         ...
 
         }
-```        
+```
 We can now obtain the X500 name of the other virtual node that we want to send the message to from `flowArgs`, which we will need later to set up the `FlowSession`:
 ```kotlin
-        val otherMember = flowArgs.otherMember   
-```         
+        val otherMember = flowArgs.otherMember
+```
 ## Creating the message
 To create the message, you must know the identity of the initiator. Remember that this flow could run on any node, so the identity cannot be hard coded. To find out the identity of the virtual node running the initiator flow, use the injected  `memberLookup` service:
 ```kotlin
@@ -305,11 +305,11 @@ We can now start sending messages to the responder:
 1. Set up a `FlowSession` between the initiator and responder node:
 ```kotlin
         val session = flowMessaging.initiateFlow(otherMember)
-```        
+```
 2. Simply call `send()` on the session and pass a payload:
 ```kotlin
         session.send(message)
-```        
+```
    The code continues to execute until it reaches the `session.receive()` method. At that point, the flow checkpoints and persists its state to the database. It resumes when it receives a message back from the responder. This frees up the Corda cluster flow workers to perform other tasks.
    {{< note >}}
      There is no guarantee that the same flow worker resumes the completion of the flow and so singleton objects should be avoided in Corda 5 flows.
@@ -336,7 +336,7 @@ We can now start sending messages to the responder:
         log.info("MFF: response.message: ${response.message}")
 
         session.send(response)
-```        
+```
    There is no return value for a ResponderFlow.
 
    Back on the Initiating virtual node, Corda detects the send coming from the responder and rehydrates the initiating flow from the database and resumes it from where it was checkpointed.
@@ -346,7 +346,7 @@ We can now start sending messages to the responder:
         val response = session.receive(Message::class.java)
 
         return response.message
-```        
+```
    The response from the initiating flow is always a Strinh, which can be returned when the flow status is queried by HTTP-RPC.
 
 ## Other considerations for FlowSessions
@@ -361,4 +361,4 @@ In Corda 4, when payloads were received they were wrapped in an `UntrustworthyDa
 // (Corda 4)
 val Corda4Response = sendAndReceive(<ReceiveType>::class.java, payload).unwrap {<validationcode>}
 ```
-This has been removed in Corda 5 because CorDapp Developers usually use other methods to validate the data.         
+This has been removed in Corda 5 because CorDapp Developers usually use other methods to validate the data.
