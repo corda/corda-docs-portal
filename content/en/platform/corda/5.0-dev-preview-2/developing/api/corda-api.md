@@ -8,12 +8,4 @@ menu:
     weight: 2000
 section_menu: corda-5-dev-preview2
 ---
-The following sections describe the Corda API modules:
-* [application](api-application.html)
-* [base](api-base.html)
-* [Cipher-suite](api-cipher-suite.html)
-* [crypto](api-crypto.html)
-* [ledger](api-ledger.html)
-* [membership](api-membership.html)
-* [persistence](api-persistence.html)
-* [serialisation](api-serialisation.html)
+This section describes the modules in the Corda API. The KDocs are avialable from the overview of each module.
