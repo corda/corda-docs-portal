@@ -8,3 +8,4 @@ menu:
     weight: 2000
 section_menu: corda-5-dev-preview2
 ---
+The base modules contain annotations, types exceptions, and some utility functions used throughout the Corda API
