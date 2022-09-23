@@ -1,8 +1,8 @@
 ---
 date: '2020-04-24T12:00:00Z'
 menu:
-  corda-enterprise-4-7:
-    parent: corda-enterprise-4-7-corda-nodes-archive-service
+  tools:
+    parent: tools-archiving
 tags:
 - archive
 - backup schema
@@ -11,7 +11,7 @@ tags:
 
 
 title: Archive Service CLI
-weight: 300
+weight: 735
 ---
 
 # Archive Service Command-Line Interface (CLI)
@@ -315,7 +315,7 @@ Each filter has its own configuration requirements, which it takes either from t
 the command line or from the CorDapp configuration file.
 
 Custom filters can be implemented by using the Archive Service Library. For more details see
-the [Archive Service Library documentation](archive-library.md).
+the [Archive Service Library documentation](../../../../../../../en/platform/corda/4.9/enterprise/node/archiving/archive-library.md).
 
 ### Filter configuration
 
@@ -404,11 +404,11 @@ By default, no exporters are applied.
 
 Each exporter has its own configuration requirements, which it takes either from the HOCON file given on the command line or from the CorDapp configuration file.
 
-Custom exporters can be implemented for individual archive solutions. For more details see the [Archive Service Library documentation](archive-library.md).
+Custom exporters can be implemented for individual archive solutions. For more details see the [Archive Service Library documentation](../../../../../../../en/platform/corda/4.9/enterprise/node/archiving/archive-library.md).
 
 ## Archive schema
 
-The archiving process can be configured to create a temporary snapshot image of the archivable transactions and attachments from Corda vault on a backup schema within the same database. The snapshot can then be used to restore the vault should the database fail during the archive operation.   
+The archiving process can be configured to create a temporary snapshot image of the archivable transactions and attachments from Corda vault on a backup schema within the same database. The snapshot can then be used to restore the vault should the database fail during the archive operation.
 
 The Corda vault schema and the archive schema must reside on the same database but be managed by different schema owners.
 
@@ -428,7 +428,7 @@ The following are keys for configuring the Archive Service.
 * `target.user`: Backup schema archive database user, required if a backup schema is used.
 * `target.password`: Backup schema archive database password, required if a backup schema is used.
 
-Passwords can be obfuscated using [Corda Configuration Obfuscator tool](../../tools-config-obfuscator.md).
+Passwords can be obfuscated using [Corda Configuration Obfuscator tool](../../../../../../../en/platform/corda/4.9/enterprise/tools-config-obfuscator.md).
 
 A sample configuration file follows below:
 

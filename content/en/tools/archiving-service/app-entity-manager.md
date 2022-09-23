@@ -1,8 +1,8 @@
 ---
 date: '2020-04-24T12:00:00Z'
 menu:
-  corda-enterprise-4-8:
-    parent: corda-enterprise-4-8-corda-nodes-archive-service
+  tools:
+    parent: tools-archiving
 tags:
 - archive
 - backup schema
@@ -13,7 +13,7 @@ tags:
 - off-ledger db
 
 title: App Entity Manager
-weight: 500
+weight: 720
 ---
 
 # App Entity Manager

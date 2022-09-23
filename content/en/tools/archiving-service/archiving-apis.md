@@ -1,8 +1,8 @@
 ---
 date: '2020-04-24T12:00:00Z'
 menu:
-  corda-enterprise-4-7:
-    parent: corda-enterprise-4-7-corda-nodes-archive-service
+  tools:
+    parent: tools-archiving
 tags:
 - archive
 - backup schema
@@ -11,7 +11,7 @@ tags:
 
 
 title: Archive Service APIs
-weight: 300
+weight: 730
 ---
 
 
