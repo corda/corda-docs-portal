@@ -8,8 +8,8 @@ menu:
     weight: -649
   corda-5-dev-preview2:
     identifier: corda-5-dev-preview2-homepage
-    weight: 1000  
-section_menu: corda-5-dev-preview2      
+    weight: 1000
+section_menu: corda-5-dev-preview2
 ---
 <section class="section" style="text-align:center; color:white; background-image:url('5.0-dev-preview-2/icons/bg-dark.jpg');">
   <h1>
@@ -20,7 +20,7 @@ section_menu: corda-5-dev-preview2
   <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5">
 <div class="col">
   <div class="card h-100">
-    <div class="card-body">    
+    <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-dev-preview-2/introduction/introduction.html">
       <img src="5.0-dev-preview-2/icons/corda.svg" alt="Introduction" style="padding: 1rem; border: 0;" class="light-only" height="124">
@@ -33,7 +33,7 @@ section_menu: corda-5-dev-preview2
        <div class="card h-100">
          <div class="card-body">
            <h3 class="card-title">
-           <a href="5.0-dev-preview-2/getting-started/overview.html">
+           <a href="5.0-dev-preview-2/getting-started/get-started.html">
            <img src="5.0-dev-preview-2/icons/get-started.png" alt="Getting started" style="padding: 1rem; border: 0;" height="124" class="light-only">
            <img src="5.0-dev-preview-2/icons/get-started.png" alt="Getting started"  style="background: #202020; padding: 1rem; border: 0;" height="124"class="dark-only"></br>
              <span>Getting started</span></h3></a>
@@ -43,14 +43,14 @@ section_menu: corda-5-dev-preview2
 <div class="col">
        <div class="card h-100">
          <div class="card-body">
-           <h3 class="card-title">  
+           <h3 class="card-title">
            <a href="5.0-dev-preview-2/developing/overview.html">
             <img src="5.0-dev-preview-2/icons/develop.png" alt="Developing" style="padding: 1rem; border: 0;" class="light-only" height="124">
             <img src="5.0-dev-preview-2/icons/develop.png" alt="Developing" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
              <span>Developing</span></h3></a>
          </div>
        </div>
-</div>     
+</div>
 <div class="col">
   <div class="card h-100">
     <div class="card-body">
