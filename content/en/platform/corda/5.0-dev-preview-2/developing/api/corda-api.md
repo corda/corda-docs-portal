@@ -8,4 +8,4 @@ menu:
     weight: 2000
 section_menu: corda-5-dev-preview2
 ---
-This section describes the modules in the Corda API. The KDocs are avialable from the overview of each module.
+This section describes the modules in the Corda API. The KDocs are available from the overview of each module.
