@@ -48,11 +48,11 @@ This describes how to convert an existing CorDapp project to the new Gradle plug
 
 To generate a code signing key for signing the CPI:
 
-1. Generate a signing key
+1. Generate a signing key:
     ```shell
     keytool -genkeypair -alias "signing key 1" -keystore signingkeys.pfx -storepass "keystore password" -dname "cn=CPI Plugin Example - Signing Key 1, o=R3, L=London, c=GB" -keyalg RSA -storetype pkcs12 -validity 4000
     ```
-2. If you are using the gradle plugin default signing key, you must import it into our key store. Save the following text into a file named `gradle-plugin-default-key.pem`
+2. If you are using the Gradle plugin default signing key, you must import it into our key store. Save the following text into a file named `gradle-plugin-default-key.pem`:
     ```text
     -----BEGIN CERTIFICATE-----
     MIIB7zCCAZOgAwIBAgIEFyV7dzAMBggqhkjOPQQDAgUAMFsxCzAJBgNVBAYTAkdC

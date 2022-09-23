@@ -1,6 +1,6 @@
 ---
 date: '2021-04-24T00:00:00Z'
-title: "application"
+title: "net.corda.v5.application"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-api-application

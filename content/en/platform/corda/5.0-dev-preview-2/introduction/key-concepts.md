@@ -87,7 +87,7 @@ This is all of the possible users permitted to use an application.
 For the operator of an application, it is their complete list of customers.
 From the perspective of one of those customers, it is who they are allowed to interact with.
 
-*Diagram?*
+<!--Diagram?-->
 
 ## Membership management
 
@@ -147,7 +147,7 @@ Flows utilize the Corda API to perform the required actions to solve a business 
 * Proposing an update to something and getting agreement from all parties.
 * When event Y occurs, do Z.
 
-*cross-ref to flow API section*
+For more information about the flows API, see [Corda API](../developing/api/api-application.html#flows).
 
 ## Workers
 
@@ -190,5 +190,5 @@ A **Corda cluster** is the term for the set of all workers deployed into a Kuber
 
 A single cluster can encapsulate the entirety of an application network or just a part. It can host identities for many networks or just a single one. It can even host applications of a single identity. The architecture depends on the use case executed. If the members of an application network are mature enough to host their own code, to truly be decentralised, then their identity, their [virtual node](#virtual-nodes), will be executed within their own cluster and other identities may be on a cluster managed by a third party. The [application network](#application-networks) emerges above all of this.
 
-*Note about what's available in DP 2 (no cloud deployments, no multi-cluster) and what's coming soon*
-*Cross-ref to local Kubernetes deployment*
+<!--*Note about what's available in DP 2 (no cloud deployments, no multi-cluster) and what's coming soon*
+*Cross-ref to local Kubernetes deployment*-->

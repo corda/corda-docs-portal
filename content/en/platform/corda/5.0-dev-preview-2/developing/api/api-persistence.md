@@ -1,6 +1,6 @@
 ---
 date: '2021-04-24T00:00:00Z'
-title: "persistence"
+title: "net.corda.v5.persistence"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-api-persistence
@@ -130,7 +130,8 @@ If they are not specified, JPA uses defaults.
 ## Using the persistence API from a CorDapp flow
 
 1. Define a reference to the persistence service. This should be supplied via the Corda dependency injection system:
-   ```kotlin
+
+  ```kotlin
   import net.corda.v5.application.flows.CordaInject
   import net.corda.v5.application.flows.RPCStartableFlow
   import net.corda.v5.application.persistence.PersistenceService

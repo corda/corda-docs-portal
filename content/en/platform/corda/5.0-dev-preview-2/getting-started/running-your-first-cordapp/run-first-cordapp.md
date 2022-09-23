@@ -73,23 +73,24 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 1. Click the `deployCorda` Gradle task:
 {{< figure src="deploy-cordapp.png" width="50%" figcaption="CSDE deployCorda task" alt="CSDE task to deploy a CorDapp in IntelliJ" >}}
    This task runs a series of Gradle tasks to:
-   * Build the CPB (Cordapp)
+   * Build the CPB (CorDapp)
    * Create the GroupPolicy (Application Network definition)
    * Generate signing keys to sign the CPB and CPI
    * Build The CPI (Combination of CPB and Group Policy)
    * Sign the CPI
    * Upload the CPI to Corda
-   * Create and register the Virtual nodes with the CPI
+   * Create and register the virtual nodes with the CPI
    {{< note >}}
    Some of these task only need to run once and will not run again if not required.
    {{< /note >}}
-    You should now be able to Start the MyFirstFlow from the Swagger UI.
+    You should now be able to start `MyFirstFlow` from the Swagger UI.
 
 ### Starting your first flow
 To run your first flow:
 1. Find the `holdingidentityshorthash` for the virtual node you want to trigger the flow on. You can do this by running the `listVnodes` gradle task which will list the VNodes set up:
    {{< figure src="list-vnodes.png" figcaption="Running the listVnodes gradle task" >}}
    The 12 digit hash is the `holdingidentityshorthash` that acts as the unique identifier for a virtual node.
+   
 2. Expand the `POST /flow/{holdingidentityshorthash}` endpoint in Swagger and click **Try it out**.
 {{< figure src="post-flow.png" figcaption="Try it out button for POST /flow/{holdingidentityshorthash}" alt="Expanded POST /flow/{holdingidentityshorthash} with Try it out button" >}}  
 3. Enter the hash and the `requestBody` and click **Execute**.
