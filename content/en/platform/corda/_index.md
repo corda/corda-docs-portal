@@ -28,7 +28,7 @@ The Corda platform documentation covers the following versions of the Corda plat
 
 ### Corda 5 Developer Preview
 
-* Corda 5 [Corda 5 Developer Preview](./5.0-dev-preview-1.html)
+* Corda 5 [Corda 5 Developer Preview 2](./5.0-dev-preview-2.html)
 
 ### Corda 4 open source
 
