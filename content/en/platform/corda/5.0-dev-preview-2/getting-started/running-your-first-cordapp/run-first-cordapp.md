@@ -126,6 +126,7 @@ To check the flow status:
    If the flow is successful, you will see the following response:
 {{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}  
    You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow](../first-flow.html).
+   
 {{< note >}}
 If you receive a response with a status of "RUNNING”, wait a short time and retry the status check.
 {{< /note >}}
