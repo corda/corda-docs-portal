@@ -36,7 +36,7 @@ To display the Swagger UI, use the following link:
 {{< / note >}}
 
 If Corda has started, the Swagger UI displays:
-{{< figure src="starting-corda-complete.png" figcaption="Swagger UI showing Corda liveness" alt="Swagger UI showing Corda" >}}
+{{< figure src="swagger-ui.png" figcaption="Swagger UI showing Corda liveness" alt="Swagger UI showing Corda" >}}
 
 If Corda has not started yet, the page will not load.
 If the Swagger UI is already open whilst starting Corda, you must hit an endpoint to test liveness of Corda.
@@ -126,7 +126,7 @@ To check the flow status:
    If the flow is successful, you will see the following response:
 {{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}  
    You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow](../first-flow.html).
-   
+
 {{< note >}}
 If you receive a response with a status of "RUNNING”, wait a short time and retry the status check.
 {{< /note >}}
