@@ -10,6 +10,6 @@ project: tutorials
 title: Corda 5 tutorials
 ---
 
-# Tutorials for Corda 5 Developer Preview
+# Tutorials for Corda 5 Developer Preview 2
 
 See the [Getting Started section of the Corda 5 Developer Preview 2 documentation](../../../en/platform/corda/5.0-dev-preview-2/getting-started/get-started.html) to learn how to build on the newest version of Corda.
