@@ -30,3 +30,11 @@ That same architecture allows horizontal scaling to facilitate the parallel exec
 Identities are not tied to a single executing compute instance, when idle, aside from some small costs associated with static storage, identity doesn’t incur overhead. This allows the interleaving of many identities on a much smaller system than previously available, dramatically reducing the cost per identity.
 
 ## Progressive Decentralisation
+True decentralisation is hard, whilst the end state for many systems attempting to force it on people or industries too soon just relates in friction of adoption. Corda 5 with its Virtual Node concept allows for what we term progressive decentralisation. That is systems that allow themselves to start in a manged, centralized fashion, whilst retaining digital sovereignty that then allows migration of those nodes onto their own infrastructure when the time is right.
+
+## A global database
+One of the “go to” models for describing Corda has been that of one big global database where the rules for updating rows and columns are encapsulated within a smart contract that defers control to those who currently hold access to those elements without requiring input from a central point of control. Only those who need to see or have access to a record do so, and the evolution of that record is constrained in the ways the initator felt was apropriate.
+
+Corda 5 changes this model slightly as it brings the concept of schemas to that global model. Where as in earlier versions, all applications could evolve all records, this required all applications have knowledge of all other applications rules. Essentially, it is possible to build an application in this way, but the complexity soon spirtals out of control and the ability to make mistakes compounds.
+
+Corda 5, through Applicaiton Netowkrs, introduces scehmas into that Database. Apps can still interact with any record, only now they must go through an interoperability layer that removes the need for themto understand the inner workings of the other app. That scheams puts rules in place as to how others can mutate the global state of another chain in a much cleaner, easier to reason about, way than before.
