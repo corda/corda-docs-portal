@@ -9,4 +9,4 @@ menu:
 section_menu: corda-5-dev-preview2
 ---
 The base modules contain annotations, types exceptions, and some utility functions used throughout the Corda API.
-You can view the KDoc documentation for this module [here](/en/api-ref/corda/5.0-dev-preview-2/open-source/modules/corda-base-5.0.0.190-DevPreview-2-javadoc/index.html).
+You can view the KDoc documentation for this module [here](/en/api-ref/corda/5.0-dev-preview-2/modules/corda-base-5.0.0.190-DevPreview-2-javadoc/index.html).

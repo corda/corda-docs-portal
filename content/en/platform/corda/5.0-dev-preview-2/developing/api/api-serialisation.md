@@ -8,7 +8,7 @@ menu:
     weight: 8000
 section_menu: corda-5-dev-preview2
 ---
-You can view the KDoc documentation for this module [here](/en/api-ref/corda/5.0-dev-preview-2/open-source/modules/corda-serialization-5.0.0.190-DevPreview-2-javadoc/index.html).
+You can view the KDoc documentation for this module [here](/en/api-ref/corda/5.0-dev-preview-2/modules/corda-serialization-5.0.0.190-DevPreview-2-javadoc/index.html).
 
 Object serialization is the process of converting objects into a stream of bytes and, deserialization, the reverse
 process of creating objects from a stream of bytes.  It takes place every time we store transactions in the database.
