@@ -36,7 +36,7 @@ To display the Swagger UI, use the following link:
 {{< / note >}}
 
 If Corda has started, the Swagger UI displays:
-{{< figure src="starting-corda-complete.png" figcaption="Swagger UI showing Corda liveness" alt="Swagger UI showing Corda" >}}
+{{< figure src="swagger-ui.png" figcaption="Swagger UI showing Corda liveness" alt="Swagger UI showing Corda" >}}
 
 If Corda has not started yet, the page will not load.
 If the Swagger UI is already open whilst starting Corda, you must hit an endpoint to test liveness of Corda.
@@ -90,7 +90,7 @@ To run your first flow:
 1. Find the `holdingidentityshorthash` for the virtual node you want to trigger the flow on. You can do this by running the `listVnodes` gradle task which will list the VNodes set up:
    {{< figure src="list-vnodes.png" figcaption="Running the listVnodes gradle task" >}}
    The 12 digit hash is the `holdingidentityshorthash` that acts as the unique identifier for a virtual node.
-   
+
 2. Expand the `POST /flow/{holdingidentityshorthash}` endpoint in Swagger and click **Try it out**.
 {{< figure src="post-flow.png" figcaption="Try it out button for POST /flow/{holdingidentityshorthash}" alt="Expanded POST /flow/{holdingidentityshorthash} with Try it out button" >}}  
 3. Enter the hash and the `requestBody` and click **Execute**.
@@ -125,9 +125,8 @@ To check the flow status:
 {{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}  
    If the flow is successful, you will see the following response:
 {{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}  
-Note the flowStatus of  "COMPLETED" and flowResult of "Hello Alice best wishes from Bob".
-If you receive a response with a status of "RUNNING”, wait a short time and retry the status check.
-<!--
-We will understand why that is the flow result in a subsequent section where we explain the flow code.
+   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow](../first-flow.html).
 
-You have now run your first flow on Corda.-->
+{{< note >}}
+If you receive a response with a status of "RUNNING”, wait a short time and retry the status check.
+{{< /note >}}

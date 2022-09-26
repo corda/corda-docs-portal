@@ -8,6 +8,7 @@ menu:
     weight: 6000
 section_menu: corda-5-dev-preview2
 ---
+You can view the KDoc documentation for this module [here](/en/api-ref/corda/5.0-dev-preview-2/modules/corda-membership-5.0.0.190-DevPreview-2-javadoc/index.html).
 
 The `corda-membership` module defines interfaces that provide information about a member (a [virtual node](../introduction/key-concepts.html#virtual-nodes) in a group), and a membership group. The interfaces in this module should not be implemented by CorDapp developers. Instead, instances can be retrieved through lookup services.
 
