@@ -1,0 +1,26 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:net.corda.v5.membership////PointingToDeclaration/membership/net.corda.v5.membership/index.html
+$dokka.location:net.corda.v5.membership/EndpointInfo///PointingToDeclaration/membership/net.corda.v5.membership/-endpoint-info/index.html
+$dokka.location:net.corda.v5.membership/EndpointInfo/protocolVersion/#/PointingToDeclaration/membership/net.corda.v5.membership/-endpoint-info/protocol-version.html
+$dokka.location:net.corda.v5.membership/EndpointInfo/url/#/PointingToDeclaration/membership/net.corda.v5.membership/-endpoint-info/url.html
+$dokka.location:net.corda.v5.membership/GroupParameters///PointingToDeclaration/membership/net.corda.v5.membership/-group-parameters/index.html
+$dokka.location:net.corda.v5.membership/GroupParameters/epoch/#/PointingToDeclaration/membership/net.corda.v5.membership/-group-parameters/epoch.html
+$dokka.location:net.corda.v5.membership/GroupParameters/minimumPlatformVersion/#/PointingToDeclaration/membership/net.corda.v5.membership/-group-parameters/minimum-platform-version.html
+$dokka.location:net.corda.v5.membership/GroupParameters/modifiedTime/#/PointingToDeclaration/membership/net.corda.v5.membership/-group-parameters/modified-time.html
+$dokka.location:net.corda.v5.membership/MGMContext///PointingToDeclaration/membership/net.corda.v5.membership/-m-g-m-context/index.html
+$dokka.location:net.corda.v5.membership/MemberContext///PointingToDeclaration/membership/net.corda.v5.membership/-member-context/index.html
+$dokka.location:net.corda.v5.membership/MemberInfo///PointingToDeclaration/membership/net.corda.v5.membership/-member-info/index.html
+$dokka.location:net.corda.v5.membership/MemberInfo/isActive/#/PointingToDeclaration/membership/net.corda.v5.membership/-member-info/is-active.html
+$dokka.location:net.corda.v5.membership/MemberInfo/ledgerKeys/#/PointingToDeclaration/membership/net.corda.v5.membership/-member-info/ledger-keys.html
+$dokka.location:net.corda.v5.membership/MemberInfo/memberProvidedContext/#/PointingToDeclaration/membership/net.corda.v5.membership/-member-info/member-provided-context.html
+$dokka.location:net.corda.v5.membership/MemberInfo/mgmProvidedContext/#/PointingToDeclaration/membership/net.corda.v5.membership/-member-info/mgm-provided-context.html
+$dokka.location:net.corda.v5.membership/MemberInfo/name/#/PointingToDeclaration/membership/net.corda.v5.membership/-member-info/name.html
+$dokka.location:net.corda.v5.membership/MemberInfo/platformVersion/#/PointingToDeclaration/membership/net.corda.v5.membership/-member-info/platform-version.html
+$dokka.location:net.corda.v5.membership/MemberInfo/serial/#/PointingToDeclaration/membership/net.corda.v5.membership/-member-info/serial.html
+$dokka.location:net.corda.v5.membership/MemberInfo/sessionInitiationKey/#/PointingToDeclaration/membership/net.corda.v5.membership/-member-info/session-initiation-key.html
+$dokka.location:net.corda.v5.membership/NotaryInfo///PointingToDeclaration/membership/net.corda.v5.membership/-notary-info/index.html
+$dokka.location:net.corda.v5.membership/NotaryInfo/party/#/PointingToDeclaration/membership/net.corda.v5.membership/-notary-info/party.html
+$dokka.location:net.corda.v5.membership/NotaryInfo/pluginClass/#/PointingToDeclaration/membership/net.corda.v5.membership/-notary-info/plugin-class.html
+net.corda.v5.membership
+
