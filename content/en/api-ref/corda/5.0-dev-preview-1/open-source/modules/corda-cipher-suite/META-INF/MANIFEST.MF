@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Corda-Release-Version: 5.0.0-DevPreview-RC06
-Corda-Platform-Version: 999
-Corda-Revision: 962914ae3aeee03683e2650f947df17e4352f806
-Automatic-Module-Name: net.corda.cipher.suite
-Corda-Docs-Link: https://docs.r3.com/
-Corda-License: https://www.corda.net/Corda-Pre-Release-Software-License-
- Agreement.pdf
-
