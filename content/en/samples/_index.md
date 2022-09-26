@@ -16,4 +16,3 @@ title: Samples and templates
 Use these samples and templates to follow the [tutorials](tutorials.html) and guides in the documentation.
 
 * [Corda 4 samples and templates](../../en/samples/corda-4-samples-templates.md)
-* [Corda 5 Developer Preview samples and templates](../../en/samples/corda-5-samples-templates.md)

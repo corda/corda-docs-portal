@@ -10,15 +10,6 @@ weight: 300
 
 # Getting started with the Corda 5 Developer Preview
 
-The Corda 5 Developer Preview is intended for local deployment, experimental development, and testing only.
-
-To get started:
-1. Read the [technology overview](../../en/platform/corda/5.0-dev-preview-1/getting-started/prerequisites.md).
-2. Follow the [step-by-step installation guide](../../en/platform/corda/5.0-dev-preview-1/getting-started/overview.md).
-3. [Set up a local Corda 5 development network](../../en/platform/corda/5.0-dev-preview-1/getting-started/setup-network.md).
-4. [Run the sample Solar System CorDapp](../../en/platform/corda/5.0-dev-preview-1/tutorials/run-demo-cordapp.md).
-5. [Build your first CorDapp](../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-intro.md), which includes modules on writing states, contracts, and flows, and testing and running your CorDapp.
-
-You should also read [developing and operating nodes](../../en/platform/corda/5.0-dev-preview-1/nodes/nodes-homepage.md),
-and [CorDapp references for developers](../../en/platform/corda/5.0-dev-preview-1/cordapps/overview.md) which will help
-you build and locally deploy your CorDapps using the Corda 5 Developer Preview.
+Corda 5 Developer Preview 2 is intended for experimental development, local deployment, and testing only. To get started:
+1. Read the [introduction](../../en/platform/corda/5.0-dev-preview-2/introduction/introduction.html).
+2. Learn how to set up your development environment with the new [CorDapp Standard Development Environment (CSDE)]((../../en/platform/corda/5.0-dev-preview-2/getting-started/get-started.html)).
