@@ -312,8 +312,8 @@ We can now start sending messages to the responder:
 ```
    The code continues to execute until it reaches the `session.receive()` method. At that point, the flow checkpoints and persists its state to the database. It resumes when it receives a message back from the responder. This frees up the Corda cluster flow workers to perform other tasks.
    {{< note >}}
-     There is no guarantee that the same flow worker resumes the completion of the flow and so singleton objects should be avoided in Corda 5 flows.
-     {{< /note >}}
+   There is no guarantee that the same flow worker resumes the completion of the flow and so singleton objects should be avoided in Corda 5 flows.
+   {{< /note >}}
    ```kotlin
            val response = session.receive(Message::class.java)
     ```
