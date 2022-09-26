@@ -10,12 +10,12 @@ section_menu: corda-5-dev-preview2
 ---
 To make the process of prototyping CorDapps on Developer Preview 2 more straight-forward, we have developed the CorDapp Standard Development Environment (CSDE).
 The CSDE is obtained by cloning our `CSDE-Cordapp-Template-Kotlin` repository to your local machine. The CSDE provides:
-* A prepared CorDapp project that you can use as a starting point to develop your own prototypes.
-* A base Gradle configuration that brings in the dependencies you need to write and test a Corda 5 CorDapp.
-* A set of Gradle helper tasks which speed up and simplify the development and deployment process. These are effectively wrappers over the [Corda CLI](../../developing/corda-cli/overview.html).
-* Debug configuration for debugging a local Corda cluster.
-* The `MyFirstFlow` code which forms the basis of the Getting Started documentation.
-* The ability to configure the members of the local Corda network.
+* A prepared CorDapp project that you can use as a starting point to develop your own prototypes
+* A base Gradle configuration that brings in the dependencies you need to write and test a Corda 5 CorDapp
+* A set of Gradle helper tasks which speed up and simplify the development and deployment process; these are effectively wrappers over the [Corda CLI](../../developing/corda-cli/overview.html)
+* Debug configuration for debugging a local Corda cluster
+* The `MyFirstFlow` code which forms the basis of the Getting Started documentation
+* The ability to configure the members of the local Corda network
 
 {{< note >}}
 The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your feedback.  
@@ -61,24 +61,24 @@ The **combined worker** is a Corda cluster that runs all of the workers in one J
 
 The `startCorda` task does the following:
 
-1. Downloads and locally stores a copy of the Combined Worker JAR, if required.
-2. Starts an instance of a Postgres Docker container. You will need Docker Engine or Docker Desktop running.
-3. Starts the combined worker.
+1. Downloads and locally stores a copy of the Combined Worker JAR, if required
+2. Starts an instance of a Postgres Docker container; you will need Docker Engine or Docker Desktop running
+3. Starts the combined worker
 
 #### `stopCorda`
 
 The `stopCorda` task does the following:
 
-* Stops the Postgres database.
-* Stops the combined worker.
+* Stops the Postgres database
+* Stops the combined worker
 
 #### `deployCorDapp`
 
 The `deployCorDapp` task does the following to compile and deploy the CorDapp to the combined worker:
 
-1. Compiles the [CPB](../../introduction/key-concepts.html#corda-package-bundles-cpbs) and [CPI](../../introduction/key-concepts.html#corda-package-installer-cpi).
-2. Uploads the CPI to the combined worker.
-3. Generates the [virtual nodes](../../introduction/key-concepts.html#virtual-nodes) with the CPI.
+1. Compiles the [CPB](../../introduction/key-concepts.html#corda-package-bundles-cpbs) and [CPI](../../introduction/key-concepts.html#corda-package-installer-cpi)
+2. Uploads the CPI to the combined worker
+3. Generates the [virtual nodes](../../introduction/key-concepts.html#virtual-nodes) with the CPI
 
 ### Debug configuration
 In the toolbar, you can select the `DebugCorDapp` run configuration to debug the running Corda from IntelliJ.
