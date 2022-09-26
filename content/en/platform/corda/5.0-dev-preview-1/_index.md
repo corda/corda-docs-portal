@@ -20,9 +20,9 @@ aliases:
 - ./5.0-dev-preview-1/index.html
 - 5.0-dev-preview-1/index.html
 ---
-{{< note >}}
+{{< attention >}}
 This developer preview of Corda 5 has been replaced by Developer Preview 2. Refer to the [Developer Preview 2 documentation](https://docs.r3.com/en/platform/corda/5.0-dev-preview-1.html )
-{{< /note >}}
+{{< /attention >}}
 
 # Corda 5 Developer Preview 1
 
