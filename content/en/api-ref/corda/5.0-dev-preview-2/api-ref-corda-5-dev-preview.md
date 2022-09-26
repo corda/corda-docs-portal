@@ -17,4 +17,4 @@ The following is a list of all Corda API modules (in alphabetical order) with li
 * [net.corda.v5.membership](/en/api-ref/corda/5.0-dev-preview-2/modules/corda-membership-5.0.0.190-DevPreview-2-javadoc/index.html)
 * [net.corda.v5.serialization](/en/api-ref/corda/5.0-dev-preview-2/modules/corda-serialization-5.0.0.190-DevPreview-2-javadoc/index.html)
 
-You can also view the [REST API documentation](/en/platform/corda/5.0-dev-preview-2/developing/rest-apiC5_OpenAPI.html).
+You can also view the [REST API documentation](/en/platform/corda/5.0-dev-preview-2/developing/rest-api/C5_OpenAPI.html).
