@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.v5.base.annotations - base</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">base</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.v5.base.annotations</a><br/>
+<br/>
+<h2>Package net.corda.v5.base.annotations</h2>
+<h3>Annotations</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-corda-internal/index.html">CordaInternal</a></h4>
+</td>
+<td>
+<p>These methods and annotations are not part of Corda's API compatibility guarantee and applications should not use them.</p>
+<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">CordaInternal</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-corda-serializable/index.html">CordaSerializable</a></h4>
+</td>
+<td>
+<p>This annotation is a marker to indicate that a class is permitted and intended to be serialized as part of Node messaging.</p>
+<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">CordaSerializable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-do-not-implement/index.html">DoNotImplement</a></h4>
+</td>
+<td>
+<p>This annotation is for interfaces and abstract classes that provide Corda functionality
+to user applications. Future versions of Corda may add new methods to such interfaces and
+classes, but will not remove or modify existing methods.</p>
+<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">DoNotImplement</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-serializable-calculated-property/index.html">SerializableCalculatedProperty</a></h4>
+</td>
+<td>
+<p>Used to annotate methods which expose calculated values that we want to be serialized for use by the class carpenter.</p>
+<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">SerializableCalculatedProperty</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-suspendable/index.html">Suspendable</a></h4>
+</td>
+<td>
+<p>Marks a method as suspendable.</p>
+<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">Suspendable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-visible-for-testing/index.html">VisibleForTesting</a></h4>
+</td>
+<td>
+<p>The annotated object would have a more restricted visibility were it not needed in tests.</p>
+<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">VisibleForTesting</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

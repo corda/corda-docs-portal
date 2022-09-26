@@ -1,0 +1,148 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.systemflows - flows</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">flows</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.systemflows</a><br/>
+<br/>
+<h2>Package net.corda.systemflows</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-abstract-state-replacement-flow/index.html">AbstractStateReplacementFlow</a></h4>
+</td>
+<td>
+<p>Abstract flow to be used for replacing one state with another, for example when changing the notary of a state.
+Notably this requires a one to one replacement of states, states cannot be split, merged or issued as part of these
+flows.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">AbstractStateReplacementFlow</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-collect-signature-flow/index.html">CollectSignatureFlow</a></h4>
+</td>
+<td>
+<p>Get and check the required signature.</p>
+<code><span class="keyword">class </span><span class="identifier">CollectSignatureFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">DigitalSignatureAndMeta</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-collect-signatures-flow/index.html">CollectSignaturesFlow</a></h4>
+</td>
+<td>
+<p>The <a href="-collect-signatures-flow/index.html">CollectSignaturesFlow</a> is used to automate the collection of counterparty signatures for a given transaction.</p>
+<code><span class="keyword">class </span><span class="identifier">CollectSignaturesFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">SignedTransaction</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-finality-flow/index.html">FinalityFlow</a></h4>
+</td>
+<td>
+<p>Verifies the given transaction, then sends it to the named notary. If the notary agrees that the transaction is acceptable then it is
+from that point onwards committed to the ledger, and will be written through to the vault. Additionally it will be distributed to the
+parties reflected in the participants list of the states.</p>
+<code><span class="keyword">class </span><span class="identifier">FinalityFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">SignedTransaction</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-notary-change-flow/index.html">NotaryChangeFlow</a></h4>
+</td>
+<td>
+<p>A flow to be used for changing a state's Notary. This is required since all input states to a transaction
+must point to the same notary.</p>
+<code><span class="keyword">class </span><span class="identifier">NotaryChangeFlow</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ContractState</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Instigator</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">Party</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-notary-client-flow/index.html">NotaryClientFlow</a></h4>
+</td>
+<td>
+<p>A flow to be used by a party for obtaining signature(s) from a <a href="#">NotaryService</a> ascertaining the transaction
+time-window is correct and none of its inputs have been used in another completed transaction.</p>
+<code><span class="keyword">class </span><span class="identifier">NotaryClientFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">DigitalSignatureAndMeta</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-receive-finality-flow/index.html">ReceiveFinalityFlow</a></h4>
+</td>
+<td>
+<p>The receiving counterpart to <a href="-finality-flow/index.html">FinalityFlow</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">ReceiveFinalityFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">SignedTransaction</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-receive-state-and-ref-flow/index.html">ReceiveStateAndRefFlow</a></h4>
+</td>
+<td>
+<p>The <a href="-receive-state-and-ref-flow/index.html">ReceiveStateAndRefFlow</a> should be called in response to the <a href="-send-state-and-ref-flow/index.html">SendStateAndRefFlow</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">ReceiveStateAndRefFlow</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ContractState</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">StateAndRef</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-receive-transaction-flow/index.html">ReceiveTransactionFlow</a></h4>
+</td>
+<td>
+<p>The <a href="-receive-transaction-flow/index.html">ReceiveTransactionFlow</a> should be called in response to the <a href="-send-transaction-flow/index.html">SendTransactionFlow</a>.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ReceiveTransactionFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">SignedTransaction</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-send-state-and-ref-flow/index.html">SendStateAndRefFlow</a></h4>
+</td>
+<td>
+<p>The <a href="-send-state-and-ref-flow/index.html">SendStateAndRefFlow</a> should be used to send a list of input <a href="#">StateAndRef</a> to another peer that wishes to verify
+the input's integrity by resolving and checking the dependencies as well. The other side should invoke <a href="-receive-state-and-ref-flow/index.html">ReceiveStateAndRefFlow</a>
+at the right point in the conversation to receive the input state and ref and perform the resolution back-and-forth
+required to check the dependencies.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SendStateAndRefFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Void.html"><span class="identifier">Void</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-send-transaction-flow/index.html">SendTransactionFlow</a></h4>
+</td>
+<td>
+<p>The <a href="-send-transaction-flow/index.html">SendTransactionFlow</a> should be used to send a transaction to another peer that wishes to verify that transaction's
+integrity by resolving and checking the dependencies as well. The other side should invoke <a href="-receive-transaction-flow/index.html">ReceiveTransactionFlow</a> at
+the right point in the conversation to receive the sent transaction and perform the resolution back-and-forth required
+to check the dependencies and download any missing attachments.</p>
+<code><span class="keyword">class </span><span class="identifier">SendTransactionFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Void.html"><span class="identifier">Void</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-sign-transaction-flow/index.html">SignTransactionFlow</a></h4>
+</td>
+<td>
+<p>The <a href="-sign-transaction-flow/index.html">SignTransactionFlow</a> should be called in response to the <a href="-collect-signatures-flow/index.html">CollectSignaturesFlow</a>. It automates the signing of
+a transaction providing the transaction:</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">SignTransactionFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">SignedTransaction</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-with-referenced-states-flow/index.html">WithReferencedStatesFlow</a></h4>
+</td>
+<td>
+<p>Given a flow which uses reference states, the <a href="-with-referenced-states-flow/index.html">WithReferencedStatesFlow</a> will execute the flow as a subFlow.
+If the flow fails due to a <a href="#">NotaryError.Conflict</a> for a reference state, then WithReferencedStatesFlow will be suspended until the
+state refs for the reference states are consumed. In this case, a consumption means that:</p>
+<code><span class="keyword">class </span><span class="identifier">WithReferencedStatesFlow</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-state-replacement-exception/index.html">StateReplacementException</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">StateReplacementException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowException</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

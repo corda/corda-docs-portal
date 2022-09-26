@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OSGiFrameworkMain.logger - osgi-framework-bootstrap</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">osgi-framework-bootstrap</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.osgi.framework</a>&nbsp;/&nbsp;<a href="index.html">OSGiFrameworkMain</a>&nbsp;/&nbsp;<a href="./logger.html">logger</a><br/>
+<br/>
+<h1>logger</h1>
+<a name="net.corda.osgi.framework.OSGiFrameworkMain.Companion$logger"></a>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">logger</span><span class="symbol">: </span><span class="identifier">Logger</span></code>
+<p>This logger is configured in <a href="main.html">main</a> method to save the logs in the directory expressed in the  <a href="-b-a-s-e_-d-i-r.html">BASE_DIR</a> parameter.
+The <a href="main.html">main</a> method wait the termination of the OSGi framework, hence it can be used for tests,
+hence this logger is public to allow test code to set it without calling <a href="main.html">main</a>.</p>
+</BODY>
+</HTML>

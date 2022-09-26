@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PersistenceService.remove - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.services.persistence</a>&nbsp;/&nbsp;<a href="index.html">PersistenceService</a>&nbsp;/&nbsp;<a href="./remove.html">remove</a><br/>
+<br/>
+<h1>remove</h1>
+<a name="net.corda.v5.application.services.persistence.PersistenceService$remove(kotlin.Any)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.persistence.PersistenceService$remove(kotlin.Any)/entity">entity</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Remove a single <a href="remove.html#net.corda.v5.application.services.persistence.PersistenceService$remove(kotlin.Any)/entity">entity</a> from the persistence context in a transaction.</p>
+<h3>Parameters</h3>
+<p><a name="entity"></a>
+<code>entity</code> - the entity to remove.</p>
+<h3>Exceptions</h3>
+<p><a name="CordaPersistenceException"></a>
+<code>CordaPersistenceException</code> - if an error happens during remove operation</p>
+<a name="net.corda.v5.application.services.persistence.PersistenceService$remove(kotlin.collections.List((kotlin.Any)))"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.persistence.PersistenceService$remove(kotlin.collections.List((kotlin.Any)))/entities">entities</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Remove multiple <a href="remove.html#net.corda.v5.application.services.persistence.PersistenceService$remove(kotlin.collections.List((kotlin.Any)))/entities">entities</a> from the persistence context in a single transaction.</p>
+<h3>Parameters</h3>
+<p><a name="entities"></a>
+<code>entities</code> - list of entities to be remove.</p>
+<h3>Exceptions</h3>
+<p><a name="CordaPersistenceException"></a>
+<code>CordaPersistenceException</code> - if an error happens during remove operation</p>
+</BODY>
+</HTML>

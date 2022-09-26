@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PropertyDelegate.RequiredList - configuration-parsing</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">configuration-parsing</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.common.configuration.parsing.internal</a>&nbsp;/&nbsp;<a href="../index.html">PropertyDelegate</a>&nbsp;/&nbsp;<a href="./index.html">RequiredList</a><br/>
+<br/>
+<h1>RequiredList</h1>
+<code><span class="keyword">interface </span><span class="identifier">RequiredList</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Required</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="map.html">map</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span> <span class="identifier">map</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList$map(kotlin.String, kotlin.Function1((kotlin.collections.List((net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList.TYPE)), net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList.map.MAPPED)))/mappedTypeName">mappedTypeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList$map(kotlin.String, kotlin.Function1((kotlin.collections.List((net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList.TYPE)), net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList.map.MAPPED)))/convert">convert</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">MAPPED</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Required</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="map-valid.html">mapValid</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span> <span class="identifier">mapValid</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList$mapValid(kotlin.String, kotlin.Function1((kotlin.collections.List((net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList.TYPE)), net.corda.common.validation.internal.Validated((net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList.mapValid.MAPPED, net.corda.common.configuration.parsing.internal.Configuration.Validation.Error)))))/mappedTypeName">mappedTypeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList$mapValid(kotlin.String, kotlin.Function1((kotlin.collections.List((net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList.TYPE)), net.corda.common.validation.internal.Validated((net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList.mapValid.MAPPED, net.corda.common.configuration.parsing.internal.Configuration.Validation.Error)))))/convert">convert</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Valid</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Required</span><span class="symbol">&lt;</span><span class="identifier">MAPPED</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="provide-delegate.html">provideDelegate</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">provideDelegate</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList$provideDelegate(kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))/thisRef">thisRef</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.PropertyDelegate.RequiredList$provideDelegate(kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))/property">property</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html"><span class="identifier">KProperty</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-read-only-property/index.html"><span class="identifier">ReadOnlyProperty</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<span class="identifier">RequiredList</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

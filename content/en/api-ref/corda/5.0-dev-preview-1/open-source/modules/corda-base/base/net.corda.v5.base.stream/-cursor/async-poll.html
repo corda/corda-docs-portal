@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Cursor.asyncPoll - base</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">base</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.base.stream</a>&nbsp;/&nbsp;<a href="index.html">Cursor</a>&nbsp;/&nbsp;<a href="./async-poll.html">asyncPoll</a><br/>
+<br/>
+<h1>asyncPoll</h1>
+<a name="net.corda.v5.base.stream.Cursor$asyncPoll(kotlin.Int, java.time.Duration)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">asyncPoll</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.base.stream.Cursor$asyncPoll(kotlin.Int, java.time.Duration)/maxCount">maxCount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.base.stream.Cursor$asyncPoll(kotlin.Int, java.time.Duration)/awaitForResultTimeout">awaitForResultTimeout</span><span class="symbol">:</span>&nbsp;<span class="identifier">Duration</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/CompletableFuture.html"><span class="identifier">CompletableFuture</span></a><span class="symbol">&lt;</span><span class="identifier">PollResult</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Asynchronously tries to retrieve a batch of elements if they are available.</p>
+<h3>Parameters</h3>
+<p><a name="maxCount"></a>
+<code>maxCount</code> - The maximum number of elements to be returned.</p>
+<p><a name="awaitForResultTimeout"></a>
+<code>awaitForResultTimeout</code> - The desired maximum duration to wait for result to become available. The <a href="https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> will be
+completed when <a href="async-poll.html#net.corda.v5.base.stream.Cursor$asyncPoll(kotlin.Int, java.time.Duration)/maxCount">maxCount</a> number of elements is available or <a href="async-poll.html#net.corda.v5.base.stream.Cursor$asyncPoll(kotlin.Int, java.time.Duration)/awaitForResultTimeout">awaitForResultTimeout</a> has elapsed, whichever happens first.</p>
+<p><strong>Return</strong><br/>
+A <a href="https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> over <a href="-poll-result/index.html">Cursor.PollResult</a>.</p>
+</BODY>
+</HTML>

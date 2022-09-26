@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Crypto.publicKeyOnCurve - crypto-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">crypto-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.crypto.internal</a>&nbsp;/&nbsp;<a href="index.html">Crypto</a>&nbsp;/&nbsp;<a href="./public-key-on-curve.html">publicKeyOnCurve</a><br/>
+<br/>
+<h1>publicKeyOnCurve</h1>
+<a name="net.corda.v5.crypto.internal.Crypto$publicKeyOnCurve(net.corda.v5.crypto.internal.SignatureScheme, java.security.PublicKey)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">publicKeyOnCurve</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.internal.Crypto$publicKeyOnCurve(net.corda.v5.crypto.internal.SignatureScheme, java.security.PublicKey)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.crypto.internal.Crypto$publicKeyOnCurve(net.corda.v5.crypto.internal.SignatureScheme, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Check if a point's coordinates are on the expected curve to avoid certain types of ECC attacks.
+Point-at-infinity is not permitted as well.</p>
+<h3>Parameters</h3>
+<p><a name="publicKey"></a>
+<code>publicKey</code> - a <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a>, usually used to validate a signer's public key in on the Curve.</p>
+<p><a name="signatureScheme"></a>
+<code>signatureScheme</code> - a <a href="../-signature-scheme/index.html">SignatureScheme</a> object, retrieved from supported signature schemes, see <a href="index.html">Crypto</a>.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the requested signature scheme or the key type is not supported.</p>
+<p><strong>Return</strong><br/>
+true if the point lies on the curve or false if it doesn't.</p>
+</BODY>
+</HTML>

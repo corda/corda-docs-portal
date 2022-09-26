@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NodeVersionInfo - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.services.diagnostics</a>&nbsp;/&nbsp;<a href="./index.html">NodeVersionInfo</a><br/>
+<br/>
+<h1>NodeVersionInfo</h1>
+<code><span class="keyword">interface </span><span class="identifier">NodeVersionInfo</span></code>
+<p>Version info about the node. Note that this data should be used for diagnostics purposes only - it is unsafe to rely on this for
+functional decisions.</p>
+<h3>Parameters</h3>
+<p><a name="releaseVersion"></a>
+<code>releaseVersion</code> - The release version string of the node, e.g. 4.3, 4.4-SNAPSHOT.</p>
+<p><a name="revision"></a>
+<code>revision</code> - The git commit hash this node was built from</p>
+<p><a name="platformVersion"></a>
+<code>platformVersion</code> - The platform version of this node, representing the released API version.</p>
+<p><a name="vendor"></a>
+<code>vendor</code> - The vendor of this node</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="platform-version.html">platformVersion</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">platformVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="release-version.html">releaseVersion</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">releaseVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="revision.html">revision</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">revision</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="vendor.html">vendor</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">vendor</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

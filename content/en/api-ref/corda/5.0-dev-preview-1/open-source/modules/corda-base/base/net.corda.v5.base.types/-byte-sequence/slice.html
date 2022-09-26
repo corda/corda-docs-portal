@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ByteSequence.slice - base</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">base</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.base.types</a>&nbsp;/&nbsp;<a href="index.html">ByteSequence</a>&nbsp;/&nbsp;<a href="./slice.html">slice</a><br/>
+<br/>
+<h1>slice</h1>
+<a name="net.corda.v5.base.types.ByteSequence$slice(kotlin.Int, kotlin.Int)"></a>
+<code><span class="keyword">fun </span><span class="identifier">slice</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.base.types.ByteSequence$slice(kotlin.Int, kotlin.Int)/start">start</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.base.types.ByteSequence$slice(kotlin.Int, kotlin.Int)/end">end</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html"><span class="identifier">ByteBuffer</span></a></code>
+<p>A new read-only <a href="https://docs.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html">ByteBuffer</a> view of this sequence or part of it.
+If <a href="slice.html#net.corda.v5.base.types.ByteSequence$slice(kotlin.Int, kotlin.Int)/start">start</a> or <a href="slice.html#net.corda.v5.base.types.ByteSequence$slice(kotlin.Int, kotlin.Int)/end">end</a> are negative then <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html">IllegalArgumentException</a> is thrown, otherwise they are clamped if necessary.
+This method cannot be used to get bytes before <a href="offset.html">offset</a> or after <a href="offset.html">offset</a>+<a href="size.html">size</a>, and never makes a new array.</p>
+<a name="net.corda.v5.base.types.ByteSequence$slice(kotlin.Int)"></a>
+<code><span class="keyword">fun </span><span class="identifier">slice</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.base.types.ByteSequence$slice(kotlin.Int)/start">start</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html"><span class="identifier">ByteBuffer</span></a></code><br/>
+<a name="net.corda.v5.base.types.ByteSequence$slice()"></a>
+<code><span class="keyword">fun </span><span class="identifier">slice</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html"><span class="identifier">ByteBuffer</span></a></code>
+</BODY>
+</HTML>

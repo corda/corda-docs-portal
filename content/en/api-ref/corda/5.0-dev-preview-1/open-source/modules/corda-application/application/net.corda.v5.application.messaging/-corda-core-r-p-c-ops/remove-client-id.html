@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaCoreRPCOps.removeClientId - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.messaging</a>&nbsp;/&nbsp;<a href="index.html">CordaCoreRPCOps</a>&nbsp;/&nbsp;<a href="./remove-client-id.html">removeClientId</a><br/>
+<br/>
+<h1>removeClientId</h1>
+<a name="net.corda.v5.application.messaging.CordaCoreRPCOps$removeClientId(kotlin.String)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">removeClientId</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.messaging.CordaCoreRPCOps$removeClientId(kotlin.String)/clientId">clientId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Removes a flow's <a href="remove-client-id.html#net.corda.v5.application.messaging.CordaCoreRPCOps$removeClientId(kotlin.String)/clientId">clientId</a> to result/ exception mapping. If the mapping is of a running flow, then the mapping will not get removed.
+This version will only remove flow's that were started by the same user currently calling <a href="./remove-client-id.html">removeClientId</a>.</p>
+<p>See <a href="start-flow-dynamic-with-client-id.html">startFlowDynamicWithClientId</a> for more information.</p>
+<p><strong>Return</strong><br/>
+whether the mapping was removed.</p>
+</BODY>
+</HTML>

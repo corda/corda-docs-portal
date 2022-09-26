@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AttachmentStorage - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.services</a>&nbsp;/&nbsp;<a href="./index.html">AttachmentStorage</a><br/>
+<br/>
+<h1>AttachmentStorage</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">AttachmentStorage</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaServiceInjectable</span><span class="symbol">, </span><span class="identifier">CordaFlowInjectable</span></code>
+<p>An attachment store records potentially large binary objects, identified by their hash.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="has-attachment.html">hasAttachment</a></h4>
+</td>
+<td>
+<p>Checks if an attachment already exists.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">hasAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.AttachmentStorage$hasAttachment(net.corda.v5.crypto.SecureHash)/attachmentId">attachmentId</span><span class="symbol">:</span>&nbsp;<a href="../-attachment-id.html"><span class="identifier">AttachmentId</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="import-attachment.html">importAttachment</a></h4>
+</td>
+<td>
+<p>Inserts the given attachment with additional metadata.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">importAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.AttachmentStorage$importAttachment(java.io.InputStream, kotlin.String, kotlin.String)/jar">jar</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.AttachmentStorage$importAttachment(java.io.InputStream, kotlin.String, kotlin.String)/uploader">uploader</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.AttachmentStorage$importAttachment(java.io.InputStream, kotlin.String, kotlin.String)/filename">filename</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-attachment-id.html"><span class="identifier">AttachmentId</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="open-attachment.html">openAttachment</a></h4>
+</td>
+<td>
+<p>Returns a handle to a locally stored attachment, or null if it's not known. The handle can be used to open a stream for the data,
+which will be a zip/jar file.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">openAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.AttachmentStorage$openAttachment(net.corda.v5.crypto.SecureHash)/id">id</span><span class="symbol">:</span>&nbsp;<a href="../-attachment-id.html"><span class="identifier">AttachmentId</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.contracts/-attachment/index.html"><span class="identifier">Attachment</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="query-attachments.html">queryAttachments</a></h4>
+</td>
+<td>
+<p>Searches attachments using given criteria and sorting rules.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">queryAttachments</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.AttachmentStorage$queryAttachments(net.corda.v5.ledger.services.vault.AttachmentQueryCriteria, net.corda.v5.ledger.services.vault.AttachmentSort)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.services.vault/-attachment-query-criteria/index.html"><span class="identifier">AttachmentQueryCriteria</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.AttachmentStorage$queryAttachments(net.corda.v5.ledger.services.vault.AttachmentQueryCriteria, net.corda.v5.ledger.services.vault.AttachmentSort)/sorting">sorting</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.services.vault/-attachment-sort/index.html"><span class="identifier">AttachmentSort</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-attachment-id.html"><span class="identifier">AttachmentId</span></a><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">queryAttachments</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.AttachmentStorage$queryAttachments(net.corda.v5.ledger.services.vault.AttachmentQueryCriteria)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.services.vault/-attachment-query-criteria/index.html"><span class="identifier">AttachmentQueryCriteria</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-attachment-id.html"><span class="identifier">AttachmentId</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

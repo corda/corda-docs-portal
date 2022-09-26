@@ -1,0 +1,6 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:net.corda.common.configuration.parsing.internal$asString(com.typesafe.config.Config)net.corda.common.configuration.parsing.internal/com.typesafe.config.-config/as-string.html
+$dokka.location:net.corda.common.configuration.parsing.internal$toValidationError(com.typesafe.config.ConfigException, kotlin.String, kotlin.String)net.corda.common.configuration.parsing.internal/com.typesafe.config.-config-exception/to-validation-error.html
+$dokka.location:net.corda.common.configuration.parsing.internal$withOptions(com.typesafe.config.Config, net.corda.common.configuration.parsing.internal.Configuration.Options)net.corda.common.configuration.parsing.internal/com.typesafe.config.-config/with-options.html
+net.corda.common.configuration.parsing.internal

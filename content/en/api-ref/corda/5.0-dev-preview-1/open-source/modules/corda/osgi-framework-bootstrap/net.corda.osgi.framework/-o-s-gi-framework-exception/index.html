@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OSGiFrameworkException - osgi-framework-bootstrap</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">osgi-framework-bootstrap</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.osgi.framework</a>&nbsp;/&nbsp;<a href="./index.html">OSGiFrameworkException</a><br/>
+<br/>
+<h1>OSGiFrameworkException</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">OSGiFrameworkException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BundleException</span></code>
+<p>Extends the <a href="#">BundleException</a> class keeping a reference to the location of the bundle at the origin of the exception.</p>
+<h3>Parameters</h3>
+<p><a name="bundleException"></a>
+<code>bundleException</code> - instance of the superclass.</p>
+<p><a name="bundle"></a>
+<code>bundle</code> - at the origin of the exception.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Extends the <a href="#">BundleException</a> class keeping a reference to the location of the bundle at the origin of the exception.</p>
+<code><span class="identifier">OSGiFrameworkException</span><span class="symbol">(</span><span class="identifier" id="net.corda.osgi.framework.OSGiFrameworkException$<init>(org.osgi.framework.BundleException, org.osgi.framework.Bundle)/bundleException">bundleException</span><span class="symbol">:</span>&nbsp;<span class="identifier">BundleException</span><span class="symbol">, </span><span class="identifier" id="net.corda.osgi.framework.OSGiFrameworkException$<init>(org.osgi.framework.BundleException, org.osgi.framework.Bundle)/bundle">bundle</span><span class="symbol">:</span>&nbsp;<span class="identifier">Bundle</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="bundle-location.html">bundleLocation</a></h4>
+</td>
+<td>
+<p>Description of the location or jar name of the bundle origin of the exception: <a href="-u-n-k-n-o-w-n_-l-o-c-a-t-i-o-n.html">UNKNOWN_LOCATION</a> if bundle location is <code>null</code>.</p>
+<code><span class="keyword">val </span><span class="identifier">bundleLocation</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-u-n-k-n-o-w-n_-l-o-c-a-t-i-o-n.html">UNKNOWN_LOCATION</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">UNKNOWN_LOCATION</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

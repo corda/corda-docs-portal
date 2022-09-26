@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ContractState.participants - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.contracts</a>&nbsp;/&nbsp;<a href="index.html">ContractState</a>&nbsp;/&nbsp;<a href="./participants.html">participants</a><br/>
+<br/>
+<h1>participants</h1>
+<a name="net.corda.v5.ledger.contracts.ContractState$participants"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">participants</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">AbstractParty</span><span class="symbol">&gt;</span></code>
+<p>A <em>participant</em> is any party that should be notified when the state is created or consumed.</p>
+<p>The list of participants is required for certain types of transactions. For example, when changing the notary
+for this state, every participant has to be involved and approve the transaction
+so that they receive the updated state, and don't end up in a situation where they can no longer use a state
+they possess, since someone consumed that state during the notary change process.</p>
+<p>The participants list should normally be derived from the contents of the state.</p>
+</BODY>
+</HTML>

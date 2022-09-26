@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FilteredTransaction.checkWithFun - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.transactions</a>&nbsp;/&nbsp;<a href="index.html">FilteredTransaction</a>&nbsp;/&nbsp;<a href="./check-with-fun.html">checkWithFun</a><br/>
+<br/>
+<h1>checkWithFun</h1>
+<a name="net.corda.v5.ledger.transactions.FilteredTransaction$checkWithFun(kotlin.Function1((kotlin.Any, kotlin.Boolean)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">checkWithFun</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.FilteredTransaction$checkWithFun(kotlin.Function1((kotlin.Any, kotlin.Boolean)))/checkingFun">checkingFun</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Function that checks the whole filtered structure.
+Force type checking on a structure that we obtained, so we don't sign more than expected.
+Example: Oracle is implemented to check only for commands, if it gets an attachment and doesn't expect it - it can sign
+over a transaction with the attachment that wasn't verified. Of course it depends on how you implement it, but else -&gt; false
+should solve a problem with possible later extensions to WireTransaction.</p>
+<h3>Parameters</h3>
+<p><a name="checkingFun"></a>
+<code>checkingFun</code> - function that performs type checking on the structure fields and provides verification logic accordingly.</p>
+<p><strong>Return</strong><br/>
+false if no elements were matched on a structure or checkingFun returned false.</p>
+</BODY>
+</HTML>

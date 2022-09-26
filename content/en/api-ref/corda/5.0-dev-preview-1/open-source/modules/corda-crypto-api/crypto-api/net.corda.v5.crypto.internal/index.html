@@ -1,0 +1,282 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.v5.crypto.internal - crypto-api</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">crypto-api</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.v5.crypto.internal</a><br/>
+<br/>
+<h2>Package net.corda.v5.crypto.internal</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-alias-private-key/index.html">AliasPrivateKey</a></h4>
+</td>
+<td>
+<p><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html">PrivateKey</a> wrapper to just store the alias of a private key.
+Usually, HSM (hardware secure module) key entries are accessed via unique aliases and the private key material never
+leaves the box. This class wraps a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> key alias into a <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html">PrivateKey</a> object, which helps on transferring
+<a href="https://docs.oracle.com/javase/6/docs/api/java/security/KeyPair.html">KeyPair</a> objects without exposing the private key material. Then, whenever we need to sign with the actual private
+key, we provide the <a href="-alias-private-key/alias.html">alias</a> from this <a href="-alias-private-key/index.html">AliasPrivateKey</a> to the underlying HSM implementation.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">AliasPrivateKey</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-b-l-a-k-e2s256-test-digest/index.html">BLAKE2s256TestDigest</a></h4>
+</td>
+<td>
+<p>A custom Blake2s hash algorithm used for testing purposes only</p>
+<code><span class="keyword">class </span><span class="identifier">BLAKE2s256TestDigest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-digest-algorithm/index.html"><span class="identifier">DigestAlgorithm</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-composite-key-factory/index.html">CompositeKeyFactory</a></h4>
+</td>
+<td>
+<p>Factory for generating composite keys from ASN.1 format key specifications. This is used by <a href="-corda-security-provider/index.html">CordaSecurityProvider</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">CompositeKeyFactory</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/KeyFactorySpi.html"><span class="identifier">KeyFactorySpi</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-composite-signature/index.html">CompositeSignature</a></h4>
+</td>
+<td>
+<p>Dedicated class for storing a set of signatures that comprise <a href="../net.corda.v5.crypto/-composite-key/index.html">CompositeKey</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">CompositeSignature</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/Signature.html"><span class="identifier">Signature</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-corda-object-identifier/index.html">CordaObjectIdentifier</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">CordaObjectIdentifier</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-corda-security-provider/index.html">CordaSecurityProvider</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CordaSecurityProvider</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/Provider.html"><span class="identifier">Provider</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-crypto/index.html">Crypto</a></h4>
+</td>
+<td>
+<p>This object controls and provides the available and supported signature schemes for Corda.
+Any implemented <a href="-signature-scheme/index.html">SignatureScheme</a> should be strictly defined here.
+However, only the schemes returned by {@link #listSupportedSignatureSchemes()} are supported.
+Note that Corda currently supports the following signature schemes by their code names:</p>
+<code><span class="keyword">object </span><span class="identifier">Crypto</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-digest-algorithm/index.html">DigestAlgorithm</a></h4>
+</td>
+<td>
+<p>Interface for injecting custom digest implementation bypassing JCA.</p>
+<code><span class="keyword">interface </span><span class="identifier">DigestAlgorithm</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-digest-algorithm-factory/index.html">DigestAlgorithmFactory</a></h4>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">DigestAlgorithmFactory</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-digest-supplier/index.html">DigestSupplier</a></h4>
+</td>
+<td>
+<p>Hide the <a href="#">FastThreadLocal</a> class behind a <a href="#">Supplier</a> interface
+so that we can remove it for core-deterministic.</p>
+<code><span class="keyword">class </span><span class="identifier">DigestSupplier</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Supplier</span><span class="symbol">&lt;</span><a href="-digest-algorithm/index.html"><span class="identifier">DigestAlgorithm</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-double-s-h-a256-digest/index.html">DoubleSHA256Digest</a></h4>
+</td>
+<td>
+<p>A custom algorithm that implements a Double-SHA2-256 hash function</p>
+<code><span class="keyword">class </span><span class="identifier">DoubleSHA256Digest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-digest-algorithm/index.html"><span class="identifier">DigestAlgorithm</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-dummy-secure-random.html">DummySecureRandom</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">DummySecureRandom</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/SecureRandom.html"><span class="identifier">SecureRandom</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-instances/index.html">Instances</a></h4>
+</td>
+<td>
+<p>This is a collection of crypto related getInstance methods that tend to be quite inefficient and we want to be able to
+optimise them en masse.</p>
+<code><span class="keyword">object </span><span class="identifier">Instances</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-platform-secure-random-service/index.html">PlatformSecureRandomService</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">PlatformSecureRandomService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/Provider/Service.html"><span class="identifier">Service</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signature-factory/index.html">SignatureFactory</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">SignatureFactory</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signature-scheme/index.html">SignatureScheme</a></h4>
+</td>
+<td>
+<p>This class is used to define a digital signature scheme.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SignatureScheme</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="java.security.-key-pair/index.html">java.security.KeyPair</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="java.security.-private-key/index.html">java.security.PrivateKey</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="java.security.-public-key/index.html">java.security.PublicKey</a></h4>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="bouncy-castle-p-q-c-provider.html">bouncyCastlePQCProvider</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">bouncyCastlePQCProvider</span><span class="symbol">: </span><span class="identifier">BouncyCastlePQCProvider</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="corda-bouncy-castle-provider.html">cordaBouncyCastleProvider</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">cordaBouncyCastleProvider</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/Provider.html"><span class="identifier">Provider</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="corda-security-provider.html">cordaSecurityProvider</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">cordaSecurityProvider</span><span class="symbol">: </span><a href="-corda-security-provider/index.html"><span class="identifier">CordaSecurityProvider</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="id--curve25519ph.html">id-Curve25519ph</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">id-Curve25519ph</span><span class="symbol">: </span><span class="identifier">ASN1ObjectIdentifier</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-m-a-x_-h-a-s-h_-h-e-x_-s-i-z-e.html">MAX_HASH_HEX_SIZE</a></h4>
+</td>
+<td>
+<p>The maximum supported field-size for hash HEX-encoded outputs (e.g. database fields).
+This value is enough to support hash functions with outputs up to 512 bits (e.g. SHA3-512), in which
+case 128 HEX characters are required.
+130 was selected instead of 128, to allow for 2 extra characters that will be used as hash-scheme identifiers.</p>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">MAX_HASH_HEX_SIZE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="entropy-to-key-pair.html">entropyToKeyPair</a></h4>
+</td>
+<td>
+<p>Returns a key pair derived from the given private key entropy. This is useful for unit tests and other cases where
+you want hard-coded private keys.</p>
+<code><span class="keyword">fun </span><span class="identifier">entropyToKeyPair</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.internal$entropyToKeyPair(java.math.BigInteger)/entropy">entropy</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="generate-key-pair.html">generateKeyPair</a></h4>
+</td>
+<td>
+<p>A simple wrapper that will make it easier to swap out the signature algorithm we use in future.</p>
+<code><span class="keyword">fun </span><span class="identifier">generateKeyPair</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="new-secure-random.html">newSecureRandom</a></h4>
+</td>
+<td>
+<p>Get an instance of <a href="https://docs.oracle.com/javase/6/docs/api/java/security/SecureRandom.html">SecureRandom</a> to avoid blocking, due to waiting for additional entropy, when possible.
+In this version, the NativePRNGNonBlocking is exclusively used on Linux OS to utilize dev/urandom because in high traffic
+/dev/random may wait for a certain amount of "noise" to be generated on the host machine before returning a result.</p>
+<code><span class="keyword">fun </span><span class="identifier">newSecureRandom</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/SecureRandom.html"><span class="identifier">SecureRandom</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parse-public-key-base58.html">parsePublicKeyBase58</a></h4>
+</td>
+<td>
+<p>Method to return the <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a> object given its Base58-<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> representation.</p>
+<code><span class="keyword">fun </span><span class="identifier">parsePublicKeyBase58</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.internal$parsePublicKeyBase58(kotlin.String)/base58String">base58String</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="platform-secure-random-factory.html">platformSecureRandomFactory</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">platformSecureRandomFactory</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/SecureRandom.html"><span class="identifier">SecureRandom</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="random63-bit-value.html">random63BitValue</a></h4>
+</td>
+<td>
+<p>Returns a random positive non-zero long generated using a secure RNG. This function sacrifies a bit of entropy in order
+to avoid potential bugs where the value is used in a context where negative numbers or zero are not expected.</p>
+<code><span class="keyword">fun </span><span class="identifier">random63BitValue</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="secure-random-bytes.html">secureRandomBytes</a></h4>
+</td>
+<td>
+<p>Generate a securely random <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> of requested number of bytes. Usually used for seeds, nonces and keys.</p>
+<code><span class="keyword">fun </span><span class="identifier">secureRandomBytes</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.internal$secureRandomBytes(kotlin.Int)/numOfBytes">numOfBytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

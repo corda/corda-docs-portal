@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OSGiFrameworkWrap.waitForStop - osgi-framework-bootstrap</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">osgi-framework-bootstrap</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.osgi.framework</a>&nbsp;/&nbsp;<a href="index.html">OSGiFrameworkWrap</a>&nbsp;/&nbsp;<a href="./wait-for-stop.html">waitForStop</a><br/>
+<br/>
+<h1>waitForStop</h1>
+<a name="net.corda.osgi.framework.OSGiFrameworkWrap$waitForStop(kotlin.Long)"></a>
+<code><span class="keyword">fun </span><span class="identifier">waitForStop</span><span class="symbol">(</span><span class="identifier" id="net.corda.osgi.framework.OSGiFrameworkWrap$waitForStop(kotlin.Long)/timeout">timeout</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FrameworkEvent</span></code>
+<p>Wait until the wrapped OSGi framework has completely stopped.
+This method can be used to wait until the asynchronous stop the OSGi framework completed.
+This method will only wait if called when this Framework is in the STARTING, ACTIVE, or STOPPING states.
+Otherwise it will return immediately.
+A Framework Event is returned to indicate why this Framework has stopped.
+Idempotent.</p>
+<h3>Parameters</h3>
+<p><a name="timeout"></a>
+<code>timeout</code> - Maximum number of milliseconds to wait until this Framework has completely stopped.
+    A value of zero will wait indefinitely.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - If the value of timeout is negative.</p>
+<p><a name="InterruptedException"></a>
+<code>InterruptedException</code> - If another thread interrupted the current thread
+    before or while the current thread was waiting for this Framework to completely stop.
+    The interrupted status of the current thread is cleared when this exception is thrown.</p>
+<p><a name="NotImplementedError"></a>
+<code>NotImplementedError</code> - If stopping the framework return an unrecognized event.</p>
+<p><a name="Throwable"></a>
+<code>Throwable</code> - If stopping the framework return an error.</p>
+<p><strong>Return</strong><br/>
+<a href="#">FrameworkEvent</a> indicating the reason this method returned.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="#">org.osgi.framework.launch.Framework.waitForStop</a></p>
+</p>
+</BODY>
+</HTML>

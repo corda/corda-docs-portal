@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SigningServiceImpl.sign - crypto-impl</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">crypto-impl</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.crypto.internal</a>&nbsp;/&nbsp;<a href="index.html">SigningServiceImpl</a>&nbsp;/&nbsp;<a href="./sign.html">sign</a><br/>
+<br/>
+<h1>sign</h1>
+<a name="net.corda.crypto.internal.SigningServiceImpl$sign(java.security.PublicKey, kotlin.ByteArray)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto.internal.SigningServiceImpl$sign(java.security.PublicKey, kotlin.ByteArray)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.SigningServiceImpl$sign(java.security.PublicKey, kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">WithKey</span></code>
+<p>Using the provided signing <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a> internally looks up the matching <a href="#">PrivateKey</a> and signs the data.</p>
+<h3>Parameters</h3>
+<p><a name="bytes"></a>
+<code>bytes</code> - The data to sign over using the chosen key.</p>
+<p><a name="publicKey"></a>
+<code>publicKey</code> - The <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a> partner to an internally held <a href="#">PrivateKey</a>, either derived from the node's primary identity,
+or previously generated via the <a href="#">freshKey</a> method.
+If the <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a> is actually a <a href="#">CompositeKey</a> the first leaf signing key hosted by the node is used.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the input key is not a member of <a href="#">keys</a>.</p>
+<a name="net.corda.crypto.internal.SigningServiceImpl$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto.internal.SigningServiceImpl$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.SigningServiceImpl$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.SigningServiceImpl$sign(kotlin.String, kotlin.ByteArray, net.corda.v5.crypto.internal.SignatureScheme)/scheme">scheme</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignatureScheme</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code><a name="net.corda.crypto.internal.SigningServiceImpl$sign(kotlin.String, kotlin.ByteArray, kotlin.String)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto.internal.SigningServiceImpl$sign(kotlin.String, kotlin.ByteArray, kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.SigningServiceImpl$sign(kotlin.String, kotlin.ByteArray, kotlin.String)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.SigningServiceImpl$sign(kotlin.String, kotlin.ByteArray, kotlin.String)/signAlgorithm">signAlgorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code>
+<p>Sign a byte array using the private key identified by the input alias.
+Returns the signature bytes formatted according to the signature scheme (signAlgorithm).
+If signAlgorithm is null, default signature scheme is used.</p>
+</BODY>
+</HTML>

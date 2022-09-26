@@ -1,0 +1,4 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:net.corda.v5.httprpc.api.annotations$isHttpRpcParameterAnnotation(kotlin.Annotation)net.corda.v5.httprpc.api.annotations/kotlin.-annotation/is-http-rpc-parameter-annotation.html
+net.corda.v5.httprpc.api.annotations

@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SignatureVerificationService - crypto-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">crypto-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.crypto</a>&nbsp;/&nbsp;<a href="./index.html">SignatureVerificationService</a><br/>
+<br/>
+<h1>SignatureVerificationService</h1>
+<code><span class="keyword">interface </span><span class="identifier">SignatureVerificationService</span></code>
+<p>The <a href="./index.html">SignatureVerificationService</a> provides operation support for <a href="#">TransactionSignatureVerificationService</a>
+with base digital signature verification operations.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="is-valid.html">isValid</a></h4>
+</td>
+<td>
+<p>Verifies a digital signature by identifying the signature scheme used from the input public key's type.
+It returns true if it succeeds and false if not. In comparison to <a href="verify.html">verify</a> if the key and signature
+do not match it returns false rather than throwing an exception. Normally you should use the function which throws,
+as it avoids the risk of failing to test the result.
+Use this method if the signature scheme is not a-priori known.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">isValid</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.SignatureVerificationService$isValid(java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.crypto.SignatureVerificationService$isValid(java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/signatureData">signatureData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.crypto.SignatureVerificationService$isValid(java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/clearData">clearData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="verify.html">verify</a></h4>
+</td>
+<td>
+<p>Verifies a digital signature by identifying the signature scheme used from the input public key's type.
+Always throws an exception if verification fails.
+Strategy on identifying the actual signing scheme is based on the <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a> type, but if the schemeCodeName is known,
+then better use doVerify(schemeCodeName: String, publicKey: PublicKey, signatureData: ByteArray, clearData: ByteArray).</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.SignatureVerificationService$verify(java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.crypto.SignatureVerificationService$verify(java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/signatureData">signatureData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.crypto.SignatureVerificationService$verify(java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/clearData">clearData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

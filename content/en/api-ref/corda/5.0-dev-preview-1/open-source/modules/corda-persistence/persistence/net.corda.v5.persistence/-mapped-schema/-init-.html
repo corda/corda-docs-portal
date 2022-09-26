@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MappedSchema.<init> - persistence</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">persistence</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.persistence</a>&nbsp;/&nbsp;<a href="index.html">MappedSchema</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.v5.persistence.MappedSchema$&lt;init&gt;(java.lang.Class((kotlin.Any)), kotlin.Int, kotlin.collections.Iterable((java.lang.Class((kotlin.Any)))))"></a>
+<code><span class="identifier">MappedSchema</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.persistence.MappedSchema$<init>(java.lang.Class((kotlin.Any)), kotlin.Int, kotlin.collections.Iterable((java.lang.Class((kotlin.Any)))))/schemaFamily">schemaFamily</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.persistence.MappedSchema$<init>(java.lang.Class((kotlin.Any)), kotlin.Int, kotlin.collections.Iterable((java.lang.Class((kotlin.Any)))))/version">version</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.persistence.MappedSchema$<init>(java.lang.Class((kotlin.Any)), kotlin.Int, kotlin.collections.Iterable((java.lang.Class((kotlin.Any)))))/mappedTypes">mappedTypes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>A database schema that might be configured for this node.  As well as a name and version for identifying the schema,
+also list the classes that may be used in the generated object graph in order to configure the ORM tool.</p>
+<h3>Parameters</h3>
+<p><a name="schemaFamily"></a>
+<code>schemaFamily</code> - A class to fully qualify the name of a schema family (i.e. excludes version)</p>
+<p><a name="version"></a>
+<code>version</code> - The version number of this instance within the family.</p>
+<p><a name="mappedTypes"></a>
+<code>mappedTypes</code> - The JPA entity classes that the ORM layer needs to be configure with for this schema.</p>
+</BODY>
+</HTML>

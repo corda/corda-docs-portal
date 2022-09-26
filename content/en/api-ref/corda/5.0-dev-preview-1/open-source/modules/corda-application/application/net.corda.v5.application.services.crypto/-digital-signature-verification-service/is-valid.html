@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DigitalSignatureVerificationService.isValid - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.services.crypto</a>&nbsp;/&nbsp;<a href="index.html">DigitalSignatureVerificationService</a>&nbsp;/&nbsp;<a href="./is-valid.html">isValid</a><br/>
+<br/>
+<h1>isValid</h1>
+<a name="net.corda.v5.application.services.crypto.DigitalSignatureVerificationService$isValid(net.corda.v5.crypto.SecureHash, net.corda.v5.application.crypto.DigitalSignatureAndMeta)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">isValid</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.crypto.DigitalSignatureVerificationService$isValid(net.corda.v5.crypto.SecureHash, net.corda.v5.application.crypto.DigitalSignatureAndMeta)/hash">hash</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.application.services.crypto.DigitalSignatureVerificationService$isValid(net.corda.v5.crypto.SecureHash, net.corda.v5.application.crypto.DigitalSignatureAndMeta)/signature">signature</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.application.crypto/-digital-signature-and-meta/index.html"><span class="identifier">DigitalSignatureAndMeta</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Verifies a <a href="../../net.corda.v5.application.crypto/-digital-signature-and-meta/index.html">DigitalSignatureAndMeta</a>.</p>
+<p>Returns <code>true</code> if it succeeds and <code>false</code> if not. In comparison to <a href="verify.html">verify</a> if the key and signature does not match it returns
+<code>false</code> rather than throwing an exception. Normally you should use the function which throws, as it avoids the risk of failing to
+test the result.</p>
+<h3>Parameters</h3>
+<p><a name="hash"></a>
+<code>hash</code> - the hash value that is signed.</p>
+<p><a name="signature"></a>
+<code>signature</code> - the signature on the hash.</p>
+<p><strong>Return</strong><br/>
+<code>true</code> if verification passes or <code>false</code> if verification fails.</p>
+</BODY>
+</HTML>

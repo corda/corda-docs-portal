@@ -1,0 +1,176 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DestructiveTestNode - dev-network-lib</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">dev-network-lib</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.test.dev.network</a>&nbsp;/&nbsp;<a href="./index.html">DestructiveTestNode</a><br/>
+<br/>
+<h1>DestructiveTestNode</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">DestructiveTestNode</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-node/index.html"><span class="identifier">Node</span></a></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">DestructiveTestNode</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="agent-connection.html">agentConnection</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">agentConnection</span><span class="symbol">: </span><span class="identifier">NetworkHostAndPort</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="https-proxy.html">httpsProxy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">httpsProxy</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Proxy</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-ready.html">isReady</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isReady</span><span class="symbol">(</span><span class="identifier" id="net.corda.test.dev.network.DestructiveTestNode$isReady(kong.unirest.UnirestInstance)/agent">agent</span><span class="symbol">:</span>&nbsp;<span class="identifier">UnirestInstance</span>&nbsp;<span class="symbol">=</span>&nbsp;createAgent()<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="p2p-proxy.html">p2pProxy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">p2pProxy</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Proxy</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="proxy.html">proxy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">proxy</span><span class="symbol">(</span><span class="identifier" id="net.corda.test.dev.network.DestructiveTestNode$proxy(kotlin.Int)/port">port</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Proxy</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="recover.html">recover</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">recover</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="restart.html">restart</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">restart</span><span class="symbol">(</span><span class="identifier" id="net.corda.test.dev.network.DestructiveTestNode$restart(kotlin.Boolean, kong.unirest.UnirestInstance)/migrate">migrate</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network.DestructiveTestNode$restart(kotlin.Boolean, kong.unirest.UnirestInstance)/agent">agent</span><span class="symbol">:</span>&nbsp;<span class="identifier">UnirestInstance</span>&nbsp;<span class="symbol">=</span>&nbsp;createAgent()<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="rpc-proxy.html">rpcProxy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">rpcProxy</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Proxy</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="toxiproxy.html">toxiproxy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toxiproxy</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ToxiproxyClient</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="toxiproxy-connection-details.html">toxiproxyConnectionDetails</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toxiproxyConnectionDetails</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">NetworkHostAndPort</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="wait-for-node-to-be-ready.html">waitForNodeToBeReady</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">waitForNodeToBeReady</span><span class="symbol">(</span><span class="identifier" id="net.corda.test.dev.network.DestructiveTestNode$waitForNodeToBeReady(kong.unirest.UnirestInstance, kotlin.Function1((kotlin.Long, kotlin.Unit)))/agent">agent</span><span class="symbol">:</span>&nbsp;<span class="identifier">UnirestInstance</span>&nbsp;<span class="symbol">=</span>&nbsp;createAgent()<span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network.DestructiveTestNode$waitForNodeToBeReady(kong.unirest.UnirestInstance, kotlin.Function1((kotlin.Long, kotlin.Unit)))/sleeper">sleeper</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{ Thread.sleep(it) }<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-a-g-e-n-t_-p-o-r-t.html">AGENT_PORT</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">AGENT_PORT</span><span class="symbol">: </span><a href="../-private-port/index.html"><span class="identifier">PrivatePort</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-t-o-x-i-p-r-o-x-y_-p-r-i-v-a-t-e_-p-o-r-t.html">TOXIPROXY_PRIVATE_PORT</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">TOXIPROXY_PRIVATE_PORT</span><span class="symbol">: </span><a href="../-private-port/index.html"><span class="identifier">PrivatePort</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../x500-name.html">x500Name</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="../-node/index.html"><span class="identifier">Node</span></a><span class="symbol">.</span><span class="identifier">x500Name</span><span class="symbol">: </span><span class="identifier">CordaX500Name</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../http-rpc-client.html">httpRpcClient</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span><span class="symbol">, </span><span class="identifier">A</span><span class="symbol">&gt;</span> <a href="../-node/index.html"><span class="identifier">Node</span></a><span class="symbol">.</span><span class="identifier">httpRpcClient</span><span class="symbol">(</span><span class="identifier" id="net.corda.test.dev.network$httpRpcClient(net.corda.test.dev.network.Node, net.corda.test.dev.network.Credentials, kotlin.Function1((net.corda.v5.httprpc.client.HttpRpcClient((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.HttpRpcConnection(()))), kotlin.Function3((kotlin.String, java.lang.Class((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig, net.corda.v5.httprpc.client.HttpRpcClient(()))), kotlin.Function1((net.corda.test.dev.network.httpRpcClient.T, net.corda.test.dev.network.httpRpcClient.A)))/credentials">credentials</span><span class="symbol">:</span>&nbsp;<a href="../-credentials/index.html"><span class="identifier">Credentials</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_CREDENTIALS<span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network$httpRpcClient(net.corda.test.dev.network.Node, net.corda.test.dev.network.Credentials, kotlin.Function1((net.corda.v5.httprpc.client.HttpRpcClient((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.HttpRpcConnection(()))), kotlin.Function3((kotlin.String, java.lang.Class((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig, net.corda.v5.httprpc.client.HttpRpcClient(()))), kotlin.Function1((net.corda.test.dev.network.httpRpcClient.T, net.corda.test.dev.network.httpRpcClient.A)))/startBlock">startBlock</span><span class="symbol">:</span>&nbsp;<span class="identifier">HttpRpcClient</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">HttpRpcConnection</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;{ start() }<span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network$httpRpcClient(net.corda.test.dev.network.Node, net.corda.test.dev.network.Credentials, kotlin.Function1((net.corda.v5.httprpc.client.HttpRpcClient((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.HttpRpcConnection(()))), kotlin.Function3((kotlin.String, java.lang.Class((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig, net.corda.v5.httprpc.client.HttpRpcClient(()))), kotlin.Function1((net.corda.test.dev.network.httpRpcClient.T, net.corda.test.dev.network.httpRpcClient.A)))/clientFactory">clientFactory</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">HttpRpcClientConfig</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">HttpRpcClient</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;{ url, cls, config -&gt;
+        HttpRpcClient(url, cls, config)
+    }<span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network$httpRpcClient(net.corda.test.dev.network.Node, net.corda.test.dev.network.Credentials, kotlin.Function1((net.corda.v5.httprpc.client.HttpRpcClient((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.HttpRpcConnection(()))), kotlin.Function3((kotlin.String, java.lang.Class((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig, net.corda.v5.httprpc.client.HttpRpcClient(()))), kotlin.Function1((net.corda.test.dev.network.httpRpcClient.T, net.corda.test.dev.network.httpRpcClient.A)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">A</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">A</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.test.dev.network.docker/-docker-container-node/index.html">DockerContainerNode</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">DockerContainerNode</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">DestructiveTestNode</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.test.dev.network.kubernetes/-kubernetes-node/index.html">KubernetesNode</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">KubernetesNode</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">DestructiveTestNode</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaInjectPreStart - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.injection</a>&nbsp;/&nbsp;<a href="./index.html">CordaInjectPreStart</a><br/>
+<br/>
+<h1>CordaInjectPreStart</h1>
+<code><span class="identifier">@Target</span><span class="symbol">(</span>[AnnotationTarget.FIELD]<span class="symbol">)</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">CordaInjectPreStart</span></code>
+<p>This annotation can be used with <a href="#">CordaService</a> to indicate which dependencies should be injected before starting
+the service.
+Combined with the corda service lifecycle support, this allows starting a service to depend on another service. It
+is not be possible to inject dependencies for use within a service constructor, so in order to use a service to start
+another service it must be injected before the service start lifecycle event is distributed using this annotation.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>This annotation can be used with <a href="#">CordaService</a> to indicate which dependencies should be injected before starting
+the service.
+Combined with the corda service lifecycle support, this allows starting a service to depend on another service. It
+is not be possible to inject dependencies for use within a service constructor, so in order to use a service to start
+another service it must be injected before the service start lifecycle event is distributed using this annotation.</p>
+<code><span class="identifier">CordaInjectPreStart</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

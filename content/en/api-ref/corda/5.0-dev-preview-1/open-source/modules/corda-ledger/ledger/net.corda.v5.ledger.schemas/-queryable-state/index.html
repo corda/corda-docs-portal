@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>QueryableState - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.schemas</a>&nbsp;/&nbsp;<a href="./index.html">QueryableState</a><br/>
+<br/>
+<h1>QueryableState</h1>
+<code><span class="keyword">interface </span><span class="identifier">QueryableState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a></code>
+<p>A contract state that may be mapped to database schemas configured for this node to support querying for,
+or filtering of, states.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="generate-mapped-object.html">generateMappedObject</a></h4>
+</td>
+<td>
+<p>Export a representation for the given schema.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">generateMappedObject</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.schemas.QueryableState$generateMappedObject(net.corda.v5.persistence.MappedSchema)/schema">schema</span><span class="symbol">:</span>&nbsp;<span class="identifier">MappedSchema</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-persistent-state/index.html"><span class="identifier">PersistentState</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="supported-schemas.html">supportedSchemas</a></h4>
+</td>
+<td>
+<p>Enumerate the schemas this state can export representations of itself as.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">supportedSchemas</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><span class="identifier">MappedSchema</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.v5.ledger.transactions/required-contract-class-name.html">requiredContractClassName</a></h4>
+</td>
+<td>
+<p>Obtain the typename of the required <a href="#">ContractClass</a> associated with the target <a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html">ContractState</a>, using the
+<a href="../../net.corda.v5.ledger.contracts/-belongs-to-contract/index.html">BelongsToContract</a> annotation by default, but falling through to checking the state's enclosing class if there is
+one and it inherits from <a href="../../net.corda.v5.ledger.contracts/-contract/index.html">Contract</a>.</p>
+<code><span class="keyword">val </span><a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">.</span><span class="identifier">requiredContractClassName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

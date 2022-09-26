@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SignTransactionFlow.<init> - flows</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">flows</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.systemflows</a>&nbsp;/&nbsp;<a href="index.html">SignTransactionFlow</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.systemflows.SignTransactionFlow$&lt;init&gt;(net.corda.v5.application.flows.FlowSession)"></a>
+<code><span class="identifier">SignTransactionFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.systemflows.SignTransactionFlow$<init>(net.corda.v5.application.flows.FlowSession)/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<span class="identifier">FlowSession</span><span class="symbol">)</span></code>
+<p>The <a href="index.html">SignTransactionFlow</a> should be called in response to the <a href="../-collect-signatures-flow/index.html">CollectSignaturesFlow</a>. It automates the signing of
+a transaction providing the transaction:</p>
+<ol><li>Should actually be signed by the <a href="#">Party</a> invoking this flow</li>
+<li>Is valid as per the contracts referenced in the transaction</li>
+<li>Has been, at least, signed by the counterparty which created it</li>
+<li>Conforms to custom checking provided in the <a href="check-transaction.html">checkTransaction</a> method of the <a href="index.html">SignTransactionFlow</a></li>
+</ol>
+<p>Usage:</p>
+<ul><li>Subclass <a href="index.html">SignTransactionFlow</a> - this can be done inside an existing flow (as shown below)</li>
+<li>Override the <a href="check-transaction.html">checkTransaction</a> method to add some custom verification logic</li>
+<li>Call the flow via <a href="#">FlowEngine.subFlow</a></li>
+<li>The flow returns the transaction signed with the additional signature.</li>
+</ul>
+<p>Example - checking and signing a transaction involving a <a href="#">net.corda.core.contracts.DummyContract</a>, see
+CollectSignaturesFlowTests.kt for further examples:</p>
+<pre><code>    class Responder(val otherPartySession: FlowSession): Flow&lt;SignedTransaction&gt; {
+         @Suspendable override fun call(): SignedTransaction {
+             // [SignTransactionFlow] sub-classed as a singleton object.
+             val flow = object : SignTransactionFlow(otherPartySession) {
+                 @Suspendable override fun checkTransaction(stx: SignedTransaction) = requireThat {
+                     val tx = stx.tx
+                     val magicNumberState = tx.outputs.single().data as DummyContract.MultiOwnerState
+                     "Must be 1337 or greater" using (magicNumberState.magicNumber &gt;= 1337)
+                 }
+             }
+
+             // Invoke the subFlow, in response to the counterparty calling [CollectSignaturesFlow].
+             val expectedTxId = subFlow(flow).id
+
+             return subFlow(ReceiveFinalityFlow(otherPartySession, expectedTxId))
+         }
+     }</code></pre>
+<h3>Parameters</h3>
+<p><a name="otherSideSession"></a>
+<code>otherSideSession</code> - The session which is providing you a transaction to sign.</p>
+</BODY>
+</HTML>

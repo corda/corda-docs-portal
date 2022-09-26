@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MerkleTree - crypto-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">crypto-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.crypto</a>&nbsp;/&nbsp;<a href="./index.html">MerkleTree</a><br/>
+<br/>
+<h1>MerkleTree</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">MerkleTree</span></code>
+<p>Creation and verification of a Merkle tree.</p>
+<p>See: https://en.wikipedia.org/wiki/Merkle_tree</p>
+<p>Transaction is split into following blocks: inputs, attachments' refs, outputs, commands, notary,
+signers, tx type, time-window. Merkle Tree is kept in a recursive data structure. Building is done bottom up,
+from all leaves' hashes. If number of leaves is not a power of two, the tree is padded with zero hashes.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-leaf/index.html">Leaf</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Leaf</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">MerkleTree</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-node/index.html">Node</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Node</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">MerkleTree</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="hash.html">hash</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">hash</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-merkle-tree.html">getMerkleTree</a></h4>
+</td>
+<td>
+<p>Merkle tree building using hashes, with zero hash padding to full power of 2.</p>
+<code><span class="keyword">fun </span><span class="identifier">getMerkleTree</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.MerkleTree.Companion$getMerkleTree(kotlin.collections.List((net.corda.v5.crypto.SecureHash)), net.corda.v5.crypto.DigestAlgorithmName, net.corda.v5.crypto.DigestService)/allLeavesHashes">allLeavesHashes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.crypto.MerkleTree.Companion$getMerkleTree(kotlin.collections.List((net.corda.v5.crypto.SecureHash)), net.corda.v5.crypto.DigestAlgorithmName, net.corda.v5.crypto.DigestService)/nodeDigestAlgorithmName">nodeDigestAlgorithmName</span><span class="symbol">:</span>&nbsp;<a href="../-digest-algorithm-name/index.html"><span class="identifier">DigestAlgorithmName</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.crypto.MerkleTree.Companion$getMerkleTree(kotlin.collections.List((net.corda.v5.crypto.SecureHash)), net.corda.v5.crypto.DigestAlgorithmName, net.corda.v5.crypto.DigestService)/digestService">digestService</span><span class="symbol">:</span>&nbsp;<a href="../-digest-service/index.html"><span class="identifier">DigestService</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">MerkleTree</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

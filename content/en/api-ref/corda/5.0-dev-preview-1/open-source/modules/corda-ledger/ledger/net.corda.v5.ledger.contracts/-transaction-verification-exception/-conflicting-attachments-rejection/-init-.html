@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionVerificationException.ConflictingAttachmentsRejection.<init> - ledger</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.v5.ledger.contracts</a>&nbsp;/&nbsp;<a href="../index.html">TransactionVerificationException</a>&nbsp;/&nbsp;<a href="index.html">ConflictingAttachmentsRejection</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.v5.ledger.contracts.TransactionVerificationException.ConflictingAttachmentsRejection$&lt;init&gt;(net.corda.v5.crypto.SecureHash, kotlin.String)"></a>
+<code><span class="identifier">ConflictingAttachmentsRejection</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.TransactionVerificationException.ConflictingAttachmentsRejection$<init>(net.corda.v5.crypto.SecureHash, kotlin.String)/txId">txId</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.TransactionVerificationException.ConflictingAttachmentsRejection$<init>(net.corda.v5.crypto.SecureHash, kotlin.String)/contractClass">contractClass</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code>
+<p>Indicates this transaction violates the "no overlap" rule: two attachments are trying to provide the same file
+path. Whereas Java classpaths would normally allow that with the first class taking precedence, this is not
+allowed in transactions for security reasons. This usually indicates that two separate apps share a dependency,
+in which case you could try 'shading the fat jars' to rename classes of dependencies. Or you could manually
+attach dependency JARs when building the transaction.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.test.dev.network.docker - dev-network-lib</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">dev-network-lib</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.test.dev.network.docker</a><br/>
+<br/>
+<h2>Package net.corda.test.dev.network.docker</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-docker-api/index.html">DockerApi</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">DockerApi</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.test.dev.network/-network-api/index.html"><span class="identifier">NetworkApi</span></a><span class="symbol">&lt;</span><a href="../net.corda.test.dev.network/-destructive-test-node/index.html"><span class="identifier">DestructiveTestNode</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-docker-container-node/index.html">DockerContainerNode</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">DockerContainerNode</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.test.dev.network/-destructive-test-node/index.html"><span class="identifier">DestructiveTestNode</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-docker-network/index.html">DockerNetwork</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">DockerNetwork</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.test.dev.network/-nodes/index.html"><span class="identifier">Nodes</span></a><span class="symbol">&lt;</span><a href="../net.corda.test.dev.network/-destructive-test-node/index.html"><span class="identifier">DestructiveTestNode</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="create-docker-client.html">createDockerClient</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createDockerClient</span><span class="symbol">(</span><span class="identifier" id="net.corda.test.dev.network.docker$createDockerClient(com.github.dockerjava.core.DockerClientConfig, com.github.dockerjava.transport.DockerHttpClient)/config">config</span><span class="symbol">:</span>&nbsp;<span class="identifier">DockerClientConfig</span>&nbsp;<span class="symbol">=</span>&nbsp;createDockerClientConfig()<span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network.docker$createDockerClient(com.github.dockerjava.core.DockerClientConfig, com.github.dockerjava.transport.DockerHttpClient)/httpClient">httpClient</span><span class="symbol">:</span>&nbsp;<span class="identifier">DockerHttpClient</span>&nbsp;<span class="symbol">=</span>&nbsp;ApacheDockerHttpClient
+        .Builder()
+        .dockerHost(config.dockerHost)
+        .sslConfig(config.sslConfig)
+        .build()<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DockerClient</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-docker-client-config.html">createDockerClientConfig</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createDockerClientConfig</span><span class="symbol">(</span><span class="identifier" id="net.corda.test.dev.network.docker$createDockerClientConfig(kotlin.Boolean)/windowsOs">windowsOs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Platform.isWindows()<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DockerClientConfig</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

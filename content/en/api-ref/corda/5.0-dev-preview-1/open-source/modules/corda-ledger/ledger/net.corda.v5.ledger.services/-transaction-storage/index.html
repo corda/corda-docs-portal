@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionStorage - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.services</a>&nbsp;/&nbsp;<a href="./index.html">TransactionStorage</a><br/>
+<br/>
+<h1>TransactionStorage</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">TransactionStorage</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaServiceInjectable</span><span class="symbol">, </span><span class="identifier">CordaFlowInjectable</span></code>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-transaction.html">getTransaction</a></h4>
+</td>
+<td>
+<p>Returns the <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a> with the given <a href="get-transaction.html#net.corda.v5.ledger.services.TransactionStorage$getTransaction(net.corda.v5.crypto.SecureHash)/id">id</a>, or null if no such transaction exists.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionStorage$getTransaction(net.corda.v5.crypto.SecureHash)/id">id</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-transaction-service/index.html">TransactionService</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">TransactionService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionStorage</span></a><span class="symbol">, </span><a href="../-transaction-mapping-service/index.html"><span class="identifier">TransactionMappingService</span></a><span class="symbol">, </span><a href="../-transaction-verification-service/index.html"><span class="identifier">TransactionVerificationService</span></a><span class="symbol">, </span><span class="identifier">CordaServiceInjectable</span><span class="symbol">, </span><span class="identifier">CordaFlowInjectable</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

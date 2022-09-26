@@ -1,0 +1,18 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:net.corda.v5.crypto$byKeys(kotlin.collections.Iterable((net.corda.v5.crypto.DigitalSignature.WithKey)))net.corda.v5.crypto/kotlin.collections.-iterable/by-keys.html
+$dokka.location:net.corda.v5.crypto$component1(java.security.KeyPair)net.corda.v5.crypto/java.security.-key-pair/component1.html
+$dokka.location:net.corda.v5.crypto$component2(java.security.KeyPair)net.corda.v5.crypto/java.security.-key-pair/component2.html
+$dokka.location:net.corda.v5.crypto$containsAny(java.security.PublicKey, kotlin.collections.Iterable((java.security.PublicKey)))net.corda.v5.crypto/java.security.-public-key/contains-any.html
+$dokka.location:net.corda.v5.crypto$isFulfilledBy(java.security.PublicKey, java.security.PublicKey)net.corda.v5.crypto/java.security.-public-key/is-fulfilled-by.html
+$dokka.location:net.corda.v5.crypto$isFulfilledBy(java.security.PublicKey, kotlin.collections.Iterable((java.security.PublicKey)))net.corda.v5.crypto/java.security.-public-key/is-fulfilled-by.html
+$dokka.location:net.corda.v5.crypto$keys#java.security.PublicKeynet.corda.v5.crypto/java.security.-public-key/keys.html
+$dokka.location:net.corda.v5.crypto$toStringShort(java.security.PublicKey)net.corda.v5.crypto/java.security.-public-key/to-string-short.html
+$dokka.location:net.corda.v5.crypto.internal$sign(java.security.KeyPair, kotlin.ByteArray)net.corda.v5.crypto.internal/java.security.-key-pair/sign.html
+$dokka.location:net.corda.v5.crypto.internal$sign(java.security.KeyPair, net.corda.v5.base.types.OpaqueBytes)net.corda.v5.crypto.internal/java.security.-key-pair/sign.html
+$dokka.location:net.corda.v5.crypto.internal$sign(java.security.PrivateKey, kotlin.ByteArray)net.corda.v5.crypto.internal/java.security.-private-key/sign.html
+$dokka.location:net.corda.v5.crypto.internal$sign(java.security.PrivateKey, kotlin.ByteArray, java.security.PublicKey)net.corda.v5.crypto.internal/java.security.-private-key/sign.html
+$dokka.location:net.corda.v5.crypto.internal$toBase58String(java.security.PublicKey)net.corda.v5.crypto.internal/java.security.-public-key/to-base58-string.html
+net.corda.v5.crypto
+net.corda.v5.crypto.exceptions
+net.corda.v5.crypto.internal

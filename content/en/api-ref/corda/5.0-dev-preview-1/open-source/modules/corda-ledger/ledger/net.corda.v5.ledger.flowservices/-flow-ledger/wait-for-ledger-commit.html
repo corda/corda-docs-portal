@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowLedger.waitForLedgerCommit - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.flowservices</a>&nbsp;/&nbsp;<a href="index.html">FlowLedger</a>&nbsp;/&nbsp;<a href="./wait-for-ledger-commit.html">waitForLedgerCommit</a><br/>
+<br/>
+<h1>waitForLedgerCommit</h1>
+<a name="net.corda.v5.ledger.flowservices.FlowLedger$waitForLedgerCommit(net.corda.v5.crypto.SecureHash)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">waitForLedgerCommit</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.flowservices.FlowLedger$waitForLedgerCommit(net.corda.v5.crypto.SecureHash)/hash">hash</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Suspends the flow until the transaction with the specified ID is received, successfully verified and sent to the vault for
+processing. Note that this call suspends until the transaction is considered valid by the local node, but that doesn't imply the
+vault will consider it relevant.</p>
+<h3>Parameters</h3>
+<p><a name="hash"></a>
+<code>hash</code> - The <a href="#">SecureHash</a> of the transaction to wait for.</p>
+<p><strong>Return</strong><br/>
+The <a href="../../net.corda.v5.ledger.transactions/-signed-transaction/index.html">SignedTransaction</a> that matched the passed in <a href="wait-for-ledger-commit.html#net.corda.v5.ledger.flowservices.FlowLedger$waitForLedgerCommit(net.corda.v5.crypto.SecureHash)/hash">hash</a>.</p>
+</BODY>
+</HTML>

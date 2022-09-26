@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>create - crypto-api</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">crypto-api</a>&nbsp;/&nbsp;<a href="index.html">net.corda.v5.crypto</a>&nbsp;/&nbsp;<a href="./create.html">create</a><br/>
+<br/>
+<h1>create</h1>
+<a name="net.corda.v5.crypto$create(net.corda.v5.crypto.DigestService, kotlin.String)"></a>
+<code><span class="keyword">fun </span><a href="-digest-service/index.html"><span class="identifier">DigestService</span></a><span class="symbol">.</span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto$create(net.corda.v5.crypto.DigestService, kotlin.String)/str">str</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code>
+<p>Converts a digest represented as a {algorithm:}hexadecimal <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> into a <a href="-secure-hash/index.html">SecureHash</a>.</p>
+<p>This function validates the length of the created digest. Prefer the usage of this function over <a href="-secure-hash/create.html">SecureHash.create</a>.</p>
+<h3>Parameters</h3>
+<p><a name="str"></a>
+<code>str</code> - The algorithm name followed by a delimiter and the sequence of hexadecimal digits that represents a digest.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - The input string does not contain the expected number of hexadecimal digits, or it contains
+incorrectly-encoded characters.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="-secure-hash/create.html">SecureHash.create</a></p>
+</p>
+</BODY>
+</HTML>

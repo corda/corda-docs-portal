@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.v5.application.services.persistence - application</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">application</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.v5.application.services.persistence</a><br/>
+<br/>
+<h2>Package net.corda.v5.application.services.persistence</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-custom-query-post-processor.html">CustomQueryPostProcessor</a></h4>
+</td>
+<td>
+<p>Post-processors can be implemented to enhance the Named Query API.</p>
+<code><span class="keyword">interface </span><span class="identifier">CustomQueryPostProcessor</span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-generic-query-post-processor/index.html"><span class="identifier">GenericQueryPostProcessor</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-generic-query-post-processor/index.html">GenericQueryPostProcessor</a></h4>
+</td>
+<td>
+<p>Base post-processor interface.</p>
+<code><span class="keyword">interface </span><span class="identifier">GenericQueryPostProcessor</span><span class="symbol">&lt;</span><span class="identifier">I</span><span class="symbol">, </span><span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-named-query-filter.html">NamedQueryFilter</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">NamedQueryFilter</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-persistence-query-request/index.html">PersistenceQueryRequest</a></h4>
+</td>
+<td>
+<p>Request object for making Query requests on the Persistence Service.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">PersistenceQueryRequest</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-persistence-service/index.html">PersistenceService</a></h4>
+</td>
+<td>
+<p>Persistence Service API providing functionality to interact with an entityManager and execute pre-defined named queries.</p>
+<code><span class="keyword">interface </span><span class="identifier">PersistenceService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.v5.application.injection/-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a><span class="symbol">, </span><a href="../net.corda.v5.application.injection/-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-named-query-exception/index.html">NamedQueryException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">NamedQueryException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaRuntimeException</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="find.html">find</a></h4>
+</td>
+<td>
+<p>Find a single entity in the persistence context given the entity type <a href="find.html#T">T</a> and <a href="find.html#net.corda.v5.application.services.persistence$find(net.corda.v5.application.services.persistence.PersistenceService, kotlin.Any)/primaryKey">primaryKey</a> of the entity.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="-persistence-service/index.html"><span class="identifier">PersistenceService</span></a><span class="symbol">.</span><span class="identifier">find</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.persistence$find(net.corda.v5.application.services.persistence.PersistenceService, kotlin.Any)/primaryKey">primaryKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span><span class="symbol">?</span></code>
+<p>Find multiple entities of the same type with different primary keys from the persistence context in a single transaction.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="-persistence-service/index.html"><span class="identifier">PersistenceService</span></a><span class="symbol">.</span><span class="identifier">find</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.persistence$find(net.corda.v5.application.services.persistence.PersistenceService, kotlin.collections.List((kotlin.Any)))/primaryKeys">primaryKeys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

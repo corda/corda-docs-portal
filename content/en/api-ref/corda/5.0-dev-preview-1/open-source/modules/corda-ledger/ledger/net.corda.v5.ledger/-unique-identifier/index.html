@@ -1,0 +1,113 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>UniqueIdentifier - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger</a>&nbsp;/&nbsp;<a href="./index.html">UniqueIdentifier</a><br/>
+<br/>
+<h1>UniqueIdentifier</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">UniqueIdentifier</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">UniqueIdentifier</span></a><span class="symbol">&gt;</span></code>
+<p>This class provides a truly unique identifier of a trade, state, or other business object, bound to any existing
+external ID. Equality and comparison are based on the unique ID only; if two states somehow have the same UUID but
+different external IDs, it would indicate a problem with handling of IDs.</p>
+<h3>Parameters</h3>
+<p><a name="externalId"></a>
+<code>externalId</code> - Any existing weak identifier such as trade reference ID.
+This should be set here the first time a <a href="./index.html">UniqueIdentifier</a> is created as part of state issuance,
+or ledger on-boarding activity. This ensure that the human readable identity is paired with the strong ID.</p>
+<p><a name="id"></a>
+<code>id</code> - Should never be set by user code and left as default initialised.
+So that the first time a state is issued this should be given a new UUID.
+Subsequent copies and evolutions of a state should just copy the <a href="external-id.html">externalId</a> and <a href="id.html">id</a> fields unmodified.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">UniqueIdentifier</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.UniqueIdentifier$<init>(kotlin.String)/externalId">externalId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">UniqueIdentifier</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.UniqueIdentifier$<init>(java.util.UUID)/id">id</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span></code>
+<p>This class provides a truly unique identifier of a trade, state, or other business object, bound to any existing
+external ID. Equality and comparison are based on the unique ID only; if two states somehow have the same UUID but
+different external IDs, it would indicate a problem with handling of IDs.</p>
+<code><span class="identifier">UniqueIdentifier</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.UniqueIdentifier$<init>(kotlin.String, java.util.UUID)/externalId">externalId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.UniqueIdentifier$<init>(kotlin.String, java.util.UUID)/id">id</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a>&nbsp;<span class="symbol">=</span>&nbsp;UUID.randomUUID()<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="external-id.html">externalId</a></h4>
+</td>
+<td>
+<p>Any existing weak identifier such as trade reference ID.
+This should be set here the first time a <a href="./index.html">UniqueIdentifier</a> is created as part of state issuance,
+or ledger on-boarding activity. This ensure that the human readable identity is paired with the strong ID.</p>
+<code><span class="keyword">val </span><span class="identifier">externalId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<p>Should never be set by user code and left as default initialised.
+So that the first time a state is issued this should be given a new UUID.
+Subsequent copies and evolutions of a state should just copy the <a href="external-id.html">externalId</a> and <a href="id.html">id</a> fields unmodified.</p>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="compare-to.html">compareTo</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">compareTo</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.UniqueIdentifier$compareTo(net.corda.v5.ledger.UniqueIdentifier)/other">other</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">UniqueIdentifier</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="equals.html">equals</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.UniqueIdentifier$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-code.html">hashCode</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="from-string.html">fromString</a></h4>
+</td>
+<td>
+<p>Helper function for unit tests where the UUID needs to be manually initialised for consistency.</p>
+<code><span class="keyword">fun </span><span class="identifier">fromString</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.UniqueIdentifier.Companion$fromString(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">UniqueIdentifier</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

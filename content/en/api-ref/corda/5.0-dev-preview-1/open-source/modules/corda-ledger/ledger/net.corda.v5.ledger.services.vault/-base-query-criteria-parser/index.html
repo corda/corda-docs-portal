@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BaseQueryCriteriaParser - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.services.vault</a>&nbsp;/&nbsp;<a href="./index.html">BaseQueryCriteriaParser</a><br/>
+<br/>
+<h1>BaseQueryCriteriaParser</h1>
+<code><span class="keyword">interface </span><span class="identifier">BaseQueryCriteriaParser</span><span class="symbol">&lt;</span><span class="identifier">Q</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-generic-query-criteria/index.html"><span class="identifier">GenericQueryCriteria</span></a><span class="symbol">&lt;</span><span class="identifier">Q</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">in</span>&nbsp;<span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">BaseQueryCriteriaParser</span></a><span class="symbol">&lt;</span><span class="identifier">Q</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">,</span>&nbsp;<span class="identifier">S</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">in</span>&nbsp;<span class="identifier">S</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-base-sort/index.html"><span class="identifier">BaseSort</span></a><span class="symbol">&gt;</span></code>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="parse.html">parse</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">parse</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser$parse(net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser.Q, net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser.S)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<span class="identifier">Q</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser$parse(net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser.Q, net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser.S)/sorting">sorting</span><span class="symbol">:</span>&nbsp;<span class="identifier">S</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">Predicate</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parse-and.html">parseAnd</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">parseAnd</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser$parseAnd(net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser.Q, net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser.Q)/left">left</span><span class="symbol">:</span>&nbsp;<span class="identifier">Q</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser$parseAnd(net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser.Q, net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser.Q)/right">right</span><span class="symbol">:</span>&nbsp;<span class="identifier">Q</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">Predicate</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parse-or.html">parseOr</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">parseOr</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser$parseOr(net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser.Q, net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser.Q)/left">left</span><span class="symbol">:</span>&nbsp;<span class="identifier">Q</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser$parseOr(net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser.Q, net.corda.v5.ledger.services.vault.BaseQueryCriteriaParser.Q)/right">right</span><span class="symbol">:</span>&nbsp;<span class="identifier">Q</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">Predicate</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-attachments-query-criteria-parser/index.html">AttachmentsQueryCriteriaParser</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">AttachmentsQueryCriteriaParser</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">BaseQueryCriteriaParser</span></a><span class="symbol">&lt;</span><a href="../-attachment-query-criteria/index.html"><span class="identifier">AttachmentQueryCriteria</span></a><span class="symbol">,</span>&nbsp;<a href="../-attachments-query-criteria-parser/index.html"><span class="identifier">AttachmentsQueryCriteriaParser</span></a><span class="symbol">,</span>&nbsp;<a href="../-attachment-sort/index.html"><span class="identifier">AttachmentSort</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

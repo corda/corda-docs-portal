@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.crypto.internal - crypto-impl</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">crypto-impl</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.crypto.internal</a><br/>
+<br/>
+<h2>Package net.corda.crypto.internal</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-basic-cached-key/index.html">BasicCachedKey</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">BasicCachedKey</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-basic-key-cache/index.html">BasicKeyCache</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">BasicKeyCache</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-basic-key-cache-impl/index.html">BasicKeyCacheImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">BasicKeyCacheImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-basic-key-cache/index.html"><span class="identifier">BasicKeyCache</span></a><span class="symbol">, </span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/AutoCloseable.html"><span class="identifier">AutoCloseable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-key-management-backend-impl/index.html">KeyManagementBackendImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KeyManagementBackendImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.crypto/-key-management-backend/index.html"><span class="identifier">KeyManagementBackend</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signing-key-cache/index.html">SigningKeyCache</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">SigningKeyCache</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signing-key-cache-impl/index.html">SigningKeyCacheImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SigningKeyCacheImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-signing-key-cache/index.html"><span class="identifier">SigningKeyCache</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signing-service-impl/index.html">SigningServiceImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SigningServiceImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.crypto/-signing-service/index.html"><span class="identifier">SigningService</span></a><span class="symbol">, </span><a href="-signing-service-internal/index.html"><span class="identifier">SigningServiceInternal</span></a><span class="symbol">, </span><a href="-signing-key-cache/index.html"><span class="identifier">SigningKeyCache</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signing-service-internal/index.html">SigningServiceInternal</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">SigningServiceInternal</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.crypto/-signing-service/index.html"><span class="identifier">SigningService</span></a><span class="symbol">, </span><a href="-signing-key-cache/index.html"><span class="identifier">SigningKeyCache</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signing-service-persistent-cache/index.html">SigningServicePersistentCache</a></h4>
+</td>
+<td>
+<p>Defines a simplified caching layer on top of an <em>append-only</em> persistence.
+he cached and persistence items are the same.
+It's expected that the implementation is race condition with different instances safe.</p>
+<code><span class="keyword">interface </span><span class="identifier">SigningServicePersistentCache</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signing-service-persistent-cache-factory/index.html">SigningServicePersistentCacheFactory</a></h4>
+</td>
+<td>
+<p>Defines a factory which must create a new instance implementing <a href="-signing-service-persistent-cache/index.html">SigningServicePersistentCache</a></p>
+<code><span class="keyword">interface </span><span class="identifier">SigningServicePersistentCacheFactory</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signing-service-persistent-cache-factory-impl/index.html">SigningServicePersistentCacheFactoryImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SigningServicePersistentCacheFactoryImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-signing-service-persistent-cache-factory/index.html"><span class="identifier">SigningServicePersistentCacheFactory</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signing-service-persistent-cache-impl/index.html">SigningServicePersistentCacheImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SigningServicePersistentCacheImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-simple-persistent-cache-impl/index.html"><span class="identifier">SimplePersistentCacheImpl</span></a><span class="symbol">&lt;</span><a href="../net.corda.crypto/-signing-persistent-key/index.html"><span class="identifier">SigningPersistentKey</span></a><span class="symbol">,</span>&nbsp;<a href="../net.corda.crypto/-signing-persistent-key/index.html"><span class="identifier">SigningPersistentKey</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><a href="-signing-service-persistent-cache/index.html"><span class="identifier">SigningServicePersistentCache</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-simple-persistent-cache/index.html">SimplePersistentCache</a></h4>
+</td>
+<td>
+<p>Defines a simplified caching layer on top of an <em>append-only</em> persistence.
+The cached and persistence items are different, the mutator defines the shape of the cached item
+based on the persistent item.
+It's expected that the implementation is race condition with different instances safe.</p>
+<code><span class="keyword">interface </span><span class="identifier">SimplePersistentCache</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">, </span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-simple-persistent-cache-factory/index.html">SimplePersistentCacheFactory</a></h4>
+</td>
+<td>
+<p>Defines a factory which must create a new instance implementing <a href="-simple-persistent-cache/index.html">SimplePersistentCache</a></p>
+<code><span class="keyword">interface </span><span class="identifier">SimplePersistentCacheFactory</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">, </span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-simple-persistent-cache-factory-impl/index.html">SimplePersistentCacheFactoryImpl</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SimplePersistentCacheFactoryImpl</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">, </span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-simple-persistent-cache-factory/index.html"><span class="identifier">SimplePersistentCacheFactory</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">,</span>&nbsp;<span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-simple-persistent-cache-impl/index.html">SimplePersistentCacheImpl</a></h4>
+</td>
+<td>
+<p>Implements a simplified caching layer on top of an <em>append-only</em> table accessed via Hibernate mapping.
+Note that if the same key is stored twice, typically this will result in a duplicate insert if this is racing
+with another transaction in different instance which would be prevented by the primary key constrain.
+The implementation is race condition with different instance safe.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SimplePersistentCacheImpl</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">, </span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-simple-persistent-cache/index.html"><span class="identifier">SimplePersistentCache</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">,</span>&nbsp;<span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/AutoCloseable.html"><span class="identifier">AutoCloseable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-wrapping-key/index.html">WrappingKey</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">WrappingKey</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

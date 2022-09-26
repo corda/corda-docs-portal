@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PersistenceRPCOps - extensions-rpc</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">extensions-rpc</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy.persistence</a>&nbsp;/&nbsp;<a href="./index.html">PersistenceRPCOps</a><br/>
+<br/>
+<h1>PersistenceRPCOps</h1>
+<code><span class="keyword">interface </span><span class="identifier">PersistenceRPCOps</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span></code>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="query.html">query</a></h4>
+</td>
+<td>
+<p>Execute a pre-defined <a href="#">javax.persistence.NamedQuery</a> identified by the <code>queryName</code> in <a href="../-rpc-named-query-request/index.html">RpcNamedQueryRequest</a> with named parameters
+and optional post-processing. Returns query results using the durable stream API.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">query</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.persistence.PersistenceRPCOps$query(net.corda.client.rpc.proxy.persistence.RpcNamedQueryRequest)/request">request</span><span class="symbol">:</span>&nbsp;<a href="../-rpc-named-query-request/index.html"><span class="identifier">RpcNamedQueryRequest</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DurableCursorBuilder</span><span class="symbol">&lt;</span><a href="../-rpc-named-query-response-item/index.html"><span class="identifier">RpcNamedQueryResponseItem</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

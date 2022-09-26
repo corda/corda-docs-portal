@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Flow.call - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.flows</a>&nbsp;/&nbsp;<a href="index.html">Flow</a>&nbsp;/&nbsp;<a href="./call.html">call</a><br/>
+<br/>
+<h1>call</h1>
+<a name="net.corda.v5.application.flows.Flow$call()"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code>
+<p>This is where you fill out your business logic.</p>
+<h3>Exceptions</h3>
+<p><a name="FlowException"></a>
+<code>FlowException</code> - It can be thrown at any point of a <a href="index.html">Flow</a> logic to bring it to a permanent end. The exception will be
+propagated to all counterparty flows.</p>
+<p><a name="CordaRuntimeException"></a>
+<code>CordaRuntimeException</code> - General type of exception thrown by most Corda APIs.</p>
+<p><a name="UnexpectedFlowEndException"></a>
+<code>UnexpectedFlowEndException</code> - Thrown when a flow session ends unexpectedly.</p>
+</BODY>
+</HTML>

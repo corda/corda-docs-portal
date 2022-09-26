@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Amount.<init> - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.contracts</a>&nbsp;/&nbsp;<a href="index.html">Amount</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.v5.ledger.contracts.Amount$&lt;init&gt;(kotlin.Long, net.corda.v5.ledger.contracts.Amount.T)"></a>
+<code><span class="identifier">Amount</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$<init>(kotlin.Long, net.corda.v5.ledger.contracts.Amount.T)/tokenQuantity">tokenQuantity</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$<init>(kotlin.Long, net.corda.v5.ledger.contracts.Amount.T)/token">token</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span></code>
+<p>Automatic conversion constructor from number of tokens to an Amount using getDisplayTokenSize to determine
+the displayTokenSize.</p>
+<h3>Parameters</h3>
+<p><a name="tokenQuantity"></a>
+<code>tokenQuantity</code> - the number of tokens represented.</p>
+<p><a name="token"></a>
+<code>token</code> - the type of the token, for example a <a href="https://docs.oracle.com/javase/6/docs/api/java/util/Currency.html">Currency</a> object.</p>
+<a name="net.corda.v5.ledger.contracts.Amount$&lt;init&gt;(kotlin.Long, java.math.BigDecimal, net.corda.v5.ledger.contracts.Amount.T)"></a>
+<code><span class="identifier">Amount</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$<init>(kotlin.Long, java.math.BigDecimal, net.corda.v5.ledger.contracts.Amount.T)/quantity">quantity</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$<init>(kotlin.Long, java.math.BigDecimal, net.corda.v5.ledger.contracts.Amount.T)/displayTokenSize">displayTokenSize</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.Amount$<init>(kotlin.Long, java.math.BigDecimal, net.corda.v5.ledger.contracts.Amount.T)/token">token</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span></code>
+<p>Amount represents a positive quantity of some token (currency, asset, etc.), measured in quantity of the smallest
+representable units. The nominal quantity represented by each individual token is equal to the <a href="display-token-size.html">displayTokenSize</a>.
+The scale property of the <a href="display-token-size.html">displayTokenSize</a> should correctly reflect the displayed decimal places and is used
+when rounding conversions from indicative/displayed amounts in <a href="https://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html">BigDecimal</a> to Amount occur via the
+<a href="from-decimal.html">Amount.fromDecimal</a> method.</p>
+<p>Amounts of different tokens <em>do not mix</em> and attempting to add or subtract two amounts of different currencies
+will throw <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html">IllegalArgumentException</a>. Amounts may not be negative. Amounts are represented internally using a signed
+64 bit value, therefore, the maximum expressable amount is 2^63 - 1 == Long.MAX_VALUE. Addition, subtraction and
+multiplication are overflow checked and will throw <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-arithmetic-exception/index.html">ArithmeticException</a> if the operation would have caused integer
+overflow.</p>
+</BODY>
+</HTML>

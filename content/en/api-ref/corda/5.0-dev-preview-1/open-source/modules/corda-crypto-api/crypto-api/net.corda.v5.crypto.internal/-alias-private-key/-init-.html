@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AliasPrivateKey.<init> - crypto-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">crypto-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.crypto.internal</a>&nbsp;/&nbsp;<a href="index.html">AliasPrivateKey</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.v5.crypto.internal.AliasPrivateKey$&lt;init&gt;(kotlin.String)"></a>
+<code><span class="identifier">AliasPrivateKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.internal.AliasPrivateKey$<init>(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code>
+<p><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html">PrivateKey</a> wrapper to just store the alias of a private key.
+Usually, HSM (hardware secure module) key entries are accessed via unique aliases and the private key material never
+leaves the box. This class wraps a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> key alias into a <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html">PrivateKey</a> object, which helps on transferring
+<a href="https://docs.oracle.com/javase/6/docs/api/java/security/KeyPair.html">KeyPair</a> objects without exposing the private key material. Then, whenever we need to sign with the actual private
+key, we provide the <a href="alias.html">alias</a> from this <a href="index.html">AliasPrivateKey</a> to the underlying HSM implementation.</p>
+</BODY>
+</HTML>

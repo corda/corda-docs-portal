@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MembershipGroupRPCOps - extensions-rpc</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">extensions-rpc</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy.network</a>&nbsp;/&nbsp;<a href="./index.html">MembershipGroupRPCOps</a><br/>
+<br/>
+<h1>MembershipGroupRPCOps</h1>
+<code><span class="keyword">interface </span><span class="identifier">MembershipGroupRPCOps</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span></code>
+<p>Exposes Group Member operations.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-all-members.html">getAllMembers</a></h4>
+</td>
+<td>
+<p>Returns all <a href="../../net.corda.client.rpc.identity/-rpc-member-info/index.html">RpcMemberInfo</a>s currently visible in the membership group.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getAllMembers</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.client.rpc.identity/-rpc-member-info/index.html"><span class="identifier">RpcMemberInfo</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-member.html">getMember</a></h4>
+</td>
+<td>
+<p>Returns <a href="../../net.corda.client.rpc.identity/-rpc-member-info/index.html">RpcMemberInfo</a> with given <a href="get-member.html#net.corda.client.rpc.proxy.network.MembershipGroupRPCOps$getMember(kotlin.String)/name">name</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getMember</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.network.MembershipGroupRPCOps$getMember(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.client.rpc.identity/-rpc-member-info/index.html"><span class="identifier">RpcMemberInfo</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-members-from-name.html">getMembersFromName</a></h4>
+</td>
+<td>
+<p>Returns a list of candidate matches for a given string, with optional fuzzy(ish) matching. Fuzzy matching may
+get smarter with time e.g. to correct spelling errors, so you should not hard-code indexes into the results
+but rather show them via a user interface and let the user pick the one they wanted.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getMembersFromName</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.network.MembershipGroupRPCOps$getMembersFromName(kotlin.String, kotlin.Boolean)/query">query</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.proxy.network.MembershipGroupRPCOps$getMembersFromName(kotlin.String, kotlin.Boolean)/exactMatch">exactMatch</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.client.rpc.identity/-rpc-member-info/index.html"><span class="identifier">RpcMemberInfo</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-my-group-id.html">getMyGroupId</a></h4>
+</td>
+<td>
+<p>Returns Node's <a href="../../net.corda.client.rpc.identity/-rpc-member-info/index.html">RpcMemberInfo</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getMyGroupId</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-my-member-info.html">getMyMemberInfo</a></h4>
+</td>
+<td>
+<p>Returns Node's <a href="../../net.corda.client.rpc.identity/-rpc-member-info/index.html">RpcMemberInfo</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getMyMemberInfo</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.client.rpc.identity/-rpc-member-info/index.html"><span class="identifier">RpcMemberInfo</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>LedgerTransaction.InOutGroup.<init> - ledger</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.v5.ledger.transactions</a>&nbsp;/&nbsp;<a href="../index.html">LedgerTransaction</a>&nbsp;/&nbsp;<a href="index.html">InOutGroup</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup$&lt;init&gt;(kotlin.collections.List((net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup.T)), kotlin.collections.List((net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup.T)), net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup.K)"></a>
+<code><span class="identifier">InOutGroup</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup$<init>(kotlin.collections.List((net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup.T)), kotlin.collections.List((net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup.T)), net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup.K)/inputs">inputs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup$<init>(kotlin.collections.List((net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup.T)), kotlin.collections.List((net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup.T)), net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup.K)/outputs">outputs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup$<init>(kotlin.collections.List((net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup.T)), kotlin.collections.List((net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup.T)), net.corda.v5.ledger.transactions.LedgerTransaction.InOutGroup.K)/groupingKey">groupingKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span></code>
+<p>A set of related inputs and outputs that are connected by some common attributes. An InOutGroup is calculated
+using <a href="../group-states.html">groupStates</a> and is useful for handling cases where a transaction may contain similar but unrelated
+state evolutions, for example, a transaction that moves cash in two different currencies. The numbers must add
+up on both sides of the transaction, but the values must be summed independently per currency. Grouping can
+be used to simplify this logic.</p>
+</BODY>
+</HTML>

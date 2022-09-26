@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Node - dev-network-lib</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">dev-network-lib</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.test.dev.network</a>&nbsp;/&nbsp;<a href="./index.html">Node</a><br/>
+<br/>
+<h1>Node</h1>
+<code><span class="keyword">interface </span><span class="identifier">Node</span></code>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="name.html">name</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-public-port.html">getPublicPort</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getPublicPort</span><span class="symbol">(</span><span class="identifier" id="net.corda.test.dev.network.Node$getPublicPort(net.corda.test.dev.network.PrivatePort)/privatePort">privatePort</span><span class="symbol">:</span>&nbsp;<a href="../-private-port/index.html"><span class="identifier">PrivatePort</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="http-rpc.html">httpRpc</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span> <span class="identifier">httpRpc</span><span class="symbol">(</span><span class="identifier" id="net.corda.test.dev.network.Node$httpRpc(net.corda.test.dev.network.Credentials, kong.unirest.Config, kotlin.String, kotlin.String, kotlin.Function1((kong.unirest.UnirestInstance, net.corda.test.dev.network.Node.httpRpc.A)))/credentials">credentials</span><span class="symbol">:</span>&nbsp;<a href="../-credentials/index.html"><span class="identifier">Credentials</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_CREDENTIALS<span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network.Node$httpRpc(net.corda.test.dev.network.Credentials, kong.unirest.Config, kotlin.String, kotlin.String, kotlin.Function1((kong.unirest.UnirestInstance, net.corda.test.dev.network.Node.httpRpc.A)))/config">config</span><span class="symbol">:</span>&nbsp;<span class="identifier">Config</span>&nbsp;<span class="symbol">=</span>&nbsp;Unirest.config()<span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network.Node$httpRpc(net.corda.test.dev.network.Credentials, kong.unirest.Config, kotlin.String, kotlin.String, kotlin.Function1((kong.unirest.UnirestInstance, net.corda.test.dev.network.Node.httpRpc.A)))/basePath">basePath</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;"api"<span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network.Node$httpRpc(net.corda.test.dev.network.Credentials, kong.unirest.Config, kotlin.String, kotlin.String, kotlin.Function1((kong.unirest.UnirestInstance, net.corda.test.dev.network.Node.httpRpc.A)))/version">version</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;"1"<span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network.Node$httpRpc(net.corda.test.dev.network.Credentials, kong.unirest.Config, kotlin.String, kotlin.String, kotlin.Function1((kong.unirest.UnirestInstance, net.corda.test.dev.network.Node.httpRpc.A)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="identifier">UnirestInstance</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">A</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">A</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="http-rpc-connection-details.html">httpRpcConnectionDetails</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">httpRpcConnectionDetails</span><span class="symbol">(</span><span class="identifier" id="net.corda.test.dev.network.Node$httpRpcConnectionDetails(net.corda.test.dev.network.Credentials)/credentials">credentials</span><span class="symbol">:</span>&nbsp;<a href="../-credentials/index.html"><span class="identifier">Credentials</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_CREDENTIALS<span class="symbol">)</span><span class="symbol">: </span><a href="../-connection-details/index.html"><span class="identifier">ConnectionDetails</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-h-o-s-t.html">HOST</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">HOST</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-h-t-t-p_-p-r-i-v-a-t-e_-p-o-r-t.html">HTTP_PRIVATE_PORT</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">HTTP_PRIVATE_PORT</span><span class="symbol">: </span><a href="../-private-port/index.html"><span class="identifier">PrivatePort</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../x500-name.html">x500Name</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="./index.html"><span class="identifier">Node</span></a><span class="symbol">.</span><span class="identifier">x500Name</span><span class="symbol">: </span><span class="identifier">CordaX500Name</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../http-rpc-client.html">httpRpcClient</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span><span class="symbol">, </span><span class="identifier">A</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Node</span></a><span class="symbol">.</span><span class="identifier">httpRpcClient</span><span class="symbol">(</span><span class="identifier" id="net.corda.test.dev.network$httpRpcClient(net.corda.test.dev.network.Node, net.corda.test.dev.network.Credentials, kotlin.Function1((net.corda.v5.httprpc.client.HttpRpcClient((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.HttpRpcConnection(()))), kotlin.Function3((kotlin.String, java.lang.Class((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig, net.corda.v5.httprpc.client.HttpRpcClient(()))), kotlin.Function1((net.corda.test.dev.network.httpRpcClient.T, net.corda.test.dev.network.httpRpcClient.A)))/credentials">credentials</span><span class="symbol">:</span>&nbsp;<a href="../-credentials/index.html"><span class="identifier">Credentials</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_CREDENTIALS<span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network$httpRpcClient(net.corda.test.dev.network.Node, net.corda.test.dev.network.Credentials, kotlin.Function1((net.corda.v5.httprpc.client.HttpRpcClient((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.HttpRpcConnection(()))), kotlin.Function3((kotlin.String, java.lang.Class((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig, net.corda.v5.httprpc.client.HttpRpcClient(()))), kotlin.Function1((net.corda.test.dev.network.httpRpcClient.T, net.corda.test.dev.network.httpRpcClient.A)))/startBlock">startBlock</span><span class="symbol">:</span>&nbsp;<span class="identifier">HttpRpcClient</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">HttpRpcConnection</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;{ start() }<span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network$httpRpcClient(net.corda.test.dev.network.Node, net.corda.test.dev.network.Credentials, kotlin.Function1((net.corda.v5.httprpc.client.HttpRpcClient((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.HttpRpcConnection(()))), kotlin.Function3((kotlin.String, java.lang.Class((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig, net.corda.v5.httprpc.client.HttpRpcClient(()))), kotlin.Function1((net.corda.test.dev.network.httpRpcClient.T, net.corda.test.dev.network.httpRpcClient.A)))/clientFactory">clientFactory</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">HttpRpcClientConfig</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">HttpRpcClient</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;{ url, cls, config -&gt;
+        HttpRpcClient(url, cls, config)
+    }<span class="symbol">, </span><span class="identifier" id="net.corda.test.dev.network$httpRpcClient(net.corda.test.dev.network.Node, net.corda.test.dev.network.Credentials, kotlin.Function1((net.corda.v5.httprpc.client.HttpRpcClient((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.HttpRpcConnection(()))), kotlin.Function3((kotlin.String, java.lang.Class((net.corda.test.dev.network.httpRpcClient.T)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig, net.corda.v5.httprpc.client.HttpRpcClient(()))), kotlin.Function1((net.corda.test.dev.network.httpRpcClient.T, net.corda.test.dev.network.httpRpcClient.A)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">A</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">A</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-destructive-test-node/index.html">DestructiveTestNode</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">DestructiveTestNode</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Node</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

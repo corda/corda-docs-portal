@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MAX_CONSTRAINT_DATA_SIZE - ledger</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">ledger</a>&nbsp;/&nbsp;<a href="index.html">net.corda.v5.ledger.schemas.vault</a>&nbsp;/&nbsp;<a href="./-m-a-x_-c-o-n-s-t-r-a-i-n-t_-d-a-t-a_-s-i-z-e.html">MAX_CONSTRAINT_DATA_SIZE</a><br/>
+<br/>
+<h1>MAX_CONSTRAINT_DATA_SIZE</h1>
+<a name="net.corda.v5.ledger.schemas.vault$MAX_CONSTRAINT_DATA_SIZE"></a>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">MAX_CONSTRAINT_DATA_SIZE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>The maximum permissible size of contract constraint type data (for storage in vault states database table).</p>
+<p>This value establishes an upper limit of a CompositeKey with up to <a href="../net.corda.v5.ledger.transactions/-m-a-x_-n-u-m-b-e-r_-o-f_-k-e-y-s_-i-n_-s-i-g-n-a-t-u-r-e_-c-o-n-s-t-r-a-i-n-t.html">MAX_NUMBER_OF_KEYS_IN_SIGNATURE_CONSTRAINT</a> keys stored in.
+However, note this assumes a rather conservative upper bound per key.
+For reference, measurements have shown the following numbers for each algorithm:</p>
+<ul><li>2048-bit RSA keys: 1 key -&gt; 294 bytes, 2 keys -&gt; 655 bytes, 3 keys -&gt; 961 bytes</li>
+<li>256-bit ECDSA (k1) keys: 1 key -&gt; 88 bytes, 2 keys -&gt; 231 bytes, 3 keys -&gt; 331 bytes</li>
+<li>256-bit EDDSA keys: 1 key -&gt; 44 bytes, 2 keys -&gt; 140 bytes, 3 keys -&gt; 195 bytes</li>
+</ul>
+</BODY>
+</HTML>

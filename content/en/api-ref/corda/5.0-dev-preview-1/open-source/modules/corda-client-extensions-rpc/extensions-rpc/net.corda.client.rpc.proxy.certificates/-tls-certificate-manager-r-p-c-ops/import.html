@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TlsCertificateManagerRPCOps.import - extensions-rpc</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">extensions-rpc</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy.certificates</a>&nbsp;/&nbsp;<a href="index.html">TlsCertificateManagerRPCOps</a>&nbsp;/&nbsp;<a href="./import.html">import</a><br/>
+<br/>
+<h1>import</h1>
+<a name="net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$import(kotlin.String, kotlin.String)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">import</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$import(kotlin.String, kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$import(kotlin.String, kotlin.String)/certificatePem">certificatePem</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Adds the input certificate to the keystore entry associated with the given alias.</p>
+<h3>Parameters</h3>
+<p><a name="alias"></a>
+<code>alias</code> - The alias name which <a href="import.html#net.corda.client.rpc.proxy.certificates.TlsCertificateManagerRPCOps$import(kotlin.String, kotlin.String)/certificatePem">certificatePem</a> will be associated with.</p>
+<p><a name="certificatePem"></a>
+<code>certificatePem</code> - The certificate chain to be imported in PEM format.</p>
+<h3>Exceptions</h3>
+<p><a name="CertificateOpsException"></a>
+<code>CertificateOpsException</code> - If certificate cannot be imported.</p>
+</BODY>
+</HTML>

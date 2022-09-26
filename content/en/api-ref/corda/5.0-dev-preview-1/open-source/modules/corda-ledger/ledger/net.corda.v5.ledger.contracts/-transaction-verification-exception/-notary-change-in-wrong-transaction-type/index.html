@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionVerificationException.NotaryChangeInWrongTransactionType - ledger</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.v5.ledger.contracts</a>&nbsp;/&nbsp;<a href="../index.html">TransactionVerificationException</a>&nbsp;/&nbsp;<a href="./index.html">NotaryChangeInWrongTransactionType</a><br/>
+<br/>
+<h1>NotaryChangeInWrongTransactionType</h1>
+<code><span class="keyword">class </span><span class="identifier">NotaryChangeInWrongTransactionType</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../index.html"><span class="identifier">TransactionVerificationException</span></a></code>
+<p>An output state has a notary that doesn't match the transaction's notary field. It must!</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>An output state has a notary that doesn't match the transaction's notary field. It must!</p>
+<code><span class="identifier">NotaryChangeInWrongTransactionType</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.TransactionVerificationException.NotaryChangeInWrongTransactionType$<init>(net.corda.v5.crypto.SecureHash, net.corda.v5.application.identity.Party, net.corda.v5.application.identity.Party)/txId">txId</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.TransactionVerificationException.NotaryChangeInWrongTransactionType$<init>(net.corda.v5.crypto.SecureHash, net.corda.v5.application.identity.Party, net.corda.v5.application.identity.Party)/txNotary">txNotary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.TransactionVerificationException.NotaryChangeInWrongTransactionType$<init>(net.corda.v5.crypto.SecureHash, net.corda.v5.application.identity.Party, net.corda.v5.application.identity.Party)/outputNotary">outputNotary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="output-notary.html">outputNotary</a></h4>
+</td>
+<td>
+<p>the <a href="#">Party</a> specified by the errant state.</p>
+<code><span class="keyword">val </span><span class="identifier">outputNotary</span><span class="symbol">: </span><span class="identifier">Party</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="tx-notary.html">txNotary</a></h4>
+</td>
+<td>
+<p>the <a href="#">Party</a> specified by the transaction header.</p>
+<code><span class="keyword">val </span><span class="identifier">txNotary</span><span class="symbol">: </span><span class="identifier">Party</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

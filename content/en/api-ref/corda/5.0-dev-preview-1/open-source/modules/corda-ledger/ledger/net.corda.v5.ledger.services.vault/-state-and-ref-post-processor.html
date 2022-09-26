@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StateAndRefPostProcessor - ledger</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">ledger</a>&nbsp;/&nbsp;<a href="index.html">net.corda.v5.ledger.services.vault</a>&nbsp;/&nbsp;<a href="./-state-and-ref-post-processor.html">StateAndRefPostProcessor</a><br/>
+<br/>
+<h1>StateAndRefPostProcessor</h1>
+<code><span class="keyword">interface </span><span class="identifier">StateAndRefPostProcessor</span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GenericQueryPostProcessor</span><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">R</span><span class="symbol">&gt;</span></code>
+<p>Post-processors can be implemented to enhance the Named Query API.</p>
+<p><a href="#">Stream</a>s are used for lazy operations to reduce memory footprint.</p>
+<p>After named query execution Corda attempts to load <a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a>s from the query results and apply post-processing to the loaded states.
+This interface ensures type safety by operating on a <a href="#">Stream</a> of <a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a> and returns a user defined stream of type <a href="-state-and-ref-post-processor.html#R">R</a>.</p>
+<p><a href="#">name</a> is used to identify post-processors during the Named Query RPC API.</p>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-identity-contract-state-post-processor/index.html">IdentityContractStatePostProcessor</a></h4>
+</td>
+<td>
+<p>Identity function post-processor that returns <a href="../net.corda.v5.ledger.contracts/-contract-state/index.html">ContractState</a>s with no side-effects.</p>
+<code><span class="keyword">class </span><span class="identifier">IdentityContractStatePostProcessor</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-state-and-ref-post-processor.html"><span class="identifier">StateAndRefPostProcessor</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-identity-state-and-ref-post-processor/index.html">IdentityStateAndRefPostProcessor</a></h4>
+</td>
+<td>
+<p>Simple post-processor that just returns <a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a>s with no side-effects.</p>
+<code><span class="keyword">class </span><span class="identifier">IdentityStateAndRefPostProcessor</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-state-and-ref-post-processor.html"><span class="identifier">StateAndRefPostProcessor</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

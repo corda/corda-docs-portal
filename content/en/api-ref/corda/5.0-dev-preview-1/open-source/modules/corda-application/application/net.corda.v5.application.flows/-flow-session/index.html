@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowSession - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.flows</a>&nbsp;/&nbsp;<a href="./index.html">FlowSession</a><br/>
+<br/>
+<h1>FlowSession</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">FlowSession</span></code>
+<p>A <a href="./index.html">FlowSession</a> is a handle on a communication sequence between two paired flows, possibly running on separate nodes.
+It is used to send and receive messages between the flows as well as to query information about the counter-flow.</p>
+<p>There are two ways of obtaining such a session:</p>
+<ol><li>Calling <a href="#">FlowLogic.initiateFlow</a>. This will create a <a href="./index.html">FlowSession</a> object on which the first send/receive
+operation will attempt to kick off a corresponding <a href="../-initiated-by/index.html">InitiatedBy</a> flow on the counterparty's node.</li>
+<li>As constructor parameter to <a href="../-initiated-by/index.html">InitiatedBy</a> flows. This session is the one corresponding to the initiating flow and
+may be used for replies.</li>
+</ol>
+<p>To port flows using the old Party-based API:</p>
+<p>Look for <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/index.html">Deprecated</a> usages of send/receive/sendAndReceive/getFlowInfo.</p>
+<p>If it's an InitiatingFlow:</p>
+<p>Look for the send/receive that kicks off the counter flow. Insert a</p>
+<pre><code>    val session = initiateFlow(party)</code></pre>
+<p>and use this session afterwards for send/receives.
+For example:
+    send(party, something)
+will become
+    session.send(something)</p>
+<p>If it's an InitiatedBy flow:</p>
+<p>Change the constructor to take an otherSideSession: FlowSession instead of a counterparty: Party
+Then look for usages of the deprecated functions and change them to use the FlowSession
+For example:
+    send(counterparty, something)
+will become
+    otherSideSession.send(something)</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="counterparty.html">counterparty</a></h4>
+</td>
+<td>
+<p>If the destination on the other side of this session is a <a href="../../net.corda.v5.application.identity/-party/index.html">Party</a> then returns that, otherwise throws <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/index.html">IllegalStateException</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">counterparty</span><span class="symbol">: </span><a href="../../net.corda.v5.application.identity/-party/index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="destination.html">destination</a></h4>
+</td>
+<td>
+<p>The <a href="../-destination.html">Destination</a> on the other side of this session. In the case of a session created by <a href="#">FlowLogic.initiateFlow</a> this is the same
+destination as the one passed to that function.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">destination</span><span class="symbol">: </span><a href="../-destination.html"><span class="identifier">Destination</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="close.html">close</a></h4>
+</td>
+<td>
+<p>Closes this session and performs cleanup of any resources tied to this session.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-counterparty-flow-info.html">getCounterpartyFlowInfo</a></h4>
+</td>
+<td>
+<p>Returns a <a href="../-flow-info/index.html">FlowInfo</a> object describing the flow <a href="counterparty.html">counterparty</a> is using. With <a href="../-flow-info/flow-version.html">FlowInfo.flowVersion</a> it
+provides the necessary information needed for the evolution of flows and enabling backwards compatibility.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getCounterpartyFlowInfo</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-flow-info/index.html"><span class="identifier">FlowInfo</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="receive.html">receive</a></h4>
+</td>
+<td>
+<p>Suspends until <a href="counterparty.html">counterparty</a> sends us a message of type <a href="receive.html#net.corda.v5.application.flows.FlowSession$receive(java.lang.Class((net.corda.v5.application.flows.FlowSession.receive.R)))/receiveType">receiveType</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">receive</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.flows.FlowSession$receive(java.lang.Class((net.corda.v5.application.flows.FlowSession.receive.R)))/receiveType">receiveType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send.html">send</a></h4>
+</td>
+<td>
+<p>Queues the given <a href="send.html#net.corda.v5.application.flows.FlowSession$send(kotlin.Any)/payload">payload</a> for sending to the <a href="counterparty.html">counterparty</a> and continues without suspending.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">send</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.flows.FlowSession$send(kotlin.Any)/payload">payload</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-and-receive.html">sendAndReceive</a></h4>
+</td>
+<td>
+<p>Serializes and queues the given <a href="send-and-receive.html#net.corda.v5.application.flows.FlowSession$sendAndReceive(java.lang.Class((net.corda.v5.application.flows.FlowSession.sendAndReceive.R)), kotlin.Any)/payload">payload</a> object for sending to the <a href="counterparty.html">counterparty</a>. Suspends until a response
+is received, which must be of the given <a href="send-and-receive.html#net.corda.v5.application.flows.FlowSession$sendAndReceive(java.lang.Class((net.corda.v5.application.flows.FlowSession.sendAndReceive.R)), kotlin.Any)/receiveType">receiveType</a>. Remember that when receiving data from other parties the
+data should not be trusted until it's been thoroughly verified for consistency and that all expectations are
+satisfied, as a malicious peer may send you subtly corrupted data in order to exploit your code.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">sendAndReceive</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.flows.FlowSession$sendAndReceive(java.lang.Class((net.corda.v5.application.flows.FlowSession.sendAndReceive.R)), kotlin.Any)/receiveType">receiveType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.application.flows.FlowSession$sendAndReceive(java.lang.Class((net.corda.v5.application.flows.FlowSession.sendAndReceive.R)), kotlin.Any)/payload">payload</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../receive.html">receive</a></h4>
+</td>
+<td>
+<p>Suspends until <a href="#">counterparty</a> sends us a message of type <a href="../receive.html#R">R</a>.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">FlowSession</span></a><span class="symbol">.</span><span class="identifier">receive</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../send-and-receive.html">sendAndReceive</a></h4>
+</td>
+<td>
+<p>Serializes and queues the given <a href="../send-and-receive.html#net.corda.v5.application.flows$sendAndReceive(net.corda.v5.application.flows.FlowSession, kotlin.Any)/payload">payload</a> object for sending to the <a href="#">counterparty</a>. Suspends until a response
+is received, which must be of the given <a href="../send-and-receive.html#R">R</a> type.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">FlowSession</span></a><span class="symbol">.</span><span class="identifier">sendAndReceive</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.flows$sendAndReceive(net.corda.v5.application.flows.FlowSession, kotlin.Any)/payload">payload</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

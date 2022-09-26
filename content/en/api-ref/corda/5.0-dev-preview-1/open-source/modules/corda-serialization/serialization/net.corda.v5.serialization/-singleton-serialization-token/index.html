@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SingletonSerializationToken - serialization</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">serialization</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.serialization</a>&nbsp;/&nbsp;<a href="./index.html">SingletonSerializationToken</a><br/>
+<br/>
+<h1>SingletonSerializationToken</h1>
+<code><span class="keyword">class </span><span class="identifier">SingletonSerializationToken</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-serialization-token/index.html"><span class="identifier">SerializationToken</span></a></code>
+<p>A class representing a <a href="../-serialization-token/index.html">SerializationToken</a> for some object that is not serializable but can be looked up
+(when deserialized) via just the class name.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="class-name.html">className</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">className</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="from-token.html">fromToken</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">fromToken</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SingletonSerializationToken$fromToken(net.corda.v5.serialization.SerializeAsTokenContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialize-as-token-context/index.html"><span class="identifier">SerializeAsTokenContext</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-serialize-as-token/index.html"><span class="identifier">SerializeAsToken</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="register-with-context.html">registerWithContext</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">registerWithContext</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SingletonSerializationToken$registerWithContext(net.corda.v5.serialization.SerializeAsTokenContext, net.corda.v5.serialization.SerializeAsToken)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialize-as-token-context/index.html"><span class="identifier">SerializeAsTokenContext</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.serialization.SingletonSerializationToken$registerWithContext(net.corda.v5.serialization.SerializeAsTokenContext, net.corda.v5.serialization.SerializeAsToken)/toBeTokenized">toBeTokenized</span><span class="symbol">:</span>&nbsp;<a href="../-serialize-as-token/index.html"><span class="identifier">SerializeAsToken</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SingletonSerializationToken</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="singleton-serialization-token.html">singletonSerializationToken</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">singletonSerializationToken</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SingletonSerializationToken.Companion$singletonSerializationToken(java.lang.Class((kotlin.Any)))/toBeTokenized">toBeTokenized</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SingletonSerializationToken</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">singletonSerializationToken</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.serialization.SingletonSerializationToken.Companion$singletonSerializationToken(kotlin.String)/className">className</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SingletonSerializationToken</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

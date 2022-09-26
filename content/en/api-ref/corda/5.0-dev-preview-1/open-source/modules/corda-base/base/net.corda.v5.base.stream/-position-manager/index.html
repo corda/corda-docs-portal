@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PositionManager - base</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">base</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.base.stream</a>&nbsp;/&nbsp;<a href="./index.html">PositionManager</a><br/>
+<br/>
+<h1>PositionManager</h1>
+<code><span class="keyword">interface </span><span class="identifier">PositionManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Supplier</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">Consumer</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span></code>
+<p>Responsible for storage and retrieval of the current position used by <a href="../-durable-cursor/index.html">DurableCursor</a>
+By current position we mean position that has been already consumed and entities associated with this position
+processed.</p>
+<p>API users can create their own implementations of this interface which can be assigned to <a href="../-durable-cursor/index.html">DurableCursor</a>.</p>
+<p>In relation to multi-threaded aspect of this interface:
+Since it is really the caller of the <a href="../-cursor/poll.html">DurableCursor.poll</a> and <a href="../-durable-cursor/commit.html">DurableCursor.commit</a> who controls the thread which will
+used for <a href="./index.html">PositionManager</a> invocations, there are no special provisions made to ensure thread safety of the invocation to this interface.
+The key principle here is that: Whichever position committed by calling <a href="#">PositionManager.accept</a> should be available when <a href="#">PositionManager.get</a>
+is called.</p>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-m-i-n_-p-o-s-i-t-i-o-n.html">MIN_POSITION</a></h4>
+</td>
+<td>
+<p>Constant indicating position before the very first element of the stream.
+I.e. this is the minimal possible value of the stream position.</p>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">MIN_POSITION</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

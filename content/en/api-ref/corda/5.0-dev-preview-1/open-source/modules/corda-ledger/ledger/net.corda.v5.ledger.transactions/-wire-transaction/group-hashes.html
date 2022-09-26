@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>WireTransaction.groupHashes - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.transactions</a>&nbsp;/&nbsp;<a href="index.html">WireTransaction</a>&nbsp;/&nbsp;<a href="./group-hashes.html">groupHashes</a><br/>
+<br/>
+<h1>groupHashes</h1>
+<a name="net.corda.v5.ledger.transactions.WireTransaction$groupHashes"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">groupHashes</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">SecureHash</span><span class="symbol">&gt;</span></code>
+<p>The leaves (group hashes) of the top level Merkle tree.
+If a group's Merkle root is allOnesHash, it is a flag that denotes this group is empty (if list) or null (if single object)
+in the wire transaction.</p>
+</BODY>
+</HTML>

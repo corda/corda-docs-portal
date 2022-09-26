@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowException.originalErrorId - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowException</a>&nbsp;/&nbsp;<a href="./original-error-id.html">originalErrorId</a><br/>
+<br/>
+<h1>originalErrorId</h1>
+<a name="net.corda.v5.application.flows.FlowException$originalErrorId"></a>
+<code><span class="keyword">var </span><span class="identifier">originalErrorId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span></code>
+<p>the ID backing <a href="#">getErrorId</a>. If null it will be set dynamically by the flow framework when
+    the exception is handled. This ID is propagated to counterparty flows, even when the <a href="index.html">FlowException</a> is
+    downgraded to an <a href="../-unexpected-flow-end-exception/index.html">UnexpectedFlowEndException</a>. This is so the error conditions may be correlated later on.</p>
+<h3>Property</h3>
+<p><a name="originalErrorId"></a>
+<code>originalErrorId</code> - the ID backing <a href="#">getErrorId</a>. If null it will be set dynamically by the flow framework when
+    the exception is handled. This ID is propagated to counterparty flows, even when the <a href="index.html">FlowException</a> is
+    downgraded to an <a href="../-unexpected-flow-end-exception/index.html">UnexpectedFlowEndException</a>. This is so the error conditions may be correlated later on.</p>
+</BODY>
+</HTML>

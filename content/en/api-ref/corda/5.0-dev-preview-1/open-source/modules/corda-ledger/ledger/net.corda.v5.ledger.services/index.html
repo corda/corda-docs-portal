@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.v5.ledger.services - ledger</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">ledger</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.v5.ledger.services</a><br/>
+<br/>
+<h2>Package net.corda.v5.ledger.services</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-attachment-id.html">AttachmentId</a></h4>
+</td>
+<td>
+<code><span class="keyword">typealias </span><span class="identifier">AttachmentId</span>&nbsp;<span class="symbol">=</span>&nbsp;<span class="identifier">SecureHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-attachment-storage/index.html">AttachmentStorage</a></h4>
+</td>
+<td>
+<p>An attachment store records potentially large binary objects, identified by their hash.</p>
+<code><span class="keyword">interface </span><span class="identifier">AttachmentStorage</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaServiceInjectable</span><span class="symbol">, </span><span class="identifier">CordaFlowInjectable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-notary-lookup-service/index.html">NotaryLookupService</a></h4>
+</td>
+<td>
+<p>Lookup of notary services and their types on the network.</p>
+<code><span class="keyword">interface </span><span class="identifier">NotaryLookupService</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaFlowInjectable</span><span class="symbol">, </span><span class="identifier">CordaServiceInjectable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-state-loader-service/index.html">StateLoaderService</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">StateLoaderService</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaServiceInjectable</span><span class="symbol">, </span><span class="identifier">CordaFlowInjectable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-states-to-record/index.html">StatesToRecord</a></h4>
+</td>
+<td>
+<p>Controls whether the transaction is sent to the vault at all, and if so whether states have to be relevant
+or not in order to be recorded. Used in <a href="-transaction-service/record.html">TransactionService.record</a></p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">StatesToRecord</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-mapping-service/index.html">TransactionMappingService</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">TransactionMappingService</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaServiceInjectable</span><span class="symbol">, </span><span class="identifier">CordaFlowInjectable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-service/index.html">TransactionService</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">TransactionService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-transaction-storage/index.html"><span class="identifier">TransactionStorage</span></a><span class="symbol">, </span><a href="-transaction-mapping-service/index.html"><span class="identifier">TransactionMappingService</span></a><span class="symbol">, </span><a href="-transaction-verification-service/index.html"><span class="identifier">TransactionVerificationService</span></a><span class="symbol">, </span><span class="identifier">CordaServiceInjectable</span><span class="symbol">, </span><span class="identifier">CordaFlowInjectable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-storage/index.html">TransactionStorage</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">TransactionStorage</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaServiceInjectable</span><span class="symbol">, </span><span class="identifier">CordaFlowInjectable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-verification-service/index.html">TransactionVerificationService</a></h4>
+</td>
+<td>
+<p>Provides a transaction verification service.</p>
+<code><span class="keyword">interface </span><span class="identifier">TransactionVerificationService</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaServiceInjectable</span><span class="symbol">, </span><span class="identifier">CordaFlowInjectable</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-duplicate-attachment-exception/index.html">DuplicateAttachmentException</a></h4>
+</td>
+<td>
+<p>Thrown to indicate that an attachment was already uploaded to a Corda node.</p>
+<code><span class="keyword">class </span><span class="identifier">DuplicateAttachmentException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FileAlreadyExistsException</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="is-validating.html">isValidating</a></h4>
+</td>
+<td>
+<p>Returns true if and only if the given <a href="#">Party</a> is a validating notary.</p>
+<code><span class="keyword">fun </span><a href="-notary-lookup-service/index.html"><span class="identifier">NotaryLookupService</span></a><span class="symbol">.</span><span class="identifier">isValidating</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services$isValidating(net.corda.v5.ledger.services.NotaryLookupService, net.corda.v5.application.identity.Party)/party">party</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

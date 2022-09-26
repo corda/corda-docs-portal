@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StatesToRecord - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.services</a>&nbsp;/&nbsp;<a href="./index.html">StatesToRecord</a><br/>
+<br/>
+<h1>StatesToRecord</h1>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">StatesToRecord</span></code>
+<p>Controls whether the transaction is sent to the vault at all, and if so whether states have to be relevant
+or not in order to be recorded. Used in <a href="../-transaction-service/record.html">TransactionService.record</a></p>
+<h3>Enum Values</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-n-o-n-e.html">NONE</a></h4>
+</td>
+<td>
+<p>The received transaction is not sent to the vault at all. This is used within transaction resolution.</p>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="-a-l-l_-v-i-s-i-b-l-e.html">ALL_VISIBLE</a></h4>
+</td>
+<td>
+<p>All states that can be seen in the transaction will be recorded by the vault, even if none of the identities
+on this node are a participant or owner.</p>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="-o-n-l-y_-r-e-l-e-v-a-n-t.html">ONLY_RELEVANT</a></h4>
+</td>
+<td>
+<p>Only states that involve one of our public keys will be stored in the vault. This is the default. A public
+key is involved (relevant) if it's in the <a href="../../net.corda.v5.ledger.contracts/-ownable-state/owner.html">OwnableState.owner</a> field, or appears in the <a href="../../net.corda.v5.ledger.contracts/-contract-state/participants.html">ContractState.participants</a>
+collection. This is usually equivalent to "can I change the contents of this state by signing a transaction".</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,408 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>alltypes - application</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<h3>All Types</h3>
+<table>
+<tbody>
+<tr>
+<h5><a href="../net.corda.v5.application.identity/-abstract-party/index.html">net.corda.v5.application.identity.AbstractParty</a></h5>
+<p>An <a href="../net.corda.v5.application.identity/-abstract-party/index.html">AbstractParty</a> contains the common elements of <a href="../net.corda.v5.application.identity/-party/index.html">Party</a> and <a href="../net.corda.v5.application.identity/-anonymous-party.html">AnonymousParty</a>, specifically the owning key of
+the party. In most cases <a href="../net.corda.v5.application.identity/-party/index.html">Party</a> or <a href="../net.corda.v5.application.identity/-anonymous-party.html">AnonymousParty</a> should be used, depending on use-case.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.messaging/-all-possible-recipients.html">net.corda.v5.application.messaging.AllPossibleRecipients</a></h5>
+<p>A special base class for the set of all possible recipients, without having to identify who they all are.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.identity/-anonymous-party.html">net.corda.v5.application.identity.AnonymousParty</a></h5>
+<p>The <a href="../net.corda.v5.application.identity/-anonymous-party.html">AnonymousParty</a> class contains enough information to uniquely identify a <a href="../net.corda.v5.application.identity/-party/index.html">Party</a> while excluding private
+information such as name. It is intended to represent a party on the distributed ledger.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-bad-rpc-start-flow-request-exception/index.html">net.corda.v5.application.flows.BadRpcStartFlowRequestException</a></h5>
+<p>This exception indicates that client request to start the flow cannot be processed due to an error in the input parameters.
+(E.g. invalid parameters or missing mandatory parameters to start the flow)</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.messaging/-client-rpc-ssl-options/index.html">net.corda.v5.application.messaging.ClientRpcSslOptions</a></h5>
+<p>As an RPC Client, use this class to point to the truststore that contains the RPC SSL certificate provided by the node admin</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.node/-corda-clock/index.html">net.corda.v5.application.node.CordaClock</a></h5>
+<p>A <a href="#">Clock</a> that tokenizes itself when serialized, and delegates to an underlying <a href="#">Clock</a> implementation.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.messaging/-corda-core-r-p-c-ops/index.html">net.corda.v5.application.messaging.CordaCoreRPCOps</a></h5>
+<p>RPC operations that the node exposes to clients.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.injection/-corda-flow-injectable.html">net.corda.v5.application.injection.CordaFlowInjectable</a></h5>
+<p>Interfaces that extend <a href="../net.corda.v5.application.injection/-corda-flow-injectable.html">CordaFlowInjectable</a> can be injected into <a href="../net.corda.v5.application.flows/-flow/index.html">net.corda.v5.application.flows.Flow</a>s using <a href="../net.corda.v5.application.injection/-corda-inject/index.html">CordaInject</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.injection/-corda-inject/index.html">net.corda.v5.application.injection.CordaInject</a></h5>
+<p>This annotation can be used with <a href="#">Flow</a> and <a href="#">CordaService</a> to indicate which dependencies should be injected.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.injection/-corda-inject-pre-start/index.html">net.corda.v5.application.injection.CordaInjectPreStart</a></h5>
+<p>This annotation can be used with <a href="#">CordaService</a> to indicate which dependencies should be injected before starting
+the service.
+Combined with the corda service lifecycle support, this allows starting a service to depend on another service. It
+is not be possible to inject dependencies for use within a service constructor, so in order to use a service to start
+another service it must be injected before the service start lifecycle event is distributed using this annotation.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.cordapp/-cordapp-config/index.html">net.corda.v5.application.cordapp.CordappConfig</a></h5>
+<p>Provides access to cordapp configuration independent of the configuration provider.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.cordapp/-cordapp-config-exception/index.html">net.corda.v5.application.cordapp.CordappConfigException</a></h5>
+<p>Thrown if an exception occurs in accessing or parsing cordapp configuration</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.cordapp/-cordapp-info/index.html">net.corda.v5.application.cordapp.CordappInfo</a></h5>
+<p>A <a href="../net.corda.v5.application.cordapp/-cordapp-info/index.html">CordappInfo</a> describes a single CorDapp currently installed on the node</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.cordapp/-cordapp-provider/index.html">net.corda.v5.application.cordapp.CordappProvider</a></h5>
+<p>Provides access to what the node knows about loaded applications.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services/-corda-service.html">net.corda.v5.application.services.CordaService</a></h5>
+<p>Any class that needs to be a long-lived service within the node, should implement this interface. The constructor will be invoked during
+node start to initialise the service, however initialisation logic is better added to the <a href="../net.corda.v5.application.services.lifecycle/-service-lifecycle-observer/on-event.html">ServiceLifecycleObserver.onEvent</a> function as
+a response to the <a href="../net.corda.v5.application.services.lifecycle/-service-start.html">ServiceStart</a> implementation of <a href="../net.corda.v5.application.services.lifecycle/-service-lifecycle-event.html">ServiceLifecycleEvent</a> so that injected services can be used. Injected services are
+injected post instantiation so no injected services can be used within a constructor. Corda services are created as singletons within the
+node and can be made available to flows and other corda services via dependency injection.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.lifecycle/-corda-service-critical-failure-exception/index.html">net.corda.v5.application.services.lifecycle.CordaServiceCriticalFailureException</a></h5>
+<p>Please see <a href="../net.corda.v5.application.services.lifecycle/-state-machine-started.html">StateMachineStarted</a> for the purpose of this exception.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.injection/-corda-service-injectable.html">net.corda.v5.application.injection.CordaServiceInjectable</a></h5>
+<p>Interfaces that extend <a href="../net.corda.v5.application.injection/-corda-service-injectable.html">CordaServiceInjectable</a> can be injected into <a href="../net.corda.v5.application.services/-corda-service.html">net.corda.v5.application.services.CordaService</a>s
+or <a href="#">net.corda.v5.ledger.notary.NotaryService</a> using <a href="../net.corda.v5.application.injection/-corda-inject/index.html">CordaInject</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.identity/-corda-x500-name/index.html">net.corda.v5.application.identity.CordaX500Name</a></h5>
+<p>X.500 distinguished name data type customised to how Corda uses names. This restricts the attributes to those Corda
+supports, and requires that organisation, locality and country attributes are specified. See also RFC 4519 for
+the underlying attribute type definitions</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.persistence/-custom-query-post-processor.html">net.corda.v5.application.services.persistence.CustomQueryPostProcessor</a></h5>
+<p>Post-processors can be implemented to enhance the Named Query API.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-destination.html">net.corda.v5.application.flows.Destination</a></h5>
+<p>An abstraction for flow session destinations. A flow can send to and receive from objects which implement this interface. The specifics
+of how the messages are routed depend on the implementation.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.diagnostics/-diagnostics-service/index.html">net.corda.v5.application.services.diagnostics.DiagnosticsService</a></h5>
+<p>A <a href="../net.corda.v5.application.services.diagnostics/-diagnostics-service/index.html">DiagnosticsService</a> provides APIs that allow CorDapps to query information about the node that CorDapp is currently running on.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.crypto/-digital-signature-and-meta/index.html">net.corda.v5.application.crypto.DigitalSignatureAndMeta</a></h5>
+<p>A wrapper over the signature output accompanied by signer's public key and signature metadata.
+This is similar to <a href="#">DigitalSignature.WithKey</a>, but targeted to DLT transaction (or block of transactions) signatures.
+This has been renamed from TransactionSignature for Corda 5.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.crypto/-digital-signature-verification-service/index.html">net.corda.v5.application.services.crypto.DigitalSignatureVerificationService</a></h5>
+<p>The <a href="../net.corda.v5.application.services.crypto/-digital-signature-verification-service/index.html">DigitalSignatureVerificationService</a> digital signature verification operations.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-flow/index.html">net.corda.v5.application.flows.Flow</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows.flowservices/-flow-auditor/index.html">net.corda.v5.application.flows.flowservices.FlowAuditor</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows.flowservices/-flow-engine/index.html">net.corda.v5.application.flows.flowservices.FlowEngine</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-flow-exception/index.html">net.corda.v5.application.flows.FlowException</a></h5>
+<p>Exception which can be thrown by a <a href="#">FlowLogic</a> at any point in its logic to unexpectedly bring it to a permanent end.
+The exception will propagate to all counterparty flows and will be thrown on their end the next time they wait on a
+<a href="../net.corda.v5.application.flows/-flow-session/receive.html">FlowSession.receive</a> or <a href="../net.corda.v5.application.flows/-flow-session/send-and-receive.html">FlowSession.sendAndReceive</a>. Any flow which no longer needs to do a receive, or has already
+ended, will not receive the exception (if this is required then have them wait for a confirmation message).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-flow-external-operation/index.html">net.corda.v5.application.flows.FlowExternalOperation</a></h5>
+<p><a href="../net.corda.v5.application.flows/-flow-external-operation/index.html">FlowExternalOperation</a> represents an external process that blocks a flow from continuing until the result of <a href="../net.corda.v5.application.flows/-flow-external-operation/execute.html">execute</a>
+has been retrieved. Examples of external processes where <a href="../net.corda.v5.application.flows/-flow-external-operation/index.html">FlowExternalOperation</a> would be useful include, triggering a long running
+process on an external system or retrieving information from a service that might be down.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.messaging/-flow-handle/index.html">net.corda.v5.application.messaging.FlowHandle</a></h5>
+<p><a href="../net.corda.v5.application.messaging/-flow-handle/index.html">FlowHandle</a> is a serialisable handle for the started flow, parameterised by the type of the flow's return value.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.messaging/-flow-handle-with-client-id/index.html">net.corda.v5.application.messaging.FlowHandleWithClientId</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-flow-id/index.html">net.corda.v5.application.flows.FlowId</a></h5>
+<p>A unique identifier for a single top level flow instance, valid across node restarts. Note that a single run always
+has at least one flow, but that flow may also invoke sub-flows: they all share the same flow id.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows.flowservices/-flow-identity/index.html">net.corda.v5.application.flows.flowservices.FlowIdentity</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-flow-info/index.html">net.corda.v5.application.flows.FlowInfo</a></h5>
+<p>Version and name of the CorDapp hosting the other side of the flow.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows.flowservices/-flow-messaging/index.html">net.corda.v5.application.flows.flowservices.FlowMessaging</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-flow-session/index.html">net.corda.v5.application.flows.FlowSession</a></h5>
+<p>A <a href="../net.corda.v5.application.flows/-flow-session/index.html">FlowSession</a> is a handle on a communication sequence between two paired flows, possibly running on separate nodes.
+It is used to send and receive messages between the flows as well as to query information about the counter-flow.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.flows/-flow-starter-service/index.html">net.corda.v5.application.services.flows.FlowStarterService</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.persistence/-generic-query-post-processor/index.html">net.corda.v5.application.services.persistence.GenericQueryPostProcessor</a></h5>
+<p>Base post-processor interface.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.crypto/-hashing-service/index.html">net.corda.v5.application.services.crypto.HashingService</a></h5>
+<p>Handles hashing of bytes.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-hospitalize-flow-exception/index.html">net.corda.v5.application.flows.HospitalizeFlowException</a></h5>
+<p>This exception allows a flow to pass itself to the flow hospital. Once the flow reaches
+the hospital it will determine how to progress depending on what <a href="#">cause</a>s the exception wraps.
+Assuming there are no important wrapped exceptions, throwing a <a href="../net.corda.v5.application.flows/-hospitalize-flow-exception/index.html">HospitalizeFlowException</a>
+will place the flow in overnight observation, where it will be replayed at a later time.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-identifiable-exception/index.html">net.corda.v5.application.flows.IdentifiableException</a></h5>
+<p>An exception that may be identified with an ID. If an exception originates in a counter-flow this ID will be
+propagated. This allows correlation of error conditions across different flows.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services/-identity-service/index.html">net.corda.v5.application.services.IdentityService</a></h5>
+<p>An identity service maintains a directory of parties by their associated distinguished name/public keys, and thus supports the lookup of
+a party if given its key or its X.500 name.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-initiated-by/index.html">net.corda.v5.application.flows.InitiatedBy</a></h5>
+<p>This annotation is required by any <a href="#">FlowLogic</a> that is designed to be initiated by a counterparty flow. The class must
+have at least a constructor which takes in a single <a href="#">net.corda.core.identity.Party</a> parameter which represents the
+initiating counterparty. The <a href="#">FlowLogic</a> that does the initiating is specified by the <a href="../net.corda.v5.application.flows/-initiated-by/value.html">value</a> property and itself must be annotated
+with <a href="../net.corda.v5.application.flows/-initiating-flow/index.html">InitiatingFlow</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-initiating-flow/index.html">net.corda.v5.application.flows.InitiatingFlow</a></h5>
+<p>This annotation is required by any <a href="#">FlowLogic</a> which has been designated to initiate communication with a counterparty
+and request they start their side of the flow communication.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-json-constructor/index.html">net.corda.v5.application.flows.JsonConstructor</a></h5>
+<p>Marks a constructor of a flow indicating that it can be instantiated from a JSON String.
+Flows that are available to start via the RPC service with <a href="#">net.corda.client.rpc.flow.RpcStartFlowRequestParameters</a> must have a
+constructor with this annotation.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.json/-json-marshalling-service/index.html">net.corda.v5.application.services.json.JsonMarshallingService</a></h5>
+<p>An optional service CorDapps and other services may use to marshall arbitrary content in and out of JSON format using standard/approved
+mappers.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.utilities/-json-representable/index.html">net.corda.v5.application.utilities.JsonRepresentable</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.crypto/-key-management-service/index.html">net.corda.v5.application.services.crypto.KeyManagementService</a></h5>
+<p>The <a href="../net.corda.v5.application.services.crypto/-key-management-service/index.html">KeyManagementService</a> is responsible for storing and using private keys to sign things. An implementation of this may, for example,
+call out to a hardware security module that enforces various auditing and frequency-of-use requirements.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-killed-flow-exception/index.html">net.corda.v5.application.flows.KilledFlowException</a></h5>
+<p>An exception that is thrown when a flow has been killed.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.node/-member-context/index.html">net.corda.v5.application.node.MemberContext</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.node/-member-info/index.html">net.corda.v5.application.node.MemberInfo</a></h5>
+<p>The member info consist of two parts:
+Member provided context: Parameters added and signed by member as a part of initial MemberInfo proposal.
+MGM provided context: Parameters added by MGM as a part of member acceptance.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services/-member-lookup-service/index.html">net.corda.v5.application.services.MemberLookupService</a></h5>
+<p>Group Manager Service contains list of identities in Membership Management Group along with information about their identity keys,
+services they provide and host names or IP addresses where they can be connected to. The cache wraps around a list fetched from the
+manager, and adds easy lookup of the data stored within it. Generally it would be initialised with a specific Group Manager,
+which it fetches data from and then subscribes to updates of.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.messaging/-message-recipient-group.html">net.corda.v5.application.messaging.MessageRecipientGroup</a></h5>
+<p>A base class for a set of recipients specifically identified by the sender.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.messaging/-message-recipients.html">net.corda.v5.application.messaging.MessageRecipients</a></h5>
+<p>The interface for a group of message recipients (which may contain only one recipient)</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.crypto/-named-by-hash/index.html">net.corda.v5.application.crypto.NamedByHash</a></h5>
+<p>Implemented by anything that can be named by a secure hash value (e.g. transactions, attachments).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.persistence/-named-query-exception/index.html">net.corda.v5.application.services.persistence.NamedQueryException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.persistence/-named-query-filter.html">net.corda.v5.application.services.persistence.NamedQueryFilter</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.node/-network-parameters/index.html">net.corda.v5.application.node.NetworkParameters</a></h5>
+<p>Note: any values in the networkParametersValues map need to be
+a.) serializable for P2P (AMQP) and checkpoints (Kryo)
+b.) comparable with .equals()</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services/-network-parameters-service/index.html">net.corda.v5.application.services.NetworkParametersService</a></h5>
+<p>Service for retrieving network parameters used for resolving transactions according to parameters that were historically in force in the
+network.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.node/-node-diagnostic-info/index.html">net.corda.v5.application.node.NodeDiagnosticInfo</a></h5>
+<p>A <a href="../net.corda.v5.application.node/-node-diagnostic-info/index.html">NodeDiagnosticInfo</a> holds information about the current node version.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.diagnostics/-node-version-info/index.html">net.corda.v5.application.services.diagnostics.NodeVersionInfo</a></h5>
+<p>Version info about the node. Note that this data should be used for diagnostics purposes only - it is unsafe to rely on this for
+functional decisions.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.messaging/-parameters-update-info/index.html">net.corda.v5.application.messaging.ParametersUpdateInfo</a></h5>
+<p>Data class containing information about the scheduled network parameters update. The info is emitted every time node
+receives network map with <a href="#">ParametersUpdate</a> which wasn't seen before. For more information see: <a href="#">CordaRPCOps.networkParametersFeed</a>
+and <a href="#">CordaRPCOps.acceptNewNetworkParameters</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.identity/-party/index.html">net.corda.v5.application.identity.Party</a></h5>
+<p>The <a href="../net.corda.v5.application.identity/-party/index.html">Party</a> class represents an entity on the network, which is typically identified by a legal <a href="../net.corda.v5.application.identity/-party/name.html">name</a> and public key
+that it can sign transactions under. As parties may use multiple keys for signing and, for example, have offline backup
+keys, the "public key" of a party can be represented by a composite construct – a <a href="#">CompositeKey</a>, which combines multiple
+cryptographic public key primitives into a tree structure.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.identity/-party-and-reference/index.html">net.corda.v5.application.identity.PartyAndReference</a></h5>
+<p>Reference to something being stored or issued by a party e.g. in a vault or (more likely) on their normal
+ledger. The reference is intended to be encrypted so it's meaningless to anyone other than the party.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.persistence/-persistence-query-request/index.html">net.corda.v5.application.services.persistence.PersistenceQueryRequest</a></h5>
+<p>Request object for making Query requests on the Persistence Service.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.persistence/-persistence-service/index.html">net.corda.v5.application.services.persistence.PersistenceService</a></h5>
+<p>Persistence Service API providing functionality to interact with an entityManager and execute pre-defined named queries.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-result-serialization-exception/index.html">net.corda.v5.application.flows.ResultSerializationException</a></h5>
+<p>Thrown whenever a flow result cannot be serialized when attempting to save it in the database</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-retry-flow-exception/index.html">net.corda.v5.application.flows.RetryFlowException</a></h5>
+<p>This exception will cause the flow to retry from its previous checkpoint.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.messaging/-r-p-c-ops/index.html">net.corda.v5.application.messaging.RPCOps</a></h5>
+<p>Base interface that all RPC servers must implement. Note: in Corda there's only one RPC interface. This base
+interface is here in case we split the RPC system out into a separate library one day.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.messaging/-r-p-c-returns-observables/index.html">net.corda.v5.application.messaging.RPCReturnsObservables</a></h5>
+<p>If an RPC is tagged with this annotation it may return one or more observables anywhere in its response graph.
+Calling such a method comes with consequences: it's slower, and consumes server side resources as observations
+will buffer up on the server until they're consumed by the client.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-rpc-start-flow-request-parameters/index.html">net.corda.v5.application.flows.RpcStartFlowRequestParameters</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.serialization/-serialization-service/index.html">net.corda.v5.application.services.serialization.SerializationService</a></h5>
+<p>Handles serialization and deserialization of objects.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.lifecycle/-service-lifecycle-event.html">net.corda.v5.application.services.lifecycle.ServiceLifecycleEvent</a></h5>
+<p>This is the parent interface for all service lifecycle events. This type is passed in the <a href="../net.corda.v5.application.services.lifecycle/-service-lifecycle-observer/on-event.html">ServiceLifecycleObserver.onEvent</a> method.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.lifecycle/-service-lifecycle-observer/index.html">net.corda.v5.application.services.lifecycle.ServiceLifecycleObserver</a></h5>
+<p>Provides lifecycle support to services.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.lifecycle/-service-start.html">net.corda.v5.application.services.lifecycle.ServiceStart</a></h5>
+<p>This event is dispatched once all corda services have been instantiated and registered as injectable services.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.crypto/-signable-data/index.html">net.corda.v5.application.crypto.SignableData</a></h5>
+<p>A <a href="../net.corda.v5.application.crypto/-signable-data/index.html">SignableData</a> object is the packet actually signed.
+It works as a wrapper over transaction id and signature metadata.
+Note that when multi-transaction signing (signing a block of transactions) is used, the root of the Merkle tree
+(having transaction IDs as leaves) is actually signed and thus <a href="../net.corda.v5.application.crypto/-signable-data/hash.html">hash</a> refers to this root and not a specific transaction.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.crypto/-signature-metadata/index.html">net.corda.v5.application.crypto.SignatureMetadata</a></h5>
+<p>SignatureMeta is required to add extra meta-data to a transaction's signature.
+It currently supports platformVersion only, but it can be extended to support a universal digital
+signature model enabling partial signatures and attaching extra information, such as a user's timestamp or other
+application-specific fields.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.crypto/-signed-data/index.html">net.corda.v5.application.crypto.SignedData</a></h5>
+<p>A serialized piece of data and its signature. Enforces signature validity in order to deserialize the data
+contained within.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.messaging/-single-message-recipient.html">net.corda.v5.application.messaging.SingleMessageRecipient</a></h5>
+<p>A base class for the case of point-to-point messages</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-startable-by-r-p-c/index.html">net.corda.v5.application.flows.StartableByRPC</a></h5>
+<p>Any <a href="#">FlowLogic</a> which is to be started by the RPC interface (<a href="#">net.corda.core.messaging.CordaRPCOps.startFlowDynamic</a>
+and <a href="#">net.corda.core.messaging.CordaRPCOps.startTrackedFlowDynamic</a>) must have this annotation. If it's missing the
+flow will not be allowed to start and an exception will be thrown.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-startable-by-service/index.html">net.corda.v5.application.flows.StartableByService</a></h5>
+<p>Any <a href="../net.corda.v5.application.flows/-flow/index.html">Flow</a> which is to be started by the <a href="#">FlowStarterService</a> interface from within a <a href="#">CordaService</a> must have this annotation. If it's
+missing the flow will not be allowed to start and an exception will be thrown.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.services.lifecycle/-state-machine-started.html">net.corda.v5.application.services.lifecycle.StateMachineStarted</a></h5>
+<p>This event is dispatched when State Machine is fully started.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-unexpected-flow-end-exception/index.html">net.corda.v5.application.flows.UnexpectedFlowEndException</a></h5>
+<p>Thrown when a flow session ends unexpectedly due to a type mismatch (the other side sent an object of a type
+that we were not expecting), or the other side had an internal error, or the other side terminated when we
+were waiting for a response.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.flows/-untrustworthy-data/index.html">net.corda.v5.application.flows.UntrustworthyData</a></h5>
+<p>A small utility to approximate taint tracking: if a method gives you back one of these, it means the data came from
+a remote source that may be incentivised to pass us junk that violates basic assumptions and thus must be checked
+first. The wrapper helps you to avoid forgetting this vital step. Things you might want to check are:</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.v5.application.node/-zone-version-too-low-exception/index.html">net.corda.v5.application.node.ZoneVersionTooLowException</a></h5>
+<p>When a Corda feature cannot be used due to the node's compatibility zone not enforcing a high enough minimum platform
+version.</p>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

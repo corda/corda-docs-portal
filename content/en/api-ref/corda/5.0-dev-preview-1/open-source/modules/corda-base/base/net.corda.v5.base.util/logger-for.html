@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>loggerFor - base</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">base</a>&nbsp;/&nbsp;<a href="index.html">net.corda.v5.base.util</a>&nbsp;/&nbsp;<a href="./logger-for.html">loggerFor</a><br/>
+<br/>
+<h1>loggerFor</h1>
+<a name="net.corda.v5.base.util$loggerFor()"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="keyword">reified</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">loggerFor</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Logger</span></code>
+<p>Usually you won't need this method:</p>
+<ul><li>If you're in a companion object, use <a href="kotlin.-any/context-logger.html">contextLogger</a></li>
+<li>If you're in an object singleton, use <a href="#">LoggerFactory.getLogger</a> directly on javaClass</li>
+</ul>
+<p>Otherwise, this gets the <a href="#">Logger</a> for a class using the syntax</p>
+<p><code>private val log = loggerFor&lt;MyClass&gt;()</code></p>
+</BODY>
+</HTML>

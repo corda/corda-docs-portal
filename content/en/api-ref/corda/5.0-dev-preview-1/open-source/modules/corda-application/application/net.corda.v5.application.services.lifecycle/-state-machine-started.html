@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StateMachineStarted - application</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">application</a>&nbsp;/&nbsp;<a href="index.html">net.corda.v5.application.services.lifecycle</a>&nbsp;/&nbsp;<a href="./-state-machine-started.html">StateMachineStarted</a><br/>
+<br/>
+<h1>StateMachineStarted</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">StateMachineStarted</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-service-lifecycle-event.html"><span class="identifier">ServiceLifecycleEvent</span></a></code>
+<p>This event is dispatched when State Machine is fully started.</p>
+<p>If a handler for this event throws <a href="-corda-service-critical-failure-exception/index.html">CordaServiceCriticalFailureException</a> - this is the way to flag that it will not make
+sense for Corda node to continue its operation. The lifecycle events dispatcher will endeavor to terminate node's JVM as soon
+as practically possible.</p>
+</BODY>
+</HTML>

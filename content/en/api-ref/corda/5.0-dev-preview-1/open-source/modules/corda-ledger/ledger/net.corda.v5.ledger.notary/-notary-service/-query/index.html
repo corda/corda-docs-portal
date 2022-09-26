@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NotaryService.Query - ledger</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.v5.ledger.notary</a>&nbsp;/&nbsp;<a href="../index.html">NotaryService</a>&nbsp;/&nbsp;<a href="./index.html">Query</a><br/>
+<br/>
+<h1>Query</h1>
+<code><span class="keyword">interface </span><span class="identifier">Query</span></code>
+<p>Interfaces for the request and result formats of queries supported by notary services. To
+implement a new query, you must:</p>
+<ul><li>Define data classes which implement the <a href="-request.html">Query.Request</a> and <a href="-result.html">Query.Result</a> interfaces</li>
+<li>Add corresponding handling for the new classes within the notary service implementations
+that you want to support the query.</li>
+</ul>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-request.html">Request</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Request</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-result.html">Result</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Result</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

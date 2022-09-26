@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Crypto.toSupportedPrivateKey - crypto-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">crypto-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.crypto.internal</a>&nbsp;/&nbsp;<a href="index.html">Crypto</a>&nbsp;/&nbsp;<a href="./to-supported-private-key.html">toSupportedPrivateKey</a><br/>
+<br/>
+<h1>toSupportedPrivateKey</h1>
+<a name="net.corda.v5.crypto.internal.Crypto$toSupportedPrivateKey(java.security.PrivateKey)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">toSupportedPrivateKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.crypto.internal.Crypto$toSupportedPrivateKey(java.security.PrivateKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a></code>
+<p>Convert a private key to a supported implementation. This can be used to convert a SUN's EC key to an BC key.
+This method is usually required to retrieve keys from JKS keystores that by default return SUN implementations.</p>
+<h3>Parameters</h3>
+<p><a name="key"></a>
+<code>key</code> - a private key.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - on not supported scheme or if the given key specification
+is inappropriate for a supported key factory to produce a private key.</p>
+<p><strong>Return</strong><br/>
+a supported implementation of the input private key.</p>
+</BODY>
+</HTML>

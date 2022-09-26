@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowTest - flow-test-utils</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">flow-test-utils</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.flow.utils</a>&nbsp;/&nbsp;<a href="./index.html">FlowTest</a><br/>
+<br/>
+<h1>FlowTest</h1>
+<code><span class="identifier">@FunctionalInterface</span> <span class="keyword">interface </span><span class="identifier">FlowTest</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Functional SAM interface which has a single method taking in a FlowMockHelper and is annotated as throwing <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html">Exception</a> so that it is not
+necessary to wrap <a href="#">Flow.call</a> in try/catch in the few valid cases where a checked exception can be thrown.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="run.html">run</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">run</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flow.utils.FlowTest$run(net.corda.testing.flow.FlowMockHelper((net.corda.testing.flow.utils.FlowTest.T)))/t">t</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.testing.flow/-flow-mock-helper/index.html"><span class="identifier">FlowMockHelper</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

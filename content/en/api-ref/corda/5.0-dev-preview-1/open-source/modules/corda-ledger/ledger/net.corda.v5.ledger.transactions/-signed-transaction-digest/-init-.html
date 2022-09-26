@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SignedTransactionDigest.<init> - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.transactions</a>&nbsp;/&nbsp;<a href="index.html">SignedTransactionDigest</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.v5.ledger.transactions.SignedTransactionDigest$&lt;init&gt;(net.corda.v5.crypto.SecureHash, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.v5.application.crypto.DigitalSignatureAndMeta)))"></a>
+<code><span class="identifier">SignedTransactionDigest</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.SignedTransactionDigest$<init>(net.corda.v5.crypto.SecureHash, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.v5.application.crypto.DigitalSignatureAndMeta)))/txIdUnformatted">txIdUnformatted</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.SignedTransactionDigest$<init>(net.corda.v5.crypto.SecureHash, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.v5.application.crypto.DigitalSignatureAndMeta)))/outputStates">outputStates</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.SignedTransactionDigest$<init>(net.corda.v5.crypto.SecureHash, kotlin.collections.List((kotlin.String)), kotlin.collections.List((net.corda.v5.application.crypto.DigitalSignatureAndMeta)))/signaturesUnformatted">signaturesUnformatted</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">DigitalSignatureAndMeta</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>A utility constructor that avoids the need to format the transaction's ID and signatures.</p>
+<a name="net.corda.v5.ledger.transactions.SignedTransactionDigest$&lt;init&gt;(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.String)))"></a>
+<code><span class="identifier">SignedTransactionDigest</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.SignedTransactionDigest$<init>(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.String)))/txId">txId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.SignedTransactionDigest$<init>(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.String)))/outputStates">outputStates</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.SignedTransactionDigest$<init>(kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.String)))/signatures">signatures</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Extract of data from <a href="../-signed-transaction/index.html">SignedTransaction</a>, primarily to be sensibly represented in JSON
+Also useful on the client side to inspect what was actually returned as result of the flow</p>
+<h3>Parameters</h3>
+<p><a name="txId"></a>
+<code>txId</code> - <ul><li>The hex string of the transaction's ID</li>
+</ul>
+</p>
+<p><a name="outputStates"></a>
+<code>outputStates</code> - <ul><li>The transaction's output states formatted as JSON</li>
+</ul>
+</p>
+<p><a name="signatures"></a>
+<code>signatures</code> - <ul><li>The Base64-encoded bytes of the transaction's signatures</li>
+</ul>
+</p>
+</BODY>
+</HTML>

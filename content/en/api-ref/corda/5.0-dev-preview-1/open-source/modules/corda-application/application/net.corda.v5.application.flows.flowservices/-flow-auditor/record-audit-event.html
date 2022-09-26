@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowAuditor.recordAuditEvent - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.flows.flowservices</a>&nbsp;/&nbsp;<a href="index.html">FlowAuditor</a>&nbsp;/&nbsp;<a href="./record-audit-event.html">recordAuditEvent</a><br/>
+<br/>
+<h1>recordAuditEvent</h1>
+<a name="net.corda.v5.application.flows.flowservices.FlowAuditor$recordAuditEvent(kotlin.String, kotlin.String, kotlin.collections.Map((kotlin.String, )))"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">recordAuditEvent</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.flows.flowservices.FlowAuditor$recordAuditEvent(kotlin.String, kotlin.String, kotlin.collections.Map((kotlin.String, )))/eventType">eventType</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.application.flows.flowservices.FlowAuditor$recordAuditEvent(kotlin.String, kotlin.String, kotlin.collections.Map((kotlin.String, )))/comment">comment</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.application.flows.flowservices.FlowAuditor$recordAuditEvent(kotlin.String, kotlin.String, kotlin.collections.Map((kotlin.String, )))/extraAuditData">extraAuditData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Flows can call this method to record application level flow audit events</p>
+<h3>Parameters</h3>
+<p><a name="eventType"></a>
+<code>eventType</code> - is a string representing the type of event. Each flow is given a distinct namespace for these names.</p>
+<p><a name="comment"></a>
+<code>comment</code> - a general human readable summary of the event.</p>
+<p><a name="extraAuditData"></a>
+<code>extraAuditData</code> - in the audit log for this permission check these extra key value pairs will be recorded.</p>
+</BODY>
+</HTML>

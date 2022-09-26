@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SourceAndAmount - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.contracts</a>&nbsp;/&nbsp;<a href="./index.html">SourceAndAmount</a><br/>
+<br/>
+<h1>SourceAndAmount</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SourceAndAmount</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code>
+<p>Simple data class to associate the origin, owner, or holder of a particular Amount object.</p>
+<h3>Parameters</h3>
+<p><a name="P"></a>
+<code>P</code> - Any class type that can disambiguate where the amount came from.</p>
+<p><a name="T"></a>
+<code>T</code> - The token type of the underlying <a href="../-amount/index.html">Amount</a>.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">SourceAndAmount</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.SourceAndAmount$<init>(net.corda.v5.ledger.contracts.SourceAndAmount.P, net.corda.v5.ledger.contracts.Amount((net.corda.v5.ledger.contracts.SourceAndAmount.T)))/source">source</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.SourceAndAmount$<init>(net.corda.v5.ledger.contracts.SourceAndAmount.P, net.corda.v5.ledger.contracts.Amount((net.corda.v5.ledger.contracts.SourceAndAmount.T)))/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="../-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Simple data class to associate the origin, owner, or holder of a particular Amount object.</p>
+<code><span class="identifier">SourceAndAmount</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.SourceAndAmount$<init>(net.corda.v5.ledger.contracts.SourceAndAmount.P, net.corda.v5.ledger.contracts.Amount((net.corda.v5.ledger.contracts.SourceAndAmount.T)), kotlin.Any)/source">source</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.SourceAndAmount$<init>(net.corda.v5.ledger.contracts.SourceAndAmount.P, net.corda.v5.ledger.contracts.Amount((net.corda.v5.ledger.contracts.SourceAndAmount.T)), kotlin.Any)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="../-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.contracts.SourceAndAmount$<init>(net.corda.v5.ledger.contracts.SourceAndAmount.P, net.corda.v5.ledger.contracts.Amount((net.corda.v5.ledger.contracts.SourceAndAmount.T)), kotlin.Any)/ref">ref</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="amount.html">amount</a></h4>
+</td>
+<td>
+<p>the Amount of asset available.</p>
+<code><span class="keyword">val </span><span class="identifier">amount</span><span class="symbol">: </span><a href="../-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="ref.html">ref</a></h4>
+</td>
+<td>
+<p>is an optional field used for housekeeping in the caller.
+e.g. to point back at the original Vault state objects.</p>
+<code><span class="keyword">val </span><span class="identifier">ref</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="source.html">source</a></h4>
+</td>
+<td>
+<p>the holder of the Amount.</p>
+<code><span class="keyword">val </span><span class="identifier">source</span><span class="symbol">: </span><span class="identifier">P</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

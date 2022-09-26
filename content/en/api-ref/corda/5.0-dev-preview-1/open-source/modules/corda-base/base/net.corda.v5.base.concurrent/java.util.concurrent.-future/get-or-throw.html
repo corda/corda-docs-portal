@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>getOrThrow - base</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">base</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.base.concurrent</a>&nbsp;/&nbsp;<a href="index.html">java.util.concurrent.Future</a>&nbsp;/&nbsp;<a href="./get-or-throw.html">getOrThrow</a><br/>
+<br/>
+<h1>getOrThrow</h1>
+<a name="net.corda.v5.base.concurrent$getOrThrow(java.util.concurrent.Future((net.corda.v5.base.concurrent.getOrThrow.V)), java.time.Duration)"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <a href="https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/Future.html"><span class="identifier">Future</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">getOrThrow</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.base.concurrent$getOrThrow(java.util.concurrent.Future((net.corda.v5.base.concurrent.getOrThrow.V)), java.time.Duration)/timeout">timeout</span><span class="symbol">:</span>&nbsp;<span class="identifier">Duration</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span></code>
+<p>Waits if necessary for the computation to complete, and then retrieves its result.</p>
+<p>This function is the same as <a href="https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/Future.html#get()">Future.get</a> except that it throws the underlying exception by unwrapping the <a href="https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ExecutionException.html">ExecutionException</a>.</p>
+<h3>Parameters</h3>
+<p><a name="timeout"></a>
+<code>timeout</code> - The maximum duration to wait until the future completes.</p>
+<h3>Exceptions</h3>
+<p><a name="CancellationException"></a>
+<code>CancellationException</code> - If the computation was cancelled.</p>
+<p><a name="InterruptedException"></a>
+<code>InterruptedException</code> - If the current thread was interrupted while waiting.</p>
+<p><a name="TimeoutException"></a>
+<code>TimeoutException</code> - If the wait timed out.</p>
+<p><strong>Return</strong><br/>
+The computed result.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="./get-or-throw.html">getOrThrow</a></p>
+<p><a href="https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/Future.html#get()">Future.get</a></p>
+</p>
+<a name="net.corda.v5.base.concurrent$getOrThrow(java.util.concurrent.Future((net.corda.v5.base.concurrent.getOrThrow.V)))"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <a href="https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/Future.html"><span class="identifier">Future</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">getOrThrow</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span></code>
+<p>Waits if necessary for the computation to complete, and then retrieves its result.</p>
+<p>This function is the same as <a href="https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/Future.html#get()">Future.get</a> except that it throws the underlying exception by unwrapping the <a href="https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ExecutionException.html">ExecutionException</a>.</p>
+<h3>Exceptions</h3>
+<p><a name="CancellationException"></a>
+<code>CancellationException</code> - If the computation was cancelled.</p>
+<p><a name="InterruptedException"></a>
+<code>InterruptedException</code> - If the current thread was interrupted while waiting.</p>
+<p><a name="TimeoutException"></a>
+<code>TimeoutException</code> - If the wait timed out.</p>
+<p><strong>Return</strong><br/>
+The computed result.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="./get-or-throw.html">getOrThrow</a></p>
+<p><a href="https://docs.oracle.com/javase/6/docs/api/java/util/concurrent/Future.html#get()">Future.get</a></p>
+</p>
+</BODY>
+</HTML>

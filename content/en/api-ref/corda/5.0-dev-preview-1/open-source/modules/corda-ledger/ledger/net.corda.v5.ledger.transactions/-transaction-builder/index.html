@@ -1,0 +1,212 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionBuilder - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.transactions</a>&nbsp;/&nbsp;<a href="./index.html">TransactionBuilder</a><br/>
+<br/>
+<h1>TransactionBuilder</h1>
+<code><span class="keyword">interface </span><span class="identifier">TransactionBuilder</span></code>
+<p>A TransactionBuilder is a transaction class that's mutable (unlike the others which are all immutable). It is
+intended to be passed around contracts that may edit it by adding new states/commands. Then once the states
+and commands are right, this class can be used as a holding bucket to gather signatures from multiple parties.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="attachments.html">attachments</a></h4>
+</td>
+<td>
+<p>Returns an immutable list of attachment hashes.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">attachments</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">SecureHash</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="commands.html">commands</a></h4>
+</td>
+<td>
+<p>Returns an immutable list of <a href="../../net.corda.v5.ledger.contracts/-command/index.html">Command</a>s.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">commands</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.contracts/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="input-states.html">inputStates</a></h4>
+</td>
+<td>
+<p>Returns an immutable list of input <a href="../../net.corda.v5.ledger.contracts/-state-ref/index.html">StateRef</a>s.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">inputStates</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="lock-id.html">lockId</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">lockId</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary.html">notary</a></h4>
+</td>
+<td>
+<p>Access to Notary, can be null.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">notary</span><span class="symbol">: </span><span class="identifier">Party</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="output-states.html">outputStates</a></h4>
+</td>
+<td>
+<p>Returns an immutable list of output <a href="../../net.corda.v5.ledger.contracts/-transaction-state/index.html">TransactionState</a>s.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">outputStates</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.contracts/-transaction-state/index.html"><span class="identifier">TransactionState</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="reference-states.html">referenceStates</a></h4>
+</td>
+<td>
+<p>Returns an immutable list of reference input <a href="../../net.corda.v5.ledger.contracts/-state-ref/index.html">StateRef</a>s.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">referenceStates</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.v5.ledger.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="add-attachment.html">addAttachment</a></h4>
+</td>
+<td>
+<p>Adds an attachment with the specified hash to the TransactionBuilder.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">addAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addAttachment(net.corda.v5.crypto.SecureHash)/attachmentId">attachmentId</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="add-command.html">addCommand</a></h4>
+</td>
+<td>
+<p>Adds a <a href="../../net.corda.v5.ledger.contracts/-command/index.html">Command</a> to the transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">addCommand</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addCommand(net.corda.v5.ledger.contracts.Command((net.corda.v5.ledger.contracts.CommandData)))/arg">arg</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code>
+<p>Adds a <a href="../../net.corda.v5.ledger.contracts/-command/index.html">Command</a> to the transaction, specified by the encapsulated [CommandData} object and required list of
+signing <a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html">PublicKey</a>s.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addCommand</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addCommand(net.corda.v5.ledger.contracts.CommandData, java.security.PublicKey, kotlin.Array((java.security.PublicKey)))/data">data</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-command-data.html"><span class="identifier">CommandData</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addCommand(net.corda.v5.ledger.contracts.CommandData, java.security.PublicKey, kotlin.Array((java.security.PublicKey)))/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addCommand(net.corda.v5.ledger.contracts.CommandData, java.security.PublicKey, kotlin.Array((java.security.PublicKey)))/keys">keys</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code><code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addCommand</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addCommand(net.corda.v5.ledger.contracts.CommandData, kotlin.collections.List((java.security.PublicKey)))/data">data</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-command-data.html"><span class="identifier">CommandData</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addCommand(net.corda.v5.ledger.contracts.CommandData, kotlin.collections.List((java.security.PublicKey)))/keys">keys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="add-input-state.html">addInputState</a></h4>
+</td>
+<td>
+<p>Adds an input <a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a> to the transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">addInputState</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addInputState(net.corda.v5.ledger.contracts.StateAndRef((net.corda.v5.ledger.contracts.ContractState)))/stateAndRef">stateAndRef</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="add-output-state.html">addOutputState</a></h4>
+</td>
+<td>
+<p>Adds an output state to the transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">addOutputState</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.TransactionState((net.corda.v5.ledger.contracts.ContractState)))/state">state</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-transaction-state/index.html"><span class="identifier">TransactionState</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code>
+<p>Adds an output state, with associated contract code (and constraints), and notary, to the transaction.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addOutputState</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.application.identity.Party, kotlin.Int, net.corda.v5.ledger.contracts.CPKConstraint)/state">state</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.application.identity.Party, kotlin.Int, net.corda.v5.ledger.contracts.CPKConstraint)/contract">contract</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.application.identity.Party, kotlin.Int, net.corda.v5.ledger.contracts.CPKConstraint)/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.application.identity.Party, kotlin.Int, net.corda.v5.ledger.contracts.CPKConstraint)/encumbrance">encumbrance</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.application.identity.Party, kotlin.Int, net.corda.v5.ledger.contracts.CPKConstraint)/constraint">constraint</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-c-p-k-constraint/index.html"><span class="identifier">CPKConstraint</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code>
+<p>Associated overloads for addOutputState</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addOutputState</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.application.identity.Party, kotlin.Int)/state">state</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.application.identity.Party, kotlin.Int)/contract">contract</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.application.identity.Party, kotlin.Int)/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.application.identity.Party, kotlin.Int)/encumbrance">encumbrance</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code><code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addOutputState</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.application.identity.Party)/state">state</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.application.identity.Party)/contract">contract</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.application.identity.Party)/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addOutputState</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, net.corda.v5.application.identity.Party)/state">state</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, net.corda.v5.application.identity.Party)/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code>
+<p>Adds an output state. A default notary must be specified during builder construction to use this method</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">addOutputState</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.ledger.contracts.CPKConstraint)/state">state</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.ledger.contracts.CPKConstraint)/contract">contract</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String, net.corda.v5.ledger.contracts.CPKConstraint)/constraint">constraint</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-c-p-k-constraint/index.html"><span class="identifier">CPKConstraint</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code>
+<p>Adds an output state for the given ContracState</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addOutputState</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState)/state">state</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code>
+<p>Adds an output state with the specified ContractClassName.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addOutputState</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String)/state">state</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, kotlin.String)/contract">contract</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code>
+<p>Adds an output state with the specified CPKConstraint.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addOutputState</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, net.corda.v5.ledger.contracts.CPKConstraint)/state">state</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addOutputState(net.corda.v5.ledger.contracts.ContractState, net.corda.v5.ledger.contracts.CPKConstraint)/constraint">constraint</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-c-p-k-constraint/index.html"><span class="identifier">CPKConstraint</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="add-reference-state.html">addReferenceState</a></h4>
+</td>
+<td>
+<p>Adds a reference input <a href="../../net.corda.v5.ledger.contracts/-referenced-state-and-ref/index.html">ReferencedStateAndRef</a> to the transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">addReferenceState</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$addReferenceState(net.corda.v5.ledger.contracts.ReferencedStateAndRef((net.corda.v5.ledger.contracts.ContractState)))/referencedStateAndRef">referencedStateAndRef</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-referenced-state-and-ref/index.html"><span class="identifier">ReferencedStateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="copy.html">copy</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">copy</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-notary.html">setNotary</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setNotary</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$setNotary(net.corda.v5.application.identity.Party)/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-privacy-salt.html">setPrivacySalt</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setPrivacySalt</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$setPrivacySalt(net.corda.v5.ledger.transactions.PrivacySalt)/privacySalt">privacySalt</span><span class="symbol">:</span>&nbsp;<a href="../-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-time-window.html">setTimeWindow</a></h4>
+</td>
+<td>
+<p>Sets the <a href="../../net.corda.v5.ledger.contracts/-time-window/index.html">TimeWindow</a> for this transaction, replacing the existing <a href="../../net.corda.v5.ledger.contracts/-time-window/index.html">TimeWindow</a> if there is one. To be valid, the
+transaction must then be signed by the notary service within this window of time. In this way, the notary acts as
+the Timestamp Authority.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setTimeWindow</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$setTimeWindow(net.corda.v5.ledger.contracts.TimeWindow)/timeWindow">timeWindow</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.contracts/-time-window/index.html"><span class="identifier">TimeWindow</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code>
+<p>The <a href="../../net.corda.v5.ledger.contracts/-time-window/index.html">TimeWindow</a> for the transaction can also be defined as <a href="set-time-window.html#net.corda.v5.ledger.transactions.TransactionBuilder$setTimeWindow(java.time.Instant, java.time.Duration)/time">time</a> +/- <a href="set-time-window.html#net.corda.v5.ledger.transactions.TransactionBuilder$setTimeWindow(java.time.Instant, java.time.Duration)/timeTolerance">timeTolerance</a>. The tolerance should be
+chosen such that your code can finish building the transaction and sending it to the Timestamp Authority within
+that window of time, taking into account factors such as network latency. Transactions being built by a group of
+collaborating parties may therefore require a higher time tolerance than a transaction being built by a single
+node.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setTimeWindow</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$setTimeWindow(java.time.Instant, java.time.Duration)/time">time</span><span class="symbol">:</span>&nbsp;<span class="identifier">Instant</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$setTimeWindow(java.time.Instant, java.time.Duration)/timeTolerance">timeTolerance</span><span class="symbol">:</span>&nbsp;<span class="identifier">Duration</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sign.html">sign</a></h4>
+</td>
+<td>
+<p>Constructs an initial partially signed transaction from this <a href="./index.html">TransactionBuilder</a> using a set of keys all held in this node.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$sign(kotlin.collections.Collection((java.security.PublicKey)))/signingPubKeys">signingPubKeys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Constructs an initial partially signed transaction from this <a href="./index.html">TransactionBuilder</a> using keys stored inside the node. Signature
+metadata is added automatically.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$sign(java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Constructs an initial partially signed transaction from a <a href="./index.html">TransactionBuilder</a> using the default identity key contained in the node.
+The legal identity key is used to sign.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-wire-transaction.html">toWireTransaction</a></h4>
+</td>
+<td>
+<p>Generates a <a href="../-wire-transaction/index.html">WireTransaction</a> from this builder.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">toWireTransaction</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-wire-transaction/index.html"><span class="identifier">WireTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="verify.html">verify</a></h4>
+</td>
+<td>
+<p>Verifies this transaction and runs contract code. At this stage it is assumed that signatures have already been verified.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-items.html">withItems</a></h4>
+</td>
+<td>
+<p>A more convenient way to add items to this transaction that calls the add* methods for you based on type</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withItems</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.v5.ledger.transactions.TransactionBuilder$withItems(kotlin.Array((kotlin.Any)))/items">items</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransactionBuilder</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

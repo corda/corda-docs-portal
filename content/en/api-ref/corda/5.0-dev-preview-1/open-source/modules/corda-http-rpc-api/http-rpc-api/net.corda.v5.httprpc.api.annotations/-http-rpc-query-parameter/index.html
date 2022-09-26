@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>HttpRpcQueryParameter - http-rpc-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">http-rpc-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.httprpc.api.annotations</a>&nbsp;/&nbsp;<a href="./index.html">HttpRpcQueryParameter</a><br/>
+<br/>
+<h1>HttpRpcQueryParameter</h1>
+<code><span class="identifier">@Target</span><span class="symbol">(</span>[AnnotationTarget.VALUE_PARAMETER]<span class="symbol">)</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">HttpRpcQueryParameter</span></code>
+<p>Marks a function parameter of a function annotated with @<a href="../-http-rpc-g-e-t/index.html">HttpRpcGET</a> or @<a href="../-http-rpc-p-o-s-t/index.html">HttpRpcPOST</a> as a query parameter.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Marks a function parameter of a function annotated with @<a href="../-http-rpc-g-e-t/index.html">HttpRpcGET</a> or @<a href="../-http-rpc-p-o-s-t/index.html">HttpRpcPOST</a> as a query parameter.</p>
+<code><span class="identifier">HttpRpcQueryParameter</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.httprpc.api.annotations.HttpRpcQueryParameter$<init>(kotlin.String, kotlin.String, kotlin.Boolean, kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="net.corda.v5.httprpc.api.annotations.HttpRpcQueryParameter$<init>(kotlin.String, kotlin.String, kotlin.Boolean, kotlin.String)/description">description</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="net.corda.v5.httprpc.api.annotations.HttpRpcQueryParameter$<init>(kotlin.String, kotlin.String, kotlin.Boolean, kotlin.String)/required">required</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="net.corda.v5.httprpc.api.annotations.HttpRpcQueryParameter$<init>(kotlin.String, kotlin.String, kotlin.Boolean, kotlin.String)/default">default</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="default.html">default</a></h4>
+</td>
+<td>
+<p>The default value of this parameter. Defaults to null.</p>
+<code><span class="keyword">val </span><span class="identifier">default</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="description.html">description</a></h4>
+</td>
+<td>
+<p>The description of the path parameter, used for documentation. Defaults to empty string.</p>
+<code><span class="keyword">val </span><span class="identifier">description</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="name.html">name</a></h4>
+</td>
+<td>
+<p>The name of the query parameter in the call. Defaults to the parameter's name in the function signature.</p>
+<code><span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="required.html">required</a></h4>
+</td>
+<td>
+<p>Whether this parameter is required when making an http call. Defaults to true.</p>
+<code><span class="keyword">val </span><span class="identifier">required</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

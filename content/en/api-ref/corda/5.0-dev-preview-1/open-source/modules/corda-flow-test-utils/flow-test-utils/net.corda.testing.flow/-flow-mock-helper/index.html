@@ -1,0 +1,202 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowMockHelper - flow-test-utils</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">flow-test-utils</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.flow</a>&nbsp;/&nbsp;<a href="./index.html">FlowMockHelper</a><br/>
+<br/>
+<h1>FlowMockHelper</h1>
+<code><span class="keyword">interface </span><span class="identifier">FlowMockHelper</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Flow</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="attachment-id-mock.html">attachmentIdMock</a></h4>
+</td>
+<td>
+<p>Basic attachment mocks</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">attachmentIdMock</span><span class="symbol">: </span><span class="identifier">AttachmentId</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="attachment-mock.html">attachmentMock</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">attachmentMock</span><span class="symbol">: </span><span class="identifier">Attachment</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="flow.html">flow</a></h4>
+</td>
+<td>
+<p>The resulting flow after invoking <a href="create-flow.html">createFlow</a>. Is only accessible after calling one of these two functions.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">flow</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="ledger-transaction-mock.html">ledgerTransactionMock</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">ledgerTransactionMock</span><span class="symbol">: </span><span class="identifier">LedgerTransaction</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters-hash-mock.html">networkParametersHashMock</a></h4>
+</td>
+<td>
+<p>Network parameters</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">networkParametersHashMock</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters-mock.html">networkParametersMock</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">networkParametersMock</span><span class="symbol">: </span><span class="identifier">NetworkParameters</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary.html">notary</a></h4>
+</td>
+<td>
+<p>Notary properties</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">notary</span><span class="symbol">: </span><span class="identifier">Party</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary-public-key.html">notaryPublicKey</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">notaryPublicKey</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="other-side.html">otherSide</a></h4>
+</td>
+<td>
+<p>Other participant properties</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">otherSide</span><span class="symbol">: </span><span class="identifier">Party</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="other-side-name.html">otherSideName</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">otherSideName</span><span class="symbol">: </span><span class="identifier">CordaX500Name</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="other-side-node.html">otherSideNode</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">otherSideNode</span><span class="symbol">: </span><span class="identifier">MemberInfo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="other-side-public-key.html">otherSidePublicKey</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">otherSidePublicKey</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="other-side-session.html">otherSideSession</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">otherSideSession</span><span class="symbol">: </span><span class="identifier">FlowSession</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="other-side-transaction-signature.html">otherSideTransactionSignature</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">otherSideTransactionSignature</span><span class="symbol">: </span><span class="identifier">DigitalSignatureAndMeta</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="our-identity.html">ourIdentity</a></h4>
+</td>
+<td>
+<p>Our properties</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">ourIdentity</span><span class="symbol">: </span><span class="identifier">Party</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="our-name.html">ourName</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">ourName</span><span class="symbol">: </span><span class="identifier">CordaX500Name</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="our-public-key.html">ourPublicKey</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">ourPublicKey</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="our-transaction-signature.html">ourTransactionSignature</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">ourTransactionSignature</span><span class="symbol">: </span><span class="identifier">DigitalSignatureAndMeta</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="signed-transaction-hash-mock.html">signedTransactionHashMock</a></h4>
+</td>
+<td>
+<p>Basic mocked transactions</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">signedTransactionHashMock</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="signed-transaction-mock.html">signedTransactionMock</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">signedTransactionMock</span><span class="symbol">: </span><span class="identifier">SignedTransaction</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="transaction-builder-mock.html">transactionBuilderMock</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">transactionBuilderMock</span><span class="symbol">: </span><span class="identifier">TransactionBuilder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="wire-transaction-mock.html">wireTransactionMock</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">wireTransactionMock</span><span class="symbol">: </span><span class="identifier">WireTransaction</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="create-flow.html">createFlow</a></h4>
+</td>
+<td>
+<p>Using the flow initializer passed in as a function parameter, initialize a flow and mock the flow dependencies. <a href="#">Flow.call</a> will not
+be invoked.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">createFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flow.FlowMockHelper$createFlow(kotlin.Function1((net.corda.testing.flow.FlowMockHelper((net.corda.testing.flow.FlowMockHelper.T)), )))/flowInitializer">flowInitializer</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowMockHelper</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="override-default-injectable-mock.html">overrideDefaultInjectableMock</a></h4>
+</td>
+<td>
+<p>Override the default mocks created by the <a href="./index.html">FlowMockHelper</a> with a custom mock for classes which are injectable into flows.
+This should be called before creating a flow, i.e. before calling <a href="create-flow.html">createFlow</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">, </span><span class="identifier">V</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">U</span><span class="symbol">&gt;</span> <span class="identifier">overrideDefaultInjectableMock</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flow.FlowMockHelper$overrideDefaultInjectableMock(java.lang.Class((net.corda.testing.flow.FlowMockHelper.overrideDefaultInjectableMock.U)), net.corda.testing.flow.FlowMockHelper.overrideDefaultInjectableMock.V)/interfaceClass">interfaceClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">U</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.flow.FlowMockHelper$overrideDefaultInjectableMock(java.lang.Class((net.corda.testing.flow.FlowMockHelper.overrideDefaultInjectableMock.U)), net.corda.testing.flow.FlowMockHelper.overrideDefaultInjectableMock.V)/implementation">implementation</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OSGiFrameworkWrap.start - osgi-framework-bootstrap</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">osgi-framework-bootstrap</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.osgi.framework</a>&nbsp;/&nbsp;<a href="index.html">OSGiFrameworkWrap</a>&nbsp;/&nbsp;<a href="./start.html">start</a><br/>
+<br/>
+<h1>start</h1>
+<a name="net.corda.osgi.framework.OSGiFrameworkWrap$start()"></a>
+<code><span class="identifier">@Synchronized</span> <span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">OSGiFrameworkWrap</span></a></code>
+<p>Start the wrapped OSGi framework.
+This method add a threadas shutdown hook a thread executed when the virtual machine begins its shutdown sequence:
+the thread call the <a href="stop.html">stop</a> method to shutdown the OSGi framework,
+the OSGi framework calls the <a href="#">org.osgi.framework.BundleActivator.stop</a> methods where the code to stop each bundle - if needed -
+should run.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalStateException"></a>
+<code>IllegalStateException</code> - If the bundle of the wrapped OSGi framework has been uninstalled
+    or it tries to change its own state.
+    If the virtual machine is shutting down when <code>start()</code> is called.
+    If the shutdown hook has been already been registered,
+    since this method registers the hoot to execute <a href="stop.html">stop</a> when the process shutdowns.</p>
+<p><a name="OSGiFrameworkException"></a>
+<code>OSGiFrameworkException</code> - If the wrapped OSGi framework could not be started.</p>
+<p><a name="SecurityException"></a>
+<code>SecurityException</code> - If the caller does not have the appropriate AdminPermission.EXECUTE,
+    and the Java Runtime Environment supports permissions.</p>
+<p><strong>Return</strong><br/>
+This.</p>
+</BODY>
+</HTML>

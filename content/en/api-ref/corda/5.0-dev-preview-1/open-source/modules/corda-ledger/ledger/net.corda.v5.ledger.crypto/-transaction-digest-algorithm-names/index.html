@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionDigestAlgorithmNames - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.crypto</a>&nbsp;/&nbsp;<a href="./index.html">TransactionDigestAlgorithmNames</a><br/>
+<br/>
+<h1>TransactionDigestAlgorithmNames</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">TransactionDigestAlgorithmNames</span></code>
+<p>A class that holds a map of digest services used for hashing transaction components and
+label the transaction's Merkle tree leaves and nodes.</p>
+<p>The mapping is provided by the crypto-service API and defined by the membership group.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">TransactionDigestAlgorithmNames</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>A class that holds a map of digest services used for hashing transaction components and
+label the transaction's Merkle tree leaves and nodes.</p>
+<code><span class="identifier">TransactionDigestAlgorithmNames</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.crypto.TransactionDigestAlgorithmNames$<init>(kotlin.collections.Map((net.corda.v5.ledger.crypto.TransactionDigestType, net.corda.v5.crypto.DigestAlgorithmName)))/names">names</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../-transaction-digest-type/index.html"><span class="identifier">TransactionDigestType</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">DigestAlgorithmName</span><span class="symbol">&gt;</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="names.html">names</a></h4>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">names</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../-transaction-digest-type/index.html"><span class="identifier">TransactionDigestType</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">DigestAlgorithmName</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-merkle-tree.html">getMerkleTree</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getMerkleTree</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.crypto.TransactionDigestAlgorithmNames$getMerkleTree(kotlin.collections.List((net.corda.v5.crypto.SecureHash)), net.corda.v5.crypto.DigestService)/allLeavesHashes">allLeavesHashes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">SecureHash</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.crypto.TransactionDigestAlgorithmNames$getMerkleTree(kotlin.collections.List((net.corda.v5.crypto.SecureHash)), net.corda.v5.crypto.DigestService)/hashingService">hashingService</span><span class="symbol">:</span>&nbsp;<span class="identifier">DigestService</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MerkleTree</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash.html">hash</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hash</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.crypto.TransactionDigestAlgorithmNames$hash(kotlin.ByteArray, net.corda.v5.crypto.DigestService)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.crypto.TransactionDigestAlgorithmNames$hash(kotlin.ByteArray, net.corda.v5.crypto.DigestService)/hashingService">hashingService</span><span class="symbol">:</span>&nbsp;<span class="identifier">DigestService</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-algorithm-supported.html">isAlgorithmSupported</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isAlgorithmSupported</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.crypto.TransactionDigestAlgorithmNames$isAlgorithmSupported(kotlin.String)/hashAlgorithm">hashAlgorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

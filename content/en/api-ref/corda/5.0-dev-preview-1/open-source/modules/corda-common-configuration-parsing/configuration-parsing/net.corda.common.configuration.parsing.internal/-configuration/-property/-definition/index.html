@@ -1,0 +1,171 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Configuration.Property.Definition - configuration-parsing</title>
+<link rel="stylesheet" href="../../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../../index.html">configuration-parsing</a>&nbsp;/&nbsp;<a href="../../../index.html">net.corda.common.configuration.parsing.internal</a>&nbsp;/&nbsp;<a href="../../index.html">Configuration</a>&nbsp;/&nbsp;<a href="../index.html">Property</a>&nbsp;/&nbsp;<a href="./index.html">Definition</a><br/>
+<br/>
+<h1>Definition</h1>
+<code><span class="keyword">interface </span><span class="identifier">Definition</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Metadata</span><span class="symbol">, </span><span class="identifier">Validator</span><span class="symbol">, </span><span class="identifier">Extractor</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">Describer</span><span class="symbol">, </span><span class="identifier">Parser</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span></code>
+<p>Property definition, able to validate, describe and extract values from a <a href="#">Config</a> object.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-optional/index.html">Optional</a></h4>
+</td>
+<td>
+<p>Defines a property that might be missing, resulting in a null value.</p>
+<code><span class="keyword">interface </span><span class="identifier">Optional</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Definition</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-required/index.html">Required</a></h4>
+</td>
+<td>
+<p>Defines a required property, which must provide a value or produce an error.</p>
+<code><span class="keyword">interface </span><span class="identifier">Required</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Definition</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-required-list/index.html">RequiredList</a></h4>
+</td>
+<td>
+<p>Defines a required property with a collection of values.</p>
+<code><span class="keyword">interface </span><span class="identifier">RequiredList</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Required</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-single/index.html">Single</a></h4>
+</td>
+<td>
+<p>Defines a property that must provide a single value or produce an error in case multiple values are specified for the relevant key.</p>
+<code><span class="keyword">interface </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Definition</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-standard/index.html">Standard</a></h4>
+</td>
+<td>
+<p>Default property definition, required and single-value.</p>
+<code><span class="keyword">interface </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Required</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="is-specified-by.html">isSpecifiedBy</a></h4>
+</td>
+<td>
+<p>Returns whether the value is specified by the <a href="#">Config</a>.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">isSpecifiedBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition$isSpecifiedBy(com.typesafe.config.Config)/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Config</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parse.html">parse</a></h4>
+</td>
+<td>
+<p>Returns a <a href="#">Valid</a> wrapper either around a valid value extracted from the <a href="#">Config</a>, or around a set of <a href="../../-validation/-error/index.html">Configuration.Validation.Error</a> with details about what went wrong.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">parse</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition$parse(com.typesafe.config.Config, net.corda.common.configuration.parsing.internal.Configuration.Options)/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Config</span><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition$parse(com.typesafe.config.Config, net.corda.common.configuration.parsing.internal.Configuration.Options)/options">options</span><span class="symbol">:</span>&nbsp;<span class="identifier">Options</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Validated</span><span class="symbol">&lt;</span><span class="identifier">TYPE</span><span class="symbol">,</span>&nbsp;<span class="identifier">Error</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-s-e-n-s-i-t-i-v-e_-d-a-t-a_-p-l-a-c-e-h-o-l-d-e-r.html">SENSITIVE_DATA_PLACEHOLDER</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">SENSITIVE_DATA_PLACEHOLDER</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="boolean.html">boolean</a></h4>
+</td>
+<td>
+<p>Returns a <a href="-standard/index.html">Configuration.Property.Definition.Standard</a> with value of type <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">boolean</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$boolean(kotlin.String, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$boolean(kotlin.String, kotlin.Boolean)/sensitive">sensitive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="double.html">double</a></h4>
+</td>
+<td>
+<p>Returns a <a href="-standard/index.html">Configuration.Property.Definition.Standard</a> with value of type <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">double</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$double(kotlin.String, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$double(kotlin.String, kotlin.Boolean)/sensitive">sensitive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="duration.html">duration</a></h4>
+</td>
+<td>
+<p>Returns a <a href="-standard/index.html">Configuration.Property.Definition.Standard</a> with value of type <a href="#">Duration</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">duration</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$duration(kotlin.String, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$duration(kotlin.String, kotlin.Boolean)/sensitive">sensitive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">Duration</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="enum.html">enum</a></h4>
+</td>
+<td>
+<p>Returns a <a href="-standard/index.html">Configuration.Property.Definition.Standard</a> with value of type <a href="enum.html#ENUM">ENUM</a>.
+This property expects a value in the configuration matching one of the cases of <a href="enum.html#ENUM">ENUM</a>, as text, in uppercase.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">ENUM</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/index.html"><span class="identifier">Enum</span></a><span class="symbol">&lt;</span><span class="identifier">ENUM</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">enum</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$enum(kotlin.String, kotlin.reflect.KClass((net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion.enum.ENUM)), kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$enum(kotlin.String, kotlin.reflect.KClass((net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion.enum.ENUM)), kotlin.Boolean)/enumClass">enumClass</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="identifier">ENUM</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$enum(kotlin.String, kotlin.reflect.KClass((net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion.enum.ENUM)), kotlin.Boolean)/sensitive">sensitive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">ENUM</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="float.html">float</a></h4>
+</td>
+<td>
+<p>Returns a <a href="-standard/index.html">Configuration.Property.Definition.Standard</a> with value of type <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">float</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$float(kotlin.String, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$float(kotlin.String, kotlin.Boolean)/sensitive">sensitive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="int.html">int</a></h4>
+</td>
+<td>
+<p>Returns a <a href="-standard/index.html">Configuration.Property.Definition.Standard</a> with value of type <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">int</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$int(kotlin.String, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$int(kotlin.String, kotlin.Boolean)/sensitive">sensitive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="long.html">long</a></h4>
+</td>
+<td>
+<p>Returns a <a href="-standard/index.html">Configuration.Property.Definition.Standard</a> with value of type <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">long</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$long(kotlin.String, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$long(kotlin.String, kotlin.Boolean)/sensitive">sensitive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="nested-object.html">nestedObject</a></h4>
+</td>
+<td>
+<p>Returns a <a href="-standard/index.html">Configuration.Property.Definition.Standard</a> with value of type <a href="#">ConfigObject</a>.
+It supports an optional <a href="../../-schema/index.html">Configuration.Schema</a>, which is used for validation and more when provided.</p>
+<code><span class="keyword">fun </span><span class="identifier">nestedObject</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$nestedObject(kotlin.String, net.corda.common.configuration.parsing.internal.Configuration.Schema, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$nestedObject(kotlin.String, net.corda.common.configuration.parsing.internal.Configuration.Schema, kotlin.Boolean)/schema">schema</span><span class="symbol">:</span>&nbsp;<span class="identifier">Schema</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$nestedObject(kotlin.String, net.corda.common.configuration.parsing.internal.Configuration.Schema, kotlin.Boolean)/sensitive">sensitive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><span class="identifier">ConfigObject</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="string.html">string</a></h4>
+</td>
+<td>
+<p>Returns a <a href="-standard/index.html">Configuration.Property.Definition.Standard</a> with value of type <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">string</span><span class="symbol">(</span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$string(kotlin.String, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.common.configuration.parsing.internal.Configuration.Property.Definition.Companion$string(kotlin.String, kotlin.Boolean)/sensitive">sensitive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Standard</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

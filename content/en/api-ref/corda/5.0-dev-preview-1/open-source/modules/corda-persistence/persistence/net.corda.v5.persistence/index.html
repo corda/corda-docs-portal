@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.v5.persistence - persistence</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">persistence</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.v5.persistence</a><br/>
+<br/>
+<h2>Package net.corda.v5.persistence</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-mapped-schema/index.html">MappedSchema</a></h4>
+</td>
+<td>
+<p>A database schema that might be configured for this node.  As well as a name and version for identifying the schema,
+also list the classes that may be used in the generated object graph in order to configure the ORM tool.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">MappedSchema</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-u-u-i-d-converter/index.html">UUIDConverter</a></h4>
+</td>
+<td>
+<p>Used to convert to and from <a href="https://docs.oracle.com/javase/6/docs/api/java/util/UUID.html">UUID</a>s when defining <a href="-mapped-schema/index.html">MappedSchema</a> entity columns.</p>
+<code><span class="keyword">object </span><span class="identifier">UUIDConverter</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AttributeConverter</span><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-corda-persistence-exception/index.html">CordaPersistenceException</a></h4>
+</td>
+<td>
+<p>Exception that encapsulates errors during Persistence.</p>
+<code><span class="keyword">class </span><span class="identifier">CordaPersistenceException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaRuntimeException</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

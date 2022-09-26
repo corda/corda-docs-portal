@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowLogic.initiateFlow - legacy-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">legacy-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.legacyapi.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowLogic</a>&nbsp;/&nbsp;<a href="./initiate-flow.html">initiateFlow</a><br/>
+<br/>
+<h1>initiateFlow</h1>
+<a name="net.corda.v5.legacyapi.flows.FlowLogic$initiateFlow(net.corda.v5.application.flows.Destination)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">fun </span><span class="identifier">initiateFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.legacyapi.flows.FlowLogic$initiateFlow(net.corda.v5.application.flows.Destination)/destination">destination</span><span class="symbol">:</span>&nbsp;<span class="identifier">Destination</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FlowSession</span></code>
+<p>Creates a communication session with <a href="initiate-flow.html#net.corda.v5.legacyapi.flows.FlowLogic$initiateFlow(net.corda.v5.application.flows.Destination)/destination">destination</a>. Subsequently you may send/receive using this session object. How the messaging
+is routed depends on the <a href="#">Destination</a> type, including whether this call does any initial communication.</p>
+<a name="net.corda.v5.legacyapi.flows.FlowLogic$initiateFlow(net.corda.v5.application.identity.Party)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">fun </span><span class="identifier">initiateFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.legacyapi.flows.FlowLogic$initiateFlow(net.corda.v5.application.identity.Party)/party">party</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FlowSession</span></code>
+<p>Creates a communication session with <a href="initiate-flow.html#net.corda.v5.legacyapi.flows.FlowLogic$initiateFlow(net.corda.v5.application.identity.Party)/party">party</a>. Subsequently you may send/receive using this session object. Note
+that this function does not communicate in itself, the counter-flow will be kicked off by the first send/receive.</p>
+</BODY>
+</HTML>

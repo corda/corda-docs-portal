@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.crypto - crypto-impl</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">crypto-impl</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.crypto</a><br/>
+<br/>
+<h2>Package net.corda.crypto</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-basic-crypto-persistent-key/index.html">BasicCryptoPersistentKey</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">BasicCryptoPersistentKey</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-certificate-type/index.html">CertificateType</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">CertificateType</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-crypto-categories/index.html">CryptoCategories</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">CryptoCategories</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-crypto-library-factory/index.html">CryptoLibraryFactory</a></h4>
+</td>
+<td>
+<p>The <a href="-crypto-library-factory/index.html">CryptoLibraryFactory</a> provides operations to create various crypto services.</p>
+<code><span class="keyword">interface </span><span class="identifier">CryptoLibraryFactory</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-key-management-backend/index.html">KeyManagementBackend</a></h4>
+</td>
+<td>
+<p>The <a href="-key-management-backend/index.html">KeyManagementBackend</a> provides operation support for <a href="#">KeyManagementService</a> and is responsible for storing
+and using private keys to sign things. An implementation of this may, for example,
+call out to a hardware security module that enforces various auditing and frequency-of-use requirements.</p>
+<code><span class="keyword">interface </span><span class="identifier">KeyManagementBackend</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signing-persistent-key/index.html">SigningPersistentKey</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SigningPersistentKey</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-cloneable/index.html"><span class="identifier">Cloneable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-signing-service/index.html">SigningService</a></h4>
+</td>
+<td>
+<p>The SigningService is responsible for storing and using private keys to sign things. An implementation of this may, for example,
+call out to a hardware security module that enforces various auditing and frequency-of-use requirements.</p>
+<code><span class="keyword">interface </span><span class="identifier">SigningService</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="java.security.-public-key/index.html">java.security.PublicKey</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.-byte-array/index.html">kotlin.ByteArray</a></h4>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="create-certificate.html">createCertificate</a></h4>
+</td>
+<td>
+<p>Create a X509 v3 certificate using the given issuer certificate and key pair.</p>
+<code><span class="keyword">fun </span><a href="-signing-service/index.html"><span class="identifier">SigningService</span></a><span class="symbol">.</span><span class="identifier">createCertificate</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto$createCertificate(net.corda.crypto.SigningService, net.corda.crypto.CertificateType, java.security.cert.X509Certificate, java.security.PublicKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, kotlin.Pair((java.time.Duration, )), org.bouncycastle.asn1.x509.NameConstraints, kotlin.String, org.bouncycastle.asn1.x500.X500Name)/certificateType">certificateType</span><span class="symbol">:</span>&nbsp;<a href="-certificate-type/index.html"><span class="identifier">CertificateType</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto$createCertificate(net.corda.crypto.SigningService, net.corda.crypto.CertificateType, java.security.cert.X509Certificate, java.security.PublicKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, kotlin.Pair((java.time.Duration, )), org.bouncycastle.asn1.x509.NameConstraints, kotlin.String, org.bouncycastle.asn1.x500.X500Name)/issuerCertificate">issuerCertificate</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto$createCertificate(net.corda.crypto.SigningService, net.corda.crypto.CertificateType, java.security.cert.X509Certificate, java.security.PublicKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, kotlin.Pair((java.time.Duration, )), org.bouncycastle.asn1.x509.NameConstraints, kotlin.String, org.bouncycastle.asn1.x500.X500Name)/issuerPublicKey">issuerPublicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto$createCertificate(net.corda.crypto.SigningService, net.corda.crypto.CertificateType, java.security.cert.X509Certificate, java.security.PublicKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, kotlin.Pair((java.time.Duration, )), org.bouncycastle.asn1.x509.NameConstraints, kotlin.String, org.bouncycastle.asn1.x500.X500Name)/subject">subject</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/javax/security/auth/x500/X500Principal.html"><span class="identifier">X500Principal</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto$createCertificate(net.corda.crypto.SigningService, net.corda.crypto.CertificateType, java.security.cert.X509Certificate, java.security.PublicKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, kotlin.Pair((java.time.Duration, )), org.bouncycastle.asn1.x509.NameConstraints, kotlin.String, org.bouncycastle.asn1.x500.X500Name)/subjectPublicKey">subjectPublicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto$createCertificate(net.corda.crypto.SigningService, net.corda.crypto.CertificateType, java.security.cert.X509Certificate, java.security.PublicKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, kotlin.Pair((java.time.Duration, )), org.bouncycastle.asn1.x509.NameConstraints, kotlin.String, org.bouncycastle.asn1.x500.X500Name)/validityWindow">validityWindow</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><span class="identifier">Duration</span><span class="symbol">,</span>&nbsp;<span class="identifier">Duration</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_VALIDITY_WINDOW<span class="symbol">, </span><span class="identifier" id="net.corda.crypto$createCertificate(net.corda.crypto.SigningService, net.corda.crypto.CertificateType, java.security.cert.X509Certificate, java.security.PublicKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, kotlin.Pair((java.time.Duration, )), org.bouncycastle.asn1.x509.NameConstraints, kotlin.String, org.bouncycastle.asn1.x500.X500Name)/nameConstraints">nameConstraints</span><span class="symbol">:</span>&nbsp;<span class="identifier">NameConstraints</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.crypto$createCertificate(net.corda.crypto.SigningService, net.corda.crypto.CertificateType, java.security.cert.X509Certificate, java.security.PublicKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, kotlin.Pair((java.time.Duration, )), org.bouncycastle.asn1.x509.NameConstraints, kotlin.String, org.bouncycastle.asn1.x500.X500Name)/crlDistPoint">crlDistPoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.crypto$createCertificate(net.corda.crypto.SigningService, net.corda.crypto.CertificateType, java.security.cert.X509Certificate, java.security.PublicKey, javax.security.auth.x500.X500Principal, java.security.PublicKey, kotlin.Pair((java.time.Duration, )), org.bouncycastle.asn1.x509.NameConstraints, kotlin.String, org.bouncycastle.asn1.x500.X500Name)/crlIssuer">crlIssuer</span><span class="symbol">:</span>&nbsp;<span class="identifier">X500Name</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-self-signed-c-a-certificate.html">createSelfSignedCACertificate</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="-signing-service/index.html"><span class="identifier">SigningService</span></a><span class="symbol">.</span><span class="identifier">createSelfSignedCACertificate</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto$createSelfSignedCACertificate(net.corda.crypto.SigningService, javax.security.auth.x500.X500Principal, java.security.PublicKey, kotlin.Pair((java.time.Duration, )))/subject">subject</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/javax/security/auth/x500/X500Principal.html"><span class="identifier">X500Principal</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto$createSelfSignedCACertificate(net.corda.crypto.SigningService, javax.security.auth.x500.X500Principal, java.security.PublicKey, kotlin.Pair((java.time.Duration, )))/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto$createSelfSignedCACertificate(net.corda.crypto.SigningService, javax.security.auth.x500.X500Principal, java.security.PublicKey, kotlin.Pair((java.time.Duration, )))/validityWindow">validityWindow</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><span class="identifier">Duration</span><span class="symbol">,</span>&nbsp;<span class="identifier">Duration</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_VALIDITY_WINDOW<span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-signer.html">getSigner</a></h4>
+</td>
+<td>
+<p>Generates <a href="#">ContentSigner</a> instance for the key identified by the input alias.</p>
+<code><span class="keyword">fun </span><a href="-signing-service/index.html"><span class="identifier">SigningService</span></a><span class="symbol">.</span><span class="identifier">getSigner</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto$getSigner(net.corda.crypto.SigningService, kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ContentSigner</span></code>
+<p>Generates <a href="#">ContentSigner</a> instance for the key identified by the public key.</p>
+<code><span class="keyword">fun </span><a href="-signing-service/index.html"><span class="identifier">SigningService</span></a><span class="symbol">.</span><span class="identifier">getSigner</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto$getSigner(net.corda.crypto.SigningService, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ContentSigner</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

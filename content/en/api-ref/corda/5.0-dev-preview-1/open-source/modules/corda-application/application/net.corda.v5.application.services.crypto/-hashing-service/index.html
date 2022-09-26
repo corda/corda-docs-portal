@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>HashingService - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.services.crypto</a>&nbsp;/&nbsp;<a href="./index.html">HashingService</a><br/>
+<br/>
+<h1>HashingService</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">HashingService</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">DigestService</span><span class="symbol">, </span><a href="../../net.corda.v5.application.injection/-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="../../net.corda.v5.application.injection/-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code>
+<p>Handles hashing of bytes.</p>
+<p>Delegates all functionality to <a href="#">DigestService</a>.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="default-digest-algorithm-name.html">defaultDigestAlgorithmName</a></h4>
+</td>
+<td>
+<p>Default <a href="#">DigestAlgorithmName</a> for this hashing service.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">defaultDigestAlgorithmName</span><span class="symbol">: </span><span class="identifier">DigestAlgorithmName</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="concatenate.html">concatenate</a></h4>
+</td>
+<td>
+<p>Appends <a href="concatenate.html#net.corda.v5.application.services.crypto.HashingService$concatenate(net.corda.v5.crypto.SecureHash, net.corda.v5.crypto.SecureHash)/second">second</a> digest to <a href="concatenate.html#net.corda.v5.application.services.crypto.HashingService$concatenate(net.corda.v5.crypto.SecureHash, net.corda.v5.crypto.SecureHash)/first">first</a>, and then computes the digest of the result. Both digests need to be of the same digest algorithm.
+The result digest is of the same digest algorithm as well.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">concatenate</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.crypto.HashingService$concatenate(net.corda.v5.crypto.SecureHash, net.corda.v5.crypto.SecureHash)/first">first</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.application.services.crypto.HashingService$concatenate(net.corda.v5.crypto.SecureHash, net.corda.v5.crypto.SecureHash)/second">second</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash.html">hash</a></h4>
+</td>
+<td>
+<p>Computes the digest of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> using the default digest algorithm (<a href="#">DigestAlgorithmName.DEFAULT_ALGORITHM_NAME</a>).</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">hash</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.crypto.HashingService$hash(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code>
+<p>Computes the digest of the <a href="#">OpaqueBytes</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">hash</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.crypto.HashingService$hash(net.corda.v5.base.types.OpaqueBytes, net.corda.v5.crypto.DigestAlgorithmName)/opaqueBytes">opaqueBytes</span><span class="symbol">:</span>&nbsp;<span class="identifier">OpaqueBytes</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.application.services.crypto.HashingService$hash(net.corda.v5.base.types.OpaqueBytes, net.corda.v5.crypto.DigestAlgorithmName)/digestAlgorithmName">digestAlgorithmName</span><span class="symbol">:</span>&nbsp;<span class="identifier">DigestAlgorithmName</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code>
+<p>Computes the digest of the <a href="#">OpaqueBytes</a> using the default digest algorithm (<a href="#">DigestAlgorithmName.DEFAULT_ALGORITHM_NAME</a>).</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">hash</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.crypto.HashingService$hash(net.corda.v5.base.types.OpaqueBytes)/opaqueBytes">opaqueBytes</span><span class="symbol">:</span>&nbsp;<span class="identifier">OpaqueBytes</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code>
+<p>Computes the digest of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>'s UTF-8 byte contents.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">hash</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.crypto.HashingService$hash(kotlin.String, net.corda.v5.crypto.DigestAlgorithmName)/str">str</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.application.services.crypto.HashingService$hash(kotlin.String, net.corda.v5.crypto.DigestAlgorithmName)/digestAlgorithmName">digestAlgorithmName</span><span class="symbol">:</span>&nbsp;<span class="identifier">DigestAlgorithmName</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code>
+<p>Computes the digest of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>'s UTF-8 byte contents using the default digest algorithm (<a href="#">DigestAlgorithmName.DEFAULT_ALGORITHM_NAME</a>).</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">hash</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.crypto.HashingService$hash(kotlin.String)/str">str</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="random-hash.html">randomHash</a></h4>
+</td>
+<td>
+<p>Generates a random hash value.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">randomHash</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.crypto.HashingService$randomHash(net.corda.v5.crypto.DigestAlgorithmName)/digestAlgorithmName">digestAlgorithmName</span><span class="symbol">:</span>&nbsp;<span class="identifier">DigestAlgorithmName</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="re-hash.html">reHash</a></h4>
+</td>
+<td>
+<p>Re-hashes <a href="re-hash.html#net.corda.v5.application.services.crypto.HashingService$reHash(net.corda.v5.crypto.SecureHash)/secureHash">secureHash</a> bytes using its original digest algorithm.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">reHash</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.crypto.HashingService$reHash(net.corda.v5.crypto.SecureHash)/secureHash">secureHash</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.common.logging.errorReporting - logging</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">logging</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.common.logging.errorReporting</a><br/>
+<br/>
+<h2>Package net.corda.common.logging.errorReporting</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-corda-error-context-provider/index.html">CordaErrorContextProvider</a></h4>
+</td>
+<td>
+<p>Provides information specific to Corda to the error reporting library.</p>
+<code><span class="keyword">class </span><span class="identifier">CordaErrorContextProvider</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-error-context-provider/index.html"><span class="identifier">ErrorContextProvider</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-error-code/index.html">ErrorCode</a></h4>
+</td>
+<td>
+<p>A type representing an error condition.</p>
+<code><span class="keyword">interface </span><span class="identifier">ErrorCode</span><span class="symbol">&lt;</span><span class="identifier">CODES</span><span class="symbol">&gt;</span><span class="keyword"> where </span><span class="identifier">CODES</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-error-codes/index.html"><span class="identifier">ErrorCodes</span></a><span class="symbol">, </span><span class="identifier">CODES</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/index.html"><span class="identifier">Enum</span></a><span class="symbol">&lt;</span><span class="identifier">CODES</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-error-codes/index.html">ErrorCodes</a></h4>
+</td>
+<td>
+<p>A collection of error codes.</p>
+<code><span class="keyword">interface </span><span class="identifier">ErrorCodes</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-error-context-provider/index.html">ErrorContextProvider</a></h4>
+</td>
+<td>
+<p>Provide context around reported errors by supplying product specific information.</p>
+<code><span class="keyword">interface </span><span class="identifier">ErrorContextProvider</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-error-reporting/index.html">ErrorReporting</a></h4>
+</td>
+<td>
+<p>Entry point into the Error Reporting framework.</p>
+<code><span class="keyword">class </span><span class="identifier">ErrorReporting</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-error-resource/index.html">ErrorResource</a></h4>
+</td>
+<td>
+<p>A representation of a single error resource file.</p>
+<code><span class="keyword">class </span><span class="identifier">ErrorResource</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-node-database-errors/index.html">NodeDatabaseErrors</a></h4>
+</td>
+<td>
+<p>Errors related to database connectivity</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">NodeDatabaseErrors</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-error-codes/index.html"><span class="identifier">ErrorCodes</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-node-namespaces/index.html">NodeNamespaces</a></h4>
+</td>
+<td>
+<p>Namespaces for errors within the node.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">NodeNamespaces</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-resource-bundle-properties/index.html">ResourceBundleProperties</a></h4>
+</td>
+<td>
+<p>Constants defining the properties available in the resource bundle files.</p>
+<code><span class="keyword">object </span><span class="identifier">ResourceBundleProperties</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-double-initialization-exception/index.html">DoubleInitializationException</a></h4>
+</td>
+<td>
+<p>Occurs if the error reporting framework has been initialized twice</p>
+<code><span class="keyword">class </span><span class="identifier">DoubleInitializationException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-error-reporting-exception/index.html"><span class="identifier">ErrorReportingException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-error-reporting-exception/index.html">ErrorReportingException</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">ErrorReportingException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html"><span class="identifier">Exception</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-locale-setting-unsupported-exception/index.html">LocaleSettingUnsupportedException</a></h4>
+</td>
+<td>
+<p>Occurs if a locale is set while initializing the error reporting framework.</p>
+<code><span class="keyword">class </span><span class="identifier">LocaleSettingUnsupportedException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-error-reporting-exception/index.html"><span class="identifier">ErrorReportingException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-no-context-provider-supplied-exception/index.html">NoContextProviderSuppliedException</a></h4>
+</td>
+<td>
+<p>Occurs when no error context provider is supplied while initializing error reporting</p>
+<code><span class="keyword">class </span><span class="identifier">NoContextProviderSuppliedException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-error-reporting-exception/index.html"><span class="identifier">ErrorReportingException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-reporting-uninitialized-exception/index.html">ReportingUninitializedException</a></h4>
+</td>
+<td>
+<p>Occurs when reporting is requested before the error reporting code has been initialized</p>
+<code><span class="keyword">class </span><span class="identifier">ReportingUninitializedException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-error-reporting-exception/index.html"><span class="identifier">ErrorReportingException</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="org.slf4j.-logger/index.html">org.slf4j.Logger</a></h4>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

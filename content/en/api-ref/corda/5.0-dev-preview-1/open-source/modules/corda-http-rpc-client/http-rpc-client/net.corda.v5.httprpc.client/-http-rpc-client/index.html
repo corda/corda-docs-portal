@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>HttpRpcClient - http-rpc-client</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">http-rpc-client</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.httprpc.client</a>&nbsp;/&nbsp;<a href="./index.html">HttpRpcClient</a><br/>
+<br/>
+<h1>HttpRpcClient</h1>
+<code><span class="keyword">class </span><span class="identifier">HttpRpcClient</span><span class="symbol">&lt;</span><span class="identifier">I</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/AutoCloseable.html"><span class="identifier">AutoCloseable</span></a></code>
+<p><a href="./index.html">HttpRpcClient</a> is meant to run outside of Corda Node JVM and provide connectivity to a node using the HTTP-RPC protocol.
+Since Corda Node can expose multiple RPC interfaces through HTTP, it is required to specify which <a href="#">RPCOps</a> interface should be used.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">HttpRpcClient</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.httprpc.client.HttpRpcClient$<init>(kotlin.String, java.lang.Class((net.corda.v5.httprpc.client.HttpRpcClient.I)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig)/baseAddress">baseAddress</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.httprpc.client.HttpRpcClient$<init>(kotlin.String, java.lang.Class((net.corda.v5.httprpc.client.HttpRpcClient.I)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig)/rpcOpsClass">rpcOpsClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">I</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.httprpc.client.HttpRpcClient$<init>(kotlin.String, java.lang.Class((net.corda.v5.httprpc.client.HttpRpcClient.I)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig)/clientConfig">clientConfig</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.httprpc.client.config/-http-rpc-client-config/index.html"><span class="identifier">HttpRpcClientConfig</span></a><span class="symbol">)</span></code><br/>
+<code><span class="identifier">HttpRpcClient</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.httprpc.client.HttpRpcClient$<init>(kotlin.String, java.lang.Class((net.corda.v5.httprpc.client.HttpRpcClient.I)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig, kotlin.Long)/baseAddress">baseAddress</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.httprpc.client.HttpRpcClient$<init>(kotlin.String, java.lang.Class((net.corda.v5.httprpc.client.HttpRpcClient.I)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig, kotlin.Long)/rpcOpsClass">rpcOpsClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">I</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.httprpc.client.HttpRpcClient$<init>(kotlin.String, java.lang.Class((net.corda.v5.httprpc.client.HttpRpcClient.I)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig, kotlin.Long)/clientConfig">clientConfig</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.httprpc.client.config/-http-rpc-client-config/index.html"><span class="identifier">HttpRpcClientConfig</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.httprpc.client.HttpRpcClient$<init>(kotlin.String, java.lang.Class((net.corda.v5.httprpc.client.HttpRpcClient.I)), net.corda.v5.httprpc.client.config.HttpRpcClientConfig, kotlin.Long)/healthCheckInterval">healthCheckInterval</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="add-connection-listener.html">addConnectionListener</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">addConnectionListener</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.httprpc.client.HttpRpcClient$addConnectionListener(net.corda.v5.httprpc.client.HttpRpcConnectionListener((net.corda.v5.httprpc.client.HttpRpcClient.I)))/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="../-http-rpc-connection-listener/index.html"><span class="identifier">HttpRpcConnectionListener</span></a><span class="symbol">&lt;</span><span class="identifier">I</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="close.html">close</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="remove-connection-listener.html">removeConnectionListener</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">removeConnectionListener</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.httprpc.client.HttpRpcClient$removeConnectionListener(net.corda.v5.httprpc.client.HttpRpcConnectionListener((net.corda.v5.httprpc.client.HttpRpcClient.I)))/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="../-http-rpc-connection-listener/index.html"><span class="identifier">HttpRpcConnectionListener</span></a><span class="symbol">&lt;</span><span class="identifier">I</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start.html">start</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-http-rpc-connection/index.html"><span class="identifier">HttpRpcConnection</span></a><span class="symbol">&lt;</span><span class="identifier">I</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

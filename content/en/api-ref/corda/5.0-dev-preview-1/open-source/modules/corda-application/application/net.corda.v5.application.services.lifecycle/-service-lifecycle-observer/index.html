@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ServiceLifecycleObserver - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.services.lifecycle</a>&nbsp;/&nbsp;<a href="./index.html">ServiceLifecycleObserver</a><br/>
+<br/>
+<h1>ServiceLifecycleObserver</h1>
+<code><span class="keyword">interface </span><span class="identifier">ServiceLifecycleObserver</span></code>
+<p>Provides lifecycle support to services.</p>
+<p>Implementing this interface does not guarantee that a service can listen to lifecycle events. Currently the services that can subscribe
+to lifecycle events are <a href="../../net.corda.v5.application.services/-corda-service.html">CordaService</a>s.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="../../net.corda.v5.application.services/-corda-service.html">CordaService</a></p>
+</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="on-event.html">onEvent</a></h4>
+</td>
+<td>
+<p>Method allowing allowing a service to react to certain lifecycle events. Default implementation does nothing so services only need to
+implement the method if specific behaviour is required.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onEvent</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.lifecycle.ServiceLifecycleObserver$onEvent(net.corda.v5.application.services.lifecycle.ServiceLifecycleEvent)/event">event</span><span class="symbol">:</span>&nbsp;<a href="../-service-lifecycle-event.html"><span class="identifier">ServiceLifecycleEvent</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.v5.application.services/-corda-service.html">CordaService</a></h4>
+</td>
+<td>
+<p>Any class that needs to be a long-lived service within the node, should implement this interface. The constructor will be invoked during
+node start to initialise the service, however initialisation logic is better added to the <a href="on-event.html">ServiceLifecycleObserver.onEvent</a> function as
+a response to the <a href="../-service-start.html">ServiceStart</a> implementation of <a href="../-service-lifecycle-event.html">ServiceLifecycleEvent</a> so that injected services can be used. Injected services are
+injected post instantiation so no injected services can be used within a constructor. Corda services are created as singletons within the
+node and can be made available to flows and other corda services via dependency injection.</p>
+<code><span class="keyword">interface </span><span class="identifier">CordaService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">ServiceLifecycleObserver</span></a><span class="symbol">, </span><span class="identifier">SingletonSerializeAsToken</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

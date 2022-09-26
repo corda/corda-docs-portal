@@ -1,0 +1,160 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaFlowInjectable - application</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">application</a>&nbsp;/&nbsp;<a href="index.html">net.corda.v5.application.injection</a>&nbsp;/&nbsp;<a href="./-corda-flow-injectable.html">CordaFlowInjectable</a><br/>
+<br/>
+<h1>CordaFlowInjectable</h1>
+<code><span class="keyword">interface </span><span class="identifier">CordaFlowInjectable</span></code>
+<p>Interfaces that extend <a href="./-corda-flow-injectable.html">CordaFlowInjectable</a> can be injected into <a href="../net.corda.v5.application.flows/-flow/index.html">net.corda.v5.application.flows.Flow</a>s using <a href="-corda-inject/index.html">CordaInject</a>.</p>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.node/-corda-clock/index.html">CordaClock</a></h4>
+</td>
+<td>
+<p>A <a href="#">Clock</a> that tokenizes itself when serialized, and delegates to an underlying <a href="#">Clock</a> implementation.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">CordaClock</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Clock</span><span class="symbol">, </span><span class="identifier">SerializeAsToken</span><span class="symbol">, </span><a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.cordapp/-cordapp-provider/index.html">CordappProvider</a></h4>
+</td>
+<td>
+<p>Provides access to what the node knows about loaded applications.</p>
+<code><span class="keyword">interface </span><span class="identifier">CordappProvider</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.services.diagnostics/-diagnostics-service/index.html">DiagnosticsService</a></h4>
+</td>
+<td>
+<p>A <a href="../net.corda.v5.application.services.diagnostics/-diagnostics-service/index.html">DiagnosticsService</a> provides APIs that allow CorDapps to query information about the node that CorDapp is currently running on.</p>
+<code><span class="keyword">interface </span><span class="identifier">DiagnosticsService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.services.crypto/-digital-signature-verification-service/index.html">DigitalSignatureVerificationService</a></h4>
+</td>
+<td>
+<p>The <a href="../net.corda.v5.application.services.crypto/-digital-signature-verification-service/index.html">DigitalSignatureVerificationService</a> digital signature verification operations.</p>
+<code><span class="keyword">interface </span><span class="identifier">DigitalSignatureVerificationService</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">SignatureVerificationService</span><span class="symbol">, </span><a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.flows.flowservices/-flow-auditor/index.html">FlowAuditor</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">FlowAuditor</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.flows.flowservices/-flow-engine/index.html">FlowEngine</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">FlowEngine</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.flows.flowservices/-flow-identity/index.html">FlowIdentity</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">FlowIdentity</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.flows.flowservices/-flow-messaging/index.html">FlowMessaging</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">FlowMessaging</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.services.crypto/-hashing-service/index.html">HashingService</a></h4>
+</td>
+<td>
+<p>Handles hashing of bytes.</p>
+<code><span class="keyword">interface </span><span class="identifier">HashingService</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">DigestService</span><span class="symbol">, </span><a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.services/-identity-service/index.html">IdentityService</a></h4>
+</td>
+<td>
+<p>An identity service maintains a directory of parties by their associated distinguished name/public keys, and thus supports the lookup of
+a party if given its key or its X.500 name.</p>
+<code><span class="keyword">interface </span><span class="identifier">IdentityService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.services.json/-json-marshalling-service/index.html">JsonMarshallingService</a></h4>
+</td>
+<td>
+<p>An optional service CorDapps and other services may use to marshall arbitrary content in and out of JSON format using standard/approved
+mappers.</p>
+<code><span class="keyword">interface </span><span class="identifier">JsonMarshallingService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.services.crypto/-key-management-service/index.html">KeyManagementService</a></h4>
+</td>
+<td>
+<p>The <a href="../net.corda.v5.application.services.crypto/-key-management-service/index.html">KeyManagementService</a> is responsible for storing and using private keys to sign things. An implementation of this may, for example,
+call out to a hardware security module that enforces various auditing and frequency-of-use requirements.</p>
+<code><span class="keyword">interface </span><span class="identifier">KeyManagementService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.services/-member-lookup-service/index.html">MemberLookupService</a></h4>
+</td>
+<td>
+<p>Group Manager Service contains list of identities in Membership Management Group along with information about their identity keys,
+services they provide and host names or IP addresses where they can be connected to. The cache wraps around a list fetched from the
+manager, and adds easy lookup of the data stored within it. Generally it would be initialised with a specific Group Manager,
+which it fetches data from and then subscribes to updates of.</p>
+<code><span class="keyword">interface </span><span class="identifier">MemberLookupService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a><span class="symbol">, </span><a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.node/-network-parameters/index.html">NetworkParameters</a></h4>
+</td>
+<td>
+<p>Note: any values in the networkParametersValues map need to be
+a.) serializable for P2P (AMQP) and checkpoints (Kryo)
+b.) comparable with .equals()</p>
+<code><span class="keyword">interface </span><span class="identifier">NetworkParameters</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.services/-network-parameters-service/index.html">NetworkParametersService</a></h4>
+</td>
+<td>
+<p>Service for retrieving network parameters used for resolving transactions according to parameters that were historically in force in the
+network.</p>
+<code><span class="keyword">interface </span><span class="identifier">NetworkParametersService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.services.persistence/-persistence-service/index.html">PersistenceService</a></h4>
+</td>
+<td>
+<p>Persistence Service API providing functionality to interact with an entityManager and execute pre-defined named queries.</p>
+<code><span class="keyword">interface </span><span class="identifier">PersistenceService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a><span class="symbol">, </span><a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../net.corda.v5.application.services.serialization/-serialization-service/index.html">SerializationService</a></h4>
+</td>
+<td>
+<p>Handles serialization and deserialization of objects.</p>
+<code><span class="keyword">interface </span><span class="identifier">SerializationService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-corda-service-injectable.html"><span class="identifier">CordaServiceInjectable</span></a><span class="symbol">, </span><a href="./-corda-flow-injectable.html"><span class="identifier">CordaFlowInjectable</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

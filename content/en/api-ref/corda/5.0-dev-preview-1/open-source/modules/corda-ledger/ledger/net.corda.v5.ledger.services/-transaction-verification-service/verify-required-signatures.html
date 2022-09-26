@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionVerificationService.verifyRequiredSignatures - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.services</a>&nbsp;/&nbsp;<a href="index.html">TransactionVerificationService</a>&nbsp;/&nbsp;<a href="./verify-required-signatures.html">verifyRequiredSignatures</a><br/>
+<br/>
+<h1>verifyRequiredSignatures</h1>
+<a name="net.corda.v5.ledger.services.TransactionVerificationService$verifyRequiredSignatures(net.corda.v5.ledger.transactions.TransactionWithSignatures)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">verifyRequiredSignatures</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.TransactionVerificationService$verifyRequiredSignatures(net.corda.v5.ledger.transactions.TransactionWithSignatures)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.transactions/-transaction-with-signatures/index.html"><span class="identifier">TransactionWithSignatures</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Verifies the signatures on the input <a href="verify-required-signatures.html#net.corda.v5.ledger.services.TransactionVerificationService$verifyRequiredSignatures(net.corda.v5.ledger.transactions.TransactionWithSignatures)/transaction">transaction</a> and throws if any are missing. In this context, "verifying" means checking they
+are valid signatures and that their public keys are in the <a href="../../net.corda.v5.ledger.transactions/-transaction-with-signatures/required-signing-keys.html">TransactionWithSignatures.requiredSigningKeys</a> set.</p>
+<h3>Parameters</h3>
+<p><a name="transaction"></a>
+<code>transaction</code> - The <a href="../../net.corda.v5.ledger.transactions/-transaction-with-signatures/index.html">TransactionWithSignatures</a> that will have its signatures verified.</p>
+<h3>Exceptions</h3>
+<p><a name="SignatureException"></a>
+<code>SignatureException</code> - If any signatures are invalid or unrecognised.</p>
+<p><a name="SignaturesMissingException"></a>
+<code>SignaturesMissingException</code> - If any signatures should have been present but were not.</p>
+<p><a name="InvalidKeyException"></a>
+<code>InvalidKeyException</code> - If the key on a signature is invalid.</p>
+</BODY>
+</HTML>

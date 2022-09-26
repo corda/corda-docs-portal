@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AttachmentResolutionException - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.contracts</a>&nbsp;/&nbsp;<a href="./index.html">AttachmentResolutionException</a><br/>
+<br/>
+<h1>AttachmentResolutionException</h1>
+<code><span class="keyword">class </span><span class="identifier">AttachmentResolutionException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowException</span></code>
+<p>The node asked a remote peer for the attachment identified by <a href="hash.html">hash</a> because it is a dependency of a transaction
+being resolved, but the remote peer would not provide it.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>The node asked a remote peer for the attachment identified by <a href="hash.html">hash</a> because it is a dependency of a transaction
+being resolved, but the remote peer would not provide it.</p>
+<code><span class="identifier">AttachmentResolutionException</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.contracts.AttachmentResolutionException$<init>(net.corda.v5.crypto.SecureHash)/hash">hash</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.ledger.services/-attachment-id.html"><span class="identifier">AttachmentId</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="hash.html">hash</a></h4>
+</td>
+<td>
+<p>Hash of the bytes of the attachment, see <a href="#">Attachment.id</a></p>
+<code><span class="keyword">val </span><span class="identifier">hash</span><span class="symbol">: </span><a href="../../net.corda.v5.ledger.services/-attachment-id.html"><span class="identifier">AttachmentId</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

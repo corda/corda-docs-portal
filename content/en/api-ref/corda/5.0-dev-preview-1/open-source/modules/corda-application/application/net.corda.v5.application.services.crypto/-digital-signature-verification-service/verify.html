@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DigitalSignatureVerificationService.verify - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.services.crypto</a>&nbsp;/&nbsp;<a href="index.html">DigitalSignatureVerificationService</a>&nbsp;/&nbsp;<a href="./verify.html">verify</a><br/>
+<br/>
+<h1>verify</h1>
+<a name="net.corda.v5.application.services.crypto.DigitalSignatureVerificationService$verify(net.corda.v5.crypto.SecureHash, net.corda.v5.application.crypto.DigitalSignatureAndMeta)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.services.crypto.DigitalSignatureVerificationService$verify(net.corda.v5.crypto.SecureHash, net.corda.v5.application.crypto.DigitalSignatureAndMeta)/hash">hash</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">, </span><span class="identifier" id="net.corda.v5.application.services.crypto.DigitalSignatureVerificationService$verify(net.corda.v5.crypto.SecureHash, net.corda.v5.application.crypto.DigitalSignatureAndMeta)/signature">signature</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.v5.application.crypto/-digital-signature-and-meta/index.html"><span class="identifier">DigitalSignatureAndMeta</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Verifies a <a href="../../net.corda.v5.application.crypto/-digital-signature-and-meta/index.html">DigitalSignatureAndMeta</a>.</p>
+<p>Always throws an exception if verification fails.</p>
+<h3>Parameters</h3>
+<p><a name="hash"></a>
+<code>hash</code> - the hash value that is signed.</p>
+<p><a name="signature"></a>
+<code>signature</code> - the signature on the hash.</p>
+<h3>Exceptions</h3>
+<p><a name="InvalidKeyException"></a>
+<code>InvalidKeyException</code> - if the key is invalid.</p>
+<p><a name="SignatureException"></a>
+<code>SignatureException</code> - if verification fails.</p>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the signature scheme is not supported or if any of the clear or signature data is empty.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,303 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.v5.ledger.services.vault - ledger</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">ledger</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.v5.ledger.services.vault</a><br/>
+<br/>
+<h2>Package net.corda.v5.ledger.services.vault</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-aggregate-function-type/index.html">AggregateFunctionType</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">AggregateFunctionType</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-attachment-query-criteria/index.html">AttachmentQueryCriteria</a></h4>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">AttachmentQueryCriteria</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-generic-query-criteria/index.html"><span class="identifier">GenericQueryCriteria</span></a><span class="symbol">&lt;</span><a href="-attachment-query-criteria/index.html"><span class="identifier">AttachmentQueryCriteria</span></a><span class="symbol">,</span>&nbsp;<a href="-attachments-query-criteria-parser/index.html"><span class="identifier">AttachmentsQueryCriteriaParser</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">ChainableQueryCriteria</span><span class="symbol">&lt;</span><a href="-attachment-query-criteria/index.html"><span class="identifier">AttachmentQueryCriteria</span></a><span class="symbol">,</span>&nbsp;<a href="-attachments-query-criteria-parser/index.html"><span class="identifier">AttachmentsQueryCriteriaParser</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-attachment-sort/index.html">AttachmentSort</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">AttachmentSort</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-sort/index.html"><span class="identifier">BaseSort</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-attachments-query-criteria-parser/index.html">AttachmentsQueryCriteriaParser</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">AttachmentsQueryCriteriaParser</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-query-criteria-parser/index.html"><span class="identifier">BaseQueryCriteriaParser</span></a><span class="symbol">&lt;</span><a href="-attachment-query-criteria/index.html"><span class="identifier">AttachmentQueryCriteria</span></a><span class="symbol">,</span>&nbsp;<a href="-attachments-query-criteria-parser/index.html"><span class="identifier">AttachmentsQueryCriteriaParser</span></a><span class="symbol">,</span>&nbsp;<a href="-attachment-sort/index.html"><span class="identifier">AttachmentSort</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-base-query-criteria-parser/index.html">BaseQueryCriteriaParser</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">BaseQueryCriteriaParser</span><span class="symbol">&lt;</span><span class="identifier">Q</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-generic-query-criteria/index.html"><span class="identifier">GenericQueryCriteria</span></a><span class="symbol">&lt;</span><span class="identifier">Q</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">in</span>&nbsp;<span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-query-criteria-parser/index.html"><span class="identifier">BaseQueryCriteriaParser</span></a><span class="symbol">&lt;</span><span class="identifier">Q</span><span class="symbol">,</span>&nbsp;<span class="identifier">P</span><span class="symbol">,</span>&nbsp;<span class="identifier">S</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">in</span>&nbsp;<span class="identifier">S</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-sort/index.html"><span class="identifier">BaseSort</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-base-sort/index.html">BaseSort</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseSort</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-binary-comparison-operator/index.html">BinaryComparisonOperator</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">BinaryComparisonOperator</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-operator.html"><span class="identifier">Operator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-binary-logical-operator/index.html">BinaryLogicalOperator</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">BinaryLogicalOperator</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-operator.html"><span class="identifier">Operator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-builder/index.html">Builder</a></h4>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-collection-operator/index.html">CollectionOperator</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">CollectionOperator</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-operator.html"><span class="identifier">Operator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-column/index.html">Column</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Column</span><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">C</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-column-predicate/index.html">ColumnPredicate</a></h4>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">ColumnPredicate</span><span class="symbol">&lt;</span><span class="identifier">C</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-criteria-expression/index.html">CriteriaExpression</a></h4>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">CriteriaExpression</span><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-equality-comparison-operator/index.html">EqualityComparisonOperator</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">EqualityComparisonOperator</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-operator.html"><span class="identifier">Operator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-field-info/index.html">FieldInfo</a></h4>
+</td>
+<td>
+<p>Contains information about a field from an entity class.
+Used as part of query criteria construction through <a href="-builder/index.html">Builder</a>, produced by function <a href="get-field.html">getField</a>.
+The constructor should not be invoked manually.</p>
+<code><span class="keyword">class </span><span class="identifier">FieldInfo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-generic-query-criteria/index.html">GenericQueryCriteria</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">GenericQueryCriteria</span><span class="symbol">&lt;</span><span class="identifier">Q</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-generic-query-criteria/index.html"><span class="identifier">GenericQueryCriteria</span></a><span class="symbol">&lt;</span><span class="identifier">Q</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">in</span>&nbsp;<span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-query-criteria-parser/index.html"><span class="identifier">BaseQueryCriteriaParser</span></a><span class="symbol">&lt;</span><span class="identifier">Q</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-identity-contract-state-post-processor/index.html">IdentityContractStatePostProcessor</a></h4>
+</td>
+<td>
+<p>Identity function post-processor that returns <a href="../net.corda.v5.ledger.contracts/-contract-state/index.html">ContractState</a>s with no side-effects.</p>
+<code><span class="keyword">class </span><span class="identifier">IdentityContractStatePostProcessor</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state-and-ref-post-processor.html"><span class="identifier">StateAndRefPostProcessor</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-identity-state-and-ref-post-processor/index.html">IdentityStateAndRefPostProcessor</a></h4>
+</td>
+<td>
+<p>Simple post-processor that just returns <a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html">StateAndRef</a>s with no side-effects.</p>
+<code><span class="keyword">class </span><span class="identifier">IdentityStateAndRefPostProcessor</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state-and-ref-post-processor.html"><span class="identifier">StateAndRefPostProcessor</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-likeness-operator/index.html">LikenessOperator</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">LikenessOperator</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-operator.html"><span class="identifier">Operator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-null-operator/index.html">NullOperator</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">NullOperator</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-operator.html"><span class="identifier">Operator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-operator.html">Operator</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Operator</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-page-specification/index.html">PageSpecification</a></h4>
+</td>
+<td>
+<p><a href="-page-specification/index.html">PageSpecification</a> allows specification of a page number (starting from <a href="-d-e-f-a-u-l-t_-p-a-g-e_-n-u-m.html">DEFAULT_PAGE_NUM</a>) and page size
+(defaulting to <a href="-d-e-f-a-u-l-t_-p-a-g-e_-s-i-z-e.html">DEFAULT_PAGE_SIZE</a> with a maximum page size of <a href="-m-a-x_-p-a-g-e_-s-i-z-e.html">MAX_PAGE_SIZE</a>)
+Note: we default the page number to <a href="-d-e-f-a-u-l-t_-p-a-g-e_-s-i-z-e.html">DEFAULT_PAGE_SIZE</a> to enable queries without requiring a page specification
+but enabling detection of large results sets that fall out of the <a href="-d-e-f-a-u-l-t_-p-a-g-e_-s-i-z-e.html">DEFAULT_PAGE_SIZE</a> requirement.
+<a href="-m-a-x_-p-a-g-e_-s-i-z-e.html">MAX_PAGE_SIZE</a> should be used with extreme caution as results may exceed your JVM memory footprint.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">PageSpecification</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-relevancy-status/index.html">RelevancyStatus</a></h4>
+</td>
+<td>
+<p>If the querying node is a participant in a state then it is classed as <a href="-relevancy-status/-r-e-l-e-v-a-n-t.html">RELEVANT</a>.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">RelevancyStatus</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-set-based-vault-query-filter/index.html">SetBasedVaultQueryFilter</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SetBasedVaultQueryFilter</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NamedQueryFilter</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-sort/index.html">Sort</a></h4>
+</td>
+<td>
+<p>Sort allows specification of a set of entity attribute names and their associated directionality
+and null handling, to be applied upon processing a query specification.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Sort</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-sort/index.html"><span class="identifier">BaseSort</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-sort-attribute/index.html">SortAttribute</a></h4>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">SortAttribute</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-state-and-ref-post-processor.html">StateAndRefPostProcessor</a></h4>
+</td>
+<td>
+<p>Post-processors can be implemented to enhance the Named Query API.</p>
+<code><span class="keyword">interface </span><span class="identifier">StateAndRefPostProcessor</span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GenericQueryPostProcessor</span><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../net.corda.v5.ledger.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-state-status/index.html">StateStatus</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">StateStatus</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-vault-event-type/index.html">VaultEventType</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">VaultEventType</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-d-e-f-a-u-l-t_-p-a-g-e_-n-u-m.html">DEFAULT_PAGE_NUM</a></h4>
+</td>
+<td>
+<p>Pagination and Ordering</p>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">DEFAULT_PAGE_NUM</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-d-e-f-a-u-l-t_-p-a-g-e_-s-i-z-e.html">DEFAULT_PAGE_SIZE</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">DEFAULT_PAGE_SIZE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-m-a-x_-p-a-g-e_-s-i-z-e.html">MAX_PAGE_SIZE</a></h4>
+</td>
+<td>
+<p>Note: use <a href="-page-specification/index.html">PageSpecification</a> to correctly handle a number of bounded pages of a pre-configured page size.</p>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">MAX_PAGE_SIZE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="builder.html">builder</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span> <span class="identifier">builder</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.vault$builder(kotlin.Function1((net.corda.v5.ledger.services.vault.Builder, net.corda.v5.ledger.services.vault.builder.A)))/block">block</span><span class="symbol">:</span>&nbsp;<a href="-builder/index.html"><span class="identifier">Builder</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">A</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">A</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-column-name.html">getColumnName</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">, </span><span class="identifier">C</span><span class="symbol">&gt;</span> <span class="identifier">getColumnName</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.vault$getColumnName(net.corda.v5.ledger.services.vault.Column((net.corda.v5.ledger.services.vault.getColumnName.O, net.corda.v5.ledger.services.vault.getColumnName.C)))/column">column</span><span class="symbol">:</span>&nbsp;<a href="-column/index.html"><span class="identifier">Column</span></a><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">,</span>&nbsp;<span class="identifier">C</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-field.html">getField</a></h4>
+</td>
+<td>
+<p>Returns a <a href="-field-info/index.html">FieldInfo</a> for field with name <a href="get-field.html#net.corda.v5.ledger.services.vault$getField(kotlin.String, java.lang.Class((kotlin.Any)))/fieldName">fieldName</a> in <a href="get-field.html#net.corda.v5.ledger.services.vault$getField(kotlin.String, java.lang.Class((kotlin.Any)))/entityClass">entityClass</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">getField</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.vault$getField(kotlin.String, java.lang.Class((kotlin.Any)))/fieldName">fieldName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.v5.ledger.services.vault$getField(kotlin.String, java.lang.Class((kotlin.Any)))/entityClass">entityClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="-field-info/index.html"><span class="identifier">FieldInfo</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="resolve-enclosing-object-from-column.html">resolveEnclosingObjectFromColumn</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">, </span><span class="identifier">C</span><span class="symbol">&gt;</span> <span class="identifier">resolveEnclosingObjectFromColumn</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.vault$resolveEnclosingObjectFromColumn(net.corda.v5.ledger.services.vault.Column((net.corda.v5.ledger.services.vault.resolveEnclosingObjectFromColumn.O, net.corda.v5.ledger.services.vault.resolveEnclosingObjectFromColumn.C)))/column">column</span><span class="symbol">:</span>&nbsp;<a href="-column/index.html"><span class="identifier">Column</span></a><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">,</span>&nbsp;<span class="identifier">C</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="resolve-enclosing-object-from-expression.html">resolveEnclosingObjectFromExpression</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">, </span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">resolveEnclosingObjectFromExpression</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.ledger.services.vault$resolveEnclosingObjectFromExpression(net.corda.v5.ledger.services.vault.CriteriaExpression((net.corda.v5.ledger.services.vault.resolveEnclosingObjectFromExpression.O, net.corda.v5.ledger.services.vault.resolveEnclosingObjectFromExpression.R)))/expression">expression</span><span class="symbol">:</span>&nbsp;<a href="-criteria-expression/index.html"><span class="identifier">CriteriaExpression</span></a><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">,</span>&nbsp;<span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">O</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

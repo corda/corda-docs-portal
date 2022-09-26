@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DirectStatePersistable - ledger</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ledger</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.ledger.schemas</a>&nbsp;/&nbsp;<a href="./index.html">DirectStatePersistable</a><br/>
+<br/>
+<h1>DirectStatePersistable</h1>
+<code><span class="keyword">interface </span><span class="identifier">DirectStatePersistable</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-state-persistable.html"><span class="identifier">StatePersistable</span></a></code>
+<p>Marker interface to denote a persistable Corda state entity that exposes the transaction id and index as composite key called <a href="state-ref.html">stateRef</a>.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="state-ref.html">stateRef</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">stateRef</span><span class="symbol">: </span><a href="../-persistent-state-ref/index.html"><span class="identifier">PersistentStateRef</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-persistent-state/index.html">PersistentState</a></h4>
+</td>
+<td>
+<p>A super class for all mapped states exported to a schema that ensures the <a href="../../net.corda.v5.ledger.contracts/-state-ref/index.html">StateRef</a> appears on the database row.  The
+<a href="../../net.corda.v5.ledger.contracts/-state-ref/index.html">StateRef</a> will be set to the correct value by the framework (there's no need to set during mapping generation by the state itself).</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">PersistentState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">DirectStatePersistable</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>KeyEncodingService - cipher-suite</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">cipher-suite</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.cipher.suite</a>&nbsp;/&nbsp;<a href="./index.html">KeyEncodingService</a><br/>
+<br/>
+<h1>KeyEncodingService</h1>
+<code><span class="keyword">interface </span><span class="identifier">KeyEncodingService</span></code>
+<p>Encoding service which can encode and decode keys to or from byte arrays
+or strings using PEM encoding format.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="decode-public-key.html">decodePublicKey</a></h4>
+</td>
+<td>
+<p>Decodes public key from byte array.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">decodePublicKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.KeyEncodingService$decodePublicKey(kotlin.ByteArray)/encodedKey">encodedKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Decodes public key from PEM encoded string.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">decodePublicKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.KeyEncodingService$decodePublicKey(kotlin.String)/encodedKey">encodedKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="encode-as-byte-array.html">encodeAsByteArray</a></h4>
+</td>
+<td>
+<p>Encodes public key to byte array.
+The default implementation returns the <a href="https://docs.oracle.com/javase/6/docs/api/java/security/Key.html#getEncoded()">PublicKey.getEncoded</a></p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">encodeAsByteArray</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.KeyEncodingService$encodeAsByteArray(java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="encode-as-string.html">encodeAsString</a></h4>
+</td>
+<td>
+<p>Encodes public key to PEM encoded string.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">encodeAsString</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.KeyEncodingService$encodeAsString(java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-supported-private-key.html">toSupportedPrivateKey</a></h4>
+</td>
+<td>
+<p>Convert a private key to a supported implementation. This can be used to convert a SUN's EC key to an BC key.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">toSupportedPrivateKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.KeyEncodingService$toSupportedPrivateKey(java.security.PrivateKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-supported-public-key.html">toSupportedPublicKey</a></h4>
+</td>
+<td>
+<p>Convert a public key to a supported implementation. This can be used to convert a SUN's EC key to an BC key.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">toSupportedPublicKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.cipher.suite.KeyEncodingService$toSupportedPublicKey(java.security.PublicKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-cipher-scheme-metadata/index.html">CipherSchemeMetadata</a></h4>
+</td>
+<td>
+<p>Service which provides metadata about cipher suite, such as available signature schemes,
+digests and security providers.</p>
+<code><span class="keyword">interface </span><span class="identifier">CipherSchemeMetadata</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">KeyEncodingService</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

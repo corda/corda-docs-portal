@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowLogic.close - legacy-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">legacy-api</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.legacyapi.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowLogic</a>&nbsp;/&nbsp;<a href="./close.html">close</a><br/>
+<br/>
+<h1>close</h1>
+<a name="net.corda.v5.legacyapi.flows.FlowLogic$close(kotlin.collections.Set((net.corda.v5.application.flows.FlowSession)))"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.legacyapi.flows.FlowLogic$close(kotlin.collections.Set((net.corda.v5.application.flows.FlowSession)))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><span class="identifier">FlowSession</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Closes the provided sessions and performs cleanup of any resources tied to these sessions.</p>
+<p>Note that sessions are closed automatically when the corresponding top-level flow terminates.
+So, it's beneficial to eagerly close them in long-lived flows that might have many open sessions that are not needed anymore and consume resources (e.g. memory, disk etc.).
+A closed session cannot be used anymore, e.g. to send or receive messages. So, you have to ensure you are calling this method only when the provided sessions are not going to be used anymore.
+As a result, any operations on a closed session will fail with an <a href="#">UnexpectedFlowEndException</a>.
+When a session is closed, the other side is informed and the session is closed there too eventually.
+To prevent misuse of the API, if there is an attempt to close an uninitialised session the invocation will fail with an <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/index.html">IllegalStateException</a>.</p>
+</BODY>
+</HTML>

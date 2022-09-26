@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BasicKeyCacheImpl - crypto-impl</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">crypto-impl</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.crypto.internal</a>&nbsp;/&nbsp;<a href="./index.html">BasicKeyCacheImpl</a><br/>
+<br/>
+<h1>BasicKeyCacheImpl</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">BasicKeyCacheImpl</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-basic-key-cache/index.html"><span class="identifier">BasicKeyCache</span></a><span class="symbol">, </span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/AutoCloseable.html"><span class="identifier">AutoCloseable</span></a></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">BasicKeyCacheImpl</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto.internal.BasicKeyCacheImpl$<init>(kotlin.String, kotlin.String, kotlin.String, kotlin.String, net.corda.v5.cipher.suite.CipherSchemeMetadata, net.corda.crypto.internal.SimplePersistentCacheFactory((net.corda.crypto.internal.BasicCachedKey, net.corda.crypto.BasicCryptoPersistentKey)))/sandboxId">sandboxId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.BasicKeyCacheImpl$<init>(kotlin.String, kotlin.String, kotlin.String, kotlin.String, net.corda.v5.cipher.suite.CipherSchemeMetadata, net.corda.crypto.internal.SimplePersistentCacheFactory((net.corda.crypto.internal.BasicCachedKey, net.corda.crypto.BasicCryptoPersistentKey)))/partition">partition</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.BasicKeyCacheImpl$<init>(kotlin.String, kotlin.String, kotlin.String, kotlin.String, net.corda.v5.cipher.suite.CipherSchemeMetadata, net.corda.crypto.internal.SimplePersistentCacheFactory((net.corda.crypto.internal.BasicCachedKey, net.corda.crypto.BasicCryptoPersistentKey)))/passphrase">passphrase</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.BasicKeyCacheImpl$<init>(kotlin.String, kotlin.String, kotlin.String, kotlin.String, net.corda.v5.cipher.suite.CipherSchemeMetadata, net.corda.crypto.internal.SimplePersistentCacheFactory((net.corda.crypto.internal.BasicCachedKey, net.corda.crypto.BasicCryptoPersistentKey)))/salt">salt</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.BasicKeyCacheImpl$<init>(kotlin.String, kotlin.String, kotlin.String, kotlin.String, net.corda.v5.cipher.suite.CipherSchemeMetadata, net.corda.crypto.internal.SimplePersistentCacheFactory((net.corda.crypto.internal.BasicCachedKey, net.corda.crypto.BasicCryptoPersistentKey)))/schemeMetadata">schemeMetadata</span><span class="symbol">:</span>&nbsp;<span class="identifier">CipherSchemeMetadata</span><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.BasicKeyCacheImpl$<init>(kotlin.String, kotlin.String, kotlin.String, kotlin.String, net.corda.v5.cipher.suite.CipherSchemeMetadata, net.corda.crypto.internal.SimplePersistentCacheFactory((net.corda.crypto.internal.BasicCachedKey, net.corda.crypto.BasicCryptoPersistentKey)))/cacheFactory">cacheFactory</span><span class="symbol">:</span>&nbsp;<a href="../-simple-persistent-cache-factory/index.html"><span class="identifier">SimplePersistentCacheFactory</span></a><span class="symbol">&lt;</span><a href="../-basic-cached-key/index.html"><span class="identifier">BasicCachedKey</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.crypto/-basic-crypto-persistent-key/index.html"><span class="identifier">BasicCryptoPersistentKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="close.html">close</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="find.html">find</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">find</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto.internal.BasicKeyCacheImpl$find(kotlin.String)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-basic-cached-key/index.html"><span class="identifier">BasicCachedKey</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="save.html">save</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">save</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto.internal.BasicKeyCacheImpl$save(kotlin.String, java.security.KeyPair, net.corda.v5.crypto.internal.SignatureScheme)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.BasicKeyCacheImpl$save(kotlin.String, java.security.KeyPair, net.corda.v5.crypto.internal.SignatureScheme)/keyPair">keyPair</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.BasicKeyCacheImpl$save(kotlin.String, java.security.KeyPair, net.corda.v5.crypto.internal.SignatureScheme)/scheme">scheme</span><span class="symbol">:</span>&nbsp;<span class="identifier">SignatureScheme</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">save</span><span class="symbol">(</span><span class="identifier" id="net.corda.crypto.internal.BasicKeyCacheImpl$save(kotlin.String, net.corda.crypto.internal.WrappingKey)/alias">alias</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.crypto.internal.BasicKeyCacheImpl$save(kotlin.String, net.corda.crypto.internal.WrappingKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="../-wrapping-key/index.html"><span class="identifier">WrappingKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

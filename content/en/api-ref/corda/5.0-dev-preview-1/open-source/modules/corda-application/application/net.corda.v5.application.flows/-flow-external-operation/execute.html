@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowExternalOperation.execute - application</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">application</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.v5.application.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowExternalOperation</a>&nbsp;/&nbsp;<a href="./execute.html">execute</a><br/>
+<br/>
+<h1>execute</h1>
+<a name="net.corda.v5.application.flows.FlowExternalOperation$execute(kotlin.String)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">execute</span><span class="symbol">(</span><span class="identifier" id="net.corda.v5.application.flows.FlowExternalOperation$execute(kotlin.String)/deduplicationId">deduplicationId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code>
+<p>Executes a blocking operation.</p>
+<p>The execution of <a href="./execute.html">execute</a> will be run on a thread from the node's external process thread pool when called by <a href="../../net.corda.v5.application.flows.flowservices/-flow-engine/await.html">FlowEngine.await</a>.</p>
+<h3>Parameters</h3>
+<p><a name="deduplicationId"></a>
+<code>deduplicationId</code> - If the flow restarts from a checkpoint (due to node restart, or via a visit to the flow
+hospital following an error) the execute method might be called more than once by the Corda flow state machine.
+For each duplicate call, the deduplicationId is guaranteed to be the same allowing duplicate requests to be
+de-duplicated if necessary inside the execute method.</p>
+</BODY>
+</HTML>

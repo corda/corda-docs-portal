@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>EncoderService - serialization-encoding</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">serialization-encoding</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.internal.serialization.encoding</a>&nbsp;/&nbsp;<a href="./index.html">EncoderService</a><br/>
+<br/>
+<h1>EncoderService</h1>
+<code><span class="keyword">interface </span><span class="identifier">EncoderService</span></code>
+<p>Get an encoder using <a href="https://docs.oracle.com/javase/6/docs/api/java/util/ServiceLoader.html">java.util.ServiceLoader</a></p>
+<p>Usage:</p>
+<pre><code>    ServiceLoader&lt;EncoderService&gt; loader = ServiceLoader.load(EncoderService.class);</code></pre>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get.html">get</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="net.corda.internal.serialization.encoding.EncoderService$get(net.corda.internal.serialization.encoding.EncoderType)/encoderType">encoderType</span><span class="symbol">:</span>&nbsp;<a href="../-encoder-type/index.html"><span class="identifier">EncoderType</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-encoder/index.html"><span class="identifier">Encoder</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.impl.serialization.encoding/-encoder-service-factory/index.html">EncoderServiceFactory</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">EncoderServiceFactory</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">EncoderService</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
