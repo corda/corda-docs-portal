@@ -11,29 +11,34 @@ section_menu: corda-5-dev-preview2
 Corda is a platform that enables you to build permissioned blockchain networks, create applications that solve a business problem that requires parties to come to some agreement, and interact in a completely secure ecosystem.
 Corda 5 was designed with an understanding that it is the job of a platform to serve those running software on it.
 
-As a developer, Corda 5 is an accessible toolbox with well-defined layers for you to pull a solution together.
+For developers, Corda 5 is an accessible toolbox with well-defined layers that enables you to create solutions.
 It does not force complexity or concepts but gives a streamlined iteration for the testing and development loop.
 It is drivable by standard, RESTful APIs.
 
-Corda 5 places the control in your hands as an operator of a network, acknowledging that the rules governing access to a network are best set and managed by the operator. Deployments can match the scale of the problem and grow and adapt as it changes.
+As an operator of a network, Corda 5 places the control in your hands, acknowledging that the rules governing access to a network are best set and managed by you. Deployments can match the scale of the problem and grow and adapt as it changes.
 It is cloud-native, behaving as one would expect any modern application to with the tooling to match.
 
-## Start Small
+## Start small
+
 Corda 5 is designed to enable anyone to start small and scale as needed. An entire application network can run on a single laptop, with many self-sovereign identities sharing the compute resources. When required, Corda supports scaling out to the data center, allowing true decentralization of execution as identities progressively move to their own clusters. The network grows without losing control over what is important: the rules allowing people into the network and the rules governing the exchange of information. Corda 5 can handle running ten identities or many thousands of them.
 
-## Highly Available
+## Highly available
+
 The worker architecture means Corda 5 can be deployed in a Hot-Hot/Active-Active configuration that ensures continuity of execution under fault scenarios. If a worker crashes, another can pick up the checkpointed flow and continue execution.
 
-## Scale Out
+## Scale out
+
 The same architecture allows horizontal scaling to facilitate the parallel execution of thousands of flows. Capacity can be added and removed as needed through the scaling of the worker community.
 
-## No Work, No Cost
+## No work, no cost
+
 Identities are not tied to a single executing compute instance. When idle, aside from some small costs associated with static storage, identity does not incur overhead. This allows the interleaving of many identities on a much smaller system than previously available, dramatically reducing the cost per identity.
 
-## Progressive Decentralisation
+## Progressive decentralisation
 True decentralisation is hard; attempting to force it on people or industries too soon just results in friction of adoption. Corda 5 with its concepts of *virtual nodes* allows for what we term *progressive decentralisation*. That is, systems that allow themselves to start in a managed, centralized fashion, whilst retaining digital sovereignty that allows migration of those nodes to their own infrastructure when the time is right.
 
 ## A global database
+
 One of the standard models for describing Corda has been that of a global database where the rules for updating rows and columns are encapsulated within a smart contract that defers control to those who currently hold access to those elements without requiring input from a central point of control. Only those who need to see or have access to a record have it, and the evolution of that record is constrained in the ways the initator felt was appropriate.
 
 Corda 5 changes this model slightly as it brings the concept of *schemas* to that global model. While in earlier versions all applications could evolve all records, this required all applications to have knowledge of the rules of all other applications. Essentially, it is possible to build an application in this way, but the complexity soon spirals out of control and the ability to make mistakes increases.

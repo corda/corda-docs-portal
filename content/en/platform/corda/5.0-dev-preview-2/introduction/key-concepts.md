@@ -130,7 +130,7 @@ As shown, the flow framework acts as a distributed state machine designed to sch
 **Sandboxes** are an essential part of the high-availability (HA) and multi-tenant architecture of Corda 5, ensuring stability and security.
 Sandboxes are the foundation that virtual nodes run on, keeping contracts, workflows, and libraries separate from other code. Each [virtual node](#virtual-nodes) runs on top of one or more sandboxes.
 
-The code encapsulated within a [CorDapp](#cordapps) is executed by the [workers](#workers) in a [Corda Cluster](#corda-clusters).
+The code encapsulated within a [CorDapp](#cordapps) is executed by the [workers](#workers) in a [Corda Cluster](#clusters).
 The majority of the time, this is the [flows](#flows) within the compiled [CPK](#corda-packages-cpks) on behalf of a specific user.
 Since Corda itself is executing third-party code, CorDapp execution environments must be sandboxed from the host, Corda, to prevent the CorDapp from having access to system-level permissions and privileges.
 Much like processes in a modern operating system, workers are run on behalf of an identity, with only the appropriate information accessible.

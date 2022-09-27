@@ -10,16 +10,17 @@ section_menu: corda-5-dev-preview2
 ---
 
 ## Relaxed PKI
+ 
 Corda 4 required that all Corda networks use the custom PKI (X.509 extensions) dictated by Corda.
 Membership of a Corda network was granted by Corda operating as a certificate authority, with the signing of a CSR tying a legal identity to a public key granting membership of a network.
-This was achieved through the use of the Identity Manager and Network Map services run as part of the Corda Enterprise Network Manager (CENM) product.
+This was achieved using Identity Manager and Network Map services run as part of the Corda Enterprise Network Manager (CENM) product.
 
 Corda 5 radically alters the way that identities are onboarded to a network.
-Identities can present an identity certificate to the new [Membership Group Manager (MGM)](key-concepts.html#membership-management) when requesting registration. The choice to do so is optional (a policy set by the network operator) as is the choice of the root certificate to trust and therefore which CAs will be considered as suitable.
-As a result, registration of an identity is done directly with the MGM, without the prior step of obtaining a Corda identity certificate. Membership permission and onboarding is still conducted by the network operator during this phase, and as before, it is up to that operator to set the rules they wish to apply to the attestation that a registrant is who they claim to be.
+Identities can present an identity certificate to the new [Membership Group Manager (MGM)](key-concepts.html#membership-management) when requesting registration. The choice to do so is optional; a policy set by the network operator; likewise, the choice of the root certificate to trust and therefore which CAs will be considered as suitable.
+As a result, registration of an identity is done directly with the MGM, without the prior step of obtaining a Corda identity certificate. Membership permission and onboarding is still conducted by the network operator during this phase. As usual it is up to that operator to set the rules they wish to apply for the attestation that a registrant is who they claim to be.
 
 ## MGM
-As mentioned above, the [Membership Group Manager (MGM)](key-concepts.html#membership-management) replaces the CENM suite as the method for permissioning entry to a network. Unlike CENM, the MGM operates as a part of the Corda infrastructure natively and does not require additional servers and services to operate.
+As mentioned above, the [Membership Group Manager (MGM)](key-concepts.html#membership-management) replaces the CENM suite as the method for permissioning entry to a network. Unlike CENM, the MGM operates as a part of the Corda 5 infrastructure natively and does not require additional servers and services to operate.
 
 ## Application Networks
 Prior to Corda 5, Corda had a two layer model for network membership that separated the permissioning of an identity onto a network from joining a business network. Initially, an identity would join a Corda network known to be hosting various applications. The network operator would attest their identity is valid. Then the identity could elect to join a business network. It was possible for a business network to also be the network operator, meaning a network would only be hosting a single application. However, in that case the chances of interoperability with other applications would be zero as interoperability was predicated on being in the same network.
@@ -35,7 +36,7 @@ The Corda Command Line Interface (CLI) replaces the Corda Shell from older versi
 Through a plugin mechanism, the CLI is extensible so that all aspects of Corda can be managed from it, including both the developer and operator lifecycles as well as CorDapp operators.
 
 ## Packaging
-CorDapps are no longer created as fat JAR files but are now built using the Corda [packaging](key-concepts.html#packaging) format to enhance distributability and reuse.
+CorDapps are no longer created as fat JAR files, but are now built using the Corda [packaging](key-concepts.html#packaging) format to enhance distributability and reuse.
 
 ## Interface Based APIs
 The Corda APIs for CorDapp developers have switched to their own repository and become pure Interfaces. This means details of the Corda implementations of the system-level functions will no longer pollute user space and allow Corda to upgrade its implementations without requiring CorDapps to upgrade themselves.
