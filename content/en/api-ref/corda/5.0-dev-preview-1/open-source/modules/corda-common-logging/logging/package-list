@@ -1,9 +1,0 @@
-$dokka.format:html
-$dokka.linkExtension:html
-$dokka.location:net.corda.common.logging$errorCode(kotlin.Throwable, kotlin.Function1((kotlin.Throwable, kotlin.Array((kotlin.Any)))))net.corda.common.logging/kotlin.-throwable/error-code.html
-$dokka.location:net.corda.common.logging$errorCodeLocationUrl(kotlin.Throwable)net.corda.common.logging/kotlin.-throwable/error-code-location-url.html
-$dokka.location:net.corda.common.logging$walkExceptionCausedByList(kotlin.Throwable)net.corda.common.logging/kotlin.-throwable/walk-exception-caused-by-list.html
-$dokka.location:net.corda.common.logging$withErrorCodeFor(org.apache.logging.log4j.message.Message, kotlin.Throwable, org.apache.logging.log4j.Level)net.corda.common.logging/org.apache.logging.log4j.message.-message/with-error-code-for.html
-$dokka.location:net.corda.common.logging.errorReporting$report(org.slf4j.Logger, net.corda.common.logging.errorReporting.ErrorCode((net.corda.common.logging.errorReporting.ErrorCodes)))net.corda.common.logging.error-reporting/org.slf4j.-logger/report.html
-net.corda.common.logging
-net.corda.common.logging.errorReporting

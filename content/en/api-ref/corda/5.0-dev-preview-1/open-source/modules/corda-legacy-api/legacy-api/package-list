@@ -1,6 +1,0 @@
-$dokka.format:html
-$dokka.linkExtension:html
-
-net.corda.v5.legacyapi.flows
-net.corda.v5.legacyapi.identity
-net.corda.v5.legacyapi.rpc

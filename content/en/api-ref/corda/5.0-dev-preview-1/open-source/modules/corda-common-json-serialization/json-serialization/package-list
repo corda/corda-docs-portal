@@ -1,4 +1,0 @@
-$dokka.format:html
-$dokka.linkExtension:html
-$dokka.location:net.corda.common.json.serialization$formatAsJson(kotlin.Any, com.fasterxml.jackson.databind.ObjectMapper)net.corda.common.json.serialization/kotlin.-any/format-as-json.html
-net.corda.common.json.serialization
