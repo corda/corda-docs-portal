@@ -23,21 +23,21 @@ To install Corda-CLI, download the installation `zip` file from https://download
 
 3. Extract the contents of the `zip` file:
 
-   ```shell
+```shell
 unzip ./corda-cli-downloader-5.0.0.0-DevPreview-2.zip -d corda-cli-downloader-5.0.0.0-DevPreview-2
-   ```
+```
 
 4. Change directory to the directory extracted from the `zip` file:
 
-   ```shell
+```shell
 cd corda-cli-downloader-5.0.0.0-DevPreview-2
-   ```
+```
 
 5. Run the install script:
 
-   ```shell
+```shell
 ./install.sh
-   ```
+```
 
    The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. For example, on MacOS, this is typically something like `/Users/charlie.smith` or on Linux, something like `/home/charlie.smith`.
 
@@ -49,21 +49,21 @@ cd corda-cli-downloader-5.0.0.0-DevPreview-2
 
 3. Extract the contents of the `zip` file:
 
-   ```shell
+```shell
  Expand-archive .\corda-cli-downloader-5.0.0.0-DevPreview-2.zip
-   ```
+```
 
 4. Change directory to the directory extracted from the `zip` file:
 
-   ```shell
+```shell
 cd corda-cli-downloader-5.0.0.0-DevPreview-2
-   ```
+```
 
 5. Run the install script:
 
-   ```shell
+```shell
 .\install.ps1
-   ```
+```
 
    The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. On Windows, this is typically something like `C:\Users\Charlie.Smith`.
 <!-- For information about working directly with the Corda CLI, see [Corda CLI](../developing/corda-cli/overview.html).-->
