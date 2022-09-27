@@ -31,7 +31,7 @@ To display the Swagger UI, use the following link:
 [https://localhost:8888/api/v1/swagger#/](https://localhost:8888/api/v1/swagger#/)
 
 {{< note >}}
-* A message about certificates may be displayed. You will need to click through to the page. <** get more details here **>
+* A message about certificates may be displayed. You will need to click through to the page.
 * Currently the UI may not display on Chrome and we advise using a different browser.
 {{< / note >}}
 
@@ -92,15 +92,15 @@ To run your first flow:
    The 12 digit hash is the `holdingidentityshorthash` that acts as the unique identifier for a virtual node.
 
 2. Expand the `POST /flow/{holdingidentityshorthash}` endpoint in Swagger and click **Try it out**.
-{{< figure src="post-flow.png" figcaption="Try it out button for POST /flow/{holdingidentityshorthash}" alt="Expanded POST /flow/{holdingidentityshorthash} with Try it out button" >}}  
+{{< figure src="post-flow.png" figcaption="Try it out button for POST /flow/{holdingidentityshorthash}" alt="Expanded POST /flow/{holdingidentityshorthash} with Try it out button" >}}
 3. Enter the hash and the `requestBody` and click **Execute**.
-{{< figure src="post-flow-arguments.png" figcaption="Arguments for POST /flow/{holdingidentityshorthash}" >}}  
+{{< figure src="post-flow-arguments.png" figcaption="Arguments for POST /flow/{holdingidentityshorthash}" >}}
 
 requestBody code:
 ```kotlin
-{    
-   "clientRequestId": "r1",    
-   "flowClassName": "com.r3.developers.csdetemplate.MyFirstFlow",    
+{
+   "clientRequestId": "r1",
+   "flowClassName": "com.r3.developers.csdetemplate.MyFirstFlow",
    "requestData": {
       "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB"
    }
@@ -111,10 +111,10 @@ requestBody code:
 * `requestData` is the set of arguments you pass to the flow.
 
    You should get the following response:
-   {{< figure src="post-flow-start-requested.png" figcaption="Successful response for POST /flow/{holdingidentityshorthash}" >}}  
+   {{< figure src="post-flow-start-requested.png" figcaption="Successful response for POST /flow/{holdingidentityshorthash}" >}}
 
 Note, if you forget to change the `ClientRequestId` on subsequent attempts to run the flow, you will receive this error message:
-{{< figure src="post-flow-already-started-error.png" figcaption="Error response for POST /flow/{holdingidentityshorthash" >}}  
+{{< figure src="post-flow-already-started-error.png" figcaption="Error response for POST /flow/{holdingidentityshorthash" >}}
 
 Because the API is asynchronous, at this stage you only receive the confirmation `START_REQESTED`. There is no indication of  the flow has been successful. To find out the status of the flow, you must check the flow status.
 
@@ -122,9 +122,9 @@ Because the API is asynchronous, at this stage you only receive the confirmation
 To check the flow status:
 1. Expand the `GET /flow/{holdingidentityshorthash}/{clientrequestid}` endpoint in Swagger and click **Try it out**.
 3. Enter the hash and the `requestid` used when [starting the flow](#starting-your-first-flow) and click **Execute**.
-{{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}  
+{{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
    If the flow is successful, you will see the following response:
-{{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}  
+{{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
    You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow](../first-flow.html).
 
 {{< note >}}
