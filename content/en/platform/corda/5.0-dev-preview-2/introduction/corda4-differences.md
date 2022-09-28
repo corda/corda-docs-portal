@@ -26,7 +26,7 @@ Prior to Corda 5, Corda had a two-layer model for network membership that separa
 
 Corda 5 changes this by allowing inter-network interoperability and focusing on one network per application. This allows identity rules to be set by each network as suitable.
 
-## Restful Interfaces
+## Restful interfaces
 Corda 4 used Advanced Message Queuing Protocol (AMQP) as its communication mechanism. This meant that all RPC commands required an intermediate client to interoperate with CorDapps, complicating development and deployment. Corda 5 switches RPC over to industry standard REST calls, removing the need for that client and allowing applications to directly interact with Corda.
 
 ## Corda CLI
