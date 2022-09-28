@@ -13,7 +13,7 @@ Direct use of Corda CLI by Developers is not in scope for Developer Preview 2. H
 As a result, you must install Corda CLI before using CSDE.
 
 ## Downloading Corda CLI
-To install Corda-CLI, download the installation `zip` file from https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-DevPreview-2/corda-cli-downloader-5.0.0.0-DevPreview-2.zip.
+To install Corda CLI, download the installation `zip` file from https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-DevPreview-2/corda-cli-downloader-5.0.0.0-DevPreview-2.zip.
 
 ## Installing on Linux/MacOS
 
