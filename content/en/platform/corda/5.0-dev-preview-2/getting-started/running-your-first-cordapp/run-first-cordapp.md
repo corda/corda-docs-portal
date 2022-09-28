@@ -65,7 +65,7 @@ Once authorised, you can start hitting endpoints. The easiest one to try is `/cp
    As we have not uploaded any CPIs yet, the returned list of CPIs is empty.
    If Corda has not started yet, Swagger will return an error:
    {{< figure src="get-cpi-error.png" figcaption="Swagger showing an error response to GET /cpi" alt="Swagger showing an error response to GET /cpi" >}}
-   If this occurs, you either have not started Corda, Corda has not finished starting, or something has gone wrong. If something has gone wrong, you should try again or [reset the environment and start again](reference to section on resetting the environment).
+   If this occurs, you either have not started Corda, Corda has not finished starting, or something has gone wrong. If something has gone wrong, you should try again or [reset the environment and start again](../reset-csde.html).
    {{< note >}}
    Each time you start Corda, it is a fresh instance. There is no persistence of state between restarts.
    {{< /note >}}
