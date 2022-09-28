@@ -16,14 +16,14 @@ The `corda-crypto` module is one of several modules of the `Corda Crypto API`. T
 
 # Extending supported digest algorithms
 
-The Corda Crypto Library implements a wide variety of digest algorithms out of the box. However, you can use a digest algorithm that is not supported by the library by simply implementing some interfaces and adding the code into the CPK with the CorDapp code. Corda picks up any custom algorithms at run time. We recommend adding custom digest code in a separate Java module.
+The Corda Crypto Library implements a wide variety of digest algorithms out of the box. However, you can use a digest algorithm that is not supported by the library by simply implementing some interfaces and adding the code into the CPK with the CorDapp code. Corda picks up any custom algorithms at runtime. We recommend adding custom digest code in a separate Java module.
 
 {{< note >}}
 * Digest algorithms must be cryptographically strong. For example, MD5 is not a strong algorithm and so is not supported by the library.
 * Custom algorithms cannot be used as an implicit part of the digital signing. For example, you cannot specify a signature specification such as 'SHA-256-TRIPLEwithRSA'. You must calculate the digest first and then sign/verify the produced hash using built-in signature specs.
 {{< /note >}}
 
-The Double SHA-256 is supported by the platform but lets assume that you want to support Triple SHA-256 where the first pass calculates the message digest and consequent passes calculate digest of the previous pass result. In Kotlin the code may look as follows:
+Double SHA-256 is supported by the platform but let us assume that you want to support Triple SHA-256 where the first pass calculates the message digest and subsequent passes calculate the digest of the previous pass result. In Kotlin, the code may look as follows:
 
 ```kotlin
 package com.example.crypto

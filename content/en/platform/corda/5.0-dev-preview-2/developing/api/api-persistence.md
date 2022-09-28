@@ -23,7 +23,7 @@ This file can reference one or more files including `changeSet`.
 You should organise these change sets with future changes in mind.
 For example, we recommend a single `include` per version of the table.
 Once a `changeSet` is deployed, it cannot be changed and any change must be provided as a `changeSet` with a new `id`.
-We suggest adding a version in the `id`, for example, `<table-name>-v1`.
+We suggest adding a version in the `id`; for example, `<table-name>-v1`.
 
 Example of `src/resources/migration/db.changelog-master.xml`:
 ```xml

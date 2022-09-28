@@ -17,7 +17,7 @@ This module consists primarily of the following two root classes:
 * [GroupParameters](#groupparameters)
 
 ## `MemberInfo`
-The `MemberInfo` interface exposes properties of a virtual node's membership. This includes the x500 name, ledger keys, and status. This information is a combination of information provided during network registration and metadata assigned to the member by the network manager (MGM).
+The `MemberInfo` interface exposes properties of a virtual node's membership. This includes the X.500 name, ledger keys, and status. This information is a combination of information provided during network registration and metadata assigned to the member by the network manager (MGM).
 
 Information provided by the virtual node operator at time of registration is the content of the `MemberContext` and the information provided by the MGM is the source of the `MGMContext` content.
 

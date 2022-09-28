@@ -19,5 +19,5 @@ For example, to add Dave to the network, modify the `dev-net.json` file as follo
 
 However, as CSDE is primarily for prototyping CorDapps, it uses a static version of a Corda network and so you cannot dynamically add or remove participants. To apply network changes, you must run: `stopCorda`, `startCorda`, and `deployCordapp`.
 {{< note >}}
-Applying an updated `dev-net.json` file, changes the `ShortHashes` of all nodes.
+Applying an updated `dev-net.json` file changes the `ShortHashes` of all nodes.
 {{< /note >}}

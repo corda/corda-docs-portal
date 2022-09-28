@@ -10,15 +10,15 @@ section_menu: corda-5-dev-preview2
 ---
 You can view the KDoc documentation for this module [here](/en/api-ref/corda/5.0-dev-preview-2/modules/corda-serialization-5.0.0.190-DevPreview-2-javadoc/index.html).
 
-Object serialization is the process of converting objects into a stream of bytes and, deserialization, the reverse
+Object serialization is the process of converting objects into a stream of bytes while deserialization is the reverse
 process of creating objects from a stream of bytes.  It takes place every time we store transactions in the database.
 
-Corda uses a custom form of type safe binary serialisation. The primary drivers for this were:
+Corda uses a custom form of typesafe binary serialisation. The primary drivers for this were:
 
 * A desire to have a schema describing what has been serialized alongside the actual data:
   * To assist with versioning, both in terms of being able to interpret data archived long ago (e.g. trades from
     a decade ago, long after the code has changed) and between differing code versions.
-  * To make it easier to write generic code e.g. user interfaces that can navigate the serialized form of data.
+  * To make it easier to write generic code; e.g. user interfaces that can navigate the serialized form of data.
   * To support cross platform (non-JVM) interaction, where the format of a class file is not so easily interpreted.
 * A desire to use a documented and static wire format that is platform independent, and is not subject to change with
   3rd party library upgrades, etc.
@@ -96,9 +96,7 @@ framework, but this may not be true in future.
 
 This separation of serialization schemes into different contexts allows us to use the most suitable framework for that context rather than
 attempting to force a one-size-fits-all approach. Kryo is more suited to the serialization of a program’s stack frames, as it is more flexible
-than our AMQP framework in what it can construct and serialize. However, that flexibility makes it exceptionally difficult to make secure. Conversely,
-our AMQP framework allows us to concentrate on a secure framework that can be reasoned about and thus made safer, with far fewer
-security holes.
+than our AMQP framework in what it can construct and serialize. However, that flexibility makes it exceptionally difficult to make secure. Conversely, our AMQP framework allows us to work with a safer, secure framework with far fewer security holes.
 
 Selection of serialization context should, for the most part, be opaque to CorDapp developers, the Corda framework selecting
 the correct context as configured.
