@@ -103,4 +103,4 @@ dependencies {
 You must reference `net.corda:corda-crypto-extensions`.
 {{< /note >}}
 
-For the CorDApp packaging instructions, see the section on [CordApp Packaging](../tutorials/packaging.htm).
+For the CorDApp packaging instructions, see the relevant documentation.
