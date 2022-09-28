@@ -37,7 +37,7 @@ Through a plugin mechanism, the CLI is extensible so that all aspects of Corda c
 ## Packaging
 CorDapps are no longer created as fat JAR files, but are now built using the Corda [packaging](key-concepts.html#packaging) format to enhance distributability and reuse.
 
-## Interface Based APIs
+## Interface based APIs
 The Corda APIs for CorDapp developers have switched to their own repository and become pure interfaces. This means that details of the Corda implementations of the system-level functions will no longer pollute user space. It also allows Corda to upgrade its implementations without requiring CorDapps to upgrade themselves.
 
 ## Containerized and Clustered
