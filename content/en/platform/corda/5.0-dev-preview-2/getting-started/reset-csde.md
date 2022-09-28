@@ -31,19 +31,19 @@ The instructions in this section use the following terms:
 To rest the CSDE:
 1. Stop any running combined worker processes:
    * On Linux/MacOS:
-      1. To find the process ID (pid) run:
+      1. To find the process ID (pid), run:
          ```shell
          ps | grep corda-combined-worker
          ```
-      2. To stop the process run:
+      2. To stop the process, run:
          ```shell
          kill <pid-for-corda-combined-worker>
          ```
-   * On Windows, run in powershell:
+   * On Windows, run in PowerShell:
          ```shell
          invoke-CimMethod -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'" -MethodName "Terminate"
          ```
-2. Check if these commands were successful:
+2. Check if the above commands were successful:
    * On Linux/MacOS, run:
       ```shell
       ps | grep corda-combined-worker
@@ -52,15 +52,15 @@ To rest the CSDE:
       ```shell
       Get-CimInstance -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'"
       ```
-3. To stop any `CSDEpostgresql` containers run:
+3. To stop any `CSDEpostgresql` containers, run:
    ```shell
    docker stop CSDEpostgresql
    ```
-   You can check what containers are running using:
+   You can check which containers are running using:
    ```shell
    docker ps
    ```
-4. Run the gradle clean task from a terminal:
+4. Run the Gradle clean task:
    ```shell
    <project-root-dir>/gradlew clean
    ```
