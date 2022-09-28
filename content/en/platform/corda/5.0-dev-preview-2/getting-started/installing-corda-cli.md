@@ -13,7 +13,6 @@ The CSDE handles calls to the Corda CLI and so the Corda CLI must be installed b
 A bash installation script is available to automate the installation of Corda CLI.
 This script downloads Corda CLI, adds it to the path, and sets the auto-completion for Corda CLI to your bash/zsh profile.
 On Windows, the script can run on a git-bash terminal.
-
 To install Corda CLI:
 1. Run the bash script:
 

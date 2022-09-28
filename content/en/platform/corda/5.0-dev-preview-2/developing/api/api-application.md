@@ -8,6 +8,8 @@ menu:
     weight: 1000
 section_menu: corda-5-dev-preview2
 ---
+You can view the KDoc documentation for this module [here](/en/api-ref/corda/5.0-dev-preview-2/modules/corda-application-5.0.0.190-DevPreview-2-javadoc/index.html).
+
 The `corda-application` module provides the fundamental building blocks required to create a [flow](../../introduction/key-concepts.html#flows) and so all CorDapps use this module.
 
 `corda-application` sits at a higher level in the module hiarachy and exposes the following modules as API dependencies:

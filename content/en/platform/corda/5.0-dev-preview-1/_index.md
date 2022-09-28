@@ -1,6 +1,6 @@
 ---
 date: '2020-07-15T12:00:00Z'
-title: Corda 5 Developer Preview 1
+title: Corda 5 Dev Preview 1
 section_menu: corda-5-dev-preview
 project: corda
 version: 'Corda 5 Developer Preview 1'
@@ -20,8 +20,11 @@ aliases:
 - ./5.0-dev-preview-1/index.html
 - 5.0-dev-preview-1/index.html
 ---
+# Corda 5 Developer Preview 1
 
-# Corda 5 Developer Preview
+{{< attention >}}
+This developer preview of Corda 5 has been replaced by Developer Preview 2. Refer to the [Developer Preview 2 documentation](https://docs.r3.com/en/platform/corda/5.0-dev-preview-1.html).
+{{< /attention >}}
 
 Corda is a trust technology platform. You can use it to build verified blockchain networks, create applications that represent your business on the network, and interact in a completely secure ecosystem.
 

@@ -29,13 +29,13 @@ The CSDE is experimental. The decision whether or not we release it as part of C
    git clone https://github.com/corda/CSDE-cordapp-template-kotlin.git <local-folder>
    ```
 
-2. Change to the new directory and checkout *<insert final tag>*:
+2. Change to the new directory and checkout the Developer Preview 2 branch:
 
    ```sh
-   git checkout xxx
+   git checkout release/corda-5-developer-preview-2
    ```
 
-   You should initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo.
+3. Initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo.
 
 3. Open the project in IntelliJ and let the import process complete.
   When complete, the project structure looks as follows:

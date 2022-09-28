@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CordaInject</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+const savedDarkMode = storage ? JSON.parse(storage) : false
+if(savedDarkMode === true){
+    document.getElementsByTagName("html")[0].classList.add("theme-dark")
+}</script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>application</span>
+            </a>
+    </div>
+    <div>
+5.0.0.190-DevPreview-2    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageIds="application::net.corda.v5.application.flows/CordaInject///PointingToDeclaration//-213742171">
+  <div class="breadcrumbs"><a href="../../../index.html">application</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.application.flows</a><span class="delimiter">/</span><a href="index.html">CordaInject</a></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Corda</span><wbr></wbr><span><span>Inject</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":application:dokkaHtml/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/index.html"><span class="token annotation">Target</span></a><span class="token punctuation">(</span><span>allowedTargets<span class="token operator"> = </span><span class="token punctuation">[</span><span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-annotation-target/-f-i-e-l-d/index.html">AnnotationTarget.FIELD</a></span><wbr></wbr><span class="token punctuation">]</span></span><wbr></wbr><span class="token punctuation">)</span></div></div><span class="token keyword">annotation class </span><a href="index.html">CordaInject</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">The <a href="index.html">CordaInject</a> annotation should be used within <a href="../-flow/index.html">Flow</a>s to inject Corda's platform services.</p><p class="paragraph">The annotation is placed onto a <a href="../-flow/index.html">Flow</a>'s fields/properties and not on constructor parameters.</p><p class="paragraph">Example usage:</p><ul><li><p class="paragraph">Kotlin:</p></li></ul><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">class MyFlow : RPCStartableFlow {<br><br>    @CordaInject<br>    lateinit var flowEngine: FlowEngine<br><br>    @CordaInject<br>    lateinit var flowMessaging: FlowMessaging<br><br>    @Suspendable<br>    override fun call(requestBody: RPCRequestData): String {<br>        ...<br>    }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><ul><li><p class="paragraph">Java:</p></li></ul><div class="sample-container"><pre><code class="block lang-java" theme="idea">class MyFlow implements RPCStartableFlow {<br><br>    @CordaInject<br>    public FlowEngine flowEngine;<br><br>    @CordaInject<br>    public FlowMessaging flowMessaging;<br><br>    @Suspendable<br>    @Override<br>    public String call(RPCRequestData requestBody) {<br>        ...<br>    }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">The properties annotated with <a href="index.html">CordaInject</a> can be public or private as the reflection that sets them can bypass their visibility modifiers. Making a <a href="../-flow/index.html">Flow</a>'s properties public, internal or package private is convenient for unit testing and does not affect the <a href="../-flow/index.html">Flow</a>'s runtime behaviour.</p><p class="paragraph">The injected properties cannot be accessed within a <a href="../-flow/index.html">Flow</a>'s constructor and should only be used from within a <a href="../-flow/index.html">Flow</a>'s call method or subsequently executed code.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button></div>
+    <div class="tabs-section-body">
+      <h2 class="tabbedcontent">Constructors</h2>
+      <div class="table" data-togglable="Constructors"><a data-name="-1500704833%2FConstructors%2F-213742171" anchor-label="CordaInject" id="-1500704833%2FConstructors%2F-213742171" data-filterable-set=":application:dokkaHtml/main"></a>
+        <div class="table-row" data-filterable-current=":application:dokkaHtml/main" data-filterable-set=":application:dokkaHtml/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-corda-inject.html"><span>Corda</span><wbr></wbr><span><span>Inject</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1500704833%2FConstructors%2F-213742171"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":application:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-corda-inject.html"><span class="token function">CordaInject</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
