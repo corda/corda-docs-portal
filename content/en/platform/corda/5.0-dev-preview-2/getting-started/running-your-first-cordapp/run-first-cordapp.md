@@ -8,11 +8,12 @@ menu:
     weight: 3000
 section_menu: corda-5-dev-preview2
 ---
-The CSDE includes flows and tests for a very simple CorDapp, which you can run "out of the box".
+The CSDE includes flows and tests for a very simple CorDapp, which you can run out of the box.
 
 The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.MyFirstFlow.kt` file. This is also the code described in the [first flow section](../first-flow.html).
 
 ## Starting the Corda combined worker
+
 To run the flow, you must first start a local combined worker version of Corda. CSDE includes helper Gradle tasks to do this.
 {{< figure src="starting-corda.png" width="50%" figcaption="CSDE startCorda task" alt="CSDE task to start the combined worker in IntelliJ" >}}
 
@@ -23,6 +24,7 @@ However, you must wait approximately one minute for Corda to finish its start-up
 Currently, we do not have a liveness detector for Corda in the CSDE so we check liveness by manually hitting an endpoint.
 
 ## Testing Liveness and Swagger
+
 Corda exposes [HTTP REST API](../../developing/rest-api/rest-api.html) endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
 
 ### Displaying the Swagger UI
@@ -54,14 +56,14 @@ If the Swagger UI is already open whilst starting Corda, you must hit an endpoin
 
 ### Hitting endpoints
 
-Once authorised, you can start hitting endpoints. The easiest one to try is `/cpi`  because it is the first one on the swagger page and it requires no arguments:
+Once authorised, you can start hitting endpoints. The easiest one to try is `/cpi` because it is the first one on the Swagger page and requires no arguments:
 1. Expand the `GET /cpi` row and click **Try it out**.
 {{< figure src="get-cpi.png" figcaption="Try it out button for GET /cpi" alt="Expanded GET /cpi with Try it out button" >}}
 2. Click the **Execute** button to hit the endpoint.
    If Corda has started you should see a response like this:
    {{< figure src="get-cpi-response.png" figcaption="Swagger showing a successful response to GET /cpi" alt="Swagger showing a successful response to GET /cpi" >}}
    As we have not uploaded any CPIs yet, the returned list of CPIs is empty.
-   If Corda has not started yet, swagger will return an error:
+   If Corda has not started yet, Swagger will return an error:
    {{< figure src="get-cpi-error.png" figcaption="Swagger showing an error response to GET /cpi" alt="Swagger showing an error response to GET /cpi" >}}
    If this occurs, you either have not started Corda, Corda has not finished starting, or something has gone wrong. If something has gone wrong, you should try again or [reset the environment and start again](reference to section on resetting the environment).
    {{< note >}}
@@ -69,6 +71,7 @@ Once authorised, you can start hitting endpoints. The easiest one to try is `/cp
    {{< /note >}}
 
 ## Deploying a CorDapp
+
 You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 1. Click the `deployCorda` Gradle task:
 {{< figure src="deploy-cordapp.png" width="50%" figcaption="CSDE deployCorda task" alt="CSDE task to deploy a CorDapp in IntelliJ" >}}
@@ -76,16 +79,17 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
    * Build the CPB (CorDapp)
    * Create the GroupPolicy (Application Network definition)
    * Generate signing keys to sign the CPB and CPI
-   * Build The CPI (Combination of CPB and Group Policy)
+   * Build the CPI (combination of CPB and Group Policy)
    * Sign the CPI
    * Upload the CPI to Corda
    * Create and register the virtual nodes with the CPI
    {{< note >}}
-   Some of these task only need to run once and will not run again if not required.
+   Some of these tasks only need to run once and will not run again if not required.
    {{< /note >}}
     You should now be able to start `MyFirstFlow` from the Swagger UI.
 
 ### Starting your first flow
+
 To run your first flow:
 1. Find the `holdingidentityshorthash` for the virtual node you want to trigger the flow on. You can do this by running the `listVnodes` gradle task which will list the VNodes set up:
    {{< figure src="list-vnodes.png" figcaption="Running the listVnodes gradle task" >}}
@@ -119,10 +123,13 @@ Note, if you forget to change the `ClientRequestId` on subsequent attempts to ru
 Because the API is asynchronous, at this stage you only receive the confirmation `START_REQESTED`. There is no indication of  the flow has been successful. To find out the status of the flow, you must check the flow status.
 
 ### Checking the flow status
+
 To check the flow status:
 1. Expand the `GET /flow/{holdingidentityshorthash}/{clientrequestid}` endpoint in Swagger and click **Try it out**.
-3. Enter the hash and the `requestid` used when [starting the flow](#starting-your-first-flow) and click **Execute**.
-{{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
+
+2. Enter the hash and the `requestid` used when [starting the flow](#starting-your-first-flow) and click **Execute**.
+{{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}  
+
    If the flow is successful, you will see the following response:
 {{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
    You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow](../first-flow.html).
