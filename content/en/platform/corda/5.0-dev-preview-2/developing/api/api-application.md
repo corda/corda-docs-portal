@@ -14,10 +14,10 @@ The `corda-application` module provides the fundamental building blocks required
 
 `corda-application` sits at a higher level in the module hiarachy and exposes the following modules as API dependencies:
 
-- `corda-base`.
-- `corda-crypto`.
-- `corda-membership`.
-- `corda-serialization`.
+- `corda-base`
+- `corda-crypto`
+- `corda-membership`
+- `corda-serialization`
 
 By depending on `corda-application`, your CorDapp does not need to directly depend on the modules listed above.
 
@@ -47,7 +47,7 @@ Corda creates a `FlowSession` instance for a flow created via a peer-to-peer mes
 
 ### `persistence`
 
-The `persistence` package provides services for performing persistence operations, mainly reading and writing data to and from the database. The `PersistenceService` is the main service for providing this functionality.
+The `persistence` package provides services for performing persistence operations; mainly reading and writing data to and from the database. The `PersistenceService` is the main service for providing this functionality.
 
 ### `serialization`
 
