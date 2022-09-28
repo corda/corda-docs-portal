@@ -126,10 +126,8 @@ Because the API is asynchronous, at this stage you only receive the confirmation
 
 To check the flow status:
 1. Expand the `GET /flow/{holdingidentityshorthash}/{clientrequestid}` endpoint in Swagger and click **Try it out**.
-
 2. Enter the hash and the `requestid` used when [starting the flow](#starting-your-first-flow) and click **Execute**.
 {{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}  
-
    If the flow is successful, you will see the following response:
 {{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
    You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow](../first-flow.html).
