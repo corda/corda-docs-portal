@@ -40,7 +40,7 @@ CorDapps are no longer created as fat JAR files, but are now built using the Cor
 ## Interface based APIs
 The Corda APIs for CorDapp developers have switched to their own repository and become pure interfaces. This means that details of the Corda implementations of the system-level functions will no longer pollute user space. It also allows Corda to upgrade its implementations without requiring CorDapps to upgrade themselves.
 
-## Containerized and Clustered
+## Containerized and clustered
 Corda 4 and below is delivered as a single JAR that is either executed as a normal process or run from within a single container. Corda 5 breaks that monolith apart, delivering functionality through a series of services hosted by Kubernetes or other cloud-style orchestration tools.
 
 ## Apache Kafka
