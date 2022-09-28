@@ -8,20 +8,62 @@ menu:
 section_menu: corda-5-dev-preview2
 title: Installing the Corda CLI
 ---
-The Corda CLI is a command line tool which provides tooling for working with Corda clusters.
-The CSDE handles calls to the Corda CLI and so the Corda CLI must be installed before using the CSDE.
-A bash installation script is available to automate the installation of Corda CLI.
-This script downloads Corda CLI, adds it to the path, and sets the auto-completion for Corda CLI to your bash/zsh profile.
-On Windows, the script can run on a git-bash terminal.
-To install Corda CLI:
-1. Run the bash script:
+Corda CLI (command line interface) is a command line tool that supports various Corda related tasks, including [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) creation and Corda cluster management.
+Direct use of Corda CLI by Developers is not in scope for Developer Preview 2. However, the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html) uses Corda CLI in the background.
+As a result, you must install Corda CLI before using CSDE.
 
-   ```Bash
-   curl "https://xxxxxxxxxx/corda-cli-downloader-5.0.0.0-DevPreview-2.sh" | sudo bash
-   ```
+## Downloading Corda CLI
+To install Corda CLI, download the installation `zip` file from https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-DevPreview-2/corda-cli-downloader-5.0.0.0-DevPreview-2.zip.
 
-2. Verify installation by opening a new terminal session and running `./corda-cli.sh`.
+## Installing on Linux/macOS
 
-   If successful, this command lists the Corda CLI commands.
+1. Start a shell session (bash or zsh).
 
-For information about working directly with the Corda CLI, see [Corda CLI](../developing/corda-cli/overview.html).
+2. Change directory to where you downloaded `corda-cli-downloader-5.0.0.0-DevPreview-2.zip`.
+
+3. Extract the contents of the `zip` file:
+
+```shell
+unzip ./corda-cli-downloader-5.0.0.0-DevPreview-2.zip -d corda-cli-downloader-5.0.0.0-DevPreview-2
+```
+
+4. Change directory to the directory extracted from the `zip` file:
+
+```shell
+cd corda-cli-downloader-5.0.0.0-DevPreview-2
+```
+
+5. Run the install script:
+
+```shell
+./install.sh
+```
+
+   The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. For example, on macOS, this is typically something like `/Users/charlie.smith` or on Linux, something like `/home/charlie.smith`.
+
+## Installing on Windows
+
+1. Start a Powershell session.
+
+2. Change directory to where you downloaded `corda-cli-downloader-5.0.0.0-DevPreview-2.zip`.
+
+3. Extract the contents of the `zip` file:
+
+```shell
+ Expand-archive .\corda-cli-downloader-5.0.0.0-DevPreview-2.zip
+```
+
+4. Change directory to the directory extracted from the `zip` file:
+
+```shell
+cd corda-cli-downloader-5.0.0.0-DevPreview-2
+```
+
+5. Run the install script:
+
+```shell
+.\install.ps1
+```
+
+   The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. On Windows, this is typically something like `C:\Users\Charlie.Smith`.
+<!-- For information about working directly with the Corda CLI, see [Corda CLI](../developing/corda-cli/overview.html).-->
