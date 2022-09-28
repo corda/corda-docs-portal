@@ -39,7 +39,7 @@ cd corda-cli-downloader-5.0.0.0-DevPreview-2
 ./install.sh
 ```
 
-   The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. For example, on MacOS, this is typically something like `/Users/charlie.smith` or on Linux, something like `/home/charlie.smith`.
+   The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. For example, on macOS, this is typically something like `/Users/charlie.smith` or on Linux, something like `/home/charlie.smith`.
 
 ## Installing on Windows
 
