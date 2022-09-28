@@ -21,7 +21,7 @@ As a result, registration of an identity is done directly with the MGM, without 
 ## MGM
 As mentioned above, the [Membership Group Manager (MGM)](key-concepts.html#membership-management) replaces the CENM suite as the method for permissioning entry to a network. Unlike CENM, MGM operates as a part of the Corda 5 infrastructure natively and does not require additional servers and services to operate.
 
-## Application Networks
+## Application networks
 Prior to Corda 5, Corda had a two-layer model for network membership that separated the permissioning of an identity onto a network from joining a business network. Initially, an identity would join a Corda network known to be hosting various applications. The network operator would attest their identity is valid. Then the identity could elect to join a business network. It was possible for a business network to also be the network operator, meaning that a network would only be hosting a single application. However, in that case the chances of interoperability with other applications would be zero, since interoperability was predicated on the basis of being in the same network.
 
 Corda 5 changes this by allowing inter-network interoperability and focusing on one network per application. This allows identity rules to be set by each network as suitable.
