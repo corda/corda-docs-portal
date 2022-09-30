@@ -26,12 +26,12 @@ The instructions in this section use the following terms:
    For example, if you git-cloned the `corda/CSDE-cordapp-template-kotlin` repo to `/Users/charlie.smith/DevWork/DevExWork`, `<project-root-dir>` is `/Users/charlie.smith/DevWork/DevExWork/CSDE-cordapp-template-kotlin`.
 * `user-home` — the user home directory.
    * On Windows, this is typically something like `C:\Users\Charlie.Smith`.
-   * On MacOS, this is typically something like `/Users/charlie.smith`.
+   * On macOS, this is typically something like `/Users/charlie.smith`.
    * On Linux, this typically something like `/home/charlie.smith`.
 
 To rest the CSDE:
 1. Stop any running combined worker processes:
-   * On Linux/MacOS:
+   * On Linux/macOS:
       1. To find the process ID (pid), run:
          ```shell
          ps | grep corda-combined-worker
@@ -45,7 +45,7 @@ To rest the CSDE:
      Invoke-CimMethod -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'" -MethodName "Terminate"
      ```
 2. Check if the above commands were successful:
-   * On Linux/MacOS, run:
+   * On Linux/macOS, run:
       ```shell
       ps | grep corda-combined-worker
       ```
