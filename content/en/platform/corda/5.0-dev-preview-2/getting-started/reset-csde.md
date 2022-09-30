@@ -40,9 +40,9 @@ To rest the CSDE:
          kill <pid-for-corda-combined-worker>
          ```
    * On Windows, run in PowerShell:
-         ```shell
-         invoke-CimMethod -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'" -MethodName "Terminate"
-         ```
+   ```shell   
+Invoke-CimMethod -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'" -MethodName "Terminate"
+   ```
 2. Check if the above commands were successful:
    * On Linux/MacOS, run:
       ```shell
