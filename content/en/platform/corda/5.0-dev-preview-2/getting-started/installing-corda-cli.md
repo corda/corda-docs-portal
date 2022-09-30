@@ -18,52 +18,36 @@ To install Corda CLI, download the installation `zip` file from https://download
 ## Installing on Linux/macOS
 
 1. Start a shell session (bash or zsh).
-
 2. Change directory to where you downloaded `corda-cli-downloader-5.0.0.0-DevPreview-2.zip`.
-
 3. Extract the contents of the `zip` file:
-
-```shell
-unzip ./corda-cli-downloader-5.0.0.0-DevPreview-2.zip -d corda-cli-downloader-5.0.0.0-DevPreview-2
-```
-
+   ```shell
+   unzip ./corda-cli-downloader-5.0.0.0-DevPreview-2.zip -d corda-cli-downloader-5.0.0.0-DevPreview-2
+   ```
 4. Change directory to the directory extracted from the `zip` file:
-
-```shell
-cd corda-cli-downloader-5.0.0.0-DevPreview-2
-```
-
+   ```shell
+   cd corda-cli-downloader-5.0.0.0-DevPreview-2
+   ```
 5. Run the install script:
-
-```shell
-./install.sh
-```
-
+   ```shell
+   ./install.sh
+   ```
    The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. For example, on macOS, this is typically something like `/Users/charlie.smith` or on Linux, something like `/home/charlie.smith`.
 
 ## Installing on Windows
 
 1. Start a Powershell session.
-
 2. Change directory to where you downloaded `corda-cli-downloader-5.0.0.0-DevPreview-2.zip`.
-
 3. Extract the contents of the `zip` file:
-
-```shell
- Expand-archive .\corda-cli-downloader-5.0.0.0-DevPreview-2.zip
-```
-
+   ```shell
+   Expand-archive .\corda-cli-downloader-5.0.0.0-DevPreview-2.zip
+   ```
 4. Change directory to the directory extracted from the `zip` file:
-
-```shell
-cd corda-cli-downloader-5.0.0.0-DevPreview-2
-```
-
+   ```shell
+   cd corda-cli-downloader-5.0.0.0-DevPreview-2
+   ```
 5. Run the install script:
-
-```shell
-.\install.ps1
-```
-
+   ```shell
+   .\install.ps1
+   ```
    The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. On Windows, this is typically something like `C:\Users\Charlie.Smith`.
 <!-- For information about working directly with the Corda CLI, see [Corda CLI](../developing/corda-cli/overview.html).-->
