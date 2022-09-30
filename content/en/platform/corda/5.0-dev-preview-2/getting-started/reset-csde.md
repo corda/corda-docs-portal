@@ -42,7 +42,7 @@ To rest the CSDE:
          ```
    * On Windows, run in PowerShell:
    ```shell   
-Invoke-CimMethod -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'" -MethodName "Terminate"
+   Invoke-CimMethod -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'" -MethodName "Terminate"
    ```
 2. Check if the above commands were successful:
    * On Linux/MacOS, run:
