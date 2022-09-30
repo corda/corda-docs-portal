@@ -74,7 +74,7 @@ CorDapps are built as a layered [package](#packaging).
 
 ## Application networks
 
-Corda is a permissioned blockchain and to use a [CorDapp](#cordapps) entities must be approved and their identity verified against a set of rules.
+Corda is a permissioned digital ledger platform and to use a [CorDapp](#cordapps), entities must be approved and their identity verified against a set of rules.
 Corda does not care what those rules are.
 Rules can be as lax as allowing anyone to join who asks or as strict as requiring a full KYC process.
 Corda facilitates these rules through the [Membership Group Manager (MGM)](#membership-management).
