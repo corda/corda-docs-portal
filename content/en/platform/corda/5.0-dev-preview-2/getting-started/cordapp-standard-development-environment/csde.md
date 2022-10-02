@@ -49,7 +49,7 @@ This section provides an overview of the content of CSDE. Other sections show yo
 On the left, you can see the folder structure created, ready for CorDapps development.
 {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
 
-You will write your flow code in `src/main/kotlin/<your package path>` and your flow tests in `src/main/kotlin/<your package path>`.
+You will write your flow code in `src/main/kotlin/<your package path>` and your flow tests in `src/test/kotlin/<your package path>`.
 (For Java, use `src/main/java/<your package path>` and `src/test/java/<your package path>` respectively.)
 
 ### Gradle helpers for the combined worker
