@@ -31,22 +31,9 @@ The following issues were resolved in this patch release:
 
 * Previously, both Corda Nodes certificates possessed Certificate Authority power because the CA attribute was set to true. The node registration tool now has a new  option, ```--node-is-ca```, allowing a node legal identity certificate to be created where it is not a CA.
 
-  With `--node-is-ca=true` (the default value), the tool behaves in the same way as previously. With `--node-is-ca=false`, the tool will fail with the following warning:
-
-  ```
-  ************** WARNING **************
-  If '--node-is-ca' is set 'false', the registration of a node is expected to fail with NoCertChainException.
-  That is, with the option 'false', this node is not a CA and cannot perform CA related operations such as
-  getting certificate chain using the CA alias.
-  Introduced in [ENT-6859], the new option is part of efforts to address security issues where a node is
-  both being an issuing CA and signs entities.
-  *************************************
-  ```
-
 * For CENM 1.4+, the getNodeInfos() bulk fetch mechanism now retrieves NodeInfos from the network map via an HTTP proxy, if a proxy has been configured.
 
 ## Corda: Enterprise Edition 4.9.2
-
 
 Corda Enterprise 4.9.2 is a patch release of Corda Enterprise which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
 
