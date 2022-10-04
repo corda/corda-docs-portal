@@ -7,7 +7,7 @@ menu:
 tags:
 - legal
 - info
-title: Third-party software notices and licence information - CE 4.6.11
+title: Third-party software notices and licence information - 4.6.11
 
 ---
 
