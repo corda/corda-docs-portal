@@ -16,9 +16,23 @@ title: Release notes
 
 # Corda Community Edition release notes
 
+## Corda Community Edition 4.9.3
+
+Corda Community 4.9.3 is a patch release of Corda Community focused on resolving issues.
+
+### Fixed issues
+
+The following issues were resolved in this patch release:
+
+* Previously, both Corda Nodes certificates possessed Certificate Authority power because the CA attribute was set to true. The node registration tool now has a new  option, ```--node-is-ca```, allowing a node legal identity certificate to be created where it is not a CA.
+
+* For CENM 1.4+, the getNodeInfos() bulk fetch mechanism now retrieves NodeInfos from the network map via an HTTP proxy, if a proxy has been configured.
+
 ## Corda Community Edition 4.9.2
 
-Corda Community 4.9.2 is a patch release of Corda Enterprise which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
+Corda Community 4.9.2 is a patch release of Corda Community which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
+
+### Fixed issues
 
 * As part of this patch a new Gradle plugin is provided that supports CorDapp development using Gradle 7. This is in addition to the existing Gradle support. The plugin has been uploaded to Artifactory.
   * Samples demonstrating Gradle 7 usage are available for:
