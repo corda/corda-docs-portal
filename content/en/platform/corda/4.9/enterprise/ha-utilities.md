@@ -68,7 +68,7 @@ ha-utilities node-registration [-hrRvV] [--logging-level=<loggingLevel>] [-b=FOL
 * `-R`, `--renew-tls-cert-with-keys`: Renew TLS certificate for already registered node with re-generating TLS keys in HSM. Node registration is not performed with this option.
 * `-h`, `--help`: Show this help message and exit.
 * `-V`, `--version`: Print version information and exit.
-* `--node-is-ca`: A Boolean value, true or false. Creates a node legal identity certificate which is not a certificate authority (CA).
+* `-C, --node-identity-cert-not-ca`: A Boolean value, true or false. Creates a node legal identity certificate which is not a certificate authority (CA).
 
 ### Keys and certificates
 
