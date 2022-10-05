@@ -10,7 +10,7 @@ tags:
 - release
 - notes
 - enterprise
-title: Corda Enterprise Edition  release notes
+title: Corda Enterprise Edition release notes
 weight: 1
 ---
 
