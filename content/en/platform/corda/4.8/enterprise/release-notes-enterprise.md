@@ -15,6 +15,18 @@ weight: 1
 
 # Corda Enterprise release notes
 
+## Corda Enterprise 4.8.9
+
+Corda Enterprise 4.8.9 is a patch release of Corda Enterprise focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+* For CENM 1.4+, the `getNodeInfos()` bulk fetch mechanism now retrieves NodeInfos from the network map via an HTTP proxy, if a proxy has been configured.
+
 ## Corda Enterprise 4.8.8
 
 Corda Enterprise 4.8.8 is a patch release of Corda Enterprise focused on CorDapp response time and security improvements.
