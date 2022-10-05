@@ -25,7 +25,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-* For CENM 1.4+, the getNodeInfos() bulk fetch mechanism now retrieves NodeInfos from the network map via an HTTP proxy, if a proxy has been configured.
+* For CENM 1.4+, the `getNodeInfos()` bulk fetch mechanism now retrieves NodeInfos from the network map via an HTTP proxy, if a proxy has been configured.
 
 ## Corda Enterprise 4.8.8
 
