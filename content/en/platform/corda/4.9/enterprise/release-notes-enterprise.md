@@ -31,7 +31,7 @@ The following issues were resolved in this patch release:
 
 * Previously, both Corda Nodes certificates possessed Certificate Authority power because the CA attribute was set to true. The node registration tool now has a new  option, ```--node-is-ca```, allowing a node legal identity certificate to be created where it is not a CA.
 
-* For CENM 1.4+, the getNodeInfos() bulk fetch mechanism now retrieves NodeInfos from the network map via an HTTP proxy, if a proxy has been configured.
+* For CENM 1.4+, the `getNodeInfos()` bulk fetch mechanism now retrieves NodeInfos from the network map via an HTTP proxy, if a proxy has been configured.
 
 ## Corda: Enterprise Edition 4.9.2
 
