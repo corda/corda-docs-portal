@@ -88,7 +88,7 @@ The commands that follow all assume that you are using a namespace called `corda
 Modify the `-n corda` option on each `kubectl` command if you use a different namespace.
 {{< /note >}}
 
-## Install Corda Pre-Requisites
+## Install Corda Prerequisites
 
 Corda requires a PostgreSQL and Kafka instance as pre-requisites.
 One option to obtain these in a local development environment is via the umbrella Helm chart in the [corda/corda-dev-helm](https://github.com/corda/corda-dev-helm) GitHub repository.
