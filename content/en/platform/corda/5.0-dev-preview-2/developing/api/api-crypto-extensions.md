@@ -14,7 +14,7 @@ The `corda-crypto` module is one of several modules of the `Corda Crypto API`. T
 
 {{< figure src="public-crypto-api-usage.png" figcaption="Corda Crypto API" alt="Corda Crypto API dependencies" >}}
 
-# Extending supported digest algorithms
+# Extending Supported Digest Algorithms
 
 The Corda Crypto Library implements a wide variety of digest algorithms out of the box. However, you can use a digest algorithm that is not supported by the library by simply implementing some interfaces and adding the code into the CPK with the CorDapp code. Corda picks up any custom algorithms at runtime. We recommend adding custom digest code in a separate Java module.
 

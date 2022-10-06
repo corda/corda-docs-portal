@@ -10,7 +10,7 @@ section_menu: corda-5-dev-preview2
 ---
 Corda 5 supports CRUD (Create, Read, Update, Delete) operations for user-defined types. This is achieved using JPA-annotated entities and, to manage database migrations, Liquibase.
 
-## Defining custom tables using Liquibase migrations
+## Defining Custom Tables Using Liquibase Migrations
 
 [CorDapps](../../introduction/key-concepts.html#cordapps) store data in a relational database.
 When Corda creates a [virtual node](../../introduction/key-concepts.html#virtual-nodes) for a CorDapp (as part of a [CPI](../../introduction/key-concepts.html#corda-package-installer-cpi)), it requires associated tables, indexes, foreign-keys, etc.
@@ -58,7 +58,7 @@ The referenced `include` file should also be a resource file in `src/resources/m
 The `include` file reference is resolved relative to the resources path in the CPK and not relative to the current directory.
 {{< /note >}}
 
-## Running the migrations
+## Running the Migrations
 
 To run the migrations:
 1. Upload the CPI.
@@ -68,7 +68,7 @@ To run the migrations:
   If you have direct database access, you should see the tables being created.
   If you are using Postgres, make sure to look under the correct schema, since each virtual node creates a new schema, unless an external VNode database was provided during VNode creation.
 
-## Mapping your new tables to JPA entities
+## Mapping Your New Tables to JPA Entities
 
 CorDapps should use JPA annotated POJOs for data access objects.
 Each class requires `@CordaSerializable` and `@Entity` annotations.
@@ -127,7 +127,7 @@ If they are not specified, JPA uses defaults.
 {{< /note >}}
 
 
-## Using the persistence API from a CorDapp flow
+## Using the Persistence API From a CorDapp Flow
 
 1. Define a reference to the persistence service. This should be supplied via the Corda dependency injection system:
 ```kotlin

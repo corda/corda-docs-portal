@@ -30,7 +30,7 @@ Corda uses a custom form of typesafe binary serialisation. The primary drivers f
 * Binary formats work better with digital signatures than text based formats, as there’s much less scope for
   changes that modify syntax but not semantics.
 
-## Allow list
+## Allow List
 
 In classic Java serialization, any class on the JVM classpath can be deserialized. This is a source of exploits and
 vulnerabilities that exploit the large set of third-party libraries that are added to the classpath as part of a JVM
@@ -106,12 +106,12 @@ of CorDapp developers, to allow CorDapps to take into consideration the future s
 continue to apply the allow list functionality that is already in place and described in this page.
 
 
-## Core types
+## Core Types
 
 This section describes the classes and interfaces that the AMQP serialization format supports.
 
 
-### Collection types
+### Collection Types
 
 The following collection types are supported.  Any implementation of the following will be mapped to *an* implementation
 of the interface or class on the other end. For example, if you use a Guava implementation of a collection, it will
@@ -143,7 +143,7 @@ java.util.EnumSet
 java.util.EnumMap (but only if there is at least one entry)
 ```
 
-### JVM primitives
+### JVM Primitives
 
 All the primitive types are supported.
 
@@ -163,7 +163,7 @@ short
 Arrays of any type are supported, primitive or otherwise.
 
 
-### JDK types
+### JDK Types
 
 The following JDK library types are supported:
 
@@ -208,7 +208,7 @@ java.util.BitSet
 java.util.Currency
 java.util.UUID
 ```
-### Third-party types
+### Third-Party Types
 
 The following 3rd-party types are supported:
 
@@ -217,7 +217,7 @@ kotlin.Unit
 kotlin.Pair
 ```
 
-### Corda types
+### Corda Types
 
 Any classes and interfaces in the Corda codebase annotated with `@CordaSerializable` are supported.
 
@@ -227,13 +227,13 @@ not conform to `CordaThrowable` will be converted to a `CordaRuntimeException`, 
 and other properties retained within it.
 
 
-## Custom types
+## Custom Types
 
 Your own types must adhere to the following rules to be supported:
 
 ### Classes
 
-#### General rules
+#### General Rules
 
 * The class must be compiled with parameter names included in the `.class` file.  This is the default in Kotlin
   but must be turned on in Java using the `-parameters` command line option to `javac`{{< note >}}
@@ -247,7 +247,7 @@ Your own types must adhere to the following rules to be supported:
 * Any superclass must adhere to the same rules, but can be abstract
 * Object graph cycles are not supported, so an object cannot refer to itself, directly or indirectly
 
-#### Constructor instantiation
+#### Constructor Instantiation
 
 The primary way Corda’s AMQP serialization framework instantiates objects is via a specified constructor. This is
 used to first determine which properties of an object are to be serialised, then, on deserialization, it is used to
@@ -299,7 +299,7 @@ val e2 = e.serialize().deserialize() // e2.c will be 20, not 100!!!
 {{< /tabs >}}
 
 
-#### Setter instantiation
+#### Setter Instantiation
 
 As an alternative to constructor-based initialisation, Corda can also determine the important elements of an
 object by inspecting the getter and setter methods present on the class. If a class has **only** a default
@@ -346,7 +346,7 @@ rely heavily on mutable JavaBean style objects, you may sometimes find the API b
 
 {{< /warning >}}
 
-### Inaccessible private properties
+### Inaccessible Private Properties
 
 The Corda AMQP serialization framework does not support private object properties without publicly
 accessible getter methods, this development idiom is strongly discouraged.
@@ -421,7 +421,7 @@ class C {
 {{< /tabs >}}
 
 
-### Mismatched class properties and constructor parameters
+### Mismatched Class Properties and Constructor Parameters
 
 Consider an example where you wish to ensure that a property of class whose type is some form of container is always sorted using some specific criteria yet you wish to maintain the immutability of the class.
 
@@ -473,7 +473,7 @@ class ConfirmRequest(statesToConsume: List<StateRef>, val transactionId: SecureH
 {{< /tabs >}}
 
 
-### Mutable containers
+### Mutable Containers
 
 Because Java fundamentally provides no mechanism by which the mutability of a class can be determined this presents a
 problem for the serialization framework. When reconstituting objects with container properties (lists, maps, etc) we
@@ -570,7 +570,7 @@ The following rules apply to supported `Throwable` implementations.
 * If not, the `Throwable` will deserialize to a `CordaRuntimeException` with the details of the original
 `Throwable` contained within it, including the class name of the original `Throwable`
 
-### Kotlin objects
+### Kotlin Objects
 Kotlin’s non-anonymous `object` s (i.e. constructs like `object foo : Contract {...}`) are singletons and
 treated differently.  They are recorded into the stream with no properties, and deserialize back to the
 singleton instance. Currently, the same is not true of Java singletons, which will deserialize to new instances
@@ -579,5 +579,5 @@ of the class. This is hard to fix because there’s no perfectly standard idiom 
 Kotlin’s anonymous `object` s (i.e. constructs like `object : Contract {...}`) are not currently supported
 and will not serialize correctly. They need to be re-written as an explicit class declaration.
 
-## Type evolution
+## Type Evolution
 Type evolution is the mechanism by which classes can be altered over time yet still remain serializable and deserializable across all versions of the class. This ensures an object serialized with an older idea of what the class “looked like” can be deserialized and a version of the current state of the class instantiated. You can learn more in [Default Class Evolution](amqp-serialization-default-evolution.html).

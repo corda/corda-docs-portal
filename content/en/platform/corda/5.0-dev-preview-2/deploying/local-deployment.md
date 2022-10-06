@@ -1,6 +1,6 @@
 ---
 date: '2022-09-13'
-title: "Local Kubernetes cluster"
+title: "Local Kubernetes Cluster"
 draft: true
 menu:
   corda-5-dev-preview2:
