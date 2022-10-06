@@ -1,18 +1,19 @@
 ---
-title: Checksums of release files
+title: Corda Open Source 4.8 release files and checksums
 date: '2021-07-02'
 menu:
   corda-os-4-8:
     identifier: corda-os-4-8-release-checksum-os
     parent: corda-os-4-8-release-notes
     weight: 440
+    name: "Release files and checksums"
 ---
 
-# Checksums of Corda Open Source (OS) release files
+# Corda Open Source 4.8 release files and checksums
 
 Before you install the downloaded files, verify the integrity of each file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the **checksum** of your downloaded file, then comparing its value to the checksum value provided below.
 
-## Checksums of Corda OS 4.8 release files
+##  Corda Open Source 4.8 release files and checksums
 
 * corda-4.8-javadoc.jar (19.5 Kb / 19500 bytes)
   * `e92ae4de83ccddcd5aa31a92907b81b056f6b83c` (sha1)
