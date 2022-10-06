@@ -242,7 +242,7 @@ In the responder flow:
     @Suspendable
     override fun call(session: FlowSession) { ... }
 ```
-## Injecting Service
+## Injecting Services
 Corda 5 requires a CorDapp Developer to explicitly specify which Corda services are required by the flow. In this simple example we use three services:
 * JsonMarshallingService — a service that CorDapps and other services may use to marshal arbitrary content in and out of JSON format using standard approved mappers.
 * FlowMessaging  — a service that CorDapps can use to create communication sessions between two virtual nodes. Once set up, you can send and receive using the session object.
