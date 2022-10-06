@@ -46,7 +46,7 @@ If the Swagger UI is already open whilst starting Corda, you must hit an endpoin
 ### Authorizing Swagger
 
  To access the Corda cluster, you must authorize Swagger:
- 1. Click the green **Authorise** button.
+ 1. Click the green **Authorize** button.
 {{< figure src="authorize-button.png"  width="50%" figcaption="Swagger Authorize button" alt="Button in Swagger UI to authorize access to the Corda cluster" >}}
    The **Available authorizations** window is displayed.
 2. If necessary, click **Logout**.
@@ -65,7 +65,7 @@ Once authorised, you can start hitting endpoints. The easiest one to try is `/cp
    As we have not uploaded any CPIs yet, the returned list of CPIs is empty.
    If Corda has not started yet, Swagger will return an error:
    {{< figure src="get-cpi-error.png" figcaption="Swagger showing an error response to GET /cpi" alt="Swagger showing an error response to GET /cpi" >}}
-   If this occurs, you either have not started Corda, Corda has not finished starting, or something has gone wrong. If something has gone wrong, you should try again or [reset the environment and start again](../reset-csde.html).
+   If this occurs, you either have not started Corda, Corda has not finished starting, or something has gone wrong. If something has gone wrong, you should try again or [reset the environment](../reset-csde.html) and start again.
    {{< note >}}
    Each time you start Corda, it is a fresh instance. There is no persistence of state between restarts.
    {{< /note >}}
@@ -76,9 +76,9 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 1. Click the `deployCorda` Gradle task:
 {{< figure src="deploy-cordapp.png" width="50%" figcaption="CSDE deployCorda task" alt="CSDE task to deploy a CorDapp in IntelliJ" >}}
    This task runs a series of Gradle tasks to:
-   * Build the CPB (CorDapp)
+   * Build the [CPB](../../introduction/key-concepts.html#corda-package-bundles-cpbs)
    * Create the GroupPolicy (Application Network definition)
-   * Generate signing keys to sign the CPB and CPI
+   * Generate signing keys to sign the CPB and [CPI](../../introduction/key-concepts.html#corda-package-installer-cpi)
    * Build the CPI (combination of CPB and Group Policy)
    * Sign the CPI
    * Upload the CPI to Corda
@@ -91,11 +91,11 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 ### Starting your first flow
 
 To run your first flow:
-1. Find the `holdingidentityshorthash` for the virtual node you want to trigger the flow on. You can do this by running the `listVnodes` gradle task which will list the VNodes set up:
+1. Find the `holdingidentityshorthash` for the virtual node you want to trigger the flow on. You can do this by running the `listVnodes` Gradle task to display a list of the configured virtual nodes:
    {{< figure src="list-vnodes.png" figcaption="Running the listVnodes gradle task" >}}
    The 12 digit hash is the `holdingidentityshorthash` that acts as the unique identifier for a virtual node.
 
-2. Expand the `POST /flow/{holdingidentityshorthash}` endpoint in Swagger and click **Try it out**.
+2. Expand the `POST /flow/{holdingidentityshorthash}` endpoint in the Flow Management API section in Swagger and click **Try it out**.
 {{< figure src="post-flow.png" figcaption="Try it out button for POST /flow/{holdingidentityshorthash}" alt="Expanded POST /flow/{holdingidentityshorthash} with Try it out button" >}}
 3. Enter the hash and the `requestBody` and click **Execute**.
 {{< figure src="post-flow-arguments.png" figcaption="Arguments for POST /flow/{holdingidentityshorthash}" >}}
@@ -114,13 +114,13 @@ requestBody code:
 * `flowClassName` is the fully qualified path to the flow class you want to run.
 * `requestData` is the set of arguments you pass to the flow.
 
-   You should get the following response:
+   Swagger should display the following response:
    {{< figure src="post-flow-start-requested.png" figcaption="Successful response for POST /flow/{holdingidentityshorthash}" >}}
 
-Note, if you forget to change the `ClientRequestId` on subsequent attempts to run the flow, you will receive this error message:
+Note, if you forget to change the `ClientRequestId` on subsequent attempts to run the flow, the following error message is displayed:
 {{< figure src="post-flow-already-started-error.png" figcaption="Error response for POST /flow/{holdingidentityshorthash" >}}
 
-Because the API is asynchronous, at this stage you only receive the confirmation `START_REQESTED`. There is no indication of  the flow has been successful. To find out the status of the flow, you must check the flow status.
+Because the API is asynchronous, at this stage you only receive the confirmation `START_REQESTED`. There is no indication if the flow has been successful. To find out the status of the flow, you must check the flow status.
 
 ### Checking the flow status
 

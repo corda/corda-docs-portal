@@ -24,10 +24,10 @@ Deploying Cordapps to a local Corda Cluster (Combined Worker).-->
 {{< note >}}
 Developer Preview 2 is, as the name suggests, a developer preview. It is not a product released and supported by R3. As a result:
 * Do not release anything built on Developer Preview 2 into Production.
-* There is no support For Developer Preview 2 but we are keen to receive community feedback.
+* There is no support for Developer Preview 2 but we are keen to receive community feedback.
 * There are no guarantees around API stability.
-* The tooling described in this section is experimental and may or may not make it in to the GA release of Corda 5.
-* There are going to be bugs. If you raise a bug with us, we will consider them for fixing.
+* The tooling described in this section is experimental and may or may not be delivered in the GA release of Corda 5.
+* There are likely to be bugs. If you raise a bug with us, we will consider them for fixing.
 {{< /note >}}
 
 ## Developer Preview 1 vs Developer Preview 2
@@ -36,13 +36,13 @@ Developer Preview 1 was effectively a taster for the Corda 5 API. It was however
 
 ## Kotlin vs Java
 
-The getting started documentation and templates are currently only in Kotlin. We are working to provide Java versions as soon as possible, but it may be a short time after the release of DP2.
+The Getting Started documentation and templates are currently only in Kotlin. We are working to provide Java versions as soon as possible, but it may be a short time after the release of DP2.
 
-To Java Developers used to working with Corda 4, or those who have some familiarity with Kotlin, it should be possible to work out how to implement the examples in Java without too many problems.
+For Java Developers used to working with Corda 4, or those who have some familiarity with Kotlin, it should be possible to work out how to implement the examples in Java without too many problems.
 
 ## Corda 4 vs Corda 5
 
-Corda 5 is a complete re-write of Corda 4. This was necessary to achieve the massive gains in non-functional performance that Corda 5 offers. When writing CorDapps, some things will appear familiar and some things will feel different. For example, the basic mechanism of flows is similar, whereas the structure of the Corda network, the way flows are tested, and the way flows are instantiated (via REST) have changed significantly. You can read more about these changes in the [Introduction](../introduction/introduction.html).
+Corda 5 is a complete re-write of Corda 4. This was necessary to achieve the massive gains in non-functional performance that Corda 5 offers. When writing CorDapps, some things will seem familiar and some things will feel different. For example, the basic mechanism of flows is similar, whereas the structure of the Corda network, the way flows are tested, and the way flows are instantiated (via REST) have changed significantly. You can read more about these changes in the [Introduction](../introduction/introduction.html).
 
 This documentation does not assume any prior knowledge of Corda 4.
 
