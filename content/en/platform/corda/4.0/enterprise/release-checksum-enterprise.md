@@ -1,10 +1,11 @@
 ---
-title: Release files and checksums
+title: Corda Enterprise Edition 4.0 release files and checksums
 date: '2020-10-22T14:41:43Z'
 menu:
   corda-enterprise-4-0:
     parent: corda-enterprise-4-0-release-notes-enterprise
     weight: 200
+    name: "Release files and checksums"
 tags:
 - release
 - artifacts
@@ -13,7 +14,7 @@ tags:
 
 ---
 
-# Corda Enterprise release files and checksums
+# Corda Enterprise Edition 4.0 release files and checksums
 
 Customers who have access to the Corda repositories can download the release files from the repositories.
 

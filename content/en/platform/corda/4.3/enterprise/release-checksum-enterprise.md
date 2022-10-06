@@ -1,4 +1,5 @@
 ---
+title: Corda Enterprise Edition 4.3 release files and checksums
 aliases:
 - /releases/4.3/release-notes-enterprise.html
 date: '2020-01-08T09:59:25Z'
@@ -6,14 +7,15 @@ menu:
   corda-enterprise-4-3:
     identifier: corda-enterprise-4-3-release-checksum-enterprise
     weight: 30
+    name: "Release files and checksums"
 tags:
 - release
 - notes
 - enterprise
-title: Release files and checksums
+
 ---
 
-# Corda Enterprise release files and checksums
+# Corda Enterprise Edition 4.3 release files and checksums
 
 Customers who have access to the Corda repositories can download the release files from the repositories.
 

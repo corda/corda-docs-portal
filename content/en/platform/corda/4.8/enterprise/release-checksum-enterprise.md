@@ -1,10 +1,11 @@
 ---
-title: Checksums of release files
+title: Corda Enterprise Edition 4.8 release files and checksums
 date: '2021-07-02'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-release-notes
     weight: 200
+    name: "Release files and checksums"
 tags:
 - release
 - artifacts
@@ -12,7 +13,7 @@ tags:
 - enterprise
 ---
 
-# Checksums of Corda Enterprise release files
+# Corda Enterprise Edition 4.8 release files and checksums
 
 You can download the Corda Enterprise release files if you have access to the repositories.
 
