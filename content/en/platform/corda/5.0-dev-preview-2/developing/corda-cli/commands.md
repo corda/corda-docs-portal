@@ -6,7 +6,7 @@ menu:
     weight: 2000
     parent: corda-5-dev-preview-cordacli
 section_menu: corda-5-dev-preview2
-title: "Corda CLI commands"
+title: "Corda CLI Commands"
 draft: true
 ---
 ## MGM

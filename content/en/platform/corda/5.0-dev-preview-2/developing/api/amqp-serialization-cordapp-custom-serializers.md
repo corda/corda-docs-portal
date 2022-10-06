@@ -1,6 +1,6 @@
 ---
 date: '2022-09-21T14:27:00+01:00'
-title: "Pluggable serializers for CorDapps"
+title: "Pluggable Serializers for CorDapps"
 menu:
   corda-5-dev-preview2:
     identifier: corda-5-dev-preview-api-serialisation-cordapp-custom-serializers

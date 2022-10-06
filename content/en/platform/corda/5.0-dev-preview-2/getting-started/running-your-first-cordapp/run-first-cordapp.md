@@ -1,6 +1,6 @@
 ---
 date: '2022-09-19'
-title: "Running your first CorDapp"
+title: "Running Your First CorDapp"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-start

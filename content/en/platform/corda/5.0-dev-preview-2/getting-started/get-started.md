@@ -1,6 +1,6 @@
 ---
 date: '2022-09-19'
-title: "Getting started"
+title: "Getting Started"
 menu:
   corda-5-dev-preview2:
     identifier: corda-5-dev-preview-start

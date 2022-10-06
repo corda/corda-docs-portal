@@ -1,6 +1,6 @@
 ---
 date: '2022-09-10'
-title: "Changes from Corda 4"
+title: "Changes From Corda 4"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-intro

@@ -1,6 +1,6 @@
 ---
 date: '2022-09-20'
-title: "Your first flow"
+title: "Your First Flow"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-start

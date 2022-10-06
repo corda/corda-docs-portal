@@ -1,7 +1,7 @@
 ---
 draft: true
 date: '2020-07-15T12:00:00Z'
-title: "What is Corda?"
+title: "What Is Corda?"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-intro

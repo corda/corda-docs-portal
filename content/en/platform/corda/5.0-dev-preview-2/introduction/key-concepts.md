@@ -1,6 +1,6 @@
 ---
 date: '2020-07-15T12:00:00Z'
-title: "Key concepts"
+title: "Key Concepts"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-intro
