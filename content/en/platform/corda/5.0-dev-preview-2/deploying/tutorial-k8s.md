@@ -11,7 +11,7 @@ section_menu: corda-5-dev-preview2
 ---
 This section describes how to build and deploy Corda to a Kubernetes cluster on your local development machine.
 
-## Create a Kubernetes cluster
+## Create a Kubernetes Cluster
 
 The following instructions assume that you have a single-node Kubernetes cluster running with a Docker daemon.
 Two options that meet these requirements and have been tested with these instructions are:
@@ -22,7 +22,7 @@ Two options that meet these requirements and have been tested with these instruc
 Docker Desktop provides a simpler user experience but commercial use in larger enterprises requires a paid subscription.
 See [Do I need to pay to use Docker Desktop?](https://docs.docker.com/desktop/faqs/general/#do-i-need-to-pay-to-use-docker-desktop) for more details.
 
-### Install and configure Docker Desktop
+### Install and Configure Docker Desktop
 
 1. Install Docker Desktop.
    * [macOS](https://docs.docker.com/desktop/mac/install/)
@@ -49,7 +49,7 @@ See [Do I need to pay to use Docker Desktop?](https://docs.docker.com/desktop/fa
     alias kubectl="minikube kubectl --"
     ```
 
-## Setup for Helm installation
+## Setup for Helm Installation
 
 The Kubernetes configuration for Corda is packaged in a Helm chart.
 The chart is installed into a Kubernetes namespace using the Helm CLI.
@@ -58,7 +58,7 @@ The chart is installed into a Kubernetes namespace using the Helm CLI.
 
 1. [Install the Helm CLI](https://helm.sh/docs/intro/install/).
 
-### Create a Kubernetes namespace
+### Create a Kubernetes Namespace
 
 1. If you have multiple Kubernetes clusters, ensure that you are targeting the `kubectl` context for the correct cluster.
     You can list contexts you have defined with:
@@ -88,7 +88,7 @@ The commands that follow all assume that you are using a namespace called `corda
 Modify the `-n corda` option on each `kubectl` command if you use a different namespace.
 {{< /note >}}
 
-## Install Corda pre-requisites
+## Install Corda Pre-Requisites
 
 Corda requires a PostgreSQL and Kafka instance as pre-requisites.
 One option to obtain these in a local development environment is via the umbrella Helm chart in the [corda/corda-dev-helm](https://github.com/corda/corda-dev-helm) GitHub repository.
@@ -117,7 +117,7 @@ One option to obtain these in a local development environment is via the umbrell
     The timeout is set to 10 minutes to allow time to pull the images from Docker Hub.
     The process should take significantly less time than this on subsequent installs.
 
-## Build the Corda Docker images
+## Build the Corda Docker Images
 
 The Corda Docker images must be built from source.
 
@@ -202,7 +202,7 @@ If the pod is continually restarting, it is likely that Kubernetes is killing it
 kubectl logs -n corda corda-rpc-worker-8f9f5565-wkzgq
 ```
 
-## Access the Corda cluster
+## Access the Corda Cluster
 
 1. To access the RPC endpoint, forward the port by running the following command in a second terminal window:
 
@@ -219,7 +219,7 @@ Note that the RPC endpoint is protected by a self-signed certificate.
    curl -u admin:admin -k https://localhost:8888/api/v1/hello
    ```
 
-## Clean up
+## Clean Up
 
 The quickest route to clean up is to delete the entire Kubernetes namespace:
 

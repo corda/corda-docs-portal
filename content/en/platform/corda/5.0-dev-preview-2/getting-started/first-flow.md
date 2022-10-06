@@ -18,14 +18,14 @@ Many of the features will be familiar to those Developers who have written Corda
 <!--Although these changes seem a little strange at first, once you get used to them they will become second nature.-->
 It is also worth noting that, as of Developer Preview 2, there is no ledger service available to the flows. This means that you can not create tokens, transactions, or states yet.
 
-## MyFirstFlow use case
+## MyFirstFlow Use Case
 The use case in the example is very simple:
 1. The initiating flow is called on the initiating node with another member of the application network, the recipient,  specified as the input argument.
 2. The initiating flow sends the message "Hello from <initiator>." to the specified recipient.
 3. The responder flow receives the message and replies with "Hello <initiator>, best wishes from <responder>."
 4. The initiator returns the message received from the responder as a String.
 
-# Flow code
+## Flow Code
 The code for the flows and supporting classes can be found in the CSDE repo at `src/main/com/r3/developers/csdetemplate/MyFirstFlow.kt`.
 
 The full listing with explanatory comments is as follows:
@@ -184,7 +184,7 @@ RequestBody for triggering the flow via http-rpc:
 }
  */
  ```
-## Helper classes
+## Helper Classes
 There are two helper classes:
 * `MyFirstFlowStartArgs` — provides a wrapper around the single arguments that need to be passed into the flow — the other member of the application network who the message should be sent to:
    ```kotlin
@@ -196,7 +196,7 @@ There are two helper classes:
    @CordaSerializable
    class Message(val sender: MemberX500Name, val message: String)
    ```
-## Initiating and responding flows
+## Initiating and Responding Flows
 To trigger a flow from HTTP-RPC, the flow must  inherit from `RPCStartableFlow`. Most flows will come in pairs; one initiating flow and a corresponding responder flow. The responder flow must inherit from `ResponderFlow`. The two flows are linked by adding the `@InitiatingFlow` and `@InitiatedBy` annotations which both specify the same protocol in this case "my-first-flow":
 ```kotlin
 @InitiatingFlow(protocol = "my-first-flow")
@@ -223,7 +223,7 @@ We recommend adding an easily searchable tag to each log message. For example:
 ```kotlin
         log.info("MFF: MyFirstFlow.call() called")
 ```
-## call() method
+## call() Method
 As with flows in Corda 4, each flow has a `call()` method. This is the method which Corda invokes when the flow is invoked.
 
 When a flow is started via HTTP-RPC, the `requestBody` from the HTTP request is passed into the `call` method as the  `requestBody` parameter, giving the rest of the call method access to the parameters passed in via HTTP.
@@ -242,7 +242,7 @@ In the responder flow:
     @Suspendable
     override fun call(session: FlowSession) { ... }
 ```
-## Injecting service
+## Injecting Service
 Corda 5 requires a CorDapp Developer to explicitly specify which Corda services are required by the flow. In this simple example we use three services:
 * JsonMarshallingService — a service that CorDapps and other services may use to marshal arbitrary content in and out of JSON format using standard approved mappers.
 * FlowMessaging  — a service that CorDapps can use to create communication sessions between two virtual nodes. Once set up, you can send and receive using the session object.
@@ -292,7 +292,7 @@ We can now obtain the X500 name of the other virtual node that we want to send t
 ```kotlin
         val otherMember = flowArgs.otherMember
 ```
-## Creating the message
+## Creating the Message
 To create the message, you must know the identity of the initiator. Remember that this flow could run on any node, so the identity cannot be hard coded. To find out the identity of the virtual node running the initiator flow, use the injected  `memberLookup` service:
 ```kotlin
         val otherMember = flowArgs.otherMember
@@ -349,7 +349,7 @@ We can now start sending messages to the responder:
 ```
    The response from the initiating flow is always a Strinh, which can be returned when the flow status is queried by HTTP-RPC.
 
-## Other considerations for FlowSessions
+## Other Considerations for FlowSessions
 It is important that the sends and receives in the initiator and responder flows match. If the initiator sends a Foo and the responder expects a Bar, the flow hangs and likely results in a timeout error.
 
 As with Corda 4, there is also a `sendAndReceive` method on `FlowSession` that sends a payload, check-points the flow, and then waits for a response to be received:

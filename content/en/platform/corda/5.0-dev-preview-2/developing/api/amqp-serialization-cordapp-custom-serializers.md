@@ -15,7 +15,7 @@ they cannot be easily modified for simple serialization, CorDapps can provide cu
 can use these serializers to move from a type it cannot serialize to an interim representation that it can serialize.
 The transformation to and from this proxy object is handled by the supplied serializer.
 
-## Writing a custom serializer
+## Writing a Custom Serializer
 
 Serializers must:
 * Inherit from `net.corda.v5.serialization.SerializationCustomSerializer`
@@ -178,7 +178,7 @@ In the above examples
 * `ExampleSerializer` is the actual serializer that will be loaded by the framework to serialize instances of the `Example` type.
 * `ExampleSerializer.Proxy`, in the Kotlin example, and `ExampleProxy`, in the Java example, is the intermediate representation used by the framework to represent instances of `Example` within the wire format.
 
-## Proxy object
+## Proxy Object
 
 The proxy object should be thought of as an intermediate representation that the serialization framework
 can reason about. One is being written for a class because, for some reason, that class cannot be
@@ -219,7 +219,7 @@ When composing a proxy object for a class be aware that everything within that s
 into the serialized byte stream.
 {{< /important >}}
 
-## Allow list
+## Allow List
 
 By writing a custom serializer for a class, it has the effect of adding that class to the allow list, meaning such
 classes do not need the `@CordaSerializable` annotation.

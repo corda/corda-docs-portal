@@ -12,7 +12,7 @@ section_menu: corda-5-dev-preview2
 
 This section describes how to package your CorDapp as CPKs, CPBs, and CPIs. You can read more about the CorDapp packaging format in the [Key concepts](../../introduction/key-concepts.html#packaging) section.
 
-## Before you start
+## Before You Start
 
 You must install [Corda CLI](../corda-cli/overview.html).
 
@@ -45,7 +45,7 @@ This describes how to convert an existing CorDapp project to the new Gradle plug
     id 'net.corda.plugins.cordapp-cpb2'
     ```
 -->
-## Generating a signing key
+## Generating a Signing Key
 
 To generate a code signing key for signing the CPI:
 
@@ -77,7 +77,7 @@ To generate a code signing key for signing the CPI:
 This key can be generated once and kept for reuse.
 {{< /note >}}
 
-## Generating a group policy file
+## Generating a Group Policy File
 
 To generate a group policy file:
 ```shell
@@ -99,7 +99,7 @@ The gradle plugin builds the CPB. To create a CPB for a CPI:
     --key "signing key 1"
 ```
 
-## Importing trusted code signing certificates
+## Importing Trusted Code Signing Certificates
 
 Corda validates that uploaded CPIs are signed with a trusted key. To trust your signing keys, upload them with these commands:
 

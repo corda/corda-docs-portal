@@ -21,12 +21,12 @@ As a result, registration of an identity is done directly with the MGM, without 
 ## MGM
 As mentioned above, the [Membership Group Manager (MGM)](key-concepts.html#membership-management) replaces the CENM suite as the method for permissioning entry to a network. Unlike CENM, MGM operates as a part of the Corda 5 infrastructure natively and does not require additional servers and services to operate.
 
-## Application networks
+## Application Networks
 Prior to Corda 5, Corda had a two-layer model for network membership that separated the permissioning of an identity onto a network from joining a business network. Initially, an identity would join a Corda network known to be hosting various applications. The network operator would attest their identity is valid. Then the identity could elect to join a business network. It was possible for a business network to also be the network operator, meaning that a network would only be hosting a single application. However, in that case the chances of interoperability with other applications would be zero, since interoperability was predicated on the basis of being in the same network.
 
 Corda 5 changes this by allowing inter-network interoperability and focusing on one network per application. This allows identity rules to be set by each network as suitable.
 
-## Restful interfaces
+## Restful Interfaces
 Corda 4 used Advanced Message Queuing Protocol (AMQP) as its communication mechanism. This meant that all RPC commands required an intermediate client to interoperate with CorDapps, complicating development and deployment. Corda 5 switches RPC over to industry standard REST calls, removing the need for that client and allowing applications to directly interact with Corda.
 
 ## Corda CLI
@@ -37,10 +37,10 @@ Through a plugin mechanism, the CLI is extensible so that all aspects of Corda c
 ## Packaging
 CorDapps are no longer created as fat JAR files, but are now built using the Corda [packaging](key-concepts.html#packaging) format to enhance distributability and reuse.
 
-## Interface based APIs
+## Interface-Based APIs
 The Corda APIs for CorDapp developers have switched to their own repository and become pure interfaces. This means that details of the Corda implementations of the system-level functions will no longer pollute user space. It also allows Corda to upgrade its implementations without requiring CorDapps to upgrade themselves.
 
-## Containerized and clustered
+## Containerized and Clustered
 Corda 4 and below is delivered as a single JAR that is either executed as a normal process or run from within a single container. Corda 5 breaks that monolith apart, delivering functionality through a series of services hosted by Kubernetes or other cloud-style orchestration tools.
 
 ## Apache Kafka
@@ -48,12 +48,12 @@ Corda 5 replaces the message bus at the heart of the system, moving away from Ar
 
 Additionally, rather than embedding the message bus as part of the actual Corda protocol, the message bus in Corda 5 merely acts as a guaranteed, fault-tolerant, message delivery system within a single cluster.
 
-## Gateway replaces the Corda Firewall
+## Gateway Replaces the Corda Firewall
 Corda 4 used the Corda Firewall to allow the egress of Corda messages to the wider internet in a secure manner. This took the form of the Float/Bridge application pair. This was configured separately and deployed into the DMZ to bridge Corda and the wider internet, whilst sitting behind load-balancers and proxies. Much like CENM, these represented additional and different software stacks to learn, configure, and operate.
 
 Corda 5 uses the Gateway (and session manager) to achieve similar goals. However, now that Corda communicates with other clusters via HTTPS instead of AMQP, these services can be deployed into an ingress zone behind the corporate firewall and load-balancing proxies.
 
-## Combined worker
+## Combined Worker
 The worker architecture allows us to deliver Corda in various guises. For highly available fault-tolerant systems, the fully distributed collection of workers can be used. However, when developing CorDapps, the ability to run a small and lightweight version of this is paramount. Therefore, a collection of workers can be collapsed into a *combined worker*, delivering the same characteristics of the mode-complex deployment in a much smaller package.
 
 This can be augmented through the addition of an in-memory message bus, foresaking Kafka. This allows deterministic testing and better observability when running through the full software development lifecycle on a laptop.
