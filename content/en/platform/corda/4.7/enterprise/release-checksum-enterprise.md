@@ -5,7 +5,7 @@ menu:
   corda-enterprise-4-7:
     parent: corda-enterprise-4-7-release-notes
     weight: 200
-    name: "Release files checksums"
+    name: "Release files and checksums"
 tags:
 - release
 - artifacts
