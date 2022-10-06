@@ -1,6 +1,6 @@
 ---
 date: '2022-09-20'
-title: "Debugging against local Corda"
+title: "Debugging Against Local Corda"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-start

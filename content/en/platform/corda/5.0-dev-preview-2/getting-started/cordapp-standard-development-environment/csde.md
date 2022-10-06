@@ -21,7 +21,7 @@ The CSDE is obtained by cloning our `CSDE-Cordapp-Template-Kotlin` repository to
 The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://community.r3.com/c/corda-5-developer-preview/41).  
 {{< /note >}}
 
-## Downloading the CSDE template
+## Downloading the CSDE Template
 
 1. To obtain the CSDE template, clone the [CSDE-Cordapp-Template-Kotlin repository](https://github.com/corda/CSDE-cordapp-template-kotlin):
 
@@ -41,18 +41,18 @@ The CSDE is experimental. The decision whether or not we release it as part of C
   When complete, the project structure looks as follows:
 {{< figure src="CDSE-full-screen.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
 
-## CSDE overview
+## CSDE Overview
 
 This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a CorDapp.
 
-### Project structure
+### Project Structure
 On the left, you can see the folder structure created, ready for CorDapps development.
 {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
 
 You will write your flow code in `src/main/kotlin/<your package path>` and your flow tests in `src/test/kotlin/<your package path>`.
 (For Java, use `src/main/java/<your package path>` and `src/test/java/<your package path>` respectively.)
 
-### Gradle helpers for the combined worker
+### Gradle Helpers for the Combined Worker
 On the right, you can see the Gradle tasks that we have included to help you work with a local deployment of Corda using the combined worker:
 {{< figure src="gradle-helpers.png" figcaption="CSDE gradle helpers" alt="CSDE gradle tasks in IntelliJ" >}}
 The **combined worker** is a Corda cluster that runs all of the workers in one JVM process.
@@ -88,6 +88,7 @@ The `buildCPI` task compiles your CorDapp into a CPI file.
 
 The `listVNodes` task displays a list of the virtual nodes on the local Corda cluster.
 
-### Debug configuration
-In the toolbar, you can select the `DebugCorDapp` run configuration to debug the running CorDapp from IntelliJ.
+### Debug Configuration
+In the toolbar, you can select the `DebugCorDapp` run configuration to debug the running Corda from IntelliJ.
+
 {{< figure src="debugging.png" figcaption="CSDE DebugCorDapp" alt="Menu in IntelliJ to debug Corda" >}}

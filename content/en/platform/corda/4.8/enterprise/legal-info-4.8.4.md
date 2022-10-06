@@ -8,7 +8,7 @@ menu:
 tags:
 - legal
 - info
-title: Third-party software licence information - CE 4.8.4
+title: Third-party software licence information - 4.8.4
 ---
 
 # Corda Enterprise 4.8.4 third-party software notices and licence information

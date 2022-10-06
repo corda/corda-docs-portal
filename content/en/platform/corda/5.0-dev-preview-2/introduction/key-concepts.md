@@ -1,6 +1,6 @@
 ---
 date: '2020-07-15T12:00:00Z'
-title: "Key concepts"
+title: "Key Concepts"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-intro
@@ -8,7 +8,7 @@ menu:
     weight: 2000
 section_menu: corda-5-dev-preview2
 ---
-## Layered architecture
+## Layered Architecture
 
 The Corda platform is a layered toolbox that you can approach from the bottom up, pulling in more advanced concepts only when needed. There are currently three distinct layers:
 1.	[P2P layer](#p2p-layer)
@@ -72,7 +72,7 @@ CorDapps encapsulate the logic that brings parties into agreement through [flows
 The set of all possible entities granted permission by the [Membership Group Manager (MGM)](#membership-management) to use a CorDapp is known as an [application network](#application-networks).
 CorDapps are built as a layered [package](#packaging).
 
-## Application networks
+## Application Networks
 
 Corda is a permissioned digital ledger platform and to use a [CorDapp](#cordapps), entities must be approved and their identity verified against a set of rules.
 Corda does not care what those rules are.
@@ -89,7 +89,7 @@ From the perspective of one of those customers, it is who they are allowed to in
 
 <!--Diagram?-->
 
-## Membership management
+## Membership Management
 
 The **Membership Group Manager (MGM)** enables network operators to set the rules for their [application network](#application-networks).
 It approves or declines new members and distributes membership lists to members. Lists are signed and verifiable to prevent tampering, ensuring [virtual nodes](#virtual-nodes) can trust each other.
@@ -105,7 +105,7 @@ Currently, the MGM allows each network member to be aware of every other member.
 However, based on feedback, we could introduce additional models. For example, a broker model where each client is only aware of the brokers, but the brokers are aware of every other node.
 {{< /note >}}
 
-## Virtual nodes
+## Virtual Nodes
 
 Corda 5 virtualizes the execution of [flow](#flows) process steps, allowing flows for multiple identities and from multiple CorDapps to be executed within the same compute environment at the same time.
 

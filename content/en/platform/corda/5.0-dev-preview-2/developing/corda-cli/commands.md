@@ -6,7 +6,7 @@ menu:
     weight: 2000
     parent: corda-5-dev-preview-cordacli
 section_menu: corda-5-dev-preview2
-title: "Corda CLI commands"
+title: "Corda CLI Commands"
 draft: true
 ---
 ## MGM
@@ -26,7 +26,7 @@ Alternatively, the following command line arguments can be used to define the st
 | --endpoint          | The endpoint base URL.             |
 | --endpoint-protocol | The version of end-to-end authentication protocol.              |
 
-### Generating GroupPolicy using file input
+### Generating GroupPolicy Using File Input
 
 To generate GroupPolicy using file input:
 
@@ -38,7 +38,7 @@ To generate GroupPolicy using file input:
 * As ingle endpoint is assumed for all members when `memberNames` is used.
 * Endpoint information specified under `members` overrides endpoint information set at the root level. An error is thrown if endpoint information is not provided at all.
 {{< /note >}}
-#### Sample files
+#### Sample Files
 
 JSON with `memberNames`:
 ```json
@@ -86,7 +86,7 @@ members:
     - name: "C=GB, L=London, O=Member2"
 ```
 
-### Generating GroupPolicy using string parameters
+### Generating GroupPolicy Using String Parameters
 
 To generate GroupPolicy using file input:
 ```shell

@@ -1,6 +1,6 @@
 ---
 date: '2022-09-19'
-title: "Third-party prerequisites"
+title: "Third-Party Prerequisites"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-start
@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-dev-preview2
 ---
 
-## Software prerequisites
+## Software Prerequisites
 
 Corda 5 DP 2 has been tested with the following:
 
@@ -43,7 +43,7 @@ Most of the computers that we use to develop, build, and test Corda 5 have:
 These are not minimum specifications.
 This what is known to work with the code as of Developer Preview 2.-->
 
-## Additional configuration for Mac
+## Additional Configuration for Mac
 
 The current version of the [Corda combined worker](../cordapp-standard-development-environment/csde.html#gradle-helpers-for-the-combined-worker) runs on port 7000.
 Some Mac operating systems use port 7000 for the system Control Center.

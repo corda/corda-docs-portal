@@ -1,6 +1,6 @@
 ---
 date: '2022-09-20'
-title: "Fast feedback with Simulator"
+title: "Fast Feedback With Simulator"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-start
