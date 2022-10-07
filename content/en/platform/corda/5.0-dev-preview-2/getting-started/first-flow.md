@@ -347,7 +347,7 @@ We can now start sending messages to the responder:
 
         return response.message
    ```
-   The response from the initiating flow is always a String, which can be returned when the flow status is queried by HTTP-RPC.
+   The response from the initiating flow is always a string, which can be returned when the flow status is queried by HTTP-RPC.
 
 ## Other Considerations for FlowSessions
 It is important that the sends and receives in the initiator and responder flows match. If the initiator sends a Foo and the responder expects a Bar, the flow hangs and likely results in a timeout error.
