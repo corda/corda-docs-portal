@@ -1,6 +1,6 @@
 ---
 date: '2021-09-24'
-title: "Third-party software notices and information"
+title: "Third-Party Software Notices and Information"
 menu:
   corda-5-dev-preview2:
     identifier: corda-5-dev-preview-legal-info-overview

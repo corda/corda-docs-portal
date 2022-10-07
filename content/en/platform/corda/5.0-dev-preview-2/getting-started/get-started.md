@@ -1,6 +1,6 @@
 ---
 date: '2022-09-19'
-title: "Getting started"
+title: "Getting Started"
 menu:
   corda-5-dev-preview2:
     identifier: corda-5-dev-preview-start
@@ -51,7 +51,7 @@ This documentation does not assume any prior knowledge of Corda 4.
 As at the cut for Developer Preview 2, the Corda 5 [ledger](../introduction/key-concepts.html#ledger-layer) is not at the stage of development where it can be usefully previewed, hence there is no ledger in Developer Preview 2.
 There are however some of the ledger building blocks around cryptography, serialization, and persistence and so with a bit of extra work you can still prototype useful distributed ledger applications.
 
-## Other sources of documentation
+## Other Sources of Documentation
 
 Aside from this documentation, there is also the [corda-runtime-os Wiki](https://github.com/corda/corda-runtime-os/wiki) which has useful information about working with Corda.
 Corda-runtime-os contains the guidance if you want to compile Corda from source.

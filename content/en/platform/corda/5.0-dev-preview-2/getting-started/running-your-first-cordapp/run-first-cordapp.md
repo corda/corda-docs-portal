@@ -1,6 +1,6 @@
 ---
 date: '2022-09-19'
-title: "Running your first CorDapp"
+title: "Running Your First CorDapp"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-start
@@ -12,7 +12,7 @@ The CSDE includes flows and tests for a very simple CorDapp, which you can run o
 
 The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.MyFirstFlow.kt` file. This is also the code described in the [first flow section](../first-flow.html).
 
-## Starting the Corda combined worker
+## Starting the Corda Combined Worker
 
 To run the flow, you must first start a local combined worker version of Corda. CSDE includes helper Gradle tasks to do this.
 {{< figure src="starting-corda.png" width="50%" figcaption="CSDE startCorda task" alt="CSDE task to start the combined worker in IntelliJ" >}}
@@ -54,7 +54,7 @@ If the Swagger UI is already open whilst starting Corda, you must hit an endpoin
 {{< figure src="authorize.png" figcaption="Swagger Authorize authorizations window" alt="Authorize authorizations window in Swagger UI to authorize access to the Corda cluster" >}}
 4. Click **Authorise** and then **Close**.
 
-### Hitting endpoints
+### Hitting Endpoints
 
 Once authorised, you can start hitting endpoints. The easiest one to try is `/cpi` because it is the first one on the Swagger page and requires no arguments:
 1. Expand the `GET /cpi` row and click **Try it out**.
@@ -88,7 +88,7 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
    {{< /note >}}
     You should now be able to start `MyFirstFlow` from the Swagger UI.
 
-### Starting your first flow
+### Starting Your First Flow
 
 To run your first flow:
 1. Find the `holdingidentityshorthash` for the virtual node you want to trigger the flow on. You can do this by running the `listVnodes` gradle task which will list the VNodes set up:
@@ -122,7 +122,7 @@ Note, if you forget to change the `ClientRequestId` on subsequent attempts to ru
 
 Because the API is asynchronous, at this stage you only receive the confirmation `START_REQESTED`. There is no indication of  the flow has been successful. To find out the status of the flow, you must check the flow status.
 
-### Checking the flow status
+### Checking the Flow Status
 
 To check the flow status:
 1. Expand the `GET /flow/{holdingidentityshorthash}/{clientrequestid}` endpoint in Swagger and click **Try it out**.

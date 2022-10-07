@@ -1,6 +1,6 @@
 ---
 date: '2021-09-21'
-title: "Deployment tutorials"
+title: "Deployment Tutorials"
 draft: true
 menu:
   corda-5-dev-preview2:

@@ -1,6 +1,6 @@
 ---
 date: '2022-09-21T14:27:00+01:00'
-title: "Default class evolution"
+title: "Default Class Evolution"
 menu:
   corda-5-dev-preview2:
     identifier: corda-5-dev-preview-api-serialisation-default-evolution
@@ -16,7 +16,7 @@ the actual code changes. These are:
 * Removing properties
 * Reordering constructor parameters
 
-## Adding nullable properties
+## Adding Nullable Properties
 
 The serialization framework allows nullable properties to be freely added. For example:
 
@@ -39,7 +39,7 @@ at version B as the framework would treat it as a removed property.
 A node with the class at version B will be able to deserialize a serialized version A of `Example1` without
 any modification as the property is nullable and will thus provide null to the constructor.
 
-## Adding non-nullable properties
+## Adding Non-Nullable Properties
 
 If a non-null property is added, unlike nullable properties, some additional code is required for
 this to work. Consider a similar example to our nullable example above:
@@ -77,7 +77,7 @@ As before, instances of the class at version A will be able to deserialize seria
 will simply treat them as if the property has been removed (as from its perspective, they will have been).
 
 
-### Constructor versioning
+### Constructor Versioning
 
 If, over time, multiple non-nullable properties are added, then a class will potentially have to be able
 to deserialize a number of different forms of the class. Being able to select the correct constructor is
@@ -194,7 +194,7 @@ Example3 (1, 2, 3, 4, 5)    // example IV
 {{< /tabs >}}
 
 
-## Removing properties
+## Removing Properties
 
 Property removal is effectively a mirror of adding properties (both nullable and non nullable) given that this functionality
 is required to facilitate the addition of properties. When this state is detected by the serialization framework, properties
@@ -220,7 +220,7 @@ no capacity to guess at what values should or could be used as sensible defaults
 them to null.
 
 
-## Reordering constructor parameter order
+## Reordering Constructor Parameter Order
 
 Properties (in Kotlin this corresponds to constructor parameters) may be reordered freely. The evolution serializer will create a
 mapping between how a class was serialized and its current constructor parameter order. This is important to our AMQP framework as it

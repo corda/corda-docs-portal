@@ -1,6 +1,6 @@
 ---
 date: '2021-09-21'
-title: "Digital assets"
+title: "Digital Assets"
 draft: true
 menu:
   corda-5-dev-preview2:

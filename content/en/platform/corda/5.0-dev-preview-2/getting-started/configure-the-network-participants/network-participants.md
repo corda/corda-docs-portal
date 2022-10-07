@@ -1,6 +1,6 @@
 ---
 date: '2022-09-20'
-title: "Configuring the network participants"
+title: "Configuring the Network Participants"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-start
