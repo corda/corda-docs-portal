@@ -4,7 +4,7 @@ date: '2022-01-21T12:00:00Z'
 menu:
   corda-enterprise-4-6:
     parent: corda-enterprise-4-6-release-notes
-    weight: 395
+    weight: 400
     name: Third-party software notices and licence information - 4.6.9
 tags:
 - legal

@@ -1,5 +1,5 @@
 ---
-title: Corda Enterprise Edition 4.2.2 release notes
+title: Corda Enterprise Edition 4.2 release notes
 aliases:
 - /releases/4.2/release-notes-enterprise.html
 date: '2020-01-08T09:59:25Z'
@@ -15,7 +15,7 @@ tags:
 ---
 
 
-# Release notes
+# Corda Enterprise Edition 4.2 release notes
 
 ## Corda Enterprise Edition 4.2.2 release notes
 

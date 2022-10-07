@@ -1,5 +1,5 @@
 ---
-name: Corda Enterprise Edition 4.5.4 third-party software notices and licence information
+title: Corda Enterprise Edition 4.5.4 third-party software notices and licence information
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-5:
@@ -10,7 +10,6 @@ menu:
 tags:
 - legal
 - info
-title: 
 ---
 
 # Corda Enterprise Edition 4.5.4 third-party software notices and licence information

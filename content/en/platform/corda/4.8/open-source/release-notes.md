@@ -8,6 +8,7 @@ menu:
   corda-os-4-8:
     identifier: corda-os-4-8-release-notes
     weight: 1
+    name: Release notes
 tags:
 - release
 - notes
@@ -15,11 +16,9 @@ title: Release notes
 ---
 
 
-# Corda release notes
+# Corda Open Source 4.8 release notes
 
-## Apache Log4j update
-
-### Updated December 16 2021
+## Corda Open Source 4.8 Apache Log4j update release notes (December 16 2021)
 
 Corda 4.8 was updated on December 16th 2021 to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
 
@@ -40,7 +39,7 @@ To build the latest version of Corda 4.8:
    `./gradlew assemble`
 5. Find `node/capsule/build/libs/corda-4.8-SNAPSHOT.jar`, this replaces your node's current `corda.jar`. To replace the superseded `.jar` file, follow the instructions on [upgrading your node to Corda 4.8](node-upgrade-notes.md).
 
-## Corda 4.8 release notes
+## Corda Open Sourve 4.8 release notes
 
 Corda 4.8, released on April 21st 2021, includes several fixes and improvements.
 

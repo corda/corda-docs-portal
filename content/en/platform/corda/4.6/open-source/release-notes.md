@@ -1,4 +1,5 @@
 ---
+title: Corda Open Source 4.6 release notes 
 aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
@@ -8,12 +9,12 @@ menu:
   corda-os-4-6:
     identifier: corda-os-4-6-release-notes
     weight: 1
+    name: Release notes
 tags:
 - release
 - notes
-title: Release notes
----
 
+---
 
 # Corda Open Source 4.6 release notes 
 

@@ -5,7 +5,7 @@ menu:
   corda-enterprise-4-5:
     identifier: corda-enterprise-4-5-10-legal-info
     parent: corda-enterprise-4-5-release-notes
-    weight: 316
+    weight: 330
     name: Third-party software notices and licence information - 4.5.10
 tags:
 - legal

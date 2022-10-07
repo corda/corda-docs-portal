@@ -1,5 +1,5 @@
 ---
-title: Corda Enterprise Edition 4.6.11 release notes
+title: Corda Enterprise Edition 4.6 release notes
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-6:
