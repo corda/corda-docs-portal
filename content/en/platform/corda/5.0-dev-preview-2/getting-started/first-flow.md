@@ -191,7 +191,7 @@ There are two helper classes:
    class MyFirstFlowStartArgs(val otherMember: MemberX500Name)
    ```
    The [MyFirstFlowTest](fast-feedback-with-the-simulator/fast-feedback-with-the-simulator.md) Simulator example uses this class.
-* Message class —  specifies the message sent from the initiator to the responder and subsequently the message sent back from the responder to the initiator.  Note, as this is a class defined in the CorDapp and it is going to be sent ‘down the wire’ between two virtual nodes, it requires the @CordaSerializable annotation.
+* `Message` —  specifies the sender and the message. This is used for both the message sent from the initiator to the responder and subsequently the message sent back from the responder to the initiator. Note, as this is a class defined in a CorDapp and it is going to be sent ‘down the wire’ between two virtual nodes, it requires the `@CordaSerializable` annotation.
    ```kotlin
    @CordaSerializable
    class Message(val sender: MemberX500Name, val message: String)
@@ -244,11 +244,11 @@ In the responder flow:
 ```
 ## Injecting Services
 Corda 5 requires a CorDapp Developer to explicitly specify which Corda services are required by the flow. In this simple example we use three services:
-* JsonMarshallingService — a service that CorDapps and other services may use to marshal arbitrary content in and out of JSON format using standard approved mappers.
-* FlowMessaging  — a service that CorDapps can use to create communication sessions between two virtual nodes. Once set up, you can send and receive using the session object.
-* MemberLookup  — a service that CorDapps can use to retrieve information about virtual nodes on the network.
+* `JsonMarshallingService` — a service that CorDapps and other services may use to marshal arbitrary content in and out of JSON format using standard approved mappers.
+* `FlowMessaging`  — a service that CorDapps can use to create communication sessions between two virtual nodes. Once set up, you can send and receive using the session object.
+* `MemberLookup`  — a service that CorDapps can use to retrieve information about virtual nodes on the network.
 
-There are other services, such as the Persistence and Serialization services, which are beyond the scope of this getting started example.
+There are other services, such as the `Persistence` and `Serialization` services, which are beyond the scope of this Getting Started example.
 
 Services are declared as properties in the flow class with the `@CordaInject` annotation:
 ```kotlin
@@ -303,13 +303,13 @@ To create the message, you must know the identity of the initiator. Remember tha
 ## Setting up the FlowSession
 We can now start sending messages to the responder:
 1. Set up a `FlowSession` between the initiator and responder node:
-```kotlin
+   ```kotlin
         val session = flowMessaging.initiateFlow(otherMember)
-```
+   ```
 2. Simply call `send()` on the session and pass a payload:
-```kotlin
+   ```kotlin
         session.send(message)
-```
+   ```
    The code continues to execute until it reaches the `session.receive()` method. At that point, the flow checkpoints and persists its state to the database. It resumes when it receives a message back from the responder. This frees up the Corda cluster flow workers to perform other tasks.
    {{< note >}}
    There is no guarantee that the same flow worker resumes the completion of the flow and so singleton objects should be avoided in Corda 5 flows.
@@ -327,7 +327,7 @@ We can now start sending messages to the responder:
            val receivedMessage = session.receive(Message::class.java)
    ```
    The responder flow then obtains its own identity from its injected `memberLookup` service, creates a response, and sends the response back using `session.send()`:
-```kotlin
+   ```kotlin
         val ourIdentity = memberLookup.myInfo().name
 
         val response = Message(ourIdentity,
@@ -336,18 +336,18 @@ We can now start sending messages to the responder:
         log.info("MFF: response.message: ${response.message}")
 
         session.send(response)
-```
+   ```
    There is no return value for a ResponderFlow.
 
    Back on the Initiating virtual node, Corda detects the send coming from the responder and rehydrates the initiating flow from the database and resumes it from where it was checkpointed.
 
    The response is received and `response.message` is returned by the flow.
-```kotlin
+   ```kotlin
         val response = session.receive(Message::class.java)
 
         return response.message
-```
-   The response from the initiating flow is always a Strinh, which can be returned when the flow status is queried by HTTP-RPC.
+   ```
+   The response from the initiating flow is always a string, which can be returned when the flow status is queried by HTTP-RPC.
 
 ## Other Considerations for FlowSessions
 It is important that the sends and receives in the initiator and responder flows match. If the initiator sends a Foo and the responder expects a Bar, the flow hangs and likely results in a timeout error.
