@@ -11,7 +11,7 @@ tags:
 title: Third-party software notices and licence information - CE 4.5.0
 
 ---
-# Corda Enterprise 4.5 third-party software notices and licence information
+# Corda Enterprise Edition 4.5 third-party software notices and licence information
 
 **Do not translate or localise.**
 

@@ -103,5 +103,5 @@ Issues fixed in Corda Community 4.9:
 
 ### Database Schema Changes
 
-* The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise 4.7 following updates to certificate rotation functionality.
+* The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise Edition 4.7 following updates to certificate rotation functionality.
   * The reintroduction of this table ensures the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.
