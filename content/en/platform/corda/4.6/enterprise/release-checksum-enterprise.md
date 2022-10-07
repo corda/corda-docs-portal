@@ -19,7 +19,7 @@ Customers who have access to the Corda repositories can download the release fil
 
 Before installing any downloaded file, we recommend that you verify the integrity of each file as a security precaution, to ensure that the files have not been tampered with or become corrupted during the download. You can do this by calculating the checksum of your downloaded file and then comparing its value to the checksum value provided below.
 
-## Corda Enterprise 4.6.11 release files and checksums
+## Corda Enterprise Edition 4.6.11 release files and checksums
 
 * corda-4.6.11-javadoc.jar (19 Kb / 20042 bytes)
   * `9a269022209be3ecdc7cd59cfad860f0d0bfd49c` (sha1)
@@ -846,7 +846,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `3e0bcc5566ec54c56dab99ba26b406f2` (md5)
   * `fe6c831e083486d19e169b0079c9e0babbc28df127e8c6c9284bfacc23c545e1` (sha256)
 
-## Corda Enterprise 4.6.10 release files and checksums
+## Corda Enterprise Edition 4.6.10 release files and checksums
 
 * corda-4.6.10-full-release.md (46 Kb / 47278 bytes)
   * `884782aa2c243ee8e6cc12f6323f2b702dba8507` (sha1)
@@ -1689,7 +1689,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `dd224fce0efdb0df848374e5156abe9b` (md5)
   * `90242813771196727025ed0268ee8ccd9c3b589581652809cfeff141ca12f2ce` (sha256)
 
-## Corda Enterprise 4.6.9 release files and checksums
+## Corda Enterprise Edition 4.6.9 release files and checksums
 
 * corda-4.6.9-javadoc.jar (19 Kb / 20024 bytes)
   * `123097bdc83f92eda3ca66a26a99385cd86dfa46` (sha1)
@@ -2516,7 +2516,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `9331024dd0c76270d872673ed404e720` (md5)
   * `4edd59ff3a0f59318784aa20b6f38ae20e5e6e137057d994c76e7482a443cb3f` (sha256)
 
-## Corda Enterprise 4.6.8 release files and checksums
+## Corda Enterprise Edition 4.6.8 release files and checksums
 
 * corda-4.6.8-javadoc.jar (19 Kb / 20020 bytes)
   * `ef040ef568c68cfda25a15f78d51e78d65a2994a` (sha1)
@@ -3219,7 +3219,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `3491e408a3b832c0fb7d791b13f72061` (md5)
   * `53443c0b58fe093301c75bf370117eefbeec0a5fedc54daa44ec99c09c2311da` (sha256)
 
-## Corda Enterprise 4.6.7 release files and checksums
+## Corda Enterprise Edition 4.6.7 release files and checksums
 
 * api-docs-pub-test-4.6.7.tgz (530 Kb / 543052 bytes)
   * `b5516651a391aec67d3f86e559da9a957d97b416` (sha1)
@@ -4058,7 +4058,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `53f12ffc8950a0eb5a5e3c0cd3d0b1ce` (md5)
   * `f25c576e1f6b44c84ff723b49c787e882fd7778c837af6f78a59fb0c9d4c4395` (sha256)
 
-## Corda Enterprise 4.6.6 release files and checksums
+## Corda Enterprise Edition 4.6.6 release files and checksums
 
 * api-docs-pub-test-4.6.6.tgz (527 Kb / 540399 bytes)
   * `4f1cc83b092e34856bd68fcb757bfcea80e72184` (sha1)
@@ -4897,7 +4897,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `887926f6f13038beba805756c0581f10` (md5)
   * `819e06c8f7009954d333268e8b6b5b97e12187c3f20d30a3d5f4b47b46c0ffa3` (sha256)
 
-## Corda Enterprise 4.6.5 release files and checksums
+## Corda Enterprise Edition 4.6.5 release files and checksums
 
 * corda-4.6.5-javadoc.jar (19 Kb / 20031 bytes)
   * `5201c2057e4f580d52ccbb44a3641e3a5cb848a8` (sha1)

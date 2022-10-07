@@ -1,4 +1,5 @@
 ---
+title: Corda Open Source 4.7 release notes
 aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
@@ -8,20 +9,18 @@ menu:
   corda-os-4-7:
     identifier: corda-os-4-7-release-notes
     weight: 1
+    name: "Release notes"
 tags:
 - release
 - notes
-title: Release notes
 ---
 
 
-# Corda release notes
+# Corda Open Source 4.7 release notes
 
-## Apache Log4j update
+## Corda Open Source 4.7 Apache Log4j update release notes (December 16 2021)
 
-### Updated December 16 2021
-
-Corda 4.7 was updated on December 16th 2021 to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
+Corda Open Source 4.7 was updated on December 16th 2021 to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
 
 {{< warning >}}
 
@@ -40,7 +39,7 @@ To build the latest version of Corda 4.7:
    `./gradlew assemble`
 5. Find `node/capsule/build/libs/corda-4.7-SNAPSHOT.jar`, this replaces your node's current `corda.jar`. To replace the superseded `.jar` file, follow the instructions on [upgrading your node to Corda 4.7](node-upgrade-notes.md).
 
-## Corda 4.7 release notes
+## Corda Open Source 4.7 release notes
 
 Welcome to the Corda 4.7 release notes. This release introduces several new features and enhancements, and fixes a number of known issues from previous releases.
 
@@ -122,7 +121,7 @@ The list above contains known issues specific to Corda 4.7. See the release note
 {{< /note >}}
 
 
-## Corda 4.6
+## Corda 4.6 release notes
 
 Welcome to the Corda 4.6 release notes.
 
@@ -410,7 +409,7 @@ The `initial-registration` command is described in [Node command-line options](n
 * The error text is repeated in the console when trying to register a node with the forbidden characters in the Organisation (`O`) name.
 * The `<install-shell-extensions>` sub-command of Corda node creates log files in the home folder, while all other sub-commands create log files the `logs` subfolder.
 
-## Corda 4.5
+## Corda 4.5 release notes
 
 Welcome to the Corda 4.5 release notes.
 
@@ -508,7 +507,7 @@ For more information about platform versions, see [Versioning](versioning.md).
 * We have added a custom serializer (`IteratorSerializer`) that can fix broken iterators in order to resolve an issue with a `ConcurrentModificationException` in `FetchDataFlow`.
 * We have fixed an issue with failing `VaultObserverExceptionTest` tests on Oracle.
 
-## Corda 4.4
+## Corda 4.4 release notes
 
 Corda 4.4 lays the foundation of a new open core approach for the Corda codebase. This involved a refactoring of the
 main functional components of Corda. Please consult [the CorDapp overview](cordapp-overview.md) to get an overview of
@@ -643,7 +642,7 @@ Changes introduced in Corda 4.4 to increase ledger integrity have highlighted li
 
 
 
-## Corda 4.3
+## Corda 4.3 release notes
 
 Corda 4.1 was released with a great suite of new features to build on top of the success of Corda 4. Now, Corda 4.3 extends upon that with some powerful new capabilities. Corda 4.3 contains over 400 fixes and documentation updates to bring additional stability and quality of life improvements to those developing on the Corda platform.
 
@@ -920,7 +919,7 @@ Any confidential identities registered using the old API will not be reflected i
 
 
 
-## Corda 4.1
+## Corda 4.1 release notes
 
 It’s been a little under 3 1/2 months since the release of Corda 4.0 and all of the brand new features that added to the powerful suite
 of tools Corda offers. Now, following the release of Corda Enterprise 4.0, we are proud to release Corda 4.1, bringing over 150 fixes
@@ -1077,7 +1076,7 @@ As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
 
 
 
-## Corda 4
+## Corda 4 release notes
 
 Welcome to the Corda 4 release notes. Please read these carefully to understand what’s new in this
 release and how the changes can help you. Just as prior releases have brought with them commitments

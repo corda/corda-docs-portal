@@ -8,18 +8,17 @@ menu:
   corda-os-4-5:
     identifier: corda-os-4-5-release-notes
     weight: 1
+    name: "Release notes"
 tags:
 - release
 - notes
-title: Release notes
+title: Corda Open Source 4.5 release notes
 ---
 
 
-# Corda release notes
+# Corda Open Source 4.5 release notes
 
-## Apache Log4j update
-
-### Updated December 16 2021
+## Corda Open Source 4.5 Apache Log4j update release notes (December 16 2021)
 
 Corda 4.5 was updated on December 16th 2021 to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
 
@@ -138,7 +137,7 @@ For more information about platform versions, see [Versioning](versioning.md).
 * We have added a custom serialiser (`IteratorSerializer`) that can fix broken iterators in order to resolve an issue with a `ConcurrentModificationException` in `FetchDataFlow`.
 * We have fixed an issue with failing `VaultObserverExceptionTest` tests on Oracle.
 
-## Corda 4.4
+## Corda 4.4 release notes
 
 Corda 4.4 lays the foundation of a new open core approach for the Corda codebase. This involved a refactoring of the
 main functional components of Corda. Please consult [the CorDapp overview](cordapp-overview.md) to get an overview of
@@ -267,7 +266,7 @@ Changes introduced in Corda 4.4 to increase ledger integrity have highlighted li
 
 
 
-## Corda 4.3
+## Corda 4.3 release notes
 
 Corda 4.1 was released with a great suite of new features to build on top of the success of Corda 4. Now, Corda 4.3 extends upon that with some powerful new capabilities. Corda 4.3 contains over 400 fixes and documentation updates to bring additional stability and quality of life improvements to those developing on the Corda platform.
 
@@ -544,7 +543,7 @@ Any confidential identities registered using the old API will not be reflected i
 
 
 
-## Corda 4.1
+## Corda 4.1 release notes
 
 It’s been a little under 3 1/2 months since the release of Corda 4.0 and all of the brand new features that added to the powerful suite
 of tools Corda offers. Now, following the release of Corda Enterprise 4.0, we are proud to release Corda 4.1, bringing over 150 fixes
@@ -701,7 +700,7 @@ As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
 
 
 
-## Corda 4
+## Corda 4 release notes
 
 Welcome to the Corda 4 release notes. Please read these carefully to understand what’s new in this
 release and how the changes can help you. Just as prior releases have brought with them commitments

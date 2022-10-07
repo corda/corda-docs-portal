@@ -19,7 +19,7 @@ Customers who have access to the Corda repositories can download the release fil
 
 Before installing any downloaded file, we recommend that you verify the integrity of each file as a security precaution, to ensure that the files have not been tampered with or become corrupted during the download. You can do this by calculating the checksum of your downloaded file and then comparing its value to the checksum value provided below.
 
-## Corda Enterprise 4.7.9 release files and checksums
+## Corda Enterprise Edition 4.7.9 release files and checksums
 
 * archive-service-1.0.1-javadoc.jar (261 bytes / 261 bytes)
   * `ea68bb3be4b59efc7a0bdf15cd9f36089610020a` (sha1)
@@ -946,7 +946,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `497e98976e953f608e1b13b0e07c3b67` (md5)
   * `86457a8ad4f01a41ce7a37befacf4df3c77de5ff6543631c0469fa9d95fd890f` (sha256)
 
-## Corda Enterprise 4.7.8 release files and checksums
+## Corda Enterprise Edition 4.7.8 release files and checksums
 
 * archive-service-1.0.1-javadoc.jar (261 bytes / 261 bytes)
   * `ea68bb3be4b59efc7a0bdf15cd9f36089610020a` (sha1)
@@ -1889,7 +1889,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `15ce14f8ec030084e634406ba109d724` (md5)
   * `f2b1f8dad0f710ac48683037a900d8e292c890d06d0a6cdaa9d196aaf8cb6c70` (sha256)
 
-## Corda Enterprise 4.7.7 release files and checksums
+## Corda Enterprise Edition 4.7.7 release files and checksums
 
 * archive-service-1.0.1-javadoc.jar (261 bytes / 261 bytes)
   * `ea68bb3be4b59efc7a0bdf15cd9f36089610020a` (sha1)
@@ -2816,7 +2816,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `22d70c49965ebbd1a530a783615aa478` (md5)
   * `9080ab7ddf5162c557f26cd350ba3ff7b834dfac95c53a58fbe7d2cde61917a4` (sha256)
 
-## Corda Enterprise 4.7.6 release files and checksums
+## Corda Enterprise Edition 4.7.6 release files and checksums
 
 * corda-4.7.6-javadoc.jar (19 Kb / 19550 bytes)
   * `f473a66467f21cacdfc1c202fd2aa991120139bf` (sha1)
@@ -3627,7 +3627,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `3491e408a3b832c0fb7d791b13f72061` (md5)
   * `53443c0b58fe093301c75bf370117eefbeec0a5fedc54daa44ec99c09c2311da` (sha256)
 
-## Corda Enterprise 4.7.5 release files and checksums
+## Corda Enterprise Edition 4.7.5 release files and checksums
 
 {{< note >}}
 This is a direct upgrade from 4.7.3. No version 4.7.4 was released.
@@ -4463,7 +4463,7 @@ This is a direct upgrade from 4.7.3. No version 4.7.4 was released.
   * `46c23bdb38321067b1cc1892c59c4251c0b7d5b70426fe1ede8297f975941626` (sha256)
 
 
-## Corda Enterprise 4.7.3 release files and checksums
+## Corda Enterprise Edition 4.7.3 release files and checksums
 
 * corda-4.7.3-javadoc.jar (19.55 Kb / 19550 bytes)
   * `6801ebfdc91672e9fdede955ff3f67aa67ddb321` (sha1)

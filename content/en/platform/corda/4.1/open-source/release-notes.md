@@ -1,4 +1,5 @@
 ---
+title: Corda Open Source 4.1 release notes
 aliases:
 - /releases/release-V4.1/release-notes.html
 date: '2020-01-08T09:59:25Z'
@@ -6,19 +7,14 @@ menu:
   corda-os-4-1:
     identifier: corda-os-4-1-release-notes
     weight: 20
+    name: "Release notes"
 tags:
 - release
 - notes
-title: Release notes
 ---
 
 
-# Release notes
-
-
-
-
-## Corda 4.1
+# Corda Open Source 4.1 release notes
 
 It’s been a little under 3 1/2 months since the release of Corda 4.0 and all of the brand new features that added to the powerful suite
 of tools Corda offers. Now, following the release of Corda Enterprise 4.0, we are proud to release Corda 4.1, bringing over 150 fixes
@@ -204,7 +200,7 @@ Corda 3 and Corda 4 will require that Corda 3 users are on the latest patchlevel
 
 
 
-### Changes for developers in Corda 4
+### Changes for developers in Corda Open Source 4.1
 
 
 #### Reference states

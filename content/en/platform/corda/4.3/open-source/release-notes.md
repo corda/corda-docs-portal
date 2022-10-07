@@ -1,4 +1,5 @@
 ---
+title: Corda Open Source 4.3 Release notes
 aliases:
 - /releases/release-V4.3/release-notes.html
 date: '2020-01-08T09:59:25Z'
@@ -6,21 +7,19 @@ menu:
   corda-os-4-3:
     identifier: corda-os-4-3-release-notes
     weight: 20
+    name: "Release notes"
 tags:
 - release
 - notes
-title: Release notes
+
 ---
 
 
-# Release notes
+# Corda Open Source 4.3 Release notes
 
+Welcome to the Corda Open Source 4.3 release notes. Please read these carefully to understand what’s new in this release and how the features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.3 comes with those same guarantees. States and apps valid in Corda 3.0 are transparently usable in Corda 4.3.
 
-Welcome to the Corda 4.3 release notes. Please read these carefully to understand what’s new in this release and how the features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.3 comes with those same guarantees. States and apps valid in Corda 3.0 are transparently usable in Corda 4.3.
-
-## Apache Log4j update
-
-### Updated December 16 2021
+## Corda Open Source 4.3 Apache Log4j update (December 16 2021)
 
 Corda 4.3 was updated on December 16th 2021 to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
 
@@ -41,14 +40,14 @@ To build the latest version of Corda 4.3:
    `./gradlew assemble`
 5. Find `node/capsule/build/libs/corda-4.3-SNAPSHOT.jar`, this replaces your node's current `corda.jar`. To replace the superseded `.jar` file, follow the instructions on [upgrading your node to Corda 4.3](node-upgrade-notes.md).
 
-## Corda 4.3
+## Corda Open Source 4.3 release notes
 
 Corda 4.1 was released with a great suite of new features to build on top of the success of Corda 4. Now, Corda 4.3 extends upon that with some powerful new capabilities. Corda 4.3 contains over 400 fixes and documentation updates to bring additional stability and quality of life improvements to those developing on the Corda platform.
 
 We recommend you upgrade from Corda 4.1 to Corda 4.3 as soon as possible.
 
 
-### Changes for developers in Corda 4.3
+### Changes for developers in Corda Open Source 4.3
 
 
 #### Introduction of Accounts
@@ -316,7 +315,7 @@ Any confidential identities registered using the old API will not be reflected i
 
 
 
-## Corda 4.1
+## Corda Open Source 4.1
 
 It’s been a little under 3 1/2 months since the release of Corda 4.0 and all of the brand new features that added to the powerful suite
 of tools Corda offers. Now, following the release of Corda Enterprise 4.0, we are proud to release Corda 4.1, bringing over 150 fixes
@@ -472,7 +471,7 @@ As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
 
 
 
-## Corda 4
+## Corda Open Source 4
 
 Welcome to the Corda 4 release notes. Please read these carefully to understand what’s new in this
 release and how the changes can help you. Just as prior releases have brought with them commitments
@@ -501,7 +500,7 @@ Corda 3 and Corda 4 will require that Corda 3 users are on the latest patchlevel
 
 
 
-### Changes for developers in Corda 4
+### Changes for developers in Corda Open Source 4
 
 
 #### Reference states
@@ -699,7 +698,7 @@ We’ve upgraded to Kotlin 1.2.71, so your apps can now benefit from the new fea
 We’ve upgraded to Gradle 5.4.1.
 
 
-### Changes for administrators in Corda 4
+### Changes for administrators in Corda Open Source 4
 
 
 #### Official Docker images

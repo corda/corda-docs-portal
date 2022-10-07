@@ -19,7 +19,7 @@ You can download the Corda Enterprise release files if you have access to the re
 
 Before you install the downloaded files, verify the integrity of each file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the **checksum** of your downloaded file, then comparing its value to the checksum value provided below.
 
-## Checksums of Corda Enterprise 4.8.9 release files
+## Checksums of Corda Enterprise Edition 4.8.9 release files
 
 * archive-service-1.0.1-javadoc.jar (261 bytes / 261 bytes)
   * `ea68bb3be4b59efc7a0bdf15cd9f36089610020a` (sha1)
@@ -946,7 +946,7 @@ Before you install the downloaded files, verify the integrity of each file to en
   * `9647eea770fa97e5396f020330d44e02` (md5)
   * `6b9de97151e1d0ef97a12cc1013396783e6398840137ae6d24e08341849f3b45` (sha256)
 
-## Checksums of Corda Enterprise 4.8.8 release files
+## Checksums of Corda Enterprise Edition 4.8.8 release files
 
 * archive-service-1.0.1-javadoc.jar (261 bytes / 261 bytes)
   * `ea68bb3be4b59efc7a0bdf15cd9f36089610020a` (sha1)
@@ -1873,7 +1873,7 @@ Before you install the downloaded files, verify the integrity of each file to en
   * `835b880e51c47fb74b51afdb98b34a8c` (md5)
   * `7402e8bf39c5f36602514fcb4b0a585e393649474226de692fc51ea726f5a77b` (sha256)
 
-## Checksums of Corda Enterprise 4.8.7 release files
+## Checksums of Corda Enterprise Edition 4.8.7 release files
 
 * archive-service-1.0.1-javadoc.jar (261 bytes / 261 bytes)
   * `ea68bb3be4b59efc7a0bdf15cd9f36089610020a` (sha1)
@@ -2800,7 +2800,7 @@ Before you install the downloaded files, verify the integrity of each file to en
     * `71116071435fc9e2319df626f2a168a9` (md5)
     * `550667cad5f3bca4d10cb49e404dc589c6c6f9d9c5f48b9f393fc185e3ed2903` (sha256)
 
-## Checksums of Corda Enterprise 4.8.6 release files
+## Checksums of Corda Enterprise Edition 4.8.6 release files
 
 * corda-4.8.6-javadoc.jar (19 Kb / 19990 bytes)
   * `217b0e1efd9e6dee1d3a8bb45731697414b5b82f` (sha1)
@@ -3615,7 +3615,7 @@ Before you install the downloaded files, verify the integrity of each file to en
   * `cd1f17a16a1520c5e0ca39e872bb44d8` (md5)
   * `bcecc9cab638ef4e91d76883735c9fbbf17aed900ef54f29cc32f5b184c0b708` (sha256)
 
-## Checksums of Corda Enterprise 4.8.5 release files
+## Checksums of Corda Enterprise Edition 4.8.5 release files
 
 * api-docs-pub-test-4.8.5.tgz (539 Kb / 552519 bytes)
   * `52187f850a8138fa9c484eff8dcca095b0b8ec56` (sha1)
@@ -4454,7 +4454,7 @@ Before you install the downloaded files, verify the integrity of each file to en
   * `9461c910285208a1388195c43546018b` (md5)
   * `c03343cca65cafbc4ea4c6765cab537572f1f3c88a0486b6363da831c2d4a2f5` (sha256)
 
-## Checksums of Corda Enterprise 4.8.4 release files
+## Checksums of Corda Enterprise Edition 4.8.4 release files
 
 * api-docs-pub-test-4.8.4.tgz (538 Kb / 551316 bytes)
   * `196e4cb6263b7fd8693da8ce0bab5f763e61694e` (sha1)
@@ -5285,7 +5285,7 @@ Before you install the downloaded files, verify the integrity of each file to en
   * `5d0368236910d58814a04bdd4f47f584` (md5)
   * `d86b41be548fd5c9c23952bfa736c4dff552f7e475dfc73fe48f764e0726cfd4` (sha256)
 
-## Checksums of Corda Enterprise 4.8.3 release files
+## Checksums of Corda Enterprise Edition 4.8.3 release files
 
 * corda-4.8.3-javadoc.jar (19.54 Kb / 19540 bytes)
   * `e2dd691e0ca87f373636b2d0be8bbfbe031e5194` (sha1)
@@ -6100,7 +6100,7 @@ Before you install the downloaded files, verify the integrity of each file to en
   * `cd1f17a16a1520c5e0ca39e872bb44d8` (md5)
   * `bcecc9cab638ef4e91d76883735c9fbbf17aed900ef54f29cc32f5b184c0b708` (sha256)
 
-## Checksums of Corda Enterprise 4.8.2 release files
+## Checksums of Corda Enterprise Edition 4.8.2 release files
 
 * corda-4.8.2-javadoc.jar (19 Kb / 20010 bytes)
   * `ad6fe87408fc58396459330088177a9140342f83` (sha1)
@@ -6915,7 +6915,7 @@ Before you install the downloaded files, verify the integrity of each file to en
   * `cd1f17a16a1520c5e0ca39e872bb44d8` (md5)
   * `bcecc9cab638ef4e91d76883735c9fbbf17aed900ef54f29cc32f5b184c0b708` (sha256)
 
-## Checksums of Corda Enterprise 4.8.1 release files
+## Checksums of Corda Enterprise Edition 4.8.1 release files
 
 * corda-4.8.1-javadoc.jar (19 Kb / 19992 bytes)
   * `0bc7b892f32665f054fe8ebc07dc77b8eafa3a1e` (sha1)
@@ -7730,7 +7730,7 @@ Before you install the downloaded files, verify the integrity of each file to en
   * `cd1f17a16a1520c5e0ca39e872bb44d8` (md5)
   * `bcecc9cab638ef4e91d76883735c9fbbf17aed900ef54f29cc32f5b184c0b708` (sha256)
 
-## Checksums of Corda Enterprise 4.8 release files
+## Checksums of Corda Enterprise Edition 4.8 release files
 
 * corda-4.8-javadoc.jar (19 Kb / 19540 bytes)
   * `448a427825351f2ad3a290b01a8be0c0b76440ea` (sha1)

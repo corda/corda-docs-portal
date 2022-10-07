@@ -19,7 +19,7 @@ Customers who have access to the Corda repositories can download the release fil
 
 Before installing any downloaded file, we recommend that you verify the integrity of each file as a security precaution, to ensure that the files have not been tampered with or become corrupted during the download. You can do this by calculating the checksum of your downloaded file and then comparing its value to the checksum value provided below.
 
-## Corda Enterprise 4.1.1 release files and checksums
+## Corda Enterprise Edition 4.1.1 release files and checksums
 
 * corda-4.1.1.jar (72.78 Mb / 72780000 bytes)
   * `e61cd5b25362f5e8b59124c74bac0e145751a8f7` (sha1)

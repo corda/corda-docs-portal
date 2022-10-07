@@ -6,13 +6,11 @@ menu: []
 tags:
 - release
 - notes
-title: Release notes for Corda 4
+title: Corda Enterprise Edition 4 release notes
 ---
 
 
-# Release notes for Corda 4
-
-
+# Corda Enterprise Edition 4 release notes
 
 Welcome to the Corda 4 release notes. Please read these carefully to understand what’s new in this
 release and how the changes can help you. Just as prior releases have brought with them commitments
@@ -39,11 +37,7 @@ Corda 3 and Corda 4 will require that Corda 3 users are on the latest patchlevel
 
 {{< /warning >}}
 
-
-
-
 ## Changes for developers in Corda 4
-
 
 ### Reference states
 
