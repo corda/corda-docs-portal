@@ -8,10 +8,10 @@ menu:
     weight: 100
   corda-os-4-6:
     weight: 1
-    name: Corda open source 4.6
+    name: Corda Open Source 4.6
 project: corda
 section_menu: corda-os-4-6
-title: Corda open source 4.6
+title: Corda Open Source 4.6
 version: 'Open source 4.6'
 ---
 

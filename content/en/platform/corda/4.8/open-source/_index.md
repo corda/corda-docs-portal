@@ -5,10 +5,10 @@ menu:
     weight: -640
   corda-os-4-8:
     weight: 1
-    name: Corda open source 4.8
+    name: Corda Open Source 4.8
 project: corda
 section_menu: corda-os-4-8
-title: Corda open source 4.8
+title: Corda Open Source 4.8
 version: 'Open source 4.8'
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: Corda Open Source 4.8 release notes
 aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
@@ -12,7 +13,6 @@ menu:
 tags:
 - release
 - notes
-title: Release notes
 ---
 
 
