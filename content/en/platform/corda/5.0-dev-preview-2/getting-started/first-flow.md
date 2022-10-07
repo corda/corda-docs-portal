@@ -248,7 +248,7 @@ Corda 5 requires a CorDapp Developer to explicitly specify which Corda services 
 * `FlowMessaging`  — a service that CorDapps can use to create communication sessions between two virtual nodes. Once set up, you can send and receive using the session object.
 * `MemberLookup`  — a service that CorDapps can use to retrieve information about virtual nodes on the network.
 
-There are other services, such as the `Persistence` and `Serialization` services, which are beyond the scope of this getting started example.
+There are other services, such as the `Persistence` and `Serialization` services, which are beyond the scope of this Getting Started example.
 
 Services are declared as properties in the flow class with the `@CordaInject` annotation:
 ```kotlin
