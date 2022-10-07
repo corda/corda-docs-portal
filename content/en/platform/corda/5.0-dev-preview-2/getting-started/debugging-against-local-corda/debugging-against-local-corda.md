@@ -8,7 +8,7 @@ menu:
     weight: 6000
 section_menu: corda-5-dev-preview2
 ---
-The CSDE includes an IntelliJ run-time configuration which allows you to attach IntelliJ’s debugger to the local Corda cluster.
+The CSDE includes an IntelliJ run-time configuration that allows you to attach IntelliJ’s debugger to the local Corda cluster.
 {{< note >}}
 Currently there is a time-out issue when debugging Corda. As the local Corda cluster is a real Corda cluster, it behaves like one. Specifically, if the workers stop working, Corda detects it and errors out the flow. Unfortunately, it currently mistakes code held at a debugging point as a processor that has stopped working. As a result, although you can halt at a breakpoint and examine the stack, if you wait too long before resuming the execution of the code, it times out and the CorDapp does not continue to run as expected.     
 {{< /note >}}
