@@ -14,8 +14,8 @@
       ];
 
     {{ else }}
-      {{ $project := or .Parent.Page.Params.project .Page.Params.project}}
-      {{ $version := or .Parent.Page.Params.version .Page.Params.version}}
+      {{ $project := or .Page.Params.project}}
+      {{ $version := or .Page.Params.version}}
       window.facetFilters = [
         ['project:{{- $project -}}'],
         ['version:{{- $version -}}'],
