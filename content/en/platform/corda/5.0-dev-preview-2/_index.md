@@ -8,8 +8,6 @@ section_menu: corda-5-dev-preview2
 identifier: corda-5-dev-preview2
 menu:
   versions:
-    version: 'Corda 5 Developer Preview 2'
-    name: 'Corda 5 Developer Preview 2'
     weight: -649
   corda-5-dev-preview2:
     weight: 1000

@@ -2,8 +2,8 @@
 <!-- Algolia docs search -->
 <meta name="docsearch:language" content="{{- .Site.Language.Lang -}}" />
 {{- if .IsPage }}
-<meta name="docsearch:version" content="{{- .Page.Parent.Params.version -}}" />
-<meta name="docsearch:project" content="{{- .Page.Parent.Params.project -}}" />
+<meta name="docsearch:version" content="{{- .Page.Params.version -}}" />
+<meta name="docsearch:project" content="{{- .Page.Params.project -}}" />
 {{- else }}
 {{- with .Params.version }}
 <meta name="docsearch:version" content="{{- . -}}" />
