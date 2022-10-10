@@ -26,7 +26,7 @@ Although the Configuration Obfuscator does protect the node against trawling att
 {{< /warning >}}
 
 {{< note >}}
-The Configuraton Obfuscator tool can only be used with configuration files for Corda Enterprise 4.4 (and above) nodes, Corda Firewall, and services. Corda configuration files obfuscated with older versions of Corda Enterprise can still be deobfuscated by Corda Enterprise 4.4 and above.
+The Configuraton Obfuscator tool can only be used with configuration files for Corda Enterprise Edition 4.4 (and above) nodes, Corda Firewall, and services. Corda configuration files obfuscated with older versions of Corda Enterprise can still be deobfuscated by Corda Enterprise Edition 4.4 and above.
 {{< /note >}}
 
 ## How obfuscation works

@@ -44,7 +44,7 @@ Overview of changes:
 
 * All of the utility methods, subflows and RPC enabled flows have been annotated with @JVMOverloads to ensure the appropriate Java constructors are generated where the source Kotlin constructor contains nullable arguments. This ensures a seamless experience when using the Tokens SDK from a Java code base.
 * The `selection` and `money` `.jar` files have been moved into the `workflows` `.jar` file.
-* Upgraded database interaction for compatibility with Corda 4.6 and Corda Enterprise 4.6.
+* Upgraded database interaction for compatibility with Corda 4.6 and Corda Enterprise Edition 4.6.
 
 ### Changes in V1.2.2
 
@@ -55,7 +55,7 @@ In V1.2.2, a new [Token Selection](../../../../../../en/platform/corda/4.9/enter
 To upgrade the Tokens SDK:
 
 {{< warning >}}
-Before upgrading, make sure the platform database schema is properly migrated and the changelog syncrhonised - consult the [upgrade documentation for Corda Enterprise 4.9](../../../../../../en/platform/corda/4.9/enterprise/app-upgrade-notes.md). If you have not migrated the schema, the Tokens SDK may not upgrade correctly.
+Before upgrading, make sure the platform database schema is properly migrated and the changelog syncrhonised - consult the [upgrade documentation for Corda Enterprise Edition 4.9](../../../../../../en/platform/corda/4.9/enterprise/app-upgrade-notes.md). If you have not migrated the schema, the Tokens SDK may not upgrade correctly.
 {{< /warning >}}
 
 1. Change the V number (version number) in your CorDapp's relevant Gradle file to the version you are upgrading to - such as 1.2.2

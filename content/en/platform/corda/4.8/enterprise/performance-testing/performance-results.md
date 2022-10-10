@@ -15,9 +15,9 @@ weight: 900
 
 This page captures the results of historical benchmarking measurements performed by R3. Unless otherwise stated, the necessary tooling is available as part of the [performance test suite](installation.md) and it can be used to reproduce the same work.
 
-## Comparing Corda Enterprise 4.0 vs Corda Enterprise 3.x and Corda (open source)
+## Comparing Corda Enterprise Edition 4.0 vs Corda Enterprise 3.x and Corda (open source)
 
-This section describes how Corda Enterprise 4.0 nodes perform relative to Corda Enterprise 3.x in certain circumstances. It also shows how the
+This section describes how Corda Enterprise Edition 4.0 nodes perform relative to Corda Enterprise 3.x in certain circumstances. It also shows how the
 throughput changes with the number of output states per transaction and how that allows the node to achieve a greater number of Corda states
 to be transacted per second.
 
@@ -35,8 +35,8 @@ infrastructure configurations and to help stress CorDapps through generated load
 
 {{< /note >}}
 Figure 1 below compares the number of Transactions Per Second (TPS) carried out by a single node, either locally with no other nodes and no notary
-(Issue) or with one other node and a notary (Issue + Repeated Pay), between Corda Enterprise 4 and Corda Enterprise 3.3 (most recent release at
-the time of Corda Enterprise 4 release).  This is with each node running on it’s own dedicated server against a dedicated database server
+(Issue) or with one other node and a notary (Issue + Repeated Pay), between Corda Enterprise Edition 4 and Corda Enterprise 3.3 (most recent release at
+the time of Corda Enterprise Edition 4 release).  This is with each node running on it’s own dedicated server against a dedicated database server
 running **Microsoft SQL Server**.  Similar results were obtained against the other supported databases.
 
 
@@ -45,7 +45,7 @@ Figure 1
 
 
 The x-axis represents the number of flows completing per second which equates to Transactions Per Second (TPS).
-As you can see, Corda Enterprise 4 offers a substantial increase in Transactions Per Second (TPS) over the prior release on the same hardware.
+As you can see, Corda Enterprise Edition 4 offers a substantial increase in Transactions Per Second (TPS) over the prior release on the same hardware.
 
 Figure 2 shows how the relative performance of making multiple payments from one node to another via the notary in a single transaction
 varies with the number of those payments combined together.  This can be useful to understand how scalability varies with transaction size and how batching might
@@ -80,7 +80,7 @@ See the sections below for a discussion of the configurations used in these test
 ### Observations
 
 
-* Corda Enterprise 4 has greater throughput than Corda Enterprise 3 (up to 2x in our tests).
+* Corda Enterprise Edition 4 has greater throughput than Corda Enterprise 3 (up to 2x in our tests).
 * Even a single core deployment of Corda Enterprise offers greater throughput than Open Source Corda.
 * There can be throughput benefits to combining multiple states or business transactions into a single Corda transaction.
 * Corda Enterprise can utilise servers in excess of 16 cores.
@@ -162,7 +162,7 @@ We have established results for a number of different software configurations:
 * **Single Notary**.  In Corda Enterprise 3 this uses the simple single node notary in non-validating mode.  It persists to a **Microsoft SQL Server** database running
 on a distinct VM or server, both for notary specific data and other regular node data persistence.  In Figure 3, these notaries always ran on an 8 core VM and on
 dedicated hardware the same as the nodes in Figure 1, although it was overkill and something lesser would be suitable as the load is not as significant as it is
-for other nodes.  For Corda Enterprise 4, the notary is actually using a slightly enhanced implementation that is less of a bottleneck and will be released in a
+for other nodes.  For Corda Enterprise Edition 4, the notary is actually using a slightly enhanced implementation that is less of a bottleneck and will be released in a
 later point release of Corda Enterprise.
 * **Highly Available Notary**.  In Figure 3, this uses a notary cluster made up of 3 nodes in non-validating mode.  Normal node persistence uses a **Microsoft SQL Server** database
 but the notary state is maintained in a version of MySQL utilising a clustering technology as described in running-a-notary-cluster/ha-notary-service-setup.
@@ -172,7 +172,7 @@ between cluster members influences the performance of the notary itself, it is n
 * **External Bridge (SenderReceiver)**.  This is the Corda Firewall.  In Figure 3, this hosts the inbound and outbound peer-to-peer traffic endpoint in a separate JVM process,
 rather than embedded in the main node JVM process.
 
-In all cases the Artemis MQ broker is running within the node JVM.  For the Corda Enterprise 4 tests in Figures 1 & 2 we used OpenSSL as
+In all cases the Artemis MQ broker is running within the node JVM.  For the Corda Enterprise Edition 4 tests in Figures 1 & 2 we used OpenSSL as
 discussed later with respect to network bandwidth.
 
 For the tests run against Corda Enteprise 4 (and the equivalent comparisons of 3.3) in Figures 1 & 2 we used dedicated hardware for the nodes.  All nodes were
@@ -197,7 +197,7 @@ We used the following Azure VM types for the nodes in the original Corda Enterpr
 
 ### Database server configuration
 
-In the Corda Enterprise 4.0 testing for Figures 1 & 2 we have used dedicated database servers with single Intel Xeon E5-2687Wv4 giving 12 cores (24 hyper-threads),
+In the Corda Enterprise Edition 4.0 testing for Figures 1 & 2 we have used dedicated database servers with single Intel Xeon E5-2687Wv4 giving 12 cores (24 hyper-threads),
 256GB RAM and local SSDs.  They ran **SQL Server 2017 Standard Edition**.
 
 The servers used in the original Azure hosted tests shown in Figure 3 were 4 cores, 28GB RAM (**Azure DS12 v2 VM**).  Each had only one data
@@ -224,7 +224,7 @@ it splits its time between computation (running contract verification, signing t
 CPU cores in order to scale up, at some point the balance of processing will shift to the database and the node will no longer be able to take advantage of
 additional CPU cores, reflected in an inability to drive CPU utilisation towards 100%.
 
-Whilst the Figure 3 testing shows scaling with different core counts, the Corda Enterprise 4.0 throughput tests in Figure 1 are achieved on
+Whilst the Figure 3 testing shows scaling with different core counts, the Corda Enterprise Edition 4.0 throughput tests in Figure 1 are achieved on
 dedicated servers with 48 hyper-threads (24 cores).  At the peak, these are fully utilising 36 hyper-threads/cores (or 75%) in the node.
 As you can see in Figure 3 the node scales relatively well and clearly demonstrates the ability of the node to utilise larger numbers of cores.
 
@@ -268,7 +268,7 @@ It’s also important to take into account the memory footprint of live (i.e. in
 It is currently possible to start flows in the node at a faster rate than they complete.  This will lead to increased memory footprint and heap usage
 in the local node and potentially remote nodes.  Techniques for helping in this scenario will be the subject of future releases.  In the meantime, it
 may be necessary to limit the number of outstanding flows in the RPC client, by only allowing a certain number of incomplete `Future`-s as returned
-from `startFlow`.  Corda Enterprise 4.0 provides better scheduling than earlier releases, so the latency impacts of outstanding flows have mostly been eliminated.
+from `startFlow`.  Corda Enterprise Edition 4.0 provides better scheduling than earlier releases, so the latency impacts of outstanding flows have mostly been eliminated.
 
 
 ### Network bandwidth
@@ -278,9 +278,9 @@ because the flow checkpoint traffic is write-only under normal circumstances. In
 you must use the `useOpenSsl` option, as described in [Configuring a node](../node/setup/corda-configuration-file.md). The JVM implementation of SSL is restricted in the
 bandwidth it can sustain over a single connection.
 
-## Comparing Corda Enterprise 4.3 vs Corda Enterprise 4.6
+## Comparing Corda Enterprise Edition 4.3 vs Corda Enterprise Edition 4.6
 
-This section contains a comparative analysis between Corda Enterprise 4.3 and Corda Enterprise 4.6, with a main focus on the parallelisation improvements introduced in version 4.5. The analysis also covers some of the improvements introduced in version 4.4. The features discussed are listed below:
+This section contains a comparative analysis between Corda Enterprise Edition 4.3 and Corda Enterprise Edition 4.6, with a main focus on the parallelisation improvements introduced in version 4.5. The analysis also covers some of the improvements introduced in version 4.4. The features discussed are listed below:
 * The batched transaction resolution, introduced in version 4.4.
 * The new Artemis tuning options (`brokerConnectionTtlCheckIntervalMs` and `journalBufferTimeout`), introduced in version 4.4.
 * The new `sendAll` API for sending messages to multiple parties in a more efficient way.
@@ -306,26 +306,26 @@ The first test performed was focused on the latency aspect. Load was generated f
 {{< figure alt="CE 4.3/4.5 latency comparison chart" width=80% zoom="../resources/performance-testing/4-3_4-5_latency_comparison.png" >}}
 
 The main observations from the tests follow below:
-* Corda Enterprise 4.3 shows an exponential increase in the latency of the flow as the number of nodes that participate in the transaction is increased. This can be attributed to the following two reasons. Firstly, during the tests the exchange node was performing the `CollectSignaturesFlow` and `FinalityFlow` flows sequentially across the involved nodes, so the more nodes these flows had to iterate over, the more time it took. Secondly, these flows have the capability to trigger the execution of transaction resolution if they identify states for which the node is missing the provenance chain. In Corda Enterprise 4.3, transaction resolution is not performed in bulk - it is performed one state at a time. As a result, every additional node causes a significant amount of extra work to be done.
-* Corda Enterprise 4.4 demonstrates a large reduction in flow latency, which is mostly thanks to the introduction of bulk transaction resolution. The execution of the flows is still sequential across the nodes, but the cost per node is significantly smaller. As a result, in this version the flow latency scales quasi-linearly with the number of participating nodes.
-* Corda Enterprise 4.5 also demonstrates a considerable reduction in flow latency, which is mostly thanks to the parallelised flows. It is also clear that it scales almost optimally as the increase in latency from additional participants is minimal.
+* Corda Enterprise Edition 4.3 shows an exponential increase in the latency of the flow as the number of nodes that participate in the transaction is increased. This can be attributed to the following two reasons. Firstly, during the tests the exchange node was performing the `CollectSignaturesFlow` and `FinalityFlow` flows sequentially across the involved nodes, so the more nodes these flows had to iterate over, the more time it took. Secondly, these flows have the capability to trigger the execution of transaction resolution if they identify states for which the node is missing the provenance chain. In Corda Enterprise Edition 4.3, transaction resolution is not performed in bulk - it is performed one state at a time. As a result, every additional node causes a significant amount of extra work to be done.
+* Corda Enterprise Edition 4.4 demonstrates a large reduction in flow latency, which is mostly thanks to the introduction of bulk transaction resolution. The execution of the flows is still sequential across the nodes, but the cost per node is significantly smaller. As a result, in this version the flow latency scales quasi-linearly with the number of participating nodes.
+* Corda Enterprise Edition 4.5 also demonstrates a considerable reduction in flow latency, which is mostly thanks to the parallelised flows. It is also clear that it scales almost optimally as the increase in latency from additional participants is minimal.
 
 #### Throughput measurements
 
-The second test was focused on the throughput aspect. Load was generated from multiple clients initialised on the machines that were hosting the Corda nodes, which were acting as JMeter servers orchestrated by a JMeter client running on a separate machine. The goal was to saturate the participating Corda nodes and to prevent the single client from becoming the bottleneck. During the test setup, each client issued one state to every node. Each client was then performing one flow at a time, swapping these states between the participating nodes. No backchain was generated as part of this test. As a result, the test was executed only between Corda Enterprise 4.3 and Corda Enterprise 4.5, and with a varying number of nodes ranging from 2 up to 10. Each of the machines driving the load was using 120 concurrent clients, which summed up to 480 concurrent clients in total. Additional measurements were performed with a varying number of clients, in order to ensure that this was the optimal number of clients to saturate the nodes without overloading them. Since the throughput was different depending on the number of participating nodes, the total number of requests was also adjusted accordingly in order to get roughly the same total duration of approximately 20 minutes. In all the scenarios, it was confirmed that the nodes had reached a stable state when the test ended. The diagram below shows the results of this test, where the *x* axis indicates the number of nodes participating in the test, and the *y* axis indicates the average throughput measured in the number of flows completed per second.
+The second test was focused on the throughput aspect. Load was generated from multiple clients initialised on the machines that were hosting the Corda nodes, which were acting as JMeter servers orchestrated by a JMeter client running on a separate machine. The goal was to saturate the participating Corda nodes and to prevent the single client from becoming the bottleneck. During the test setup, each client issued one state to every node. Each client was then performing one flow at a time, swapping these states between the participating nodes. No backchain was generated as part of this test. As a result, the test was executed only between Corda Enterprise Edition 4.3 and Corda Enterprise Edition 4.5, and with a varying number of nodes ranging from 2 up to 10. Each of the machines driving the load was using 120 concurrent clients, which summed up to 480 concurrent clients in total. Additional measurements were performed with a varying number of clients, in order to ensure that this was the optimal number of clients to saturate the nodes without overloading them. Since the throughput was different depending on the number of participating nodes, the total number of requests was also adjusted accordingly in order to get roughly the same total duration of approximately 20 minutes. In all the scenarios, it was confirmed that the nodes had reached a stable state when the test ended. The diagram below shows the results of this test, where the *x* axis indicates the number of nodes participating in the test, and the *y* axis indicates the average throughput measured in the number of flows completed per second.
 
 {{< figure alt="CE 4.3/4.5 throughput comparison chart" width=80% zoom="../resources/performance-testing/4-3_4-5_throughput_comparison.png" >}}
 
 The main observations from the tests follow below:
-* Corda Enterprise 4.5 can achieve a significantly higher throughput when compared to Corda Enterprise 4.3. This can be attributed to the following factors:
-	* In Corda Enterprise 4.5, flows that execute in parallel have a significantly lower latency, as shown above. Such reduced latency means that nodes are able to complete more flows in the same amount of time, thus achieving a higher throughput.
-	* In Corda Enterprise 4.5, P2P messages between nodes can be compressed, which can lead to a more efficient use of network bandwidth.
-	* In Corda Enterprise 4.5, parallelised flows take advantage of the new `sendAll` API in order to send messages in parallel to multiple parties. This means that a smaller number of checkpoints are created overall, thus leading to a more efficient use of the database.
-* It has become clear from the tests that the throughput decreases as more nodes are added. The difference in throughput between Corda Enterprise 4.3 and Corda Enterprise 4.5 gets smaller as more nodes participate in the transaction. This is most likely due to environmental issues: as mentioned above, the tests described here involved the deployment of multiple Corda nodes per physical machine, leading to the nodes sharing physical resources and thus interfering with one another. If the same test is repeated using a dedicated machine per Corda node, it is very likely that a much higher throughput would be observed for both Corda Enterprise versions, with a larger difference between the two versions when more nodes are involved.
+* Corda Enterprise Edition 4.5 can achieve a significantly higher throughput when compared to Corda Enterprise Edition 4.3. This can be attributed to the following factors:
+	* In Corda Enterprise Edition 4.5, flows that execute in parallel have a significantly lower latency, as shown above. Such reduced latency means that nodes are able to complete more flows in the same amount of time, thus achieving a higher throughput.
+	* In Corda Enterprise Edition 4.5, P2P messages between nodes can be compressed, which can lead to a more efficient use of network bandwidth.
+	* In Corda Enterprise Edition 4.5, parallelised flows take advantage of the new `sendAll` API in order to send messages in parallel to multiple parties. This means that a smaller number of checkpoints are created overall, thus leading to a more efficient use of the database.
+* It has become clear from the tests that the throughput decreases as more nodes are added. The difference in throughput between Corda Enterprise Edition 4.3 and Corda Enterprise Edition 4.5 gets smaller as more nodes participate in the transaction. This is most likely due to environmental issues: as mentioned above, the tests described here involved the deployment of multiple Corda nodes per physical machine, leading to the nodes sharing physical resources and thus interfering with one another. If the same test is repeated using a dedicated machine per Corda node, it is very likely that a much higher throughput would be observed for both Corda Enterprise versions, with a larger difference between the two versions when more nodes are involved.
 
 #### Impact of new tuning options
 
-The last test performed was focused on the impact of some of the new tuning options introduced in Corda Enterprise 4.5. The goal of this test was to provide some insight into the behaviour of these parameters, and to evaluate the default options. The options that were covered were those controlling the flush frequency of Artemis buffers (`brokerConnectionTtlCheckIntervalMs` and `journalBufferTimeout`), and the option controlling P2P message compression (`enableP2PCompression`). For more information, see [Node configuration](../node/setup/corda-configuration-file.md).
+The last test performed was focused on the impact of some of the new tuning options introduced in Corda Enterprise Edition 4.5. The goal of this test was to provide some insight into the behaviour of these parameters, and to evaluate the default options. The options that were covered were those controlling the flush frequency of Artemis buffers (`brokerConnectionTtlCheckIntervalMs` and `journalBufferTimeout`), and the option controlling P2P message compression (`enableP2PCompression`). For more information, see [Node configuration](../node/setup/corda-configuration-file.md).
 
 Five different variations were tested, as follows:
 * The default configuration, which had `brokerConnectionTtlCheckIntervalMs = 20`, `journalBufferTimeout = 3333333` and `enableP2PCompression = true` configured. This variation is called "default" in the graphs below.

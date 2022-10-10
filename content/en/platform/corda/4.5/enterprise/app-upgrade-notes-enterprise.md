@@ -3,28 +3,28 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-5:
     identifier: "corda-enterprise-4-5-enterprise-cordapp-upgrade"
-    name: "Upgrading a CorDapp to Corda Enterprise 4.5"
+    name: "Upgrading a CorDapp to Corda Enterprise Edition 4.5"
     parent: corda-enterprise-4-5-upgrading-menu
 tags:
 - app
 - upgrade
 - notes
 - enterprise
-title: Upgrading CorDapps to Corda Enterprise 4.5
+title: Upgrading CorDapps to Corda Enterprise Edition 4.5
 ---
 
-# Upgrading CorDapps to Corda Enterprise 4.5
+# Upgrading CorDapps to Corda Enterprise Edition 4.5
 
 {{< warning >}}
-Corda Enterprise 4.5.4 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.5.4 please read the guidance on [upgrading your notary service](../../../../../../en/platform/corda/4.5/enterprise/notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.5.4 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.5.4 please read the guidance on [upgrading your notary service](../../../../../../en/platform/corda/4.5/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 ## Upgrading from Open Source
 
 
-### Running on Corda Enterprise 4.5
+### Running on Corda Enterprise Edition 4.5
 
-A prerequisite to upgrade to Corda Enterprise 4.5 is to ensure your CorDapp is upgraded to Open Source Corda 4.x.
+A prerequisite to upgrade to Corda Enterprise Edition 4.5 is to ensure your CorDapp is upgraded to Open Source Corda 4.x.
 Please follow the instructions in [Upgrading CorDapps to newer Platform Versions](app-upgrade-notes.md) section to complete this initial step.
 
 There is no requirement to re-compile your CorDapp to Corda Enterprise in order to run it on Corda Enterprise. If you wish your CorDapp to
@@ -39,7 +39,7 @@ Please read [Corda and Corda Enterprise compatibility](version-compatibility.md)
 {{< /note >}}
 
 
-### Re-compiling for Corda Enterprise 4.5
+### Re-compiling for Corda Enterprise Edition 4.5
 
 Re-compiling your CorDapp requires updating its associated Gradle build file as follows:
 
@@ -102,7 +102,7 @@ testCompile "$corda_release_distribution:corda-node-driver:$corda_release_versio
 ```
 
 {{< note >}}
-Corda Enterprise 4.5 binaries are not available in a public repository. In order to make the dependencies available for development, either
+Corda Enterprise Edition 4.5 binaries are not available in a public repository. In order to make the dependencies available for development, either
 create a mirror repository and upload them there, or add them to the local Maven repository.
 
 Please consult your R3 support contact to request a copy of the Corda Enterprise Developer Pack (this contains a Maven repository mirror
@@ -133,9 +133,9 @@ ext.os_corda_release_version = '4.0'
 
 ## Upgrading from Enterprise 4.3 or earlier
 
-As of Corda Enterprise 4.4 we have moved towards an open core strategy. Therefore, the common APIs are only available in Corda
+As of Corda Enterprise Edition 4.4 we have moved towards an open core strategy. Therefore, the common APIs are only available in Corda
 Open Source, and Corda Enterprise has a binary dependency on the matching Open Source version. As a result, any CorDapps written against
-Corda Enterprise 4.4 or later will have to depend on the open source version of `corda-core`.
+Corda Enterprise Edition 4.4 or later will have to depend on the open source version of `corda-core`.
 
 Therefore you have to add the following variables to your build configuration:
 

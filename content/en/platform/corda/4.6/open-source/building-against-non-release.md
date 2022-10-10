@@ -63,4 +63,4 @@ time may differ. If you are using an unstable release and need help debugging an
 * Make a note of the `corda_release_version` in the root `build.gradle` file of the Corda repository.
 * In your CorDapp’s root `build.gradle` file:
   * Update `ext.corda_release_version` to the `corda_release_version` noted down earlier.
-  * Update `corda_gradle_plugins_version` to the `gradlePluginsVersion` noted down earlier - for Corda Enterprise 4.6 this must be `ext.corda_gradle_plugins_version = '5.0.12'`.
+  * Update `corda_gradle_plugins_version` to the `gradlePluginsVersion` noted down earlier - for Corda Enterprise Edition 4.6 this must be `ext.corda_gradle_plugins_version = '5.0.12'`.
