@@ -14,11 +14,11 @@
       ];
 
     {{ else }}
-      {{ $project := or .Page.Params.project}}
-      {{ $version := or .Page.Params.version}}
+      {{ $project := .Page.Params.project}}
+      {{ $version := .Page.Params.version}}
       window.facetFilters = [
         ['project:{{- $project -}}'],
-        ['version:{{- .Page.Params.version -}}'],
+        ['version:{{- $version -}}'],
         'language:en'
       ];
 
