@@ -13,9 +13,9 @@
         'language:en'
       ];
 
-    {{ else if .Parent.Page.Params.project != nil}}
-      {{ $project := or .Parent.Page.Params.project}}
-      {{ $version := or .Parent.Page.Params.version}}
+    {{ else if .Parent.Page.Params.project == ""}}
+      {{ $project := .Page.Params.project}}
+      {{ $version := .Page.Params.version}}
       window.facetFilters = [
         ['project:{{- $project -}}'],
         ['version:{{- $version -}}'],
@@ -23,8 +23,8 @@
       ];
 
       {{ else }}
-        {{ $project := or .Page.Params.project}}
-        {{ $version := or .Page.Params.version}}
+        {{ $project := .Parent.Page.Params.project}}
+        {{ $version := .Parent.Page.Params.version}}
         window.facetFilters = [
           ['project:{{- $project -}}'],
           ['version:{{- $version -}}'],
