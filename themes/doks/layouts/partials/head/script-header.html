@@ -9,12 +9,12 @@
     {{ if eq .IsHome true }}
       window.facetFilters = [
         ['project:corda', 'project:releases', 'project:get-started', 'project:tutorials', 'project:samples', 'project:api-ref', 'project:apps', 'project:tools', 'project:announcements', 'project:conclave'],
-        ['version:Community Edition 4.9', 'version:Enterprise 4.9', 'version:CENM 1.5', 'version:Corda 5 Developer Preview 2'],
+        'version:Corda 5 Developer Preview 2',
         'language:en'
       ];
 
 //if the page does not have a parent, the version is returned as "corda index"
-    {{ else if eq .Parent.Page.Params.version "Corda index" or ""}}
+    {{ else if eq .Parent.Page.Params.version "Corda index"}}
       {{ $project := .Page.Params.project}}
       {{ $version := .Page.Params.version}}
       window.facetFilters = [
@@ -22,7 +22,15 @@
         ['version:{{- $version -}}'],
         'language:en'
       ];
-
+//if the version of the parent is null
+    {{ else if eq .Parent.Page.Params.version nil}}
+      {{ $project := .Page.Params.project}}
+      {{ $version := .Page.Params.version}}
+      window.facetFilters = [
+        ['project:{{- $project -}}'],
+        ['version:{{- $version -}}'],
+        'language:en'
+      ];
       {{ else }}
         {{ $project := .Parent.Page.Params.project}}
         {{ $version := .Parent.Page.Params.version}}
