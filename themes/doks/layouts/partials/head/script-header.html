@@ -13,12 +13,13 @@
         'language:en'
       ];
 
+//if the page does not have a parent, the version is returned as "corda index"
     {{ else if eq .Parent.Page.Params.version "Corda index"}}
       {{ $project := .Page.Params.project}}
       {{ $version := .Page.Params.version}}
       window.facetFilters = [
         ['project:{{- $project -}}'],
-        ['version:nil'],
+        ['version:{{- $version -}}'],
         'language:en'
       ];
 
@@ -27,7 +28,7 @@
         {{ $version := .Parent.Page.Params.version}}
         window.facetFilters = [
           ['project:{{- $project -}}'],
-          ['version:notnil'],
+          ['version:{{- $version -}}'],
           'language:en'
         ];
     {{ end }}
