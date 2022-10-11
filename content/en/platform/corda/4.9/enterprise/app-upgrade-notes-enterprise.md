@@ -19,17 +19,17 @@ weight: 20
 Corda Enterprise Edition 4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.9, read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.9/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
-## Upgrading from Corda open source
+## Upgrading from Corda Community Edition
 
-Before upgrading to Corda Enterprise Edition 4.9, upgrade your CorDapp to Corda open source 4.9. See [upgrading CorDapps to newer platform versions](../../../../../en/platform/corda/4.9/enterprise/app-upgrade-notes.md) for detailed instructions.
+Before upgrading to Corda Enterprise Edition 4.9, upgrade your CorDapp to Corda Community Edition 4.9. See [Upgrading CorDapps to newer platform versions](../../../../../en/platform/corda/4.9/enterprise/app-upgrade-notes.md) for detailed instructions.
 
 You don't need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
-be compatible with nodes running open source, then compile it against Corda open source 4.x.
+be compatible with nodes running open source, then compile it against Corda Community Edition (formerly Open Source) 4.x.
 However, if you want to leverage specific features of Corda Enterprise, such as third-party commercial database support, and don't envisage your CorDapp being run
 in an open source production environment, then follow the [re-compiling for Corda Enterprise Edition 4.9](#re-compiling-for-corda-enterprise-49) guide.
 
 {{< note >}}
-Corda Enterprise and Corda open source public APIs are currently identical. However, this may change for future releases.
+Corda Enterprise and Corda Community Edition public APIs are currently identical. However, this may change for future releases.
 See [Corda and Corda Enterprise compatibility](../../../../../en/platform/corda/4.9/enterprise/version-compatibility.md) guarantees for further information.
 
 {{< /note >}}
@@ -72,7 +72,7 @@ repositories {
         url 'https://artifactory.mycompany.com/artifactory/corda-enterprise'
     }
 
-    // Dependency on Corda open source
+    // Dependency on Corda Community Edition
     maven { url "https://software.r3.com/artifactory/corda" }
 
     // Corda dependencies for the patched Quasar version
