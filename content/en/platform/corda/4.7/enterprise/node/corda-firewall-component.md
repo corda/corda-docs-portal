@@ -473,6 +473,12 @@ enterpriseConfiguration = {
 firewallMode = BridgeInner
 outboundConfig {
     artemisBrokerAddress = "artemiserver:11005"
+    artemisSSLConfiguration {
+        sslKeystore = artemis/artemis.jks
+        keyStorePassword = artemisStorePass
+        trustStoreFile = artemis/artemis-truststore.jks
+        trustStorePassword = artemisTrustpass
+    }
 }
 bridgeInnerConfig {
     floatAddresses = ["dmzinternal1:12005", "dmzinternal2:12005"]

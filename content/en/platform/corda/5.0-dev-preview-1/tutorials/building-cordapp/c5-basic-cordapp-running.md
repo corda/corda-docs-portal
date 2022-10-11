@@ -5,7 +5,7 @@ menu:
   corda-5-dev-preview:
     identifier: corda-corda-5.0-dev-preview-1-tutorial-c5-basic-cordapp-running
     parent: corda-5-dev-preview-1-tutorials-building-cordapp
-    weight: 1050
+    weight: 1055
 tags:
 - tutorial
 - cordapp
@@ -31,88 +31,103 @@ Before you run your Mission Mars CorDapp, you may want to compare your files to 
 
 ## Deploy your CorDapp to a local Corda 5 network
 
-1. Compile the CorDapp's code into the Corda package files (`.cpk`s) by running the `./gradlew clean build` command from the root of your project.
+1. Compile the CorDapp's code into the Corda package files (`.cpk`s) by running the `./gradlew clean build` command from the root of your project. See the [Gradle plugin page](../../../../../../en/platform/corda/5.0-dev-preview-1/packaging/gradle-plugin/overview.md) for more information about using this plugin.
 
 2. Assemble your `.cpk` files into a single Corda package bundle (`.cpb`) file using the CorDapp Builder CLI:
 
-```
-cordapp-builder create --cpk contracts/build/libs/corda5-missionmars-contracts-1.0-SNAPSHOT-cordapp.cpk --cpk workflows/build/libs/corda5-missionmars-workflows-1.0-SNAPSHOT-cordapp.cpk -o missionMars.cpb
-```
+   ```console
+   cordapp-builder create --cpk contracts/build/libs/corda5-missionmars-contracts-1.0-SNAPSHOT-cordapp.cpk --cpk workflows/build/libs/corda5-missionmars-workflows-1.0-SNAPSHOT-cordapp.cpk -o missionMars.cpb
+   ```
 
 3. Configure the `missionmars-network`:
 
-`corda-cli network config docker-compose missionmars-network`
+   ```
+   corda-cli network config docker-compose missionmars-network
+   ```
 
 4. In the root of your project, create a network definition `mission-mars.yaml` file.
 
-The network definition `.yaml` file is a template for the network you want to deploy. This template allows you to configure how the nodes will be set up.
+   The network definition `.yaml` file is a template for the network you want to deploy. This template allows you to configure how the nodes will be set up.
 
 5. Add the following parameters to the newly-created `mission-mars.yaml` file:
 
-```
-registry: engineering-docker.software.r3.com
+   ```yaml
+   nodes:
+     PartyA:
+       debug: true
+       x500: "C=GB, L=London, O=Mars Express, OU=LLC"
+       users:
+         user1:
+           password: test
+         angelenos:
+           password: password
+           permissions: [ "ALL" ]
 
-nodes:
-  PartyA:
-    debug: true
-    x500: "C=GB, L=London, O=Mars Express, OU=LLC"
-    users:
-      user1:
-        password: test
-      angelenos:
-        password: password
-        permissions: [ "ALL" ]
-  PartyB:
-    x500: "C=US, L=New York, O=Peter, OU=INC"
-    users:
-      user1:
-        password: test
-      londoner:
-        password: password
-        permissions: [ "ALL" ]
-  notary:
-    notary: true
-```
+     PartyB:
+       x500: "C=US, L=New York, O=Peter, OU=INC"
+       users:
+         user1:
+           password: test
+         londoner:
+           password: password
+           permissions: [ "ALL" ]
+
+     PartyC:
+       x500: "C=US, L=San Diego, O=Friend, OU=LLC"
+       users:
+         user1:
+           password: test
+         newyorker:
+           password: password
+           permissions: [ "ALL" ]
+
+     notary:
+       notary: true
+   ```
 
 6. Deploy your network locally and start Docker.
 
-```
-corda-cli network deploy -n missionmars-network -f mission-mars.yaml | docker-compose -f - up -d
-```
+   ```console
+   corda-cli network deploy -n missionmars-network -f mission-mars.yaml | docker-compose -f - up -d
+   ```
 
-The `-f` flag allows you to specify the location of the network definition file. See the [Corda CLI commands documentation](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/commands.html#subcommands) for more information on commands and their flags.
+   The `-f` flag allows you to specify the location of the network definition file. See the [Corda CLI commands documentation](../../../../../en/platform/corda/5.0-dev-preview-1/corda-cli/commands.html#subcommands) for more information on commands and their flags.
 
-This step will take some time to complete.
+   This step will take some time to complete.
 
 7. Wait for the nodes to run. You can monitor nodes starting by using the following command:
 
-`corda-cli network wait -n missionmars-network`
+   ```console
+   corda-cli network wait -n missionmars-network
+    ```
 
-This command inspects the logs every few seconds until all the nodes are ready.
+   This command inspects the logs every few seconds until all the nodes are ready.
 
 8. Deploy your CorDapp to all the nodes in the running network using this command:
 
-`corda-cli package install -n missionmars-network missionMars.cpb`
+   ```console
+   corda-cli package install -n missionmars-network missionMars.cpb
+   ```
 
-**Step result:** The `package install` command copies the `.cpb` file to the nodes' CorDapps directory and restarts the nodes' containers.
+   The `package install` command copies the `.cpb` file to the nodes' CorDapps directory and restarts the nodes' containers.
 
 9. Monitor CorDapp deployment by using the following command:
 
-`corda-cli network wait -n missionmars-network`
+   ```console
+   corda-cli network wait -n missionmars-network
+   ```
 
 10. Verify the status of the network using the `corda-cli network status -n missionmars-network` command.
 
-**Step result:** The **Deployed apps** section appears in the command’s output.
+    The **Deployed apps** section appears in the command’s output.
 
-11. **Optional:** To terminate the network, use:
-
-`corda-cli network terminate -n missionmars-network -ry`
-
+**Optional:** To terminate the network, run:
+```console
+corda-cli network terminate -n missionmars-network -ry
+```
 {{< warning >}}
 Adding the `-ry` flags resets the network and deletes the CorDapp, meaning that you will have to redeploy the CorDapp the next time you want to run it.
 {{< /warning >}}
-
-
 ## Interact with your CorDapp
 
 To interact with your CorDapp and to test flows, use the Swagger API interface which is a set of HTTP APIs that you can use out of the box.
@@ -120,41 +135,36 @@ To interact with your CorDapp and to test flows, use the Swagger API interface w
 
 ### Log in to the Swagger API
 
-1. Open a browser and go to `https://localhost:<port>/api/v1/swagger`
+1. Open a browser and go to `https://localhost:<port>/api/v1/swagger`. For this app, the ports are:
+   * PartyA's node: `12112`
+   * PartyB's node: `12116`
 
-For this app, the ports are:
+   The Swagger API interface is displayed.
 
-* PartyA's node: `12112`
-* PartyB's node: `12116`
+   {{< note >}}
 
-{{< note >}}
+   If the default port numbers do not work, confirm if they are correct with what's in the output of the `corda-cli network status -n missionmars-network` command.
 
-If the default port numbers do not work, confirm if they are correct with what's in the output of the `corda-cli network status -n missionmars-network` command.
+   {{< /note >}}
 
-{{< /note >}}
+2. To be able to interact with your CorDapp, log in to the node you want to use. For this app, the logins are:
 
-**Step result:** The URL brings you to the Swagger API interface.
+   * PartyA - Username: `angelenos`, Password: `password`
+   * PartyB - Username: `londoner`, Password: `password`
 
-2. To be able to interact with your CorDapp, log in to the node you want to use.
+   {{< note >}}
 
-For this app, the logins are:
+   You can find his information in the `mission-mars.yaml` file.
 
-* PartyA - Username: `angelenos`, Password: `password`
-* PartyB - Username: `londoner`, Password: `password`
-
-{{< note >}}
-
-You can find his information in the `mission-mars.yaml` file.
-
-{{< /note >}}
+   {{< /note >}}
 
 3. Verify if you have logged in successfully:
 
-a. Navigate to **FlowStarterRPCOps > GET /flowstarter/registeredflows**.
+   a. Navigate to **FlowStarterRPCOps > GET /flowstarter/registeredflows**.
 
-b. Click **Try it out** and then **Execute**.
+   b. Click **Try it out** and then **Execute**.
 
-**Step result:** A **200** success callback code appears and **Response body** lists all implemented flows.
+   A **200** success callback code appears and **Response body** lists all implemented flows.
 
 
 ### Test flows
@@ -165,39 +175,39 @@ b. Click **Try it out** and then **Execute**.
 
 3. Delete the `.json` code from the **Request body** and replace it with the one that tests the `CreateAndIssueMarsVoucher` flow:
 
-```json
-{
-  "rpcStartFlowRequest": {
-    "clientId": "launchpad-2",
-    "flowName": "net.corda.missionMars.flows.CreateAndIssueMarsVoucherInitiator",
-    "parameters": {
-      "parametersInJson": "{\"voucherDesc\": \"Space Shuttle 323\", \"holder\": \"C=US, L=New York, O=Peter, OU=INC\"}"
-    }
-  }
-}
-```
+   ```json
+   {
+     "rpcStartFlowRequest": {
+       "clientId": "launchpad-2",
+       "flowName": "net.corda.missionMars.flows.CreateAndIssueMarsVoucherInitiator",
+       "parameters": {
+         "parametersInJson": "{\"voucherDesc\": \"Space Shuttle 323\", \"holder\": \"C=US, L=New York, O=Peter, OU=INC\"}"
+       }
+     }
+   }
+   ```
 
 4. Click **Execute**.
 
-**Step result:** A **200** success callback code appears and **Response body** lists `uuid` and `clientId`.
+   A **200** success callback code appears and **Response body** lists `uuid` and `clientId`.
 
-{{< note >}}
+   {{< note >}}
 
-This does not mean the transaction has passed through. It means that the flow has been executed successfully, but the success of the transaction is not guaranteed.
+   This does not mean the transaction has passed through. It means that the flow has been executed successfully, but the success of the transaction is not guaranteed.
 
-{{< /note >}}
+   {{< /note >}}
 
 5. To see the result of the flow, copy `clientId` from the **Response body**.
 
 6. Navigate to **FlowStarterRPCOps > GET /flowstarter/flowoutcomeforclientid/{clientid}**.
 
-7. Click **Try it out** and paste in the copied `clientId`. Click **Execute**.
+7. Click **Try it out**, paste in the copied `clientId`, and click **Execute**.
 
-**Step result:** A **200** success callback code appears and **Response body** shows the flow's status as **COMPLETED** as well as the details of the output state. You have now completed a full cycle of running a flow.
+   A **200** success callback code appears and **Response body** shows the flow's status as **COMPLETED** as well as the details of the output state. You have now completed a full cycle of running a flow.
 
 8. Copy and store the `linearId` from the output in the **Response body**.
 
-You will need to provide this ID as the `voucherID` when testing the `RedeemBoardingTicketWithVoucher` flow.
+   You will need to provide this ID as the `voucherID` when testing the `RedeemBoardingTicketWithVoucher` flow.
 
 9. Repeat all of the above steps for all of your flows.
 
@@ -205,37 +215,37 @@ When running each flow, you must replace the `.json` code for each flow in step 
 
 * For the `CreateBoardingTicket` flow, use:
 
-```json
-{
-  "rpcStartFlowRequest": {
-    "clientId": "launchpad-3",
-    "flowName": "net.corda.missionMars.flows.CreateBoardingTicketInitiator",
-    "parameters": {
-      "parametersInJson": "{\"ticketDescription\": \"Space Shuttle 323 - Seat 16B\", \"daysUntilLaunch\": \"10\"}"
+  ```json
+  {
+    "rpcStartFlowRequest": {
+      "clientId": "launchpad-3",
+      "flowName": "net.corda.missionMars.flows.CreateBoardingTicketInitiator",
+      "parameters": {
+        "parametersInJson": "{\"ticketDescription\": \"Space Shuttle 323 - Seat 16B\", \"daysUntilLaunch\": \"10\"}"
+      }
     }
   }
-}
-```
+  ```
 
 * For the `RedeemBoardingTicketWithVoucher` flow, use:
 
-{{< note >}}
+  {{< note >}}
 
-You must replace the `voucherID` with `linearId` that you copied and stored in step 8.
+  You must replace the `voucherID` with `linearId` that you copied and stored in step 8.
 
-{{< /note >}}
+  {{< /note >}}
 
-```json
-{
-  "rpcStartFlowRequest": {
-    "clientId": "launchpad-4",
-    "flowName": "net.corda.missionMars.flows.RedeemBoardingTicketWithVoucherInitiator",
-    "parameters": {
-      "parametersInJson": "{\"voucherID\": \"356ec449-da69-4ced-93b5-91c72c55912a\", \"holder\": \"C=US, L=New York, O=Peter, OU=INC\"}"
+  ```json
+  {
+    "rpcStartFlowRequest": {
+      "clientId": "launchpad-4",
+      "flowName": "net.corda.missionMars.flows.RedeemBoardingTicketWithVoucherInitiator",
+      "parameters": {
+        "parametersInJson": "{\"voucherID\": \"356ec449-da69-4ced-93b5-91c72c55912a\", \"holder\": \"C=US, L=New York, O=Peter, OU=INC\"}"
+      }
     }
   }
-}
-```
+  ```
 
 ## Next steps
 

@@ -71,6 +71,13 @@ To perform the upgrade:
     * By RPC using the `stateMachinesSnapshot` method and checking that there are no results.
     * Via the shell by issuing the command `run stateMachinesSnapshot`.
 
+    {{< note >}}
+
+    The `stateMachinesSnapshot` method ties the flow ID with the `flowName` class. The result shows you all the flows running in your node.
+    You can use the `flow watch` method instead. It omits all the details returned by `stateMachinesSnapshot` that you don't need.
+
+    {{< /note >}}
+
 3. Stop the node when all flows are complete.
 
 4. Replace the existing `.jar` with the new version.

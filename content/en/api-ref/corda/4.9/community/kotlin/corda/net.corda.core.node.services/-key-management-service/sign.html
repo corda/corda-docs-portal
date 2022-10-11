@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>KeyManagementService.sign - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="index.html">KeyManagementService</a>&nbsp;/&nbsp;<a href="./sign.html">sign</a><br/>
+<br/>
+<h1>sign</h1>
+<a name="net.corda.core.node.services.KeyManagementService$sign(kotlin.ByteArray, java.security.PublicKey)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.KeyManagementService$sign(kotlin.ByteArray, java.security.PublicKey)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.KeyManagementService$sign(kotlin.ByteArray, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">WithKey</span></code>
+<p>Using the provided signing <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> internally looks up the matching <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> and signs the data.</p>
+<h3>Parameters</h3>
+<p><a name="bytes"></a>
+<code>bytes</code> - The data to sign over using the chosen key.</p>
+<p><a name="publicKey"></a>
+<code>publicKey</code> - The <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> partner to an internally held <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a>, either derived from the node's primary identity,
+or previously generated via the <a href="fresh-key.html">freshKey</a> method.
+If the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> is actually a <a href="../../net.corda.core.crypto/-composite-key/index.html">CompositeKey</a> the first leaf signing key hosted by the node is used.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the input key is not a member of <a href="keys.html">keys</a>.</p>
+<a name="net.corda.core.node.services.KeyManagementService$sign(net.corda.core.crypto.SignableData, java.security.PublicKey)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sign</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.KeyManagementService$sign(net.corda.core.crypto.SignableData, java.security.PublicKey)/signableData">signableData</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-signable-data/index.html"><span class="identifier">SignableData</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.KeyManagementService$sign(net.corda.core.crypto.SignableData, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a></code>
+<p>Using the provided signing <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> internally looks up the matching <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> and signs the <a href="../../net.corda.core.crypto/-signable-data/index.html">SignableData</a>.</p>
+<h3>Parameters</h3>
+<p><a name="signableData"></a>
+<code>signableData</code> - a wrapper over transaction id (Merkle root) and signature metadata.</p>
+<p><a name="publicKey"></a>
+<code>publicKey</code> - The <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> partner to an internally held <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a>, either derived from the node's primary identity,
+or previously generated via the <a href="fresh-key.html">freshKey</a> method.
+If the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> is actually a <a href="../../net.corda.core.crypto/-composite-key/index.html">CompositeKey</a> the first leaf signing key hosted by the node is used.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - if the input key is not a member of <a href="keys.html">keys</a>.</p>
+</BODY>
+</HTML>

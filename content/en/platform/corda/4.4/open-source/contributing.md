@@ -28,12 +28,12 @@ There are several ways to identify an area where you can contribute to Corda:
 
 
 * If you'd like to contribute, but don't have a specific project in mind:
-    * Message a [Community Maintainer](contributing-philosophy.md#community-maintainers) saying “I want to help!”. They’ll work
+    * Message a [Community Maintainer](contributing-philosophy.html#community-maintainers) saying “I want to help!”. They’ll work
 with you to find an area for you to contribute.
     * Browse the issues labelled `help wanted` on the
 [Corda GitHub issues](https://github.com/corda/corda/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) page. Issues labeled `good first issue` are ideal for first-timers.
 * If you have a specific contribution in mind, message the
-`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contact one of the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly to confirm if it is appropriate before starting development.
+`#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contact one of the [Community Maintainers](contributing-philosophy.html#community-maintainers) directly to confirm if it is appropriate before starting development.
 
 
 
@@ -56,7 +56,7 @@ accept responsibility for maintaining it.
 the project maintainers to reconcile this. As the major contributor to Corda, many employees of [R3](https://r3.com) are working on
 features at any given time. To avoid surprises and foster transparency,
 [our Jira work tracking system is public](https://r3-cev.atlassian.net/projects/CORDA/summary). If in doubt, reach out to one of the
-[Community Maintainers](contributing-philosophy.md#community-maintainers).
+[Community Maintainers](contributing-philosophy.html#community-maintainers).
 
 
 ## Making changes to Corda
@@ -124,42 +124,36 @@ runs as part of the build process. Use this to flag any accidental changes.
 Document any changes to Corda’s public API:
 
 
-1. Add comments and javadocs/kdocs. API functions must have javadoc/kdoc comments and sentences must be terminated
-with a full stop. We also start comments with capital letters, even for inline comments. Where Java APIs have
+1. Add comments and javadocs/kdocs. API functions must have javadoc/kdoc comments and sentences must be terminated with a full stop. We also start comments with capital letters, even for inline comments. Where Java APIs have
 synonyms (e.g. `%d` and `%date`), we prefer the longer form for legibility reasons. You can configure your IDE
 to highlight these in yellow.
-2. Update the relevant .rst file(s).
+2. Update the relevant .md file(s).
 3. Include the change in the [changelog](changelog.md) if the change is external and therefore visible to CorDapp
 developers and/or node operators.
-4. [Build the docs locally](building-the-docs.md) and check that the resulting .html files (under `docs/build/html`) for the modified
-render correctly.
-5. If relevant, add a sample. Samples are one of the key ways users learn what the platform can do.
-If you add a new API or feature and don’t update the samples, your work will have less impact.
+4. [Build the docs locally](building-the-docs.md) and check that the resulting .html files render correctly.
+5. If relevant, add a sample. Samples are one of the key ways users learn what the platform can do. If you add a new API or feature and don’t update the samples, your work will have less impact.
 
 
 ## Merging the changes into Corda
 
 1. Create a pull request (PR) from your fork to the equivalent branch of the Corda repo.
 
-2. Complete the PR checklist in the **comments box**.
-    * Have you run [unit, integration and smoke tests](https://docs.corda.net/head/testing.html)?
-    * If you added/changed public APIs, did you write/update the JavaDocs?
-    * If the changes are of interest to application developers, have you added them to the changelog and release notes where applicable?
-    * If you are contributing for the first time, please read the contribution guidelines above and indicate your agreement.
+    * Complete the PR checklist in the **comments box**.
+      * Have you run [unit, integration and smoke tests](testing.md)?
+      * If you added/changed public APIs, did you write/update the JavaDocs?
+      * If the changes are of interest to application developers, have you added them to the changelog and release notes where applicable?
+      * If you are contributing for the first time, please read the contribution guidelines above and indicate your agreement.
+    * Add a clear **description** of the purpose of the PR.
+    * Add the following statement to confirm that your contribution is your own original work: “I hereby certify that my contribution is in accordance with the Developer Certificate of Origin ([https://developercertificate.org/](https://developercertificate.org/)).”
 
-3. Add a clear **description** of the purpose of the PR.
+2. Request a review by reaching out in the `#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contacting one of
+the [Community Maintainers](contributing-philosophy.html#community-maintainers) directly. The reviewer will either:
+    * Accept and merge your PR.
+    * Leave comments requesting changes via the GitHub PR interface.
 
-4. Add the following statement to confirm that your contribution is your own original work: “I hereby certify that my contribution is in
-accordance with the Developer Certificate of Origin ([https://developercertificate.org/](https://developercertificate.org/)).”
+3. Make the changes by pushing directly to your existing PR branch. The PR updates automatically.
 
-5. Request a review by reaching out in the `#contributing` channel of the [Corda Slack](http://cordaledger.slack.com/) or contacting one of
-the [Community Maintainers](contributing-philosophy.md#community-maintainers) directly. The reviewer will either:
-    * Accept and merge your PR
-    * Leave comments requesting changes via the GitHub PR interface
-
-6. Make the changes by pushing directly to your existing PR branch. The PR updates automatically.
-
-7. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.4/CONTRIBUTORS.md)>. The format is generally `firstname surname (company)`. You can omit the company name.
+4. *Optional:* Open an additional PR to add yourself to the [contributors list](https://github.com/corda/corda/blob/release/os/4.4/CONTRIBUTORS.md). The format is generally `firstname surname (company)`. You can omit the company name.
 
 
 

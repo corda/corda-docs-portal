@@ -8,7 +8,7 @@ menu:
   corda-os-4-8:
     identifier: corda-os-4-8-node-flow-hospital
     parent: corda-os-4-8-corda-nodes-index
-    weight: 1150
+    weight: 2000
 tags:
 - node
 - flow
@@ -47,7 +47,7 @@ There are two aspects to the flow hospital:
 
 
 * run-time behaviour in the node upon failure, including retry and recovery transitions and policies.
-* visualisation of failed flows in the Explorer UI.
+* visualization of failed flows in the flow management console.
 
 
 

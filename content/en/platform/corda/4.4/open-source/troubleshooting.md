@@ -20,4 +20,4 @@ title: Troubleshooting
 
 # Troubleshooting
 
-Please report any issues on our StackOverflow page: [https://stackoverflow.com/questions/tagged/corda](https://stackoverflow.com/questions/tagged/corda).
+Please report any issues on our [StackOverflow](https://stackoverflow.com/questions/tagged/corda) page.

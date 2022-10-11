@@ -15,7 +15,6 @@ weight: 1
 # Object serialization
 
 
-
 Serialization converts objects into a stream of bytes. Deserialization, the reverse
 process, creates objects from a stream of bytes. These two processes take place every time nodes pass objects to each other as
 messages, when the node sends objects to or from RPC clients, and when you store transactions in the database.
@@ -51,11 +50,15 @@ is on a whitelist of allowed classes.
 
 To add a class to the whitelist, you must either:
 
-
 * Add the `@CordaSerializable` annotation to the class. This annotation can be present on the
 class itself, on any super-class of the class, on any interface implemented by the class or its super-classes, or on any
 interface extended by an interface implemented by the class or its super-classes. This is the preferred method.
 * Implement the `SerializationWhitelist` interface and specify a list of whitelisted classes.
+  * Use the [java.util.ServiceLoader](https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html) mechanism to add a subclass to the `SerializationWhitelist`. The name of the class must appear in a text file on the classpath under the path:
+
+      ```
+      META-INF/services/net.corda.core.serialization.SerializationWhitelist
+      ```
 
 The built-in default whitelist (see the `DefaultWhitelist` class) allows common JDK classes for
 convenience. You cannot edit the default whitelist.

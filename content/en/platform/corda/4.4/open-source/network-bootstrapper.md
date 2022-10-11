@@ -333,7 +333,7 @@ for information on valid inputs.
 
 
 * **packageOwnership**:
-A list of package owners. See [Package namespace ownership](#id1) for more information. For each package owner, the following fields
+A list of package owners. See [Package namespace ownership](#package-namespace-ownership) for more information. For each package owner, the following fields
 are required:
 
 
@@ -411,7 +411,7 @@ The alias for the name associated with the certificate to be associated with the
 
 
 Using the Example CorDapp (found in these repositories in [Java](https://github.com/corda/samples-java/tree/master/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Basic/cordapp-example)) as an example, we will initialise a simple network and then register and unregister a package namespace.
-Check out the Example CorDapp and follow the instructions to build it [here](tutorial-cordapp.html#building-the-example-cordapp).
+Check out the Example CorDapp and follow the instructions to build it [here](../../../../../en/platform/corda/4.4/open-source/tutorial-cordapp.html#opening-the-sample-cordapp-in-intellij-idea).
 
 {{< note >}}
 You can point to any existing bootstrapped corda network (this will have the effect of updating the associated network parameters file).

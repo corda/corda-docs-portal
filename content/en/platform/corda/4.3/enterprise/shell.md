@@ -184,6 +184,8 @@ node {
             port : 10006
         }
     }
+    user : demo
+    password : demo
 }
 shell {
         workDir : /path/to/dir
@@ -205,8 +207,6 @@ ssl {
         password: password
     }
 }
-user : demo
-password : demo
 ```
 
 {{< note >}}
@@ -488,13 +488,7 @@ You can find the following useful fields in the output:
 
 ### Work with flows
 
-Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows. You can also perform several commands that help to manage flows that have encountered an error. These are: `retry`, `pause`, `pauseAll`, `retryAllPaused`, `pauseAllHospitalized`, and `retryAllPausedHospitalized`.  You may also find it useful to query flow data.
-
-
-#### Query flow data
-
-The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so.
-
+Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows. 
 
 #### Start a flow
 

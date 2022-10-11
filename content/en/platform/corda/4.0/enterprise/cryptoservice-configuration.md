@@ -12,7 +12,7 @@ title: HSM support for legal identity keys
 
 # HSM support for legal identity keys
 
-By default, the private keys that belong to the node CA and legal identity are stored in a key store file in the node’s certificates directory. Users may wish to instead store this key in a hardware security module (HSM) or similar. For this purpose, Corda Enterprise supports HSMs by [Utimaco](https://hsm.utimaco.com), [Gemalto](https://www.gemalto.com), and [Azure KeyVault](https://azure.microsoft.com/en-gb/services/key-vault).
+By default, the private keys that belong to the node CA and legal identity are stored in a key store file in the node’s certificates directory. Users may wish to instead store this key in a hardware security module (HSM) or similar. For this purpose, Corda Enterprise supports HSMs by [Utimaco](https://hsm.utimaco.com), [Gemalto](https://www.gemalto.com), and [Azure Key Vault](https://azure.microsoft.com/en-gb/services/key-vault).
 
 Note that only the private and public key of node CA and the legal identity are stored this way. The certificate chain is still stored in a file-based key store.
 
@@ -44,55 +44,55 @@ cryptoServiceConf : "utimaco.conf"
 The configuration file for Utimaco has the fields described below. The entries are similar to the ones described in the documentation for the CryptoServer JCE provider, and you should refer to this documentation for more details. We cannot link to the documentation here, but you should have received a copy which contains the file `JCE-Documentation.html`.
 
 
-* **host**: 
+* **host**:
 address of the device or simulator.
 
 
-* **port**: 
+* **port**:
 port of the device or simulator.
 
 
-* **connectionTimeout**: 
+* **connectionTimeout**:
 (optional) timeout when establishing connection to the device, in milliseconds. The default is 30000.
 
 
-* **keepSessionAlive**: 
+* **keepSessionAlive**:
 (optional) boolean, false by default. If set to false the connection to the device will terminate after 15 minutes. The node will attempt to automatically re-establish the connection.
 
 
-* **keyGroup**: 
+* **keyGroup**:
 The key group to be used when generating keys.
 
 
-* **keySpecifier**: 
+* **keySpecifier**:
 The key specifier to be used when reading keys. The default is “*”.
 
 
-* **keyOverride**: 
+* **keyOverride**:
 (optional) boolean, the default is false.
 
 
-* **keyExport**: 
+* **keyExport**:
 (optional) boolean, the default is false.
 
 
-* **keyGenMechanism**: 
+* **keyGenMechanism**:
 the key generation mechanism to be used when generating keys.
 
 
-* **authThreshold**: 
+* **authThreshold**:
 (optional) integer, 1 by default.
 
 
-* **username**: 
+* **username**:
 the username.
 
 
-* **password**: 
+* **password**:
 the login password, or, if logging in with a key file, the password for the key file.
 
 
-* **keyFile**: 
+* **keyFile**:
 (optional) key file for file-based log in.
 
 
@@ -131,11 +131,11 @@ cryptoServiceConf : "gemalto.conf"
 The configuration file for Gemalto Luna has two fields. The `keyStore` field needs to specify a slot or partition. The `password` field contains the password associated with the slot or partition.
 
 
-* **keyStore**: 
+* **keyStore**:
 specify the slot or partition.
 
 
-* **password**: 
+* **password**:
 the password associated with the slot or partition.
 
 
@@ -150,40 +150,40 @@ password: "my-password"
 Note that the Gemalto’s JCA provider has to be installed as described in the documentation for the Gemalto Luna.
 
 
-## Azure KeyVault
+## Azure Key Vault
 
-In the `node.conf`, the `cryptoServiceName` needs to be set to “AZURE_KEY_VAULT” and `cryptoServiceConf` should cointain the path to the configuration for Azure KeyVault, as shown below.
+In the `node.conf`, the `cryptoServiceName` needs to be set to “AZURE_KEY_VAULT” and `cryptoServiceConf` should contain the path to the configuration for Azure Key Vault, as shown below.
 
 ```kotlin
 cryptoServiceName: "AZURE_KEY_VAULT"
 cryptoServiceConf: "az_keyvault.conf"
 ```
 
-The configuration file for Azure KeyVault contains the fields listed below. For details refer to the [Azure KeyVault documentation](https://docs.microsoft.com/en-gb/azure/key-vault).
+The configuration file for Azure Key Vault contains the fields listed below. For details refer to the [Azure Key Vault documentation](https://docs.microsoft.com/en-gb/azure/key-vault).
 
 
-* **path**: 
+* **path**:
 path to the key store for login. Note that the .pem file that belongs to your service principal needs to be created to pkcs12. One way of doing this is by using openssl: `openssl pkcs12 -export -in /home/username/tmpdav8oje3.pem -out keyvault_login.p12`.
 
 
-* **alias**: 
+* **alias**:
 alias of the key used for login.
 
 
-* **password**: 
+* **password**:
 password to the key store.
 
 
-* **clientId**: 
+* **clientId**:
 the client id for the login.
 
 
-* **keyVaultURL**: 
+* **keyVaultURL**:
 the URL of the key vault.
 
 
-* **protection**: 
-If set to “HARDWARE”, ‘hard’ keys will be used, if set to “SOFTWARE”, ‘soft’ keys will be used [as described in the Azure KeyVault documentation](https://docs.microsoft.com/en-gb/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
+* **protection**:
+If set to “HARDWARE”, ‘hard’ keys will be used, if set to “SOFTWARE”, ‘soft’ keys will be used [as described in the Azure Key Vault documentation](https://docs.microsoft.com/en-gb/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
 
 
 
@@ -197,4 +197,3 @@ keyVaultURL: "[https:/](https:/)/<mykeyvault>.vault.azure.net/"
 clientId: "a3d72387-egfa-4bc2-9cba-b0b27c63540e"
 protection: "HARDWARE"
 ```
-

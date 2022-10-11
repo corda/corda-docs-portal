@@ -733,7 +733,7 @@ generated CRL via the `nextUpdate` X509 field. For users of this CRL, this defin
 
 
 * When the next CRL should be available, which is used by some libraries for cache invalidation.
-* When then current CRL should be considered expired and therefore obsolete.
+* When the current CRL should be considered expired and therefore obsolete.
 
 
 To ensure that the transition from an old CRL to a new one, this value should always be set to a time period much

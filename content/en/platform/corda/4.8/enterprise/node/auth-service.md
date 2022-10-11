@@ -210,12 +210,16 @@ Command line arguments:
 * `[--seed]` Optional seed for config deobfuscation.
 * `[-v, --verbose]` Redirect all log output to the console. Also sets logging level to INFO.
 * `[--logging-level]` Sets logging level. Accepts Log4j Levels.
+* `[--initial-user-provider]` Sets the authentication provider for the initial user. Valid values are ```internal``` or ```azuread```; the default is ```internal```.
 
-Initial user **initializer**: This command group allows configuration of the initial admin user. Both options are required when any of them is in use.
+Initial user **initializer**: This command group allows configuration of the initial admin user.
+
 * `[--initial-user-name]` Sets the name of the user.
-* `[--initial-user-password]` Sets the password of the user.
+* `[--initial-user-password]` Sets the password of the user when provider is ```internal```.
+* `[--initial-user-external-id]` External ID of the user when using a provider other than ```internal``` that requires it. In case of AzureAD this should be the ObjectID of the user whose user name is used in the ```--initial-user-name``` parameter.
 
-* `[--restore-admin-capability]` ()**initializer**) If all admin users are locked out, for example because of password policy, this option unlocks them.
+
+* `[--restore-admin-capability]` (**initializer**) If all admin users are locked out, for example because of password policy, this option unlocks them.
 
 Reset user (**initializer**): Use this command group to reset, re-enable, and unlock a user. You can also sets a user's password or force the user to become an administrator. Administrators can create and edit other users, but cannot access CENM services directly.
 

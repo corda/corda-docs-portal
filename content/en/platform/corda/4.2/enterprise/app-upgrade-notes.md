@@ -220,7 +220,7 @@ The upgrade is a three step process:
 
 * Change the flow that calls `FinalityFlow`.
 * Change or create the flow that will receive the finalised transaction.
-* Make sure your application’s minimum and target version numbers are both set to 4 (see [Step 2. Adjust the version numbers in your Gradle build files](#cordapp-upgrade-version-numbers-ref)).
+* Make sure your application’s minimum and target version numbers are both set to 4 (see [Step 2. Adjust the version numbers in your Gradle build files](#step-2-adjust-the-version-numbers-in-your-gradle-build-files)).
 
 
 ### Upgrading a non-initiating flow
@@ -606,7 +606,7 @@ You will be able to use this feature if the compatibility zone you plan to deplo
 
 to check the correctness of the transaction. Please take this into account for your own schedule planning.You can read more about signature constraints and what they do in [API: Contract Constraints](api-contract-constraints.md). The `TransactionBuilder` class will
 automatically use them if your application JAR is signed. **We recommend all JARs are signed**. To learn how to sign your JAR files, read
-[Signing the CorDapp JAR](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
+[Signing the CorDapp JAR](cordapp-build-systems.html#signing-the-cordapp-jar). In dev mode, all JARs are signed by developer certificates. If a JAR that was signed
 with developer certificates is deployed to a production node, the node will refuse to start. Therefore to deploy apps built for Corda 4
 to production you will need to generate signing keys and integrate them with the build process.
 
@@ -642,7 +642,7 @@ and request ownership of your root package namespaces (e.g. `com.megacorp.*`), w
 The zone operator can then add your signing key to the network parameters, and prevent attackers defining types in your own package namespaces.
 Whilst this feature is optional and not strictly required, it may be helpful to block attacks at the boundaries of a Corda based application
 where type names may be taken “as read”. You can learn more about this feature and the motivation for it by reading
-“[Package namespace ownership](network-bootstrapper.md#package-namespace-ownership)”.
+“[Package namespace ownership](network-bootstrapper.html#package-namespace-ownership)”.
 
 
 ## Step 11. Consider adding extension points to your flows
@@ -668,7 +668,7 @@ may result in queries returning more states than expected if the node is using o
 Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
-* The [new withEntityManager API](https://api.corda.net/api/corda-os/4.2/html/api/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
+* The [new withEntityManager API](api-persistence.html#jpa-support) for using JPA inside your flows and services.
 * [Reference States](api-states.md#reference-states), that let you use an input state without consuming it.
 * [State Pointers](api-states.md#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 

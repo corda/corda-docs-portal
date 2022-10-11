@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AuditDataRPCOps - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy</a>&nbsp;/&nbsp;<a href="./index.html">AuditDataRPCOps</a><br/>
+<br/>
+<h1>AuditDataRPCOps</h1>
+<code><span class="keyword">interface </span><span class="identifier">AuditDataRPCOps</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span></code>
+<p>RPC client side interface for RPC audit data retrieval and removal</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-format/index.html">Format</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Format</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="clear-r-p-c-audit-data-before.html">clearRPCAuditDataBefore</a></h4>
+</td>
+<td>
+<p>Removes any audit data from earlier than <a href="clear-r-p-c-audit-data-before.html#net.corda.client.rpc.proxy.AuditDataRPCOps$clearRPCAuditDataBefore(java.time.Instant)/before">before</a>
+NOTE: Caution should be made in allowing users access to this function.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">clearRPCAuditDataBefore</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.AuditDataRPCOps$clearRPCAuditDataBefore(java.time.Instant)/before">before</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="collect-r-p-c-audit-data.html">collectRPCAuditData</a></h4>
+</td>
+<td>
+<p>Returns the audit data for the given parameters in JSON format</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">collectRPCAuditData</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.AuditDataRPCOps$collectRPCAuditData(net.corda.client.rpc.proxy.AuditDataRPCOps.Format, kotlin.String, kotlin.String, java.time.Instant, java.time.Instant)/format">format</span><span class="symbol">:</span>&nbsp;<span class="identifier">Format</span>&nbsp;<span class="symbol">=</span>&nbsp;Format.JSON<span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.proxy.AuditDataRPCOps$collectRPCAuditData(net.corda.client.rpc.proxy.AuditDataRPCOps.Format, kotlin.String, kotlin.String, java.time.Instant, java.time.Instant)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.proxy.AuditDataRPCOps$collectRPCAuditData(net.corda.client.rpc.proxy.AuditDataRPCOps.Format, kotlin.String, kotlin.String, java.time.Instant, java.time.Instant)/action">action</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.proxy.AuditDataRPCOps$collectRPCAuditData(net.corda.client.rpc.proxy.AuditDataRPCOps.Format, kotlin.String, kotlin.String, java.time.Instant, java.time.Instant)/startTime">startTime</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.proxy.AuditDataRPCOps$collectRPCAuditData(net.corda.client.rpc.proxy.AuditDataRPCOps.Format, kotlin.String, kotlin.String, java.time.Instant, java.time.Instant)/endTime">endTime</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

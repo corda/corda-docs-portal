@@ -39,7 +39,7 @@ transactions. A notary cluster can be registered, but not run, without a databas
 Please note that you must register the notary service identity **before** the initial notary worker registration.
 {{< /note >}}
 
-1. Register the notary service identity using the [notary registration tool](../notary/ha-notary-service-setup.html#ha-notary-registration-process).
+1. Register the notary service identity using the [HA Utilities tool](../notary/ha-notary-service-setup.html#ha-notary-registration-process).
 
 2. Register each worker node in the notary cluster using the Corda Network process.
 

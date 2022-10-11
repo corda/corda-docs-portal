@@ -17,22 +17,26 @@ weight: 145
 
 ## Logging
 
-By default the node log files are stored to the `logs` subdirectory of the working directory and are rotated from time
-to time. You can have logging printed to the console as well by passing the `--log-to-console` command line flag.
-The default logging level is `INFO` which can be adjusted by the `--logging-level` command line argument. This configuration
-option will affect all modules. Hibernate (the JPA provider used by Corda) specific log messages of level `WARN` and above
-will be logged to the diagnostic log file, which is stored in the same location as other log files (`logs` subdirectory
-by default). This is because Hibernate may log messages at WARN and ERROR that are handled internally by Corda and do not
-need operator attention. If they do, they will be logged by Corda itself in the main node log file.
+Corda's logging feature uses a [Log4j 2](https://logging.apache.org/log4j/2.x/) component and an [SLF4J ](https://www.slf4j.org/interface)
+interface as its abstraction layer. You can find the latest Corda logging configuration file on [GitHub](https://github.com/corda/corda/blob/release/os/4.10/config/dev/log4j2.xml).
 
-It may be the case that you require to amend the log level of a particular subset of modules (e.g., if you’d like to take a
-closer look at hibernate activity). So, for more bespoke logging configuration, the logger settings can be completely overridden
-with a [Log4j2](https://logging.apache.org/log4j/2.x) configuration file assigned to the `log4j.configurationFile` system property.
+* By default, node log files are stored to the `logs` subdirectory of the working directory and are rotated from time to time.
+* Passing the `--log-to-console` command line flag logs printing to the console.
+* The default logging level is `INFO` which can be adjusted by the `--logging-level` command line argument. This configuration option will affect all modules.
+  * [Hibernate](http://hibernate.org/orm/) is Corda's JPA provider. Hibernate-specific `WARN` and `ERROR` messages are logged to the diagnostic log file,
+    which is stored in the `logs` subdirectory by default. Corda handles these messages internally, and they usually do not need operator attention. If they do, Corda logs them in the main node log file.
+* Aborted flows are marked with `ERROR` or `TERMINATE`.
 
-Additionally, detailed logging around interactions with the database or HSM can be enabled by setting the `logging-level` to `TRACE` and will
-be printed out in a separate file (name will be prefixed with *details*) in the same location as the other log files. This type of logging is better
-structured to allow for log processing by 3rd party tools. MDC is also enabled for it. Currently, the following statement types are supported:
+### Custom logging
 
+You can set custom logging settings using [Log4j](https://logging.apache.org/log4j/2.x/manual/configuration.html). The command to configure a custom logging file route is:
+
+`java -Dlog4j2.configurationFile=<myfile.xml> -jar corda.jar`
+
+Logger settings can be completely overridden with a Log4j2 configuration file assigned to the `log4j.configurationFile` system property.
+Additionally, detailed logging around interactions with the database or HSM can be enabled by setting the `logging-level` to `TRACE` and
+will be printed out in a separate file in the same location as the other log files, with a filename prefix of 'details'. This type of
+logging is better structured to allow for log processing by third party tools. MDC is also enabled for it. Currently, the following statement types are supported:
 
 *
     * fields: *action*, *id*, *uploader*
@@ -142,7 +146,7 @@ Create a file `sql.xml` in the current working directory. Add the following text
 
 Note the addition of a logger named `org.hibernate` that has set this particular logger level to `debug`.
 
-Now start the node as usual but with the additional parameter `log4j.configurationFile` set to the filename as above, e.g.
+Now start the node as usual but with the additional parameter `log4j.configurationFile` set to the filename as above:
 
 `java <Your existing startup options here> -Dlog4j.configurationFile=sql.xml -jar corda.jar`
 
@@ -234,7 +238,7 @@ When running in dev mode, Hibernate statistics are also available via the Joloki
 due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
 `exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#database).
 
-When starting Corda nodes using Cordformation runner (see [Running a node](../../../../../../../en/platform/corda/4.8/enterpise/node/deploy/running-a-node.md)), you should see a startup message similar to the following: 
+When starting Corda nodes using Cordformation runner (see [Running a node](../../../../../../../en/platform/corda/4.8/enterpise/node/deploy/running-a-node.md)), you should see a startup message similar to the following:
 **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
 
 When starting Corda nodes using the ‘driver DSL’, you should see a startup message in the logs similar to the following:

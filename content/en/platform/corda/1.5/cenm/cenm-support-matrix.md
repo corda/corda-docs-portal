@@ -19,7 +19,7 @@ The Operating System platforms supported in Corda Enterprise Network Manager are
 
 Production use of Corda Enterprise Network Manager 1.3+ is only supported on Linux OS, see details below.
 
-For information about supported Operating Systems for Corda Enterprise, see the Corda Enterprise 4.8 [platform support matrix](../../../../../en/platform/corda/4.8/enterprise/platform-support-matrix.md) section or check the relevant [support documentation](../../../../../en/platform/corda/4.8/enterprise.html) for previous versions of Corda Enterprise.
+For information about supported Operating Systems for Corda Enterprise, see the Corda Enterprise Edition 4.8 [platform support matrix](../../../../../en/platform/corda/4.8/enterprise/platform-support-matrix.md) section or check the relevant [support documentation](../../../../../en/platform/corda/4.8/enterprise.html) for previous versions of Corda Enterprise.
 
 ## Hardware Security Modules (HSMs)
 
@@ -46,6 +46,7 @@ CENM currently supports the following databases:
 * PostgreSQL 10.10 (JDBC 42.2.8)
 * PostgreSQL 11.5 (JDBC 42.2.8)
 * PostgreSQL 12.2 (JDBC 42.2.8)
+* Azure SQL (Microsoft JDBC Driver 6.4)
 * SQL Server 2017 (Microsoft JDBC Driver 6.4)
 * Oracle 11gR2 (Oracle JDBC 6)
 * Oracle 12cR2 (Oracle JDBC 8)
@@ -54,7 +55,7 @@ CENM currently supports the following databases:
 
 ## JDK support
 
-Corda Enterprise 4.4+ and Corda Enterprise Network Manager 1.3+ have been tested and verified to work with **Oracle JDK 8 JVM 8u251** and **Azul Zulu Enterprise 8u252**, for Azure deployment downloadable from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
+Corda Enterprise Edition 4.4+ and Corda Enterprise Network Manager 1.3+ have been tested and verified to work with **Oracle JDK 8 JVM 8u251** and **Azul Zulu Enterprise 8u252**, for Azure deployment downloadable from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Network Manager 1.5.
 
@@ -71,7 +72,7 @@ for your deployment needs.
 
 |Platform|CPU Architecture|Versions|
 |-------------------------------|------------------|-----------|
-|Red Hat Enterprise Linux|x86-64|7.x, 6.x|
+|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
 |Ubuntu Linux|x86-64|16.04, 18.04|
 |Oracle Linux|x86-64|7.x, 6.x|
@@ -103,6 +104,6 @@ for your deployment needs.
 |Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|9.6, 10.10, 11.5|PostgreSQL JDBC Driver 42.1.4 / 42.2.8|
+|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.3|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
 
 {{< /table >}}

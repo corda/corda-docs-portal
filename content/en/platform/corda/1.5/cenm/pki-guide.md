@@ -65,7 +65,7 @@ Corda nodes operate with the following assumptions on the certificates hierarchy
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
 ![hierarchy agnostic](/en/images/hierarchy-agnostic.png "hierarchy agnostic")
-At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found [here](../../../../../en/platform/corda/4.8/open-source/permissioning.md) .
+At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found [here](../../../../../en/platform/corda/4.8/open-source/permissioning.md).
 
 
 ### Certificate Revocation List (CRL)
@@ -145,7 +145,7 @@ It follows practices applicable for certificate authorities providing a balance 
 In this scenario, a network operator wants to create a CA hierarchy where the self-signed Root CA issues a certificate for the Subordinate CA which in turn issues
 two certificates for both Identity Manager CA and Network Map (note that the Network Map is not a CA-type entity).
 The root certificate is self-signed and its keys are to be protected with the highest security level. In normal circumstances,
-they would be used just once to sign lover-level certificates (in this case the Subordinate CA) and then placed in some secure location,
+they would be used just once to sign lower-level certificates (in this case the Subordinate CA) and then placed in some secure location,
 preferably not being accessed anymore.
 Further down in the hierarchy, the Subordinate certificate is then used to issue other certificates for other CAs.
 Additionally, there is the TLS CRL signer entity, which is also self-signed and does not act as a CA.

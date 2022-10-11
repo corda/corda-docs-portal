@@ -15,7 +15,7 @@ title: Upgrading a CorDapp to a newer platform version
 # Upgrading CorDapps to newer Platform Versions
 
 {{< warning >}}
-Corda Enterprise 4.5.4 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.5.4 please read the guidance on [upgrading your notary service](../../../../../../en/platform/corda/4.5/enterprise/notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.5.4 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.5.4 please read the guidance on [upgrading your notary service](../../../../../../en/platform/corda/4.5/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 These notes provide instructions for upgrading your CorDapps from previous versions. Corda provides backwards compatibility for public,
@@ -199,7 +199,7 @@ Otherwise just upgrade your installed copy in the usual manner for your operatin
 {{< note >}}
 Platform Version 5 requires a different version of Gradle, so if you’re intending to upgrade past Platform Version 4 you may wish
 to skip updating Gradle here and upgrade directly to the version required by Platform Version 5. You’ll still need to alter the version
-numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#step-2-adjust-the-version-numbers-in-your-gradle-build-files)
+numbers in your Gradle file as shown in this section. See [Step 2. Update Gradle version and associated dependencies](#step-2-update-gradle-version-and-associated-dependencies)
 
 {{< /note >}}
 
@@ -829,7 +829,7 @@ may result in queries returning more states than expected if the node is using o
 Corda 4 adds several new APIs that help you build applications. Why not explore:
 
 
-* The [new withEntityManager API](../../../../../../en/api-ref/corda/4.5/open-source/javadoc/net/corda/core/node/ServiceHub.html#withEntityManager-block-) for using JPA inside your flows and services.
+* The [new withEntityManager API](cordapps/state-persistence.html#jpa-support) for using JPA inside your flows and services.
 * [Reference States](../../../../../../en/platform/corda/4.5/enterprise/cordapps/api-states.html#reference-states), that let you use an input state without consuming it.
 * [State Pointers](../../../../../../en/platform/corda/4.5/enterprise/cordapps/api-states.html#state-pointers), that make it easier to ‘point’ to one state from another and follow the latest version of a linear state.
 

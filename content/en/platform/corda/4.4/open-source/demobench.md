@@ -25,7 +25,7 @@ DemoBench is a standalone desktop application that makes it easy to configure an
 
 ## Downloading
 
-Installers compatible with the latest Corda release can be downloaded from the [Corda website](https://www.corda.net/downloads).
+Installers compatible with the latest Corda release can be downloaded from the [Corda website](https://github.com/corda/corda/tree/release/os%2F4.4/tools/demobench).
 
 
 
@@ -105,7 +105,7 @@ You will also need to define the environment variable `JAVA_HOME` to point to th
 ## JetBrains JDK
 
 Mac users should note that the best way to build a DemoBench DMG is with the [JetBrains JDK](https://github.com/JetBrains/jdk8u)
-which has [binary downloads available from BinTray](https://bintray.com/jetbrains/intellij-jdk).
+which has [binary downloads available from JFrog](https://www.jfrog.com/confluence/display/JFROG/JFrog+IntelliJ+IDEA+Plugin).
 This JDK has some useful GUI fixes, most notably, when built with this JDK the DemoBench terminal will support emoji
 and as such, the nicer coloured ANSI progress renderer. It also resolves some issues with HiDPI rendering on
 Windows.

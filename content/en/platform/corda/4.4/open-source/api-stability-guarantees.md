@@ -27,8 +27,8 @@ Corda makes certain commitments about what parts of the API will preserve backwa
 which will not. Over time, more of the API will fall under the stability guarantees. Thus, APIs can be categorized in the following 2 broad categories:
 
 
-* **public APIs**, for which API/[ABI](https://en.wikipedia.org/wiki/Application_binary_interface) backwards compatibility guarantees are provided. See: [Public API](#public-api)
-* **non-public APIs**, for which no backwards compatibility guarantees are provided. See: [Non-public API (experimental)](#non-public-api)
+* **public APIs**, for which API/[ABI](https://en.wikipedia.org/wiki/Application_binary_interface) backwards compatibility guarantees are provided.
+* **non-public APIs**, for which no backwards compatibility guarantees are provided.
 
 
 

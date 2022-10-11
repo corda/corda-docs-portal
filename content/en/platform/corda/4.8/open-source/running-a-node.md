@@ -8,7 +8,7 @@ menu:
   corda-os-4-8:
     identifier: corda-os-4-8-running-a-node
     parent: corda-os-4-8-corda-nodes-index
-    weight: 1140
+    weight: 1130
 tags:
 - running
 - node
@@ -18,38 +18,49 @@ title: Running nodes locally
 
 # Running nodes locally
 
+This page contains information on three methods for locally running nodes:
+
+* Nodes can be run manually from a local machine.
+* The [Dockerform](generating-a-node-dockerform.md) or [Cordform](generating-a-node-cordform.md) gradle plugins can also be used to run nodes locally.
+* Running nodes remotely is also possible - find instructions on how to do this [here](running-a-node-remotely.md).
 
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
-[Creating nodes locally](generating-a-node.md).
+[Creating nodes locally](generating-a-node.md). For node operations using Docker, visit the [Docker deployments](node-docker-deployments.md) page.
 {{< /note >}}
 
-There are several ways to run a Corda node locally for testing purposes.
-
-
-## Starting a Corda node using DemoBench
-
-See the instructions in [Demobench](demobench.md).
-
-{{< warning >}}
-**DemoBench** is deprecated in Corda 4.6 and Corda Enterprise 4.6.
-{{< /warning >}}
+There are several ways to run a Corda node locally for testing purposes:
 
 ## Starting a Corda node from the command prompt
 
-You can run a node by opening a terminal / command prompt window in the node’s directory and running the following command:
+You can run a node by opening a terminal/command prompt window in the node’s directory and running the following command:
 
 ```shell
 java -jar corda.jar
 ```
 
 By default, the node will look for a configuration file called `node.conf` and a CorDapps folder called `cordapps`
-in the current working directory. You can override the configuration file and workspace paths on the command line (e.g.
-`./corda.jar --config-file=test.conf --base-directory=/opt/corda/nodes/test`).
+in the current working directory. You can override the configuration file and workspace paths on the command line:
 
-If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](node-commandline.md) for details.
+```shell
+java -jar ./corda.jar --config-file=test.conf --base-directory=/opt/corda/nodes/test`).
+````
 
-### Setting JVM arguments
+If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command.
+You may get an error message stating:
+
+```shell
+Incompatible database schema version detected, please run schema migration scripts
+```
+If this is the case, you will need to run the migration scripts.
+One way of doing so is with
+```shell
+java -jar corda.jar run-migration-scripts --core-schemas --app-schemas`.
+ ```
+
+See [Node command-line options](node-commandline.md) for more options and further details.
+
+## Setting JVM arguments
 
 There are several ways to set JVM arguments for the node process (particularly the garbage collector and the memory settings).
 They are listed here in order of increasing priority - if the same flag is set in a way mentioned later in the list below, it will override
@@ -117,10 +128,7 @@ custom = {
 }
 ```
 
-
-
-
-### Command-line options
+## Command-line options
 
 You can optionally start a node using the following command-line options:
 
@@ -138,7 +146,7 @@ You can optionally start a node using the following command-line options:
 * `--version`, `-V`: Print version information and exit.
 
 
-#### Sub-commands
+### Sub-commands
 
 `clear-network-cache`: Clears the local copy of the network map - it will be restored from the server or the file system on node start-up.
 
@@ -154,12 +162,12 @@ Parameters:
 
 `generate-rpc-ssl-settings`: Generates the SSL keystore and truststore for a secure RPC connection.
 
-`install-shell-extensions`: Installs a `corda` alias and auto completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications](cli-application-shell-extensions.md).
+`install-shell-extensions`: Installs a `corda` alias and auto-completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications](cli-application-shell-extensions.md).
 
 `validate-configuration`: Validates the actual configuration without starting the node.
 
 
-### Enabling remote debugging
+## Enabling remote debugging
 
 To enable remote debugging of the node, run the node with the following JVM arguments:
 
@@ -178,15 +186,13 @@ This command will start the node with JMX metrics accessible via HTTP on port 70
 
 See [Monitoring via Jolokia](node-administration.html#monitoring-jolokia) for further details.
 
-
 ## Starting all nodes at once on a local machine from the command prompt
 
+### Cordform
 
-### Native
+The [Cordform](generating-a-node-cordform.md) gradle plugin (as used by the `deployNodes` gradle task)  generates a `runnodes` script. Executing
+this allows you to quickly start up all nodes and their webservers. Only use`runnodes` for testing purposes.
 
-If you created your nodes using `deployNodes`, a `runnodes` shell script (or batch file on Windows) will have been
-generated to allow you to quickly start up all nodes and their webservers. You should only use `runnodes` for testing
-purposes.
 
 Start the nodes with `runnodes` by running the following command from the root of the project:
 
@@ -204,12 +210,12 @@ fail to start.
 
 If you receive an `OutOfMemoryError` exception when interacting with the nodes, you need to increase the amount of
 Java heap memory available to them, which you can do when running them individually. See
-[Starting a Corda node from the command line](#starting-a-corda-node-from-the-command-prompt).
+[Starting a Corda node from the command line](../../../../../en/platform/corda/4.8/open-source/running-a-node.html#starting-a-corda-node-from-the-command-prompt).
 
+### Dockerform
 
-### docker-compose
-
-If you created your nodes using [Dockerform](generating-a-node.md), the `docker-compose.yml` file has been created and configured appropriately. Navigate to `build/nodes` directory and run the `docker-compose up` command. This will start up nodes inside a new, internal network. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
+If you created your nodes using [Dockerform](generating-a-node-dockerform.md), a `docker-compose.yml` file has been created. You can use `docker-compose` to bring up a cluster of Corda nodes. See `prepareDockerNodes` in the [generating nodes locally](generating-a-node.md) for more information on this.
+In order to start up the nodes in a new, internal network, go to the `build/nodes` directory and run the `docker-compose up` command. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
 
 {{< warning >}}
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
@@ -219,30 +225,11 @@ major operating systems.
 {{< /warning >}}
 
 {{< note >}}
-Before running any Corda Enterprise Docker images, you must accept the license agreement and indicate that you have done this by setting the environment variable `ACCEPT_LICENSE` to `YES` or `Y` on your machine. If you do not do this, none of the Docker containers will start.
+Before running any Corda Docker images, you must accept the license agreement and indicate that you have done this by setting the environment variable `ACCEPT_LICENSE` to `YES` or `Y` on your machine. If you do not do this, none of the Docker containers will start.
 
 As an alternative, you can specify this parameter when running the `docker-compose up` command, for example:
 `ACCEPT_LICENSE=Y docker-compose up`
 {{< /note >}}
-
-## Starting all nodes at once on a remote machine from the command line
-
-By default, a [Cordform](generating-a-node.md) task will run all the generated nodes on the same host machine.
-In order to run the nodes remotely, you can deploy them locally and then copy them to a remote server.
-If after copying the nodes to the remote machine you encounter errors related to a `localhost` resolution, you should follow the additional steps below.
-
-To create nodes locally and run on a remote machine, perform the following steps:
-
-* Configure a Cordform task and deploy the nodes locally as described in [Creating nodes locally](generating-a-node.md).
-* Copy the generated directory structure to a remote machine, for example using Secure Copy.
-* Optionally, add database configuration settings if they could not be configured in the first step and the local machine does not have access to the remote database.
-In each top-level `[NODE NAME]_node.conf` configuration file, add the database settings and copy the JDBC driver `.jar` file (if required).
-Edit the top-level `[NODE NAME]_node.conf` files only and not the files inside the node sub-directories (for example, `node.conf`).
-* Optionally, bootstrap the network on the remote machine. This is an optional step when a remote machine does not accept `localhost` addresses, or if the generated nodes are configured to run on another host’s IP address. If needed, change the host addresses in the top-level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress`, `rpcSettings.address`, and  `rpcSettings.adminAddress`. Run the network bootstrapper tool to regenerate the nodes network map: `java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`. For more information, see [Network bootstrapper](network-bootstrapper.md).
-* Run nodes on the remote machine using the `runnodes` command.
-
-The steps described above enable you to create the same test deployment as a `deployNodes` Gradle task would create on a local machine.
-
 
 ## Database migrations
 

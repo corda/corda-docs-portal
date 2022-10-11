@@ -12,8 +12,57 @@ tags:
 title: Release notes
 ---
 
-
 # Corda Enterprise Network Manager release notes
+
+## Corda Enterprise Network Manager 1.5.5
+
+In CENM 1.5.5 nodes can be quarantined using the Network Map shell. Several bugs have also been fixed, introducing a more organised operational logic when two nodes are marked as 'current'. Several UI improvements have also been made.
+
+* Revoked nodes can now be quarantined on demand, and quarantine functionality has been added to the admin shell.
+  * A node is quarantined using its hash. To find the hash, use the command `view nodeInfoHashes` in the admin shell.
+  * To view quarantined nodes, use the command: `view quarantinedNodeInfos`.
+  * To purge a node from quarantine, use its hash and the command: `run purgeQuarantinedNodeInfo nodeInfoHash <hash>`.
+  * All commands can also be found by using the `help` command in the Network Map shell.
+  * Nodes with revoked certificates will be quarantined automatically.
+* CENM 1.5.5 now uses Log4j's JSON log formatting for the Network Map and Signer, improving legibility and clarity of logs.
+* The 'Remove Edit' button has now been enabled throughout the configuration process. This means syntax issues can be fixed more quickly and easily.
+
+### Fixed issues
+
+* If multiple nodes are marked as 'current' in the database and share the same legal name, only the incoming node is processed. Others are now suppressed with a warning in the logs.
+* The copyright year (as visible in the UI) has been updated to reflect the current year.
+* In the CRR status view, the defunct **Organization** filter has been replaced by an operational **Reporter** filter.
+* The CRR submission tool produced an HTTP ERROR 500 in cases where several CRR requests were sent to the same node. This has now been resolved.
+* Defunct subzones which have been merged into the MainZone will now always be empty, retaining no data.
+
+
+## Corda Enterprise Network Manager 1.5.4
+
+CENM 1.5.4 fixes an urgent security issue caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version v2.17.1.
+
+### Fixed issues
+
+* The Log4j dependency has been updated to version 2.17.1 to fix pre-existing Log4j issues.
+
+## Corda Enterprise Network Manager 1.5.3
+
+{{< note >}}
+
+This is a direct upgrade from 1.5.1. No version 1.5.2 was released.
+
+{{< /note >}}
+
+CENM 1.5.3 fixes an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version 2.16.0.
+
+To get started with this upgrade, request the download link by raising a ticket with [support](https://r3-cev.atlassian.net/servicedesk/customer/portal/2).
+
+{{< warning >}}
+Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). This is the most secure way to mitigate any risks associated with this vulnerability.
+{{< /warning >}}
+
+### Fixed issues
+
+We have updated the Log4j dependency to version 2.16.0 to mitigate CVE-2021-44228. This includes an update to the [CENM Management Console](../../../../../en/platform/corda/1.5/cenm/cenm-console.md).
 
 ## Corda Enterprise Network Manager 1.5.1
 
@@ -94,7 +143,7 @@ CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on
 
 #### Certificate rotation: ability to reissue node legal identity keys and certificates
 
-Corda Enterprise 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing CENM to re-register a node (including a notary node) with a new certificate in the Network Map.
+Corda Enterprise Edition 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing CENM to re-register a node (including a notary node) with a new certificate in the Network Map. You must not change the node's `myLegalName` during certificate rotation.
 
 {{< warning >}}
 The introduction of this functionality may require changes to your custom Identity Manager Workflow Plugins, regardless of using certificate reissuance functionality in your system. Make sure to check the [Upgrading Corda Enterprise Network Manager](../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md) page.
@@ -166,7 +215,7 @@ Read more about improvements of this release below.
 
 #### CENM error condition knowledge base
 
-In CENM 1.4, we have adapted to CENM the internal Corda error handling logic introduced in [Corda 4.5](../../../../../en/platform/corda/4.5/open-source/error-codes.md) and [Corda Enterprise 4.5](../../../../../en/platform/corda/4.5/enterprise/node/operating/error-codes.md) for Corda nodes.
+In CENM 1.4, we have adapted to CENM the internal Corda error handling logic introduced in [Corda 4.5](../../../../../en/platform/corda/4.5/open-source/error-codes.md) and [Corda Enterprise Edition 4.5](../../../../../en/platform/corda/4.5/enterprise/node/operating/error-codes.md) for Corda nodes.
 
 As a result, CENM exceptions are now treated as CENM error codes and an error code is generated for each exception. The initial set of error codes, related to configuration parsing/validation errors, are described in the new [CENM error codes documentation page](../../../../../en/platform/corda/1.4/cenm/cenm-error-codes.md). This is the start of a growing CENM error condition knowledge base, which will expand in future releases.
 
@@ -406,7 +455,7 @@ See [CRL Endpoint Check Tool](../../../../../en/platform/corda/1.2/cenm/crl-endp
 
 **Assisted Node Registration**
 
-We introduced a new field in both Corda and Network Manager that can be used to enable a variety of onboarding workflows that might start prior to and continue after the Certificate Signing Request of the Node. In doing so, a Network Operator can embed the node registration process as part of a larger onboarding workflow or simply speed up/automate the process of reviewing a CSR and issuing a certificate. This feature requires nodes on Corda or Corda Enterprise 4.4 or above.
+We introduced a new field in both Corda and Network Manager that can be used to enable a variety of onboarding workflows that might start prior to and continue after the Certificate Signing Request of the Node. In doing so, a Network Operator can embed the node registration process as part of a larger onboarding workflow or simply speed up/automate the process of reviewing a CSR and issuing a certificate. This feature requires nodes on Corda or Corda Enterprise Edition 4.4 or above.
 
 See identity.manager for more information on how to make use of this feature.
 

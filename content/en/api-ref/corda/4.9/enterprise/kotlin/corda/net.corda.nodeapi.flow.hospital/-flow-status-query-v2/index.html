@@ -1,0 +1,109 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowStatusQueryV2 - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.nodeapi.flow.hospital</a>&nbsp;/&nbsp;<a href="./index.html">FlowStatusQueryV2</a><br/>
+<br/>
+<h1>FlowStatusQueryV2</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">FlowStatusQueryV2</span></code>
+<p>Defines filters to lists flows with a checkpoint in the node that have not completed</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Defines filters to lists flows with a checkpoint in the node that have not completed</p>
+<code><span class="identifier">FlowStatusQueryV2</span><span class="symbol">(</span><span class="identifier" id="net.corda.nodeapi.flow.hospital.FlowStatusQueryV2$<init>(kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.FlowState)), kotlin.String, kotlin.String, kotlin.Boolean, java.time.Duration, net.corda.nodeapi.flow.hospital.FlowTimeWindow, kotlin.collections.List((net.corda.nodeapi.flow.hospital.InvocationSource)), kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.SuspensionSource)), kotlin.collections.List((net.corda.core.identity.CordaX500Name)))/flowClass">flowClass</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.nodeapi.flow.hospital.FlowStatusQueryV2$<init>(kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.FlowState)), kotlin.String, kotlin.String, kotlin.Boolean, java.time.Duration, net.corda.nodeapi.flow.hospital.FlowTimeWindow, kotlin.collections.List((net.corda.nodeapi.flow.hospital.InvocationSource)), kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.SuspensionSource)), kotlin.collections.List((net.corda.core.identity.CordaX500Name)))/flowStates">flowStates</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-flow-state/index.html"><span class="identifier">FlowState</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.nodeapi.flow.hospital.FlowStatusQueryV2$<init>(kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.FlowState)), kotlin.String, kotlin.String, kotlin.Boolean, java.time.Duration, net.corda.nodeapi.flow.hospital.FlowTimeWindow, kotlin.collections.List((net.corda.nodeapi.flow.hospital.InvocationSource)), kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.SuspensionSource)), kotlin.collections.List((net.corda.core.identity.CordaX500Name)))/progressStep">progressStep</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.nodeapi.flow.hospital.FlowStatusQueryV2$<init>(kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.FlowState)), kotlin.String, kotlin.String, kotlin.Boolean, java.time.Duration, net.corda.nodeapi.flow.hospital.FlowTimeWindow, kotlin.collections.List((net.corda.nodeapi.flow.hospital.InvocationSource)), kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.SuspensionSource)), kotlin.collections.List((net.corda.core.identity.CordaX500Name)))/cordapp">cordapp</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.nodeapi.flow.hospital.FlowStatusQueryV2$<init>(kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.FlowState)), kotlin.String, kotlin.String, kotlin.Boolean, java.time.Duration, net.corda.nodeapi.flow.hospital.FlowTimeWindow, kotlin.collections.List((net.corda.nodeapi.flow.hospital.InvocationSource)), kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.SuspensionSource)), kotlin.collections.List((net.corda.core.identity.CordaX500Name)))/compatibleWithCurrentCordaRuntime">compatibleWithCurrentCordaRuntime</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.nodeapi.flow.hospital.FlowStatusQueryV2$<init>(kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.FlowState)), kotlin.String, kotlin.String, kotlin.Boolean, java.time.Duration, net.corda.nodeapi.flow.hospital.FlowTimeWindow, kotlin.collections.List((net.corda.nodeapi.flow.hospital.InvocationSource)), kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.SuspensionSource)), kotlin.collections.List((net.corda.core.identity.CordaX500Name)))/suspensionDuration">suspensionDuration</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html"><span class="identifier">Duration</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.nodeapi.flow.hospital.FlowStatusQueryV2$<init>(kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.FlowState)), kotlin.String, kotlin.String, kotlin.Boolean, java.time.Duration, net.corda.nodeapi.flow.hospital.FlowTimeWindow, kotlin.collections.List((net.corda.nodeapi.flow.hospital.InvocationSource)), kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.SuspensionSource)), kotlin.collections.List((net.corda.core.identity.CordaX500Name)))/flowStart">flowStart</span><span class="symbol">:</span>&nbsp;<a href="../-flow-time-window/index.html"><span class="identifier">FlowTimeWindow</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.nodeapi.flow.hospital.FlowStatusQueryV2$<init>(kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.FlowState)), kotlin.String, kotlin.String, kotlin.Boolean, java.time.Duration, net.corda.nodeapi.flow.hospital.FlowTimeWindow, kotlin.collections.List((net.corda.nodeapi.flow.hospital.InvocationSource)), kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.SuspensionSource)), kotlin.collections.List((net.corda.core.identity.CordaX500Name)))/invocationSources">invocationSources</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-invocation-source/index.html"><span class="identifier">InvocationSource</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.nodeapi.flow.hospital.FlowStatusQueryV2$<init>(kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.FlowState)), kotlin.String, kotlin.String, kotlin.Boolean, java.time.Duration, net.corda.nodeapi.flow.hospital.FlowTimeWindow, kotlin.collections.List((net.corda.nodeapi.flow.hospital.InvocationSource)), kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.SuspensionSource)), kotlin.collections.List((net.corda.core.identity.CordaX500Name)))/startedBy">startedBy</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.nodeapi.flow.hospital.FlowStatusQueryV2$<init>(kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.FlowState)), kotlin.String, kotlin.String, kotlin.Boolean, java.time.Duration, net.corda.nodeapi.flow.hospital.FlowTimeWindow, kotlin.collections.List((net.corda.nodeapi.flow.hospital.InvocationSource)), kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.SuspensionSource)), kotlin.collections.List((net.corda.core.identity.CordaX500Name)))/suspensionSources">suspensionSources</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-suspension-source/index.html"><span class="identifier">SuspensionSource</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.nodeapi.flow.hospital.FlowStatusQueryV2$<init>(kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.FlowState)), kotlin.String, kotlin.String, kotlin.Boolean, java.time.Duration, net.corda.nodeapi.flow.hospital.FlowTimeWindow, kotlin.collections.List((net.corda.nodeapi.flow.hospital.InvocationSource)), kotlin.String, kotlin.collections.List((net.corda.nodeapi.flow.hospital.SuspensionSource)), kotlin.collections.List((net.corda.core.identity.CordaX500Name)))/counterParties">counterParties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">CordaX500Name</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="compatible-with-current-corda-runtime.html">compatibleWithCurrentCordaRuntime</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">compatibleWithCurrentCordaRuntime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="cordapp.html">cordapp</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">cordapp</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="counter-parties.html">counterParties</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">counterParties</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">CordaX500Name</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="flow-class.html">flowClass</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">flowClass</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="flow-start.html">flowStart</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">flowStart</span><span class="symbol">: </span><a href="../-flow-time-window/index.html"><span class="identifier">FlowTimeWindow</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="flow-states.html">flowStates</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">flowStates</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-flow-state/index.html"><span class="identifier">FlowState</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="invocation-sources.html">invocationSources</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">invocationSources</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-invocation-source/index.html"><span class="identifier">InvocationSource</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress-step.html">progressStep</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">progressStep</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="started-by.html">startedBy</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">startedBy</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="suspension-duration.html">suspensionDuration</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">suspensionDuration</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html"><span class="identifier">Duration</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="suspension-sources.html">suspensionSources</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">suspensionSources</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-suspension-source/index.html"><span class="identifier">SuspensionSource</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

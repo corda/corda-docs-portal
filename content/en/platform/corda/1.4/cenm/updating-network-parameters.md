@@ -124,7 +124,7 @@ parameter hash mismatch. The nodes that did not accept the parameter update will
 will be unable to restart until they accept. The nodes that accepted can be restarted and continue as normal.
 
 {{< note >}}
-Corda 4.6 does not support hotswapping of Network Parameters within a node. As a result, all nodes will shut down in this situation, regardless of whether they have accepted the parameter update or not.
+Corda does not support hotswapping of network parameters within a node. As a result, all nodes will shut down in this situation, regardless of whether they have accepted the parameter update or not.
 {{< /note >}}
 
 ## Sign the network map

@@ -196,7 +196,7 @@ signedParams.open().copyTo(Paths.get("/some/path"))
 
 {{< /tabs >}}
 
-Each individual parameter is documented in [the JavaDocs/KDocs for the NetworkParameters class](https://docs.corda.net/api/kotlin/corda/net.corda.core.node/-network-parameters/index.html). The network map
+Each individual parameter is documented in [the JavaDocs/KDocs for the NetworkParameters class](../../../../../en/api-ref/corda/4.4/open-source/kotlin/corda/net.corda.core.node/-network-parameters/index.html). The network map
 certificate is usually chained off the root certificate, and can be created according to the instructions above. Each
 time the zone parameters are changed, the epoch should be incremented. Epochs are essentially version numbers for the
 parameters, and they therefore cannot go backwards. Once saved, the new parameters can be served by the network map server.

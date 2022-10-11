@@ -14,23 +14,12 @@ weight: 5
 
 # Running nodes locally
 
-
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
 [Creating nodes locally](generating-a-node.md).
 
 {{< /note >}}
 There are several ways to run a Corda node locally for testing purposes.
-
-
-## Starting a Corda node using DemoBench
-
-See the instructions in demobench.
-
-{{< warning >}}
-**DemoBench** is deprecated.
-{{< /warning >}}
-
 
 ## Starting a Corda node from the command line
 
@@ -267,27 +256,6 @@ and [Docker Compose documentation](https://docs.docker.com/compose/install/) for
 major operating systems.
 
 {{< /warning >}}
-
-
-
-## Starting all nodes at once on a remote machine from the command line
-
-By default, `Cordform` expects the nodes it generates to be run on the same machine where they were generated.
-In order to run the nodes remotely, the nodes can be deployed locally and then copied to a remote server.
-If after copying the nodes to the remote machine you encounter errors related to `localhost` resolution, you will additionally need to follow the steps below.
-
-To create nodes locally and run on a remote machine perform the following steps:
-
-
-* Configure Cordform task and deploy the nodes locally as described in [Creating nodes locally](generating-a-node.md).
-* Copy the generated directory structure to a remote machine using e.g. Secure Copy.
-* Optionally, add database configuration settings if they weren’t specified in the first step.This step needs to be performed if the local machine doesn’t have access to the remote database (a database couldn’t be configured in the first step).
-In each top level `[NODE NAME]_node.conf` configuration file add the database settings and copy the JDBC driver JAR (if required).
-Edit the top level `[NODE NAME]_node.conf` files only and not the files (`node.conf`) inside the node subdirectories.
-* Optionally, bootstrap the network on the remote machine.This is optional step when a remote machine doesn’t accept `localhost` addresses, or the generated nodes are configured to run on another host’s IP address.If required change host addresses in top level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress` , `rpcSettings.address` and  `rpcSettings.adminAddress`.Run the network bootstrapper tool to regenerate the nodes network map (see for more explanation network-bootstrapper):`java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`
-* Run nodes on the remote machine using [runnodes command](#starting-all-nodes-at-once-on-a-local-machine-from-the-command-line).
-
-The above steps create a test deployment as `deployNodes` Gradle task would do on a local machine.
 
 
 ## Database migrations

@@ -86,11 +86,11 @@ Corda’s AMQP fingerprinting for enumerated types include the type name and the
 
 Newer vs older is important as the deserializer needs to use the more recent set of transforms to ensure it
 can transform the serialised object into the form as it exists in the deserializer. Newness is determined simply
-by length of the list of all transforms. This is sufficient as transform annotations should only ever be added
+by length of the list of all transforms. This is sufficient as transform annotations should only ever be added.
 
 
 {{< warning >}}
-technically there is nothing to prevent annotations being removed in newer versions. However,
+Technically there is nothing to prevent annotations being removed in newer versions. However,
 this will break backward compatibility and should thus be avoided unless a rigorous upgrade procedure
 is in place to cope with all deployed instances of the class and all serialised versions existing
 within vaults.

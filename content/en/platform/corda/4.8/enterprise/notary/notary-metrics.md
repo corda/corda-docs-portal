@@ -25,10 +25,11 @@ all meters use exponential moving averages. These are explained in the [node met
 {{< table >}}
 
 |Metric Name|Type|Description|
-|:-----------------------------|:-----------|:-------------------------------------------------------------------|
+|:-----------------------------------|:--------------------------------|:-------------------------------------------------------------------|
 | `Commit` | Timer | Measures the time taken in milliseconds to commit a single transaction and the number of transactions per second (TPS).|
 | `IPS` | Meter | Measures the number of committed input states per second (IPS).|
-| `Rollback` | Counter | Tracks the number of database transaction rollbacks. These might occur due to transient SQL exceptions, which are mitigated by retrying, or unexpected errors that cause the notarisation to be aborted.|
+| `Rollback` (Percona only)| Counter | Tracks the number of database transaction rollbacks. These might occur due to transient SQL exceptions, which are mitigated by retrying, or unexpected errors that cause the notarization to be aborted.|
+| `DatabaseRetry` (JPA only)| Counter | Tracks the number of times the notary worker has attempted to retry committing a transaction to the database following a failed transaction. This might occur due to transient SQL exceptions, attempting to spend the same states on multiple notary workers in parallel, or due to issues with the underlying database.|
 | `ConnectionException` | Counter |Tracks the number of times that the notary service is unable to obtain a database connection.|
 | `Conflicts` | Counter | Tracks the number of double spend attempts. Note that this will also include notarisation retries.|
 | `NumberOfInputStates` | Histogram | Tracks the statistical distribution of the number of input states per transaction.|

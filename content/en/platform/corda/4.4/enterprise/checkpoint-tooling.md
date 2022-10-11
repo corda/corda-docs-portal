@@ -18,9 +18,11 @@ title: Checkpoint Tooling
 
 This page contains information about checkpoint tooling. These tools can be used to debug the causes of stuck flows.
 
-Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading key-concepts-flows and [Writing flows](flow-state-machines.md).
-It is also recommended that you understand the purpose and behaviour of the node-flow-hospital in relation to *checkpoints* and flow recovery.
-An advanced explanation of *checkpoints* within the flow state machine can be found here: contributing-flow-internals.
+Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading
+[Flows](../open-source/key-concepts-flows.md) and [Writing flows](flow-state-machines.md).
+It is also recommended that you understand the purpose and behaviour of the
+[Flow Hospital](../open-source/node-flow-hospital.md) in relation to *checkpoints* and flow recovery.
+An advanced explanation of checkpoints within the flow state machine can be found here: [Flow framework internals](../open-source/contributing-flow-internals.html#checkpoints).
 
 {{< note >}}
 As a recap,

@@ -80,11 +80,6 @@ identifier = "cenm-1-0-public-key-infrastructure"
 name = "Public Key Infrastructure"
 weight = 310
 
-[[cenm-1-0]]
-identifier = "cenm-1-0-tools-and-utilities"
-name = "Tools & Utilities"
-weight = 260
-
 [[cenm-1-1]]
 identifier = "cenm-1-1-cenm-releases"
 name = "CENM Releases"
@@ -109,11 +104,6 @@ weight = 110
 identifier = "cenm-1-1-public-key-infrastructure"
 name = "Public Key Infrastructure"
 weight = 300
-
-[[cenm-1-1]]
-identifier = "cenm-1-1-tools-and-utilities"
-name = "Tools & Utilities"
-weight = 270
 
 [[cenm-1-2]]
 identifier = "cenm-1-2-cenm-releases"
@@ -145,11 +135,6 @@ identifier = "cenm-1-2-signing-plugin-samples"
 name = "Signing Plugin Samples"
 weight = 330
 
-[[cenm-1-2]]
-identifier = "cenm-1-2-tools-and-utilities"
-name = "Tools & Utilities"
-weight = 270
-
 [[cenm-1-3]]
 identifier = "cenm-1-3-cenm-releases"
 name = "CENM Releases"
@@ -180,11 +165,6 @@ identifier = "cenm-1-3-signing-plugin-samples"
 name = "Signing Plugin Samples"
 weight = 330
 
-[[cenm-1-3]]
-identifier = "cenm-1-3-tools-and-utilities"
-name = "Tools & Utilities"
-weight = 270
-
 [[cenm-1-4]]
 identifier = "cenm-1-4-cenm-releases"
 name = "CENM Releases"
@@ -214,11 +194,6 @@ weight = 300
 identifier = "cenm-1-4-signing-plugin-samples"
 name = "Signing Plugin Samples"
 weight = 330
-
-[[cenm-1-4]]
-identifier = "cenm-1-4-tools-and-utilities"
-name = "Tools & Utilities"
-weight = 270
 
 [[cenm-1-5]]
 identifier = "cenm-1-5-cenm-releases"
@@ -543,6 +518,54 @@ name = "Operating a Corda Node"
 parent = "corda-enterprise-4-8-corda-nodes"
 weight = 60
 
+[[corda-enterprise-4-8]]
+identifier = "corda-enterprise-4-8-notaries"
+name = "Corda Notaries"
+weight = 35
+
+[[corda-enterprise-4-8]]
+identifier = "corda-enterprise-4-8-corda-networks"
+name = "Corda Networks"
+weight = 40
+
+[[corda-enterprise-4-8]]
+identifier = "corda-enterprise-4-8-corda-nodes-operating"
+name = "Operating a Corda Node"
+parent = "corda-enterprise-4-8-corda-nodes"
+weight = 60
+
+[[corda-enterprise-4-9]]
+identifier = "corda-enterprise-4-9-notaries"
+name = "Corda Notaries"
+weight = 35
+
+[[corda-enterprise-4-9]]
+identifier = "corda-enterprise-4-9-corda-networks"
+name = "Corda Networks"
+weight = 40
+
+[[corda-enterprise-4-9]]
+identifier = "corda-enterprise-4-9-corda-nodes-operating"
+name = "Operating a Corda Node"
+parent = "corda-enterprise-4-9-corda-nodes"
+weight = 60
+
+[[corda-enterprise-4-9]]
+identifier = "corda-enterprise-4-9-notaries"
+name = "Corda Notaries"
+weight = 35
+
+[[corda-enterprise-4-9]]
+identifier = "corda-enterprise-4-9-corda-networks"
+name = "Corda Networks"
+weight = 40
+
+[[corda-enterprise-4-9]]
+identifier = "corda-enterprise-4-9-corda-nodes-operating"
+name = "Operating a Corda Node"
+parent = "corda-enterprise-4-9-corda-nodes"
+weight = 60
+
 [[corda-os-4-0]]
 identifier = "corda-os-4-0-development"
 name = "Development"
@@ -710,6 +733,31 @@ weight = 30
 
 [[corda-os-4-8]]
 identifier = "corda-os-4-8-contributing-index"
+name = "Participate"
+weight = 500
+
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-upgrading"
+name = "Upgrading CorDapps and nodes"
+weight = 15
+
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-corda-api"
+name = "Corda API"
+weight = 17
+
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-development"
+name = "Development"
+weight = 20
+
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-operations"
+name = "Operations"
+weight = 30
+
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-contributing-index"
 name = "Participate"
 weight = 500
 

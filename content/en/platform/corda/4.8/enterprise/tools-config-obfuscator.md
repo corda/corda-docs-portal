@@ -13,7 +13,7 @@ weight: 70
 
 # Configuration Obfuscator
 
-The purpose of the Configuraton Obfuscator tool is to obfuscate sensitive information in configuration files.
+The purpose of the Configuration Obfuscator tool is to obfuscate sensitive information in configuration files.
 
 The Configuration Obfuscator makes node installation less vulnerable to someone trawling plain text files, searching for passwords and credentials of resources that they should not have access to in the first place.
 
@@ -22,7 +22,7 @@ Although the Configuration Obfuscator does protect the node against trawling att
 {{< /warning >}}
 
 {{< note >}}
-The Configuraton Obfuscator tool can only be used with configuration files for Corda Enterprise 4.4 (and above) nodes, Corda Firewall, and Corda Network Enterprise Manager (CENM) 1.3 (and above) services. Corda configuration files obfuscated with older versions of Corda Enterprise can still be deobfuscated by Corda Enterprise 4.4 and above. Configuration files obfuscated with CENM 1.1 and 1.2 can be deobfuscated with CENM 1.3 (and above), but further obfuscation must be done using the new version of the Configuration Obfuscator tool.
+The Configuration Obfuscator tool can only be used with configuration files for Corda Enterprise Edition 4.4 (and above) nodes, Corda Firewall, and Corda Network Enterprise Manager (CENM) 1.3 (and above) services. Corda configuration files obfuscated with older versions of Corda Enterprise can still be deobfuscated by Corda Enterprise Edition 4.4 and above. Configuration files obfuscated with CENM 1.1 and 1.2 can be deobfuscated with CENM 1.3 (and above), but further obfuscation must be done using the new version of the Configuration Obfuscator tool.
 {{< /note >}}
 
 ## How obfuscation works
@@ -65,7 +65,7 @@ The command-line tool is included in Corda Enterprise as a `.jar` file with a na
 
 ### Usage
 
-The paramaters, options, and commands that you can use when running the command-line tool, are shown below.
+The parameters, options, and commands that you can use when running the command-line tool, are shown below.
 
 ```bash
 config-obfuscator [-hiV] [--config-obfuscation-passphrase[=<cliPassphrase>]]

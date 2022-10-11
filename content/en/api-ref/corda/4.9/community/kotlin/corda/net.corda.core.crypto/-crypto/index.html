@@ -1,0 +1,309 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Crypto - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="./index.html">Crypto</a><br/>
+<br/>
+<h1>Crypto</h1>
+<code><span class="keyword">object </span><span class="identifier">Crypto</span></code>
+<p>This object controls and provides the available and supported signature schemes for Corda.
+Any implemented <a href="../-signature-scheme/index.html">SignatureScheme</a> should be strictly defined here.
+However, only the schemes returned by {@link #listSupportedSignatureSchemes()} are supported.
+Note that Corda currently supports the following signature schemes by their code names:</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-c-o-m-p-o-s-i-t-e_-k-e-y.html">COMPOSITE_KEY</a></h4>
+</td>
+<td>
+<p>Corda <a href="../-composite-key/index.html">CompositeKey</a> signature type.</p>
+<code><span class="keyword">val </span><span class="identifier">COMPOSITE_KEY</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-d-e-f-a-u-l-t_-s-i-g-n-a-t-u-r-e_-s-c-h-e-m-e.html">DEFAULT_SIGNATURE_SCHEME</a></h4>
+</td>
+<td>
+<p>Our default signature scheme if no algorithm is specified (e.g. for key generation).</p>
+<code><span class="keyword">val </span><span class="identifier">DEFAULT_SIGNATURE_SCHEME</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-e-c-d-s-a_-s-e-c-p256-k1_-s-h-a256.html">ECDSA_SECP256K1_SHA256</a></h4>
+</td>
+<td>
+<p>ECDSA signature scheme using the secp256k1 Koblitz curve and SHA256 for message hashing.</p>
+<code><span class="keyword">val </span><span class="identifier">ECDSA_SECP256K1_SHA256</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-e-c-d-s-a_-s-e-c-p256-r1_-s-h-a256.html">ECDSA_SECP256R1_SHA256</a></h4>
+</td>
+<td>
+<p>ECDSA signature scheme using the secp256r1 (NIST P-256) curve and SHA256 for message hashing.</p>
+<code><span class="keyword">val </span><span class="identifier">ECDSA_SECP256R1_SHA256</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-e-d-d-s-a_-e-d25519_-s-h-a512.html">EDDSA_ED25519_SHA512</a></h4>
+</td>
+<td>
+<p>EdDSA signature scheme using the ed25519 twisted Edwards curve and SHA512 for message hashing.
+The actual algorithm is PureEdDSA Ed25519 as defined in https://tools.ietf.org/html/rfc8032
+Not to be confused with the EdDSA variants, Ed25519ctx and Ed25519ph.</p>
+<code><span class="keyword">val </span><span class="identifier">EDDSA_ED25519_SHA512</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-r-s-a_-s-h-a256.html">RSA_SHA256</a></h4>
+</td>
+<td>
+<p>RSA PKCS#1 signature scheme using SHA256 for message hashing.
+The actual algorithm id is 1.2.840.113549.1.1.1
+Note: Recommended key size &gt;= 3072 bits.</p>
+<code><span class="keyword">val </span><span class="identifier">RSA_SHA256</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-s-h-a512_256.html">SHA512_256</a></h4>
+</td>
+<td>
+<p>DLSequence (ASN1Sequence) for SHA512 truncated to 256 bits, used in SPHINCS-256 signature scheme.</p>
+<code><span class="keyword">val </span><span class="identifier">SHA512_256</span><span class="symbol">: </span><a href="https://www.bouncycastle.org/docs/docs1.5on/org/bouncycastle/asn1/DLSequence.html"><span class="identifier">DLSequence</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-s-p-h-i-n-c-s256_-s-h-a256.html">SPHINCS256_SHA256</a></h4>
+</td>
+<td>
+<p>SPHINCS-256 hash-based signature scheme using SHA512 for message hashing. It provides 128bit security against
+post-quantum attackers at the cost of larger key nd signature sizes and loss of compatibility.</p>
+<code><span class="keyword">val </span><span class="identifier">SPHINCS256_SHA256</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="decode-private-key.html">decodePrivateKey</a></h4>
+</td>
+<td>
+<p>Decode a PKCS8 encoded key to its <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> object.
+Use this method if the key type is a-priori unknown.</p>
+<code><span class="keyword">fun </span><span class="identifier">decodePrivateKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePrivateKey(kotlin.ByteArray)/encodedKey">encodedKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a></code>
+<p>Decode a PKCS8 encoded key to its <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> object based on the input scheme code name.
+This should be used when the type key is known, e.g. during deserialisation or with key caches or key managers.</p>
+<code><span class="keyword">fun </span><span class="identifier">decodePrivateKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePrivateKey(kotlin.String, kotlin.ByteArray)/schemeCodeName">schemeCodeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePrivateKey(kotlin.String, kotlin.ByteArray)/encodedKey">encodedKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">decodePrivateKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePrivateKey(net.corda.core.crypto.SignatureScheme, kotlin.ByteArray)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePrivateKey(net.corda.core.crypto.SignatureScheme, kotlin.ByteArray)/encodedKey">encodedKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="decode-public-key.html">decodePublicKey</a></h4>
+</td>
+<td>
+<p>Decode an X509 encoded key to its <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> object.
+Use this method if the key type is a-priori unknown.</p>
+<code><span class="keyword">fun </span><span class="identifier">decodePublicKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePublicKey(kotlin.ByteArray)/encodedKey">encodedKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Decode an X509 encoded key to its <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> object based on the input scheme code name.
+This should be used when the type key is known, e.g. during deserialisation or with key caches or key managers.</p>
+<code><span class="keyword">fun </span><span class="identifier">decodePublicKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePublicKey(kotlin.String, kotlin.ByteArray)/schemeCodeName">schemeCodeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePublicKey(kotlin.String, kotlin.ByteArray)/encodedKey">encodedKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">decodePublicKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePublicKey(net.corda.core.crypto.SignatureScheme, kotlin.ByteArray)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$decodePublicKey(net.corda.core.crypto.SignatureScheme, kotlin.ByteArray)/encodedKey">encodedKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="derive-key-pair.html">deriveKeyPair</a></h4>
+</td>
+<td>
+<p>Deterministically generate/derive a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> using an existing private key and a seed as inputs.
+This operation is currently supported for ECDSA secp256r1 (NIST P-256), ECDSA secp256k1 and EdDSA ed25519.</p>
+<code><span class="keyword">fun </span><span class="identifier">deriveKeyPair</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$deriveKeyPair(net.corda.core.crypto.SignatureScheme, java.security.PrivateKey, kotlin.ByteArray)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$deriveKeyPair(net.corda.core.crypto.SignatureScheme, java.security.PrivateKey, kotlin.ByteArray)/privateKey">privateKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$deriveKeyPair(net.corda.core.crypto.SignatureScheme, java.security.PrivateKey, kotlin.ByteArray)/seed">seed</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code>
+<p>Deterministically generate/derive a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> using an existing private key and a seed as inputs.
+Use this method if the <a href="../-signature-scheme/index.html">SignatureScheme</a> of the private key input is not known.</p>
+<code><span class="keyword">fun </span><span class="identifier">deriveKeyPair</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$deriveKeyPair(java.security.PrivateKey, kotlin.ByteArray)/privateKey">privateKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$deriveKeyPair(java.security.PrivateKey, kotlin.ByteArray)/seed">seed</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="derive-key-pair-from-entropy.html">deriveKeyPairFromEntropy</a></h4>
+</td>
+<td>
+<p>Returns a key pair derived from the given <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a> entropy. This is useful for unit tests
+and other cases where you want hard-coded private keys.
+Currently, the following schemes are supported: <a href="-e-d-d-s-a_-e-d25519_-s-h-a512.html">EDDSA_ED25519_SHA512</a>, <a href="-e-c-d-s-a_-s-e-c-p256-r1_-s-h-a256.html">ECDSA_SECP256R1_SHA256</a> and <a href="-e-c-d-s-a_-s-e-c-p256-k1_-s-h-a256.html">ECDSA_SECP256K1_SHA256</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">deriveKeyPairFromEntropy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$deriveKeyPairFromEntropy(net.corda.core.crypto.SignatureScheme, java.math.BigInteger)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$deriveKeyPairFromEntropy(net.corda.core.crypto.SignatureScheme, java.math.BigInteger)/entropy">entropy</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code>
+<p>Returns a <a href="-d-e-f-a-u-l-t_-s-i-g-n-a-t-u-r-e_-s-c-h-e-m-e.html">DEFAULT_SIGNATURE_SCHEME</a> key pair derived from the given <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a> entropy.</p>
+<code><span class="keyword">fun </span><span class="identifier">deriveKeyPairFromEntropy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$deriveKeyPairFromEntropy(java.math.BigInteger)/entropy">entropy</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="do-sign.html">doSign</a></h4>
+</td>
+<td>
+<p>Generic way to sign <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> data with a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a>. Strategy on on identifying the actual signing scheme is based
+on the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> type, but if the schemeCodeName is known, then better use
+doSign(signatureScheme: String, privateKey: PrivateKey, clearData: ByteArray).</p>
+<code><span class="keyword">fun </span><span class="identifier">doSign</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$doSign(java.security.PrivateKey, kotlin.ByteArray)/privateKey">privateKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doSign(java.security.PrivateKey, kotlin.ByteArray)/clearData">clearData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code>
+<p>Generic way to sign <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> data with a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> and a known schemeCodeName <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">doSign</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$doSign(kotlin.String, java.security.PrivateKey, kotlin.ByteArray)/schemeCodeName">schemeCodeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doSign(kotlin.String, java.security.PrivateKey, kotlin.ByteArray)/privateKey">privateKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doSign(kotlin.String, java.security.PrivateKey, kotlin.ByteArray)/clearData">clearData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code>
+<p>Generic way to sign <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> data with a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a> and a known <a href="#">Signature</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">doSign</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$doSign(net.corda.core.crypto.SignatureScheme, java.security.PrivateKey, kotlin.ByteArray)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doSign(net.corda.core.crypto.SignatureScheme, java.security.PrivateKey, kotlin.ByteArray)/privateKey">privateKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doSign(net.corda.core.crypto.SignatureScheme, java.security.PrivateKey, kotlin.ByteArray)/clearData">clearData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code>
+<p>Generic way to sign <a href="../-signable-data/index.html">SignableData</a> objects with a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html">PrivateKey</a>.
+<a href="../-signable-data/index.html">SignableData</a> is a wrapper over the transaction's id (Merkle root) in order to attach extra information, such as
+a timestamp or partial and blind signature indicators.</p>
+<code><span class="keyword">fun </span><span class="identifier">doSign</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$doSign(java.security.KeyPair, net.corda.core.crypto.SignableData)/keyPair">keyPair</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doSign(java.security.KeyPair, net.corda.core.crypto.SignableData)/signableData">signableData</span><span class="symbol">:</span>&nbsp;<a href="../-signable-data/index.html"><span class="identifier">SignableData</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="do-verify.html">doVerify</a></h4>
+</td>
+<td>
+<p>Utility to simplify the act of verifying a digital signature.
+It returns true if it succeeds, but it always throws an exception if verification fails.</p>
+<code><span class="keyword">fun </span><span class="identifier">doVerify</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(kotlin.String, java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/schemeCodeName">schemeCodeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(kotlin.String, java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(kotlin.String, java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/signatureData">signatureData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(kotlin.String, java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/clearData">clearData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Utility to simplify the act of verifying a digital signature by identifying the signature scheme used from the input public key's type.
+It returns true if it succeeds, but it always throws an exception if verification fails.
+Strategy on identifying the actual signing scheme is based on the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> type, but if the schemeCodeName is known,
+then better use doVerify(schemeCodeName: String, publicKey: PublicKey, signatureData: ByteArray, clearData: ByteArray).</p>
+<code><span class="keyword">fun </span><span class="identifier">doVerify</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/signatureData">signatureData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/clearData">clearData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Method to verify a digital signature.
+It returns true if it succeeds, but it always throws an exception if verification fails.</p>
+<code><span class="keyword">fun </span><span class="identifier">doVerify</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(net.corda.core.crypto.SignatureScheme, java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(net.corda.core.crypto.SignatureScheme, java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(net.corda.core.crypto.SignatureScheme, java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/signatureData">signatureData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(net.corda.core.crypto.SignatureScheme, java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/clearData">clearData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Utility to simplify the act of verifying a <a href="../-transaction-signature/index.html">TransactionSignature</a>.
+It returns true if it succeeds, but it always throws an exception if verification fails.</p>
+<code><span class="keyword">fun </span><span class="identifier">doVerify</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(net.corda.core.crypto.SecureHash, net.corda.core.crypto.TransactionSignature)/txId">txId</span><span class="symbol">:</span>&nbsp;<a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$doVerify(net.corda.core.crypto.SecureHash, net.corda.core.crypto.TransactionSignature)/transactionSignature">transactionSignature</span><span class="symbol">:</span>&nbsp;<a href="../-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="find-provider.html">findProvider</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">findProvider</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$findProvider(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html"><span class="identifier">Provider</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="find-signature-scheme.html">findSignatureScheme</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">findSignatureScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$findSignatureScheme(org.bouncycastle.asn1.x509.AlgorithmIdentifier)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://www.bouncycastle.org/docs/docs1.5on/org/bouncycastle/asn1/x509/AlgorithmIdentifier.html"><span class="identifier">AlgorithmIdentifier</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code>
+<p>Find <a href="../-signature-scheme/index.html">SignatureScheme</a> by platform specific schemeNumberID.</p>
+<code><span class="keyword">fun </span><span class="identifier">findSignatureScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$findSignatureScheme(kotlin.Int)/schemeNumberID">schemeNumberID</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code>
+<p>Factory pattern to retrieve the corresponding <a href="../-signature-scheme/index.html">SignatureScheme</a> based on <a href="../-signature-scheme/scheme-code-name.html">SignatureScheme.schemeCodeName</a>.
+This function is usually called by key generators and verify signature functions.
+In case the input is not a key in the supportedSignatureSchemes map, null will be returned.</p>
+<code><span class="keyword">fun </span><span class="identifier">findSignatureScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$findSignatureScheme(kotlin.String)/schemeCodeName">schemeCodeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code>
+<p>Retrieve the corresponding <a href="../-signature-scheme/index.html">SignatureScheme</a> based on the type of the input <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Key.html">Key</a>.
+This function is usually called when requiring to verify signatures and the signing schemes must be defined.
+For the supported signature schemes see <a href="./index.html">Crypto</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">findSignatureScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$findSignatureScheme(java.security.PublicKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">findSignatureScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$findSignatureScheme(java.security.PrivateKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="generate-key-pair.html">generateKeyPair</a></h4>
+</td>
+<td>
+<p>Utility to simplify the act of generating keys.
+Normally, we don't expect other errors here, assuming that key generation parameters for every supported signature scheme have been unit-tested.</p>
+<code><span class="keyword">fun </span><span class="identifier">generateKeyPair</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$generateKeyPair(kotlin.String)/schemeCodeName">schemeCodeName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code>
+<p>Generate a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> for the selected <a href="../-signature-scheme/index.html">SignatureScheme</a>.
+Note that RSA is the sole algorithm initialized specifically by its supported keySize.</p>
+<code><span class="keyword">fun </span><span class="identifier">generateKeyPair</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$generateKeyPair(net.corda.core.crypto.SignatureScheme)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_SIGNATURE_SCHEME<span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-supported-signature-scheme.html">isSupportedSignatureScheme</a></h4>
+</td>
+<td>
+<p>Check if the requested <a href="../-signature-scheme/index.html">SignatureScheme</a> is supported by the system.</p>
+<code><span class="keyword">fun </span><span class="identifier">isSupportedSignatureScheme</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$isSupportedSignatureScheme(net.corda.core.crypto.SignatureScheme)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-valid.html">isValid</a></h4>
+</td>
+<td>
+<p>Utility to simplify the act of verifying a digital signature by identifying the signature scheme used from the
+input public key's type.
+It returns true if it succeeds and false if not. In comparison to <a href="do-verify.html">doVerify</a> if the key and signature
+do not match it returns false rather than throwing an exception. Normally you should use the function which throws,
+as it avoids the risk of failing to test the result.</p>
+<code><span class="keyword">fun </span><span class="identifier">isValid</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$isValid(net.corda.core.crypto.SecureHash, net.corda.core.crypto.TransactionSignature)/txId">txId</span><span class="symbol">:</span>&nbsp;<a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$isValid(net.corda.core.crypto.SecureHash, net.corda.core.crypto.TransactionSignature)/transactionSignature">transactionSignature</span><span class="symbol">:</span>&nbsp;<a href="../-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Utility to simplify the act of verifying a digital signature by identifying the signature scheme used from the
+input public key's type.
+It returns true if it succeeds and false if not. In comparison to <a href="do-verify.html">doVerify</a> if the key and signature
+do not match it returns false rather than throwing an exception. Normally you should use the function which throws,
+as it avoids the risk of failing to test the result.
+Use this method if the signature scheme is not a-priori known.</p>
+<code><span class="keyword">fun </span><span class="identifier">isValid</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$isValid(java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$isValid(java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/signatureData">signatureData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$isValid(java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/clearData">clearData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Method to verify a digital signature. In comparison to <a href="do-verify.html">doVerify</a> if the key and signature
+do not match it returns false rather than throwing an exception.
+Use this method if the signature scheme type is a-priori unknown.</p>
+<code><span class="keyword">fun </span><span class="identifier">isValid</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$isValid(net.corda.core.crypto.SignatureScheme, java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$isValid(net.corda.core.crypto.SignatureScheme, java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$isValid(net.corda.core.crypto.SignatureScheme, java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/signatureData">signatureData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$isValid(net.corda.core.crypto.SignatureScheme, java.security.PublicKey, kotlin.ByteArray, kotlin.ByteArray)/clearData">clearData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="public-key-on-curve.html">publicKeyOnCurve</a></h4>
+</td>
+<td>
+<p>Check if a point's coordinates are on the expected curve to avoid certain types of ECC attacks.
+Point-at-infinity is not permitted as well.</p>
+<code><span class="keyword">fun </span><span class="identifier">publicKeyOnCurve</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$publicKeyOnCurve(net.corda.core.crypto.SignatureScheme, java.security.PublicKey)/signatureScheme">signatureScheme</span><span class="symbol">:</span>&nbsp;<a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.Crypto$publicKeyOnCurve(net.corda.core.crypto.SignatureScheme, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="register-providers.html">registerProviders</a></h4>
+</td>
+<td>
+<p>Method to force registering all <a href="./index.html">Crypto</a>-related cryptography <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html">Provider</a>s.
+It is recommended that it is invoked first thing on <code>main</code> functions, so the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Provider.html">Provider</a>s are in place before any
+cryptographic operation is requested outside <a href="./index.html">Crypto</a> (i.e., SecureRandom, KeyStore, cert-path validation,
+CRL &amp; CSR checks etc.).</p>
+<code><span class="keyword">fun </span><span class="identifier">registerProviders</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="supported-signature-schemes.html">supportedSignatureSchemes</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">supportedSignatureSchemes</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-signature-scheme/index.html"><span class="identifier">SignatureScheme</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-supported-private-key.html">toSupportedPrivateKey</a></h4>
+</td>
+<td>
+<p>Convert a private key to a supported implementation. This can be used to convert a SUN's EC key to an BC key.
+This method is usually required to retrieve keys from JKS keystores that by default return SUN implementations.</p>
+<code><span class="keyword">fun </span><span class="identifier">toSupportedPrivateKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$toSupportedPrivateKey(java.security.PrivateKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PrivateKey.html"><span class="identifier">PrivateKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-supported-public-key.html">toSupportedPublicKey</a></h4>
+</td>
+<td>
+<p>Convert a public key to a supported implementation.</p>
+<code><span class="keyword">fun </span><span class="identifier">toSupportedPublicKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$toSupportedPublicKey(org.bouncycastle.asn1.x509.SubjectPublicKeyInfo)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://www.bouncycastle.org/docs/docs1.5on/org/bouncycastle/asn1/x509/SubjectPublicKeyInfo.html"><span class="identifier">SubjectPublicKeyInfo</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Convert a public key to a supported implementation. This can be used to convert a SUN's EC key to an BC key.
+This method is usually required to retrieve a key (via its corresponding cert) from JKS keystores that by default
+return SUN implementations.</p>
+<code><span class="keyword">fun </span><span class="identifier">toSupportedPublicKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$toSupportedPublicKey(java.security.PublicKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="validate-public-key.html">validatePublicKey</a></h4>
+</td>
+<td>
+<p>Check if a public key satisfies algorithm specs.
+For instance, an ECC key should lie on the curve and not being point-at-infinity.</p>
+<code><span class="keyword">fun </span><span class="identifier">validatePublicKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$validatePublicKey(java.security.PublicKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

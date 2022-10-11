@@ -40,7 +40,7 @@ See [Defining encumbrances](../../../../../../en/platform/corda/4.7/open-source/
 In addition, a single trusted issuing party is allowed to reissue multiple fungible states at once, provided that all these states are of the same type. For example, you can issue at once a number of tokens with different quantities but with the same `TokenType` and issued by the same party.
 
 {{< note >}}
-This functionality is part of Corda open source 4.7 and can be fully leveraged by Corda Enterprise 4.7 users as well.
+This functionality is part of Corda open source 4.7 and can be fully leveraged by Corda Enterprise Edition 4.7 users as well.
 {{< /note >}}
 
 ## How it works

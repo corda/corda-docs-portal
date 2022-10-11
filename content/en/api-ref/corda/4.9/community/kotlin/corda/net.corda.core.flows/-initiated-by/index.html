@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>InitiatedBy - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">InitiatedBy</a><br/>
+<br/>
+<h1>InitiatedBy</h1>
+<code><span class="identifier">@Target</span><span class="symbol">(</span>[AnnotationTarget.CLASS]<span class="symbol">)</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">InitiatedBy</span></code>
+<p>This annotation is required by any <a href="../-flow-logic/index.html">FlowLogic</a> that is designed to be initiated by a counterparty flow. The class must
+have at least a constructor which takes in a single <a href="../../net.corda.core.identity/-party/index.html">net.corda.core.identity.Party</a> parameter which represents the
+initiating counterparty. The <a href="../-flow-logic/index.html">FlowLogic</a> that does the initiating is specified by the <a href="value.html">value</a> property and itself must be annotated
+with <a href="../-initiating-flow/index.html">InitiatingFlow</a>.</p>
+<p>The node on startup scans for <a href="../-flow-logic/index.html">FlowLogic</a>s which are annotated with this and automatically registers the initiating
+to initiated flow mapping.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="../-initiating-flow/index.html">InitiatingFlow</a></p>
+</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>This annotation is required by any <a href="../-flow-logic/index.html">FlowLogic</a> that is designed to be initiated by a counterparty flow. The class must
+have at least a constructor which takes in a single <a href="../../net.corda.core.identity/-party/index.html">net.corda.core.identity.Party</a> parameter which represents the
+initiating counterparty. The <a href="../-flow-logic/index.html">FlowLogic</a> that does the initiating is specified by the <a href="value.html">value</a> property and itself must be annotated
+with <a href="../-initiating-flow/index.html">InitiatingFlow</a>.</p>
+<code><span class="identifier">InitiatedBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.InitiatedBy$<init>(kotlin.reflect.KClass((net.corda.core.flows.FlowLogic((kotlin.Any)))))/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="value.html">value</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

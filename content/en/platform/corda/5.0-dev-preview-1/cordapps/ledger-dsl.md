@@ -41,9 +41,17 @@ Calling one of these functions instantiates a `TransactionDSL` that you can acce
 
 Below is an example of building a transaction using the DSL:
 
+{{< note >}}
+
+We use Mockito to create mock party instances.
+
+{{< /note >}}
+
 **Kotlin:**
 
   ```kotlin
+  private val notary: Party = mock()
+
   transaction(notary) {
       input(MyState(UniqueIdentifier(), listOf(alice), "input 1"), notary)
       reference(MyState(UniqueIdentifier(), listOf(alice), "reference 1"), notary)
@@ -57,6 +65,8 @@ Below is an example of building a transaction using the DSL:
 **Java:**
 
   ```java
+  private final Party notary = mock(Party.class);
+
   transaction(notary, dsl -> {
       dsl.input(new MyState(new UniqueIdentifier(), List.of(alice), "input 1"), notary);
       dsl.reference(new MyState(new UniqueIdentifier(), List.of(alice), "reference 1"), notary);
@@ -226,9 +236,17 @@ attachment(mockAttachment)
 
 An example using `verifies`:
 
+{{< note >}}
+
+We use Mockito to create mock party instances.
+
+{{< /note >}}
+
 **Kotlin**
 
 ```kotlin
+private val notary: Party = mock()
+
 transaction(notary) {
   input(MyState(UniqueIdentifier(), listOf(alice), "input 1"), notary)
   reference(MyState(UniqueIdentifier(), listOf(alice), "reference 1"), notary)
@@ -242,6 +260,8 @@ transaction(notary) {
 **Java**
 
 ```java
+private final Party notary = mock(Party.class);
+
 transaction(notary, dsl -> {
     dsl.input(new MyState(new UniqueIdentifier(), List.of(alice), "input 1"), notary);
     dsl.reference(new MyState(new UniqueIdentifier(), List.of(alice), "reference 1"), notary);

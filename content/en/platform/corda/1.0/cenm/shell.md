@@ -5,8 +5,8 @@ date: '2020-01-08T09:59:25Z'
 menu:
   cenm-1-0:
     identifier: cenm-1-0-shell
-    parent: cenm-1-0-tools-and-utilities
-    weight: 280
+    parent: cenm-1-0-tools-index
+    weight: 1150
 tags:
 - shell
 title: Embedded Shell
@@ -122,5 +122,3 @@ The current supported commands that can be run from the shell are:
 ### Doorman Service
 
 The current supported commands that can be run from the shell are:
-
-

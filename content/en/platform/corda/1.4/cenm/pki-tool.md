@@ -174,16 +174,17 @@ The following certificate templates are available:
 
 {{< table >}}
 
-|**Template Name**|**Description**|**Default Alias**|
-|`CORDA_TLS_CRL_SIGNER`|Certificate for signing the CRL for the Corda Node’s TLS-level certificate|cordatlscrlsigner|
-|`CORDA_ROOT`|Corda Root certificate|cordarootca|
-|`CORDA_SUBORDINATE`|Corda Subordinate certificate|cordasubordinateca|
-|`CORDA_IDENTITY_MANAGER`|Corda Identity Manager certificate|cordaidentitymanagerca|
-|`CORDA_NETWORK_MAP`|Corda Network Map certificate|cordanetworkmap|
-|`CORDA_SSL_ROOT`|Corda SSL Root certificate|cordasslrootca|
-|`CORDA_SSL_IDENTITY_MANAGER`|Corda SSL Identity Manager certificate|cordasslidentitymanager|
-|`CORDA_SSL_NETWORK_MAP`|Corda SSL Network Map certificate|cordasslnetworkmap|
-|`CORDA_SSL_SIGNER`|Corda SSL Signer certificate|cordasslsigner|
+| **Template Name**            | **Description**                                                            | **Default Alias**       |
+| ---------------------------- | -------------------------------------------------------------------------- | ----------------------- |
+| `CORDA_TLS_CRL_SIGNER`       | Certificate for signing the CRL for the Corda Node’s TLS-level certificate | cordatlscrlsigner       |
+| `CORDA_ROOT`                 | Corda Root certificate                                                     | cordarootca             |
+| `CORDA_SUBORDINATE`          | Corda Subordinate certificate                                              | cordasubordinateca      |
+| `CORDA_IDENTITY_MANAGER`     | Corda Identity Manager certificate                                         | cordaidentitymanagerca  |
+| `CORDA_NETWORK_MAP`          | Corda Network Map certificate                                              | cordanetworkmap         |
+| `CORDA_SSL_ROOT`             | Corda SSL Root certificate                                                 | cordasslrootca          |
+| `CORDA_SSL_IDENTITY_MANAGER` | Corda SSL Identity Manager certificate                                     | cordasslidentitymanager |
+| `CORDA_SSL_NETWORK_MAP`      | Corda SSL Network Map certificate                                          | cordasslnetworkmap      |
+| `CORDA_SSL_SIGNER`           | Corda SSL Signer certificate                                               | cordasslsigner          |
 
 {{< /table >}}
 
@@ -991,8 +992,8 @@ certificates = {
 ```docker
 hsmLibraries = [{
     type = GEMALTO_HSM
-    jars = ["/path/to/primusX.jar"]
-    sharedLibDir = "/path/to/shared/lib/dir/"
+    jars = ["/path/to/LunaProvider.jar"]
+    sharedLibDir = "/path/to/shared-libraries/dir/"
 }]
 
 defaultPassword = "password"
@@ -1144,7 +1145,7 @@ certificates = {
 ```docker
 hsmLibraries = [{
     type = AZURE_KEY_VAULT_HSM
-    jars = ["/path/to/akvLibraries.jar"]
+    jars = ["/path/to/azure-keyvault-with-deps.jar"]
 }]
 
 defaultPassword = "password"

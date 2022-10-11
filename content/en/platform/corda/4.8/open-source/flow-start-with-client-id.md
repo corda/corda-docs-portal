@@ -44,6 +44,8 @@ If a flow with the provided `clientId` exists, then the API return its future. O
 * If the `clientId` matches a flow, then the rest of the arguments passed to `startFlowDynamicWithClientId` are ignored - these do not need to match any arguments that the existing flow had started with.
 * The `startFlowDynamicWithClientId` API behaviour described above does not apply for the pre-existing start flow APIs (`startFlow` and `startTrackedFlow`) - in those cases a new start flow request always equals a new spawned flow.
 * Overloaded methods named `startFlowWithClientId` have been added in `CordaRPCOps` (only available for Kotlin).
+* A limit of **five** non-whitelisted arguments can be passed to the flow constructor using the `CordaRPCOps.startFlow` method.
+  Compound objects can be passed as long as they are [whitelisted](serialization.html#whitelisting) using the `@CordaSerializable` annotation.
 {{< /note >}}
 
 To start a flow with a `clientId`:

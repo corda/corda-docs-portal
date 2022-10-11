@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowSession.receive - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowSession</a>&nbsp;/&nbsp;<a href="./receive.html">receive</a><br/>
+<br/>
+<h1>receive</h1>
+<a name="net.corda.core.flows.FlowSession$receive()"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="keyword">reified</span>&nbsp;<span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">receive</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code>
+<p>Suspends until <a href="counterparty.html">counterparty</a> sends us a message of type <a href="receive.html#R">R</a>.</p>
+<p>Remember that when receiving data from other parties the data should not be trusted until it's been thoroughly
+verified for consistency and that all expectations are satisfied, as a malicious peer may send you subtly
+corrupted data in order to exploit your code.</p>
+<a name="net.corda.core.flows.FlowSession$receive(java.lang.Class((net.corda.core.flows.FlowSession.receive.R)), kotlin.Boolean)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">receive</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowSession$receive(java.lang.Class((net.corda.core.flows.FlowSession.receive.R)), kotlin.Boolean)/receiveType">receiveType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowSession$receive(java.lang.Class((net.corda.core.flows.FlowSession.receive.R)), kotlin.Boolean)/maySkipCheckpoint">maySkipCheckpoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code>
+<p>Suspends until <a href="counterparty.html">counterparty</a> sends us a message of type <a href="receive.html#net.corda.core.flows.FlowSession$receive(java.lang.Class((net.corda.core.flows.FlowSession.receive.R)), kotlin.Boolean)/receiveType">receiveType</a>.</p>
+<p>Remember that when receiving data from other parties the data should not be trusted until it's been thoroughly
+verified for consistency and that all expectations are satisfied, as a malicious peer may send you subtly
+corrupted data in order to exploit your code.</p>
+<h3>Parameters</h3>
+<p><a name="maySkipCheckpoint"></a>
+<code>maySkipCheckpoint</code> - setting it to true indicates to the platform that it may optimise away the checkpoint.</p>
+<p><strong>Return</strong><br/>
+an <a href="../../net.corda.core.utilities/-untrustworthy-data/index.html">UntrustworthyData</a> wrapper around the received object.</p>
+<a name="net.corda.core.flows.FlowSession$receive(java.lang.Class((net.corda.core.flows.FlowSession.receive.R)))"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">receive</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowSession$receive(java.lang.Class((net.corda.core.flows.FlowSession.receive.R)))/receiveType">receiveType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code>
+<p>Suspends until <a href="counterparty.html">counterparty</a> sends us a message of type <a href="receive.html#net.corda.core.flows.FlowSession$receive(java.lang.Class((net.corda.core.flows.FlowSession.receive.R)))/receiveType">receiveType</a>.</p>
+<p>Remember that when receiving data from other parties the data should not be trusted until it's been thoroughly
+verified for consistency and that all expectations are satisfied, as a malicious peer may send you subtly
+corrupted data in order to exploit your code.</p>
+<p><strong>Return</strong><br/>
+an <a href="../../net.corda.core.utilities/-untrustworthy-data/index.html">UntrustworthyData</a> wrapper around the received object.</p>
+</BODY>
+</HTML>

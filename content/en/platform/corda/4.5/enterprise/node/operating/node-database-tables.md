@@ -93,10 +93,7 @@ Read more in [Network map](../../network/network-map.md).
 
 ### Node identities
 
-The following four tables are used by the `IdentityService` and are created from the NodeInfos.
-They are append only tables used for persistent caching.
-They will also be cleared on `rpc.clearNetworkMapCache()`.
-Read more in api-identity and node-services
+The following four tables are used by the `IdentityService` and are created from the NodeInfos. They are append only tables used for persistent caching. They will also be cleared on `rpc.clearNetworkMapCache()`. Read more in [CorDapp identities](../../../../../../../en/platform/corda/4.5/enterprise/cordapps/api-identity.md) and [Node services](../../../../../../../en/platform/corda/4.5/enterprise/node-services.md).
 
 
 {{< table >}}
@@ -141,7 +138,7 @@ Read more in api-identity and node-services
 
 ### Network parameters
 
-Read more here: network-map.
+Read more in [Network map](../../../../../../../en/platform/corda/4.5/enterprise/network/network-map.md).
 Each downloaded network parameters file will create an entry in this table.
 The historical network parameters are used when validating transactions, which makes this table logically part of the `Ledger`.
 It is an append only table and the size will be fairly small.
@@ -165,12 +162,12 @@ It is an append only table and the size will be fairly small.
 
 The ledger data is formed of transactions and attachments.
 In future versions this data will be encrypted using SGX.
-Read more in key-concepts-ledger
+Read more in [Ledger](../../../../../../../en/platform/corda/4.5/open-source/key-concepts-ledger.md).
 
 
 ### Attachments
 
-Read more in tutorial-attachments and node-services
+Read more in [Working with attachments](../../../../../../../en/platform/corda/4.5/open-source/tutorial-attachments.md) and [Node services](../../../../../../../en/platform/corda/4.5/enterprise/node-services.md).
 
 ![attachments tables](/en/images/attachments_tables.png "attachments tables")
 
@@ -210,10 +207,7 @@ Read more in tutorial-attachments and node-services
 
 ### Transactions
 
-These are all the transactions that the node has created or has ever downloaded as part of transaction resolution. This table can grow very large.
-It is an append-only table, and the data will never change.
-Read more in node-services - `DBTransactionStorage`
-This is the key ledger table used as a source of truth. In the future the content will be encrypted to preserve confidentiality.
+These are all the transactions that the node has created or has ever downloaded as part of transaction resolution. This table can grow very large. It is an append-only table, and the data will never change. Read more in [Node services](../../../../../../../en/platform/corda/4.5/enterprise/node-services.md) - `DBTransactionStorage`. This is the key ledger table used as a source of truth. In the future the content will be encrypted to preserve confidentiality.
 
 
 {{< table >}}
@@ -236,7 +230,7 @@ This is the key ledger table used as a source of truth. In the future the conten
 
 ### Contract upgrades
 
-Read more in contract-upgrade
+Read more in [Upgrading contracts](../../../../../../../en/platform/corda/4.5/enterprise/contract-upgrade.md).
 
 
 {{< table >}}
@@ -253,7 +247,7 @@ This table should be empty when no states are authorised for upgrade or after au
 
 ### Scheduling
 
-Read more in event-scheduling
+Read more in [Scheduling time-based events](../../../../../../../en/platform/corda/4.5/enterprise/event-scheduling.md).
 
 
 {{< table >}}
@@ -302,7 +296,7 @@ These tables should be append only.
 
 ### Node state machine
 
-Read more in node-services
+Read more in [Node services](../../../../../../../en/platform/corda/4.5/enterprise/node-services.md).
 
 
 {{< table >}}
@@ -317,7 +311,7 @@ Read more in node-services
 This table will see the most intense read-write activity. Depending on the installed flows and the traffic on the node the I/O operations on this
 table will be the main bottleneck of the node performance.
 There will be an entry for every running flow.
-Draining the node means waiting for this table to become emtpy. Read more in: [Upgrading CorDapps on a node](node-operations-upgrade-cordapps.md).
+Draining the node means waiting for this table to become empty. Read more in: [Upgrading CorDapps on a node](node-operations-upgrade-cordapps.md).
 
 
 {{< table >}}
@@ -350,7 +344,7 @@ The size should be fairly constant.
 
 ## Vault tables
 
-Read more about the vault here key-concepts-vault.
+Read more about the vault in [Vault](../../../../../../../en/platform/corda/4.5/open-source/key-concepts-vault.md).
 
 Note that the vault tables are guaranteed to remain backwards compatible and are safe to be used directly by third party applications.
 

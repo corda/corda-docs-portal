@@ -8,7 +8,7 @@ tags:
 - starting
 - components
 title: Starting a Corda node
-weight: 6
+weight: 7
 ---
 
 

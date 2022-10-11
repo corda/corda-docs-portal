@@ -82,7 +82,7 @@ Behind the scenes, the matter is more complex. As can be seen in this illustrati
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references
 to output states from previous transactions (see [API: Transactions](api-transactions.md)).
 When building the `LedgerTransaction`, the `inputs` and `references` are resolved to Java objects created by deserialising blobs of data
-fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#attachments-classloader)).
+fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#contract-execution-in-the-attachmentsclassloader-and-the-no-overlap-rule)).
 This model has consequences when it comes to how states can be evolved. Removing a field from a newer version of a state would mean
 that when deserialising that state in the context of a transaction using the more recent code, that field could just disappear.
 In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution](serialization-default-evolution.md)
@@ -123,7 +123,7 @@ Given that the input states are already agreed to be valid facts, the attached c
 {{< note >}}
 The output states created by this transaction must also specify constraints and, to prevent a malicious transaction creator specifying
 constraints that enable their malicious code to take control of a state in a future transaction, these constraints must be consistent
-with those of any input states of the same type. This is explained more fully as part of the platform’s ‘constraints propagation’ rules documentation [Constraints propagation](api-contract-constraints.md#constraints-propagation) .
+with those of any input states of the same type. This is explained more fully as part of the platform’s ‘constraints propagation’ rules documentation [Constraints propagation](api-contract-constraints.html#constraints-propagation) .
 
 {{< /note >}}
 The rule for contract code attachment validity checking is that for each state there must be one and only one attachment that contains the fully qualified contract class name.
@@ -204,7 +204,7 @@ The second approach is more flexible in cases where multiple applications depend
 security check to be included in the contract code. The reason is that given that anyone can create a JAR containing a class your CorDapp depends on, a malicious actor
 could just create his own version of the library and attach that to the transaction instead of the legitimate one your code expects. This would allow
 the attacker to change the intended behavior of your contract to his advantage.
-See [Code samples for dependent libraries and CorDapps](#contract-security) for an example.
+See [Code samples for dependent libraries and CorDapps](#code-samples-for-dependent-libraries-and-cordapps) for an example.
 Basically, what this manual check does is extend the security umbrella provided by the attachment constraint of the state to its dependencies.
 
 {{< note >}}
@@ -292,7 +292,7 @@ valid transactions that contain both your states and states from the third party
 
 
 The highly recommended solution for CorDapp to CorDapp dependency is to always manually attach the dependent CorDapp to the transaction.
-(see manually_attach_dependency and [Code samples for dependent libraries and CorDapps](#contract-security))
+(see manually_attach_dependency and [Code samples for dependent libraries and CorDapps](#code-samples-for-dependent-libraries-and-cordapps))
 
 
 Another way to look at bundling third party CorDapps is from the point of view of identity. With the introduction of the `SignatureConstraint`, CorDapps will be signed
@@ -413,7 +413,7 @@ This change also affects testing as the test classloader no longer contains the 
 Corda 4 maintains backwards compatibility for existing data even for CorDapps that depend on other CorDapps. If your CorDapp didn’t add
 all its dependencies to the transaction, the platform will find one installed on the node. There should be no special steps that node operators need to make.
 Going forward, when building new transactions there will be a warning and the node will attempt to add the right attachment.
-The contract code of the new version of the CorDapp should add the security check:  [Code samples for dependent libraries and CorDapps](#contract-security)
+The contract code of the new version of the CorDapp should add the security check:  [Code samples for dependent libraries and CorDapps](#code-samples-for-dependent-libraries-and-cordapps)
 
 {{< /note >}}
 
@@ -429,7 +429,7 @@ Some CorDapps might depend on the finance CorDapp since Corda v3, when it was no
 the transactions created just worked as described above.
 
 The path forward in this case is first of all to reconsider if depending on a sample is a good idea. If the decision is to go forward, then the CorDapp
-needs to be updated with the code described here: [Code samples for dependent libraries and CorDapps](#contract-security).
+needs to be updated with the code described here: [Code samples for dependent libraries and CorDapps](#code-samples-for-dependent-libraries-and-cordapps).
 
 
 {{< warning >}}

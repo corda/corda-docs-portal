@@ -11,21 +11,21 @@ tags:
 - upgrade
 - notes
 - enterprise
-title: Upgrading CorDapps to Corda Enterprise 4.0
+title: Upgrading CorDapps to Corda Enterprise Edition 4.0
 ---
 
 
 
 
-# Upgrading CorDapps to Corda Enterprise 4.0
+# Upgrading CorDapps to Corda Enterprise Edition 4.0
 
 
 ## Upgrading from Open Source
 
 
-### Running on Corda Enterprise 4.0
+### Running on Corda Enterprise Edition 4.0
 
-A prerequisite to upgrade to Corda Enterprise 4.0 is to ensure your CorDapp is upgraded to Open Source Corda 4.x.
+A prerequisite to upgrade to Corda Enterprise Edition 4.0 is to ensure your CorDapp is upgraded to Open Source Corda 4.x.
 Please follow the instructions in [Upgrading apps to Corda 4](app-upgrade-notes.md) section to complete this initial step.
 
 There is no requirement to re-compile your CorDapp to Corda Enterprise in order to run it on Corda Enterprise. If you wish your CorDapp to
@@ -40,7 +40,7 @@ Please read [Corda and Corda Enterprise compatibility](version-compatibility.md)
 {{< /note >}}
 
 
-### Re-compiling for Corda Enterprise 4.0
+### Re-compiling for Corda Enterprise Edition 4.0
 
 Re-compiling your CorDapp requires updating its associated Gradle build file as follows:
 
@@ -91,7 +91,7 @@ cordaCompile "$corda_release_distribution:corda-core:$corda_release_version"
 ```
 
 {{< note >}}
-Corda Enterprise 4.0 binaries are not available in a public repository. In order to make the dependencies available for development, either
+Corda Enterprise Edition 4.0 binaries are not available in a public repository. In order to make the dependencies available for development, either
 create a mirror repository and upload them there, or add them to the local Maven repository.
 
 Please consult your R3 support contact to request a copy of the Corda Enterprise Developer Pack (this contains a Maven repository mirror

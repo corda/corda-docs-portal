@@ -250,6 +250,11 @@ flow are checked against a whitelist, which can be extended by apps themselves a
 of inlined Kotlin extension functions of the form `CordaRPCOps.startFlow` which help with invoking flows in a type
 safe manner.
 
+{{< note >}}
+A limit of **five** non-whitelisted arguments can be passed to the flow constructor using the `CordaRPCOps.startFlow` method.
+Compound objects can be passed as long as they are [whitelisted](serialization.html#whitelisting) using the `@CordaSerializable` annotation.
+{{< /note >}}
+
 The process of starting a flow returns a `FlowHandle` that you can use to observe the result, and which also contains
 a permanent identifier for the invoked flow in the form of the `StateMachineRunId`. Should you also wish to track the
 progress of your flow (see [Progress tracking](#progress-tracking)) then you can invoke your flow instead using
@@ -284,13 +289,10 @@ override fun call(): SignedTransaction {
     // Verify and sign the transaction.
     progressTracker.currentStep = VERIFYING_AND_SIGNING
 
-    // DOCSTART 07
     // Sync identities to ensure we know all of the identities involved in the transaction we're about to
     // be asked to sign
     subFlow(IdentitySyncFlow.Receive(otherSideSession))
-    // DOCEND 07
 
-    // DOCSTART 5
     val signTransactionFlow = object : SignTransactionFlow(otherSideSession, VERIFYING_AND_SIGNING.childProgressTracker()) {
         override fun checkTransaction(stx: SignedTransaction) {
             // Verify that we know who all the participants in the transaction are
@@ -309,7 +311,6 @@ override fun call(): SignedTransaction {
     }
 
     val txId = subFlow(signTransactionFlow).id
-    // DOCEND 5
 
     return subFlow(ReceiveFinalityFlow(otherSideSession, expectedTxId = txId))
 }
@@ -372,7 +373,6 @@ override fun call(): SignedTransaction {
     progressTracker.currentStep = SIGNING
     val (ptx, cashSigningPubKeys) = assembleSharedTX(assetForSale, tradeRequest, buyerAnonymousIdentity)
 
-    // DOCSTART 6
     // Now sign the transaction with whatever keys we need to move the cash.
     val partSignedTx = serviceHub.signInitialTransaction(ptx, cashSigningPubKeys)
 
@@ -384,7 +384,6 @@ override fun call(): SignedTransaction {
     progressTracker.currentStep = COLLECTING_SIGNATURES
     val sellerSignature = subFlow(CollectSignatureFlow(partSignedTx, sellerSession, sellerSession.counterparty.owningKey))
     val twiceSignedTx = partSignedTx + sellerSignature
-    // DOCEND 6
 
     // Notarise and record the transaction.
     progressTracker.currentStep = RECORDING

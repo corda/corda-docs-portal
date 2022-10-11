@@ -21,11 +21,11 @@ title: Upgrading the HA notary service
 
 ## Version 4.1
 
-Since Corda Enterprise 4.1 the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
+Since Corda Enterprise Edition 4.1 the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
 
 ## Version 4.0
 
-In Corda Enterprise 4.0 an additional table ``notary_committed_transactions`` is being used by the HA notary to support the new reference state functionality.
+In Corda Enterprise Edition 4.0 an additional table ``notary_committed_transactions`` is being used by the HA notary to support the new reference state functionality.
 
 {{< note >}}
 In order to enable reference state usage, the minimum platform version of the whole network has to be updated to version 4, which means

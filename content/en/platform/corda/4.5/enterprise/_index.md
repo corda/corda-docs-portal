@@ -8,10 +8,10 @@ menu:
     weight: 15
   corda-enterprise-4-5:
     weight: 1
-    name: Corda Enterprise 4.5
+    name: Corda Enterprise Edition 4.5
 project: corda
 section_menu: corda-enterprise-4-5
-title: Corda Enterprise 4.5
+title: Corda Enterprise Edition 4.5
 version: 'Enterprise 4.5'
 ---
 

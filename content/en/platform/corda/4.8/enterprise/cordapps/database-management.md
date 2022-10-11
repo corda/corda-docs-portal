@@ -15,7 +15,7 @@ weight: 30
 Corda and your installed CorDapps store their data in a relational database. When you install new CorDapp, the associated tables, indexes, foreign-keys, etc. must be created. If you install a new version of a CorDapp, its database schema may have changed,
 but the existing data needs to be preserved or changed accordingly.
 
-In Corda Enteprise, CorDapps’ custom tables are created or upgraded automatically based on
+In Corda Enterprise, CorDapps’ custom tables are created or upgraded automatically based on
 database management scripts written in [Liquibase](../../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database.html#liquibase-ref) format and embedded in CorDapp `.jar`s.
 Any CorDapp with custom tables (`MappedSchema`)  must contain a matching database management script.
 
@@ -101,7 +101,7 @@ Corda contains a built-in custom JPA converter for the `AbstractParty` type to a
 
 ### Database table modification
 
-For any subsequent changes to a table, a create a new `changeSet`. The existing `changeSet` cannot be modified, as Liquibase needs to track what was created.
+For any subsequent changes to a table, create a new `changeSet`. The existing `changeSet` cannot be modified, as Liquibase needs to track what was created.
 
 Building on the previous example, suppose that, for security reasons,
 the `owner_name` column of the `PersistentIOU` entity needs to be stored as a hash instead of the X500 name of the owning party.
@@ -148,7 +148,7 @@ Change uppercase letters to lowercase, and be prefix the name with hyphen (excep
 For example, for a `MappedSchema` named `MySchema`, Corda searches for a `my-schema.changelog-master.xml` file.
 You can use `.json` and `.sql` extensions under the `migration` package in CorDapp `.jar`s.
 
-You can also set the name and the location in the `MappedSchema` code by overriding the field `val migrationResource: String`.
+You can also set the name and the location in the `MappedSchema` code by overriding the field `val migration/migrationResource: String`.
 Set the value as a `namespace` and a file name without an extension.
 
 The files must be on classpath, so put them in the resources folder of your CorDapp source code. To follow Corda convention for structuring the change-logs, create one master changelog file per `MappedSchema` . Each will only include release changelogs.

@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NotarisationPayload - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">NotarisationPayload</a><br/>
+<br/>
+<h1>NotarisationPayload</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NotarisationPayload</span></code>
+<p>Container for the transaction and notarisation request signature.
+This is the payload that gets sent by a client to a notary service for committing the input states of the <a href="transaction.html">transaction</a>.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Container for the transaction and notarisation request signature.
+This is the payload that gets sent by a client to a notary service for committing the input states of the <a href="transaction.html">transaction</a>.</p>
+<code><span class="identifier">NotarisationPayload</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.NotarisationPayload$<init>(kotlin.Any, net.corda.core.flows.NotarisationRequestSignature)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.NotarisationPayload$<init>(kotlin.Any, net.corda.core.flows.NotarisationRequestSignature)/requestSignature">requestSignature</span><span class="symbol">:</span>&nbsp;<a href="../-notarisation-request-signature/index.html"><span class="identifier">NotarisationRequestSignature</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="core-transaction.html">coreTransaction</a></h4>
+</td>
+<td>
+<p>A helper for automatically casting the underlying <a href="transaction.html">transaction</a> payload to a <a href="../../net.corda.core.transactions/-core-transaction/index.html">CoreTransaction</a>.
+Should only be used by non-validating notaries.</p>
+<code><span class="keyword">val </span><span class="identifier">coreTransaction</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="request-signature.html">requestSignature</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">requestSignature</span><span class="symbol">: </span><a href="../-notarisation-request-signature/index.html"><span class="identifier">NotarisationRequestSignature</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="signed-transaction.html">signedTransaction</a></h4>
+</td>
+<td>
+<p>A helper for automatically casting the underlying <a href="transaction.html">transaction</a> payload to a <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>.
+Should only be used by validating notaries.</p>
+<code><span class="keyword">val </span><span class="identifier">signedTransaction</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="transaction.html">transaction</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">transaction</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

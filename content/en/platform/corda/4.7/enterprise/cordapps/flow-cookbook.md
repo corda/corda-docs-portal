@@ -69,7 +69,6 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
     ---------------------------------**/
     // Giving our flow a progress tracker allows us to see the flow's
     // progress visually in our node's CRaSH shell.
-    // DOCSTART 17
     companion object {
         object ID_OTHER_NODES : Step("Identifying other nodes on the network.")
         object SENDING_AND_RECEIVING_DATA : Step("Sending data between parties.")
@@ -102,7 +101,6 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
                 FINALISATION
         )
     }
-    // DOCEND 17
 
     override val progressTracker: ProgressTracker = tracker()
 
@@ -115,16 +113,13 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         /**--------------------------
          * IDENTIFYING OTHER NODES *
         --------------------------**/
-        // DOCSTART 18
         progressTracker.currentStep = ID_OTHER_NODES
-        // DOCEND 18
 
         // A transaction generally needs a notary:
         //   - To prevent double-spends if the transaction has inputs
         //   - To serve as a timestamping authority if the transaction has a
         //     time-window
         // We retrieve the notary from the network map.
-        // DOCSTART 01
         val notaryName: CordaX500Name = CordaX500Name(
                 organisation = "Notary Service",
                 locality = "London",
@@ -135,11 +130,9 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // explicitly, as the notary list might change when new notaries are
         // introduced, or old ones decommissioned.
         val firstNotary: Party = serviceHub.networkMapCache.notaryIdentities.first()
-        // DOCEND 01
 
         // We may also need to identify a specific counterparty. We do so
         // using the identity service.
-        // DOCSTART 02
         val counterpartyName: CordaX500Name = CordaX500Name(
                 organisation = "NodeA",
                 locality = "London",
@@ -148,7 +141,6 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
                 throw IllegalArgumentException("Couldn't find counterparty for NodeA in identity service")
         val keyedCounterparty: Party = serviceHub.identityService.partyFromKey(dummyPubKey) ?:
                 throw IllegalArgumentException("Couldn't find counterparty with key: $dummyPubKey in identity service")
-        // DOCEND 02
 
         /**-----------------------------
          * SENDING AND RECEIVING DATA *
@@ -158,9 +150,7 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // We start by initiating a flow session with the counterparty. We
         // will use this session to send and receive messages from the
         // counterparty.
-        // DOCSTART initiateFlow
         val counterpartySession: FlowSession = initiateFlow(counterparty)
-        // DOCEND initiateFlow
 
         // We can send arbitrary data to a counterparty.
         // If this is the first ``send``, the counterparty will either:
@@ -172,9 +162,7 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // In other words, we are assuming that the counterparty is
         // registered to respond to this flow, and has a corresponding
         // ``receive`` call.
-        // DOCSTART 04
         counterpartySession.send(Any())
-        // DOCEND 04
 
         // We can wait to receive arbitrary data of a specific type from a
         // counterparty. Again, this implies a corresponding ``send`` call
@@ -195,7 +183,6 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // instance. This is a reminder that the data we receive may not
         // be what it appears to be! We must unwrap the
         // ``UntrustworthyData`` using a lambda.
-        // DOCSTART 05
         val packet1: UntrustworthyData<Int> = counterpartySession.receive<Int>()
         val int: Int = packet1.unwrap { data ->
             // Perform checking on the object received.
@@ -203,13 +190,11 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
             // Return the object.
             data
         }
-        // DOCEND 05
 
         // We can also use a single call to send data to a counterparty
         // and wait to receive data of a specific type back. The type of
         // data sent doesn't need to match the type of the data received
         // back.
-        // DOCSTART 07
         val packet2: UntrustworthyData<Boolean> = counterpartySession.sendAndReceive<Boolean>("You can send and receive any class!")
         val boolean: Boolean = packet2.unwrap { data ->
             // Perform checking on the object received.
@@ -217,16 +202,13 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
             // Return the object.
             data
         }
-        // DOCEND 07
 
         // We're not limited to sending to and receiving from a single
         // counterparty. A flow can send messages to as many parties as it
         // likes, and each party can invoke a different response flow.
-        // DOCSTART 06
         val regulatorSession: FlowSession = initiateFlow(regulator)
         regulatorSession.send(Any())
         val packet3: UntrustworthyData<Any> = regulatorSession.receive<Any>()
-        // DOCEND 06
 
         // We may also batch receives in order to increase performance. This
         // ensures that only a single checkpoint is created for all received
@@ -266,13 +248,9 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // of that transaction. In practice, we'd pass the transaction hash
         // or the ``StateRef`` as a parameter to the flow, or extract the
         // ``StateRef`` from our vault.
-        // DOCSTART 20
         val ourStateRef: StateRef = StateRef(SecureHash.sha256("DummyTransactionHash"), 0)
-        // DOCEND 20
         // A ``StateAndRef`` pairs a ``StateRef`` with the state it points to.
-        // DOCSTART 21
         val ourStateAndRef: StateAndRef<DummyState> = serviceHub.toStateAndRef<DummyState>(ourStateRef)
-        // DOCEND 21
 
         /**-----------------------------------------
          * GATHERING OTHER TRANSACTION COMPONENTS *
@@ -280,34 +258,24 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         progressTracker.currentStep = OTHER_TX_COMPONENTS
 
         // Reference input states are constructed from StateAndRefs.
-        // DOCSTART 55
         val referenceState: ReferencedStateAndRef<DummyState> = ourStateAndRef.referenced()
-        // DOCEND 55
         // Output states are constructed from scratch.
-        // DOCSTART 22
         val ourOutputState: DummyState = DummyState()
-        // DOCEND 22
         // Or as copies of other states with some properties changed.
         @Suppress("MagicNumber") // literally a magic number
-        // DOCSTART 23
         val ourOtherOutputState: DummyState = ourOutputState.copy(magicNumber = 77)
-        // DOCEND 23
 
         // We then need to pair our output state with a contract.
-        // DOCSTART 47
         val  ourOutput: StateAndContract = StateAndContract(ourOutputState, DummyContract.PROGRAM_ID)
-        // DOCEND 47
 
         // Commands pair a ``CommandData`` instance with a list of
         // public keys. To be valid, the transaction requires a signature
         // matching every public key in all of the transaction's commands.
-        // DOCSTART 24
         val commandData: DummyContract.Commands.Create = DummyContract.Commands.Create()
         val ourPubKey: PublicKey = serviceHub.myInfo.legalIdentitiesAndCerts.first().owningKey
         val counterpartyPubKey: PublicKey = counterparty.owningKey
         val requiredSigners: List<PublicKey> = listOf(ourPubKey, counterpartyPubKey)
         val ourCommand: Command<DummyContract.Commands.Create> = Command(commandData, requiredSigners)
-        // DOCEND 24
 
         // ``CommandData`` can either be:
         // 1. Of type ``TypeOnlyCommandData``, in which case it only
@@ -321,26 +289,18 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // Attachments are identified by their hash.
         // The attachment with the corresponding hash must have been
         // uploaded ahead of time via the node's RPC interface.
-        // DOCSTART 25
         val ourAttachment: SecureHash = SecureHash.sha256("DummyAttachment")
-        // DOCEND 25
 
         // Time windows can have a start and end time, or be open at either end.
-        // DOCSTART 26
         val ourTimeWindow: TimeWindow = TimeWindow.between(Instant.MIN, Instant.MAX)
         val ourAfter: TimeWindow = TimeWindow.fromOnly(Instant.MIN)
         val ourBefore: TimeWindow = TimeWindow.untilOnly(Instant.MAX)
-        // DOCEND 26
 
         // We can also define a time window as an ``Instant`` +/- a time
         // tolerance (e.g. 30 seconds):
-        // DOCSTART 42
         val ourTimeWindow2: TimeWindow = TimeWindow.withTolerance(serviceHub.clock.instant(), 30.seconds)
-        // DOCEND 42
         // Or as a start-time plus a duration:
-        // DOCSTART 43
         val ourTimeWindow3: TimeWindow = TimeWindow.fromStartAndDuration(serviceHub.clock.instant(), 30.seconds)
-        // DOCEND 43
 
         /**-----------------------
          * TRANSACTION BUILDING *
@@ -349,17 +309,12 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
 
         // If our transaction has input states or a time-window, we must instantiate it with a
         // notary.
-        // DOCSTART 19
         val txBuilder: TransactionBuilder = TransactionBuilder(specificNotary)
-        // DOCEND 19
 
         // Otherwise, we can choose to instantiate it without one:
-        // DOCSTART 46
         val txBuilderNoNotary: TransactionBuilder = TransactionBuilder()
-        // DOCEND 46
 
         // We add items to the transaction builder using ``TransactionBuilder.withItems``:
-        // DOCSTART 27
         txBuilder.withItems(
                 // Inputs, as ``StateAndRef``s that reference the outputs of previous transactions
                 ourStateAndRef,
@@ -372,48 +327,31 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
                 // A time-window, as ``TimeWindow``
                 ourTimeWindow
         )
-        // DOCEND 27
 
         // We can also add items using methods for the individual components.
 
         // The individual methods for adding input states and attachments:
-        // DOCSTART 28
         txBuilder.addInputState(ourStateAndRef)
         txBuilder.addAttachment(ourAttachment)
-        // DOCEND 28
 
         // An output state can be added as a ``ContractState``, contract class name and notary.
-        // DOCSTART 49
         txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID, specificNotary)
-        // DOCEND 49
         // We can also leave the notary field blank, in which case the transaction's default
         // notary is used.
-        // DOCSTART 50
         txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID)
-        // DOCEND 50
         // Or we can add the output state as a ``TransactionState``, which already specifies
         // the output's contract and notary.
-        // DOCSTART 51
         val txState: TransactionState<DummyState> = TransactionState(ourOutputState, DummyContract.PROGRAM_ID, specificNotary)
-        // DOCEND 51
 
         // Commands can be added as ``Command``s.
-        // DOCSTART 52
         txBuilder.addCommand(ourCommand)
-        // DOCEND 52
         // Or as ``CommandData`` and a ``vararg PublicKey``.
-        // DOCSTART 53
         txBuilder.addCommand(commandData, ourPubKey, counterpartyPubKey)
-        // DOCEND 53
 
         // We can set a time-window directly.
-        // DOCSTART 44
         txBuilder.setTimeWindow(ourTimeWindow)
-        // DOCEND 44
         // Or as a start time plus a duration (e.g. 45 seconds).
-        // DOCSTART 45
         txBuilder.setTimeWindow(serviceHub.clock.instant(), 45.seconds)
-        // DOCEND 45
 
         /**----------------------
          * TRANSACTION SIGNING *
@@ -422,26 +360,18 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
 
         // We finalise the transaction by signing it, converting it into a
         // ``SignedTransaction``.
-        // DOCSTART 29
         val onceSignedTx: SignedTransaction = serviceHub.signInitialTransaction(txBuilder)
-        // DOCEND 29
         // We can also sign the transaction using a different public key:
-        // DOCSTART 30
         val otherIdentity: PartyAndCertificate = serviceHub.keyManagementService.freshKeyAndCert(ourIdentityAndCert, false)
         val onceSignedTx2: SignedTransaction = serviceHub.signInitialTransaction(txBuilder, otherIdentity.owningKey)
-        // DOCEND 30
 
         // If instead this was a ``SignedTransaction`` that we'd received
         // from a counterparty and we needed to sign it, we would add our
         // signature using:
-        // DOCSTART 38
         val twiceSignedTx: SignedTransaction = serviceHub.addSignature(onceSignedTx)
-        // DOCEND 38
         // Or, if we wanted to use a different public key:
         val otherIdentity2: PartyAndCertificate = serviceHub.keyManagementService.freshKeyAndCert(ourIdentityAndCert, false)
-        // DOCSTART 39
         val twiceSignedTx2: SignedTransaction = serviceHub.addSignature(onceSignedTx, otherIdentity2.owningKey)
-        // DOCEND 39
 
         // We can also generate a signature over the transaction without
         // adding it to the transaction itself. We may do this when
@@ -449,13 +379,9 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // entire transaction with our signature. This way, the receiving
         // node does not need to check we haven't changed anything in the
         // transaction.
-        // DOCSTART 40
         val sig: TransactionSignature = serviceHub.createSignature(onceSignedTx)
-        // DOCEND 40
         // And again, if we wanted to use a different public key:
-        // DOCSTART 41
         val sig2: TransactionSignature = serviceHub.createSignature(onceSignedTx, otherIdentity2.owningKey)
-        // DOCEND 41
 
         // In practice, however, the process of gathering every signature
         // but the first can be automated using ``CollectSignaturesFlow``.
@@ -473,7 +399,6 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // data vending process. The ``SendTransactionFlow`` will listen
         // for data request until the transaction is resolved and verified
         // on the other side:
-        // DOCSTART 12
         subFlow(SendTransactionFlow(counterpartySession, twiceSignedTx))
 
         // Optional request verification to further restrict data access.
@@ -482,29 +407,22 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
                 // Extra request verification.
             }
         })
-        // DOCEND 12
 
         // We can receive the transaction using ``ReceiveTransactionFlow``,
         // which will automatically download all the dependencies and verify
         // the transaction
-        // DOCSTART 13
         val verifiedTransaction = subFlow(ReceiveTransactionFlow(counterpartySession))
-        // DOCEND 13
 
         // We can also send and receive a `StateAndRef` dependency chain
         // and automatically resolve its dependencies.
-        // DOCSTART 14
         subFlow(SendStateAndRefFlow(counterpartySession, dummyStates))
 
         // On the receive side ...
         val resolvedStateAndRef = subFlow(ReceiveStateAndRefFlow<DummyState>(counterpartySession))
-        // DOCEND 14
 
         // We can now verify the transaction to ensure that it satisfies
         // the contracts of all the transaction's input and output states.
-        // DOCSTART 33
         twiceSignedTx.verify(serviceHub)
-        // DOCEND 33
 
         // We'll often want to perform our own additional verification
         // too. Just because a transaction is valid based on the contract
@@ -516,12 +434,9 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // into a ``LedgerTransaction``. This will use our ServiceHub
         // to resolve the transaction's inputs and attachments into
         // actual objects, rather than just references.
-        // DOCSTART 32
         val ledgerTx: LedgerTransaction = twiceSignedTx.toLedgerTransaction(serviceHub)
-        // DOCEND 32
 
         // We can now perform our additional verification.
-        // DOCSTART 34
         val outputState: DummyState = ledgerTx.outputsOfType<DummyState>().single()
         if (outputState.magicNumber == 777) {
             // ``FlowException`` is a special exception type. It will be
@@ -530,7 +445,6 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
             // failed.
             throw FlowException("We expected a magic number of 777.")
         }
-        // DOCEND 34
 
         // Of course, if you are not a required signer on the transaction,
         // you have no power to decide whether it is valid or not. If it
@@ -547,9 +461,7 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
         // ourselves, we can automatically gather the signatures of the
         // other required signers using ``CollectSignaturesFlow``.
         // The responder flow will need to call ``SignTransactionFlow``.
-        // DOCSTART 15
         val fullySignedTx: SignedTransaction = subFlow(CollectSignaturesFlow(twiceSignedTx, setOf(counterpartySession, regulatorSession), SIGS_GATHERING.childProgressTracker()))
-        // DOCEND 15
 
         /**-----------------------
          * VERIFYING SIGNATURES *
@@ -558,30 +470,22 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
 
         // We can verify that a transaction has all the required
         // signatures, and that they're all valid, by running:
-        // DOCSTART 35
         fullySignedTx.verifyRequiredSignatures()
-        // DOCEND 35
 
         // If the transaction is only partially signed, we have to pass in
         // a vararg of the public keys corresponding to the missing
         // signatures, explicitly telling the system not to check them.
-        // DOCSTART 36
         onceSignedTx.verifySignaturesExcept(counterpartyPubKey)
-        // DOCEND 36
 
         // There is also an overload of ``verifySignaturesExcept`` which accepts
         // a ``Collection`` of the public keys corresponding to the missing
         // signatures.
-        // DOCSTART 54
         onceSignedTx.verifySignaturesExcept(listOf(counterpartyPubKey))
-        // DOCEND 54
 
         // We can also choose to only check the signatures that are
         // present. BE VERY CAREFUL - this function provides no guarantees
         // that the signatures are correct, or that none are missing.
-        // DOCSTART 37
         twiceSignedTx.checkSignaturesAreValid()
-        // DOCEND 37
 
         /**-----------------------------
          * FINALISING THE TRANSACTION *
@@ -590,15 +494,11 @@ class InitiatorFlow(val arg1: Boolean, val arg2: Int, private val counterparty: 
 
         // We notarise the transaction and get it recorded in the vault of
         // the participants of all the transaction's states.
-        // DOCSTART 09
         val notarisedTx1: SignedTransaction = subFlow(FinalityFlow(fullySignedTx, listOf(counterpartySession), FINALISATION.childProgressTracker()))
-        // DOCEND 09
         // We can also choose to send it to additional parties who aren't one
         // of the state's participants.
-        // DOCSTART 10
         val partySessions: List<FlowSession> = listOf(counterpartySession, initiateFlow(regulator))
         val notarisedTx2: SignedTransaction = subFlow(FinalityFlow(fullySignedTx, partySessions, FINALISATION.childProgressTracker()))
-        // DOCEND 10
     }
 }
 
@@ -643,11 +543,9 @@ class ResponderFlow(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
         // 3. They sent a ``String`` instance and waited to receive a
         //    ``Boolean`` instance back
         // Our side of the flow must mirror these calls.
-        // DOCSTART 08
         val any: Any = counterpartySession.receive<Any>().unwrap { data -> data }
         val string: String = counterpartySession.sendAndReceive<String>(99).unwrap { data -> data }
         counterpartySession.send(true)
-        // DOCEND 08
 
         /**----------------------------------------
          * RESPONDING TO COLLECT_SIGNATURES_FLOW *
@@ -657,7 +555,6 @@ class ResponderFlow(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
         // The responder will often need to respond to a call to
         // ``CollectSignaturesFlow``. It does so my invoking its own
         // ``SignTransactionFlow`` subclass.
-        // DOCSTART 16
         val signTransactionFlow: SignTransactionFlow = object : SignTransactionFlow(counterpartySession) {
             override fun checkTransaction(stx: SignedTransaction) = requireThat {
                 // Any additional checking we see fit...
@@ -667,7 +564,6 @@ class ResponderFlow(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
         }
 
         val idOfTxWeSigned = subFlow(signTransactionFlow).id
-        // DOCEND 16
 
         /**-----------------------------
          * FINALISING THE TRANSACTION *
@@ -677,9 +573,7 @@ class ResponderFlow(val counterpartySession: FlowSession) : FlowLogic<Unit>() {
         // As the final step the responder waits to receive the notarised transaction from the sending party
         // Since it knows the ID of the transaction it just signed, the transaction ID is specified to ensure the correct
         // transaction is received and recorded.
-        // DOCSTART ReceiveFinalityFlow
         subFlow(ReceiveFinalityFlow(counterpartySession, expectedTxId = idOfTxWeSigned))
-        // DOCEND ReceiveFinalityFlow
     }
 }
 
@@ -761,7 +655,6 @@ public class FlowCookbook {
         ----------------------------------*/
         // Giving our flow a progress tracker allows us to see the flow's
         // progress visually in our node's CRaSH shell.
-        // DOCSTART 17
         private static final Step ID_OTHER_NODES = new Step("Identifying other nodes on the network.");
         private static final Step SENDING_AND_RECEIVING_DATA = new Step("Sending data between parties.");
         private static final Step EXTRACTING_VAULT_STATES = new Step("Extracting states from the vault.");
@@ -796,7 +689,6 @@ public class FlowCookbook {
                 SIGS_GATHERING,
                 FINALISATION
         );
-        // DOCEND 17
 
         @Suspendable
         @Override
@@ -807,16 +699,13 @@ public class FlowCookbook {
             /*---------------------------
              * IDENTIFYING OTHER NODES *
             ---------------------------*/
-            // DOCSTART 18
             progressTracker.setCurrentStep(ID_OTHER_NODES);
-            // DOCEND 18
 
             // A transaction generally needs a notary:
             //   - To prevent double-spends if the transaction has inputs
             //   - To serve as a timestamping authority if the transaction has a
             //     time-window
             // We retrieve a notary from the network map.
-            // DOCSTART 01
             CordaX500Name notaryName = new CordaX500Name("Notary Service", "London", "GB");
             Party specificNotary = Objects.requireNonNull(getServiceHub().getNetworkMapCache().getNotary(notaryName));
             // Alternatively, we can pick an arbitrary notary from the notary
@@ -824,15 +713,12 @@ public class FlowCookbook {
             // explicitly, as the notary list might change when new notaries are
             // introduced, or old ones decommissioned.
             Party firstNotary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0);
-            // DOCEND 01
 
             // We may also need to identify a specific counterparty. We do so
             // using the identity service.
-            // DOCSTART 02
             CordaX500Name counterPartyName = new CordaX500Name("NodeA", "London", "GB");
             Party namedCounterparty = getServiceHub().getIdentityService().wellKnownPartyFromX500Name(counterPartyName);
             Party keyedCounterparty = getServiceHub().getIdentityService().partyFromKey(dummyPubKey);
-            // DOCEND 02
 
             /*------------------------------
              * SENDING AND RECEIVING DATA *
@@ -842,9 +728,7 @@ public class FlowCookbook {
             // We start by initiating a flow session with the counterparty. We
             // will use this session to send and receive messages from the
             // counterparty.
-            // DOCSTART initiateFlow
             FlowSession counterpartySession = initiateFlow(counterparty);
-            // DOCEND initiateFlow
 
             // We can send arbitrary data to a counterparty.
             // If this is the first ``send``, the counterparty will either:
@@ -856,9 +740,7 @@ public class FlowCookbook {
             // In other words, we are assuming that the counterparty is
             // registered to respond to this flow, and has a corresponding
             // ``receive`` call.
-            // DOCSTART 04
             counterpartySession.send(new Object());
-            // DOCEND 04
 
             // We can wait to receive arbitrary data of a specific type from a
             // counterparty. Again, this implies a corresponding ``send`` call
@@ -879,7 +761,6 @@ public class FlowCookbook {
             // instance. This is a reminder that the data we receive may not
             // be what it appears to be! We must unwrap the
             // ``UntrustworthyData`` using a lambda.
-            // DOCSTART 05
             UntrustworthyData<Integer> packet1 = counterpartySession.receive(Integer.class);
             Integer integer = packet1.unwrap(data -> {
                 // Perform checking on the object received.
@@ -887,13 +768,11 @@ public class FlowCookbook {
                 // Return the object.
                 return data;
             });
-            // DOCEND 05
 
             // We can also use a single call to send data to a counterparty
             // and wait to receive data of a specific type back. The type of
             // data sent doesn't need to match the type of the data received
             // back.
-            // DOCSTART 07
             UntrustworthyData<Boolean> packet2 = counterpartySession.sendAndReceive(Boolean.class, "You can send and receive any class!");
             Boolean bool = packet2.unwrap(data -> {
                 // Perform checking on the object received.
@@ -901,16 +780,13 @@ public class FlowCookbook {
                 // Return the object.
                 return data;
             });
-            // DOCEND 07
 
             // We're not limited to sending to and receiving from a single
             // counterparty. A flow can send messages to as many parties as it
             // likes, and each party can invoke a different response flow.
-            // DOCSTART 06
             FlowSession regulatorSession = initiateFlow(regulator);
             regulatorSession.send(new Object());
             UntrustworthyData<Object> packet3 = regulatorSession.receive(Object.class);
-            // DOCEND 06
 
             /*------------------------------------
              * EXTRACTING STATES FROM THE VAULT *
@@ -937,13 +813,9 @@ public class FlowCookbook {
             // of that transaction. In practice, we'd pass the transaction hash
             // or the ``StateRef`` as a parameter to the flow, or extract the
             // ``StateRef`` from our vault.
-            // DOCSTART 20
             StateRef ourStateRef = new StateRef(SecureHash.sha256("DummyTransactionHash"), 0);
-            // DOCEND 20
             // A ``StateAndRef`` pairs a ``StateRef`` with the state it points to.
-            // DOCSTART 21
             StateAndRef ourStateAndRef = getServiceHub().toStateAndRef(ourStateRef);
-            // DOCEND 21
 
             /*------------------------------------------
              * GATHERING OTHER TRANSACTION COMPONENTS *
@@ -951,33 +823,23 @@ public class FlowCookbook {
             progressTracker.setCurrentStep(OTHER_TX_COMPONENTS);
 
             // Reference input states are constructed from StateAndRefs.
-            // DOCSTART 55
             ReferencedStateAndRef referenceState = ourStateAndRef.referenced();
-            // DOCEND 55
             // Output states are constructed from scratch.
-            // DOCSTART 22
             DummyState ourOutputState = new DummyState();
-            // DOCEND 22
             // Or as copies of other states with some properties changed.
-            // DOCSTART 23
             DummyState ourOtherOutputState = ourOutputState.copy(77);
-            // DOCEND 23
 
             // We then need to pair our output state with a contract.
-            // DOCSTART 47
             StateAndContract ourOutput = new StateAndContract(ourOutputState, DummyContract.PROGRAM_ID);
-            // DOCEND 47
 
             // Commands pair a ``CommandData`` instance with a list of
             // public keys. To be valid, the transaction requires a signature
             // matching every public key in all of the transaction's commands.
-            // DOCSTART 24
             DummyContract.Commands.Create commandData = new DummyContract.Commands.Create();
             PublicKey ourPubKey = getServiceHub().getMyInfo().getLegalIdentitiesAndCerts().get(0).getOwningKey();
             PublicKey counterpartyPubKey = counterparty.getOwningKey();
             List<PublicKey> requiredSigners = ImmutableList.of(ourPubKey, counterpartyPubKey);
             Command<DummyContract.Commands.Create> ourCommand = new Command<>(commandData, requiredSigners);
-            // DOCEND 24
 
             // ``CommandData`` can either be:
             // 1. Of type ``TypeOnlyCommandData``, in which case it only
@@ -991,28 +853,20 @@ public class FlowCookbook {
             // Attachments are identified by their hash.
             // The attachment with the corresponding hash must have been
             // uploaded ahead of time via the node's RPC interface.
-            // DOCSTART 25
             SecureHash ourAttachment = SecureHash.sha256("DummyAttachment");
-            // DOCEND 25
 
             // Time windows represent the period of time during which a
             // transaction must be notarised. They can have a start and an end
             // time, or be open at either end.
-            // DOCSTART 26
             TimeWindow ourTimeWindow = TimeWindow.between(Instant.MIN, Instant.MAX);
             TimeWindow ourAfter = TimeWindow.fromOnly(Instant.MIN);
             TimeWindow ourBefore = TimeWindow.untilOnly(Instant.MAX);
-            // DOCEND 26
 
             // We can also define a time window as an ``Instant`` +/- a time
             // tolerance (e.g. 30 seconds):
-            // DOCSTART 42
             TimeWindow ourTimeWindow2 = TimeWindow.withTolerance(getServiceHub().getClock().instant(), Duration.ofSeconds(30));
-            // DOCEND 42
             // Or as a start-time plus a duration:
-            // DOCSTART 43
             TimeWindow ourTimeWindow3 = TimeWindow.fromStartAndDuration(getServiceHub().getClock().instant(), Duration.ofSeconds(30));
-            // DOCEND 43
 
             /*------------------------
              * TRANSACTION BUILDING *
@@ -1021,17 +875,12 @@ public class FlowCookbook {
 
             // If our transaction has input states or a time-window, we must instantiate it with a
             // notary.
-            // DOCSTART 19
             TransactionBuilder txBuilder = new TransactionBuilder(specificNotary);
-            // DOCEND 19
 
             // Otherwise, we can choose to instantiate it without one:
-            // DOCSTART 46
             TransactionBuilder txBuilderNoNotary = new TransactionBuilder();
-            // DOCEND 46
 
             // We add items to the transaction builder using ``TransactionBuilder.withItems``:
-            // DOCSTART 27
             txBuilder.withItems(
                     // Inputs, as ``StateAndRef``s that reference to the outputs of previous transactions
                     ourStateAndRef,
@@ -1044,48 +893,31 @@ public class FlowCookbook {
                     // A time-window, as ``TimeWindow``
                     ourTimeWindow
             );
-            // DOCEND 27
 
             // We can also add items using methods for the individual components.
 
             // The individual methods for adding input states and attachments:
-            // DOCSTART 28
             txBuilder.addInputState(ourStateAndRef);
             txBuilder.addAttachment(ourAttachment);
-            // DOCEND 28
 
             // An output state can be added as a ``ContractState``, contract class name and notary.
-            // DOCSTART 49
             txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID, specificNotary);
-            // DOCEND 49
             // We can also leave the notary field blank, in which case the transaction's default
             // notary is used.
-            // DOCSTART 50
             txBuilder.addOutputState(ourOutputState, DummyContract.PROGRAM_ID);
-            // DOCEND 50
             // Or we can add the output state as a ``TransactionState``, which already specifies
             // the output's contract and notary.
-            // DOCSTART 51
             TransactionState txState = new TransactionState<>(ourOutputState, DummyContract.PROGRAM_ID, specificNotary);
-            // DOCEND 51
 
             // Commands can be added as ``Command``s.
-            // DOCSTART 52
             txBuilder.addCommand(ourCommand);
-            // DOCEND 52
             // Or as ``CommandData`` and a ``vararg PublicKey``.
-            // DOCSTART 53
             txBuilder.addCommand(commandData, ourPubKey, counterpartyPubKey);
-            // DOCEND 53
 
             // We can set a time-window directly.
-            // DOCSTART 44
             txBuilder.setTimeWindow(ourTimeWindow);
-            // DOCEND 44
             // Or as a start time plus a duration (e.g. 45 seconds).
-            // DOCSTART 45
             txBuilder.setTimeWindow(getServiceHub().getClock().instant(), Duration.ofSeconds(45));
-            // DOCEND 45
 
             /*-----------------------
              * TRANSACTION SIGNING *
@@ -1094,26 +926,18 @@ public class FlowCookbook {
 
             // We finalise the transaction by signing it,
             // converting it into a ``SignedTransaction``.
-            // DOCSTART 29
             SignedTransaction onceSignedTx = getServiceHub().signInitialTransaction(txBuilder);
-            // DOCEND 29
             // We can also sign the transaction using a different public key:
-            // DOCSTART 30
             PartyAndCertificate otherIdentity = getServiceHub().getKeyManagementService().freshKeyAndCert(getOurIdentityAndCert(), false);
             SignedTransaction onceSignedTx2 = getServiceHub().signInitialTransaction(txBuilder, otherIdentity.getOwningKey());
-            // DOCEND 30
 
             // If instead this was a ``SignedTransaction`` that we'd received
             // from a counterparty and we needed to sign it, we would add our
             // signature using:
-            // DOCSTART 38
             SignedTransaction twiceSignedTx = getServiceHub().addSignature(onceSignedTx);
-            // DOCEND 38
             // Or, if we wanted to use a different public key:
             PartyAndCertificate otherIdentity2 = getServiceHub().getKeyManagementService().freshKeyAndCert(getOurIdentityAndCert(), false);
-            // DOCSTART 39
             SignedTransaction twiceSignedTx2 = getServiceHub().addSignature(onceSignedTx, otherIdentity2.getOwningKey());
-            // DOCEND 39
 
             // We can also generate a signature over the transaction without
             // adding it to the transaction itself. We may do this when
@@ -1121,13 +945,9 @@ public class FlowCookbook {
             // entire transaction with our signature. This way, the receiving
             // node does not need to check we haven't changed anything in the
             // transaction.
-            // DOCSTART 40
             TransactionSignature sig = getServiceHub().createSignature(onceSignedTx);
-            // DOCEND 40
             // And again, if we wanted to use a different public key:
-            // DOCSTART 41
             TransactionSignature sig2 = getServiceHub().createSignature(onceSignedTx, otherIdentity2.getOwningKey());
-            // DOCEND 41
 
             /*----------------------------
              * TRANSACTION VERIFICATION *
@@ -1141,7 +961,6 @@ public class FlowCookbook {
             // data vending process. The ``SendTransactionFlow`` will listen
             // for data request until the transaction is resolved and verified
             // on the other side:
-            // DOCSTART 12
             subFlow(new SendTransactionFlow(counterpartySession, twiceSignedTx));
 
             // Optional request verification to further restrict data access.
@@ -1151,30 +970,23 @@ public class FlowCookbook {
                     // Extra request verification.
                 }
             });
-            // DOCEND 12
 
             // We can receive the transaction using ``ReceiveTransactionFlow``,
             // which will automatically download all the dependencies and verify
             // the transaction and then record in our vault
-            // DOCSTART 13
             SignedTransaction verifiedTransaction = subFlow(new ReceiveTransactionFlow(counterpartySession));
-            // DOCEND 13
 
             // We can also send and receive a `StateAndRef` dependency chain and automatically resolve its dependencies.
-            // DOCSTART 14
             subFlow(new SendStateAndRefFlow(counterpartySession, dummyStates));
 
             // On the receive side ...
             List<StateAndRef<DummyState>> resolvedStateAndRef = subFlow(new ReceiveStateAndRefFlow<>(counterpartySession));
-            // DOCEND 14
 
             try {
 
                 // We can now verify the transaction to ensure that it satisfies
                 // the contracts of all the transaction's input and output states.
-                // DOCSTART 33
                 twiceSignedTx.verify(getServiceHub());
-                // DOCEND 33
 
                 // We'll often want to perform our own additional verification
                 // too. Just because a transaction is valid based on the contract
@@ -1186,12 +998,9 @@ public class FlowCookbook {
                 // into a ``LedgerTransaction``. This will use our ServiceHub
                 // to resolve the transaction's inputs and attachments into
                 // actual objects, rather than just references.
-                // DOCSTART 32
                 LedgerTransaction ledgerTx = twiceSignedTx.toLedgerTransaction(getServiceHub());
-                // DOCEND 32
 
                 // We can now perform our additional verification.
-                // DOCSTART 34
                 DummyState outputState = ledgerTx.outputsOfType(DummyState.class).get(0);
                 if (outputState.getMagicNumber() != 777) {
                     // ``FlowException`` is a special exception type. It will be
@@ -1200,7 +1009,6 @@ public class FlowCookbook {
                     // failed.
                     throw new FlowException("We expected a magic number of 777.");
                 }
-                // DOCEND 34
 
             } catch (GeneralSecurityException e) {
                 // Handle this as required.
@@ -1221,9 +1029,7 @@ public class FlowCookbook {
             // ourselves, we can automatically gather the signatures of the
             // other required signers using ``CollectSignaturesFlow``.
             // The responder flow will need to call ``SignTransactionFlow``.
-            // DOCSTART 15
             SignedTransaction fullySignedTx = subFlow(new CollectSignaturesFlow(twiceSignedTx, emptySet(), SIGS_GATHERING.childProgressTracker()));
-            // DOCEND 15
 
             /*------------------------
              * VERIFYING SIGNATURES *
@@ -1234,32 +1040,24 @@ public class FlowCookbook {
 
                 // We can verify that a transaction has all the required
                 // signatures, and that they're all valid, by running:
-                // DOCSTART 35
                 fullySignedTx.verifyRequiredSignatures();
-                // DOCEND 35
 
                 // If the transaction is only partially signed, we have to pass in
                 // a vararg of the public keys corresponding to the missing
                 // signatures, explicitly telling the system not to check them.
-                // DOCSTART 36
                 onceSignedTx.verifySignaturesExcept(counterpartyPubKey);
-                // DOCEND 36
 
                 // There is also an overload of ``verifySignaturesExcept`` which accepts
                 // a ``Collection`` of the public keys corresponding to the missing
                 // signatures. In the example below, we could also use
                 // ``Arrays.asList(counterpartyPubKey)`` instead of
                 // ``Collections.singletonList(counterpartyPubKey)``.
-                // DOCSTART 54
                 onceSignedTx.verifySignaturesExcept(singletonList(counterpartyPubKey));
-                // DOCEND 54
 
                 // We can also choose to only check the signatures that are
                 // present. BE VERY CAREFUL - this function provides no guarantees
                 // that the signatures are correct, or that none are missing.
-                // DOCSTART 37
                 twiceSignedTx.checkSignaturesAreValid();
-                // DOCEND 37
             } catch (GeneralSecurityException e) {
                 // Handle this as required.
             }
@@ -1271,15 +1069,11 @@ public class FlowCookbook {
 
             // We notarise the transaction and get it recorded in the vault of
             // the participants of all the transaction's states.
-            // DOCSTART 09
             SignedTransaction notarisedTx1 = subFlow(new FinalityFlow(fullySignedTx, singleton(counterpartySession), FINALISATION.childProgressTracker()));
-            // DOCEND 09
             // We can also choose to send it to additional parties who aren't one
             // of the state's participants.
-            // DOCSTART 10
             List<FlowSession> partySessions = Arrays.asList(counterpartySession, initiateFlow(regulator));
             SignedTransaction notarisedTx2 = subFlow(new FinalityFlow(fullySignedTx, partySessions, FINALISATION.childProgressTracker()));
-            // DOCEND 10
 
             return null;
         }
@@ -1329,11 +1123,9 @@ public class FlowCookbook {
             // 3. They sent a ``String`` instance and waited to receive a
             //    ``Boolean`` instance back
             // Our side of the flow must mirror these calls.
-            // DOCSTART 08
             Object obj = counterpartySession.receive(Object.class).unwrap(data -> data);
             String string = counterpartySession.sendAndReceive(String.class, 99).unwrap(data -> data);
             counterpartySession.send(true);
-            // DOCEND 08
 
             /*-----------------------------------------
              * RESPONDING TO COLLECT_SIGNATURES_FLOW *
@@ -1343,7 +1135,6 @@ public class FlowCookbook {
             // The responder will often need to respond to a call to
             // ``CollectSignaturesFlow``. It does so my invoking its own
             // ``SignTransactionFlow`` subclass.
-            // DOCSTART 16
             class SignTxFlow extends SignTransactionFlow {
                 private SignTxFlow(FlowSession otherSession, ProgressTracker progressTracker) {
                     super(otherSession, progressTracker);
@@ -1361,7 +1152,6 @@ public class FlowCookbook {
             }
 
             SecureHash idOfTxWeSigned = subFlow(new SignTxFlow(counterpartySession, SignTransactionFlow.tracker())).getId();
-            // DOCEND 16
 
             /*------------------------------
              * FINALISING THE TRANSACTION *
@@ -1371,9 +1161,7 @@ public class FlowCookbook {
             // As the final step the responder waits to receive the notarised transaction from the sending party
             // Since it knows the ID of the transaction it just signed, the transaction ID is specified to ensure the correct
             // transaction is received and recorded.
-            // DOCSTART ReceiveFinalityFlow
             subFlow(new ReceiveFinalityFlow(counterpartySession, idOfTxWeSigned));
-            // DOCEND ReceiveFinalityFlow
 
             return null;
         }

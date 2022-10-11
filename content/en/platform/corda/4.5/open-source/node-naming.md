@@ -44,9 +44,9 @@ present in the majority of names, but is an option for the cases which require i
 The name must also obey the following constraints:
 
 
-* The `organisation`, `organisational-unit`, `locality`, and `country` attributes are present
-* The `state` and `common name` attributes are optional
-* The maximum number of characters in the whole x500 name string is 128 characters
+* The `organisation`, `organisational-unit`, `locality`, and `country` attributes are present.
+* The `state` and `common name` attributes are optional.
+* The maximum number of characters in the whole x500 name string is 128 characters.
 * The fields of the name have character lengths **less** than the following maximum values:
 
     * Common name: 64
@@ -57,7 +57,7 @@ The name must also obey the following constraints:
 
 
 
-* The `country` attribute is a valid *ISO 3166-1<https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2>* two letter code in upper-case
+* The `country` attribute is a valid *ISO 3166-1<https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2>* two letter code in upper-case. See the list of [defined country codes](https://github.com/corda/corda/blob/release/os/4.5/tools/worldmap/src/main/resources/net/corda/worldmap/cities.txt).
 * The `organisation` field of the name obeys the following constraints:
 
     * Has at least two letters

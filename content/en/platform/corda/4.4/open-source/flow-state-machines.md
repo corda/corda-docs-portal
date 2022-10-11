@@ -296,13 +296,10 @@ override fun call(): SignedTransaction {
     // Verify and sign the transaction.
     progressTracker.currentStep = VERIFYING_AND_SIGNING
 
-    // DOCSTART 07
     // Sync identities to ensure we know all of the identities involved in the transaction we're about to
     // be asked to sign
     subFlow(IdentitySyncFlow.Receive(otherSideSession))
-    // DOCEND 07
 
-    // DOCSTART 5
     val signTransactionFlow = object : SignTransactionFlow(otherSideSession, VERIFYING_AND_SIGNING.childProgressTracker()) {
         override fun checkTransaction(stx: SignedTransaction) {
             // Verify that we know who all the participants in the transaction are
@@ -321,7 +318,6 @@ override fun call(): SignedTransaction {
     }
 
     val txId = subFlow(signTransactionFlow).id
-    // DOCEND 5
 
     return subFlow(ReceiveFinalityFlow(otherSideSession, expectedTxId = txId))
 }
@@ -345,7 +341,7 @@ the trade info, and then call `otherSideSession.send`. which takes two arguments
 
 `otherSideSession.send` will serialise the payload and send it to the other party automatically.
 
-Next, we call a *subflow* called `IdentitySyncFlow.Receive` (see [Sub-flows](#subflows)). `IdentitySyncFlow.Receive`
+Next, we call a *subflow* called `IdentitySyncFlow.Receive` (see [Sub-flows](#sub-flows)). `IdentitySyncFlow.Receive`
 ensures that our node can de-anonymise any confidential identities in the transaction it’s about to be asked to sign.
 
 Next, we call another subflow called `SignTransactionFlow`. `SignTransactionFlow` automates the process of:
@@ -384,7 +380,6 @@ override fun call(): SignedTransaction {
     progressTracker.currentStep = SIGNING
     val (ptx, cashSigningPubKeys) = assembleSharedTX(assetForSale, tradeRequest, buyerAnonymousIdentity)
 
-    // DOCSTART 6
     // Now sign the transaction with whatever keys we need to move the cash.
     val partSignedTx = serviceHub.signInitialTransaction(ptx, cashSigningPubKeys)
 
@@ -396,7 +391,6 @@ override fun call(): SignedTransaction {
     progressTracker.currentStep = COLLECTING_SIGNATURES
     val sellerSignature = subFlow(CollectSignatureFlow(partSignedTx, sellerSession, sellerSession.counterparty.owningKey))
     val twiceSignedTx = partSignedTx + sellerSignature
-    // DOCEND 6
 
     // Notarise and record the transaction.
     progressTracker.currentStep = RECORDING

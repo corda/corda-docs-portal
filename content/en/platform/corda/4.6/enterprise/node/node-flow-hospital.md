@@ -36,7 +36,7 @@ This concept is analogous to *exception management handling* associated with ent
 
 ## Functionality
 
-Flow hospital functionality is enabled by default in Corda Enterprise 4.6. No explicit configuration settings are required.
+Flow hospital functionality is enabled by default in Corda Enterprise Edition 4.6. No explicit configuration settings are required.
 
 There are two aspects to the flow hospital:
 

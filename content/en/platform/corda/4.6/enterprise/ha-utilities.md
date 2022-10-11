@@ -363,9 +363,9 @@ The ampersand (&) character is not allowed in the password for Artemis SSL keyst
 
 
 
-## Notary Registration
+## Notary registration
 
-The notary registration tool is used to register the identity of the HA notary service, and generates the key and certificate of the notary
+The HA Utilities tool is used to register the identity of the HA notary service, and generates the key and certificate of the notary
 service that is shared by all workers of the notary cluster. It is required to be run before registering any notary worker nodes.
 
 The tool does not include any third party supplied client side jar files needed when connecting to an HSM. These jar files are supplied by

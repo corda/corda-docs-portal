@@ -34,8 +34,8 @@ helm install cenm-zone auth --set idmanPublicIP=X.X.X.X --set prefix=cenm --set 
 | Parameter                     | Description                                              | Default value         |
 | ----------------------------- | -------------------------------------------------------- | --------------------- |
 | `bashDebug`                   | Display additional information while running bash scripts (useful while investigating issues) | `false` |
-| `image.repository`            | URL to Zone Service Docker image repository              | `acrcenm.azurecr.io/zone/zone` |
-| `image.tag`                   | Docker image Tag | `1.3` |
+| `image.repository`            | URL to Zone Service Docker image repository              | `corda/enterprise-zone` |
+| `image.tag`                   | Docker image Tag | `1.3.5-zulu-openjdk8u242` |
 | `image.pullPolicy`            | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `database.driverClassName`    | Zone Service database connection details | `org.h2.Driver` |
 | `database.jdbcDriver`         | Zone Service database connection details | `""`

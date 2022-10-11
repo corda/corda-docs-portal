@@ -1,4 +1,5 @@
 ---
+title: Corda Open Source 4.4 release notes
 aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
@@ -11,26 +12,42 @@ menu:
   corda-os-4-4:
     identifier: corda-os-4-4-release-notes
     weight: 1
+    name: "Release notes"
 tags:
 - release
 - notes
-title: Release notes
 ---
 
 
-# Release notes
+# Corda Open Source 4.4 release notes
 
+Welcome to the Corda 4.4 release notes. Please read these carefully to understand what’s new in this release and how the features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.4 comes with those same guarantees. States and apps valid in Corda 3.0 are usable in Corda 4.4.
 
-Welcome to the Corda 4.4 release notes. Please read these carefully to understand what’s new in this release and how the
-features can help you. Just as prior releases have brought with them commitments to wire and API stability, Corda 4.4
-comes with those same guarantees. States and apps valid in Corda 3.0 are usable in Corda 4.4.
+## Corda Open Source 4.4 Apache Log4j update (December 16 2021)
 
+Corda 4.4 was updated on December 16th 2021 to fix the urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
 
+{{< warning >}}
 
-## Corda 4.4
+Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). This is the most secure way to mitigate any risks associated with this vulnerability.
+
+{{< /warning >}}
+
+To build the latest version of Corda 4.4:
+
+1. Open a terminal window in the directory where you want to download the Corda repository.
+2. Clone the Corda repository by running this command:
+   `git clone https://github.com/corda/corda.git`
+3. Checkout the release branch for Corda 4.4 by running this command:
+   `git checkout origin/release/os/4.4`
+4. Run the command:
+   `./gradlew assemble`
+5. Find `node/capsule/build/libs/corda-4.4-SNAPSHOT.jar`, this replaces your node's current `corda.jar`. To replace the superseded `.jar` file, follow the instructions on [upgrading your node to Corda 4.4](node-upgrade-notes.md).
+
+## Corda Open Source 4.4 release notes
 
 Corda 4.4 lays the foundation of a new open core approach for the Corda codebase. This involved a refactoring of the
-main functional components of Corda. Please consult [the CorDapp overview](cordapp-overview.md/) to get an overview of
+main functional components of Corda. Please consult [the CorDapp overview](cordapp-overview.md) to get an overview of
 the practical impact on CorDapp development.
 
 Furthermore, Corda 4.4 introduces improvements to the flow framework API and a new diagnostic `ServiceHub` call, and includes
@@ -156,7 +173,7 @@ Changes introduced in Corda 4.4 to increase ledger integrity have highlighted li
 
 
 
-## Corda 4.3
+## Corda Open Source 4.3 release notes
 
 Corda 4.1 was released with a great suite of new features to build on top of the success of Corda 4. Now, Corda 4.3 extends upon that with some powerful new capabilities. Corda 4.3 contains over 400 fixes and documentation updates to bring additional stability and quality of life improvements to those developing on the Corda platform.
 
@@ -433,15 +450,15 @@ Any confidential identities registered using the old API will not be reflected i
 
 
 
-## Corda 4.1
+## Corda Open Source 4.1 release notes
 
 It’s been a little under 3 1/2 months since the release of Corda 4.0 and all of the brand new features that added to the powerful suite
-of tools Corda offers. Now, following the release of Corda Enterprise 4.0, we are proud to release Corda 4.1, bringing over 150 fixes
+of tools Corda offers. Now, following the release of Corda Enterprise Edition 4.0, we are proud to release Corda 4.1, bringing over 150 fixes
 and documentation updates to bring additional stability and quality of life improvements to those developing on the Corda platform.
 
-Information on Corda Enterprise 4.0 can be found [here](https://www.r3.com/wp-content/uploads/2019/05/CordaEnterprise4_Enhancements_FS.pdf) and
-[here](https://docs.corda.net/docs/corda-enterprise/4.0/release-notes-enterprise.html). (It’s worth noting that normally this document would have started with a comment
-about whether or not you’d been recently domiciled under some solidified mineral material regarding the release of Corda Enterprise 4.0. Alas, we made
+Information on Corda Enterprise Edition 4.0 can be found [here](https://www.r3.com/wp-content/uploads/2019/05/CordaEnterprise4_Enhancements_FS.pdf) and
+[here](../../../../../en/platform/corda/4.0/enterprise/release-notes-enterprise.md). (It’s worth noting that normally this document would have started with a comment
+about whether or not you’d been recently domiciled under some solidified mineral material regarding the release of Corda Enterprise Edition 4.0. Alas, we made
 that joke when we shipped the first release of Corda after Enterprise 3.0 shipped, so the thunder has been stolen and repeating ourselves would be terribly gauche.)
 
 Corda 4.1 brings the lessons and bug fixes discovered during the process of building and shipping Enterprise 4.0 back to the open source community. As mentioned above
@@ -588,9 +605,7 @@ As such, we recommend you upgrade from Corda 4.0 to Corda 4.1 as soon possible.
 * RPC client disconnects shouldn’t be a warning
 * Hibernate logs warning and errors for some conditions we handle
 
-
-
-## Corda 4
+## Corda Open Source 4 release notes
 
 Welcome to the Corda 4 release notes. Please read these carefully to understand what’s new in this
 release and how the changes can help you. Just as prior releases have brought with them commitments
@@ -654,7 +669,7 @@ Learn more about this new feature by reading the [Upgrading CorDapps to newer Pl
 
 #### State pointers
 
-[State Pointers](api-states.md#state-pointers) formalize a recommended design pattern, in which states may refer to other states
+[State Pointers](api-states.html#state-pointers) formalize a recommended design pattern, in which states may refer to other states
 on the ledger by `StateRef` (a pair of transaction hash and output index that is sufficient to locate
 any information on the global ledger). State pointers work together with the reference states feature
 to make it easy for data to point to the latest version of any other piece of data, with the right

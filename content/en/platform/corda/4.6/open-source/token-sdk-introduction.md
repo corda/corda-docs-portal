@@ -49,7 +49,7 @@ Overview of changes:
 
 * All of the utility methods, subflows and RPC enabled flows have been annotated with @JVMOverloads to ensure the appropriate Java constructors are generated where the source Kotlin constructor contains nullable arguments. This ensures a seamless experience when using the Tokens SDK from a Java code base.
 * The `selection` and `money` `.jar` files have been moved into the `workflows` `.jar` file.
-* Upgraded database interaction for compatibility with Corda 4.6 and Corda Enterprise 4.6.
+* Upgraded database interaction for compatibility with Corda 4.6 and Corda Enterprise Edition 4.6.
 
 ### Changes in V1.2.2
 

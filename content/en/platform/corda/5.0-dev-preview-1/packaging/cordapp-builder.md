@@ -18,14 +18,14 @@ CorDapp Builder CLI can be installed automatically or manually.
 
 ### Automatic installation
 
-1. Download the [universal installer](https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0/cordapp-builder-installer.jar).
+1. Download the [universal installer](https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0.1/cordapp-builder-installer.jar).
 2. Run the following command.
-    ```bash
+    ```console
     java -jar cordapp-builder-installer.jar
     ```
 3. Start a new shell.
 4. Test the program with the following command.
-    ```bash
+    ```console
     cordapp-builder --version
     ```
 
@@ -37,7 +37,7 @@ If a previous installation of CorDapp Builder CLI exists, remove it. See [deleti
 
 #### Steps
 
-1. Download the latest stable <a href="https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0/cordapp-builder.tar">`.tar`</a> or <a href="https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0/cordapp-builder.zip">`.zip`</a> file.
+1. Download the latest stable <a href="https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0.1/cordapp-builder.tar">`.tar`</a> or <a href="https://download.corda.net/cordapp-builder/5.0.0-DevPreview-1.0.1/cordapp-builder.zip">`.zip`</a> file.
 
 2. Create a new `bin/cordapp-builder` directory under the current users home directory.
 
@@ -52,11 +52,11 @@ If a previous installation of CorDapp Builder CLI exists, remove it. See [deleti
       ```
 4. **Windows:** Add CorDapp Builder CLI to PATH:
 
-   a. Go to the **Edit the system environment variables** Control Panel setting.
+   1. Go to the **Edit the system environment variables** Control Panel setting.
 
-   b. Edit the **Path** user variable and add the cordapp-builder bin directory extracted in the previous step as a new entry. For example, `C:\Users\username\bin\cordapp-builder\bin`.
+   2. Edit the **Path** user variable and add the cordapp-builder bin directory extracted in the previous step as a new entry. For example, `C:\Users\username\bin\cordapp-builder\bin`.
 
-   c. If you are using Git Bash on Windows, update your home directory `username/.bashrc` file with the following code:
+   3. If you are using Git Bash on Windows, update your home directory `username/.bashrc` file with the following code:
 
    ```shell
       # cordapp-builder default path
@@ -72,7 +72,7 @@ If a previous installation of CorDapp Builder CLI exists, remove it. See [deleti
 
 6. Verify installation by opening a new terminal session and running `cordapp-builder --version`.
 
-   **Step result:** If successful, this will output details of the installed CorDapp Builder CLI version.
+   If successful, this outputs details of the installed CorDapp Builder CLI version.
 
 ## Usage
 
@@ -94,7 +94,7 @@ If you have a `.cpk` file and all of its `.cpk` dependencies are located in a si
 cordapp-builder create --cpk cpk-repository/root.cpk -A cpk-repository -o result.cpb
 ```
 
-This will fetch all the dependencies of `root.cpk` recursively from `cpk-repository` and bundle them in `result.cpb`.
+This fetches all the dependencies of `root.cpk` recursively from `cpk-repository` and bundle them in `result.cpb`.
 
 You can also specify multiple repository folders:
 

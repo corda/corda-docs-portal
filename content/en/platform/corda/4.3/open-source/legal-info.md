@@ -7,14 +7,15 @@ menu:
     identifier: corda-os-4-3-legal-info
     parent: corda-os-4-3-participate
     weight: 450
+    name: Legal notice
 tags:
 - legal
 - info
-title: Legal notice
+title: Corda Open Source 4.3 Legal notice
 ---
 
 
-# Legal notice
+# Corda Open Source 4.3 Legal notice
 
 CORDA Open Source 4.1 THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
 Do Not Translate or Localize

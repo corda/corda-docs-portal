@@ -135,8 +135,7 @@ Because the transaction is sent to the oracle for signing, ordinarily the oracle
 of that transaction including the inputs, output contract states and all the commands, not just the one (in this case)
 relevant command.  This is an obvious privacy leak for the other participants.  We currently solve this using a
 `FilteredTransaction`, which implements a Merkle Tree.  These reveal only the necessary parts of the transaction to the
-oracle but still allow it to sign it by providing the Merkle hashes for the remaining parts.  See key-concepts-oracles
-for more details.
+oracle but still allow it to sign it by providing the Merkle hashes for the remaining parts.  See [Oracles](../../../../../en/platform/corda/4.4/open-source/key-concepts-oracles.md) for more details.
 
 
 ### Pay-per-play oracles
@@ -331,7 +330,7 @@ class FixSignFlow(val tx: TransactionBuilder, val oracle: Party,
 [RatesFixFlow.kt](https://github.com/corda/corda/blob/release/os/4.4/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
 
 You’ll note that the `FixSignFlow` requires a `FilterTransaction` instance which includes only `Fix` commands.
-You can find a further explanation of this in key-concepts-oracles. Below you will see how to build such a
+You can find a further explanation of this in [Oracles](../../../../../en/platform/corda/4.4/open-source/key-concepts-oracles.md). Below you will see how to build such a
 transaction with hidden fields.
 
 

@@ -66,7 +66,7 @@ There are also operations that allow starting/killing the flows or even stopping
 * Starting flows requires `InvokeRpc.registeredFlows` and `InvokeRpc.wellKnownPartyFromX500Name`, as well as a permission for the flow being started.
 * Killing flows (`flow kill`) requires `InvokeRpc.killFlow`. This currently allows the user to kill *any* flow, so please be careful when granting it!
 
-Description of RPC operations can be found in the [RPC operations](../../api-rpc.md) documentation.
+Description of RPC operations can be found in the [RPC operations](api-rpc.md) documentation.
 
 {{< note >}}
 `InvokeRpc.startTrackedFlowDynamic` permission gives permission to run all existing flows.
@@ -149,7 +149,13 @@ The standalone shell is a standalone application interacting with a Corda node v
 
 ### Starting the standalone shell
 
-Run the following command from the terminal:
+To run `corda-shell`:
+
+1. Download the shell `.jar` file for your version of Corda from [Artifactory](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-shell-cli/)—for example, `corda-tools-shell-cli-4.4.jar`.
+
+2. Add `corda-shell` to your environment variable that points to the `.jar` file.
+
+3. Run the following command from the terminal:
 
 ```bash
 corda-shell [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
@@ -189,6 +195,8 @@ node {
             port : 10006
         }
     }
+    user : demo
+    password : demo
 }
 shell {
         workDir : /path/to/dir
@@ -210,8 +218,6 @@ ssl {
         password: password
     }
 }
-user : demo
-password : demo
 ```
 
 {{< note >}}
@@ -252,7 +258,7 @@ You can use the shell to:
 The shell interacts with the node by issuing RPCs (remote procedure calls). You make an RPC from the shell by typing `run`, followed by the name of the desired RPC method.
 
 You can find a list of the available RPC methods
-[here](https://docs.corda.net/api/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
+[here](../../../../../en/api-ref/corda/4.4/open-source/kotlin/corda/net.corda.core.messaging/-corda-r-p-c-ops/index.html).
 
 Some RPCs return a stream of events that will be shown on screen until you press Ctrl-C.
 
@@ -338,7 +344,7 @@ otherResults: []
 
 ### Upload and download attachments
 
-The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](../../../../../en/platform/corda/4.4/open-source/tutorial-attachments.html#uploading-an-attachment) tutorial.
+The shell can be used to upload and download attachments from the node. To learn how, see the [Working with attachments](../../../../../en/platform/corda/4.4/open-source/tutorial-attachments.html#uploading-and-downloading) tutorial.
 
 
 ### Extract attachment information
@@ -492,13 +498,7 @@ You can find the following useful fields in the output:
 
 ### Work with flows
 
-Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows. You may also find it useful to query flow data.
-
-
-#### Query flow data
-
-The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](querying-flow-data.html#querying-flow-data-via-the-node-shell).
-
+Use the different flow commands available to make changes on the ledger. You can `start`, `kill`, `watch`, or `list` flows.
 
 #### Start a flow
 
@@ -589,9 +589,9 @@ Use this command to display all flows currently running on the node with result 
 The output will show results listed with flow `Id`, `Flow name`, `Initiator`, and `Status`.
 
 ```
-Id                                Flow name                                                          Initiator                        Status                                                             
+Id                                Flow name                                                          Initiator                        Status
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-27fc3a53-5fc3-4c30-a872-a2f282291 Cash Payment Receiver                                              O=BankOfCorda, L=London, C=GB    No return value                                                    
+27fc3a53-5fc3-4c30-a872-a2f282291 Cash Payment Receiver                                              O=BankOfCorda, L=London, C=GB    No return value
 Waiting for completion or Ctrl-C ...
 ```
 

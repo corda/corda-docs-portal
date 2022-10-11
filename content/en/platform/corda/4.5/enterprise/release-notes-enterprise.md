@@ -1,4 +1,5 @@
 ---
+title: Corda Enterprise Edition 4.5 release notes
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-5:
@@ -8,17 +9,109 @@ tags:
 - release
 - notes
 - enterprise
-title: Corda Enterprise release notes
+
 weight: 1
 
 ---
 
 
-# Corda Enterprise release notes
+# Corda Enterprise Edition 4.5 release notes
 
-## Corda Enterprise 4.5.6
+## Corda Enterprise Edition 4.5.11
 
-Corda Enterprise 4.5.6 is a patch release of Corda Enterprise that fixes an invalid notarization response being sent
+Corda Enterprise Edition 4.5.11 is a patch release of Corda Enterprise focused on security improvements and fixing an issue with the `gracefulShutdown`.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+In this patch release:
+* Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
+* Fixed an issue where the `gracefulShutdown` command intermittently would fail to shut the node down.
+
+### Third party component upgrades
+
+{{< table >}}
+
+|Library|Version 4.5.11|Previous version|
+|---------|-------|-------|
+|Bean Utils|1.9.4|1.9.3|
+|Class Graph|4.8.135|4.8.90|
+|Hibernate|5.4.3.Final|5.4.32.Final/
+|Jackson|2.13.3|2.9.7|
+|Netty|4.1.77.Final|4.1.46.Final|
+|Quasar|0.7.15_r3|0.7.13_r3|
+|Shiro|1.8.0|1.4.1|
+|TCNative|2.0.48.Final|2.0.14.Final|
+
+{{< /table >}}
+
+## Corda Enterprise Edition 4.5.10 release notes
+
+Corda Enterprise Edition 4.5.10 is a patch release of Corda Enterprise that fixes an urgent security issue caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version v2.17.1.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html).
+
+### Fixed issues
+
+In this patch release:
+* Backwards compatibility option (accessibility) for `RestrictedConnection` class, ensuring it respects `TargetVersion` correctly.
+
+## Corda Enterprise Edition 4.5.9 release notes
+
+Corda Enterprise Edition 4.5.9 is a patch release of Corda Enterprise that fixes an urgent security issue caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version v2.17.1.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html).
+
+### Fixed issues
+
+In this patch release:
+
+* Log4j dependency updated to version 2.17.1 to fix pre-existing Log4j issues.
+
+## Corda Enterprise Edition 4.5.8 release notes
+
+{{< note >}}
+
+This is a direct upgrade from 4.5.6. No version 4.5.7 was released.
+
+{{< /note >}}
+
+Corda Enterprise Edition 4.5.8 is a patch release of Corda Enterprise that fixes an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version 2.16.0.
+
+To get started with this upgrade, request the download link by raising a ticket with [support](https://r3-cev.atlassian.net/servicedesk/customer/portal/2).
+
+{{< warning >}}
+
+Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). This is the most secure way to mitigate any risks associated with this vulnerability.
+
+{{< /warning >}}
+
+### Upgrade recommendation
+
+As a developer, you should urgently upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+
+As a node operator, you should urgently upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html).
+
+### Fixed issues
+
+In this patch release:
+
+Log4j dependency updated to version 2.16.0 to mitigate CVE-2021-44228.
+
+## Corda Enterprise Edition 4.5.6 release notes
+
+Corda Enterprise Edition 4.5.6 is a patch release of Corda Enterprise that fixes an invalid notarization response being sent
 after an internal notary flow retry.
 
 ### Upgrade recommendation
@@ -31,9 +124,9 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 * A fix has been added to prevent a rare invalid notarization response after internal notary flow retry.
 
-## Corda Enterprise 4.5.5
+## Corda Enterprise Edition 4.5.5 release notes
 
-Corda Enterprise 4.5.5 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise 4.5.3.
+Corda Enterprise Edition 4.5.5 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise Edition 4.5.3.
 
 ### Upgrade recommendation
 
@@ -48,9 +141,9 @@ In this patch release:
 * Corda dependency vulnerability CVE-2020-28052 has been fixed.
 * A fix has been introduced to reduce memory consumption during batched transaction resolution of large backchains.
 
-## Corda Enterprise 4.5.4
+## Corda Enterprise Edition 4.5.4 release notes
 
-Corda Enterprise 4.5.4 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise 4.5.3.
+Corda Enterprise Edition 4.5.4 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise Edition 4.5.3.
 
 ### Upgrade recommendation
 
@@ -62,9 +155,9 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 A security issue has been fixed that affects notary systems that use the JPA notary implementation in an HA configuration, and when the notary backing database has been set up using the Corda database management tool. The new version of the Corda database management tool must be re-run for the fix to take effect.
 
-## Corda Enterprise 4.5.3
+## Corda Enterprise Edition 4.5.3 release notes
 
-Corda Enterprise 4.5.3 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.5.2.
+Corda Enterprise Edition 4.5.3 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise Edition 4.5.2.
 
 ### Upgrade recommendation
 
@@ -77,7 +170,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * We have fixed several issues that caused memory leaks. As a result, we have added two new node configuration fields - `attachmentClassLoaderCacheSize` and `enableURLConnectionCache`. See the [node configuration fields page](../../../../../en/platform/corda/4.5/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration) for details.
 * We have fixed an issue where the HA utilities tool does not write the correct log file.
 * We have fixed an issue that prevented the HA utilities tool loading third-party HSM `.jar` files from the `drivers` directory when the `generate-internal-tunnel-ssl-keystores` command is run.
-* Corda Enterprise 4.5.3 now supports version 3.2.1 of the AWS CloudHSM client library.
+* Corda Enterprise Edition 4.5.3 now supports version 3.2.1 of the AWS CloudHSM client library.
 * We have fixed an issue that could cause flow execution to hang.
 * The `attachmentPresenceCache` has been removed. The functionality is duplicated in the `attachmentContent` cache in the `NodeAttachmentService`.
 * We have fixed an issue that caused the Corda Firewall to throw an error when version information was requested.
@@ -87,9 +180,9 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * We have fixed an issue that could cause a float to handle two connection attempts from the same bridge simultaneously.
 * We have fixed an issue that misinterpreted an internal error as a bad certificate error, preventing future connection attempts.
 
-## Corda Enterprise 4.5.2
+## Corda Enterprise Edition 4.5.2 release notes
 
-Corda Enterprise 4.5.2 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.5.1.
+Corda Enterprise Edition 4.5.2 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise Edition 4.5.1.
 
 ### Upgrade recommendation
 
@@ -103,11 +196,11 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * We have fixed an issue where the Corda node would not start up (when not in `dev` mode) if a Network Map Service instance was not running.
 * We have fixed an issue where the [Health Survey Tool](../../../../../en/platform/corda/4.5/enterprise/health-survey.md) would hang after performing all its checks if at the same time the external Artemis server was stopped during the "Received ECHO from bridge" step.
 * We have fixed an issue where [Health Survey Tool](../../../../../en/platform/corda/4.5/enterprise/health-survey.md) would stall on node RPC invocation check when the node was started while the [CENM Network Map Service](../../../../../en/platform/corda/1.2/cenm/network-map.html) was down.
-* We have fixed an issue where some existing customer CorDapps that were working on Corda Enterprise 4.3 could not be registered successfully when Corda Enterprise was upgraded to version 4.5.
+* We have fixed an issue where some existing customer CorDapps that were working on Corda Enterprise Edition 4.3 could not be registered successfully when Corda Enterprise was upgraded to version 4.5.
 
-## Corda Enterprise 4.5.1
+## Corda Enterprise Edition 4.5.1 release notes
 
-Corda Enterprise 4.5.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.5.
+Corda Enterprise Edition 4.5.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise Edition 4.5.
 
 ### Upgrade recommendation
 
@@ -129,19 +222,19 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * Fixed an issue where a TLS handshake timeout led to blacklisting endpoint.
 * Added support to the spent state audit command for specifying state references in the form `txId(outputIdx)` in addition to the existing `txId:outputIdx`.
 
-## Corda Enterprise 4.5 release overview
+## Corda Enterprise Edition 4.5 release notes
 
-This release extends the [Corda Enterprise 4.4 release](../../../../../en/platform/corda/4.4/enterprise/release-notes-enterprise.md) with further performance, resilience, and operational improvements.
+This release extends the [Corda Enterprise Edition 4.4 release](../../../../../en/platform/corda/4.4/enterprise/release-notes-enterprise.md) with further performance, resilience, and operational improvements.
 
-Corda Enterprise 4.5 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. See the Corda Enterprise [platform support matrix](../../../../../en/platform/corda/4.5/enterprise/platform-support-matrix.md) for more information.
+Corda Enterprise Edition 4.5 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. See the Corda Enterprise [platform support matrix](../../../../../en/platform/corda/4.5/enterprise/platform-support-matrix.md) for more information.
 
-Corda Enterprise 4.5 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise 4.4, 4.3, 4.2, 4.1, 4.0, and 3.x. See the [Corda (open source) release notes](../../../../../en/platform/corda/4.5/open-source/release-notes.md) for more information.
+Corda Enterprise Edition 4.5 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise Edition 4.4, 4.3, 4.2, 4.1, 4.0, and 3.x. See the [Corda (open source) release notes](../../../../../en/platform/corda/4.5/open-source/release-notes.md) for more information.
 
 ## New features and enhancements
 
 ### Performance improvements
 
-As part of Corda Enterprise 4.5 we have introduced significant performance enhancements. Our main focus was to improve latency across multiple areas of the platform.
+As part of Corda Enterprise Edition 4.5 we have introduced significant performance enhancements. Our main focus was to improve latency across multiple areas of the platform.
 
 We have reduced the latency of `FinalityFlow` and `CollectSignaturesFlow`. This was achieved by parallelising various areas of the platform, such as backchain resolution, collection of signatures, and broadcast of finalised transaction to peers. Note that no CorDapp changes are required to benefit from these changes.
 
@@ -166,13 +259,13 @@ To run the Corda Enterprise images, the Corda Enterprise evaluation must be prog
 
 ### Further Hardware Security Module (HSM) support
 
-Corda Enterprise 4.5 introduces the ability to use AWS CloudHSM to secure the cryptographic keys used by a node. Legal identity, TLS Firewall and Confidential Identity keys can now all be stored in an AWS HSM.
+Corda Enterprise Edition 4.5 introduces the ability to use AWS CloudHSM to secure the cryptographic keys used by a node. Legal identity, TLS Firewall and Confidential Identity keys can now all be stored in an AWS HSM.
 
 See the [platform support matrix](../../../../../en/platform/corda/4.5/enterprise/platform-support-matrix.md) documentation section for more information.
 
 ### Collaborative Recovery CorDapps for disaster recovery
 
-Corda Enterprise 4.5 introduces a new suite of utility CorDapps that can help you safely, and privately reconcile and recover ledger data lost in a disaster scenario.
+Corda Enterprise Edition 4.5 introduces a new suite of utility CorDapps that can help you safely, and privately reconcile and recover ledger data lost in a disaster scenario.
 
 The `LedgerSync` CorDapp can be used to routinely check the ledger for data inconsistencies between nodes, without compromising security. In the rare event that an inconsistency is discovered, the CorDapp `LedgerRecover` can be deployed in either Automatic recovery or Manual recovery mode (for more serious data loss) to securely recover the missing data from nodes across the network.
 
@@ -205,7 +298,7 @@ See the [database monitoring agent](../../../../../en/platform/corda/4.5/enterpr
 
 A double-spend occurs when a state that the notary has marked as spent is used as input to a new transaction. Notaries will reject transactions that attempt double-spends.
 
-Corda Enterprise 4.5 introduces the `Spent State Audit Tool` - a new command-line tool that enables notary operators to obtain a list of transactions that attempted to double-spend a state. The information provided by the tool can be used to undertake root cause analysis on a double-spend attempt that has occurred on the network.
+Corda Enterprise Edition 4.5 introduces the `Spent State Audit Tool` - a new command-line tool that enables notary operators to obtain a list of transactions that attempted to double-spend a state. The information provided by the tool can be used to undertake root cause analysis on a double-spend attempt that has occurred on the network.
 
 Please consult the `Spent State Audit Tool` [documentation](../../../../../en/platform/corda/4.5/enterprise/notary/spent-state.md) section for more information.
 
@@ -257,7 +350,7 @@ The documentation has been relocated to the main Corda and Corda Enterprise docu
 
 ## Platform version change
 
-The platform version of Corda Enterprise 4.5 has been bumped up from 6 to 7 due to the addition of the new flow framework APIs `sendAll` and `sendAllMap`, which can be used to send messages to multiple counterparties with improved performance.
+The platform version of Corda Enterprise Edition 4.5 has been bumped up from 6 to 7 due to the addition of the new flow framework APIs `sendAll` and `sendAllMap`, which can be used to send messages to multiple counterparties with improved performance.
 
 For more information about platform versions, see [Versioning](../../../../../en/platform/corda/4.5/open-source/versioning.md).
 

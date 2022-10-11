@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>extractAmountsDue - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="index.html">net.corda.finance.contracts.asset</a>&nbsp;/&nbsp;<a href="./extract-amounts-due.html">extractAmountsDue</a><br/>
+<br/>
+<h1>extractAmountsDue</h1>
+<a name="net.corda.finance.contracts.asset$extractAmountsDue(net.corda.finance.contracts.asset.Obligation.Terms((net.corda.finance.contracts.asset.extractAmountsDue.P)), kotlin.collections.Iterable((net.corda.finance.contracts.asset.Obligation.State((net.corda.finance.contracts.asset.extractAmountsDue.P)))))"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">extractAmountsDue</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset$extractAmountsDue(net.corda.finance.contracts.asset.Obligation.Terms((net.corda.finance.contracts.asset.extractAmountsDue.P)), kotlin.collections.Iterable((net.corda.finance.contracts.asset.Obligation.State((net.corda.finance.contracts.asset.extractAmountsDue.P)))))/product">product</span><span class="symbol">:</span>&nbsp;<span class="identifier">Terms</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset$extractAmountsDue(net.corda.finance.contracts.asset.Obligation.Terms((net.corda.finance.contracts.asset.extractAmountsDue.P)), kotlin.collections.Iterable((net.corda.finance.contracts.asset.Obligation.State((net.corda.finance.contracts.asset.extractAmountsDue.P)))))/states">states</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><span class="identifier">State</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">,</span>&nbsp;<a href="../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<a href="../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><span class="identifier">Terms</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Convert a list of settlement states into total from each obligor to a beneficiary.</p>
+<p><strong>Return</strong><br/>
+a map of obligor/beneficiary pairs to the balance due.</p>
+</BODY>
+</HTML>

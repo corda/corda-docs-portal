@@ -268,9 +268,10 @@ issued flag day.
 The Network Map Service provides an endpoint that can be used to determine the IP address of the querying host. This is
 useful especially when dealing with node’s deployment in environments with IP address translation.
 
-
 {{< table >}}
 
-|GET|/network-map/my-hostname|Returns the IP address of the requestor.|
+| Request method | Path                     | Description                              |
+| -------------- | ------------------------ | ---------------------------------------- |
+| GET            | /network-map/my-hostname | Returns the IP address of the requestor. |
 
 {{< /table >}}

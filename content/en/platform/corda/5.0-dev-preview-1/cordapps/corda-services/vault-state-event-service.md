@@ -67,9 +67,8 @@ You should use the `PositionedValue.position` property found in the `PositionedV
 This overload of `subscribe` provides a self-managed solution which is handled by interacting with the `DurableCursor`. For a simpler and fully-managed solution, see the overload of `subscribe` that receives a `function`/`callback` as input.
 
 Example usage of this API from a `CordaService`:
-
-### Kotlin
-
+{{< tabs name="SelfManaged">}}
+{{% tab name="Kotlin"%}}
 ```kotlin
 class LoggingVaultEventCursor : CordaService {
 
@@ -99,9 +98,9 @@ class LoggingVaultEventCursor : CordaService {
     }
 }
 ```
+{{% /tab %}}
 
-### Java
-
+{{% tab name="Java"%}}
 ```java
 public class LoggingVaultEventCursor implements CordaService {
 
@@ -139,7 +138,8 @@ public class LoggingVaultEventCursor implements CordaService {
     }
 }
 ```
-
+{{% /tab %}}
+{{< /tabs >}}
 ## Fully-managed solution
 
 Subscribe to vault events and execute the given `function` using each `VaultStateEvent`. These events are emitted when states are produced or consumed (saved to the vault as output or input states).
@@ -158,8 +158,8 @@ Names passed into `VaultStateEventService.subscribe` must be unique. There can o
 
 Example usage of this API from a `CordaService`:
 
-### Kotlin
-
+{{< tabs name="FullyManaged">}}
+{{% tab name="Kotlin"%}}
 ```kotlin
 class LoggingVaultEventSubscriber : CordaService {
 
@@ -178,9 +178,9 @@ class LoggingVaultEventSubscriber : CordaService {
     }
 }
   ```
+  {{% /tab %}}
 
-### Java
-
+  {{% tab name="Java"%}}
 ```java
 public class LoggingVaultEventSubscriber implements CordaService {
 
@@ -202,7 +202,8 @@ public class LoggingVaultEventSubscriber implements CordaService {
     }
 }
   ```
-
+  {{% /tab %}}
+  {{< /tabs >}}
 ## Preferred usage
 
 Run at startup of Corda Services and continue until the process shuts down.
@@ -214,8 +215,9 @@ A benefit for having multiple cursors or subscribers is concurrent processing. A
 
 This is an example of using `subscribe` multiple times to only process a single type of state per subscriber:
 
-### Kotlin
-
+{{< tabs name="Preferred">}}
+{{% tab name="Kotlin"%}}
+```kotlin
 ```kotlin
 class LoggingVaultEventSubscriber : CordaService {
 
@@ -240,9 +242,9 @@ class LoggingVaultEventSubscriber : CordaService {
     }
 }
 ```
+{{% /tab %}}
 
-### Java
-
+{{% tab name="Java"%}}
 ```java
 public class LoggingVaultEventSubscriber implements CordaService {
 
@@ -269,3 +271,5 @@ public class LoggingVaultEventSubscriber implements CordaService {
         }
     }
 }
+{{% /tab %}}
+{{< /tabs >}}

@@ -19,7 +19,7 @@ title: Run a sample CorDapp
 
 # Run a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [CorDapp template](../../../../tutorials/corda/4.8/os/template-tutorial/writing-a-cordapp-using-a-template.md), [building your own](../../../../tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-intro.md), or using a [community CorDapp](https://www.corda.net/samples/).
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [Java](https://github.com/corda/cordapp-template-java) or [Kotlin](https://github.com/corda/cordapp-template-kotlin) template, [building your own](../../../../tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-intro.md), or using a [community CorDapp](https://www.corda.net/samples/).
 
 The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](key-concepts-node.md).
 
@@ -84,7 +84,7 @@ The project containing the sample CorDapp opens.
 
 
 
-### Step 3: Deploy the CorDapp locally
+## Step 3: Deploy the CorDapp locally
 
 1. Open the command line from the `cordapp-example` directory.
 2. Run the `deployNodes` Gradle task:
@@ -93,14 +93,15 @@ The project containing the sample CorDapp opens.
 
    This builds three nodes with the CorDapp installed on them.
 
-3. When the build finishes, go to the `workflows-java/build/nodes` or `workflows-kotlin/build/nodes` folder.
+3. When the build finishes, go to the `build/nodes` folder.
 
-You will see the following output:
+   You will see the following output:
+
       * A folder for each generated node
       * A `runnodes` shell script for running all the nodes simultaneously on OSX
       * A `runnodes.bat` batch file for running all the nodes simultaneously on Windows
 
-    See **Appendix B** for the node structure.
+See **Appendix B** for the node structure.
 
 
 {{< note >}}
@@ -109,7 +110,7 @@ in [Building and installing a CorDapp](cordapp-build-systems.md).
 {{< /note >}}
 
 
-### Step 4: Launch the sample CorDapp
+## Step 4: Launch the sample CorDapp
 
 To start the nodes and the sample CorDapp:
 
@@ -131,11 +132,13 @@ Look for the `Started Server in X seconds` message &mdash; don’t rely on the %
 
 
 {{< warning >}}
-On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](shell.md).
+On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](shell.md).
 {{< /warning >}}
 
 
-The `runnodes` script creates a node tab/window for each node. It usually takes about 60 seconds for all the nodes to start. Each node displays “Welcome to the Corda interactive shell” along with a prompt.
+The `runnodes` script creates a node tab/window for each node. It usually takes about 60 seconds for all the nodes to start. Each node displays “Welcome to the Corda interactive shell” along with a prompt. Whilst the `runnodes` script terminates, the two commands to start Party A and B do not and should be run in separate terminal windows.
+
+4. **Optional:** If not all the nodes start successfully the first time, close the terminals and run the script again.
 
 ```none
    ______               __
@@ -198,7 +201,7 @@ anti-XSS, anti-XSRF or other security techniques. Do not use this code in produc
 
 #### Create an IOU via the endpoint
 
-You can create an IOU by sending a `PUT` request to the `/create-iou` endpoint directly, or by using the
+You can create an IOU by sending a `POST` request to the `/create-iou` endpoint directly, or by using the
 the web form served from the home directory.
 
 To create an IOU between PartyA and PartyB, run the following command:
@@ -207,7 +210,7 @@ To create an IOU between PartyA and PartyB, run the following command:
 curl -i -X POST 'http://localhost:50005/create-iou?iouValue=12&partyName=O=PartyB,L=New%20York,C=US' -H 'Content-Type: application/x-www-form-urlencoded'
 ```
 
-Note that both PartyA’s port number (`50005`) and PartyB are referenced in the PUT request path. This command
+Note that both PartyA’s port number (`50005`) and PartyB are referenced in the POST request path. This command
 instructs PartyA to agree an IOU with PartyB. Once the process is complete, both nodes will have a signed, notarised
 copy of the IOU.
 
@@ -277,21 +280,30 @@ Corda provides several frameworks for writing unit and integration tests for Cor
 
 
 First, run an integration test to calibrate your environment.
-1. Go to `Workflows` > `src` > `IntegrationTest` > `DriverBasedTest`.
-2. Select the **green arrow** next to the test code. This will open the Run Terminal.
+1. Go to:
+   * Kotlin: `workflows > src > integrationTest > kotlin > net.corda.samples.example > DriverBasedTest`
+   * Java: `workflows > src > integrationTest > java > net.corda.samples.example > DriverBasedTest`
+
+2. Select the **green arrow** next to the test code. This will open the `Run Terminal`.
 
 ### Contract tests
 
 You can run the CorDapp’s contract tests by running the `Run Contract Tests - Java` run configuration.
 
-1. Go to `Workflow` > `src` > `test` > `ContractTests`.
+1. Go to:
+   * Kotlin: `contracts > src > test > kotlin > net.corda.samples.example.contracts > ContractTests`
+   * Java: `contracts > src > test > java > net.corda.samples.example.contracts > ContractTests`
+
 2. Select the arrow next to the test code. Choose the arrow at the top to run all the tests at once, or select the arrow next to a particular section to test it individually.
 
 ### Flow tests
 
 You can run the CorDapp’s flow tests by running the `Run Flow Tests - Java` run configuration.
 
-1. Go to `Workflow` > `src` > `test` > `FlowTests`.
+1. Go to:
+   * Kotlin: `workflows > src > test > kotlin > net.corda.samples.example > FlowTests.kt`
+   * Java: `workflows > src > test> java > net.corda.samples.example > FlowTests`
+
 2. Select the **arrow** next to the test code. Choose the arrow at the top to run all the tests at once, or select the arrow next to a particular section to test it individually.
 
 ### Debug a test
@@ -314,9 +326,9 @@ If your test fails, run a Gradle test instead of a unit test.
 * [Build a CorDapp](cordapp-build-systems.md)
 
 
-## Appendix A: Project structure
+## Appendix A: Projects' structure
 
-The `cordapp-example` folder is structured as follows:
+The `cordapp-example` Java folder is structured as follows:
 
 
 ```none
@@ -327,52 +339,54 @@ The `cordapp-example` folder is structured as follows:
 │   └── src
 │       └── main
 │           ├── java
-│           │   └── com
-│           │       └── example
-│           │           └── server
-│           │               ├── CONSTANTS.java
-│           │               ├── MainController.java
-│           │               ├── NodeRPCConnection.java
-│           │               └── Server.java
-│           │  
+│           │   └── net
+│           │       └── corda
+│           │             └── samples
+│           │                   └── example
+│           │                         ├── webserver
+│           │                         │      ├── Controller.java
+│           │                         │      ├── NodeRPCConnection.java
+│           │                         │      └── Starter.java
+│           │                         │
+│           │                         └── Client.java
+│           │                     
 │           └── resources
-│               ├── application.properties
-│               └── public
-│                   ├── index.html
-│                   └── js
-│                       └── angular-module.js
+│                    └── static
+│                           ├── index.html
+│                           └── app.js
+│                       
 ├── config
-│   ├── dev
-│      └── log4j2.xml
+│     ├── dev
+│     │     └── log4j2.xml
+│     └── test
+│            └── log4j2.xml
 │  
 │  
-├── contracts-java
+├── contracts
 │   ├── build.gradle
 │   └── src
-│       └── main
-│           └── java
-│               └── com
-│                   └── example
-│                       ├── contract
-│                       │   └── IOUContract.java
-│                       ├── schema
-│                       │   ├── IOUSchema.java
-│                       │   └── IOUSchemaV1.java
-│                       └── state
-│                           └── IOUState.java
-├── contracts-kotlin
-│   ├── build.gradle
-│   └── src
-│       └── main
-│           └── kotlin
-│               └── com
-│                   └── example
-│                       ├── contract
-│                       │   └── IOUContract
-│                       ├── schema
-│                       │   └── IOUSchema.kt
-│                       └── state
-│                           └── IOUState
+│       ├── main
+│       │    └── java
+│       │        └── net
+│       │              └── corda
+│       │                     └── samples
+│       │                          └── example
+│       │                                ├── contract
+│       │                                │     └── IOUContract.java
+│       │                                ├── schema
+│       │                                │     ├── IOUSchema.java
+│       │                                │     └── IOUSchemaV1.java
+│       │                                └── states
+│       │                                      └── IOUState.java
+│       └── test
+│            └── java
+│                 └── net
+│                      └── corda
+│                            └── samples
+│                                  └── example
+│                                        └── contracts
+│                                              ├── ContractTests.java
+│                                              └── StateTests.java
 ├── gradle
 │   └── wrapper
 │       ├── gradle-wrapper.jar
@@ -382,61 +396,154 @@ The `cordapp-example` folder is structured as follows:
 │   ├── README.txt
 │   └── quasar.jar
 │ 
-├── workflows-java
+├── workflows
 │   ├── build.gradle
 │   └── src
-│       ├── integrationTest
-│       │   └── java
-│       │       └── com
-│       │           └── example
-│       │               └── DriverBasedTests.java
-│       ├── main
-│       │   └── java
-│       │       └── com
-│       │           └── example
-│       │               └── flow
-│       │                   └── ExampleFlow.java
-│       └── test
-│           └── java
-│               └── com
-│                   └── example
-│                       ├── NodeDriver.java
-│                       ├── contract
-│                       │   └── IOUContractTests.java
-│                       └── flow
-│                           └── IOUFlowTests.java
-├──  workflows-kotlin
-│    ├── build.gradle
-│    └── src
 │        ├── integrationTest
-│        │   └── kotlin
-│        │       └── com
-│        │           └── example
-│        │               └── DriverBasedTests.kt
+│        │   └── java
+│        │        └── net
+│        │             └── corda
+│        │                  └── samples
+│        │                         └── example
+│        │                                └── DriverBasedTests.java
 │        ├── main
-│        │   └── kotlin
-│        │       └── com
-│        │           └── example
-│        │               └── flow
-│        │                   └── ExampleFlow.kt
+│        │   ├── java
+│        │   │    └── net
+│        │   │        └── corda
+│        │   │              └── samples
+│        │   │                     └── example
+│        │   │                           └── flows
+│        │   │                                 └── ExampleFlow.java
+│        │   └── resources
+│        │            └── migration
+│        │                     ├── iou.changelog-master.xml
+│        │                     └── iou.changelog-v1.xml
+│        │
 │        └── test
-│            └── kotlin
-│                └── com
-│                    └── example
-│                        ├── NodeDriver.kt
-│                        ├── contract
-│                        │   └── IOUContractTests.kt
-│                        └── flow
-│                            └── IOUFlowTests.kt
+│            └── java
+│                └── net
+│                     └── corda
+│                           └── samples
+│                                 └── example
+│                                        └── FlowTests.java
+│
+├── LICENCE
+├── README.md
+├── TRADEMARK
 ├── build.gradle
 ├── gradle.properties
 ├── gradlew
 ├── gradlew.bat
+├── repositories.gradle
+└── settings.gradle
+
+```
+
+The `cordapp-example` Kotlin folder is structured as follows:
+
+
+```none
+.
+
+├── clients
+│   ├── build.gradle
+│   └── src
+│       └── main
+│           ├── kotlin
+│           │   └── net
+│           │       └── corda
+│           │             └── samples
+│           │                   └── example
+│           │                         ├── webserver
+│           │                         │      ├── Controller.kt
+│           │                         │      ├── NodeRPCConnection.kt
+│           │                         │      └── Server.kt
+│           │                         │
+│           │                         └── Client.kt
+│           │                     
+│           └── resources
+│                    └── static
+│                           ├── index.html
+│                           └── app.js
+├── config
+│   ├── dev
+│   │   └── log4j2.xml
+│   └──test
+│        └── log4j2.xml
+│  
+│
+├── contracts
+│   ├── build.gradle
+│   └── src
+│       ├── main
+│       │    └── kotlin
+│       │        └── net
+│       │            └── corda
+│       │                 └── samples
+│       │                       └── example
+│       │                             ├── contract
+│       │                             │     └── IOUContract.kt
+│       │                             ├── schema
+│       │                             │     └── IOUSchema.kt
+│       │                             └── states
+│       │                                   └── IOUState.kt                                                    
+│       └── test
+│            └── kotlin
+│                 └── net
+│                      └── corda
+│                            └── samples
+│                                  └── example
+│                                        └── contracts
+│                                              ├── ContractTests.kt
+│                                              └── StateTests.kt
+│           
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+│ 
+│
+├──  workflows
+│    ├── build.gradle
+│    └── src
+│        ├── integrationTest
+│        │   └── kotlin
+│        │       └── net
+│        │            └── corda
+│        │                 └── samples
+│        │                         └── example
+│        │                                └── DriverBasedTests.kt
+│        ├── main
+│        │   ├── kotlin
+│        │   │    └── net
+│        │   │        └── corda
+│        │   │              └── samples
+│        │   │                     └── example
+│        │   │                           └── flows
+│        │   │                                 └── ExampleFlow.kt
+│        │   └── resources
+│        │            └── migration
+│        │                     ├── iou.changelog-master.xml
+│        │                     └── iou.changelog-v1.xml
+│        │
+│        └── test
+│            └── kotlin
+│                └── net
+│                     └── corda
+│                           └── samples
+│                                 └── example
+│                                        └── FlowTests.kt
 ├── LICENCE
 ├── README.md
+├── TRADEMARK
+├── build.gradle
+├── constans.properties
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
 ├── repositories.gradle
-├── settings.gradle
-└── TRADEMARK
+└── settings.gradle
+
 
 ```
 
@@ -445,8 +552,7 @@ The key files and directories are as follows:
 * The **root directory** contains some gradle files, a `README`, a `LICENSE`, and a `TRADEMARK` statement.
 * **clients** contains the source code for Spring Boot integration.
 * **config** contains the Log4j 2 configuration.
-* **contracts-java** and **workflows-java** contain the source code for the sample CorDapp written in Java.
-* **contracts-kotlin** and **workflows-kotlin** contain the same source code, but written in Kotlin. CorDapps can be developed in either Java and Kotlin
+* **contracts** and **workflows** contain the source code for the sample CorDapp. CorDapps can be developed in either Java or Kotlin.
 * **gradle** contains the Gradle Wrapper, which allows the use of Gradle without installing it yourself and worrying about which version is required.
 * **lib** contains the Quasar jar, which rewrites your CorDapp’s flows to be checkpointable.
 

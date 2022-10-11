@@ -16,20 +16,52 @@ weight: 90
 
 Corda supports a subset of the platforms that are supported by [Java](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html).
 
-Production use of Corda Enterprise 4.8 is only supported on Linux OS, see details below.
+Production use of Corda Enterprise Edition 4.8 is only supported on Linux OS, see details below.
 
 ## JDK support
 
-Corda Enterprise 4.8 has been tested and verified to work with **Oracle JDK 8 JVM 8u251** and **Azul Zulu Enterprise 8u252**, for Azure deployment downloadable from
+Corda Enterprise Edition 4.8 has been tested and verified to work with **Oracle JDK 8 JVM 8u251** and **Azul Zulu Enterprise 8u252**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
-Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise 4.8.
+Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.8.
 
 {{< warning >}}
 In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html),
 which outlines the end of public updates of Java SE 8 for commercial use, please ensure you have the correct Java support contract in place
 for your deployment needs.
 {{< /warning >}}
+
+## Docker Images
+
+The Docker images used for the Kubernetes deployment are listed below for reference:
+
+{{< table >}}
+| Service           | Image name                                                  |
+|-------------------|-------------------------------------------------------------|
+| Identity Manager  | `corda/enterprise-identitymanager:1.5.4-zulu-openjdk8u242`  |
+| Network Map       | `corda/enterprise-networkmap:1.5.4-zulu-openjdk8u242`       |
+| Signing           | `corda/enterprise-signer:1.5.4-zulu-openjdk8u242`           |
+| Zone              | `corda/enterprise-zone:1.5.4-zulu-openjdk8u242`             |
+| Auth              | `corda/enterprise-auth:1.5.4-zulu-openjdk8u242`             |
+| Gateway           | `corda/enterprise-gateway:1.5.4-zulu-openjdk8u242`          |
+| PKI Tool          | `corda/enterprise-pkitool:1.5.4-zulu-openjdk8u242`          |
+| Notary            | `corda/enterprise-notary:4.5.9-zulu-openjdk8u242`           |
+{{< /table >}}
+
+## JDKs supported in development
+
+Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
+
+{{< table >}}
+
+|Supported JDKs|Latest supported version|
+|-----------------------------------|-----------|
+|[Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)|8u321|
+|[Amazon Corretto 8](https://aws.amazon.com/corretto/)|8.252.09.1|
+|[Red Hat's OpenJDK](https://developers.redhat.com/products/openjdk/overview/)|8u322|
+|[Zulu's OpenJDK](https://www.azul.com/)|8u322b06|
+
+{{< /table >}}
 
 ## Operating systems supported in production
 
@@ -65,7 +97,7 @@ for your deployment needs.
 |Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.3|PostgreSQL JDBC Driver 42.1.4 / 42.2.8|
+|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.3|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
 
 {{< /table >}}
 
@@ -83,9 +115,9 @@ for your deployment needs.
 
 {{< table >}}
 
-|Vendor|CPU architecture|Versions|JDBC driver|
+|Vendor|CPU Architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|20.1.7|PostgreSQL JDBCDriver 42.2.9|
+|CockroachDB|x86-64|21.2.x|PostgreSQL JDBCDriver 42.2.9|
 |Oracle RAC|x86-64|19c|Oracle JDBC 8|
 
 {{< /table >}}

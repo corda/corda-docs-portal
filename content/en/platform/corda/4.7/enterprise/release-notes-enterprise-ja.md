@@ -15,7 +15,7 @@ title: Corda Enterprise release notes (Japanese)
 
 # Corda Enterpriseリリースノート
 
-## Corda Enterprise 4.7のリリース概要
+## Corda Enterprise Edition 4.7のリリース概要
 
 今回のリリースでは、数々の新機能と機能強化が導入されているほか、以前のリリースに存在した既知の問題が解決されます。
 
@@ -23,7 +23,7 @@ title: Corda Enterprise release notes (Japanese)
 
 Corda 3.0以上で有効なStateやCordappはCorda 4.7でもお使いいただけます。
 
-Corda Enterprise 4.7における主な新機能と機能強化は以下の通りです：
+Corda Enterprise Edition 4.7における主な新機能と機能強化は以下の通りです：
 
 * [アーカイブサービス](#アーカイブサービス)
 * [改善されたノータリーのバックプレッシャーメカニズム](#改善されたnotaryのバックプレッシャーメカニズム)
@@ -35,7 +35,7 @@ Corda Enterprise 4.7における主な新機能と機能強化は以下の通り
 * [HSM API](#その他の変更と改善)
 
 {{< note >}}
-このページでは、Corda Enterprise 4.7に特有の機能のみを記載しています。しかし、Corda Enterpriseのお客様は、Cordaオープンソースリリースの一部としてご利用いただける機能をすべて活用できます。
+このページでは、Corda Enterprise Edition 4.7に特有の機能のみを記載しています。しかし、Corda Enterpriseのお客様は、Cordaオープンソースリリースの一部としてご利用いただける機能をすべて活用できます。
 
 Corda 4.7の一環として提供される以下のような新機能、機能強化、修正については、[Cordaオープンソースリリースノート](../../corda-os/4.7/release-notes-ja.md)をご覧ください。
 
@@ -73,7 +73,7 @@ Notaryのバックプレッシャーカニズムとは
 
 ### Node管理とフロー管理用の新しい管理コンソール
 
-Corda Enterprise 4.7には2種類の新しい管理コンソールが搭載されています：
+Corda Enterprise Edition 4.7には2種類の新しい管理コンソールが搭載されています：
 
 * **Flow管理コンソール**では、ノードで実行されているflowの状態を確認でき、flowに対していくつかの処理を行えます。詳細については、[Flow管理コンソール](node/node-flow-management-console.md)をご覧ください。
 * **ノード管理コンソール**では、ノードについての情報を確認でき、いくつかの処理を行えます。詳細については、[ノード管理コンソール](node/management-console/_index.md)をご覧ください。
@@ -82,15 +82,15 @@ Corda Enterprise 4.7には2種類の新しい管理コンソールが搭載さ�
 
 ### 証明書ローテーション
 
-Corda Enterprise 4.7では、ノード鍵（Legal Identity）とその証明書をローテーションする機能を導入しています。これによって、[Corda Enterprise Network Manager](../../cenm/1.5/_index.md)のNetwork Map上において、新しい証明書を使ってNode（Notary Nodeを含む）を再登録できるようになります。本機能の詳細については、[R3サポート](https://www.r3.com/support/)までお問い合わせください。
+Corda Enterprise Edition 4.7では、ノード鍵（Legal Identity）とその証明書をローテーションする機能を導入しています。これによって、[Corda Enterprise Network Manager](../../cenm/1.5/_index.md)のNetwork Map上において、新しい証明書を使ってNode（Notary Nodeを含む）を再登録できるようになります。本機能の詳細については、[R3サポート](https://www.r3.com/support/)までお問い合わせください。
 
 ### その他の変更と改善
 
 * **Azure ADを使ったシングルサインオン**Azure ADとCorda Authサービスで[簡単な設定](node/azure-ad-sso)を行うだけで、CordaサービスとAzure AD間でシングルサインオン（SSO）設定を運用できるようになりました。
 * **HSM統合サポート**Corda Enterpriseでは、サポートされていないHSMとCorda Enterpriseインスタンスのユーザーによる統合をサポートするようになりました。今回のリリースには、例として使えるJava実装のサンプルと、展開前に実装をテストできるテストスイートが含まれています。HSM統合の書き方ガイドについては[HSMに関する項](operations/deployment/hsm-integration.md/)をご覧ください。
 * **HSMにConfidential Identity鍵を保存する機能**Corda Enterpriseは、nCipher、FuturexとAzure Key VaultのHSMにおけるConfidential Identityに関する鍵の保管をサポートするようになりました。nCipherとAzure Key VaultのHSMではConfidential Identity鍵のネイティブでの利用をサポートし、FuturexのHSMではキーラップモードをサポートします。これらのHSMにおけるConfidential Identity鍵保管の設定については、[HSMに関する項](operations/deployment/hsm-deployment-confidential.md#using-an-hsm-with-confidential-identities/)をご覧ください。
-* **HSM API**Corda Enterprise 4.7では、外部のツール開発者がCorda EnterpriseのHSMサポートを拡張するために使える独自のAPIを有するHSMライブラリーが導入されています。
-* ネットワークへの初期登録（`initial-registration`）時に、Nodeは`identity-private-key`のエイリアス作成を行うようになりました。詳細については、[Nodeのフォルダ構成](node/setup/node-structure.md#node-folder-structure)の項をご覧ください。これまでは、`cordaclientca`と`cordaclienttls`のエイリアスだけが`initial-registration`中に作成され、`identity-private-key`は初回のNode実行時に必要に応じて生成されていました。そのため、Corda Enterprise 4.7では、`nodekeystore.jks`の内容は通常のNode実行中に変更されません（証明書ディレクトリを事前に設定したキー保管で埋められる`devMode = true`を除きます）。
+* **HSM API**Corda Enterprise Edition 4.7では、外部のツール開発者がCorda EnterpriseのHSMサポートを拡張するために使える独自のAPIを有するHSMライブラリーが導入されています。
+* ネットワークへの初期登録（`initial-registration`）時に、Nodeは`identity-private-key`のエイリアス作成を行うようになりました。詳細については、[Nodeのフォルダ構成](node/setup/node-structure.md#node-folder-structure)の項をご覧ください。これまでは、`cordaclientca`と`cordaclienttls`のエイリアスだけが`initial-registration`中に作成され、`identity-private-key`は初回のNode実行時に必要に応じて生成されていました。そのため、Corda Enterprise Edition 4.7では、`nodekeystore.jks`の内容は通常のNode実行中に変更されません（証明書ディレクトリを事前に設定したキー保管で埋められる`devMode = true`を除きます）。
 * Notaryの`batchTimeoutMs`[設定オプション](node/setup/corda-configuration-fields.md#notary)を調整することでパフォーマンス向上を得られる可能性について解説を追加しました。ただし、デフォルト設定は変更されていません。
 
 ## プラットフォームバージョン変更
@@ -116,7 +116,7 @@ Corda 4.7のプラットフォームバージョンは8から9に引き上げら
 * HA Utilitiesツールは、`NATIVE`モードを使っている場合、マスター鍵が不要だと記載したメッセージを記録しません。こうしたメッセージは、`initial-registration`コマンドを使ってNodeを登録している場合に、Nodeログにのみ記録されます。
 * `NATIVE`モードでのConfidential Identityにはマスター鍵が不要のため鍵は生成されていないにもかかわらず、`NATIVE`モードでのHSMのConfidential Identityを使ったNode登録中に、HA Utilitiesツールのログに「Confidential Identityのキーラップを作成しました」という間違ったログエントリーが含まれます。
 * 入力や参照のないTransactionは、出力Stateについて異なるNotaryを有することがあります。その結果、Transactionを発行しているNodeが、そのNotaryとのTransactionのノータリゼーションを行うことなく、出力Stateに任意のNotaryを設定することがあります。
-* Azure KeyVaultのサポートについて、Cordaはまだ、古くなったAzure Java SDKバージョン（1.2.1）に依存しています。これによって、Node運用者が`shadedJar`を自身で構築する必要が生じる場合があります。
+* Azure Key Vaultのサポートについて、Cordaはまだ、古くなったAzure Java SDKバージョン（1.2.1）に依存しています。これによって、Node運用者が`shadedJar`を自身で構築する必要が生じる場合があります。
 * 新しいフロー管理コンソールにおいて、ページのリロード後に、フィルターが適用されていた時と同じ結果を表示せず、列のフィルタリング／ソートが間違ってリセットされることがあります。
 * 新しいフロー管理コンソールとNode管理コンソールにおいて、ユーザーの名前が短すぎると「パスワードの変更」／「ログアウト」のドロップダウンメニューがすべて見えない場合があります。
 * 新しいフロー管理コンソールにおいて、「フローのクエリ」ページ上のカレンダー内の「フローの開始から／まで」のフィールドは2回クリックしないと開けません。
@@ -129,5 +129,5 @@ Corda 4.7のプラットフォームバージョンは8から9に引き上げら
 * 場合によって、カウンターパーティがダウンしている場合やフローが遮断された場合でもNodeがカウンターパーティへの再接続を試み続けることがあります。
 
 {{< note >}}
-上記のリストでは、Corda Enterprise 4.7に特有の既知の問題を記載しています。過去のバージョンに特有の既知の問題については、このページの下部に記載している、以前のCorda Enterpriseのリリースについてのリリースノートをご覧ください。
+上記のリストでは、Corda Enterprise Edition 4.7に特有の既知の問題を記載しています。過去のバージョンに特有の既知の問題については、このページの下部に記載している、以前のCorda Enterpriseのリリースについてのリリースノートをご覧ください。
 {{< /note >}}

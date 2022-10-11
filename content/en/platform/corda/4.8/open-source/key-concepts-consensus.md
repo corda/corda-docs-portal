@@ -19,62 +19,61 @@ title: Consensus
 
 ## Summary
 
-* *To be committed, transactions must achieve both validity and uniqueness consensus*
-* *Validity consensus requires contractual validity of the transaction and all its dependencies*
-* *Uniqueness consensus prevents double-spends*
+* Transactions must achieve *validity consensus* **and** *uniqueness consensus* to be committed to the ledger.
+* Validity consensus determines if a transaction is accepted by the [smart contracts](key-concepts-contracts.md) it references.
+* Uniqueness consensus prevents double-spends.
 
 ## Video
 
 {{% vimeo 214138438 %}}
 
-## Two types of consensus
+## Consensus on Corda
+There must be *consensus* that a proposed transaction is valid before you can add it to the ledger. Blockchains use *consensus mechanisms* to achieve agreement, trust, and security across decentralized networks. You may be familiar with popular mechanisms such as [proof-of-work](https://www.investopedia.com/terms/p/proof-work.asp) or [proof-of-stake](https://www.investopedia.com/terms/p/proof-stake-pos.asp).
 
-Determining whether a proposed transaction is a valid ledger update involves reaching two types of consensus:
-
-* *Validity consensus* - this is checked by each required signer before they sign the transaction
-* *Uniqueness consensus* - this is only checked by a notary service
+Corda is different. You can achieve consensus by proving a transaction is both *valid* and *unique*.
 
 ## Validity consensus
 
-Validity consensus is the process of checking that the following conditions hold both for the proposed transaction,
-and for every transaction in the transaction chain that generated the inputs to the proposed transaction:
+Validity consensus checks that, for the proposed transaction and for every transaction in the backchain that generated the inputs to the proposed transaction:
 
-* The transaction is accepted by the contracts of every input and output state
-* The transaction has all the required signatures
+* The transaction is accepted by the contracts of every input and output state.
+* The transaction has all the required signatures.
 
-It is not enough to verify the proposed transaction itself. We must also verify every transaction in the chain of
-transactions that led up to the creation of the inputs to the proposed transaction.
+This called *walking the chain*.
 
-This is known as *walking the chain*. Suppose, for example, that a party on the network proposes a transaction
-transferring us a treasury bond. We can only be sure that the bond transfer is valid if:
+For example, if a node proposes a transaction
+transferring a treasury bond, the bond transfer is only valid if:
 
-* The treasury bond was issued by the central bank in a valid issuance transaction
-* Every subsequent transaction in which the bond changed hands was also valid
+* The treasury bond was issued by the central bank in a valid issuance transaction.
+* Every subsequent transaction in which the bond changed hands was also valid.
 
-The only way to be sure of both conditions is to walk the transaction’s chain. We can visualize this process as follows:
+Walking the chain for this transaction would look like this:
 
 {{< figure alt="validation consensus" width=80% zoom="/en/images/validation-consensus.png" >}}
-When verifying a proposed transaction, a given party may not have every transaction in the transaction chain that they
-need to verify. In this case, they can request the missing transactions from the transaction proposer(s). The
-transaction proposer(s) will always have the full transaction chain, since they would have requested it when
+
+When verifying a proposed transaction, a node may not have every transaction in the transaction chain that they
+need to verify. In this case, they can request the missing transactions from the transaction proposer. The
+transaction proposer always has the full transaction chain, because they must request it when
 verifying the transaction that created the proposed transaction’s input states.
 
 ## Uniqueness consensus
 
-Imagine that Bob holds a valid central-bank-issued cash state of $1,000,000. Bob can now create two transaction
+Uniqueness consensus is when a [notary](key-concepts-notaries.md) checks that a [node](key-concepts-node.md) hasn't used the same input for multiple transactions.
+
+Imagine that Alice holds a valid central-bank-issued cash state of $1,000,000. Alice can create two transaction
 proposals:
 
-* A transaction transferring the $1,000,000 to Charlie in exchange for £800,000
-* A transaction transferring the $1,000,000 to Dan in exchange for €900,000
+* A transaction transferring the $1,000,000 to Bob in exchange for £800,000.
+* A transaction transferring the $1,000,000 to Charlie in exchange for €900,000.
 
-This is a problem because, although both transactions will achieve validity consensus, Bob has managed to
-“double-spend” his USD to get double the amount of GBP and EUR. We can visualize this as follows:
+Both transactions will achieve validity consensus, yet Alice has managed to “double-spend” her USD to get double the amount of GBP and EUR:
 
 {{< figure alt="uniqueness consensus" width=80% zoom="/en/images/uniqueness-consensus.png" >}}
+
 To prevent this, a valid transaction proposal must also achieve uniqueness consensus. Uniqueness consensus is the
 requirement that none of the inputs to a proposed transaction have already been consumed in another transaction.
 
 If one or more of the inputs have already been consumed in another transaction, this is known as a *double spend*,
-and the transaction proposal is considered invalid.
+and the [notary](key-concepts-notaries.md) marks the transaction proposal as invalid.
 
-Uniqueness consensus is provided by notaries. See [Notaries](key-concepts-notaries.md) for more details.
+

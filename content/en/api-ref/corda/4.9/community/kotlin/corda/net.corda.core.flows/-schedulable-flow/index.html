@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SchedulableFlow - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">SchedulableFlow</a><br/>
+<br/>
+<h1>SchedulableFlow</h1>
+<code><span class="identifier">@Target</span><span class="symbol">(</span>[AnnotationTarget.CLASS]<span class="symbol">)</span> <span class="identifier">@Inherited</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">SchedulableFlow</span></code>
+<p>Any <a href="../-flow-logic/index.html">FlowLogic</a> which is schedulable and is designed to be invoked by a <a href="../../net.corda.core.contracts/-schedulable-state/index.html">net.corda.core.contracts.SchedulableState</a>
+must have this annotation. If it's missing <a href="../-flow-logic-ref-factory/create.html">FlowLogicRefFactory.create</a> will throw an exception when it comes time
+to schedule the next activity in <a href="../../net.corda.core.contracts/-schedulable-state/next-scheduled-activity.html">net.corda.core.contracts.SchedulableState.nextScheduledActivity</a>.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Any <a href="../-flow-logic/index.html">FlowLogic</a> which is schedulable and is designed to be invoked by a <a href="../../net.corda.core.contracts/-schedulable-state/index.html">net.corda.core.contracts.SchedulableState</a>
+must have this annotation. If it's missing <a href="../-flow-logic-ref-factory/create.html">FlowLogicRefFactory.create</a> will throw an exception when it comes time
+to schedule the next activity in <a href="../../net.corda.core.contracts/-schedulable-state/next-scheduled-activity.html">net.corda.core.contracts.SchedulableState.nextScheduledActivity</a>.</p>
+<code><span class="identifier">SchedulableFlow</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

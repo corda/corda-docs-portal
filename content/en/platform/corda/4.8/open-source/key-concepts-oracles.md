@@ -20,34 +20,27 @@ title: Oracles
 
 ## Summary
 
-* *A fact can be included in a transaction as part of a command*
-* *An oracle is a service that will only sign the transaction if the included fact is true*
+* Oracles let [smart contracts](key-concepts-contracts.md) execute based on real-world data.
+* They query, validate, and authenticate information at the request of a [node](key-concepts-node.md).
+* You can minimize the amount of [transaction](key-concepts-transactions.md) data that an oracle sees by [tearing off](key-concepts-tearoffs.md) the portions that the oracle does not need to access.
 
 ## Video
 
 {{% vimeo 214157956 %}}
 
-## Overview
+## What is an oracle?
+Oracles are network services that supply external information to smart contracts. They serve as bridges between Corda networks and the outside world, broadening the uses for [smart contracts](key-concepts-contracts.md) to include agreements that require off-ledger information to execute. This could include anything from the current exchange rate for a transfer of funds, to the weather in Minnesota for an insurance policy.
 
-In many cases, a transaction’s contractual validity depends on some external piece of data, such as the current
-exchange rate. However, if we were to let each participant evaluate the transaction’s validity based on their own
-view of the current exchange rate, the contract’s execution would be non-deterministic: some signers would consider the
-transaction valid, while others would consider it invalid. As a result, disagreements would arise over the true state
-of the ledger.
+Oracles are not the source of information—they're an entity that queries, verifies, and authenticates external data sources, then relays that information back to a [smart contract](key-concepts-contracts.md).
 
-Corda addresses this issue using *oracles*. Oracles are network services that, upon request, provide commands
-that encapsulate a specific fact (e.g. the exchange rate at time x) and list the oracle as a required signer.
+For example, Alice sells Bob an insurance policy that covers a crop failure due to drought. They agree that Alice will pay Bob $50,000 if temperatures on his farm rise above 100 degrees Fahrenheit for seven consecutive days. They can write this into a smart contract that depends on a mutually-trusted API reporting the weather from the National Weather Service. If Bob puts in a claim, the oracle queries the API to determine that the defined drought conditions have been met. If they have, the smart contract executes and Bob receives $50,000 from Alice.
 
-If a node wishes to use a given fact in a transaction, they request a command asserting this fact from the oracle. If
-the oracle considers the fact to be true, they send back the required command. The node then includes the command in
-their transaction, and the oracle will sign the transaction to assert that the fact is true.
+## How oracles work
+If a node wants to assert a fact when proposing a transaction (for example, Bob claiming that his farm is experiencing drought), they can request a command that asserts that fact from the oracle. If the oracle determines the fact to be true (for example, by querying the National Weather Service's API), they send the node the required command. The node can then include the fact (in the form of the command) in their transaction, and the oracle signs the transaction to assert the validity of the fact.
 
-For privacy purposes, the oracle does not require to have access on every part of the transaction and the only
-information it needs to see is their embedded, related to this oracle, command(s). We should also provide
-guarantees that all of the commands requiring a signature from this oracle should be visible to
-the oracle entity, but not the rest. To achieve that we use filtered transactions, in which the transaction proposer(s)
-uses a nested Merkle tree approach to “tear off” the unrelated parts of the transaction. See [Defining transaction tear-offs](key-concepts-tearoffs.md)
-for more information on how transaction tear-offs work.
+Some oracles monetize their services. In that case, you'll need to pay the oracle before they sign the transaction.
 
-If they wish to monetize their services, oracles can choose to only sign a transaction and attest to the validity of
-the fact it contains for a fee.
+## Oracles and privacy
+The oracle doesn't need to see the whole contract–only the part it needs to validate. The node proposing the transaction can [tear off](key-concepts-tearoffs.md) unrelated parts of the contract before the oracle sees it. For example, in Alice and Bob's contract, the oracle is only attesting to the temperature on Bob's farm, so it doesn't need to know how much the insurance policy is for. Bob could tear off that information.
+
+

@@ -1,12 +1,12 @@
 ---
 date: '2020-09-08T12:00:00Z'
-title: "Checksums of release files"
+title: "Release files and checksums"
 menu:
   corda-5-dev-preview:
     identifier: corda-5-dev-preview-1-release-checksums
     parent: corda-5-dev-preview-1-release-notes
     weight: 10
-    name: "Checksums of release files"
+    name: "Release files and checksums"
 section_menu: corda-5-dev-preview
 ---
 
@@ -16,24 +16,22 @@ Before you install the downloaded files, verify the integrity of each file to en
 
 ## cordapp-builder
 
-* cordapp-builder.jar
-  * `90dd04b3f273c042777d703373072cf1924caf88` (sha1)
-  * `818439c3ba40f4c1461a4432c33b8446` (md5)
 * cordapp-builder.zip
-  * `145ddcb3badaff5c2338f23cc3a36a1b0ae528a7` (sha1)
-  * `124a4d30ee36d481b4737fe149f1295c` (md5)
+  * `dc2af4769b75deedd098185937f6e22d15d659d8` (sha1)
+  * `ed16ca99d7c2232ed308332d4fbe638b` (md5)
 * cordapp-builder.tar
-  * `fee00d20de00ed624541e2aa20c9b1a004aae488` (sha1)
-  * `d860dac26751f28454e3cbd61ca273f8` (md5)
+  * `9dc86004067cd73eef1cca4e9faae56f9bcaf2ea` (sha1)
+  * `6ad8041fb1f2563000b3c609c2cf6333` (md5)
 
 ## corda-node-cli
 
 * corda-node-cli.zip
-  * `4e2a74770d6e7451fc946c2444a362a28aab3c61` (sha1)
-  * `c11442575add9b5c484bcb9c11ec5976` (md5)
+  * `8c78e9a88cf6d9f551e143993d6f1fe0c7594176` (sha1)
+  * `08ba42a51de244ccaf2738bc923cd478` (md5)
+
 * corda-node-cli.tar
-  * `e00424809501b17dbee07e487f89cb7c2fe6e8e3` (sha1)
-  * `9298826af64363282d10295f50e4f175`  (md5)
+  * `32a0ff85dec62a65c498f82afd38c39e9068522f` (sha1)
+  * `9c74482c54cf2801f061cfa82618f4bb` (md5)
 
 ## corda-cli
 

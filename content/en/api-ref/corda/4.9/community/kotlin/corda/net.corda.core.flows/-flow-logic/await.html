@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowLogic.await - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowLogic</a>&nbsp;/&nbsp;<a href="./await.html">await</a><br/>
+<br/>
+<h1>await</h1>
+<a name="net.corda.core.flows.FlowLogic$await(net.corda.core.flows.FlowExternalAsyncOperation((net.corda.core.flows.FlowLogic.await.R)))"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">await</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$await(net.corda.core.flows.FlowExternalAsyncOperation((net.corda.core.flows.FlowLogic.await.R)))/operation">operation</span><span class="symbol">:</span>&nbsp;<a href="../-flow-external-async-operation/index.html"><span class="identifier">FlowExternalAsyncOperation</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code>
+<p>Executes the specified <a href="await.html#net.corda.core.flows.FlowLogic$await(net.corda.core.flows.FlowExternalAsyncOperation((net.corda.core.flows.FlowLogic.await.R)))/operation">operation</a> and suspends until operation completion.</p>
+<p>An implementation of <a href="../-flow-external-async-operation/index.html">FlowExternalAsyncOperation</a> should be provided that creates a new future that the state machine awaits
+completion of.</p>
+<a name="net.corda.core.flows.FlowLogic$await(net.corda.core.flows.FlowExternalOperation((net.corda.core.flows.FlowLogic.await.R)))"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">await</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$await(net.corda.core.flows.FlowExternalOperation((net.corda.core.flows.FlowLogic.await.R)))/operation">operation</span><span class="symbol">:</span>&nbsp;<a href="../-flow-external-operation/index.html"><span class="identifier">FlowExternalOperation</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code>
+<p>Executes the specified <a href="await.html#net.corda.core.flows.FlowLogic$await(net.corda.core.flows.FlowExternalOperation((net.corda.core.flows.FlowLogic.await.R)))/operation">operation</a> and suspends until operation completion.</p>
+<p>An implementation of <a href="../-flow-external-operation/index.html">FlowExternalOperation</a> should be provided that returns a result which the state machine will run on a separate
+thread (using the node's external operation thread pool).</p>
+</BODY>
+</HTML>

@@ -38,11 +38,11 @@ helm install nmap nmap --set shell.password="superDifficultPassword"
 | `volumeSizeNmapEtc`           | Volume size for the `etc/` directory                     | `1Gi` |
 | `volumeSizeNmapLogs`          | Volume size for the `logs/` directory                    | `10Gi` |
 | `volumeSizeNmapH2`            | Volume size for the `h2/` directory                      | `10Gi` |
-| `dockerImage.repository`      | URL to Network Map Docker image repository               | `acrcenm.azurecr.io/networkmap/networkmap` |
-| `dockerImage.tag`             | Docker image tag | `1.3` |
+| `dockerImage.repository`      | URL to Network Map Docker image repository               | `corda/enterprise-networkmap` |
+| `dockerImage.tag`             | Docker image tag | `1.3.5-zulu-openjdk8u242` |
 | `dockerImage.pullPolicy`      | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
-| `dockerImageCli.repository`   | URL to CLI image repository | `acrcenm.azurecr.io/cli/cli` |
-| `dockerImageCli.tag`          | Docker image tag | `1.3` |
+| `dockerImageCli.repository`   | URL to CLI image repository | `corda/enterprise-cenm-cli` |
+| `dockerImageCli.tag`          | Docker image tag | `1.3.5-zulu-openjdk8u242` |
 | `dockerImageCli.pullPolicy`   | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `nmapJar.xmx`                 | Value for java -Xmx memory settings | `1G` |
 | `nmapJar.path`                | The directory where the Network Map Service `.jar` file is stored | `bin` |

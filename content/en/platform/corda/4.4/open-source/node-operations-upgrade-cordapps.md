@@ -33,7 +33,7 @@ CorDapps must ship with database migration scripts or clear documentation about 
 
 ## Flow upgrades
 
-If any backwards-incompatible changes have been made (see [What constitutes a non-backwards compatible flow change?](upgrading-cordapps.md#upgrading-cordapps-backwards-incompatible-flow-changes)
+If any backwards-incompatible changes have been made (see [What constitutes a non-backwards compatible flow change?](upgrading-cordapps.html#what-constitutes-a-non-backwards-compatible-flow-change)
 for more information), the upgrade method detailed below will need to be followed. Otherwise the CorDapp JAR can just
 be replaced with the new version.
 
@@ -68,7 +68,7 @@ time.
 In order to perform the upgrade, follow the following steps:
 
 
-* If required, do a flow drain to avoid the definition of states or contracts changing whilst a flow is in progress (see [Flow drains](upgrading-cordapps.md#upgrading-cordapps-flow-drains) for more information)
+* If required, do a flow drain to avoid the definition of states or contracts changing whilst a flow is in progress (see [Flow drains](upgrading-cordapps.html#flow-drains) for more information)
     * By RPC using the `setFlowsDrainingModeEnabled` method with the parameter `true`
     * Via the shell by issuing the following command `run setFlowsDrainingModeEnabled enabled: true`
 
@@ -77,12 +77,19 @@ In order to perform the upgrade, follow the following steps:
     * By RPC using the `stateMachinesSnapshot` method and checking that there are no results
     * Via the shell by issuing the following command `run stateMachinesSnapshot`
 
+    {{< note >}}
+
+    The `stateMachinesSnapshot` method ties the flow ID with the `flowName` class. The result shows you all the flows running in your node.
+    You can use the `flow watch` method instead. It omits all the details returned by `stateMachinesSnapshot` that you don't need.
+
+    {{< /note >}}
+
 
 * Once all flows have completed, stop the node
 * Replace the existing JAR with the new one
 * Make any database changes required to any custom vault tables for the upgraded CorDapp. The database update for a
 CorDapp upgrade follows the same steps as database setup for a new CorDapp. Corda Enterprise users can use the Database
-Management Tool as detailed [here](../../corda-enterprise/4.4/node/operations/node-operations-cordapp-deployment.md/).
+Management Tool as detailed [here](../../../../../en/platform/corda/4.4/enterprise/node/operating/node-operations-cordapp-deployment.md).
 * Restart the node
 * If you drained the node prior to upgrading, switch off flow draining mode to allow the node to continue to receive requests
     * By RPC using the `setFlowsDrainingModeEnabled` method with the parameter `false`

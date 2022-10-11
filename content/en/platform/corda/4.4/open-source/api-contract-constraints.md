@@ -30,7 +30,7 @@ Before reading this page, you should be familiar with the key concepts of [Contr
 {{< /note >}}
 {{< note >}}
 As of Corda 4.4 the *minimumPlatformVersion* required to use these features is 4
-(see [Network Parameters](network-map.md#network-parameters) and [Corda Features and Versions](features-versions.md) for more details).
+(see [Network Parameters](network-map.html#network-parameters) and [Corda Features and Versions](features-versions.md) for more details).
 
 {{< /note >}}
 
@@ -172,16 +172,16 @@ Example 2:
 
 
 Information on blacklisting attachment signing keys can be found in the
-[node configuration documentation](corda-configuration-file.md#corda-configuration-file-blacklisted-attachment-signer-keys).
+[node configuration documentation](corda-configuration-file.html#configuration-file-fields).
 
 More information on how to sign an app directly from Gradle can be found in the
-[CorDapp Jar signing](cordapp-build-systems.md#cordapp-build-system-signing-cordapp-jar-ref) section of the documentation.
+[CorDapp Jar signing](cordapp-build-systems.html#signing-the-cordapp-jar) section of the documentation.
 
 
 ### Using Signature Constraints in transactions
 
 If the app is signed, Signature Constraints will be used by default (in most situations) by the `TransactionBuilder` when adding output states.
-This is expanded upon in [Using Contract Constraints in Transactions](#contract-constraints-in-transactions).
+This is expanded upon in [Using Contract Constraints in Transactions](#using-contract-constraints-in-transactions).
 
 {{< note >}}
 Signature Constraints are used by default except when a new transaction contains an input state with a Hash Constraint. In this
@@ -371,7 +371,7 @@ Java module. This will work but it will effectively publish your entire app onto
 (1) it is inefficient, and (2) it means changes to your flows or other parts of the app will be seen by the ledger
 as a “new app”, which may end up requiring essentially unnecessary upgrade procedures. It’s better to split your
 app into multiple modules: one which contains just states, contracts and core data types. And another which contains
-the rest of the app. See [Modules](writing-a-cordapp.md#cordapp-structure).
+the rest of the app. See [Modules](writing-a-cordapp.md).
 
 {{< /warning >}}
 

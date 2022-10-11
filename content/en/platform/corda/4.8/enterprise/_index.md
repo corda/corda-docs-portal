@@ -2,13 +2,13 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   versions:
-    weight: -650
+    weight: -645
   corda-enterprise-4-8:
     weight: 1
-    name: Corda Enterprise 4.8
+    name: Corda Enterprise Edition 4.8
 project: corda
 section_menu: corda-enterprise-4-8
-title: Corda Enterprise 4.8
+title: Corda Enterprise Edition 4.8
 version: 'Enterprise 4.8'
 ---
 
@@ -25,7 +25,7 @@ transactions that consumes any of the proposed transaction’s input states.
 {{< note >}}
 **Release notes**
 
-* For the latest Corda Enterprise release notes, see the [Corda Enterprise 4.8 release notes](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
+* For the latest Corda Enterprise release notes, see the [Corda Enterprise Edition 4.8 release notes](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
 * For all Corda open source release notes, see the [Corda release notes](../../../../../en/platform/corda/4.8/open-source/release-notes.md) page.
 * For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](../../../../../en/platform/corda/1.5/cenm/release-notes.md) page.
 {{< /note >}}

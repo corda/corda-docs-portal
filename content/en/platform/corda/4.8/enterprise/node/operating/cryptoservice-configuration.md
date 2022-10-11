@@ -191,7 +191,7 @@ Corda must be running with the system property `java.library.path` pointing to t
 Additionally, The JAR containing the Futurex JCA provider (version 3.1) must be put on the class path, or copied to the node’s `drivers` directory.
 The following versions should be used for the required Futurex libraries: 3.1 for the PKCS#11 library and 1.17 for the Futurex JCA library.
 
-## Azure KeyVault
+## Azure Key Vault
 
 There are two methods of authentication when using an Azure Key Vault:
  - Authentication using certificates.
@@ -206,7 +206,7 @@ cryptoServiceName: "AZURE_KEY_VAULT"
 cryptoServiceConf: "az_keyvault.conf"
 ```
 
-The configuration file for Azure Key Vault contains the fields listed below. For details refer to the [Azure KeyVault documentation](https://docs.microsoft.com/en-gb/azure/key-vault).
+The configuration file for Azure Key Vault contains the fields listed below. For details refer to the [Azure Key Vault documentation](https://docs.microsoft.com/en-gb/azure/key-vault).
 
 * **path**:
 The path to the key store for login. Note that the `.pem` file that belongs to your service principal must be created in the pkcs12 format. One way of doing this is by using openssl: `openssl pkcs12 -export -in /home/username/tmpdav8oje3.pem -out keyvault_login.p12`.
@@ -228,7 +228,7 @@ the client id for the login.
 the URL of the key vault.
 
 * **protection**:
-If set to “HARDWARE”, ‘hard’ keys will be used, if set to “SOFTWARE”, ‘soft’ keys will be used [as described in the Azure KeyVault documentation](https://docs.microsoft.com/en-gb/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
+If set to “HARDWARE”, ‘hard’ keys will be used, if set to “SOFTWARE”, ‘soft’ keys will be used [as described in the Azure Key Vault documentation](https://docs.microsoft.com/en-gb/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
 
 Example configuration file:
 
@@ -253,16 +253,19 @@ plugins {
 }
 
 repositories {
-    jcenter()
+  jcenter()
 }
 
 dependencies {
-    compile 'com.azure:azure-security-keyvault-keys:4.2.3'
-    compile 'com.azure:azure-identity:1.2.0'
+  compile 'com.azure:azure-security-keyvault-keys:4.2.3'
+  compile 'com.azure:azure-identity:1.2.0'
 }
 
 shadowJar {
-    archiveName = 'azure-keyvault-with-deps.jar'
+  relocate 'io.netty', 'azure.shaded.io.netty'
+  relocate 'META-INF/native/libnetty', 'META-INF/native/libazure_shaded_netty'
+  relocate 'META-INF/native/netty', 'META-INF/native/azure_shaded_netty'
+  archiveName = 'azure-keyvault-with-deps.jar'
 }
 ```
 
@@ -279,9 +282,6 @@ or if gradle is not on the path but gradlew is in the current directory then run
 ```
 
 This will create a jar called azure-keyvault-with-deps.jar, copy this into the drivers directory.
-
-Note that okhttp3 needs to be shaded as the latest version of this library will raise an exception on a handle leak which version 1.2.1
-of azure key vault has. For further details see [https://github.com/Azure/azure-sdk-for-java/issues/4879](https://github.com/Azure/azure-sdk-for-java/issues/4879)
 
 ### Authentication using Azure Managed Identities
 

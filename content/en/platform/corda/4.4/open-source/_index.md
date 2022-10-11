@@ -7,15 +7,15 @@ menu:
     weight: 120
   corda-os-4-4:
     weight: 1
-    name: Corda open source 4.4
+    name: Corda Open Source 4.4
 project: corda
 section_menu: corda-os-4-4
-title: Corda open source 4.4
+title: Corda Open Source 4.4
 version: 'Open source 4.4'
 ---
 
 
-# Welcome to Corda !
+# Welcome to Corda!
 
 [Corda](https://www.corda.net/) is an open-source blockchain platform. If you’d like a quick introduction to blockchains and how Corda is different, then watch this short video:
 
@@ -23,7 +23,7 @@ version: 'Open source 4.4'
 
 
 **Want to start coding on Corda?** Familiarise yourself with the [key concepts](../../../../../en/platform/corda/4.4/open-source/key-concepts.md), then read
-our tutorial [Writing a CorDapp using a template](../../../../../en/tutorials/corda/4.8/os/template-tutorial/writing-a-cordapp-using-a-template.md).
+our tutorial [Writing a CorDapp using a template](../../../../../en/tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-intro.md).
 
 **Want background reading material?** The [introductory white paper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/) describes Corda’s mission and philosophy. It’s suitable for a business
 audience. The [technical white paper](https://www.r3.com/white-papers/corda-technical-whitepaper/) describes the architecture and protocol.

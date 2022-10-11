@@ -269,7 +269,7 @@ Database configuration
 * `runMigration`
   Boolean on whether to run the database migration scripts at startup. In production   please keep it false. For more information please
   check [Database management scripts](database-management.md). If migration is not run, on startup, the node will   check if it's running on the correct database version.
-  The property is used only when a node runs against a database other than H2, and it's   replaced by the `initialiseSchema` property for other databases.
+  The property is used only when a node runs against a database other than H2, and it's   replaced by the `initialiseSchema` property for H2 databases.
 
   *Default:* false
 
@@ -352,7 +352,7 @@ To add additional data source properties (for a specific JDBC driver) use the `d
 
   Allows fine-grained controls of various features only available in the enterprise version of Corda.
 
-* `mutualExclusion`
+* `mutualExclusionConfiguration`
     Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).
 
   * `on`
@@ -459,13 +459,9 @@ To add additional data source properties (for a specific JDBC driver) use the `d
 
     *Default:* `false`
 
-### `tuning`
+* `tuning` Performance tuning parameters for Corda Enterprise.
 
-Performance tuning parameters for Corda Enterprise
-
-* `flowThreadPoolSize`
-  
-  The number of threads available to handle flows in parallel. This is the number of flows
+  * `flowThreadPoolSize` The number of threads available to handle flows in parallel. This is the number of flows
   that can run in parallel doing something and/or holding resources like database connections.
   A larger number of flows can be suspended, for example, waiting for reply from a counterparty.
   When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
@@ -480,8 +476,7 @@ using for example H2, any number beyond eight does not add any substantial benef
 architecture. For these reasons, the default size for the flow framework thread pool is the lower number between either
 the available number of processors times two, and 30. Overriding this value in the configuration allows you to specify any number.
 
-* `rpcThreadPoolSize`
-  The number of threads handling RPC calls - this defines how many RPC requests can be   handled
+  * `rpcThreadPoolSize` The number of threads handling RPC calls - this defines how many RPC requests can be   handled
   in parallel without queueing. The default value is set to the number of available   processor cores.
   Incoming RPC calls are queued until a thread from this
   pool is available to handle the connection, prepare any required data and start the   requested flow. As this
@@ -489,17 +484,15 @@ the available number of processors times two, and 30. Overriding this value in t
   On a multicore machine with a large `flowThreadPoolSize`, this might need to be   increased, to avoid flow
   threads being idle while the payload is being deserialized and the flow invocation run.
 
-  If there are idling flow threads while RPC calls are queued, it might be worthwhile   increasing this number slightly.
+    If there are idling flow threads while RPC calls are queued, it might be worthwhile   increasing this number slightly.
   Valid values for this property are between 4 (that is the number used for the single   threaded state machine in
   open source) and the number of flow threads.
 
-* `journalBufferTimeout`
-  The interval (in nanoseconds) at which Artemis messages that are buffered in-memory   will be flushed to disk,
+  * `journalBufferTimeout` The interval (in nanoseconds) at which Artemis messages that are buffered in-memory   will be flushed to disk,
   if the buffer hasn't been filled yet. Setting this to 0 will disable the internal   buffer and writes will be
   written directly to the journal file.
 
-* `journalBufferSize`
-  The size of the in-memory Artemis buffer for messages, in bytes. Note that there is a   lower bound to the buffer size, which
+  * `journalBufferSize` The size of the in-memory Artemis buffer for messages, in bytes. Note that there is a   lower bound to the buffer size, which
   is calculated based on the maximum message size of the network parameters to ensure   messages of any allowed size can be stored
   successfully. As a result, any value lower than this bound will be ignored with the   appropriate logging. This bound is also
   used as the default, if no value is specified.

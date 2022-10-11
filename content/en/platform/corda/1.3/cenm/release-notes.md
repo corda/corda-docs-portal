@@ -16,6 +16,32 @@ title: Release notes
 
 # Release notes
 
+## Corda Enterprise Network Manager 1.3.5
+
+CENM 1.3.5 fixes an urgent security issue caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version v2.17.1.
+
+### Fixed issues
+
+* The Log4j dependency has been updated to version 2.17.1 to fix pre-existing Log4j issues.
+
+## Corda Enterprise Network Manager 1.3.4
+
+{{< note >}}
+
+This is a direct upgrade from 1.3.2 No version 1.3.3 was released.
+
+{{< /note >}}
+
+CENM 1.3.4 fixes an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version 2.16.0.
+
+{{< warning >}}
+Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). This is the most secure way to mitigate any risks associated with this vulnerability.
+{{< /warning >}}
+
+### Fixed issues
+
+We have updated the Log4j dependency to version 2.16.0 to mitigate CVE-2021-44228.
+
 ## Corda Enterprise Network Manager 1.3.2
 
 CENM 1.3.2 introduces fixes to known issues in CENM 1.3.
@@ -143,7 +169,7 @@ See [CRL Endpoint Check Tool](crl-endpoint-check-tool.md) for usage and further 
 
 **Assisted Node Registration**
 
-We introduced a new field in both Corda and Network Manager that can be used to enable a variety of onboarding workflows that might start prior to and continue after the Certificate Signing Request of the Node. In doing so, a Network Operator can embed the node registration process as part of a larger onboarding workflow or simply speed up/automate the process of reviewing a CSR and issuing a certificate. This feature requires nodes on Corda or Corda Enterprise 4.4 or above.
+We introduced a new field in both Corda and Network Manager that can be used to enable a variety of onboarding workflows that might start prior to and continue after the Certificate Signing Request of the Node. In doing so, a Network Operator can embed the node registration process as part of a larger onboarding workflow or simply speed up/automate the process of reviewing a CSR and issuing a certificate. This feature requires nodes on Corda or Corda Enterprise Edition 4.4 or above.
 
 See identity.manager for more information on how to make use of this feature.
 

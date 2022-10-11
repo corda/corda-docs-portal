@@ -30,23 +30,29 @@ This deployment guide is intended for use by either of the following types of CE
 
 ### Prerequisites
 
-The reference deployment for Corda Enterprise Network Manager runs on [Kubernetes](https://kubernetes.io/) hosted on Microsoft Azure Cloud.
-Microsoft Azure provides a dedicated service to deploy a Kubernetes cluster - [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
-You must have an active Azure subscription to be able to deploy CENM.
-The next section [Deploy your network](#deploy-your-network) contains links to the official Microsoft installation guide.
-The Kubernetes cluster must have access to a private Docker repository to obtain CENM Docker images.
-
-Your local machine operating system should be Linux, Mac OS, or a Unix-compatible environment for Windows
+* Your local machine operating system should be Linux, Mac OS, or a Unix-compatible environment for Windows
 (for example, [Cygwin](https://www.cygwin.com/)) as the deployment uses Bash scripts.
-The deployment process is driven from your local machine using a Bash script and several third-party tools:
-[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest),
-[Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [Helm](https://helm.sh/).
-The following section [Deploy your network](#deploy-your-network) provides links to official installation guides of the required tools.
-In addition, the CENM Command-Line Interface (CLI) tool is required so you can connect to, and manage CENM (however, this is not required for deployment).
+
+* The deployment process is driven from your local machine using a Bash script and several third-party tools:
+  * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+  * [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+  * [Helm](https://helm.sh/)
+
+* The [Deploy your network](#deploy-your-network) section provides links to installation guides for the required tools.
+The reference deployment for Corda Enterprise Network Manager runs on [Kubernetes](https://kubernetes.io/) hosted on Microsoft Azure Cloud. You must have an active Azure subscription to be able to deploy CENM.
+Microsoft Azure provides a dedicated service to deploy a Kubernetes cluster - [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/). The Kubernetes cluster must have access to a private Docker repository to obtain CENM Docker images.
+
+* The CENM Command-Line Interface (CLI) tool is required to connect to and manage CENM. It is not required for deployment.
+
+{{< note >}}
+
+For the best CENM deployment performance with Kubernetes, you must set up the AKS cluster and its storage accounts in the same geographical region.
+
+{{< /note >}}
 
 ### Compatibility
 
-The deployment scripts are compatible with Corda Enterprise Network Manager version 1.3 only.
+The deployment scripts are compatible with Corda Enterprise Network Manager version 1.4.
 The deployed network runs on Kubernetes minimum version 1.16.9 and Helm minimum version 3.1.1.
 
 ## Deployment
@@ -58,7 +64,7 @@ Each service runs in its own dedicated Kubernetes pod, with the exception of the
 
 {{< note >}}
 Naturally, the following command will not show a dedicated Angel Service pod:
-kubectl get pods -o wide
+`kubectl get pods -o wide`
 
 The Angel Service and its managed service must both be healthy in order for the pod they are running on to healthy. This means that the pod has a status `RUNNING` if both services are running fine, and a status `DOWN` if **any** of the two services (or both) is down.
 {{< /note >}}
@@ -108,7 +114,7 @@ The deployment steps are given below:
 - Download the Docker image with CENM [Command-Line Interface (CLI) tool](cenm-cli-tool.md) so you can manage CENM services:
 
 ```bash
-  docker pull corda/enterprise-cenm-cli:1.4-zulu-openjdk8u242
+  docker pull corda/enterprise-cenm-cli:1.4.4-zulu-openjdk8u242
 ```
 
 #### 2. Set up the Kubernetes cluster
@@ -123,24 +129,22 @@ The deployment steps are given below:
 - Connect to [your cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal#connect-to-the-cluster)
   from your local machine.
 
-#### 3. Create storage class and namespace
+#### 3. Download CENM deployment scripts
 
-Run the following instruction once the previous points have been cleared:
+You can find the files required for the following steps in [CENM deployment repo](https://github.com/corda/cenm-deployment).
 
-`All the examples below use the namespace **cenm**`
+#### 4. Create storage class and namespace
+
+Run the following instruction once the previous points have been cleared. These examples use the namespace **cenm**:
 
 ```bash
-kubectl apply -f deployment/k8s/storage-class-[aws|azure].yaml
-kubectl apply -f deployment/k8s/cenm.yaml
+kubectl apply -f k8s/storage-class-[aws|azure].yaml
+kubectl apply -f k8s/cenm.yaml
 export nameSpace=cenm
 kubectl config set-context $(kubectl config current-context) --namespace=${nameSpace}
 ```
 
 You can verify this with the command `kubectl get ns`.
-
-#### 4. Download CENM deployment scripts
-
-You can find the files required for the following steps in [CENM deployment repo](https://github.com/corda/cenm-deployment).
 
 #### 5. External database setup
 
@@ -154,7 +158,7 @@ and an explanation of CENM database configuration options.
 
 **Option 1:** Bootstrap by allocating new external IP addresses
 
-To bootstrap your network, run the `bootstrap.cenm` script from the `/k8s/helm` directory.
+To bootstrap your network, run the `bootstrap.cenm` script from the `k8s/helm` directory.
 The script includes the `--ACCEPT_LICENSE Y` argument, which is mandatory and confirms that you have read and accepted the license agreement.
 
 ```bash
@@ -175,7 +179,7 @@ You can use the following bootstrap options when running bootstrap:
 Usage:
 
 ```bash
-cd network-services/deployment/k8s/helm
+cd k8s/helm
 ./bootstrap.cenm <option>
 ```
 
@@ -195,7 +199,7 @@ kubectl get pods -o wide
 If your external IPs have been already allocated you can reuse them by specifying their services names:
 
 ```bash
-cd network-services/deployment/k8s/helm
+cd k8s/helm
 ./bootstrap.cenm -i idman-ip -n notary-ip
 ```
 
@@ -206,7 +210,7 @@ Use the CENM [Command Line Interface (CLI) Tool](cenm-cli-tool.md) to access the
 To start CENM CLI Tool, run Docker command starting Docker container with the tool:
 
   ```bash
-  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.4-zulu-openjdk8u242
+  docker run  -it --env ACCEPT_LICENSE=Y --name=cenm-cli corda/enterprise-cenm-cli:1.4.4-zulu-openjdk8u242
   ```
 
 The welcome message will appear:
@@ -351,7 +355,7 @@ database {
 
 Use the CENM [Command-Line (CLI) tool](cenm-cli-tool.md) to run commands to update the network parameters.
 
-See the official CENM documentation for more information about the list of available [network parameters](./config-network-parameters.html)
+See the CENM documentation for more information about the list of available [network parameters](./config-network-parameters.html)
 and instructions on [updating network parameters](./updating-network-parameters.html).
 
 ### Run Flag Day
@@ -399,10 +403,9 @@ The following sections describes how to customise various aspects of the deploym
 
 ### Using Azure Key Vault
 
-The deployment process provides built-in support for Azure Key Vault in order to secure the key stores
-generated by the PKI tool.
+The deployment process provides built-in support for Azure Key Vault in order to secure the key stores generated by the PKI tool.
 
-Once you have created an Azure Key Vault that you want to use, perform the following steps:
+Create an Azure Key Vault following the instructions in the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-cli). Then, perform these steps:
 
 1. Modify the HSM pod configuration to contain the required library `.jar` files.
 2. Modify PKI `values.yaml` configuration file.
@@ -413,7 +416,8 @@ Once you have created an Azure Key Vault that you want to use, perform the follo
 
 The HSM pod is a helper pod, which loads a defined Docker image and attempts to load the folder containing the HSM-related
 files as a volume for the other pods to use. Follow the steps below:
-1. [Create the library jar](#using-azure-key-vault).
+
+1. <a href="signing-service.html#azure-key-vault">Create the library `.jar`</a>
 2. Create a Docker image containing the `.jar` file and the `.pkcs12` file used as the key store path.
 
 The Docker image and the directory where these files are stored must be specified in the relevant variables in the HSM `values.yaml` file.
@@ -423,21 +427,25 @@ Note that you may need to add permissions to your cluster to download the Docker
 
 You must modify the following values in the `values.yaml` file:
 
-`pkiJar.configFile: pki-azure.conf`
-`signingKeys.keyStore.keyVaultUrl: <your vault url>`
-`signingKeys.credentials.clientId: <the client ID that will access the vault>`
-`signingKeys.credentials.keyStorePassword: <the password of the .pkcs12 file>`
-`signingKeys.credentials.keyStoreAlias: <the alias of the .pkcs12 file>`
+```bash
+pki:
+  keyStores:
+    keyVaultUrl: "<your vault url>"
+    credentials:
+      keyStorePassword: "<the password of the .pkcs12 file>"
+      keyStoreAlias: "<the alias of the .pkcs12 file>"
+      clientId: "<the client ID that will access the vault>"
+```
 
 #### Modify Signing Service configuration
 
 You must modify the following values in the `values.yaml` file:
 
-`signerJar.configFile: signer-azure.conf`
-`signingKeys.keyStore.keyVaultUrl: <your vault url>`
-`signingKeys.credentials.clientId: <the client ID that will access the vault>`
-`signingKeys.credentials.keyStorePassword: <the password of the .pkcs12 file>`
-`signingKeys.credentials.keyStoreAlias: <the alias of the .pkcs12 file>`
+* `signerJar.configFile: signer-azure.conf`
+* `signingKeys.keyStore.keyVaultUrl: <your vault url>`
+* `signingKeys.credentials.clientId: <the client ID that will access the vault>`
+* `signingKeys.credentials.keyStorePassword: <the password of the .pkcs12 file>`
+* `signingKeys.credentials.keyStoreAlias: <the alias of the .pkcs12 file>`
 
 ### Service Chart Settings
 
@@ -471,7 +479,7 @@ The example below shows a PostgresSQL installation that runs inside the same Kub
 
 #### Example PostgreSQL database setup inside the Kubernetes cluster
 
-A PostgreSQL database can be installed inside the Kubernetes cluster using a third-party [Bitami Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/postgresql):
+A PostgreSQL database can be installed inside the Kubernetes cluster using a third-party [Bitnami Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/postgresql):
 
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -487,7 +495,7 @@ the following DDL commands:
 ```bash
 CREATE DATABASE <DATABASE>;
 CREATE USER <USER> WITH PASSWORD '<PASSWORD>';
-GRANT ALL PRIVILEGES ON DATABASE <USER> to <DATABASE>;
+GRANT ALL PRIVILEGES ON DATABASE <DATABASE> to <USER>;
 ```
 
 For each service (Identity Manager, Network Map, Zone, and Auth), use different `<DATABASE>` name and `<USER>` -
@@ -555,7 +563,7 @@ If you want to modify the deployment's configuration but not in the `values.yaml
 {{< /note >}}
 
 ```bash
-cd cenm-deployment/k8s/helm
+cd k8s/helm
 
 # These Helm charts trigger public IP allocation
 helm install cenm-idman-ip idman-ip --set prefix=cenm
@@ -570,7 +578,7 @@ idmanPublicIP=$(kubectl get svc cenm-idman-ip -o jsonpath='{.status.loadBalancer
 # These Helm charts bootstrap the rest of the CENM services
 helm install cenm-pki pki --set idmanPublicIP=${idmanPublicIP} --set prefix=cenm --set acceptLicense=Y
 helm install cenm-auth auth --set prefix=cenm --set acceptLicense=Y
-helm install cenm-farm farm --set prefix=cenm --set acceptLicense=Y
+helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=Y
 helm install cenm-zone zone --set prefix=cenm --set acceptLicense=Y
 helm install cenm-signer signer --set idmanPublicIP=${idmanPublicIP} --set prefix=cenm --set acceptLicense=Y
 helm install cenm-idman idman --set prefix=cenm --set acceptLicense=Y
@@ -583,7 +591,7 @@ helm install cenm-notary notary --set notaryPublicIP=${notaryPublicIP} --set pre
 helm install cenm-nmap nmap --set prefix=cenm --set acceptLicense=Y
 
 # Run this command to display the IP address of the CENM CLI endpoint
-kubectl get svc cenm-farm -o jsonpath='{.status.loadBalancer.ingress[0].*}'
+kubectl get svc cenm-gateway -o jsonpath='{.status.loadBalancer.ingress[0].*}'
 
 # Run this command to display the IP address of NetworkMap
 kubectl get svc cenm-nmap -o jsonpath='{.status.loadBalancer.ingress[0].*}'
@@ -594,19 +602,4 @@ echo ${idmanPublicIP}
 
 ## Appendix A: Docker Images
 
-The Docker images used for the Kubernetes deployment are listed below for reference:
-
-{{< table >}}
-
-| Service           | Image name                                          |
-|-------------------|-----------------------------------------------------|
-| Identity Manager  | `corda/enterprise-identitymanager:1.4-zulu-openjdk8u242 `     |
-| Network Map       | `corda/enterprise-networkmap:1.4-zulu-openjdk8u242`       |
-| Signing           | `corda/enterprise-signer:1.4-zulu-openjdk8u242`     |
-| Zone              | `corda/enterprise-zone:1.4-zulu-openjdk8u242`       |
-| Auth              | `corda/enterprise-auth:1.4-zulu-openjdk8u242`       |
-| Gateway           | `corda/enterprise-gateway:1.4-zulu-openjdk8u242`    |
-| PKI Tool          | `corda/enterprise-pkitool:1.4-zulu-openjdk8u242`    |
-| Notary            | `corda/enterprise-notary:4.5-zulu-openjdk8u242`     |
-
-{{< /table >}}
+Visit the [platform support matrix](../../../../../en/platform/corda/4.6/enterprise/platform-support-matrix.html#docker-images) for information on Corda Docker Images for version 1.4.

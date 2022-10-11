@@ -8,18 +8,22 @@ section_menu: corda-5-dev-preview
 title: Installing Corda CLI
 ---
 
-Instructions on how to install the Corda CLI tool.
+You can install Corda CLI manually or through automated installation. Before installing via either of these methods, ensure that you have [Docker](https://www.docker.com/) version 18.06.0 or higher installed.
 
 ## Automated installation
 
 Use the bash installation script to automate the manual steps. This script downloads Corda CLI, adds it to the path, and sets the
 auto-completion for Corda CLI to your bash/zsh profile. On Windows the script can run on a git-bash terminal.
 
-Run the bash script:
+1. Run the bash script:
 
-```
-curl "https://download.corda.net/corda-cli/1.0.0-DevPreview/get-corda-cli.sh" | bash
-```
+   ```Bash
+   curl "https://download.corda.net/corda-cli/1.0.0-DevPreview/get-corda-cli.sh" | bash
+   ```
+
+2. Verify installation by opening a new terminal session and running `corda-cli -v`.
+
+   If successful, this will output details of the installed Corda CLI version.
 
 ## Manual installation
 
@@ -71,4 +75,4 @@ If a previous installation of Corda CLI exists, remove it. See [Deleting Corda C
 
 6. Verify installation by opening a new terminal session and running `corda-cli -v`.
 
-   **Step result:** If successful, this will output details of the installed Corda CLI version.
+   If successful, this will output details of the installed Corda CLI version.

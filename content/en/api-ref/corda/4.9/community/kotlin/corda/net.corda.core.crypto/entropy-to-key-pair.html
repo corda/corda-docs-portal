@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>entropyToKeyPair - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="./entropy-to-key-pair.html">entropyToKeyPair</a><br/>
+<br/>
+<h1>entropyToKeyPair</h1>
+<a name="net.corda.core.crypto$entropyToKeyPair(java.math.BigInteger)"></a>
+<code><span class="keyword">fun </span><span class="identifier">entropyToKeyPair</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$entropyToKeyPair(java.math.BigInteger)/entropy">entropy</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html"><span class="identifier">KeyPair</span></a></code>
+<p>Returns a key pair derived from the given private key entropy. This is useful for unit tests and other cases where
+you want hard-coded private keys.</p>
+<h3>Parameters</h3>
+<p><a name="entropy"></a>
+<code>entropy</code> - a <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a> value.</p>
+<p><strong>Return</strong><br/>
+a deterministically generated <a href="https://docs.oracle.com/javase/8/docs/api/java/security/KeyPair.html">KeyPair</a> for the <a href="-crypto/-d-e-f-a-u-l-t_-s-i-g-n-a-t-u-r-e_-s-c-h-e-m-e.html">Crypto.DEFAULT_SIGNATURE_SCHEME</a>.</p>
+</BODY>
+</HTML>

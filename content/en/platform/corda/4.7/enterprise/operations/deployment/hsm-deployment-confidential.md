@@ -83,15 +83,19 @@ The `freshIdentitiesConfiguration` field contains the following attributes:
 
 {{< table >}}
 
-|Attribute|Type|Required|Description|
-|-------------------------|-------------------------|-------------------------|-------------------------|
-|mode|String|Yes|Defines the mode of operation, valid values are: `WRAPPED` or `DEGRADED_WRAPPED`.|
-|masterKeyAlias|String|No|Defines an alias for the wrapping key. The default value is `wrapping-key-alias`.|
-|cryptoServiceConfiguration|N/A|Yes|Contains the `cryptoServiceName` and `cryptoServiceConf` attributes.|
-|cryptoServiceName|String|Yes|Defines the type of HSM. Valid values can be found in the [HSM documentation]({{% ref "hsm-deployment.md" %}}).|
-|cryptoServiceConf|String|Yes|Defines a path to the HSM configuration file to use, for details, see the [HSM documentation]({{% ref "hsm-deployment.md" %}}).|
+| Attribute                  | Type   | Required | Description                                                                                                                     |
+| -------------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| mode                       | String | Yes      | Defines the mode of operation, valid values are: `WRAPPED` or `DEGRADED_WRAPPED`.                                               |
+| masterKeyAlias             | String | No       | Defines an alias for the wrapping key. The default value is `wrapping-key-alias`.                                               |
+| cryptoServiceConfiguration | N/A    | Yes      | Contains the `cryptoServiceName` and `cryptoServiceConf` attributes.                                                            |
+| cryptoServiceName          | String | Yes      | Defines the type of HSM. Valid values can be found in the [HSM documentation]({{% ref "hsm-deployment.md" %}}).                 |
+| cryptoServiceConf          | String | Yes      | Defines a path to the HSM configuration file to use, for details, see the [HSM documentation]({{% ref "hsm-deployment.md" %}}). |
 
 {{< /table >}}
+
+{{< note >}}
+Native mode does not require the `masterKeyAlias` parameter.
+{{< /note >}}
 
 A completed configuration file might appear as follows:
 
@@ -167,7 +171,6 @@ freshIdentitiesConfiguration: {
             cryptoServiceConf: "nshield.conf"
             cryptoServiceTimeout: 10000
     },
-    masterKeyAlias: "ci-master-key-1"
 }
 ```
 
@@ -215,7 +218,6 @@ freshIdentitiesConfiguration: {
           cryptoServiceConf: "az_keyvault.conf"
           cryptoServiceTimeout: 10000
     },
-    masterKeyAlias: "ci-master-key-1"
 }
 ```
 

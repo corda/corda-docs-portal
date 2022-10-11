@@ -459,7 +459,7 @@ List of revocation data (Optional). Each entry in the list should take the follo
 
 
 * **certificateSerialNumber**:
-Serial number of the revoked certificate.
+Serial number of the revoked certificate. The PKI Tool generates certificates with serial number sizes of up to 16 octets/bytes.
 
 
 * **dateInMillis**:

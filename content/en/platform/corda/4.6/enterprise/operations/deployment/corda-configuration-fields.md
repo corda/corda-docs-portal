@@ -900,7 +900,7 @@ This is the non-secret value for the development certificates automatically gene
 ## `useOpenSsl`
 
 If set to true, the node will use a native SSL implementation for TLS rather than the JVM SSL. The native SSL library currently shipped with
-Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to `false`.
+Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to `false`. This configuration offers higher performance than the built-in library, but you can't use it with the Corda Firewall or an HSM—so this configuration is only recommended for private networks where there is a requirement to extract maximum performance.
 
 ## `useTestClock`
 

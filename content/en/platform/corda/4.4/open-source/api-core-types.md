@@ -69,10 +69,14 @@ signatures it requires.
 An illustration of an *“either Alice and Bob, or Charlie”* composite key:
 
 ![composite key](/en/images/composite-key.png "composite key")
+
+
 To allow further flexibility, each child node can have an associated custom *weight* (the default is 1). The *threshold*
 then specifies the minimum total weight of all children required. Our previous example can also be expressed as:
 
 ![composite key 2](/en/images/composite-key-2.png "composite key 2")
+
+
 Signature verification is performed in two stages:
 
 

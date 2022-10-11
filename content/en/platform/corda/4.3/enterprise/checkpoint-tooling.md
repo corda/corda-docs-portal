@@ -20,7 +20,7 @@ This page contains information about checkpoint tooling. These tools can be used
 
 Before reading this page, please ensure you understand the mechanics and principles of Corda Flows by reading [Flows](key-concepts-flows.md) and [Writing flows](flow-state-machines.md).
 It is also recommended that you understand the purpose and behaviour of the [Flow Hospital](node-flow-hospital.md) in relation to *checkpoints* and flow recovery.
-An advanced explanation of *checkpoints* within the flow state machine can be found here: [Flow framework internals](../open-source/contributing-flow-internals.md).
+An advanced explanation of checkpoints within the flow state machine can be found here: [Flow framework internals](../open-source/contributing-flow-internals.html#checkpoints).
 
 {{< note >}}
 As a recap,

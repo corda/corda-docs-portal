@@ -100,7 +100,7 @@ reports from their database and observe new transactions coming in via RPC.
 
 * By default, vault queries do not differentiate between states you recorded as a participant/owner, and states you
 recorded as an observer. You will have to write custom vault queries that only return states for which you are a
-participant/owner. See [https://docs.corda.net/api-vault-query.html#example-usage](https://docs.corda.net/api-vault-query.html#example-usage) for information on how to do this.
+participant/owner. See [API vault query](../../../../../en/platform/corda/4.4/open-source/api-vault-query.html#example-usage) for information on how to do this.
 This also means that `Cash.generateSpend` should not be used when recording `Cash.State` states as an observer
 * When an observer node is sent a transaction with the ALL_VISIBLE flag set, any transactions in the transaction history
 that have not already been received will also have ALL_VISIBLE states recorded. This mean a node that is both an observer

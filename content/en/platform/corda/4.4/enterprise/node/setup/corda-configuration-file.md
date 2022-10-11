@@ -279,7 +279,7 @@ The available configuration fields are listed below in alphabetic order.
 
   `runMigration`
     Boolean on whether to run the database migration scripts at startup. In production please keep it false. For more information please check [Database management scripts](../../../../../../../en/platform/corda/4.8/enterprise/cordapps/database-management.md). If migration is not run, on startup, the node will check if it's running on the correct database version.
-    The property is used only when a node runs against a database other than H2, and it's replaced by the ``initialiseSchema`` property for other databases.
+    The property is used only when a node runs against a database other than H2, and it's replaced by the ``initialiseSchema`` property for H2 databases.
 
     *Default:* false
 
@@ -357,7 +357,7 @@ dataSource.password = ""
 `enterpriseConfiguration`
   Allows fine-grained controls of various features only available in the enterprise version of Corda.
 
-  `mutualExclusion`
+  `mutualExclusionConfiguration`
     Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).
 
   `on`
@@ -461,7 +461,7 @@ dataSource.password = ""
     *Default:* `false`
 
 `tuning`
-    Performance tuning parameters for Corda Enterprise
+    Performance tuning parameters for Corda Enterprise.
 
 `backchainFetchBatchSize`
 

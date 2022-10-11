@@ -20,19 +20,19 @@ weight: 4
 
 Our supported Operating System platforms are a subset of those supported by [Java](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html).
 
-Production use of Corda Enterprise 4.4 is only supported on Linux OS, see details below.
+Production use of Corda Enterprise Edition 4.4 is only supported on Linux OS, see details below.
 
 
 ## JDK support
 
-Corda Enterprise 4.4 has been tested and verified to work with **Oracle JDK 8 JVM 8u171+** and **Azul Zulu Enterprise 8**, downloadable from
+Corda Enterprise Edition 4.4 has been tested and verified to work with **Oracle JDK 8 JVM 8u171+** and **Azul Zulu Enterprise 8**, downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 {{< note >}}
 On previous versions of Corda only the **Oracle JDK 8 JVM 8u171+** is supported.
 
 {{< /note >}}
-Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise 4.4.
+Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.4.
 
 
 {{< warning >}}
@@ -41,8 +41,6 @@ which outlines the end of public updates of Java SE 8 for commercial use, please
 for your deployment needs.
 
 {{< /warning >}}
-
-
 
 ## Operating systems supported in production
 

@@ -468,5 +468,3 @@ You can then write tests on your mock network to verify the nodes interact with 
 ```
 
 [OracleNodeTearOffTests.kt](https://github.com/corda/corda/blob/release/os/4.4/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt)
-
-See [here](https://github.com/corda/corda/samples/irs-demo/cordapp/workflows-irs/src/test/kotlin/net/corda/irs/api/OracleNodeTearOffTests.kt) for more examples.

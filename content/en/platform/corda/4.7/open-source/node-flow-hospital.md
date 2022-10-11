@@ -47,7 +47,7 @@ There are two aspects to the flow hospital:
 
 
 * run-time behaviour in the node upon failure, including retry and recovery transitions and policies.
-* visualisation of failed flows in the Explorer UI.
+* visualization of failed flows in the flow management console.
 
 
 

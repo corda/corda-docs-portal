@@ -325,7 +325,6 @@ END OF TERMS AND CONDITIONS
 ### Copyright Statements
 ``` none
 Copyright 2001-2011 The Apache Software Foundation
-Copyright [yyyy] [name of copyright owner]
 None
 ```
 
@@ -992,7 +991,6 @@ END OF TERMS AND CONDITIONS
 ### Copyright Statements
 ``` none
 Copyright 2005-2019 The Apache Software Foundation
-Copyright [yyyy] [name of copyright owner]
 None
 ```
 
@@ -1602,7 +1600,6 @@ END OF TERMS AND CONDITIONS
 ``` none
 Copyright (c) 2004-2011 QOS.ch
 Copyright (c) 2004-2012 QOS.ch
-The  above  copyright  notice  and  this permission  notice  shall  be
 None
 ```
 
@@ -2309,7 +2306,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 Copyright (C) 2002 Kevin Atkinson (kevina@gnu.org)
 Copyright (c) 2008 Alexander Beider & Stephen P. Morse.
 Copyright 2002-2020 The Apache Software Foundation
-Copyright [yyyy] [name of copyright owner]
 Some portions of this file Copyright (c) 2004-2006 Intel Corportation
 disclaims all copyright to their code."
 None
@@ -2556,7 +2552,6 @@ None
 ### Copyright Statements
 ``` none
 Copyright 2003-2014 The Apache Software Foundation
-Copyright [yyyy] [name of copyright owner]
 None
 ```
 
@@ -3206,7 +3201,6 @@ None
 ### Copyright Statements
 ``` none
 Copyright 2002-2021 The Apache Software Foundation
-Copyright [yyyy] [name of copyright owner]
 Some portions of this file Copyright (c) 2004-2006 Intel Corporation
 documentation, are copyright (C) 1996-2019 Julian R Seward.  All
 None
@@ -3486,12 +3480,6 @@ None
 
 ### Licenced Under
     Apache-2.0
-
-### Copyright Statements
-``` none
-Copyright [yyyy] [name of copyright owner]
-None
-```
 
 ### Licence Texts
 ``` none
@@ -4291,7 +4279,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 ### Copyright Statements
 ``` none
 Copyright (c) 2007- Tatu Saloranta, tatu.saloranta@iki.fi
-Copyright [yyyy] [name of copyright owner]
 None
 ```
 
@@ -4588,7 +4575,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### Copyright Statements
 ``` none
 Copyright 1999-2019 The Apache Software Foundation
-Copyright [yyyy] [name of copyright owner]
 None
 ```
 
@@ -5211,7 +5197,6 @@ END OF TERMS AND CONDITIONS
 ### Copyright Statements
 ``` none
 Copyright 2002-2020 The Apache Software Foundation
-Copyright [yyyy] [name of copyright owner]
 None
 ```
 
@@ -5997,12 +5982,6 @@ END OF TERMS AND CONDITIONS
 ### Licenced Under
     Apache-2.0
 
-### Copyright Statements
-``` none
-Copyright [yyyy] [name of copyright owner]
-None
-```
-
 ### Notice Texts
 ``` none
 # Jackson JSON processor
@@ -6675,7 +6654,6 @@ END OF TERMS AND CONDITIONS
 ### Copyright Statements
 ``` none
 Copyright 1999-2020 The Apache Software Foundation
-Copyright [yyyy] [name of copyright owner]
 None
 ```
 
@@ -7528,7 +7506,6 @@ END OF TERMS AND CONDITIONS
 ### Copyright Statements
 ``` none
 Copyright 2005-2020 The Apache Software Foundation
-Copyright [yyyy] [name of copyright owner]
 None
 ```
 

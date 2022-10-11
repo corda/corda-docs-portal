@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.finance.flows - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.finance.flows</a><br/>
+<br/>
+<h2>Package net.corda.finance.flows</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-abstract-cash-flow/index.html">AbstractCashFlow</a></h4>
+</td>
+<td>
+<p>Initiates a flow that produces an Issue/Move or Exit Cash transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">AbstractCashFlow</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cash-exit-flow/index.html">CashExitFlow</a></h4>
+</td>
+<td>
+<p>Initiates a flow that produces an cash exit transaction.</p>
+<code><span class="keyword">class </span><span class="identifier">CashExitFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-abstract-cash-flow/index.html"><span class="identifier">AbstractCashFlow</span></a><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cash-exit-responder-flow/index.html">CashExitResponderFlow</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CashExitResponderFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cash-issue-and-payment-flow/index.html">CashIssueAndPaymentFlow</a></h4>
+</td>
+<td>
+<p>Initiates a flow that self-issues cash and then send this to a recipient.</p>
+<code><span class="keyword">class </span><span class="identifier">CashIssueAndPaymentFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-abstract-cash-flow/index.html"><span class="identifier">AbstractCashFlow</span></a><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cash-issue-flow/index.html">CashIssueFlow</a></h4>
+</td>
+<td>
+<p>Initiates a flow that self-issues cash (which should then be sent to recipient(s) using a payment transaction).</p>
+<code><span class="keyword">class </span><span class="identifier">CashIssueFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-abstract-cash-flow/index.html"><span class="identifier">AbstractCashFlow</span></a><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cash-payment-flow/index.html">CashPaymentFlow</a></h4>
+</td>
+<td>
+<p>Initiates a flow that sends cash to a recipient.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CashPaymentFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-abstract-cash-flow/index.html"><span class="identifier">AbstractCashFlow</span></a><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-cash-payment-receiver-flow/index.html">CashPaymentReceiverFlow</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CashPaymentReceiverFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-two-party-deal-flow/index.html">TwoPartyDealFlow</a></h4>
+</td>
+<td>
+<p>Classes for manipulating a two party deal or agreement.</p>
+<code><span class="keyword">object </span><span class="identifier">TwoPartyDealFlow</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-two-party-trade-flow/index.html">TwoPartyTradeFlow</a></h4>
+</td>
+<td>
+<p>This asset trading flow implements a "delivery vs payment" type swap. It has two parties (B and S for buyer
+and seller) and the following steps:</p>
+<code><span class="keyword">object </span><span class="identifier">TwoPartyTradeFlow</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-cash-exception/index.html">CashException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CashException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-flow-exception/index.html"><span class="identifier">FlowException</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

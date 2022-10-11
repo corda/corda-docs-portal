@@ -14,14 +14,13 @@ weight: 50
 # Database tables
 
 A Corda node database contains tables corresponding to the various services that the node provides.
-It also contains custom tables defined by the CorDapps that are installed on the node.
-Currently all these tables share the same database schema, but in a future release they will be isolated from each other.
+It also contains custom tables defined by the CorDapps that are installed on the node. Currently, all these tables share the same database schema, but in a future release they will be isolated from each other.
 
 {{< note >}}
 Unless specified otherwise the node tables are for internal use and can change between versions.
 
 {{< /note >}}
-Some tables, especially the ones where the `Ledger` is maintained are append-only and the data will never change.
+Some tables, especially the ones where the `Ledger` is maintained, are append-only and the data will never change.
 
 
 {{< warning >}}

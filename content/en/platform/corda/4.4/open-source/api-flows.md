@@ -1131,7 +1131,7 @@ transaction fail to verify it, or the receiving flow (the finality handler) fail
 all parties have the correct up to date view of the ledger (a condition where eventual consistency between participants takes longer than is
 normally the case under Corda’s [eventual consistency model](https://en.wikipedia.org/wiki/Eventual_consistency)). To recover from this scenario,
 the receiver’s finality handler will automatically be sent to the [Flow Hospital](node-flow-hospital.md) where it’s suspended and retried from its last checkpoint
-upon node restart, or according to other conditional retry rules explained in [flow hospital runtime behaviour](node-flow-hospital.md#flow-hospital-runtime).
+upon node restart, or according to other conditional retry rules explained in [flow hospital runtime behaviour](node-flow-hospital.html#run-time-behaviour).
 This gives the node operator the opportunity to recover from the error. Until the issue is resolved the node will continue to retry the flow
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent once again.
 
@@ -1680,7 +1680,7 @@ Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`
 thread pool.
 
 {{< note >}}
-The size of the external operation thread pool can be configured, see [the node configuration documentation](corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size).
+The size of the external operation thread pool can be configured, see [the node configuration documentation](corda-configuration-file.html#configuration-file-fields).
 
 {{< /note >}}
 Below is an example of how `FlowExternalOperation` can be called from a flow to run an operation on a new thread, allowing the flow to suspend:
@@ -1863,7 +1863,7 @@ another flow to take control and run.
 Implementations of `FlowExternalAsyncOperation` must return a `CompletableFuture`. How this future is created is up to the developer.
 It is recommended to use `CompletableFuture.supplyAsync` and supply an executor to run the future on. Other libraries can be used to
 generate futures, as long as a `CompletableFuture` is returned out of `FlowExternalAsyncOperation`. An example of creating a future
-using [Guava’s ListenableFuture](#api-flows-guava-future-conversion) is given in a following section.
+using [Guava’s ListenableFuture](#creating-completablefutures-from-listenablefutures) is given in a following section.
 
 {{< note >}}
 The future can be chained to execute further operations that continue using the same thread the future started on. For example,
@@ -2114,7 +2114,7 @@ In-memory data structures should not be used for handling deduplication as their
 
 
 
-### Creating CompletableFutures from Guava’s ListenableFutures
+### Creating CompletableFutures from ListenableFutures
 
 The code below demonstrates how to convert a `ListenableFuture` into a `CompletableFuture`, allowing the result to be executed using a
 `FlowExternalAsyncOperation`.

@@ -36,13 +36,13 @@ This concept is analogous to *exception management handling* associated with ent
 
 ## Functionality
 
-Flow hospital functionality is enabled by default in Corda Enterprise 4.8. No explicit configuration settings are required.
+Flow hospital functionality is enabled by default in Corda Enterprise Edition 4.8. No explicit configuration settings are required.
 
 There are two aspects to the flow hospital:
 
 
 * run-time behaviour in the node upon failure, including retry and recovery transitions and policies.
-* visualisation of failed flows in the Explorer UI.
+* visualization of failed flows in the [flow management console](../../../../../../en/platform/corda/4.8/enterprise/node/node-flow-management-console.md).
 
 
 

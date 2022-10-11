@@ -273,7 +273,7 @@ The value of `myLegalName` must exactly match the node name that is used in the 
 To run the remaining data migration, run:
 
 ```shell
-java -jar tools-database-manager-4.0-RC03.jar execute-migration -b .
+java -jar tools-database-manager-4.1-RC03.jar execute-migration -b .
 ```
 
 The option `-b` points to the base directory (with a `node.conf` file, and *drivers* and *cordapps* subdirectories).

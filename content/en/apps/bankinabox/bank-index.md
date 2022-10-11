@@ -7,7 +7,6 @@ menu:
     name: Bank in a Box
     weight: 2000
 title: Bank in a Box
-weight: 100
 ---
 
 # Bank in a Box

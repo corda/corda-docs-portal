@@ -148,8 +148,12 @@ SOCKS configuration property from **socksProxyConfig** to **proxyConfig**.
 
 In 4.x, it is possible to for multiple nodes representing multiple identities to reside behind the same Corda Firewall.
 To achieve this, the nodes can be configured to use an external Artemis server. Furthermore, the Artemis server can be run
-in HA mode with replication and failback. Reconfiguring a node and bridge to use external artemis does not affect the float configuration,
+in HA mode with replication and failback. Reconfiguring a node and bridge to use external Artemis does not affect the float configuration,
 therefore it will not be discussed.
+
+{{< note >}}
+It is guaranteed that up to ten nodes can work behind a shared firewall. Any number beyond that is not supported and should be tested before implementation.
+{{< /note >}}
 
 Client connections to external Artemis require separate SSL key and trust stores. These can be created using the *ha-utilities* tool
 For more information please see HA Utilities. There is also an example of keystore generation in

@@ -157,7 +157,7 @@ Database configuration
   * *Default:* CorDapp schema creation is controlled with `initialiseSchema`.
 * `runMigration`
   * Boolean on whether to run the database migration scripts at startup. In production please keep it false. For more information please check [Database management scripts](../../cordapps/database-management.md). If migration is not run, on startup, the node will check if it's running on the correct database version.
-    The property is used only when a node runs against a database other than H2, and it's replaced by the ``initialiseSchema`` property for other databases.
+    The property is used only when a node runs against a database other than H2, and it's replaced by the ``initialiseSchema`` property for H2 databases.
   * *Default:* false
 * `schema`
   * Some database providers require a schema name when generating DDL and SQL statements. The value is passed to the Hibernate    property 'hibernate.default_schema'. This is optional.
@@ -874,7 +874,7 @@ This is the non-secret value for the development certificates automatically gene
 ## `useOpenSsl`
 
 If set to true, the node will use a native SSL implementation for TLS rather than the JVM SSL. The native SSL library currently shipped with
-Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to `false`.
+Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to `false`. This configuration offers higher performance than the built-in library, but you can't use it with the Corda Firewall or an HSM—so this configuration is only recommended for private networks where there is a requirement to extract maximum performance.
 
 ## `useTestClock`
 

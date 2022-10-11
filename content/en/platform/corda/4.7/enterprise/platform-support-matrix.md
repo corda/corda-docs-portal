@@ -16,20 +16,39 @@ weight: 90
 
 Our supported Operating System platforms are a subset of those supported by [Java](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html).
 
-Production use of Corda Enterprise 4.7 is only supported on Linux OS, see details below.
+Production use of Corda Enterprise Edition 4.7 is only supported on Linux OS, see details below.
 
 ## JDK support
 
-Corda Enterprise 4.7 has been tested and verified to work with **Oracle JDK 8 JVM 8u251** and **Azul Zulu Enterprise 8u252**, for Azure deployment downloadable from
+Corda Enterprise Edition 4.7 has been tested and verified to work with **Oracle JDK 8 JVM 8u251** and **Azul Zulu Enterprise 8u252**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
-Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise 4.7.
+Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.7.
 
 {{< warning >}}
 In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html),
 which outlines the end of public updates of Java SE 8 for commercial use, please ensure you have the correct Java support contract in place
 for your deployment needs.
 {{< /warning >}}
+
+
+## Docker Images
+
+The Docker images used for the Kubernetes deployment are listed below for reference:
+
+{{< table >}}
+| Service           | Image name                                                  |
+|-------------------|-------------------------------------------------------------|
+| Identity Manager  | `corda/enterprise-identitymanager:1.5.4-zulu-openjdk8u242`  |
+| Network Map       | `corda/enterprise-networkmap:1.5.4-zulu-openjdk8u242`       |
+| Signing           | `corda/enterprise-signer:1.5.4-zulu-openjdk8u242`           |
+| Zone              | `corda/enterprise-zone:1.5.4-zulu-openjdk8u242`             |
+| Auth              | `corda/enterprise-auth:1.5.4-zulu-openjdk8u242`             |
+| Gateway           | `corda/enterprise-gateway:1.5.4-zulu-openjdk8u242`          |
+| PKI Tool          | `corda/enterprise-pkitool:1.5.4-zulu-openjdk8u242`          |
+| Notary            | `corda/enterprise-notary:4.5.9-zulu-openjdk8u242`           |
+{{< /table >}}
+
 
 ## Operating systems supported in production
 

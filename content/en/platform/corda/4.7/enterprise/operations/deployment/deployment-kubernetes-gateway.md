@@ -34,8 +34,8 @@ helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=Y --set 
 | Parameter                     | Description                                              | Default value         |
 | ----------------------------- | -------------------------------------------------------- | --------------------- |
 | `bashDebug`                   | Display additional information while running bash scripts (useful while investigating issues) | `false` |
-| `gatewayPortImage.repository`        | URL to Gateway Docker image repository                      | `acrcenm.azurecr.io/auth/auth` |
-| `gatewayImage.tag`               | Docker image tag | `1.3` |
+| `gatewayPortImage.repository`        | URL to Gateway Docker image repository                      | `corda/enterprise-gateway` |
+| `gatewayImage.tag`               | Docker image tag | `1.5.4-zulu-openjdk8u242` |
 | `gatewayImage.pullPolicy`        | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `volumeSizeGatewayEtc`           | Volume size for the `etc/` directory | `1Gi` |
 | `volumeSizeGatewayLogs`          | Volume size for the `h2/` directory | `5Gi` |

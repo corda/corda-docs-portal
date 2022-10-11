@@ -249,7 +249,7 @@ parameters will be accepted without user input. The following parameters with th
  * of parameters.
  * @property whitelistedContractImplementations ([AutoAcceptable]) List of whitelisted jars containing contract code for each contract class.
  *  This will be used by [net.corda.core.contracts.WhitelistedByZoneAttachmentConstraint].
- *  [You can learn more about contract constraints here](https://docs.corda.net/api-contract-constraints.html).
+ *  [You can learn more about contract constraints here](https://docs.r3.com/en/platform/corda/4.4/open-source/api-contract-constraints.html).
  * @property packageOwnership ([AutoAcceptable]) List of the network-wide java packages that were successfully claimed by their owners.
  * Any CorDapp JAR that offers contracts and states in any of these packages must be signed by the owner.
  * @property eventHorizon Time after which nodes will be removed from the network map if they have not been seen

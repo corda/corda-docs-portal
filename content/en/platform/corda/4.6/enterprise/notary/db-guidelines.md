@@ -46,11 +46,3 @@ of the cluster were located in geographically separate data centres.
 This is ideal from a disaster recovery perspective and is supported by Corda. While performance is negatively
 impacted, the prevention of data loss more than makes up for the loss. However, it may be worth bearing this
 in mind when performance tuning the notary.
-
-
-## Transaction isolation
-
-Any database used with the JPA notary should have its transaction isolation level set to no lower than
-`READ_COMMITTED`. The JPA notary itself will attempt to use a transaction isolation level of
-`READ_COMMITTED`.
-

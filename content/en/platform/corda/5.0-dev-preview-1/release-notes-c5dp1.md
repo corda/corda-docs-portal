@@ -12,11 +12,18 @@ section_menu: corda-5-dev-preview
 The Corda 5 Developer Preview, released on 28 September 2021, showcases the core features of the upcoming Corda 5.0 release to invite feedback, and give you a chance to experiment with some of the new aspects of future Corda 5 releases.
 
 {{< note >}}
-**Your feedback helps** -
-Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we can make the upcoming versions of Corda work harder for you than ever.
+**Your feedback helps.** Please [send the Documentation Team an e-mail](mailto:docs@r3.com) with your feedback so we can make the upcoming versions of Corda work harder for you than ever.
 {{< /note >}}
 
-## In this developer preview
+## Corda 5 Developer Preview 1.0.1
+
+Corda 5 Developer Preview 1.0.1 fixes the security issue caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version v2.17.1.
+
+### Fixed issues
+
+* The Log4j dependency has been updated to version 2.17.1 to fix pre-existing Log4j issues.
+
+## Corda 5 Developer Preview 1.0
 
 Intended for local deployment, experimental development, and testing only, this preview includes:
 
@@ -50,8 +57,6 @@ The Corda 5 Developer Preview is not feature complete and is not intended for co
 Please do not try to migrate Corda 4 CorDapps to the Corda 5 Developer Preview - this release is only intended as a means for testing CorDapps development as a proof of concept.
 
 R3 does not and will not provide official support for this release.
-
-We welcome your [feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) - it will help us shape the future of Corda 5 and resolve issues, identified in the Corda 5 Developer Preview, in future Corda 5 releases.
 
 {{< /warning >}}
 

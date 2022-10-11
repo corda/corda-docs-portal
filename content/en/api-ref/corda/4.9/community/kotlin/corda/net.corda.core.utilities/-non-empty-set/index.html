@@ -1,0 +1,115 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NonEmptySet - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.utilities</a>&nbsp;/&nbsp;<a href="./index.html">NonEmptySet</a><br/>
+<br/>
+<h1>NonEmptySet</h1>
+<code><span class="keyword">class </span><span class="identifier">NonEmptySet</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>An immutable ordered non-empty set.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="equals.html">equals</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities.NonEmptySet$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="for-each.html">forEach</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEach</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities.NonEmptySet$forEach(java.util.function.Consumer((net.corda.core.utilities.NonEmptySet.T)))/action">action</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html"><span class="identifier">Consumer</span></a><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-code.html">hashCode</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="head.html">head</a></h4>
+</td>
+<td>
+<p>Returns the first element of the set.</p>
+<code><span class="keyword">fun </span><span class="identifier">head</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-empty.html">isEmpty</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isEmpty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="iterator.html">iterator</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">iterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterator/index.html"><span class="identifier">Iterator</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parallel-stream.html">parallelStream</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">parallelStream</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html"><span class="identifier">Stream</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="spliterator.html">spliterator</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">spliterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Spliterator.html"><span class="identifier">Spliterator</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="stream.html">stream</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">stream</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html"><span class="identifier">Stream</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="copy-of.html">copyOf</a></h4>
+</td>
+<td>
+<p>Returns a non-empty set containing each of <a href="copy-of.html#net.corda.core.utilities.NonEmptySet.Companion$copyOf(kotlin.collections.Collection((net.corda.core.utilities.NonEmptySet.Companion.copyOf.T)))/elements">elements</a>, minus duplicates, in the order each appears first in
+the source collection.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">copyOf</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities.NonEmptySet.Companion$copyOf(kotlin.collections.Collection((net.corda.core.utilities.NonEmptySet.Companion.copyOf.T)))/elements">elements</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">NonEmptySet</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="of.html">of</a></h4>
+</td>
+<td>
+<p>Returns a singleton set containing <a href="of.html#net.corda.core.utilities.NonEmptySet.Companion$of(net.corda.core.utilities.NonEmptySet.Companion.of.T)/element">element</a>. This behaves the same as <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#singleton(T)">Collections.singleton</a> but returns a
+<a href="./index.html">NonEmptySet</a> for the extra type-safety.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">of</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities.NonEmptySet.Companion$of(net.corda.core.utilities.NonEmptySet.Companion.of.T)/element">element</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">NonEmptySet</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Returns a non-empty set containing the given elements, minus duplicates, in the order each was specified.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">of</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities.NonEmptySet.Companion$of(net.corda.core.utilities.NonEmptySet.Companion.of.T, net.corda.core.utilities.NonEmptySet.Companion.of.T, kotlin.Array((net.corda.core.utilities.NonEmptySet.Companion.of.T)))/first">first</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.utilities.NonEmptySet.Companion$of(net.corda.core.utilities.NonEmptySet.Companion.of.T, net.corda.core.utilities.NonEmptySet.Companion.of.T, kotlin.Array((net.corda.core.utilities.NonEmptySet.Companion.of.T)))/second">second</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.core.utilities.NonEmptySet.Companion$of(net.corda.core.utilities.NonEmptySet.Companion.of.T, net.corda.core.utilities.NonEmptySet.Companion.of.T, kotlin.Array((net.corda.core.utilities.NonEmptySet.Companion.of.T)))/rest">rest</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">NonEmptySet</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -44,6 +44,7 @@ CENM currently supports the following databases:
 * PostgreSQL 10.10 (JDBC 42.2.8)
 * PostgreSQL 11.5 (JDBC 42.2.8)
 * PostgreSQL 12.2 (JDBC 42.2.8)
+* Azure SQL (Microsoft JDBC Driver 6.4)
 * SQL Server 2017 (Microsoft JDBC Driver 6.4)
 * Oracle 11gR2 (Oracle JDBC 6)
 * Oracle 12cR2 (Oracle JDBC 8)

@@ -17,7 +17,7 @@ weight: 10
 # Upgrading a node to Corda 4.6
 
 {{< warning >}}
-Corda Enterprise 4.6.3 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.6.3 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.6.3 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.6.3 please read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and should not require changes to applications. Upgrading from 4.x  consists of the following steps:
@@ -297,7 +297,7 @@ The value of `myLegalName` must exactly match the node name that is used in the 
 3. Change the database user to one with *restricted permissions*. This ensures no database alteration is performed by this step.To run the remaining data migration, run:
 
 ```shell
-java -jar tools-database-manager-4.0-RC03.jar execute-migration -b . --core-schemas --app-schemas
+java -jar tools-database-manager-4.6-RC03.jar execute-migration -b . --core-schemas --app-schemas
 ```
 
 

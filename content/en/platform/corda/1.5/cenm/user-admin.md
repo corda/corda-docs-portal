@@ -39,6 +39,10 @@ Access the User Admin tool from your [Gateway Service](../../../../../en/platfor
 For example:
 `http://10.230.41.12:8080/admin`
 
+{{< warning >}}
+Internet Explorer 11 is not supported for this tool.
+{{< /warning >}}
+
 ### First login
 
 Your initialisation credentials for logging in for the first time are established using the `--initial-user-name` and `--initial-user-password` commands when managing the configuration of the [Auth Service](../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md).

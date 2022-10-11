@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowLogic.flowStackSnapshot - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowLogic</a>&nbsp;/&nbsp;<a href="./flow-stack-snapshot.html">flowStackSnapshot</a><br/>
+<br/>
+<h1>flowStackSnapshot</h1>
+<a name="net.corda.core.flows.FlowLogic$flowStackSnapshot()"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">fun </span><span class="identifier">flowStackSnapshot</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-flow-stack-snapshot/index.html"><span class="identifier">FlowStackSnapshot</span></a><span class="symbol">?</span></code>
+<p>Returns a shallow copy of the Quasar stack frames at the time of call to <a href="./flow-stack-snapshot.html">flowStackSnapshot</a>. Use this to inspect
+what objects would be serialised at the time of call to a suspending action (e.g. send/receive).
+Note: This logic is only available during tests and is not meant to be used during the production deployment.
+Therefore the default implementation does nothing.</p>
+</BODY>
+</HTML>

@@ -206,7 +206,6 @@ edBy(IOUFlow::class)
 UFlowResponder(val otherPartySession: FlowSession) : FlowLogic<Unit>() {
 pendable
 ride fun call() {
-// DOCSTART 01
 val signTransactionFlow = object : SignTransactionFlow(otherPartySession) {
     override fun checkTransaction(stx: SignedTransaction) = requireThat {
         val output = stx.tx.outputs.single().data
