@@ -13,7 +13,7 @@
         'language:en'
       ];
 
-    {{ else if .Parent.Page.Params.project nil}}
+    {{ else if .Parent.Page.Params.project = nil}}
       {{ $project := .Page.Params.project}}
       {{ $version := .Page.Params.version}}
       window.facetFilters = [
