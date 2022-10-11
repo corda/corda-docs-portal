@@ -46,6 +46,6 @@
     "purgecss-whitelister": "^2.4",
     "rimraf": "^3.0",
     "shx": "^0.3.3",
-    "semver-regex": "^3.1.2"
+    "semver-regex": "^3.1.4"
   }
 }
