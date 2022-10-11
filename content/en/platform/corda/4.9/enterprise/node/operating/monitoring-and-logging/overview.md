@@ -11,7 +11,7 @@ title: Node monitoring and logging
 weight: 5
 ---
 
-Corda nodes use [log4j2 asynchronous logging](https://logging.apache.org/log4j/2.x/manual/async.html) to ensure that log message flushing is not slowing down node processing. Log4j2 is configured via a log4j2 properties file in the node resources. The configuration file can be taken from the `config/dev` folder in [Corda Community Edition repository](https://github.com/corda/corda). By default, the node log files are stored to the `logs` subdirectory of the working node directory. You can print logs to the console using the `--log-to-console` command line flag when starting the node.
+Corda nodes use [log4j2 asynchronous logging](https://logging.apache.org/log4j/2.x/manual/async.html) to ensure that log message flushing is not slowing down node processing. Log4j2 is configured via a log4j2 properties file in the node resources. You can get the configuration file from the `config/dev` folder in [Corda Community Edition repository](https://github.com/corda/corda). By default, the node log files are stored to the `logs` subdirectory of the working node directory. You can print logs to the console using the `--log-to-console` command line flag when starting the node.
 
 Corda uses the Hibernate JPA provider. Some `WARN` and `ERROR` level messages from Hibernate do not require operator attention because Corda handles them internally. If Corda handles the message internally it will be logged in a separate diagnostic file in the `logs` subdirectory. If the messages require operator attention, they will be recorded in the main node log file.
 
