@@ -1,0 +1,13 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:net.corda.v5.crypto.extensions////PointingToDeclaration/crypto-extensions/net.corda.v5.crypto.extensions/index.html
+$dokka.location:net.corda.v5.crypto.extensions/DigestAlgorithm///PointingToDeclaration/crypto-extensions/net.corda.v5.crypto.extensions/-digest-algorithm/index.html
+$dokka.location:net.corda.v5.crypto.extensions/DigestAlgorithm/algorithm/#/PointingToDeclaration/crypto-extensions/net.corda.v5.crypto.extensions/-digest-algorithm/algorithm.html
+$dokka.location:net.corda.v5.crypto.extensions/DigestAlgorithm/digest/#java.io.InputStream/PointingToDeclaration/crypto-extensions/net.corda.v5.crypto.extensions/-digest-algorithm/digest.html
+$dokka.location:net.corda.v5.crypto.extensions/DigestAlgorithm/digest/#kotlin.ByteArray/PointingToDeclaration/crypto-extensions/net.corda.v5.crypto.extensions/-digest-algorithm/digest.html
+$dokka.location:net.corda.v5.crypto.extensions/DigestAlgorithm/digestLength/#/PointingToDeclaration/crypto-extensions/net.corda.v5.crypto.extensions/-digest-algorithm/digest-length.html
+$dokka.location:net.corda.v5.crypto.extensions/DigestAlgorithmFactory///PointingToDeclaration/crypto-extensions/net.corda.v5.crypto.extensions/-digest-algorithm-factory/index.html
+$dokka.location:net.corda.v5.crypto.extensions/DigestAlgorithmFactory/algorithm/#/PointingToDeclaration/crypto-extensions/net.corda.v5.crypto.extensions/-digest-algorithm-factory/algorithm.html
+$dokka.location:net.corda.v5.crypto.extensions/DigestAlgorithmFactory/getInstance/#/PointingToDeclaration/crypto-extensions/net.corda.v5.crypto.extensions/-digest-algorithm-factory/get-instance.html
+net.corda.v5.crypto.extensions
+

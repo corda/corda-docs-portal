@@ -1,4 +1,5 @@
 ---
+title: Corda Enterprise Edition 4.4.8 third-party software notices and licence information
 aliases:
 - /releases/4.4/legal-info.html
 - /docs/corda-enterprise/head/legal-info.html
@@ -7,14 +8,15 @@ date: '2021-08-05T09:59:25Z'
 menu:
   corda-enterprise-4-4:
     parent: corda-enterprise-4-4-miscellaneous
+    name: Third-party software notices and licence information - 4.4.8
 tags:
 - legal
 - info
-title: Third-party software notices and licence information - CE 4.4.8
+title: 
 weight: 9
 ---
 
-# Corda Enterprise 4.4.8 third-party software notices and licence information
+# Corda Enterprise Edition 4.4.8 third-party software notices and licence information
 
 **Do not translate or localise.**
 

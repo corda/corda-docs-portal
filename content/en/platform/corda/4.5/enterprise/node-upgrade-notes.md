@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-5:
     identifier: "corda-enterprise-4-5-node-upgrade"
-    name: "Upgrading Nodes to Corda Enterprise 4.5"
+    name: "Upgrading Nodes to Corda Enterprise Edition 4.5"
     parent: corda-enterprise-4-5-upgrading-menu
 tags:
 - node
@@ -15,7 +15,7 @@ title: Upgrading your node to Corda 4.5
 # Upgrading your node to Corda 4.5
 
 {{< warning >}}
-Corda Enterprise 4.5.4 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.5.4 please read the guidance on [upgrading your notary service](../../../../../../en/platform/corda/4.5/enterprise/notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.5.4 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.5.4 please read the guidance on [upgrading your notary service](../../../../../../en/platform/corda/4.5/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 

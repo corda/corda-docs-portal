@@ -21,7 +21,7 @@ title: Upgrading the HA notary service
 
 ## Version 3 to Version 4
 
-In Corda Enterprise 4.0 an additional table `notary_committed_transactions` is being used by the HA notary to support the new reference state functionality.
+In Corda Enterprise Edition 4.0 an additional table `notary_committed_transactions` is being used by the HA notary to support the new reference state functionality.
 
 {{< note >}}
 In order to enable reference state usage, the minimum platform version of the whole network has to be updated to version 4, which means

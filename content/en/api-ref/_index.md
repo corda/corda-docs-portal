@@ -18,7 +18,7 @@ title: API reference
 
 ## Corda 5 Developer Preview API reference
 
-See the [Corda 5 Developer Preview API reference](../../en/api-ref/corda/5.0-dev-preview-1/open-source/api-ref-corda-5-dev-preview.md) page to access the API reference documentation for all API modules publicly exposed in the Corda 5 Developer Preview release.
+See the [Corda 5 Developer Preview API reference](../../en/api-ref/corda/5.0-dev-preview-2/api-ref-corda-5-dev-preview.md) page to access the API reference documentation for all API modules publicly exposed in the Corda 5 Developer Preview release.
 
 ## Corda 4 API reference
 

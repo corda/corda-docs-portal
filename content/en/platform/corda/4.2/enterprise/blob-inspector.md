@@ -21,7 +21,7 @@ disadvantage is the inability to view the contents in a human-friendly manner. T
 this issue by allowing the contents of a binary blob file (or URL end-point) to be output in either YAML or JSON. It
 uses `JacksonSupport` to do this (see [JSON](json.md)).
 
-The tool is distributed as part of Corda Enterprise 4.2 in the form of runnable JAR “corda-tools-blob-inspector-4.2.jar”.
+The tool is distributed as part of Corda Enterprise Edition 4.2 in the form of runnable JAR “corda-tools-blob-inspector-4.2.jar”.
 
 To run simply pass in the file or URL as the first parameter:
 

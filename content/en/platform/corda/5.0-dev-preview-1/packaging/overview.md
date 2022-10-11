@@ -11,8 +11,7 @@ section_menu: corda-5-dev-preview
 In the Corda 5 Developer Preview, CorDapps are distributed as Corda package files (`.cpk` files), and Corda package bundles (`.cpb` files).
 
 {{< note >}}
-**Your feedback helps** -
-Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we can make the upcoming versions of Corda work harder for you than ever.
+**Your feedback helps.** Please [send the Documentation Team an e-mail](mailto:docs@r3.com) with your feedback so we can make the upcoming versions of Corda work harder for you than ever.
 {{< /note >}}
 
 ## Corda package files

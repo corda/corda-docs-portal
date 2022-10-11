@@ -1,21 +1,11 @@
 ---
 date: '2020-07-15T12:00:00Z'
-title: Corda 5 Developer Preview
+title: Corda 5 Dev Preview 1
 section_menu: corda-5-dev-preview
-project: corda
-version: 'Corda 5 Developer Preview'
-menu:
-  versions:
-    weight: -648
-  corda-5-dev-preview:
-    weight: 10
 aliases:
 - ../5.0-dev-preview-1.html
 - ./5.0-dev-preview-1.html
 - 5.0-dev-preview-1.html
-- ../5.0-dev-preview/
-- ./5.0-dev-preview/
-- 5.0-dev-preview/
 - ../5.0-dev-preview-1/overview.html
 - ./5.0-dev-preview-1/overview.html
 - 5.0-dev-preview-1/overview.html
@@ -23,8 +13,11 @@ aliases:
 - ./5.0-dev-preview-1/index.html
 - 5.0-dev-preview-1/index.html
 ---
+# Corda 5 Developer Preview 1
 
-# Corda 5 Developer Preview
+{{< attention >}}
+This developer preview of Corda 5 has been replaced by Developer Preview 2. Refer to the [Developer Preview 2 documentation](https://docs.r3.com/en/platform/corda/5.0-dev-preview-2.html).
+{{< /attention >}}
 
 Corda is a trust technology platform. You can use it to build verified blockchain networks, create applications that represent your business on the network, and interact in a completely secure ecosystem.
 
@@ -35,8 +28,7 @@ This is a developer preview of Corda's next major iteration, Corda 5. Here, you 
 * Package your CordApps with a new Gradle plugin that allows for multi-tenancy applications in future releases.
 
 {{< note >}}
-**Your feedback helps** -
-Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we can make the upcoming versions of Corda work harder for you than ever.
+**Your feedback helps.** Please [send the Documentation Team an e-mail](mailto:docs@r3.com) with your feedback so we can make the upcoming versions of Corda work harder for you than ever.
 {{< /note >}}
 
 In this preview, you can:

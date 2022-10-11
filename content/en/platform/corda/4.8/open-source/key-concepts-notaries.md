@@ -46,7 +46,8 @@ A notary cluster can be configured to provide validity consensus by validating e
 before committing it. There are therefore two notary deployments available:
 
 * The non-validating notary, where the transaction **is not** checked for validity.
-* The validating notary, where the transaction **is** checked for validity.
+* The validating notary, where the transaction **is** checked for validity. When contract validation is part of the notary deployment, the correctness of the transaction is measured by how well it follows the rules of the validating contract,
+rather than relying on the transaction participants.
 
 ### Data visibility
 

@@ -1,4 +1,5 @@
 ---
+title: Corda Open Source 4.5 third-party software notices and licence information
 aliases:
 - /head/legal-info.html
 - /HEAD/legal-info.html
@@ -9,10 +10,10 @@ menu:
     identifier: corda-os-4-5-legal-info
     parent: corda-os-4-5-release-notes
     weight: 450
+    name: Third-party software licence information
 tags:
 - legal
 - info
-title: Third-party software licence information
 ---
 # Corda Open Source 4.5 third-party software notices and licence information
 

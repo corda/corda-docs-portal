@@ -123,7 +123,7 @@ Optional path to the configuration file for the CryptoService provider. This may
 
 Optional time-out value of actions sent to the CryptoService (HSM). If the HSM takes longer than this duration to respond, then a `TimedCryptoServiceException` will be thrown and handled by the Flow Hospital. You can increase it to mitigate the time-out error.
 
-*Default:* 10000 milliseconds
+*Default:* 1,000 milliseconds
 
 ## `custom`
 
@@ -318,48 +318,48 @@ Allows fine-grained controls of various features only available in the enterpris
   * When caching is enabled (set to `true`), `.jar` files will be cached, which can cause leaking of file handles. This is caused by the way the `ServiceLoader` handles `.jar` files that are children of the `URLClassLoader`. For more information, see [here](https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8156014).
     * *Default:* `false`
 
-## `tuning`
+* `tuning`
 
-Tuning is a section within the Corda Node configuration file that contains performance tuning parameters for Corda Enterprise Nodes.
+  * Tuning is a section within the Corda Node configuration file that contains performance tuning parameters for Corda Enterprise Nodes.
 
-- `backchainFetchBatchSize`
+  - `backchainFetchBatchSize`
 
     This is an optimisation for sharing transaction backchains. Corda Enterprise nodes can request backchain items in bulk instead of one at a time. This field specifies the size of the batch. The value is just an integer indicating the maximum number of states that can be requested at a time during backchain resolution.
 
     *Default:* 50
 
-- `flowThreadPoolSize`
+  - `flowThreadPoolSize`
 
-  The number of threads available to handle flows in parallel. This is the number of flows
+    The number of threads available to handle flows in parallel. This is the number of flows
   that can run in parallel doing something and/or holding resources like database connections.
   A larger number of flows can be suspended, for example, waiting for reply from a counterparty.
   When a response arrives, a suspended flow will be woken up if there are any available threads in the thread pool.
 
-  Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
+    Otherwise, a currently active flow must be finished or suspended before the suspended flow can be woken
   up to handle the event. This can have serious performance implications if the flow thread pool is too small, as a flow cannot be suspended while in a database transaction, or without checkpointing its state first.
 
-  Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in parallel, allowing more than one flow to be active and/or use resources at the same time.
+    Corda Enterprise allows the node operators to configure the number of threads the state machine manager can use to execute flows in parallel, allowing more than one flow to be active and/or use resources at the same time.
 
-  The ideal value for this parameter depends on a number of factors. These include the hardware the node is running on, the performance profile of the flows, and the database instance backing the node as datastore. Every thread will open a database connection, so for n threads, the database system must have at least n+1 connections available. Also, the database
+    The ideal value for this parameter depends on a number of factors. These include the hardware the node is running on, the performance profile of the flows, and the database instance backing the node as datastore. Every thread will open a database connection, so for n threads, the database system must have at least n+1 connections available. Also, the database
   must be able to actually cope with the level of parallelism to make the number of threads worthwhile - if
   using for example H2, any number beyond eight does not add any substantial benefit due to limitations with its internal
   architecture. For these reasons, the default size for the flow framework thread pool is the lower number between either the available number of processors times two, and 30. Overriding this value in the configuration allows you to specify any number.
 
-- `rpcThreadPoolSize`
-  * The number of threads handling RPC calls - this defines how many RPC requests can be handled
+  - `rpcThreadPoolSize`
+    * The number of threads handling RPC calls - this defines how many RPC requests can be handled
   in parallel without queueing. The default value is set to the number of available processor cores.
-  * Incoming RPC calls are queued until a thread from this
+    * Incoming RPC calls are queued until a thread from this
   pool is available to handle the connection, prepare any required data and start the requested flow. As  this
   might be a non-trivial amount of work, the size of this pool can be configured in Corda Enterprise.
-  * On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow threads being idle while the payload is being deserialized and the flow invocation run.
-  * If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this * number slightly.
-  * Valid values for this property are between 4 (that is the number used for the single threaded state * machine in open source) and the number of flow threads.
+    * On a multicore machine with a large `flowThreadPoolSize`, this might need to be increased, to avoid flow threads being idle while the payload is being deserialized and the flow invocation run.
+    * If there are idling flow threads while RPC calls are queued, it might be worthwhile increasing this * number slightly.
+    * Valid values for this property are between 4 (that is the number used for the single threaded state * machine in open source) and the number of flow threads.
 
-- `journalBufferTimeout`
-  * The interval (in nanoseconds) at which Artemis messages that are buffered in-memory will be flushed to disk, if the buffer hasn't been filled yet. Setting this to 0 will disable the internal buffer and writes will be written directly to the journal file.
+  - `journalBufferTimeout`
+    * The interval (in nanoseconds) at which Artemis messages that are buffered in-memory will be flushed to disk, if the buffer hasn't been filled yet. Setting this to 0 will disable the internal buffer and writes will be written directly to the journal file.
 
-- `journalBufferSize`
-  * The size of the in-memory Artemis buffer for messages, in bytes. Note that there is a lower bound to the buffer size, which is calculated based on the maximum message size of the network parameters to ensure messages of any allowed size can be stored successfully. As a result, any value lower than this bound will be ignored with the appropriate logging. This bound is also used as the default, if no value is specified.
+  - `journalBufferSize`
+    * The size of the in-memory Artemis buffer for messages, in bytes. Note that there is a lower bound to the buffer size, which is calculated based on the maximum message size of the network parameters to ensure messages of any allowed size can be stored successfully. As a result, any value lower than this bound will be ignored with the appropriate logging. This bound is also used as the default, if no value is specified.
 
 ## `extraNetworkMapKeys`
 

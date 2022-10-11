@@ -461,7 +461,7 @@ dataSource.password = ""
     *Default:* `false`
 
 `tuning`
-    Performance tuning parameters for Corda Enterprise
+    Performance tuning parameters for Corda Enterprise.
 
 `backchainFetchBatchSize`
 

@@ -17,7 +17,7 @@ title: Deploying in a testing or production environment
 
 # Deploying in a testing or production environment
 
-These instructions will guide the user through the UAT or production configuration to deploy the following components. They are intended for firms deploying Corda Enterprise 4.2.
+These instructions will guide the user through the UAT or production configuration to deploy the following components. They are intended for firms deploying Corda Enterprise Edition 4.2.
 
 
 * Corda Node

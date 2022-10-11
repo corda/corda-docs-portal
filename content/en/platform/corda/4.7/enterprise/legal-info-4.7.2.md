@@ -1,17 +1,18 @@
 ---
+title: Corda Enterprise Edition 4.7.2 third-party software notices and licence information
 date: '2021-08-24T12:00:00Z'
 menu:
   corda-enterprise-4-7:
     parent: corda-enterprise-4-7-release-notes
     identifier: corda-enterprise-4-7-2-legal-info
     weight: 320
+    name: Third-party software licence information - 4.7.2
 tags:
 - legal
 - info
-title: Third-party software licence information - CE 4.7.2
 ---
 
-# Corda Enterprise 4.7.2 third-party software notices and licence information
+# Corda Enterprise Edition 4.7.2 third-party software notices and licence information
 
 **Do not translate or localise.**
 

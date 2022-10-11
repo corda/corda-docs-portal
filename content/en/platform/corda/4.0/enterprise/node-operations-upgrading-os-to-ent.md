@@ -22,7 +22,7 @@ title: Upgrading a Corda (open source) Node to Corda Enterprise
 
 ## Upgrading the version of Corda on a node
 
-CorDapps, contracts and states written for Corda 3.x and Corda 4.x are compatible with Corda Enterprise 4.0, so upgrading
+CorDapps, contracts and states written for Corda 3.x and Corda 4.x are compatible with Corda Enterprise Edition 4.0, so upgrading
 existing open source Corda nodes should be a simple case of updating the Corda JAR. For developer information on recompiling
 CorDapps against Corda Enterprise, see upgrade-notes.
 
@@ -44,7 +44,7 @@ See [Database management](database-management.md) for more info.
 
 
 
-### Migrating existing data from a Corda 4.0 H2 database to a Corda Enterprise 4.0 supported database
+### Migrating existing data from a Corda 4.0 H2 database to a Corda Enterprise Edition 4.0 supported database
 
 {{< note >}}
 Switching from an H2 development database to a commercial production database requires migrating across both schemas and data.
@@ -76,21 +76,21 @@ Please contact R3 for further advice.
 
 
 
-### Migrating existing data from a Corda 3.3 H2 database to a Corda Enterprise 4.0 supported database
+### Migrating existing data from a Corda 3.3 H2 database to a Corda Enterprise Edition 4.0 supported database
 
 {{< note >}}
-The migration from H2 database to a Corda Enterprise 4.0 supported database requires a third party specialized tool.
+The migration from H2 database to a Corda Enterprise Edition 4.0 supported database requires a third party specialized tool.
 Please contact R3 for further advice.
 
 {{< /note >}}
-Update Corda (open source) 3.3 node to Corda (open source) Corda Enterprise 4.0 node first.
+Update Corda (open source) 3.3 node to Corda (open source) Corda Enterprise Edition 4.0 node first.
 Then follow the [procedure migration from H2 database](#migrate-4-to-enterprise-database).
 
 
-### Migrating existing data from a Corda 3.0, 3,1 or 3.2 H2 database to a Corda Enterprise 4.0 supported database
+### Migrating existing data from a Corda 3.0, 3,1 or 3.2 H2 database to a Corda Enterprise Edition 4.0 supported database
 
 {{< note >}}
-The migration from H2 database to a Corda Enterprise 4.0 supported database requires a third party specialized tool.
+The migration from H2 database to a Corda Enterprise Edition 4.0 supported database requires a third party specialized tool.
 Please contact R3 for further advice.
 
 {{< /note >}}

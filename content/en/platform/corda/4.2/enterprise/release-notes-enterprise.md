@@ -1,4 +1,5 @@
 ---
+title: Corda Enterprise Edition 4.2 release notes
 aliases:
 - /releases/4.2/release-notes-enterprise.html
 date: '2020-01-08T09:59:25Z'
@@ -6,19 +7,19 @@ menu:
   corda-enterprise-4-2:
     identifier: corda-enterprise-4-2-release-notes-enterprise
     weight: 20
+    name: "Release notes"
 tags:
 - release
 - notes
 - enterprise
-title: Release notes
 ---
 
 
-# Release notes
+# Corda Enterprise Edition 4.2 release notes
 
-## Corda Enterprise 4.2.2
+## Corda Enterprise Edition 4.2.2 release notes
 
-Corda Enterprise 4.2.2 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.2.
+Corda Enterprise Edition 4.2.2 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise Edition 4.2.
 
 ### Upgrade recommendation
 
@@ -30,9 +31,9 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 * We have fixed a security issue relating to potential signature forgery. To do so, we have introduced batch signing capability in the `signTransactionAndSendResponse` of the `NotaryServiceFlow` flow so that a Merkle Tree is built with a single transaction to be signed, and then the transaction signature is constructed with the partial Merkle tree containing that single transaction.
 
-## Corda Enterprise 4.2.1
+## Corda Enterprise Edition 4.2.1 release notes
 
-Corda Enterprise 4.2.1 is a patch release of Corda Enterprise 4.2 that introduces a fix to a new issue related to a recent third-party dependency update.
+Corda Enterprise Edition 4.2.1 is a patch release of Corda Enterprise Edition 4.2 that introduces a fix to a new issue related to a recent third-party dependency update.
 
 ### Upgrade recommendation
 
@@ -44,19 +45,19 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 A recent JDK update has broken the way we used delegated signatures for TLS (Transport Layer Security) handshakes. We have fixed this issue through patches on all affected Corda Enterprise versions (4.2+) to allow users to upgrade to the latest versions of compatible JDK distributions. If you have not upgraded to one of the patched releases yet, do not upgrade to Java 8 version `8u252` or higher.
 
-## Corda Enterprise 4.2
+## Corda Enterprise Edition 4.2 release notes
 
-This release extends the [Corda Enterprise 4.1 release](https://docs.corda.net/docs/corda-enterprise/4.1/release-notes-enterprise.html)
+This release extends the [Corda Enterprise Edition 4.1 release](https://docs.corda.net/docs/corda-enterprise/4.1/release-notes-enterprise.html)
 with new mission critical enterprise capabilities to enhance support for HSM (hardware security module) signing devices and improved logging for profiling time spent
 outside of Corda.
 
-Corda Enterprise 4.2 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. Please refer to product documentation for details.
+Corda Enterprise Edition 4.2 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. Please refer to product documentation for details.
 
-Corda Enterprise 4.2 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise 4.1, 4.0 and 3.x, while providing enterprise-grade features and performance.
+Corda Enterprise Edition 4.2 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise Edition 4.1, 4.0 and 3.x, while providing enterprise-grade features and performance.
 
 {{< note >}}
 The compatibility and interoperability assurances apply to nodes running at the latest patch level for any given integer version.
-For example, at the time of writing, the Corda Enterprise 4.2 interoperability and compatibility assurance is with respect to Corda 3.4, Corda Enterprise 3.3, Corda 4.1, Corda Enterprise 4.0 and Corda Enterprise 4.1.
+For example, at the time of writing, the Corda Enterprise Edition 4.2 interoperability and compatibility assurance is with respect to Corda 3.4, Corda Enterprise 3.3, Corda 4.1, Corda Enterprise Edition 4.0 and Corda Enterprise Edition 4.1.
 
 {{< /note >}}
 
@@ -72,7 +73,7 @@ This is supported only for the Securosys Primus X HSM in this release. Please re
 
 * **Improved logging for HSM and vault operations**>
 Previous logging coverage was not sufficient to allow users to tell apart the time spent by a CorDapp on internal Corda operations and the time spent outside of Corda (i.e. while performing a DB query or accessing
-an HSM). Corda Enterprise 4.2 logs additional information in the detailed log file, information which can be used for profiling the duration of HSM and vault operations. The new logging lines follow a structured format that
+an HSM). Corda Enterprise Edition 4.2 logs additional information in the detailed log file, information which can be used for profiling the duration of HSM and vault operations. The new logging lines follow a structured format that
 is both human readable and easily parsable. Please refer to the **Logging** section of [Node administration](node-administration.md) page for more details.
 
 
@@ -95,15 +96,15 @@ corrective actions can be taken to resolve the issues flows are facing. Further 
 
 ### Known issues
 
-Please refer to same section in [Corda Enterprise 4](https://docs.corda.net/docs/corda-enterprise/4.0/release-notes-enterprise.html)
+Please refer to same section in [Corda Enterprise Edition 4](https://docs.corda.net/docs/corda-enterprise/4.0/release-notes-enterprise.html)
 
 
 ### Upgrade notes
 
-As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise 4.2](app-upgrade-notes-enterprise.md)) to ease the upgrade
-of CorDapps to Corda Enterprise 4.2. In line with our commitment to API stability, code level changes are fairly minimal.
+As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise Edition 4.2](app-upgrade-notes-enterprise.md)) to ease the upgrade
+of CorDapps to Corda Enterprise Edition 4.2. In line with our commitment to API stability, code level changes are fairly minimal.
 
-For **developers**, switching CorDapps built using Corda (open source) 4.x to Corda Enterprise 4.2 is mostly effortless,
+For **developers**, switching CorDapps built using Corda (open source) 4.x to Corda Enterprise Edition 4.2 is mostly effortless,
 and simply requires making the Corda Enterprise binaries available to Gradle, and changing two variables in the build file:
 
 ```shell
@@ -114,7 +115,7 @@ ext.corda_release_distribution = 'com.r3.corda'
 For **node operators**, it is advisable to follow the instructions outlined in [Upgrading a Corda Node](node-upgrade-notes.md).
 
 {{< note >}}
-If the finance CorDapp is being used in a mixed-distribution network, the open source finance contract CorDapp should be deployed on both Corda 4.x (open source) and Corda Enterprise 4.2 nodes.
+If the finance CorDapp is being used in a mixed-distribution network, the open source finance contract CorDapp should be deployed on both Corda 4.x (open source) and Corda Enterprise Edition 4.2 nodes.
 
 {{< /note >}}
 Visit the [https://www.r3.com/corda-enterprise](https://www.r3.com/corda-enterprise/) for more information about Corda Enterprise.

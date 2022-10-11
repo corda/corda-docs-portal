@@ -15,6 +15,5 @@ The Corda 5 Developer Preview includes these tutorials to help you get started b
 * [Building your first CorDapp](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-intro.md) - This set of tutorials walks you through building your first CorDapp. It includes modules on: [writing states](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-state.md), [writing contracts](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-contract.md), [writing flows](building-cordapp/c5-basic-cordapp-flows.md), [testing](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-int-test.md), and [running your CorDapp](../../../../../en/platform/corda/5.0-dev-preview-1/tutorials/building-cordapp/c5-basic-cordapp-running.md).
 
 {{< note >}}
-**Your feedback helps** -
-Please [give us feedback](https://r3dev.zendesk.com/hc/en-us/requests/new) so we can make the upcoming versions of Corda work harder for you than ever.
+**Your feedback helps.** Please [send the Documentation Team an e-mail](mailto:docs@r3.com) with your feedback so we can make the upcoming versions of Corda work harder for you than ever.
 {{< /note >}}

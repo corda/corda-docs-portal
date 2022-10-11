@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"net.corda.v5.serialization"},{"l":"net.corda.v5.serialization.annotations"}]

@@ -125,13 +125,13 @@ ALTER TABLE notary_request_log ADD COLUMN worker_node_x500_name TEXT;
 
 ## Version 4.2
 
-Since Corda Enterprise 4.2 the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
+Since Corda Enterprise Edition 4.2 the MySQL JDBC driver now needs to be installed manually for every worker node, otherwise nodes will fail to start.
 See [notary installation page](../../../../../../en/platform/corda/4.7/enterprise/notary/installing-the-notary-service.html#mysql-driver) for more information.
 
 
 ## Version 4.0
 
-In Corda Enterprise 4.0 an additional table `notary_committed_transactions` is being used by the HA notary to support the new reference state functionality.
+In Corda Enterprise Edition 4.0 an additional table `notary_committed_transactions` is being used by the HA notary to support the new reference state functionality.
 
 {{< note >}}
 In order to enable reference state usage, the minimum platform version of the whole network has to be updated to version 4, which means
