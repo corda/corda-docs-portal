@@ -320,11 +320,11 @@ sqlplus / as sysdba
 ```
 
 With sqlplus running, create a pluggable database using the following command. The database name, administrative
-user name and password can all be changed as needed.
+username and password can all be changed as needed.
 
 ```sql
 CREATE PLUGGABLE DATABASE corda_pdb ADMIN USER corda_adm IDENTIFIED BY Password1;
-ALTER PLUGGABLE DATABASE corda_pdb OPEN;
+ALTER PLUGGABLE DATABASE corda_pdb OPEN instances=ALL;
 ```
 
 Once the database is created, connect to it with the following command:
@@ -384,11 +384,6 @@ create index tx_idx on corda_adm.notary_request_log(consuming_transaction_id)
 create index state_ts_tx_idx on corda_adm.notary_double_spends (state_ref,request_timestamp,consuming_transaction_id)
 ```
 
-Lastly, you must grant user rights:
-
-```sql
-GRANT SELECT, INSERT ON corda_adm.notary_double_spends TO corda_pdb_user;
-```
 
 ### Database user setup
 
@@ -412,6 +407,11 @@ GRANT SELECT, INSERT ON corda_adm.notary_committed_transactions TO corda_pdb_use
 GRANT SELECT, INSERT ON corda_adm.notary_request_log TO corda_pdb_user;
 ```
 
+Lastly, you must grant user rights:
+
+```sql
+GRANT SELECT, INSERT ON corda_adm.notary_double_spends TO corda_pdb_user;
+```
 
 ### JDBC driver
 

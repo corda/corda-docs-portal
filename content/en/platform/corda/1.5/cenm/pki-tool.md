@@ -421,21 +421,23 @@ anywhere on your file system. Please do not change any of your existing build.gr
 
 ```kotlin
 plugins {
-  id 'com.github.johnrengelman.shadow' version '4.0.4'
-  id 'java'
+id 'com.github.johnrengelman.shadow' version '5.1.0'
+id 'java'
 }
 
 repositories {
-    jcenter()
+jcenter()
 }
 
 dependencies {
-    compile 'com.microsoft.azure:azure-keyvault:1.2.1'
-    compile 'com.microsoft.azure:adal4j:1.6.4'
+compile 'com.microsoft.azure:azure-keyvault:1.2.1'
+compile 'com.microsoft.azure:adal4j:1.6.4'
+compile 'com.nimbusds:oauth2-oidc-sdk:7.1.1'
 }
 
 shadowJar {
-    archiveName = 'azure-keyvault-with-deps.jar'
+relocate 'okhttp3', 'shadow.okhttp3'
+archiveName = 'azure-keyvault-with-deps.jar'
 }
 ```
 

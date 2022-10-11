@@ -16,14 +16,14 @@ weight: 90
 
 Corda supports a subset of the platforms that are supported by [Java](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html).
 
-Production use of Corda Enterprise 4.8 is only supported on Linux OS, see details below.
+Production use of Corda Enterprise Edition 4.8 is only supported on Linux OS, see details below.
 
 ## JDK support
 
-Corda Enterprise 4.8 has been tested and verified to work with **Oracle JDK 8 JVM 8u251** and **Azul Zulu Enterprise 8u252**, for Azure deployment downloadable from
+Corda Enterprise Edition 4.8 has been tested and verified to work with **Oracle JDK 8 JVM 8u251** and **Azul Zulu Enterprise 8u252**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
-Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise 4.8.
+Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.8.
 
 {{< warning >}}
 In accordance with the [Oracle Java SE Support Roadmap](https://www.oracle.com/technetwork/java/java-se-support-roadmap.html),
@@ -115,9 +115,9 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 {{< table >}}
 
-|Vendor|CPU architecture|Versions|JDBC driver|
+|Vendor|CPU Architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|20.2.x|PostgreSQL JDBCDriver 42.2.9|
+|CockroachDB|x86-64|21.2.x|PostgreSQL JDBCDriver 42.2.9|
 |Oracle RAC|x86-64|19c|Oracle JDBC 8|
 
 {{< /table >}}

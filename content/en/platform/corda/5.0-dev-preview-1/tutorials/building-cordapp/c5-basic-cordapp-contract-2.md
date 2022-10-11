@@ -61,7 +61,7 @@ class BoardingTicketContract : Contract {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.contracts;
 
@@ -105,7 +105,7 @@ data class BoardingTicket(
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.states;
 
@@ -164,7 +164,7 @@ class BoardingTicketContract : Contract {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public class BoardingTicketContract implements Contract {
 
@@ -209,7 +209,7 @@ companion object {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public class BoardingTicketContract implements Contract {
 
@@ -307,7 +307,7 @@ class BoardingTicketContract : Contract {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.contracts;
 

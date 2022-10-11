@@ -20,7 +20,7 @@ DemoBench is a standalone desktop application that makes it easy to configure an
 
 ## Downloading
 
-Operating System specific installers are provided as part of Corda Enterprise 4.1 distribution, e.g. for Windows this will be "Demobench-4.1.exe".
+Operating System specific installers are provided as part of Corda Enterprise Edition 4.1 distribution, e.g. for Windows this will be "Demobench-4.1.exe".
 
 
 ## Running DemoBench

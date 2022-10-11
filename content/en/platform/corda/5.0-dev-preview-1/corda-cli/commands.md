@@ -64,7 +64,7 @@ Use this command to configure a node or a network.
 
 ##### Syntax
 
-````bash
+````console
 corda-cli network configure [-h] [--stacktrace] <deploymentType> <networkName>
 ````
 
@@ -86,7 +86,7 @@ The name of the network.
 
 ##### Example
 
-````bash
+````console
 corda-cli network config docker-compose test-network
 Network test-network configured to be docker-compose
 ````
@@ -97,7 +97,7 @@ List available networks.
 
 ##### Syntax
 
-````bash
+````console
 corda-cli network list [-h] [--stacktrace]
 ````
 
@@ -111,7 +111,7 @@ Print out the stacktrace for all exceptions.
 
 ##### Example
 
-````bash
+````console
 corda-cli network list
 Available networks:
 docker-compose
@@ -124,7 +124,7 @@ Deploy a network.
 
 ##### Syntax
 
-````bash
+````console
 corda-cli network deploy [-h] [--stacktrace] [-f=<file>] -n=<networkName> [-p=<firstPort>] [-r=<containerRegistry>] [-t=<containerImageTag>]
 ````
 
@@ -153,7 +153,7 @@ The default image tag to use for the test container. If not specified, it will u
 
 ##### Example
 
-````bash
+````console
 corda-cli network deploy -n smoke-tests-network -f "C:\Users\<user-name>\Desktop\smoke-tests-network.yaml" | docker-compose -f - up
 ...output was trimmed...
 smoke-tests-network-notary | Loaded 0 CorDapp(s)                     :
@@ -181,7 +181,7 @@ Get network status.
 
 ##### Syntax
 
-````bash
+````console
 corda-cli network status [-h] [--stacktrace] [-f=<format>] -n=<networkName>
 ````
 
@@ -201,7 +201,7 @@ Print out the stacktrace for all exceptions.
 
 ##### Example
 
-````bash
+````console
 corda-cli network status -n test-network
 Network test-network status:
          with type: docker-compose
@@ -247,7 +247,7 @@ Wait for a network to start (by default) or terminate (use `--terminate`).
 
 ##### Syntax
 
-````bash
+````console
 corda-cli network wait [-h] [--stacktrace] [--terminate] -n=<networkName> [-t=<timeout>]
 ````
 
@@ -270,7 +270,7 @@ Wait for the network to terminate.
 
 ##### Example
 
-````bash
+````console
 corda-cli --stacktrace network wait -n smoke-tests-network -t 20
 waiting for smoke-tests-network...
 Getting status...
@@ -297,7 +297,7 @@ Terminate and remove containers from a running network.
 
 ##### Syntax
 
-````bash
+````console
 corda-cli network terminate [-fhry] [--stacktrace] -n=<networkName>
 ````
 
@@ -323,7 +323,7 @@ Assume `Yes` to all queries and do not prompt.
 
 ##### Example
 
-````bash
+````console
 corda-cli network terminate -fry -n test-network
 Terminating test-network...
 Network test-network terminated.
@@ -338,7 +338,7 @@ Restart a node.
 
 ##### Syntax
 
-````bash
+````console
 corda-cli network restart [-hr] [--stacktrace] [-m=<nodeName>] -n=<networkName>
 ````
 
@@ -362,7 +362,7 @@ Print out the stacktrace for all exceptions.
 
 ##### Example
 
-````bash
+````console
 corda-cli network restart -n test-network
 caroline: Restarting caroline...
 bob: Restarting bob...
@@ -372,9 +372,9 @@ bob: bob restarted
 alice: alice restarted
 ````
 
-## CPK inspection tool
+## CPK tool
 
-You can use the Corda CLI `package` command to inspect the contents of Corda package files. Corda package file names can end with `.cpi`, `.cpk` and `.cpb`. This command can also be used to inspect `.jar` files.
+You can use the Corda CLI `package` command to install CorDapps on nodes as well as inspect the contents of Corda package files. Corda package file names can end with `.cpi`, `.cpk` and `.cpb`. This command can also be used to inspect `.jar` files.
 
 ### Syntax
 
@@ -400,7 +400,7 @@ This command recursively lists the content of any Corda package file (`.cpk`, `.
 
 ##### Syntax
 
-````bash
+````console
 corda-cli package list [-hl] [--stacktrace] <path>
 ````
 
@@ -422,7 +422,7 @@ Path to a Corda package.
 
 ##### Example
 
-````bash
+````console
 corda-cli pkg ls httprpc-demo.cpb
 httprpc-demo.cpb:install.json
 httprpc-demo.cpb:httprpc-demo-contracts-1.0.0-SNAPSHOT-cordapp.cpk
@@ -444,7 +444,7 @@ Paths to the nested files can be found by using the `list` command.
 
 ##### Syntax
 
-````bash
+````console
 corda-cli package cat [-h] [--stacktrace] <nested:path>
 ````
 
@@ -463,7 +463,7 @@ The the root file system path, and nested paths with in the archive concatenated
 
 ##### Example
 
-````bash
+````console
 corda-cli pkg ls httprpc-demo.cpb
 httprpc-demo.cpb:install.json
 httprpc-demo.cpb:httprpc-demo-contracts-1.0.0-SNAPSHOT-cordapp.cpk
@@ -489,7 +489,7 @@ This is a convenience subcommand that recursively lists all `CPKDependency` and 
 
 ##### Syntax
 
-````bash
+````console
 corda-cli package depends [-h] [--stacktrace] <path>
 ````
 
@@ -508,7 +508,7 @@ Path to a Corda package.
 
 ##### Example
 
-````bash
+````console
 corda-cli pkg deps httprpc-demo.cpb
 
 httprpc-demo.cpb:httprpc-demo-contracts-1.0.0-SNAPSHOT-cordapp.cpk:httprpc-demo-contracts-1.0.0-SNAPSHOT.jar:META-INF/CPKDependencies:
@@ -549,7 +549,7 @@ This command installs a CorDapp to one or all nodes in the network.
 
 ##### Syntax
 
-````bash
+````console
 corda-cli package install [-hs] [--stacktrace] [-m=<nodeName>] -n=<networkName> <cordapps>…​
 ````
 
@@ -577,7 +577,7 @@ Path to the `.cpk`/`.cpb` file(s) with the CorDapp to deploy.
 
 ##### Example
 
-````bash
+````console
 corda-cli pkg install -n smoke-tests-network solar-system.cpb
 Deploying apps to nodes: [notary, bob, alice]
 bob: bob will have apps deployed to it

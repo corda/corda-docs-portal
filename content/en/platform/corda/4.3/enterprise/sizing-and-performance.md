@@ -19,7 +19,7 @@ title: Sizing and performance
 
 ## Overview
 
-This section describes how Corda Enterprise 4 nodes perform relative to Corda Enterprise 3 in certain circumstances.  It also shows how the
+This section describes how Corda Enterprise Edition 4 nodes perform relative to Corda Enterprise 3 in certain circumstances.  It also shows how the
 throughput changes with the number of output states per transaction and how that allows the node to achieve a greater number of Corda states
 to be transacted per second.
 
@@ -37,8 +37,8 @@ infrastructure configurations and to help stress CorDapps through generated load
 
 {{< /note >}}
 Figure 1 below compares the number of Transactions Per Second (TPS) carried out by a single node, either locally with no other nodes and no notary
-(Issue) or with one other node and a notary (Issue + Repeated Pay), between Corda Enterprise 4 and Corda Enterprise 3.3 (most recent release at
-the time of Corda Enterprise 4 release).  This is with each node running on it’s own dedicated server against a dedicated database server
+(Issue) or with one other node and a notary (Issue + Repeated Pay), between Corda Enterprise Edition 4 and Corda Enterprise 3.3 (most recent release at
+the time of Corda Enterprise Edition 4 release).  This is with each node running on it’s own dedicated server against a dedicated database server
 running **Microsoft SQL Server**.  Similar results were obtained against the other supported databases.
 
 
@@ -47,7 +47,7 @@ Figure 1
 
 
 The x-axis represents the number of flows completing per second which equates to Transactions Per Second (TPS).
-As you can see, Corda Enterprise 4 offers a substantial increase in Transactions Per Second (TPS) over the prior release on the same hardware.
+As you can see, Corda Enterprise Edition 4 offers a substantial increase in Transactions Per Second (TPS) over the prior release on the same hardware.
 
 Figure 2 shows how the relative performance of making multiple payments from one node to another via the notary in a single transaction
 varies with the number of those payments combined together.  This can be useful to understand how scalability varies with transaction size and how batching might
@@ -82,7 +82,7 @@ See the sections below for a discussion of the configurations used in these test
 ### Observations
 
 
-* Corda Enterprise 4 has greater throughput than Corda Enterprise 3 (up to 2x in our tests).
+* Corda Enterprise Edition 4 has greater throughput than Corda Enterprise 3 (up to 2x in our tests).
 * Even a single core deployment of Corda Enterprise offers greater throughput than Open Source Corda.
 * There can be throughput benefits to combining multiple states or business transactions into a single Corda transaction.
 * Corda Enterprise can utilise servers in excess of 16 cores.
@@ -164,7 +164,7 @@ We have established results for a number of different software configurations:
 * **Single Notary**.  In Corda Enterprise 3 this uses the simple single node notary in non-validating mode.  It persists to a **Microsoft SQL Server** database running
 on a distinct VM or server, both for notary specific data and other regular node data persistence.  In Figure 3, these notaries always ran on an 8 core VM and on
 dedicated hardware the same as the nodes in Figure 1, although it was overkill and something lesser would be suitable as the load is not as significant as it is
-for other nodes.  For Corda Enterprise 4, the notary is actually using a slightly enhanced implementation that is less of a bottleneck and will be released in a
+for other nodes.  For Corda Enterprise Edition 4, the notary is actually using a slightly enhanced implementation that is less of a bottleneck and will be released in a
 later point release of Corda Enterprise.
 * **Highly Available Notary**.  In Figure 3, this uses a notary cluster made up of 3 nodes in non-validating mode.  Normal node persistence uses a **Microsoft SQL Server** database
 but the notary state is maintained in a version of MySQL utilising a clustering technology as described in [Corda Enterprise notary service set-up](running-a-notary-cluster/ha-notary-service-setup.md).
@@ -174,7 +174,7 @@ between cluster members influences the performance of the notary itself, it is n
 * **External Bridge (SenderReceiver)**.  This is the Corda Firewall.  In Figure 3, this hosts the inbound and outbound peer-to-peer traffic endpoint in a separate JVM process,
 rather than embedded in the main node JVM process.
 
-In all cases the Artemis MQ broker is running within the node JVM.  For the Corda Enterprise 4 tests in Figures 1 & 2 we used OpenSSL as
+In all cases the Artemis MQ broker is running within the node JVM.  For the Corda Enterprise Edition 4 tests in Figures 1 & 2 we used OpenSSL as
 discussed later with respect to network bandwidth.
 
 For the tests run against Corda Enteprise 4 (and the equivalent comparisons of 3.3) in Figures 1 & 2 we used dedicated hardware for the nodes.  All nodes were
@@ -199,7 +199,7 @@ We used the following Azure VM types for the nodes in the original Corda Enterpr
 
 ## Database server configuration
 
-In the Corda Enterprise 4.0 testing for Figures 1 & 2 we have used dedicated database servers with single Intel Xeon E5-2687Wv4 giving 12 cores (24 hyper-threads),
+In the Corda Enterprise Edition 4.0 testing for Figures 1 & 2 we have used dedicated database servers with single Intel Xeon E5-2687Wv4 giving 12 cores (24 hyper-threads),
 256GB RAM and local SSDs.  They ran **SQL Server 2017 Standard Edition**.
 
 The servers used in the original Azure hosted tests shown in Figure 3 were 4 cores, 28GB RAM (**Azure DS12 v2 VM**).  Each had only one data
@@ -226,7 +226,7 @@ it splits its time between computation (running contract verification, signing t
 CPU cores in order to scale up, at some point the balance of processing will shift to the database and the node will no longer be able to take advantage of
 additional CPU cores, reflected in an inability to drive CPU utilisation towards 100%.
 
-Whilst the Figure 3 testing shows scaling with different core counts, the Corda Enterprise 4.0 throughput tests in Figure 1 are achieved on
+Whilst the Figure 3 testing shows scaling with different core counts, the Corda Enterprise Edition 4.0 throughput tests in Figure 1 are achieved on
 dedicated servers with 48 hyper-threads (24 cores).  At the peak, these are fully utilising 36 hyper-threads/cores (or 75%) in the node.
 As you can see in Figure 3 the node scales relatively well and clearly demonstrates the ability of the node to utilise larger numbers of cores.
 

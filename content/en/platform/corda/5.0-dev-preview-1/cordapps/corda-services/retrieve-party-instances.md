@@ -16,18 +16,19 @@ The `IdentityService` provides methods to retrieve `Party` and `AnonymousParty` 
 
 To retrieve a `Party` instance from `IdentityService`, you must provide a `CordaX500Name`:
 
-- Kotlin
-
+{{< tabs name="IdentityService">}}
+{{% tab name="Kotlin"%}}
 ```kotlin
 val party: Party? = identityService.partyFromName(CordaX500Name("Alice Corp", "Madrid", "ES"))
 ```
+{{% /tab %}}
 
-- Java
-
+{{% tab name="Java"%}}
 ```java
 Party party = identityService.partyFromName(new CordaX500Name("Alice Corp", "Madrid", "ES"))
 ```
-
+{{% /tab %}}
+{{< /tabs >}}
 This will return the `Party` that matches the input `CordaX500Name`, otherwise `null` is returned if the party does not exist.
 
 {{< note >}}
@@ -36,17 +37,19 @@ This will return the `Party` that matches the input `CordaX500Name`, otherwise `
 
 You can also retrieve the `Party` that matches an `AbstractParty` (which could be an `AnonymousParty`):
 
-- Kotlin
-
+{{< tabs name="AbstractParty">}}
+{{% tab name="Kotlin"%}}
 ```kotlin
 val party: Party? = identityService.partyFromAnonymous(anonymousParty)
 ```
+{{% /tab %}}
 
-- Java
-
+{{% tab name="Java"%}}
 ```java
 Party party = identityService.partyFromAnonymous(anonymousParty)
 ```
+{{% /tab %}}
+{{< /tabs >}}
 
 This will return the `Party` that matches the input `AbstractParty` if the well-known identity is known, otherwise `null` is returned.
 
@@ -54,14 +57,19 @@ This will return the `Party` that matches the input `AbstractParty` if the well-
 
 To retrieve an `AnonymousParty` instance from `IdentityService` you must provide the `PublicKey` that is used to represent the anonymous party:
 
-- Kotlin
+{{< tabs name="AnonymousParty">}}
+{{% tab name="Kotlin"%}}
 
 ```kotlin
 val anonymousParty: AnonymousParty = identityService.anonymousPartyFromKey(publicKey)
 ```
 
-- Java
+{{% /tab %}}
+
+{{% tab name="Java"%}}
 
 ```java
 AnonymousParty anonymousParty = identityService.anonymousPartyFromKey(publicKey)
 ```
+{{% /tab %}}
+{{< /tabs >}}

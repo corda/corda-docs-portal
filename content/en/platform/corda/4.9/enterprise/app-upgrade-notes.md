@@ -15,7 +15,7 @@ weight: 30
 # Upgrading a CorDapp to a newer platform version
 
 {{< warning >}}
-Corda Enterprise 4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.9, read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.9/enterprise/notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.9, read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.9/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 This guide shows you how to upgrade your CorDapp from previous platform versions to benefit
@@ -36,6 +36,7 @@ If you do use them, re-namespace them to a package namespace you control and sig
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.9 | 11 |
 | 4.8 | 10 |
 | 4.7 | 9 |
 | 4.6 | 8 |

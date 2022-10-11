@@ -1,4 +1,5 @@
 ---
+title: Corda Open Source 4 release notes
 aliases:
 - /releases/release-V4.0/release-notes.html
 date: '2020-01-08T09:59:25Z'
@@ -6,15 +7,15 @@ menu:
   corda-os-4-0:
     identifier: corda-os-4-0-release-notes
     weight: 20
+    name: "Release notes"
 tags:
 - release
 - notes
-title: Release notes for Corda 4
+
 ---
 
 
-# Release notes for Corda 4
-
+# Corda Open Source 4 release notes
 
 Here we are, 9 months and 1500 plus commits later… and it’s a bouncing baby software release!
 
@@ -37,7 +38,6 @@ Additionally, be aware that the data model upgrades are changes to the Corda con
 apps that benefit from them, *all* nodes in a compatibility zone must be upgraded and the zone must be
 enforcing that upgrade. This may take time in large zones. Please take this into
 account for your own schedule planning.
-
 
 
 ## Changes for developers in Corda 4

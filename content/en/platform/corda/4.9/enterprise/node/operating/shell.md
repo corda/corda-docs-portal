@@ -27,10 +27,11 @@ The Corda shell is an embedded or standalone command line that allows an adminis
 
 ## Ways of using the Corda shell
 
-There are two ways of using the Corda shell:
+There are three ways of using the Corda shell:
 
 * A standalone application which you can run using `corda-standalone-shell`.
-* A driver within your node, accessible via the `corda-shell.jar`. You can also use SSH to access the shell remotely using this method.
+* A driver within your node, accessible via `corda-shell.jar`.
+* If you use a driver within your node, you can also use SSH to access the shell remotely. To do that, you must configure the driver to enable the SSH access.
 
 The standalone application is the only way to use the shell and keep a log of your commands.
 
@@ -91,7 +92,7 @@ The standalone shell is a standalone application interacting with a Corda node v
 
 You can access the standalone shell from [software.r3.com](https://software.r3.com).
 
-Run the `corda-standalone-shell` jar using:
+Run the `corda-standalone-shell` `.jar` using:
 
 ```
  java -jar corda-standalone-shell-4.9.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
@@ -104,31 +105,62 @@ Run the `corda-standalone-shell` jar using:
 
 Where:
 
-  - `config-file=<configFile>`, `--f`: The path to the shell configuration file, used instead of providing the rest of the command line options.
+  - `config-file=<configFile>`, `--f`: The path to the shell configuration file, used instead of providing the rest of the command line options. The configuration file options map the command line options described below, one on each line. The following is the full list of options that can be provided in a configuration file to replace the command line options:
+
+  ```
+  extensions.commands.path
+  extensions.cordapps.path
+  node.user
+  node.password
+  node.addresses.rpc.host
+  node.addresses.rpc.port
+  ssl.truststore.path
+  ssl.truststore.password
+  ssl.truststore.type
+  ```
+
+  The following is an example of a configuration file:
+
+  ```
+  node.addresses.rpc.host=localhost
+  node.addresses.rpc.port=10006
+  extensions.cordapps.path=~/src/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps
+  node.user=bankUser
+  node.password=test
+  ```
+
   - `cordapp-directory=<cordappDirectory>`, `-c`: The path to the directory containing CorDapp jars, CorDapps are required when starting flows.
   - `commands-directory=<commandsDirectory>`, `-o`: The path to the directory containing additional CRaSH shell commands.
   - `host`, `-a`: The host address of the Corda node.
   - `port`, `-p`: The RPC port of the Corda node.
   - `user=<user>`: The RPC user name.
   - `password=<password>`: The RPC user password. If not provided it will be prompted for on startup.
-  - `truststore-password=<trustStorePassword>`: The password to unlock the TrustStore file.
-  - `truststore-file=<trustStoreFile>`: The path to the TrustStore file.
-  - `truststore-type=<trustStoreType>`: The type of the TrustStore (for example, JKS).
+  - `truststore-password=<trustStorePassword>`: The password to unlock the node's `truststore.jks` file.
+  - `truststore-file=<trustStoreFile>`: The path to the node's `truststore.jks` file.
+  - `truststore-type=<trustStoreType>`: The type of the node's trustStore file (in this case, it's `.jks`).
   - `verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
   - `logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
   - `help`, `-h`: Show this help message and exit.
   - `version`, `-V`: Print version information and exit.
 
-## Use the shell from a driver within your node
+## Install and access the shell from a driver within your node
 
-Install the `corda-shell` `.jar` in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
+You can install the shell in your node in two different ways:
+
+* Download the `corda-shell` `.jar` from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
 By default, a Corda node does not run the shell.
 
-When using `cordaformation` the shell can be included in generated node's by including the following in the `build.gradle` file containing `deployNodes`:
+* When using `cordaformation`, the shell can be included in the generated nodes by adding the following in the `dependencies` block. The `dependencies` block must be in the same `build.gradle` file as the `deployNodes` task:
 
-```
-cordaDriver "net.corda:corda-shell:4.9"
-```
+  ```
+  dependencies {
+          .
+          .
+          .
+          cordaDriver "net.corda:corda-shell:$corda_release_version"
+         .
+  }
+  ```
 
 ## The shell via SSH
 

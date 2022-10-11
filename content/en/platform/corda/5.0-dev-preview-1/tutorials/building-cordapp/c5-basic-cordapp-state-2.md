@@ -63,7 +63,7 @@ data class BoardingTicket(
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.states;
 
@@ -112,7 +112,7 @@ data class BoardingTicket(
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.states;
 
@@ -176,7 +176,9 @@ There are several ways to return your parameters in a JSON string. This tutorial
 {{< /note >}}
 
 1. Create a data transfer object that encapsulates the data of your `BoardingTicket` state—`BoardingTicketDto`. Include the same variables as the `BoardingTicket` class (`description`, `marsExpress`, `owner`, and `launchDate`) and define all variable types as `String`.
+
 2. Create a function that instantiates the `BoardingTicketDto`.
+
 3. Create an override function that converts the `BoardingTicketDto` variables to JSON using the `toJson` method.
 
 Your code should now look like this:
@@ -226,7 +228,7 @@ data class BoardingTicketDto(
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.states;
 
@@ -298,6 +300,7 @@ The `BoardingTicket` state is involved in two transactions. In the first transac
 To implement this functionality:
 
 1. Define a secondary constructor that creates the default `BoardingTicket` state. This constructor assigns `marsExpress` as the default `owner` of the ticket when no customer is specified.
+
 2. Define a helper method that changes the owner of the `BoardingTicket` state—`changeOwner`. This function is used when Mars Express issues a `BoardingTicket` to a customer and returns the `BoardingTicket` with its updated variables.
 
 You've finished writing the `BoardingTicket` state. Your code should look like this:
@@ -361,7 +364,7 @@ data class BoardingTicketDto(
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.states;
 

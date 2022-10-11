@@ -339,3 +339,7 @@ It is possible to eliminate the need for a 3rd party load balancer by adding `ad
 The `p2pAddress` should point to the primary node’s machine address and `additionalP2PAddresses` should add the back-up node’s machine address.
 
 {{< /note >}}
+
+## Hot-cold high-availability on Kubernetes clusters
+
+If you have shared infrastructure where all the containers are deployed on a Kubernetes cluster, you should not deploy hot-cold. It is simpler to deploy a stateful pod, where Kubernetes is ensuring that one node is always running. To avoid accidentally running nodes at the same time when Kubernetes briefly has two pods active, use the [Mutual Exclusion mechanism](#mutual-exclusion). Also, you must mount the `artemis journal` folder as it holds state.

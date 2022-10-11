@@ -1,7 +1,6 @@
 ---
-
+title: Corda Enterprise Edition 4.8 release notes
 date: '2021-07-01'
-
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-release-notes
@@ -10,17 +9,70 @@ tags:
 - release
 - notes
 - enterprise
-title: Corda Enterprise release notes
 weight: 1
 ---
 
 
-# Corda Enterprise release notes
+# Corda Enterprise Edition 4.8 release notes
 
-## Corda Enterprise 4.8.6
+## Corda Enterprise Edition 4.8.9 release notes
 
+Corda Enterprise Edition 4.8.9 is a patch release of Corda Enterprise focused on resolving issues.
 
-Corda Enterprise 4.8.6 is a patch release of Corda Enterprise which includes dependency upgrades and fixes for minor flow and ledger issues.
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+* For CENM 1.4+, the `getNodeInfos()` bulk fetch mechanism now retrieves NodeInfos from the network map via an HTTP proxy, if a proxy has been configured.
+
+## Corda Enterprise Edition 4.8.8 release notes
+
+Corda Enterprise Edition 4.8.8 is a patch release of Corda Enterprise focused on CorDapp response time and security improvements.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+In this patch release:
+* Java serialization has been disabled in the Corda firewall, closing a potential security vulnerability.
+* The time it takes for first-time flows to be run in a signed CorDapp has been significantly reduced. This was achieved by fixing a regression introduced in Corda Enterprise Edition 4.8 involving the `ServiceLoader` used to load the `SerializationWhitelist`.
+
+### Third party component upgrades
+
+{{< table >}}
+
+|Library|Version 4.8.8|Previous version|
+|---------|-------|-------|
+|Jackson|2.13.3|2.9.7|
+|Netty|4.1.77.Final|4.1.46.Final|
+|Quasar|0.7.15_r3|0.7.13_r3|
+|Shiro|1.8.0|1.4.1|
+|TCNative|2.0.48.Final|2.0.42.Final|
+
+{{< /table >}}
+
+## Corda Enterprise Edition 4.8.7 release notes
+
+Corda Enterprise Edition 4.8.7 is a patch release of Corda Enterprise that ensures class compatibility.
+
+### Upgrade recommendation
+
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html).
+
+### Fixed issues
+
+In this patch release:
+* Backwards compatibility option (accessibility) for `RestrictedConnection` class, ensuring it respects `TargetVersion` correctly.
+
+## Corda Enterprise Edition 4.8.6 release notes
+
+Corda Enterprise Edition 4.8.6 is a patch release of Corda Enterprise which includes dependency upgrades and fixes for minor flow and ledger issues.
 
 ### Upgrade recommendation
 
@@ -42,9 +94,9 @@ In this patch release:
 * Netty package upgraded to v4.1.67.Final to provide greater security against Denial of Service (DoS) attacks.
 * Contracts no longer reuse the same instance of the `LedgerTransaction` and therefore can no longer maliciously or accidentally mutate states within the ledger.
 
-## Corda Enterprise 4.8.5
+## Corda Enterprise Edition 4.8.5 release notes
 
-Corda Enterprise 4.8.5 is a patch release of Corda Enterprise that fixes an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version 2.16.0.
+Corda Enterprise Edition 4.8.5 is a patch release of Corda Enterprise that fixes an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency. In this fix, the Log4j dependency is updated to version 2.16.0.
 
 To get started with this upgrade, request the download link by raising a ticket with [support](https://r3-cev.atlassian.net/servicedesk/customer/portal/2).
 
@@ -66,21 +118,21 @@ In this patch release:
 
 * Log4j dependency updated to version 2.16.0 to mitigate CVE-2021-44228.
 
-## Corda Enterprise 4.8.4
+## Corda Enterprise Edition 4.8.4 release notes
 
 {{< warning >}}
-Patch 4.8.4 contains dependency Log4j 2.15.0. A new vulnerability has been discovered in version 2.15.0 of the log4j logging library, as described here: https://nvd.nist.gov/vuln/detail/CVE-2021-45046. Apache has released version 2.16.0 of the library to address the issue. Corda Enterprise 4.8.5 is due for release December 17 2021.
+Patch 4.8.4 contains dependency Log4j 2.15.0. A new vulnerability has been discovered in version 2.15.0 of the log4j logging library, as described here: https://nvd.nist.gov/vuln/detail/CVE-2021-45046. Apache has released version 2.16.0 of the library to address the issue. Corda Enterprise Edition 4.8.5 is due for release December 17 2021.
 {{< /warning >}}
 
-Corda Enterprise 4.8.4 is a patch release of Corda Enterprise that attempted to fix an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
+Corda Enterprise Edition 4.8.4 is a patch release of Corda Enterprise that attempted to fix an urgent security issue - CVE-2021-44228 - caused by the Apache Log4j 2 dependency.
 
 ### Upgrade recommendation
 
-When available, update to the next patch release, **Corda Enterprise 4.8.5**, as soon as possible.
+When available, update to the next patch release, **Corda Enterprise Edition 4.8.5**, as soon as possible.
 
-## Corda Enterprise 4.8.3
+## Corda Enterprise Edition 4.8.3 release notes
 
-Corda Enterprise 4.8.3 is a patch release of Corda Enterprise that fixes an issue affecting flows on counterparty nodes in the event of certain notary exceptions.
+Corda Enterprise Edition 4.8.3 is a patch release of Corda Enterprise that fixes an issue affecting flows on counterparty nodes in the event of certain notary exceptions.
 
 ### Upgrade recommendation
 
@@ -95,9 +147,9 @@ In this patch release:
 * A fix has been added to prevent exceptions from the notary leading to hospitalized flows on counterparty nodes.
 
 
-## Corda Enterprise 4.8.2
+## Corda Enterprise Edition 4.8.2 release notes
 
-Corda Enterprise 4.8.2 is a patch release of Corda Enterprise that fixes security vulnerabilities in Corda Enterprise 4.8 and 4.8.1, and offers greater compatibility with recent versions of FutureX.
+Corda Enterprise Edition 4.8.2 is a patch release of Corda Enterprise that fixes security vulnerabilities in Corda Enterprise Edition 4.8 and 4.8.1, and offers greater compatibility with recent versions of FutureX.
 
 ### Upgrade recommendation
 
@@ -123,9 +175,9 @@ In this patch release:
 * A fix to improve enforcement of RPC authorisation matrix.
 * Default index added for `transaction_id` and `output_index` on `state_party` table.
 
-## Corda Enterprise 4.8.1
+## Corda Enterprise Edition 4.8.1 release notes
 
-Corda Enterprise 4.8.1 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise 4.8.
+Corda Enterprise Edition 4.8.1 is a patch release of Corda Enterprise that fixes a security vulnerability in Corda Enterprise Edition 4.8.
 
 ### Upgrade recommendation
 
@@ -147,11 +199,9 @@ In this patch release:
 * The [Flow management console](../../../../../en/platform/corda/4.8/enterprise/node/node-flow-management-console.html#flow-management-console) configuration has been updated. Configuration is now set in `flow.management.plugin.middleware`, no longer `flow.admin.middleware`.
 * LedgerGraph has been updated to version 1.2.2. This upgrade minimizes memory footprint, and is not a functional change.
 
+## Corda Enterprise Edition 4.8  release notes
 
-
-## Corda Enterprise 4.8 release overview
-
-Corda Enterprise 4.8, released on April 21st 2021, includes several new features, enhancements, and fixes.
+Corda Enterprise Edition 4.8, released on April 21st 2021, includes several new features, enhancements, and fixes.
 
 * The [notary database now supports Oracle database version 19c](#notary-database-support-update).
 * You can use Azure-managed identities to authenticate [Azure Key Vault HSM](#azure-managed-identities-authentication)s.
@@ -160,13 +210,13 @@ Corda Enterprise 4.8, released on April 21st 2021, includes several new features
 * Confidential identities support has been added via [Utimaco and Gemalto Luna HSMs](platform-support-matrix.html#hardware-security-modules-hsm).
 
 {{< note >}}
-This page only describes functionality specific to Corda Enterprise 4.8. However, as a Corda Enterprise customer, you can also make full use of the features available as part of the Corda open source releases.
+This page only describes functionality specific to Corda Enterprise Edition 4.8. However, as a Corda Enterprise customer, you can also make full use of the features available as part of the Corda open source releases.
 
 See the [Corda open source release notes](../../../../../en/platform/corda/4.8/open-source/release-notes.md) for information about new features, enhancements, and fixes shipped as part of Corda 4.8.
 {{< /note >}}
 
 {{< note >}}
-You can use states and CorDapps valid in Corda 3.0 and above with Corda 4.8 and Corda Enterprise 4.8.
+You can use states and CorDapps valid in Corda 3.0 and above with Corda 4.8 and Corda Enterprise Edition 4.8.
 
 
 For the commitment Corda makes to wire and API stability, see [API stability guarantees](../../../../../en/platform/corda/4.8/enterprise/cordapps/api-stability-guarantees.md).
@@ -174,7 +224,7 @@ For the commitment Corda makes to wire and API stability, see [API stability gua
 
 ## Long-term support release
 
-[Corda 4.8](../../../../../en/platform/corda/4.8/open-source/release-notes.md) and Corda Enterprise 4.8 are our long-term support (LTS) platform versions.
+[Corda 4.8](../../../../../en/platform/corda/4.8/open-source/release-notes.md) and Corda Enterprise Edition 4.8 are our long-term support (LTS) platform versions.
 
 R3 provides LTS for this release for 30 months starting April 21st 2021. This is 6 months longer than the support periods for previous releases, giving Corda customers extra time to plan for the next upgrade.
 
@@ -214,7 +264,7 @@ See [Monitoring Notary Latency](../../../../../en/platform/corda/4.8/enterprise/
 
 ## Fixed issues
 
-Corda Enterprise 4.8 fixes:
+Corda Enterprise Edition 4.8 fixes:
 
 * A security issue that affects notary systems that use the JPA notary implementation in an HA configuration and when the notary backing database has been set up using the Corda database management tool. The new version of the Corda [database management tool](../../../../../en/platform/corda/4.8/enterprise/database-management-tool.md) must be re-run for the fix to take effect.
 * Several issues that cause memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page](../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration) for details.
@@ -234,5 +284,5 @@ Corda Enterprise 4.8 fixes:
 * An issue with the Oracle 12c database that causes the JDBC driver to hang if blocked by an empty entropy pool.
 
 {{< note >}}
-This issue is specific to Corda Enterprise 4.8. Known issues relating to other versions of Corda Enterprise are listed in the release notes for each version.
+This issue is specific to Corda Enterprise Edition 4.8. Known issues relating to other versions of Corda Enterprise are listed in the release notes for each version.
 {{< /note >}}

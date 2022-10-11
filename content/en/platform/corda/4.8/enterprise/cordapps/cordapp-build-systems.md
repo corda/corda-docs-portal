@@ -80,8 +80,8 @@ ext.quasar_classifier=''
 ext.kotlin_version = '1.2.71'
 ```
 {{< note >}}
-Corda Enterprise 4 uses patched releases of Quasar and Caffeine to work around shortcomings identified in
-these libraries while a fix is being developed. Add `corda-dependencies` to your list of Gradle repositories to get the patched versions of these libraries. This repository is required for any project referencing Corda Enterprise 4 packages to provide transitive dependencies:
+Corda Enterprise Edition 4 uses patched releases of Quasar and Caffeine to work around shortcomings identified in
+these libraries while a fix is being developed. Add `corda-dependencies` to your list of Gradle repositories to get the patched versions of these libraries. This repository is required for any project referencing Corda Enterprise Edition 4 packages to provide transitive dependencies:
 
 ```groovy
 repositories {

@@ -7,11 +7,11 @@ menu:
 tags:
 - generating
 - node
-title: Dockerform plug-in
+title: Dockerform task
 weight: 1
 ---
 
-# Tasks using the Dockerform plug-in
+# Tasks using Dockerform
 
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
 (Community Edition) is sufficient. Please refer to [Docker CE documentation](https://www.docker.com/community-edition)
@@ -343,4 +343,3 @@ In this case, each Corda node is associated with a Postgres database. Only one C
 The connection settings to the Postgres database are provided to each node through the `postgres.gradle` file. The Postgres JDBC driver is provided via Maven as part of the `cordaDrive` gradle configuration, which is also specified in the dependencies block of the `postgres.gradle` file.
 
 Note that this feature is not designed for users to access the database via elevated or admin rights - you must only use such configuration changes for testing/development purposes.
-

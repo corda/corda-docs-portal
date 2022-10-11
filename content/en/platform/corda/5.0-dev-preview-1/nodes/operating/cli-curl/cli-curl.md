@@ -13,9 +13,9 @@ description: >
 
 Use this guide to interact with your node using the Corda Node command-line interface (CLI) or `curl` commands.
 
-## Use the Corda Node CLI to interact with nodes via HTTP-RPC
-
 The Corda Node command-line interface (CLI) allows you to interact with nodes using the new HTTP-RPC API. It offers a convenient way of calling HTTP-RPC methods, and formats their results so that they are easy to understand.
+
+## Download the Corda Node CLI
 
 Download either the Corda Node CLI's <a href="https://download.corda.net/corda-node-cli/5.0.0-DevPreview-1.0.1/corda-node-cli.tar">`.tar`</a> or <a href="https://download.corda.net/corda-node-cli/5.0.0-DevPreview-1.0.1/corda-node-cli.zip">`.zip`</a> file.
 
@@ -30,7 +30,7 @@ You must save the Corda Node CLI `.jar` file locally to your computer (you don't
 
 The Corda Node CLI is built to be discoverable. Start by invoking it without any arguments:
 
-```
+```console
 java -jar corda-node-cli.jar --help
 
 Specify a sub-command
@@ -76,7 +76,7 @@ To manage your endpoints, use the command `corda-node-cli endpoint [command] ...
 * `get` to show the current default endpoint.
 
 Endpoints are identified by their full address (http[s]://address:port/api/v1). For convenience, you can set an alias for an endpoint when registering it, using the `-n` argument:
-```
+```console
 > ./corda-node-cli endpoint add -n node-a ...
 ```
 
@@ -104,7 +104,7 @@ Where possible, you should use OAuth2. Basic authentication is not a secure logi
 
 To connect to a node that does not use single sign-on (SSO), you can use basic username/password authentication. For this, you need to make sure that the user account is set up in `node.conf`. Here's an example:
 
-```
+```console
 > corda-node-cli endpoint add -n mynode --basic-auth -u [username] -P -- [address]/api/v1
 Enter value for --password (Password for password based authentication.):
 ```
@@ -119,24 +119,24 @@ To connect to a node using Azure AD:
 
 1. Run:
 
-```
-corda-node-cli endpoint add -n azure-node --azure-ad -- [address]/api/v1
+   ```console
+   corda-node-cli endpoint add -n azure-node --azure-ad -- [address]/api/v1
 
-The HTTP RPC at https://[address]/api/v1 has a X.509 key fingerprint:
-```
+   The HTTP RPC at https://[address]/api/v1 has a X.509 key fingerprint:
+   ```
 
 2. Respond to the prompt and login via the link provided.
-```
-Do you trust this host? (Y/N)
-y
-To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code [code] to authenticate.
-```
+   ```console
+   Do you trust this host? (Y/N)
+   y
+   To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code [code] to authenticate.
+   ```
 
 ### Verify the Corda Node CLI functionality
 
 There are also commands to verify the Corda Node CLI functionality. For example, to verify a node's network membership registration, run:
 
-```
+```console
 > corda-node-cli healthCheck group
 Network ready: Ready
 ```

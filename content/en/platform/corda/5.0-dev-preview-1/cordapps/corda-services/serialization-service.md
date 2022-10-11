@@ -13,9 +13,8 @@ description: >
 Object serialization is the process of converting objects into a stream of bytes and, deserialization, the reverse process of creating objects from a stream of bytes. You can serialize and deserialize outputted bytes using the `SerializationService`, which can be injected into flows and services.
 
 ## Examples
-
-- Kotlin
-
+{{< tabs name="serialization">}}
+{{% tab name="Kotlin"%}}
 ```kotlin
 class SerializationExampleFlow : Flow<Unit> {
 
@@ -31,9 +30,9 @@ class SerializationExampleFlow : Flow<Unit> {
   }
 }
 ```
+{{% /tab %}}
 
-- Java
-
+{{% tab name="Java"%}}
 ```java
 public class SerializationExampleFlow implements Flow<Void> {
 
@@ -51,6 +50,8 @@ public class SerializationExampleFlow implements Flow<Void> {
   }
 }
 ```
+{{% /tab %}}
+{{< /tabs >}}
 
 {{< note >}}
 Injection is done in the same way into `CordaService`s.

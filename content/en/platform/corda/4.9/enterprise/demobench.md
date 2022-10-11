@@ -10,5 +10,5 @@ weight: 30
 ---
 
 {{< warning >}}
-DemoBench was deprecated in Corda 4.6 and Corda Enterprise 4.6.
+DemoBench was deprecated in Corda 4.6 and Corda Enterprise Edition 4.6.
 {{< /warning >}}

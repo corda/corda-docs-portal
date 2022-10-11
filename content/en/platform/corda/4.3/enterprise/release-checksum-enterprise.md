@@ -1,4 +1,5 @@
 ---
+title: Corda Enterprise Edition 4.3 release files and checksums
 aliases:
 - /releases/4.3/release-notes-enterprise.html
 date: '2020-01-08T09:59:25Z'
@@ -6,20 +7,21 @@ menu:
   corda-enterprise-4-3:
     identifier: corda-enterprise-4-3-release-checksum-enterprise
     weight: 30
+    name: "Release files and checksums"
 tags:
 - release
 - notes
 - enterprise
-title: Release files and checksums
+
 ---
 
-# Corda Enterprise release files and checksums
+# Corda Enterprise Edition 4.3 release files and checksums
 
 Customers who have access to the Corda repositories can download the release files from the repositories.
 
 Before installing any downloaded file, we recommend that you verify the integrity of each file as a security precaution, to ensure that the files have not been tampered with or become corrupted during the download. You can do this by calculating the checksum of your downloaded file and then comparing its value to the checksum value provided below.
 
-## Corda Enterprise 4.3.10 release files and checksums
+## Corda Enterprise Edition 4.3.10 release files and checksums
 
 * corda-4.3.10-javadoc.jar (19 Kb / 19835 bytes)
   * `cfc4f91d0be85130991114e40dae861c7daa7cf4` (sha1)
@@ -798,7 +800,7 @@ Before installing any downloaded file, we recommend that you verify the integrit
   * `dc96098279b192c7fd4d9cfeedd6acb9` (md5)
   * `039488d449b90e5d8f64adebfe55174a664a812eed132d7808742a9509872b28` (sha256)
 
-## Corda Enterprise 4.3.8 release files and checksums
+## Corda Enterprise Edition 4.3.8 release files and checksums
 
 * corda-4.3.8-javadoc.jar (19 Kb / 19841 bytes)
   * `1644c3acc008c185fdcf2a13f83b58b92cc46016` (sha1)

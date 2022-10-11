@@ -68,7 +68,7 @@ Assuming Java is installed on your machine (either JRE or JDK, runtime or develo
 
 In this example, a self-signed certification is created using `keytool`:
 
-```
+```console
 farm@JUGGERNAUT:~/git/engineering-kb$ keytool -genkey -keyalg RSA -keysize 2048 -keystore keystore.jks -storepass ThisIsntSecure -validity 360
 What is your first and last name?
   [Unknown]:  Sample Node

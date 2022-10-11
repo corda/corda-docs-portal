@@ -12,7 +12,7 @@ Use the following table to track the end of life for each version of Corda. Each
 
 Definitions:
 
-* **End of maintanance**: This release will no longer receive functional patches after the date shown.
+* **End of maintenance**: This release will no longer receive functional patches after the date shown.
 * **End of security**: This release will no longer be eligible for security patches after the date shown.
 * **End of support**: Support, provided by R3, is not available after this date.
 
@@ -21,7 +21,7 @@ All dates refer to the end of the month indicated.
 
 {{< table >}}
 
-| Corda version | Date of release    | End of Maintanance | End of security | End of support |
+| Corda version | Date of release    | End of Maintenance | End of security | End of support |
 | :------------- | :------------- | :-------------- | :------------ | :------------ |
 | Corda Enterprise 4.4   | 03/2020 | 03/2022 | 03/2023 | 03/2022 |
 | Corda Enterprise 4.5   | 06/2020 | 06/2022 | 06/2023 | 06/2022 |

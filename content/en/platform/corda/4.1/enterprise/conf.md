@@ -75,7 +75,7 @@ copyright = u'2018, R3 Limited'
 author = u'R3 DLG'
 
 # The version info for the project you're documenting, acts as replacement for
-# |version| and Corda Enterprise 4.1, also used in various other places throughout the
+# |version| and Corda Enterprise Edition 4.1, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.

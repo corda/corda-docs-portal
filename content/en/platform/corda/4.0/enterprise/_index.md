@@ -7,19 +7,19 @@ menu:
     weight: 40
   corda-enterprise-4-0:
     weight: 1
-    name: Corda Enterprise 4.0
+    name: Corda Enterprise Edition 4.0
 project: corda
 section_menu: corda-enterprise-4-0
-title: Corda Enterprise 4.0
+title: Corda Enterprise Edition 4.0
 version: 'Enterprise 4.0'
 ---
 
 
-# Corda Enterprise 4.0
+# Corda Enterprise Edition 4.0
 
-Welcome to the documentation website for Corda Enterprise 4.0, based on the Corda 4.0 open source release.
+Welcome to the documentation website for Corda Enterprise Edition 4.0, based on the Corda 4.0 open source release.
 
-Corda Enterprise 4.0 builds on the performance, scalability, high-availability, enhanced DMZ security, and multiple database vendor support
+Corda Enterprise Edition 4.0 builds on the performance, scalability, high-availability, enhanced DMZ security, and multiple database vendor support
 introduced in Corda Enterprise 3.0 with the following important new additions:
 
 
@@ -39,7 +39,7 @@ of multi-node hosting.
 a toolkit to allow customers to test and validate Corda for their infrastructure performance and determine whether or not improvements are needed
 before going live.
 
-Corda Enterprise 4.0 also includes the new features of Corda 4, notably:
+Corda Enterprise Edition 4.0 also includes the new features of Corda 4, notably:
 
 
 * **Reference input states**:

@@ -11,17 +11,17 @@ menu:
 tags:
 - cordform
 - node
-title: Cordform plug-in
+title: Cordform task
 ---
 
-# Cordform plug-in
+# Cordform task
 
-Corda provides two `gradle` plug-ins - `Cordform` and `Dockerform`. They both allow you to run tasks that automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Cordform plug-in. Visit the [Dockerform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-dockerform.md) page for Dockerform configuration options.
+Corda's `cordformation` Gradle plugin provides the `Cordform` and `Dockerform` tasks. They both allow you to automatically generate and configure a local set of nodes for testing and demonstration purposes. This page contains information about the operation of the Cordform task. Visit the [Dockerform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-dockerform.md) page for Dockerform configuration options.
 
 * A `Cordform` task creates nodes in the `build/nodes` directory. The example `Cordform` task used in this document creates three nodes: `Notary`, `PartyA`, and `PartyB`, however you are free to spin up more nodes, specify what nodes you need on the network, change node names, and update node configurations.
 * `Cordform` tasks require you to deploy each Corda node and database separately.
 
-## Tasks using the Cordform plug-in
+## Tasks using Cordform
 
 The following example, as defined in the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin/blob/release-V4/build.gradle#L120), shows a `Cordform` task called `deployNodes` that creates three nodes:
 * A `Notary` node, which:
@@ -89,6 +89,36 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         // Grants user1 the ability to start the MyFlow flow.
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
     }
+}
+```
+
+You can turn deploying the local project's CorDapp to each node off by adding the following code to your node configuration:
+
+```
+projectCordapp {
+    deploy = false
+}
+```
+
+The `Cordform` and `Dockerform` also support a `nodeDefaults` block, which can
+contain configuration common to all nodes, for example:
+
+```
+nodeDefaults {
+    cordapp project(':contracts')
+    cordapp project(':workflows')
+    runSchemaMigration = true
+    rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]
+}
+```
+
+You can override these defaults for each node:
+
+```
+node {
+    name = "O=Notary,L=London,C=GB"
+    notary = [ validating: true ]
+    rpcUsers = []
 }
 ```
 
@@ -184,20 +214,20 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-The `drivers` Cordform parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
-To copy the same file to all nodes, define `ext.drivers` in the top level, and reuse it for each node by setting `drivers=ext.drivers`.
+The `drivers` parameter in the `node` entry lists paths of the files to be copied to the `drivers` sub-directory of the node.
 
-```groovy
-task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
-    ext.drivers = ['lib/my_common_jar.jar']
-    [...]
-    node {
-        name "O=PartyB,L=New York,C=US"
-        [...]
-        drivers = ext.drivers + ['lib/my_specific_jar.jar']
-    }
+To add any drivers as dependencies of the `cordaDriver` configuration, use the following code (option recommended over using the `drivers` parameter):
+
+```
+dependencies {
+    cordaDriver "net.corda:corda-shell:$corda_release_version"
+    cordaDriver files('lib/my_specific_jar.jar')
 }
 ```
+
+The `Cordform` and `Dockerform` tasks copy the resolved contents of Gradle's
+`cordaDriver` configuration into each node's `drivers` directory before
+running the bootstrapper.
 
 ## Package namespace ownership
 

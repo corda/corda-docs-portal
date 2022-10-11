@@ -38,9 +38,9 @@ The `MarsVoucherContract` contract verifies actions performed on the `MarsVouche
 
 3. In the **New Kotlin Class/File** window, select **Class** and name the file `MarsVoucherContract`.
 
-{{< note >}}
-When naming contracts, it’s best practice to match your contract and state names. In this case the contract is called `MarsVoucherContract`, and the state that links to it is called `MarsVoucher`. Follow this naming convention when you write an original CorDapp to avoid confusion.
-{{< /note >}}
+  {{< note >}}
+  When naming contracts, it’s best practice to match your contract and state names. In this case the contract is called `MarsVoucherContract`, and the state that links to it is called `MarsVoucher`. Follow this naming convention when you write an original CorDapp to avoid confusion.
+  {{< /note >}}
 
 4. Open the file.
 
@@ -68,7 +68,7 @@ class MarsVoucherContract : Contract {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.contracts;
 
@@ -85,6 +85,7 @@ public class MarsVoucherContract implements Contract {
 After creating the contract class in a CorDapp, you must connect the contract to its correlating state. Add the `@BelongsToContract` annotation *in the state class* to establish the relationship between a state and a contract. Without this, your state does not hold a relationship to the contract that is used to verify it.
 
 1. Open your `MarsVoucher` class.
+
 2. Annotate the `MarsVoucher` data class with the `@BelongsToContract` annotation.
 
 Transactions involving the `MarsVoucher` state are now verified using the `MarsVoucherContract`.
@@ -111,7 +112,7 @@ data class MarsVoucher (
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 package net.corda.missionMars.states;
 
@@ -171,7 +172,7 @@ class MarsVoucherContract : Contract {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public class MarsVoucherContract implements Contract {
 
@@ -218,7 +219,7 @@ companion object {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 public class MarsVoucherContract implements Contract {
 
@@ -334,7 +335,7 @@ class MarsVoucherContract : Contract {
 ```
 {{% /tab %}}
 
-{{% tab name="java" %}}
+{{% tab name="Java" %}}
 ```java
 ```java
 package net.corda.missionMars.contracts;

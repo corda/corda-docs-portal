@@ -7,11 +7,11 @@ menu:
 tags:
 - generating
 - node
-title: Dockerform plug-in
+title: Dockerform task
 weight: 1
 ---
 
-# Tasks using the Dockerform plug-in
+# Tasks using Dockerform
 
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
 (Community Edition) is sufficient. Please refer to [Docker CE documentation](https://www.docker.com/community-edition)
@@ -46,7 +46,7 @@ node {
 ```
 
 {{< note >}}
-Make sure to use Corda gradle plugin version 5.0.10 or above. If you do not specify the `sshd` port number for a node, it will use the default value `2222`. Please run the `docker ps` command to check the allocated port on your host that maps to this port.
+Make sure to use Corda Gradle plugin version 5.0.10 or above. If you do not specify the `sshd` port number for a node, it will use the default value `2222`. Please run the `docker ps` command to check the allocated port on your host that maps to this port.
 {{< /note >}}
 
 The Docker image associated with each node can be configured in the `Dockerform` task. This will initialise *every* node in the `Dockerform` task with the specified Docker image. If you need nodes with different Docker images, you can edit the `docker-compose.yml` file with your preferred image.
@@ -265,7 +265,7 @@ The node configuration described here is just an example. `Dockerform` allows yo
 1. Open the `build.gradle` file of your CorDapp project and add a new gradle task, as shown in the example below.
 
 {{< note >}}
-Make sure to use Corda gradle plugin version 5.0.10 or above.
+Make sure to use Corda Gradle plugin version 5.0.10 or above.
 {{< /note >}}
 
 {{% warning %}}

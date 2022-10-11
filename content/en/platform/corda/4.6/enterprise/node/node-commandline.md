@@ -43,7 +43,7 @@ Ensure that the `[COMMAND]` precedes all options. Failing this, the provided arg
 {{< warning >}}
 **Important note about running the initial node registration command**
 
-In Corda Enterprise 4.6, database schemas are no longer initialised/migrated automatically by running any command at the first run of the node - typically at the initial node registration. This is now done explicitly by running `run-migration-scripts`, so no other commands during the first node run would initialise/migrate the database schema.
+In Corda Enterprise Edition 4.6, database schemas are no longer initialised/migrated automatically by running any command at the first run of the node - typically at the initial node registration. This is now done explicitly by running `run-migration-scripts`, so no other commands during the first node run would initialise/migrate the database schema.
 
 The exception to that is the `--initial-registration` command, which embeds `run-migration-scripts` and therefore runs the database migration scripts by default.
 

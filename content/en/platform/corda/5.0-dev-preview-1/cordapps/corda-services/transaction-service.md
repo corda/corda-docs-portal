@@ -20,8 +20,8 @@ Use this guide to learn how to sign transactions with the `TransactionService`, 
 
 To sign a `TransactionBuilder`:
 
-- Kotlin
-
+{{< tabs name="TransactionBuilder">}}
+{{% tab name="Kotlin"%}}
   ```kotlin
   // Sign with the system's default identity key
   val signedTransaction: SignedTransaction = transactionService.sign(transactionBuilder)
@@ -32,9 +32,9 @@ To sign a `TransactionBuilder`:
   // Sign with multiple [PublicKey]s
   val signedTransaction: SignedTransaction = transactionService.sign(transactionBuilder, listOf(publicKey, anotherPublicKey))
   ```
+  {{% /tab %}}
 
-- Java
-
+  {{% tab name="Java"%}}
   ```java
   // Sign with the system's default identity key
   SignedTransaction signedTransaction = transactionService.sign(transactionBuilder)
@@ -45,13 +45,14 @@ To sign a `TransactionBuilder`:
   // Sign with multiple [PublicKey]s
   SignedTransaction signedTransaction = transactionService.sign(transactionBuilder, List.of(publicKey, anotherPublicKey))
   ```
-
+  {{% /tab %}}
+  {{< /tabs >}}
 ### Sign a `SignedTransaction`
 
 To sign a `SignedTransaction`:
 
-- Kotlin
-
+{{< tabs name="SignedTransaction">}}
+{{% tab name="Kotlin"%}}
   ```kotlin
   // Sign with the system's default identity key
   val signedTransactionWithAnotherSignature: SignedTransaction = transactionService.sign(signedTransaction)
@@ -59,9 +60,9 @@ To sign a `SignedTransaction`:
   // Sign with a single [PublicKey]
   val signedTransactionWithAnotherSignature: SignedTransaction = transactionService.sign(signedTransaction, publicKey)
   ```
+  {{% /tab %}}
 
-- Java
-
+  {{% tab name="Java"%}}
   ```java
   // Sign with the system's default identity key
   SignedTransaction signedTransactionWithAnotherSignature = transactionService.sign(signedTransaction)
@@ -69,7 +70,8 @@ To sign a `SignedTransaction`:
   // Sign with a single [PublicKey]
   SignedTransaction signedTransactionWithAnotherSignature = transactionService.sign(signedTransaction, publicKey)
   ```
-
+  {{% /tab %}}
+  {{< /tabs >}}
 ### Create a signature
 
 You can also create the signature without signing the input transaction itself by using `TransactionService.createSignature`.
@@ -78,8 +80,8 @@ There are overloads to create signatures for `SignedTransaction`s and `FilteredT
 
 To create a signature for a `SignedTransaction` or `FilteredTransaction`:
 
-- Kotlin
-
+{{< tabs name="FilteredTransaction">}}
+{{% tab name="Kotlin"%}}
   ```kotlin
   // Create a signature with the system's default identity key
   val signature: DigitalSignatureAndMeta = transactionService.createSignature(transaction)
@@ -87,9 +89,9 @@ To create a signature for a `SignedTransaction` or `FilteredTransaction`:
   // Create a signature with a [PublicKey]
   val signature: DigitalSignatureAndMeta = transactionService.createSignature(transaction, publicKey)
   ```
+  {{% /tab %}}
 
-- Java
-
+  {{% tab name="Java"%}}
   ```java
   // Create a signature with the system's default identity key
   DigitalSignatureAndMeta signature = transactionService.createSignature(transaction)
@@ -97,7 +99,8 @@ To create a signature for a `SignedTransaction` or `FilteredTransaction`:
   // Create a signature with a [PublicKey]
   DigitalSignatureAndMeta signature = transactionService.createSignature(transaction, publicKey)
   ```
-
+  {{% /tab %}}
+  {{< /tabs >}}
 
 If the input transaction to `createSignature` was a `SignedTransaction`, then the returned `DigitalSignatureAndMeta` can be combined with it after operations using the signature are complete, returning a copy of the `SignedTransaction` with the signature. This is equivalent to using `TransactionService.sign`, but allows you to interact with the `DigitalSignatureAndMeta` as your application requires.
 
@@ -105,7 +108,8 @@ If the input transaction to `createSignature` was a `SignedTransaction`, then th
 
 You can sign a `TransactionBuilder` directly without accessing a `TransactionService`. This is a convenience function to make building transactions simpler. It is functionally equivalent to the `TransactionService.sign` method.
 
-- Kotlin
+{{< tabs name="TransactionBuilder">}}
+{{% tab name="Kotlin"%}}
 
   ```kotlin
   // Sign with the system's default identity key
@@ -117,9 +121,9 @@ You can sign a `TransactionBuilder` directly without accessing a `TransactionSer
   // Sign with multiple [PublicKey]s
   val signedTransaction: SignedTransaction = transactionBuilder.sign(listOf(publicKey, anotherPublicKey))
   ```
+  {{% /tab %}}
 
-- Java
-
+  {{% tab name="Java"%}}
   ```java
   // Sign with the system's default identity key
   SignedTransaction signedTransaction = transactionBuilder.sign()
@@ -130,3 +134,5 @@ You can sign a `TransactionBuilder` directly without accessing a `TransactionSer
   // Sign with multiple [PublicKey]s
   SignedTransaction signedTransaction = transactionBuilder.sign(List.of(publicKey, anotherPublicKey))
   ```
+  {{% /tab %}}
+  {{< /tabs >}}

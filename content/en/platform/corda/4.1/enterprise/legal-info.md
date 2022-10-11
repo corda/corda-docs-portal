@@ -1,17 +1,18 @@
 ---
-title: Third-party software notices and licence information - CE 4.1.1
+title: Corda Enterprise Edition 4.1.1 third-party software notices and licence information
 date: '2020-10-22T15:15:56Z'
 menu:
   corda-enterprise-4-1:
     parent: corda-enterprise-4-1-release-notes-enterprise
     weight: 300
+    name: Third-party software notices and licence information - 4.1.1
 tags:
 - release
 - legal
 - enterprise
 ---
 
-# Corda Enterprise 4.1.1 third-party software notices and licence information
+# Corda Enterprise Edition 4.1.1 third-party software notices and licence information
 
 **Do not translate or localise.**
 
