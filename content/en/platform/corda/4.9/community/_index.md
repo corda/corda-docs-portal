@@ -41,7 +41,7 @@ For help finding these, use the [setup guide](community/getting-set-up.md).
 
 3. Follow the [tutorials](community/tutorial-cordapp.md) to set up a Corda network and start coding your CorDapps.
 
-## Upgrade to Corda Community Edition from Corda open source
+## Upgrade to Corda Community Edition from Corda Open Source
 
 If you are already using an open source version of Corda (Corda 4.1–Corda 4.8) and want to upgrade to Corda Community Edition, you can choose to:
 

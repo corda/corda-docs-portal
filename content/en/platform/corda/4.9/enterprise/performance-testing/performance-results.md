@@ -15,7 +15,7 @@ weight: 900
 
 This page captures the results of historical benchmarking measurements performed by R3. Unless otherwise stated, the necessary tooling is available as part of the [performance test suite](installation.md) and it can be used to reproduce the same work.
 
-## Comparing Corda Enterprise Edition 4.0 vs Corda Enterprise 3.x and Corda (open source)
+## Comparing Corda Enterprise Edition 4.0 vs Corda Enterprise 3.x and Corda Community Edition
 
 This section describes how Corda Enterprise Edition 4.0 nodes perform relative to Corda Enterprise 3.x in certain circumstances. It also shows how the
 throughput changes with the number of output states per transaction and how that allows the node to achieve a greater number of Corda states
@@ -168,7 +168,7 @@ later point release of Corda Enterprise.
 but the notary state is maintained in a version of MySQL utilising a clustering technology as described in running-a-notary-cluster/ha-notary-service-setup.
 For full disclosure (and convenience for us) all 3 nodes are running in one data centre, which would not be a typical deployment.  Whilst the latency
 between cluster members influences the performance of the notary itself, it is not operating at its limit even in that scenario here.  These notaries always ran on an 8 core VM.
-* **Open Source**.  In Figure 3, this uses the latest available open source Corda at the time of the test, persisting to an in-process **H2** database.
+* **Open Source**.  In Figure 3, this uses the latest available Corda Community Edition at the time of the test, persisting to an in-process **H2** database.
 * **External Bridge (SenderReceiver)**.  This is the Corda Firewall.  In Figure 3, this hosts the inbound and outbound peer-to-peer traffic endpoint in a separate JVM process,
 rather than embedded in the main node JVM process.
 
