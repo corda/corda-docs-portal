@@ -1,16 +1,15 @@
 ---
 date: '2022-09-23'
 title: Corda 5 Developer Preview 2
-name: Corda 5 Dev Preview 2
 project: corda
 version: 'Corda 5 Developer Preview 2'
 section_menu: corda-5-dev-preview2
-identifier: corda-5-dev-preview2
 menu:
   versions:
     weight: -649
   corda-5-dev-preview2:
     weight: 1000
+    name: Corda 5 Dev Preview 2
 ---
 <section class="section" style="text-align:center; color:white; background-image:url('5.0-dev-preview-2/icons/bg-dark.jpg');">
   <h1>
