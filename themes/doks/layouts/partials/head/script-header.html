@@ -18,7 +18,7 @@
       {{ $version := .Page.Params.version}}
       window.facetFilters = [
         ['project:{{- $project -}}'],
-        ['version:{{- $version -}}'],
+        ['version:nil'],
         'language:en'
       ];
 
@@ -27,7 +27,7 @@
         {{ $version := .Parent.Page.Params.version}}
         window.facetFilters = [
           ['project:{{- $project -}}'],
-          ['version:{{- $version -}}'],
+          ['version:notnil'],
           'language:en'
         ];
     {{ end }}
