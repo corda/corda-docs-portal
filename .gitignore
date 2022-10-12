@@ -663,3 +663,6 @@ repos/**
 **/xml/**
 repos/
 /resources/_gen/
+
+# Desktop Services Store holds meta information about macOS folders after using Finder
+.DS_Store
