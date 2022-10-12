@@ -57,4 +57,4 @@ time may differ. If you are using an unstable release and need help debugging an
 9. Make a note of the `corda_release_version` in the root `build.gradle` file of the Corda repository.
 10. In your CorDapp’s root `build.gradle` file:
   1. Update `ext.corda_release_version` to the `corda_release_version` you noted earlier.
-  2. Update `corda_gradle_plugins_version` to the `gradlePluginsVersion` you noted earlier - for Corda Enterprise 4.8, this must be `ext.corda_gradle_plugins_version = '5.0.12'`.
+  2. Update `corda_gradle_plugins_version` to the `gradlePluginsVersion` you noted earlier - for Corda Enterprise Edition 4.8, this must be `ext.corda_gradle_plugins_version = '5.0.12'`.

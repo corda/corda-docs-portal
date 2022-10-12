@@ -7,7 +7,7 @@ date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-4:
     identifier: corda-ent-4-4-tool-pki
-    name: "Corda Enterprise 4.4 PKI Tool"
+    name: "Corda Enterprise Edition 4.4 PKI Tool"
     parent: corda-ent-4-4-tool-index
 tags:
 - pki

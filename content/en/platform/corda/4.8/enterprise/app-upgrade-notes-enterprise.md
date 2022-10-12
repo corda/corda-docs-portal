@@ -9,24 +9,24 @@ tags:
 - upgrade
 - notes
 - enterprise
-title: Upgrading a CorDapp to Corda Enterprise 4.8
+title: Upgrading a CorDapp to Corda Enterprise Edition 4.8
 weight: 20
 ---
 
-# Upgrading a CorDapp to Corda Enterprise 4.8
+# Upgrading a CorDapp to Corda Enterprise Edition 4.8
 
 {{< warning >}}
-Corda Enterprise 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise 4.8, read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.8/enterprise/notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.8, read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.8/enterprise/notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 ## Upgrading from Corda open source
 
-Before upgrading to Corda Enterprise 4.8, upgrade your CorDapp to Corda open source 4.8. See [upgrading CorDapps to newer platform versions](../../../../../en/platform/corda/4.8/enterprise/app-upgrade-notes.md) for detailed instructions.
+Before upgrading to Corda Enterprise Edition 4.8, upgrade your CorDapp to Corda open source 4.8. See [upgrading CorDapps to newer platform versions](../../../../../en/platform/corda/4.8/enterprise/app-upgrade-notes.md) for detailed instructions.
 
 You don't need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
 be compatible with nodes running open source, then compile it against Corda open source 4.x.
 However, if you want to leverage specific features of Corda Enterprise, such as third-party commercial database support, and don't envisage your CorDapp being run
-in an open source production environment, then follow the [re-compiling for Corda Enterprise 4.8](#re-compiling-for-corda-enterprise-48) guide.
+in an open source production environment, then follow the [re-compiling for Corda Enterprise Edition 4.8](#re-compiling-for-corda-enterprise-48) guide.
 
 {{< note >}}
 Corda Enterprise and Corda open source public APIs are currently identical. However, this may change for future releases.
@@ -35,9 +35,9 @@ See [Corda and Corda Enterprise compatibility](../../../../../en/platform/corda/
 {{< /note >}}
 
 
-### Re-compiling for Corda Enterprise 4.8
+### Re-compiling for Corda Enterprise Edition 4.8
 
-To re-compile your CorDapp for Corda Enterprise 4.8, you need to:
+To re-compile your CorDapp for Corda Enterprise Edition 4.8, you need to:
 
 1. Update your Gradle build file as follows.
 
@@ -104,7 +104,7 @@ testCompile "$corda_release_distribution:corda-node-driver:$corda_release_versio
 ```
 
 {{< note >}}
-Corda Enterprise 4.8 binaries are not publicly available. To make the dependencies available for development, either
+Corda Enterprise Edition 4.8 binaries are not publicly available. To make the dependencies available for development, either
 create a mirror repository and upload them there, or add them to your local Maven repository.
 
 You can request a copy of the Corda Enterprise Developer Pack (contains a Maven repository mirror
@@ -138,9 +138,9 @@ Where:
 
 ## Upgrading from Enterprise 4.3 or earlier
 
-Corda Enterprise 4.4 moves towards an open core strategy. Therefore, the common APIs are only available in Corda
+Corda Enterprise Edition 4.4 moves towards an open core strategy. Therefore, the common APIs are only available in Corda
 open source, and Corda Enterprise has a binary dependency on the matching open source version. As a result, any CorDapps written against
-Corda Enterprise 4.4 or later will have to depend on the open source version of `corda-core`.
+Corda Enterprise Edition 4.4 or later will have to depend on the open source version of `corda-core`.
 
 Therefore, you have to add the following variables to your build configuration:
 
@@ -165,4 +165,4 @@ cordaCompile "$ext.corda_core_release_distribution:corda-core:$ext.corda_core_re
 
 ## Upgrading from Corda Enterprise 3.x
 
-You can only upgrade to Corda Enterprise 4.8 from a previous 4.x version. To upgrade from 3.x, first upgrade to 4.x and then to 4.8. For example, 3.3 to 4.5, and then 4.5 to 4.8.
+You can only upgrade to Corda Enterprise Edition 4.8 from a previous 4.x version. To upgrade from 3.x, first upgrade to 4.x and then to 4.8. For example, 3.3 to 4.5, and then 4.5 to 4.8.

@@ -1,14 +1,15 @@
 ---
-title: Release files and checksums
+title: Corda Open Source 4.5 release files and checksums
 date: '2020-06-22T12:19:11Z'
 menu:
   corda-os-4-5:
     identifier: corda-os-4-5-release-checksum-os
     parent: corda-os-4-5-release-notes
     weight: 2
+    name: "Release files and checksums"
 ---
 
-# Corda Open Source (OS) 4.5 release files and checksums
+# Corda Open Source 4.5 release files and checksums
 
 Before installing any downloaded file, we recommend that you verify the integrity of each file as a security precaution, to ensure that the files have not been tampered with or become corrupted during the download. You can do this by calculating the checksum of your downloaded file and then comparing its value to the checksum value provided below.
 

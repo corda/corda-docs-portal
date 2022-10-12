@@ -14,13 +14,13 @@ tags:
 title: Upgrading apps to Corda 4
 ---
 
-# Upgrading CorDapps to Corda Enterprise 4.1
+# Upgrading CorDapps to Corda Enterprise Edition 4.1
 
 ## Upgrading from Open Source
 
-### Running on Corda Enterprise 4.1
+### Running on Corda Enterprise Edition 4.1
 
-A prerequisite to upgrade to Corda Enterprise 4.1 is to ensure your CorDapp is upgraded to Open Source Corda 4.x.
+A prerequisite to upgrade to Corda Enterprise Edition 4.1 is to ensure your CorDapp is upgraded to Open Source Corda 4.x.
 Please follow the instructions in :doc:`app-upgrade-notes` section to complete this initial step.
 
 There is no requirement to re-compile your CorDapp to Corda Enterprise in order to run it on Corda Enterprise. If you wish your CorDapp to
@@ -32,7 +32,7 @@ for your CorDapp to run in an open source production environment, then please fo
 Corda open source and Enterprise Public APIs are currently identical but this may change in future releases of Corda Enterprise. Please read the [version compatibility guarantees](version-compatibility.md).
 {{</ note >}}
 
-### Re-compiling for Corda Enterprise 4.1
+### Re-compiling for Corda Enterprise Edition 4.1
 
 Re-compiling your CorDapp requires updating its associated Gradle build file as follows:
 
@@ -83,7 +83,7 @@ cordaCompile "$corda_release_distribution:corda-core:$corda_release_version"
 ```
 
 {{< note >}}
-Corda Enterprise 4.1 binaries are not available in a public repository. In order to make the dependencies available for development, either
+Corda Enterprise Edition 4.1 binaries are not available in a public repository. In order to make the dependencies available for development, either
 create a mirror repository and upload them there, or add them to the local Maven repository.
 {{</ note >}}
 
@@ -113,7 +113,7 @@ ext.os_corda_release_version = '4.0'
 
 ## Upgrading from Enterprise 4.0
 
-There are no CorDapp upgrade activities to move to Corda Enterprise 4.1.
+There are no CorDapp upgrade activities to move to Corda Enterprise Edition 4.1.
 
 ## Upgrading from Enterprise 3.x
 
