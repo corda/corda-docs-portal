@@ -14,33 +14,33 @@
       ];
 
       //if the page does not have a parent, the version is returned as "corda index"
-          {{ else if eq .Parent.Page.Params.version "Corda index"}}
-            {{ $project := .Page.Params.project}}
-            {{ $version := .Page.Params.version}}
-            window.facetFilters = [
-              ['project:{{- $project -}}'],
-              ['version:{{- $version -}}'],
-              'language:en'
-            ];
+    {{ else if eq .Parent.Page.Params.version "Corda index"}}
+      {{ $project := .Page.Params.project}}
+      {{ $version := .Page.Params.version}}
+      window.facetFilters = [
+        ['project:{{- $project -}}'],
+        ['version:{{- $version -}}'],
+        'language:en'
+      ];
       //if the version of the parent is null
-          {{ else if eq .Parent.Page.Params.version nil}}
-            {{ $project := .Page.Params.project}}
-            {{ $version := .Page.Params.version}}
-            window.facetFilters = [
-              ['project:{{- $project -}}'],
-              ['version:{{- $version -}}'],
-              'language:en'
-            ];
-            {{ else }}
-              {{ $project := .Parent.Page.Params.project}}
-              {{ $version := .Parent.Page.Params.version}}
-              window.facetFilters = [
-                ['project:{{- $project -}}'],
-                ['version:{{- $version -}}'],
-                'language:en'
-              ];
-          {{ end }}
-        {{ end -}}
+    {{ else if eq .Parent.Page.Params.version nil}}
+      {{ $project := .Page.Params.project}}
+      {{ $version := .Page.Params.version}}
+      window.facetFilters = [
+        ['project:{{- $project -}}'],
+        ['version:{{- $version -}}'],
+       'language:en'
+      ];
+    {{ else }}
+      {{ $project := .Parent.Page.Params.project}}
+      {{ $version := .Parent.Page.Params.version}}
+      window.facetFilters = [
+       ['project:{{- $project -}}'],
+       ['version:{{- $version -}}'],
+       'language:en'
+      ];
+    {{ end }}
+  {{ end -}}
 
   const google_tag_manager_id = "{{ .Site.Params.googleTagManagerID }}";
 
