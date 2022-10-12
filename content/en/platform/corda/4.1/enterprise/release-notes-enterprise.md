@@ -1,4 +1,5 @@
 ---
+title: Corda Enterprise Edition 4.1 release notes
 aliases:
 - /releases/4.1/release-notes-enterprise.html
 date: '2020-01-08T09:59:25Z'
@@ -6,18 +7,18 @@ menu:
   corda-enterprise-4-1:
     identifier: corda-enterprise-4-1-release-notes-enterprise
     weight: 20
+    name: "Release notes"
 tags:
 - release
 - notes
 - enterprise
-title: Corda Enterprise 4.1 Release Notes
 ---
 
-# Release notes
+# Corda Enterprise Edition 4.1 release notes
 
-## Corda Enterprise 4.1.1
+## Corda Enterprise Edition 4.1.1 release notes
 
-Corda Enterprise 4.1.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.1.
+Corda Enterprise Edition 4.1.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise Edition 4.1.
 
 ### Upgrade recommendation
 
@@ -30,13 +31,13 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * We have fixed a security issue relating to potential signature forgery. To do so, we have introduced batch signing capability in the `signTransactionAndSendResponse` of the `NotaryServiceFlow` flow so that a Merkle Tree is built with a single transaction to be signed, and then the transaction signature is constructed with the partial Merkle tree containing that single transaction.
 
 
-## Corda Enterprise 4.1
+## Corda Enterprise Edition 4.1 release notes
 
-Corda Enterprise 4.1 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise 4.0 and 3.x, while providing enterprise-grade features and performance.
+Corda Enterprise Edition 4.1 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise Edition 4.0 and 3.x, while providing enterprise-grade features and performance.
 
 {{< note >}}
 The compatibility and interoperability assurances apply to nodes running at the latest patch level for any given integer version.
-For example, at the time of writing, the Corda Enterprise 4.1 interoperability and compatibility assurance is with respect to Corda 3.4, Corda Enterprise 3.3, Corda 4.1 and Corda Enterprise 4.0.
+For example, at the time of writing, the Corda Enterprise Edition 4.1 interoperability and compatibility assurance is with respect to Corda 3.4, Corda Enterprise 3.3, Corda 4.1 and Corda Enterprise Edition 4.0.
 {{</ note >}}
 
 
@@ -57,12 +58,12 @@ For example, at the time of writing, the Corda Enterprise 4.1 interoperability a
 
 ### Further improvements, additions and changes
 
-* Database schema generation fix and documentation clarifications: Corda Enterprise 4.1 should use the *runMigration* flag when running against non-H2
+* Database schema generation fix and documentation clarifications: Corda Enterprise Edition 4.1 should use the *runMigration* flag when running against non-H2
   databases and the *initialiseSchema* flag when running against an H2 database. See :ref:`Database properties <database_properties_ref>`.
 
 
 {{< note >}}
-In Corda Enterprise 4.0 the *initialiseSchema* migration flag was being used for both H2 and non-H2 databases (causing automatic updating
+In Corda Enterprise Edition 4.0 the *initialiseSchema* migration flag was being used for both H2 and non-H2 databases (causing automatic updating
 of the nodes database schema by default).
 {{</ note >}}
 
@@ -101,14 +102,14 @@ of the nodes database schema by default).
 ### Known issues
 
 
-Please refer to same section in [Corda Enterprise 4](https://docs.corda.net/docs/corda-enterprise/4.0/release-notes-enterprise.html)
+Please refer to same section in [Corda Enterprise Edition 4](https://docs.corda.net/docs/corda-enterprise/4.0/release-notes-enterprise.html)
 
 ### Upgrade notes
 
 As per previous major releases, we have provided a comprehensive upgrade notes (:doc:`app-upgrade-notes-enterprise`) to ease the upgrade
-of CorDapps to Corda Enterprise 4.1. In line with our commitment to API stability, code level changes are fairly minimal.
+of CorDapps to Corda Enterprise Edition 4.1. In line with our commitment to API stability, code level changes are fairly minimal.
 
-For **developers**, switching CorDapps built using Corda (open source) 4.x to Corda Enterprise 4.1 is mostly effortless,
+For **developers**, switching CorDapps built using Corda (open source) 4.x to Corda Enterprise Edition 4.1 is mostly effortless,
 and simply requires making the Corda Enterprise binaries available to Gradle, and changing two variables in the build file:
 
 ```shell
@@ -117,7 +118,7 @@ and simply requires making the Corda Enterprise binaries available to Gradle, an
 ```
 
 {{< note >}}
-In a mixed-distribution network the open source finance contract CorDapp should be deployed on both Corda 4.x (open source) and Corda Enterprise 4.1 nodes.
+In a mixed-distribution network the open source finance contract CorDapp should be deployed on both Corda 4.x (open source) and Corda Enterprise Edition 4.1 nodes.
 {{</ note >}}
 
 Visit [https://www.r3.com/corda-enterprise](https://www.r3.com/corda-enterprise/) for more information about Corda Enterprise.

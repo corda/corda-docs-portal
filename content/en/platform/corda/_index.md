@@ -30,28 +30,30 @@ The Corda platform documentation covers the following versions of the Corda plat
 
 * Corda 5 [Corda 5 Developer Preview 2](../platform/corda/5.0-dev-preview-2.html)
 
-### Corda 4 open source
+### Corda 4 Community Edition (Formerly Open Source)
 
-* Corda 4.8 [open source](../platform/corda/4.8/open-source.html)
-* Corda 4.7 [open source](../platform/corda/4.7/open-source.html)
-* Corda 4.6 [open source](../platform/corda/4.6/open-source.html)
-* Corda 4.5 [open source](../platform/corda/4.5/open-source.html)
-* Corda 4.4 [open source](../platform/corda/4.4/open-source.html)
-* Corda 4.3 [open source](../platform/corda/4.3/open-source.html)
-* Corda 4.1 [open source](../platform/corda/4.1/open-source.html)
-* Corda 4.0 [open source](../platform/corda/4.0/open-source.html)
+* [Corda 4.9 Community Edition](../platform/corda/4.9/open-source.html)
+* [Corda 4.8 Open Source](../platform/corda/4.8/open-source.html)
+* [Corda 4.7 Open Source](../platform/corda/4.7/open-source.html)
+* [Corda 4.6 Open Source](../platform/corda/4.6/open-source.html)
+* [Corda 4.5 Open Source](../platform/corda/4.5/open-source.html)
+* [Corda 4.4 Open Source](../platform/corda/4.4/open-source.html)
+* [Corda 4.3 Open Source](../platform/corda/4.3/open-source.html)
+* [Corda 4.1 Open Source](../platform/corda/4.1/open-source.html)
+* [Corda 4.0 Open Source](../platform/corda/4.0/open-source.html)
 
 ### Corda 4 Enterprise
 
-* Corda 4.8 [Enterprise](../platform/corda/4.8/enterprise.html)
-* Corda 4.7 [Enterprise](../platform/corda/4.7/enterprise.html)
-* Corda 4.6 [Enterprise](../platform/corda/4.6/enterprise.html)
-* Corda 4.5 [Enterprise](../platform/corda/4.5/enterprise.html)
-* Corda 4.4 [Enterprise](../platform/corda/4.4/enterprise.html)
-* Corda 4.3 [Enterprise](../platform/corda/4.3/enterprise.html)
-* Corda 4.2 [Enterprise](../platform/corda/4.2/enterprise.html)
-* Corda 4.1 [Enterprise](../platform/corda/4.1/enterprise.html)
-* Corda 4.0 [Enterprise](../platform/corda/4.0/enterprise.html)
+* [Corda 4.9 Enterprise](../platform/corda/4.8/enterprise.html)
+* [Corda 4.8 Enterprise](../platform/corda/4.8/enterprise.html)
+* [Corda 4.7 Enterprise](../platform/corda/4.7/enterprise.html)
+* [Corda 4.6 Enterprise](../platform/corda/4.6/enterprise.html)
+* [Corda 4.5 Enterprise](../platform/corda/4.5/enterprise.html)
+* [Corda 4.4 Enterprise](../platform/corda/4.4/enterprise.html)
+* [Corda 4.3 Enterprise](../platform/corda/4.3/enterprise.html)
+* [Corda 4.2 Enterprise](../platform/corda/4.2/enterprise.html)
+* [Corda 4.1 Enterprise](../platform/corda/4.1/enterprise.html)
+* [Corda 4.0 Enterprise](../platform/corda/4.0/enterprise.html)
 
 ### Corda 4 Enterprise: Corda Enterprise Network Manager (CENM)
 

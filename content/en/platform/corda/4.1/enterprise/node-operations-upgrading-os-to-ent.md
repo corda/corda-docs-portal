@@ -98,7 +98,7 @@ The procedure for migrating from H2 to a commercial database is as follows:
 
 ## Upgrade from an older Corda (open source) release to Corda Enterpise
 
-CorDapps, contracts and states written for Corda 3.x and Corda 4.x are compatible with Corda Enterprise 4.1, so upgrading
+CorDapps, contracts and states written for Corda 3.x and Corda 4.x are compatible with Corda Enterprise Edition 4.1, so upgrading
 existing open source Corda nodes should be a simple case of updating the Corda JAR.
 See [Node Upgrade Notes](node-upgrade-notes.md) for general instructions on upgrading your node.
 For developer information on recompiling CorDapps against Corda Enterprise, see [Enterprise upgrade notes](upgrade-notes.md).

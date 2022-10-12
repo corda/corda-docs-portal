@@ -15,21 +15,21 @@ title: Corda and Corda Enterprise compatibility
 
 # Corda and Corda Enterprise compatibility
 
-Corda Enterprise 4.0 guarantees the wire stability and compatibility baseline introduced in version 3.0 of the open-source release of Corda
+Corda Enterprise Edition 4.0 guarantees the wire stability and compatibility baseline introduced in version 3.0 of the open-source release of Corda
 is maintained with future versions of Corda Enterprise.
 
 
-Corda Enterprise 4.0 can be used in mixed-version/mixed-distribution networks seamlessly transacting with nodes running on a minimum platform version of 4.
+Corda Enterprise Edition 4.0 can be used in mixed-version/mixed-distribution networks seamlessly transacting with nodes running on a minimum platform version of 4.
 See [Versioning](versioning.md) for further information.
 
 
 
-* Corda Enterprise 4.0 nodes can transact with nodes running Corda 4.0 and future versions, providing the CorDapp is compatible with and between platform versions and distributions.
-* CorDapps originally written for Corda 4.x are API compatible with Corda Enterprise 4.0 and future versions.
-Developers can switch their IDE to Corda Enterprise 4.0 without any code changes in their CorDapp.{{< note >}}
+* Corda Enterprise Edition 4.0 nodes can transact with nodes running Corda 4.0 and future versions, providing the CorDapp is compatible with and between platform versions and distributions.
+* CorDapps originally written for Corda 4.x are API compatible with Corda Enterprise Edition 4.0 and future versions.
+Developers can switch their IDE to Corda Enterprise Edition 4.0 without any code changes in their CorDapp.{{< note >}}
 The reverse is not true. We do not commit that CorDapps compiled against Corda Enterprise will run on Corda (open source).{{< /note >}}
 
-* Corda Enterprise 4.0 nodes can run, without recompilation, CorDapps developed on and packaged for Corda 4.x.
+* Corda Enterprise Edition 4.0 nodes can run, without recompilation, CorDapps developed on and packaged for Corda 4.x.
 However, owing to advanced features in Corda Enterprise, such as database migration scripting support, we anticipate application developers
 will build their CorDapp kernels (contracts, states) against Corda but supply separate Workflow Jars (that depend on the same kernel)
 that are optimised for the two distributions. See [Separation of CorDapp contracts, flows and services](cordapp-build-systems.html#separation-of-cordapp-contracts-flows-and-services) for further information.
@@ -42,21 +42,21 @@ These compatibility commitments are subject to the standard Corda Enterprise sof
 
 {{< table >}}
 
-|Compatibility with Corda Enterprise 4.0|Corda 4.x|Enterprise Corda 3.x|Corda 3.x|
+|Compatibility with Corda Enterprise Edition 4.0|Corda 4.x|Enterprise Corda 3.x|Corda 3.x|
 |-------------------------------------------------|-------------|-----------------------|---------------|
 |**API compatibility**, i.e. CorDapps developed
 for this Corda version can be compiled and run
-on Corda Enterprise 4.0 nodes|Yes|Yes|Yes|
+on Corda Enterprise Edition 4.0 nodes|Yes|Yes|Yes|
 |**Binary compatibility**, i.e. CorDapps
 compiled on this Corda version can be run on
-Corda Enterprise 4.0 nodes|Yes|Yes|Yes|
+Corda Enterprise Edition 4.0 nodes|Yes|Yes|Yes|
 |**Network compatibility**, i.e., nodes running
 this Corda version can transact with Corda
 Enterprise 4.0 nodes|Yes|Yes|Yes|
 |**RPC compatibility**, i.e, a client
 application developed for this Corda version
 can interact via RPC with a CorDapp running on
-an Corda Enterprise 4.0 node|Yes|Yes|No|
+an Corda Enterprise Edition 4.0 node|Yes|Yes|No|
 |Samples and community apps from
 [https://github.com/corda/samples](https://github.com/corda/samples) for this Corda
 version can be compiled and run on Corda

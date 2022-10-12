@@ -15,7 +15,7 @@ weight: 30
 Setting up multiple nodes behind shared Corda Firewall require preparation of various keystores and config files, which can be time consuming and error prone.
 The HA Utilities aims to provide tools to streamline the node provision and deployment process.
 
-The tool is distributed as part of Corda Enterprise 4.5 in the form of runnable `.jar.` file - `corda-tools-ha-utilities-4.5.jar`.
+The tool is distributed as part of Corda Enterprise Edition 4.5 in the form of runnable `.jar.` file - `corda-tools-ha-utilities-4.5.jar`.
 
 To run simply pass in the file or URL as the first parameter:
 

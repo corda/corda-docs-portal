@@ -21,7 +21,7 @@ title: Metering Collection Tool
 The Metering Collection Tool is used to collect metering data from a Corda Enterprise node. This page describes how
 the node records metering data, and how to run the collection tool in order to collect that data.
 
-The tool is distributed as part of Corda Enterprise 4.3 with the name “corda-tools-metering-collector-4.3.jar”. This JAR must be placed in the node’s
+The tool is distributed as part of Corda Enterprise Edition 4.3 with the name “corda-tools-metering-collector-4.3.jar”. This JAR must be placed in the node’s
 `cordapps` folder.
 
 Note that Corda Enterprise nodes record metering data regardless of whether this tool is installed.

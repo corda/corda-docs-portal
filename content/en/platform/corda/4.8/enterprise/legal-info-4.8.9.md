@@ -1,17 +1,18 @@
 ---
+title: Corda Enterprise Edition 4.8.9 third-party software notices and licence information
 date: '2022-10-04T12:00:00Z'
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-9-legal-info
     parent: corda-enterprise-4-8-release-notes
     weight: 347
+    name: Third-party software licence information - 4.8.9
 tags:
 - legal
 - info
-title: Third-party software licence information - 4.8.9
 ---
 
-# Corda Enterprise 4.8.9 third-party software notices and licence information
+# Corda Enterprise Edition 4.8.9 third-party software notices and licence information
 
 ## org.apache.commons : commons-lang3 : 3.9
 

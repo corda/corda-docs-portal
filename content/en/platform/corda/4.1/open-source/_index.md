@@ -7,13 +7,13 @@ menu:
     weight: 140
   corda-os-4-1:
     weight: 1
-    name: Corda open source 4.1
+    name: Corda Open Source 4.1
 project: corda
 section_menu: corda-os-4-1
-title: Corda open source 4.1
+title: Corda Open Source 4.1
 version: 'Open source 4.1'
 ---
-# Welcome to Corda !
+# Welcome to Corda!
 
 [Corda](https://www.corda.net/) is an open-source blockchain platform. If you’d like a quick introduction to blockchains and how Corda is different, then watch this short video:
 
