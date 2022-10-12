@@ -106,7 +106,7 @@ If you need to switch to synchronous logging (e.g. for debugging/testing purpose
 by adding `-DLog4jContextSelector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector` to the node’s
 command line or to the `jvmArgs` section of the node configuration (see corda-configuration-file).
 Additionally, you need to override the log4j2 configuration file by specifying `-Dlog4j.configurationFile=<log4j2 config>`.
-The configuration file can be taken from the `config/dev` folder in [Corda Open Source repository](https://github.com/corda/corda).
+The configuration file can be taken from the `config/dev` folder in [Corda Community Edition repository](https://github.com/corda/corda).
 When using synchronous logging with `RollingRandomAccessFile` appenders in the configuration file, make sure that they DO NOT
 have `immediateFlush=false` setting.
 
