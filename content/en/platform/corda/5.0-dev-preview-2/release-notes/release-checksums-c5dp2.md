@@ -1,6 +1,6 @@
 ---
 date: '2020-09-08T12:00:00Z'
-title: "Release files and checksums"
+title: "Corda 5 Developer Preview 2 Release files and checksums"
 menu:
   corda-5-dev-preview2:
     identifier: corda-5-dev-preview-release-checksums
