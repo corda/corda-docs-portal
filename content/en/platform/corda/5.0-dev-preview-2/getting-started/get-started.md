@@ -9,18 +9,6 @@ section_menu: corda-5-dev-preview2
 ---
 This section guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic CorDapp.
 
-<!--It includes:
-
-The prerequisites for working with Cordapps
-
-Downloading and using the Cordapp Standard Development Environment (CSDE) Template
-
-Writing and running simple flows.
-
-Testing and debugging Cordapps using the (Corda) Simulator.
-
-Deploying Cordapps to a local Corda Cluster (Combined Worker).-->
-
 {{< note >}}
 Developer Preview 2 is, as the name suggests, a developer preview. It is not a product released and supported by R3. As a result:
 * Do not release anything built on Developer Preview 2 into Production.
