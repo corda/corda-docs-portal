@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-api-service-classes
-    parent: corda-community-4-9-corda-api
+    parent: corda-community-4-10-corda-api
     weight: 260
 tags:
 - api

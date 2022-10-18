@@ -7,7 +7,7 @@ date: '2021-08-12'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-api-flows
-    parent: corda-community-4-9-corda-api
+    parent: corda-community-4-10-corda-api
     weight: 220
 tags:
 - api

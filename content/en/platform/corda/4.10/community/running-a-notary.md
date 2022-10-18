@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-running-a-notary
-    parent: corda-community-4-9-corda-networks-index
+    parent: corda-community-4-10-corda-networks-index
     weight: 1100
 tags:
 - running
