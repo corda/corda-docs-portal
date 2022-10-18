@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-operations-guide-deployment
     name: "Corda deployment"
-    parent: corda-enterprise-4-9-operations-guide
+    parent: corda-enterprise-4-10-operations-guide
 tags:
 - operations
 - deployment

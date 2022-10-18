@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-running-a-notary-cluster-faq-toctree
     name: "Notary FAQs"
-    parent: corda-enterprise-4-9-corda-nodes-notary-operate
+    parent: corda-enterprise-4-10-corda-nodes-notary-operate
 title: Frequently-Asked-Questions
 weight: 150
 ---

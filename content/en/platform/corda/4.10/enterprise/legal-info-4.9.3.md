@@ -4,7 +4,7 @@ date: '2020-10-03T12:00:00Z'
 menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-3-legal-info
-    parent: corda-enterprise-4-9-release-notes
+    parent: corda-enterprise-4-10-release-notes
     weight: 300
     name: Third-party software licence information - 4.9.3
 tags:

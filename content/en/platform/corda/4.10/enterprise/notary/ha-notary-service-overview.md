@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-corda-nodes-notaries
     name: "Notary options in Corda Enterprise"
-    parent: corda-enterprise-4-9-notaries
+    parent: corda-enterprise-4-10-notaries
 tags:
 - ha
 - notary

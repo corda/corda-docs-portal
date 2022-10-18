@@ -2,7 +2,7 @@
 date: '2021-07-15'
 menu:
   corda-enterprise-4-10:
-    parent: corda-enterprise-4-9-corda-nodes-operating
+    parent: corda-enterprise-4-10-corda-nodes-operating
 tags:
 - blob
 - inspector

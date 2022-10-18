@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-financial-model
     name: "Financial model"
-    parent: corda-enterprise-4-9-component-library-index
+    parent: corda-enterprise-4-10-component-library-index
 tags:
 - financial
 - model

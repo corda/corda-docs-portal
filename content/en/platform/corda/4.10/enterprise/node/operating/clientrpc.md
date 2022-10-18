@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-corda-nodes-operating-interacting
     name: "Interacting with a node"
-    parent: corda-enterprise-4-9-corda-nodes-operating
+    parent: corda-enterprise-4-10-corda-nodes-operating
 tags:
 - clientrpc
 title: Interacting with a node

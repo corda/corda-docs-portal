@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-monitoring-logging
-    parent: corda-enterprise-4-9-corda-nodes-operating
+    parent: corda-enterprise-4-10-corda-nodes-operating
 tags:
 - monitoring
 - logging

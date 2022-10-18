@@ -3,7 +3,7 @@ title: "Corda Enterprise Edition 4.9 release files and checksums"
 date: '2021-07-02'
 menu:
   corda-enterprise-4-10:
-    parent: corda-enterprise-4-9-release-notes
+    parent: corda-enterprise-4-10-release-notes
     weight: 200
     name: "Release files and checksums"
 tags:

@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-corda-nodes-operating-hsm
     name: "Using an HSM with Corda Enterprise"
-    parent: corda-enterprise-4-9-corda-nodes-operating
+    parent: corda-enterprise-4-10-corda-nodes-operating
 tags:
 - cryptoservice
 - configuration

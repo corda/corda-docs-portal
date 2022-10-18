@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-token-sdk
     name: "Tokens SDK"
-    parent: corda-enterprise-4-9-cordapps
+    parent: corda-enterprise-4-10-cordapps
 tags:
 - tokens sdk
 - fungible

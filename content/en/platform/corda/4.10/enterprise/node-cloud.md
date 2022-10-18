@@ -2,7 +2,7 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-10:
-    parent: corda-enterprise-4-9-corda-nodes
+    parent: corda-enterprise-4-10-corda-nodes
 tags:
 - node
 - cloud

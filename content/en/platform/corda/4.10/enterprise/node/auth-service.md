@@ -1,7 +1,7 @@
 ---
 menu:
   corda-enterprise-4-10:
-    parent: corda-enterprise-4-9-corda-nodes
+    parent: corda-enterprise-4-10-corda-nodes
 tags:
 - authentication
 - auth

@@ -2,7 +2,7 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-10:
-    parent: corda-enterprise-4-9-performance-testing
+    parent: corda-enterprise-4-10-performance-testing
 tags:
 - installation
 title: Obtaining and installing the performance test suite

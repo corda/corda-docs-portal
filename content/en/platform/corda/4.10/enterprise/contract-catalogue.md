@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-contract-catalogue
     name: "Contract catalogue"
-    parent: corda-enterprise-4-9-component-library-index
+    parent: corda-enterprise-4-10-component-library-index
 tags:
 - contract
 - catalogue

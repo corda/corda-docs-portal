@@ -2,7 +2,7 @@
 date: '2021-07-2021'
 menu:
   corda-enterprise-4-10:
-    parent: corda-enterprise-4-9-cordapps-states
+    parent: corda-enterprise-4-10-cordapps-states
 tags:
 - database
 - management

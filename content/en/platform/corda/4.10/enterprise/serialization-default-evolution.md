@@ -2,7 +2,7 @@
 date: '2021-07-13'
 menu:
   corda-enterprise-4-10:
-    parent: corda-enterprise-4-9-node-serialization
+    parent: corda-enterprise-4-10-node-serialization
 tags:
 - serialization
 - default

@@ -2,7 +2,7 @@
 date: '2020-01-08T09:59:25Z'
 menu:
   corda-enterprise-4-10:
-    parent: corda-enterprise-4-9-corda-network
+    parent: corda-enterprise-4-10-corda-network
 tags:
 - UAT
 title: Setting up a notary in a segregated network

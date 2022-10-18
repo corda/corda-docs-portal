@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-ops-project-planning
     name: "Corda for project planners"
-    parent: corda-enterprise-4-9-operations-guide
+    parent: corda-enterprise-4-10-operations-guide
 tags:
 - operations
 - deployment

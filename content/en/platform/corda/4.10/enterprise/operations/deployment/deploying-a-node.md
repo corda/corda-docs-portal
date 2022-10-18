@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-operations-guide-deployment-node-deploying
-    parent: corda-enterprise-4-9-operations-guide-deployment-node
+    parent: corda-enterprise-4-10-operations-guide-deployment-node
 tags:
 - deploying
 - node

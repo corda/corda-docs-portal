@@ -2,7 +2,7 @@
 date: '2021-08-16'
 menu:
   corda-enterprise-4-10:
-    parent: corda-enterprise-4-9-cordapps-versioning
+    parent: corda-enterprise-4-10-cordapps-versioning
 tags:
 - api
 - stability

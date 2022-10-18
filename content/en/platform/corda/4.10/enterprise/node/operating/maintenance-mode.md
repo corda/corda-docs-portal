@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-node-maintenance-mode
     name: "Node Maintenance Mode"
-    parent: corda-enterprise-4-9-corda-nodes-operating
+    parent: corda-enterprise-4-10-corda-nodes-operating
     weight: 7
 tags:
 - maintenance

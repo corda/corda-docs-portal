@@ -4,7 +4,7 @@ aliases:
 date: '2020-04-16T19:30:25Z'
 menu:
   corda-enterprise-4-10:
-    parent: corda-enterprise-4-9-monitoring-logging
+    parent: corda-enterprise-4-10-monitoring-logging
 tags:
 - node
 - monitoring

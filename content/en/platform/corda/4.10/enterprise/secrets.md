@@ -4,7 +4,7 @@ menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-corda-nodes-secrets
     name: "Corda Secrets"
-    parent: corda-enterprise-4-9-corda-nodes
+    parent: corda-enterprise-4-10-corda-nodes
 
 title: Corda secrets
 weight: 110
