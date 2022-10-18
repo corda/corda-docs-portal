@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-corda-network-foundation
+    identifier: corda-community-4-10-corda-network-foundation
     name: "Corda Network"
     weight: 100
 title: Corda Network

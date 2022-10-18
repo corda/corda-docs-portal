@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-deploying-a-node
+    identifier: corda-community-4-10-deploying-a-node
     parent: corda-community-4-9-corda-nodes-index
     weight: 1060
 tags:

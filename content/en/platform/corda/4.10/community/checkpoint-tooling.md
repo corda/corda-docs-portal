@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-checkpoint-tooling
+    identifier: corda-community-4-10-checkpoint-tooling
     parent: corda-community-4-9-tools-index
     weight: 1050
 tags:

@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-joining-a-compatibility-zone
+    identifier: corda-community-4-10-joining-a-compatibility-zone
     parent: corda-community-4-9-corda-networks-index
     weight: 1050
 tags:

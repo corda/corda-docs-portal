@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-docker-image
+    identifier: corda-community-4-10-docker-image
     parent: corda-community-4-9-operations
     weight: 350
 tags:

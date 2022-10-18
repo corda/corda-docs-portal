@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-flow-cookbook
+    identifier: corda-community-4-10-flow-cookbook
     parent: corda-community-4-9-building-a-cordapp-index
     weight: 1100
 tags:

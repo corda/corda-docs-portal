@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-tutorials-index
+    identifier: corda-community-4-10-tutorials-index
     parent: corda-community-4-10-development
     weight: 100
 tags:

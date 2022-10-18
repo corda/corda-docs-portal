@@ -5,7 +5,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-dockerform-plugin
+    identifier: corda-community-4-10-dockerform-plugin
     parent: corda-community-4-9-generating-a-node
     weight: 1100
 tags:

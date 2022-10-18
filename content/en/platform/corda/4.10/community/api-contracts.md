@@ -6,7 +6,7 @@ aliases:
 date: '2021-08-11'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-api-contracts
+    identifier: corda-community-4-10-api-contracts
     parent: corda-community-4-9-corda-api
     weight: 190
 tags:

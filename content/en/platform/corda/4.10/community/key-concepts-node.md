@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-key-concepts-node
+    identifier: corda-community-4-10-key-concepts-node
     parent: corda-community-4-9-key-concepts
     weight: 1120
 tags:

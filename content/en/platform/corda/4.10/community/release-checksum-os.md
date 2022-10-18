@@ -3,7 +3,7 @@ title: Corda Community Edition 4.9 release files and checksums
 date: '2021-07-02'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-release-checksum-os
+    identifier: corda-community-4-10-release-checksum-os
     parent: corda-community-4-9-release-notes
     weight: 440
     name: "Release files and checksums"

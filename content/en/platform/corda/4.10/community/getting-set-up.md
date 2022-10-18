@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-getting-set-up
+    identifier: corda-community-4-10-getting-set-up
     parent: corda-community-4-9-building-a-cordapp-index
     weight: 1020
 tags:

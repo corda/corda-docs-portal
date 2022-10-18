@@ -7,7 +7,7 @@ aliases:
 date: '2021-06-29'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-release-notes
+    identifier: corda-community-4-10-release-notes
     weight: 1
     name: "Release notes"
 tags:

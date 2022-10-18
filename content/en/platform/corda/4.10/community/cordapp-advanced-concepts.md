@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-cordapp-advanced-concepts
+    identifier: corda-community-4-10-cordapp-advanced-concepts
     parent: corda-community-4-10-development
     weight: 160
 tags:

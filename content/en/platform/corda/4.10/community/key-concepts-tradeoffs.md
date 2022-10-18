@@ -6,7 +6,7 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-key-concepts-tradeoffs
+    identifier: corda-community-4-10-key-concepts-tradeoffs
     parent: corda-community-4-9-key-concepts
     weight: 1140
 tags:

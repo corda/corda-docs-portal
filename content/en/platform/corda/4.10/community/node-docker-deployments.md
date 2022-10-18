@@ -6,7 +6,7 @@ aliases:
 date: '2022-05-26T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-node-docker-deployments
+    identifier: corda-community-4-10-node-docker-deployments
     parent: corda-community-4-9-corda-nodes-index
     weight: 1150
 tags:

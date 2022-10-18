@@ -2,7 +2,7 @@
 date: '2020-05-10T12:00:00Z'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-9-token-sdk
+    identifier: corda-community-4-10-token-sdk
     name: "Tokens SDK"
     parent: corda-community-4-10-development
 tags:
