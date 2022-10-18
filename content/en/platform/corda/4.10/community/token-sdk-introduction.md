@@ -4,7 +4,7 @@ menu:
   corda-community-4-10:
     identifier: corda-community-4-9-token-sdk
     name: "Tokens SDK"
-    parent: corda-community-4-9-development
+    parent: corda-community-4-10-development
 tags:
 - tokens sdk
 - fungible

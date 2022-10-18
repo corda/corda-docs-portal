@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-9-tools-index
-    parent: corda-community-4-9-development
+    parent: corda-community-4-10-development
     weight: 110
 tags:
 - tools
