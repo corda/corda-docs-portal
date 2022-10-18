@@ -8,7 +8,7 @@ aliases:
 - /docs/corda-os/tutorial-cordapp.html
 date: '2021-07-15'
 menu:
-  corda-enterprise-4-9:
+  corda-enterprise-4-10:
     parent: corda-enterprise-4-9-cordapps
 tags:
 - tutorial

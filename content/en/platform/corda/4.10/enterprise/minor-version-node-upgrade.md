@@ -1,7 +1,7 @@
 ---
 date: '2021-12-21'
 menu:
-  corda-enterprise-4-9:
+  corda-enterprise-4-10:
     identifier: "corda-enterprise-4-9-node-minor-version-upgrade"
     parent: corda-enterprise-4-9-upgrading-menu
 tags:

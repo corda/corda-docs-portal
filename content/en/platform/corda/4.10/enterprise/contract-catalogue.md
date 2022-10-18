@@ -1,7 +1,7 @@
 ---
 date: '2021-07-15'
 menu:
-  corda-enterprise-4-9:
+  corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-contract-catalogue
     name: "Contract catalogue"
     parent: corda-enterprise-4-9-component-library-index

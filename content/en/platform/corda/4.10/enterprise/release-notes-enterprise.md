@@ -3,7 +3,7 @@ title: Corda Enterprise Edition 4.9 release notes
 date: '2021-07-01'
 
 menu:
-  corda-enterprise-4-9:
+  corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-release-notes
     name: "Release notes"
 tags:

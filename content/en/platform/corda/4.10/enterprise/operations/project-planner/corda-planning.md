@@ -1,7 +1,7 @@
 ---
 date: '2020-06-18T12:00:00Z'
 menu:
-  corda-enterprise-4-9:
+  corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-ops-project-planning
     name: "Corda for project planners"
     parent: corda-enterprise-4-9-operations-guide

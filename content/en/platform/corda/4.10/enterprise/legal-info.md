@@ -2,7 +2,7 @@
 title: Corda Enterprise Edition 4.9 third-party software notices and licence information
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-9:
+  corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-legal-info
     parent: corda-enterprise-4-9-release-notes
     weight: 300

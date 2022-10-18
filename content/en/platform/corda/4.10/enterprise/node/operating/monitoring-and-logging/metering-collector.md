@@ -2,7 +2,7 @@
 date: '2020-04-07T12:00:00Z'
 section_menu: corda-enterprise-4-9
 menu:
-  corda-enterprise-4-9:
+  corda-enterprise-4-10:
     identifier: corda-enterprise-4-9-metering-collection
     parent: corda-enterprise-4-9-monitoring-logging
 tags:

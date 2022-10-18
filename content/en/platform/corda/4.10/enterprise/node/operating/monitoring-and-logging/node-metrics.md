@@ -3,7 +3,7 @@ aliases:
 - /releases/4.9/node-metrics.html
 date: '2020-04-16T19:30:25Z'
 menu:
-  corda-enterprise-4-9:
+  corda-enterprise-4-10:
     parent: corda-enterprise-4-9-monitoring-logging
 tags:
 - node

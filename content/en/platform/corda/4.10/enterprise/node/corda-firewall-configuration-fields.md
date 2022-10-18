@@ -3,7 +3,7 @@ aliases:
 - /docs/4.9/enterprise/operations/deployment/corda-firewall-configuration-file.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-9:
+  corda-enterprise-4-10:
     parent: corda-enterprise-4-9-corda-nodes-firewall-config
     identifier: corda-enterprise-4-9-corda-nodes-firewall-config-file
 tags:
