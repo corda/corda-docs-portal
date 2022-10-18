@@ -5,7 +5,7 @@ aliases:
 - /deterministic-modules.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-9:
+  corda-community-4-10:
     identifier: corda-community-4-9-deterministic-modules
     parent: corda-community-4-9-development
     weight: 430

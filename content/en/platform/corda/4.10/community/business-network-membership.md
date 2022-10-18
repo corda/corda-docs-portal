@@ -1,7 +1,7 @@
 ---
 date: '2020-09-25T12:00:00Z'
 menu:
-  corda-community-4-9:
+  corda-community-4-10:
     identifier: corda-community-4-9-business-network-management
     parent: corda-community-4-9-corda-networks-index
     weight: 1200

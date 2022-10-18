@@ -5,7 +5,7 @@ aliases:
 - /api-contract-constraints.html
 date: '2021-08-11'
 menu:
-  corda-community-4-9:
+  corda-community-4-10:
     identifier: corda-community-4-9-api-contract-constraints
     parent: corda-community-4-9-corda-api
     weight: 200

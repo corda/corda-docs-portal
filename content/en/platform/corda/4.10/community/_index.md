@@ -3,7 +3,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   versions:
     weight: -650
-  corda-community-4-9:
+  corda-community-4-10:
     weight: 1
     name: Corda Community Edition 4.9
 project: corda
