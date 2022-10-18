@@ -1,5 +1,5 @@
 ---
-title: Corda Enterprise Edition 4.9 release notes
+title: Corda Enterprise Edition 4.10 release notes
 date: '2021-07-01'
 
 menu:

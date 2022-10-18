@@ -8,7 +8,7 @@ menu:
     name: Corda Enterprise Edition 4.9
 project: corda
 section_menu: corda-enterprise-4-9
-title: Corda Enterprise Edition 4.9
+title: Corda Enterprise Edition 4.10
 version: 'Enterprise 4.10'
 ---
 
