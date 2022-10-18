@@ -2,7 +2,7 @@
 date: '2021-07-26'
 menu:
   corda-enterprise-4-10:
-    parent: corda-enterprise-4-9-upgrading-menu
+    parent: corda-enterprise-4-10-upgrading-menu
 tags:
 - platform
 - support

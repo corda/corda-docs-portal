@@ -2,7 +2,7 @@
 date: '2021-08-11'
 menu:
   corda-enterprise-4-10:
-    parent: corda-enterprise-4-9-upgrading-menu
+    parent: corda-enterprise-4-10-upgrading-menu
 tags:
 - node
 - operations

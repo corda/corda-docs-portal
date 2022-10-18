@@ -2,7 +2,7 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-10:
-    identifier: "corda-enterprise-4-9-upgrading-menu"
+    identifier: "corda-enterprise-4-10-upgrading-menu"
     name: "Upgrading a CorDapp or Node"
 tags:
 - upgrading
