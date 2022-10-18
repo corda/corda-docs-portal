@@ -1,5 +1,5 @@
 ---
-title: Corda Community Edition 4.9 third-party software notices and information
+title: Corda Community Edition 4.10 third-party software notices and information
 aliases:
 - /head/legal-info.html
 - /HEAD/legal-info.html

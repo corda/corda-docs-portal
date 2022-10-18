@@ -1,5 +1,5 @@
 ---
-title: Corda Community Edition 4.9 release notes
+title: Corda Community Edition 4.10 release notes
 aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
