@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-dev-preview2
 ---
 The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Developer Preview 2 more straight-forward.
-The CSDE is obtained by cloning our `CSDE-Cordapp-Template-Kotlin` repository to your local machine. The CSDE provides:
+The CSDE is obtained by cloning our `CSDE-Cordapp-Template-Kotlin` or `CSDE-Cordapp-Template-java` repository to your local machine. The CSDE provides:
 * A prepared CorDapp project that you can use as a starting point to develop your own prototypes
 * A base Gradle configuration that brings in the dependencies you need to write and test a Corda 5 CorDapp
 * A set of Gradle helper tasks which speed up and simplify the development and deployment process; these are effectively wrappers over the [Corda CLI](../../developing/corda-cli/overview.html)
@@ -23,11 +23,21 @@ The CSDE is experimental. The decision whether or not we release it as part of C
 
 ## Downloading the CSDE
 
-1. To obtain the CSDE template, clone the [CSDE-Cordapp-Template-Kotlin repository](https://github.com/corda/CSDE-cordapp-template-kotlin):
+1. To obtain the CSDE template, clone the [CSDE-Cordapp-Template-Kotlin repository](https://github.com/corda/CSDE-cordapp-template-kotlin) or [CSDE-Cordapp-Template-java repository](https://github.com/corda/CSDE-cordapp-template-java):
 
+   {{< tabs name="clone-csde">}}
+   {{% tab name="Kotlin"%}}
    ```sh
    git clone https://github.com/corda/CSDE-cordapp-template-kotlin.git <local-folder>
    ```
+   {{% /tab %}}
+
+   {{% tab name="Java" %}}
+   ```sh
+   git clone https://github.com/corda/CSDE-cordapp-template-java.git <local-folder>
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 2. Change to the new directory and checkout the Developer Preview 2 branch:
 
@@ -39,8 +49,15 @@ The CSDE is experimental. The decision whether or not we release it as part of C
 
 3. Open the project in IntelliJ and let the import process complete.
   When complete, the project structure looks as follows:
-{{< figure src="CDSE-full-screen.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
+  {{< tabs name="csde">}}
+  {{% tab name="Kotlin"%}}
+  {{< figure src="CDSE-full-screen-kotlin.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
+  {{% /tab %}}
 
+  {{% tab name="Java" %}}
+  {{< figure src="CDSE-full-screen-java.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
+  {{% /tab %}}
+  {{< /tabs >}}
 ## Configuring the CSDE
 
 The CSDE includes [Gradle tasks](#gradle-helpers-for-the-combined-worker) to manage a local deployment of Corda. These Gradle tasks require Java Azul Zulu 11. To configure IntelliJ to use the correct Java version for Gradle, set **Gradle JVM** to `Project SDK 11`, as follows:
