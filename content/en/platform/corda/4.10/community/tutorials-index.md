@@ -17,7 +17,7 @@ title: Tutorials
 
 #  Tutorials
 
-The Corda Community 4.9 tutorials can now be found in the [Tutorials](../../../../tutorials/corda/4.9/Community.html) section. There you can learn about:
+The Corda Community Edition 4.10 tutorials can now be found in the [Tutorials](../../../../tutorials/corda/4.9/Community.html) section. There you can learn about:
 
 * [Building your first basic CorDapp](../../../../tutorials/corda/4.9/community/build-basic-cordapp/basic-cordapp-intro.md)
 * [Platform feature tutorials](../../../../tutorials/corda/4.9/community/supplementary-tutorials/supplementary-tutorials-intro.md)

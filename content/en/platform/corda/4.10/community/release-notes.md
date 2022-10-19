@@ -19,7 +19,7 @@ tags:
 
 ## Corda Community Edition 4.10.2 release notes
 
-Corda Community 4.9.2 is a patch release of Corda Community which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
+Corda Community Edition 4.10.2 is a patch release of Corda Community which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
 
 ### Fixed issues
 
@@ -91,7 +91,7 @@ For more information about platform versions, see [Versioning](../../../../../en
 
 ## Fixed issues
 
-Issues fixed in Corda Community 4.9:
+Issues fixed in Corda Community Edition 4.10:
 
 * Corda Shell has been removed to its own repository for improved security. You can now use a standalone shell outside of the node, or from within the node's drivers.  You can read more about using the standalone shell [here](shell.html#the-standalone-shell).
 * Security updates to prevent possibility of Denial of Service attacks.
