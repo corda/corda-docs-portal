@@ -44,7 +44,7 @@ java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 
 The node will perform any automatic data migrations required, which may take some time. If the migration process is interrupted, it can be continued simply by starting the node again, without harm. The node will stop automatically when migration is complete.
 
-See [Upgrading a node to Corda 4.9](../../../../../../../en/platform/corda/4.10/enterprise/node-upgrade-notes.md) for more information.
+See [Upgrading a node to Corda 4.10](../../../../../../../en/platform/corda/4.10/enterprise/node-upgrade-notes.md) for more information.
 
 ## Start the node in the normal way
 
@@ -324,7 +324,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 #### Optional migration step
 
-If you are migrating your database schema from an older Corda version to Corda 4.9, you must add the following parameter to the node section in the `build.gradle` and set it to `true`, as follows:
+If you are migrating your database schema from an older Corda version to Corda 4.10, you must add the following parameter to the node section in the `build.gradle` and set it to `true`, as follows:
 
 ```
         runSchemaMigration = true

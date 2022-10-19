@@ -45,7 +45,7 @@ The remaining node files and directories will be generated at runtime. These are
 java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 ```
 
-The node will perform any automatic data migrations required, which may take some time. If the migration process is interrupted, it can be continued simply by starting the node again, without harm. The node will stop automatically when migration is complete. See [Upgrading your node to Corda 4.9](node-upgrade-notes.md) for more information.
+The node will perform any automatic data migrations required, which may take some time. If the migration process is interrupted, it can be continued simply by starting the node again, without harm. The node will stop automatically when migration is complete. See [Upgrading your node to Corda 4.10](node-upgrade-notes.md) for more information.
 
 ## Use the `cordformation` Gradle plugin to create a set of local nodes automatically
 

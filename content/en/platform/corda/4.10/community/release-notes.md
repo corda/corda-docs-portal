@@ -85,7 +85,7 @@ Support for Corda: Community Edition 4.10 does not include experimental notaries
 
 ## Platform version change
 
-Corda 4.9 uses platform version 11.
+Corda 4.10 uses platform version 11.
 
 For more information about platform versions, see [Versioning](../../../../../en/platform/corda/4.10/community/versioning.md).
 

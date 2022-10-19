@@ -193,7 +193,7 @@ Read more about package ownership in the [Package namespace ownership](../node/d
 
 
 {{< note >}}
-To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.9, see [Corda versioning](../cordapps/versioning.md).
+To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.10, see [Corda versioning](../cordapps/versioning.md).
 
 {{< /note >}}
 More parameters will be added in future releases to regulate things like allowed port numbers, whether or not IPv6

@@ -350,7 +350,7 @@ telnet.
 
 ### Database schema initialisation
 
-From Corda 4.9, the database schema objects are not automatically initialised during the first run of the node. There are two ways to initialise the database schema sets:
+From Corda 4.10, the database schema objects are not automatically initialised during the first run of the node. There are two ways to initialise the database schema sets:
 
 #### Use `initial-registration`
 
@@ -376,7 +376,7 @@ See [Node command-line options](../../../../../../../en/platform/corda/4.10/ente
 
 ### Database schema migration
 
-From Corda 4.9, the database schema migration process requires you to explicitly perform the following actions. This step is only required when upgrading to Corda 4.9 from a previous version.
+From Corda 4.10, the database schema migration process requires you to explicitly perform the following actions. This step is only required when upgrading to Corda 4.10 from a previous version.
 
 #### Update configuration
 
