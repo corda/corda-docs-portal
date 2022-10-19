@@ -168,7 +168,7 @@ In case of failure, the usage of standard Corda flows for transmission of artifa
 Upon successful completion of the automatic LedgerRecover, all `ReconciliationStatus`es initiated by the requester node (of the recovery) are refreshed. This is done so that newly acquired transactions will not show up as difference in the reconciliation results.
 
 {{< note >}}
-When recovered transactions are persisted, these will trigger the same events as were triggered when the transaction was originally persisted (before the disaster). If users are subscribing to vault-observable feeds (see [documentation on updates](../../../../../../../en/api-ref/corda/4.9/open-source/kotlin/corda/net.corda.core.node.services/-vault-service/updates.html)), they will receive duplicate updates.
+When recovered transactions are persisted, these will trigger the same events as were triggered when the transaction was originally persisted (before the disaster). If users are subscribing to vault-observable feeds (see [documentation on updates](../../../../../../../en/api-ref/corda/4.10/open-source/kotlin/corda/net.corda.core.node.services/-vault-service/updates.html)), they will receive duplicate updates.
 {{< /note >}}
 
 #### Parameters

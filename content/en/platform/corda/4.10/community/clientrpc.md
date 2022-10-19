@@ -117,7 +117,7 @@ class ClientRpcExample {
 The returned [CordaRPCConnection](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/net/corda/client/rpc/CordaRPCConnection.html) is somewhat expensive to create and consumes a small amount of server-side resources. When you’re done with it, call `close` on it. Alternatively, you would typically employ the `use` method on [CordaRPCClient](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/net/corda/client/rpc/CordaRPCClient.html), which cleans up automatically after the passed in lambda finishes. Do not create a new proxy for every call you make: reuse an existing one.
 {{< /warning >}}
 
-For further information on using the RPC API, see [Working with the CordaRPCClient API](../../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-clientrpc-api.md).
+For further information on using the RPC API, see [Working with the CordaRPCClient API](../../../../tutorials/corda/4.10/community/supplementary-tutorials/tutorial-clientrpc-api.md).
 
 
 ### Defining RPC users and permissions
@@ -363,7 +363,7 @@ This approach provides at-least-once guarantees. It cannot provide exactly-once 
 
 ## Building the Multi RPC Client
 
-The Multi RPC Client in Corda Community Edition can be used as an extension of the [net.corda.core.messaging.CordaRPCOps](https://docs.r3.com/en/api-ref/corda/4.9/community/javadoc/index.html) remote interface.
+The Multi RPC Client in Corda Community Edition can be used as an extension of the [net.corda.core.messaging.CordaRPCOps](https://docs.r3.com/en/api-ref/corda/4.10/community/javadoc/index.html) remote interface.
 
 To interact with your node via this interface, you need to build a client that uses the [MultiRPCClient](https://api.corda.net/api/corda-os/4.8/html/api/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) class.
 
@@ -645,4 +645,4 @@ Note that RPC TLS does not use mutual authentication, and delegates fine-grained
 
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
-`@CordaSerializable` annotation (see [Object serialization](serialization.md)). An example is shown in [Working with the CordaRPCClient API](../../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-clientrpc-api.md).
+`@CordaSerializable` annotation (see [Object serialization](serialization.md)). An example is shown in [Working with the CordaRPCClient API](../../../../tutorials/corda/4.10/community/supplementary-tutorials/tutorial-clientrpc-api.md).

@@ -29,8 +29,8 @@ connection to the node (see [Interacting with the node](../../../../../en/platfo
 
 For the full API details, see the:
 
-* [Kotlin API docs](../../../../../en/api-ref/corda/4.9/open-source/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
-* [JavaDoc](../../../../../en/api-ref/corda/4.9/community/javadoc/net/corda/client/jackson/JacksonSupport.html)
+* [Kotlin API docs](../../../../../en/api-ref/corda/4.10/open-source/kotlin/corda/net.corda.client.jackson/-jackson-support/index.html)
+* [JavaDoc](../../../../../en/api-ref/corda/4.10/community/javadoc/net/corda/client/jackson/JacksonSupport.html)
 
 {{< tabs name="tabs-1" >}}
 {{% tab name="kotlin" %}}

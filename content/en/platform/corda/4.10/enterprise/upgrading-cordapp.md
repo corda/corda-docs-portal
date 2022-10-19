@@ -9,7 +9,7 @@ tags:
 - cordapp
 title: Updating a running CorDapp
 weight: 60
-aliases: /docs/4.9/enterprise/node/operating/cm-updating-cordapp.md
+aliases: /docs/4.10/enterprise/node/operating/cm-updating-cordapp.md
 ---
 
 

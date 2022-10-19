@@ -10,7 +10,7 @@ tags:
 - upgrade
 - notes
 title: Upgrading a node to Corda Enterprise Edition 4.10
-aliases: /docs/4.9/enterprise/node/operating/cm-upgrading-node.html
+aliases: /docs/4.10/enterprise/node/operating/cm-upgrading-node.html
 weight: 10
 ---
 

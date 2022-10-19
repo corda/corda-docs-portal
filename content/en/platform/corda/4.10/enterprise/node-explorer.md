@@ -132,7 +132,7 @@ To see a geographical view of your network, click **Network** in the left-hand s
 
 {{< note >}}
 
-The geographical location of each node is based on the <a href="../../../../../en/api-ref/corda/4.9/open-source/kotlin/corda/net.corda.core.identity/-corda-x500-name/index.html">`locality` property of the node's registered CordaX500 name</a>.
+The geographical location of each node is based on the <a href="../../../../../en/api-ref/corda/4.10/open-source/kotlin/corda/net.corda.core.identity/-corda-x500-name/index.html">`locality` property of the node's registered CordaX500 name</a>.
 
 {{< /note >}}
 

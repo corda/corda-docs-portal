@@ -10,7 +10,7 @@ tags:
 - os
 - ent
 title: Upgrading a Corda OS node to Corda Enterprise
-aliases: /docs/4.9/enterprise/node/operating/node-operations-upgrading-os-to-ent.html
+aliases: /docs/4.10/enterprise/node/operating/node-operations-upgrading-os-to-ent.html
 weight: 40
 ---
 

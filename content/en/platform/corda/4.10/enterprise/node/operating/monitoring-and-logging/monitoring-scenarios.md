@@ -1,6 +1,6 @@
 ---
 aliases:
-- /releases/4.9/node-metrics.html
+- /releases/4.10/node-metrics.html
 date: '2020-04-16T19:30:25Z'
 menu:
   corda-enterprise-4-10:
