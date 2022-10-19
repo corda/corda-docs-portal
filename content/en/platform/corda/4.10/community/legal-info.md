@@ -16,7 +16,7 @@ tags:
 - info
 ---
 
-# Corda Community Edition 4.9 third-party software notices and information
+# Corda Community Edition 4.10 third-party software notices and information
 
 **Do not translate or localise.**
 

@@ -16,7 +16,7 @@ tags:
 - info
 ---
 
-# Corda Community Edition 4.9.2 third-party software notices and information
+# Corda Community Edition 4.10.2 third-party software notices and information
 
 ### Licenced Under
     Apache-2.0

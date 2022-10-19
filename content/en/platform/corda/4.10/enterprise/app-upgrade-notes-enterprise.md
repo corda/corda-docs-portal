@@ -21,7 +21,7 @@ Corda Enterprise Edition 4.9 fixes a security vulnerability in the JPA notary. B
 
 ## Upgrading from Corda Community Edition
 
-Before upgrading to Corda Enterprise Edition 4.9, upgrade your CorDapp to Corda Community Edition 4.9. See [Upgrading CorDapps to newer platform versions](../../../../../en/platform/corda/4.9/enterprise/app-upgrade-notes.md) for detailed instructions.
+Before upgrading to Corda Enterprise Edition 4.9, upgrade your CorDapp to Corda Community Edition 4.10. See [Upgrading CorDapps to newer platform versions](../../../../../en/platform/corda/4.9/enterprise/app-upgrade-notes.md) for detailed instructions.
 
 You don't need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
 be compatible with nodes running open source, then compile it against Corda Community Edition (formerly Open Source) 4.x.

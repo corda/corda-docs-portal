@@ -13,11 +13,11 @@ tags:
 - node
 - upgrade
 - notes
-title: Upgrading your node to Corda Community Edition 4.9
+title: Upgrading your node to Corda Community Edition 4.10
 ---
 
 
-# Upgrading your node to Corda Community Edition 4.9
+# Upgrading your node to Corda Community Edition 4.10
 
 Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and should not require changes to
 applications. It consists of the following steps:

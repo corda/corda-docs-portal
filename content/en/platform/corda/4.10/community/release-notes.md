@@ -15,9 +15,9 @@ tags:
 - notes
 ---
 
-# Corda Community Edition 4.9 release notes
+# Corda Community Edition 4.10 release notes
 
-## Corda Community Edition 4.9.2 release notes
+## Corda Community Edition 4.10.2 release notes
 
 Corda Community 4.9.2 is a patch release of Corda Community which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
 
@@ -53,9 +53,9 @@ The following issues were resolved in this patch release:
 
 {{< /table >}}
 
-## Corda Community Edition 4.9.1 release notes
+## Corda Community Edition 4.10.1 release notes
 
-Corda Community Edition 4.9.1 is a patch release of Corda Community Edition which includes minor bug fixes and dependency upgrades.
+Corda Community Edition 4.10.1 is a patch release of Corda Community Edition which includes minor bug fixes and dependency upgrades.
 
 ### Fixed issues
 
@@ -65,7 +65,7 @@ In this patch release:
 * Update Hibernate version to a more secure version that matches Corda Enterprise.
 * Oracle JDK version 8u322 now supported.
 
-## Corda Community Edition 4.9 release notes
+## Corda Community Edition 4.10 release notes
 
 **Corda Community Edition** is here. This edition of Corda gives you the freedom of Corda's Community Edition platform, with the benefits of [affordable support](https://r3.com/support). All the same fundamentals of Corda 4.8 are included, along with security updates, newly available APIs and sample code improvements. You can upgrade your existing Corda projects to Community Edition any time to be eligible for our support packages.
 
