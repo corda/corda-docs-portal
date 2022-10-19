@@ -21,7 +21,7 @@ This page contains a repository of example manual node operations using Docker. 
 ensure the [Corda Docker image](docker-image.md) has been correctly configured.
 
 The node runs in a container. This is similar to executing the `.jar` directly, except with the need to mount directories into the container that a Corda node would normally have. It is also necessary to set up
-port-forwarding and environment variables. The same command variables can be used in running the container as when running the `.jar`. See the [generating a node](generating-a-node.md) and [running nodes locally](running-a-node.md) pages.
+port-forwarding and environment variables. The same command variables can be used in running the container as when running the `.jar`. See the [Generating a node](generating-a-node.md) and [Running nodes locally](running-a-node.md) pages.
 
 ## Running a node connected to a Compatibility Zone in Docker
 
@@ -42,7 +42,7 @@ docker run -ti \
         -v /path/to/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/community:4.9.1-zulu-openjdk8:latest
+        corda/community:4.10-zulu-openjdk8:latest
 ```
 
 As the node runs within a container, several mount points are required:
@@ -83,7 +83,7 @@ docker run -ti \
         -v /home/user/sharedFolder/network-parameters:/opt/corda/network-parameters \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/community:4.9.1-zulu-openjdk8:latest
+        corda/community:4.10-zulu-openjdk8:latest
 ```
 
 The mount `/home/user/sharedFolder/node-infos:/opt/corda/additional-node-infos` is used to hold the `nodeInfo` of all the nodes within the network.
@@ -117,7 +117,7 @@ docker run -ti --net="host" \
         -e RPC_USER="PartyA"      \
         -v /home/user/docker/config:/etc/corda          \
         -v /home/user/docker/certificates:/opt/corda/certificates \
-        corda/community:4.9.1-zulu-openjdk8:latest config-generator --generic --exit-on-generate
+        corda/community:4.10-zulu-openjdk8:latest config-generator --generic --exit-on-generate
 ```
 
 Several environment variables must also be passed to the container to allow it to register:
@@ -152,7 +152,7 @@ docker run -ti \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/community:4.9.1-zulu-openjdk8:latest
+        corda/community:4.10-zulu-openjdk8:latest
 ```
 
 You can now start the node as normal:
@@ -168,5 +168,5 @@ docker run -ti \
         -v /home/user/corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/cordapps:/opt/corda/cordapps \
         -p 10200:10200 \
         -p 10201:10201 \
-        corda/community:4.9.1-zulu-openjdk8:latest
+        corda/community:4.10-zulu-openjdk8:latest
 ```

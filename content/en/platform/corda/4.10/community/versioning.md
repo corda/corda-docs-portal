@@ -45,7 +45,7 @@ registers with the network map it will check its own version against the minimum
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
-| 4.9 Community Edition | 11 |
+| 4.10 Community Edition | 11 |
 {{< /table >}}
 
 ## Minimum platform version

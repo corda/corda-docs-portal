@@ -74,7 +74,7 @@ It is very important that you create the configuration file correctly. To do so,
 
 ## Install the metering collection tool
 
-The metering collection tool is distributed as part of Corda Enterprise Edition 4.10 under the name `corda-tools-metering-collector-4.9.jar`. You must place this `.jar` file in the `cordapps` directory of the node.
+The metering collection tool is distributed as part of Corda Enterprise Edition 4.10 under the name `corda-tools-metering-collector-4.10.jar`. You must place this `.jar` file in the `cordapps` directory of the node.
 
 ## Use the metering collection flows
 
@@ -561,7 +561,7 @@ Flow completed with result: [{
 }, {
   "name" : "Corda Metering Collection Tool",
   "vendor" : "R3",
-  "version" : "4.9-SNAPSHOT",
+  "version" : "4.10-SNAPSHOT",
   "hash" : "FC0150EFAB3BBD715BDAA7F67B4C4DB5E133D919B6860A3D3B4C6C7D3EFE25D5",
   "signingKeys" : [ "AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B" ]
 }]

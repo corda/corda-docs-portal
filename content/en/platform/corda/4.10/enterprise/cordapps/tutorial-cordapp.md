@@ -150,14 +150,14 @@ The `runnodes` script creates a node tab/window for each node. It usually takes 
 / /___  /_/ / /  / /_/ / /_/ /          always say "Ah, Interesting!"
 \____/     /_/   \__,_/\__,_/
 
---- Corda Community Edition corda-4.9 (4157c25) -----------------------------------------------
+--- Corda Community Edition corda-4.10 (4157c25) -----------------------------------------------
 
 
 Logs can be found in                    : /Users/cordauser/Desktop/cordapp-example/workflows-java/build/nodes/PartyA/logs
 Database connection url is              : jdbc:h2:tcp://localhost:59472/node
 Incoming connection address             : localhost:10005
 Listening on port                       : 10005
-Loaded CorDapps                         : corda-finance-corda-4.9, cordapp-example-0.1, corda-core-corda-4.9
+Loaded CorDapps                         : corda-finance-corda-4.10, cordapp-example-0.1, corda-core-corda-4.10
 Node for "PartyA" started up and registered in 38.59 sec
 
 

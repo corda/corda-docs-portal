@@ -17,7 +17,7 @@ title: Official Corda Docker Image
 # Official Corda Docker image
 
 The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/community/corda/community/4.9.1-zulu-openjdk8/images/sha256-b7b536977dd1d13dc042c57299add348543158479063dbc1ad993373ebfa9f7b?context=explore)
-is `corda/corda-enterprise:4.9.1-zulu-openjdk8-alpine`.
+is `corda/corda-enterprise:4.10-zulu-openjdk8-alpine`.
 
 ## Prerequisites
 

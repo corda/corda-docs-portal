@@ -15,8 +15,6 @@ title: Node shell
 ---
 
 
-
-
 # Node shell
 
 The Corda shell is an embedded or standalone command line that allows an administrator to control and monitor a node. It is based on the [CRaSH](http://www.crashub.org/) shell and supports many of the same features. These features include:
@@ -131,7 +129,7 @@ By default, a Corda node does not run the shell.
 When using `cordaformation` the shell can be included in generated node's by including the following in the `build.gradle` file containing `deployNodes`:
 
 ```
-cordaDriver "net.corda:corda-shell:4.9"
+cordaDriver "net.corda:corda-shell:4.10"
 ```
 
 ## The shell via SSH

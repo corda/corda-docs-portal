@@ -18,7 +18,7 @@ weight: 60
 
 While Corda Enterprise supports a variety of HSMs for storing legal identity and confidential identity keys, you can also integrate other HSMs with Corda Enterprise using Corda Enterprise APIs. Once HSM integration has been written, HSMs can be tested against Corda Enterprise using the HSM Technical Compatibility Kit (TCK), a test suite [available here](hsm-integration-tck.md).
 
-To help write integration for your HSM, there is an example HSM implementation available as part of the `com.r3.corda:corda-enterprise-utils:4.9` resources. We'll go over this example HSM here to explain what the components are, and how they work.
+To help write integration for your HSM, there is an example HSM implementation available as part of the `com.r3.corda:corda-enterprise-utils:4.10` resources. We'll go over this example HSM here to explain what the components are, and how they work.
 
 In the example HSM there are five key files:
 

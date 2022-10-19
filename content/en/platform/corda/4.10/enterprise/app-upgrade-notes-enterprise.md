@@ -44,8 +44,8 @@ To re-compile your CorDapp for Corda Enterprise Edition 4.10, you need to:
 ```shell
 ext.corda_release_distribution = 'com.r3.corda'
 ext.corda_core_release_distribution = 'net.corda'
-ext.corda_release_version = '4.9'
-ext.corda_core_release_version = '4.9'
+ext.corda_release_version = '4.10'
+ext.corda_core_release_version = '4.10'
 ext.corda_gradle_plugins_version = '5.0.12'
 ext.kotlin_version = '1.2.71'
 ext.quasar_version = '0.7.14_r3'
@@ -146,7 +146,7 @@ Therefore, you have to add the following variables to your build configuration:
 
 ```shell
 ext.corda_core_release_distribution = 'net.corda'
-ext.corda_core_release_version = '4.9'
+ext.corda_core_release_version = '4.10'
 ```
 
 Any dependency on `corda-core` (or `corda-serialization`) has to use these new variables to depend on the open source version of those
@@ -165,4 +165,4 @@ cordaCompile "$ext.corda_core_release_distribution:corda-core:$ext.corda_core_re
 
 ## Upgrading from Corda Enterprise 3.x
 
-You can only upgrade to Corda Enterprise Edition 4.10 from a previous 4.x version. To upgrade from 3.x, first upgrade to 4.x and then to 4.9. For example, 3.3 to 4.5, and then 4.5 to 4.9.
+You can only upgrade to Corda Enterprise Edition 4.10 from a previous 4.x version. To upgrade from 3.x, first upgrade to 4.x and then to 4.10. For example, 3.3 to 4.5, and then 4.5 to 4.10.

@@ -264,7 +264,7 @@ You only need to perform this step for the H2 database.
 
 {{< /note >}}
 
-The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x. For example, if you're upgrading from 4.5 to 4.9.
+The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x. For example, if you're upgrading from 4.5 to 4.10.
 
 The Database Management Tool can execute the remaining data upgrade.
 The tool can connect with *restricted* database permissions as the schema structure was created in step three.
@@ -288,12 +288,8 @@ The value of `myLegalName` must exactly match the node name used in the database
 3. Change the database user to one with *restricted permissions*. This ensures the database cannot be altered. To complete the data migration, run:
 
 ```shell
-java -jar tools-database-manager-4.9-RC03.jar execute-migration -b . --core-schemas --app-schemas
+java -jar tools-database-manager-4.10.jar execute-migration -b . --core-schemas --app-schemas
 ```
-
-
-
-
 
 Option `-b` points to the base directory which contains a `node.conf` file and `drivers` and `cordapps` subdirectories.
 

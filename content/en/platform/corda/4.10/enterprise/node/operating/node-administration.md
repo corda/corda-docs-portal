@@ -443,13 +443,13 @@ The RPC call is also available as the `run nodeDiagnosticInfo` command executabl
 Here is a sample output displayed by the `run nodeDiagnosticInfo` command executed from the Corda shell:
 
 ```none
-version: "4.9"
+version: "4.10"
 revision: "d7e4a0050049be357999f57f69d8bca41a2b8274"
 platformVersion: 11
 vendor: "Corda Open Source"
 cordapps:
 - type: "Contract CorDapp"
-  name: "corda-finance-contracts-4.9"
+  name: "corda-finance-contracts-4.10"
   shortName: "Corda Finance Demo"
   minimumPlatformVersion: 1
   targetPlatformVersion: 4
@@ -458,7 +458,7 @@ cordapps:
   licence: "Open Source (Apache 2)"
   jarHash: "570EEB9DF4B43680586F3BE663F9C5844518BC2E410EAF9904E8DEE930B7E45C"
 - type: "Workflow CorDapp"
-  name: "corda-finance-workflows-4.9"
+  name: "corda-finance-workflows-4.10"
   shortName: "Corda Finance Demo"
   minimumPlatformVersion: 1
   targetPlatformVersion: 4

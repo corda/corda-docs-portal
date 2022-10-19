@@ -83,7 +83,7 @@ restart the shell or see [above](#installing-shell-extensions) for instructions 
 |---------------------------------------------------------|------------------------------|----------------------------------------------------------|
 |[Corda node](../deploy/running-a-node.html#starting-an-individual-corda-node)|`corda --<option>`|`corda-4.10.jar`|
 |Network bootstrapper|`bootstrapper --<option>`|`corda-tools-network-bootstrapper-4.10.jar`|
-|[Standalone shell](shell.html#standalone-shell)|`corda-shell --<option>`|`corda-tools-shell-cli-4.9.jar`|
+|[Standalone shell](shell.html#standalone-shell)|`corda-shell --<option>`|`corda-tools-shell-cli-4.10.jar`|
 |Blob inspector|`blob-inspector --<option>`|`corda-tools-blob-inspector-4.10.jar`|
 
 {{< /table >}}
@@ -91,5 +91,5 @@ restart the shell or see [above](#installing-shell-extensions) for instructions 
 
 ## List of existing Enterprise CLI applications
 
-Database Manager                `database-manager --<option>`  `corda-tools-database-manager-4.9.jar`
+Database Manager                `database-manager --<option>`  `corda-tools-database-manager-4.10.jar`
 Corda Firewall          `corda-firewall --<option>`    `corda-firewall-4.10.jar`                                 |
