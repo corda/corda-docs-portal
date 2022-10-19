@@ -98,7 +98,7 @@ You can access the standalone shell from [software.r3.com](https://software.r3.c
 Run the `corda-standalone-shell` jar using:
 
 ```
- java -jar corda-standalone-shell-4.9.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
+ java -jar corda-standalone-shell-4.10.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
     [--truststore-file=<trustStoreFile>]
     [--truststore-password=<trustStorePassword>]
     [--truststore-type=<trustStoreType>] [--user=<user>] [-a=<host>]

@@ -61,7 +61,7 @@ The node or service itself deobfuscates the configuration object internally on s
 
 ## Obfuscate using the command-line tool
 
-The command-line tool is included in Corda Enterprise as a `.jar` file with a name `corda-tools-config-obfuscator-<version>.jar`, where `<version>` stands for the Corda Enterprise version (for example, `corda-tools-config-obfuscator-4.9.jar` or `corda-tools-config-obfuscator-4.9.jar`).
+The command-line tool is included in Corda Enterprise as a `.jar` file with a name `corda-tools-config-obfuscator-<version>.jar`, where `<version>` stands for the Corda Enterprise version (for example, `corda-tools-config-obfuscator-4.10.jar` or `corda-tools-config-obfuscator-4.10.jar`).
 
 ### Usage
 
@@ -104,10 +104,10 @@ An example of these two cases follows below:
 
 ```bash
 # Explicit output file provided
-$ java -jar corda-tools-config-obfuscator-4.9.jar -w node.conf node_template.conf
+$ java -jar corda-tools-config-obfuscator-4.10.jar -w node.conf node_template.conf
 
 # No output file provided
-$ java -jar corda-tools-config-obfuscator-4.9.jar node_template.conf -w
+$ java -jar corda-tools-config-obfuscator-4.10.jar node_template.conf -w
 ```
 {{< /note >}}
 
@@ -121,7 +121,7 @@ You can use the following command to install 'alias' and 'autocompletion' for `b
 For example:
 
 ```bash
-$ java -jar corda-tools-config-obfuscator-4.9.jar install-shell-extensions
+$ java -jar corda-tools-config-obfuscator-4.10.jar install-shell-extensions
 ```
 
 ### How to pass the seed and passphrase to the Obfuscation Tool using the command-line tool options
@@ -141,13 +141,13 @@ However, we strongly recommend that you always set the seed and passphrase in or
 The following example shows a run of the command-line tool with a seed and a passphrase passed explicitly:
 
 ```bash
-$ java -jar tools/config-obfuscator/build/libs/corda-tools-config-obfuscator-4.9.jar --config-obfuscation-seed my-seed --config-obfuscation-passphrase my-passphrase -w node.conf /p/tmp/node-non-obfuscated.conf
+$ java -jar tools/config-obfuscator/build/libs/corda-tools-config-obfuscator-4.10.jar --config-obfuscation-seed my-seed --config-obfuscation-passphrase my-passphrase -w node.conf /p/tmp/node-non-obfuscated.conf
 ```
 
 The following example shows a run of the command-line tool with the seed and passphrase values left blank - the user is prompted to provide these interactively:
 
 ```bash
-$ java -jar tools/config-obfuscator/build/libs/corda-tools-config-obfuscator-4.9.jar --config-obfuscation-seed --config-obfuscation-passphrase -w node.conf /p/tmp/node-non-obfuscated.conf
+$ java -jar tools/config-obfuscator/build/libs/corda-tools-config-obfuscator-4.10.jar --config-obfuscation-seed --config-obfuscation-passphrase -w node.conf /p/tmp/node-non-obfuscated.conf
 $ Enter value for --config-obfuscation-seed (The seed used in the key derivation function to create a salt):
 $ Enter value for --config-obfuscation-passphrase (The passphrase used in the key derivation function when creating an AES key):
 ```
@@ -196,7 +196,7 @@ The same environment variables are used by all components that use the Configura
 ### How to pass the seed and passphrase to the Obfuscation Tool using environment variables
 
 ```bash
-$ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=my-passphrase; java -jar tools/config-obfuscator/build/libs/corda-tools-config-obfuscator-4.9.jar -w node.conf /p/tmp/node-non-obfuscated.conf
+$ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=my-passphrase; java -jar tools/config-obfuscator/build/libs/corda-tools-config-obfuscator-4.10.jar -w node.conf /p/tmp/node-non-obfuscated.conf
 ```
 
 ## Deobfuscate an obfuscated configuration file
