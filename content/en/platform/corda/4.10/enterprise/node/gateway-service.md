@@ -34,7 +34,7 @@ When you configure the Gateway Service, you need to:
 
 2. Specify the SSL configuration for connecting to the Auth Service. You can do this using the [PKI tool](../../../../../../en/platform/corda/1.5/cenm/pki-tool.md).
 
-3. Your authentication credentials, as specified in your [Auth Service configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/auth-service.md).
+3. Your authentication credentials, as specified in your [Auth Service configuration](../../../../../../../en/platform/corda/4.10/enterprise/node/auth-service.md).
 
 4. Your Zone Service address.
 
@@ -103,5 +103,5 @@ Command line arguments:
 {{< /note >}}
 
 * [CENM management console](../../../../../../en/platform/corda/1.5/cenm/cenm-console.html#installation)
-* [Node management console](../../../../../../en/platform/corda/4.9/enterprise/node/management-console.html#installation)
-* [Flow management console](../../../../../../en/platform/corda/4.9/enterprise/node/node-flow-management-console.html#installation)
+* [Node management console](../../../../../../en/platform/corda/4.10/enterprise/node/management-console.html#installation)
+* [Flow management console](../../../../../../en/platform/corda/4.10/enterprise/node/node-flow-management-console.html#installation)

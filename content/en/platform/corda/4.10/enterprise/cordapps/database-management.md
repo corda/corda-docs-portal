@@ -16,7 +16,7 @@ Corda and your installed CorDapps store their data in a relational database. Whe
 but the existing data needs to be preserved or changed accordingly.
 
 In Corda Enterprise, CorDapps’ custom tables are created or upgraded automatically based on
-database management scripts written in [Liquibase](../../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database.html#liquibase-ref) format and embedded in CorDapp `.jar`s.
+database management scripts written in [Liquibase](../../../../../../en/platform/corda/4.10/enterprise/node/operating/node-database.html#liquibase-ref) format and embedded in CorDapp `.jar`s.
 Any CorDapp with custom tables (`MappedSchema`)  must contain a matching database management script.
 
 
@@ -324,7 +324,7 @@ Any custom tables (which are required by CorDapps) were created manually or by H
 Therefore, the database doesn’t contain an entry in the *DATABASECHANGELOG* table, which is created by the Liquibase runner.
 You need to create the entries and provide them to a node operator to run them manually.
 
-See the  [Liquibase Sql Format](http://www.liquibase.org/documentation/sql_format.html) documents and Corda's [upgrade procedure](../../../../../../en/platform/corda/4.9/enterprise/node-operations-upgrading-os-to-ent.html#upgrade-from-corda-open-source-to-corda-enterprise) to learn how to obtain SQL statements.
+See the  [Liquibase Sql Format](http://www.liquibase.org/documentation/sql_format.html) documents and Corda's [upgrade procedure](../../../../../../en/platform/corda/4.10/enterprise/node-operations-upgrading-os-to-ent.html#upgrade-from-corda-open-source-to-corda-enterprise) to learn how to obtain SQL statements.
 
 
 

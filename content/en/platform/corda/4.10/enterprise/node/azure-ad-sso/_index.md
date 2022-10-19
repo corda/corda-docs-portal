@@ -19,7 +19,7 @@ You can operate a single sign on (SSO) set-up between your Corda services and Az
 To set up SSO with Azure AD, you need to:
 
 1. Configure your Azure AD using the Azure online console.
-2. Configure your [Auth Service](../../../../../../../en/platform/corda/4.9/enterprise/node/auth-service.md).
+2. Configure your [Auth Service](../../../../../../../en/platform/corda/4.10/enterprise/node/auth-service.md).
 3. If you use the [CENM Command-line Interface Tool](../../../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md), you also need to configure Azure AD to enable commands.
 
 {{< note >}}

@@ -66,7 +66,7 @@ The `initiator`:
 
 The `initiator`:
 
-1. Runs the [contracts](../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contracts.md) contained in the CorDapp.
+1. Runs the [contracts](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contracts.md) contained in the CorDapp.
 2. Verifies that the transaction is valid based on the contracts.
 
 
@@ -103,7 +103,7 @@ The `responder`:
 
 1. Receives the transaction from the counterparty.
 2. Verifies the transaction’s existing signatures.
-3. Runs the [contracts](../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contracts.md) contained in the CorDapp.
+3. Runs the [contracts](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contracts.md) contained in the CorDapp.
 4. Verifies that the transaction is valid based on the contracts.
 
 
@@ -268,14 +268,14 @@ public static class InitiatorFlow extends FlowLogic<Void> {
 ### Accessing the node's `ServiceHub`
 
 You can access the node's `ServiceHub` within `FlowLogic.call`. The `ServiceHub` provides access to the
-node's services. See [Accessing node services](../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-service-hub.md) for more information.
+node's services. See [Accessing node services](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-service-hub.md) for more information.
 
 ### Common flow tasks
 
 To agree ledger updates, you need to perform a number of common tasks within `FlowLogic.call`:
 
-* **Transaction building:** The majority of the work performed during a flow is building, verifying, and signing a transaction. See [Understanding transactions](../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-transactions.md).
-* **Extracting states from the vault:**: When building a transaction, you’ll often need to extract the states you wish to consume from the vault. See [Writing vault queries](../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-vault-query.md).
+* **Transaction building:** The majority of the work performed during a flow is building, verifying, and signing a transaction. See [Understanding transactions](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-transactions.md).
+* **Extracting states from the vault:**: When building a transaction, you’ll often need to extract the states you wish to consume from the vault. See [Writing vault queries](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-vault-query.md).
 * **Retrieving information about other nodes:**: You can retrieve information about other nodes on the network and the services they offer using `ServiceHub.networkMapCache`.
 
 ### Notaries
@@ -660,7 +660,7 @@ counterparty.
 
 {{< warning >}}
 `SwapIdentitiesFlow` and `SwapIdentitiesHandler` are only installed if you include the `confidential-identities` module. The `confidential-identities` module is not yet stabilized, so the
-`SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [API stability guarantees](../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-stability-guarantees.md).
+`SwapIdentitiesFlow`/`SwapIdentitiesHandler` API may change in future releases. See [API stability guarantees](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-stability-guarantees.md).
 
 {{< /warning >}}
 
@@ -766,7 +766,7 @@ all parties will not have the up-to-date view of the ledger.
 
 To recover from this scenario, the receiver’s finality handler is automatically sent to the `node-flow-hospital`. There, it is suspended and retried from its last checkpoint
 
-upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior](../../../../../../en/platform/corda/4.9/enterprise/node/node-flow-hospital.html#run-time-behaviour).
+upon node restart, or according to other conditional retry rules - see [flow hospital runtime behavior](../../../../../../en/platform/corda/4.10/enterprise/node/node-flow-hospital.html#run-time-behaviour).
 
 This gives the node operator the opportunity to recover from the error. Until the issue is resolved, the node will continue to retry the flow
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent.
@@ -1190,7 +1190,7 @@ Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`
 thread pool.
 
 {{< note >}}
-The size of the external operation thread pool can be configured. See [the node configuration documentation](../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.html#corda-configuration-flow-external-operation-thread-pool-size).
+The size of the external operation thread pool can be configured. See [the node configuration documentation](../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-file.html#corda-configuration-flow-external-operation-thread-pool-size).
 
 {{< /note >}}
 You can call `FlowExternalOperation` from a flow to run an operation on a new thread, allowing the flow to suspend:

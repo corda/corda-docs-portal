@@ -48,14 +48,14 @@ Overview of changes:
 
 ### Changes in V1.2.2
 
-In V1.2.2, a new [Token Selection](../../../../../../en/platform/corda/4.9/enterprise/cordapps/token-selection.md) feature allows a the exception `InsufficientNotLockedBalanceException` to be thrown when  sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
+In V1.2.2, a new [Token Selection](../../../../../../en/platform/corda/4.10/enterprise/cordapps/token-selection.md) feature allows a the exception `InsufficientNotLockedBalanceException` to be thrown when  sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
 
 ### Upgrade Tokens SDK
 
 To upgrade the Tokens SDK:
 
 {{< warning >}}
-Before upgrading, make sure the platform database schema is properly migrated and the changelog syncrhonised - consult the [upgrade documentation for Corda Enterprise Edition 4.10](../../../../../../en/platform/corda/4.9/enterprise/app-upgrade-notes.md). If you have not migrated the schema, the Tokens SDK may not upgrade correctly.
+Before upgrading, make sure the platform database schema is properly migrated and the changelog syncrhonised - consult the [upgrade documentation for Corda Enterprise Edition 4.10](../../../../../../en/platform/corda/4.10/enterprise/app-upgrade-notes.md). If you have not migrated the schema, the Tokens SDK may not upgrade correctly.
 {{< /warning >}}
 
 1. Change the V number (version number) in your CorDapp's relevant Gradle file to the version you are upgrading to - such as 1.2.2
@@ -137,7 +137,7 @@ An `EvolvableTokenType` has properties that can change over time. This is repres
 * Define the evolvable attributes that can change over time.
 * Identify at least one signatory service that can approve the newly evolved state. This is called a `Maintainer`.
 
-In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](../../../../../../en/platform/corda/4.9/enterprise/cordapps/token-diamond-example.md) for a fuller picture.
+In the example below, the evolvable token is for a diamond. You can see the evolvable attributes, which are the attributes included in a grading report for a diamond. You can also see a full [walk-through of this example](../../../../../../en/platform/corda/4.10/enterprise/cordapps/token-diamond-example.md) for a fuller picture.
 
 {{< tabs name="tabs-1234" >}}
 {{% tab name="kotlin" %}}
@@ -514,7 +514,7 @@ To choose only tokens from one issuer, you can provide optional [queryCriteria] 
 
 {{< note >}}
 
-This method always uses database token selection, to use in-memory [token selection](../../../../../../en/platform/corda/4.9/enterprise/cordapps/token-selection.md), use `addMoveTokens` with already selected input and output states.
+This method always uses database token selection, to use in-memory [token selection](../../../../../../en/platform/corda/4.10/enterprise/cordapps/token-selection.md), use `addMoveTokens` with already selected input and output states.
 
 {{< /note >}}
 

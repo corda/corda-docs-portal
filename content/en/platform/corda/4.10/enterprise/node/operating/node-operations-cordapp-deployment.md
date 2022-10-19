@@ -37,7 +37,7 @@ A CorDapp that stores data in a custom table contains an embedded Liquibase data
 This follows the [Liquibase](http://www.liquibase.org) functionality used by Corda for the database schema management.
 
 Creating a new database table requires a similar procedure to creating a Corda database schema using Corda Database Management Tool.
-Because of that, most of the steps are similar to those described in [Database schema setup](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database-admin.md).
+Because of that, most of the steps are similar to those described in [Database schema setup](../../../../../../../en/platform/corda/4.10/enterprise/node/operating/node-database-admin.md).
 
 
 ### 1. Check if the CorDapp requires custom tables
@@ -205,7 +205,7 @@ A generated script named *migration/*.sql* will be present in the base directory
 This script contains all statements to create data structures (e.g. tables/indexes) for CorDapps
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
 The command doesn’t alter any tables.
-Refer to [Corda Database Management Tool](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database.html#database-management-tool) manual for a description of the options.
+Refer to [Corda Database Management Tool](../../../../../../../en/platform/corda/4.10/enterprise/node/operating/node-database.html#database-management-tool) manual for a description of the options.
 
 
 ### 4. Apply DDL scripts on a database

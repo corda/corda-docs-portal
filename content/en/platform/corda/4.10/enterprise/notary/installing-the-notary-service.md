@@ -187,4 +187,4 @@ dataSourceProperties = {
 ## Obtaining the notary service identity
 
 The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration](../ha-utilities.html#notary-registration).
-Once the service is registered, each worker node is registered using the `initial-registration` process. See [joining a compatibility zone](../../../../../../en/platform/corda/4.9/enterprise/network/joining-a-compatibility-zone.md).
+Once the service is registered, each worker node is registered using the `initial-registration` process. See [joining a compatibility zone](../../../../../../en/platform/corda/4.10/enterprise/network/joining-a-compatibility-zone.md).

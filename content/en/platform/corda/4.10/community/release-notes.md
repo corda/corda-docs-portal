@@ -73,7 +73,7 @@ In this patch release:
 
 The Corda Community Edition features:
 
-* Support for your open source projects. [Find out more about available support and how to upgrade](https://docs.r3.com/en/platform/corda/4.9/community.html).
+* Support for your open source projects. [Find out more about available support and how to upgrade](https://docs.r3.c../en/platform/corda/4.10/community.html).
 * An open source version of network map and doorman is available and recommended for Community Edition users, provided by Cordite.
 * Community Edition Docker images are now available.
 * The `flowrpcops` API is available and documented. You can use this to start, pause, and retry flows and hospitalized flows.
@@ -87,7 +87,7 @@ Support for Corda: Community Edition 4.10 does not include experimental notaries
 
 Corda 4.9 uses platform version 11.
 
-For more information about platform versions, see [Versioning](../../../../../en/platform/corda/4.9/community/versioning.md).
+For more information about platform versions, see [Versioning](../../../../../en/platform/corda/4.10/community/versioning.md).
 
 ## Fixed issues
 

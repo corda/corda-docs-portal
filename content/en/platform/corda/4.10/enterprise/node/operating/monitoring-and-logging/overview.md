@@ -134,7 +134,7 @@ To monitor your node using Jolokia you must:
 
 The following JMX statistics are exported:
 
-* [Corda specific metrics](../../../../../../../../en/platform/corda/4.9/enterprise/node/operating/monitoring-and-logging/node-metrics.md).
+* [Corda specific metrics](../../../../../../../../en/platform/corda/4.10/enterprise/node/operating/monitoring-and-logging/node-metrics.md).
 * Apache Artemis queue information for P2P and RPC services.
 * JVM classloading, garbage collection, memory, runtime, threading, and operating system metrics.
 
@@ -159,7 +159,7 @@ To add a security policy use `java -Dcapsule.jvm.args=-javaagent:./drivers/jolok
 
 #### Monitor development systems with Jolokia
 
-If you Corda instance is set to dev mode you can access Hibernate statistics using the Jolokia interface. Hibernate statistics are disabled outside of dev mode due to expensive runtime costs. Hibernate statistics reporting can be enabled or disabled regardless of dev mode using the `exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#database).
+If you Corda instance is set to dev mode you can access Hibernate statistics using the Jolokia interface. Hibernate statistics are disabled outside of dev mode due to expensive runtime costs. Hibernate statistics reporting can be enabled or disabled regardless of dev mode using the `exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-fields.html#database).
 
 ### Monitoring your node using Graphite
 
@@ -185,5 +185,5 @@ To publish metrics to a Graphite server:
 
 ## Related content
 
-* [Node metrics](../../../../../../../../en/platform/corda/4.9/enterprise/node/operating/monitoring-and-logging/node-metrics.md)
-* [Monitoring scenarios](../../../../../../../../en/platform/corda/4.9/enterprise/node/operating/monitoring-and-logging/monitoring-scenarios.md)
+* [Node metrics](../../../../../../../../en/platform/corda/4.10/enterprise/node/operating/monitoring-and-logging/node-metrics.md)
+* [Monitoring scenarios](../../../../../../../../en/platform/corda/4.10/enterprise/node/operating/monitoring-and-logging/monitoring-scenarios.md)

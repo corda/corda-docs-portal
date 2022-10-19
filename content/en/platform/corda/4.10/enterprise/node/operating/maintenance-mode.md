@@ -27,7 +27,7 @@ The following maintenance tasks are currently supported:
 
 ## Configuration of Node Maintenance Mode
 
-You can configure Node Maintenance Mode in an optional configuration sub-section named `maintenanceMode` within the `enterpriseConfiguration` top-level [configuration section](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration).
+You can configure Node Maintenance Mode in an optional configuration sub-section named `maintenanceMode` within the `enterpriseConfiguration` top-level [configuration section](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration).
 
 By default, no maintenance activities are performed if the `maintenanceMode` section is not provided. Without this section, Corda behaves as if maintenance mode is not available.
 
@@ -88,7 +88,7 @@ For more information on the HOCON period format see [HOCON-period-format](https:
 ## Message clean-up
 
 To configure Corda to clean-up old entries from the `NODE_MESSAGE_IDS` [table](node-database-tables.html#node-state-machine), add the configuration sub-section `processedMessageCleanup` in addition to the `maintenanceMode` sub-section.
-The `processedMessageCleanup` sub-section (also part of the `enterpriseConfiguration` top-level [configuration section](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration)) contains the configuration used to run the message ID clean-up background process (also called `NodeJanitor`) at shutdown. The size should be fairly constant. The same rules apply for calculation of default values as when the activity runs at shutdown.
+The `processedMessageCleanup` sub-section (also part of the `enterpriseConfiguration` top-level [configuration section](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration)) contains the configuration used to run the message ID clean-up background process (also called `NodeJanitor`) at shutdown. The size should be fairly constant. The same rules apply for calculation of default values as when the activity runs at shutdown.
 
 The following example shows a sample `maintenanceMode` configuration, including `processedMessageCleanup` parameters:
 

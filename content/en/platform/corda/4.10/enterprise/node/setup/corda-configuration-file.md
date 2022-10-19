@@ -66,7 +66,7 @@ for more information.
 
 It is possible to add placeholders to the `node.conf` file to override particular settings via environment variables. In this case the
 `rpcSettings.address` property will be overridden by the `RPC_ADDRESS` environment variable, and the node will fail to load if this
-environment variable isn’t present (see [Hiding sensitive data](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/node-administration.html#hiding-sensitive-data) for more information).
+environment variable isn’t present (see [Hiding sensitive data](../../../../../../../en/platform/corda/4.10/enterprise/node/operating/node-administration.html#hiding-sensitive-data) for more information).
 
 ```groovy
 rpcSettings {
@@ -148,7 +148,7 @@ java -Dcorda.cordappSignerKeyFingerprintBlacklist.0="000000000000000000000000000
 
 ## Configuration file fields
 
-See [Configuration file fields](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.md).
+See [Configuration file fields](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-fields.md).
 
 ## Reference.conf
 

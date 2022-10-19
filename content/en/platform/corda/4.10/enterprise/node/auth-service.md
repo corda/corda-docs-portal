@@ -80,7 +80,7 @@ of available permissions and predefined roles. Copy this file to a directory cal
 
 To deploy the Auth service, you need to create a configuration file.
 
-When you create your config file, you establish its connection to your [Gateway Service](../../../../../../en/platform/corda/4.9/enterprise/node/gateway-service.md). Make sure you know:
+When you create your config file, you establish its connection to your [Gateway Service](../../../../../../en/platform/corda/4.10/enterprise/node/gateway-service.md). Make sure you know:
 
 * Your Gateway service ID.
 * Your Gateway service secret.
@@ -236,5 +236,5 @@ Auth Service needs to be set up with baseline permission data for each applicati
 {{< /note >}}
 
 * [CENM management console](../../../../../../en/platform/corda/1.5/cenm/cenm-console.html#installation)
-* [Node management console](../../../../../../en/platform/corda/4.9/enterprise/node/management-console.html#installation)
-* [Flow management console](../../../../../../en/platform/corda/4.9/enterprise/node/node-flow-management-console.html#installation)
+* [Node management console](../../../../../../en/platform/corda/4.10/enterprise/node/management-console.html#installation)
+* [Flow management console](../../../../../../en/platform/corda/4.10/enterprise/node/node-flow-management-console.html#installation)

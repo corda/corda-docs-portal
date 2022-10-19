@@ -56,7 +56,7 @@ handling, and ensures the Corda service is run at boot.
 (under `/corda-webserver-4.9.jar`) and place it in `/opt/corda`
 * Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
-* Save the below as `/opt/corda/node.conf`. See [Node configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md) for a description of these options:
+* Save the below as `/opt/corda/node.conf`. See [Node configuration](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-file.md) for a description of these options:
 
 ```none
 p2pAddress = "example.com:10002"
@@ -262,7 +262,7 @@ copy PATH_TO_CORDA_JAR/corda-4.9.jar C:\Corda\corda.jar
 
 * Create a directory called `cordapps` in `C:\Corda\` and save your CorDapp jar file to it. Alternatively,
 download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
-* Save the below as `C:\Corda\node.conf`. See [Node configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md) for a description of these options:
+* Save the below as `C:\Corda\node.conf`. See [Node configuration](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-file.md) for a description of these options:
 
 ```none
  p2pAddress = "example.com:10002"
@@ -372,7 +372,7 @@ Start the node with the `run-migration-scripts` sub-command with `--core-schemas
 java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 ```
 
-See [Node command-line options](../../../../../../../en/platform/corda/4.9/enterprise/node/node-commandline.md) for more details.
+See [Node command-line options](../../../../../../../en/platform/corda/4.10/enterprise/node/node-commandline.md) for more details.
 
 ### Database schema migration
 

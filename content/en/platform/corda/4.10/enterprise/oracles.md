@@ -218,8 +218,8 @@ transaction and return it
 
 {{< note >}}
 Before reading any further, we advise that you understand the concept of flows and how to write them and use
-them. See [Writing flows](../../../../../en/platform/corda/4.9/enterprise/flow-state-machines.md).  Likewise some understanding of Cordapps, plugins and services will be helpful.
-See [Running a node](../../../../../en/platform/corda/4.9/enterprise/node/deploy/running-a-node.md).
+them. See [Writing flows](../../../../../en/platform/corda/4.10/enterprise/flow-state-machines.md).  Likewise some understanding of Cordapps, plugins and services will be helpful.
+See [Running a node](../../../../../en/platform/corda/4.10/enterprise/node/deploy/running-a-node.md).
 
 {{< /note >}}
 The first step is to create the oracle as a service by annotating its class with `@CordaService`.  Let’s see how that’s
@@ -327,7 +327,7 @@ class FixSignFlow(val tx: TransactionBuilder, val oracle: Party,
 [RatesFixFlow.kt](https://github.com/corda/corda/blob/release/os/4.9/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
 
 You’ll note that the `FixSignFlow` requires a `FilterTransaction` instance which includes only `Fix` commands.
-You can find a further explanation of this in [Oracles](../../../../../en/platform/corda/4.9/open-source/key-concepts-oracles.md). Below you will see how to build such a
+You can find a further explanation of this in [Oracles](../../../../../en/platform/corda/4.10/open-source/key-concepts-oracles.md). Below you will see how to build such a
 transaction with hidden fields.
 
 

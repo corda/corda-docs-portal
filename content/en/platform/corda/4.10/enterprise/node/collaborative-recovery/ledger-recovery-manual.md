@@ -215,7 +215,7 @@ This flow only marks the `RecoveryRequest` as complete on behalf of the invoking
 
 #### Vault archive
 
-A `VaultArchive` is a file/folder structure representing exported data from the nodes vault. It's structured in a specific format so that the initiating node (for whom you are exporting this `VaultArchive`) is able to interpret and import the transaction data back into their vault. The data in the `VaultArchive` is stored in [Corda Wire Format](../../../../../../../en/platform/corda/4.9/enterprise/wire-format.md) and may be deserialized and inspected using the [Corda Blob Inspector](../../../../../../../en/platform/corda/4.9/enterprise/blob-inspector.md).
+A `VaultArchive` is a file/folder structure representing exported data from the nodes vault. It's structured in a specific format so that the initiating node (for whom you are exporting this `VaultArchive`) is able to interpret and import the transaction data back into their vault. The data in the `VaultArchive` is stored in [Corda Wire Format](../../../../../../../en/platform/corda/4.10/enterprise/wire-format.md) and may be deserialized and inspected using the [Corda Blob Inspector](../../../../../../../en/platform/corda/4.10/enterprise/blob-inspector.md).
 
 An example of the file folder structure of a `VaultArchive` is defined below:
 
@@ -479,7 +479,7 @@ When run successfully, this flow will persist a `RecoveryRequest` in the `CR_REC
 
 If the initiating node throws an exception, it is very likely for one of the following reasons:
 - The reconciliation process is either still in progress or has failed. In the former situation, wait for the reconciliation process to be scheduled or complete. In the
-latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of [LedgerSync documentation](../../../../../../../en/platform/corda/4.9/enterprise/node/collaborative-recovery/ledger-sync.md)) and
+latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of [LedgerSync documentation](../../../../../../../en/platform/corda/4.10/enterprise/node/collaborative-recovery/ledger-sync.md)) and
 then reschedule the reconciliation so that it may be completed successfully.
 
 #### Unhappy path - Exception is thrown by the responding node

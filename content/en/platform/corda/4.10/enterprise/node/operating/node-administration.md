@@ -159,7 +159,7 @@ then determine the logging module name from the console output.
 
 ## SSH access
 
-Node can be configured to run SSH server. See [Node shell](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.md) for details.
+Node can be configured to run SSH server. See [Node shell](../../../../../../../en/platform/corda/4.10/enterprise/node/operating/shell.md) for details.
 
 
 ## Database access
@@ -214,7 +214,7 @@ In order to ensure that a Jolokia agent is instrumented with the JVM run-time, y
 The following JMX statistics are exported:
 
 
-* Corda specific metrics: see [Node metrics](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/monitoring-and-logging/node-metrics.md) for a list.
+* Corda specific metrics: see [Node metrics](../../../../../../../en/platform/corda/4.10/enterprise/node/operating/monitoring-and-logging/node-metrics.md) for a list.
 * Apache Artemis metrics: queue information for P2P and RPC services.
 * JVM statistics: classloading, garbage collection, memory, runtime, threading, operating system.
 
@@ -236,9 +236,9 @@ To pass a security policy use `java -Dcapsule.jvm.args=-javaagent:./drivers/jolo
 
 When running in dev mode, Hibernate statistics are also available via the Jolokia interface. These are disabled otherwise
 due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
-`exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#database).
+`exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-fields.html#database).
 
-When starting Corda nodes using Cordformation runner (see [Running a node](../../../../../../../en/platform/corda/4.9/enterpise/node/deploy/running-a-node.md)), you should see a startup message similar to the following:
+When starting Corda nodes using Cordformation runner (see [Running a node](../../../../../../../en/platform/corda/4.10/enterpise/node/deploy/running-a-node.md)), you should see a startup message similar to the following:
 **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
 
 When starting Corda nodes using the ‘driver DSL’, you should see a startup message in the logs similar to the following:
@@ -301,7 +301,7 @@ Unfortunately the JVM does not let you limit the total memory usage of Java prog
 A node which is running out of memory is expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
 Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens. It’s also advised to have
 necessary JVM monitoring and restart infrastructure in place.
-See [Setting JVM arguments](../../../../../../../en/platform/corda/4.9/enterprise/node/deploy/running-a-node.html#setting-jvm-arguments) for further details on JVM out-of-memory related parameters.
+See [Setting JVM arguments](../../../../../../../en/platform/corda/4.10/enterprise/node/deploy/running-a-node.html#setting-jvm-arguments) for further details on JVM out-of-memory related parameters.
 
 
 ## Hiding sensitive data
@@ -478,8 +478,8 @@ that were received over the network.
 A Contract CorDapp (an attachment) received over the network, is only allowed to be evaluated if there are other Contract
 CorDapps installed in the node that have been signed by at least one of the received CorDapp’s keys.
 
-See [Signature Constraints](../../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.html#signature-constraints) and
-[Signing CorDapps for use with Signature Constraints](../../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.html#signing-cordapps-for-use-with-signature-constraints) for more information
+See [Signature Constraints](../../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contract-constraints.html#signature-constraints) and
+[Signing CorDapps for use with Signature Constraints](../../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contract-constraints.html#signing-cordapps-for-use-with-signature-constraints) for more information
 
 {{< /note >}}
 
