@@ -12,7 +12,7 @@ tags:
 - info
 ---
 
-# Corda Enterprise Edition 4.9 third-party software notices and licence information
+# Corda Enterprise Edition 4.10 third-party software notices and licence information
 
 **Do not translate or localize**
 

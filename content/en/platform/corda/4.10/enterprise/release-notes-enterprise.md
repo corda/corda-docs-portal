@@ -14,11 +14,11 @@ tags:
 weight: 1
 ---
 
-# Corda Enterprise Edition 4.9 release notes
+# Corda Enterprise Edition 4.10 release notes
 
-## Corda Enterprise Edition 4.9.3 release notes
+## Corda Enterprise Edition 4.10.3 release notes
 
-Corda Enterprise Edition 4.9.3 is a patch release of Corda Enterprise focused on resolving issues.
+Corda Enterprise Edition 4.10.3 is a patch release of Corda Enterprise focused on resolving issues.
 
 ### Upgrade recommendation
 
@@ -32,9 +32,9 @@ The following issues were resolved in this patch release:
 
 * For CENM 1.4+, the `getNodeInfos()` bulk fetch mechanism now retrieves NodeInfos from the network map via an HTTP proxy, if a proxy has been configured.
 
-## Corda: Enterprise Edition 4.9.2 release notes
+## Corda: Enterprise Edition 4.10.2 release notes
 
-Corda Enterprise Edition 4.9.2 is a patch release of Corda Enterprise which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
+Corda Enterprise Edition 4.10.2 is a patch release of Corda Enterprise which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
 
 * As part of this patch a new Gradle plugin is provided that supports CorDapp development using Gradle 7. This is in addition to the existing Gradle support. The plugin has been uploaded to Artifactory.
   * Samples demonstrating Gradle 7 usage are available for:
@@ -70,9 +70,9 @@ The following issues were resolved in this patch release:
 
 {{< /table >}}
 
-## Corda: Enterprise Edition 4.9.1 release notes
+## Corda: Enterprise Edition 4.10.1 release notes
 
-Corda Enterprise Edition 4.9.1 is a patch release of Corda Enterprise which includes dependency upgrades and fixes for minor bugs.
+Corda Enterprise Edition 4.10.1 is a patch release of Corda Enterprise which includes dependency upgrades and fixes for minor bugs.
 
 ### Upgrade recommendation
 
@@ -88,7 +88,7 @@ In this patch release:
 * Official Artemis binaries implemented.
 * Oracle JDK version 8u322 now supported.
 
-## Corda: Enterprise Edition 4.9 release notes
+## Corda: Enterprise Edition 4.10 release notes
 
 Corda: Enterprise Edition  4.9 features many security improvements, along with a stand alone Shell for controlling the node via command line. You can also now access the `flowrpcops` API.
 

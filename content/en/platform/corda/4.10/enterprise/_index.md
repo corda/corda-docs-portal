@@ -5,7 +5,7 @@ menu:
     weight: -655
   corda-enterprise-4-10:
     weight: 1
-    name: Corda Enterprise Edition 4.9
+    name: Corda Enterprise Edition 4.10
 project: corda
 section_menu: corda-enterprise-4-9
 title: Corda Enterprise Edition 4.10
@@ -25,7 +25,7 @@ transactions that consumes any of the proposed transaction’s input states.
 {{< note >}}
 **Release notes**
 
-* For the latest Corda Enterprise release notes, see the [Corda Enterprise Edition 4.9 release notes](../../../../../en/platform/corda/4.9/enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
+* For the latest Corda Enterprise release notes, see the [Corda Enterprise Edition 4.10 release notes](../../../../../en/platform/corda/4.9/enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
 * For the Corda Community Edition release notes, see the [Corda Community Edition 4.10 release notes](../../../../../en/platform/corda/4.9/community/release-notes.md) page.
 * For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](../../../../../en/platform/corda/1.5/cenm/release-notes.md) page.
 {{< /note >}}
