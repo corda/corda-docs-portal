@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-cordapp-upgradeability
-    parent: corda-community-4-9-versioning-and-upgrades
+    parent: corda-community-4-10-versioning-and-upgrades
     weight: 1050
 tags:
 - cordapp

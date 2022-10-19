@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-codestyle
-    parent: corda-community-4-9-contributing-index
+    parent: corda-community-4-10-contributing-index
     weight: 1070
 tags:
 - codestyle

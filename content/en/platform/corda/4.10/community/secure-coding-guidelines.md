@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-secure-coding-guidelines
-    parent: corda-community-4-9-building-a-cordapp-index
+    parent: corda-community-4-10-building-a-cordapp-index
     weight: 1080
 tags:
 - secure

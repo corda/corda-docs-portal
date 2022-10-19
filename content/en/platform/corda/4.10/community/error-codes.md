@@ -7,7 +7,7 @@ date: '2020-05-05T12:00:00Z'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-error-codes
-    parent: corda-community-4-9-clientrpc
+    parent: corda-community-4-10-clientrpc
     weight: 4000
 tags:
 - error

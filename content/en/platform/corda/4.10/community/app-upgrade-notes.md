@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-app-upgrade-notes
-    parent: corda-community-4-9-upgrading
+    parent: corda-community-4-10-upgrading
     weight: 20
 tags:
 - app

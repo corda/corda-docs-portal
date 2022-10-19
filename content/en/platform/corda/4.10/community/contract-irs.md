@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-contract-irs
-    parent: corda-community-4-9-component-library-index
+    parent: corda-community-4-10-component-library-index
     weight: 1030
 tags:
 - contract

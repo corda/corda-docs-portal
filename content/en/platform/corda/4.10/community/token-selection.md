@@ -2,7 +2,7 @@
 date: '2020-05-10T12:00:00Z'
 menu:
   corda-community-4-10:
-    parent: corda-community-4-9-token-sdk
+    parent: corda-community-4-10-token-sdk
 weight: 100
 tags:
 - Tokens SDK
