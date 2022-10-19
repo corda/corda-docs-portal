@@ -35,7 +35,7 @@ We'll go through each of these files and use them as a basis for explaining how 
 
 In the example HSM implementation the HSM configuration file `AWSCloudConfiguration.java` contains the following code:
 
-{{< codesample file="/conte../en/platform/corda/4.9/codesamples/AWSCloudConfiguration.java" >}}
+{{< codesample file="/content/en/platform/corda/4.9/codesamples/AWSCloudConfiguration.java" >}}
 
 The HSM configuration contains the basic configuration information required by the HSM, and implements `CryptoServiceCredentials`. When implementing `CryptoServiceCredentials` the only argument should be the configuration class itself.
 
@@ -47,7 +47,7 @@ The `samePartition` section is required by Corda Enterprise tools to manage mult
 
 The configuration parser file `AWSCloudConfigurationParser.java` implements the `ConfigParser` interface, and contains the following code:
 
-{{< codesample file="/conte../en/platform/corda/4.9/codesamples/AWSCloudConfigurationParser.java" >}}
+{{< codesample file="/content/en/platform/corda/4.9/codesamples/AWSCloudConfigurationParser.java" >}}
 
 The configuration parser will be unique to the HSM implementation, and is used to deserialise HSM configuration to a Java class.
 
@@ -55,7 +55,7 @@ The configuration parser will be unique to the HSM implementation, and is used t
 
 The factory class `AWSCloudCryptoServiceProvider` implements the `CryptoServiceProvider` interface, and contains the following code:
 
-{{< codesample file="/conte../en/platform/corda/4.9/codesamples/AWSCloudCryptoServiceProvider.java" >}}
+{{< codesample file="/content/en/platform/corda/4.9/codesamples/AWSCloudCryptoServiceProvider.java" >}}
 
 Corda Enterprise uses a service loader class to discover implementations of `CryptoServiceProvider`.
 
@@ -67,7 +67,7 @@ This file is required when integrating an HSM. It must have the following filepa
 
 The file must contain the fully qualified name of the Java class that implements the `CryptoServiceProvider` interface. In this example implementation, the content of the file is:
 
-{{< codesample file="/conte../en/platform/corda/4.9/codesamples/com.r3.corda.utils.CryptoServiceProvider" >}}
+{{< codesample file="/content/en/platform/corda/4.9/codesamples/com.r3.corda.utils.CryptoServiceProvider" >}}
 
 ## The HSM integration
 
@@ -100,4 +100,4 @@ The HSM integration must include code for authenticating with the HSM, creating 
 
 The full HSM integration example is as follows:
 
-{{< codesample file="/conte../en/platform/corda/4.9/codesamples/AWSCloudCryptoService.java" >}}
+{{< codesample file="/content/en/platform/corda/4.9/codesamples/AWSCloudCryptoService.java" >}}
