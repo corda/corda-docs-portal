@@ -80,7 +80,7 @@ The Corda Community Edition features:
 * Access to node health data and node status.
 
 {{< note >}}
-Support for Corda: Community Edition 4.9 does not include experimental notaries. Check the [Platform Support Matrix](release-platform-support-matrix.md) for more information.
+Support for Corda: Community Edition 4.10 does not include experimental notaries. Check the [Platform Support Matrix](release-platform-support-matrix.md) for more information.
 {{< /note >}}
 
 ## Platform version change
