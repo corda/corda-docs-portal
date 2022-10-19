@@ -2,7 +2,7 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-10:
-    identifier: corda-enterprise-4-9-operations-guide-deployment-configuration-file
+    identifier: corda-enterprise-4-10-operations-guide-deployment-configuration-file
     parent: corda-enterprise-4-10-operations-guide-deployment-configuration
 tags:
 - corda

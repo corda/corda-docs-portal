@@ -2,7 +2,7 @@
 date: '2020-06-16T12:00:00Z'
 menu:
   corda-enterprise-4-10:
-    identifier: corda-enterprise-4-9-operations-guide-deployment-firewall
+    identifier: corda-enterprise-4-10-operations-guide-deployment-firewall
     parent: corda-enterprise-4-10-operations-guide-deployment
     name: "Firewall deployment"
 tags:

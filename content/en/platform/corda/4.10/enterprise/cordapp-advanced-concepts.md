@@ -2,7 +2,7 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-10:
-    identifier: corda-enterprise-4-9-cordapp-advanced-concepts
+    identifier: corda-enterprise-4-10-cordapp-advanced-concepts
     name: "Advanced CorDapp concepts"
     parent: corda-enterprise-4-10-cordapps
 

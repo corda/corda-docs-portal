@@ -2,7 +2,7 @@
 date: '2020-10-30T12:00:00Z'
 menu:
   corda-enterprise-4-10:
-    identifier: corda-enterprise-4-9-token-sdk
+    identifier: corda-enterprise-4-10-token-sdk
     name: "Tokens SDK"
     parent: corda-enterprise-4-10-cordapps
 tags:

@@ -6,7 +6,7 @@ aliases:
 date: '2020-05-05T12:00:00Z'
 menu:
   corda-enterprise-4-10:
-    identifier: corda-enterprise-4-9-error-codes
+    identifier: corda-enterprise-4-10-error-codes
     parent: corda-enterprise-4-10-corda-nodes-operating-interacting
     weight: 4000
 tags:

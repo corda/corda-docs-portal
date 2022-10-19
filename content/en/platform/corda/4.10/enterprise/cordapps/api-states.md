@@ -2,7 +2,7 @@
 date: '2021-07-15'
 menu:
   corda-enterprise-4-10:
-    identifier: corda-enterprise-4-9-cordapps-states
+    identifier: corda-enterprise-4-10-cordapps-states
     name: "Writing CorDapp states"
     parent: corda-enterprise-4-10-cordapps
 tags:
