@@ -10,12 +10,12 @@ section_menu: corda-5-dev-preview2
 ---
 The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Developer Preview 2 more straight-forward.
 The CSDE is obtained by cloning our `CSDE-Cordapp-Template-Kotlin` or `CSDE-Cordapp-Template-java` repository to your local machine. The CSDE provides:
-* A prepared CorDapp project that you can use as a starting point to develop your own prototypes
-* A base Gradle configuration that brings in the dependencies you need to write and test a Corda 5 CorDapp
-* A set of Gradle helper tasks which speed up and simplify the development and deployment process; these are effectively wrappers over the [Corda CLI](../../developing/corda-cli/overview.html)
-* Debug configuration for debugging a local Corda cluster
-* The `MyFirstFlow` code which forms the basis of the Getting Started documentation
-* The ability to configure the members of the local Corda network
+* a prepared CorDapp project that you can use as a starting point to develop your own prototypes.
+* a base Gradle configuration that brings in the dependencies you need to write and test a Corda 5 CorDapp.
+* a set of Gradle helper tasks which speed up and simplify the development and deployment process; these are effectively wrappers over the [Corda CLI](../../developing/corda-cli/overview.html).
+* debug configuration for debugging a local Corda cluster.
+* the `MyFirstFlow` code which forms the basis of the Getting Started documentation.
+* the ability to configure the members of the local Corda network.
 
 {{< note >}}
 The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://community.r3.com/c/corda-5-developer-preview/41).  
@@ -49,15 +49,10 @@ The CSDE is experimental. The decision whether or not we release it as part of C
 
 3. Open the project in IntelliJ and let the import process complete.
   When complete, the project structure looks as follows:
-  {{< tabs name="csde">}}
-  {{% tab name="Kotlin"%}}
-  {{< figure src="CDSE-full-screen-kotlin.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
-  {{% /tab %}}
 
-  {{% tab name="Java" %}}
-  {{< figure src="CDSE-full-screen-java.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
-  {{% /tab %}}
-  {{< /tabs >}}
+  {{< figure src="CDSE-full-screen-kotlin.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
+
+
 ## Configuring the CSDE
 
 The CSDE includes [Gradle tasks](#gradle-helpers-for-the-combined-worker) to manage a local deployment of Corda. These Gradle tasks require Java Azul Zulu 11. To configure IntelliJ to use the correct Java version for Gradle, set **Gradle JVM** to `Project SDK 11`, as follows:
@@ -69,11 +64,12 @@ The CSDE includes [Gradle tasks](#gradle-helpers-for-the-combined-worker) to man
 This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a CorDapp.
 
 ### Project Structure
+
 On the left, you can see the folder structure created, ready for CorDapps development.
 {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
 
-You will write your flow code in `src/main/kotlin/<your package path>` and your flow tests in `src/test/kotlin/<your package path>`.
-(For Java, use `src/main/java/<your package path>` and `src/test/java/<your package path>` respectively.)
+For Kotlin, write your flow code in `src/main/kotlin/<your package path>` and your flow tests in `src/test/kotlin/<your package path>`.
+For Java, use `src/main/java/<your package path>` and `src/test/java/<your package path>` respectively.
 
 ### Gradle Helpers for the Combined Worker
 
