@@ -443,7 +443,7 @@ We can now start sending messages to the responder:
    ```
    The response from the initiating flow is always a string, which can be returned when the flow status is queried by HTTP-RPC.
 
-## Other Considerations for FlowSessions TO BE UPDATED
+## Other Considerations for FlowSessions
 It is important that the sends and receives in the initiator and responder flows match. If the initiator sends a Foo and the responder expects a Bar, the flow hangs and likely results in a timeout error.
 
 As with Corda 4, there is also a `sendAndReceive` method on `FlowSession` that sends a payload, check-points the flow, and then waits for a response to be received:
