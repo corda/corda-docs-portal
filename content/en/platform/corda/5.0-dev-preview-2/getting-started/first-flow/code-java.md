@@ -9,17 +9,17 @@ menu:
 section_menu: corda-5-dev-preview2
 ---
 
-The Java code for the flows and supporting classes can be found in the CSDE repo at `src/main/java/com/r3/developers/`.
+The Java code for the flows and supporting classes can be found in the CSDE repo in the `src/main/java/com/r3/developers/csdetemplate` folder.
 
 ## Java Flow Files
 
-The `src/main/java/com/r3/developers/` folder contains the following:
-* [Message.java](#message)
-* [MyFirstFlow.java](#myfirstflow)
-* [MyFirstFlowResponder.java](myfirstflowresponder)
-* [MyFirstFlowStartArg.java](myfirstflowstartarg)
+The `src/main/java/com/r3/developers/csdetemplate` folder contains the following files:
+* [Message.java](#message.java)
+* [MyFirstFlow.java](#myfirstflow.java)
+* [MyFirstFlowResponder.java](#myfirstflowresponder.java)
+* [MyFirstFlowStartArgs.java](#myfirstflowstartargs.java)
 
-### Message
+### Message.java
 
 ```java
 package com.r3.developers.csdetemplate;
@@ -49,7 +49,7 @@ public class Message {
 }
 ```
 
-### MyFirstFlow
+### MyFirstFlow.java
 
 ```java
 package com.r3.developers.csdetemplate;
@@ -153,7 +153,7 @@ RequestBody for triggering the flow via http-rpc:
  */
 ```
 
-### MyFirstFlowResponder
+### MyFirstFlowResponder.java
 
 ```java
 package com.r3.developers.csdetemplate;
@@ -230,7 +230,7 @@ RequestBody for triggering the flow via http-rpc:
  */
 ```
 
-### MyFirstFlowStartArg
+### MyFirstFlowStartArgs.java
 
 ```java
 package com.r3.developers.csdetemplate;
