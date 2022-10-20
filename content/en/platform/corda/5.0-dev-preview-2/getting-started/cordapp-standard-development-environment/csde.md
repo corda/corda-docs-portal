@@ -22,7 +22,7 @@ The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cord
 * the ability to configure the members of the local Corda network.
 
 {{< note >}}
-The images in this section show the `CSDE-cordapp-template-kotlin` repository. The `CSDE-cordapp-template-java` repository looks similar but the flow code is defined in multiple source files. For more information, see [Java Flow Code](../first-flow/code-java.html).
+The images in this section show the `CSDE-cordapp-template-kotlin` repository in IntelliJ. If you are working with the `CSDE-cordapp-template-java` repository, it looks very similar but the flow code and flow tests are in a `java` folder and the flow code is saved in more source files. For more information, see [Java Flow Code](../first-flow/code-java.html).
 {{< /note >}}
 
 ## Downloading the CSDE
