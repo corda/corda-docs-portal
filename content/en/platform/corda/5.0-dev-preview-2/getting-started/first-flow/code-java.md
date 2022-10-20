@@ -311,8 +311,8 @@ The log files for CSDE are located in the logs folder in the root of the project
 The CSDE starts a new log file each time a new instance of Corda is created or when the log file grows too large.
 Because the Corda combined worker runs all of the Corda processes in one JVM process, there are a lot of log entries.
 We recommend adding an easily searchable tag to each log message. For example:
-```kotlin
-        log.info("MFF: MyFirstFlow.call() called")
+```java
+        log.info("MFF: MyFirstFlow.call() called");
 ```
 ## call() Method
 As with flows in Corda 4, each flow has a `call()` method. This is the method which Corda invokes when the flow is invoked.
