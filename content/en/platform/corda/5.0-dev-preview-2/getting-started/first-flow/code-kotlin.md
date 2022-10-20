@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-dev-preview2
 ---
 
-The Kotlin code for the flows and supporting classes can be found in the CSDE repo at `src/main/com/r3/developers/csdetemplate/MyFirstFlow.kt`.
+The Kotlin code for the flows and supporting classes can be found in the CSDE repo at `src/main/kotlin/com/r3/developers/csdetemplate/MyFirstFlow.kt`.
 
 The full listing with explanatory comments is as follows:
 ```kotlin
@@ -337,11 +337,11 @@ It is important that the sends and receives in the initiator and responder flows
 
 As with Corda 4, there is also a `sendAndReceive` method on `FlowSession` that sends a payload, check-points the flow, and then waits for a response to be received:
 ```kotlin
-val response = sendAndReceive(<ReceiveType>::class.java, payload)
+val response = myFlowSession.sendAndReceive(<ReceiveType>::class.java, payload)
 ```
 In Corda 4, when payloads were received they were wrapped in an `UntrustworthyData` class which required unwrapping:
 ```kotlin
 // (Corda 4)
-val Corda4Response = sendAndReceive(<ReceiveType>::class.java, payload).unwrap {<validationcode>}
+val Corda4Response = myFlowSession.sendAndReceive(<ReceiveType>::class.java, payload).unwrap {<validationcode>}
 ```
 This has been removed in Corda 5 because CorDapp Developers usually use other methods to validate the data.
