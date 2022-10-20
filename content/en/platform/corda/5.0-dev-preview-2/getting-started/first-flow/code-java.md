@@ -265,7 +265,7 @@ There are two helper classes:
     public MyFirstFlowStartArgs() {}
    }
    ```
-   The [MyFirstFlowTest](fast-feedback-with-the-simulator/fast-feedback-with-the-simulator.md) Simulator example uses this class.
+   The [MyFirstFlowTest](../fast-feedback-with-the-simulator/fast-feedback-with-the-simulator.html) Simulator example uses this class.
 * `Message` —  specifies the sender and the message. This is used for both the message sent from the initiator to the responder and subsequently the message sent back from the responder to the initiator. Note, as this is a class defined in a CorDapp and it is going to be sent ‘down the wire’ between two virtual nodes, it requires the `@CordaSerializable` annotation.
    ```java
    @CordaSerializable
@@ -298,16 +298,14 @@ public class MyFirstFlow implements RPCStartableFlow  { ... }
 public class MyFirstFlowResponder implements ResponderFlow  { ... }
 ```
 
-## Logging - TO BE UPDATED
+## Logging
 
 It is useful to add logging statements to both the initiating and responder flows.
 To do this, add a logger to each class.
 When running tests locally, the console displays log entries.
 When running on Corda, the log files are updated.
-```kotlin
-    private companion object {
-        val log = contextLogger()
-    }
+```java
+    private final Logger log = LoggerFactory.getLogger(MyFirstFlowResponder.class);
 ```
 The log files for CSDE are located in the logs folder in the root of the project.
 The CSDE starts a new log file each time a new instance of Corda is created or when the log file grows too large.
