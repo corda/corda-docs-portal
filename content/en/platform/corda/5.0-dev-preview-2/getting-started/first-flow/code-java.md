@@ -448,12 +448,12 @@ It is important that the sends and receives in the initiator and responder flows
 
 As with Corda 4, there is also a `sendAndReceive` method on `FlowSession` that sends a payload, check-points the flow, and then waits for a response to be received:
 ```java
-<ReceiveType> response = sendAndReceive(<ReceiveType>.class, payload);
+<ReceiveType> response = myFlowSession.sendAndReceive(<ReceiveType>.class, payload);
 ```
 In Corda 4, when payloads were received they were wrapped in an `UntrustworthyData` class which required unwrapping:
 ```java
 // (Corda 4)
-<ReceiveType> corda4Response = sendAndReceive(<ReceiveType>.class, payload).unwrap( it->{      
+<ReceiveType> corda4Response = myFlowSession.sendAndReceive(<ReceiveType>.class, payload).unwrap( it->{      
    <validationcode>
 });
 ```
