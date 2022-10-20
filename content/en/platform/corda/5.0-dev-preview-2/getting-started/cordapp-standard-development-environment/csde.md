@@ -8,8 +8,12 @@ menu:
     weight: 2000
 section_menu: corda-5-dev-preview2
 ---
+{{< note >}}
+The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://community.r3.com/c/corda-5-developer-preview/41).  
+{{< /note >}}
+
 The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Developer Preview 2 more straight-forward.
-The CSDE is obtained by cloning our `CSDE-Cordapp-Template-Kotlin` or `CSDE-Cordapp-Template-java` repository to your local machine. The CSDE provides:
+The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cordapp-template-java` repository to your local machine. The CSDE provides:
 * a prepared CorDapp project that you can use as a starting point to develop your own prototypes.
 * a base Gradle configuration that brings in the dependencies you need to write and test a Corda 5 CorDapp.
 * a set of Gradle helper tasks which speed up and simplify the development and deployment process; these are effectively wrappers over the [Corda CLI](../../developing/corda-cli/overview.html).
@@ -18,7 +22,7 @@ The CSDE is obtained by cloning our `CSDE-Cordapp-Template-Kotlin` or `CSDE-Cord
 * the ability to configure the members of the local Corda network.
 
 {{< note >}}
-The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://community.r3.com/c/corda-5-developer-preview/41).  
+The images in this section show the `CSDE-cordapp-template-kotlin` repository. The `CSDE-cordapp-template-java` repository looks similar but the flow code is defined in multiple source files. For more information, see [Java Flow Code](../first-flow/code-java.html).
 {{< /note >}}
 
 ## Downloading the CSDE
