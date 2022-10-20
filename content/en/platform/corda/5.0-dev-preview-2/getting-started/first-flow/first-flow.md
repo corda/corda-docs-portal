@@ -22,6 +22,6 @@ It is also worth noting that, as of Developer Preview 2, there is no ledger serv
 
 The use case in the example is very simple:
 1. The initiating flow is called on the initiating node with another member of the application network, the recipient,  specified as the input argument.
-2. The initiating flow sends the message "Hello from <initiator>." to the specified recipient.
-3. The responder flow receives the message and replies with "Hello <initiator>, best wishes from <responder>."
+2. The initiating flow sends the message `Hello from <initiator>.` to the specified recipient.
+3. The responder flow receives the message and replies with `Hello <initiator>, best wishes from <responder>.`.
 4. The initiator returns the message received from the responder as a String.
