@@ -21,7 +21,7 @@ The CSDE is obtained by cloning our `CSDE-Cordapp-Template-Kotlin` repository to
 The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://community.r3.com/c/corda-5-developer-preview/41).  
 {{< /note >}}
 
-## Downloading the CSDE Template
+## Downloading the CSDE
 
 1. To obtain the CSDE template, clone the [CSDE-Cordapp-Template-Kotlin repository](https://github.com/corda/CSDE-cordapp-template-kotlin):
 
@@ -41,6 +41,12 @@ The CSDE is experimental. The decision whether or not we release it as part of C
   When complete, the project structure looks as follows:
 {{< figure src="CDSE-full-screen.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
 
+## Configuring the CSDE
+
+The CSDE includes [Gradle tasks](#gradle-helpers-for-the-combined-worker) to manage a local deployment of Corda. These Gradle tasks require Java Azul Zulu 11. To configure IntelliJ to use the correct Java version for Gradle, set **Gradle JVM** to `Project SDK 11`, as follows:
+
+{{< figure src="gradle-configuration.png" figcaption="Gradle Java version" alt="JVM version in IntelliJ for CSDE project" >}}
+
 ## CSDE Overview
 
 This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a CorDapp.
@@ -53,6 +59,7 @@ You will write your flow code in `src/main/kotlin/<your package path>` and your 
 (For Java, use `src/main/java/<your package path>` and `src/test/java/<your package path>` respectively.)
 
 ### Gradle Helpers for the Combined Worker
+
 On the right, you can see the Gradle tasks that we have included to help you work with a local deployment of Corda using the combined worker:
 {{< figure src="gradle-helpers.png" figcaption="CSDE gradle helpers" alt="CSDE gradle tasks in IntelliJ" >}}
 The **combined worker** is a Corda cluster that runs all of the workers in one JVM process.
