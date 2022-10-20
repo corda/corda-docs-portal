@@ -566,6 +566,58 @@ name = "Operating a Corda Node"
 parent = "corda-enterprise-4-9-corda-nodes"
 weight = 60
 
+
+
+
+
+
+
+
+[[corda-enterprise-4-10]]
+identifier = "corda-enterprise-4-10-notaries"
+name = "Corda Notaries"
+weight = 35
+
+[[corda-enterprise-4-10]]
+identifier = "corda-enterprise-4-10-corda-networks"
+name = "Corda Networks"
+weight = 40
+
+[[corda-enterprise-4-10]]
+identifier = "corda-enterprise-4-10-corda-nodes-operating"
+name = "Operating a Corda Node"
+parent = "corda-enterprise-4-10-corda-nodes"
+weight = 60
+
+[[corda-enterprise-4-10]]
+identifier = "corda-enterprise-4-10-notaries"
+name = "Corda Notaries"
+weight = 35
+
+[[corda-enterprise-4-10]]
+identifier = "corda-enterprise-4-10-corda-networks"
+name = "Corda Networks"
+weight = 40
+
+[[corda-enterprise-4-10]]
+identifier = "corda-enterprise-4-10-corda-nodes-operating"
+name = "Operating a Corda Node"
+parent = "corda-enterprise-4-10-corda-nodes"
+weight = 60
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [[corda-os-4-0]]
 identifier = "corda-os-4-0-development"
 name = "Development"
@@ -760,6 +812,37 @@ weight = 30
 identifier = "corda-community-4-9-contributing-index"
 name = "Participate"
 weight = 500
+
+
+
+
+
+
+[[corda-community-4-10]]
+identifier = "corda-community-4-10-upgrading"
+name = "Upgrading CorDapps and nodes"
+weight = 15
+
+[[corda-community-4-10]]
+identifier = "corda-community-4-10-corda-api"
+name = "Corda API"
+weight = 17
+
+[[corda-community-4-10]]
+identifier = "corda-community-4-10-development"
+name = "Development"
+weight = 20
+
+[[corda-community-4-10]]
+identifier = "corda-community-4-10-operations"
+name = "Operations"
+weight = 30
+
+[[corda-community-4-10]]
+identifier = "corda-community-4-10-contributing-index"
+name = "Participate"
+weight = 500
+
 
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
