@@ -20,7 +20,7 @@ Developer Preview 2 is, as the name suggests, a developer preview. It is not a p
 
 ## Developer Preview 1 vs Developer Preview 2
 
-Developer Preview 1 was effectively a taster for the Corda 5 API. It was however, mostly based on Corda 4 under the hood. Developer Preview 2 is the real deal, based entirely on the new Corda 5 code base with possibly material differences in the API. As a result, code written for Developer Preview 1 is unlikely to work with Developer Preview 2 without modification. You can not use any artefacts released from Developer Preview 1 for Developer Preview 2.  
+Developer Preview 1 was effectively a taster for the Corda 5 API. It was, however, mostly based on Corda 4 under the hood. Developer Preview 2 is the real deal, based entirely on the new Corda 5 code base with possibly material differences in the API. As a result, code written for Developer Preview 1 is unlikely to work with Developer Preview 2 without modification. You cannot use any artefacts released from Developer Preview 1 for Developer Preview 2.  
 
 ## Corda 4 vs Corda 5
 
