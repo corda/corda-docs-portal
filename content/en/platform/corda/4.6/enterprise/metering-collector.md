@@ -48,7 +48,7 @@ The difference between `AggregatedMeteringCollectionFlow` and `FilteredMeteringC
 
 ## Installation
 
-The Metering Collection Tool is distributed as part of Corda Enterprise 4.6 under the name `corda-tools-metering-collector-4.6.jar`. You must place this `.jar` file in the `cordapps` directory of the node.
+The Metering Collection Tool is distributed as part of Corda Enterprise Edition 4.6 under the name `corda-tools-metering-collector-4.6.jar`. You must place this `.jar` file in the `cordapps` directory of the node.
 
 ## Metering data
 

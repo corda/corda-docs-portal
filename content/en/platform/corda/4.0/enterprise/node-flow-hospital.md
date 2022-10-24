@@ -38,7 +38,7 @@ This concept is analogous to *exception management handling* associated with ent
 
 ## Functionality
 
-Flow hospital functionality is enabled by default in Corda Enterprise 4.0. No explicit configuration settings are required.
+Flow hospital functionality is enabled by default in Corda Enterprise Edition 4.0. No explicit configuration settings are required.
 
 There are two aspects to the flow hospital:
 
@@ -90,5 +90,5 @@ The Corda Enterprise Node Explorer can be used to visualize all flows within the
 status (for example, to only display errored flows):
 
 ![flowTriageView](/en/images/flowTriageView.png "flowTriageView")
-As of Corda Enterprise 4.0, this UI is informational only (read-only). Future versions of Corda will extend the basic functionality to enable
+As of Corda Enterprise Edition 4.0, this UI is informational only (read-only). Future versions of Corda will extend the basic functionality to enable
 operational controls such as manual recovery and retry, and cancellation of errored flows.

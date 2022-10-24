@@ -18,6 +18,7 @@ h6 {
   kbd,
   samp {
     font-size: inherit;
+    background: none;
   }
 }
 
@@ -38,7 +39,7 @@ h6 {
 code {
   background: $gray-150;
   color: $black;
-  padding: 0.25rem 0.5rem;
+  padding: 2px 2px;
 }
 
 pre {

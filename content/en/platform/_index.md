@@ -6,7 +6,14 @@ section_menu: homepage
 
 ## Corda
 
-* [Corda 5 Developer Preview](en/platform/corda/5.0-dev-preview-1.html)
+* [Corda 5 Developer Preview](en/platform/corda/5.0-dev-preview-2.html)
+* 4.9
+  * Community Edition (formerly Open Source)
+    * [Main documentation](en/platform/corda/4.9/community.html)
+    * [Release notes](en/platform/corda/4.9/community/release-notes.html)
+  * Enterprise
+    * [Main documentation](en/platform/corda/4.9/enterprise.html)
+    * [Release notes](en/platform/corda/4.9/enterprise/release-notes-enterprise.html)
 * 4.8
   * Open Source
     * [Main documentation](en/platform/corda/4.8/open-source.html)

@@ -39,7 +39,7 @@ State encumbrance refers to a state pointing to another state that must also app
 In addition, a single trusted issuing party is allowed to reissue multiple fungible states at once, provided that all these states are of the same type. For example, you can issue at once a number of tokens with different quantities but with the same `TokenType` and issued by the same party.
 
 {{< note >}}
-This functionality is part of Corda open source 4.9 and can be fully leveraged by Corda Enterprise 4.9 users as well.
+This functionality is part of Corda Community Edition 4.9 and can be fully leveraged by Corda Enterprise Edition 4.9 users as well.
 {{< /note >}}
 
 ## How it works

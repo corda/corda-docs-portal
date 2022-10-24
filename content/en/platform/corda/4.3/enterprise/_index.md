@@ -7,10 +7,10 @@ menu:
     weight: 25
   corda-enterprise-4-3:
     weight: 1
-    name: Corda Enterprise 4.3
+    name: Corda Enterprise Edition 4.3
 project: corda
 section_menu: corda-enterprise-4-3
-title: Corda Enterprise 4.3
+title: Corda Enterprise Edition 4.3
 version: 'Enterprise 4.3'
 ---
 
@@ -25,7 +25,7 @@ When one or more Nodes are involved in a transaction, the transaction must be no
 of Node that provides uniqueness consensus by attesting that, for a given transaction, it has not already signed other
 transactions that consumes any of the proposed transaction’s input states.
 
-For Corda Enterprise 4.3 release notes, see the [Corda Enterprise 4.3 Release Notes](../../../../../en/platform/corda/4.3/enterprise/release-notes-enterprise.md).
+For Corda Enterprise Edition 4.3 release notes, see the [Corda Enterprise Edition 4.3 Release Notes](../../../../../en/platform/corda/4.3/enterprise/release-notes-enterprise.md).
 
 For Corda (open source) 4.3 release notes, see the [Corda Release Notes](../../../../../en/platform/corda/4.3/open-source/release-notes.md).
 

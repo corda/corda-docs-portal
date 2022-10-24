@@ -1,4 +1,5 @@
 ---
+title: Corda Community Edition 4.9.2 third-party software notices and information
 aliases:
 - /head/legal-info.html
 - /HEAD/legal-info.html
@@ -9,13 +10,13 @@ menu:
     identifier: corda-community-4-9-2-legal-info
     parent: corda-community-4-9-release-notes
     weight: 450
+    name: Third-party software licence information - 4.9.2
 tags:
 - legal
 - info
-title: Third-party software licence information
 ---
 
-# Corda: Community Edition 4.9.2 third-party software notices and information
+# Corda Community Edition 4.9.2 third-party software notices and information
 
 ### Licenced Under
     Apache-2.0

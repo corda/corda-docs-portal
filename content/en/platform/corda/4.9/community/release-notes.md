@@ -1,4 +1,5 @@
 ---
+title: Corda Community Edition 4.9 release notes
 aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
@@ -8,17 +9,19 @@ menu:
   corda-community-4-9:
     identifier: corda-community-4-9-release-notes
     weight: 1
+    name: "Release notes"
 tags:
 - release
 - notes
-title: Release notes
 ---
 
-# Corda Community Edition release notes
+# Corda Community Edition 4.9 release notes
 
-## Corda Community Edition 4.9.2
+## Corda Community Edition 4.9.2 release notes
 
-Corda Community 4.9.2 is a patch release of Corda Enterprise which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
+Corda Community 4.9.2 is a patch release of Corda Community which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
+
+### Fixed issues
 
 * As part of this patch a new Gradle plugin is provided that supports CorDapp development using Gradle 7. This is in addition to the existing Gradle support. The plugin has been uploaded to Artifactory.
   * Samples demonstrating Gradle 7 usage are available for:
@@ -50,7 +53,7 @@ The following issues were resolved in this patch release:
 
 {{< /table >}}
 
-## Corda Community Edition 4.9.1
+## Corda Community Edition 4.9.1 release notes
 
 Corda Community Edition 4.9.1 is a patch release of Corda Community Edition which includes minor bug fixes and dependency upgrades.
 
@@ -62,16 +65,16 @@ In this patch release:
 * Update Hibernate version to a more secure version that matches Corda Enterprise.
 * Oracle JDK version 8u322 now supported.
 
-## Corda Community Edition 4.9
+## Corda Community Edition 4.9 release notes
 
-**Corda Community Edition** is here. This edition of Corda gives you the freedom of Corda's Open Source platform, with the benefits of [affordable support](https://r3.com/support). All the same fundamentals of Corda 4.8 are included, along with security updates, newly available APIs and sample code improvements. You can upgrade your existing Corda projects to Community Edition any time to be eligible for our support packages.
+**Corda Community Edition** is here. This edition of Corda gives you the freedom of Corda's Community Edition platform, with the benefits of [affordable support](https://r3.com/support). All the same fundamentals of Corda 4.8 are included, along with security updates, newly available APIs and sample code improvements. You can upgrade your existing Corda projects to Community Edition any time to be eligible for our support packages.
 
 ## Highlights
 
 The Corda Community Edition features:
 
 * Support for your open source projects. [Find out more about available support and how to upgrade](https://docs.r3.com/en/platform/corda/4.9/community.html).
-* An Open Source version of network map and doorman is available and recommended for Community Edition users, provided by Cordite.
+* An open source version of network map and doorman is available and recommended for Community Edition users, provided by Cordite.
 * Community Edition Docker images are now available.
 * The `flowrpcops` API is available and documented. You can use this to start, pause, and retry flows and hospitalized flows.
 * Access to node health data and node status.
@@ -100,5 +103,5 @@ Issues fixed in Corda Community 4.9:
 
 ### Database Schema Changes
 
-* The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise 4.7 following updates to certificate rotation functionality.
+* The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise Edition 4.7 following updates to certificate rotation functionality.
   * The reintroduction of this table ensures the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.

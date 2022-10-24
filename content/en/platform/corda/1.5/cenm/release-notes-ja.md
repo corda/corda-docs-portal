@@ -36,7 +36,7 @@ CENM 1.5 では、CENM [Authサービス](../../../../../en/platform/corda/4.7/e
 
 #### 証明書ローテーション：ノード鍵（Legal Identity）とその証明書をローテーションする機能
 
-Corda Enterprise 4.7では、ノード鍵（Legal Identity）とその証明書をローテーションする機能を導入しています。これによって、CENMがNetwork Map上において、新しい証明書を使ってNode（Notary Nodeを含む）を再登録できるようになります。
+Corda Enterprise Edition 4.7では、ノード鍵（Legal Identity）とその証明書をローテーションする機能を導入しています。これによって、CENMがNetwork Map上において、新しい証明書を使ってNode（Notary Nodeを含む）を再登録できるようになります。
 
 {{< warning >}}
 本機能の導入によって、お使いのシステムで証明書ローテーション機能を利用する予定の有無にかかわらず、独自構築したIdentity Managerワークフロープラグインがある場合、プラグインの改造が必要になる場合があります。.[Corda Enterprise Network Managerのアップグレード](../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md)のページを必ずご確認ください。

@@ -48,7 +48,7 @@ A Node operator may choose to manually upload (via the RPC attachments uploader 
 the version their node is currently using for the purposes of transaction verification (received from remote peers). However, they will only
 be able to build new transactions with the version that is currently loaded (installed from the nodes /cordapps directory) in their node.
 * Finance CorDapp (v4)
-Whilst experimental, our test coverage has confirmed that states generated with the Finance CorDapp are interchangeable across Open Source
+Whilst experimental, our test coverage has confirmed that states generated with the Finance CorDapp are interchangeable across Corda Community Edition
 and Enterprise distributions. This has been made possible by releasing a single 4.0 version of the Finance Contracts CorDapp.
 Please note the Finance application will be superseded shortly by the new Tokens SDK ([https://github.com/corda/token-sdk](https://github.com/corda/token-sdk))
 

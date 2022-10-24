@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CryptoService</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+const savedDarkMode = storage ? JSON.parse(storage) : false
+if(savedDarkMode === true){
+    document.getElementsByTagName("html")[0].classList.add("theme-dark")
+}</script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>cipher-suite</span>
+            </a>
+    </div>
+    <div>
+5.0.0.190-DevPreview-2    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageIds="cipher-suite::net.corda.v5.cipher.suite/CryptoService///PointingToDeclaration//-1429658787">
+  <div class="breadcrumbs"><a href="../../../index.html">cipher-suite</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.cipher.suite</a><span class="delimiter">/</span><a href="index.html">CryptoService</a></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Crypto</span><wbr></wbr><span><span>Service</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":cipher-suite:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">CryptoService</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Crypto service which can be used to sign and generate new key pairs.</p><p class="paragraph">Corda always uses a single alias to identify a key pair. However, some HSMs need separate aliases for public and private keys. In such cases, their names must be derived from the single key pair alias. It could be suffixes or whatever internal naming convention is used.</p><p class="paragraph">Also, it is not required to keep a public key in the HSM as that will be kept by the upstream Crypto Services.</p><h1 class=""> Exception handling.</h1><p class="paragraph">As the service instances are decorated with decorators taking care of the timeout, throttling handling, and exception normalisation the exceptions listed for each method below are as expected to be thrown by the decorators.</p><p class="paragraph">The service should throw the most appropriate exception as it sees it, e.g.:</p><ul><li><p class="paragraph"><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html">IllegalArgumentException</a> if the key is not found, the key scheme is not supported, the signature spec is not supported or in general the input parameters are wrong</p></li><li><p class="paragraph">if the internal state is wrong for an operation then the most appropriate exception would be <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/index.html">IllegalStateException</a></p></li><li><p class="paragraph">any other that is appropriate for the condition.</p></li></ul><p class="paragraph">If service encountered throttling situation and the downstream library doesn't handle that, it should throw <span data-unresolved-link="net.corda.v5.crypto.exceptions/CryptoThrottlingException///PointingToDeclaration/">net.corda.v5.crypto.exceptions.CryptoThrottlingException</span></p><p class="paragraph">The following exceptions are retried - <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeoutException.html">java.util.concurrent.TimeoutException</a>, <span data-unresolved-link="net.corda.v5.crypto.exceptions/CryptoException///PointingToDeclaration/">net.corda.v5.crypto.exceptions.CryptoException</span> (with the isRecoverable flag set to true), some persistence exceptions like javax.persistence.LockTimeoutException, javax.persistence.QueryTimeoutException, javax.persistence.OptimisticLockException, javax.persistence.PessimisticLockException and some others. Throw <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeoutException.html">java.util.concurrent.TimeoutException</a> only if the service should handle it before the upstream library detects it.</p><h1 class=""> About service extensions.</h1><p class="paragraph">The implementation of the <a href="index.html">CryptoService</a> consists of the method of the implementation required and some optional methods, which are called extensions. It's done this way, instead of breaking the functionality into several interfaces, because the platform uses decorators to handle some common failure scenarios where using extension interfaces would be awkward. If not stated explicitly in the description, the method is required.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="1854146761%2FFunctions%2F-1429658787" anchor-label="createWrappingKey" id="1854146761%2FFunctions%2F-1429658787" data-filterable-set=":cipher-suite:dokkaHtml/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtml/main" data-filterable-set=":cipher-suite:dokkaHtml/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="create-wrapping-key.html"><span>create</span><wbr></wbr><span>Wrapping</span><wbr></wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1854146761%2FFunctions%2F-1429658787"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":cipher-suite:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-wrapping-key.html"><span class="token function">createWrappingKey</span></a><span class="token punctuation">(</span><span class="parameters wrapped"><span class="parameter indented">&nbsp;&nbsp;&nbsp;&nbsp;masterKeyAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter indented">&nbsp;&nbsp;&nbsp;&nbsp;failIfExists<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter indented">&nbsp;&nbsp;&nbsp;&nbsp;context<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Optional, generates a new key to be used as a wrapping key. Some implementations may not have the notion of the wrapping key in such cases the implementation should do nothing (note that REQUIRE_WRAPPING_KEY should not be listed for such implementations).</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1681818139%2FFunctions%2F-1429658787" anchor-label="delete" id="-1681818139%2FFunctions%2F-1429658787" data-filterable-set=":cipher-suite:dokkaHtml/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtml/main" data-filterable-set=":cipher-suite:dokkaHtml/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="delete.html"><span><span>delete</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1681818139%2FFunctions%2F-1429658787"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":cipher-suite:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="delete.html"><span class="token function">delete</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">alias<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">context<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Optional, deletes the key corresponding to the input alias of the service supports the operations . This method doesn't throw if the alias is not found, instead it has to return 'false'.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-366435302%2FFunctions%2F-1429658787" anchor-label="deriveSharedSecret" id="-366435302%2FFunctions%2F-1429658787" data-filterable-set=":cipher-suite:dokkaHtml/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtml/main" data-filterable-set=":cipher-suite:dokkaHtml/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="derive-shared-secret.html"><span>derive</span><wbr></wbr><span>Shared</span><wbr></wbr><span><span>Secret</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-366435302%2FFunctions%2F-1429658787"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":cipher-suite:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="derive-shared-secret.html"><span class="token function">deriveSharedSecret</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">spec<span class="token operator">: </span><a href="../-shared-secret-spec/index.html">SharedSecretSpec</a><span class="token punctuation">, </span></span><span class="parameter ">context<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Optional, derives Diffie–Hellman key agreement shared secret by using the private key associated with <a href="../-shared-secret-spec/public-key.html">SharedSecretSpec.publicKey</a> and <a href="../-shared-secret-spec/other-public-key.html">SharedSecretSpec.otherPublicKey</a>, note that the key schemes of the <a href="../-shared-secret-spec/public-key.html">SharedSecretSpec.publicKey</a> and <a href="../-shared-secret-spec/other-public-key.html">SharedSecretSpec.otherPublicKey</a> must be the same and the scheme must support the key agreement secret derivation.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="614441740%2FFunctions%2F-1429658787" anchor-label="generateKeyPair" id="614441740%2FFunctions%2F-1429658787" data-filterable-set=":cipher-suite:dokkaHtml/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtml/main" data-filterable-set=":cipher-suite:dokkaHtml/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="generate-key-pair.html"><span>generate</span><wbr></wbr><span>Key</span><wbr></wbr><span><span>Pair</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="614441740%2FFunctions%2F-1429658787"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":cipher-suite:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="generate-key-pair.html"><span class="token function">generateKeyPair</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">spec<span class="token operator">: </span><a href="../-key-generation-spec/index.html">KeyGenerationSpec</a><span class="token punctuation">, </span></span><span class="parameter ">context<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-generated-key/index.html">GeneratedKey</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Generates and optionally stores a key pair. The implementation is free to decide how the generated key is stored - either in the corresponding HSM or wrapped and exported. The rule of thumb would be in the <a href="generate-key-pair.html">spec</a> has the <a href="../-key-generation-spec/alias.html">KeyGenerationSpec.alias</a> defined then it's expected that the key will be stored in the HSM otherwise wrapped and exported but as mentioned above it's up to the concrete implementation. Such behaviour must be defined beforehand and advertised. If the key is exported, its key material will be persisted on the platform side.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="776735426%2FFunctions%2F-1429658787" anchor-label="sign" id="776735426%2FFunctions%2F-1429658787" data-filterable-set=":cipher-suite:dokkaHtml/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtml/main" data-filterable-set=":cipher-suite:dokkaHtml/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="sign.html"><span><span>sign</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="776735426%2FFunctions%2F-1429658787"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":cipher-suite:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="sign.html"><span class="token function">sign</span></a><span class="token punctuation">(</span><span class="parameters wrapped"><span class="parameter indented">&nbsp;&nbsp;&nbsp;&nbsp;spec<span class="token operator">: </span><a href="../-signing-spec/index.html">SigningSpec</a><span class="token punctuation">, </span></span><span class="parameter indented">&nbsp;&nbsp;&nbsp;&nbsp;data<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter indented">&nbsp;&nbsp;&nbsp;&nbsp;context<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Signs a byte array using the private key identified by the input arguments.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="-149790393%2FProperties%2F-1429658787" anchor-label="extensions" id="-149790393%2FProperties%2F-1429658787" data-filterable-set=":cipher-suite:dokkaHtml/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtml/main" data-filterable-set=":cipher-suite:dokkaHtml/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="extensions.html"><span><span>extensions</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-149790393%2FProperties%2F-1429658787"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":cipher-suite:dokkaHtml/main"><a data-name="-149790393%2FProperties%2F-1429658787" anchor-label="extensions" id="-149790393%2FProperties%2F-1429658787" data-filterable-set=":cipher-suite:dokkaHtml/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="extensions.html">extensions</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-crypto-service-extensions/index.html">CryptoServiceExtensions</a><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="-149790393%2FProperties%2F-1429658787" anchor-label="extensions" id="-149790393%2FProperties%2F-1429658787" data-filterable-set=":cipher-suite:dokkaHtml/main"></a><p class="paragraph">List of crypto service extensions which are supported by this implementation of <a href="index.html">CryptoService</a>, such as REQUIRE_WRAPPING_KEY, DELETE_KEYS.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="833632635%2FProperties%2F-1429658787" anchor-label="supportedSchemes" id="833632635%2FProperties%2F-1429658787" data-filterable-set=":cipher-suite:dokkaHtml/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtml/main" data-filterable-set=":cipher-suite:dokkaHtml/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="supported-schemes.html"><span>supported</span><wbr></wbr><span><span>Schemes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="833632635%2FProperties%2F-1429658787"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":cipher-suite:dokkaHtml/main"><a data-name="833632635%2FProperties%2F-1429658787" anchor-label="supportedSchemes" id="833632635%2FProperties%2F-1429658787" data-filterable-set=":cipher-suite:dokkaHtml/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="supported-schemes.html">supportedSchemes</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.cipher.suite.schemes/-key-scheme/index.html">KeyScheme</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="net.corda.v5.crypto/SignatureSpec///PointingToDeclaration/">SignatureSpec</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="833632635%2FProperties%2F-1429658787" anchor-label="supportedSchemes" id="833632635%2FProperties%2F-1429658787" data-filterable-set=":cipher-suite:dokkaHtml/main"></a><p class="paragraph">List of key schemes and signature specs for each key which this implementation of <a href="index.html">CryptoService</a> supports.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

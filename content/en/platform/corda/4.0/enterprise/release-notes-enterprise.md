@@ -1,4 +1,5 @@
 ---
+title: Corda Enterprise Edition 4 release notes
 aliases:
 - /releases/4.0/release-notes-enterprise.html
 date: '2020-01-08T09:59:25Z'
@@ -6,19 +7,18 @@ menu:
   corda-enterprise-4-0:
     identifier: corda-enterprise-4-0-release-notes-enterprise
     weight: 20
+    name: "Release notes"
 tags:
 - release
 - notes
 - enterprise
-title: Release notes
 ---
 
+# Corda Enterprise Edition 4 release notes
 
-# Release notes
+## Corda Enterprise Edition 4.0.1 release notes
 
-## Corda Enterprise 4.0.1
-
-Corda Enterprise 4.0.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise 4.0.
+Corda Enterprise Edition 4.0.1 is a patch release of Corda Enterprise that introduces fixes to known issues in Corda Enterprise Edition 4.0.
 
 ### Upgrade recommendation
 
@@ -30,19 +30,19 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 * We have fixed a security issue relating to potential signature forgery. To do so, we have introduced batch signing capability in the `signTransactionAndSendResponse` of the `NotaryServiceFlow` flow so that a Merkle Tree is built with a single transaction to be signed, and then the transaction signature is constructed with the partial Merkle tree containing that single transaction.
 
-## Corda Enterprise 4.0
+## Corda Enterprise Edition 4.0 release notes
 
 This release of Corda Enterprise extends the [Corda (open source) 4 release](https://docs.corda.net/releases/release-V4.0/release-notes.html)
 with new mission critical enterprise capabilities to include support for HSM (hardware security module) signing devices and improved high
 availability deployment configurations for Enterprise customers using DMZ environments.
 
-Corda Enterprise 4.0 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. Please refer to product documentation for details.
+Corda Enterprise Edition 4.0 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. Please refer to product documentation for details.
 
-Corda Enterprise 4.0 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise 3.x, while providing enterprise-grade features and performance.
+Corda Enterprise Edition 4.0 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise 3.x, while providing enterprise-grade features and performance.
 
 {{< note >}}
 The compatibility and interoperability assurances apply to nodes running at the latest patch level for any given integer version.
-For example, at the time of writing, the Corda Enterprise 4.0 interoperability and compatibility assurance is with respect to Corda 3.3, Corda Enterprise 3.2 and Corda 4.0.
+For example, at the time of writing, the Corda Enterprise Edition 4.0 interoperability and compatibility assurance is with respect to Corda 3.3, Corda Enterprise 3.2 and Corda 4.0.
 
 {{< /note >}}
 
@@ -87,14 +87,14 @@ before going live.See [Performance Test Suite](performance-testing/installation.
 
 In future versions of Corda, we will expand on this tool’s capabilities for it to be a complete deployment verification tool, also usable with more complex, high availability deployments.
 * **RPC client compatibility**With Corda (open source) 4 upgrading to use the AMQP serialisation protocol for RPC communication, it is now possible to communicate
-remotely to a Corda 4 or Corda Enterprise 4 node using either of the respective 4.x distributions’ RPC client binary library.
+remotely to a Corda 4 or Corda Enterprise Edition 4 node using either of the respective 4.x distributions’ RPC client binary library.
 
 {{< note >}}
 RPC clients communicating with Corda (open source) *3.x* nodes must continue to use a respective 3.x Kryo-based RPC client binary library.
 
 {{< /note >}}
 
-* **Operational Compatibility With Open Source Corda**Corda Enterprise 4.0 maintains the wire stability and compatibility assurance with open-source releases of Corda from version 3.0 onwards.It delivers forward compatibility with future versions of Corda Enterprise:
+* **Operational Compatibility With Open Source Corda**Corda Enterprise Edition 4.0 maintains the wire stability and compatibility assurance with open-source releases of Corda from version 3.0 onwards.It delivers forward compatibility with future versions of Corda Enterprise:
     * Is operationally compatible with future versions of Corda Enterprise.
     * Is upgradeable to future version of Corda Enterprise, preserving transaction and other data.
 
@@ -132,12 +132,12 @@ loss in case of network issues or misconfiguration where the notary is unable to
 The experimental Raft notary implementation has been deprecated in favour of the MySQL-based HA notary implementation (see [Setting up a HA notary service](running-a-notary-cluster/toctree.md)).
 The experimental BFT-Smart notary implementation has been deprecated – a fully supported BFT implementation is under development.
 * Flow hospital enhancements
-New in Corda Enterprise 4.0, if a node receives a message from a peer to initiate a flow that is not recognised by the node, perhaps due to
+New in Corda Enterprise Edition 4.0, if a node receives a message from a peer to initiate a flow that is not recognised by the node, perhaps due to
 the CorDapp not being installed, rather than sending an error back to the initiating peer node it is kept in the hospital until the CorDapp
 is installed and the node restarted. Furthermore, in addition to the existing hospitalisation for flow errors in the FinalityHandler of
 Corda Enterprise 3, flow errors in the new inlined `ReceiveFinalityFlow` replacement will also be hospitalised similarly.
 * Improved Database Management and Migration Tooling
-Corda Enterprise 4.0 improves the database administration tool for tracking, managing and applying database schema and data changes (for both Corda infrastructure
+Corda Enterprise Edition 4.0 improves the database administration tool for tracking, managing and applying database schema and data changes (for both Corda infrastructure
 and CorDapps). See database migration for further details.
 * Support for class evolution using non-nullable properties if you supply an evolution constructor which fills in the missing property values.
 
@@ -147,7 +147,7 @@ and CorDapps). See database migration for further details.
 The following list contains important known issues identified in this release. We will endeavour to fix these in future releases of Corda.
 
 
-* Prior to Corda Enterprise 4.0 all CorDapps were classloaded in the same applications classloader, with no isolation or visibility constraints.
+* Prior to Corda Enterprise Edition 4.0 all CorDapps were classloaded in the same applications classloader, with no isolation or visibility constraints.
 With the introduction of the *Attachments Classloader* in for transaction verification, a CorDapp JAR is now only classloaded if there is
 at least one class that implements the `Contract` interface. Where a Contract CorDapp previously depended on classes packaged in a separate
 JAR (eg. a 3rd party library, common classes or other CorDapp contracts), these must now be included in the same Contract CorDapp JAR.
@@ -156,8 +156,8 @@ a reference example.{{< note >}}
 CorDapps built using the new [Token SDK](https://github.com/corda/token-sdk) fall into this category and are required
 to include Token SDK CorDapps in their own Contract CorDapps JAR.{{< /note >}}
 
-* The experimental finance CorDapp compiled against Corda 3.3 or Enterprise Corda 3.2 and run on Corda Enterprise 4.0 is not guaranteed to interoperate with
-its upgraded equivalent Corda 4 version compiled against Corda 4.0 or Corda Enterprise 4.0 and running on Corda Enterprise 4.0.See [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) for further information.
+* The experimental finance CorDapp compiled against Corda 3.3 or Enterprise Corda 3.2 and run on Corda Enterprise Edition 4.0 is not guaranteed to interoperate with
+its upgraded equivalent Corda 4 version compiled against Corda 4.0 or Corda Enterprise Edition 4.0 and running on Corda Enterprise Edition 4.0.See [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) for further information.
 * Certificate revocation revokes identities, not keys, and is currently irreversible. If your keys are lost or compromised,
 new keys cannot be re-issued with the same X.500/legal entity name. It is strongly advised to backup your certificates
 appropriately and to apply sensible policy for management of private keys.
@@ -165,10 +165,10 @@ appropriately and to apply sensible policy for management of private keys.
 
 ### Upgrade notes
 
-As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise 4.0](app-upgrade-notes-enterprise.md)) to ease the upgrade
-of CorDapps to Corda Enterprise 4.0. In line with our commitment to API stability, code level changes are fairly minimal.
+As per previous major releases, we have provided a comprehensive upgrade notes ([Upgrading CorDapps to Corda Enterprise Edition 4.0](app-upgrade-notes-enterprise.md)) to ease the upgrade
+of CorDapps to Corda Enterprise Edition 4.0. In line with our commitment to API stability, code level changes are fairly minimal.
 
-For **developers**, switching CorDapps built using Corda (open source) 4.x to Corda Enterprise 4.0 is mostly effortless,
+For **developers**, switching CorDapps built using Corda (open source) 4.x to Corda Enterprise Edition 4.0 is mostly effortless,
 and simply requires making the Corda Enterprise binaries available to Gradle, and changing two variables in the build file:
 
 ```shell
@@ -179,7 +179,7 @@ ext.corda_release_distribution = 'com.r3.corda'
 For **node operators**, it is advisable to follow the instructions outlined in [Upgrading a Corda Node](node-upgrade-notes.md).
 
 {{< note >}}
-In a mixed-distribution network the open source finance contract CorDapp should be deployed on both Corda 4.0 (open source) and Corda Enterprise 4.0 nodes.
+In a mixed-distribution network the open source finance contract CorDapp should be deployed on both Corda 4.0 (open source) and Corda Enterprise Edition 4.0 nodes.
 
 {{< /note >}}
 Visit the [https://www.r3.com/corda-enterprise](https://www.r3.com/corda-enterprise/) for more information about Corda Enterprise.

@@ -86,8 +86,8 @@ ext.quasar_classifier=''
 ext.kotlin_version = '1.2.71'
 ```
 {{< note >}}
-Corda Enterprise 4 uses patched releases of Quasar and Caffeine to work around shortcomings identified in
-these libraries while a fix is being developed. Add `corda-dependencies` to your list of Gradle repositories to get the patched versions of these libraries. This repository is required for any project referencing Corda Enterprise 4 packages to provide transitive dependencies:
+Corda Enterprise Edition 4 uses patched releases of Quasar and Caffeine to work around shortcomings identified in
+these libraries while a fix is being developed. Add `corda-dependencies` to your list of Gradle repositories to get the patched versions of these libraries. This repository is required for any project referencing Corda Enterprise Edition 4 packages to provide transitive dependencies:
 
 ```groovy
 repositories {
@@ -143,7 +143,7 @@ There are a few guidelines to keep in mind when you set Corda dependencies.
 * `corda-tools-network-bootstrapper` - The Network Builder tool. Useful in build scripts.
 * `corda-tools-shell-cli` - The Shell CLI tool. Useful in build scripts.
 
-Any modules marked with (*) are part of the open core and must be pulled in from the matching Corda Open Source distribution (using
+Any modules marked with (*) are part of the open core and must be pulled in from the matching Corda Community Edition distribution (using
 `$corda_core_release_distribution` and `$corda_core_release_version`).
 
 The `cordapp` plugin adds additional Gradle configurations:

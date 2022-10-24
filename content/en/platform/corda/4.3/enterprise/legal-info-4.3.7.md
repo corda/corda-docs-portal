@@ -1,4 +1,5 @@
 ---
+title: Corda Enterprise Edition 4.3.7 third-party software notices and licence information
 aliases:
 - /releases/4.3/legal-info.html
 date: '2020-01-08T09:59:25Z'
@@ -7,13 +8,13 @@ menu:
     identifier: corda-enterprise-4-3-7-legal-info
     parent: corda-enterprise-4-3-miscellaneous
     weight: 570
+    name: Third-party software notices and licence information - 4.3.7
 tags:
 - legal
 - info
-title: Third-party software notices and licence information - CE 4.3.7
 ---
 
-# Corda Enterprise 4.3.7 third-party software notices and licence information
+# Corda Enterprise Edition 4.3.7 third-party software notices and licence information
 
 **Do Not Translate or Localize**
 

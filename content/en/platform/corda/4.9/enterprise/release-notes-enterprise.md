@@ -1,5 +1,5 @@
 ---
-
+title: Corda Enterprise Edition 4.9 release notes
 date: '2021-07-01'
 
 menu:
@@ -10,16 +10,31 @@ tags:
 - release
 - notes
 - enterprise
-title: Corda Enterprise Edition  release notes
+
 weight: 1
 ---
 
+# Corda Enterprise Edition 4.9 release notes
 
-# Corda: Enterprise Edition release notes
+## Corda Enterprise Edition 4.9.3 release notes
 
-## Corda: Enterprise Edition 4.9.2
+Corda Enterprise Edition 4.9.3 is a patch release of Corda Enterprise focused on resolving issues.
 
-Corda Enterprise 4.9.2 is a patch release of Corda Enterprise which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+The following issues were resolved in this patch release:
+
+* Previously, both Corda Nodes certificates possessed Certificate Authority power because the CA attribute was set to true. The node registration tool now has a new  option, ```-C, --node-identity-cert-not-ca```, allowing a node legal identity certificate to be created where it is not a CA.
+
+* For CENM 1.4+, the `getNodeInfos()` bulk fetch mechanism now retrieves NodeInfos from the network map via an HTTP proxy, if a proxy has been configured.
+
+## Corda: Enterprise Edition 4.9.2 release notes
+
+Corda Enterprise Edition 4.9.2 is a patch release of Corda Enterprise which includes the addition of a new Gradle 7 plugin, security upgrades, and fixes for minor bugs.
 
 * As part of this patch a new Gradle plugin is provided that supports CorDapp development using Gradle 7. This is in addition to the existing Gradle support. The plugin has been uploaded to Artifactory.
   * Samples demonstrating Gradle 7 usage are available for:
@@ -55,9 +70,9 @@ The following issues were resolved in this patch release:
 
 {{< /table >}}
 
-## Corda: Enterprise Edition 4.9.1
+## Corda: Enterprise Edition 4.9.1 release notes
 
-Corda Enterprise 4.9.1 is a patch release of Corda Enterprise which includes dependency upgrades and fixes for minor bugs.
+Corda Enterprise Edition 4.9.1 is a patch release of Corda Enterprise which includes dependency upgrades and fixes for minor bugs.
 
 ### Upgrade recommendation
 
@@ -73,7 +88,7 @@ In this patch release:
 * Official Artemis binaries implemented.
 * Oracle JDK version 8u322 now supported.
 
-## Corda: Enterprise Edition 4.9
+## Corda: Enterprise Edition 4.9 release notes
 
 Corda: Enterprise Edition  4.9 features many security improvements, along with a stand alone Shell for controlling the node via command line. You can also now access the `flowrpcops` API.
 
@@ -100,5 +115,5 @@ In this release:
 
 ### Database Schema Changes
 
-* The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise 4.7 following updates to certificate rotation functionality.
+* The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise Edition 4.7 following updates to certificate rotation functionality.
   * The reintroduction of this table ensures the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.

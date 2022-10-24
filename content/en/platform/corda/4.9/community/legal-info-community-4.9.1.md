@@ -1,4 +1,5 @@
 ---
+title: Corda Community Edition 4.9.1 third-party software notices and information
 aliases:
 - /head/legal-info.html
 - /HEAD/legal-info.html
@@ -9,17 +10,17 @@ menu:
     identifier: corda-community-4-9-1-legal-info
     parent: corda-community-4-9-release-notes
     weight: 450
+    name: Third-party software licence information - 4.9.1
 tags:
 - legal
 - info
-title: Third-party software licence information
 ---
 
-# Corda: Community Edition 4.9.1 third-party software notices and information
+# Corda Community Edition 4.9.1 third-party software notices and information
 
 **Do not translate or localise.**
 
-This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Open Source software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes.  R3 LLC reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+This file is based on or incorporates material from the projects listed below (Third Party IP). R3 LLC licenses these components under the Corda Community Edition software license terms. The original copyright notices and the licenses under which R3 LLC received such components are set forth below for informational purposes.  R3 LLC reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 
       "You" (or "Your") shall mean an individual or Legal Entity

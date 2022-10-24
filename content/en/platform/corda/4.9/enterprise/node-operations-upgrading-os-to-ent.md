@@ -17,16 +17,16 @@ weight: 40
 
 # Upgrading a Corda OS Node to Corda Enterprise
 
-A Corda (open source) node can be upgraded to Corda Enterprise.
+A Corda Community Edition node can be upgraded to Corda Enterprise.
 If the same database is to be reused, the most complicated steps are ensuring custom CorDapps contain
 Liquibase database management scripts and adding these scripts into the database change log table.
 
 The migration from an H2 database to a 3rd party commercial database, while upgrading to Corda Enteprise,
 requires a third party tool to migrate data.
 
-## Upgrade from Corda (open source) to Corda Enterprise
+## Upgrade from Corda Community Edition to Corda Enterprise
 
-To upgrade Corda (open source) to Corda Enterprise within the same major release version, follow the Corda node upgrade procedure.
+To upgrade Corda Community Edition to Corda Enterprise within the same major release version, follow the Corda node upgrade procedure.
 The database upgrade steps need to be replaced by those specified below,
 depending if you are [reusing an existing database](#reusing-an-existing-database)
 or [Migrating from the H2 database to another database vendor](#migrating-from-the-h2-database-to-another-database-vendor).
@@ -91,10 +91,10 @@ Please contact R3 for further advice.
 
 
 
-## Upgrade from an older Corda (open source) release to Corda Enterprise
+## Upgrade from an older Corda Community Edition release to Corda Enterprise
 
-CorDapps, contracts and states written for Corda 4.x are compatible with Corda Enterprise 4.9, so upgrading
-existing open source Corda nodes should be a simple case of updating the Corda `.jar` file.
+CorDapps, contracts and states written for Corda 4.x are compatible with Corda Enterprise Edition 4.9, so upgrading
+existing Corda Community Edition nodes should be a simple case of updating the Corda `.jar` file.
 See node-upgrade-notes for general instructions on upgrading your node.
 For developer information on recompiling CorDapps against Corda Enterprise, see upgrade-notes.
 

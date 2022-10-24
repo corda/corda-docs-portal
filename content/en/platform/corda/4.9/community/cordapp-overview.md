@@ -70,11 +70,11 @@ After installing this CorDapp, the node owner will be able to use the flows defi
 updates related to issuance, sale, purchase and exit of bonds.
 
 
-## Writing and building apps that run on both Corda (open source) and Corda Enterprise
+## Writing and building apps that run on both Corda Community Edition and Corda Enterprise
 
 Corda and Corda Enterprise are moving towards an Open Core approach, which means in practice that the APIs and dependencies for CorDapps
-should all be open source, and all CorDapps (whether targeting Corda open source or Corda Enterprise) can now be compiled against the Open
-Source Corda core library, as Corda Enterprise itself is compiled against the Open Source core library.
+should all be open source, and all CorDapps (whether targeting Corda Community Edition or Corda Enterprise) can now be compiled against the Open
+Source Corda core library, as Corda Enterprise itself is compiled against the Corda Community Edition core library.
 To make this work in practice you should follow these steps:
 
 
@@ -91,7 +91,7 @@ Please read [Setting your dependencies](cordapp-build-systems.md) to understand 
 {{< /note >}}
 
 * Compile this **CorDapp kernel** Jar once, and then depend on it from your workflows Jar. In terms of Corda depdendencies,this should only
-depend on the `corda-core` package from the Corda Open Source distribution.
+depend on the `corda-core` package from the Corda Community Edition distribution.
 
 {{< note >}}
 As of Corda 4 it is recommended to use [CorDapp Jar signing](cordapp-build-systems.md) to leverage the new signature constraints functionality.
@@ -101,9 +101,9 @@ As of Corda 4 it is recommended to use [CorDapp Jar signing](cordapp-build-syste
 * Your workflow Jar(s) should depend on the **CorDapp kernel** (contract, states and dependencies). Importantly, you can create different workflow
 Jars for Corda and Corda Enterprise, because the workflows Jar is not consensus critical. For example, you may wish to add additional features
 to your CorDapp for when it is run on Corda Enterprise (perhaps it uses advanced features of one of the supported enterprise databases or includes
-advanced database migration scripts, or some other Enterprise-only feature).When building a CorDapp against Corda Enterprise, please note that the `corda-core` library still needs to come from the open source
+advanced database migration scripts, or some other Enterprise-only feature).When building a CorDapp against Corda Enterprise, please note that the `corda-core` library still needs to come from the Corda Community Edition
 distribution, so you will have dependencies on Corda Enterprise and a matching open core distribution. Specifically, any CorDapp targeted
 to run on Corda Enterprise should have unit and integration tests using Corda Enterprise.
 
 In summary, structure your app as kernel (contracts, states, dependencies) and workflow (the rest) and be sure to compile the kernel
-against Corda open source. You can compile your workflow (Jars) against the distribution of Corda that they target.
+against Corda Community Edition. You can compile your workflow (Jars) against the distribution of Corda that they target.

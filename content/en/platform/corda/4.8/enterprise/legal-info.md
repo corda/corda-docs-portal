@@ -5,13 +5,14 @@ menu:
     identifier: corda-enterprise-4-8-legal-info
     parent: corda-enterprise-4-8-release-notes
     weight: 300
+    name: Third-party software licence information - 4.8
 tags:
 - legal
 - info
-title: Third-party software licence information - CE 4.8
+title: Corda Enterprise Edition 4.8 third-party software notices and licence information
 ---
 
-# Corda Enterprise 4.8 third-party software notices and licence information
+# Corda Enterprise Edition 4.8 third-party software notices and licence information
 
 **Do not translate or localize**
 

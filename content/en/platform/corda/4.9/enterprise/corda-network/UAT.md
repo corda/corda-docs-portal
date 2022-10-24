@@ -27,7 +27,7 @@ The environment is therefore more aligned to the testing of the operational char
 ### Technical pre-requisites
 
 * One or more physical or virtual machines with a compatible operating system and a compatible Java version (for example, Oracle JDK 8u131+) upon which to deploy Corda
-* Corda software - either Open Source or Corda Enterprise (Corda Enterprise requires a license from R3)
+* Corda software - either Corda Community Edition or Corda Enterprise (Corda Enterprise requires a license from R3)
 * A static external IP address for each machine on which Corda will be run
 
 ### Business pre-requisites

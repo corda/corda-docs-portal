@@ -244,7 +244,7 @@ Follow the instructions in [https://docs.corda.net/tutorial-cordapp.html](https:
 
 
 {{< warning >}}
-Ensure you checkout the corresponding branch for for Corda Enterprise 4.2 by running `git checkout release-V4-enterprise` in the samples directory
+Ensure you checkout the corresponding branch for for Corda Enterprise Edition 4.2 by running `git checkout release-V4-enterprise` in the samples directory
 
 {{< /warning >}}
 

@@ -1,17 +1,18 @@
 ---
+title: Corda Enterprise Edition 4.5.11 third-party software notices and licence information
 date: '2022-01-21T12:00:00Z'
 menu:
   corda-enterprise-4-5:
     identifier: corda-enterprise-4-5-11-legal-info
     parent: corda-enterprise-4-5-release-notes
-    weight: 316
+    weight: 340
+    name: Third-party software notices and licence information - 4.5.11
 tags:
 - legal
 - info
-title: Third-party software notices and licence information - CE 4.5.11
 ---
 
-# Corda Enterprise 4.5.11 third-party software notices and licence information
+# Corda Enterprise Edition 4.5.11 third-party software notices and licence information
 
 ## org.apache.commons : commons-lang3 : 3.9
 

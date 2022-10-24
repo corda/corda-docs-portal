@@ -14,7 +14,7 @@ title: Node Maintenance Mode
 
 # Node Maintenance Mode
 
-The Node Maintenance Mode feature, introduced in Corda Enterprise 4.6, enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a "_cron-like_" scheduling algorithm.
+The Node Maintenance Mode feature, introduced in Corda Enterprise Edition 4.6, enables you to run certain house-keeping events automatically within Corda at specific times of the day or week, using a "_cron-like_" scheduling algorithm.
 
 Node Maintenance Mode is designed in a scalable way - maintenance tasks are discovered by Corda Enterprise through the use of an internal API.
 

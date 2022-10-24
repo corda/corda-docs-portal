@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"net.corda.cordapp","c":"ConfigurationPlugin","l":"apply(Project)","url":"apply(org.gradle.api.Project)"},{"p":"net.corda.cordapp","c":"ConfigurationPlugin","l":"ConfigurationPlugin()","url":"%3Cinit%3E()"}]
