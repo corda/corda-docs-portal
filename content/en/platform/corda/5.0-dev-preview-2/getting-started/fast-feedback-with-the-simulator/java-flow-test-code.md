@@ -4,7 +4,7 @@ title: "Java Flow Test Code"
 menu:
   corda-5-dev-preview2:
     parent: corda-5-dev-preview-simulator
-    identifier: corda-5-dev-preview-flow-test-kotlin
+    identifier: corda-5-dev-preview-flow-test-java
     weight: 2000
 section_menu: corda-5-dev-preview2
 ---
