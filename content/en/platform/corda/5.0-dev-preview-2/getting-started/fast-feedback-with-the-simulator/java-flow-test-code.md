@@ -37,17 +37,18 @@ First the test class instantiates `MemberX500Name` for two actors. `MemberX500Na
 
 4. Convert the `MemberX500Name` for Alice and Bob into `HoldingIdentities` using the `HoldingIdentity` static method. The `HoldingIdentity` in Corda holds the `MemberX500Name` and the `GroupId` which is the unique identifier for the application network. However, the class used here is the simulated version provided by Simulator; that is `net.corda.simulator.HoldingIdentity` rather than `net.corda.virtualnode.HoldingEntity`.
    ```java
-           // Create Alice's and Bob HoldingIDs
-           HoldingIdentity aliceHoldingID = HoldingIdentity.Companion.create(aliceX500);
-           HoldingIdentity bobHoldingID = HoldingIdentity.Companion.create(bobX500)
+   // Create Alice's and Bob HoldingIDs
+   HoldingIdentity aliceHoldingID = HoldingIdentity.Companion.create(aliceX500);
+   HoldingIdentity bobHoldingID = HoldingIdentity.Companion.create(bobX500)
    ```        
 5. Use Simulator to create virtual nodes for Alice and Bob from their respective holding identities. The second argument allows you to specify which flows should be loaded up to each virtual node. In this case, Alice runs the initiating flow, with Bob running the responder flow.
-   ```kotlin
-           // Create Alice and Bob's virtual nodes, including the classes of the flows which will be registered on each node.
-           val aliceVN = simulator.createVirtualNode(aliceHoldingID, MyFirstFlow::class.java)
-           val bobVN = simulator.createVirtualNode(bobHoldingID, MyFirstFlowResponder::class.java)
-    ```
-    You can read more about initiating flows and responder flows in the section on [Your first flow ](../first-flow.html#initiating-and-responding-flows).
+   ```java
+   // Create Alice and Bob's virtual nodes, including the Class's of the flows which will be registered on each node.
+   // We don't assign Bob's virtual node to a variable because we don't need it for this particular test.
+   SimulatedVirtualNode aliceVN = simulator.createVirtualNode(aliceHoldingID, MyFirstFlow.class);
+   simulator.createVirtualNode(bobHoldingID, MyFirstFlowResponder.class);
+   ```
+   You can read more about initiating flows and responder flows in the section on [Your first flow ](../first-flow.html#initiating-and-responding-flows).
 6. Create the arguments to pass to the flow. In the flow file `MyFirstFlowStartArgs.kt`, create a class `MyFirstFlowArguments` specifically for holding the flow start arguments:
    ```java
    // A class to hold the arguments required to start the flow
@@ -57,7 +58,7 @@ First the test class instantiates `MemberX500Name` for two actors. `MemberX500Na
    ```
    <!--no hello bob??-->
    Use the same class to specify that the message needs to go to Bob and the message should be "Hello Bob":
-   ```kotlin
+   ```java
    // Create an instance of the MyFirstFlowStartArgs which contains the request arguments for starting the flow
    MyFirstFlowStartArgs myFirstFlowStartArgs = new MyFirstFlowStartArgs(bobX500);
    ```
