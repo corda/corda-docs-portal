@@ -50,4 +50,8 @@ To install Corda CLI, download the installation `zip` file from https://download
    .\install.ps1
    ```
    The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. On Windows, this is typically something like `C:\Users\Charlie.Smith`.
+
+   {{< note >}}
+   If your PowerShell execution policy does not allow you to run this script, copy the contents to your own PowerShell script and execute that instead.
+   {{< /note >}}
 <!-- For information about working directly with the Corda CLI, see [Corda CLI](../developing/corda-cli/overview.html).-->
