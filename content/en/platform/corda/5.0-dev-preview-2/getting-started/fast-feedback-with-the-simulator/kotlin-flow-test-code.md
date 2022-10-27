@@ -47,7 +47,7 @@ First the test class instantiates `MemberX500Name` for two actors. `MemberX500Na
    // A class to hold the arguments required to start the flow
    class MyFirstFlowStartArgs(val otherMember: MemberX500Name, val message: String)
    ```
-   Use the same class to specify that the message needs to go to Bob and the message should be "Hello Bob":
+   Use the same class to specify that the message should go to Bob:
    ```kotlin
    // Create an instance of the MyFirstFlowStartArgs which contains the request arguments for starting the flow
    val myFirstFlowStartArgs = MyFirstFlowStartArgs(bobX500, "Hello Bob")
