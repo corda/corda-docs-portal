@@ -23,7 +23,7 @@ As Simulator is not executing Corda code, the error messages are likely to be di
 
 ## Using Simulator
 
-Simulator is designed to be used within a normal Java or Kotlin testing framework. In this documentation, we describe using JUnit. [MyFirstFlow](../first-flow.html) has a corresponding test class `MyFirstFlowTest` that demonstrates how to use Simulator. This file is in `/src/test/kotlin/com.r3.developers.csdetemplate.MyFirstFlowTest.kt` or `/src/test/java/com.r3.developers.csdetemplate.MyFirstFlowTest.java` in the [CSDE](../cordapp-standard-development-environment/csde.html) template repository.
+Simulator is designed to be used within a normal Java or Kotlin testing framework. This documentation describes using JUnit. [MyFirstFlow](../first-flow.html) has a corresponding test class `MyFirstFlowTest` that demonstrates how to use Simulator. This file is in `/src/test/kotlin/com.r3.developers.csdetemplate.MyFirstFlowTest.kt` or `/src/test/java/com.r3.developers.csdetemplate.MyFirstFlowTest.java` in the [CSDE](../cordapp-standard-development-environment/csde.html) template repository.
 
 The full listing with explanatory comments:
 {{< tabs name="simulator">}}
