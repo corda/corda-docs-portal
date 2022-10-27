@@ -17,7 +17,7 @@ title: Tutorials
 
 #  Tutorials
 
-The Corda 4.8 tutorials can now be found in the [Tutorials](../../../../tutorials/corda/4.8/os.html) section. There you can learn about:
+The Corda 4.8 tutorials can now be found in the [Tutorials](../../../../tutorials/corda/4.8/os/overview.md) section. There you can learn about:
 
 * [Building your first basic CorDapp](../../../../tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-intro.md)
 * [Platform feature tutorials](../../../../tutorials/corda/4.8/os/supplementary-tutorials/supplementary-tutorials-intro.md)
