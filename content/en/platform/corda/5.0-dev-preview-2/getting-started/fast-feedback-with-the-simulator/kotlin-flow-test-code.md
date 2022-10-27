@@ -50,7 +50,7 @@ First the test class instantiates `MemberX500Name` for two actors. `MemberX500Na
    Use the same class to specify that the message should go to Bob:
    ```kotlin
    // Create an instance of the MyFirstFlowStartArgs which contains the request arguments for starting the flow
-   val myFirstFlowStartArgs = MyFirstFlowStartArgs(bobX500, "Hello Bob")
+   val myFirstFlowStartArgs = MyFirstFlowStartArgs(bobX500)
    ```
    If running this flow on Corda itself, you would send the following `requestBody` over HTTP-RPC:
    ```http
