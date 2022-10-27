@@ -117,7 +117,7 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|21.2.x|PostgreSQL JDBCDriver 42.2.9|
+|CockroachDB|x86-64|22.1.x|PostgreSQL JDBCDriver 42.5.0|
 |Oracle RAC|x86-64|19c|Oracle JDBC 8|
 
 {{< /table >}}
