@@ -56,8 +56,7 @@ First the test class instantiates `MemberX500Name` for two actors. `MemberX500Na
      ...
    }
    ```
-   <!--no hello bob??-->
-   Use the same class to specify that the message needs to go to Bob and the message should be "Hello Bob":
+   Use the same class to specify that the message should go to Bob:
    ```java
    // Create an instance of the MyFirstFlowStartArgs which contains the request arguments for starting the flow
    MyFirstFlowStartArgs myFirstFlowStartArgs = new MyFirstFlowStartArgs(bobX500);
