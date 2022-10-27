@@ -70,7 +70,7 @@ First the test class instantiates `MemberX500Name` for two actors. `MemberX500Na
    )
    ```
 7. Pass the `requestData` to the `callflow()` function on Alice’s virtual node, to trigger the flow on Simulator.
-   Simulator simulates running the flow and responder flow, substituting simulated services as required, and returning a flow response String.
+   Simulator simulates running the flow and responder flow, substituting simulated services as required, and returning a flow response string.
    ```kotlin
    // Call the Flow on Alice's virtual node and capture the response from the flow
    val flowResponse = aliceVN.callFlow(requestData)
