@@ -54,7 +54,7 @@ Corda 4 used the Corda Firewall to allow the egress of Corda messages to the wid
 Corda 5 uses the Gateway (and session manager) to achieve similar goals. However, now that Corda communicates with other clusters via HTTPS instead of AMQP, these services can be deployed into an ingress zone behind the corporate firewall and load-balancing proxies.
 
 ## Combined Worker
-The worker architecture allows us to deliver Corda in various guises. For highly available fault-tolerant systems, the fully distributed collection of workers can be used. However, when developing CorDapps, the ability to run a small and lightweight version of this is paramount. Therefore, a collection of workers can be collapsed into a *combined worker*, delivering the same characteristics of the mode-complex deployment in a much smaller package.
+The worker architecture allows us to deliver Corda in various guises. For highly available fault-tolerant systems, the fully distributed collection of workers can be used. However, when developing CorDapps, the ability to run a small and lightweight version of this is paramount. Therefore, a collection of workers can be collapsed into a **combined worker**, delivering the same characteristics of the mode-complex deployment in a much smaller package.
 
 {{< figure src="images/combined-worker.png" figcaption="Combined Worker" >}}
 
