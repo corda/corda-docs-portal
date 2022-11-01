@@ -21,9 +21,9 @@ weight: 2
 
 |Platform|CPU Architecture|Versions|
 |:---------------------------------------|:-----------------------|:--------------|
-|Red Hat Enterprise Linux|x86-64|7.x, 6.x|
+|Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|16.10, 16.04|
+|Ubuntu Linux|x86-64|16.04, 16.10, 18.04, 20.04|
 |Oracle Linux|x86-64|7.x, 6.x|
 
 {{< /table >}}
@@ -52,7 +52,7 @@ weight: 2
 |Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|11gR2|Oracle JDBC 6|
 |Oracle|x86-64|12cR2|Oracle JDBC 8|
-|PostgreSQL|x86-64|9.6, 10.10, 11.5|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
+|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.3|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
 
 
 {{< /table >}}
