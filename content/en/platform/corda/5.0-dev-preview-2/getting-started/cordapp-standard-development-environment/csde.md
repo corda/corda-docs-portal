@@ -83,7 +83,7 @@ The `stopCorda` task does the following:
 
 The `deployCorDapp` task does the following to compile and deploy the CorDapp to the combined worker:
 
-1. Compiles the [CPB](../../introduction/key-concepts.html#corda-package-bundles-cpbs) and [CPI](../../introduction/key-concepts.html#corda-package-installer-cpi) using the [buildCPI](#buildCPI-task) task
+1. Compiles the [CPB](../../introduction/key-concepts.html#corda-package-bundles-cpbs) and [CPI](../../introduction/key-concepts.html#corda-package-installer-cpi) using the [buildcpi](#buildCPI-task) task
 2. Uploads the CPI to the combined worker
 3. Generates the [virtual nodes](../../introduction/key-concepts.html#virtual-nodes) with the CPI
 
