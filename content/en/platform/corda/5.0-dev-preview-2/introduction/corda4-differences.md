@@ -56,7 +56,7 @@ Corda 5 uses the Gateway (and session manager) to achieve similar goals. However
 ## Combined Worker
 The worker architecture allows us to deliver Corda in various guises. For highly available fault-tolerant systems, the fully distributed collection of workers can be used. However, when developing CorDapps, the ability to run a small and lightweight version of this is paramount. Therefore, a collection of workers can be collapsed into a **combined worker**, delivering the same characteristics of the mode-complex deployment in a much smaller package.
 
-{{< figure src="images/combined-worker.png" figcaption="Combined Worker" >}}
+{{< figure src="images/combined-worker.png" figcaption="Combined Worker" width="75%">}}
 
 This can be augmented through the addition of an in-memory message bus, forsaking Kafka. This allows deterministic testing and better observability when running through the full software development lifecycle on a laptop.
 
