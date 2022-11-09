@@ -9,7 +9,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   tutorials:
     identifier: corda-community-4-9-supplementary-tutorials-index
-    parent: tutorials-corda-4
+    parent: tutorials-corda-4-9
     weight: 1030
 tags:
 - tutorials

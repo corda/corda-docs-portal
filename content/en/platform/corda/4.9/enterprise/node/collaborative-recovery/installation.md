@@ -43,7 +43,7 @@ Outline of steps for installation:
 
 * [LedgerGraph CorDapp](./../operating/ledger-graph.md). The collaborative recovery CorDapps depend on the LedgerGraph CorDapp.
 
-* **Corda Enterprise** Corda nodes must be running Corda Enterprise in order to initiate or participate in Collaborative Recovery. This feature is not available for Corda Open Source nodes.
+* **Corda Enterprise** Corda nodes must be running Corda Enterprise in order to initiate or participate in Collaborative Recovery. This feature is not available for Corda Community Edition nodes.
 
 * **Node Minimum Platform Version (MPV) > 6** Collaborative Recovery requires operative Corda nodes to have a Corda Platform Version (CPV) of 6 or greater. This version number is related to the version of Corda a node is running.
 

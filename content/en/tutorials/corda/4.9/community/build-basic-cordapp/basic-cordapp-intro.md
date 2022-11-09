@@ -7,7 +7,7 @@ section_menu: tutorials
 section_menu: tutorials
 menu:
   tutorials:
-    parent: tutorials-corda-4
+    parent: tutorials-corda-4-9
     name: Building your first basic CorDapp
     weight: 1010
     identifier: corda-community-4-9-tutorial-basic-cordapp-intro

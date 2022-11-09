@@ -1176,7 +1176,7 @@ Flow worker threads belong to the thread pool that executes flows.
 You could use this functionality to:
 
 * Trigger a long running process on an external system.
-* Retrieve information from a external service that might go down.
+* Retrieve information from an external service that might go down.
 
 `FlowLogic` provides two `await` functions that allow custom operations to be defined and executed outside of the context of a flow:
 

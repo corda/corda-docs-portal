@@ -1,14 +1,15 @@
 ---
 date: '2022-09-23'
-title: Corda 5 Dev Preview 2
+title: Corda 5 Developer Preview 2
 project: corda
 version: 'Corda 5 Developer Preview 2'
+section_menu: corda-5-dev-preview2
 menu:
   versions:
     weight: -649
   corda-5-dev-preview2:
     weight: 1000
-section_menu: corda-5-dev-preview2
+    name: Corda 5 Dev Preview 2
 ---
 <section class="section" style="text-align:center; color:white; background-image:url('5.0-dev-preview-2/icons/bg-dark.jpg');">
   <h1>
@@ -35,7 +36,7 @@ section_menu: corda-5-dev-preview2
            <a href="5.0-dev-preview-2/getting-started/get-started.html">
            <img src="5.0-dev-preview-2/icons/get-started.png" alt="Getting started" style="padding: 1rem; border: 0;" height="124" class="light-only">
            <img src="5.0-dev-preview-2/icons/get-started.png" alt="Getting started"  style="background: #202020; padding: 1rem; border: 0;" height="124"class="dark-only"></br>
-             <span>Getting started</span></h3></a>
+             <span>Getting Started</span></h3></a>
          </div>
        </div>
      </div>
@@ -57,7 +58,7 @@ section_menu: corda-5-dev-preview2
       <a href="5.0-dev-preview-2/deploying/overview.html">
           <img src="5.0-dev-preview-2/icons/deploy.png" alt="Deploy" style="padding: 1rem; border: 0;" class="light-only" height="124">
               <img src="5.0-dev-preview-2/icons/deploy.png" alt="Deploy" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-        <span>Deploying and operating</span></h3></a>
+        <span>Deploying and Operating</span></h3></a>
     </div>
   </div>
 </div>
@@ -68,7 +69,7 @@ section_menu: corda-5-dev-preview2
       <a href="5.0-dev-preview-2/use-cases/overview.html">
       <img src="5.0-dev-preview-2/icons/use-cases.png" alt="Release notes" style="padding: 1rem; border: 0;" class="light-only" height="124">
       <img src="5.0-dev-preview-2/icons/use-cases.png" alt="Release notes" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-        <span>Use cases</span></h3></a>
+        <span>Use Cases</span></h3></a>
     </div>
   </div>
 </div>
@@ -79,7 +80,7 @@ section_menu: corda-5-dev-preview2
       <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html">
       <img src="5.0-dev-preview-2/icons/release-notes.png" alt="Release notes" style="padding: 1rem; border: 0;" class="light-only" height="124">
       <img src="5.0-dev-preview-2/icons/release-notes.png" alt="Release notes" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-              <span>Release notes</span></h3></a>
+              <span>Release Notes</span></h3></a>
     </div>
   </div>
 </div>

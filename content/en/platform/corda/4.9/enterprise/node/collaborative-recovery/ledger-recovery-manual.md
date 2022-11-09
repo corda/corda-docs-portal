@@ -31,7 +31,7 @@ set of transactions IDs is extremely large.
 
 Manual Recovery processes executed via the LedgerRecover CorDapp require participating Corda nodes to be:
 
-- Using Corda Enterprise, not Corda Open Source (OS)
+- Using Corda Enterprise, not Corda Community Edition
 - Corda Minimum Platform Version (MPV) > 6
 - Running on top of a supported [database technology](../../platform-support-matrix.md)
 

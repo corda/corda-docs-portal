@@ -54,7 +54,7 @@ ext.quasar_version = '0.7.14_r3'
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
 dependencies on `corda-core` and/or `corda-serialization` must use the `corda_core_release_distribution` and
 `corda_core_release_version`. As Corda is moving to an open core model, these core APIs are only available in open source and need to
-be imported from there. Therefore, a repository entry pointing to a matching Corda open source version is required.
+be imported from there. Therefore, a repository entry pointing to a matching Corda Community Edition version is required.
 
 3. Update your `quasar.jar` file. If your project is based on one of the official CordApp templates, you'll likely have a `lib/quasar.jar` file checked in. You'll only use this if you use the JUnit runner in IntelliJ. In the latest release of the CorDapp templates, this directory has
 been removed.
