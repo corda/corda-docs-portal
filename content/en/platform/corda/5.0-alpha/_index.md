@@ -6,7 +6,7 @@ version: 'Corda 5 Alpha'
 section_menu: corda-5-alpha
 menu:
   versions:
-    weight: -640
+    weight: -647
   corda-5-alpha:
     weight: 1000
     name: Corda 5 Alpha
