@@ -11,7 +11,7 @@ section_menu: corda-5-alpha
 
 ## Software Prerequisites
 
-Corda 5 DP 2 has been tested with the following:
+Corda 5 Alpha has been tested with the following:
 
 | Software      | Version |
 | ----------- | ----------- |

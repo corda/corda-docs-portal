@@ -26,10 +26,7 @@ It manages the lifecycle, link establishment, connection recovery, back pressure
 The P2P Layer is not officially exposed to CorDapp Developers to access natively in this Developer Preview of Corda 5 and so its implementation in CorDapps is not currently supported.
 Support will be available in a future release as there is great value in an end-to-end authenticated messaging system that can multiplex thousands of messages whilst remaining HA and secure and also embodying a strong identity model.
 {{< /note >}}
-<!--
 
-*Note about what's available in DP 2 (nothing?) and what's coming soon - layer cake architecture means p2p layer could be used independently - no flow network*
--->
 
 ### Flow Layer
 
@@ -189,6 +186,3 @@ The only difference between a development CPI and a production CPI is the networ
 A **Corda cluster** is the term for the set of all workers deployed into a Kubernetes environment. A cluster is a distinct entity from the (partial) network(s) it hosts. It is the hardware, the databases, and HSMs. A cluster is operated and maintained to ensure that the software, Corda, executing within it is performant and responsive.
 
 A single cluster can encapsulate the entirety of an application network or just a part. It can host identities for many networks or just a single one. It can even host applications of a single identity. The architecture depends on the use case executed. If the members of an application network are mature enough to host their own code, to truly be decentralised, then their identity, their [virtual node](#virtual-nodes), will be executed within their own cluster and other identities may be on a cluster managed by a third party. The [application network](#application-networks) emerges above all of this.
-
-<!--*Note about what's available in DP 2 (no cloud deployments, no multi-cluster) and what's coming soon*
-*Cross-ref to local Kubernetes deployment*-->
