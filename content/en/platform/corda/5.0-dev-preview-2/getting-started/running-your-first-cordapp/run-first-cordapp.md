@@ -14,7 +14,7 @@ The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csd
 
 ## Starting the Corda Combined Worker
 
-To run the flow, you must first start a local combined worker version of Corda. CSDE includes helper Gradle tasks to do this.
+To run the flow, you must first start a local [combined worker](../../introduction/corda4-differences.html#combined-worker) version of Corda. CSDE includes helper Gradle tasks to do this.
 {{< figure src="starting-corda.png" width="50%" figcaption="CSDE startCorda task" alt="CSDE task to start the combined worker in IntelliJ" >}}
 
 The `startCorda` task should complete relatively quickly with this message:
