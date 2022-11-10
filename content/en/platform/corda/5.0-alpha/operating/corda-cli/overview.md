@@ -20,5 +20,5 @@ virtual-node - Me
 -->
 The Corda CLI is a command line tool which provides tooling for working with Corda clusters.
 The [CSDE](../../getting-started/cordapp-standard-development-environment/csde.html) can handle standard calls to the Corda CLI.
-However, if you prefer, you can perform command line instructions directly, as described in the [next section](commands.html).
+However, if you prefer, you can perform command line instructions directly, as described in the [Commands section](commands.html).
 Installing the Corda CLI is described [here](../../getting-started/installing-corda-cli.html) in the Getting Started section.
