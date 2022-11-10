@@ -2,11 +2,11 @@
 date: '2022-09-21T14:27:00+01:00'
 title: "net.corda.v5.serialization"
 menu:
-  corda-5-dev-alpha:
+  corda-5-alpha:
     identifier: corda-5-alpha-api-serialisation
     parent: corda-5-alpha-api
     weight: 8000
-section_menu: corda-5-dev-alpha
+section_menu: corda-5-alpha
 ---
 You can view the KDoc documentation for this module [here](/en/api-ref/corda/5.0-alpha-2/modules/corda-serialization-5.0.0.190-DevPreview-2-javadoc/index.html).
 

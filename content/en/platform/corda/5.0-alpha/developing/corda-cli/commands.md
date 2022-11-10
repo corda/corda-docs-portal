@@ -1,11 +1,11 @@
 ---
 date: '2020-09-08T12:00:00Z'
 menu:
-  corda-5-dev-alpha:
+  corda-5-alpha:
     identifier: corda-5-alpha-cordacli-commands
     weight: 2000
     parent: corda-5-alpha-cordacli
-section_menu: corda-5-dev-alpha
+section_menu: corda-5-alpha
 title: "Corda CLI Commands"
 draft: true
 ---

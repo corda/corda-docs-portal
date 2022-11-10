@@ -2,11 +2,11 @@
 date: '2022-09-19'
 title: "Running Your First CorDapp"
 menu:
-  corda-5-dev-alpha:
+  corda-5-alpha:
     parent: corda-5-alpha-start
     identifier: corda-5-alpha-run-first-cordapp
     weight: 3000
-section_menu: corda-5-dev-alpha
+section_menu: corda-5-alpha
 ---
 The CSDE includes flows and tests for a very simple CorDapp, which you can run out of the box.
 

@@ -2,11 +2,11 @@
 date: '2022-09-19'
 title: "CorDapp Standard Development Environment (CSDE)"
 menu:
-  corda-5-dev-alpha:
+  corda-5-alpha:
     parent: corda-5-alpha-start
     identifier: corda-5-alpha-csde
     weight: 2000
-section_menu: corda-5-dev-alpha
+section_menu: corda-5-alpha
 ---
 The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Alpha more straight-forward.
 The CSDE is obtained by cloning our `CSDE-Cordapp-Template-Kotlin` repository to your local machine. The CSDE provides:

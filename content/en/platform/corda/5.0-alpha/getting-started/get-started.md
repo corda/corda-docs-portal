@@ -2,10 +2,10 @@
 date: '2022-09-19'
 title: "Getting Started"
 menu:
-  corda-5-dev-alpha:
+  corda-5-alpha:
     identifier: corda-5-alpha-start
     weight: 2000
-section_menu: corda-5-dev-alpha
+section_menu: corda-5-alpha
 ---
 This section guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic CorDapp.
 
