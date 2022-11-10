@@ -1,13 +1,12 @@
 ---
 date: '2020-09-08T12:00:00Z'
 menu:
-  corda-5-alpha:
+  corda-5:
     identifier: corda-5-alpha-cordacli-commands
     weight: 2000
     parent: corda-5-alpha-cordacli
-section_menu: corda-5-alpha
+section_menu: corda-5
 title: "Corda CLI Commands"
-draft: true
 ---
 ## MGM
 
@@ -109,4 +108,4 @@ The `package` commands execute operations for working with CPB and CPI files.
 | --sign         | |
 | --create-cpi         | |
 
-You can learn how to package your CorDapp in the Developer tutorial [here](../tutorials/packaging.html).
+You can learn how to package your CorDapp in the Developer tutorial [here](../../developing/tutorials/packaging.html).
