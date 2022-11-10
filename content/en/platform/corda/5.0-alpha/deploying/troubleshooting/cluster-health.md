@@ -2,7 +2,7 @@
 date: '2021-11-07'
 title: "Cluster Health"
 menu:
-  corda-5:
+  corda-5-alpha:
     parent: corda-5-alpha-deploy-troubleshoot
     identifier: corda-5-alpha-deploy-cluster-health
     weight: 1000

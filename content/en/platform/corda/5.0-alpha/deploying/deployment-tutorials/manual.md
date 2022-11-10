@@ -2,7 +2,7 @@
 date: '2022-11-07'
 title: "Manual Bootstrapping"
 menu:
-  corda-5:
+  corda-5-alpha:
     identifier: corda-5-alpha-deploy-manual
     parent: corda-5-alpha-tutorials-deploy
     weight: 3000
