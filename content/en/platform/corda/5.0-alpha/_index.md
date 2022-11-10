@@ -58,7 +58,18 @@ menu:
       <a href="5.0-alpha/deploying/overview.html">
           <img src="5.0-alpha/icons/deploy.png" alt="Deploy" style="padding: 1rem; border: 0;" class="light-only" height="124">
               <img src="5.0-alpha/icons/deploy.png" alt="Deploy" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-        <span>Deploying and Operating</span></h3></a>
+        <span>Deploying</span></h3></a>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="card h-100">
+    <div class="card-body">
+      <h3 class="card-title">
+      <a href="en/platform/corda/5.0/operating/overview.html">
+          <img src="images/operate.png" alt="Deploy" style="padding: 1rem; border: 0;" class="light-only" height="124">
+          <img src="images/operate.png" alt="Deploy" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
+        <span>Operating</span></h3></a>
     </div>
   </div>
 </div>

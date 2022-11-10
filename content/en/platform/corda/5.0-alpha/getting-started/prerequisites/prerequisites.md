@@ -1,6 +1,6 @@
 ---
 date: '2022-09-19'
-title: "Third-Party Prerequisites"
+title: "Third-Party Prerequisites for the CSDE"
 menu:
   corda-5-alpha:
     parent: corda-5-alpha-start
@@ -8,6 +8,8 @@ menu:
     weight: 1000
 section_menu: corda-5-alpha
 ---
+This section lists the third-party prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html) and [Simulator](../fast-feedback-with-the-simulator/fast-feedback-with-the-simulator.html).
+For information about the prerequisites for multi-worker cluster deployments, see [Third-Party Prerequisites for Cluster Deployments](../../deploying/prerequisites.html).
 
 ## Software Prerequisites
 
@@ -20,28 +22,6 @@ Corda 5 Alpha has been tested with the following:
 | Intellij    | ~v2021.X.Y community edition   |
 | git | ~v2.24.1    |
 | Docker | Docker Engine ~v20.X.Y or Docker Desktop ~v3.5.X    |
-<!--| Gradle |  7.0+   |-->
-
-
-If you want to experiment with multi-worker cluster deployments, you will also need:
-
-* Kubernetes (incl. kubectl)
-* Helm
-
-However, Alpha focuses on the developer rather than operator experience, so Kubernetes deployments are not required to use Alpha.
-
-<!--## Hardware prerequisites
-
-Most of the computers that we use to develop, build, and test Corda 5 have:
-
-| Hardware      | Description |
-| ----------- | ----------- |
-| CPU      | Gen 9 Intel (6 cores / 12 threads)      |
-| RAM   | 32GiB         |
-| Hard disk   | At least 30GiB.        |
-
-These are not minimum specifications.
-This what is known to work with the code as of Alpha.-->
 
 ## Additional Configuration for Mac
 

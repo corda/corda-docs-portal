@@ -767,6 +767,24 @@ identifier = "corda-5-alpha-release-notes"
 name = "Release Notes"
 weight = 6000
 
+[[corda-5-alpha]]
+identifier = "corda-5-alpha-deploy-troubleshoot"
+parent = "corda-5-deploy"
+name = "Troubleshooting"
+weight = 6000
+
+[[corda-5-alpha]]
+identifier = "corda-5-alpha-deploy-options"
+parent = "corda-5-deploy"
+name = "Deployment Options"
+weight = 1050
+
+[[corda-5-alpha]]
+identifier = "corda-5-alpha-tutorials-deploy"
+parent = "corda-5-deploy"
+name = "Deployment Tutorials"
+weight = 5000
+
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
 #identifier = "tools-cdl"

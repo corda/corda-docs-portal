@@ -1,7 +1,6 @@
 ---
 date: '2021-09-21'
 title: "Deployment Options"
-draft: true
 menu:
   corda-5-alpha:
     parent: corda-5-alpha-deploy
