@@ -1,7 +1,6 @@
 ---
 date: '2021-09-21'
-title: "Deploying to a Kubernetes Cluster"
-draft: true
+title: "Deploying to a Local Kubernetes Cluster"
 menu:
   corda-5-alpha:
     parent: corda-5-alpha-tutorials-deploy

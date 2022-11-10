@@ -1,7 +1,6 @@
 ---
 date: '2022-09-13'
 title: "Local Kubernetes Cluster"
-draft: true
 menu:
   corda-5-alpha:
     identifier: corda-5-alpha-deploy-local
