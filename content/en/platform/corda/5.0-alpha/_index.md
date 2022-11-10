@@ -13,7 +13,7 @@ menu:
 ---
 <section class="section" style="text-align:center; color:white; background-image:url('5.0-alpha/icons/bg-dark.jpg');">
   <h1>
-    Corda 5 Alpa
+    Corda 5 Alpha
   </h1>
 </section>
 <section class="section">
