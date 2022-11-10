@@ -5,7 +5,7 @@ menu:
     identifier: corda-5-alpha-cordacli
     parent: corda-5-alpha-operate
     weight: 2000
-section_menu: corda-5
+section_menu: corda-5-alpha
 title: Corda CLI
 ---
 
