@@ -2,10 +2,10 @@
 date: '2021-09-21'
 title: "Deploying and Operating"
 menu:
-  corda-5-dev-alpha:
+  corda-5-alpha:
     identifier: corda-5-alpha-deploy
     weight: 3050
-section_menu: corda-5-dev-alpha
+section_menu: corda-5-alpha
 ---
 The focus of the Corda 5 Alpha is enabling CorDapp Developers to write, compile, and run their first basic CorDapps for Corda 5.
 In Alpha you can deploy to the combined worker, as described in the [Getting Started section](../getting-started/running-your-first-cordapp/run-first-cordapp.html).

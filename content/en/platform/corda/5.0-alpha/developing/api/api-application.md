@@ -2,11 +2,11 @@
 date: '2021-04-24T00:00:00Z'
 title: "net.corda.v5.application"
 menu:
-  corda-5-dev-alpha:
+  corda-5-alpha:
     identifier: corda-5-alpha-api-application
     parent: corda-5-alpha-api
     weight: 1000
-section_menu: corda-5-dev-alpha
+section_menu: corda-5-alpha
 ---
 You can view the KDoc documentation for this module [here](/en/api-ref/corda/5.0-alpha-2/modules/corda-application-5.0.0.190-DevPreview-2-javadoc/index.html).
 

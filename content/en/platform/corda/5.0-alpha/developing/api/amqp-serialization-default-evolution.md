@@ -2,11 +2,11 @@
 date: '2022-09-21T14:27:00+01:00'
 title: "Default Class Evolution"
 menu:
-  corda-5-dev-alpha:
+  corda-5-alpha:
     identifier: corda-5-alpha-api-serialisation-default-evolution
     parent: corda-5-alpha-api-serialisation
     weight: 8000
-section_menu: corda-5-dev-alpha
+section_menu: corda-5-alpha
 ---
 Whilst more complex evolutionary modifications to classes require annotating, Corda’s serialization
 framework supports several minor modifications to classes without any external modification except

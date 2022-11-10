@@ -2,11 +2,11 @@
 date: '2021-04-24T00:00:00Z'
 title: "net.corda.v5.application.persistence"
 menu:
-  corda-5-dev-alpha:
+  corda-5-alpha:
     identifier: corda-5-alpha-api-persistence
     parent: corda-5-alpha-api-application
     weight: 1000
-section_menu: corda-5-dev-alpha
+section_menu: corda-5-alpha
 ---
 Corda 5 supports CRUD (Create, Read, Update, Delete) operations for user-defined types. This is achieved using JPA-annotated entities and, to manage database migrations, Liquibase.
 

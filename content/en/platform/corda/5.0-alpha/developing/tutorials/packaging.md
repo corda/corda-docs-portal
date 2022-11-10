@@ -3,11 +3,11 @@ date: '2021-09-21'
 title: "CorDapp Packaging"
 draft: true
 menu:
-  corda-5-dev-alpha:
+  corda-5-alpha:
     parent: corda-5-alpha-tutorials-dev
     identifier: corda-5-alpha-tutorial-dev-one
     weight: 1000
-section_menu: corda-5-dev-alpha
+section_menu: corda-5-alpha
 ---
 
 This section describes how to package your CorDapp as CPKs, CPBs, and CPIs. You can read more about the CorDapp packaging format in the [Key concepts](../../introduction/key-concepts.html#packaging) section.

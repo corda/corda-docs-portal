@@ -2,11 +2,11 @@
 date: '2020-07-15T12:00:00Z'
 title: "Key Concepts"
 menu:
-  corda-5-dev-alpha:
+  corda-5-alpha:
     parent: corda-5-alpha-intro
     identifier: corda-5-alpha-key-concepts
     weight: 2000
-section_menu: corda-5-dev-alpha
+section_menu: corda-5-alpha
 ---
 ## Layered Architecture
 

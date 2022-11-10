@@ -2,11 +2,11 @@
 date: '2022-09-20'
 title: "Your First Flow"
 menu:
-  corda-5-dev-alpha:
+  corda-5-alpha:
     parent: corda-5-alpha-start
     identifier: corda-5-alpha-flow
     weight: 5000
-section_menu: corda-5-dev-alpha
+section_menu: corda-5-alpha
 ---
 <!-- Now that we have the Simulator test framework for triggering and testing flows, we can look at the anatomy of the `MyFirstFlow` and `MyFirstResponderFlow` flows.-->
 The `MyFirstFlow` and `MyFirstResponderFlow` flows are basic flows that illustrate the main features of Corda 5 flows.
