@@ -2,7 +2,7 @@
 date: '2022-09-19'
 title: "Third-Party Prerequisites for Cluster Deployments"
 menu:
-  corda-5:
+  corda-5-alpha:
     parent: corda-5-alpha-deploy
     identifier: corda-5-alpha-cluster-prereqs
     weight: 1000
