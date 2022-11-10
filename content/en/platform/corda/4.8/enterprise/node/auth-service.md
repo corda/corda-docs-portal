@@ -24,7 +24,7 @@ Whenever you use the [User Administration Tool](../../../../../../en/platform/co
 
 You do not need to interact directly with the Auth Service once it has been installed and configured. To protect the integrity of this secure service, there is no direct API contact with the Auth Service: all front-end communications go via the Gateway Service.
 
-Auth Service can also be configured to use [Azure AD SSO](../../../../../../en/platform/corda/4.9/enterprise/node/azure-ad-sso/_index.md).
+Auth Service can also be configured to use [Azure AD SSO](../../../../../../en/platform/corda/4.7/enterprise/node/azure-ad-sso.html).
 
 ## Install the Auth service
 
