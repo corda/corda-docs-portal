@@ -193,7 +193,7 @@ In this patch release:
 * A fix has been introduced to reduce memory consumption during batched transaction resolution of large backchains.
 * Support has been introduced for RedHat Enterprise Linux 8.x in Corda 4.8.1.
 * Performance verification of the HA Notary with CockroachDB 20.2.8 has been carried out - performance is not worse in comparison to the HA Notary configured on CockroachDB 20.1.6.
-* Support for PostgreSQL 13.3 for node databases has been added.
+* Support for PostgreSQL 13.8 for node databases has been added.
 * Hibernate ORM has been updated to version to 5.4.32 to remove a security concern.
 * The [Node management console](../../../../../en/platform/corda/4.8/enterprise/node/management-console.html#node-management-console) configuration has been updated. Configuration is now set in `node.management.plugin.middleware`, no longer `node.admin.middleware`.
 * The [Flow management console](../../../../../en/platform/corda/4.8/enterprise/node/node-flow-management-console.html#flow-management-console) configuration has been updated. Configuration is now set in `flow.management.plugin.middleware`, no longer `flow.admin.middleware`.

@@ -36,7 +36,7 @@ menu:
            <a href="5.0-dev-preview-2/getting-started/get-started.html">
            <img src="5.0-dev-preview-2/icons/get-started.png" alt="Getting started" style="padding: 1rem; border: 0;" height="124" class="light-only">
            <img src="5.0-dev-preview-2/icons/get-started.png" alt="Getting started"  style="background: #202020; padding: 1rem; border: 0;" height="124"class="dark-only"></br>
-             <span>Getting started</span></h3></a>
+             <span>Getting Started</span></h3></a>
          </div>
        </div>
      </div>
@@ -58,7 +58,7 @@ menu:
       <a href="5.0-dev-preview-2/deploying/overview.html">
           <img src="5.0-dev-preview-2/icons/deploy.png" alt="Deploy" style="padding: 1rem; border: 0;" class="light-only" height="124">
               <img src="5.0-dev-preview-2/icons/deploy.png" alt="Deploy" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-        <span>Deploying and operating</span></h3></a>
+        <span>Deploying and Operating</span></h3></a>
     </div>
   </div>
 </div>
@@ -69,7 +69,7 @@ menu:
       <a href="5.0-dev-preview-2/use-cases/overview.html">
       <img src="5.0-dev-preview-2/icons/use-cases.png" alt="Release notes" style="padding: 1rem; border: 0;" class="light-only" height="124">
       <img src="5.0-dev-preview-2/icons/use-cases.png" alt="Release notes" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-        <span>Use cases</span></h3></a>
+        <span>Use Cases</span></h3></a>
     </div>
   </div>
 </div>
@@ -80,7 +80,7 @@ menu:
       <a href="5.0-dev-preview-2/release-notes/release-notes-c5dp2.html">
       <img src="5.0-dev-preview-2/icons/release-notes.png" alt="Release notes" style="padding: 1rem; border: 0;" class="light-only" height="124">
       <img src="5.0-dev-preview-2/icons/release-notes.png" alt="Release notes" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-              <span>Release notes</span></h3></a>
+              <span>Release Notes</span></h3></a>
     </div>
   </div>
 </div>
