@@ -71,7 +71,7 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 |-------------------------------|------------------|-----------|
 |Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|16.04, 18.04|
+|Ubuntu Linux|x86-64|16.04, 16.10, 18.04, 20.04|
 |Oracle Linux|x86-64|7.x, 6.x|
 
 {{< /table >}}
@@ -97,7 +97,7 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 |Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|19c|Oracle JDBC 6|
 |Oracle|x86-64|19c|Oracle JDBC 8|
-|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.3|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
+|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.8|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
 
 {{< /table >}}
 
