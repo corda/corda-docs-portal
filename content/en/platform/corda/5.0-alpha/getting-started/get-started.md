@@ -18,12 +18,6 @@ Alpha is, as the name suggests, a developer preview. It is not a product release
 * There are likely to be bugs. If you raise a bug with us, we will consider them for fixing.
 {{< /note >}}-->
 
-## Kotlin vs Java
-
-The Getting Started documentation and templates are currently only in Kotlin. We are working to provide Java versions as soon as possible, but it may be a short time after the release of DP2.
-
-For Java Developers used to working with Corda 4, or those who have some familiarity with Kotlin, it should be possible to work out how to implement the examples in Java without too many problems.
-
 ## Corda 4 vs Corda 5
 
 Corda 5 is a complete re-write of Corda 4. This was necessary to achieve the massive gains in non-functional performance that Corda 5 offers. When writing CorDapps, some things will seem familiar and some things will feel different. For example, the basic mechanism of flows is similar, whereas the structure of the Corda network, the way flows are tested, and the way flows are instantiated (via REST) have changed significantly. You can read more about these changes in the [Introduction](../introduction/introduction.html).
