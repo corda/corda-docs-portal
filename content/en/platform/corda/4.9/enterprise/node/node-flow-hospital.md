@@ -34,7 +34,7 @@ This concept is analogous to *exception management handling* associated with ent
 
 ## Flow Management API
 
-If you want to interact with he Flow Hospital programatically, use the Flow Management API described in [Querying flow data](#operating/querying-flow-data.html).
+If you want to interact with the Flow Hospital programatically, use the Flow Management API described in [Querying flow data](#operating/querying-flow-data.html).
 
 ## Functionality
 
