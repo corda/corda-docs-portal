@@ -32,10 +32,8 @@ Most of Corda's public, non-experimental APIs are backwards compatible. See the 
 1. [Drain the node](#step-1-drain-the-node).
 2. [Make a backup of the directories in your node and database](#step-2-make-a-backup-of-your-nodes-directories-and-database).
 3. [Update the database](#step-3-update-the-database).
-4. <a href="#step-4-replace-cordajar-with-the-new-version">Replace the `corda.jar` file with the new version.</a>
-5. [Install corda-shell.jar](#step-5-install-corda-shell-jar).
+4. [Replace corda.jar with new version](#step-4-replace-cordajar-with-new-version)
 5. [Install corda-shell.jar](#step-5-install-corda-shelljar).
-5. [Install corda-shell.jar](#step-5-install-corda-shell.jar).
 6. [Update the configuration](#step-6-update-the-configuration).
 7. [Start the node](#step-7-start-the-node).
 8. [Undrain the node](#step-8-undrain-the-node).
@@ -275,9 +273,9 @@ Option `-b` points to the base directory which contains a `node.conf` file and `
 
 `--core-schemas` is required to adopt the changes made in the new version of Corda, and `--app-schemas` is related to the CorDapps changes.
 
-## Step 4: Replace `corda.jar` with the new version
+## Step 4: Replace corda.jar with new version
 
-Replace the `corda.jar` with the latest version of Corda.
+Replace corda.jar with its latest version.
 
 Download the latest version of Corda from [our Artifactory site](https://software.r3.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
 Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java the node requires.
