@@ -33,10 +33,10 @@ Most of Corda's public, non-experimental APIs are backwards compatible. See the 
 2. [Make a backup of the directories in your node and database](#step-2-make-a-backup-of-your-nodes-directories-and-database).
 3. [Update the database](#step-3-update-the-database).
 4. <a href="#step-4-replace-cordajar-with-the-new-version">Replace the `corda.jar` file with the new version.</a>
-5. [Install corda-shell.jar](#install-corda-shell-jar)
-6. [Update the configuration](#step-5-update-the-configuration).
-7. [Start the node](#step-6-start-the-node).
-8. [Undrain the node](#step-7-undrain-the-node).
+5. [Install corda-shell.jar](#step-5-install-corda-shell-jar).
+6. [Update the configuration](#step-6-update-the-configuration).
+7. [Start the node](#step-7-start-the-node).
+8. [Undrain the node](#step-8-undrain-the-node).
 
 {{< note >}}
 The protocol tolerates node outages. Peers on the network wait for your node to become available after upgrading.
@@ -306,7 +306,7 @@ You only need to perform this step if you are updating from version 4.5 or older
 
 Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
 
-## Step 6: Start the node
+## Step 7: Start the node
 
 If you manually updated the database in [Step 3](#step-3-update-the-database), start the node in the normal way.
 
