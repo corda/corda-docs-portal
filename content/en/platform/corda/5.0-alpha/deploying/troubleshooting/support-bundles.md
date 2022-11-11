@@ -10,7 +10,7 @@ section_menu: corda-5-alpha
 ---
 <!--https://r3-cev.atlassian.net/browse/CORE-7232-->
 
-In the event of an issue, you need to know what information R3 requires from you to be able to perform problem determination. This collection of information is referred to as a support bundle. The following document lists the steps to troubleshoot a Corda deployment in Kubernetes and collect the support material.
+This page describes how to gather the information required by R3 to assist you with troubleshooting in the event of an issue with a Kubernetes deployment.
 
 ## Set Kubernetes Context
 
