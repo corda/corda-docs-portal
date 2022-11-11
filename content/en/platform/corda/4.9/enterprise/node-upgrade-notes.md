@@ -34,6 +34,8 @@ Most of Corda's public, non-experimental APIs are backwards compatible. See the 
 3. [Update the database](#step-3-update-the-database).
 4. <a href="#step-4-replace-cordajar-with-the-new-version">Replace the `corda.jar` file with the new version.</a>
 5. [Install corda-shell.jar](#step-5-install-corda-shell-jar).
+5. [Install corda-shell.jar](#step-5-install-corda-shelljar).
+5. [Install corda-shell.jar](#step-5-install-corda-shell.jar).
 6. [Update the configuration](#step-6-update-the-configuration).
 7. [Start the node](#step-7-start-the-node).
 8. [Undrain the node](#step-8-undrain-the-node).
