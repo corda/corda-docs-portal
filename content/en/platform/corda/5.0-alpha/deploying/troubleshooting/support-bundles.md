@@ -22,7 +22,7 @@ kubectl config set-context --current --namespace=$CORDA_NAMESPACE
 
 ## Collect Helm Material
 
-* Get Corda Helm chart release name, version and app version: `helm ls`
+* Get Corda Helm chart release name, version, and app version: `helm ls`
 * Get custom values from Helm release: `helm get values release_name`
 * Get manifest files from Helm release: `helm get manifest release_name`
 
