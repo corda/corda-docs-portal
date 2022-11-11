@@ -16,7 +16,7 @@ In the event of an issue, you need to know what information R3 requires from you
 
 Set Kubernetes context to use the namespace where Corda is installed by default. Replace `$CORDA_NAMESPACE` in the following command by your namespace name:
 
-```
+```shell
 kubectl config set-context --current --namespace=$CORDA_NAMESPACE
 ```
 
