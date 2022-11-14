@@ -39,7 +39,7 @@ The Corda Docker images must be in a Docker registry that is accessible from the
    target_registry=$1
 
    for image in "${images[@]}"; do
-    source=corda-os-docker.software.r3.com/$image:$tag
+    source=corda/$image:$tag
     target=$target_registry/$image:$tag
     echo "Publishing image $source to $target"
     docker tag $source $target
