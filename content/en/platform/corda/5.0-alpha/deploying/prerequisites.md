@@ -1,5 +1,5 @@
 ---
-date: '2022-09-19'
+date: '2022-11-11'
 title: "Third-Party Prerequisites for Cluster Deployments"
 menu:
   corda-5-alpha:
@@ -8,17 +8,35 @@ menu:
     weight: 1000
 section_menu: corda-5-alpha
 ---
-<!--https://r3-cev.atlassian.net/browse/DOC-4188-->
-This section lists the third-party prerequisites for multi-worker cluster deployments. For information about the prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html) see [Third-Party Prerequisites for the CSDE](../getting-started/prerequisites.html).
+
+This section lists the third-party prerequisites for multi-worker cluster deployments. <!--For information about the prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html) see [Third-Party Prerequisites for the CSDE](../getting-started/prerequisites.html).-->
 
 ## Software Prerequisites
 
-Corda 5 cluster deployments have been tested with the following:
+The following sections list the software that Corda 5 cluster deployments have been tested with.
 
-| Software      | Version |
+### Container Orchestration
+
+| Software    | Version |
 | ----------- | ----------- |
-| Kubernetes (incl. kubectl)      |     |
-| Helm   |  |
+| Kubernetes  |   1.23  |
+| Amazon Elastic Kubernetes Service (EKS)   | 1.23 |
+
+### Messaging
+
+| Software    | Version |
+| ----------- | ----------- |
+| Kafka   |   3.2.0  |
+| Amazon Managed Streaming for Apache Kafka (MSK)   | 3.2.0 |
+|Confluent Cloud   |   |
+
+### Database
+
+| Software    | Version |
+| ----------- | ----------- |
+| PostgreSQL  |  14.4   |
+| Amazon RDS for PostgreSQL   |  14.4 |
+| Amazon Aurora PostgreSQL | 14.4   |
 
 ## Minimum Resource Requirements
 
