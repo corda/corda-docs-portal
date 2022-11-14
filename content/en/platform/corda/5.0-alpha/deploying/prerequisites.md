@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-alpha
 ---
 
-This section lists the third-party prerequisites for multi-worker cluster deployments. <!--For information about the prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html) see [Third-Party Prerequisites for the CSDE](../getting-started/prerequisites.html).-->
+This section lists the third-party prerequisites for multi-worker cluster deployments. <!--For information about the prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html), see [Third-Party Prerequisites for the CSDE](../getting-started/prerequisites.html).-->
 
 ## Software Prerequisites
 
