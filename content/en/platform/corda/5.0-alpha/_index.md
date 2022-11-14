@@ -29,7 +29,7 @@ menu:
     </div>
   </div>
 </div>
-<div class="col">
+<!--<div class="col">
        <div class="card h-100">
          <div class="card-body">
            <h3 class="card-title">
@@ -39,7 +39,7 @@ menu:
              <span>Getting Started</span></h3></a>
          </div>
        </div>
-     </div>
+     </div>-->
 <div class="col">
        <div class="card h-100">
          <div class="card-body">
@@ -73,7 +73,6 @@ menu:
     </div>
   </div>
 </div>
-<!--
 <div class="col">
   <div class="card h-100">
     <div class="card-body">
@@ -84,7 +83,7 @@ menu:
         <span>Use Cases</span></h3></a>
     </div>
   </div>
-</div>-->
+</div>
 <div class="col">
   <div class="card h-100">
     <div class="card-body">
