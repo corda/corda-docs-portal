@@ -8,4 +8,5 @@ menu:
 section_menu: corda-5-alpha
 
 ---
-This section introduces the modules of the Corda API. It also links to the API KDocs and the REST API documentation. Tutorials for more advanced development beyond that described in the [Getting Started](../getting-started/get-started.html) sections will follow in future releases.
+This section introduces the modules of the Corda API. It also links to the API KDocs and the REST API documentation.
+<!--Tutorials for more advanced development beyond that described in the [Getting Started](../getting-started/get-started.html) sections will follow in future releases.-->
