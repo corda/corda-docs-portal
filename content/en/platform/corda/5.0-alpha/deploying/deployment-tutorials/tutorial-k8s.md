@@ -57,17 +57,17 @@ For each deployment, you should create a YAML file to define a set of Helm overr
 The following sections describe the minimal set of configuration options required for a deployment.
 You can extract a README containing the full set of options from the Helm chart using the following command:
 ```shell
-helm show readme corda-0.2.0-alpha.1-RC.1.tgz
+helm show readme ************
 ```
 
 You can extract a YAML file containing all of the default values using the following command:
 ```shell
-helm show values corda-0.2.0-alpha.1-RC.1.tgz
+helm show values ************
 ```
 
 ### Image Registry
 
-Define an override for the name of the Docker registry containing the Corda Docker images:**To be confirmed
+Define an override for the name of the Docker registry containing the Corda Docker images:
 ```yaml
 image:
   registry: <REGISTRY-NAME>
