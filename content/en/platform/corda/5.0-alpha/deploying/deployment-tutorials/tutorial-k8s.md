@@ -125,10 +125,11 @@ It is particularly important to specify resource requests when using a Kubernete
 
 You can also override the default resource requests and limits separately for each type of Corda worker. For example, to increase the memory limit for flow workers:
 ```yaml
-flow:
-  resource:
-    limit:
-      memory: 4096Mi
+workers:
+  flow:
+    resource:
+      limit:
+        memory: 4096Mi
 ```
 As with the number of replicas, you may need to adjust these values based on testing with your actual application workload.
 
