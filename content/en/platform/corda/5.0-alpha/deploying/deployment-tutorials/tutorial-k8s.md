@@ -1,6 +1,6 @@
 ---
 date: '2021-11-14'
-title: "Deploying a Kubernetes Cluster"
+title: "Deploying a Corda Cluster"
 menu:
   corda-5-alpha:
     parent: corda-5-alpha-tutorials-deploy
