@@ -20,7 +20,7 @@ To access and invoke the REST API:
    You can then access the Swagger documentation for the RPC endpoint at [https://localhost:8888/api/v1/swagger](https://localhost:8888/api/v1/swagger).
 Note that the RPC endpoint is protected by a self-signed certificate.
 
-2. To invoke the RPC endpoint from the Swagger UI, use the username `admin` and password `admin`. Alternatively, you can use curl. For example:
+2. To invoke the RPC endpoint from the Swagger UI, use the user name `admin` and password `admin`. Alternatively, you can use curl. For example:
 
    ```sh
    curl -u admin:admin -k https://localhost:8888/api/v1/hello
