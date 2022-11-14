@@ -145,7 +145,7 @@ workers:
         service.beta.kubernetes.io/aws-load-balancer-internal: true
         service.beta.kubernetes.io/aws-load-balancer-scheme: internal
         service.beta.kubernetes.io/aws-load-balancer-type: nlb
-        external-dns.alpha.kubernetes.io/hostname: rpc-worker.dev1.corda.cloud
+        external-dns.alpha.kubernetes.io/hostname: corda.example.com
 ```
 
 ### PostgreSQL
