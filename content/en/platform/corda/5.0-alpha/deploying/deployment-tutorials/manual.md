@@ -9,5 +9,13 @@ menu:
 section_menu: corda-5-alpha
 ---
 <!-- CLI https://r3-cev.atlassian.net/browse/DOC-4185-->
-This section describes how to manually bootstrap Kafka and the database using the Corda CLI.
+This section describes how to manually bootstrap deployment elements managed by Helm.
 <!--do we need to add back in installation instructions??-->
+
+## Kafka
+
+..
+
+## Database
+
+..

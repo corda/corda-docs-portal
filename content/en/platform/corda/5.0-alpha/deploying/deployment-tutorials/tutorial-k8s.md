@@ -1,6 +1,6 @@
 ---
-date: '2021-09-21'
-title: "Deploying to a Local Kubernetes Cluster"
+date: '2021-11-14'
+title: "Deploying Kubernetes Cluster"
 menu:
   corda-5-alpha:
     parent: corda-5-alpha-tutorials-deploy
@@ -8,220 +8,271 @@ menu:
     weight: 1000
 section_menu: corda-5-alpha
 ---
-This section describes how to build and deploy Corda to a Kubernetes cluster on your local development machine.
+## Download and Register Docker Images
 
-## Create a Kubernetes Cluster
+The Corda Docker images must be in a Docker registry that is accessible from the Kubernetes cluster in which Corda will run. The images are provided in a `tar` file which can be loaded into a local Docker engine and then pushed from there to the registry.
 
-The following instructions assume that you have a single-node Kubernetes cluster running with a Docker daemon.
-Two options that meet these requirements and have been tested with these instructions are:
+1. Download [corda-worker-images.tar]()**add link.
 
-* [Docker Desktop](#install-and-configure-docker-desktop)
-* [minikube](#install-minikube)
+2. Inflate and load the `corda-worker-images.tar` file into the local Docker engine with the following command:
+   ```shell
+   docker load -i corda-worker-images.tar
+   ```
 
-Docker Desktop provides a simpler user experience but commercial use in larger enterprises requires a paid subscription.
-See [Do I need to pay to use Docker Desktop?](https://docs.docker.com/desktop/faqs/general/#do-i-need-to-pay-to-use-docker-desktop) for more details.
+3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target Docker registry as an argument.
+   ```shell
+   #!/bin/bash
+   if [ -z "$1" ]; then
+    echo "Specify target registry"
+    exit 1
+   fi
 
-### Install and Configure Docker Desktop
+   declare -a images=(
+    "corda-os-rpc-worker" "corda-os-flow-worker"
+    "corda-os-member-worker" "corda-os-p2p-gateway-worker"
+    "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
+    "corda-os-crypto-worker" "corda-os-plugins" )
+   tag=5.0.0.0-BetaProgram-alpha.1-RC01
+   target_registry=$1
 
-1. Install Docker Desktop.
-   * [macOS](https://docs.docker.com/desktop/mac/install/)
-   * [Windows](https://docs.docker.com/desktop/windows/install/)
-   * [Linux](https://docs.docker.com/desktop/install/linux-install/)
-2. [Enable Kubernetes](https://docs.docker.com/desktop/kubernetes/#enable-kubernetes) in Preferences.
-3. Configure your Kubernetes cluster with at least 6 CPU and 8 GB RAM.
-   * For macOS, configure the [resources](https://docs.docker.com/desktop/settings/mac/#resources) in the Docker Desktop Preferences.
-   * For Linux, configure the [resources](https://docs.docker.com/desktop/settings/linux/#resources) in the Docker Desktop Preferences.
-   * For Windows, configure the WSL settings in the [.wslconfig](https://docs.microsoft.com/en-us/windows/wsl/wsl-config#configuration-setting-for-wslconfig) file.
+   for image in "${images[@]}"; do
+    source=corda-os-docker.software.r3.com/$image:$tag
+    target=$target_registry/$image:$tag
+    echo "Publishing image $source to $target"
+    docker tag $source $target
+    docker push $target
+   done
+   ```
 
-### Install minikube
+## Download Helm Charts
 
-1. Install [minikube](https://minikube.sigs.k8s.io/docs/start/).
-2. Start minikube with at least 8 GB memory and 6 CPUs:
+1. Download [-]()**add link.
 
-    ```sh
-    minikube start --memory 8000 --cpus 6
-    ```
+## Configure the Deployment
 
-3. If you don't already have the `kubectl` CLI installed, set up the following alias:
+For each deployment, you should create a YAML file to define a set of Helm overrides to be used for that environment.
+The following sections describe the minimal set of configuration options required for a deployment.
+You can extract a README containing the full set of options from the Helm chart using the following command:
+```shell
+helm show readme corda-0.2.0-alpha.1-RC.1.tgz
+```
 
-    ```sh
-    alias kubectl="minikube kubectl --"
-    ```
+You can extract a YAML file containing all of the default values using the following command:
+```shell
+helm show values corda-0.2.0-alpha.1-RC.1.tgz
+```
 
-## Setup for Helm Installation
+### Image Registry
 
-The Kubernetes configuration for Corda is packaged in a Helm chart.
-The chart is installed into a Kubernetes namespace using the Helm CLI.
+Define an override for the name of the Docker registry containing the Corda Docker images:**To be confirmed
+```yaml
+image:
+  registry: <REGISTRY-NAME>
+```
 
-### Install Helm
+If the registry requires authentication, create a [Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets) containing the Docker registry credentials, in the Kubernetes namespace where Corda is to be deployed. Specify an override with the name of the Kubernetes secret:
+```yaml
+imagePullSecrets:
+  - <IMAGE-PULL-SECRET-NAME>
+```
 
-1. [Install the Helm CLI](https://helm.sh/docs/intro/install/).
+### Replica Counts
 
-### Create a Kubernetes Namespace
+For high-availability, specify at least three replicas for each type of Corda worker:
+```yaml
+workers:
+  crypto:
+    replicaCount: 3
+  db:
+    replicaCount: 3
+  flow:
+    replicaCount: 3
+  membership:
+    replicaCount: 3
+  rpc:
+    replicaCount: 3
+  p2pGateway:
+    replicaCount: 3
+  p2pLinkManager:
+    replicaCount: 3
+```
+{{< note >}
+Depending on your application workload, you may require additional replicas.
+{{< /note >}
 
-1. If you have multiple Kubernetes clusters, ensure that you are targeting the `kubectl` context for the correct cluster.
-    You can list contexts you have defined with:
+### Resource Requests and Limits
 
-    ```sh
-    kubectl config get-contexts
-    ```
-
-    The current context is marked with an asterisk.
-    You can switch context, for example:
-
-    ```sh
-    kubectl config use-context docker-desktop
-    ```
-
-    If you are using Docker Desktop, you can also switch context via the Kubernetes sub-menu.
-
-2. Create a namespace to contain your Corda deployment.
-    For example, to create a namespace called `corda` run the command:
-
-    ```sh
-    kubectl create namespace corda
-    ```
-
+Specify a default set of resource requests and limits for the Corda containers:
+```yaml
+resources:
+  requests:
+    memory: 512Mi
+    cpu: 125m
+  limits:
+    memory: 2048Mi
+    cpu: 1000m
+```
 {{< note >}}
-The commands that follow all assume that you are using a namespace called `corda`.
-Modify the `-n corda` option on each `kubectl` command if you use a different namespace.
+It is particularly important to specify resource requests when using a Kubernetes cluster with auto-scaling to ensure that it scales appropriately when the Corda cluster is deployed.
 {{< /note >}}
 
-## Install Corda Prerequisites
-
-Corda requires a PostgreSQL and Kafka instance as pre-requisites.
-One option to obtain these in a local development environment is via the umbrella Helm chart in the [corda/corda-dev-helm](https://github.com/corda/corda-dev-helm) GitHub repository.
-
-1. Clone the GitHub repository:
-
-    ```sh
-    git clone https://github.com/corda/corda-dev-helm.git
-    cd corda-dev-helm
-    ```
-
-2. Pull the child Kafka and PostgreSQL charts provided by Bitnami:
-
-    ```sh
-    helm repo add bitnami https://charts.bitnami.com/bitnami
-    helm dependency build charts/corda-dev
-    ```
-
-3. Install the Helm chart:
-
-    ```sh
-    helm install prereqs -n corda charts/corda-dev --render-subchart-notes --timeout 10m --wait
-    ```
-
-    The `--wait` option ensures all of the pods are ready before returning. The `--render-subchart-notes` option gives you a brief overview of the connection details.
-    The timeout is set to 10 minutes to allow time to pull the images from Docker Hub.
-    The process should take significantly less time than this on subsequent installs.
-
-## Build the Corda Docker Images
-
-The Corda Docker images must be built from source.
-
-1. If you’re using minikube, configure your shell to use the Docker daemon inside minikube so that built images are available directly to the cluster:
-
-    {{< tabs name="Setting Docker environment for minikube">}}
-    {{% tab name="Bash"%}}
-
-```bash
-eval $(minikube docker-env)
+You can also override the default resource requests and limits separately for each type of Corda worker. For example, to increase the memory limit for flow workers:
+```yaml
+flow:
+  resource:
+    limit:
+      memory: 4096Mi
 ```
-    {{% /tab %}}
+As with the number of replicas, you may need to adjust these values based on testing with your actual application workload.
 
-    {{% tab name="PowerShell" %}}
+### REST API Load Balancer
 
-```pwsh
-minikube docker-env --shell=powershell | Invoke-Expression
-```
-    {{% /tab %}}
-    {{< /tabs >}}
-
-2. Clone the [corda/corda-cli-plugin-host](https://github.com/corda/corda-cli-plugin-host) repository:
-
-    ```sh
-    git clone https://github.com/corda/corda-cli-plugin-host.git
-    git -C corda-cli-plugin-host checkout release/version-1.0.0-DevPreview2
-    ```
-
-3. Clone the [corda/corda-api](https://github.com/corda/corda-api) repository:
-
-    ```sh
-    git clone https://github.com/corda/corda-api.git
-    git -C corda-api checkout release/os/5.0-DevPreview2
-    ```
-
-4. Clone the [corda/corda-runtime-os](https://github.com/corda/corda-runtime-os) repository:
-
-    ```sh
-    git clone https://github.com/corda/corda-runtime-os.git
-    git -C corda-runtime-os checkout release/os/5.0-DevPreview2
-    ```
-
-5. Build all of the Corda Docker images with Gradle in the `corda-runtime-os` repository:
-
-    ```sh
-    cd corda-runtime-os
-    ./gradlew clean publishOSGiImage -PcompositeBuild=true
-    ```
-
-## Install Corda
-
-There is a `values.yaml` file at the root of the `corda-runtime-os` repository that overrides the default values in the Corda Helm chart.
-These values configure the chart to use the images you just built and specify the location of the Kafka and PostgreSQL instances created by the `corda-dev` Helm chart.
-They also set the initial admin user password to `admin`.
-
-1. Install the chart as follows by running from the root of the `corda-runtime-os` repository:
-
-   ```sh
-   helm install corda -n corda charts/corda --values values.yaml --wait
-   ```
-
-When the commmand completes, the RPC endpoint should be ready to access.
-
-### Troubleshooting
-
-If the install times out, it indicates that not all of the worker pods reached ready state.
-Use the following command to list the pods and their current state:
-
-```sh
-kubectl get pods -n corda
+By default, the [REST API](../../developing/rest-api/rest-api.html) is exposed on an internal Kubernetes service. To enable access from outside the Kubernetes cluster, the API should be fronted by a load balancer. The Helm chart allows annotations to be specified to facilitate the creation of a load balancer by a cloud-platform specific controller. For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html) fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
+```yaml
+workers:
+  rpc:
+    service:
+      type: LoadBalancer
+      annotations:
+        service.beta.kubernetes.io/aws-load-balancer-internal: true
+        service.beta.kubernetes.io/aws-load-balancer-scheme: internal
+        service.beta.kubernetes.io/aws-load-balancer-type: nlb
+        external-dns.alpha.kubernetes.io/hostname: rpc-worker.dev1.corda.cloud
 ```
 
-If a particular pod is failing to start, run the following command to get more details using the name of the pod from the previous output:
+### PostgreSQL
 
-```sh
-kubectl describe pod -n corda corda-rpc-worker-8f9f5565-wkzgq
+The password for PostgreSQL can be specified directly as a Helm override but this is not recommended. Instead, create a Kubernetes secret containing the password with a key of password. By default, the install expects a database called `cordacluster` but this can be overridden. You can then define the PostgreSQL configuration as follows:
+```yaml
+db:
+  cluster:
+    host: <POSTGRESQL_HOST>
+    port: 5432
+    user: <POSTGRESQL_USER>
+    database: <POSTGRESQL_CLUSTER_DB>
+    existingSecret: <POSTGRESQL_PASSWORD_SECRET_NAME>
 ```
 
-If the pod is continually restarting, it is likely that Kubernetes is killing it because it does not reach a healthy state. Check the pod logs, for example:
+### Kafka
 
-```sh
-kubectl logs -n corda corda-rpc-worker-8f9f5565-wkzgq
+Specify the Kafka bootstrap servers as a comma-separated list:
+```yaml
+kafka:
+  boostrapServers: <KAFKA_BOOTSTRAP_SERVERS>
+```
+If desired, a prefix can be applied to all of the Kafka topics used by the Corda deployment. This enables multiple Corda clusters to share a Kafka cluster. For example:
+```yaml
+kafka:
+  topicPrefix: <KAFKA_TOPIC_PREFIX>
+```
+Enable TLS if required by the Kafka client protocol:
+```yaml
+kafka:
+  tls:
+    enabled: true
 ```
 
-## Access the Corda Cluster
-
-1. To access the RPC endpoint, forward the port by running the following command in a second terminal window:
-
-   ```sh
-   kubectl port-forward -n corda deploy/corda-rpc-worker 8888
-   ```
-
-2. The Swagger documentation for the RPC endpoint can then be accessed at [https://localhost:8888/api/v1/swagger](https://localhost:8888/api/v1/swagger).
-Note that the RPC endpoint is protected by a self-signed certificate.
-
-3. The RPC endpoint can be invoked through the Swagger UI using the username `admin` and password `admin` or via curl, for example:
-
-   ```sh
-   curl -u admin:admin -k https://localhost:8888/api/v1/hello
-   ```
-
-## Clean Up
-
-The quickest route to clean up is to delete the entire Kubernetes namespace:
-
-```sh
-kubectl delete ns corda
+If the broker certificate is self-signed or can not be trusted for some other reason, create a Kubernetes secret containing the client trust store. The trust store can be in PEM or JKS format. If JKS format is used, you can supply a password for the trust store. The following example is for a trust store in PEM format stored against the `ca.crt` key in the Kubernetes secret:
+```yaml
+kafka
+  tls:
+    secretRef:
+      name: <TRUST-STORE-SECRET-NAME>
+      key: "ca.crt"
+    type: PEM   
 ```
+
+Corda supports SASL for Kafka authentication. If your Kafka instance requires SASL authentication, enable this and specify the necessary credentials along with the mechanism to be used:
+
+```yaml
+kafka:
+  sasl:
+    enabled: true
+    username: <KAFKA_USERNAME>
+    password: <KAFKA_PASSWORD>
+    mechanism: "SCRAM-SHA-512"
+```
+
+### Bootstrapping
+
+By default, the Helm chart automatically configures Kafka, PostgreSQL, and a default set of Corda RBAC roles as part of the deployment process.
+If desired, each of these steps can be disabled and the necessary [configuration performed manually](manual.html).
+
+#### Kafka
+The Kafka bootstrapping creates the topics required by Corda.
+If `kafka.topicPrefix` has been specified, the process uses this as a prefix for all of the topic names.
+The bootstrap configuration enables the default number of topic partitions to be overridden.
+You may need to increase this to support a larger number of Corda worker replicas.
+It is also possible to override the default topic replica count.
+For example, if less than three Kafka brokers are available.
+The following extract shows the default values:
+
+```yaml
+bootstrap:
+  kafka:
+    enabled: true
+    partitions: 10
+    replicas: 3
+```
+
+#### Database
+
+The database bootstrapping creates schemas in the cluster database and populates them with the initial configuration. It is enabled by default:
+
+```yaml
+bootstrap:
+  db:
+    enabled: true
+```
+By default, the database bootstrapping uses the psql CLI from the Docker image `postgres:14.4` on Docker Hub. If the Kubernetes cluster does not have access to Docker Hub, this image must be made available in an internal registry. The location of the image can then be specified via overrides, as follows:
+
+```yaml
+db:
+  clientImage:
+    registry: <REGISTRY>
+    repository: "postgres"
+    tag: "14.4"
+```
+Part of the database bootstrapping involves populating the initial admin credentials. You can specify these in one of the following ways:
+
+* Pass the username and password as Helm values:
+  ```yaml
+  bootstrap:
+  initialAdminUser:
+    username: <USERNAME>
+    password: <PASSWORD>
+  ```
+
+* If the password field is left blank, a Kubernetes secret is created containing a generated password. The notes output when the deployment completes contain instructions for how to retrieve this. This is the default behavior.
+
+* Create a Kubernetes secret containing the user credentials. By default, Kubernetes expects the secret to contain the username and password of the key:
+  ```yaml
+  bootstrap:
+  initialAdminUser:
+    secretRef:
+      name: <INITIAL-ADMIN-USER-SECRET-NAME>
+      usernameKey: "username"
+      passwordKey: "password"
+  ```
+
+#### RBAC
+
+The RBAC bootstrapping creates three default RBAC roles. It is enabled by default:
+```yaml
+bootstrap:
+  rbac:
+    enabled: true
+```
+
+## Deployment
+
+Once the configuration for the environment has been defined in a YAML file, you can install the Helm chart:
+```shell
+helm install -n <NAMESPACE> <HELM-RELEASE-NAME> ****** -f <PATH-TO-YAML-FILE>
+```
+For example, to create a Helm release called `corda` in the `corda` namespace using the overrides specified in a file called `values.yaml`, run the following:
+
+```shell
+helm install -n corda corda corda-0.2.0-alpha.1-RC.3.tgz -f values.yaml
+```
+Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how to access the [Corda REST API]().
