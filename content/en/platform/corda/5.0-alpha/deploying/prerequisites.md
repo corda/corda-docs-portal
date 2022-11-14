@@ -13,11 +13,11 @@ This section lists the third-party software prerequisites for multi-worker clust
 
 ### Container Orchestration
 
-| Software                                | Version |
-|-----------------------------------------|---------|
-| Kubernetes                              | 1.23    |
-| Amazon Elastic Kubernetes Service (EKS) | 1.23    |
-| Helm | 3.9.4 or newer    |
+| Software                                | Version           |
+|-----------------------------------------|-------------------|
+| Kubernetes                              | 1.23              |
+| Amazon Elastic Kubernetes Service (EKS) | 1.23              |
+| Helm                                    | 3.9.4 or newer    |
 
 ### Messaging
 
