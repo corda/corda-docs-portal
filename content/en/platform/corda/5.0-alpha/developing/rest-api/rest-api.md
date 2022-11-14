@@ -9,6 +9,8 @@ menu:
 section_menu: corda-5-alpha
 ---
 The Corda REST API enables operators to interact with a running version of Corda.
+To access and invoke the REST API:
+
 1. To access the RPC endpoint of a Corda cluster, forward the port by running the following command in a terminal window:
 
    ```sh
