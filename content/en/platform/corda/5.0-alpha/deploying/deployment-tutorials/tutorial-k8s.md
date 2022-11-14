@@ -1,6 +1,6 @@
 ---
 date: '2021-11-14'
-title: "Deploying Kubernetes Cluster"
+title: "Deploying a Kubernetes Cluster"
 menu:
   corda-5-alpha:
     parent: corda-5-alpha-tutorials-deploy
@@ -8,6 +8,9 @@ menu:
     weight: 1000
 section_menu: corda-5-alpha
 ---
+
+This page describes how to deploy Corda 5 Alpha. It assumes all necessary [prerequisites](../prerequisites.html) have been installed.
+
 ## Download and Register Docker Images
 
 The Corda Docker images must be in a Docker registry that is accessible from the Kubernetes cluster in which Corda will run. The images are provided in a `tar` file which can be loaded into a local Docker engine and then pushed from there to the registry.
@@ -274,6 +277,6 @@ helm install -n <NAMESPACE> <HELM-RELEASE-NAME> ****** -f <PATH-TO-YAML-FILE>
 For example, to create a Helm release called `corda` in the `corda` namespace using the overrides specified in a file called `values.yaml`, run the following:
 
 ```shell
-helm install -n corda corda corda-0.2.0-alpha.1-RC.3.tgz -f values.yaml
+helm install -n corda corda ****** -f values.yaml
 ```
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how to access the [Corda REST API]().
