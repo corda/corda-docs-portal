@@ -96,9 +96,10 @@ workers:
   p2pLinkManager:
     replicaCount: 3
 ```
-{{< note >}
+
+{{< note >}}
 Depending on your application workload, you may require additional replicas.
-{{< /note >}
+{{< /note >}}
 
 ### Resource Requests and Limits
 
