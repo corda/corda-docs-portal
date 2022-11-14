@@ -11,7 +11,7 @@ section_menu: corda-5-alpha
 
 This page describes how to deploy Corda 5 Alpha. It assumes all necessary [prerequisites](../prerequisites.html) have been installed.
 
-## Download and Register Docker Images
+## Download and Push Docker Images to a Registry
 
 The Corda Docker images must be in a Docker registry that is accessible from the Kubernetes cluster in which Corda will run. The images are provided in a `tar` file which can be loaded into a local Docker engine and then pushed from there to the registry.
 
