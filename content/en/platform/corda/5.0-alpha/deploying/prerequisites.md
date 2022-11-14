@@ -1,5 +1,5 @@
 ---
-date: '2022-11-11'
+date: '2022-14-11'
 title: "Third-Party Prerequisites for Cluster Deployments"
 menu:
   corda-5-alpha:
@@ -9,15 +9,26 @@ menu:
 section_menu: corda-5-alpha
 ---
 
-This section lists the third-party software prerequisites for multi-worker cluster deployments. <!--For information about the prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html), see [Third-Party Prerequisites for the CSDE](../getting-started/prerequisites.html).-->
+This section lists the third-party software prerequisites for multi-worker cluster deployments.
+The prerequisites for both the target environment and the environment from which you are deploying are listed.
+<!--For information about the prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html), see [Third-Party Prerequisites for the CSDE](../getting-started/prerequisites.html).-->
+
+## Local Environment
+
+| Software | Version        |
+|----------|----------------|
+| kubectl  | 1.23           |
+| Helm     | 3.9.4 or newer |
+| Docker   |                |
+
+## Target Environment
 
 ### Container Orchestration
 
-| Software                                | Version           |
-|-----------------------------------------|-------------------|
-| Kubernetes                              | 1.23              |
-| Amazon Elastic Kubernetes Service (EKS) | 1.23              |
-| Helm                                    | 3.9.4 or newer    |
+| Software                                | Version |
+|-----------------------------------------|---------|
+| Kubernetes                              | 1.23    |
+| Amazon Elastic Kubernetes Service (EKS) | 1.23    |
 
 ### Messaging
 
