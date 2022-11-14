@@ -9,4 +9,5 @@ menu:
 section_menu: corda-5-alpha
 ---
 <!-- CLI https://r3-cev.atlassian.net/browse/DOC-4185-->
-This section describes how to manually bootstrap kafka and the database using the [Corda CLI](../../getting-started/installing-corda-cli.html).
+This section describes how to manually bootstrap Kafka and the database using the Corda CLI.
+<!--do we need to add back in installation instructions??-->
