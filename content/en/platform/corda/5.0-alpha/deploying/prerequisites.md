@@ -17,33 +17,33 @@ The following sections list the software that Corda 5 cluster deployments have b
 
 ### Container Orchestration
 
-| Software    | Version |
-| ----------- | ----------- |
-| Kubernetes  |   1.23  |
-| Amazon Elastic Kubernetes Service (EKS)   | 1.23 |
+| Software                                | Version |
+|-----------------------------------------|---------|
+| Kubernetes                              | 1.23    |
+| Amazon Elastic Kubernetes Service (EKS) | 1.23    |
 
 ### Messaging
 
-| Software    | Version |
-| ----------- | ----------- |
-| Kafka   |   3.2.0  |
-| Amazon Managed Streaming for Apache Kafka (MSK)   | 3.2.0 |
-|Confluent Cloud   |   |
+| Software                                        | Version |
+|-------------------------------------------------|---------|
+| Kafka                                           | 3.2.0   |
+| Amazon Managed Streaming for Apache Kafka (MSK) | 3.2.0   |
+| Confluent Cloud                                 |         |
 
 ### Database
 
-| Software    | Version |
-| ----------- | ----------- |
-| PostgreSQL  |  14.4   |
-| Amazon RDS for PostgreSQL   |  14.4 |
-| Amazon Aurora PostgreSQL | 14.4   |
+| Software                  | Version |
+|---------------------------|---------|
+| PostgreSQL                | 14.4    |
+| Amazon RDS for PostgreSQL | 14.4    |
+| Amazon Aurora PostgreSQL  | 14.4    |
 
 ## Minimum Resource Requirements
 
 Corda 5 cluster deployments have the following minimum requirements:
 
-| Software      | Requirements |
-| ----------- | ----------- |
-| Kubernetes  |     |
-| Kafka   |  |
-| PostgreSQL |   |
+| Software   | Requirements |
+|------------|--------------|
+| Kubernetes |              |
+| Kafka      |              |
+| PostgreSQL |              |
