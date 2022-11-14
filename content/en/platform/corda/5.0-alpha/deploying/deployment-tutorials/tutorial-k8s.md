@@ -45,6 +45,9 @@ The Corda Docker images must be in a Docker registry that is accessible from the
     docker tag $source $target
     docker push $target
    done
+   
+   docker tag postgres:14.4 $target_registry/postgres:14.4
+   docker push $target_registry/postgres:14.4
    ```
 
 ## Download Helm Charts
