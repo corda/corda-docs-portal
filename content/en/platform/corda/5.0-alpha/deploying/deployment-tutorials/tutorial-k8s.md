@@ -265,12 +265,18 @@ bootstrap:
 
 * Create a Kubernetes secret containing the user credentials. By default, Kubernetes expects the secret to contain the username and password of the key:
   ```yaml
-  bootstrap:
+bootstrap:
   initialAdminUser:
-    secretRef:
-      name: <INITIAL-ADMIN-USER-SECRET-NAME>
-      usernameKey: "username"
-      passwordKey: "password"
+    username:
+      valueFrom:
+        secretKeyRef:
+          name: <INITIAL_ADMIN_USER_SECRET_NAME>
+          key: "username"
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: <INITIAL_ADMIN_USER_SECRET_NAME>
+          key: "password"
   ```
 
 #### RBAC
