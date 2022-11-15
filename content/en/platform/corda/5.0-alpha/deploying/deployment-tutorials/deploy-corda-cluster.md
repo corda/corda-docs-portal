@@ -17,7 +17,7 @@ The Corda Docker images must be in a Docker registry that is accessible from the
 
 1. Download `corda-worker-images.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
-2. Inflate and load the `corda-worker-images.tar` file into the local Docker engine with the following command:
+2. Inflate and load the `corda-worker-images-eagle.tar` file into the local Docker engine with the following command:
    ```shell
    docker load -i corda-worker-images.tar
    ```
@@ -52,7 +52,7 @@ The Corda Docker images must be in a Docker registry that is accessible from the
 
 ## Download Helm Charts
 
-1. Download the Helm charts `tar` file from the [R3 Customer Hub](https://r3.force.com/).
+1. Download the Helm charts `corda-5.0.0-Eagle.tgztar` file from the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
@@ -60,12 +60,12 @@ For each deployment, you should create a YAML file to define a set of Helm overr
 The following sections describe the minimal set of configuration options required for a deployment.
 You can extract a README containing the full set of options from the Helm chart using the following command:
 ```shell
-helm show readme ************
+helm show readme corda-5.0.0-Eagle.tgz
 ```
 
 You can extract a YAML file containing all of the default values using the following command:
 ```shell
-helm show values ************
+helm show values corda-5.0.0-Eagle.tgz
 ```
 
 ### Image Registry
