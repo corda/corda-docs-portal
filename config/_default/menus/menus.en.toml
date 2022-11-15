@@ -763,11 +763,6 @@ name = "Participate"
 weight = 500
 
 [[corda-5-alpha]]
-identifier = "corda-5-alpha-release-notes"
-name = "Release Notes"
-weight = 6000
-
-[[corda-5-alpha]]
 identifier = "corda-5-alpha-deploy-troubleshoot"
 parent = "corda-5-alpha-deploy"
 name = "Troubleshooting"
