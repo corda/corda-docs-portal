@@ -19,7 +19,7 @@ The Corda Docker images must be in a Docker registry that is accessible from the
 
 2. Inflate and load the `corda-worker-images-eagle.tar` file into the local Docker engine with the following command:
    ```shell
-   docker load -i corda-worker-images.tar
+   docker load -i corda-worker-images-eagle.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target Docker registry as an argument.
