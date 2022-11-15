@@ -15,7 +15,7 @@ This page describes how to deploy Corda 5 Alpha. It assumes all necessary [prere
 
 The Corda Docker images must be in a Docker registry that is accessible from the Kubernetes cluster in which Corda will run. The images are provided in a `tar` file which can be loaded into a local Docker engine and then pushed from there to the registry.
 
-1. Download `corda-worker-images.tar` from the [R3 Customer Hub](https://r3.force.com/).
+1. Download `corda-worker-images-eagle.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
 2. Inflate and load the `corda-worker-images-eagle.tar` file into the local Docker engine with the following command:
    ```shell
