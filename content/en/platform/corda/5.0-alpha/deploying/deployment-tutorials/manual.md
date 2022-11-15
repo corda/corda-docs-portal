@@ -161,22 +161,22 @@ To create the schema manually, do the following:
 
 10. Create the RBAC and Crypto users and grant access as follows:
 
-   ```sql
-   CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
-   GRANT USAGE ON SCHEMA RPC_RBAC to <RBAC-USERNAME>;
-   GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RPC_RBAC to <RBAC-USERNAME>;
-   CREATE USER <CRYPTO-USERNAME> WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
-   GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
-   GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
-   ```
+    ```sql
+    CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
+    GRANT USAGE ON SCHEMA RPC_RBAC to <RBAC-USERNAME>;
+    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RPC_RBAC to <RBAC-USERNAME>;
+    CREATE USER <CRYPTO-USERNAME> WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
+    GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
+    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
+    ```
 
 11. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration:
 
-   ```shell
-   corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-   ```
+    ```shell
+    corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+    ```
 
-   The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
+    The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
 
 12. Review the DDL files generated and then execute against the database.
 
