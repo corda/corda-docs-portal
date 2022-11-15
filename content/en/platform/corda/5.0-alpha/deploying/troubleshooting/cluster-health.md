@@ -16,7 +16,7 @@ If you are unable to resolve your issue, see the [Support Bundles](../support-bu
 ## Pre-install Jobs
 
 At install time, two Kubernetes jobs run sequentially prior to the deployment of the Corda workers (unless [Manual Bootstrapping](../deployment-tutorials/manual.html) is used).
-Assuming a Helm release called `corda`, these jobs are called `corda-create-topics` and `corda-setup-db`.
+Assuming a Helm release is called `corda`, these jobs are called `corda-create-topics` and `corda-setup-db`.
 These jobs each create a pod that executes a number of containers and should then run through to completion.
 
 If `kubectl get pods` shows that the jobs failed to start, use `kubectl describe` to determine the reason for the failure.
