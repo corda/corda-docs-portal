@@ -62,6 +62,7 @@ menu:
     </div>
   </div>
 </div>
+<!--
 <div class="col">
   <div class="card h-100">
     <div class="card-body">
@@ -73,6 +74,7 @@ menu:
     </div>
   </div>
 </div>
+-->
 <div class="col">
   <div class="card h-100">
     <div class="card-body">
