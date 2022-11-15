@@ -56,7 +56,7 @@ If so, increase the number of nodes allocated to the cluster, or the size of the
 
 If one of the pods restarts, use `kubectl describe` to determine why the pod restarted.
 It may be that the pod does not have sufficient resources and was terminated by Kubernetes due to an out of memory condition.
-If this is the case, increase the requested resources in the deployment configuration YAML file and them upgrade the Helm install.
+If this is the case, increase the requested resources in the deployment configuration YAML file and then upgrade the Helm install.
 For example:
 
 ```shell
