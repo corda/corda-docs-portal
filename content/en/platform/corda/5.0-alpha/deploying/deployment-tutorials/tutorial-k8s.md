@@ -15,7 +15,7 @@ This page describes how to deploy Corda 5 Alpha. It assumes all necessary [prere
 
 The Corda Docker images must be in a Docker registry that is accessible from the Kubernetes cluster in which Corda will run. The images are provided in a `tar` file which can be loaded into a local Docker engine and then pushed from there to the registry.
 
-1. Download [corda-worker-images.tar]()**add link.
+1. Download `corda-worker-images.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
 2. Inflate and load the `corda-worker-images.tar` file into the local Docker engine with the following command:
    ```shell
@@ -45,14 +45,14 @@ The Corda Docker images must be in a Docker registry that is accessible from the
     docker tag $source $target
     docker push $target
    done
-   
+
    docker tag postgres:14.4 $target_registry/postgres:14.4
    docker push $target_registry/postgres:14.4
    ```
 
 ## Download Helm Charts
 
-1. Download [-]()**add link.
+1. Download the Helm charts `tar` file from the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
@@ -253,30 +253,30 @@ Part of the database bootstrapping involves populating the initial admin credent
 
 * Pass the username and password as Helm values:
   ```yaml
-bootstrap:
-  initialAdminUser:
-    username:
-      value: <USERNAME>
-    password:
-      value: <PASSWORD>
+  bootstrap:
+    initialAdminUser:
+      username:
+        value: <USERNAME>
+      password:
+        value: <PASSWORD>
   ```
 
-* If the password field is left blank, a Kubernetes secret is created containing a generated password. The notes output when the deployment completes contain instructions for how to retrieve this. This is the default behavior.
+* Leave the password field blank. A Kubernetes secret is created containing a generated password. The notes output when the deployment completes contain instructions for how to retrieve this. This is the default behavior.
 
 * Create a Kubernetes secret containing the user credentials:
   ```yaml
-bootstrap:
-  initialAdminUser:
-    username:
-      valueFrom:
-        secretKeyRef:
-          name: <INITIAL_ADMIN_USER_SECRET_NAME>
-          key: "username"
-    password:
-      valueFrom:
-        secretKeyRef:
-          name: <INITIAL_ADMIN_USER_SECRET_NAME>
-          key: "password"
+  bootstrap:
+    initialAdminUser:
+      username:
+        valueFrom:
+          secretKeyRef:
+            name: <INITIAL_ADMIN_USER_SECRET_NAME>
+            key: "username"
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: <INITIAL_ADMIN_USER_SECRET_NAME>
+            key: "password"
   ```
 
 #### RBAC
@@ -286,6 +286,92 @@ The RBAC bootstrapping creates three default RBAC roles. It is enabled by defaul
 bootstrap:
   rbac:
     enabled: true
+```
+
+### Example configuration
+
+{{< warning >}}
+The example in this section is included only for illustrative purposes. You must use the information provided to determine the correct configuration file for your environment.
+{{< /warning >}}
+
+The following example shows a complete configuration file for Corda deployment in an environment in which Kafka is using a trusted TLS certificate, SASL authentication is enabled, the REST API is exposed via an AWS Network Load Balancer, and the generated password for the initial admin user is retrieved from a secret.
+
+```yaml
+image:
+  registry: "registry.example.com"
+
+imagePullSecrets:
+  - "registry-secret"
+
+workers:
+  crypto:
+    replicaCount: 3
+  db:
+    replicaCount: 3
+  flow:
+    replicaCount: 3
+  membership:
+    replicaCount: 3
+  rpc:
+    replicaCount: 3
+  p2pGateway:
+    replicaCount: 3
+  p2pLinkManager:
+    replicaCount: 3
+
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "125m"
+  limits:
+    memory: "2048Mi"
+    cpu: "1000m"
+
+workers:
+  rpc:
+    service:
+      type: "LoadBalancer"
+      annotations:
+        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+        service.beta.kubernetes.io/aws-load-balancer-scheme: "internal"
+        service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+        external-dns.alpha.kubernetes.io/hostname: "corda.example.com"
+
+db:
+  cluster:
+    host: "postgres.example.com"
+    port: 5432
+    database: "cordacluster"
+    user:
+      value: "user"
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: "postgres-secret"
+          key: "password"
+
+kafka:
+  boostrapServers: "kafka-1.example.com,kafka-2.example.com,kafka-3.example.com"
+  tls:
+    enabled: true
+  sasl:
+    enabled: true
+    username:
+      valueFrom:
+        secretKeyRef:
+          name: "kafka-secret"
+          key: "username"
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: "kafka-secret"
+          key: "password"
+    mechanism: "SCRAM-SHA-512"
+
+bootstrap:
+  db:
+    clientImage:
+      registry: "registry.example.com"
 ```
 
 ## Deployment
