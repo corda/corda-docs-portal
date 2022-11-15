@@ -34,9 +34,10 @@ Most of Corda's public, non-experimental APIs are backwards compatible. See the 
 3. [Update the database](#step-3-update-the-database).
 4. [Replace corda.jar with new version](#step-4-replace-cordajar-with-new-version)
 5. [Install corda-shell.jar](#step-5-install-corda-shelljar).
-6. [Update the configuration](#step-6-update-the-configuration).
-7. [Start the node](#step-7-start-the-node).
-8. [Undrain the node](#step-8-undrain-the-node).
+6. [Update corda-tools-metering-collector.jar](#step-6-update-corda-tools-metering-collectorjar)
+7. [Update the configuration](#step-7-update-the-configuration).
+8. [Start the node](#step-8-start-the-node).
+9. [Undrain the node](#step-9-undrain-the-node).
 
 {{< note >}}
 The protocol tolerates node outages. Peers on the network wait for your node to become available after upgrading.
@@ -294,19 +295,22 @@ Install `corda-shell.jar` as a driver within your node.
 
 Download the `corda-shell` `.jar` from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node. By default, a Corda node does not run the shell.
 
-For more information, see [Node Shell](node/operating/shell.html)
+For more information, see [Node Shell](node/operating/shell.html).
 
-## Step 6: Update the configuration
+
+##  Step 6: Update corda-tools-metering-collector.jar
+
+Download the latest 4.9.\* version of corda-tools-metering-collector.jar from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-tools-metering-collector) and replace the existing one with it.
+
+## Step 7: Update the configuration
 
 {{< note >}}
-
 You only need to perform this step if you are updating from version 4.5 or older.
-
 {{< /note >}}
 
 Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
 
-## Step 7: Start the node
+## Step 8: Start the node
 
 If you manually updated the database in [Step 3](#step-3-update-the-database), start the node in the normal way.
 
@@ -319,7 +323,7 @@ java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 The node will perform any automatic data migrations required, which may take some
 time. If the migration process is interrupted, restart the node to continue. The node stops automatically when migration is complete.
 
-## Step 8: Undrain the node
+## Step 9: Undrain the node
 
 Run this command in the shell:
 
