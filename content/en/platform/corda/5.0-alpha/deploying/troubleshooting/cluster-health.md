@@ -85,7 +85,7 @@ Failures in the pods for these two workers may therefore indicate an issue with 
 
 ## Post-install Job
 
-Once all of the workers are ready, the Helm install will execute a post-install job.
+Once all of the workers are ready, the Helm install executes a post-install job.
 For a Helm release called `corda`, this is called `corda-setup-rbac`.
 This job runs a pod with three containers that each create an RBAC role.
 The containers use the REST API to create the roles so failures here tend to represent issues with the REST API.
