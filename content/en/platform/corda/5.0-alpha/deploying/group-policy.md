@@ -8,15 +8,15 @@ menu:
     weight: 1000
 section_menu: corda-5-alpha
 ---
-A [Corda Package Installer (CPI)](../../introduction/key-concepts.html#corda-package-installer-cpi) is composed of a [Corda Package Bundle (CPB)](../../introduction/key-concepts.html#corda-package-bundles-cpbs) and network information defined in a JSON file called `GroupPolicy.json`.
+A [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) is composed of a [Corda Package Bundle (CPB)](../introduction/key-concepts.html#corda-package-bundles-cpbs) and network information defined in a JSON file called `GroupPolicy.json`.
 You can create this file using the Corda CLI or, for members joining a group, export it from the MGM.
 
 ## Group Policy Types
 
 You can create the following types of group policy files:
-* [MGM Group Policy](#mgm-group-policy) — defines the information for an [MGM](../../introduction/key-concepts.html#membership-management) of a [dynamic network](../../deploying/network-types.html#dynamic-networks).
-* [Dynamic Network Member Group Policy](#dynamic-network-member-group-policy) — defines the information for members in a [dynamic network](../../deploying/network-types.html#dynamic-networks).
-* [Static Network Member Group Policy](#static-network-member-group-policy) — defines the information for members in a [static network](../../deploying/network-types.html#static-networks).
+* [MGM Group Policy](#mgm-group-policy) — defines the information for an [MGM](../introduction/key-concepts.html#membership-management) of a [dynamic network](../deploying/network-types.html#dynamic-networks).
+* [Dynamic Network Member Group Policy](#dynamic-network-member-group-policy) — defines the information for members in a [dynamic network](network-types.html#dynamic-networks).
+* [Static Network Member Group Policy](#static-network-member-group-policy) — defines the information for members in a [static network](network-types.html#static-networks).
 
 ### MGM Group Policy
 
@@ -55,7 +55,7 @@ Alternatively, with optional parameters:
 }
 ```
 
-For more information, see [Configuring the MGM](../tutorials/membership/mgm-onboarding.html).
+For more information, see [MGM Onboarding](../deployment-tutorials/membership/mgm-onboarding.html).
 
 ### Dynamic Network Member Group Policy
 
@@ -71,7 +71,7 @@ For example, if the MGM endpoint or trust store changes, the data is in the form
 Storing this way avoids the need for custom data converters just for building/parsing the group policy.
 
 Members also require information to configure the P2P layer to allow communication with other members and the MGM. This includes information such as trust roots and the PKI mode to use.
-Since the MGM must create this file, an MGM must be up and running before this file can be created.
+Since the MGM creates this file, an MGM must be up and running before this file can be created.
 <!--
 **_NOTE:_**: One can export the group policy file from the MGM using the API instead of building it manually. See details in [the dynamic member onboarding page](../Member-Onboarding-(Dynamic-Networks))
 
