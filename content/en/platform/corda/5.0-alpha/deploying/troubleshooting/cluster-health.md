@@ -63,7 +63,7 @@ For example:
 helm upgrade corda --namespace corda -f updated-values.yaml
 ```
 
-If a pod is being terminated because the liveness probe has failed, or does not restart but fails to reach `Running` state, then further investigation is required.
+If a pod is being terminated because the liveness probe has failed, or does restart but fails to reach the `Running` state, then further investigation is required.
 The logs for a pod may help determine the cause of the failure.
 Retrieve the logs using `kubectl logs`.
 For example:
