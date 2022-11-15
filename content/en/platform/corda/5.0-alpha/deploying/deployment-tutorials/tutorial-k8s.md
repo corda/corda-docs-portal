@@ -190,7 +190,7 @@ kafka
     type: PEM   
 ```
 
-Corda supports SASL for Kafka authentication. If your Kafka instance requires SASL authentication, enable this and specify the necessary credentials along with the mechanism to be used:
+Corda supports SASL for Kafka authentication. If your Kafka instance requires SASL authentication, create a secret containing the credentials with the username and password of the key and then specify the secret name, along with the required mechanism in the overrides:
 
 ```yaml
 kafka:
