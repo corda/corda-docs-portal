@@ -278,14 +278,14 @@ Option `-b` points to the base directory which contains a `node.conf` file and `
 Replace corda.jar with its latest version.
 
 Download the latest version of Corda from [our Artifactory site](https://software.r3.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
-Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java the node requires.
+Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java that the node requires.
 
 {{< important >}}
 Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not currently supported.
 {{< /important >}}
 
 {{< important >}}
-If you used Corda Shell in the previous version, put Corda Shell in the driver directory or use the standalone type Corda Shell according to Node shell.”
+If you used Corda Shell in the previous version, put Corda Shell in the driver directory, or use the standalone type Corda Shell according to Node shell.
 {{< /important >}}
 
 ## Step 5: Install corda-shell.jar
