@@ -6,19 +6,19 @@ menu:
     identifier: corda-5-alpha-deploy-manual
     parent: corda-5-alpha-tutorials-deploy
     weight: 3000
-section-menu: corda-5-alpha
+section_menu: corda-5-alpha
 ---
 <!-- CLI https://r3-cev.atlassian.net/browse/DOC-4185-->
-This section describes how to manually bootstrap Kafka, the database, and RBAC roles using the Corda CLI.
 <!--do we need to add back in installation instructions??-->
 
-By default, a Corda installation automatically performs various setup actions in Kafka and the database, and for Corda RBAC.
-For customer's requiring additional control, this automatic setup can be disabled and the actions performed manually by an administrator with the assistance of the Corda CLI.
+By default, the Corda installation process automatically performs various setup actions in Kafka and the database, and for Corda RBAC.
+If you require additional control, you can disable these automatic setup processes and an administrator can manually perform the actions with the assistance of the Corda CLI.
 
 ## Kafka
 
 By default, a Corda installation automatically creates the Kafka topics it requires.
-This behavior can be disabled by setting the following override in the deployment configuration:
+To create the topics manually, do the following:
+1. Set the following override in the deployment configuration to disable the automatic creation:
 
 ```yaml
 bootstrap:
@@ -26,10 +26,12 @@ bootstrap:
     enabled: false
 ```
 
-The Corda CLI can then be used to assist in creation of the topics prior to Corda installation in one of two ways.
+2. Use the Corda CLI to assist in the creation of the topics prior to Corda installation in one of two ways:
+* [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
+* [Topic Creation by Scripting](#topic-creation-by-scripting)
 
-In both cases, the first step is to create a [Kafka client properties](https://kafka.apache.org/documentation/#configuration) file.
-An example properties file for a Kafka cluster using TLS and SASL authentication might look as follows:
+   In both cases, the first step is to create a [Kafka client properties](https://kafka.apache.org/documentation/#configuration) file.
+The following is an example properties file for a Kafka cluster using TLS and SASL authentication:
 
 ```properties
 security.protocol=SASL-SSL
@@ -59,7 +61,7 @@ corda-cli.sh topic -b kafka-1.example.com -k config.properties create -r 3 -p 10
 
 ### Topic Creation by Scripting
 
-Alternatively, the Corda CLI can be used to generate a shell script which may then be reviewed before executing against the broker.
+Alternatively, the Corda CLI can generate a shell script which you should review before executing against the broker.
 The shell script makes use of the `kafka-topic.sh` script provided with a Kafka installation.
 
 The Corda CLI command looks as follows:
@@ -78,12 +80,13 @@ corda-cli.sh topic -b kafka-1.example.com -k config.properties \
   create -r 3 -p 10 script -f create.sh -c 6
 ```
 
-The script `create.sh` would then be executed to created the topics.
+You can then execute the `create.sh` script to create the topics.
 
 ## Database
 
 By default, a Corda installation automatically creates and populates the database schema it requires.
-This behavior can be disabled by setting the following override in the deployment configuration:
+To create the schema manually, do the following:
+1. Set the following override in the deployment configuration to disable the automatic creation:
 
 ```yaml
 bootstrap:
@@ -91,21 +94,18 @@ bootstrap:
     enabled: false
 ```
 
-The following steps can then be performed to manually set up the database prior to Corda installation.
 
-### Create the Database Schemas
 
-The following Corda CLI command generates DML files in the directory `/tmp/db` for creating the database schema:
+2. Use the Corda CLI to generate DML files for creating the database schema. For example, the following command generates the files in the directory `/tmp/db`:
 
 ```shell
 corda-cli.sh database spec -c -l /tmp/db
 ```
 
-The DML generated should be reviewed and then executed against the database.
+3. Review the DML files generated and then execute against the database.
 
-### Create RBAC Database Connection Configuration
 
-The following Corda CLI command generates DDL for populating the RBAC database connection configuration:
+4. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration:
 
 ```shell
 corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
@@ -123,7 +123,7 @@ workers:
     passphrase: <PASSPHRASE>
 ```
 
-An example usage might look as follows:
+For example:
 
 ```shell
 corda-cli.sh initial-config create-db-config -u rbac-user -p rc9VLHU3 \
@@ -131,11 +131,10 @@ corda-cli.sh initial-config create-db-config -u rbac-user -p rc9VLHU3 \
   --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
 ```
 
-The DDL generated should be reviewed and then executed against the database.
+5. Review the DDL files generated and then execute against the database.
 
-### Create Crypto Database Connection Configuration
 
-The following Corda CLI command generates DDL for populating the Crypto database connection configuration:
+6. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration:
 
 ```shell
 corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> \
@@ -145,7 +144,7 @@ corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PAS
 
 The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
 
-An example usage might look as follows:
+For example:
 
 ```shell
 corda-cli.sh initial-config create-db-config -u crypto-user -p TqoCp4v2 \
@@ -153,21 +152,19 @@ corda-cli.sh initial-config create-db-config -u crypto-user -p TqoCp4v2 \
   --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
 ```
 
-The DDL generated should be reviewed and then executed against the database.
+7. Review the DDL files generated and then execute against the database.
 
-### Create the Initial Admin User
 
-The following Corda CLI command generates DDL for populating the initial admin user for Corda:
+8.Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda:
 
 ```shell
 corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
 ```
 
-The DDL generated should be reviewed and then executed against the database.
+9. Review the DDL files generated and then execute against the database.
 
-### Create the Database Users and Grant Access
 
-Create the RBAC and Crypto users and grant access as follows:
+10. Create the RBAC and Crypto users and grant access as follows:
 
 ```sql
 CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
@@ -178,9 +175,8 @@ GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
 ```
 
-### Create the Initial Crypto Configuration
 
-The following Corda CLI command generates DDL for populating the initial crypto configuration:
+11. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration:
 
 ```shell
 corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
@@ -188,12 +184,13 @@ corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PAS
 
 The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
 
-The DDL generated should be reviewed and then executed against the database.
+12. Review the DDL files generated and then execute against the database.
 
 ## RBAC Roles
 
-A post-install job normally creates three default RBAC roles for the Corda API.
-Automatic creation of these RBAC roles can be disabled as follows:
+By default, a post-install job normally creates three default RBAC roles for the Corda API.
+To create the roles manually, do the following:
+1. Set the following override in the deployment configuration to disable the automatic creation:
 
 ```yaml
 bootstrap:
@@ -201,7 +198,7 @@ bootstrap:
     enabled: false
 ```
 
-To manually create the three RBAC roles, execute the following three commands:
+2. Execute the following three commands:
 
 ```shell
 corda-cli.sh initial-rbac user-admin --yield 300 --user <INITIAL-ADMIN-USERNAME> \
