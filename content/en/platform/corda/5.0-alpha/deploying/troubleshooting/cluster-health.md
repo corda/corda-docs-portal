@@ -30,7 +30,7 @@ If the pod is unable to pull the Docker images, check that the image registry an
 
 If the pods start but then fail to complete, this may indicate an issue with the connection settings.
 For Kafka, ensure that the list of bootstrap servers is correct, and that the TLS and authentication settings provided to Corda match those for the Kafka cluster.
-For PostgreSQL, ensure that the hostname, port, and credentials provided to Corda are correct.
+For PostgreSQL, ensure that the host name, port, and credentials provided to Corda are correct.
 
 The container logs may help diagnose any issues.
 Use the `--all-containers` option to retrieve the logs for all of the containers that run within the pod.
