@@ -263,7 +263,7 @@ bootstrap:
 
 * If the password field is left blank, a Kubernetes secret is created containing a generated password. The notes output when the deployment completes contain instructions for how to retrieve this. This is the default behavior.
 
-* Create a Kubernetes secret containing the user credentials. By default, Kubernetes expects the secret to contain the username and password of the key:
+* Create a Kubernetes secret containing the user credentials:
   ```yaml
 bootstrap:
   initialAdminUser:
