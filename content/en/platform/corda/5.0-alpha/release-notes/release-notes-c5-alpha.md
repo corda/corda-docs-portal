@@ -4,7 +4,6 @@ title: "Release Notes"
 menu:
   corda-5-alpha:
     identifier: corda-5-alpha-release-notes
-    parent: corda-5-alpha-release
     weight: 6000
 section_menu: corda-5-alpha
 ---
