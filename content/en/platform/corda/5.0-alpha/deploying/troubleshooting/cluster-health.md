@@ -11,7 +11,7 @@ section_menu: corda-5-alpha
 <!-- https://r3-cev.atlassian.net/browse/DOC-4187-->
 
 This page describes how to determine whether your cluster is currently healthy and some steps to debug common issues.
-If you are unable to resolve your issue, see the [Support Bundles section](./support-bundles.html) for details of information to collect so that R3 can provide further assistance.
+If you are unable to resolve your issue, see the [Support Bundles](../support-bundles.html) section for details of information to collect so that R3 can provide further assistance.
 
 ## Pre-install Jobs
 
