@@ -385,4 +385,4 @@ For example, to create a Helm release called `corda` in the `corda` namespace us
 ```shell
 helm install -n corda corda ****** -f values.yaml
 ```
-Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how to access the [Corda REST API]().
+Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how to access the [Corda REST API](../../developing/rest-api/rest-api.html).
