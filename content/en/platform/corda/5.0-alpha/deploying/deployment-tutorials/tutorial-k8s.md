@@ -196,8 +196,16 @@ Corda supports SASL for Kafka authentication. If your Kafka instance requires SA
 kafka:
   sasl:
     enabled: true
-    username: <KAFKA_USERNAME>
-    password: <KAFKA_PASSWORD>
+    username:
+      valueFrom:
+        secretKeyRef:
+          name: <SASL-SECRET-NAME>
+          key: "username"
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: <SASL-SECRET-NAME>
+          key: "password"
     mechanism: "SCRAM-SHA-512"
 ```
 
