@@ -40,7 +40,9 @@ For example:
 kubectl logs job/corda-setup-db --all-containers
 ```
 
-Note that these jobs only run on a Helm install, not on a Helm upgrade.
+{{< note >}}
+These jobs only run on a Helm install, not on a Helm upgrade.
+{{< /note >}}
 
 ## Corda Workers
 
