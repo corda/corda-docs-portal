@@ -253,10 +253,12 @@ Part of the database bootstrapping involves populating the initial admin credent
 
 * Pass the username and password as Helm values:
   ```yaml
-  bootstrap:
+bootstrap:
   initialAdminUser:
-    username: <USERNAME>
-    password: <PASSWORD>
+    username:
+      value: <USERNAME>
+    password:
+      value: <PASSWORD>
   ```
 
 * If the password field is left blank, a Kubernetes secret is created containing a generated password. The notes output when the deployment completes contain instructions for how to retrieve this. This is the default behavior.
