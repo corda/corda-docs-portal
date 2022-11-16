@@ -203,4 +203,4 @@ To create the roles manually, do the following:
      --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
    ```
 
-   `<API-ENDPOINT>` should be a URL where the Corda API is accessible, either via a load balancer or by forwading port 8888 from one of the RPC worker pods.
+   `<API-ENDPOINT>` should be a URL where the Corda API is accessible, either via a load balancer or by forwarding port 8888 from one of the RPC worker pods.
