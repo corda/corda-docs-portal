@@ -15,27 +15,72 @@ This section describes how to configure the MGM, through which a membership grou
 Set the values of variables for use in later commands:
 
 1. Set the P2P gateway host and port and the RPC API host and port. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
    ```shell
    export RPC_HOST=localhost
    export RPC_PORT=8888
    export P2P_GATEWAY_PORT=8080
    ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   $RPC_HOST = "localhost"
+   $RPC_PORT = 8888
+   $P2P_GATEWAY_HOST = "localhost"
+   $P2P_GATEWAY_PORT = 8080
+   $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("admin:admin" -f $username,$password)))
+   ```
+   }
+   {{% /tab %}}
+   {{< /tabs >}}
 
-2. Set the RPC API URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
+2. Set the [REST API](../../../developing/rest-api/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
    ```shell
    export API_URL="https://$RPC_HOST:$RPC_PORT/api/v1"
    ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   $API_URL="https://$RPC_HOST:$RPC_PORT/api/v1"
+   ```
+   }
+   {{% /tab %}}
+   {{< /tabs >}}
 
 3. Set the working directory for storing temporary files:
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
    ```shell
    export WORK_DIR=~/Desktop/register-mgm
    mkdir -p $WORK_DIR
    ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   $WORK_DIR = "$HOME/register-mgm"
+   md $WORK_DIR -Force
+   ```
+   }
+   {{% /tab %}}
+   {{< /tabs >}}
 
 4. Set the path to your local clone of `corda-runtime-os`:
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
    ```shell
    export RUNTIME_OS=~/dev/corda-runtime-os
    ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   $RUNTIME_OS = "~/dev/corda-runtime-os"
+   ```
+   }
+   {{% /tab %}}
+   {{< /tabs >}}
 
 ## Select a Certificate Authority
 Corda uses an external Certificate Authority (CA) for the keys it generates.
@@ -49,11 +94,24 @@ For the purposes of testing in a development environment, you can use a fake CA,
 If you have previously generated a fake CA, you can reuse that CA and you do not need to generate a new one.
 {{< /note >}}
 To create a fake CA in the temporary location `/tmp/ca`, run these commands:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
 ```shell
 cd $RUNTIME_OS
 ./gradlew :applications:tools:p2p-test:fake-ca:clean :applications:tools:p2p-test:fake-ca:appJar
 java -jar ./applications/tools/p2p-test/fake-ca/build/bin/corda-fake-ca-5.0.0.0-SNAPSHOT.jar -m /tmp/ca -a RSA -s 3072 ca
 ```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+cd $RUNTIME_OS
+./gradlew :applications:tools:p2p-test:fake-ca:clean :applications:tools:p2p-test:fake-ca:appJar
+java -jar ./applications/tools/p2p-test/fake-ca/build/bin/corda-fake-ca-5.0.0.0-SNAPSHOT.jar -m $env:TEMP\tmp\ca -a RSA -s 3072 ca
+```
+}
+{{% /tab %}}
+{{< /tabs >}}
 
 This outputs the name and location of the generated file, which you should take note of.
 
@@ -70,6 +128,8 @@ cp testing/cpbs/mgm/build/libs/mgm-5.0.0.0-SNAPSHOT-package.cpb $WORK_DIR
 ## Create the Group Policy File
 
 Create the [GroupPolicy.json file](../../group-policy.html#mgm-group-policy) in the same directory as the CPB:
+{{< tabs >}}
+{{% tab name="Bash"%}}
 ```shell
 echo '{
   "fileFormatVersion" : 1,
@@ -78,52 +138,102 @@ echo '{
   "synchronisationProtocol": "net.corda.membership.impl.synchronisation.MgmSynchronisationServiceImpl"
 }' > $WORK_DIR/GroupPolicy.json
 ```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Add-Content $WORK_DIR/GroupPolicy.json @"
+{
+  "fileFormatVersion" : 1,
+  "groupId" : "CREATE_ID",
+  "registrationProtocol" :"net.corda.membership.impl.registration.dynamic.mgm.MGMRegistrationService",
+  "synchronisationProtocol": "net.corda.membership.impl.synchronisation.MgmSynchronisationServiceImpl"
+}
+"@
+```
+}
+{{% /tab %}}
+{{< /tabs >}}
+
 
 ## Build the CPI
 
-Build the CPI using the `corda-cli` packaging plugin, passing in the [MGM CPB](#create-the-cpb) and [group policy](#create-the-group-policy-file) files.
+Build the CPI using the [Corda CLI]() packaging plugin, passing in the [MGM CPB](#create-the-cpb) and [group policy](#create-the-group-policy-file) files.
 
-*To review*
-See this [CorDapp Packaging]() for more details.
-
-Previously, the following commands were used to generate a V1 CPI. Corda will prevent V1 CPIs from being uploaded soon so these steps are no longer advised and are only here while we are still transitioning to V2 only CPIs. These instructions will be removed from this wiki page in the coming days.
-```
-cd $RUNTIME_OS
-./gradlew testing:cpbs:mgm:build
-cp testing/cpbs/mgm/build/libs/mgm-5.0.0.0-SNAPSHOT-package.cpb $WORK_DIR
-cd $WORK_DIR
-zip mgm-5.0.0.0-SNAPSHOT-package.cpb -j ./GroupPolicy.json
-```
+<!--Add link when ready
+See this [CorDapp Packaging]() for more details.-->
 
 ## Upload the CPI
-*To review*
+
+To upload the CPI, run the following:
+{{< tabs >}}
+{{% tab name="Bash"%}}
 ```
 export CPI_PATH=<CPI PATH>
 curl --insecure -u admin:admin -F upload=@$CPI_PATH $API_URL/cpi/
 ```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+$CPI_PATH = "$WORK_DIR\mgm-5.0.0.0-SNAPSHOT-package.cpb"
+$CPI_UPLOAD_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/cpi/" -Method Post -Form @{
+    upload = Get-Item -Path $CPI_PATH
+}
+```
+}
+{{% /tab %}}
+{{< /tabs >}}
 
-The returned identifier (for example `f0a0f381-e0d6-49d2-abba-6094992cef02`) is the `CPI ID`, use it below to get the checksum of the CPI.
-
+The returned identifier (for example `f0a0f381-e0d6-49d2-abba-6094992cef02`) is the `CPI ID`.
+Use this identifier to get the checksum of the CPI:
+{{< tabs >}}
+{{% tab name="Bash"%}}
 ```
 export CPI_ID=<CPI ID>
 curl --insecure -u admin:admin $API_URL/cpi/status/$CPI_ID
 ```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+$CPI_ID = $CPI_UPLOAD_RESPONSE.id
+$CPI_STATUS_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/cpi/status/$CPI_ID"
+```
+}
+{{% /tab %}}
+{{< /tabs >}}
 
 The result contains the `cpiFileChecksum`. Save this for the next step.
 
 ## Create a Virtual Node
-*To review*
+
 To create a virtual node for the MGM, run the following:
+{{< tabs >}}
+{{% tab name="Bash"%}}
 ```shell
 export CPI_CHECKSUM=<CPI checksum>
 curl --insecure -u admin:admin -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "C=GB, L=London, O=MGM"}}' $API_URL/virtualnode
 ```
-Replace `<holding identity ID>` with the ID from the previous step (in `holdingIdentity.shortHash` for example: `58B6030FABDD`).
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+$VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/virtualnode" -Method Post -Body (ConvertTo-Json @{
+    request = @{
+       cpiFileChecksum = $CPI_STATUS_RESPONSE.cpiFileChecksum
+       x500Name = "C=GB, L=London, O=MGM"
+    }
+})
+
+$MGM_HOLDING_ID = $VIRTUAL_NODE_RESPONSE.holdingIdentity.shortHash
+```
+}
+{{% /tab %}}
+{{< /tabs >}}
+
+If using Bash, run the following, replacing `<holding identity ID>` with the ID returned in `holdingIdentity.shortHash` (for example, `58B6030FABDD`).
 ```
 export MGM_HOLDING_ID=<holding identity ID>
 ```
 
-## Assign soft HSM, generate session initiation and each key pair
+## Assign soft HSM, generate session initiation and ECDH key pair
 *To review*
 ```
 curl --insecure -u admin:admin -X POST $API_URL/hsm/soft/$MGM_HOLDING_ID/SESSION_INIT
@@ -154,17 +264,43 @@ When using cluster-level TLS, it is only necessary to do this once per cluster.
 To set up the TLS key pair and certificate for the cluster:
 
 1. Create a TLS key pair at the P2P cluster-level by running this command:
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
    ```shell
    curl -k -u admin:admin -X POST -H "Content-Type: application/json" $API_URL/keys/p2p/alias/p2p-TLS/category/TLS/scheme/CORDA.RSA
    ```
-   The endpoint returns the TLS key ID:
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   $TLS_KEY_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/keys/p2p/alias/p2p-TLS/category/TLS/scheme/CORDA.RSA"
+   $TLS_KEY_ID = $TLS_KEY_RESPONSE.id
+   ```
+   }
+   {{% /tab %}}
+   {{< /tabs >}}
+
+   If using Bash, the endpoint returns the TLS key ID:
    ```shell
    export TLS_KEY_ID=<TLS-key-ID>
    ```
 2. Create a certificate for the TLS key pair. Regardless of whether you are using the fake development tool as a CA or using a real CA, you must create a  certificate signing request (CSR). To generate a CSR, run this command:
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
    ```shell
    curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL"/certificates/p2p/"$TLS_KEY_ID > $WORK_DIR/request1.csr
    ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/certificates/p2p/$TLS_KEY_ID" -Body (ConvertTo-Json @{
+       x500Name = "CN=CordaOperator, C=GB, L=London"
+       subjectAlternativeNames = @($P2P_GATEWAY_HOST)
+   }) > $WORK_DIR/request1.csr
+   ```
+   }
+   {{% /tab %}}
+   {{< /tabs >}}
+
    You can inspect the `request1.csr` file by running this command:
    ```shell
    openssl req -text -noout -verify -in ./request1.csr
@@ -198,20 +334,45 @@ To set up the TLS key pair and certificate for the cluster:
 3. If you are using a real CA, provide the CA with this CSR and request a certificate.
 
    Alternatively, if using the fake CA dev tool, use the [fake CA created previously](#create-a-fake-ca) to sign the CSR and create a certificate:
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
    ```shell
    cd $RUNTIME_OS
    java -jar ./applications/tools/p2p-test/fake-ca/build/bin/corda-fake-ca-5.0.0.0-SNAPSHOT.jar -m /tmp/ca csr $WORK_DIR/request1.csr
    cd $WORK_DIR
    ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   cd $RUNTIME_OS
+   java -jar ./applications/tools/p2p-test/fake-ca/build/bin/corda-fake-ca-5.0.0.0-SNAPSHOT.jar -m $env:TEMP\tmp\ca csr $WORK_DIR/request1.csr
+   cd $WORK_DIR
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}   
+
    This command outputs the location of the signed certificate. For example:
    ```shell
    Wrote certificate to /tmp/ca/request1/certificate.pem
    ```
 
 4. To upload the certificate chain to the Corda cluster, run this command:
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
    ```shell
    curl -k -u admin:admin -X PUT  -F certificate=@/tmp/ca/request1/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/p2p
    ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$API_URL/certificates/cluster/p2p-tls"  -Form @{
+       certificate = Get-Item -Path $env:TEMP\tmp\ca\request1\certificate.pem
+       alias = "p2p-tls-cert"
+   }
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
    You can optionally omit the root certificate.
    {{< note >}}
    If you upload a certificate chain consisting of more than one certificates, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
@@ -221,6 +382,9 @@ To set up the TLS key pair and certificate for the cluster:
 If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks. By default, revocation checks are enabled.
 The fake CA dev tool does not support revocation and so, if you are using the fake CA, you must disable revocation checks. This only needs to be done once per cluster.
 
+#### Disable Revocation Checks Using Bash
+
+If using Bash, to disable revocation checks, do the following:
 1. Retrieve the current gateway configuration version:
    ```shell
    curl --insecure -u admin:admin -X GET $API_URL/config/corda.p2p.gateway
@@ -234,13 +398,37 @@ The fake CA dev tool does not support revocation and so, if you are using the fa
    curl -k -u admin:admin -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"revocationCheck\": { \"mode\": \"OFF\" }  }  }", "schemaVersion": {"major": 1, "minor": 0}}' $API_URL"/config"
    ```
 
+#### Disable Revocation Checks Using PowerShell
+
+If using PowerShell, to disable revocation checks, run the following:
+```shell
+$CONFIG_VERSION = (Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/config/corda.p2p.gateway").version
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
+    section = "corda.p2p.gateway"
+    version = $CONFIG_VERSION
+    config = @{
+        sslConfig = @{
+            revocationCheck = @{
+                mode = "OFF"
+            }
+        }
+    }
+    schemaVersion = @{
+        major = 1
+        minor = 0
+    }
+})
+```
+
 ## Build Registration Context
 
 {{< note >}}
 Currently, a separate HSM category for ECDH key is not present. As a result, you can specify the same session initiation key in both places.  
 {{< /note >}}
 
-To build the registration context, run the following command, replacing `<TLS-CA-PEM-certificate>` with the PEM format certificate of the CA.
+### Build Registration Context Using Bash
+
+To build the registration context using Bash, run the following command, replacing `<TLS-CA-PEM-certificate>` with the PEM format certificate of the CA.
 The certificate must all be on one line in the curl command. Replace new lines with `\n`.
 ```shell
 export TLS_CA_CERT=<TLS-CA-PEM-certificate>
@@ -261,13 +449,35 @@ export REGISTRATION_CONTEXT='{
 ```
 <!--Optionally, you can set the session certificate trustroot with the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`, however when `corda.group.pki.session` is set to `NoPKI` the session certificates are not validated against a session trustroot. At time of writing session certificates are not supported at the P2P level.-->
 
-## Register MGM
+### Build Registration Context Using PowerShell
 
-To register the MGM, run this command:
+To build the registration context using PowerShell, run the following command, replacing `TLS_CA_CERT_PATH` with the certificate path:
+```shell
+$TLS_CA_CERT_PATH = "$env:TEMP\tmp\ca\ca\root-certificate.pem"
+$REGISTRATION_CONTEXT = @{
+  'corda.session.key.id' =  $SESSION_KEY_ID
+  'corda.ecdh.key.id' = $ECDH_KEY_ID
+  'corda.group.protocol.registration' = "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService"
+  'corda.group.protocol.synchronisation' = "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl"
+  'corda.group.protocol.p2p.mode' = "Authenticated_Encryption"
+  'corda.group.key.session.policy' = "Combined"
+  'corda.group.pki.session' = "NoPKI"
+  'corda.group.pki.tls' = "Standard"
+  'corda.group.tls.version' = "1.3"
+  'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST:$P2P_GATEWAY_PORT"
+  'corda.endpoints.0.protocolVersion' = "1"
+  'corda.group.truststore.tls.0'  =  [IO.File]::ReadAllText($TLS_CA_CERT_PATH)
+}
+```
+
+## Register the MGM
+
+### Register the MGM using Bash
+
+To register the MGM using Bash, run this command:
 ```
 curl --insecure -u admin:admin -d '{"memberRegistrationRequest":{"action": "requestJoin", "context": '$REGISTRATION_CONTEXT'}}' $API_URL/membership/$MGM_HOLDING_ID
 ```
-
 For example:
 ``` shell
 curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": {
@@ -306,20 +516,58 @@ jq -n '.memberRegistrationRequest.action="requestJoin"' | \
 ) $API_URL/membership/$MGM_HOLDING_ID
 ```
 
-This should return a successful response with the status `SUBMITTED`. You can confirm if the MGM was onboarded successfully by checking the status of the registration request:
+### Register the MGM using PowerShell
+
+To register the MGM using PowerShell, run this command:
+```shell
+$RESGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/membership/$MGM_HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
+    memberRegistrationRequest = @{
+        action = "requestJoin"
+        context = $REGISTRATION_CONTEXT
+    }
+})
+$RESGISTER_RESPONSE.registrationStatus
+```
+### Confirm Registration
+
+Registration should return a successful response with the status `SUBMITTED`.
+You can confirm if the MGM was onboarded successfully by checking the status of the registration request:
+{{< tabs >}}
+{{% tab name="Bash"%}}
 ```shell
 export REGISTRATION_ID=<registration ID>
 curl --insecure -u admin:admin -X GET $API_URL/membership/$MGM_HOLDING_ID/$REGISTRATION_ID
 ```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/membership/$MGM_HOLDING_ID/${RESGISTER_RESPONSE.registrationId}"
+```
+}
+{{% /tab %}}
+{{< /tabs >}}
 If successful, you should see the `APPROVED` registration status.
 
 ## Configure the Virtual Node as a Network Participant
 
 To configure the MGM virtual node with properties required for P2P messaging, run this command:
 
+{{< tabs >}}
+{{% tab name="Bash"%}}
 ```shell
 curl -k -u admin:admin -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "p2pTlsTenantId": "p2p", "sessionKeyId": "'$SESSION_KEY_ID'"}' $API_URL/network/setup/$MGM_HOLDING_ID
 ```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/network/setup/$MGM_HOLDING_ID" -Method Put -Body (ConvertTo-Json @{
+    p2pTlsCertificateChainAlias = "p2p-tls-cert"
+    useClusterLevelTlsCertificateAndKey = $true
+    sessionKeyId = $SESSION_KEY_ID
+})
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 This configures the locally hosted identity, which is required in order for the P2P messaging to work.
 * `p2pTlsCertificateChainAlias` refers to the alias used when importing the TLS certificate.
@@ -330,9 +578,19 @@ This configures the locally hosted identity, which is required in order for the 
 ## Export the Group Policy
 
 Now that the MGM is onboarded, the MGM can export a group policy file with the connection details of the MGM. To output the full contents of the `GroupPolicy.json` file that should be packaged within the CPI for members, run this command:
+{{< tabs >}}
+{{% tab name="Bash"%}}
 ```shell
 mkdir -p ~/Desktop/register-member
 curl --insecure -u admin:admin -X GET $API_URL/mgm/$MGM_HOLDING_ID/info > ~/Desktop/register-member/GroupPolicy.json
 ```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+md ~/register-member -Force
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > ~/register-member/GroupPolicy.json
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 You can now use the MGM to [set up members in your network](dynamic-onboarding.html).
