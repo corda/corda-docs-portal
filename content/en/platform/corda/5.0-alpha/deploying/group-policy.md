@@ -59,7 +59,7 @@ For more information, see [MGM Onboarding](../deployment-tutorials/membership/mg
 
 ### Dynamic Network Member Group Policy
 
-In order to join a group, a member must use a group policy file that was exported from the MGM of that group.
+To join a group, a member must use a group policy file that was exported from the MGM of that group.
 This group policy file contains much more information than the initial file used by the MGM.
 It contains the group ID, the protocol to join that group, the protocol to use to sync data with the MGM, and any additional parameters that are needed for these protocols.
 It also contains the full `MemberInfo` of the MGM so that it can be populated in the member's member list cache to allow communication with the MGM during registration.
