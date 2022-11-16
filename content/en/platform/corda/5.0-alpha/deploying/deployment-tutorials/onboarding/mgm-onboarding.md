@@ -4,7 +4,7 @@ title: "Onboarding the MGM"
 menu:
   corda-5-alpha:
     identifier: corda-5-alpha-mgm-onboarding
-    parent: corda-5-alpha-membership-tutorials
+    parent: corda-5-alpha-onboarding-tutorials
     weight: 2000
 section_menu: corda-5-alpha
 ---

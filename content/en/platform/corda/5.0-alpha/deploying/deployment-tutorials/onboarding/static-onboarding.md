@@ -4,7 +4,7 @@ title: "Onboarding Members to Static Networks"
 menu:
   corda-5-alpha:
     identifier: corda-5-alpha-static-onboarding
-    parent: corda-5-alpha-membership-tutorials
+    parent: corda-5-alpha-onboarding-tutorials
     weight: 4000
 section_menu: corda-5-alpha
 ---
