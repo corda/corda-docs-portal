@@ -14,19 +14,19 @@ Corda CLI (command line interface) is a command line tool that supports various 
 
 To obtain the Corda CLI installer:
 1. Download `platform-jars-Eagle.tar.gz` from the [R3 Customer Hub](https://r3.force.com/).
-2. Extract `corda-cli-downloader-Eagle.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Eagle`.
+2. Extract `corda-cli-installer-5.0.0.0-Eagle.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Eagle`.
 
 ## Installing on Linux/macOS
 
 1. Start a shell session (bash or zsh).
-2. Change directory to where you saved `corda-cli-downloader-Eagle.zip`.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Eagle.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   unzip ./corda-cli-downloader-Eagle.zip -d corda-cli-downloader-Eagle
+   unzip ./corda-cli-installer-5.0.0.0-Eagle.zip -d corda-cli-installer-5.0.0.0-Eagle
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-downloader-Eagle
+   cd corda-cli-installer-5.0.0.0-Eagle
    ```
 5. Run the install script:
    ```shell
@@ -37,14 +37,14 @@ To obtain the Corda CLI installer:
 ## Installing on Windows
 
 1. Start a Powershell session.
-2. Change directory to where you saved `corda-cli-downloader-Eagle.zip`.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Eagle`.
 3. Extract the contents of the `zip` file:
    ```shell
-   Expand-Archive .\corda-cli-downloader-Eagle.zip
+   Expand-Archive .\corda-cli-installer-5.0.0.0-Eagle.zip
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-downloader-Eagle
+   cd corda-cli-installer-5.0.0.0-Eagle
    ```
 5. Run the install script:
    ```shell
@@ -55,3 +55,11 @@ To obtain the Corda CLI installer:
    {{< note >}}
    If your PowerShell execution policy does not allow you to run this script, copy the contents to your own PowerShell script and execute that instead.
    {{< /note >}}
+
+## Verifying the Installation
+
+To verify your installation, run the following command:
+```shell
+corda-cli.sh -h
+```
+If successful, this outputs details of the Corda CLI commands.
