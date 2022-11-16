@@ -771,6 +771,8 @@ A `withEntityManager` block has the following three outcomes, which are managed 
 
 Changes are committed to the database when the transaction is committed.
 
+Configuration is set to `READ_COMMITED` by default, and it is not configurable. This is the best option for Corda operations at database Level.
+
 {{< note >}}
 A flow commits its current database transaction whenever it suspends.
 {{< /note >}}
