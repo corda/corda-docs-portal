@@ -13,7 +13,7 @@ This page describes how to deploy Corda 5 Alpha. It assumes all necessary [prere
 
 ## Download and Push Docker Images to a Registry
 
-The Corda Docker images must be in a Docker registry that is accessible from the Kubernetes cluster in which Corda will run. The images are provided in a `tar` file which can be loaded into a local Docker engine and then pushed from there to the registry.
+The Corda Docker images must be in a Docker registry that is accessible from the Kubernetes cluster in which Corda will run. The images are provided in a `tar` file that can be loaded into a local Docker engine and then pushed from there to the registry.
 
 1. Download `corda-worker-images-Eagle.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
@@ -52,7 +52,7 @@ The Corda Docker images must be in a Docker registry that is accessible from the
 
 ## Download Helm Charts
 
-1. Download the Helm charts `corda-5.0.0-Eagle.tgztar` file from the [R3 Customer Hub](https://r3.force.com/).
+* Download the Helm charts `corda-5.0.0-Eagle.tgztar` file from the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
@@ -120,7 +120,7 @@ resources:
     cpu: 1000m
 ```
 {{< note >}}
-It is particularly important to specify resource requests when using a Kubernetes cluster with auto-scaling to ensure that it scales appropriately when the Corda cluster is deployed.
+It is particularly important to specify resource requests when using a Kubernetes cluster with auto-scaling, to ensure that it scales appropriately when the Corda cluster is deployed.
 {{< /note >}}
 
 You can also override the default resource requests and limits separately for each type of Corda worker. For example, to increase the memory limit for flow workers:
@@ -150,7 +150,7 @@ workers:
 
 ### PostgreSQL
 
-The password for PostgreSQL can be specified directly as a Helm override but this is not recommended. Instead, create a Kubernetes secret containing the password with a key of password. By default, the install expects a database called `cordacluster` but this can be overridden. You can then define the PostgreSQL configuration as follows:
+The password for PostgreSQL can be specified directly as a Helm override, but this is not recommended. Instead, create a Kubernetes secret containing the password with a key of `password`. By default, the install expects a database called `cordacluster`, but this can be overridden. You can then define the PostgreSQL configuration as follows:
 ```yaml
 db:
   cluster:
@@ -190,7 +190,7 @@ kafka
     type: PEM   
 ```
 
-Corda supports SASL for Kafka authentication. If your Kafka instance requires SASL authentication, create a secret containing the credentials with the username and password of the key and then specify the secret name, along with the required mechanism in the overrides:
+Corda supports SASL for Kafka authentication. If your Kafka instance requires SASL authentication, create a secret containing the credentials with the user name and password of the key and then specify the secret name, along with the required mechanism in the overrides:
 
 ```yaml
 kafka:
@@ -219,8 +219,7 @@ The Kafka bootstrapping creates the topics required by Corda.
 If `kafka.topicPrefix` has been specified, the process uses this as a prefix for all of the topic names.
 The bootstrap configuration enables the default number of topic partitions to be overridden.
 You may need to increase this to support a larger number of Corda worker replicas.
-It is also possible to override the default topic replica count.
-For example, if less than three Kafka brokers are available.
+It is also possible to override the default topic replica count; for example, if less than three Kafka brokers are available.
 The following extract shows the default values:
 
 ```yaml
@@ -288,7 +287,7 @@ bootstrap:
     enabled: true
 ```
 
-### Example configuration
+### Example Configuration
 
 {{< warning >}}
 The example in this section is included only for illustrative purposes. You must use the information provided to determine the correct configuration file for your environment.
