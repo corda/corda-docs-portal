@@ -4,8 +4,8 @@ title: "Network Types"
 menu:
   corda-5:
     identifier: corda-5-alpha-deploy-network-types
-    parent: corda-5-alpha-deploy-options
-    weight: 900
+    parent: corda-5-alpha-deploy
+    weight: 2000
 section_menu: corda-5-alpha
 ---
 
