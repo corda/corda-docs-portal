@@ -121,7 +121,7 @@ Since there is no MGM, the file contains no MGM information.
 To keep similar behaviour to a dynamic network, the static registration protocol takes the predefined list of members from the protocol parameters and populates the member list using this.
 
 As ​static networks only support single cluster groups, the network can run using a subset of P2P parameters.
-For example, communication is performed without e2e/TLS session handshakes, so you do not need to configure this for a static network.
+For example, communication is performed without end-to-end TLS session handshakes, so you do not need to configure this for a static network.
 
 For example:
 
