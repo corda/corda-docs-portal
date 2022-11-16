@@ -27,7 +27,7 @@ During onboarding, the MGM retrieves all of the information defining the group.
 From that information, the MGM builds and exports a group policy file for members to use.
 
 The MGM group policy file only requires a flag to indicate that a group ID must be generated during virtual node onboarding and information about how to register itself as part of the group.
-Registration for an MGM is essentially finalising the group set up but the registration terminology is kept in-line with the member set-up.
+Registration for an MGM is essentially finalising the group setup but the registration terminology is kept in-line with the member set-up.
 
 This is a simple file that you can construct manually. You can also use the Corda CLI to export a default version.
 
