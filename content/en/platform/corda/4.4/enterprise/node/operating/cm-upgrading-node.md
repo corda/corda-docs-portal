@@ -296,7 +296,7 @@ The option `-b` points to the base directory (with a `node.conf` file, and *driv
 ## Step 4. Replace `corda.jar` with the new version
 
 Replace the `corda.jar` with the latest version of Corda.
-Make sure it’s available on your path, and that you’ve read the [release notes](../../release-notes.md). Pay particular attention to which version of Java this node requires.
+Make sure it’s available on your path, and that you’ve read the [release notes](../../release-notes-enterprise.md). Pay particular attention to which version of Java this node requires.
 
 
 {{< important >}}
