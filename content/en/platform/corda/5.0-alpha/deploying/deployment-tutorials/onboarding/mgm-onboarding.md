@@ -83,6 +83,7 @@ Set the values of variables for use in later commands:
    {{< /tabs >}}
 
 ## Select a Certificate Authority
+
 Corda uses an external Certificate Authority (CA) for the keys it generates.
 Currently, this is just for P2P TLS certificates, but, in the future, they may also be used for session certificates.
 This root CA certificate in PEM format must be included later when onboarding the MGM.
@@ -157,7 +158,7 @@ Add-Content $WORK_DIR/GroupPolicy.json @"
 
 ## Build the CPI
 
-Build the CPI using the [Corda CLI]() packaging plugin, passing in the [MGM CPB](#create-the-cpb) and [group policy](#create-the-group-policy-file) files.
+Build the CPI using the [Corda CLI](../../installing-corda-cli.html) packaging plugin, passing in the [MGM CPB](#create-the-cpb) and [group policy](#create-the-group-policy-file) files.
 
 <!--Add link when ready
 See this [CorDapp Packaging]() for more details.-->
@@ -234,7 +235,7 @@ export MGM_HOLDING_ID=<holding identity ID>
 ```
 
 ## Assign soft HSM, generate session initiation and ECDH key pair
-*To review*
+*To review******************
 ```
 curl --insecure -u admin:admin -X POST $API_URL/hsm/soft/$MGM_HOLDING_ID/SESSION_INIT
 curl --insecure -u admin:admin -X POST $API_URL/keys/$MGM_HOLDING_ID/alias/$MGM_HOLDING_ID-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1
@@ -570,10 +571,9 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 {{< /tabs >}}
 
 This configures the locally hosted identity, which is required in order for the P2P messaging to work.
-* `p2pTlsCertificateChainAlias` refers to the alias used when importing the TLS certificate.
-* `p2pTlsTenantId` refers to the tenant ID under which the TLS cert was stored ("p2p" for cluster level).
-* `sessionKeyId` refers to the session key ID previously generated**.
-
+* `p2pTlsCertificateChainAlias` — the alias used when importing the TLS certificate.
+* `p2pTlsTenantId` — the tenant ID under which the TLS cert was stored ("p2p" for cluster level).
+* `sessionKeyId` — the [session key ID previously generated](**).
 
 ## Export the Group Policy
 

@@ -14,40 +14,23 @@ This section describes the onboarding process for [static networks](../../networ
 Static networks do not use an MGM. If you require an MGM, see [Dynamic Onboarding](dynamic-onboarding.html).
 {{< /note >}}
 
-## Create the Group Policy
+## Create the Group Policy File
 
 1. Create a directory to store your files. For example:
    ```shell
    mkdir -p ~/Desktop/register-member/
    ```
-.........
-<!--
-Build the `mgm` plugin in the [corda-runtime-os](https://github.com/corda/corda-runtime-os) repo using the following command:
-```
-./gradlew :tools:plugins:mgm:build
-```
-
-Build the [corda-cli-plugin-host](https://github.com/corda/corda-cli-plugin-host) repo:
-```
-./gradlew build
-```
-
-Copy `mgm-5.0.0.0-SNAPSHOT.jar` from `corda-runtime-os`:
-```
-cd tools/plugins/mgm/build/libs
-```
-
-To the `corda-cli-plugin-host` repo's `build/plugins` directory. Run the following command to generate your `GroupPolicy` file:
-```
-./build/generatedScripts/corda-cli.sh mgm groupPolicy --name="C=GB, L=London, O=Alice" --name="C=GB, L=London, O=Bob" --name="C=GB, L=London, O=Charlie" --endpoint-protocol=1 --endpoint="http://localhost:1080" > ~/Desktop/register-member/GroupPolicy.json
-```
-
-For more options to generate `GroupPolicy` file follow [this](https://github.com/corda/corda-runtime-os/blob/release/os/5.0/tools/plugins/mgm/README.md) readme.
--->
+2. Use the [Corda CLI](../../installing-corda-cli.html) to generate a [GroupPolicy.json file](../../group-policy.html#static-network-member-group-policy):
+   ```shell
+   corda-cli.sh mgm groupPolicy --name="C=GB, L=London, O=Alice" --name="C=GB, L=London, O=Bob" --name="C=GB, L=London, O=Charlie" --endpoint-protocol=1 --endpoint="http://localhost:1080" > ~/Desktop/register-member/GroupPolicy.json
+   ```
 
 ## Create a CPI
 
-Create a CPI by following the instructions in *[CorDapp Packaging](), using the group policy file that you generated in the [Create the Group Policy]() section.
+Build a CPI using the [Corda CLI](../../installing-corda-cli.html) packaging plugin, passing in the [group policy](#create-the-group-policy-file) file.
+
+<!--Add link when ready
+See this [CorDapp Packaging]() for more details.-->
 
 ## Upload the CPI
 
@@ -78,12 +61,15 @@ curl --insecure -u admin:admin -d '{ "request": { "cpiFileChecksum": "<CPI-check
 This returns the holding identity ID short hashes.
 
 ## Register Members
-<!-- The available key schemes are viewable through `KeysRpcOps`. One of them is used as an example in the command below.-->
 
 To register a member, run the following, replacing `<ID-short-hash>` with the holding identity ID short hash obtained in the [Create Virtual Nodes for Each Member](#create-virtual-nodes-for-each-member) section:
 ```shell
 curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": { "corda.key.scheme": "CORDA.ECDSA.SECP256R1" } } }' https://localhost:8888/api/v1/membership/<ID-short-hash>
 ```
+{{< note >}}
+The available key schemes are viewable through `KeysRpcOps`. One of them is used as an example in this command.
+<!-- Needs more info -->
+{{< /note >}}
 Run this command for each member defined in the `staticNetwork` section of your `GroupPolicy.json` file.
 
 Perform a lookup to ensure all members have registered successfully and are visible to each other:
