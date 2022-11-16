@@ -8,7 +8,7 @@ menu:
 section_menu: corda-5-alpha
 title: Installing the Corda CLI
 ---
-Corda CLI (command line interface) is a command line tool that supports various Corda related tasks, including [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) creation and Corda cluster management.
+Corda CLI (command line interface) is a command line tool that supports various Corda-related tasks, including [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) creation and Corda cluster management.
 
 ## Downloading Corda CLI
 
