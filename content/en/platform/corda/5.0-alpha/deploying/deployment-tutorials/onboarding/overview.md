@@ -1,14 +1,14 @@
 ---
 date: '2022-11-15'
-title: "Membership Management"
+title: "Onboarding to Networks"
 menu:
   corda-5-alpha:
-    identifier: corda-5-alpha-membership-tutorials
+    identifier: corda-5-alpha-onboarding-tutorials
     parent: corda-5-alpha-tutorials-deploy
     weight: 3000
 section_menu: corda-5-alpha
 ---
-The following membership tutorials are available for Corda 5:
+The following tutorials describe how to onboard to Corda 5 networks:
 * [Onboarding the MGM](mgm-onboarding.html)
 * [Onboarding Members to Dynamic Networks](dynamic-onboarding.html)
 * [Onboarding Members to Static Networks](static-onboarding.html)
