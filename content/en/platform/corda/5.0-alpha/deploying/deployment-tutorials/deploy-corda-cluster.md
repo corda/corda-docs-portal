@@ -52,7 +52,7 @@ The Corda Docker images must be in a Docker registry that is accessible from the
 
 ## Download Helm Charts
 
-* Download the Helm charts `corda-5.0.0-Eagle.tgztar` file from the [R3 Customer Hub](https://r3.force.com/).
+* Download the Helm charts `corda-5.0.0-Eagle.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
