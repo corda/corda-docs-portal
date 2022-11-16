@@ -1,11 +1,11 @@
 ---
-date: '2021-11-15'
+date: '2021-11-16'
 title: "Group Policy"
 menu:
   corda-5-alpha:
     identifier: corda-5-alpha-group-policy
-    parent: corda-5-alpha-membership
-    weight: 1000
+    parent: corda-5-alpha-deploy
+    weight: 3000
 section_menu: corda-5-alpha
 ---
 A [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) is composed of a [Corda Package Bundle (CPB)](../introduction/key-concepts.html#corda-package-bundles-cpbs) and network information defined in a JSON file called `GroupPolicy.json`.
@@ -72,10 +72,7 @@ Storing this way avoids the need for custom data converters just for building/pa
 
 Members also require information to configure the P2P layer to allow communication with other members and the MGM. This includes information such as trust roots and the PKI mode to use.
 Since the MGM creates this file, an MGM must be up and running before this file can be created.
-<!--
-**_NOTE:_**: One can export the group policy file from the MGM using the API instead of building it manually. See details in [the dynamic member onboarding page](../Member-Onboarding-(Dynamic-Networks))
 
--->
 For example:
 
 ``` json
@@ -109,6 +106,9 @@ For example:
   "cipherSuite" : { }
 }
 ```
+{{< note >}}
+You can export the group policy file from the MGM using the API instead of building it manually. For more information, see [Onboarding Members to Dynamic Networks](../deployment-tutorials/membership/dynamic-onboarding.html).
+{{< /note >}}
 
 ### Static Network Member Group Policy
 
@@ -185,7 +185,7 @@ For example:
 ```
 
 {{< note >}}
-You can build a group policy file using the Corda CLI. For more information, see [Onboarding Members to Static Networks](../tutorials/membership/static-onboarding.html).
+You can build a group policy file using the Corda CLI. For more information, see [Onboarding Members to Static Networks](../deployment-tutorials/membership/static-onboarding.html).
 {{< /note >}}
 
 ## Validation
