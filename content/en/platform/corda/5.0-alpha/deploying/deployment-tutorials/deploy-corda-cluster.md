@@ -250,7 +250,7 @@ db:
 ```
 Part of the database bootstrapping involves populating the initial admin credentials. You can specify these in one of the following ways:
 
-* Pass the username and password as Helm values:
+* Pass the user name and password as Helm values:
   ```yaml
   bootstrap:
     initialAdminUser:
