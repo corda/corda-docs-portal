@@ -180,7 +180,7 @@ kafka:
     enabled: true
 ```
 
-If the broker certificate is self-signed or can not be trusted for some other reason, create a Kubernetes secret containing the client trust store. The trust store can be in PEM or JKS format. If JKS format is used, you can supply a password for the trust store. The following example is for a trust store in PEM format stored against the `ca.crt` key in the Kubernetes secret:
+If the broker certificate is self-signed or cannot be trusted for some other reason, create a Kubernetes secret containing the client trust store. The trust store can be in PEM or JKS format. If JKS format is used, you can supply a password for the trust store. The following example is for a trust store in PEM format stored against the `ca.crt` key in the Kubernetes secret:
 ```yaml
 kafka
   tls:
