@@ -234,27 +234,55 @@ If using Bash, run the following, replacing `<holding identity ID>` with the ID 
 export MGM_HOLDING_ID=<holding identity ID>
 ```
 
-## Assign soft HSM, generate session initiation and ECDH key pair
-*To review******************
+## Assign Soft HSM and Generate Session Initiation and ECDH Key Pair
+
+To assign a Soft HSM and generate a session initiation key pair:
+{{< tabs >}}
+{{% tab name="Bash"%}}
 ```
 curl --insecure -u admin:admin -X POST $API_URL/hsm/soft/$MGM_HOLDING_ID/SESSION_INIT
 curl --insecure -u admin:admin -X POST $API_URL/keys/$MGM_HOLDING_ID/alias/$MGM_HOLDING_ID-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1
 ```
-The result contains `key ID` (e.g. 3B9A266F96E2), save this for use in subsequent steps.
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/hsm/soft/$MGM_HOLDING_ID/SESSION_INIT"
+$SESSION_KEY_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/keys/$MGM_HOLDING_ID/alias/$MGM_HOLDING_ID-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1"
+$SESSION_KEY_ID = $SESSION_KEY_RESPONSE.id
 ```
+{{% /tab %}}
+{{< /tabs >}}
+
+If using Bash, the result contains `key ID` (e.g. 3B9A266F96E2). Run the following command to save this ID for use in subsequent steps:
+```shell
 export SESSION_KEY_ID=<session key ID>
 ```
-
+To generate an ECDH key pair:
+{{< tabs >}}
+{{% tab name="Bash"%}}
 ```
 curl --insecure -u admin:admin -X POST $API_URL/hsm/soft/$MGM_HOLDING_ID/PRE_AUTH
 curl --insecure -u admin:admin -X POST $API_URL/keys/$MGM_HOLDING_ID/alias/$MGM_HOLDING_ID-auth/category/PRE_AUTH/scheme/CORDA.ECDSA.SECP256R1
 ```
-The result contains `key ID` (e.g. 3B9A266F96E2), save this for use in subsequent steps.
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/hsm/soft/$MGM_HOLDING_ID/PRE_AUTH"
+$ECDH_KEY_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/keys/$MGM_HOLDING_ID/alias/$MGM_HOLDING_ID-auth/category/PRE_AUTH/scheme/CORDA.ECDSA.SECP256R1"
+$ECDH_KEY_ID = $ECDH_KEY_RESPONSE.id
+```
+{{% /tab %}}
+{{< /tabs >}}
+If using Bash, the result contains `key ID` (e.g. 3B9A266F96E2). Run the following command to save this ID for use in subsequent steps:
 ```
 export ECDH_KEY_ID=<ecdh key ID>
 ```
 
-The schemes that can be used for ECDH key derivation are the following: ECDSA_SECP256R1, ECDSA_SECP256K1, X25519 and SM2
+You can use the following schemes for ECDH key derivation:
+* ECDSA_SECP256R1
+* ECDSA_SECP256K1
+* X25519
+* SM2
 
 ## Configure the Cluster TLS Key Pair and Certificate
 {{< note >}}
@@ -573,7 +601,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 This configures the locally hosted identity, which is required in order for the P2P messaging to work.
 * `p2pTlsCertificateChainAlias` — the alias used when importing the TLS certificate.
 * `p2pTlsTenantId` — the tenant ID under which the TLS cert was stored ("p2p" for cluster level).
-* `sessionKeyId` — the [session key ID previously generated](**).
+* `sessionKeyId` — the [session key ID previously generated](#assign-soft-hsm-and-generate-session-initiation-and-ecdh-key-pair).
 
 ## Export the Group Policy
 

@@ -369,14 +369,14 @@ export REGISTRATION_CONTEXT='{
 ## Register Members
 
 To register a member, run the following command:
-```
+```shell
 curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": '$REGISTRATION_CONTEXT' } }' $API_URL/membership/$HOLDING_ID
 ```
 This sends a join request to the MGM, the response should be `SUBMITTED`.
 *TO review*
 {{< note >}}
 If you are using the Swagger UI, use this example:
-```
+```shell
 {
   "memberRegistrationRequest":{
     "action":"requestJoin",
