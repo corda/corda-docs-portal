@@ -115,7 +115,7 @@ You can export the group policy file from the MGM using the API instead of build
 ​In static networks, no MGM manages the group and the member list is statically set before the members are created.
 As a result, the group policy file for a static network member is similar to the dynamic network member's group policy but with some differences.
 
-​The file includes the group ID, registration protocol, sync protocol, protocol parameters, and P2P parameters, just like the dynamic member's group policy file. However, the necessary P2P parameters, protocol parameters, and the MGM information differs.
+​The file includes the group ID, registration protocol, sync protocol, protocol parameters, and P2P parameters, just like the dynamic member's group policy file. However, the necessary P2P parameters, protocol parameters, and the MGM information differ.
 
 Since there is no MGM, the file contains no MGM information.
 To keep similar behaviour to a dynamic network, the static registration protocol takes the predefined list of members from the protocol parameters and populates the member list using this.
