@@ -239,7 +239,7 @@ bootstrap:
   db:
     enabled: true
 ```
-By default, the database bootstrapping uses the psql CLI from the Docker image `postgres:14.4` on Docker Hub. If the Kubernetes cluster does not have access to Docker Hub, this image must be made available in an internal registry. The location of the image can then be specified via overrides, as follows:
+By default, the database bootstrapping uses the psql CLI from the Docker image `postgres:14.4` on Docker Hub. If the Kubernetes cluster does not have access to Docker Hub, you must make this image available in an internal registry. You can then specify the location of the image via overrides, as follows:
 
 ```yaml
 db:
