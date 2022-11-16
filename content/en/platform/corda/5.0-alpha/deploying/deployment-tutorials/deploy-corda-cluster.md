@@ -35,7 +35,7 @@ The Corda Docker images must be in a Docker registry that is accessible from the
     "corda-os-member-worker" "corda-os-p2p-gateway-worker"
     "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
     "corda-os-crypto-worker" "corda-os-plugins" )
-   tag=5.0.0.0-BetaProgram-alpha.1-RC01
+   tag=5.0.0.0-Eagle
    target_registry=$1
 
    for image in "${images[@]}"; do
