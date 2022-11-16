@@ -39,7 +39,7 @@ To run a dynamic network, you must complete the following high-level steps:
 3. Package the MGM `GroupPolicy.json` file into an MGM CPI.
 4. Upload the CPI to your cluster.
 5. Create a virtual node in your cluster for the MGM.
-6. Assign required HSMs for the MGM.
+6. Assign required hardware security models (HSMs) for the MGM.
 7. Create required keys and optionally import required certificates.
 8. Use the register endpoint to finalise the MGM setup so that it is ready to accept members.
 9. Export the `GroupPolicy.json` file that members require to join the group.
