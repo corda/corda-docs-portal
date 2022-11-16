@@ -36,7 +36,7 @@ One of the main difference to static networks is that there is a running [MGM](.
 To run a dynamic network, you must complete the following high-level steps:
 1. [Start a Corda cluster](../deployment-tutorials/deploy-corda-cluster.html).
 2. Create an MGM `GroupPolicy.json` file.
-3. Package MGM `GroupPolicy.json` file into an MGM CPI.
+3. Package the MGM `GroupPolicy.json` file into an MGM CPI.
 4. Upload the CPI to your cluster.
 5. Create a virtual node in your cluster for the MGM.
 6. Assign required HSMs for the MGM.
