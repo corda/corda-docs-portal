@@ -37,7 +37,7 @@ Set the values of variables for use in later commands:
 2. Set the [REST API](../../../developing/rest-api/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
    {{% tab name="Bash"%}}
-   ```
+   ```shell
    export API_URL="https://$RPC_HOST:$RPC_PORT/api/v1"
    ```
    {{% /tab %}}
@@ -51,7 +51,7 @@ Set the values of variables for use in later commands:
 
    {{< tabs >}}
    {{% tab name="Bash"%}}
-   ```
+   ```shell
    export WORK_DIR=~/Desktop/register-member
    mkdir -p $WORK_DIR
    ```
