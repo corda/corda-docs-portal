@@ -40,7 +40,7 @@ To obtain the Corda CLI installer:
 2. Change directory to where you saved `corda-cli-downloader-Eagle.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   Expand-archive .\corda-cli-downloader-Eagle.zip
+   Expand-Archive .\corda-cli-downloader-Eagle.zip
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
