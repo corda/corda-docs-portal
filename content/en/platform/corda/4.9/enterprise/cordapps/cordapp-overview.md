@@ -98,4 +98,4 @@ Ready to get started with CorDapps?
 
 * [Get set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md).
 * [Run a sample CorDapp](../../../../../../en/platform/corda/4.9/enterprise/cordapps/tutorial-cordapp.md).
-* [Build a CorDapp](../../../../../en/platform/corda/corda/4.9/enterprise/cordapps/cordapp-build-systems.html)
+* [Build a CorDapp](../../../../../../en/platform/corda/corda/4.9/enterprise/cordapps/cordapp-build-systems.html)
