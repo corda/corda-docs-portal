@@ -13,7 +13,7 @@ Corda CLI (command line interface) is a command line tool that supports various 
 ## Downloading Corda CLI
 
 To obtain the Corda CLI installer:
-1. Download `platform-jars-Eagle.tar.gz` from the [R3 Customer Hub](https://r3.force.com/)
+1. Download `platform-jars-Eagle.tar.gz` from the [R3 Customer Hub](https://r3.force.com/).
 2. Extract `corda-cli-downloader-Eagle.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Eagle`.
 
 ## Installing on Linux/macOS
