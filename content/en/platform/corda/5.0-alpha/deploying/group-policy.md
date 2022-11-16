@@ -27,7 +27,7 @@ During onboarding, the MGM retrieves all of the information defining the group.
 From that information, the MGM builds and exports a group policy file for members to use.
 
 The MGM group policy file only requires a flag to indicate that a group ID must be generated during virtual node onboarding and information about how to register itself as part of the group.
-Registration for an MGM is essentially finalising the group setup but the registration terminology is kept in-line with the member set-up.
+Registration for an MGM is essentially finalising setup of the the group, but the registration terminology is kept in-line with the member setup.
 
 This is a simple file that you can construct manually. You can also use the Corda CLI to export a default version.
 
@@ -113,7 +113,7 @@ You can export the group policy file from the MGM using the API instead of build
 ### Static Network Member Group Policy
 
 ​In static networks, no MGM manages the group and the member list is statically set before the members are created.
-As a result, the group policy file for a static network member is similar to the dynamic network member's group policy but with some differences.
+As a result, the group policy file for a static network member is similar to the dynamic network member's group policy, but with some differences.
 
 ​The file includes the group ID, registration protocol, sync protocol, protocol parameters, and P2P parameters, just like the dynamic member's group policy file. However, the necessary P2P parameters, protocol parameters, and the MGM information differ.
 
