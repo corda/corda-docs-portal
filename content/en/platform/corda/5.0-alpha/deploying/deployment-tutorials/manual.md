@@ -10,7 +10,7 @@ section_menu: corda-5-alpha
 ---
 
 By default, the Corda installation process automatically performs various setup actions in Kafka and the database, and for Corda RBAC.
-If you require additional control, you can disable these automatic setup processes and an administrator can manually perform the actions with the assistance of the Corda CLI.
+If you require additional control, you can disable these automatic setup processes and an administrator can manually perform the actions with the assistance of the [Corda CLI](../installing-corda-cli.html).
 
 ## Kafka
 
@@ -203,4 +203,4 @@ To create the roles manually, do the following:
      --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
    ```
 
-   `<API-ENDPOINT>` should be a URL where the Corda API is accessible, either via a load balancer or by forwading port 8888 from one of the RPC worker pods.
+   `<API-ENDPOINT>` should be a URL where the Corda API is accessible, either via a load balancer or by forwarding port 8888 from one of the RPC worker pods.

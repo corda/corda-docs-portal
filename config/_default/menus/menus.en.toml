@@ -769,12 +769,6 @@ name = "Troubleshooting"
 weight = 6000
 
 [[corda-5-alpha]]
-identifier = "corda-5-alpha-deploy-options"
-parent = "corda-5-alpha-deploy"
-name = "Deployment Options"
-weight = 1050
-
-[[corda-5-alpha]]
 identifier = "corda-5-alpha-tutorials-deploy"
 parent = "corda-5-alpha-deploy"
 name = "Deployment Tutorials"
