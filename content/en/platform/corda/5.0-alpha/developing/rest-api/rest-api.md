@@ -18,7 +18,7 @@ To access and invoke the REST API:
    ```
 
 
-2. If you did not explicitly specify the username for the initial admin user at install time, the default is `admin`.
+   If you did not explicitly specify the username for the initial admin user at install time, the default is `admin`.
 
 3. If you did not explicitly specify the password for the initial admin user at install time, the generated value can be retrieved as follows:
 
