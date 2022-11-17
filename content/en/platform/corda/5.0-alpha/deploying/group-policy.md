@@ -23,7 +23,7 @@ You can create the following types of group policy files:
 You must define a group policy file for an MGM. This file is included in the CPI that creates the virtual node of the MGM.
 As most of the information in a group policy file is exported by the MGM, the initial MGM group policy is a much smaller file than that needed to create a member.
 
-During onboarding, the MGM retrieves all of the information defining the group.
+During onboarding, the MGM receives all of the information defining the group.
 From that information, the MGM builds and exports a group policy file for members to use.
 
 The MGM group policy file only requires a flag to indicate that a group ID must be generated during virtual node onboarding and information about how to register itself as part of the group.
