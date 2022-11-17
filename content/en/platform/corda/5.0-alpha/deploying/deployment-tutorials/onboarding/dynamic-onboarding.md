@@ -291,7 +291,7 @@ You must perform the same steps that you did for setting up the MGM to enable P2
    -----END CERTIFICATE REQUEST-----
    ```
 
-3. If you are using a real CA, provide the CA with this CSR and request a certificate.
+3. Provide the chosen CA with this CSR and request for certificate issuance.
 
    Alternatively, if using the fake CA dev tool, use the [fake CA created previously](mgm-onboarding.html#create-a-fake-ca) to sign the CSR and create a certificate:
 
