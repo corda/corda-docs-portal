@@ -122,7 +122,7 @@ This outputs the name and location of the generated file, which you should take 
 ## Create the CPB
 
 The MGM only requires a `GroupPolicy` file and an empty CPB is sufficient for the CPI.
-You can run the following to use the MGM test CPB:
+You can run the following to use the MGM test CPB included in `corda-runtime-os`, or alternatively you can use any empty CPB:
 ``` shell
 cd $RUNTIME_OS
 ./gradlew testing:cpbs:mgm:build
