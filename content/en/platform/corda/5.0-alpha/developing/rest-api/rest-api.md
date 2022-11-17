@@ -38,6 +38,6 @@ If you did not explicitly specify the password for the initial admin user at ins
    The REST API is protected by a self-signed certificate.
    {{< /note >}}
 
-5. You can access the Swagger documentation for the REST API at the path `/api/1/swagger`. For example, when using port forwarding the documentation is available at [https://localhost:8888/api/v1/swagger](https://localhost:8888/api/v1/swagger).
+You can access the Swagger documentation for the REST API at the path `/api/1/swagger`. For example, when using port forwarding the documentation is available at [https://localhost:8888/api/v1/swagger](https://localhost:8888/api/v1/swagger).
 
 You can also view the REST API documentation [here](C5_OpenAPI.html).
