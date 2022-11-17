@@ -10,6 +10,10 @@ section_menu: corda-5-alpha
 ---
 This section describes how to configure a [dynamic network](../../network-types.html#dynamic-networks) to onboard new members. It assumes you have configured the [MGM for the network](mgm-onboarding.html).
 
+{{< note >}}
+The PowerShell commands listed on this page are for use with  PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
+{{< /note >}}
+
 ## Set Variables
 Set the values of variables for use in later commands:
 
