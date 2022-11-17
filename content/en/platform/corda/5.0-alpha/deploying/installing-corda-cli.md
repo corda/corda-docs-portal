@@ -34,6 +34,12 @@ To obtain the Corda CLI installer:
    ```
    The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. For example, on macOS, this is typically something like `/Users/charlie.smith` or on Linux, something like `/home/charlie.smith`.
 
+6. Run the following command to verify your installation:
+   ```shell
+   corda-cli.sh -h
+   ```
+   If successful, this outputs details of the Corda CLI commands.
+
 ## Installing on Windows
 
 1. Start a Powershell session.
@@ -56,10 +62,8 @@ To obtain the Corda CLI installer:
    If your PowerShell execution policy does not allow you to run this script, copy the contents to your own PowerShell script and execute that instead.
    {{< /note >}}
 
-## Verifying the Installation
-
-To verify your installation, run the following command:
-```shell
-corda-cli.sh -h
-```
-If successful, this outputs details of the Corda CLI commands.
+6. Run the following command to verify your installation:
+  ```shell
+  corda-cli.cmd -h
+  ```
+  If successful, this outputs details of the Corda CLI commands.   
