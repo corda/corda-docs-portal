@@ -402,7 +402,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 {{< /tabs >}}
 
 * `p2pTlsCertificateChainAlias` — the alias used when importing the TLS certificate.
-* `p2pTlsTenantId` — the tenant ID under which the TLS cert was stored ("p2p" for cluster level)
+* `useClusterLevelTlsCertificateAndKey` - true if the TLS certificate and key are cluster-level certificates and keys
 * `sessionKeyId` — the [session key ID previously generated](#assign-hsm-and-generate-key-pairs).
 
 ## Build Registration Context
