@@ -38,7 +38,7 @@ This describes how to convert an existing CorDapp project to the new Gradle plug
     id 'net.corda.plugins.cordapp-cpk2' version cordaGradlePluginsVersion2
     id 'net.corda.plugins.cordapp-cpb2' version cordaGradlePluginsVersion2
     ```
-4. Inside the cordapp project, change the plugins block at the top of the file:
+4. Inside the CorDapp project, change the plugins block at the top of the file:
     ```groovy
     id 'net.corda.plugins.cordapp-cpk2'
     // or
