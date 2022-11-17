@@ -12,7 +12,7 @@ You can configure a dynamic network to use session certificates when sending mes
 
 ## Set Variables
 
-Set the holding identity short hash of the virtual node of either the MGM or member as a variable for use in later commands:
+* Set the holding identity short hash of the virtual node of either the MGM or member as a variable for use in later commands:
 ```shell
 export HOLDING_ID=<holding-id>
 ```
@@ -20,7 +20,7 @@ export HOLDING_ID=<holding-id>
 
 ## Generate a Certificate Signing Request (CSR)
 
-After creating the MGM or member session key pair but before building the registration context, generate a CSR for the session certificate by running the following command, replacing `X500_NAME` with the X500Name of the MGM or member:
+After creating the MGM or member session key pair, but before building the registration context, generate a CSR for the session certificate by running the following command, replacing `X500_NAME` with the X500Name of the MGM or member:
 ```shell
 curl --fail-with-body -s -S -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "'$X500_NAME'"}' $API_URL"/certificates/"$HOLDING_ID/$SESSION_KEY_ID > $WORK_DIR/request.csr
 ```
@@ -34,7 +34,7 @@ This command outputs the location of the signed certificate. For example:
 ```shell
 Wrote certificate to /tmp/ca/request1/certificate.pem
 ```
-At this point, you should have a certificate based on the CSR exported from Corda issued either by a real CA or by the fake CA tool. You must upload the certificate chain to the Corda cluster. To upload the certificate chain, run:
+At this point, you should already have a certificate based on the CSR exported from Corda issued either by a real CA or by the fake CA tool. You must upload the certificate chain to the Corda cluster. To upload the certificate chain, run:
 ```shell
 curl -k -u admin:admin -X PUT  -F certificate=@/tmp/ca/request/certificate.pem -F alias=session-certificate $API_URL/certificates/vnode/$HOLDING_ID/p2p-session
 ```
