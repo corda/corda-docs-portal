@@ -455,7 +455,7 @@ For example:
 ``` shell
 curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": {
   "corda.session.key.id": "D2FAF709052F",
-  "corda.ecdh.key.id": "D2FAF709052F",
+  "corda.ecdh.key.id": "E2FCF719062B",
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
   "corda.group.protocol.synchronisation": "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl",
   "corda.group.protocol.p2p.mode": "Authenticated_Encryption",
