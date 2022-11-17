@@ -1,30 +1,30 @@
 ---
-date: '2021-09-21'
+date: '2021-11-14'
 title: "CorDapp Packaging"
-draft: true
 menu:
   corda-5-alpha:
-    parent: corda-5-alpha-tutorials-dev
-    identifier: corda-5-alpha-tutorial-dev-one
-    weight: 1000
+    parent: corda-5-alpha-tutorials-deploy
+    identifier: corda-5-alpha-tutorial-deploy-cordapp-packaging
+    weight: 2000
 section_menu: corda-5-alpha
 ---
 
-This section describes how to package your CorDapp as CPKs, CPBs, and CPIs. You can read more about the CorDapp packaging format in the [Key concepts](../../introduction/key-concepts.html#packaging) section.
+This section describes how to package your CorDapp as CPKs, CPBs, and CPIs.
 
-## Before You Start
+## Before you start
 
-You must install [Corda CLI](../corda-cli/overview.html).
+You will need a working copy of `corda-cli` with the MGM and package plugins installed. 
+<!-- See the [Corda CLI Plugin Host](https://github.com/corda/corda-cli-plugin-host#setupbuild). -->
 
-<!--## Configure the plugin in gradle???
+## Configuring the Gradle Plugin
 
-This describes how to convert an existing CorDapp project to the new Gradle plugin.
+This describes how to convert an exsisting CorDapp project to the new Gradle plugin.
 
 1. Add a new version number to `gradle.properties`:
     ```groovy
     cordaGradlePluginsVersion2=7.0.0-SNAPSHOT
     ```
-1. Add this repository to pluginManagement/repositories in `settings.gradle`:
+2. Add this repository to pluginManagement/repositories in `settings.gradle`:
     ```groovy
     maven {
         url "${artifactoryContextUrl}/corda-dev"
@@ -33,27 +33,27 @@ This describes how to convert an existing CorDapp project to the new Gradle plug
         }
     }
     ```
-1. Add the plugin to the plugins section of `settings.gradle`:
+3. Add the plugin to the plugins section of `settings.gradle`:
     ```groovy
     id 'net.corda.plugins.cordapp-cpk2' version cordaGradlePluginsVersion2
     id 'net.corda.plugins.cordapp-cpb2' version cordaGradlePluginsVersion2
     ```
-1. Inside the cordapp project change the plugins block at the top of the file:
+4. Inside the cordapp project, change the plugins block at the top of the file:
     ```groovy
     id 'net.corda.plugins.cordapp-cpk2'
     // or
     id 'net.corda.plugins.cordapp-cpb2'
     ```
--->
-## Generating a Signing Key
+
+## Generating a Code Signing Key
 
 To generate a code signing key for signing the CPI:
 
-1. Generate a signing key:
+1. Generate a signing key.
     ```shell
     keytool -genkeypair -alias "signing key 1" -keystore signingkeys.pfx -storepass "keystore password" -dname "cn=CPI Plugin Example - Signing Key 1, o=R3, L=London, c=GB" -keyalg RSA -storetype pkcs12 -validity 4000
     ```
-2. If you are using the Gradle plugin default signing key, you must import it into our key store. Save the following text into a file named `gradle-plugin-default-key.pem`:
+2. If you are using the default Gradle plugin signing key, you need to import it into our key store. Save the following text into a file named `gradle-plugin-default-key.pem`.
     ```text
     -----BEGIN CERTIFICATE-----
     MIIB7zCCAZOgAwIBAgIEFyV7dzAMBggqhkjOPQQDAgUAMFsxCzAJBgNVBAYTAkdC
@@ -79,18 +79,24 @@ This key can be generated once and kept for reuse.
 
 ## Generating a Group Policy File
 
-To generate a group policy file:
+If you intend to run a basic static network setup, you can use the `corda-cli` MGM plugin to generate a group policy file. For example, you could run the following command to generate the file:
 ```shell
 ./corda-cli.sh mgm groupPolicy > GroupPolicy.json
 ```
-For more information about `mgm` commmands, see [CLI commands](../corda-cli/commands.html#mgm).
-## Building a CPI
 
-The gradle plugin builds the CPB. To create a CPB for a CPI:
-```shell
+Refer to the [Group Policy](../../../../../../en/platform/corda/5.0-alpha/deploying/group-policy.html) section to learn more about the `GroupPolicy.json` file.
+
+<!-- For more information on this plugin, refer to the [README.md](https://github.com/corda/corda-runtime-os/blob/release/os/5.0/tools/plugins/mgm/README.md). -->
+
+If you are running a dynamic network, you will need to export the group policy file from the MGM using the HTTP API. To learn how to do this, see the [MGM Onboarding](../deployment-tutorials/onboarding/mgm-onboarding.html) tutorial for more information.
+
+## Building a Version 2 CPI
+
+The Gradle plugin builds the CPB. Run the following command to turn a CPB into a CPI:
+```shell 
 ./corda-cli.sh package create-cpi \
     --cpb mycpb.cpb \
-    --group-policy GroupPolicy.json \
+    --group-policy TestGroupPolicy.json \
     --cpi-name "cpi name" \
     --cpi-version "1.0.0.0-SNAPSHOT" \
     --file output.cpi \
@@ -103,9 +109,9 @@ The gradle plugin builds the CPB. To create a CPB for a CPI:
 
 Corda validates that uploaded CPIs are signed with a trusted key. To trust your signing keys, upload them with these commands:
 
-1. Import the gradle plugin default key into Corda:
+1. Import the Gradle plugin default key into Corda:
     ```shell
-    curl --insecure -u admin:admin -X PUT -F alias="gradle-plugin-default-key" -F certificate=@gradle-plugin-default-key.pem https://localhost:8888/api/v1/certificates/codesigner
+    curl --insecure -u admin:admin -X PUT -F alias="gradle-plugin-default-key" -F certificate=@gradle-plugin-default-key.pem https://localhost:8888/api/v1/certificates/cluster/code-signer
     ```
 2. Export the signing key certificate from the key store:
     ```shell
@@ -113,6 +119,9 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
     ```
 3. Import the signing key into Corda:
     ```shell
-    curl --insecure -u admin:admin -X PUT -F alias="signingkey1-2022" -F certificate=@signingkey1.pem https://localhost:8888/api/v1/certificates/codesigner
+    curl --insecure -u admin:admin -X PUT -F alias="signingkey1-2022" -F certificate=@signingkey1.pem https://localhost:8888/api/v1/certificates/cluster/code-signer
     ```
-{{< note >}}Use an alias that will be unique over time. Consider how certificate expiry will require new certificates with the same x500 name as existing certificates and define a naming convention that covers that use case.{{< /note >}}
+
+{{< note >}}
+Use an alias that will be unique over time. Consider how certificate expiry will require new certificates with the same x500 name as existing certificates, and define a naming convention that covers that use case.
+{{< /note >}}
