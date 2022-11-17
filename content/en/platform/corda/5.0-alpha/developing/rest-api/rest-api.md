@@ -11,22 +11,33 @@ section_menu: corda-5-alpha
 The Corda REST API enables operators to interact with a running version of Corda.
 To access and invoke the REST API:
 
-1. To access the RPC endpoint of a Corda cluster, forward the port by running the following command in a terminal window:
+1. If the REST API has not been exposed externally to the cluster via a load balancer, forward the port by running the following command in a terminal window, replacing `<NAMESPACE>` with the Kubernetes namespace that Corda is installed in:
 
    ```sh
-   kubectl port-forward -n corda deploy/corda-rpc-worker 8888
+   kubectl port-forward -n <NAMESPACE> deploy/corda-rpc-worker 8888
    ```
 
-   You can then access the Swagger documentation for the RPC endpoint at [https://localhost:8888/api/v1/swagger](https://localhost:8888/api/v1/swagger).
+
+   If you did not explicitly specify the username for the initial admin user at install time, the default is `admin`.
+If you did not explicitly specify the password for the initial admin user at install time, the generated value can be retrieved as follows:
+
+   ```sh
+   kubectl get secret -n <NAMESPACE> corda-initial-admin-user -o go-template="{{ .data.password | base64decode }}"
+   ```
+
+4. The REST API is at the path `/api/v1`. An example invocation using `curl` when the API endpoint is exposed via port forwarding is as follows:
+
+   ```sh
+   API_ENDPOINT=https://localhost:8888
+   USERNAME=admin
+   PASSWORD=$(kubectl get secret -n <NAMESPACE> corda-initial-admin-user -o go-template="{{ .data.password | base64decode }}")
+   curl -u $USERNAME:$PASSWORD -k $API_ENDPOINT/api/v1/hello
+   ```
 
    {{< note >}}
-   The RPC endpoint is protected by a self-signed certificate.
+   The REST API is protected by a self-signed certificate.
    {{< /note >}}
 
-2. To invoke the RPC endpoint from the Swagger UI, use the user name `admin` and password `admin`. Alternatively, you can use curl. For example:
-
-   ```sh
-   curl -u admin:admin -k https://localhost:8888/api/v1/hello
-   ```
+You can access the Swagger documentation for the REST API at the path `/api/v1/swagger`. For example, when using port forwarding the documentation is available at [https://localhost:8888/api/v1/swagger](https://localhost:8888/api/v1/swagger).
 
 You can also view the REST API documentation [here](C5_OpenAPI.html).
