@@ -207,7 +207,7 @@ export MGM_HOLDING_ID=<holding-identity-ID>
 
 ## Assign Soft HSM and Generate Session Initiation and ECDH Key Pair
 
-To assign a soft high security model (HSM) and generate a session initiation key pair:
+To assign a soft high security module (HSM) and generate a session initiation key pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```
