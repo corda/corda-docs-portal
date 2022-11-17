@@ -355,7 +355,7 @@ To set up the TLS key pair and certificate for the cluster:
 
 ### Disable Revocation Checks
 If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks. By default, revocation checks are enabled.
-The fake CA dev tool does not support revocation and so, if you are using the fake CA, you must disable revocation checks. This only needs to be done once per cluster.
+This only needs to be done once per cluster.
 
 #### Disable Revocation Checks Using Bash
 
