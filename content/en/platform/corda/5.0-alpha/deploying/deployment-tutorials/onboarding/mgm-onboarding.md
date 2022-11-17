@@ -24,6 +24,7 @@ Set the values of variables for use in later commands:
    ```shell
    export RPC_HOST=localhost
    export RPC_PORT=8888
+   export P2P_GATEWAY_HOST=localhost
    export P2P_GATEWAY_PORT=8080
    ```
    {{% /tab %}}
