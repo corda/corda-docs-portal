@@ -22,7 +22,7 @@ The Corda Docker images must be in a Docker registry that is accessible from the
    docker load -i corda-worker-images-Eagle.tar
    ```
 
-3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target Docker registry as an argument.
+3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target Docker registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
    ```shell
    #!/bin/bash
    if [ -z "$1" ]; then
