@@ -67,7 +67,7 @@ When the member's registration has been approved, the MGM distributes the full `
 The MGM information in the group policy is intended as bootstrap data for joining the group.
 
 If the MGM information changes and the data in the CPI is no longer sufficient to join a group, you must create a new CPI with an updated group policy.
-For example, if the MGM endpoint or trust store changes, the data is in the form of `LayeredPropertyMap`; `Map<String, String>`. This format is how the data is stored within Corda and is straightforward to understand when reading the file.
+For example, if the MGM endpoint or trust store changes. The data is in the form of `LayeredPropertyMap`; `Map<String, String>`. This format is how the data is stored within Corda and is straightforward to understand when reading the file.
 Storing this way avoids the need for custom data converters just for building/parsing the group policy.
 
 Members also require information to configure the P2P layer to allow communication with other members and the MGM. This includes information such as trust roots and the PKI mode to use.
