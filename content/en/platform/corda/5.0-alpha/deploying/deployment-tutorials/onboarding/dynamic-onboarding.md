@@ -213,6 +213,29 @@ If using Bash, the result contains `session key ID` (e.g. 3B9A266F96E2). Run the
 ```shell
 export SESSION_KEY_ID=<session key ID>
 ```
+## Configure the Ledger Key Pair and Certificate
+
+To assign a soft high security module (HSM) and generate a ledger key pair:
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl --insecure -u admin:admin -X POST $API_URL/hsm/soft/$HOLDING_ID/LEDGER
+curl --insecure -u admin:admin -X POST $API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-ledger/category/LEDGER/scheme/CORDA.ECDSA.SECP256R1
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```
+Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/hsm/soft/$HOLDING_ID/LEDGER"
+$LEDGER_KEY_RESPONSE = Invoke-RestMethod -SkipCertificateCheck -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-ledger/category/LEDGER/scheme/CORDA.ECDSA.SECP256R1"
+$LEDGER_KEY_ID = $LEDGER_KEY_RESPONSE.id
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+If using Bash, the result contains the ledger key ID (e.g. 3B9A266F96E2). Run the following command to save this ID for use in subsequent steps:
+```shell
+export LEDGER_KEY_ID=<ledger key ID>
+```
 
 ## Configure the TLS Key Pair and Certificate
 
@@ -292,29 +315,6 @@ You must perform the same steps that you did for setting up the MGM to enable th
    ```
 
 3. If you are using a real CA, provide the CA with this CSR and request a certificate.
-
-   Alternatively, if using the fake CA dev tool, use the [fake CA created previously](mgm-onboarding.html#create-a-fake-ca) to sign the CSR and create a certificate:
-
-   {{< tabs >}}
-   {{% tab name="Bash"%}}
-   ```shell
-   cd $RUNTIME_OS
-   java -jar ./applications/tools/p2p-test/fake-ca/build/bin/corda-fake-ca-5.0.0.0-SNAPSHOT.jar -m /tmp/ca csr $WORK_DIR/request1.csr
-   cd $WORK_DIR
-   ```
-   {{% /tab %}}
-   {{% tab name="PowerShell" %}}
-   ```shell
-   cd $RUNTIME_OS
-   java -jar ./applications/tools/p2p-test/fake-ca/build/bin/corda-fake-ca-5.0.0.0-SNAPSHOT.jar -m $env:TEMP\tmp\ca csr $WORK_DIR/request1.csr
-   cd $WORK_DIR
-   ```
-   {{% /tab %}}
-   {{< /tabs >}}
-   This command outputs the location of the signed certificate. For example:
-   ```shell
-   Wrote certificate to /tmp/ca/request1/certificate.pem
-   ```
 
 4. To upload the certificate chain to the Corda cluster, run this command:
    {{< tabs >}}
