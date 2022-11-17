@@ -336,7 +336,7 @@ To set up the TLS key pair and certificate for the cluster:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin -X PUT  -F certificate=@/tmp/ca/request1/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/p2p
+   curl -k -u admin:admin -X PUT  -F certificate=@/tmp/ca/request1/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/cluster/p2p-tls
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
