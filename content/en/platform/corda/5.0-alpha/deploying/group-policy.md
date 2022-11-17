@@ -62,7 +62,7 @@ For more information, see [MGM Onboarding](../deployment-tutorials/membership/mg
 To join a group, a member must use a group policy file that was exported from the MGM of that group.
 This group policy file contains much more information than the initial file used by the MGM.
 It contains the group ID, the protocol to join that group, the protocol to use to sync data with the MGM, and any additional parameters that are needed for these protocols.
-It also contains the full `MemberInfo` of the MGM so that it can be populated in the member's member list cache to allow communication with the MGM during registration.
+It also contains the full `MemberInfo` of the MGM, so that it can be populated in the member's member list cache to allow communication with the MGM during registration.
 When the member's registration has been approved, the MGM distributes the full `MemberInfo` with the group data distributed.
 The MGM information in the group policy is intended as bootstrap data for joining the group.
 
