@@ -85,7 +85,7 @@ Set the values of variables for use in later commands:
 
 To onboard members to a group, a [running MGM](mgm-onboarding.html) is required. To join, members must use a [group policy file](../../group-policy.html) exported from the MGM of that group.
 
-To create the `GroupPolicy.json` file:
+To retrieve the `GroupPolicy.json` file from the MGM:
 
 1. Set the MGM properties, by running these commands:
 
@@ -190,9 +190,9 @@ If using Bash, run the following, replacing `<holding identity ID>` with the ID 
 export MGM_HOLDING_ID=<holding identity ID>
 ```
 
-## Assign HSM and Generate Key Pairs
+## Configure the P2P Session Initiation Key Pair and Certificate
 
-To assign a soft high security model (HSM) and generate a session initiation key pair:
+To assign a soft high security module (HSM) and generate a session initiation key pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```
@@ -244,7 +244,7 @@ This step is only necessary if setting up a new cluster.
 When using cluster-level TLS, it is only necessary to do this once per cluster.
 {{< /note >}}
 
-You must perform the same steps that you did for setting up the MGM to enable the locally hosted identities P2P communication. If the fake CA tool was used when onboarding the MGM, it should be re-used for members. If a real CA was used for the MGM onboarding, then the same CA should be used for members.
+You must perform the same steps that you did for setting up the MGM to enable P2P communication for the locally hosted identities. Use the CA whose trustroot certificate was configured in the MGM's registration context.
 
 1. Create a TLS key pair at the P2P cluster-level by running this command:
 
@@ -267,7 +267,7 @@ You must perform the same steps that you did for setting up the MGM to enable th
    export TLS_KEY_ID=<TLS-key-ID>
    ```
 
-2. Create a certificate for the TLS key pair. Regardless of whether you are using the fake development tool as a CA or using a real CA, you must create a  certificate signing request (CSR). To generate a CSR, run this command:
+2. Create a certificate for the TLS key pair by running the following command to generate a certificate signing request (CSR):
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -314,13 +314,13 @@ You must perform the same steps that you did for setting up the MGM to enable th
    -----END CERTIFICATE REQUEST-----
    ```
 
-3. If you are using a real CA, provide the CA with this CSR and request a certificate.
+3. Provide the chosen CA with this CSR and request for certificate issuance.
 
 4. To upload the certificate chain to the Corda cluster, run this command:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin -X PUT  -F certificate=@/tmp/ca/request1/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/p2p
+   curl -k -u admin:admin -X PUT  -F certificate=@/tmp/ca/request1/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/cluster/p2p-tls
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -341,7 +341,7 @@ You must perform the same steps that you did for setting up the MGM to enable th
 ### Disable Revocation Checks
 
 If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks. By default, revocation checks are enabled.
-The fake CA dev tool does not support revocation and so, if you are using the fake CA, you must disable revocation checks. This only needs to be done once per cluster.
+This only needs to be done once per cluster.
 #### Disable Revocation Checks Using Bash
 
 If using Bash, to disable revocation checks, do the following:
@@ -387,7 +387,7 @@ To configure the member virtual node, run this command:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-curl -k -u admin:admin -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "p2pTlsTenantId": "p2p", "sessionKeyId": "'$SESSION_KEY_ID'"}' $API_URL/network/setup/$HOLDING_ID
+curl -k -u admin:admin -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeyId": "'$SESSION_KEY_ID'"}' $API_URL/network/setup/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -402,7 +402,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 {{< /tabs >}}
 
 * `p2pTlsCertificateChainAlias` — the alias used when importing the TLS certificate.
-* `p2pTlsTenantId` — the tenant ID under which the TLS cert was stored ("p2p" for cluster level)
+* `useClusterLevelTlsCertificateAndKey` - true if the TLS certificate and key are cluster-level certificates and keys
 * `sessionKeyId` — the [session key ID previously generated](#assign-hsm-and-generate-key-pairs).
 
 ## Build Registration Context
@@ -450,13 +450,13 @@ curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "action": "r
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-$RESGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
+$REGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
     memberRegistrationRequest = @{
         action = "requestJoin"
         context = $REGISTRATION_CONTEXT
     }
 })
-$RESGISTER_RESPONSE.registrationStatus
+$REGISTER_RESPONSE.registrationStatus
 ```
 {{% /tab %}}
 {{< /tabs >}}

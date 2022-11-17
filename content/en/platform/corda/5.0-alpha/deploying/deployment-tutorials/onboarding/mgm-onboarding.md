@@ -24,6 +24,7 @@ Set the values of variables for use in later commands:
    ```shell
    export RPC_HOST=localhost
    export RPC_PORT=8888
+   export P2P_GATEWAY_HOST=localhost
    export P2P_GATEWAY_PORT=8080
    ```
    {{% /tab %}}
@@ -207,7 +208,7 @@ export MGM_HOLDING_ID=<holding-identity-ID>
 
 ## Assign Soft HSM and Generate Session Initiation and ECDH Key Pair
 
-To assign a soft high security model (HSM) and generate a session initiation key pair:
+To assign a soft high security module (HSM) and generate a session initiation key pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```
@@ -329,13 +330,13 @@ To set up the TLS key pair and certificate for the cluster:
    -----END CERTIFICATE REQUEST-----
    ```
 
-3. If you are using a real CA, provide the CA with this CSR and request a certificate.
+3. Provide the chosen CA with this CSR and request for certificate issuance.
 
 4. To upload the certificate chain to the Corda cluster, run this command:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin -X PUT  -F certificate=@/tmp/ca/request1/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/p2p
+   curl -k -u admin:admin -X PUT  -F certificate=@/tmp/ca/request1/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/cluster/p2p-tls
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -355,7 +356,7 @@ To set up the TLS key pair and certificate for the cluster:
 
 ### Disable Revocation Checks
 If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks. By default, revocation checks are enabled.
-The fake CA dev tool does not support revocation and so, if you are using the fake CA, you must disable revocation checks. This only needs to be done once per cluster.
+This only needs to be done once per cluster.
 
 #### Disable Revocation Checks Using Bash
 
@@ -399,7 +400,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 ### Build Registration Context Using Bash
 
-To build the registration context using Bash, run the following command, replacing `<TLS-CA-PEM-certificate>` with the PEM format certificate of the CA.
+To build the registration context using Bash, run the following command, replacing `<TLS-CA-PEM-certificate>` with the PEM format certificate of the CA. This is the trustroot used to validate member certificates.
 The certificate must all be on one line in the curl command. Replace new lines with `\n`.
 ```shell
 export TLS_CA_CERT=<TLS-CA-PEM-certificate>
@@ -418,7 +419,7 @@ export REGISTRATION_CONTEXT='{
   "corda.group.truststore.tls.0" : "'$TLS_CA_CERT'"
 }'
 ```
-<!--Optionally, you can set the session certificate trustroot with the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`, however when `corda.group.pki.session` is set to `NoPKI` the session certificates are not validated against a session trustroot. At time of writing session certificates are not supported at the P2P level.-->
+Optionally, you can set the session certificate trustroot with the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`, however when `corda.group.pki.session` is set to `NoPKI` the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
 
 ### Build Registration Context Using PowerShell
 
@@ -455,7 +456,7 @@ For example:
 ``` shell
 curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": {
   "corda.session.key.id": "D2FAF709052F",
-  "corda.ecdh.key.id": "D2FAF709052F",
+  "corda.ecdh.key.id": "E2FCF719062B",
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
   "corda.group.protocol.synchronisation": "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl",
   "corda.group.protocol.p2p.mode": "Authenticated_Encryption",
@@ -474,7 +475,7 @@ Alternatively, using jq:
 curl --insecure -u admin:admin -d $(
 jq -n '.memberRegistrationRequest.action="requestJoin"' | \
   jq --arg session_key_id $SESSION_KEY_ID '.memberRegistrationRequest.context."corda.session.key.id"=$session_key_id' | \
-  jq --arg session_key_id $SESSION_KEY_ID '.memberRegistrationRequest.context."corda.ecdh.key.id"=$session_key_id' | \
+  jq --arg ecdh_key_id $ECDH_KEY_ID '.memberRegistrationRequest.context."corda.ecdh.key.id"=$ecdh_key_id' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.registration"="net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService"' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.synchronisation"="net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl"' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.p2p.mode"="Authenticated_Encryption"' | \
@@ -527,7 +528,7 @@ To configure the MGM virtual node with properties required for P2P messaging, ru
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u admin:admin -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "p2pTlsTenantId": "p2p", "sessionKeyId": "'$SESSION_KEY_ID'"}' $API_URL/network/setup/$MGM_HOLDING_ID
+curl -k -u admin:admin -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeyId": "'$SESSION_KEY_ID'"}' $API_URL/network/setup/$MGM_HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
