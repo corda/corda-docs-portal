@@ -474,7 +474,7 @@ Alternatively, using jq:
 curl --insecure -u admin:admin -d $(
 jq -n '.memberRegistrationRequest.action="requestJoin"' | \
   jq --arg session_key_id $SESSION_KEY_ID '.memberRegistrationRequest.context."corda.session.key.id"=$session_key_id' | \
-  jq --arg session_key_id $SESSION_KEY_ID '.memberRegistrationRequest.context."corda.ecdh.key.id"=$session_key_id' | \
+  jq --arg ecdh_key_id $ECDH_KEY_ID '.memberRegistrationRequest.context."corda.ecdh.key.id"=$ecdh_key_id' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.registration"="net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService"' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.synchronisation"="net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl"' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.p2p.mode"="Authenticated_Encryption"' | \
