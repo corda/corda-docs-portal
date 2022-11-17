@@ -85,7 +85,7 @@ Set the values of variables for use in later commands:
 
 To onboard members to a group, a [running MGM](mgm-onboarding.html) is required. To join, members must use a [group policy file](../../group-policy.html) exported from the MGM of that group.
 
-To create the `GroupPolicy.json` file:
+To retrieve the `GroupPolicy.json` file from the MGM:
 
 1. Set the MGM properties, by running these commands:
 
