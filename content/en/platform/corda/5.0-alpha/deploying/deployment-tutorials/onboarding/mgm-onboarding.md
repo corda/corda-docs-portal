@@ -310,7 +310,7 @@ To set up the TLS key pair and certificate for the cluster:
    ```shell
    export TLS_KEY_ID=<TLS-key-ID>
    ```
-2. Create a certificate for the TLS key pair. Regardless of whether you are using the fake development tool as a CA or using a real CA, you must create a  certificate signing request (CSR). To generate a CSR, run this command:
+2. Create a certificate for the TLS key pair. In order to do so, you must create a certificate signing request (CSR). To generate a CSR, run this command:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
