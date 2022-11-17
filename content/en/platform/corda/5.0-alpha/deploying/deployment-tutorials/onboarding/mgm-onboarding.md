@@ -95,7 +95,7 @@ This root CA certificate in PEM format must be included later when onboarding th
 ## Create the CPB
 
 The MGM only requires a `GroupPolicy` file and an empty CPB is sufficient for the CPI.
-You can run the following to use the MGM test CPB:
+You can run the following to use the MGM test CPB included in `corda-runtime-os`, or alternatively you can use any empty CPB:
 ``` shell
 cd $RUNTIME_OS
 ./gradlew testing:cpbs:mgm:build
@@ -282,7 +282,7 @@ To set up the TLS key pair and certificate for the cluster:
    ```shell
    export TLS_KEY_ID=<TLS-key-ID>
    ```
-2. Create a certificate for the TLS key pair. Regardless of whether you are using the fake development tool as a CA or using a real CA, you must create a  certificate signing request (CSR). To generate a CSR, run this command:
+2. Create a certificate for the TLS key pair. In order to do so, you must create a certificate signing request (CSR). To generate a CSR, run this command:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
