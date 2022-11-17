@@ -190,7 +190,7 @@ If using Bash, run the following, replacing `<holding identity ID>` with the ID 
 export MGM_HOLDING_ID=<holding identity ID>
 ```
 
-## Assign HSM and Generate Key Pairs
+## Configure the P2P Session Initiation Key Pair and Certificate
 
 To assign a soft high security module (HSM) and generate a session initiation key pair:
 {{< tabs >}}
