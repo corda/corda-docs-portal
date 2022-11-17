@@ -90,7 +90,7 @@ Refer to the [Group Policy](../../../../../../en/platform/corda/5.0-alpha/deploy
 
 If you are running a dynamic network, you will need to export the group policy file from the MGM using the HTTP API. To learn how to do this, see the [MGM Onboarding](../deployment-tutorials/onboarding/mgm-onboarding.html) tutorial for more information.
 
-## Building a Version 2 CPI
+## Building a CPI
 
 The Gradle plugin builds the CPB. Run the following command to turn a CPB into a CPI:
 ```shell 
