@@ -221,7 +221,7 @@ This step is only necessary if setting up a new cluster.
 When using cluster-level TLS, it is only necessary to do this once per cluster.
 {{< /note >}}
 
-You must perform the same steps that you did for setting up the MGM to enable the locally hosted identities P2P communication. If the fake CA tool was used when onboarding the MGM, it should be re-used for members. If a real CA was used for the MGM onboarding, then the same CA should be used for members.
+You must perform the same steps that you did for setting up the MGM to enable P2P communication for the locally hosted identities. Use the CA whose trustroot certificate was configured in the MGM's registration context.
 
 1. Create a TLS key pair at the P2P cluster-level by running this command:
 
