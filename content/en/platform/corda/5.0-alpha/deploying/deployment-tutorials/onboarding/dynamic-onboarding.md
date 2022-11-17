@@ -456,7 +456,7 @@ $RESGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Author
         context = $REGISTRATION_CONTEXT
     }
 })
-$RESGISTER_RESPONSE.registrationStatus
+$REGISTER_RESPONSE.registrationStatus
 ```
 {{% /tab %}}
 {{< /tabs >}}
