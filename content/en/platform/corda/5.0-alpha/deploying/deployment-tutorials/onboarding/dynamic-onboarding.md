@@ -450,7 +450,7 @@ curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "action": "r
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-$RESGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
+$REGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
     memberRegistrationRequest = @{
         action = "requestJoin"
         context = $REGISTRATION_CONTEXT
