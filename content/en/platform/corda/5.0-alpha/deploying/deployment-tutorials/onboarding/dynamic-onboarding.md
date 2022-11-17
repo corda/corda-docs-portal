@@ -387,7 +387,7 @@ To configure the member virtual node, run this command:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-curl -k -u admin:admin -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "p2pTlsTenantId": "p2p", "sessionKeyId": "'$SESSION_KEY_ID'"}' $API_URL/network/setup/$HOLDING_ID
+curl -k -u admin:admin -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeyId": "'$SESSION_KEY_ID'"}' $API_URL/network/setup/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
