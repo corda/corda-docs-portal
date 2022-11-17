@@ -58,7 +58,7 @@
 a.docs-link {
   color: $black;
   display: block;
-  padding: 0.125rem 0 0 1.5rem;
+  padding: 0.125rem 0 0 1rem;
   font-size: $font-size-sm;
 }
 
@@ -114,7 +114,7 @@ a.docs-link {
   li {
     button {
       margin: 0.5625rem 0;
-      padding-left: 1.5rem;
+      padding-left: 1rem;
       padding-right: 0;
       font-size: $font-size-base * 0.9375;
       font-weight: 500;
@@ -134,7 +134,7 @@ a.docs-link {
         display: inline-block;
         position: relative;
         top: 10px;
-        margin-left: -1.5rem;
+        margin-left: -1rem;
         content: url("/icons/icon-arrow-down.svg");
         transition: transform 0.35s ease;
       }
@@ -167,7 +167,7 @@ a.docs-link {
 
   div {
     &.sub-menu {
-      padding-left: 1.5rem;
+      padding-left: 1rem;
 
       li {
         a {
@@ -183,7 +183,7 @@ a.docs-link {
         border-left: 1px solid $submenu-bar-color;
         margin-top: 0.125rem;
         margin-bottom: 0.125rem;
-        margin-left: 1.5rem;
+        margin-left: 1rem;
 
         li {
           a {

@@ -124,7 +124,7 @@ body {
   left: 0;
   width: 100%;
   background-color: $gray-300;
-  padding: 0 0 0 2rem;
+  padding: 0 0 0 1.2rem;
   min-height: calc(100vh - 24rem);
 
   &.show {
@@ -165,7 +165,7 @@ body {
 .docs-links {
   padding-top: 1rem;
   padding-bottom: 7rem;
-  padding-right: calc(2rem - 5px);
+  padding-right: .75rem;
 }
 
 @include media-breakpoint-up(lg) {
