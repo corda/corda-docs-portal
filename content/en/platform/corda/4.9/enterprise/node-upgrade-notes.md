@@ -32,10 +32,11 @@ Most of Corda's public, non-experimental APIs are backwards compatible. See the 
 1. [Drain the node](#step-1-drain-the-node).
 2. [Make a backup of the directories in your node and database](#step-2-make-a-backup-of-your-nodes-directories-and-database).
 3. [Update the database](#step-3-update-the-database).
-4. <a href="#step-4-replace-cordajar-with-the-new-version">Replace the `corda.jar` file with the new version.</a>
-5. [Update the configuration](#step-5-update-the-configuration).
-6. [Start the node](#step-6-start-the-node).
-7. [Undrain the node](#step-7-undrain-the-node).
+4. [Replace corda.jar with new version](#step-4-replace-cordajar-with-new-version)
+5. [Install corda-shell.jar](#step-5-install-corda-shelljar).
+6. [Update the configuration](#step-6-update-the-configuration).
+7. [Start the node](#step-7-start-the-node).
+8. [Undrain the node](#step-8-undrain-the-node).
 
 {{< note >}}
 The protocol tolerates node outages. Peers on the network wait for your node to become available after upgrading.
@@ -48,7 +49,6 @@ and protocol complexity increases.
 
 To drain a node, run `gracefulShutdown`. This waits for the all currently running flows to be completed and then shuts the node down.
 
-
 {{< warning >}}
 The length of time a node takes to drain varies. It depends on how your CorDapps are designed and whether any CorDapps are
 communicating with network peers that are offline or slow to respond. If
@@ -57,15 +57,11 @@ the CorDapps are well-written and the required counterparties are online, drains
 For a smooth node draining process avoid long-running flows.
 {{< /warning >}}
 
-
-
 ## Step 2: Make a backup of your node's directories and database
 
 Back up your data before upgrading, in case you need to roll back if there’s a problem. Make a copy of the node’s data directory or, if you use an external non-H2 database, consult your database user guide to learn how to make backups.
 
 For a detailed explanation of Corda backup and recovery guarantees, see [Backup recommendations](../../../../../en/platform/corda/4.9/enterprise/node/operating/node-administration.html#backup-recommendations).
-
-
 
 ## Step 3: Update the database
 
@@ -78,26 +74,21 @@ You can perform an automatic database update when:
 
 If you meet the above criteria, then skip steps 3.1 to 3.4 and go directly to [Step 4](#step-4-replace-cordajar-with-the-new-version). You'll perform the automatic update in [Step 6](#step-6-start-the-node).
 
-
 If you can't perform an automatic update, then you must perform a manual update by following steps 3.1 to 3.4 below. You can then move on to [Step 4](#step-4-replace-cordajar-with-the-new-version).
-
 
 ### 3.1. Configure the Database Management Tool
 
 The Corda Database Management Tool needs access to a running database. You set the tool up using a similar process to how you configure a node.
 You must provide a base directory that includes:
 
-
 * A `node.conf` file with database connection settings.
 * A `drivers` directory. You will place the JDBC driver here.
 
 `node.conf` template files and details on where to find the JDBC driver for each database vendor can be found below.
 
-
 #### Azure SQL: template file and JDBC driver
 
 The required `node.conf` settings for the Database Management Tool using Azure SQL are:
-
 
 ```groovy
 dataSourceProperties = {
@@ -152,7 +143,6 @@ Replace the placeholders `<host>`, `<database>`, `<login>`, `<password>`, `<sche
 2. Download the Microsoft JDBC 6.4 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56615).
 3. Extract the archive and copy the single file `mssql-jdbc-6.4.0.jre8.jar` into the `drivers` directory.
 
-
 #### Oracle: template file and JDBC driver
 
 The required `node.conf` settings for the Database Management Tool using Oracle are:
@@ -177,7 +167,6 @@ Replace the placeholders `<host>`, `<port>`, `<sid>`, `<user>`, `<password>`, `<
 * `myLegalName` is mandatory. However, it is only used in Step 3.4. For this step you can replace `<node_legal_name>` with any valid dummy name, for example, `O=Dummy,L=London,C=GB`.
 
 2. Copy the Oracle JDBC driver `ojdbc6.jar` for 11g RC2 or `ojdbc8.jar` for Oracle 12c into the `drivers` directory.
-
 
 #### PostgreSQL: template file and JDBC driver
 
@@ -205,7 +194,6 @@ Replace the placeholders `<host>`, `<port>`, `<database>`, `<user>`, `<password>
 
 2. Copy the PostgreSQL JDBC Driver *42.2.8* version *JDBC 4.2* into the `drivers` directory.
 
-
 ### 3.2. Extract the DDL and DML scripts using the Database Management Tool
 
 To run the tool, use the command:
@@ -223,7 +211,6 @@ This script contains all the statements required to modify and create data struc
 and updates the Liquibase management table **DATABASECHANGELOG**.
 The command doesn't alter any tables.
 
-
 {{< note >}}
 
 If you run the DDL and DML statements separately (for example, if the database administrator runs the DDL statements and a CorDapp user runs the DML statements) you need to manually separate the DDL and DML statements into separate scripts.
@@ -231,7 +218,6 @@ If you run the DDL and DML statements separately (for example, if the database a
 {{< /note >}}
 
 For more information about the Database Management Tool including available options and commands, see [Corda Database Management Tool](database-management-tool.md).
-
 
 ### 3.3. Apply DDL scripts to a database
 
@@ -242,26 +228,19 @@ For example, for Azure SQL or SQL Server you should not use the default database
 {{< note >}}
 You can use a different user to connect to the server than the one you use to connect to the node. For example, you could connect as a user with *restricted permissions*, as long as that user has the same default schema as the node.
 The generated DDL script adds the schema prefix to most of the statements, but not all of them.
-
 {{< /note >}}
 
 You need to run the whole script. Partially running the script causes the database schema content to be inconsistently versioned.
 
-
 {{< warning >}}
 The DDL scripts don’t contain any checks to prevent them from running twice.
 If the scripts run a second time, they will fail because the tables are already there. However, this may generate orphan tables.
-
 {{< /warning >}}
-
-
 
 ### 3.4. Apply data updates on the H2 database
 
 {{< note >}}
-
 You only need to perform this step for the H2 database.
-
 {{< /note >}}
 
 The schema structure changes in Corda 4.0 require data to be propagated to new tables and columns based on the existing rows and specific node configuration, for example, node legal name. Such migrations cannot be expressed by the DDL script, so they need to be performed by the Database Management Tool or a node. These updates are required any time you are upgrading either from an earlier version to 4.0 or from 4.x to 4.x. For example, if you're upgrading from 4.5 to 4.9.
@@ -280,7 +259,6 @@ If you are reusing the tool configuration directory:
 
 {{< warning >}}
 The value of `myLegalName` must exactly match the node name used in the database schema. Any `node.conf` misconfiguration may cause data row migration to be wrongly applied. This may happen silently, without throwing an error.
-
 {{< /warning >}}
 
 2. Create a `cordapps` subdirectory and copy the CorDapps used by the node.
@@ -291,48 +269,47 @@ The value of `myLegalName` must exactly match the node name used in the database
 java -jar tools-database-manager-4.9-RC03.jar execute-migration -b . --core-schemas --app-schemas
 ```
 
-
-
-
-
 Option `-b` points to the base directory which contains a `node.conf` file and `drivers` and `cordapps` subdirectories.
 
 `--core-schemas` is required to adopt the changes made in the new version of Corda, and `--app-schemas` is related to the CorDapps changes.
 
+## Step 4: Replace corda.jar with new version
 
-## Step 4: Replace `corda.jar` with the new version
-
-Replace the `corda.jar` with the latest version of Corda.
+Replace corda.jar with its latest version.
 
 Download the latest version of Corda from [our Artifactory site](https://software.r3.com/artifactory/webapp/#/artifacts/browse/simple/General/corda/net/corda/corda-node).
-Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java the
-node requires.
-
+Make sure it’s available on your path, and that you’ve read the [Corda release notes](release-notes-enterprise.md). Pay particular attention to which version of Java that the node requires.
 
 {{< important >}}
 Corda 4 requires Java 8u171 or any higher Java 8 patch level. Java 9+ is not currently supported.
-
-
 {{< /important >}}
 
+{{< important >}}
+If you used Corda Shell in the previous version, put Corda Shell in the driver directory, or use the standalone type Corda Shell according to Node shell.
+{{< /important >}}
 
-## Step 5: Update the configuration
+## Step 5: Install corda-shell.jar
+
+Install `corda-shell.jar` as a driver within your node.
+
+Download the `corda-shell` `.jar` from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node. By default, a Corda node does not run the shell.
+
+For more information, see [Node Shell](node/operating/shell.html).
+
+
+## Step 6: Update the configuration
 
 {{< note >}}
-
 You only need to perform this step if you are updating from version 4.5 or older.
-
 {{< /note >}}
 
 Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
 
-
-## Step 6: Start the node
+## Step 7: Start the node
 
 If you manually updated the database in [Step 3](#step-3-update-the-database), start the node in the normal way.
 
 However, if you need to automatically update the database as described in [Step 3](#step-3-update-the-database), then you need to start your node using the command:
-
 
 ```bash
 java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
@@ -341,7 +318,7 @@ java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 The node will perform any automatic data migrations required, which may take some
 time. If the migration process is interrupted, restart the node to continue. The node stops automatically when migration is complete.
 
-## Step 7: Undrain the node
+## Step 8: Undrain the node
 
 Run this command in the shell:
 
