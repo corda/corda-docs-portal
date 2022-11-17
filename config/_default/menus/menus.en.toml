@@ -776,13 +776,13 @@ weight = 5000
 
 [[corda-5-alpha]]
 identifier = "corda-5-alpha-tutorials-deploy-dynamic"
-parent = "onboarding-tutorials"
+parent = "corda-5-alpha-onboarding-tutorials"
 name = "Dynamic Networks"
 weight = 2000
 
 [[corda-5-alpha]]
 identifier = "corda-5-alpha-tutorials-deploy-static"
-parent = "onboarding-tutorials"
+parent = "corda-5-alpha-onboarding-tutorials"
 name = "Static Networks"
 weight = 1000
 
