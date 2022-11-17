@@ -123,5 +123,5 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
     ```
 
 {{< note >}}
-Use an alias that will be unique over time. Consider how certificate expiry will require new certificates with the same x500 name as existing certificates, and define a naming convention that covers that use case.
+Use an alias that will be unique over time. Consider how certificate expiry will require new certificates with the same X.500 name as existing certificates, and define a naming convention that covers that use case.
 {{< /note >}}
