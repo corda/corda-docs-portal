@@ -10,6 +10,12 @@ title: Installing the Corda CLI
 ---
 Corda CLI (command line interface) is a command line tool that supports various Corda-related tasks, including [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) creation and Corda cluster management.
 
+## Third-Party Prerequisites
+
+Software | Version
+---------|------------
+Java     | Azul JDK 11
+
 ## Downloading Corda CLI
 
 To obtain the Corda CLI installer:
