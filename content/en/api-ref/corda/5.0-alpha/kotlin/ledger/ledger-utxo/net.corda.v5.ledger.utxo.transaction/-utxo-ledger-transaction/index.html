@@ -1,0 +1,524 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>UtxoLedgerTransaction</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.435-Eagle
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="ledger-utxo::net.corda.v5.ledger.utxo.transaction/UtxoLedgerTransaction///PointingToDeclaration//-692495681">
+  <div class="breadcrumbs"><a href="../../index.html">ledger-utxo</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.ledger.utxo.transaction</a><span class="delimiter">/</span><span class="current">UtxoLedgerTransaction</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Utxo</span><wbr><span>Ledger</span><wbr><span><span>Transaction</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-do-not-implement/index.html"><span class="token annotation builtin">DoNotImplement</span></a></div></div><span class="token keyword">interface </span><a href="index.html">UtxoLedgerTransaction</a></div><p class="paragraph">Represents a UTXO ledger transaction.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button><button class="section-tab" data-togglable="Extensions">Extensions</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="-331907668%2FFunctions%2F-692495681" anchor-label="getAttachment" id="-331907668%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-attachment.html"><span>get</span><wbr><span><span>Attachment</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-331907668%2FFunctions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-attachment.html"><span class="token function">getAttachment</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="../../../../crypto/net.corda.v5.crypto/-secure-hash/index.html">SecureHash</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../net.corda.v5.ledger.utxo/-attachment/index.html">Attachment</a></div><div class="brief "><p class="paragraph">Obtains the ledger transaction <a href="../../net.corda.v5.ledger.utxo/-attachment/index.html">Attachment</a> with the specified id.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1512773551%2FFunctions%2F-692495681" anchor-label="getCommands" id="1512773551%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-commands.html"><span>get</span><wbr><span><span>Commands</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1512773551%2FFunctions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-commands.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-command/index.html">Command</a><span class="token operator">&gt; </span><a href="get-commands.html"><span class="token function">getCommands</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-commands.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-commands.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-command/index.html">Command</a> instances that match the specified type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1050625075%2FFunctions%2F-692495681" anchor-label="getInputStateAndRefs" id="-1050625075%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-input-state-and-refs.html"><span>get</span><wbr><span>Input</span><wbr><span>State</span><wbr><span>And</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1050625075%2FFunctions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-input-state-and-refs.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="get-input-state-and-refs.html"><span class="token function">getInputStateAndRefs</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-input-state-and-refs.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-input-state-and-refs.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a> inputs that match the specified <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="764836137%2FFunctions%2F-692495681" anchor-label="getInputStates" id="764836137%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-input-states.html"><span>get</span><wbr><span>Input</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="764836137%2FFunctions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-input-states.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="get-input-states.html"><span class="token function">getInputStates</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-input-states.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-input-states.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> inputs that match the specified <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="620584130%2FFunctions%2F-692495681" anchor-label="getOutputStateAndRefs" id="620584130%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-output-state-and-refs.html"><span>get</span><wbr><span>Output</span><wbr><span>State</span><wbr><span>And</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="620584130%2FFunctions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-output-state-and-refs.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="get-output-state-and-refs.html"><span class="token function">getOutputStateAndRefs</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-output-state-and-refs.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-output-state-and-refs.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a> outputs that match the specified <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1482148386%2FFunctions%2F-692495681" anchor-label="getOutputStates" id="-1482148386%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-output-states.html"><span>get</span><wbr><span>Output</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1482148386%2FFunctions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-output-states.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="get-output-states.html"><span class="token function">getOutputStates</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-output-states.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-output-states.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> outputs that match the specified <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2080161792%2FFunctions%2F-692495681" anchor-label="getReferenceInputStateAndRefs" id="-2080161792%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-reference-input-state-and-refs.html"><span>get</span><wbr><span>Reference</span><wbr><span>Input</span><wbr><span>State</span><wbr><span>And</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2080161792%2FFunctions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-reference-input-state-and-refs.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="get-reference-input-state-and-refs.html"><span class="token function">getReferenceInputStateAndRefs</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-reference-input-state-and-refs.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-reference-input-state-and-refs.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a> reference inputs that match the specified <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1397694564%2FFunctions%2F-692495681" anchor-label="getReferenceInputStates" id="-1397694564%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-reference-input-states.html"><span>get</span><wbr><span>Reference</span><wbr><span>Input</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1397694564%2FFunctions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-reference-input-states.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="get-reference-input-states.html"><span class="token function">getReferenceInputStates</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-reference-input-states.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-reference-input-states.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> reference inputs that match the specified <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1883822179%2FFunctions%2F-692495681" anchor-label="verify" id="-1883822179%2FFunctions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="verify.html"><span><span>verify</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1883822179%2FFunctions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="verify.html"><span class="token function">verify</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Verifies the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="-89778316%2FProperties%2F-692495681" anchor-label="attachments" id="-89778316%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="attachments.html"><span><span>attachments</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-89778316%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="-89778316%2FProperties%2F-692495681" anchor-label="attachments" id="-89778316%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="attachments.html">attachments</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-attachment/index.html">Attachment</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="-89778316%2FProperties%2F-692495681" anchor-label="attachments" id="-89778316%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The attachments associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1001134638%2FProperties%2F-692495681" anchor-label="commands" id="1001134638%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="commands.html"><span><span>commands</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1001134638%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="1001134638%2FProperties%2F-692495681" anchor-label="commands" id="1001134638%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="commands.html">commands</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-command/index.html">Command</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="1001134638%2FProperties%2F-692495681" anchor-label="commands" id="1001134638%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The commands and signatories associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1027685957%2FProperties%2F-692495681" anchor-label="id" id="-1027685957%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="id.html"><span><span>id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1027685957%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="-1027685957%2FProperties%2F-692495681" anchor-label="id" id="-1027685957%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="id.html">id</a><span class="token operator">: </span><a href="../../../../crypto/net.corda.v5.crypto/-secure-hash/index.html">SecureHash</a></div><div class="brief "></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="449106886%2FProperties%2F-692495681" anchor-label="inputContractStates" id="449106886%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="input-contract-states.html"><span>input</span><wbr><span>Contract</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="449106886%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="449106886%2FProperties%2F-692495681" anchor-label="inputContractStates" id="449106886%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="input-contract-states.html">inputContractStates</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="449106886%2FProperties%2F-692495681" anchor-label="inputContractStates" id="449106886%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The input contract states to be consumed by the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="915361300%2FProperties%2F-692495681" anchor-label="inputStateAndRefs" id="915361300%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="input-state-and-refs.html"><span>input</span><wbr><span>State</span><wbr><span>And</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="915361300%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="915361300%2FProperties%2F-692495681" anchor-label="inputStateAndRefs" id="915361300%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="input-state-and-refs.html">inputStateAndRefs</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><a data-name="915361300%2FProperties%2F-692495681" anchor-label="inputStateAndRefs" id="915361300%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The input states and state references to be consumed by the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1798697760%2FProperties%2F-692495681" anchor-label="inputTransactionStates" id="-1798697760%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="input-transaction-states.html"><span>input</span><wbr><span>Transaction</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1798697760%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="-1798697760%2FProperties%2F-692495681" anchor-label="inputTransactionStates" id="-1798697760%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="input-transaction-states.html">inputTransactionStates</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-transaction-state/index.html">TransactionState</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><a data-name="-1798697760%2FProperties%2F-692495681" anchor-label="inputTransactionStates" id="-1798697760%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The input transaction states to be consumed by the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1363557057%2FProperties%2F-692495681" anchor-label="outputContractStates" id="1363557057%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="output-contract-states.html"><span>output</span><wbr><span>Contract</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1363557057%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="1363557057%2FProperties%2F-692495681" anchor-label="outputContractStates" id="1363557057%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="output-contract-states.html">outputContractStates</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="1363557057%2FProperties%2F-692495681" anchor-label="outputContractStates" id="1363557057%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The output contract states to be created by the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="514078671%2FProperties%2F-692495681" anchor-label="outputStateAndRefs" id="514078671%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="output-state-and-refs.html"><span>output</span><wbr><span>State</span><wbr><span>And</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="514078671%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="514078671%2FProperties%2F-692495681" anchor-label="outputStateAndRefs" id="514078671%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="output-state-and-refs.html">outputStateAndRefs</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><a data-name="514078671%2FProperties%2F-692495681" anchor-label="outputStateAndRefs" id="514078671%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The output states and state references to be created by the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1903755269%2FProperties%2F-692495681" anchor-label="outputTransactionStates" id="1903755269%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="output-transaction-states.html"><span>output</span><wbr><span>Transaction</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1903755269%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="1903755269%2FProperties%2F-692495681" anchor-label="outputTransactionStates" id="1903755269%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="output-transaction-states.html">outputTransactionStates</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-transaction-state/index.html">TransactionState</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><a data-name="1903755269%2FProperties%2F-692495681" anchor-label="outputTransactionStates" id="1903755269%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The output transaction states to be created by the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1014537789%2FProperties%2F-692495681" anchor-label="referenceInputContractStates" id="-1014537789%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="reference-input-contract-states.html"><span>reference</span><wbr><span>Input</span><wbr><span>Contract</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1014537789%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="-1014537789%2FProperties%2F-692495681" anchor-label="referenceInputContractStates" id="-1014537789%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="reference-input-contract-states.html">referenceInputContractStates</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="-1014537789%2FProperties%2F-692495681" anchor-label="referenceInputContractStates" id="-1014537789%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The input contract states to be referenced by the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1168586577%2FProperties%2F-692495681" anchor-label="referenceInputStateAndRefs" id="1168586577%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="reference-input-state-and-refs.html"><span>reference</span><wbr><span>Input</span><wbr><span>State</span><wbr><span>And</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1168586577%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="1168586577%2FProperties%2F-692495681" anchor-label="referenceInputStateAndRefs" id="1168586577%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="reference-input-state-and-refs.html">referenceInputStateAndRefs</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><a data-name="1168586577%2FProperties%2F-692495681" anchor-label="referenceInputStateAndRefs" id="1168586577%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The input states and state referenced to be referenced by the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1565745603%2FProperties%2F-692495681" anchor-label="referenceInputTransactionStates" id="1565745603%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="reference-input-transaction-states.html"><span>reference</span><wbr><span>Input</span><wbr><span>Transaction</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1565745603%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="1565745603%2FProperties%2F-692495681" anchor-label="referenceInputTransactionStates" id="1565745603%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="reference-input-transaction-states.html">referenceInputTransactionStates</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-transaction-state/index.html">TransactionState</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><a data-name="1565745603%2FProperties%2F-692495681" anchor-label="referenceInputTransactionStates" id="1565745603%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The input transaction states to be referenced by the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-96789440%2FProperties%2F-692495681" anchor-label="signatories" id="-96789440%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="signatories.html"><span><span>signatories</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-96789440%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="-96789440%2FProperties%2F-692495681" anchor-label="signatories" id="-96789440%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="signatories.html">signatories</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1625252103%2FProperties%2F-692495681" anchor-label="timeWindow" id="-1625252103%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="time-window.html"><span>time</span><wbr><span><span>Window</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1625252103%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="-1625252103%2FProperties%2F-692495681" anchor-label="timeWindow" id="-1625252103%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="time-window.html">timeWindow</a><span class="token operator">: </span><a href="../../net.corda.v5.ledger.utxo/-time-window/index.html">TimeWindow</a></div><div class="brief "><a data-name="-1625252103%2FProperties%2F-692495681" anchor-label="timeWindow" id="-1625252103%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The time window associated with the current <a href="index.html">UtxoLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="tabbedcontent">Extensions</h2>
+      <div class="table" data-togglable="Extensions"><a data-name="-119468160%2FExtensions%2F-692495681" anchor-label="getCommands" id="-119468160%2FExtensions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../get-commands.html"><span>get</span><wbr><span><span>Commands</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-119468160%2FExtensions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-commands.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-command/index.html">Command</a><span class="token operator">&gt; </span><a href="index.html">UtxoLedgerTransaction</a><span class="token punctuation">.</span><a href="../get-commands.html"><span class="token function">getCommands</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-commands.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-command/index.html">Command</a> instances that match the specified type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2121961292%2FExtensions%2F-692495681" anchor-label="getInputStateAndRefs" id="-2121961292%2FExtensions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../get-input-state-and-refs.html"><span>get</span><wbr><span>Input</span><wbr><span>State</span><wbr><span>And</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2121961292%2FExtensions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-input-state-and-refs.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="index.html">UtxoLedgerTransaction</a><span class="token punctuation">.</span><a href="../get-input-state-and-refs.html"><span class="token function">getInputStateAndRefs</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-input-state-and-refs.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a> inputs that match the specified <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-72798440%2FExtensions%2F-692495681" anchor-label="getInputStates" id="-72798440%2FExtensions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../get-input-states.html"><span>get</span><wbr><span>Input</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-72798440%2FExtensions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-input-states.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="index.html">UtxoLedgerTransaction</a><span class="token punctuation">.</span><a href="../get-input-states.html"><span class="token function">getInputStates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-input-states.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> inputs that match the specified <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="380252833%2FExtensions%2F-692495681" anchor-label="getOutputStateAndRefs" id="380252833%2FExtensions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../get-output-state-and-refs.html"><span>get</span><wbr><span>Output</span><wbr><span>State</span><wbr><span>And</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="380252833%2FExtensions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-output-state-and-refs.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="index.html">UtxoLedgerTransaction</a><span class="token punctuation">.</span><a href="../get-output-state-and-refs.html"><span class="token function">getOutputStateAndRefs</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-output-state-and-refs.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a> outputs that match the specified <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-196270395%2FExtensions%2F-692495681" anchor-label="getOutputStates" id="-196270395%2FExtensions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../get-output-states.html"><span>get</span><wbr><span>Output</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-196270395%2FExtensions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-output-states.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="index.html">UtxoLedgerTransaction</a><span class="token punctuation">.</span><a href="../get-output-states.html"><span class="token function">getOutputStates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-output-states.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> outputs that match the specified <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="148435619%2FExtensions%2F-692495681" anchor-label="getReferenceInputStateAndRefs" id="148435619%2FExtensions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../get-reference-input-state-and-refs.html"><span>get</span><wbr><span>Reference</span><wbr><span>Input</span><wbr><span>State</span><wbr><span>And</span><wbr><span><span>Refs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="148435619%2FExtensions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-reference-input-state-and-refs.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="index.html">UtxoLedgerTransaction</a><span class="token punctuation">.</span><a href="../get-reference-input-state-and-refs.html"><span class="token function">getReferenceInputStateAndRefs</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-reference-input-state-and-refs.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-state-and-ref/index.html">StateAndRef</a> reference inputs that match the specified <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-528183225%2FExtensions%2F-692495681" anchor-label="getReferenceInputStates" id="-528183225%2FExtensions%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../get-reference-input-states.html"><span>get</span><wbr><span>Reference</span><wbr><span>Input</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-528183225%2FExtensions%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-reference-input-states.html">T</a><span class="token operator"> : </span><a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a><span class="token operator">&gt; </span><a href="index.html">UtxoLedgerTransaction</a><span class="token punctuation">.</span><a href="../get-reference-input-states.html"><span class="token function">getReferenceInputStates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../get-reference-input-states.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Obtains all ledger transaction <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> reference inputs that match the specified <a href="../../net.corda.v5.ledger.utxo/-contract-state/index.html">ContractState</a> type.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+
