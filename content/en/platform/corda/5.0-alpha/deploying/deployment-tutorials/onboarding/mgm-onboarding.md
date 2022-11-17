@@ -418,7 +418,7 @@ export REGISTRATION_CONTEXT='{
   "corda.group.truststore.tls.0" : "'$TLS_CA_CERT'"
 }'
 ```
-<!--Optionally, you can set the session certificate trustroot with the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`, however when `corda.group.pki.session` is set to `NoPKI` the session certificates are not validated against a session trustroot. At time of writing session certificates are not supported at the P2P level.-->
+Optionally, you can set the session certificate trustroot with the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`, however when `corda.group.pki.session` is set to `NoPKI` the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
 
 ### Build Registration Context Using PowerShell
 
