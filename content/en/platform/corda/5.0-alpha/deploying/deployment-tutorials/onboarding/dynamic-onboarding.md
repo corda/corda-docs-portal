@@ -341,7 +341,7 @@ You must perform the same steps that you did for setting up the MGM to enable P2
 ### Disable Revocation Checks
 
 If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks. By default, revocation checks are enabled.
-The fake CA dev tool does not support revocation and so, if you are using the fake CA, you must disable revocation checks. This only needs to be done once per cluster.
+This only needs to be done once per cluster.
 #### Disable Revocation Checks Using Bash
 
 If using Bash, to disable revocation checks, do the following:
