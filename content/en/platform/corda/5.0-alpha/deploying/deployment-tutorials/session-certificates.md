@@ -3,7 +3,7 @@ date: '2022-11-15'
 title: "Configuring Optional Session Certificates"
 menu:
   corda-5-alpha:
-    identifier: corda-5-alpha-mgm-onboarding
+    identifier: corda-5-alpha-mgm-onboarding-session-certificates
     parent: corda-5-alpha-tutorials-deploy-dynamic
     weight: 2000
 section_menu: corda-5-alpha
