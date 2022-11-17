@@ -527,7 +527,7 @@ To configure the MGM virtual node with properties required for P2P messaging, ru
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u admin:admin -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "p2pTlsTenantId": "p2p", "sessionKeyId": "'$SESSION_KEY_ID'"}' $API_URL/network/setup/$MGM_HOLDING_ID
+curl -k -u admin:admin -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeyId": "'$SESSION_KEY_ID'"}' $API_URL/network/setup/$MGM_HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
