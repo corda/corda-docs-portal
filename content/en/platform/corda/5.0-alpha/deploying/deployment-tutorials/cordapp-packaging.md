@@ -79,7 +79,7 @@ This key can be generated once and kept for reuse.
 
 ## Generating a Group Policy File
 
-If you intend to run a basic static network setup, you can use the `corda-cli` MGM plugin to generate a group policy file. For example, you could run the following command to generate the file:
+If you intend to run a basic [static network](../network-types.html#static-networks) setup, you can use the Corda CLI to generate a group policy file. For example, you could run the following command to generate the file:
 ```shell
 ./corda-cli.sh mgm groupPolicy > GroupPolicy.json
 ```
