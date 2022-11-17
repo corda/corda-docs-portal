@@ -18,7 +18,7 @@ You will need a working copy of `corda-cli` with the MGM and package plugins ins
 
 ## Configuring the Gradle Plugin
 
-This describes how to convert an existing CorDapp project to the new Gradle plugin.
+To convert an existing CorDapp project to the new Gradle plugin:
 
 1. Add a new version number to `gradle.properties`:
     ```groovy
