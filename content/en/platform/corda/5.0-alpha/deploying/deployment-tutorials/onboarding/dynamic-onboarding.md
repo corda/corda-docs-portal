@@ -380,7 +380,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 })
 ```
 
-## Configure the Member Virtual Node
+## Configure the Member Virtual Node for Network Communication
 
 You must configure the virtual node as a network participant with the properties required for P2P messaging. The order is slightly different to MGM onboarding in that for members you must do this before registering.
 To configure the member virtual node, run this command:
@@ -476,13 +476,32 @@ If you are using the Swagger UI, use this example:
 {{< /note >}}
 
 You can confirm if the member was onboarded successfully by checking the status of the registration request:
+{{< tabs >}}
+{{% tab name="Bash"%}}
 ```
 export REGISTRATION_ID=<registration ID>
 curl --insecure -u admin:admin -X GET $API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
 ```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/membership/$HOLDING_ID/${REGISTER_RESPONSE.registrationId}"
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 If successful, you should see the `APPROVED` registration status.
 
 After registration, you can use the look-up functions provided by the `MemberLookupRpcOps` to confirm that your member can see other members and has `ACTIVE` membership status:
+{{< tabs >}}
+{{% tab name="Bash"%}}
 ```
 curl --insecure -u admin:admin -X GET $API_URL/members/$HOLDING_ID
 ```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/membership/$HOLDING_ID" | ConvertTo-Json -Depth 4
+```
+{{% /tab %}}
+{{< /tabs >}}
