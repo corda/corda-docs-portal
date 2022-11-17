@@ -11,7 +11,7 @@ section_menu: corda-5-alpha
 This section describes the onboarding process for [static networks](../../network-types.html#static-networks).
 
 {{< note >}}
-Static networks do not use an MGM. If you require an MGM, see [Dynamic Onboarding](dynamic-onboarding.html).
+Static networks do not use an [MGM](../../../introduction/key-concepts.html#membership-management). If you require an MGM, see [Dynamic Onboarding](dynamic-onboarding.html).
 {{< /note >}}
 
 ## Create the Group Policy File
