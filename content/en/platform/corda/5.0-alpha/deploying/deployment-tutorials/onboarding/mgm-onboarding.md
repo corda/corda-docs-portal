@@ -398,6 +398,10 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 ## Build Registration Context
 
+{{< note >}}
+If using session certificates for the P2P layer, see [Configuring Optional Session Certificates](session-certificates.html#build-registration-context-for-mgm-registration) for information about the additional JSON fields required.
+{{< /note >}}
+
 ### Build Registration Context Using Bash
 
 To build the registration context using Bash, run the following command, replacing `<TLS-CA-PEM-certificate>` with the PEM format certificate of the CA. This is the trustroot used to validate member certificates.
