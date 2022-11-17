@@ -17,7 +17,6 @@ To access and invoke the REST API:
    kubectl port-forward -n <NAMESPACE> deploy/corda-rpc-worker 8888
    ```
 
-   Where `<NAMESPACE>` is the Kubernetes namespace that Corda is installed in.
 
 2. If you did not explicitly specify the username for the initial admin user at install time, the default is `admin`.
 
