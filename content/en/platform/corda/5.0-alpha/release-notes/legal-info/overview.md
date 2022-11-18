@@ -10,4 +10,3 @@ section_menu: corda-5-alpha
 ---
 * [corda-api](api.html)
 * [corda-runtime-os](runtime-os.html)
-* [corda-cli](cli.html)
