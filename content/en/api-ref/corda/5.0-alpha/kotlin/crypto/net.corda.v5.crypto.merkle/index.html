@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>net.corda.v5.crypto.merkle</title>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.435-Eagle
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="crypto::net.corda.v5.crypto.merkle////PointingToDeclaration//-688304473">
+  <div class="breadcrumbs"><a href="../index.html">crypto</a><span class="delimiter">/</span><span class="current">net.corda.v5.crypto.merkle</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Types</h2>
+      <div class="table" data-togglable="Types"><a data-name="2064888035%2FClasslikes%2F-688304473" anchor-label="IndexedMerkleLeaf" id="2064888035%2FClasslikes%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-indexed-merkle-leaf/index.html"><span>Indexed</span><wbr><span>Merkle</span><wbr><span><span>Leaf</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2064888035%2FClasslikes%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-indexed-merkle-leaf/index.html">IndexedMerkleLeaf</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>nonce<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>leafData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><a href="-indexed-merkle-leaf/index.html">IndexedMerkleLeaf</a>s are building blocks of <a href="-merkle-proof/index.html">MerkleProof</a>s. They contain the required information about a particular leaf which is needed for the verification.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-535490238%2FClasslikes%2F-688304473" anchor-label="MerkleProof" id="-535490238%2FClasslikes%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-merkle-proof/index.html"><span>Merkle</span><wbr><span><span>Proof</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-535490238%2FClasslikes%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-merkle-proof/index.html">MerkleProof</a></div><div class="brief "><p class="paragraph"><a href="-merkle-proof/index.html">MerkleProof</a>s can be used to verify if some specific data is part of a <a href="-merkle-tree/index.html">MerkleTree</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1295806942%2FClasslikes%2F-688304473" anchor-label="MerkleTree" id="1295806942%2FClasslikes%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-merkle-tree/index.html"><span>Merkle</span><wbr><span><span>Tree</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1295806942%2FClasslikes%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-merkle-tree/index.html">MerkleTree</a></div><div class="brief "><p class="paragraph"><a href="-merkle-tree/index.html">MerkleTree</a>s are cryptographic data structures which can be used to create a short fingerprint of a larger structured dataset. From <a href="-merkle-tree/index.html">MerkleTree</a>s, we can create <a href="-merkle-proof/index.html">MerkleProof</a>s which let us prove that some particular data is part of the whole tree without revealing the remaining data.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1982938804%2FClasslikes%2F-688304473" anchor-label="MerkleTreeHashDigest" id="-1982938804%2FClasslikes%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-merkle-tree-hash-digest/index.html"><span>Merkle</span><wbr><span>Tree</span><wbr><span>Hash</span><wbr><span><span>Digest</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1982938804%2FClasslikes%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-merkle-tree-hash-digest/index.html">MerkleTreeHashDigest</a></div><div class="brief "><p class="paragraph">Different use cases require different <a href="-merkle-tree/index.html">MerkleTree</a> calculations. <a href="-merkle-tree-hash-digest/index.html">MerkleTreeHashDigest</a>s let us specify such implementations.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="559763092%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_DEFAULT_NAME" id="559763092%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-d-e-f-a-u-l-t_-n-a-m-e.html"><span><span>HASH_DIGEST_PROVIDER_DEFAULT_NAME</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="559763092%2FProperties%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><a data-name="559763092%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_DEFAULT_NAME" id="559763092%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-d-e-f-a-u-l-t_-n-a-m-e.html">HASH_DIGEST_PROVIDER_DEFAULT_NAME</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="559763092%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_DEFAULT_NAME" id="559763092%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><p class="paragraph">An implementation of rfc6962 compatible merkle tree</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1690456678%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_ENTROPY_OPTION" id="-1690456678%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-e-n-t-r-o-p-y_-o-p-t-i-o-n.html"><span><span>HASH_DIGEST_PROVIDER_ENTROPY_OPTION</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1690456678%2FProperties%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><a data-name="-1690456678%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_ENTROPY_OPTION" id="-1690456678%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-e-n-t-r-o-p-y_-o-p-t-i-o-n.html">HASH_DIGEST_PROVIDER_ENTROPY_OPTION</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="-1690456678%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_ENTROPY_OPTION" id="-1690456678%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><p class="paragraph">Nonce hash digest providers require a 32 bytes long ByteArray entropy option.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1784196132%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_LEAF_PREFIX_OPTION" id="-1784196132%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-l-e-a-f_-p-r-e-f-i-x_-o-p-t-i-o-n.html"><span><span>HASH_DIGEST_PROVIDER_LEAF_PREFIX_OPTION</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1784196132%2FProperties%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><a data-name="-1784196132%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_LEAF_PREFIX_OPTION" id="-1784196132%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-l-e-a-f_-p-r-e-f-i-x_-o-p-t-i-o-n.html">HASH_DIGEST_PROVIDER_LEAF_PREFIX_OPTION</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="-1784196132%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_LEAF_PREFIX_OPTION" id="-1784196132%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><p class="paragraph">Tweakable hash digest providers require a non-empty ByteArray leaf prefix option.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-119483208%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_NODE_PREFIX_OPTION" id="-119483208%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-n-o-d-e_-p-r-e-f-i-x_-o-p-t-i-o-n.html"><span><span>HASH_DIGEST_PROVIDER_NODE_PREFIX_OPTION</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-119483208%2FProperties%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><a data-name="-119483208%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_NODE_PREFIX_OPTION" id="-119483208%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-n-o-d-e_-p-r-e-f-i-x_-o-p-t-i-o-n.html">HASH_DIGEST_PROVIDER_NODE_PREFIX_OPTION</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="-119483208%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_NODE_PREFIX_OPTION" id="-119483208%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><p class="paragraph">Tweakable hash digest providers require a non-empty ByteArray node prefix option.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1736650690%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_NONCE_NAME" id="1736650690%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-n-o-n-c-e_-n-a-m-e.html"><span><span>HASH_DIGEST_PROVIDER_NONCE_NAME</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1736650690%2FProperties%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><a data-name="1736650690%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_NONCE_NAME" id="1736650690%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-n-o-n-c-e_-n-a-m-e.html">HASH_DIGEST_PROVIDER_NONCE_NAME</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="1736650690%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_NONCE_NAME" id="1736650690%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><p class="paragraph">A merkle tree digest that one-way derives a set of per-leaf nonces from a 32-byte entropy input. The nonces are pre-hashed with the leaf data before forming a standard merkle tree. This allows low entropy inputs to be used in the merkle tree. Requires <a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-e-n-t-r-o-p-y_-o-p-t-i-o-n.html">HASH_DIGEST_PROVIDER_ENTROPY_OPTION</a></p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-205672943%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_NONCE_SIZE_ONLY_VERIFY_NAME" id="-205672943%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-n-o-n-c-e_-s-i-z-e_-o-n-l-y_-v-e-r-i-f-y_-n-a-m-e.html"><span><span>HASH_DIGEST_PROVIDER_NONCE_SIZE_ONLY_VERIFY_NAME</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-205672943%2FProperties%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><a data-name="-205672943%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_NONCE_SIZE_ONLY_VERIFY_NAME" id="-205672943%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-n-o-n-c-e_-s-i-z-e_-o-n-l-y_-v-e-r-i-f-y_-n-a-m-e.html">HASH_DIGEST_PROVIDER_NONCE_SIZE_ONLY_VERIFY_NAME</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="-205672943%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_NONCE_SIZE_ONLY_VERIFY_NAME" id="-205672943%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><p class="paragraph">Using the NONCE digest it is possible to create a MerkleProof that doesn't reveal the leaf data, but provides supporting evidence of the number of leaves. These MerkleProofs can be validated against an expected root hash using the NONCE_SIZE_ONLY_VERIFY digest</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2102807524%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_NONCE_VERIFY_NAME" id="-2102807524%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-n-o-n-c-e_-v-e-r-i-f-y_-n-a-m-e.html"><span><span>HASH_DIGEST_PROVIDER_NONCE_VERIFY_NAME</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2102807524%2FProperties%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><a data-name="-2102807524%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_NONCE_VERIFY_NAME" id="-2102807524%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-n-o-n-c-e_-v-e-r-i-f-y_-n-a-m-e.html">HASH_DIGEST_PROVIDER_NONCE_VERIFY_NAME</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="-2102807524%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_NONCE_VERIFY_NAME" id="-2102807524%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><p class="paragraph">When verifying a NONCE digest based MerkleProof the source entropy is not communicated to the verifier. Instead, only the per-leaf nonces are transmitted. Use the NONCE_VERIFY digest to validate the MerkleProof against the expected root hash.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1941044519%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_TWEAKABLE_NAME" id="-1941044519%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-t-w-e-a-k-a-b-l-e_-n-a-m-e.html"><span><span>HASH_DIGEST_PROVIDER_TWEAKABLE_NAME</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1941044519%2FProperties%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><a data-name="-1941044519%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_TWEAKABLE_NAME" id="-1941044519%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-t-w-e-a-k-a-b-l-e_-n-a-m-e.html">HASH_DIGEST_PROVIDER_TWEAKABLE_NAME</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="-1941044519%2FProperties%2F-688304473" anchor-label="HASH_DIGEST_PROVIDER_TWEAKABLE_NAME" id="-1941044519%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><p class="paragraph">This provides an extension of the DEFAULT hash with configurable hashes for leaf and internal Merkle node operations. This is required when similar Merkle trees are used to generate a hash that is signed over so that replay attacks can be prevented. Requires <a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-l-e-a-f_-p-r-e-f-i-x_-o-p-t-i-o-n.html">HASH_DIGEST_PROVIDER_LEAF_PREFIX_OPTION</a> and <a href="-h-a-s-h_-d-i-g-e-s-t_-p-r-o-v-i-d-e-r_-n-o-d-e_-p-r-e-f-i-x_-o-p-t-i-o-n.html">HASH_DIGEST_PROVIDER_NODE_PREFIX_OPTION</a></p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

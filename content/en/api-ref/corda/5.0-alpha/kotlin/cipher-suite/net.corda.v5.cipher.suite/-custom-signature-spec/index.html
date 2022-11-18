@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CustomSignatureSpec</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.435-Eagle
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="cipher-suite::net.corda.v5.cipher.suite/CustomSignatureSpec///PointingToDeclaration//-1640755694">
+  <div class="breadcrumbs"><a href="../../index.html">cipher-suite</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.cipher.suite</a><span class="delimiter">/</span><span class="current">CustomSignatureSpec</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Custom</span><wbr><span>Signature</span><wbr><span><span>Spec</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":cipher-suite:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">CustomSignatureSpec</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>customDigestName<span class="token operator">: </span><a href="../../../crypto/net.corda.v5.crypto/-digest-algorithm-name/index.html">DigestAlgorithmName</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>params<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html">AlgorithmParameterSpec</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span> : <a href="../../../crypto/net.corda.v5.crypto/-signature-spec/index.html">SignatureSpec</a></div><p class="paragraph">This class is used to define a digital signature scheme where the hash is precalculated before passing it to the signing operation, it may have additional the additional algorithm parameters, such as RSASSA-PSS</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button><button class="section-tab" data-togglable="Extensions">Extensions</button><button class="section-tab" data-togglable="Parameters">Parameters</button></div>
+    <div class="tabs-section-body">
+      <h4 class="">Parameters</h4>
+      <div data-togglable="Parameters">
+        <div class="platform-hinted WithExtraAttributes" data-platform-hinted="data-platform-hinted" data-togglable="Parameters"><div class="content sourceset-dependent-content" data-active="" data-togglable=":cipher-suite:dokkaHtmlPartial/main"><div data-togglable="Parameters"><div class="table" data-togglable="Parameters"><div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span>signature</span><wbr><span><span>Name</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">a signature-scheme name as required to create <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Signature.html">java.security.Signature</a> objects, note that the signatureName should not contain the digest (e.g. "NONEwithECDSA").</p></div></div></div></div></div><div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span>custom</span><wbr><span>Digest</span><wbr><span><span>Name</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">digest algorithm name (e.g. "SHA512")</p></div></div></div></div></div><div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span><span>params</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">optional signature parameters, like if RSASSA-PSS is being used then in order to avoid using the default SHA1 you can specify the signature parameters explicitly.</p><p class="paragraph">When used for signing the <a href="../../../cipher-suite/net.corda.v5.cipher.suite/-custom-signature-spec/signature-name.html">signatureName</a> must match the corresponding key scheme, e.g. you cannot use "NONEwithECDSA" with "RSA" keys.</p><p class="paragraph">Note as the Bouncy Castle library doesn't support NONEwithRSA scheme, you would have to set the <a href="../../../cipher-suite/net.corda.v5.cipher.suite/-custom-signature-spec/signature-name.html">signatureName</a> to "RSA/NONE/PKCS1Padding", the implementation will calculate hash by using the RSA encryption on the private key and the decryption using the public key.</p></div></div></div></div></div></div></div></div></div>
+      </div>
+      <h2 class="tabbedcontent">Constructors</h2>
+      <div class="table" data-togglable="Constructors"><a data-name="316847836%2FConstructors%2F-1640755694" anchor-label="CustomSignatureSpec" id="316847836%2FConstructors%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-custom-signature-spec.html"><span>Custom</span><wbr><span>Signature</span><wbr><span><span>Spec</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="316847836%2FConstructors%2F-1640755694"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":cipher-suite:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-custom-signature-spec.html"><span class="token function">CustomSignatureSpec</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">customDigestName<span class="token operator">: </span><a href="../../../crypto/net.corda.v5.crypto/-digest-algorithm-name/index.html">DigestAlgorithmName</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Creates an instance of the <a href="index.html">CustomSignatureSpec</a> with specified signature name and the digest name, <a href="params.html">params</a> are set to null value.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1124815018%2FConstructors%2F-1640755694" anchor-label="CustomSignatureSpec" id="1124815018%2FConstructors%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-custom-signature-spec.html"><span>Custom</span><wbr><span>Signature</span><wbr><span><span>Spec</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1124815018%2FConstructors%2F-1640755694"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":cipher-suite:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-custom-signature-spec.html"><span class="token function">CustomSignatureSpec</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signatureName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">customDigestName<span class="token operator">: </span><a href="../../../crypto/net.corda.v5.crypto/-digest-algorithm-name/index.html">DigestAlgorithmName</a><span class="token punctuation">, </span></span><span class="parameter ">params<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html">AlgorithmParameterSpec</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="130485275%2FFunctions%2F-1640755694" anchor-label="equals" id="130485275%2FFunctions%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#130485275%2FFunctions%2F-1640755694"><span><span>equals</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="130485275%2FFunctions%2F-1640755694"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":cipher-suite:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="index.html#130485275%2FFunctions%2F-1640755694"><span class="token function">equals</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1172766101%2FFunctions%2F-1640755694" anchor-label="hashCode" id="-1172766101%2FFunctions%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1172766101%2FFunctions%2F-1640755694"><span>hash</span><wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1172766101%2FFunctions%2F-1640755694"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":cipher-suite:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-1172766101%2FFunctions%2F-1640755694"><span class="token function">hashCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1315904797%2FFunctions%2F-1640755694" anchor-label="toString" id="1315904797%2FFunctions%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="to-string.html"><span>to</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1315904797%2FFunctions%2F-1640755694"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":cipher-suite:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="to-string.html"><span class="token function">toString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Converts a <a href="index.html">CustomSignatureSpec</a> object to a string representation.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="-974663351%2FProperties%2F-1640755694" anchor-label="customDigestName" id="-974663351%2FProperties%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="custom-digest-name.html"><span>custom</span><wbr><span>Digest</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-974663351%2FProperties%2F-1640755694"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":cipher-suite:dokkaHtmlPartial/main"><a data-name="-974663351%2FProperties%2F-1640755694" anchor-label="customDigestName" id="-974663351%2FProperties%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="custom-digest-name.html">customDigestName</a><span class="token operator">: </span><a href="../../../crypto/net.corda.v5.crypto/-digest-algorithm-name/index.html">DigestAlgorithmName</a></div><div class="brief "><a data-name="-974663351%2FProperties%2F-1640755694" anchor-label="customDigestName" id="-974663351%2FProperties%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a><p class="paragraph">Digest algorithm name.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1968761411%2FProperties%2F-1640755694" anchor-label="params" id="1968761411%2FProperties%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="params.html"><span><span>params</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1968761411%2FProperties%2F-1640755694"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":cipher-suite:dokkaHtmlPartial/main"><a data-name="1968761411%2FProperties%2F-1640755694" anchor-label="params" id="1968761411%2FProperties%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="params.html">params</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html">AlgorithmParameterSpec</a><span class="token operator">?</span></div><div class="brief "><a data-name="1968761411%2FProperties%2F-1640755694" anchor-label="params" id="1968761411%2FProperties%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a><p class="paragraph">Signature parameters.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1383633137%2FProperties%2F-1640755694" anchor-label="signatureName" id="1383633137%2FProperties%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1383633137%2FProperties%2F-1640755694"><span>signature</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1383633137%2FProperties%2F-1640755694"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":cipher-suite:dokkaHtmlPartial/main"><a data-name="1383633137%2FProperties%2F-1640755694" anchor-label="signatureName" id="1383633137%2FProperties%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html#1383633137%2FProperties%2F-1640755694">signatureName</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="tabbedcontent">Extensions</h2>
+      <div class="table" data-togglable="Extensions"><a data-name="-1991451311%2FExtensions%2F-1640755694" anchor-label="equal" id="-1991451311%2FExtensions%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../equal.html"><span><span>equal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1991451311%2FExtensions%2F-1640755694"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":cipher-suite:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../../crypto/net.corda.v5.crypto/-signature-spec/index.html">SignatureSpec</a><span class="token operator">?</span><span class="token punctuation">.</span><a href="../equal.html"><span class="token function">equal</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">right<span class="token operator">: </span><a href="../../../crypto/net.corda.v5.crypto/-signature-spec/index.html">SignatureSpec</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Compares two instances of the <a href="../../../crypto/net.corda.v5.crypto/-signature-spec/index.html">SignatureSpec</a></p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1791936774%2FExtensions%2F-1640755694" anchor-label="getParamsSafely" id="1791936774%2FExtensions%2F-1640755694" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":cipher-suite:dokkaHtmlPartial/main" data-filterable-set=":cipher-suite:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../get-params-safely.html"><span>get</span><wbr><span>Params</span><wbr><span><span>Safely</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1791936774%2FExtensions%2F-1640755694"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":cipher-suite:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../../crypto/net.corda.v5.crypto/-signature-spec/index.html">SignatureSpec</a><span class="token punctuation">.</span><a href="../get-params-safely.html"><span class="token function">getParamsSafely</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html">AlgorithmParameterSpec</a><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+
