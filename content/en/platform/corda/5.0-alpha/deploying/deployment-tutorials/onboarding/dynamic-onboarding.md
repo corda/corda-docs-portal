@@ -5,7 +5,7 @@ menu:
   corda-5-alpha:
     identifier: corda-5-alpha-dynamic-onboarding
     parent: corda-5-alpha-tutorials-deploy-dynamic
-    weight: 3000
+    weight: 2000
 section_menu: corda-5-alpha
 ---
 This section describes how to configure a [dynamic network](../../network-types.html#dynamic-networks) to onboard new members. It assumes that you have configured the [MGM for the network](mgm-onboarding.html).

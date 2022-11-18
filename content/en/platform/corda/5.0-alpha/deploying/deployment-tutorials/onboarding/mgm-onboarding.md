@@ -5,7 +5,7 @@ menu:
   corda-5-alpha:
     identifier: corda-5-alpha-mgm-onboarding
     parent: corda-5-alpha-tutorials-deploy-dynamic
-    weight: 2000
+    weight: 1000
 section_menu: corda-5-alpha
 ---
 
