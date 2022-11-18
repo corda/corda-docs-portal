@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-alpha
 ---
 
-This section describes how to package your CorDapp as CPKs, CPBs, and CPIs. You can read more about the CorDapp packaging format in the [Key Concepts](../../introduction/key-concepts.html#packaging) section.
+This section describes how to package your CorDapp as CPKs (Corda Packages), CPBs (Corda Package Bundles), and CPIs (Corda Package Installers). You can read more about the CorDapp packaging format in the [Key Concepts](../../introduction/key-concepts.html#packaging) section.
 
 ## Before You Start
 
@@ -123,5 +123,5 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
     ```
 
 {{< note >}}
-Use an alias that will be unique over time. Consider how certificate expiry will require new certificates with the same X.500 name as existing certificates, and define a naming convention that covers that use case.
+Use an alias that will be unique over time. After consideration that certificate expiry will require new certificates with the same X.500 name as existing certificates, define a suitable naming convention that covers that use case.
 {{< /note >}}
