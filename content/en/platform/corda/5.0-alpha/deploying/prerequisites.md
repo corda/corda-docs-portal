@@ -21,6 +21,8 @@ The prerequisites for both the target environment and the environment from which
 | Helm     | 3.9.4 or newer |
 | Docker   |                |
 
+Corda deployments have been tested with Windows 11 and macOS Monterey version 12.6.1.
+
 ## Target Environment
 
 ### Container Orchestration
