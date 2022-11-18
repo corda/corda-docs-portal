@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-alpha
 ---
 
-This section describes how to package your CorDapp as CPKs, CPBs, and CPIs.
+This section describes how to package your CorDapp as CPKs, CPBs, and CPIs. You can read more about the CorDapp packaging format in the [Key Concepts](../../introduction/key-concepts.html#packaging) section.
 
 ## Before You Start
 
@@ -22,7 +22,7 @@ To convert an existing CorDapp project to the new Gradle plugin:
 
 1. Add a new version number to `gradle.properties`:
     ```groovy
-    cordaGradlePluginsVersion2=7.0.0-SNAPSHOT
+    cordaGradlePluginsVersion2=7.0.1-SNAPSHOT
     ```
 2. Add this repository to pluginManagement/repositories in `settings.gradle`:
     ```groovy
@@ -53,7 +53,7 @@ To generate a code signing key for signing the CPI:
     ```shell
     keytool -genkeypair -alias "signing key 1" -keystore signingkeys.pfx -storepass "keystore password" -dname "cn=CPI Plugin Example - Signing Key 1, o=R3, L=London, c=GB" -keyalg RSA -storetype pkcs12 -validity 4000
     ```
-2. If you are using the default Gradle plugin signing key, you must import it into our key store. Save the following text into a file named `gradle-plugin-default-key.pem`:
+2. If you are using the default Gradle plugin signing key, you must import it into your key store. Save the following text into a file named `gradle-plugin-default-key.pem`:
     ```text
     -----BEGIN CERTIFICATE-----
     MIIB7zCCAZOgAwIBAgIEFyV7dzAMBggqhkjOPQQDAgUAMFsxCzAJBgNVBAYTAkdC
@@ -96,7 +96,7 @@ The Gradle plugin builds the CPB. Run the following command to turn a CPB into a
 ```shell 
 ./corda-cli.sh package create-cpi \
     --cpb mycpb.cpb \
-    --group-policy TestGroupPolicy.json \
+    --group-policy GroupPolicy.json \
     --cpi-name "cpi name" \
     --cpi-version "1.0.0.0-SNAPSHOT" \
     --file output.cpi \
