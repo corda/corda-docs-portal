@@ -4,8 +4,8 @@ title: "Manual Bootstrapping"
 menu:
   corda-5-alpha:
     identifier: corda-5-alpha-deploy-manual
-    parent: corda-5-alpha-tutorials-deploy
-    weight: 3000
+    parent: corda-5-alpha-tutorial-deploy-k8s
+    weight: 1000
 section_menu: corda-5-alpha
 ---
 

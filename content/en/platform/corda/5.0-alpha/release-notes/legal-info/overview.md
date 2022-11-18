@@ -10,5 +10,3 @@ section_menu: corda-5-alpha
 ---
 * [corda-api](api.html)
 * [corda-runtime-os](runtime-os.html)
-* [corda-gradle-plugins](gradle.html)
-* [CSDE-cordapp-template-kotlin](csde-cordapp-template-kotlin.html)
