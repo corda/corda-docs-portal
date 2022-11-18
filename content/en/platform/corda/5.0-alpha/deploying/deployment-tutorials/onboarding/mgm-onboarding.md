@@ -229,7 +229,7 @@ If using Bash, the result contains `session key ID` (e.g. 3B9A266F96E2). Run the
 ```shell
 export SESSION_KEY_ID=<session key ID>
 ```
-To generate an ECDH key pair:
+To generate an Elliptic-curve Diffie–Hellman (ECDH) key pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```
@@ -264,7 +264,7 @@ When using cluster-level TLS, it is only necessary to do this once per cluster.
 
 To set up the TLS key pair and certificate for the cluster:
 
-1. Create a TLS key pair at the P2P cluster-level by running this command:
+1. Create a TLS key pair at the P2P cluster level by running this command:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -351,7 +351,7 @@ To set up the TLS key pair and certificate for the cluster:
 
    You can optionally omit the root certificate.
    {{< note >}}
-   If you upload a certificate chain consisting of more than one certificates, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
+   If you upload a certificate chain consisting of more than one certificate, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
    {{< /note >}}
 
 ### Disable Revocation Checks
@@ -423,7 +423,7 @@ export REGISTRATION_CONTEXT='{
   "corda.group.truststore.tls.0" : "'$TLS_CA_CERT'"
 }'
 ```
-Optionally, you can set the session certificate trustroot with the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`, however when `corda.group.pki.session` is set to `NoPKI` the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
+Optionally, you can set the session certificate trustroot with the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`, however when `corda.group.pki.session` is set to `NoPKI`, the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
 
 ### Build Registration Context Using PowerShell
 

@@ -72,7 +72,7 @@ The available key schemes are viewable through `KeysRpcOps`. One of them is used
 {{< /note >}}
 Run this command for each member defined in the `staticNetwork` section of your `GroupPolicy.json` file.
 
-Perform a lookup to ensure all members have registered successfully and are visible to each other:
+Perform a lookup to ensure that all members have registered successfully and are visible to each other:
 ```shell
 curl --insecure -u admin:admin -X GET https://localhost:8888/api/v1/members/<ID-short-hash>
 ```

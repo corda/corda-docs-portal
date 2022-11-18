@@ -8,10 +8,10 @@ menu:
     weight: 3000
 section_menu: corda-5-alpha
 ---
-This section describes how to configure a [dynamic network](../../network-types.html#dynamic-networks) to onboard new members. It assumes you have configured the [MGM for the network](mgm-onboarding.html).
+This section describes how to configure a [dynamic network](../../network-types.html#dynamic-networks) to onboard new members. It assumes that you have configured the [MGM for the network](mgm-onboarding.html).
 
 {{< note >}}
-The PowerShell commands listed on this page are for use with  PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
+The PowerShell commands listed on this page are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
 {{< /note >}}
 
 ## Set Variables
@@ -115,7 +115,7 @@ To retrieve the `GroupPolicy.json` file from the MGM:
 
 ## Build the CPI
 
-Build the CPI using the [Corda CLI](../../installing-corda-cli.html) packaging plugin, passing in the member CPB and [group policy](#create-the-group-policy-file) files.
+Build the [CPI](../../../introduction/key-concepts.html#corda-package-installer-cpi) using the [Corda CLI](../../installing-corda-cli.html) packaging plugin, passing in the member [CPB](../../../introduction/key-concepts.html#corda-package-bundles-cpbs) and [group policy](#create-the-group-policy-file) files.
 
 <!--Add link when ready
 See this [CorDapp Packaging]() for more details.-->
@@ -244,7 +244,8 @@ This step is only necessary if setting up a new cluster.
 When using cluster-level TLS, it is only necessary to do this once per cluster.
 {{< /note >}}
 
-You must perform the same steps that you did for setting up the MGM to enable P2P communication for the locally hosted identities. Use the CA whose trustroot certificate was configured in the MGM's registration context.
+You must perform the same steps that you did for setting up the MGM to enable P2P communication for the locally hosted identities.
+Use the Certificate Authority (CA) whose trustroot certificate was configured in the MGM's registration context.
 
 1. Create a TLS key pair at the P2P cluster-level by running this command:
 
@@ -335,7 +336,7 @@ You must perform the same steps that you did for setting up the MGM to enable P2
 
    You can optionally omit the root certificate.
    {{< note >}}
-   If you upload a certificate chain consisting of more than one certificates, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
+   If you upload a certificate chain consisting of more than one certificate, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
    {{< /note >}}
 
 ### Disable Revocation Checks
@@ -382,7 +383,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 ## Configure the Member Virtual Node for Network Communication
 
-You must configure the virtual node as a network participant with the properties required for P2P messaging. The order is slightly different to MGM onboarding in that for members you must do this before registering.
+You must configure the virtual node as a network participant with the properties required for P2P messaging. The order is slightly different to MGM onboarding because for members, you must perform this step before registering.
 To configure the member virtual node, run this command:
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -411,7 +412,9 @@ You can retrieve the names available for signature-spec through `KeysRpcOps`. On
 {{< /note >}}<!--will need more info-->
 
 To build the registration context, run the following command, replacing the endpoint URL with the endpoint of the P2P gateway.
-If you are testing in a single cluster, this value isn't important so you can use something like `https://localhost:8080`. If the network is a multi-cluster environment, must be a valid P2P gateway URL. For example, `https://corda-p2p-gateway-worker.corda-cluster-a:8080`, where `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace the Corda cluster is deployed within.
+If you are testing in a single cluster, this value isn't important, so you can use something like `https://localhost:8080`.
+If the network is a multi-cluster environment, must be a valid P2P gateway URL.
+For example, `https://corda-p2p-gateway-worker.corda-cluster-a:8080`, where `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within.
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
