@@ -75,6 +75,7 @@ menu:
   </div>
 </div>
 -->
+<!--
 <div class="col">
   <div class="card h-100">
     <div class="card-body">
@@ -86,11 +87,12 @@ menu:
     </div>
   </div>
 </div>
+-->
 <div class="col">
   <div class="card h-100">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="5.0-alpha/release-notes/release-notes-c5dp2.html">
+      <a href="5.0-alpha/release-notes/release-notes-c5-alpha.html">
       <img src="5.0-alpha/icons/release-notes.png" alt="Release notes" style="padding: 1rem; border: 0;" class="light-only" height="124">
       <img src="5.0-alpha/icons/release-notes.png" alt="Release notes" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
               <span>Release Notes</span></h3></a>
