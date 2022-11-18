@@ -774,6 +774,18 @@ parent = "corda-5-alpha-deploy"
 name = "Deployment Tutorials"
 weight = 5000
 
+[[corda-5-alpha]]
+identifier = "corda-5-alpha-tutorials-deploy-dynamic"
+parent = "corda-5-alpha-onboarding-tutorials"
+name = "Dynamic Networks"
+weight = 2000
+
+[[corda-5-alpha]]
+identifier = "corda-5-alpha-tutorials-deploy-static"
+parent = "corda-5-alpha-onboarding-tutorials"
+name = "Static Networks"
+weight = 1000
+
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
 #identifier = "tools-cdl"
