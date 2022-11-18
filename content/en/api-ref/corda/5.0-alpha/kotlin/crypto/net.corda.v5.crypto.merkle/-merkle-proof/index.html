@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>MerkleProof</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.435-Eagle
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="crypto::net.corda.v5.crypto.merkle/MerkleProof///PointingToDeclaration//-688304473">
+  <div class="breadcrumbs"><a href="../../index.html">crypto</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.crypto.merkle</a><span class="delimiter">/</span><span class="current">MerkleProof</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Merkle</span><wbr><span><span>Proof</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">MerkleProof</a></div><p class="paragraph"><a href="index.html">MerkleProof</a>s can be used to verify if some specific data is part of a <a href="../-merkle-tree/index.html">MerkleTree</a>.</p><p class="paragraph">Use <a href="../-merkle-tree/create-audit-proof.html">net.corda.v5.crypto.merkle.MerkleTree.createAuditProof</a> to create a proof for a set of leaves for an existing <a href="../-merkle-tree/index.html">MerkleTree</a>. Construct a <a href="index.html">MerkleProof</a> from its (<a href="tree-size.html">treeSize</a>, <a href="leaves.html">leaves</a>, <a href="hashes.html">hashes</a>) when you want to <a href="verify.html">verify</a> if the leaves to be checked are part of a <a href="../-merkle-tree/index.html">MerkleTree</a> with the specific root.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="1180597508%2FFunctions%2F-688304473" anchor-label="verify" id="1180597508%2FFunctions%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="verify.html"><span><span>verify</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1180597508%2FFunctions%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="verify.html"><span class="token function">verify</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">root<span class="token operator">: </span><a href="../../net.corda.v5.crypto/-secure-hash/index.html">SecureHash</a><span class="token punctuation">, </span></span><span class="parameter ">digest<span class="token operator">: </span><a href="../-merkle-tree-hash-digest/index.html">MerkleTreeHashDigest</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Checks if the <a href="index.html">MerkleProof</a> has been generated from a <a href="../-merkle-tree/index.html">MerkleTree</a> with the given <a href="verify.html">root</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="1215116993%2FProperties%2F-688304473" anchor-label="hashes" id="1215116993%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="hashes.html"><span><span>hashes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1215116993%2FProperties%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><a data-name="1215116993%2FProperties%2F-688304473" anchor-label="hashes" id="1215116993%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="hashes.html">hashes</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../net.corda.v5.crypto/-secure-hash/index.html">SecureHash</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="1215116993%2FProperties%2F-688304473" anchor-label="hashes" id="1215116993%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><p class="paragraph">The helper hashes needed to reconstruct the whole tree.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-493659039%2FProperties%2F-688304473" anchor-label="leaves" id="-493659039%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="leaves.html"><span><span>leaves</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-493659039%2FProperties%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><a data-name="-493659039%2FProperties%2F-688304473" anchor-label="leaves" id="-493659039%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="leaves.html">leaves</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-indexed-merkle-leaf/index.html">IndexedMerkleLeaf</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="-493659039%2FProperties%2F-688304473" anchor-label="leaves" id="-493659039%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><p class="paragraph">The leaf items whose inclusion is proved by the proof.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2138835358%2FProperties%2F-688304473" anchor-label="treeSize" id="2138835358%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":crypto:dokkaHtmlPartial/main" data-filterable-set=":crypto:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="tree-size.html"><span>tree</span><wbr><span><span>Size</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2138835358%2FProperties%2F-688304473"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":crypto:dokkaHtmlPartial/main"><a data-name="2138835358%2FProperties%2F-688304473" anchor-label="treeSize" id="2138835358%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="tree-size.html">treeSize</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><a data-name="2138835358%2FProperties%2F-688304473" anchor-label="treeSize" id="2138835358%2FProperties%2F-688304473" data-filterable-set=":crypto:dokkaHtmlPartial/main"></a><p class="paragraph">The total number of leaves in the tree.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+
