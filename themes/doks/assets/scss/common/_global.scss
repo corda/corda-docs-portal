@@ -403,3 +403,17 @@ body {
   padding: 2.5rem 3rem 3rem 3rem;
   border-radius: 4px;
 }
+
+figcaption { 
+  text-align: center;
+  font-style: italic;
+  font-size: small;
+  color: #53585f;
+}
+
+figure {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
