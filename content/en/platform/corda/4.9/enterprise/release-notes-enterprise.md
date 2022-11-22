@@ -16,6 +16,20 @@ weight: 1
 
 # Corda Enterprise Edition 4.9 release notes
 
+## Corda Enterprise Edition 4.9.4 release notes
+
+Corda Enterprise Edition 4.9.4 is a patch release of Corda Enterprise focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+* The closing of AttachmemtClassLoaders is now delayed until all SerializationContexts that refer to them have gone out of scope. This fixes an issue where they were being closed to early when evicted from the cache.
+* Flow draining mode will now not acknowledge P2P in-flight messages when they have not yet been committed to the database. Previously, flow draining mode would acknowledge all in-flight messages as duplicate.
+* A periodic check is now performed to determine if the state machine thread pool seems to be blocked. A warning is logged if so. A thread dump is now also logged periodically (every 5 mins).
+
 ## Corda Enterprise Edition 4.9.3 release notes
 
 Corda Enterprise Edition 4.9.3 is a patch release of Corda Enterprise focused on resolving issues.
