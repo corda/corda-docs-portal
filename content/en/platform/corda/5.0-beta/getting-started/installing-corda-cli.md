@@ -1,11 +1,11 @@
 ---
 date: '2020-09-08T12:00:00Z'
 menu:
-  corda-5-dev-preview2:
-    identifier: corda-5-dev-preview-cordacli-csde-installing
+  corda-5-beta:
+    identifier: corda-5-beta-cordacli-csde-installing
     weight: 1050
-    parent: corda-5-dev-preview-start
-section_menu: corda-5-dev-preview2
+    parent: corda-5-beta-start
+section_menu: corda-5-beta
 title: Installing the Corda CLI
 ---
 Corda CLI (command line interface) is a command line tool that supports various Corda related tasks, including [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) creation and Corda cluster management.

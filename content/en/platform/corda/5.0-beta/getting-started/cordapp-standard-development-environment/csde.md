@@ -2,11 +2,11 @@
 date: '2022-09-19'
 title: "CorDapp Standard Development Environment (CSDE)"
 menu:
-  corda-5-dev-preview2:
-    parent: corda-5-dev-preview-start
-    identifier: corda-5-dev-preview-csde
+  corda-5-beta:
+    parent: corda-5-beta-start
+    identifier: corda-5-beta-csde
     weight: 2000
-section_menu: corda-5-dev-preview2
+section_menu: corda-5-beta
 ---
 {{< note >}}
 The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://community.r3.com/c/corda-5-developer-preview/41).  

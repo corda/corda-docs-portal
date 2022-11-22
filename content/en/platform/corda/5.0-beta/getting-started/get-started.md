@@ -2,10 +2,10 @@
 date: '2022-09-19'
 title: "Getting Started"
 menu:
-  corda-5-dev-preview2:
-    identifier: corda-5-dev-preview-start
+  corda-5-beta:
+    identifier: corda-5-beta-start
     weight: 2000
-section_menu: corda-5-dev-preview2
+section_menu: corda-5-beta
 ---
 This section guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic CorDapp.
 

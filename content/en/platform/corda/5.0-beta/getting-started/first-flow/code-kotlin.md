@@ -2,11 +2,11 @@
 date: '2022-10-19'
 title: "Kotlin Flow Code"
 menu:
-  corda-5-dev-preview2:
-    parent: corda-5-dev-preview-flow
-    identifier: corda-5-dev-preview-flow-kotlin
+  corda-5-beta:
+    parent: corda-5-beta-flow
+    identifier: corda-5-beta-flow-kotlin
     weight: 1000
-section_menu: corda-5-dev-preview2
+section_menu: corda-5-beta
 ---
 
 The Kotlin code for the flows and supporting classes can be found in the CSDE repo at `src/main/kotlin/com/r3/developers/csdetemplate/MyFirstFlow.kt`.

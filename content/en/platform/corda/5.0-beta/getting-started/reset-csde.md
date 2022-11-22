@@ -2,11 +2,11 @@
 date: '2022-09-22'
 title: "Resetting the CSDE"
 menu:
-  corda-5-dev-preview2:
-    parent: corda-5-dev-preview-start
-    identifier: corda-5-dev-preview-reset
+  corda-5-beta:
+    parent: corda-5-beta-start
+    identifier: corda-5-beta-reset
     weight: 8000
-section_menu: corda-5-dev-preview2
+section_menu: corda-5-beta
 ---
 The CSDE creates temporary files to store data required to generate and upload [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) files and manage the Corda cluster.
 If these files are modified, deleted, or otherwise get out of sync with the actual state of the Corda cluster, the CSDE Gradle tasks may not function correctly.   

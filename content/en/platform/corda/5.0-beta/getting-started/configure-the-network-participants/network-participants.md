@@ -2,11 +2,11 @@
 date: '2022-09-20'
 title: "Configuring the Network Participants"
 menu:
-  corda-5-dev-preview2:
-    parent: corda-5-dev-preview-start
-    identifier: corda-5-dev-preview-csde-network
+  corda-5-beta:
+    parent: corda-5-beta-start
+    identifier: corda-5-beta-csde-network
     weight: 7000
-section_menu: corda-5-dev-preview2
+section_menu: corda-5-beta
 ---
 The CSDE is pre-configured to create a Corda cluster with three virtual nodes: Alice, Bob, and Charlie.
 This configuration can be changed by modifying the `config/dev-net.json` file.

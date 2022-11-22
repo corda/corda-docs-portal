@@ -2,11 +2,11 @@
 date: '2022-09-20'
 title: "Fast Feedback With Simulator"
 menu:
-  corda-5-dev-preview2:
-    parent: corda-5-dev-preview-start
-    identifier: corda-5-dev-preview-simulator
+  corda-5-beta:
+    parent: corda-5-beta-start
+    identifier: corda-5-beta-simulator
     weight: 4000
-section_menu: corda-5-dev-preview2
+section_menu: corda-5-beta
 ---
 When writing any application, including CorDapps, it is helpful to have a fast feedback loop: code > test > debug > modify.
 This accelerates the development process.
