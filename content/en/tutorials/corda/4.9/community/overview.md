@@ -3,9 +3,9 @@ date: '2021-09-27'
 section_menu: tutorials
 menu:
   tutorials:
-    name: Corda 4 tutorials
-    weight: 200
-    identifier: tutorials-corda-4
+    name: Corda 4.9 tutorials
+    weight: 197
+    identifier: tutorials-corda-4-9
 project: tutorials
 title: Corda 4.9 tutorials
 ---

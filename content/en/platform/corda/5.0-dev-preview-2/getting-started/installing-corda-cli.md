@@ -9,7 +9,7 @@ section_menu: corda-5-dev-preview2
 title: Installing the Corda CLI
 ---
 Corda CLI (command line interface) is a command line tool that supports various Corda related tasks, including [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) creation and Corda cluster management.
-Direct use of Corda CLI by Developers is not in scope for Developer Preview 2. However, the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html) uses Corda CLI in the background.
+Direct use of Corda CLI by Developers is not in scope for Developer Preview 2. However, the [CorDapp Standard Development Environment (CSDE)](../getting-started/cordapp-standard-development-environment/csde.html) uses Corda CLI in the background.
 As a result, you must install Corda CLI before using CSDE.
 
 ## Downloading Corda CLI
@@ -50,4 +50,8 @@ To install Corda CLI, download the installation `zip` file from https://download
    .\install.ps1
    ```
    The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. On Windows, this is typically something like `C:\Users\Charlie.Smith`.
+
+   {{< note >}}
+   If your PowerShell execution policy does not allow you to run this script, copy the contents to your own PowerShell script and execute that instead.
+   {{< /note >}}
 <!-- For information about working directly with the Corda CLI, see [Corda CLI](../developing/corda-cli/overview.html).-->

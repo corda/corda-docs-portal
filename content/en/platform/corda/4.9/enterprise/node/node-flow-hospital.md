@@ -14,7 +14,6 @@ weight: 150
 
 # Flow Hospital
 
-
 ## Overview
 
 The **flow hospital** refers to a built-in node service that manages flows that have encountered an error.
@@ -33,6 +32,9 @@ Below, you can find a list of the errors that are handled by the hospital.
 This concept is analogous to *exception management handling* associated with enterprise workflow software, or
 *retry queues/stores* in enterprise messaging middleware for recovering from failure to deliver a message.
 
+## Flow Management API
+
+If you want to interact with the Flow Hospital programatically, use the Flow Management API described in [Querying flow data](#operating/querying-flow-data.html).
 
 ## Functionality
 
@@ -40,16 +42,12 @@ Flow hospital functionality is enabled by default in Corda Enterprise Edition 4.
 
 There are two aspects to the flow hospital:
 
-
 * run-time behaviour in the node upon failure, including retry and recovery transitions and policies.
 * visualization of failed flows in the [flow management console](../../../../../../en/platform/corda/4.9/enterprise/node/node-flow-management-console.md).
-
-
 
 ### Run-time behaviour
 
 Specifically, there are two main ways a flow is hospitalized:
-
 
 * A counterparty invokes a flow on your node that isn’t installed (i.e. missing CorDapp):
 this will cause the flow session initialisation mechanism to trigger a `ClassNotFoundException`.
@@ -58,8 +56,6 @@ Corrective action requires installing the correct CorDapp in the node’s “cor
 {{< warning >}}
 There is currently no retry API. If you don’t want to install the cordapp, you should be able to call *killFlow* with the UUID
 associated with the failing flow in the node’s log messages.{{< /warning >}}
-
-
 
 * Once started, if a flow experiences an error, the following failure scenarios are handled:
 * `SQLException` mentioning a **deadlock**:
@@ -90,7 +86,6 @@ the flow hospital and the error will be allowed to propagate.
 These errors will be generated when the HSM takes too long to respond to an action.  The timeout value is defined in corda-configuration-file.
 - Error type: `TimedCryptoServiceException`
 
-
 * `HospitalizeFlowException`:
 The aim of this exception is to provide user code a way to retry a flow from its last checkpoint if a known intermittent failure occurred.
 Any `HospitalizeFlowException` that is thrown and not handled by any of the scenarios detailed above, will be kept in for observation.
@@ -99,8 +94,6 @@ Flows that experience errors from inside the Corda statemachine, that are not ha
 and then kept in for observation if the error continues.
 
 
-
 {{< note >}}
 Flows that are kept in for observation are retried upon node restart.
-
 {{< /note >}}

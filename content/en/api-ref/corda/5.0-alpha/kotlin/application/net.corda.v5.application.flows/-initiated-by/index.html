@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>InitiatedBy</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.435-Eagle
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="application::net.corda.v5.application.flows/InitiatedBy///PointingToDeclaration//-8125750">
+  <div class="breadcrumbs"><a href="../../index.html">application</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.application.flows</a><span class="delimiter">/</span><span class="current">InitiatedBy</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Initiated</span><wbr><span><span>By</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/index.html"><span class="token annotation builtin">Target</span></a><span class="token punctuation">(</span><span>allowedTargets<span class="token operator"> = </span><span class="token punctuation">[</span><span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-annotation-target/-c-l-a-s-s/index.html">AnnotationTarget.CLASS</a></span><wbr><span class="token punctuation">]</span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">annotation class </span><a href="index.html">InitiatedBy</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>protocol<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>version<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html">IntArray</a><span class="token operator"> = </span>[1]</span></span><span class="token punctuation">)</span></div><p class="paragraph"><a href="index.html">InitiatedBy</a> specifies the protocol name that triggers a <a href="../-responder-flow/index.html">ResponderFlow</a> as a consequence of a counterparty requesting a new session.</p><p class="paragraph">Any flows that participate in flow sessions must declare a protocol name, using <a href="../-initiating-flow/protocol.html">InitiatingFlow.protocol</a> and <a href="protocol.html">InitiatedBy.protocol</a>. The platform will use the protocol name to establish what <a href="../-responder-flow/index.html">ResponderFlow</a> to invoke on the responder side when the initiator side creates a session.</p><p class="paragraph">For example, to set up an initiator-responder pair, declare the following:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@InitiatingFlow(protocol = "myprotocol")<br>class MyFlowInitiator : Flow {<br> ...<br>}<br><br>@InitiatedBy(protocol = "myprotocol")<br>class MyFlowResponder : ResponderFlow {<br> ...<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Flows may also optionally declare a range of protocol versions they support. By default, flows support protocol version 1 only. When initiating a flow, the platform will look for the highest supported protocol version as declared on the initiating side and start that flow on the responder side.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Properties">Properties</button><button class="section-tab" data-togglable="See also">See also</button></div>
+    <div class="tabs-section-body">
+      <h4 class="">See also</h4>
+      <div data-togglable="See also">
+        <div class="platform-hinted WithExtraAttributes" data-platform-hinted="data-platform-hinted" data-togglable="See also"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><div data-togglable="See also"><div class="table" data-togglable="See also"><div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><a href="../-initiating-flow/index.html"><span>Initiating</span><wbr><span><span>Flow</span></span></a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><a href="../-responder-flow/index.html"><span>Responder</span><wbr><span><span>Flow</span></span></a></div></span></div><div></div></div></div></div></div></div></div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="2023520701%2FProperties%2F-8125750" anchor-label="protocol" id="2023520701%2FProperties%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="protocol.html"><span><span>protocol</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2023520701%2FProperties%2F-8125750"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><a data-name="2023520701%2FProperties%2F-8125750" anchor-label="protocol" id="2023520701%2FProperties%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="protocol.html">protocol</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="2023520701%2FProperties%2F-8125750" anchor-label="protocol" id="2023520701%2FProperties%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a><p class="paragraph">The protocol that the annotated flow is initiated by.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-757969587%2FProperties%2F-8125750" anchor-label="version" id="-757969587%2FProperties%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":application:dokkaHtmlPartial/main" data-filterable-set=":application:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="version.html"><span><span>version</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-757969587%2FProperties%2F-8125750"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":application:dokkaHtmlPartial/main"><a data-name="-757969587%2FProperties%2F-8125750" anchor-label="version" id="-757969587%2FProperties%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="version.html">version</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html">IntArray</a></div><div class="brief "><a data-name="-757969587%2FProperties%2F-8125750" anchor-label="version" id="-757969587%2FProperties%2F-8125750" data-filterable-set=":application:dokkaHtmlPartial/main"></a><p class="paragraph">The protocol version.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

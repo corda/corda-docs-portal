@@ -10,7 +10,7 @@ section_menu: corda-5-dev-preview2
 ---
 
 ## Relaxed PKI
- 
+
 Corda 4 required that all Corda networks used the custom PKI (X.509 extensions). Membership of a Corda network was granted by Corda operating as a certificate authority. The signing of a CSR tied a legal identity to a public key, thereby granting membership of a network. This was achieved using Identity Manager and Network Map services, which are run as part of the Corda Enterprise Network Manager (CENM) product.
 
 Corda 5 radically alters the way that identities are onboarded to a network.
@@ -54,9 +54,13 @@ Corda 4 used the Corda Firewall to allow the egress of Corda messages to the wid
 Corda 5 uses the Gateway (and session manager) to achieve similar goals. However, now that Corda communicates with other clusters via HTTPS instead of AMQP, these services can be deployed into an ingress zone behind the corporate firewall and load-balancing proxies.
 
 ## Combined Worker
-The worker architecture allows us to deliver Corda in various guises. For highly available fault-tolerant systems, the fully distributed collection of workers can be used. However, when developing CorDapps, the ability to run a small and lightweight version of this is paramount. Therefore, a collection of workers can be collapsed into a *combined worker*, delivering the same characteristics of the mode-complex deployment in a much smaller package.
+The worker architecture allows us to deliver Corda in various guises. For highly available fault-tolerant systems, the fully distributed collection of workers can be used. However, when developing CorDapps, the ability to run a small and lightweight version of this is paramount. Therefore, a collection of workers can be collapsed into a **combined worker**, delivering the same characteristics of the mode-complex deployment in a much smaller package.
 
-This can be augmented through the addition of an in-memory message bus, foresaking Kafka. This allows deterministic testing and better observability when running through the full software development lifecycle on a laptop.
+{{< figure src="images/combined-worker.png" figcaption="Combined Worker" width="75%">}}
+
+This can be augmented through the addition of an in-memory message bus, forsaking Kafka. This allows deterministic testing and better observability when running through the full software development lifecycle on a laptop.
+
+To read about starting the combined worker using the CSDE, see [Starting the Corda Combined Worker](../getting-started/running-your-first-cordapp/run-first-cordapp.html#starting-the-corda-combined-worker).
 
 ## Pluggable Ledger Model
 Past Corda versions tightly embedded the UTXO ledger model at the heart of the architecture. Corda 5, with its layered approach, makes this model pluggable. This means that various ledger models, from UTXO through consensual, to some form of rules-based implementation, are all possible to deploy on top of the same tech stack and run in parallel. The right tool for the job can be selected, rather than requiring the full set of UTXO and smart contract features, which can overcomplicate applications that do not mesh well with that paradigm.
