@@ -1,5 +1,5 @@
 ---
-date: '2022-09-19'
+date: '2022-11-23'
 title: "Getting Started"
 menu:
   corda-5-beta:
@@ -8,19 +8,6 @@ menu:
 section_menu: corda-5-beta
 ---
 This section guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic CorDapp.
-
-{{< note >}}
-Developer Preview 2 is, as the name suggests, a developer preview. It is not a product released and supported by R3. As a result:
-* Do not release anything built on Developer Preview 2 into Production.
-* There is no support for Developer Preview 2 but we are keen to receive community feedback.
-* There are no guarantees around API stability.
-* The tooling described in this section is experimental and may or may not be delivered in the GA release of Corda 5.
-* There are likely to be bugs. If you raise a bug with us, we will consider them for fixing.
-{{< /note >}}
-
-## Developer Preview 1 vs Developer Preview 2
-
-Developer Preview 1 was effectively a taster for the Corda 5 API. It was, however, mostly based on Corda 4 under the hood. Developer Preview 2 is the real deal, based entirely on the new Corda 5 code base with possibly material differences in the API. As a result, code written for Developer Preview 1 is unlikely to work with Developer Preview 2 without modification. You cannot use any artefacts released from Developer Preview 1 for Developer Preview 2.  
 
 ## Corda 4 vs Corda 5
 

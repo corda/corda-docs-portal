@@ -1,6 +1,6 @@
 ---
 date: '2022-09-19'
-title: "Third-Party Prerequisites"
+title: "Prerequisites for the CSDE"
 menu:
   corda-5-beta:
     parent: corda-5-beta-start
@@ -8,6 +8,9 @@ menu:
     weight: 1000
 section_menu: corda-5-beta
 ---
+
+This section lists the third-party software prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html)
+For information about the prerequisites for multi-worker cluster deployments, see [Prerequisites for Cluster Deployments](../../deploying/prerequisites.html).
 
 ## Software Prerequisites
 

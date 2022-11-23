@@ -1,6 +1,6 @@
 ---
-date: '2022-14-11'
-title: "Third-Party Prerequisites for Cluster Deployments"
+date: '2022-23-11'
+title: "Prerequisites for Cluster Deployments"
 menu:
   corda-5-beta:
     parent: corda-5-beta-deploy
@@ -9,14 +9,15 @@ menu:
 section_menu: corda-5-beta
 ---
 
-This section lists the third-party software prerequisites for multi-worker cluster deployments.
+This section lists the software prerequisites for multi-worker cluster deployments.
 The prerequisites for both the target environment and the environment from which you are deploying are listed.
-<!--For information about the prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html), see [Third-Party Prerequisites for the CSDE](../getting-started/prerequisites.html).-->
+For information about the prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html), see [Prerequisites for the CSDE](../getting-started/prerequisites.html).
 
 ## Local Environment
 
 | Software | Version        |
 |----------|----------------|
+| [Corda CLI](../getting-started/installing-corda-cli.html)  |   |  
 | kubectl  | 1.23           |
 | Helm     | 3.9.4 or newer |
 | Docker   |                |

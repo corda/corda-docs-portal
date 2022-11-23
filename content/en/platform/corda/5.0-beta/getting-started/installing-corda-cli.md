@@ -1,5 +1,5 @@
 ---
-date: '2020-09-08T12:00:00Z'
+date: '2022-11-23'
 menu:
   corda-5-beta:
     identifier: corda-5-beta-cordacli-csde-installing
@@ -8,24 +8,31 @@ menu:
 section_menu: corda-5-beta
 title: Installing the Corda CLI
 ---
-Corda CLI (command line interface) is a command line tool that supports various Corda related tasks, including [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) creation and Corda cluster management.
-Direct use of Corda CLI by Developers is not in scope for Developer Preview 2. However, the [CorDapp Standard Development Environment (CSDE)](../getting-started/cordapp-standard-development-environment/csde.html) uses Corda CLI in the background.
-As a result, you must install Corda CLI before using CSDE.
+Corda CLI (command line interface) is a command line tool that supports various Corda-related tasks, including [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) creation and Corda cluster management.
+
+## Third-Party Prerequisites
+
+Software | Version
+---------|------------
+Java     | Azul JDK 11
 
 ## Downloading Corda CLI
-To install Corda CLI, download the installation `zip` file from https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-DevPreview-2/corda-cli-downloader-5.0.0.0-DevPreview-2.zip.
+
+To obtain the Corda CLI installer:
+1. Download `platform-jars-Eagle.tar.gz` from the [R3 Customer Hub](https://r3.force.com/).
+2. Extract `corda-cli-installer-5.0.0.0-Eagle.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Eagle`.
 
 ## Installing on Linux/macOS
 
 1. Start a shell session (bash or zsh).
-2. Change directory to where you downloaded `corda-cli-downloader-5.0.0.0-DevPreview-2.zip`.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Eagle.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   unzip ./corda-cli-downloader-5.0.0.0-DevPreview-2.zip -d corda-cli-downloader-5.0.0.0-DevPreview-2
+   unzip ./corda-cli-installer-5.0.0.0-Eagle.zip -d corda-cli-installer-5.0.0.0-Eagle
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-downloader-5.0.0.0-DevPreview-2
+   cd corda-cli-installer-5.0.0.0-Eagle
    ```
 5. Run the install script:
    ```shell
@@ -33,17 +40,23 @@ To install Corda CLI, download the installation `zip` file from https://download
    ```
    The script installs Corda CLI to `<user-home>/.corda/cli`, where `<user-home>` refers to your user home directory. For example, on macOS, this is typically something like `/Users/charlie.smith` or on Linux, something like `/home/charlie.smith`.
 
+6. Run the following command to verify your installation:
+   ```shell
+   corda-cli.sh -h
+   ```
+   If successful, this outputs details of the Corda CLI commands.
+
 ## Installing on Windows
 
 1. Start a Powershell session.
-2. Change directory to where you downloaded `corda-cli-downloader-5.0.0.0-DevPreview-2.zip`.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Eagle`.
 3. Extract the contents of the `zip` file:
    ```shell
-   Expand-archive .\corda-cli-downloader-5.0.0.0-DevPreview-2.zip
+   Expand-Archive .\corda-cli-installer-5.0.0.0-Eagle.zip
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-downloader-5.0.0.0-DevPreview-2
+   cd corda-cli-installer-5.0.0.0-Eagle
    ```
 5. Run the install script:
    ```shell
@@ -54,4 +67,9 @@ To install Corda CLI, download the installation `zip` file from https://download
    {{< note >}}
    If your PowerShell execution policy does not allow you to run this script, copy the contents to your own PowerShell script and execute that instead.
    {{< /note >}}
-<!-- For information about working directly with the Corda CLI, see [Corda CLI](../developing/corda-cli/overview.html).-->
+
+6. Run the following command to verify your installation:
+  ```shell
+  corda-cli.cmd -h
+  ```
+  If successful, this outputs details of the Corda CLI commands.   

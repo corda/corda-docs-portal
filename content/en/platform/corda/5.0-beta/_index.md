@@ -1,5 +1,5 @@
 ---
-date: '2022-09-23'
+date: '2022-11-23'
 title: Corda 5 Beta
 project: corda
 version: 'Corda 5 Beta'
@@ -17,7 +17,7 @@ menu:
   </h1>
 </section>
 <section class="section">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-5">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5">
 <div class="col">
   <div class="card h-100">
     <div class="card-body">

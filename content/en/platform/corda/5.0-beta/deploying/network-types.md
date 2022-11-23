@@ -14,6 +14,7 @@ Corda supports the following types of networks:
 * [Dynamic](#dynamic-networks)
 
 ## Static Networks
+
 Static networks are intended for test purposes when the list of virtual nodes or members in the network are predetermined.
 These networks are composed of only a single cluster as there is no instance of the [Membership Group Manager (MGM)](../introduction/key-concepts.html#membership-management) to distribute member data across clusters.
 To run a static network, you must complete the following high-level steps:
@@ -26,6 +27,7 @@ To run a static network, you must complete the following high-level steps:
 <!--add cross-refs when ready-->
 
 ## Dynamic Networks
+
 Dynamic networks are used for the following:
 * Production networks
 * Testing across multiple clusters
