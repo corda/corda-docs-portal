@@ -14,7 +14,7 @@ For information about the prerequisites for multi-worker cluster deployments, se
 
 ## Software Prerequisites
 
-Corda 5 DP 2 has been tested with the following:
+The Corda 5 Beta CSDE has been tested with the following:
 
 | Software      | Version |
 | ----------- | ----------- |
@@ -24,14 +24,6 @@ Corda 5 DP 2 has been tested with the following:
 | git | ~v2.24.1    |
 | Docker | Docker Engine ~v20.X.Y or Docker Desktop ~v3.5.X    |
 <!--| Gradle |  7.0+   |-->
-
-
-If you want to experiment with multi-worker cluster deployments, you will also need:
-
-* Kubernetes (incl. kubectl)
-* Helm
-
-However, Developer Preview 2 focuses on the developer rather than operator experience, so Kubernetes deployments are not required to use Developer Preview 2.
 
 <!--## Hardware prerequisites
 
