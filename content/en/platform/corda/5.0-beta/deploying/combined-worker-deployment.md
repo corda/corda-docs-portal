@@ -1,7 +1,6 @@
 ---
 date: '2021-09-21'
 title: "Combined Worker"
-draft: true
 menu:
   corda-5-beta:
     identifier: corda-5-beta-deploy-cordalite

@@ -19,7 +19,7 @@ To access and invoke the REST API:
 
 
    If you did not explicitly specify the username for the initial admin user at install time, the default is `admin`.
-If you did not explicitly specify the password for the initial admin user at install time, the generated value can be retrieved as follows:
+If you did not explicitly specify the password for the initial admin user at install time, you can retrieve it using the following command:
 
    ```sh
    kubectl get secret -n <NAMESPACE> corda-initial-admin-user -o go-template="{{ .data.password | base64decode }}"
