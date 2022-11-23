@@ -32,6 +32,10 @@ In this release:
  
 * Some RPCs provided by the node are now “quick” in that they bypass the standard RPC thread pool and will return relatively quickly even if the node is busy servicing a backlog of RPC requests. The affected RPCs are currentNodeTime(), and fetching the protocol version.
 
+* Previously, if a node failed to open an AMQP connection to a peer node, it was possible for the peer to be permanently blocked such that further connection attempts would not be attempted unless the node was restarted.
+
+  With this update, peer nodes are now not permanently blocked but connections are retried using longer intervals - 5x 5 minutes, and then once a day.
+
 ### Database Schema Changes
 
 
