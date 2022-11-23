@@ -16,9 +16,7 @@ weight: 1
 
 # Corda Enterprise Edition 4.10 release notes
 
-Corda: Enterprise Edition 4.10 features ...
-
- 
+Corda: Enterprise Edition 4.10 features 
 
 ### Upgrade recommendation
 
@@ -30,6 +28,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 In this release:
 
+* During startup the node publishes a new service lifecycle event BEFORE_STATE_MACHINE_START immediately prior to starting the state machine, and will not start the state machine until all recipients of the event have handled it.
  
 
 ### Database Schema Changes
