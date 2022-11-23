@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>ConsensualSignedTransaction</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.435-Eagle
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="ledger-consensual::net.corda.v5.ledger.consensual.transaction/ConsensualSignedTransaction///PointingToDeclaration//-1109672690">
+  <div class="breadcrumbs"><a href="../../index.html">ledger-consensual</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.ledger.consensual.transaction</a><span class="delimiter">/</span><span class="current">ConsensualSignedTransaction</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Consensual</span><wbr><span>Signed</span><wbr><span><span>Transaction</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-consensual:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-do-not-implement/index.html"><span class="token annotation builtin">DoNotImplement</span></a></div></div><span class="token keyword">interface </span><a href="index.html">ConsensualSignedTransaction</a></div><p class="paragraph">Defines a signed Consensual transaction.</p><p class="paragraph">Comparing with <a href="../-consensual-ledger-transaction/index.html">ConsensualLedgerTransaction</a>:</p><ul><li><p class="paragraph">It does not have access to the deserialized details.</p></li><li><p class="paragraph">It has direct access to the signatures.</p></li><li><p class="paragraph">It does not require a serializer.</p></li></ul><p class="paragraph"><a href="index.html">ConsensualSignedTransaction</a> wraps the wire representation of the transaction. It contains one or more signatures, each one for a public key (including composite keys) that is mentioned inside a transaction state. <a href="index.html">ConsensualSignedTransaction</a> is frequently passed around the network and stored. The identity of a transaction is the hash of Merkle root of the wrapped wire representation, therefore if you are storing data keyed by wire representations hash be aware that multiple different <a href="index.html">ConsensualSignedTransaction</a>s may map to the same key (and they could be different in important ways, like validity!). The signatures on a ConsensualSignedTransaction might be invalid or missing: the type does not imply validity. A transaction ID should be the hash of the wrapped wire representation's Merkle tree root. Thus adding or removing a signature does not change it.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="527740118%2FFunctions%2F-1109672690" anchor-label="addSignature" id="527740118%2FFunctions%2F-1109672690" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-consensual:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="add-signature.html"><span>add</span><wbr><span><span>Signature</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="527740118%2FFunctions%2F-1109672690"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-consensual:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-suspendable/index.html"><span class="token annotation builtin">Suspendable</span></a></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-signature.html"><span class="token function">addSignature</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html">Pair</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">ConsensualSignedTransaction</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../../../../application/net.corda.v5.application.crypto/-digital-signature-and-metadata/index.html">DigitalSignatureAndMetadata</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Sign the current <a href="index.html">ConsensualSignedTransaction</a> with the specified key.</p></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-suspendable/index.html"><span class="token annotation builtin">Suspendable</span></a></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-signature.html"><span class="token function">addSignature</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signature<span class="token operator">: </span><a href="../../../../application/net.corda.v5.application.crypto/-digital-signature-and-metadata/index.html">DigitalSignatureAndMetadata</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">ConsensualSignedTransaction</a></div><div class="brief "><p class="paragraph">Adds a signature to the current <a href="index.html">ConsensualSignedTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1835561443%2FFunctions%2F-1109672690" anchor-label="getMissingSignatories" id="1835561443%2FFunctions%2F-1109672690" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-consensual:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-missing-signatories.html"><span>get</span><wbr><span>Missing</span><wbr><span><span>Signatories</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1835561443%2FFunctions%2F-1109672690"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-consensual:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-suspendable/index.html"><span class="token annotation builtin">Suspendable</span></a></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-missing-signatories.html"><span class="token function">getMissingSignatories</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Gets the signing keys for any missing transaction signatures.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1506048835%2FFunctions%2F-1109672690" anchor-label="toLedgerTransaction" id="-1506048835%2FFunctions%2F-1109672690" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-consensual:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="to-ledger-transaction.html"><span>to</span><wbr><span>Ledger</span><wbr><span><span>Transaction</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1506048835%2FFunctions%2F-1109672690"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-consensual:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="to-ledger-transaction.html"><span class="token function">toLedgerTransaction</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-consensual-ledger-transaction/index.html">ConsensualLedgerTransaction</a></div><div class="brief "><p class="paragraph">Converts the current <a href="index.html">ConsensualSignedTransaction</a> into a <a href="../-consensual-ledger-transaction/index.html">ConsensualLedgerTransaction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1671258159%2FFunctions%2F-1109672690" anchor-label="verifySignatures" id="1671258159%2FFunctions%2F-1109672690" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-consensual:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="verify-signatures.html"><span>verify</span><wbr><span><span>Signatures</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1671258159%2FFunctions%2F-1109672690"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-consensual:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-suspendable/index.html"><span class="token annotation builtin">Suspendable</span></a></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="verify-signatures.html"><span class="token function">verifySignatures</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Verify all available signatures and whether there are any missing ones.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="-1900545144%2FProperties%2F-1109672690" anchor-label="id" id="-1900545144%2FProperties%2F-1109672690" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-consensual:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="id.html"><span><span>id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1900545144%2FProperties%2F-1109672690"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-consensual:dokkaHtmlPartial/main"><a data-name="-1900545144%2FProperties%2F-1109672690" anchor-label="id" id="-1900545144%2FProperties%2F-1109672690" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="id.html">id</a><span class="token operator">: </span><a href="../../../../crypto/net.corda.v5.crypto/-secure-hash/index.html">SecureHash</a></div><div class="brief "></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1443252248%2FProperties%2F-1109672690" anchor-label="signatures" id="-1443252248%2FProperties%2F-1109672690" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-consensual:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="signatures.html"><span><span>signatures</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1443252248%2FProperties%2F-1109672690"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-consensual:dokkaHtmlPartial/main"><a data-name="-1443252248%2FProperties%2F-1109672690" anchor-label="signatures" id="-1443252248%2FProperties%2F-1109672690" data-filterable-set=":ledger:ledger-consensual:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="signatures.html">signatures</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../../application/net.corda.v5.application.crypto/-digital-signature-and-metadata/index.html">DigitalSignatureAndMetadata</a><span class="token operator">&gt;</span></div><div class="brief "></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+
