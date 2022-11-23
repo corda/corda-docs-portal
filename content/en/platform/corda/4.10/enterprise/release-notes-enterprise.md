@@ -35,6 +35,8 @@ In this release:
 * Previously, if a node failed to open an AMQP connection to a peer node, it was possible for the peer to be permanently blocked such that further connection attempts would not be attempted unless the node was restarted.
 
   With this update, peer nodes are now not permanently blocked but connections are retried using longer intervals - 5x 5 minutes, and then once a day.
+  
+* Warning messages from Artemis are no longer written to the standard output when disconnecting an SSH client from the node. The warnings are still written to the node’s log file though.
 
 ### Database Schema Changes
 
