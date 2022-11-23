@@ -27,8 +27,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 ### Fixed issues
 
 * The closing of AttachmentClassLoaders is now delayed until all SerializationContexts that refer to them have gone out of scope. This fixes an issue where they were being closed too early when evicted from the cache.
-* Flow draining mode will now not acknowledge P2P in-flight messages when they have not yet been committed to the database. Previously, flow draining mode would acknowledge all in-flight messages as duplicate.
-* A periodic check is now performed to determine if the state machine thread pool seems to be blocked. A warning is logged if so. A thread dump is now also logged periodically (every 5 mins).
+* Flow draining mode no longer acknowledges P2P in-flight messages that have not yet been committed to the database. Previously, flow draining mode acknowledged all in-flight messages as duplicate.
+* A periodic check is now performed to determine if the state machine thread pool seems to be blocked. A warning is logged if the thread pool is blocked. A thread dump is now also logged periodically (every 5 minutes).
 
 ## Corda Enterprise Edition 4.9.3 release notes
 
