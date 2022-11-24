@@ -15,10 +15,6 @@ weight: 20
 
 # Upgrading a CorDapp to Corda Enterprise Edition 4.10
 
-{{< warning >}}
-Corda Enterprise Edition 4.10 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.10, read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.10/enterprise/notary/upgrading-the-ha-notary-service.md).
-{{< /warning >}}
-
 ## Upgrading from Corda Community Edition
 
 Before upgrading to Corda Enterprise Edition 4.10, upgrade your CorDapp to Corda Community Edition 4.10. See [Upgrading CorDapps to newer platform versions](../../../../../en/platform/corda/4.10/enterprise/app-upgrade-notes.md) for detailed instructions.
