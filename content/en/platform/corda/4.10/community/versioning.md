@@ -3,7 +3,7 @@ aliases:
 - /head/versioning.html
 - /HEAD/versioning.html
 - /versioning.html
-date: '2020-04-07T12:00:00Z'
+date: '2022-11-23T16:36:00Z'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-versioning
@@ -23,7 +23,6 @@ semantic versioning scheme of `major.minor`. This is useful when making releases
 friendly for a developer working on the platform. It first has to be parsed and then they have three separate segments on
 which to determine API differences. The release version is still useful and every MQ message the node sends attaches it
 to the `release-version` header property for debugging purposes.
-
 
 ## Platform version
 
@@ -45,7 +44,7 @@ registers with the network map it will check its own version against the minimum
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
-| 4.10 Community Edition | 11 |
+| 4.10 Community Edition | 12 |
 {{< /table >}}
 
 ## Minimum platform version
@@ -80,6 +79,8 @@ can be disabled.
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.10 | 12 | 
+| 4.9 | 11 |
 | 4.8 | 10 |
 | 4.7 | 9 |
 | 4.6 | 8 |
@@ -95,7 +96,6 @@ can be disabled.
 ## Publishing versions in your `.jar` manifests
 
 A well structured CorDapp should be split into two separate modules:
-
 
 * A contracts jar, that contains your states and contract logic.
 * A workflows jar, that contains your flows, services and other support libraries.
@@ -127,7 +127,7 @@ And in the `build.gradle` file for your workflows jar, add a block like this:
 
 ```kotlin
 cordapp {
-    targetPlatformVersion 10
+    targetPlatformVersion 12
     minimumPlatformVersion 5
     workflow {
         name "MegaApp"

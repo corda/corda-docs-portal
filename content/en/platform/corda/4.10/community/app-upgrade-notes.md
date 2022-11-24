@@ -43,6 +43,8 @@ If you are using them you should re-namespace them to a package namespace you co
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.10 | 12 |
+| 4.9 | 11 |
 | 4.8 | 10 |
 | 4.7 | 9 |
 | 4.6 | 8 |
