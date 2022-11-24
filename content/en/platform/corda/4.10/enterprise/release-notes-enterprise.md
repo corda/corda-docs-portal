@@ -38,6 +38,8 @@ In this release:
   
 * Warning messages from Artemis are no longer written to the standard output when disconnecting an SSH client from the node. The warnings are still written to the node’s log file though.
 
+* Testing with the YourKit tool showed high memory usage when creating tokens in a CorDapp. High memory usage was also seen when a node is restarted and inMemory selection was activated in the node. A fix was implemented and the same tests afterwards showed a major decrease in memory usage.
+
 ### Database Schema Changes
 
 
