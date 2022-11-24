@@ -786,6 +786,30 @@ parent = "corda-5-alpha-onboarding-tutorials"
 name = "Static Networks"
 weight = 1000
 
+[[corda-5-beta]]
+identifier = "corda-5-beta-deploy-troubleshoot"
+parent = "corda-5-beta-deploy"
+name = "Troubleshooting"
+weight = 6000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-deploy"
+parent = "corda-5-beta-deploy"
+name = "Deployment Tutorials"
+weight = 5000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-deploy-dynamic"
+parent = "corda-5-beta-onboarding-tutorials"
+name = "Dynamic Networks"
+weight = 2000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-deploy-static"
+parent = "corda-5-beta-onboarding-tutorials"
+name = "Static Networks"
+weight = 1000
+
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
 #identifier = "tools-cdl"
