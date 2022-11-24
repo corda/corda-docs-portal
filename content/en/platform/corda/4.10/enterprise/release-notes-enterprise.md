@@ -40,6 +40,17 @@ In this release:
 
 * Testing with the YourKit tool showed high memory usage when creating tokens in a CorDapp. High memory usage was also seen when a node is restarted and inMemory selection was activated in the node. A fix was implemented and the same tests afterwards showed a major decrease in memory usage.
 
+* A new node configuration option, *cryptoServiceFlowRetryCount*, has been introduced.
+
+  Previously, flows that suffered any variant of CryptoServiceException were admitted to the flow hospital for processing. The flow was retried a maximum of two times, and if it still failed then the exception was propagated back to the code that invoked the flow and the flow failed. 
+  
+  Now, *cryptoServiceFlowRetryCount* can be used to override the above default actions. 
+
+  The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of times a flow is retried. The *sign* of the value determines what happens when all retries are exhausted:
+
+  * If a *negative* value is specified, then a CryptoServiceException is propagated back to the calling code and the flow fails; this is the pre-Corda 4.10 behaviour as described above.
+  * If a *positive* value is specified, then the flow is held in the flow hospital for overnight observation so that a node operator can review it.
+
 ### Database Schema Changes
 
 
