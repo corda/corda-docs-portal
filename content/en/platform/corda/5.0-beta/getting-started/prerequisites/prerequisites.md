@@ -40,7 +40,10 @@ This what is known to work with the code as of Developer Preview 2.-->
 
 ## Additional Configuration for Mac
 
-The current version of the [Corda combined worker](../cordapp-standard-development-environment/csde.html#gradle-helpers-for-the-combined-worker) runs on port 7000.
+The current version of the [Corda combined worker](../cordapp-standard-development-environment/csde.html#gradle-helpers-for-the-combined-worker) runs on ports 7000, 5432, and 8888.
+
+### Disabling Airplay on Mac
+
 Some Mac operating systems use port 7000 for the system Control Center.
 You can check if your Mac is using port 7000 for Control Center by running `lsof -i :7000` from your terminal. If you see the following results, you must disable Airplay Receiver:
 
