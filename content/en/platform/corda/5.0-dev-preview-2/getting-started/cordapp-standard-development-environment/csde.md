@@ -73,7 +73,7 @@ The `startCorda` task does the following:
 3. Starts the combined worker
 
 {{< note >}}
-You can not start Corda via the CSDE startCorda task with any existing local programs using ports 5432, 7000, 8888. Reserve these ports.
+You cannot start Corda via the CSDE `startCorda` task if any existing local programs are using ports 5432, 7000, or 8888. Reserve these ports.
 {{< /note >}}
 
 #### `stopCorda`
