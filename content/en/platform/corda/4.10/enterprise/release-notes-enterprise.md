@@ -16,7 +16,7 @@ weight: 1
 
 # Corda Enterprise Edition 4.10 release notes
 
-Corda: Enterprise Edition 4.10 features 
+Corda: Enterprise Edition 4.10 features a series of improvements over the previous version.
 
 ### Upgrade recommendation
 
@@ -50,6 +50,8 @@ In this release:
 
   * If a *negative* value is specified, then a CryptoServiceException is propagated back to the calling code and the flow fails; this was the default behaviour in versions of Corda before 4.10.
   * If a *positive* value is specified, then the flow is held in the flow hospital for overnight observation so that a node operator can review it.
+
+* A node now publishes a status via JMX - net.corda.Node.Status - that indicates what it is currently doing. The status is only available if the node is configured to publish information/metrics via JMX.
 
 ### Database Schema Changes
 
