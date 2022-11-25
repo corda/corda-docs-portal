@@ -25,7 +25,21 @@ As Simulator is not executing Corda code, the error messages are likely to be di
 
 Simulator is designed to be used within a normal Java or Kotlin testing framework. This documentation describes using JUnit. [MyFirstFlow](../first-flow.html) has a corresponding test class `MyFirstFlowTest` that demonstrates how to use Simulator. This file is in `/src/test/kotlin/com.r3.developers.csdetemplate.MyFirstFlowTest.kt` or `/src/test/java/com.r3.developers.csdetemplate.MyFirstFlowTest.java` in the [CSDE](../cordapp-standard-development-environment/csde.html) template repository.
 
-The full listing with explanatory comments:
+To run the test, click the green triangle next to the test method and select **Run 'MyFirstFlowTest…'**:
+{{< figure src="run-test.png" width="50%" figcaption="Run MyFirstFlowTest" alt="Command to run MyFirstFlowTest in IntelliJ" >}}
+
+Alternatively, if you have multiple tests in the class, you can click the double triangle next to the class declaration to run all of the tests in the class.
+
+The output should look as follows:
+{{< figure src="test-result.png" figcaption="MyFirstFlowTest result" >}}
+Note the green tick on the left indicating that the test was successful. You can also see various log messages from the code logged to the console.
+
+## MyFirstFlowTest Code Overview
+
+This section contains the full listing of `MyFirstFlowTest` with explanatory comments. The following sections describe the code in more detail:
+* [MyFirstFlowTest Kotlin Walkthrough](kotlin-flow-test-code.html)
+* [MyFirstFlowTest Java Walkthrough](java-flow-test-code.html)
+
 {{< tabs name="simulator">}}
 {{% tab name="Kotlin"%}}
 ```kotlin
@@ -129,12 +143,3 @@ class MyFirstFlowTest {
 ```
 {{% /tab %}}
 {{< /tabs >}}
-
-To run the test, click the green triangle next to the test method and select **Run 'MyFirstFlowTest…'**:
-{{< figure src="run-test.png" width="50%" figcaption="Run MyFirstFlowTest" alt="Command to run MyFirstFlowTest in IntelliJ" >}}
-
-Alternatively, if you have multiple tests in the class, you can click the double triangle next to the class declaration to run all of the tests in the class.
-
-The output should look as follows:
-{{< figure src="test-result.png" figcaption="MyFirstFlowTest result" >}}
-Note the green tick on the left indicating that the test was successful. You can also see various log messages from the code logged to the console.
