@@ -72,6 +72,10 @@ The `startCorda` task does the following:
 2. Starts an instance of a Postgres Docker container; you will need Docker Engine or Docker Desktop running
 3. Starts the combined worker
 
+{{< note >}}
+You cannot start Corda via the CSDE `startCorda` task if any existing local programs are using ports 5432, 7000, or 8888. Reserve these ports.
+{{< /note >}}
+
 #### `stopCorda`
 
 The `stopCorda` task does the following:
