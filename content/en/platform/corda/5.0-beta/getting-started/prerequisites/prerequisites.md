@@ -44,7 +44,6 @@ The current version of the [Corda combined worker](../cordapp-standard-developme
 
 ### Disabling Airplay Receiver on Mac
 
-Some Mac operating systems use port 7000 for the system Control Center.
 You can check if your Mac is using port 7000 for Control Center by running `lsof -i :7000` from your terminal. If you see the following results, you must disable Airplay Receiver:
 
 ```shell
