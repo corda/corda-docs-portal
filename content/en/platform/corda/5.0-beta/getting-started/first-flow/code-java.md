@@ -1,6 +1,6 @@
 ---
 date: '2022-10-19'
-title: "Java Flow Code"
+title: "Java Flow Code Walkthrough"
 menu:
   corda-5-beta:
     parent: corda-5-beta-flow

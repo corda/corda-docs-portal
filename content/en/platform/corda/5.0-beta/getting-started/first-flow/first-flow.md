@@ -20,8 +20,14 @@ It is also worth noting that, as of Developer Preview 2, there is no ledger serv
 
 ## MyFirstFlow Use Case
 
-The use case in the example is very simple:
+The use case in the example flows is very simple:
 1. The initiating flow is called on the initiating node with another member of the application network, the recipient,  specified as the input argument.
 2. The initiating flow sends the message `Hello from <initiator>.` to the specified recipient.
 3. The responder flow receives the message and replies with `Hello <initiator>, best wishes from <responder>.`.
 4. The initiator returns the message received from the responder as a String.
+
+## MyFirstFlow Code
+
+The following sections describe the flow code in more detail:
+* [Kotlin Flow Code Walkthrough](code-kotlin.html)
+* [Java Flow Code Walkthrough](code-java.html)

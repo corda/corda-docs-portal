@@ -1,6 +1,6 @@
 ---
 date: '2022-09-20'
-title: "Kotlin Flow Test Code"
+title: "MyFirstFlowTest Kotlin Walkthrough"
 menu:
   corda-5-beta:
     parent: corda-5-beta-simulator
