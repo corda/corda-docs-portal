@@ -55,6 +55,8 @@ In this release:
 
 * The version of each third-party library in use is now stored in the file constants.properties, along with an annotation on what the library is, and how upgradable the library is.
 
+* Java serialization is now disabled in the Corda firewall component, as a mitigation against attack should access be obtained maliciously to perform remote code execution.
+
 ### Database Schema Changes
 
 
