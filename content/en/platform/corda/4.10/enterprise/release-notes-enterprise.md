@@ -53,6 +53,8 @@ In this release:
 
 * A node now publishes a status via JMX - net.corda.Node.Status - that indicates what it is currently doing. The status is only available if the node is configured to publish information/metrics via JMX.
 
+* The version of each third-party library in use is now stored in the file constants.properties, along with an annotation on what the library is, and how upgradable the library is.
+
 ### Database Schema Changes
 
 
