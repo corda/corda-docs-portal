@@ -4,7 +4,7 @@ aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
 - /release-notes.html
-date: '2021-06-29'
+date: '2022-11-28'
 menu:
   corda-community-4-9:
     identifier: corda-community-4-9-release-notes
@@ -16,6 +16,16 @@ tags:
 ---
 
 # Corda Community Edition 4.9 release notes
+
+## Corda Community Edition 4.9.5 release notes
+
+Corda Community 4.9.5 is a patch release of Corda Community which includes resolved issues.
+
+### Fixed issues
+
+* Previously, a memory leak in the transaction cache occurred due to weight of in-flight entries being undervalued. Improvements to prevent in-flight entry weights from being undervalued and estimated more correctly means a large decrease in the total size of cached entities. 
+
+* A rare condition was found, when database transactions are rolled back under heavy load, that causes flow state machine threads to stop processing flows, leading to eventual node lock up in certain circumstances. This fix prevents this from happening.
 
 ## Corda Community Edition 4.9.2 release notes
 
@@ -104,4 +114,5 @@ Issues fixed in Corda Community 4.9:
 ### Database Schema Changes
 
 * The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise Edition 4.7 following updates to certificate rotation functionality.
-  * The reintroduction of this table ensures the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.
+  
+  The reintroduction of this table ensures the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.
