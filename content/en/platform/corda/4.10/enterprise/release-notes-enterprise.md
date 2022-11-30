@@ -61,6 +61,7 @@ In this release:
 
 * Corda can fetch users' credentials and permissions from an external data source (for example, from a remote RDBMS). Credentials of this database are configured in the file node.conf. Previously, when a node was run, Corda was logging the password of this database to the log file. This issue has been resolved and the password is no longer written to the log file.
 
+* Previously, Archive Service commands did not write messages to the log files unless an error or issue occurred. An update now means that messages are also written when commands are run successfully. For more information, refer to [Archive Service Command-Line Interface (CLI)](..\..\..\tools\archiving-service\archiving-cli.md)
 
 ### Database Schema Changes
 
