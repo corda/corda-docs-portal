@@ -57,6 +57,8 @@ In this release:
 
 * Java serialization is now disabled in the Corda firewall component, as a mitigation against attack should access be obtained maliciously to perform remote code execution.
 
+* Postgres 13.8 is now supported.
+
 ### Database Schema Changes
 
 

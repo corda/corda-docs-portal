@@ -84,6 +84,6 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|------------------------|
-|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.3|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
+|PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.8|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
 
 {{< /table >}}
