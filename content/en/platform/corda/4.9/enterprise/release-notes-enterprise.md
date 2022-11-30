@@ -1,6 +1,6 @@
 ---
 title: Corda Enterprise Edition 4.9 release notes
-date: '2021-07-01'
+date: '2022-11-28'
 
 menu:
   corda-enterprise-4-9:
@@ -15,6 +15,20 @@ weight: 1
 ---
 
 # Corda Enterprise Edition 4.9 release notes
+
+## Corda Enterprise Edition 4.9.5 release notes
+
+Corda Enterprise Edition 4.9.5 is a patch release of Corda Enterprise focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+* Previously, a memory leak in the transaction cache occurred due to weight of in-flight entries being undervalued. Improvements have been made to prevent in-flight entry weights from being undervalued and, because they are now estimated more correctly, this results in a large decrease in the total size of cached entities.
+
+* A rare condition was fixed relating to roll back of database transactions under heavy load, which caused flow state machine threads to stop processing flows, leading to eventual node lock up in certain circumstances.
 
 ## Corda Enterprise Edition 4.9.4 release notes
 
@@ -130,4 +144,4 @@ In this release:
 ### Database Schema Changes
 
 * The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise Edition 4.7 following updates to certificate rotation functionality.
-  * The reintroduction of this table ensures the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.
+  * The reintroduction of this table ensures that the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.
