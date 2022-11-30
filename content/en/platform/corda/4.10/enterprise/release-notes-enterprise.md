@@ -59,6 +59,9 @@ In this release:
 
 * Postgres 13.8 is now supported.
 
+* Corda can fetch users' credentials and permissions from an external data source (for example, from a remote RDBMS). Credentials of this database are configured in the file node.conf. Previously, when a node was run, Corda was logging the password of this database to the log file. This issue has been resolved and the password is no longer written to the log file.
+
+
 ### Database Schema Changes
 
 
