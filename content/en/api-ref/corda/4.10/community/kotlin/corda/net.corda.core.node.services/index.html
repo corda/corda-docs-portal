@@ -1,0 +1,251 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.core.node.services - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.core.node.services</a><br/>
+<br/>
+<h2>Package net.corda.core.node.services</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-attachment-fixup.html">AttachmentFixup</a></h4>
+</td>
+<td>
+<code><span class="keyword">typealias </span><span class="identifier">AttachmentFixup</span>&nbsp;<span class="symbol">=</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="-attachment-id.html"><span class="identifier">AttachmentId</span></a><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="-attachment-id.html"><span class="identifier">AttachmentId</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-attachment-id.html">AttachmentId</a></h4>
+</td>
+<td>
+<code><span class="keyword">typealias </span><span class="identifier">AttachmentId</span>&nbsp;<span class="symbol">=</span>&nbsp;<a href="../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-attachment-storage/index.html">AttachmentStorage</a></h4>
+</td>
+<td>
+<p>An attachment store records potentially large binary objects, identified by their hash.</p>
+<code><span class="keyword">interface </span><span class="identifier">AttachmentStorage</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-contract-upgrade-service/index.html">ContractUpgradeService</a></h4>
+</td>
+<td>
+<p>The <a href="-contract-upgrade-service/index.html">ContractUpgradeService</a> is responsible for securely upgrading contract state objects according to
+a specified and mutually agreed (amongst participants) contract version.
+See also <a href="../net.corda.core.flows/-contract-upgrade-flow/index.html">ContractUpgradeFlow</a> to understand the workflow associated with contract upgrades.</p>
+<code><span class="keyword">interface </span><span class="identifier">ContractUpgradeService</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-identity-service/index.html">IdentityService</a></h4>
+</td>
+<td>
+<p>An identity service maintains a directory of parties by their associated distinguished name/public keys and thus
+supports lookup of a party given its key, or name. The service also manages the certificates linking confidential
+identities back to the well known identity.</p>
+<code><span class="keyword">interface </span><span class="identifier">IdentityService</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-key-management-service/index.html">KeyManagementService</a></h4>
+</td>
+<td>
+<p>The KMS is responsible for storing and using private keys to sign things. An implementation of this may, for example,
+call out to a hardware security module that enforces various auditing and frequency-of-use requirements.</p>
+<code><span class="keyword">interface </span><span class="identifier">KeyManagementService</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-network-map-cache/index.html">NetworkMapCache</a></h4>
+</td>
+<td>
+<p>A network map contains lists of nodes on the network along with information about their identity keys, services
+they provide and host names or IP addresses where they can be connected to. The cache wraps around a map fetched
+from an authoritative service, and adds easy lookup of the data stored within it. Generally it would be initialised
+with a specified network map service, which it fetches data from and then subscribes to updates of.</p>
+<code><span class="keyword">interface </span><span class="identifier">NetworkMapCache</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-network-map-cache-base/index.html"><span class="identifier">NetworkMapCacheBase</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-network-map-cache-base/index.html">NetworkMapCacheBase</a></h4>
+</td>
+<td>
+<p>Subset of <a href="-network-map-cache/index.html">NetworkMapCache</a> that doesn't depend on an <a href="-identity-service/index.html">IdentityService</a>.</p>
+<code><span class="keyword">interface </span><span class="identifier">NetworkMapCacheBase</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-network-parameters-service/index.html">NetworkParametersService</a></h4>
+</td>
+<td>
+<p>Service for retrieving network parameters used for resolving transactions according to parameters that were
+historically in force in the network.</p>
+<code><span class="keyword">interface </span><span class="identifier">NetworkParametersService</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-party-info/index.html">PartyInfo</a></h4>
+</td>
+<td>
+<p>Holds information about a <a href="../net.corda.core.identity/-party/index.html">Party</a>, which may refer to either a specific node or a service.</p>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">PartyInfo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-service-lifecycle-event/index.html">ServiceLifecycleEvent</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">ServiceLifecycleEvent</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-service-lifecycle-observer/index.html">ServiceLifecycleObserver</a></h4>
+</td>
+<td>
+<p>Specifies that given <a href="-corda-service/index.html">CordaService</a> is interested to know about important milestones of Corda Node lifecycle and potentially react to them.
+Subscription can be performed using <a href="../net.corda.core.node/-app-service-hub/register.html">net.corda.core.node.AppServiceHub.register</a> method from a constructor of <a href="-corda-service/index.html">CordaService</a>.</p>
+<code><span class="keyword">interface </span><span class="identifier">ServiceLifecycleObserver</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-time-window-checker/index.html">TimeWindowChecker</a></h4>
+</td>
+<td>
+<p>Checks if the current instant provided by the input clock falls within the provided time-window.</p>
+<code><span class="keyword">class </span><s><span class="identifier">TimeWindowChecker</span></s></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-storage/index.html">TransactionStorage</a></h4>
+</td>
+<td>
+<p>Thread-safe storage of transactions.</p>
+<code><span class="keyword">interface </span><span class="identifier">TransactionStorage</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-vault/index.html">Vault</a></h4>
+</td>
+<td>
+<p>A vault (name may be temporary) wraps a set of states that are useful for us to keep track of, for instance,
+because we own them. This class represents an immutable, stable state of a vault: it is guaranteed not to
+change out from underneath you, even though the canonical currently-best-known vault may change as we learn
+about new transactions from our peers and generate new transactions that consume states ourselves.</p>
+<code><span class="keyword">class </span><span class="identifier">Vault</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-vault-service/index.html">VaultService</a></h4>
+</td>
+<td>
+<p>A <a href="-vault-service/index.html">VaultService</a> is responsible for securely and safely persisting the current state of a vault to storage. The
+vault service vends immutable snapshots of the current vault for working with: if you build a transaction based
+on a vault that isn't current, be aware that it may end up being invalid if the states that were used have been
+consumed by someone else first!</p>
+<code><span class="keyword">interface </span><span class="identifier">VaultService</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Annotations</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-corda-service/index.html">CordaService</a></h4>
+</td>
+<td>
+<p>Annotate any class that needs to be a long-lived service within the node, such as an oracle, with this annotation.
+Such a class needs to have a constructor with a single parameter of type <a href="#">AppServiceHub</a>. This constructor will be invoked
+during node start to initialise the service. The service hub provided can be used to get information about the node
+that may be necessary for the service. Corda services are created as singletons within the node and are available
+to flows via <a href="../net.corda.core.node/-service-hub/corda-service.html">ServiceHub.cordaService</a>.</p>
+<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">CordaService</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-corda-service-critical-failure-exception/index.html">CordaServiceCriticalFailureException</a></h4>
+</td>
+<td>
+<p>Please see <a href="-service-lifecycle-event/-s-t-a-t-e_-m-a-c-h-i-n-e_-s-t-a-r-t-e-d.html">ServiceLifecycleEvent.STATE_MACHINE_STARTED</a> for the purpose of this exception.</p>
+<code><span class="keyword">class </span><span class="identifier">CordaServiceCriticalFailureException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html"><span class="identifier">Exception</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-states-not-available-exception/index.html">StatesNotAvailableException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">StatesNotAvailableException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-flow-exception/index.html"><span class="identifier">FlowException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-unknown-anonymous-party-exception/index.html">UnknownAnonymousPartyException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">UnknownAnonymousPartyException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core/-corda-exception/index.html"><span class="identifier">CordaException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-vault-query-exception/index.html">VaultQueryException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">VaultQueryException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.flows/-flow-exception/index.html"><span class="identifier">FlowException</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-m-a-x_-c-o-n-s-t-r-a-i-n-t_-d-a-t-a_-s-i-z-e.html">MAX_CONSTRAINT_DATA_SIZE</a></h4>
+</td>
+<td>
+<p>The maximum permissible size of contract constraint type data (for storage in vault states database table).</p>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">MAX_CONSTRAINT_DATA_SIZE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="query-by.html">queryBy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-vault-service/index.html"><span class="identifier">VaultService</span></a><span class="symbol">.</span><span class="identifier">queryBy</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-vault-service/index.html"><span class="identifier">VaultService</span></a><span class="symbol">.</span><span class="identifier">queryBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services$queryBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-query-criteria/index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-vault-service/index.html"><span class="identifier">VaultService</span></a><span class="symbol">.</span><span class="identifier">queryBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services$queryBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.PageSpecification)/paging">paging</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-page-specification/index.html"><span class="identifier">PageSpecification</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-vault-service/index.html"><span class="identifier">VaultService</span></a><span class="symbol">.</span><span class="identifier">queryBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services$queryBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-query-criteria/index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services$queryBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification)/paging">paging</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-page-specification/index.html"><span class="identifier">PageSpecification</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-vault-service/index.html"><span class="identifier">VaultService</span></a><span class="symbol">.</span><span class="identifier">queryBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services$queryBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.Sort)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-query-criteria/index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services$queryBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.Sort)/sorting">sorting</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-sort/index.html"><span class="identifier">Sort</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-vault-service/index.html"><span class="identifier">VaultService</span></a><span class="symbol">.</span><span class="identifier">queryBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services$queryBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-query-criteria/index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services$queryBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort)/paging">paging</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-page-specification/index.html"><span class="identifier">PageSpecification</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services$queryBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort)/sorting">sorting</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-sort/index.html"><span class="identifier">Sort</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="track-by.html">trackBy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-vault-service/index.html"><span class="identifier">VaultService</span></a><span class="symbol">.</span><span class="identifier">trackBy</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.core.messaging/-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">Update</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-vault-service/index.html"><span class="identifier">VaultService</span></a><span class="symbol">.</span><span class="identifier">trackBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services$trackBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.PageSpecification)/paging">paging</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-page-specification/index.html"><span class="identifier">PageSpecification</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.core.messaging/-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">Update</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-vault-service/index.html"><span class="identifier">VaultService</span></a><span class="symbol">.</span><span class="identifier">trackBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services$trackBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-query-criteria/index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.core.messaging/-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">Update</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-vault-service/index.html"><span class="identifier">VaultService</span></a><span class="symbol">.</span><span class="identifier">trackBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services$trackBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-query-criteria/index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services$trackBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification)/paging">paging</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-page-specification/index.html"><span class="identifier">PageSpecification</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.core.messaging/-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">Update</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-vault-service/index.html"><span class="identifier">VaultService</span></a><span class="symbol">.</span><span class="identifier">trackBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services$trackBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.Sort)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-query-criteria/index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services$trackBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.Sort)/sorting">sorting</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-sort/index.html"><span class="identifier">Sort</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.core.messaging/-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">Update</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <a href="-vault-service/index.html"><span class="identifier">VaultService</span></a><span class="symbol">.</span><span class="identifier">trackBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services$trackBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-query-criteria/index.html"><span class="identifier">QueryCriteria</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services$trackBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort)/paging">paging</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-page-specification/index.html"><span class="identifier">PageSpecification</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services$trackBy(net.corda.core.node.services.VaultService, net.corda.core.node.services.vault.QueryCriteria, net.corda.core.node.services.vault.PageSpecification, net.corda.core.node.services.vault.Sort)/sorting">sorting</span><span class="symbol">:</span>&nbsp;<a href="../net.corda.core.node.services.vault/-sort/index.html"><span class="identifier">Sort</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../net.corda.core.messaging/-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><span class="identifier">Page</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">Update</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

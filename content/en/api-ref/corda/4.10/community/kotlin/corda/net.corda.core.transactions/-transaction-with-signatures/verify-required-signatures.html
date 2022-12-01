@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionWithSignatures.verifyRequiredSignatures - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="index.html">TransactionWithSignatures</a>&nbsp;/&nbsp;<a href="./verify-required-signatures.html">verifyRequiredSignatures</a><br/>
+<br/>
+<h1>verifyRequiredSignatures</h1>
+<a name="net.corda.core.transactions.TransactionWithSignatures$verifyRequiredSignatures()"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">verifyRequiredSignatures</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Verifies the signatures on this transaction and throws if any are missing. In this context, "verifying" means
+checking they are valid signatures and that their public keys are in the <a href="required-signing-keys.html">requiredSigningKeys</a> set.</p>
+<h3>Exceptions</h3>
+<p><a name="SignatureException"></a>
+<code>SignatureException</code> - if any signatures are invalid or unrecognised.</p>
+<p><a name="SignaturesMissingException"></a>
+<code>SignaturesMissingException</code> - if any signatures should have been present but were not.</p>
+</BODY>
+</HTML>

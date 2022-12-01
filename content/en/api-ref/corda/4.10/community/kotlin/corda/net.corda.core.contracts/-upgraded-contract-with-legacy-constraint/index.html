@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>UpgradedContractWithLegacyConstraint - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="./index.html">UpgradedContractWithLegacyConstraint</a><br/>
+<br/>
+<h1>UpgradedContractWithLegacyConstraint</h1>
+<code><span class="keyword">interface </span><span class="identifier">UpgradedContractWithLegacyConstraint</span><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">OldState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">NewState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-upgraded-contract/index.html"><span class="identifier">UpgradedContract</span></a><span class="symbol">&lt;</span><span class="identifier">OldState</span><span class="symbol">,</span>&nbsp;<span class="identifier">NewState</span><span class="symbol">&gt;</span></code>
+<p>This interface allows specifying a custom legacy contract constraint for upgraded contracts. The default for <a href="../-upgraded-contract/index.html">UpgradedContract</a>
+is <a href="../-whitelisted-by-zone-attachment-constraint/index.html">WhitelistedByZoneAttachmentConstraint</a>.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="legacy-contract-constraint.html">legacyContractConstraint</a></h4>
+</td>
+<td>
+<p>A validator for the legacy (pre-upgrade) contract attachments on the transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">legacyContractConstraint</span><span class="symbol">: </span><a href="../-attachment-constraint/index.html"><span class="identifier">AttachmentConstraint</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

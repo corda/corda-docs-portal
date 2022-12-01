@@ -1,0 +1,126 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.testing.driver - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.testing.driver</a><br/>
+<br/>
+<h2>Package net.corda.testing.driver</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-driver-d-s-l/index.html">DriverDSL</a></h4>
+</td>
+<td>
+<p>Underlying interface for the driver DSL. Do not instantiate directly, instead use the <a href="driver.html">driver</a> function.</p>
+<code><span class="keyword">interface </span><span class="identifier">DriverDSL</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-driver-parameters/index.html">DriverParameters</a></h4>
+</td>
+<td>
+<p>Builder for configuring a <a href="driver.html">driver</a>.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">DriverParameters</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-in-process/index.html">InProcess</a></h4>
+</td>
+<td>
+<p>Interface which represents an in process node and exposes available services.</p>
+<code><span class="keyword">interface </span><span class="identifier">InProcess</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-node-handle/index.html"><span class="identifier">NodeHandle</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-jmx-policy/index.html">JmxPolicy</a></h4>
+</td>
+<td>
+<p>A class containing configuration information for Jolokia JMX, to be used when creating a node via the <a href="driver.html">driver</a>.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">JmxPolicy</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-node-handle/index.html">NodeHandle</a></h4>
+</td>
+<td>
+<p>A base interface which represents a node as part of the <a href="driver.html">driver</a> dsl, extended by <a href="-in-process/index.html">InProcess</a> and <a href="-out-of-process/index.html">OutOfProcess</a></p>
+<code><span class="keyword">interface </span><span class="identifier">NodeHandle</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html"><span class="identifier">AutoCloseable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-node-parameters/index.html">NodeParameters</a></h4>
+</td>
+<td>
+<p>Parameters for creating a node for <a href="-driver-d-s-l/start-node.html">DriverDSL.startNode</a>.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NodeParameters</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-notary-handle/index.html">NotaryHandle</a></h4>
+</td>
+<td>
+<p>Object ecapsulating a notary started automatically by the driver.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NotaryHandle</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-out-of-process/index.html">OutOfProcess</a></h4>
+</td>
+<td>
+<p>Interface which represents an out of process node and exposes its process handle.</p>
+<code><span class="keyword">interface </span><span class="identifier">OutOfProcess</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-node-handle/index.html"><span class="identifier">NodeHandle</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-port-allocation/index.html">PortAllocation</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">PortAllocation</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-verifier-type/index.html">VerifierType</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">VerifierType</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-webserver-handle/index.html">WebserverHandle</a></h4>
+</td>
+<td>
+<p>Class which represents a handle to a webserver process and its <a href="../net.corda.core.utilities/-network-host-and-port/index.html">NetworkHostAndPort</a> for testing purposes.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><s><span class="identifier">WebserverHandle</span></s></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="driver.html">driver</a></h4>
+</td>
+<td>
+<p><a href="driver.html">driver</a> allows one to start up nodes like this:
+driver {
+    val noService = startNode(providedName = DUMMY_BANK_A.name)
+    val notary = startNode(providedName = DUMMY_NOTARY.name)</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span> <span class="identifier">driver</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.driver$driver(net.corda.testing.driver.DriverParameters, kotlin.Function1((net.corda.testing.driver.DriverDSL, net.corda.testing.driver.driver.A)))/defaultParameters">defaultParameters</span><span class="symbol">:</span>&nbsp;<a href="-driver-parameters/index.html"><span class="identifier">DriverParameters</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DriverParameters()<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver$driver(net.corda.testing.driver.DriverParameters, kotlin.Function1((net.corda.testing.driver.DriverDSL, net.corda.testing.driver.driver.A)))/dsl">dsl</span><span class="symbol">:</span>&nbsp;<a href="-driver-d-s-l/index.html"><span class="identifier">DriverDSL</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">A</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">A</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="log-file.html">logFile</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="-node-handle/index.html"><span class="identifier">NodeHandle</span></a><span class="symbol">.</span><span class="identifier">logFile</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/io/File.html"><span class="identifier">File</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

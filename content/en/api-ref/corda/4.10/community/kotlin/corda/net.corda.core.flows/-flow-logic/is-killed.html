@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowLogic.isKilled - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowLogic</a>&nbsp;/&nbsp;<a href="./is-killed.html">isKilled</a><br/>
+<br/>
+<h1>isKilled</h1>
+<a name="net.corda.core.flows.FlowLogic$isKilled"></a>
+<code><span class="keyword">val </span><span class="identifier">isKilled</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Returns <code>true</code> when the current <a href="index.html">FlowLogic</a> has been killed (has received a command to halt its progress and terminate).</p>
+<p>Check this property in long-running computation loops to exit a flow that has been killed:</p>
+<pre><code>while (!isKilled) {
+  // do some computation
+}
+</code></pre>
+<p>Ideal usage would include throwing a <a href="../-killed-flow-exception/index.html">KilledFlowException</a> which will lead to the termination of the flow:</p>
+<pre><code>for (item in list) {
+  if (isKilled) {
+    throw KilledFlowException(runId)
+  }
+  // do some computation
+}
+</code></pre>
+<p>Note, once the <a href="./is-killed.html">isKilled</a> flag is set to <code>true</code> the flow may terminate once it reaches the next API function marked with the
+@<a href="#">Suspendable</a> annotation. Therefore, it is possible to write a flow that does not interact with the <a href="./is-killed.html">isKilled</a> flag while still
+terminating correctly.</p>
+</BODY>
+</HTML>

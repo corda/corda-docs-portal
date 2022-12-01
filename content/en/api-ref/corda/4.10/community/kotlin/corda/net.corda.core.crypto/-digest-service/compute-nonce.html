@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DigestService.computeNonce - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">DigestService</a>&nbsp;/&nbsp;<a href="./compute-nonce.html">computeNonce</a><br/>
+<br/>
+<h1>computeNonce</h1>
+<a name="net.corda.core.crypto.DigestService$computeNonce(net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)"></a>
+<code><span class="keyword">fun </span><span class="identifier">computeNonce</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestService$computeNonce(net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/privacySalt">privacySalt</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.DigestService$computeNonce(net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/groupIndex">groupIndex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.DigestService$computeNonce(net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/internalIndex">internalIndex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code>
+<p>Method to compute a nonce based on privacySalt, component group index and component internal index.
+SHA256d (double SHA256) is used to prevent length extension attacks.</p>
+<h3>Parameters</h3>
+<p><a name="privacySalt"></a>
+<code>privacySalt</code> - a <a href="../../net.corda.core.contracts/-privacy-salt/index.html">PrivacySalt</a>.</p>
+<p><a name="groupIndex"></a>
+<code>groupIndex</code> - the fixed index (ordinal) of this component group.</p>
+<p><a name="internalIndex"></a>
+<code>internalIndex</code> - the internal index of this object in its corresponding components list.</p>
+<p><strong>Return</strong><br/>
+HASH(HASH(privacySalt || groupIndex || internalIndex)) for SHA2-256 and other algorithms loaded via JCA <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">MessageDigest</a>,
+    otherwise it's defined by DigestAlgorithm.nonceDigest(privacySalt || groupIndex || internalIndex).</p>
+</BODY>
+</HTML>

@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>JmxPolicy - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.driver</a>&nbsp;/&nbsp;<a href="./index.html">JmxPolicy</a><br/>
+<br/>
+<h1>JmxPolicy</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">JmxPolicy</span></code>
+<p>A class containing configuration information for Jolokia JMX, to be used when creating a node via the <a href="../driver.html">driver</a>.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">JmxPolicy</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>Create a <a href="./index.html">JmxPolicy</a> that turns on monitoring using the given <a href="../-port-allocation/index.html">PortAllocation</a>.</p>
+<code><span class="identifier">JmxPolicy</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.driver.JmxPolicy$<init>(net.corda.testing.driver.PortAllocation)/jmxHttpServerPortAllocation">jmxHttpServerPortAllocation</span><span class="symbol">:</span>&nbsp;<a href="../-port-allocation/index.html"><span class="identifier">PortAllocation</span></a><span class="symbol">)</span></code>
+<p>A class containing configuration information for Jolokia JMX, to be used when creating a node via the <a href="../driver.html">driver</a>.</p>
+<code><span class="identifier">JmxPolicy</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.driver.JmxPolicy$<init>(kotlin.Boolean, net.corda.testing.driver.PortAllocation)/startJmxHttpServer">startJmxHttpServer</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.JmxPolicy$<init>(kotlin.Boolean, net.corda.testing.driver.PortAllocation)/jmxHttpServerPortAllocation">jmxHttpServerPortAllocation</span><span class="symbol">:</span>&nbsp;<a href="../-port-allocation/index.html"><span class="identifier">PortAllocation</span></a>&nbsp;<span class="symbol">=</span>&nbsp;incrementalPortAllocation()<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="jmx-http-server-port-allocation.html">jmxHttpServerPortAllocation</a></h4>
+</td>
+<td>
+<p>The port allocation strategy to use for remote Jolokia/JMX monitoring over HTTP.
+Defaults to incremental from port 7005. Use <a href="../-node-handle/jmx-address.html">NodeHandle.jmxAddress</a> to get the assigned address.</p>
+<code><span class="keyword">val </span><span class="identifier">jmxHttpServerPortAllocation</span><span class="symbol">: </span><a href="../-port-allocation/index.html"><span class="identifier">PortAllocation</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start-jmx-http-server.html">startJmxHttpServer</a></h4>
+</td>
+<td>
+<p>Indicates whether the spawned nodes should start with a Jolokia JMX agent to enable remote
+JMX monitoring using HTTP/JSON.</p>
+<code><span class="keyword">val </span><span class="identifier">startJmxHttpServer</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="default-enabled.html">defaultEnabled</a></h4>
+</td>
+<td>
+<p>Returns a default <a href="./index.html">JmxPolicy</a> that turns on monitoring.</p>
+<code><span class="keyword">fun </span><span class="identifier">defaultEnabled</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">JmxPolicy</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

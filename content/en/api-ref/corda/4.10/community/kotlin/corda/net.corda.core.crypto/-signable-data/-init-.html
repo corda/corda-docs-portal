@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SignableData.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">SignableData</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.crypto.SignableData$&lt;init&gt;(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SignatureMetadata)"></a>
+<code><span class="identifier">SignableData</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SignableData$<init>(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SignatureMetadata)/txId">txId</span><span class="symbol">:</span>&nbsp;<a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SignableData$<init>(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SignatureMetadata)/signatureMetadata">signatureMetadata</span><span class="symbol">:</span>&nbsp;<a href="../-signature-metadata/index.html"><span class="identifier">SignatureMetadata</span></a><span class="symbol">)</span></code>
+<p>A <a href="index.html">SignableData</a> object is the packet actually signed.
+It works as a wrapper over transaction id and signature metadata.
+Note that when multi-transaction signing (signing a block of transactions) is used, the root of the Merkle tree
+(having transaction IDs as leaves) is actually signed and thus <a href="tx-id.html">txId</a> refers to this root and not a specific transaction.</p>
+<h3>Parameters</h3>
+<p><a name="txId"></a>
+<code>txId</code> - transaction's id or root of multi-transaction Merkle tree in case of multi-transaction signing.</p>
+<p><a name="signatureMetadata"></a>
+<code>signatureMetadata</code> - meta data required.</p>
+</BODY>
+</HTML>

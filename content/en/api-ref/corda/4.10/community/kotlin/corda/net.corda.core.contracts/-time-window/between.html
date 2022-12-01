@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TimeWindow.between - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="index.html">TimeWindow</a>&nbsp;/&nbsp;<a href="./between.html">between</a><br/>
+<br/>
+<h1>between</h1>
+<a name="net.corda.core.contracts.TimeWindow.Companion$between(java.time.Instant, java.time.Instant)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">between</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.TimeWindow.Companion$between(java.time.Instant, java.time.Instant)/fromTime">fromTime</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TimeWindow.Companion$between(java.time.Instant, java.time.Instant)/untilTime">untilTime</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">TimeWindow</span></a></code>
+<p>Creates a <a href="index.html">TimeWindow</a> with the time interval <code>[fromTime, untilTime)</code>. <a href="midpoint.html">midpoint</a> will return
+<code>fromTime + (untilTime - fromTime) / 2</code>.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - If <a href="between.html#net.corda.core.contracts.TimeWindow.Companion$between(java.time.Instant, java.time.Instant)/fromTime">fromTime</a> ≥ <a href="between.html#net.corda.core.contracts.TimeWindow.Companion$between(java.time.Instant, java.time.Instant)/untilTime">untilTime</a></p>
+</BODY>
+</HTML>

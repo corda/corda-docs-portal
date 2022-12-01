@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaRPCOps.setFlowsDrainingModeEnabled - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.messaging</a>&nbsp;/&nbsp;<a href="index.html">CordaRPCOps</a>&nbsp;/&nbsp;<a href="./set-flows-draining-mode-enabled.html">setFlowsDrainingModeEnabled</a><br/>
+<br/>
+<h1>setFlowsDrainingModeEnabled</h1>
+<a name="net.corda.core.messaging.CordaRPCOps$setFlowsDrainingModeEnabled(kotlin.Boolean)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setFlowsDrainingModeEnabled</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.messaging.CordaRPCOps$setFlowsDrainingModeEnabled(kotlin.Boolean)/enabled">enabled</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Sets the value of the node's flows draining mode.
+If this mode is <a href="set-flows-draining-mode-enabled.html#net.corda.core.messaging.CordaRPCOps$setFlowsDrainingModeEnabled(kotlin.Boolean)/enabled">enabled</a>, the node will reject new flows through RPC, ignore scheduled flows, and do not process
+initial session messages, meaning that P2P counterparties will not be able to initiate new flows involving the node.</p>
+<h3>Parameters</h3>
+<p><a name="enabled"></a>
+<code>enabled</code> - whether the flows draining mode will be enabled.</p>
+</BODY>
+</HTML>

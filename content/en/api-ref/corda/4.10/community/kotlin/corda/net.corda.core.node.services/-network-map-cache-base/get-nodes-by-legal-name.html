@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NetworkMapCacheBase.getNodesByLegalName - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="index.html">NetworkMapCacheBase</a>&nbsp;/&nbsp;<a href="./get-nodes-by-legal-name.html">getNodesByLegalName</a><br/>
+<br/>
+<h1>getNodesByLegalName</h1>
+<a name="net.corda.core.node.services.NetworkMapCacheBase$getNodesByLegalName(net.corda.core.identity.CordaX500Name)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getNodesByLegalName</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.NetworkMapCacheBase$getNodesByLegalName(net.corda.core.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.node/-node-info/index.html"><span class="identifier">NodeInfo</span></a><span class="symbol">&gt;</span></code>
+<p>Return a list of <a href="../../net.corda.core.node/-node-info/index.html">NodeInfo</a>s which have the given legal name for one of their identities, or an empty list if no
+such nodes are found.</p>
+<p>Normally there is at most one node for a legal name, but for distributed service identities (such as with a notary
+cluster) there can be multiple nodes sharing the same identity.</p>
+</BODY>
+</HTML>

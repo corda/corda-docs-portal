@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionVerificationException.PackageOwnershipException.<init> - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="../index.html">TransactionVerificationException</a>&nbsp;/&nbsp;<a href="index.html">PackageOwnershipException</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.contracts.TransactionVerificationException.PackageOwnershipException$&lt;init&gt;(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SecureHash, kotlin.String, kotlin.String)"></a>
+<code><span class="identifier">PackageOwnershipException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.TransactionVerificationException.PackageOwnershipException$<init>(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SecureHash, kotlin.String, kotlin.String)/txId">txId</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TransactionVerificationException.PackageOwnershipException$<init>(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SecureHash, kotlin.String, kotlin.String)/attachmentHash">attachmentHash</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.node.services/-attachment-id.html"><span class="identifier">AttachmentId</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TransactionVerificationException.PackageOwnershipException$<init>(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SecureHash, kotlin.String, kotlin.String)/invalidClassName">invalidClassName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TransactionVerificationException.PackageOwnershipException$<init>(net.corda.core.crypto.SecureHash, net.corda.core.crypto.SecureHash, kotlin.String, kotlin.String)/packageName">packageName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code>
+<p>Thrown to indicate that a contract attachment is not signed by the network-wide package owner. Please note that
+the <a href="../tx-id.html">txId</a> will always be <a href="../../../net.corda.core.crypto/-secure-hash/zero-hash.html">SecureHash.zeroHash</a> because package ownership is an error with a particular attachment,
+and because attachment classloaders are reused this is independent of any particular transaction.</p>
+</BODY>
+</HTML>

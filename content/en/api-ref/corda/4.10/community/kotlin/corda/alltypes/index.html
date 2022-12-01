@@ -1,0 +1,2092 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>alltypes - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<h3>All Types</h3>
+<table>
+<tbody>
+<tr>
+<h5><a href="../net.corda.finance.flows/-abstract-cash-flow/index.html">net.corda.finance.flows.AbstractCashFlow</a></h5>
+<p>Initiates a flow that produces an Issue/Move or Exit Cash transaction.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset.selection/-abstract-cash-selection/index.html">net.corda.finance.workflows.asset.selection.AbstractCashSelection</a></h5>
+<p>Pluggable interface to allow for different cash selection provider implementations
+Default implementation in finance workflow module uses H2 database and a custom function within H2 to perform aggregation.
+Custom implementations must implement this interface and declare their implementation in
+<code>META-INF/services/net.corda.finance.workflows.asset.selection.AbstractCashSelection</code>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.identity/-abstract-party/index.html">net.corda.core.identity.AbstractParty</a></h5>
+<p>An <a href="../net.corda.core.identity/-abstract-party/index.html">AbstractParty</a> contains the common elements of <a href="../net.corda.core.identity/-party/index.html">Party</a> and <a href="../net.corda.core.identity/-anonymous-party/index.html">AnonymousParty</a>, specifically the owning key of
+the party. In most cases <a href="../net.corda.core.identity/-party/index.html">Party</a> or <a href="../net.corda.core.identity/-anonymous-party/index.html">AnonymousParty</a> should be used, depending on use-case.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-abstract-state-replacement-flow/index.html">net.corda.core.flows.AbstractStateReplacementFlow</a></h5>
+<p>Abstract flow to be used for replacing one state with another, for example when changing the notary of a state.
+Notably this requires a one to one replacement of states, states cannot be split, merged or issued as part of these
+flows.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-accrual-adjustment/index.html">net.corda.finance.contracts.AccrualAdjustment</a></h5>
+<p>Simple enum for returning accurals adjusted or unadjusted.
+We don't actually do anything with this yet though, so it's ignored for now.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.context/-actor/index.html">net.corda.core.context.Actor</a></h5>
+<p>Models an initiator in Corda, can be a user, a service, etc.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-aggregate-function-type/index.html">net.corda.core.node.services.vault.AggregateFunctionType</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-all-possible-recipients.html">net.corda.core.messaging.AllPossibleRecipients</a></h5>
+<p>A special base class for the set of all possible recipients, without having to identify who they all are.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-always-accept-attachment-constraint/index.html">net.corda.core.contracts.AlwaysAcceptAttachmentConstraint</a></h5>
+<p>An <a href="../net.corda.core.contracts/-attachment-constraint/index.html">AttachmentConstraint</a> where <a href="../net.corda.core.contracts/-always-accept-attachment-constraint/is-satisfied-by.html">isSatisfiedBy</a> always returns true.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-amount/index.html">net.corda.core.contracts.Amount</a></h5>
+<p>Amount represents a positive quantity of some token (currency, asset, etc.), measured in quantity of the smallest
+representable units. The nominal quantity represented by each individual token is equal to the <a href="../net.corda.core.contracts/-amount/display-token-size.html">displayTokenSize</a>.
+The scale property of the <a href="../net.corda.core.contracts/-amount/display-token-size.html">displayTokenSize</a> should correctly reflect the displayed decimal places and is used
+when rounding conversions from indicative/displayed amounts in <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html">BigDecimal</a> to Amount occur via the
+<a href="../net.corda.core.contracts/-amount/from-decimal.html">Amount.fromDecimal</a> method.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-amount-transfer/index.html">net.corda.core.contracts.AmountTransfer</a></h5>
+<p>This class represents a possibly negative transfer of tokens from one vault state to another, possibly at a future date.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.identity/-anonymous-party/index.html">net.corda.core.identity.AnonymousParty</a></h5>
+<p>The <a href="../net.corda.core.identity/-anonymous-party/index.html">AnonymousParty</a> class contains enough information to uniquely identify a <a href="../net.corda.core.identity/-party/index.html">Party</a> while excluding private
+information such as name. It is intended to represent a party on the distributed ledger.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.core.utilities)
+<h5><a href="../net.corda.core.utilities/kotlin.-any/index.html">kotlin.Any</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node/-app-service-hub/index.html">net.corda.core.node.AppServiceHub</a></h5>
+<p>A <a href="../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> annotated class requires a constructor taking a
+single parameter of type <a href="../net.corda.core.node/-app-service-hub/index.html">AppServiceHub</a>.
+With the <a href="../net.corda.core.node/-app-service-hub/index.html">AppServiceHub</a> parameter a <a href="../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> is able to access to privileged operations.
+In particular such a <a href="../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> can initiate and track flows marked
+with <a href="../net.corda.core.flows/-startable-by-service/index.html">net.corda.core.flows.StartableByService</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-attachment/index.html">net.corda.core.contracts.Attachment</a></h5>
+<p>An attachment is a ZIP (or an optionally signed JAR) that contains one or more files. Attachments are meant to
+contain public static data which can be referenced from transactions and utilised from contracts. Good examples
+of how attachments are meant to be used include:</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-attachment-constraint/index.html">net.corda.core.contracts.AttachmentConstraint</a></h5>
+<p>Constrain which contract-code-containing attachment can be used with a <a href="../net.corda.core.contracts/-contract/index.html">Contract</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-attachment-fixup.html">net.corda.core.node.services.AttachmentFixup</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-attachment-id.html">net.corda.core.node.services.AttachmentId</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-attachment-query-criteria/index.html">net.corda.core.node.services.vault.AttachmentQueryCriteria</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-attachment-resolution-exception/index.html">net.corda.core.contracts.AttachmentResolutionException</a></h5>
+<p>The node asked a remote peer for the attachment identified by <a href="../net.corda.core.contracts/-attachment-resolution-exception/hash.html">hash</a> because it is a dependency of a transaction
+being resolved, but the remote peer would not provide it.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-attachment-resolution-exception/index.html">net.corda.testing.dsl.AttachmentResolutionException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-attachment-sort/index.html">net.corda.core.node.services.vault.AttachmentSort</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-attachments-query-criteria-parser/index.html">net.corda.core.node.services.vault.AttachmentsQueryCriteriaParser</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-attachment-storage/index.html">net.corda.core.node.services.AttachmentStorage</a></h5>
+<p>An attachment store records potentially large binary objects, identified by their hash.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.context/-auth-service-id/index.html">net.corda.core.context.AuthServiceId</a></h5>
+<p>Authentication / Authorisation Service ID.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node/-auto-acceptable/index.html">net.corda.core.node.AutoAcceptable</a></h5>
+<p>Tagging a network parameter with this annotation signifies that any update which modifies the parameter could be accepted without
+the need for the node operator to run a manual accept command. If the update contains changes for any non-auto-acceptable parameter
+or the behaviour is switched off via configuration then it will not be auto-accepted</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-automatic-hash-constraint/index.html">net.corda.core.contracts.AutomaticHashConstraint</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-automatic-placeholder-constraint/index.html">net.corda.core.contracts.AutomaticPlaceholderConstraint</a></h5>
+<p>This <a href="../net.corda.core.contracts/-attachment-constraint/index.html">AttachmentConstraint</a> is a convenience class that acts as a placeholder and will be automatically resolved by the platform when set
+on an output state. It is the default constraint of all output states.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-base-query-criteria-parser/index.html">net.corda.core.node.services.vault.BaseQueryCriteriaParser</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-base-sort/index.html">net.corda.core.node.services.vault.BaseSort</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-base-transaction/index.html">net.corda.core.transactions.BaseTransaction</a></h5>
+<p>An abstract class defining fields shared by all transaction types in the system.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-belongs-to-contract/index.html">net.corda.core.contracts.BelongsToContract</a></h5>
+<p>This annotation is required by any <a href="../net.corda.core.contracts/-contract-state/index.html">ContractState</a> which needs to ensure that it is only ever processed as part of a
+<a href="../net.corda.core.contracts/-transaction-state/index.html">TransactionState</a> referencing the specified <a href="../net.corda.core.contracts/-contract/index.html">Contract</a>. It may be omitted in the case that the <a href="../net.corda.core.contracts/-contract-state/index.html">ContractState</a> class
+is defined as an inner class of its owning <a href="../net.corda.core.contracts/-contract/index.html">Contract</a> class, in which case the "X belongs to Y" relationship is taken
+to be implicitly declared.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts.asset/-bilateral-net-state/index.html">net.corda.finance.contracts.asset.BilateralNetState</a></h5>
+<p>Subset of state, containing the elements which must match for two obligation transactions to be nettable.
+If two obligation state objects produce equal bilateral net states, they are considered safe to net directly.
+Bilateral states are used in close-out netting.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-bilateral-nettable-state/index.html">net.corda.finance.contracts.BilateralNettableState</a></h5>
+<p>Interface for state objects that support being netted with other state objects.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-binary-comparison-operator/index.html">net.corda.core.node.services.vault.BinaryComparisonOperator</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-binary-logical-operator/index.html">net.corda.core.node.services.vault.BinaryLogicalOperator</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.core.serialization)
+<h5><a href="../net.corda.core.serialization/java.sql.-blob/index.html">java.sql.Blob</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-broken-attachment-exception/index.html">net.corda.core.contracts.BrokenAttachmentException</a></h5>
+<p>A non-specific exception for the attachment identified by <a href="../net.corda.core.contracts/-broken-attachment-exception/attachment-id.html">attachmentId</a>. The context
+for this error is provided via the <a href="#">message</a> and <a href="#">cause</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-builder/index.html">net.corda.core.node.services.vault.Builder</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-business-calendar/index.html">net.corda.finance.contracts.BusinessCalendar</a></h5>
+<p>A business calendar performs date calculations that take into account national holidays and weekends. This is a
+typical feature of financial contracts, in which a business may not want a payment event to fall on a day when
+no staff are around to handle problems.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.core.crypto)
+<h5><a href="../net.corda.core.crypto/kotlin.-byte-array/index.html">kotlin.ByteArray</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.core.serialization)
+<h5><a href="../net.corda.core.serialization/kotlin.-byte-array/index.html">kotlin.ByteArray</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.core.utilities)
+<h5><a href="../net.corda.core.utilities/kotlin.-byte-array/index.html">kotlin.ByteArray</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-byte-sequence/index.html">net.corda.core.utilities.ByteSequence</a></h5>
+<p>An abstraction of a byte array, with offset and size that does no copying of bytes unless asked to.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts.asset/-cash/index.html">net.corda.finance.contracts.asset.Cash</a></h5>
+<p>A cash transaction may split and merge money represented by a set of (issuer, depositRef) pairs, across multiple
+input and output states. Imagine a Bitcoin transaction but in which all UTXOs had a colour
+(a blend of issuer+depositRef) and you couldn't merge outputs of two colours together, but you COULD put them in
+the same transaction.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-exception/index.html">net.corda.finance.flows.CashException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-exit-flow/index.html">net.corda.finance.flows.CashExitFlow</a></h5>
+<p>Initiates a flow that produces an cash exit transaction.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-exit-responder-flow/index.html">net.corda.finance.flows.CashExitResponderFlow</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-issue-and-payment-flow/index.html">net.corda.finance.flows.CashIssueAndPaymentFlow</a></h5>
+<p>Initiates a flow that self-issues cash and then send this to a recipient.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-issue-flow/index.html">net.corda.finance.flows.CashIssueFlow</a></h5>
+<p>Initiates a flow that self-issues cash (which should then be sent to recipient(s) using a payment transaction).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-payment-flow/index.html">net.corda.finance.flows.CashPaymentFlow</a></h5>
+<p>Initiates a flow that sends cash to a recipient.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-cash-payment-receiver-flow/index.html">net.corda.finance.flows.CashPaymentReceiverFlow</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.schemas/-cash-schema.html">net.corda.finance.schemas.CashSchema</a></h5>
+<p>An object used to fully qualify the <a href="../net.corda.finance.schemas/-cash-schema.html">CashSchema</a> family name (i.e. independent of version).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.test/-cash-schema.html">net.corda.finance.test.CashSchema</a></h5>
+<p>An object used to fully qualify the <a href="../net.corda.finance.test/-cash-schema.html">CashSchema</a> family name (i.e. independent of version).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.schemas/-cash-schema-v1/index.html">net.corda.finance.schemas.CashSchemaV1</a></h5>
+<p>First version of a cash contract ORM schema that maps all fields of the <a href="#">Cash</a> contract state as it stood
+at the time of writing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset.selection/-cash-selection-h2-impl/index.html">net.corda.finance.workflows.asset.selection.CashSelectionH2Impl</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset.selection/-cash-selection-postgre-s-q-l-impl/index.html">net.corda.finance.workflows.asset.selection.CashSelectionPostgreSQLImpl</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset.selection/-cash-selection-s-q-l-server-impl/index.html">net.corda.finance.workflows.asset.selection.CashSelectionSQLServerImpl</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset/-cash-utils/index.html">net.corda.finance.workflows.asset.CashUtils</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-checkpoint-custom-serializer/index.html">net.corda.core.serialization.CheckpointCustomSerializer</a></h5>
+<p>Allows CorDapps to provide custom serializers for classes that do not serialize successfully during a checkpoint.
+In this case, a proxy serializer can be written that implements this interface whose purpose is to move between
+unserializable types and an intermediate representation.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-class-whitelist/index.html">net.corda.core.serialization.ClassWhitelist</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core/-client-relevant-error.html">net.corda.core.ClientRelevantError</a></h5>
+<p>Allows an implementing <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html">Throwable</a> to be propagated to clients.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-client-rpc-ssl-options/index.html">net.corda.core.messaging.ClientRpcSslOptions</a></h5>
+<p>As an RPC Client, use this class to point to the truststore that contains the RPC SSL certificate provided by the node admin</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-cluster-spec/index.html">net.corda.testing.node.ClusterSpec</a></h5>
+<p>Abstract class specifying information about the consensus algorithm used for a cluster of nodes.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.core.contracts)
+<h5><a href="../net.corda.core.contracts/kotlin.collections.-collection/index.html">kotlin.collections.Collection</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.core.utilities)
+<h5><a href="../net.corda.core.utilities/kotlin.collections.-collection/index.html">kotlin.collections.Collection</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-collection-operator/index.html">net.corda.core.node.services.vault.CollectionOperator</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-collect-signature-flow/index.html">net.corda.core.flows.CollectSignatureFlow</a></h5>
+<p>Get and check the required signature.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-collect-signatures-flow/index.html">net.corda.core.flows.CollectSignaturesFlow</a></h5>
+<p>The <a href="../net.corda.core.flows/-collect-signatures-flow/index.html">CollectSignaturesFlow</a> is used to automate the collection of counterparty signatures for a given transaction.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-column/index.html">net.corda.core.node.services.vault.Column</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-column-predicate/index.html">net.corda.core.node.services.vault.ColumnPredicate</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-command/index.html">net.corda.core.contracts.Command</a></h5>
+<p>Command data/content plus pubkey pair: the signature is stored at the end of the serialized bytes</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-command-and-state/index.html">net.corda.core.contracts.CommandAndState</a></h5>
+<p>Return structure for <a href="../net.corda.core.contracts/-ownable-state/with-new-owner.html">OwnableState.withNewOwner</a></p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-command-data.html">net.corda.core.contracts.CommandData</a></h5>
+<p>Marker interface for classes that represent commands</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-command-with-parties/index.html">net.corda.core.contracts.CommandWithParties</a></h5>
+<p>A <a href="../net.corda.core.contracts/-command/index.html">Command</a> where the signing parties have been looked up if they have a well known/recognised institutional key.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-commercial-paper/index.html">net.corda.finance.contracts.CommercialPaper</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.schemas/-commercial-paper-schema.html">net.corda.finance.schemas.CommercialPaperSchema</a></h5>
+<p>An object used to fully qualify the <a href="../net.corda.finance.schemas/-commercial-paper-schema.html">CommercialPaperSchema</a> family name (i.e. independent of version).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.schemas/-commercial-paper-schema-v1/index.html">net.corda.finance.schemas.CommercialPaperSchemaV1</a></h5>
+<p>First version of a commercial paper contract ORM schema that maps all fields of the <a href="#">CommercialPaper</a> contract state
+as it stood at the time of writing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows/-commercial-paper-utils/index.html">net.corda.finance.workflows.CommercialPaperUtils</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-commodity/index.html">net.corda.finance.contracts.Commodity</a></h5>
+<p>Class representing a commodity, as an equivalent to the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html">Currency</a> class. This exists purely to enable the
+<a href="#">CommodityContract</a> contract, and is likely to change in future.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.schemas/-common-schema.html">net.corda.core.schemas.CommonSchema</a></h5>
+<p>JPA representation of the common schema entities</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.schemas/-common-schema-v1/index.html">net.corda.core.schemas.CommonSchemaV1</a></h5>
+<p>First version of the Vault ORM schema</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-component-group/index.html">net.corda.core.transactions.ComponentGroup</a></h5>
+<p>A ComponentGroup is used to store the full list of transaction components of the same type in serialised form.
+Practically, a group per component type of a transaction is required; thus, there will be a group for input states,
+a group for all attachments (if there are any) etc.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-component-group-enum/index.html">net.corda.core.contracts.ComponentGroupEnum</a></h5>
+<p>An enum, for which each property corresponds to a transaction component group. The position in the enum class
+declaration (ordinal) is used for component-leaf ordering when computing the Merkle tree.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-component-visibility-exception/index.html">net.corda.core.transactions.ComponentVisibilityException</a></h5>
+<p>Thrown when checking for visibility of all-components in a group in <a href="../net.corda.core.transactions/-filtered-transaction/check-all-components-visible.html">FilteredTransaction.checkAllComponentsVisible</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-composite-key/index.html">net.corda.core.crypto.CompositeKey</a></h5>
+<p>A tree data structure that enables the representation of composite public keys, which are used to represent
+the signing requirements for multi-signature scenarios such as RAFT notary services. A composite key is a list
+of leaf keys and their contributing weight, and each leaf can be a conventional single key or a composite key.
+Keys contribute their weight to the total if they are matched by the signature.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-composite-key-factory/index.html">net.corda.core.crypto.CompositeKeyFactory</a></h5>
+<p>Factory for generating composite keys from ASN.1 format key specifications. This is used by <a href="../net.corda.core.crypto/-corda-security-provider/index.html">CordaSecurityProvider</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-composite-signature/index.html">net.corda.core.crypto.CompositeSignature</a></h5>
+<p>Dedicated class for storing a set of signatures that comprise <a href="../net.corda.core.crypto/-composite-key/index.html">CompositeKey</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-composite-signatures-with-keys/index.html">net.corda.core.crypto.CompositeSignaturesWithKeys</a></h5>
+<p>Custom class for holding signature data. This exists for later extension work to provide a standardised cross-platform
+serialization format.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-connection-failure-exception/index.html">net.corda.client.rpc.ConnectionFailureException</a></h5>
+<p>Signals that the underlying <a href="../net.corda.client.rpc/-r-p-c-connection/index.html">RPCConnection</a> dropped.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-constructor-for-deserialization/index.html">net.corda.core.serialization.ConstructorForDeserialization</a></h5>
+<p>Annotation indicating a constructor to be used to reconstruct instances of a class during deserialization.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-context-property-keys/index.html">net.corda.core.serialization.ContextPropertyKeys</a></h5>
+<p>Set of well known properties that may be set on a serialization context. This doesn't preclude
+others being set that aren't keyed on this enumeration, but for general use properties adding a
+well known key here is preferred.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-contract/index.html">net.corda.core.contracts.Contract</a></h5>
+<p>Implemented by a program that implements business logic on the shared ledger. All participants run this code for
+every <a href="../net.corda.core.transactions/-ledger-transaction/index.html">net.corda.core.transactions.LedgerTransaction</a> they see on the network, for every input and output state. All
+contracts must accept the transaction for it to be accepted: failure of any aborts the entire thing. The time is taken
+from a trusted time-window attached to the transaction itself i.e. it is NOT necessarily the current time.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-contract-attachment/index.html">net.corda.core.contracts.ContractAttachment</a></h5>
+<p>An <a href="../net.corda.core.contracts/-attachment/index.html">Attachment</a> which represents a contract JAR.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-contract-class-name.html">net.corda.core.contracts.ContractClassName</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-contract-state/index.html">net.corda.core.contracts.ContractState</a></h5>
+<p>A contract state (or just "state") contains opaque data used by a contract program. It can be thought of as a disk
+file that the program can use to persist data across transactions. States are immutable: once created they are never
+updated, instead, any changes must generate a new successor state. States can be updated (consumed) only once: the
+notary is responsible for ensuring there is no "double spending" by only signing a transaction if the input states
+are all free.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-contract-upgrade-filtered-transaction/index.html">net.corda.core.transactions.ContractUpgradeFilteredTransaction</a></h5>
+<p>A filtered version of the <a href="../net.corda.core.transactions/-contract-upgrade-wire-transaction/index.html">ContractUpgradeWireTransaction</a>. In comparison with a regular <a href="../net.corda.core.transactions/-filtered-transaction/index.html">FilteredTransaction</a>, there
+is no flexibility on what parts of the transaction to reveal – the inputs, notary and network parameters hash fields are always visible and the
+rest of the transaction is always hidden. Its only purpose is to hide transaction data when using a non-validating notary.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-contract-upgrade-flow/index.html">net.corda.core.flows.ContractUpgradeFlow</a></h5>
+<p>A flow to be used for authorising and upgrading state objects of an old contract to a new contract.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-contract-upgrade-ledger-transaction/index.html">net.corda.core.transactions.ContractUpgradeLedgerTransaction</a></h5>
+<p>A contract upgrade transaction with fully resolved inputs and signatures. Contract upgrade transactions are separate
+to regular transactions because their validation logic is specialised; the original contract by definition cannot be
+aware of the upgraded contract (it was written after the original contract was developed), so its validation logic
+cannot succeed. Instead alternative verification logic is used which verifies that the outputs correspond to the
+inputs after upgrading.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-contract-upgrade-service/index.html">net.corda.core.node.services.ContractUpgradeService</a></h5>
+<p>The <a href="../net.corda.core.node.services/-contract-upgrade-service/index.html">ContractUpgradeService</a> is responsible for securely upgrading contract state objects according to
+a specified and mutually agreed (amongst participants) contract version.
+See also <a href="../net.corda.core.flows/-contract-upgrade-flow/index.html">ContractUpgradeFlow</a> to understand the workflow associated with contract upgrades.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-contract-upgrade-wire-transaction/index.html">net.corda.core.transactions.ContractUpgradeWireTransaction</a></h5>
+<p>A special transaction for upgrading the contract of a state.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core/-corda-exception/index.html">net.corda.core.CordaException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.concurrent/-corda-future/index.html">net.corda.core.concurrent.CordaFuture</a></h5>
+<p>Same as <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html">Future</a> with additional methods to provide some of the features of <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html">java.util.concurrent.CompletableFuture</a> while minimising the API surface area.
+In Kotlin, to avoid compile errors, whenever CordaFuture is used in a parameter or extension method receiver type, its type parameter should be specified with out variance.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core/-corda-internal/index.html">net.corda.core.CordaInternal</a></h5>
+<p>These methods and annotations are not part of Corda's API compatibility guarantee and applications should not use them.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-corda-object-identifier/index.html">net.corda.core.crypto.CordaObjectIdentifier</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core/-corda-o-i-d/index.html">net.corda.core.CordaOID</a></h5>
+<p>OIDs used for the Corda platform. All entries MUST be defined in this file only and they MUST NOT be removed.
+If an OID is incorrectly assigned, it should be marked deprecated and NEVER be reused again.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.cordapp/-cordapp/index.html">net.corda.core.cordapp.Cordapp</a></h5>
+<p>Represents a cordapp by registering the JAR that contains it and all important classes for Corda.
+Instances of this class are generated automatically at startup of a node and can get retrieved from
+<a href="../net.corda.core.cordapp/-cordapp-provider/get-app-context.html">CordappProvider.getAppContext</a> from the <a href="../net.corda.core.cordapp/-cordapp-context/index.html">CordappContext</a> it returns.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.cordapp/-cordapp-config/index.html">net.corda.core.cordapp.CordappConfig</a></h5>
+<p>Provides access to cordapp configuration independent of the configuration provider.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.cordapp/-cordapp-config-exception/index.html">net.corda.core.cordapp.CordappConfigException</a></h5>
+<p>Thrown if an exception occurs in accessing or parsing cordapp configuration</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.cordapp/-cordapp-context/index.html">net.corda.core.cordapp.CordappContext</a></h5>
+<p>An app context provides information about where an app was loaded from, access to its classloader,
+and (in the included <a href="../net.corda.core.cordapp/-cordapp/index.html">Cordapp</a> object) lists of annotated classes discovered via scanning the JAR.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.cordapp/-cordapp-info/index.html">net.corda.core.cordapp.CordappInfo</a></h5>
+<p>A <a href="../net.corda.core.cordapp/-cordapp-info/index.html">CordappInfo</a> describes a single CorDapp currently installed on the node</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.cordapp/-cordapp-provider/index.html">net.corda.core.cordapp.CordappProvider</a></h5>
+<p>Provides access to what the node knows about loaded applications.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-corda-r-p-c-client/index.html">net.corda.client.rpc.CordaRPCClient</a></h5>
+<p>An RPC client connects to the specified server and allows you to make calls to the server that perform various
+useful tasks. Please see the Client RPC section of docs.corda.net to learn more about how this API works. A brief
+description is provided here.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-corda-r-p-c-client-configuration/index.html">net.corda.client.rpc.CordaRPCClientConfiguration</a></h5>
+<p>Can be used to configure the RPC client connection.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-corda-r-p-c-connection/index.html">net.corda.client.rpc.CordaRPCConnection</a></h5>
+<p>This class is essentially just a wrapper for an <code>RPCConnection&lt;CordaRPCOps&gt;</code> and can be treated identically.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-corda-r-p-c-ops/index.html">net.corda.core.messaging.CordaRPCOps</a></h5>
+<p>RPC operations that the node exposes to clients.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core/-corda-runtime-exception/index.html">net.corda.core.CordaRuntimeException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-corda-security-provider/index.html">net.corda.core.crypto.CordaSecurityProvider</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-corda-serializable/index.html">net.corda.core.serialization.CordaSerializable</a></h5>
+<p>This annotation is a marker to indicate that a class is permitted and intended to be serialized as part of Node messaging.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-corda-serialization-transform-enum-default/index.html">net.corda.core.serialization.CordaSerializationTransformEnumDefault</a></h5>
+<p>This annotation is used to mark an enumerated type as having had a new constant appended to it. For
+each additional constant added a new annotation should be appended to the class. If more than one
+is required the wrapper annotation <a href="../net.corda.core.serialization/-corda-serialization-transform-enum-defaults/index.html">CordaSerializationTransformEnumDefaults</a> should be used to
+encapsulate them</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-corda-serialization-transform-enum-defaults/index.html">net.corda.core.serialization.CordaSerializationTransformEnumDefaults</a></h5>
+<p>This annotation is used to mark an enumerated type as having had multiple members added, It acts
+as a container annotation for instances of <a href="../net.corda.core.serialization/-corda-serialization-transform-enum-default/index.html">CordaSerializationTransformEnumDefault</a>, each of which
+details individual additions.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-corda-serialization-transform-rename/index.html">net.corda.core.serialization.CordaSerializationTransformRename</a></h5>
+<p>This annotation is used to mark a class has having had a property element. It is used by the
+AMQP deserializer to allow instances with different versions of the class on their Class Path
+to successfully deserialize the object.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-corda-serialization-transform-renames/index.html">net.corda.core.serialization.CordaSerializationTransformRenames</a></h5>
+<p>This annotation is used to mark a class as having had multiple elements renamed as a container annotation for
+instances of <a href="../net.corda.core.serialization/-corda-serialization-transform-rename/index.html">CordaSerializationTransformRename</a>, each of which details an individual rename.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a></h5>
+<p>Annotate any class that needs to be a long-lived service within the node, such as an oracle, with this annotation.
+Such a class needs to have a constructor with a single parameter of type <a href="#">AppServiceHub</a>. This constructor will be invoked
+during node start to initialise the service. The service hub provided can be used to get information about the node
+that may be necessary for the service. Corda services are created as singletons within the node and are available
+to flows via <a href="../net.corda.core.node/-service-hub/corda-service.html">ServiceHub.cordaService</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-corda-service-critical-failure-exception/index.html">net.corda.core.node.services.CordaServiceCriticalFailureException</a></h5>
+<p>Please see <a href="../net.corda.core.node.services/-service-lifecycle-event/-s-t-a-t-e_-m-a-c-h-i-n-e_-s-t-a-r-t-e-d.html">ServiceLifecycleEvent.STATE_MACHINE_STARTED</a> for the purpose of this exception.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core/-corda-throwable/index.html">net.corda.core.CordaThrowable</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-corda-transaction-support/index.html">net.corda.core.node.services.vault.CordaTransactionSupport</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.identity/-corda-x500-name/index.html">net.corda.core.identity.CordaX500Name</a></h5>
+<p>X.500 distinguished name data type customised to how Corda uses names. This restricts the attributes to those Corda
+supports, and requires that organisation, locality and country attributes are specified. See also RFC 4519 for
+the underlying attribute type definitions</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-core-transaction/index.html">net.corda.core.transactions.CoreTransaction</a></h5>
+<p>A transaction with the minimal amount of information required to compute the unique transaction <a href="#">id</a>, and
+resolve a <a href="../net.corda.core.transactions/-full-transaction/index.html">FullTransaction</a>. This type of transaction, wrapped in <a href="../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>, gets transferred across the
+wire and recorded to storage.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc.reconnect/-could-not-start-flow-exception/index.html">net.corda.client.rpc.reconnect.CouldNotStartFlowException</a></h5>
+<p>Thrown when a flow start command died before receiving a <a href="../net.corda.core.messaging/-flow-handle/index.html">net.corda.core.messaging.FlowHandle</a>.
+On catching this exception, the typical behaviour is to run a "logical retry", meaning only retry the flow if the expected outcome did not occur.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-criteria-expression/index.html">net.corda.core.node.services.vault.CriteriaExpression</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-crypto/index.html">net.corda.core.crypto.Crypto</a></h5>
+<p>This object controls and provides the available and supported signature schemes for Corda.
+Any implemented <a href="../net.corda.core.crypto/-signature-scheme/index.html">SignatureScheme</a> should be strictly defined here.
+However, only the schemes returned by {@link #listSupportedSignatureSchemes()} are supported.
+Note that Corda currently supports the following signature schemes by their code names:</p>
+</tr>
+<tr>
+ (extensions in package net.corda.finance)
+<h5><a href="../net.corda.finance/java.util.-currency/index.html">java.util.Currency</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-custom-serialization-scheme/index.html">net.corda.core.serialization.CustomSerializationScheme</a></h5>
+<ul><li></li>
+</ul>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-database-snapshot/index.html">net.corda.testing.node.DatabaseSnapshot</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-data-feed/index.html">net.corda.core.messaging.DataFeed</a></h5>
+<p>The Data feed contains a snapshot of the requested data and an <a href="#">Observable</a> of future updates.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-data-vending-flow/index.html">net.corda.core.flows.DataVendingFlow</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-date-roll-convention/index.html">net.corda.finance.contracts.DateRollConvention</a></h5>
+<p>This reflects what happens if a date on which a business event is supposed to happen actually falls upon a non-working day.
+Depending on the accounting requirement, we can move forward until we get to a business day, or backwards.
+There are some additional rules which are explained in the individual cases below.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-date-roll-direction/index.html">net.corda.finance.contracts.DateRollDirection</a></h5>
+<p>This is utilised in the <a href="../net.corda.finance.contracts/-date-roll-convention/index.html">DateRollConvention</a> class to determine which way we should initially step when
+finding a business day.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-day-count-basis-day/index.html">net.corda.finance.contracts.DayCountBasisDay</a></h5>
+<p>This forms the day part of the "Day Count Basis" used for interest calculation.
+Note that the first character cannot be a number (enum naming constraints), so we drop that
+in the toString lest some people get confused.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-day-count-basis-year/index.html">net.corda.finance.contracts.DayCountBasisYear</a></h5>
+<p>This forms the year part of the "Day Count Basis" used for interest calculation.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-deal-state/index.html">net.corda.finance.contracts.DealState</a></h5>
+<p>Interface representing an agreement that exposes various attributes that are common. Implementing it simplifies
+implementation of general flows that manipulate many agreement types.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core/-delete-for-d-j-v-m/index.html">net.corda.core.DeleteForDJVM</a></h5>
+<p>Declare the annotated element to unsuitable for the deterministic version of Corda.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-deprecated-constructor-for-deserialization/index.html">net.corda.core.serialization.DeprecatedConstructorForDeserialization</a></h5>
+<p>This annotation is a marker to indicate which secondary constructors should be considered, and in which
+order, for evolving objects during their deserialization.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-destination.html">net.corda.core.flows.Destination</a></h5>
+<p>An abstraction for flow session destinations. A flow can send to and receive from objects which implement this interface. The specifics
+of how the messages are routed depend on the implementation.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.diagnostics/-diagnostics-service/index.html">net.corda.core.node.services.diagnostics.DiagnosticsService</a></h5>
+<p>A <a href="../net.corda.core.node.services.diagnostics/-diagnostics-service/index.html">DiagnosticsService</a> provides APIs that allow CorDapps to query information about the node that CorDapp is currently running on.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-digest-algorithm/index.html">net.corda.core.crypto.DigestAlgorithm</a></h5>
+<p>Interface for injecting custom digest implementation bypassing JCA.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-digest-service/index.html">net.corda.core.crypto.DigestService</a></h5>
+<p>The DigestService class is a service that offers the main crypto methods for calculating transaction hashes and
+building Merkle trees. The <a href="../net.corda.core.crypto/-digest-service/default.html">default</a> instance is passed by default to instances of classes like TransactionBuilder
+and as a parameter to MerkleTree.getMerkleTree(...) method. In future the <a href="../net.corda.core.crypto/-digest-service/default.html">default</a> instance can be parametrized
+to initialize with the network default hash algorithm or just a more secure algorithm (e.g. SHA3_256). While the
+SHA2_256 is vulnerable to pre-image attacks, the computeNonce and componentHash methods behaviour is defined by
+the hashTwiceNonce and hashTwiceComponent; with SHA2_256 they both must be set to true to ensure pre-image attack
+won't work (and for backward compatibility), but for other algorithms like SHA3_256 that are not affected, they
+can and should be set to false as hashing twice would not improve security but affect performance.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-digital-signature/index.html">net.corda.core.crypto.DigitalSignature</a></h5>
+<p>A wrapper around a digital signature.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.schemas/-direct-state-persistable/index.html">net.corda.core.schemas.DirectStatePersistable</a></h5>
+<p>Marker interface to denote a persistable Corda state entity that exposes the transaction id and index as composite key called <a href="../net.corda.core.schemas/-direct-state-persistable/state-ref.html">stateRef</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core/-do-not-implement/index.html">net.corda.core.DoNotImplement</a></h5>
+<p>This annotation is for interfaces and abstract classes that provide Corda functionality
+to user applications. Future versions of Corda may add new methods to such interfaces and
+classes, but will not remove or modify existing methods.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.finance)
+<h5><a href="../net.corda.finance/kotlin.-double/index.html">kotlin.Double</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-double-spent-inputs/index.html">net.corda.testing.dsl.DoubleSpentInputs</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-driver-d-s-l/index.html">net.corda.testing.driver.DriverDSL</a></h5>
+<p>Underlying interface for the driver DSL. Do not instantiate directly, instead use the <a href="../net.corda.testing.driver/driver.html">driver</a> function.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-driver-parameters/index.html">net.corda.testing.driver.DriverParameters</a></h5>
+<p>Builder for configuring a <a href="../net.corda.testing.driver/driver.html">driver</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-dummy-secure-random.html">net.corda.core.crypto.DummySecureRandom</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-duplicate-output-label/index.html">net.corda.testing.dsl.DuplicateOutputLabel</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-encoding-whitelist/index.html">net.corda.core.serialization.EncodingWhitelist</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-enforce-verify-or-fail.html">net.corda.testing.dsl.EnforceVerifyOrFail</a></h5>
+<p>If you jumped here from a compiler error make sure the last line of your test tests for a transaction verify or fail.
+This is a dummy type that can only be instantiated by functions in this module. This way we can ensure that all tests
+will have as the last line either an accept or a failure test. The name is deliberately long to help make sense of
+the triggered diagnostic.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-equality-comparison-operator/index.html">net.corda.core.node.services.vault.EqualityComparisonOperator</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-expression/index.html">net.corda.finance.contracts.Expression</a></h5>
+<p>Represents a textual expression of e.g. a formula</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-field-info/index.html">net.corda.core.node.services.vault.FieldInfo</a></h5>
+<p>Contains information about a field from an entity class.
+Used as part of query criteria construction through <a href="../net.corda.core.node.services.vault/-builder/index.html">Builder</a>, produced by function <a href="../net.corda.core.node.services.vault/get-field.html">getField</a>.
+The constructor should not be invoked manually.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-filtered-component-group/index.html">net.corda.core.transactions.FilteredComponentGroup</a></h5>
+<p>A FilteredComponentGroup is used to store the filtered list of transaction components of the same type in serialised form.
+This is similar to <a href="../net.corda.core.transactions/-component-group/index.html">ComponentGroup</a>, but it also includes the corresponding nonce per component.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-filtered-transaction/index.html">net.corda.core.transactions.FilteredTransaction</a></h5>
+<p>Class representing merkleized filtered transaction.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-filtered-transaction-verification-exception/index.html">net.corda.core.transactions.FilteredTransactionVerificationException</a></h5>
+<p>Thrown when <a href="../net.corda.core.transactions/-filtered-transaction/verify.html">FilteredTransaction.verify</a> fails.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-finality-flow/index.html">net.corda.core.flows.FinalityFlow</a></h5>
+<p>Verifies the given transaction, then sends it to the named notary. If the notary agrees that the transaction
+is acceptable then it is from that point onwards committed to the ledger, and will be written through to the
+vault. Additionally it will be distributed to the parties reflected in the participants list of the states.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-fix/index.html">net.corda.finance.contracts.Fix</a></h5>
+<p>A <a href="../net.corda.finance.contracts/-fix/index.html">Fix</a> represents a named interest rate, on a given day, for a given duration. It can be embedded in a tx.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-fixable-deal-state/index.html">net.corda.finance.contracts.FixableDealState</a></h5>
+<p>Interface adding fixing specific methods.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-fix-of/index.html">net.corda.finance.contracts.FixOf</a></h5>
+<p>A <a href="../net.corda.finance.contracts/-fix-of/index.html">FixOf</a> identifies the question side of a fix: what day, tenor and type of fix ("LIBOR", "EURIBOR" etc)</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-flow-exception/index.html">net.corda.core.flows.FlowException</a></h5>
+<p>Exception which can be thrown by a <a href="../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a> at any point in its logic to unexpectedly bring it to a permanent end.
+The exception will propagate to all counterparty flows and will be thrown on their end the next time they wait on a
+<a href="../net.corda.core.flows/-flow-session/receive.html">FlowSession.receive</a> or <a href="../net.corda.core.flows/-flow-session/send-and-receive.html">FlowSession.sendAndReceive</a>. Any flow which no longer needs to do a receive, or has already
+ended, will not receive the exception (if this is required then have them wait for a confirmation message).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-flow-external-async-operation/index.html">net.corda.core.flows.FlowExternalAsyncOperation</a></h5>
+<p><a href="../net.corda.core.flows/-flow-external-async-operation/index.html">FlowExternalAsyncOperation</a> represents an external future that blocks a flow from continuing until the future returned by
+<a href="../net.corda.core.flows/-flow-external-async-operation/execute.html">FlowExternalAsyncOperation.execute</a> has completed. Examples of external processes where <a href="../net.corda.core.flows/-flow-external-async-operation/index.html">FlowExternalAsyncOperation</a> would be useful
+include, triggering a long running process on an external system or retrieving information from a service that might be down.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-flow-external-operation/index.html">net.corda.core.flows.FlowExternalOperation</a></h5>
+<p><a href="../net.corda.core.flows/-flow-external-operation/index.html">FlowExternalOperation</a> represents an external process that blocks a flow from continuing until the result of <a href="../net.corda.core.flows/-flow-external-operation/execute.html">execute</a>
+has been retrieved. Examples of external processes where <a href="../net.corda.core.flows/-flow-external-operation/index.html">FlowExternalOperation</a> would be useful include, triggering a long running
+process on an external system or retrieving information from a service that might be down.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-flow-handle/index.html">net.corda.core.messaging.FlowHandle</a></h5>
+<p><a href="../net.corda.core.messaging/-flow-handle/index.html">FlowHandle</a> is a serialisable handle for the started flow, parameterised by the type of the flow's return value.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-flow-handle-impl/index.html">net.corda.core.messaging.FlowHandleImpl</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-flow-handle-with-client-id/index.html">net.corda.core.messaging.FlowHandleWithClientId</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-flow-handle-with-client-id-impl/index.html">net.corda.core.messaging.FlowHandleWithClientIdImpl</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-flow-info/index.html">net.corda.core.flows.FlowInfo</a></h5>
+<p>Version and name of the CorDapp hosting the other side of the flow.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-flow-info.html">net.corda.core.messaging.FlowInfo</a></h5>
+<p>An alias for <a href="../net.corda.core.messaging/-state-machine-info/index.html">StateMachineInfo</a> which uses more modern terminology.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-flow-initiator/index.html">net.corda.core.flows.FlowInitiator</a></h5>
+<p>Please note that <a href="../net.corda.core.flows/-flow-initiator/index.html">FlowInitiator</a> has been superceded by <a href="../net.corda.core.context/-invocation-context/index.html">net.corda.core.context.InvocationContext</a>, which offers
+more detail for the same event.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-flow-logic/index.html">net.corda.core.flows.FlowLogic</a></h5>
+<p>A sub-class of <a href="../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a> implements a flow using direct, straight line blocking code. Thus you
+can write complex flow logic in an ordinary fashion, without having to think about callbacks, restarting after
+a node crash, how many instances of your flow there are running and so on.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-flow-logic-ref.html">net.corda.core.flows.FlowLogicRef</a></h5>
+<p>A handle interface representing a <a href="../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a> instance which would be possible to safely pass out of the contract sandbox.
+Use FlowLogicRefFactory to construct a concrete security checked instance.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-flow-logic-ref-factory/index.html">net.corda.core.flows.FlowLogicRefFactory</a></h5>
+<p>The public factory interface for creating validated <a href="../net.corda.core.flows/-flow-logic-ref.html">FlowLogicRef</a> instances as part of the scheduling framework.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging.flows/-flow-manager-r-p-c-ops/index.html">net.corda.core.messaging.flows.FlowManagerRPCOps</a></h5>
+<p>RPC operations to perform operations related to flows including management of associated persistent states like checkpoints.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-flow-progress-handle/index.html">net.corda.core.messaging.FlowProgressHandle</a></h5>
+<p><a href="../net.corda.core.messaging/-flow-progress-handle/index.html">FlowProgressHandle</a> is a serialisable handle for the started flow, parameterised by the type of the flow's return value.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-flow-progress-handle-impl/index.html">net.corda.core.messaging.FlowProgressHandleImpl</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-flow-session/index.html">net.corda.core.flows.FlowSession</a></h5>
+<p>A <a href="../net.corda.core.flows/-flow-session/index.html">FlowSession</a> is a handle on a communication sequence between two paired flows, possibly running on separate nodes.
+It is used to send and receive messages between the flows as well as to query information about the counter-flow.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-flow-stack-snapshot/index.html">net.corda.core.flows.FlowStackSnapshot</a></h5>
+<p>Main data object representing snapshot of the flow stack, extracted from the Quasar stack.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-frequency/index.html">net.corda.finance.contracts.Frequency</a></h5>
+<p>Frequency at which an event occurs - the enumerator also casts to an integer specifying the number of times per year
+that would divide into (eg annually = 1, semiannual = 2, monthly = 12 etc).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-full-transaction/index.html">net.corda.core.transactions.FullTransaction</a></h5>
+<p>A transaction with fully resolved components, such as input states.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-fungible-asset/index.html">net.corda.core.contracts.FungibleAsset</a></h5>
+<p>Interface for contract states representing assets which are fungible, countable and issued by a
+specific party. States contain assets which are equivalent (such as cash of the same currency),
+so records of their existence can be merged or split as needed where the issuer is the same. For
+instance, dollars issued by the Fed are fungible and countable (in cents), barrels of West Texas
+crude are fungible and countable (oil from two small containers can be poured into one large
+container), shares of the same class in a specific company are fungible and countable, and so on.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-fungible-state/index.html">net.corda.core.contracts.FungibleState</a></h5>
+<p>Interface to represent things which are fungible, this means that there is an expectation that these things can
+be split and merged. That's the only assumption made by this interface.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.core.concurrent)
+<h5><a href="../net.corda.core.concurrent/java.util.concurrent.-future/index.html">java.util.concurrent.Future</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.core.utilities)
+<h5><a href="../net.corda.core.utilities/java.util.concurrent.-future/index.html">java.util.concurrent.Future</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-generic-query-criteria/index.html">net.corda.core.node.services.vault.GenericQueryCriteria</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-graceful-reconnect/index.html">net.corda.client.rpc.GracefulReconnect</a></h5>
+<p>GracefulReconnect provides the opportunity to perform certain logic when the RPC encounters a connection disconnect
+during communication with the node.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-hash-attachment-constraint/index.html">net.corda.core.contracts.HashAttachmentConstraint</a></h5>
+<p>An <a href="../net.corda.core.contracts/-attachment-constraint/index.html">AttachmentConstraint</a> that verifies by hash.
+The state protected by this constraint can only be used in a transaction created with that version of the jar.
+And a receiving node will only accept it if a cordapp with that hash has (is) been deployed on the node.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-hospitalize-flow-exception/index.html">net.corda.core.flows.HospitalizeFlowException</a></h5>
+<p>This exception allows a flow to pass itself to the flow hospital. Once the flow reaches
+the hospital it will determine how to progress depending on what <a href="../net.corda.core/-corda-runtime-exception/cause.html">cause</a>s the exception wraps.
+Assuming there are no important wrapped exceptions, throwing a <a href="../net.corda.core.flows/-hospitalize-flow-exception/index.html">HospitalizeFlowException</a>
+will place the flow in overnight observation, where it will be replayed at a later time.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.http/-http-api/index.html">net.corda.testing.http.HttpApi</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.http/-http-utils/index.html">net.corda.testing.http.HttpUtils</a></h5>
+<p>A small set of utilities for making HttpCalls, aimed at demos and tests.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-id/index.html">net.corda.core.utilities.Id</a></h5>
+<p>Represents a unique, timestamped id.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-identity-service/index.html">net.corda.core.node.services.IdentityService</a></h5>
+<p>An identity service maintains a directory of parties by their associated distinguished name/public keys and thus
+supports lookup of a party given its key, or name. The service also manages the certificates linking confidential
+identities back to the well known identity.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-illegal-flow-logic-exception/index.html">net.corda.core.flows.IllegalFlowLogicException</a></h5>
+<p>Thrown if the structure of a class implementing a flow is not correct. There can be several causes for this such as
+not inheriting from <a href="../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a>, not having a valid constructor and so on.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.schemas/-indirect-state-persistable/index.html">net.corda.core.schemas.IndirectStatePersistable</a></h5>
+<p>Marker interface to denote a persistable Corda state entity that exposes the transaction id and index as a nested composite key called <a href="../net.corda.core.schemas/-indirect-state-persistable/composite-key.html">compositeKey</a>
+that is itself a <a href="../net.corda.core.schemas/-direct-state-persistable/index.html">DirectStatePersistable</a>.  i.e. exposes a <a href="#">stateRef</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-initiated-by/index.html">net.corda.core.flows.InitiatedBy</a></h5>
+<p>This annotation is required by any <a href="../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a> that is designed to be initiated by a counterparty flow. The class must
+have at least a constructor which takes in a single <a href="../net.corda.core.identity/-party/index.html">net.corda.core.identity.Party</a> parameter which represents the
+initiating counterparty. The <a href="../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a> that does the initiating is specified by the <a href="../net.corda.core.flows/-initiated-by/value.html">value</a> property and itself must be annotated
+with <a href="../net.corda.core.flows/-initiating-flow/index.html">InitiatingFlow</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-initiating-flow/index.html">net.corda.core.flows.InitiatingFlow</a></h5>
+<p>This annotation is required by any <a href="../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a> which has been designated to initiate communication with a counterparty
+and request they start their side of the flow communication.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-in-memory-messaging-network/index.html">net.corda.testing.node.InMemoryMessagingNetwork</a></h5>
+<p>An in-memory network allows you to manufacture <a href="#">MockNodeMessagingService</a>s for a set of participants. Each
+<a href="#">MockNodeMessagingService</a> maintains a queue of messages it has received, and a background thread that dispatches
+messages one by one to registered handlers. Alternatively, a messaging system may be manually pumped, in which
+case no thread is created and a caller is expected to force delivery one at a time (this is useful for unit
+testing).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-in-process/index.html">net.corda.testing.driver.InProcess</a></h5>
+<p>Interface which represents an in process node and exposes available services.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-insufficient-balance-exception/index.html">net.corda.core.contracts.InsufficientBalanceException</a></h5>
+<p>Thrown if a request is made to spend an amount of a <a href="../net.corda.core.contracts/-fungible-asset/index.html">FungibleAsset</a> but there aren't enough tokens in the vault.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.core.utilities)
+<h5><a href="../net.corda.core.utilities/kotlin.-int/index.html">kotlin.Int</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.finance)
+<h5><a href="../net.corda.finance/kotlin.-int/index.html">kotlin.Int</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.context/-invocation-context/index.html">net.corda.core.context.InvocationContext</a></h5>
+<p>Models the information needed to trace an invocation in Corda.
+Includes initiating actor, origin, trace information, and optional external trace information to correlate clients' IDs.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.context/-invocation-origin/index.html">net.corda.core.context.InvocationOrigin</a></h5>
+<p>Represents the source of an action such as a flow start, an RPC, a shell command etc.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-i-query-criteria-parser/index.html">net.corda.core.node.services.vault.IQueryCriteriaParser</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-issued/index.html">net.corda.core.contracts.Issued</a></h5>
+<p>The <a href="../net.corda.core.contracts/-issued/index.html">Issued</a> data class holds the details of an on ledger digital asset.
+In particular it gives the public credentials of the entity that created these digital tokens
+and the particular product represented.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.core.contracts)
+<h5><a href="../net.corda.core.contracts/kotlin.collections.-iterable/index.html">kotlin.collections.Iterable</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.core.crypto)
+<h5><a href="../net.corda.core.crypto/kotlin.collections.-iterable/index.html">kotlin.collections.Iterable</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.finance.contracts.utils)
+<h5><a href="../net.corda.finance.contracts.utils/kotlin.collections.-iterable/index.html">kotlin.collections.Iterable</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.jackson/-jackson-support/index.html">net.corda.client.jackson.JacksonSupport</a></h5>
+<p>Utilities and serialisers for working with JSON representations of basic types. This adds Jackson support for
+the java.time API, some core types, and Kotlin data classes.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-jmx-policy/index.html">net.corda.testing.driver.JmxPolicy</a></h5>
+<p>A class containing configuration information for Jolokia JMX, to be used when creating a node via the <a href="../net.corda.testing.driver/driver.html">driver</a>.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.testing.flows)
+<h5><a href="../net.corda.testing.flows/kotlin.reflect.-k-class/index.html">kotlin.reflect.KClass</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core/-keep-for-d-j-v-m/index.html">net.corda.core.KeepForDJVM</a></h5>
+<p>This annotates a class or file that we want to include into the deterministic version of Corda Core.
+We don't expect everything within that class/file to be deterministic; those non-deterministic
+elements need to be annotated with either <a href="../net.corda.core/-delete-for-d-j-v-m/index.html">DeleteForDJVM</a> or <a href="../net.corda.core/-stub-out-for-d-j-v-m/index.html">StubOutForDJVM</a> so that they
+can be deleted.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-key-management-service/index.html">net.corda.core.node.services.KeyManagementService</a></h5>
+<p>The KMS is responsible for storing and using private keys to sign things. An implementation of this may, for example,
+call out to a hardware security module that enforces various auditing and frequency-of-use requirements.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.core.crypto)
+<h5><a href="../net.corda.core.crypto/java.security.-key-pair/index.html">java.security.KeyPair</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-killed-flow-exception/index.html">net.corda.core.flows.KilledFlowException</a></h5>
+<p>An exception that is thrown when a flow has been killed.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-ledger-d-s-l/index.html">net.corda.testing.dsl.LedgerDSL</a></h5>
+<p>This is the class that defines the syntactic sugar of the ledger Test DSL and delegates to the contained interpreter,
+and what is actually used in <code>ledger { (...) }</code>. Add convenience functions here, or if you want to extend the DSL
+functionality then first add your primitive to <a href="../net.corda.testing.dsl/-ledger-d-s-l-interpreter/index.html">LedgerDSLInterpreter</a> and then add the convenience defaults/extension
+methods here.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-ledger-d-s-l-interpreter/index.html">net.corda.testing.dsl.LedgerDSLInterpreter</a></h5>
+<p>This interface defines the bare bone functionality that a Ledger DSL interpreter should implement.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-ledger-transaction/index.html">net.corda.core.transactions.LedgerTransaction</a></h5>
+<p>A LedgerTransaction is derived from a <a href="../net.corda.core.transactions/-wire-transaction/index.html">WireTransaction</a>. It is the result of doing the following operations:</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-legal-prose-reference/index.html">net.corda.core.contracts.LegalProseReference</a></h5>
+<p>The annotated <a href="../net.corda.core.contracts/-contract/index.html">Contract</a> implements the legal prose identified by the given URI.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-likeness-operator/index.html">net.corda.core.node.services.vault.LikenessOperator</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-linear-pointer/index.html">net.corda.core.contracts.LinearPointer</a></h5>
+<p><a href="../net.corda.core.contracts/-linear-pointer/index.html">LinearPointer</a> allows a <a href="../net.corda.core.contracts/-contract-state/index.html">ContractState</a> to "point" to another <a href="../net.corda.core.contracts/-linear-state/index.html">LinearState</a> creating a "many-to-one" relationship
+between all the states containing the pointer to a particular <a href="../net.corda.core.contracts/-linear-state/index.html">LinearState</a> and the <a href="../net.corda.core.contracts/-linear-state/index.html">LinearState</a> being pointed to.
+Using the <a href="../net.corda.core.contracts/-linear-pointer/index.html">LinearPointer</a> is useful when one state depends on the data contained within another state that evolves
+independently. When using <a href="../net.corda.core.contracts/-linear-pointer/index.html">LinearPointer</a> it is worth noting:</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-linear-state/index.html">net.corda.core.contracts.LinearState</a></h5>
+<p>A state that evolves by superseding itself, all of which share the common "linearId".</p>
+</tr>
+<tr>
+ (extensions in package net.corda.core.utilities)
+<h5><a href="../net.corda.core.utilities/org.slf4j.-logger/index.html">org.slf4j.Logger</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.core.utilities)
+<h5><a href="../net.corda.core.utilities/kotlin.-long/index.html">kotlin.Long</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.finance)
+<h5><a href="../net.corda.finance/kotlin.-long/index.html">kotlin.Long</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.testing.flows)
+<h5><a href="../net.corda.testing.flows/kotlin.collections.-map/index.html">kotlin.collections.Map</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.schemas/-mapped-schema/index.html">net.corda.core.schemas.MappedSchema</a></h5>
+<p>A database schema that might be configured for this node.  As well as a name and version for identifying the schema,
+also list the classes that may be used in the generated object graph in order to configure the ORM tool.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.schemas/-mapped-schema-validator/index.html">net.corda.core.schemas.MappedSchemaValidator</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-max-rpc-retry-exception/index.html">net.corda.client.rpc.MaxRpcRetryException</a></h5>
+<p>Thrown to indicate an RPC operation has been retried for the <a href="#">maxNumberOfRetries</a> unsuccessfully.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-maybe-serialized-signed-transaction/index.html">net.corda.core.flows.MaybeSerializedSignedTransaction</a></h5>
+<p>In the words of Matt working code is more important then pretty code. This class that contains code that may
+be serialized. If it were always serialized then the local disk fetch would need to serialize then de-serialize
+which wastes time. However over the wire we get batch fetch items serialized. This is because we need to get the exact
+length of the objects to pack them into the 10MB max message size buffer. We do not want to serialize them multiple times
+so it's a lot more efficient to send the byte stream.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-merkle-tree/index.html">net.corda.core.crypto.MerkleTree</a></h5>
+<p>Creation and verification of a Merkle tree for a <a href="#">WireTransaction</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-merkle-tree-exception/index.html">net.corda.core.crypto.MerkleTreeException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-message-recipient-group.html">net.corda.core.messaging.MessageRecipientGroup</a></h5>
+<p>A base class for a set of recipients specifically identified by the sender.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-message-recipients.html">net.corda.core.messaging.MessageRecipients</a></h5>
+<p>The interface for a group of message recipients (which may contain only one recipient)</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-missing-attachments-exception/index.html">net.corda.core.serialization.MissingAttachmentsException</a></h5>
+<p>Thrown during deserialization to indicate that an attachment needed to construct the <a href="#">WireTransaction</a> is not found.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-missing-attachments-runtime-exception/index.html">net.corda.core.serialization.MissingAttachmentsRuntimeException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-missing-contract-attachments/index.html">net.corda.core.transactions.MissingContractAttachments</a></h5>
+<p>A contract attachment was missing when trying to automatically attach all known contract attachments</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.services/-mock-attachment-storage/index.html">net.corda.testing.services.MockAttachmentStorage</a></h5>
+<p>A mock implementation of <a href="../net.corda.core.node.services/-attachment-storage/index.html">AttachmentStorage</a> for use within tests</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-net-flow-time-out/index.html">net.corda.testing.node.MockNetFlowTimeOut</a></h5>
+<p>MockNetFlowTimeOut can be used to configure flow time out settings for a node via the mock network API.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-net-notary-config/index.html">net.corda.testing.node.MockNetNotaryConfig</a></h5>
+<p>MockNetNotaryConfig can be used to configure a node to be a notary via the mock network API. Internally
+this will be translated into a NotaryConfiguration and passed to the respective node.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-network/index.html">net.corda.testing.node.MockNetwork</a></h5>
+<p>A mock node brings up a suite of in-memory services in a fast manner suitable for unit testing.
+Components that do IO are either swapped out for mocks, or pointed to a <a href="#">Jimfs</a> in memory filesystem or an in
+memory H2 database instance.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-network-notary-spec/index.html">net.corda.testing.node.MockNetworkNotarySpec</a></h5>
+<p>The spec for a notary which will used by the <a href="../net.corda.testing.node/-mock-network/index.html">MockNetwork</a> to automatically start a notary node. This notary will
+become part of the network parameters used by all the nodes.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-network-parameters/index.html">net.corda.testing.node.MockNetworkParameters</a></h5>
+<p>Immutable builder for configuring a <a href="../net.corda.testing.node/-mock-network/index.html">MockNetwork</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-node-config-overrides/index.html">net.corda.testing.node.MockNodeConfigOverrides</a></h5>
+<p>This is a data class to configure overrides to the node configuration used in the mock network
+without having to expose/use the actual (internal) node configuration interface on the API.
+When passing one of these to <a href="#">createNode</a> or <a href="#">createUnstartedNode</a> functions, the bits that are
+set will be injected into the node configuration for the node to be created.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-node-parameters/index.html">net.corda.testing.node.MockNodeParameters</a></h5>
+<p>Immutable builder for configuring a <a href="../net.corda.testing.node/-started-mock-node/index.html">StartedMockNode</a> or an <a href="../net.corda.testing.node/-unstarted-mock-node/index.html">UnstartedMockNode</a> via <a href="../net.corda.testing.node/-mock-network/create-node.html">MockNetwork.createNode</a> and
+<a href="../net.corda.testing.node/-mock-network/create-unstarted-node.html">MockNetwork.createUnstartedNode</a>. Kotlin users can also use the named parameters overloads of those methods which
+are more convenient.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-mock-services/index.html">net.corda.testing.node.MockServices</a></h5>
+<p>An implementation of <a href="../net.corda.core.node/-service-hub/index.html">ServiceHub</a> that is designed for in-memory unit tests of contract validation logic. It has
+enough functionality to do tests of code that queries the vault, inserts to the vault, and constructs/checks
+transactions. However it isn't enough to test flows and other aspects of an app that require a network. For that
+you should investigate <a href="../net.corda.testing.node/-mock-network/index.html">MockNetwork</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-move-command/index.html">net.corda.core.contracts.MoveCommand</a></h5>
+<p>A common move command for contract states which can change owner.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts.asset/-multilateral-net-state/index.html">net.corda.finance.contracts.asset.MultilateralNetState</a></h5>
+<p>Subset of state, containing the elements which must match for two or more obligation transactions to be candidates
+for netting (this does not include the checks to enforce that everyone's amounts received are the same at the end,
+which is handled under the verify() function).
+In comparison to <a href="../net.corda.finance.contracts.asset/-bilateral-net-state/index.html">BilateralNetState</a>, this doesn't include the parties' keys, as ensuring balances match on
+input and output is handled elsewhere.
+Used in cases where all parties (or their proxies) are signing, such as central clearing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-multilateral-nettable-state/index.html">net.corda.finance.contracts.MultilateralNettableState</a></h5>
+<p>Interface for state objects that support being netted with other state objects.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc.ext/-multi-r-p-c-client/index.html">net.corda.client.rpc.ext.MultiRPCClient</a></h5>
+<p>An RPC client connects to the specified server and allows to make calls using specified remote interface to the server that perform various
+useful tasks. Please see the Client RPC section of <a href="http://docs.corda.net">Corda Documentation</a> to learn more about how this API works.
+Only a brief description is provided here.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-named-by-hash/index.html">net.corda.core.contracts.NamedByHash</a></h5>
+<p>Implemented by anything that can be named by a secure hash value (e.g. transactions, attachments).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-net-command/index.html">net.corda.finance.contracts.NetCommand</a></h5>
+<p>A common netting command for contracts whose states can be netted.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts.asset/-net-state/index.html">net.corda.finance.contracts.asset.NetState</a></h5>
+<p>Common interface for the state subsets used when determining nettability of two or more states. Exposes the
+underlying issued thing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-nettable-state.html">net.corda.finance.contracts.NettableState</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-net-type/index.html">net.corda.finance.contracts.NetType</a></h5>
+<p>Enum for the types of netting that can be applied to state objects. Exact behaviour
+for each type of netting is left to the contract to determine.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-network-host-and-port/index.html">net.corda.core.utilities.NetworkHostAndPort</a></h5>
+<p>Tuple of host and port. Use <a href="../net.corda.core.utilities/-network-host-and-port/parse.html">NetworkHostAndPort.parse</a> on untrusted data.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-network-map-cache/index.html">net.corda.core.node.services.NetworkMapCache</a></h5>
+<p>A network map contains lists of nodes on the network along with information about their identity keys, services
+they provide and host names or IP addresses where they can be connected to. The cache wraps around a map fetched
+from an authoritative service, and adds easy lookup of the data stored within it. Generally it would be initialised
+with a specified network map service, which it fetches data from and then subscribes to updates of.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-network-map-cache-base/index.html">net.corda.core.node.services.NetworkMapCacheBase</a></h5>
+<p>Subset of <a href="../net.corda.core.node.services/-network-map-cache/index.html">NetworkMapCache</a> that doesn't depend on an <a href="../net.corda.core.node.services/-identity-service/index.html">IdentityService</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node/-network-parameters/index.html">net.corda.core.node.NetworkParameters</a></h5>
+<p>Network parameters are a set of values that every node participating in the zone needs to agree on and use to
+correctly interoperate with each other.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-network-parameters-hash/index.html">net.corda.core.transactions.NetworkParametersHash</a></h5>
+<p>Wrapper over <a href="../net.corda.core.crypto/-secure-hash/index.html">SecureHash</a> to be used when filtering network parameters hash.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-network-parameters-service/index.html">net.corda.core.node.services.NetworkParametersService</a></h5>
+<p>Service for retrieving network parameters used for resolving transactions according to parameters that were
+historically in force in the network.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-no-constraint-propagation/index.html">net.corda.core.contracts.NoConstraintPropagation</a></h5>
+<p>This annotation should only be added to <a href="../net.corda.core.contracts/-contract/index.html">Contract</a> classes.
+If the annotation is present, then we assume that <a href="../net.corda.core.contracts/-contract/verify.html">Contract.verify</a> will ensure that the output states have an acceptable constraint.
+If the annotation is missing, then the default - secure - constraint propagation logic is enforced by the platform.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node/-node-diagnostic-info/index.html">net.corda.core.node.NodeDiagnosticInfo</a></h5>
+<p>A <a href="../net.corda.core.node/-node-diagnostic-info/index.html">NodeDiagnosticInfo</a> holds information about the current node version.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-node-handle/index.html">net.corda.testing.driver.NodeHandle</a></h5>
+<p>A base interface which represents a node as part of the <a href="../net.corda.testing.driver/driver.html">driver</a> dsl, extended by <a href="../net.corda.testing.driver/-in-process/index.html">InProcess</a> and <a href="../net.corda.testing.driver/-out-of-process/index.html">OutOfProcess</a></p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node/-node-info/index.html">net.corda.core.node.NodeInfo</a></h5>
+<p>Information about a network node that acts on behalf of some party. NodeInfos can be found via the network map
+cache, accessible from a <a href="../net.corda.core.node.services/-network-map-cache/index.html">net.corda.core.node.services.NetworkMapCache</a>. They are also available via RPC
+using the <a href="../net.corda.core.messaging/-corda-r-p-c-ops/network-map-snapshot.html">net.corda.core.messaging.CordaRPCOps.networkMapSnapshot</a> method.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-node-parameters/index.html">net.corda.testing.driver.NodeParameters</a></h5>
+<p>Parameters for creating a node for <a href="../net.corda.testing.driver/-driver-d-s-l/start-node.html">DriverDSL.startNode</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.diagnostics/-node-version-info/index.html">net.corda.core.node.services.diagnostics.NodeVersionInfo</a></h5>
+<p>Version info about the node. Note that this data should be used for diagnostics purposes only - it is unsafe to rely on this for
+functional decisions.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-non-empty-set/index.html">net.corda.core.utilities.NonEmptySet</a></h5>
+<p>An immutable ordered non-empty set.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-notarisation-payload/index.html">net.corda.core.flows.NotarisationPayload</a></h5>
+<p>Container for the transaction and notarisation request signature.
+This is the payload that gets sent by a client to a notary service for committing the input states of the <a href="../net.corda.core.flows/-notarisation-payload/transaction.html">transaction</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-notarisation-request/index.html">net.corda.core.flows.NotarisationRequest</a></h5>
+<p>A notarisation request specifies a list of states to consume and the id of the consuming transaction. Its primary
+purpose is for notarisation traceability – a signature over the notarisation request, <a href="../net.corda.core.flows/-notarisation-request-signature/index.html">NotarisationRequestSignature</a>,
+allows a notary to prove that a certain party requested the consumption of a particular state.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-notarisation-request-signature/index.html">net.corda.core.flows.NotarisationRequestSignature</a></h5>
+<p>A wrapper around a digital signature used for notarisation requests.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-notarisation-response/index.html">net.corda.core.flows.NotarisationResponse</a></h5>
+<p>Payload returned by the notary service flow to the client.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-notary-change-flow/index.html">net.corda.core.flows.NotaryChangeFlow</a></h5>
+<p>A flow to be used for changing a state's Notary. This is required since all input states to a transaction
+must point to the same notary.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-notary-change-ledger-transaction/index.html">net.corda.core.transactions.NotaryChangeLedgerTransaction</a></h5>
+<p>A notary change transaction with fully resolved inputs and signatures. In contrast with a regular transaction,
+signatures are checked against the signers specified by input states' <em>participants</em> fields, so full resolution is
+needed for signature verification.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-notary-change-wire-transaction/index.html">net.corda.core.transactions.NotaryChangeWireTransaction</a></h5>
+<p>A special transaction for changing the notary of a state. It only needs specifying the state(s) as input(s),
+old and new notaries. Output states can be computed by applying the notary modification to corresponding inputs
+on the fly.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-notary-error/index.html">net.corda.core.flows.NotaryError</a></h5>
+<p>Specifies the cause for notarisation request failure.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-notary-exception/index.html">net.corda.core.flows.NotaryException</a></h5>
+<p>Exception thrown by the notary service if any issues are encountered while trying to commit a transaction. The
+underlying <a href="../net.corda.core.flows/-notary-exception/error.html">error</a> specifies the cause of failure.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-notary-flow/index.html">net.corda.core.flows.NotaryFlow</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-notary-handle/index.html">net.corda.testing.driver.NotaryHandle</a></h5>
+<p>Object ecapsulating a notary started automatically by the driver.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node/-notary-info/index.html">net.corda.core.node.NotaryInfo</a></h5>
+<p>Data class storing information about notaries available in the network.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-notary-spec/index.html">net.corda.testing.node.NotarySpec</a></h5>
+<p>A notary spec for describing a notary which will be started automatically by the driver and which will be part of
+the network parameters used by all the nodes.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-null-keys/index.html">net.corda.core.crypto.NullKeys</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-null-operator/index.html">net.corda.core.node.services.vault.NullOperator</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-object-with-compatible-context/index.html">net.corda.core.serialization.ObjectWithCompatibleContext</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts.asset/-obligation/index.html">net.corda.finance.contracts.asset.Obligation</a></h5>
+<p>An obligation contract commits the obligor to delivering a specified amount of a fungible asset (for example the
+<a href="../net.corda.finance.contracts.asset/-cash/index.html">Cash</a> contract) at a specified future point in time. Settlement transactions may split and merge contracts across
+multiple input and output states. The goal of this design is to handle amounts owed, and these contracts are expected
+to be netted/merged, with settlement only for any remainder amount.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.asset/-obligation-utils/index.html">net.corda.finance.workflows.asset.ObligationUtils</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.client.rpc)
+<h5><a href="../net.corda.client.rpc/rx.-observable/index.html">rx.Observable</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.core)
+<h5><a href="../net.corda.core/rx.-observable/index.html">rx.Observable</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.core.observable)
+<h5><a href="../net.corda.core.observable/rx.-observable/index.html">rx.Observable</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts.asset/-on-ledger-asset/index.html">net.corda.finance.contracts.asset.OnLedgerAsset</a></h5>
+<p>An asset transaction may split and merge assets represented by a set of (issuer, depositRef) pairs, across multiple
+input and output states. Imagine a Bitcoin transaction but in which all UTXOs had a colour (a blend of
+issuer+depositRef) and you couldn't merge outputs of two colours together, but you COULD put them in the same
+transaction.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-opaque-bytes/index.html">net.corda.core.utilities.OpaqueBytes</a></h5>
+<p>A simple class that wraps a byte array and makes the equals/hashCode/toString methods work as you actually expect.
+In an ideal JVM this would be a value type and be completely overhead free. Project Valhalla is adding such
+functionality to Java, but it won't arrive for a few years yet!</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-opaque-bytes-sub-sequence/index.html">net.corda.core.utilities.OpaqueBytesSubSequence</a></h5>
+<p>Class is public for serialization purposes.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-operator.html">net.corda.core.node.services.vault.Operator</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-out-of-process/index.html">net.corda.testing.driver.OutOfProcess</a></h5>
+<p>Interface which represents an out of process node and exposes its process handle.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-output-state-lookup/index.html">net.corda.testing.dsl.OutputStateLookup</a></h5>
+<p>This interface defines output state lookup by label. It is split from the interpreter interfaces so that outputs may
+be looked up both in ledger{..} and transaction{..} blocks.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-ownable-state/index.html">net.corda.core.contracts.OwnableState</a></h5>
+<p>A contract state that can have a single owner.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-page-specification/index.html">net.corda.core.node.services.vault.PageSpecification</a></h5>
+<p><a href="../net.corda.core.node.services.vault/-page-specification/index.html">PageSpecification</a> allows specification of a page number (starting from <a href="../net.corda.core.node.services.vault/-d-e-f-a-u-l-t_-p-a-g-e_-n-u-m.html">DEFAULT_PAGE_NUM</a>) and page size
+(defaulting to <a href="../net.corda.core.node.services.vault/-d-e-f-a-u-l-t_-p-a-g-e_-s-i-z-e.html">DEFAULT_PAGE_SIZE</a> with a maximum page size of <a href="../net.corda.core.node.services.vault/-m-a-x_-p-a-g-e_-s-i-z-e.html">MAX_PAGE_SIZE</a>)
+Note: we default the page number to <a href="../net.corda.core.node.services.vault/-d-e-f-a-u-l-t_-p-a-g-e_-s-i-z-e.html">DEFAULT_PAGE_SIZE</a> to enable queries without requiring a page specification
+but enabling detection of large results sets that fall out of the <a href="../net.corda.core.node.services.vault/-d-e-f-a-u-l-t_-p-a-g-e_-s-i-z-e.html">DEFAULT_PAGE_SIZE</a> requirement.
+<a href="../net.corda.core.node.services.vault/-m-a-x_-p-a-g-e_-s-i-z-e.html">MAX_PAGE_SIZE</a> should be used with extreme caution as results may exceed your JVM memory footprint.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-parameters-update-info/index.html">net.corda.core.messaging.ParametersUpdateInfo</a></h5>
+<p>Data class containing information about the scheduled network parameters update. The info is emitted every time node
+receives network map with <a href="#">ParametersUpdate</a> which wasn't seen before. For more information see: <a href="../net.corda.core.messaging/-corda-r-p-c-ops/network-parameters-feed.html">CordaRPCOps.networkParametersFeed</a>
+and <a href="../net.corda.core.messaging/-corda-r-p-c-ops/accept-new-network-parameters.html">CordaRPCOps.acceptNewNetworkParameters</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-partial-merkle-tree/index.html">net.corda.core.crypto.PartialMerkleTree</a></h5>
+<p>Building and verification of Partial Merkle Tree.
+Partial Merkle Tree is a minimal tree needed to check that a given set of leaves belongs to a full Merkle Tree.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.identity/-party/index.html">net.corda.core.identity.Party</a></h5>
+<p>The <a href="../net.corda.core.identity/-party/index.html">Party</a> class represents an entity on the network, which is typically identified by a legal <a href="../net.corda.core.identity/-party/name.html">name</a> and public key
+that it can sign transactions under. As parties may use multiple keys for signing and, for example, have offline backup
+keys, the "public key" of a party can be represented by a composite construct – a <a href="../net.corda.core.crypto/-composite-key/index.html">CompositeKey</a>, which combines multiple
+cryptographic public key primitives into a tree structure.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts.asset/-party-and-amount/index.html">net.corda.finance.contracts.asset.PartyAndAmount</a></h5>
+<p>A simple holder for a (possibly anonymous) <a href="../net.corda.core.identity/-abstract-party/index.html">AbstractParty</a> and a quantity of tokens</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.identity/-party-and-certificate/index.html">net.corda.core.identity.PartyAndCertificate</a></h5>
+<p>A full party plus the X.509 certificate and path linking the party back to a trust root. Equality of
+<a href="../net.corda.core.identity/-party-and-certificate/index.html">PartyAndCertificate</a> instances is based on the party only, as certificate and path are data associated with the party,
+not part of the identifier themselves.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-party-and-reference/index.html">net.corda.core.contracts.PartyAndReference</a></h5>
+<p>Reference to something being stored or issued by a party e.g. in a vault or (more likely) on their normal
+ledger. The reference is intended to be encrypted so it's meaningless to anyone other than the party.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-party-info/index.html">net.corda.core.node.services.PartyInfo</a></h5>
+<p>Holds information about a <a href="../net.corda.core.identity/-party/index.html">Party</a>, which may refer to either a specific node or a service.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-payment-rule/index.html">net.corda.finance.contracts.PaymentRule</a></h5>
+<p>Whether the payment should be made before the due date, or after it.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-permission-exception/index.html">net.corda.client.rpc.PermissionException</a></h5>
+<p>Thrown to indicate that the calling user does not have permission for something they have requested (for example
+calling a method).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.schemas/-persistent-state/index.html">net.corda.core.schemas.PersistentState</a></h5>
+<p>A super class for all mapped states exported to a schema that ensures the <a href="../net.corda.core.contracts/-state-ref/index.html">StateRef</a> appears on the database row.  The
+<a href="../net.corda.core.contracts/-state-ref/index.html">StateRef</a> will be set to the correct value by the framework (there's no need to set during mapping generation by the state itself).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.schemas/-persistent-state-ref/index.html">net.corda.core.schemas.PersistentStateRef</a></h5>
+<p>Embedded <a href="../net.corda.core.contracts/-state-ref/index.html">StateRef</a> representation used in state mapping.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-port-allocation/index.html">net.corda.testing.driver.PortAllocation</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-privacy-salt/index.html">net.corda.core.contracts.PrivacySalt</a></h5>
+<p>A privacy salt is required to compute nonces per transaction component in order to ensure that an adversary cannot
+use brute force techniques and reveal the content of a Merkle-leaf hashed value.
+Because this salt serves the role of the seed to compute nonces, its size and entropy should be equal to the
+underlying hash function used for Merkle tree generation, currently <a href="../net.corda.core.crypto/-secure-hash/-s-h-a256/index.html">SecureHash.SHA256</a>, which has an output of 32 bytes.
+There are two constructors, one that generates a new 32-bytes random salt, and another that takes a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> input.
+The latter is required in cases where the salt value needs to be pre-generated (agreed between transacting parties),
+but it is highlighted that one should always ensure it has sufficient entropy.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.core.crypto)
+<h5><a href="../net.corda.core.crypto/java.security.-private-key/index.html">java.security.PrivateKey</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-progress-tracker/index.html">net.corda.core.utilities.ProgressTracker</a></h5>
+<p>A progress tracker helps surface information about the progress of an operation to a user interface or API of some
+kind. It lets you define a set of <em>steps</em> that represent an operation. A step is represented by an object (typically
+a singleton).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-property-delegate/index.html">net.corda.core.utilities.PropertyDelegate</a></h5>
+<p>Simple interface encapsulating the implicit Kotlin contract for immutable property delegates.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.core.crypto)
+<h5><a href="../net.corda.core.crypto/java.security.-public-key/index.html">java.security.PublicKey</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.core.utilities)
+<h5><a href="../net.corda.core.utilities/java.security.-public-key/index.html">java.security.PublicKey</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.schemas/-queryable-state/index.html">net.corda.core.schemas.QueryableState</a></h5>
+<p>A contract state that may be mapped to database schemas configured for this node to support querying for,
+or filtering of, states.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-query-criteria/index.html">net.corda.core.node.services.vault.QueryCriteria</a></h5>
+<p>Indexing assumptions:
+QueryCriteria assumes underlying schema tables are correctly indexed for performance.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-receive-finality-flow/index.html">net.corda.core.flows.ReceiveFinalityFlow</a></h5>
+<p>The receiving counterpart to <a href="../net.corda.core.flows/-finality-flow/index.html">FinalityFlow</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-receive-state-and-ref-flow/index.html">net.corda.core.flows.ReceiveStateAndRefFlow</a></h5>
+<p>The <a href="../net.corda.core.flows/-receive-state-and-ref-flow/index.html">ReceiveStateAndRefFlow</a> should be called in response to the <a href="../net.corda.core.flows/-send-state-and-ref-flow/index.html">SendStateAndRefFlow</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-receive-transaction-flow/index.html">net.corda.core.flows.ReceiveTransactionFlow</a></h5>
+<p>The <a href="../net.corda.core.flows/-receive-transaction-flow/index.html">ReceiveTransactionFlow</a> should be called in response to the <a href="../net.corda.core.flows/-send-transaction-flow/index.html">SendTransactionFlow</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-referenced-state-and-ref/index.html">net.corda.core.contracts.ReferencedStateAndRef</a></h5>
+<p>A wrapper for a <a href="../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a> indicating that it should be added to a transaction as a reference input state.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-reference-state-ref/index.html">net.corda.core.transactions.ReferenceStateRef</a></h5>
+<p>Wrapper over <a href="../net.corda.core.contracts/-state-ref/index.html">StateRef</a> to be used when filtering reference states.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-requirements/index.html">net.corda.core.contracts.Requirements</a></h5>
+<p>Defines a simple domain specific language for the specification of financial contracts. Currently covers:</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-result-serialization-exception/index.html">net.corda.core.flows.ResultSerializationException</a></h5>
+<p>Thrown whenever a flow result cannot be serialized when attempting to save it in the database</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-r-p-c-connection/index.html">net.corda.client.rpc.RPCConnection</a></h5>
+<p>Holds a <a href="../net.corda.client.rpc/-r-p-c-connection/proxy.html">proxy</a> object implementing <a href="../net.corda.client.rpc/-r-p-c-connection/index.html#I">I</a> that forwards requests to the RPC server. The server version can be queried
+via this interface.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc.ext/-r-p-c-connection-listener/index.html">net.corda.client.rpc.ext.RPCConnectionListener</a></h5>
+<p>A listener that can be attached to <a href="../net.corda.client.rpc.ext/-multi-r-p-c-client/index.html">MultiRPCClient</a> to be notified about important RPC connectivity events.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-r-p-c-exception/index.html">net.corda.client.rpc.RPCException</a></h5>
+<p>Thrown to indicate a fatal error in the RPC system itself, as opposed to an error generated by the invoked method.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-r-p-c-ops/index.html">net.corda.core.messaging.RPCOps</a></h5>
+<p>Base interface that all RPC servers must implement. Note: in Corda there's only one RPC interface. This base
+interface is here in case we split the RPC system out into a separate library one day.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-r-p-c-returns-observables/index.html">net.corda.core.messaging.RPCReturnsObservables</a></h5>
+<p>If an RPC is tagged with this annotation it may return one or more observables anywhere in its response graph.
+Calling such a method comes with consequences: it's slower, and consumes server side resources as observations
+will buffer up on the server until they're consumed by the client.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-r-p-c-since-version/index.html">net.corda.client.rpc.RPCSinceVersion</a></h5>
+<p>Records the protocol version in which this RPC was added.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.test/-sample-cash-schema-v1/index.html">net.corda.finance.test.SampleCashSchemaV1</a></h5>
+<p>First version of a cash contract ORM schema that maps all fields of the <a href="#">Cash</a> contract state as it stood
+at the time of writing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.test/-sample-cash-schema-v2/index.html">net.corda.finance.test.SampleCashSchemaV2</a></h5>
+<p>Second version of a cash contract ORM schema that extends the <a href="../net.corda.core.schemas/-common-schema-v1/-fungible-state/index.html">CommonSchemaV1.FungibleState</a> abstract schema.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.test/-sample-cash-schema-v3/index.html">net.corda.finance.test.SampleCashSchemaV3</a></h5>
+<p>First version of a cash contract ORM schema that maps all fields of the <a href="#">Cash</a> contract state as it stood
+at the time of writing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-schedulable-flow/index.html">net.corda.core.flows.SchedulableFlow</a></h5>
+<p>Any <a href="../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a> which is schedulable and is designed to be invoked by a <a href="../net.corda.core.contracts/-schedulable-state/index.html">net.corda.core.contracts.SchedulableState</a>
+must have this annotation. If it's missing <a href="../net.corda.core.flows/-flow-logic-ref-factory/create.html">FlowLogicRefFactory.create</a> will throw an exception when it comes time
+to schedule the next activity in <a href="../net.corda.core.contracts/-schedulable-state/next-scheduled-activity.html">net.corda.core.contracts.SchedulableState.nextScheduledActivity</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-schedulable-state/index.html">net.corda.core.contracts.SchedulableState</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-scheduled/index.html">net.corda.core.contracts.Scheduled</a></h5>
+<p>Something which is scheduled to happen at a point in time.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-scheduled-activity/index.html">net.corda.core.contracts.ScheduledActivity</a></h5>
+<p>This class represents the lifecycle activity that a contract state of type <a href="../net.corda.core.contracts/-linear-state/index.html">LinearState</a> would like to perform at a
+given point in time. e.g. run a fixing flow.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-scheduled-state-ref/index.html">net.corda.core.contracts.ScheduledStateRef</a></h5>
+<p>Represents a contract state (unconsumed output) of type <a href="../net.corda.core.contracts/-linear-state/index.html">LinearState</a> and a point in time that a lifecycle event is
+expected to take place for that contract state.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-secure-hash/index.html">net.corda.core.crypto.SecureHash</a></h5>
+<p>Container for a cryptographically secure hash value.
+Provides utilities for generating a cryptographic hash using different algorithms (currently only SHA-256 supported).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-send-state-and-ref-flow/index.html">net.corda.core.flows.SendStateAndRefFlow</a></h5>
+<p>The <a href="../net.corda.core.flows/-send-state-and-ref-flow/index.html">SendStateAndRefFlow</a> should be used to send a list of input <a href="../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a> to another peer that wishes to verify
+the input's integrity by resolving and checking the dependencies as well. The other side should invoke <a href="../net.corda.core.flows/-receive-state-and-ref-flow/index.html">ReceiveStateAndRefFlow</a>
+at the right point in the conversation to receive the input state and ref and perform the resolution back-and-forth
+required to check the dependencies.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-send-transaction-flow/index.html">net.corda.core.flows.SendTransactionFlow</a></h5>
+<p>The <a href="../net.corda.core.flows/-send-transaction-flow/index.html">SendTransactionFlow</a> should be used to send a transaction to another peer that wishes to verify that transaction's
+integrity by resolving and checking the dependencies as well. The other side should invoke <a href="../net.corda.core.flows/-receive-transaction-flow/index.html">ReceiveTransactionFlow</a> at
+the right point in the conversation to receive the sent transaction and perform the resolution back-and-forth required
+to check the dependencies and download any missing attachments.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serializable-calculated-property/index.html">net.corda.core.serialization.SerializableCalculatedProperty</a></h5>
+<p>Used to annotate methods which expose calculated values that we want to be serialized for use by the class carpenter.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serialization-context/index.html">net.corda.core.serialization.SerializationContext</a></h5>
+<p>Parameters to serialization and deserialization.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serialization-custom-serializer/index.html">net.corda.core.serialization.SerializationCustomSerializer</a></h5>
+<p>Allows CorDapps to provide custom serializers for third party libraries where those libraries cannot
+be recompiled with the -parameters flag rendering their classes natively serializable by Corda. In this case
+a proxy serializer can be written that extends this type whose purpose is to move between those an
+unserializable types and an intermediate representation.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serialization-defaults/index.html">net.corda.core.serialization.SerializationDefaults</a></h5>
+<p>Global singletons to be used as defaults that are injected elsewhere (generally, in the node or in RPC client).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serialization-encoding.html">net.corda.core.serialization.SerializationEncoding</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serialization-factory/index.html">net.corda.core.serialization.SerializationFactory</a></h5>
+<p>An abstraction for serializing and deserializing objects, with support for versioning of the wire format via
+a header / prefix in the bytes.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serialization-magic.html">net.corda.core.serialization.SerializationMagic</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serialization-scheme-context/index.html">net.corda.core.serialization.SerializationSchemeContext</a></h5>
+<p>This is used to pass information into <a href="../net.corda.core.serialization/-custom-serialization-scheme/index.html">CustomSerializationScheme</a> about how the object should be (de)serialized.
+This context can change depending on the specific circumstances in the node when (de)serialization occurs.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serialization-token/index.html">net.corda.core.serialization.SerializationToken</a></h5>
+<p>This represents a token in the serialized stream for an instance of a type that implements <a href="../net.corda.core.serialization/-serialize-as-token/index.html">SerializeAsToken</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serialization-whitelist/index.html">net.corda.core.serialization.SerializationWhitelist</a></h5>
+<p>Provide a subclass of this via the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html">java.util.ServiceLoader</a> mechanism to be able to whitelist types for
+serialisation that you cannot otherwise annotate. The name of the class must appear in a text file on the
+classpath under the path META-INF/services/net.corda.core.serialization.SerializationWhitelist</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serialize-as-token/index.html">net.corda.core.serialization.SerializeAsToken</a></h5>
+<p>This interface should be implemented by classes that want to substitute a token representation of themselves if
+they are serialized because they have a lot of internal state that does not serialize (well).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serialize-as-token-context/index.html">net.corda.core.serialization.SerializeAsTokenContext</a></h5>
+<p>A context for mapping SerializationTokens to/from SerializeAsTokens.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-serialized-bytes/index.html">net.corda.core.serialization.SerializedBytes</a></h5>
+<p>A type safe wrapper around a byte array that contains a serialised object. You can call <a href="../net.corda.core.serialization/deserialize.html">SerializedBytes.deserialize</a>
+to get the original object back.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node/-service-hub/index.html">net.corda.core.node.ServiceHub</a></h5>
+<p>A service hub is the starting point for most operations you can do inside the node. You are provided with one
+when a class annotated with <a href="../net.corda.core.node.services/-corda-service/index.html">CordaService</a> is constructed, and you have access to one inside flows. Most RPCs
+simply forward to the services found here after some access checking.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-service-lifecycle-event/index.html">net.corda.core.node.services.ServiceLifecycleEvent</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-service-lifecycle-observer/index.html">net.corda.core.node.services.ServiceLifecycleObserver</a></h5>
+<p>Specifies that given <a href="../net.corda.core.node.services/-corda-service/index.html">CordaService</a> is interested to know about important milestones of Corda Node lifecycle and potentially react to them.
+Subscription can be performed using <a href="../net.corda.core.node/-app-service-hub/register.html">net.corda.core.node.AppServiceHub.register</a> method from a constructor of <a href="../net.corda.core.node.services/-corda-service/index.html">CordaService</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node/-services-for-resolution/index.html">net.corda.core.node.ServicesForResolution</a></h5>
+<p>Subset of node services that are used for loading transactions from the wire into fully resolved, looked up
+forms ready for verification.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-session-scope/index.html">net.corda.core.node.services.vault.SessionScope</a></h5>
+<p>Represents scope for the operation when JPA <a href="#">Session</a> been created, i.e. transaction started.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-sgx-support/index.html">net.corda.core.utilities.SgxSupport</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-signable-data/index.html">net.corda.core.crypto.SignableData</a></h5>
+<p>A <a href="../net.corda.core.crypto/-signable-data/index.html">SignableData</a> object is the packet actually signed.
+It works as a wrapper over transaction id and signature metadata.
+Note that when multi-transaction signing (signing a block of transactions) is used, the root of the Merkle tree
+(having transaction IDs as leaves) is actually signed and thus <a href="../net.corda.core.crypto/-signable-data/tx-id.html">txId</a> refers to this root and not a specific transaction.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-signature-attachment-constraint/index.html">net.corda.core.contracts.SignatureAttachmentConstraint</a></h5>
+<p>An <a href="../net.corda.core.contracts/-attachment-constraint/index.html">AttachmentConstraint</a> that verifies that the attachment has signers that fulfil the provided <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a>.
+See: <a href="https://docs.corda.net/api-contract-constraints.html#signature-constraints">Signature Constraints</a></p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-signature-metadata/index.html">net.corda.core.crypto.SignatureMetadata</a></h5>
+<p>SignatureMeta is required to add extra meta-data to a transaction's signature.
+It currently supports platformVersion only, but it can be extended to support a universal digital
+signature model enabling partial signatures and attaching extra information, such as a user's timestamp or other
+application-specific fields.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-signature-scheme/index.html">net.corda.core.crypto.SignatureScheme</a></h5>
+<p>This class is used to define a digital signature scheme.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-signed-data/index.html">net.corda.core.crypto.SignedData</a></h5>
+<p>A serialized piece of data and its signature. Enforces signature validity in order to deserialize the data
+contained within.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-signed-transaction/index.html">net.corda.core.transactions.SignedTransaction</a></h5>
+<p>SignedTransaction wraps a serialized WireTransaction. It contains one or more signatures, each one for
+a public key (including composite keys) that is mentioned inside a transaction command. SignedTransaction is the top level transaction type
+and the type most frequently passed around the network and stored. The identity of a transaction is the hash of Merkle root
+of a WireTransaction, therefore if you are storing data keyed by WT hash be aware that multiple different STs may
+map to the same key (and they could be different in important ways, like validity!). The signatures on a
+SignedTransaction might be invalid or missing: the type does not imply validity.
+A transaction ID should be the hash of the <a href="../net.corda.core.transactions/-wire-transaction/index.html">WireTransaction</a> Merkle tree root. Thus adding or removing a signature does not change it.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-sign-transaction-flow/index.html">net.corda.core.flows.SignTransactionFlow</a></h5>
+<p>The <a href="../net.corda.core.flows/-sign-transaction-flow/index.html">SignTransactionFlow</a> should be called in response to the <a href="../net.corda.core.flows/-collect-signatures-flow/index.html">CollectSignaturesFlow</a>. It automates the signing of
+a transaction providing the transaction:</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-single-message-recipient.html">net.corda.core.messaging.SingleMessageRecipient</a></h5>
+<p>A base class for the case of point-to-point messages</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-singleton-serialization-token/index.html">net.corda.core.serialization.SingletonSerializationToken</a></h5>
+<p>A class representing a <a href="../net.corda.core.serialization/-serialization-token/index.html">SerializationToken</a> for some object that is not serializable but can be looked up
+(when deserialized) via just the class name.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.serialization/-singleton-serialize-as-token/index.html">net.corda.core.serialization.SingletonSerializeAsToken</a></h5>
+<p>A base class for implementing large objects / components / services that need to serialize themselves to a string token
+to indicate which instance the token is a serialized form of.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-sort/index.html">net.corda.core.node.services.vault.Sort</a></h5>
+<p>Sort allows specification of a set of entity attribute names and their associated directionality
+and null handling, to be applied upon processing a query specification.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services.vault/-sort-attribute/index.html">net.corda.core.node.services.vault.SortAttribute</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-source-and-amount/index.html">net.corda.core.contracts.SourceAndAmount</a></h5>
+<p>Simple data class to associate the origin, owner, or holder of a particular Amount object.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-stack-frame-data-token/index.html">net.corda.core.flows.StackFrameDataToken</a></h5>
+<p>Token class, used to indicate stack presence of the corda internal data. Since this data is of no use for
+a CordApp developer, it is skipped from serialisation and its presence is only marked by this token.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-startable-by-r-p-c/index.html">net.corda.core.flows.StartableByRPC</a></h5>
+<p>Any <a href="../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a> which is to be started by the RPC interface (<a href="../net.corda.core.messaging/-corda-r-p-c-ops/start-flow-dynamic.html">net.corda.core.messaging.CordaRPCOps.startFlowDynamic</a>
+and <a href="../net.corda.core.messaging/-corda-r-p-c-ops/start-tracked-flow-dynamic.html">net.corda.core.messaging.CordaRPCOps.startTrackedFlowDynamic</a>) must have this annotation. If it's missing the
+flow will not be allowed to start and an exception will be thrown.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-startable-by-service/index.html">net.corda.core.flows.StartableByService</a></h5>
+<p>Any <a href="../net.corda.core.flows/-flow-logic/index.html">FlowLogic</a> which is to be started by the <a href="#">AppServiceHub</a> interface from
+within a <a href="#">CordaService</a> must have this annotation. If it's missing the
+flow will not be allowed to start and an exception will be thrown.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-started-mock-node/index.html">net.corda.testing.node.StartedMockNode</a></h5>
+<p>A class that represents a started mock node for testing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-state-and-contract/index.html">net.corda.core.contracts.StateAndContract</a></h5>
+<p>A convenience class for passing around a state and it's contract</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-state-and-ref/index.html">net.corda.core.contracts.StateAndRef</a></h5>
+<p>A StateAndRef is simply a (state, ref) pair. For instance, a vault (which holds available assets) contains these.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-state-consumption-details/index.html">net.corda.core.flows.StateConsumptionDetails</a></h5>
+<p>Contains information about the consuming transaction for a particular state.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-state-machine-info/index.html">net.corda.core.messaging.StateMachineInfo</a></h5>
+<p>Represents information about a flow (the name "state machine" is legacy, Kotlin users can use the <a href="../net.corda.core.messaging/-flow-info.html">FlowInfo</a> type
+alias). You can access progress tracking, information about why the flow was started and so on.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-state-machine-run-id/index.html">net.corda.core.flows.StateMachineRunId</a></h5>
+<p>A unique identifier for a single state machine run, valid across node restarts. Note that a single run always
+has at least one flow, but that flow may also invoke sub-flows: they all share the same run id.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-state-machine-transaction-mapping/index.html">net.corda.core.messaging.StateMachineTransactionMapping</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.messaging/-state-machine-update/index.html">net.corda.core.messaging.StateMachineUpdate</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.schemas/-state-persistable.html">net.corda.core.schemas.StatePersistable</a></h5>
+<p>Marker interface to denote a persistable Corda state entity that will always have a transaction id and index</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-state-pointer/index.html">net.corda.core.contracts.StatePointer</a></h5>
+<p>A <a href="../net.corda.core.contracts/-state-pointer/index.html">StatePointer</a> contains a <a href="../net.corda.core.contracts/-state-pointer/pointer.html">pointer</a> to a <a href="../net.corda.core.contracts/-contract-state/index.html">ContractState</a>. The <a href="../net.corda.core.contracts/-state-pointer/index.html">StatePointer</a> can be included in a <a href="../net.corda.core.contracts/-contract-state/index.html">ContractState</a>
+or included in an off-ledger data structure. <a href="../net.corda.core.contracts/-state-pointer/index.html">StatePointer</a>s can be resolved to a <a href="../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a> by performing a
+vault query. There are two types of pointers; linear and static. <a href="../net.corda.core.contracts/-linear-pointer/index.html">LinearPointer</a>s are for use with <a href="../net.corda.core.contracts/-linear-state/index.html">LinearState</a>s.
+<a href="../net.corda.core.contracts/-static-pointer/index.html">StaticPointer</a>s are for use with any type of <a href="../net.corda.core.contracts/-contract-state/index.html">ContractState</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-state-ref/index.html">net.corda.core.contracts.StateRef</a></h5>
+<p>A stateref is a pointer (reference) to a state, this is an equivalent of an "outpoint" in Bitcoin. It records which
+transaction defined the state and where in that transaction it was.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-state-replacement-exception/index.html">net.corda.core.flows.StateReplacementException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-states-not-available-exception/index.html">net.corda.core.node.services.StatesNotAvailableException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node/-states-to-record/index.html">net.corda.core.node.StatesToRecord</a></h5>
+<p>Controls whether the transaction is sent to the vault at all, and if so whether states have to be relevant
+or not in order to be recorded. Used in <a href="../net.corda.core.node/-service-hub/record-transactions.html">ServiceHub.recordTransactions</a></p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-static-pointer/index.html">net.corda.core.contracts.StaticPointer</a></h5>
+<p>A <a href="../net.corda.core.contracts/-static-pointer/index.html">StaticPointer</a> contains a <a href="../net.corda.core.contracts/-static-pointer/pointer.html">pointer</a> to a specific <a href="../net.corda.core.contracts/-state-ref/index.html">StateRef</a> and can be resolved by looking up the <a href="../net.corda.core.contracts/-state-ref/index.html">StateRef</a> via
+<a href="../net.corda.core.node/-service-hub/index.html">ServiceHub</a>. There are a number of things to keep in mind when using <a href="../net.corda.core.contracts/-static-pointer/index.html">StaticPointer</a>s:</p>
+</tr>
+<tr>
+ (extensions in package net.corda.core.utilities)
+<h5><a href="../net.corda.core.utilities/kotlin.-string/index.html">kotlin.String</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.jackson/-string-to-method-call-parser/index.html">net.corda.client.jackson.StringToMethodCallParser</a></h5>
+<p>This class parses strings in a format designed for human usability into <a href="../net.corda.client.jackson/-string-to-method-call-parser/-parsed-method-call/index.html">ParsedMethodCall</a> objects representing a
+ready-to-invoke call on the given target object. The strings accepted by this class are a minor variant of
+<a href="http://www.yaml.org/spec/1.2/spec.html">Yaml</a> and can be easily typed at a command line. Intended use cases include
+things like the Corda shell, text-based RPC dispatch, simple scripting and so on.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core/-stub-out-for-d-j-v-m/index.html">net.corda.core.StubOutForDJVM</a></h5>
+<p>We expect that almost every non-deterministic element can have its bytecode
+deleted entirely from the deterministic version of Corda. This annotation is
+for those (hopefully!) few occasions where the non-deterministic function
+cannot be deleted. In these cases, the function will be stubbed out instead.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.contracts/-tenor/index.html">net.corda.finance.contracts.Tenor</a></h5>
+<p>Placeholder class for the Tenor datatype - which is a standardised duration of time until maturity</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-test-clock/index.html">net.corda.testing.node.TestClock</a></h5>
+<p>A <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Clock.html">Clock</a> that can have the time advanced for use in testing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-test-cordapp/index.html">net.corda.testing.node.TestCordapp</a></h5>
+<p>Encapsulates a CorDapp that exists on the current classpath, which can be pulled in for testing. Use <a href="../net.corda.testing.node/-test-cordapp/find-cordapp.html">TestCordapp.findCordapp</a>
+to locate an existing CorDapp.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html">net.corda.testing.dsl.TestLedgerDSLInterpreter</a></h5>
+</tr>
+<tr>
+ (extensions in package net.corda.testing.flows)
+<h5><a href="../net.corda.testing.flows/net.corda.testing.node.internal.-test-started-node/index.html">net.corda.testing.node.internal.TestStartedNode</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html">net.corda.testing.dsl.TestTransactionDSLInterpreter</a></h5>
+<p>This interpreter builds a transaction, and <a href="#">TransactionDSL.verifies</a> that the resolved transaction is correct. Note
+that transactions corresponding to input states are not verified. Use <a href="#">LedgerDSL.verifies</a> for that.</p>
+</tr>
+<tr>
+ (extensions in package net.corda.core.utilities)
+<h5><a href="../net.corda.core.utilities/java.lang.management.-thread-info/index.html">java.lang.management.ThreadInfo</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-time-window/index.html">net.corda.core.contracts.TimeWindow</a></h5>
+<p>An interval on the time-line; not a single instantaneous point.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-time-window-checker/index.html">net.corda.core.node.services.TimeWindowChecker</a></h5>
+<p>Checks if the current instant provided by the input clock falls within the provided time-window.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-tokenizable-asset-info/index.html">net.corda.core.contracts.TokenizableAssetInfo</a></h5>
+<p>This interface is used by <a href="../net.corda.core.contracts/-amount/index.html">Amount</a> to determine the conversion ratio from
+indicative/displayed asset amounts in <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html">BigDecimal</a> to fungible tokens represented by Amount objects.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.context/-trace/index.html">net.corda.core.context.Trace</a></h5>
+<p>Contextual tracing information, including invocation and session id.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-transaction-builder/index.html">net.corda.core.transactions.TransactionBuilder</a></h5>
+<p>A TransactionBuilder is a transaction class that's mutable (unlike the others which are all immutable). It is
+intended to be passed around contracts that may edit it by adding new states/commands. Then once the states
+and commands are right, this class can be used as a holding bucket to gather signatures from multiple parties.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-transaction-d-s-l/index.html">net.corda.testing.dsl.TransactionDSL</a></h5>
+<p>Underlying class for the transaction DSL. Do not instantiate directly, instead use the <a href="#">transaction</a> function.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-transaction-d-s-l-interpreter/index.html">net.corda.testing.dsl.TransactionDSLInterpreter</a></h5>
+<p>This interface defines the bare bone functionality that a Transaction DSL interpreter should implement.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-transaction-resolution-exception/index.html">net.corda.core.contracts.TransactionResolutionException</a></h5>
+<p>The node asked a remote peer for the transaction identified by <a href="../net.corda.core.contracts/-transaction-resolution-exception/hash.html">hash</a> because it is a dependency of a transaction
+being resolved, but the remote peer would not provide it.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.crypto/-transaction-signature/index.html">net.corda.core.crypto.TransactionSignature</a></h5>
+<p>A wrapper over the signature output accompanied by signer's public key and signature metadata.
+This is similar to <a href="../net.corda.core.crypto/-digital-signature/-with-key/index.html">DigitalSignature.WithKey</a>, but targeted to DLT transaction (or block of transactions) signatures.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-transaction-state/index.html">net.corda.core.contracts.TransactionState</a></h5>
+<p>A wrapper for <a href="../net.corda.core.contracts/-contract-state/index.html">ContractState</a> containing additional platform-level state information and contract information.
+This is the definitive state that is stored on the ledger and used in transaction outputs.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-transaction-storage/index.html">net.corda.core.node.services.TransactionStorage</a></h5>
+<p>Thread-safe storage of transactions.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-transaction-verification-exception/index.html">net.corda.core.contracts.TransactionVerificationException</a></h5>
+<p>Indicates that some aspect of the transaction named by <a href="../net.corda.core.contracts/-transaction-verification-exception/tx-id.html">txId</a> violates the platform rules. The exact type of failure
+is expressed using a subclass. TransactionVerificationException is a <a href="../net.corda.core.flows/-flow-exception/index.html">FlowException</a> and thus when thrown inside
+a flow, the details of the failure will be serialised, propagated to the peer and rethrown.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-transaction-with-signatures/index.html">net.corda.core.transactions.TransactionWithSignatures</a></h5>
+<p>An interface for transactions containing signatures, with logic for signature verification.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-traversable-transaction/index.html">net.corda.core.transactions.TraversableTransaction</a></h5>
+<p>Implemented by <a href="../net.corda.core.transactions/-wire-transaction/index.html">WireTransaction</a> and <a href="../net.corda.core.transactions/-filtered-transaction/index.html">FilteredTransaction</a>. A TraversableTransaction allows you to iterate
+over the flattened components of the underlying transaction structure, taking into account that some
+may be missing in the case of this representing a "torn" transaction. Please see the user guide section
+"Transaction tear-offs" to learn more about this feature.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-try/index.html">net.corda.core.utilities.Try</a></h5>
+<p>Representation of an operation that has either succeeded with a result (represented by <a href="../net.corda.core.utilities/-try/-success/index.html">Success</a>) or failed with an
+exception (represented by <a href="../net.corda.core.utilities/-try/-failure/index.html">Failure</a>).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-two-party-deal-flow/index.html">net.corda.finance.flows.TwoPartyDealFlow</a></h5>
+<p>Classes for manipulating a two party deal or agreement.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.flows/-two-party-trade-flow/index.html">net.corda.finance.flows.TwoPartyTradeFlow</a></h5>
+<p>This asset trading flow implements a "delivery vs payment" type swap. It has two parties (B and S for buyer
+and seller) and the following steps:</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-type-only-command-data/index.html">net.corda.core.contracts.TypeOnlyCommandData</a></h5>
+<p>Commands that inherit from this are intended to have no data items: it's only their presence that matters.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-unexpected-flow-end-exception/index.html">net.corda.core.flows.UnexpectedFlowEndException</a></h5>
+<p>Thrown when a flow session ends unexpectedly due to a type mismatch (the other side sent an object of a type
+that we were not expecting), or the other side had an internal error, or the other side terminated when we
+were waiting for a response.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-unique-identifier/index.html">net.corda.core.contracts.UniqueIdentifier</a></h5>
+<p>This class provides a truly unique identifier of a trade, state, or other business object, bound to any existing
+external ID. Equality and comparison are based on the unique ID only; if two states somehow have the same UUID but
+different external IDs, it would indicate a problem with handling of IDs.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-unknown-anonymous-party-exception/index.html">net.corda.core.node.services.UnknownAnonymousPartyException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.finance.workflows.utils/-unknown-calendar/index.html">net.corda.finance.workflows.utils.UnknownCalendar</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.client.rpc/-unrecoverable-r-p-c-exception/index.html">net.corda.client.rpc.UnrecoverableRPCException</a></h5>
+<p>Thrown to indicate a fatal error in the RPC system which cannot be recovered from and so needs some manual support.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-unstarted-mock-node/index.html">net.corda.testing.node.UnstartedMockNode</a></h5>
+<p>A class that represents an unstarted mock node for testing.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-untrustworthy-data/index.html">net.corda.core.utilities.UntrustworthyData</a></h5>
+<p>A small utility to approximate taint tracking: if a method gives you back one of these, it means the data came from
+a remote source that may be incentivised to pass us junk that violates basic assumptions and thus must be checked
+first. The wrapper helps you to avoid forgetting this vital step. Things you might want to check are:</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-upgraded-contract/index.html">net.corda.core.contracts.UpgradedContract</a></h5>
+<p>Interface which can upgrade state objects issued by a contract to a new state object issued by a different contract.
+The upgraded contract should specify the legacy contract class name, and provide an upgrade function that will convert
+legacy contract states into states defined by this contract.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-upgraded-contract-with-legacy-constraint/index.html">net.corda.core.contracts.UpgradedContractWithLegacyConstraint</a></h5>
+<p>This interface allows specifying a custom legacy contract constraint for upgraded contracts. The default for <a href="../net.corda.core.contracts/-upgraded-contract/index.html">UpgradedContract</a>
+is <a href="../net.corda.core.contracts/-whitelisted-by-zone-attachment-constraint/index.html">WhitelistedByZoneAttachmentConstraint</a>.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.node/-user/index.html">net.corda.testing.node.User</a></h5>
+<p>Object encapsulating a node rpc user and their associated permissions for use when testing using the <a href="#">driver</a></p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-uuid-generator/index.html">net.corda.core.utilities.UuidGenerator</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.utilities/-variable-property-delegate/index.html">net.corda.core.utilities.VariablePropertyDelegate</a></h5>
+<p>Simple interface encapsulating the implicit Kotlin contract for mutable property delegates.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-vault/index.html">net.corda.core.node.services.Vault</a></h5>
+<p>A vault (name may be temporary) wraps a set of states that are useful for us to keep track of, for instance,
+because we own them. This class represents an immutable, stable state of a vault: it is guaranteed not to
+change out from underneath you, even though the canonical currently-best-known vault may change as we learn
+about new transactions from our peers and generate new transactions that consume states ourselves.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-vault-query-exception/index.html">net.corda.core.node.services.VaultQueryException</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node.services/-vault-service/index.html">net.corda.core.node.services.VaultService</a></h5>
+<p>A <a href="../net.corda.core.node.services/-vault-service/index.html">VaultService</a> is responsible for securely and safely persisting the current state of a vault to storage. The
+vault service vends immutable snapshots of the current vault for working with: if you build a transaction based
+on a vault that isn't current, be aware that it may end up being invalid if the states that were used have been
+consumed by someone else first!</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-verifier-type/index.html">net.corda.testing.driver.VerifierType</a></h5>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.dsl/-verifies/index.html">net.corda.testing.dsl.Verifies</a></h5>
+<p>This interface asserts that the DSL at hand is capable of verifying its underlying construct(ledger/transaction).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-wait-time-update/index.html">net.corda.core.flows.WaitTimeUpdate</a></h5>
+<p>Sent by the notary when the notary detects it will unlikely respond before the client retries.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.testing.driver/-webserver-handle/index.html">net.corda.testing.driver.WebserverHandle</a></h5>
+<p>Class which represents a handle to a webserver process and its <a href="../net.corda.core.utilities/-network-host-and-port/index.html">NetworkHostAndPort</a> for testing purposes.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.contracts/-whitelisted-by-zone-attachment-constraint/index.html">net.corda.core.contracts.WhitelistedByZoneAttachmentConstraint</a></h5>
+<p>An <a href="../net.corda.core.contracts/-attachment-constraint/index.html">AttachmentConstraint</a> that verifies that the hash of the attachment is in the network parameters whitelist.
+See: <a href="../net.corda.core.node/-network-parameters/whitelisted-contract-implementations.html">net.corda.core.node.NetworkParameters.whitelistedContractImplementations</a>
+It allows for centralized control over the cordapps that can be used.</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.transactions/-wire-transaction/index.html">net.corda.core.transactions.WireTransaction</a></h5>
+<p>A transaction ready for serialisation, without any signatures attached. A WireTransaction is usually wrapped
+by a <a href="../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> that carries the signatures over this payload.
+The identity of the transaction is the Merkle tree root of its components (see <a href="../net.corda.core.crypto/-merkle-tree/index.html">MerkleTree</a>).</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.flows/-with-referenced-states-flow/index.html">net.corda.core.flows.WithReferencedStatesFlow</a></h5>
+<p>Given a flow which uses reference states, the <a href="../net.corda.core.flows/-with-referenced-states-flow/index.html">WithReferencedStatesFlow</a> will execute the flow as a subFlow.
+If the flow fails due to a <a href="../net.corda.core.flows/-notary-error/-conflict/index.html">NotaryError.Conflict</a> for a reference state, then WithReferencedStatesFlow will be suspended until the
+state refs for the reference states are consumed. In this case, a consumption means that:</p>
+</tr>
+<tr>
+<h5><a href="../net.corda.core.node/-zone-version-too-low-exception/index.html">net.corda.core.node.ZoneVersionTooLowException</a></h5>
+<p>When a Corda feature cannot be used due to the node's compatibility zone not enforcing a high enough minimum platform
+version.</p>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
