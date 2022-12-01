@@ -31,7 +31,7 @@ Notaries running on Corda Enterprise are also metered. The data recorded for not
 
 ### How metering data is shared
 
-The metering collection tool also contains responder flows that can be used by other nodes on the network to collect metering data from the node where the respective CorDapp is installed. This feature must be enabled by the node operator deploying a [CorDapp configuration file](../../../../../../../../en/platform/corda/4.9/open-source/cordapp-build-systems.html#cordapp-configuration-files) for the CorDapp.
+The metering collection tool also contains responder flows that can be used by other nodes on the network to collect metering data from the node where the respective CorDapp is installed. This feature must be enabled by the node operator deploying a [CorDapp configuration file](../../../../../../../../en/platform/corda/4.9/community/cordapp-build-systems.html#cordapp-configuration-files) for the CorDapp.
 
 If no configuration file is deployed, metering data will not be shared with any other network party. An example configuration file that enables metering data sharing is shown below:
 
