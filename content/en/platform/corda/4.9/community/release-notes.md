@@ -86,7 +86,6 @@ The Corda Community Edition features:
 * Support for your open source projects. [Find out more about available support and how to upgrade](https://docs.r3.com/en/platform/corda/4.9/community.html).
 * An open source version of network map and doorman is available and recommended for Community Edition users, provided by Cordite.
 * Community Edition Docker images are now available.
-* The `flowrpcops` API is available and documented. You can use this to start, pause, and retry flows and hospitalized flows.
 * Access to node health data and node status.
 
 {{< note >}}
