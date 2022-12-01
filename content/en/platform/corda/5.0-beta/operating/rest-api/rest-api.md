@@ -4,8 +4,8 @@ title: "REST API"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-rest-api
-    parent: corda-5-beta-develop
-    weight: 2500
+    parent: corda-5-beta-operate-rest-api
+    weight: 1000
 section_menu: corda-5-beta
 ---
 The Corda REST API enables operators to interact with a running version of Corda.
