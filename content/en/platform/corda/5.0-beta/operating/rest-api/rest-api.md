@@ -1,6 +1,6 @@
 ---
 date: '2022-14-11'
-title: "REST API"
+title: "Accessing the REST API"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-rest-api
