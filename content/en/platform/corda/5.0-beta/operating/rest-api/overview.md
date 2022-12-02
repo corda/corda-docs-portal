@@ -8,4 +8,4 @@ menu:
     weight: 1000
 section_menu: corda-5-beta
 ---
-This section describes how to invoke the Corda REST API and links to the reference documentation.
+This section describes how to invoke the Corda REST API and contains the reference documentation.
