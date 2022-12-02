@@ -1,5 +1,5 @@
 ---
-date: '2021-09-21'
+date: '2022-12-01'
 title: "Developing"
 menu:
   corda-5-beta:
@@ -8,5 +8,5 @@ menu:
 section_menu: corda-5-beta
 
 ---
-This section introduces the modules of the Corda API. It also links to the API KDocs and the REST API documentation.
-<!--Tutorials for more advanced development beyond that described in the [Getting Started](../getting-started/get-started.html) sections will follow in future releases.-->
+This section introduces the modules of the Corda API and links to the API KDocs.
+Tutorials for more advanced development beyond that described in the [Getting Started](../getting-started/get-started.html) sections will follow in future releases.
