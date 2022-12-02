@@ -56,8 +56,7 @@ The key RPC operations exposed by the node are:
 
 
 * `CordaRPCOps.currentNodeTime`
-    * Returns the current time according to the node’s clock
-
+    * Returns the current time according to the node’s clock. It is a 'quick RPC'. It bypasses the thread pool and other regular RPCs waiting in it, allowing the node to reply relatively quickly.
 
 * `CordaRPCOps.partyFromKey/CordaRPCOps.wellKnownPartyFromX500Name`
     * Retrieves a party on the network based on a public key or X500 name
