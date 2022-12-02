@@ -810,6 +810,13 @@ parent = "corda-5-beta-onboarding-tutorials"
 name = "Static Networks"
 weight = 1000
 
+[[corda-5-beta]]
+identifier = "corda-5-beta-operate-rest-ref"
+parent = "corda-5-beta-operate-rest-api"
+name = "REST API Reference"
+weight = 2000
+url = 'C5_OpenAPI.html'
+
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
 #identifier = "tools-cdl"
