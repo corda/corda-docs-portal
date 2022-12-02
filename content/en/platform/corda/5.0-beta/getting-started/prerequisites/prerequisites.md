@@ -12,6 +12,10 @@ section_menu: corda-5-beta
 This section lists the third-party software prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html)
 For information about the prerequisites for multi-worker cluster deployments, see [Prerequisites for Cluster Deployments](../../deploying/prerequisites.html).
 
+{{< note >}}
+You cannot start Corda via the CSDE `startCorda` task if any existing local programs are using ports 5432, 7000, or 8888. Reserve these ports.
+{{< /note >}}
+
 ## Software Prerequisites
 
 The Corda 5 Beta CSDE has been tested with the following:
@@ -38,10 +42,12 @@ Most of the computers that we use to develop, build, and test Corda 5 have:
 These are not minimum specifications.
 This what is known to work with the code as of Developer Preview 2.-->
 
-## Additional Configuration for Mac
+## Required CSDE Ports
 
-The current version of the [Corda combined worker](../cordapp-standard-development-environment/csde.html#gradle-helpers-for-the-combined-worker) runs on port 7000.
-Some Mac operating systems use port 7000 for the system Control Center.
+The current version of the [Corda combined worker](../cordapp-standard-development-environment/csde.html#gradle-helpers-for-the-combined-worker) runs on ports 7000, 5432, and 8888. Reserve these ports to avoid errors. For example, some Mac operating systems use port 7000 for the system Control Center. The following section describes how to make the port available.
+
+### Disabling Airplay Receiver on Mac
+
 You can check if your Mac is using port 7000 for Control Center by running `lsof -i :7000` from your terminal. If you see the following results, you must disable Airplay Receiver:
 
 ```shell
