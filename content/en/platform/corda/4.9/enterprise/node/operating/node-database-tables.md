@@ -164,7 +164,7 @@ It is an append only table and the size will be fairly small.
 
 The ledger data is formed of transactions and attachments.
 In future versions this data will be encrypted using SGX.
-Read more in [Ledger](../../../../../../../en/platform/corda/4.9/open-source/key-concepts-ledger.md).
+Read more in [Ledger](../../../../../../../en/platform/corda/4.9/community/key-concepts-ledger.md).
 
 
 ### Attachments
@@ -398,7 +398,7 @@ The size should be fairly constant.
 
 ## Vault tables
 
-Read more about the vault in [Vault](../../../../../../../en/platform/corda/4.9/open-source/key-concepts-vault.md).
+Read more about the vault in [Vault](../../../../../../../en/platform/corda/4.9/community/key-concepts-vault.md).
 
 Note that the vault tables are guaranteed to remain backwards compatible and are safe to be used directly by third party applications.
 
