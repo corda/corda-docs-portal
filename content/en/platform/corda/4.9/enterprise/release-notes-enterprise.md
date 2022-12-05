@@ -134,7 +134,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 In this release:
 
 * Corda Shell has been removed to its own repository for improved security. You can now use a standalone shell outside of the node, or from within the node's drivers. You can read more about using the standalone shell [here](./node/operating/shell.html#the-standalone-shell). For information on adding the shell to the node's drivers, see [Upgrading a node to Corda Enterprise Edition 4.9](node-upgrade-notes.html).
-{{< note >}} The Corda Shell, which has a dependency on Groovy, is now a standalone product since Corda Enterprise Edition 4.9. As a result, for any flows dependent on Groovy, you must add the dependency to the CorDapp or the drivers' directory.{{< note >}}
+{{< note >}} The Corda shell, which has a dependency on Groovy, is a standalone product since Corda Enterprise Edition 4.9. As a result, for any flows dependent on Groovy, you must add the dependency to the CorDapp or the drivers' directory.{{< note >}}
 * Security updates to prevent possibility of Denial of Service attacks.
 * Improvements to demos and sample code.
 * Improvements to improve compatibility with Intel Macs.
