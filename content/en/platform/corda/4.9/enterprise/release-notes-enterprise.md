@@ -34,10 +34,6 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 Corda Enterprise Edition 4.9.4 is a patch release of Corda Enterprise focused on resolving issues.
 
-{{< note >}}
- The Corda shell has a dependency on Groovy which is not on the public API. With the removal of the shell, the Groovy dependency is also removed. Any flows dependent on Groovy need to add the dependency to the CorDapp, the drivers' directory, or remove the use of Groovy.
- {{< /note >}}
-
 ### Upgrade recommendation
 
 As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, see [Upgrading a CorDapp or node](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
