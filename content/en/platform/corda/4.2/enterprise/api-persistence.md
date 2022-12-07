@@ -231,7 +231,7 @@ To facilitate this, you must implement all queries making use of hierarchical re
 
 Example schemas implementing hierarchical relationships have been implemented below. 
 
-For one-to-one scenarios, using the following:
+For one-to-one scenarios, use the following:
 
 ```kotlin
 // Parent schema implemented as usual
