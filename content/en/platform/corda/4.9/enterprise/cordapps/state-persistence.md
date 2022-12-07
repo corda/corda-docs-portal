@@ -236,8 +236,8 @@ Make sure table and column names are compatible with the naming convention used 
 
 ### Persisting Hierarchical Data
 
-You may wish to persist hierarchical relationships within state data using multiple database tables. 
-In order to facilitate this, you must implement all queries making use of hierarchical relations as native SQL. 
+You may want to persist hierarchical relationships within state data using multiple database tables. 
+To facilitate this, you must implement all queries making use of hierarchical relations as native SQL. 
 
 Example schemas implementing hierarchical relationships have been implemented below. 
 

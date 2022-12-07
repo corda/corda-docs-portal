@@ -226,8 +226,8 @@ e.g. for Oracle database, prior to version 12.2 the maximum length of table/colu
 
 ### Persisting Hierarchical Data
 
-You may wish to persist hierarchical relationships within state data using multiple database tables. 
-In order to facilitate this, you must implement all queries making use of hierarchical relations as native SQL. 
+You may want to persist hierarchical relationships within state data using multiple database tables. 
+To facilitate this, you must implement all queries making use of hierarchical relations as native SQL. 
 
 Example schemas implementing hierarchical relationships have been implemented below. 
 
