@@ -416,7 +416,7 @@ To register a package, you need to provide the:
 
 We've created a sample CorDapp (available in [Java](https://github.com/corda/samples-java/tree/master/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Basic/cordapp-example)) you can use to practice initializing a simple network and registering and unregistering a package namespace.
 
-1. Check the sample CorDapp out, then follow the [instructions to build it](../../../../../en/platform/corda/4.9/open-source/tutorial-cordapp.html#building-the-example-cordapp).
+1. Check the sample CorDapp out, then follow the [instructions to build it](../../../../../en/platform/corda/4.9/community/tutorial-cordapp.html#building-the-example-cordapp).
 
 {{< note >}}
 You can point to any existing bootstrapped network on Corda. This will update the associated network parameters file for that network).
@@ -506,4 +506,4 @@ bootstrapper [-hvV] [--copy-cordapps=<copyCordapps>] [--dir=<dir>]
 
 ### Sub-commands
 
-`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extentions for CLI applications](../../../../../en/platform/corda/4.9/open-source/cli-application-shell-extensions.html#shell-extensions-for-cli-applications).
+`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extentions for CLI applications](../../../../../en/platform/corda/4.9/community/cli-application-shell-extensions.html#shell-extensions-for-cli-applications).
