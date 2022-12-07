@@ -80,6 +80,7 @@ can be disabled.
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.9 | 11 |
 | 4.8 | 10 |
 | 4.7 | 9 |
 | 4.6 | 8 |
