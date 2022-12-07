@@ -1,5 +1,5 @@
 ---
-date: '2021-08-03'
+date: '2022-12-07'
 menu:
   corda-enterprise-4-10:
     identifier: "corda-enterprise-4-10-cordapp-upgrade"
@@ -24,7 +24,6 @@ from the new features in the latest release.
 Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](../../../../api-ref/api-ref-corda-4.md). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
 CorDapp that are worth considering for any actively maintained software.
 
-
 {{< warning >}}
 Sample CorDapps found in the Corda and Corda samples repositories should not be used in production.
 If you do use them, re-namespace them to a package namespace you control and sign/version them.
@@ -36,6 +35,7 @@ If you do use them, re-namespace them to a package namespace you control and sig
 {{< table >}}
 | Corda release  | Platform version |
 | :------------- | :------------- |
+| 4.10| 12 |
 | 4.9 | 11 |
 | 4.8 | 10 |
 | 4.7 | 9 |
@@ -48,6 +48,14 @@ If you do use them, re-namespace them to a package namespace you control and sig
 | 4.0 | 4 |
 | 3.3 | 3 |
 {{< /table >}}
+
+## Upgrade CorDapps to platform version 12
+
+You don't need to perform a manual upgrade for this platform version.
+
+## Upgrade CorDapps to platform version 11
+
+You don't need to perform a manual upgrade for this platform version.
 
 ## Upgrade CorDapps to platform version 10
 
