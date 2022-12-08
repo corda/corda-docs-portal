@@ -185,7 +185,7 @@ Note that the `cordformation` and `cordapp` Gradle plugins can be used together.
 ### Migrating to the latest version of Corda Gradle plugins
 
 {{< note >}}
-The latest version of Corda Gradle plugins is 5.1.x. The 5.1.x Corda Gradle plugins require Gradle 7.
+The latest version of Corda Gradle plugins is 5.1.x, which require Gradle 7.
 {{< /note >}}
 
 The `cordformation` plugin has been updated to resolve some confusion surrounding its use. It now creates the following Gradle configurations:
