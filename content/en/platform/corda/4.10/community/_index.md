@@ -43,7 +43,7 @@ For help finding these, use the [setup guide](community/getting-set-up.md).
 
 ## Upgrade to Corda Community Edition from Corda Open Source
 
-If you are already using an open source version of Corda (Corda 4.1–Corda 4.8) and want to upgrade to Corda Community Edition, you can choose to:
+If you are already using an open source version of Corda (Corda 4.1–Corda 4.9) and want to upgrade to Corda Community Edition, you can choose to:
 
 * Download the `.tar` [file](https://download.corda.net/corda-community-edition/4.10/community-4.10.tar).
 * Use the Docker image available on [Docker Hub](https://hub.docker.com/repository/docker/corda/community).
