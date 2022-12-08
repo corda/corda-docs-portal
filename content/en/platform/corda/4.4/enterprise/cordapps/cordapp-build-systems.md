@@ -87,7 +87,7 @@ ext.kotlin_version = '1.2.71'
 
 Please note that Corda Enterprise Edition 4 uses patched releases of Quasar and Caffeine to work around shortcomings identified in
 these libraries while a proper fix is under way. In order to get hold of the patched versions of these libraries,
-`corda-dependencies` needs to be added to your list of gradle repositories. This repository is required for any project
+`corda-dependencies` needs to be added to your list of Gradle repositories. This repository is required for any project
 referencing Corda Enterprise Edition 4 packages to provide transitive dependencies:
 
 ```groovy
@@ -102,7 +102,7 @@ In certain cases, you may also wish to build against the unstable Master branch.
 
 ### Corda dependencies
 
-The `cordapp` plugin adds three new gradle configurations:
+The `cordapp` plugin adds three new Gradle configurations:
 
 
 * `cordaCompile`, which extends `compile`
@@ -175,7 +175,7 @@ ways to add another CorDapp as a dependency in your CorDapp’s `build.gradle` f
 * `cordapp project(":another-cordapp")` (use this if the other CorDapp is defined in a module in the same project)
 * `cordapp "net.corda:another-cordapp:1.0"` (use this otherwise)
 
-The `cordapp` gradle configuration serves two purposes:
+The `cordapp` Gradle configuration serves two purposes:
 
 
 * When using the `cordformation` Gradle plugin, the `cordapp` configuration indicates that this JAR should be
@@ -184,6 +184,22 @@ included on your node as a CorDapp
 in the CorDapp JAR
 
 Note that the `cordformation` and `cordapp` Gradle plugins can be used together.
+
+### Migrating to the latest version of Corda Gradle plugins
+
+{{< note >}}
+The latest version of Corda Gradle plugins is 5.1.x. The 5.1.x Corda Gradle plugins require Gradle 7.
+{{< /note >}}
+
+The `cordformation` plugin has been updated to resolve some confusion surrounding its use. It now creates the following Gradle configurations:
+
+* `cordapp` - Used for any CorDapps you want to deploy, excluding any CorDapp built by the local project.
+* `cordaDriver` - Used for any artifacts that must be added to each node's drivers/ directory, for example database drivers or the Corda shell.
+* `corda` - The Corda artifact itself, or the Corda TestServer.
+* `cordaBootstrapper` - Used for Corda's Bootstrapper artifact, i.e. a compatible version of `corda-node-api`. You may also wish to include an implementation of SLF4J for the Bootstrapper to use, for example `slf4j-simple`.
+
+The `corda` and `cordaBootstrapper` configurations replace the need for the `cordaRuntime` configuration when using `cordformation`. Using `cordaRuntime` was creating the false impression that CorDapps needed to declare runtime dependencies on either Corda, the Bootstrapper, or both.
+There is no need to apply the `net.corda.plugins.cordapp` Gradle plugin along with `cordformation`, unless that project is also building a CorDapp.
 
 
 ### Other dependencies
