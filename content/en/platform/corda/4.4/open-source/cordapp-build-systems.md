@@ -182,7 +182,7 @@ The `cordformation` plugin has been updated to enhance understanding of its use.
 * `cordapp` - Used for any CorDapps you want to deploy, excluding any CorDapp built by the local project.
 * `cordaDriver` - Used for any artifacts that must be added to each node's drivers/directory; for example, database drivers or the Corda shell.
 * `corda` - The Corda artifact itself, or the Corda TestServer.
-* `cordaBootstrapper` - Used for Corda's Bootstrapper artifact, i.e. a compatible version of `corda-node-api`. You may also wish to include an implementation of SLF4J for the Bootstrapper to use, for example `slf4j-simple`.
+* `cordaBootstrapper` - Used for Corda's Bootstrapper artifact; i.e. a compatible version of `corda-node-api`. You may also wish to include an implementation of SLF4J for the Bootstrapper to use; for example, `slf4j-simple`.
 
 The `corda` and `cordaBootstrapper` configurations replace the need for the `cordaRuntime` configuration when using `cordformation`. Using `cordaRuntime` was creating the false impression that CorDapps needed to declare runtime dependencies on either Corda, the Bootstrapper, or both.
 There is no need to apply the `net.corda.plugins.cordapp` Gradle plugin along with `cordformation`, unless that project is also building a CorDapp.
