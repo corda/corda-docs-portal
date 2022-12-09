@@ -57,7 +57,7 @@ To disable revocation checks, do the following:
    ```
 3. Send the following request to disable revocation checks for the specified gateway worker:
    ```
-   curl -k -u admin:admin -X PUT -d '{"section":"corda.p2p.linkManager", "version":"'$CONFIG_VERSION'", "config": "{ "revocationCheck": { "mode": "OFF" } }", "schemaVersion": {"major": 1, "minor": 0}}' $API_URL"/config"
+   curl -k -u admin:admin -X PUT -d '{"section":"corda.p2p.linkManager", "version":"'$CONFIG_VERSION'", "config": { "revocationCheck": { "mode": "OFF" } }, "schemaVersion": {"major": 1, "minor": 0}}' $API_URL"/config"
    ```
 ## Configure Virtual Node as Network Participant
 
