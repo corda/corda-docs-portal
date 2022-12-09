@@ -177,7 +177,7 @@ Note that the `cordformation` and `cordapp` Gradle plugins can be used together.
 The latest version of Corda Gradle plugins is 5.1.x, which require Gradle 7.
 {{< /note >}}
 
-The `cordformation` plugin has been updated to resolve some confusion surrounding its use. It now creates the following Gradle configurations:
+The `cordformation` plugin has been updated to enhance understanding of its use. It now creates the following Gradle configurations:
 
 * `cordapp` - Used for any CorDapps you want to deploy, excluding any CorDapp built by the local project.
 * `cordaDriver` - Used for any artifacts that must be added to each node's drivers/directory, for example database drivers or the Corda shell.
