@@ -1,6 +1,6 @@
 ---
 title: Corda Enterprise Edition 4.9 release notes
-date: '2021-07-01'
+date: '2022-11-28'
 
 menu:
   corda-enterprise-4-9:
@@ -15,6 +15,34 @@ weight: 1
 ---
 
 # Corda Enterprise Edition 4.9 release notes
+
+## Corda Enterprise Edition 4.9.5 release notes
+
+Corda Enterprise Edition 4.9.5 is a patch release of Corda Enterprise focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+* Previously, a memory leak in the transaction cache occurred due to weight of in-flight entries being undervalued. Improvements have been made to prevent in-flight entry weights from being undervalued and, because they are now estimated more correctly, this results in a large decrease in the total size of cached entities.
+
+* A rare condition was fixed relating to roll back of database transactions under heavy load, which caused flow state machine threads to stop processing flows, leading to eventual node lock up in certain circumstances.
+
+## Corda Enterprise Edition 4.9.4 release notes
+
+Corda Enterprise Edition 4.9.4 is a patch release of Corda Enterprise focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, see [Upgrading a CorDapp or node](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+
+### Fixed issues
+
+* The closing of AttachmentClassLoaders is now delayed until all SerializationContexts that refer to them have gone out of scope. This fixes an issue where they were being closed too early when evicted from the cache.
+* Flow draining mode no longer acknowledges P2P in-flight messages that have not yet been committed to the database. Previously, flow draining mode acknowledged all in-flight messages as duplicate.
+* A periodic check is now performed to determine if the state machine thread pool seems to be blocked. A warning is logged if the thread pool is blocked. A thread dump is now also logged periodically (every five minutes).
 
 ## Corda Enterprise Edition 4.9.3 release notes
 
@@ -105,7 +133,10 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 In this release:
 
-* Corda Shell has been removed to its own repository for improved security. You can now use a standalone shell outside of the node, or from within the node's drivers. You can read more about using the standalone shell [here](./node/operating/shell.html#the-standalone-shell). For information on adding the shell to the node's drivers, see [Upgrading a node to Corda Enterprise Edition 4.9](node-upgrade-notes.html).
+* Corda shell has been removed to its own repository for improved security. You can now use a standalone shell outside of the node, or from within the node's drivers. For more information about using the standalone shell, see [The standalone shell](./node/operating/shell.html#the-standalone-shell). For information on adding the shell to the node's drivers, see [Upgrading a node to Corda Enterprise Edition 4.9](node-upgrade-notes.html).
+{{< note >}} 
+The Corda shell has a dependency on Groovy that the Corda API does not. As a result, for any flows dependent on Groovy, you must now add the dependency to the CorDapp or the drivers' directory.
+{{< /note >}}
 * Security updates to prevent possibility of Denial of Service attacks.
 * Improvements to demos and sample code.
 * Improvements to improve compatibility with Intel Macs.
@@ -116,4 +147,4 @@ In this release:
 ### Database Schema Changes
 
 * The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise Edition 4.7 following updates to certificate rotation functionality.
-  * The reintroduction of this table ensures the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.
+  * The reintroduction of this table ensures that the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.

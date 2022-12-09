@@ -13,7 +13,8 @@ weight: 120
 
 # Official Corda Docker image
 
-The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/r/corda/corda-zulu-java1.8-4.8.6) is `corda/corda-zulu-java1.8-4.8.6`.
+The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/r/corda/corda-enterprise-alpine-zulu-java1.8-4.8.9)
+is `corda-enterprise-alpine-zulu-java1.8-4.8.9`.
 
 ## Prerequisites
 
@@ -31,5 +32,3 @@ and its own isolated process tree, separate from the host.
 * For information on using docker for development purposes, visit the [creating a node](../../../../../en/platform/corda/4.8/enterprise/operations/deployment/generating-a-node.md) page.
 * If you have already set up your node and want to learn how to use your code using Docker, go to the [running a node locally](../../../../../en/platform/corda/4.8/enterprise/operations/deployment/running-a-node.md) page.
 * If you want to learn more about Docker deployments and how to deploy to a compatibility zone, go to the [Docker deployments](node-docker-deployments.md) page.
-
-
