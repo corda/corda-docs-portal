@@ -177,7 +177,7 @@ The latest version of Corda Gradle plugins is 5.1.x, which require Gradle 7.
 The `cordformation` plugin has been updated to enhance understanding of its use. It now creates the following Gradle configurations:
 
 * `cordapp` - Used for any CorDapps you want to deploy, excluding any CorDapp built by the local project.
-* `cordaDriver` - Used for any artifacts that must be added to each node's drivers/directory, for example database drivers or the Corda shell.
+* `cordaDriver` - Used for any artifacts that must be added to each node's drivers/directory; for example, database drivers or the Corda shell.
 * `corda` - The Corda artifact itself, or the Corda TestServer.
 * `cordaBootstrapper` - Used for Corda's Bootstrapper artifact, i.e. a compatible version of `corda-node-api`. You may also wish to include an implementation of SLF4J for the Bootstrapper to use, for example `slf4j-simple`.
 
