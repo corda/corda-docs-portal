@@ -270,7 +270,7 @@ You can see the newly-created IOU by running `run vaultQuery contractStateType: 
 
 ### Via the h2 web console
 
-You can connect directly to your node’s database to see its stored states, transactions, and attachments. Follow the instructions in [Node database](../../4.8/enterprise/node/operating/node-database.md).
+You can connect directly to your node’s database to see its stored states, transactions, and attachments. Follow the instructions in [Node database](../enterprise/node/operating/node-database.md).
 
 ## Step 6: Test the CorDapp
 

@@ -61,7 +61,7 @@ In V1.2.2, a new [Token Selection](token-selection.md) feature allows the except
 To upgrade the Tokens SDK:
 
 {{< warning >}}
-Before upgrading, make sure the platform database schema is properly migrated and the changelog syncrhonised - consult the [upgrade documentation for Corda 4.8](app-upgrade-notes.md). If you have not migrated the schema, the Tokens SDK may not upgrade correctly.
+Before upgrading, make sure the platform database schema is properly migrated and the changelog synchronized - consult the [upgrade documentation for Corda](app-upgrade-notes.md). If you have not migrated the schema, the Tokens SDK may not upgrade correctly.
 {{< /warning >}}
 
 1. Change the V number (version number) in your CorDapp's relevant Gradle file to the version you are upgrading to - such as 1.2.2
