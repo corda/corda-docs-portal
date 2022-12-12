@@ -372,7 +372,7 @@ To check if the CorDapp is signed, use the [JAR signing and verification tool](h
 jarsigner --verify path/to/cordapp.jar
 ```
 
-The Cordformation plugin can also sign CorDapp `.jar`s when [deploying a set of nodes](../../../../../../en/platform/corda/4.9/enterprise/node/deploy/generating-a-node.md).
+The Cordformation plugin can also sign CorDapp `.jar`s when [deploying a set of nodes](../enterprise/node/deploy/generating-a-node.md).
 
 If your build system post-processes the Cordapp `.jar`, then the modified `.jar` content may be out of date or missing a signature file. In this case, sign the Cordapp as a separate step and disable automatic signing by the `cordapp` plugin.
 
@@ -592,7 +592,7 @@ to use native features of a particular database). The finance CorDapp provides a
 CorDapp Contract `.jar`s must be installed on a node by a trusted uploader, either by:
 
 * Installing manually as per [Installing the CorDapp JAR](#install-the-cordapp) and re-starting the node.
-* Uploading the attachment `.jar` to the node via RPC, either programmatically (see [Connecting to a node via RPC](../../../../../../en/platform/corda/4.9/enterprise/node/operating/clientrpc.html#connecting-to-a-node-with-cordarpcclient))
+* Uploading the attachment `.jar` to the node via RPC, either programmatically (see [Connecting to a node via RPC](../enterprise/node/operating/clientrpc.html#connecting-to-a-node-with-cordarpcclient))
   or via the shell using the command: `>>> run uploadAttachment jar: path/to/the/file.jar`.
 
 Contract attachments received over the p2p network are **untrusted** and throw a *UntrustedAttachmentsException* exception if they are processed by a listening flow that cannot resolve the attachment with its local attachment storage. The flow will be suspended and sent to the node's `node-flow-hospital` for recovery and retry.
@@ -615,7 +615,7 @@ Deterministic JVM is integrated into Corda whereby execution takes place in a sa
 ## Install the CorDapp
 
 {{< note >}}
-Before you install a CorDapp `.jar`, you must [create one or more nodes](../../../../../../en/platform/corda/4.9/enterprise/operations/deployment/generating-a-node.md) to install it on.
+Before you install a CorDapp `.jar`, you must [create one or more nodes](../enterprise/operations/deployment/generating-a-node.md) to install it on.
 
 {{< /note >}}
 Nodes load any CorDapps present in their `cordapps` folder at startup. To install a CorDapp on a node, you must add the
