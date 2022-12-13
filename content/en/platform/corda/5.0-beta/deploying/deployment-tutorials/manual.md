@@ -88,7 +88,7 @@ corda-cli.sh topic -b kafka-1.example.com -k config.properties \
   create -r 3 -p 10 script -f create.sh -c 6
 ```
 
-Again, if you are authenticating Kafka users, the CLI can also create Access Control List (ACL) entries as appropriate for each Corda worker.
+Again, if you are authenticating Kafka users, the Corda CLI can also create Access Control List (ACL) entries as appropriate for each Corda worker.
 Specify a set of name-value pairs giving the Kafka username that will be used for each Corda worker:
 
 ```shell
