@@ -40,7 +40,7 @@ Alternatively, use the following command line arguments to define the static net
 ### Generating GroupPolicy Using File Input
 
 To generate GroupPolicy using file input:
-   {{< tabs name="groupPolicy">}}
+   {{< tabs name="groupPolicy-file">}}
    {{% tab name="Linux/macOS"%}}
    ```sh
    corda-cli.sh groupPolicy --file="app/build/resources/src.yaml"
@@ -110,7 +110,7 @@ To generate GroupPolicy using file input:
 ### Generating GroupPolicy Using String Parameters
 
 To generate GroupPolicy using parameters:
-   {{< tabs name="groupPolicy">}}
+   {{< tabs name="groupPolicy-params">}}
    {{% tab name="Linux/macOS"%}}
    ```sh
    corda-cli.sh groupPolicy --name="C=GB, L=London, O=Member1" --name="C=GB, L=London, O=Member2" --endpoint-protocol=5 --endpoint="http://dummy-url"
