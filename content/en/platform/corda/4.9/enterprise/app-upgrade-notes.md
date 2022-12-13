@@ -878,7 +878,7 @@ If your flows could benefit from being extended in this way, see [overriding a f
 
 In Corda 4, queries made on a node's vault can be filtered by the relevancy of those states to the node. As this functionality doesn't exist in
 Corda 3, CorDapps will continue to receive all states relating to any vault queries. You may want to migrate queries that expect states that are only relevant
-to the node in question, so you can filter them by relevant states. See [writing vault queries](cordapps/api-vault-query.md) for more details on how to do this. If you decide not to do this, queries may return more states than expected if the node is using observer functionality. See [Posting transactions to observer nodes](../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-observer-nodes.md) for more information.
+to the node in question, so you can filter them by relevant states. See [writing vault queries](cordapps/api-vault-query.md) for more details on how to do this. If you decide not to do this, queries may return more states than expected if the node is using observer functionality. See [Posting transactions to observer nodes](../../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-observer-nodes.md) for more information.
 
 ### 13. Update your `quasar.jar` file
 
