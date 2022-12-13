@@ -1,17 +1,15 @@
 ---
-draft: true
-date: '2020-09-08T12:00:00Z'
+date: '2022-12-13'
 menu:
   corda-5-beta:
-    identifier: corda-5-beta-cordacli-commands
-    weight: 2000
-    parent: corda-5-beta-cordacli
-section_menu: corda-5
+    identifier: corda-5-beta-cordacli-deploy-commands
+    weight: 4000
+    parent: corda-5-beta-deploy
+section_menu: corda-5-beta
 title: "Corda CLI Commands"
 ---
-## MGM
 
-The `mgm` commands execute membership operations.
+This section describes the [Corda CLI](../../installing-corda-cli.html) MGM commands. Use these commands to execute membership operations.
 
 Running the `groupPolicy` command without any arguments prints a sample `GroupPolicy.json` file that you can manually tweak.
 ```shell
