@@ -15,14 +15,13 @@ weight: 30
 # Upgrading a CorDapp to a newer platform version
 
 {{< warning >}}
-Corda Enterprise Edition 4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.9, read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.9/enterprise/notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.9 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.9, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
 {{< /warning >}}
 
 This guide shows you how to upgrade your CorDapp from previous platform versions to benefit
 from the new features in the latest release.
 
-Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](../../../../api-ref/api-ref-corda-4.md). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
-CorDapp that are worth considering for any actively maintained software.
+Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](../../../../api-ref/api-ref-corda-4.md). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your CorDapp that are worth considering for any actively maintained software.
 
 
 {{< warning >}}
@@ -76,8 +75,8 @@ Follow the steps below for each upgrade path.
 
 #### Upgrade a node from Corda 4.5 (or earlier 4.x version)
 
-1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file](../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md).
-2. Update any missing core schema changes by either running the [Database Management Tool](../../../../../en/platform/corda/4.9/enterprise/database-management-tool.md) (recommended) or running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
+1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file](node/setup/corda-configuration-file.md).
+2. Update any missing core schema changes by either running the [Database Management Tool](database-management-tool.md) (recommended) or running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
 
 #### Upgrade a node from Corda 3.x or Corda Enterprise 3.x
 
@@ -359,7 +358,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-See [CorDapp configuration files](../../../../../en/platform/corda/4.9/enterprise/cordapps/cordapp-build-systems.html#cordapp-configuration-files) for more information.
+See [CorDapp configuration files](cordapps/cordapp-build-systems.html#cordapp-configuration-files) for more information.
 
 
 
@@ -807,7 +806,7 @@ to be governed by a contract that is either:
 * The outer class of the state class, if the state is an inner class of a contract. This is a common design pattern.
 * Annotated with `@BelongsToContract` which specifies the contract class explicitly.
 
-You can learn more by reading [contract/state agreement](../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.html#contractstate-agreement).
+You can learn more by reading [contract/state agreement](cordapps/api-contract-constraints.html#contractstate-agreement).
 
 If a CorDapp targets Corda 3 or lower (does not specify a target version),
 states that point to contracts outside their package will trigger a log warning but validation will proceed.
@@ -815,14 +814,13 @@ states that point to contracts outside their package will trigger a log warning 
 
 ### 9. Learn about signature constraints and signing `.jar` files
 
-[Signature constraints](../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.html#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to smoothly
-deploy application upgrades in a decentralised manner. Signature constraints are the new default mode for CorDapps. Upgrading your CorDapp to use version 4 Gradle plugins will mean your CorDapp is automatically signed, and new states will use new signature constraints selected automatically based on these signing keys.
+[Signature constraints](cordapps/api-contract-constraints.html#signature-constraints) are a new data model feature introduced in Corda 4. They make it much easier to smoothly deploy application upgrades in a decentralised manner. Signature constraints are the new default mode for CorDapps. Upgrading your CorDapp to use version 4 Gradle plugins will mean your CorDapp is automatically signed, and new states will use new signature constraints selected automatically based on these signing keys.
 
 
 {{< important >}}
 You can use this feature if you plan to deploy to a compatibility zone that has raised its minimum platform version to check the correctness of the transaction. Please take this into account for your own schedule planning.
 
-You can find out more about signature constraints and what they do by reading [CorDapp constraints migration](../../../../../en/platform/corda/4.9/enterprise/cordapps/cordapp-constraint-migration.md). The `TransactionBuilder` class will automatically use them if your CorDapp `.jar` file is signed. *We recommend all `.jar` files are signed*. Read [Sign the CorDapp](../../../../../en/platform/corda/4.9/enterprise/cordapps/cordapp-build-systems.html#sign-the-cordapp) to learn how to sign your `.jar` files. In dev mode, all `.jar` files are signed by developer certificates. If a `.jar` file has been signed with developer certificates and is deployed to a production node, the node will refuse to start. Therefore, to deploy CorDapps built for Corda 4 to production, you will need to generate signing keys and integrate them with the build process.
+You can find out more about signature constraints and what they do by reading [CorDapp constraints migration](cordapps/cordapp-constraint-migration.md). The `TransactionBuilder` class will automatically use them if your CorDapp `.jar` file is signed. *We recommend all `.jar` files are signed*. Read [Sign the CorDapp](cordapps/cordapp-build-systems.html#sign-the-cordapp) to learn how to sign your `.jar` files. In dev mode, all `.jar` files are signed by developer certificates. If a `.jar` file has been signed with developer certificates and is deployed to a production node, the node will refuse to start. Therefore, to deploy CorDapps built for Corda 4 to production, you will need to generate signing keys and integrate them with the build process.
 
 
 {{< /important >}}
@@ -830,7 +828,7 @@ You can find out more about signature constraints and what they do by reading [C
 
 {{< note >}}
 You can find out how to upgrade CorDapps to use Corda 4 signature constraints and consume
-existing states on ledger issued with older constraint types (such as Corda 3.x states issued with **hash** or **CZ whitelisted** constraints) by reading the [CorDapp constraints migration](../../../../../en/platform/corda/4.9/enterprise/cordapps/cordapp-constraint-migration.md) guide.
+existing states on ledger issued with older constraint types (such as Corda 3.x states issued with **hash** or **CZ whitelisted** constraints) by reading the [CorDapp constraints migration](cordapps/cordapp-constraint-migration.md) guide.
 
 {{< /note >}}
 
@@ -864,7 +862,7 @@ and request ownership of your root package namespaces (for example `com.megacorp
 The zone operator can then add your signing key to the network parameters, and prevent attackers defining types in your package namespaces.
 Whilst this feature is optional and not strictly required, it may be helpful to block attacks at the boundaries of a Corda-based application
 where type names may be taken ”as read”. You can learn more about this feature by reading
-[package namespace ownership](../../../../../en/platform/corda/4.9/enterprise/node/deploy/env-dev.html#package-namespace-ownership).
+[package namespace ownership](node/deploy/env-dev.html#package-namespace-ownership).
 
 
 ### 11. Consider adding extension points to your flows
@@ -874,13 +872,13 @@ flow logic that individual users can customise at pre-agreed points (protected m
 that converts transaction details into a PDF, which is then sent to a particular printer. This would be an inappropriate feature to put
 into shared business logic, but not for a user-specific CorDapp that they've developed themselves.
 
-If your flows could benefit from being extended in this way, see [overriding a flow via node configuration](../../../../../en/platform/corda/4.9/enterprise/cordapps/flow-overriding.html#overriding-a-flow-via-node-configuration).
+If your flows could benefit from being extended in this way, see [overriding a flow via node configuration](cordapps/flow-overriding.html#overriding-a-flow-via-node-configuration).
 
 ### 12. Update vault state queries
 
 In Corda 4, queries made on a node's vault can be filtered by the relevancy of those states to the node. As this functionality doesn't exist in
 Corda 3, CorDapps will continue to receive all states relating to any vault queries. You may want to migrate queries that expect states that are only relevant
-to the node in question, so you can filter them by relevant states. See [writing vault queries](../../../../../en/platform/corda/4.9/enterprise/cordapps/api-vault-query.md) for more details on how to do this. If you decide not to do this, queries may return more states than expected if the node is using observer functionality. See [Posting transactions to observer nodes](../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-observer-nodes.md) for more information.
+to the node in question, so you can filter them by relevant states. See [writing vault queries](cordapps/api-vault-query.md) for more details on how to do this. If you decide not to do this, queries may return more states than expected if the node is using observer functionality. See [Posting transactions to observer nodes](../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-observer-nodes.md) for more information.
 
 ### 13. Update your `quasar.jar` file
 
@@ -901,4 +899,4 @@ There are several new APIs in the Corda 4 release that can help you build your a
 * **Reference states** let you use an input state without consuming it.
 * **State pointers** make it easier to ‘point’ to one state from another, and follow the latest version of a linear state.
 
-Please also read the [CorDapp upgradeability guarantees](../../../../../en/platform/corda/4.9/enterprise/cordapps/cordapp-upgradeability.md).
+Please also read the [CorDapp upgradeability guarantees](cordapps/cordapp-upgradeability.md).

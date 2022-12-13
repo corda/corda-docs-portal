@@ -13,7 +13,7 @@ weight: 100
 
 # Blob inspector
 
-The Corda blob inspector tool gives you a human-readable view of content stored in a [custom binary serialization format](../../../../../en/platform/corda/4.9/enterprise/serialization.md).
+The Corda blob inspector tool gives you a human-readable view of content stored in a [custom binary serialization format](serialization.md).
 The blob inspector shows you the output of binary blob files (or URL end-points) in YAML or JSON using `JacksonSupport` (see [JSON](json.md) for more on Jackson serialization).
 
 The tool is distributed as a `.jar.` file - `corda-tools-blob-inspector-4.9.jar`. To run it, pass in the file or URL as the first parameter:
@@ -96,7 +96,7 @@ This property is materialized into `NodeInfo` and is output under the `deseriali
 
 ## Classpath
 
-If you run the blob inspector without any `.jar` files on the classpath, then it will deserialize objects using the class carpenter, (see [Object serialization](../../../../../en/platform/corda/4.9/enterprise/serialization.md)).
+If you run the blob inspector without any `.jar` files on the classpath, then it will deserialize objects using the class carpenter, (see [Object serialization](serialization.md)).
 This happens because the types are not available, so the serialization framework has to synthesize them.
 
 {{< note >}}
