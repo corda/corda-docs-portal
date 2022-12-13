@@ -1,5 +1,5 @@
 ---
-date: '2022-11-14'
+date: '2022-12-13'
 title: "Manual Bootstrapping"
 menu:
   corda-5-beta:
@@ -33,7 +33,7 @@ To create the topics manually, do the following:
    ```properties
    security.protocol=SASL-SSL
    sasl.mechanism=SCRAM-SHA-256
-   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username=<USERNAME> password=<PASSWORD> ;
+   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="<USERNAME>" password="<PASSWORD>" ;
    ssl.truststore.location=ca.crt
    ssl.truststore.type=PEM
    ```
@@ -56,6 +56,17 @@ For example:
 corda-cli.sh topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 connect
 ```
 
+If you are authenticating Kafka users, the CLI can also create Access Control List (ACL) entries as appropriate for each Corda worker.
+Specify a set of name-value pairs giving the Kafka username that will be used for each Corda worker:
+
+```shell
+corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
+  create -r <RELICAS> -p <PARTITIONS> \
+  -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
+  connect
+```
+
 ### Topic Creation by Scripting
 
 Alternatively, the Corda CLI can generate a shell script which you should review before executing against the broker.
@@ -75,6 +86,17 @@ For example:
 ```shell
 corda-cli.sh topic -b kafka-1.example.com -k config.properties \
   create -r 3 -p 10 script -f create.sh -c 6
+```
+
+Again, if you are authenticating Kafka users, the CLI can also create Access Control List (ACL) entries as appropriate for each Corda worker.
+Specify a set of name-value pairs giving the Kafka username that will be used for each Corda worker:
+
+```shell
+corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
+  create -r <RELICAS> -p <PARTITIONS> \
+  -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
+  script -f <FILE> -c <CONCURRENCY>
 ```
 
 You can then execute the `create.sh` script to create the topics.
