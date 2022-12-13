@@ -13,7 +13,7 @@ This section describes how to package your CorDapp as CPKs (Corda Packages), CPB
 
 ## Before You Start
 
-You will need a working copy of the [Corda CLI](../../installing-corda-cli.html) with the MGM and package plugins installed. 
+You will need a working copy of the [Corda CLI](../getting-started/installing-corda-cli.html) with the MGM and package plugins installed. 
 <!-- See the [Corda CLI Plugin Host](https://github.com/corda/corda-cli-plugin-host#setupbuild). -->
 
 ## Configuring the Gradle Plugin
