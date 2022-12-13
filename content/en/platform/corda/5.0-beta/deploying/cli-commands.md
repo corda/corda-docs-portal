@@ -9,7 +9,7 @@ section_menu: corda-5-beta
 title: "MGM Corda CLI Command Reference"
 ---
 
-This section lists the [Corda CLI](../getting-started/installing-corda-cli.html) MGM commands. You can use these commands to execute membership operations, as described in the [Onboarding Tutorials](deployment-tutorials/onboarding/overview.md).
+This section lists the [Corda CLI](../getting-started/installing-corda-cli.html) `mgm` commands. You can use these commands to execute membership operations, as described in the [Onboarding Tutorials](deployment-tutorials/onboarding/overview.md).
 
 ## groupPolicy Command
 
@@ -129,25 +129,3 @@ To generate GroupPolicy using parameters:
 * Not passing any `--name` arguments returns a GroupPolicy with an empty list of static members.
 * A single endpoint is assumed for all members.
 {{< /note >}}
-
-
-
-
-
-
-
-
-
-
-## Package
-The `package` commands execute operations for working with CPB and CPI files.
-
-| Argument            | Description                                                          |
-|---------------------|----------------------------------------------------------------------|
-| --create-cpb         |  |
-| --create         | |
-| --verify         | |
-| --sign         | |
-| --create-cpi         | |
-
-You can learn how to package your CorDapp in the Developer tutorial [here](../../developing/tutorials/packaging.html).
