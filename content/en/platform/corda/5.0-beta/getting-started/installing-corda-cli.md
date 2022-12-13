@@ -85,7 +85,7 @@ To obtain the Corda CLI installer:
    {{< /note >}}
 
 6. Run the following command to verify your installation:
-  ```shell
-  corda-cli.cmd -h
-  ```
-  If successful, this outputs details of the Corda CLI commands.   
+     ```shell
+     corda-cli.cmd -h
+     ```
+    If successful, this outputs details of the Corda CLI commands.   
