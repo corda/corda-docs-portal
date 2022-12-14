@@ -169,7 +169,7 @@ Read more in [Ledger](../../../../../../../en/platform/corda/4.10/open-source/ke
 
 ### Attachments
 
-Read more in [Working with attachments](../../../../../../../en/tutorials/corda/4.10/os/supplementary-tutorials/tutorial-attachments.md) and [Node services](../../../../../../../en/platform/corda/4.10/enterprise/node-services.md).
+Read more in [Working with attachments](../../../../../../tutorials/corda/4.10/community/supplementary-tutorials/tutorial-attachments.md) and [Node services](../../../../../../../en/platform/corda/4.10/enterprise/node-services.md).
 
 {{< figure alt="attachments tables" width=80% zoom="/en/images/attachments_tables.png" >}}
 

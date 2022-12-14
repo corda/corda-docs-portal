@@ -63,7 +63,7 @@ interface extended by an interface implemented by the class or its super-classes
 The built-in default whitelist (see the `DefaultWhitelist` class) allows common JDK classes for
 convenience. You cannot edit the default whitelist.
 
-You can see both methods in action in the [client RPC tutorial](../../../../../en/tutorials/corda/4.10/os/supplementary-tutorials/tutorial-clientrpc-api.md). Here's a sample:
+You can see both methods in action in the [client RPC tutorial](../../../../tutorials/corda/4.10/community/supplementary-tutorials/tutorial-clientrpc-api.md). Here's a sample:
 
 ```kotlin
 // Not annotated, so need to whitelist manually.

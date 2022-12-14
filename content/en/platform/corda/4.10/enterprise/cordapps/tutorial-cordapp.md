@@ -21,9 +21,9 @@ weight: 20
 ---
 # Run a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try [building your own](../../../../../../en/tutorials/corda/4.10/os/build-basic-cordapp/basic-cordapp-intro.md), modifying a [template](../../../../../../en/tutorials/corda/4.10/os/template-tutorial/writing-a-cordapp-using-a-template.md), or using a [community CorDapp](https://www.corda.net/samples/).
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try [building your own](../../../../../tutorials/corda/4.10/community/build-basic-cordapp/basic-cordapp-intro.md), modifying a [template](../../../../../tutorials/corda/4.10/community/template-tutorial/writing-a-cordapp-using-a-template.md), or using a [community CorDapp](https://www.corda.net/samples/).
 
-The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](../../../../../../en/platform/corda/4.10/enterprise/node/component-topology.md).
+The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](../node/component-topology.md).
 
 The sample CorDapp allows nodes to reach loan agreements with each other, as long as they obey the following contract rules:
 
@@ -40,8 +40,8 @@ You will deploy and run the sample CorDapp on the following test nodes:
 
 ## Before you start
 
-* Learn [what a CorDapp is](../../../../../../en/platform/corda/4.10/enterprise/cordapps/cordapp-overview.md).
-* Set up your [development environment](../../../../../../en/platform/corda/4.10/enterprise/cordapps/getting-set-up.md).
+* Learn [what a CorDapp is](cordapp-overview.md).
+* Set up your [development environment](getting-set-up.md).
 
 
 ## Step 1: Download the sample CorDapp
@@ -109,8 +109,8 @@ You will see the following output:
 
 
 {{< note >}}
-`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally](../../../../../../en/platform/corda/4.10/enterprise/node/deploy/generating-a-node.md) instead, and build your CorDapp `.jar`s as described
-in [Building and installing a CorDapp](../../../../../../en/platform/corda/4.10/enterprise/cordapps/cordapp-build-systems.md).
+`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally](../node/deploy/generating-a-node.md) instead, and build your CorDapp `.jar`s as described
+in [Building and installing a CorDapp](cordapp-build-systems.md).
 {{< /note >}}
 
 
@@ -317,9 +317,9 @@ If your test fails, run a Gradle test instead of a unit test.
 
 ## Related Content
 
-* [Debugging a CorDapp](../../../../../../en/platform/corda/4.10/enterprise/cordapps/debugging-a-cordapp.md)
-* [Writing a CorDapp](../../../../../../en/platform/corda/4.10/enterprise/cordapps/writing-a-cordapp.md)
-* [Build a CorDapp](../../../../../../en/platform/corda/4.10/enterprise/cordapps/cordapp-build-systems.md)
+* [Debugging a CorDapp](debugging-a-cordapp.md)
+* [Writing a CorDapp](writing-a-cordapp.md)
+* [Build a CorDapp](cordapp-build-systems.md)
 
 
 ## Appendix A: Project structure
