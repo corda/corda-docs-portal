@@ -413,7 +413,7 @@ You can retrieve the names available for signature-spec through `KeysRpcOps`. On
 
 To build the registration context, run the following command, replacing the endpoint URL with the endpoint of the P2P gateway.
 If you are testing in a single cluster, this value isn't important, so you can use something like `https://localhost:8080`.
-If the network is a multi-cluster environment, must be a valid P2P gateway URL.
+If the network is a multi-cluster environment, the URL must be a valid P2P gateway URL.
 For example, `https://corda-p2p-gateway-worker.corda-cluster-a:8080`, where `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within.
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -437,6 +437,40 @@ $REGISTRATION_CONTEXT = @{
   'corda.ledger.keys.0.signature.spec' = "SHA256withECDSA"
   'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST:$P2P_GATEWAY_PORT"
   'corda.endpoints.0.protocolVersion' = "1"
+}
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+If you are registering a member as a notary service representative, run the following command to build the registration context:
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+export REGISTRATION_CONTEXT='{
+  "corda.session.key.id": "'$SESSION_KEY_ID'",
+  "corda.session.key.signature.spec": "SHA256withECDSA",
+  "corda.ledger.keys.0.id": "'$LEDGER_KEY_ID'",
+  "corda.ledger.keys.0.signature.spec": "SHA256withECDSA",
+  "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
+  "corda.endpoints.0.protocolVersion": "1",
+  "corda.roles.0" : "notary",
+  "corda.notary.service.name" : <An X500 name for the notary service>,
+  "corda.notary.service.plugin" : "corda.notary.type.nonvalidating"
+}'
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```shell
+$REGISTRATION_CONTEXT = @{
+  'corda.session.key.id' =  $SESSION_KEY_ID
+  'corda.session.key.signature.spec' = "SHA256withECDSA"
+  'corda.ledger.keys.0.id' = $LEDGER_KEY_ID
+  'corda.ledger.keys.0.signature.spec' = "SHA256withECDSA"
+  'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST`:$P2P_GATEWAY_PORT"
+  'corda.endpoints.0.protocolVersion' = "1"
+  'corda.roles.0' : "notary",
+  'corda.notary.service.name' : <An X500 name for the notary service>,
+  'corda.notary.service.plugin' : "corda.notary.type.nonvalidating"
 }
 ```
 {{% /tab %}}
