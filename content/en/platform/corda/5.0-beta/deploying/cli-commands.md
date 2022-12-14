@@ -15,7 +15,7 @@ This section lists the [Corda CLI](../getting-started/installing-corda-cli.html)
 
 Running the `groupPolicy` command without any arguments prints a sample `GroupPolicy.json` file that you can manually tweak.
    {{< tabs name="groupPolicy">}}
-   {{% tab name="Linux" %}}
+   {{% tab name="Linux &nbsp; macOS" %}}
    ```sh
    corda-cli.sh mgm groupPolicy
    ```
@@ -41,7 +41,7 @@ Alternatively, use the following command line arguments to define the static net
 
 To generate GroupPolicy using file input:
    {{< tabs name="groupPolicy-file">}}
-   {{% tab name="Linux macOS" %}}
+   {{% tab name="Linux\/macOS" %}}
    ```sh
    corda-cli.sh groupPolicy --file="app/build/resources/src.yaml"
    ```
