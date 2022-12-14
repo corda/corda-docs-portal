@@ -38,7 +38,7 @@ running via the node driver to debug your CorDapp. You can debug the CorDapp:
 
 ### Debug with the nodes in-process
 
-1. [Define a network using the node driver](../../community/supplementary-tutorials/tutorial-integration-testing.md).
+1. [Define a network using the node driver](../../../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-integration-testing.md).
 2. Check your `DriverParameters` and make sure that `startNodesInProcess` is set to `true`.
 3. Run the driver using the debugger.
 4. Set your breakpoints.
