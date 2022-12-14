@@ -15,7 +15,7 @@ This section lists the [Corda CLI](../getting-started/installing-corda-cli.html)
 
 Running the `groupPolicy` command without any arguments prints a sample `GroupPolicy.json` file that you can manually tweak.
    {{< tabs name="groupPolicy">}}
-   {{% tab name="Linux/macOS"%}}
+   {{% tab name="Linux macOS"%}}
    ```sh
    corda-cli.sh mgm groupPolicy
    ```
