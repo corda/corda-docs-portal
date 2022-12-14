@@ -14,7 +14,7 @@ This section lists the [Corda CLI](../getting-started/installing-corda-cli.html)
 | Argument            | Description                                                          |
 |---------------------|----------------------------------------------------------------------|
 | --create-cpb         | Creates a CPB file. See [create-cpb](#create-cpb). |
-| --create-cpi         | Creates a CPI file. See [create-cpb](#create-cpi). |
+| --create-cpi         | Creates a CPI file. See [create-cpi](#create-cpi). |
 <!--| --create         | |
 | --verify         | |
 | --sign         | |-->
@@ -25,7 +25,7 @@ The `create-cpb` argument creates a CPB file from a set of CPK files using the f
 
 | Argument            | Description                                                          |
 |---------------------|----------------------------------------------------------------------|
-| --cpb-name         | Specifies  |
+| --cpb-name         | Specifies a name for the CPB. |
 | --cpb-version         | |
 | --file         | Speficifes the name of the CPB file to create. |
 | --keystore          | Specifies the keystore file used to sign the file. |
