@@ -45,6 +45,18 @@ To convert an existing CorDapp project to the new Gradle plugin:
     id 'net.corda.plugins.cordapp-cpb2'
     ```
 
+## Building a CPK
+To build a CPK, configure the project with either cordapp-cpk2 or cordapp-cpb2 plugin and run the jar Gradle task:
+```shell
+./gradlew jar
+```
+
+## Building a CPB
+To build a CPB, configure the project with the cordapp-cpb2 plugin and run the cpb Gradle task:
+```shell
+./gradlew cpb
+```
+
 ## Generating a Code Signing Key
 
 To generate a code signing key for signing the CPI:
