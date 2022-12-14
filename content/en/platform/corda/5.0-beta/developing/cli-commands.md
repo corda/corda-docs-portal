@@ -26,7 +26,7 @@ The `create-cpb` argument creates a CPB file from a set of CPK files using the f
 | Argument            | Description                                                          |
 |---------------------|----------------------------------------------------------------------|
 | --cpb-name         | Specifies a name for the CPB. |
-| --cpb-version         | |
+| --cpb-version         | Specifies the CPB version. |
 | --file         | Specifies the name of the CPB file to create. |
 | --keystore          | Specifies the keystore file used to sign the file. |
 | --storepass          | Specifies the password for the keystore.|
