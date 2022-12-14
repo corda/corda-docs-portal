@@ -137,14 +137,14 @@ The Gradle plugin builds the CPB. Run the following command to turn a CPB into a
    {{% /tab %}}
    {{% tab name="Windows" %}}
    ```shell 
-   corda-cli.cmd package create-cpi \`
-    --cpb mycpb.cpb \`
-    --group-policy GroupPolicy.json \`
-    --cpi-name "cpi name" \`
-    --cpi-version "1.0.0.0-SNAPSHOT" \`
-    --file output.cpi \`
-    --keystore signingkeys.pfx \`
-    --storepass "keystore password" \`
+   corda-cli.cmd package create-cpi `
+    --cpb mycpb.cpb `
+    --group-policy GroupPolicy.json `
+    --cpi-name "cpi name" `
+    --cpi-version "1.0.0.0-SNAPSHOT" `
+    --file output.cpi `
+    --keystore signingkeys.pfx `
+    --storepass "keystore password" `
     --key "signing key 1"
    ```
    {{% /tab %}}
