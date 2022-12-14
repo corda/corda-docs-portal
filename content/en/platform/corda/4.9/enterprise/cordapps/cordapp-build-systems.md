@@ -32,13 +32,11 @@ You will need to:
 * Know [what a CorDapp is](cordapp-overview.md).
 * Set up your [development environment](getting-set-up.md).
 * Run a [sample CorDapp](tutorial-cordapp.md) to see Corda in action (optional).
-* Install the [CorDapp gradle plugin](https://plugins.gradle.org/plugin/net.corda.plugins.cordapp). To ensure you are using the correct version of Gradle, use the Gradle wrapper provided. Copy across
-the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the [Java CorDapp Template](https://github.com/corda/cordapp-template-java) to your project's root directory:
+* Install the [CorDapp Gradle plugin](https://plugins.gradle.org/plugin/net.corda.plugins.cordapp). To ensure you are using the correct version of Gradle, use the Gradle wrapper provided. Copy across the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the [Java CorDapp Template](https://github.com/corda/cordapp-template-java) to your project's root directory:
 
     * `gradle/`
     * `gradlew`
     * `gradlew.bat`
-
 
 {{< note >}}
 You can write CorDapps in any language that targets the JVM. However, Corda itself and most of the samples are written in Kotlin. If you’re unfamiliar with Kotlin and want to learn more, you can refer to their [getting started guide](https://kotlinlang.org/docs/tutorials/), and series of [Kotlin Koans](https://kotlinlang.org/docs/tutorials/koans.html).
@@ -152,8 +150,6 @@ dependency from being included twice (once in the CorDapp `.jar` and once in the
 is for declaring a compile-time dependency on a “semi-fat” CorDapp `.jar` in the same way as `cordaCompile`, except
 that `Cordformation` will only deploy CorDapps contained within the `cordapp` configuration.
 
-
-
 ### Dependencies on other CorDapps
 
 Your CorDapp may also depend on classes defined in another CorDapp, such as states, contracts and flows. There are two
@@ -170,6 +166,22 @@ The `cordapp` Gradle configuration serves two purposes:
 {{< note >}}
 The `cordformation` and `cordapp` Gradle plugins can be used at the same time.
 {{< /note >}}
+
+### Migrating to the latest version of Corda Gradle plugins
+
+{{< note >}}
+The latest version of Corda Gradle plugins is 5.1.x, which require Gradle 7.
+{{< /note >}}
+
+The `cordformation` plugin has been updated to enhance understanding of its use. It now creates the following Gradle configurations:
+
+* `cordapp` - Used for any CorDapps you want to deploy, excluding any CorDapp built by the local project.
+* `cordaDriver` - Used for any artifacts that must be added to each node's drivers/directory; for example, database drivers or the Corda shell.
+* `corda` - The Corda artifact itself, or the Corda TestServer.
+* `cordaBootstrapper` - Used for Corda's Bootstrapper artifact; i.e. a compatible version of `corda-node-api`. You may also wish to include an implementation of SLF4J for the Bootstrapper to use; for example, `slf4j-simple`.
+
+The `corda` and `cordaBootstrapper` configurations replace the need for the `cordaRuntime` configuration when using `cordformation`. Using `cordaRuntime` was creating the false impression that CorDapps needed to declare runtime dependencies on either Corda, the Bootstrapper, or both.
+There is no need to apply the `net.corda.plugins.cordapp` Gradle plugin along with `cordformation`, unless that project is also building a CorDapp.
 
 ### Other dependencies
 
