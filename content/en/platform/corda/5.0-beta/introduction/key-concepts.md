@@ -167,6 +167,8 @@ Just like a regular application, your [CorDapp](#cordapps) must be packaged for 
 
 {{< figure src="images/packaging.png" figcaption="CorDapp Packaging" >}}
 
+You can read how to package your CorDapp in the [Development Tutorials](../developing/development-tutorials/cordapp-packaging.html).
+
 ### Corda Packages (CPKs)
 CPKs are the Corda equivalent of a software library. They represent testable, reusable, sub-components of a final application.
 Corda runs each CPK runs in its own [sandbox](#sandboxes), isolated from other CPKs.
