@@ -107,7 +107,7 @@ For example:
 }
 ```
 {{< note >}}
-You can export the group policy file from the MGM using the API instead of building it manually. For more information, see [Onboarding Members to Dynamic Networks](../deployment-tutorials/membership/dynamic-onboarding.html).
+You can export the group policy file from the MGM using the API instead of building it manually. For more information, see [Onboarding Members to Dynamic Networks](deployment-tutorials/onboarding/dynamic-onboarding.html).
 {{< /note >}}
 
 ### Static Network Member Group Policy
