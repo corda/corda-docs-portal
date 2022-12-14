@@ -127,7 +127,7 @@ method on [CordaRPCClient](../../../../../../../en/api-ref/corda/4.9/community/j
 a new proxy for every call you make - reuse an existing one.
 {{< /warning >}}
 
-For further information on using the RPC API, see [Working with the CordaRPCClient API](../../../../../en/tutorials/corda/4.9/community/supplementary-tutorials/tutorial-clientrpc-api.md).
+For further information on using the RPC API, see [Working with the CordaRPCClient API](../../../../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-clientrpc-api.md).
 
 ### Defining RPC users and permissions
 
