@@ -15,11 +15,11 @@ This page describes how to deploy Corda 5 Beta. It assumes all necessary [prereq
 
 The Corda Docker images must be in a Docker registry that is accessible from the Kubernetes cluster in which Corda will run. The images are provided in a `tar` file that can be loaded into a local Docker engine and then pushed from there to the registry.
 
-1. Download `corda-worker-images-Eagle.tar` from the [R3 Customer Hub](https://r3.force.com/).
+1. Download `corda-worker-images-Fox.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
-2. Inflate and load the `corda-worker-images-Eagle.tar` file into the local Docker engine with the following command:
+2. Inflate and load the `corda-worker-images-Fox.tar` file into the local Docker engine with the following command:
    ```shell
-   docker load -i corda-worker-images-Eagle.tar
+   docker load -i corda-worker-images-Fox.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target Docker registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
@@ -35,7 +35,7 @@ The Corda Docker images must be in a Docker registry that is accessible from the
     "corda-os-member-worker" "corda-os-p2p-gateway-worker"
     "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
     "corda-os-crypto-worker" "corda-os-plugins" )
-   tag=5.0.0.0-Eagle
+   tag=5.0.0.0-Fox
    target_registry=$1
 
    for image in "${images[@]}"; do
@@ -52,7 +52,7 @@ The Corda Docker images must be in a Docker registry that is accessible from the
 
 ## Download Helm Charts
 
-* Download the Helm charts `corda-5.0.0-Eagle.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
+* Download the Helm charts `corda-5.0.0-Fox.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
@@ -60,12 +60,12 @@ For each deployment, you should create a YAML file to define a set of Helm overr
 The following sections describe the minimal set of configuration options required for a deployment.
 You can extract a README containing the full set of options from the Helm chart using the following command:
 ```shell
-helm show readme corda-5.0.0-Eagle.tgz
+helm show readme corda-5.0.0-Fox.tgz
 ```
 
 You can extract a YAML file containing all of the default values using the following command:
 ```shell
-helm show values corda-5.0.0-Eagle.tgz
+helm show values corda-5.0.0-Fox.tgz
 ```
 
 ### Image Registry
@@ -156,9 +156,14 @@ db:
   cluster:
     host: <POSTGRESQL_HOST>
     port: 5432
-    user: <POSTGRESQL_USER>
+    username:
+      value: <POSTGRESQL_USER>
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: <POSTGRESQL_PASSWORD_SECRET_NAME>
+          key: <POSTGRESQL_PASSWORD_SECRET_KEY>
     database: <POSTGRESQL_CLUSTER_DB>
-    existingSecret: <POSTGRESQL_PASSWORD_SECRET_NAME>
 ```
 
 ### Kafka
@@ -190,12 +195,20 @@ kafka
     type: PEM   
 ```
 
-Corda supports SASL for Kafka authentication. If your Kafka instance requires SASL authentication, create a secret containing the credentials with the user name and password of the key and then specify the secret name, along with the required mechanism in the overrides:
+Corda supports SASL for Kafka authentication. If your Kafka instance requires SASL authentication, enable the option in the overrides along with the required mechanism:
 
 ```yaml
 kafka:
   sasl:
     enabled: true
+    mechanism: "SCRAM-SHA-512"
+```
+
+A single set of credentials can be specified for use everywhere by reference to a Kubernetes secret containing the username and password:
+
+```yaml
+kafka:
+  sasl:
     username:
       valueFrom:
         secretKeyRef:
@@ -206,7 +219,46 @@ kafka:
         secretKeyRef:
           name: <SASL-SECRET-NAME>
           key: "password"
-    mechanism: "SCRAM-SHA-512"
+```
+
+Alternatively, for finer-grained access control, separate credentials can be specified for bootstrapping, and for each type of worker. For example:
+
+```yaml
+bootstrap:
+  kafka:
+    sasl:
+      username:
+        valueFrom:
+          secretKeyRef:
+            name: <SASL-SECRET-NAME>
+            key: "bootstrap-username"
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: <SASL-SECRET-NAME>
+            key: "bootstrap-password"
+workers:
+  crypto:
+    kafka:
+      sasl:
+        username:
+          valueFrom:
+            secretKeyRef:
+              name: <SASL-SECRET-NAME>
+              key: "crypto-username"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: <SASL-SECRET-NAME>
+              key: "crypto-password"
+```
+
+Note that, here, as elsewhere, credentials can also be specified directly as part of the overrides using `value` instead of `valueFrom`.
+For example:
+
+```yaml
+username:
+  value: <USERNAME>
 ```
 
 ### Bootstrapping
@@ -229,6 +281,8 @@ bootstrap:
     partitions: 10
     replicas: 3
 ```
+
+If SASL authentication is enabled, the bootstrapping also creates Access Control List (ACL) entries for producing and consuming from the topics as appropriate for each worker.
 
 #### Database
 
@@ -355,33 +409,104 @@ kafka:
     enabled: true
   sasl:
     enabled: true
-    username:
-      valueFrom:
-        secretKeyRef:
-          name: "kafka-secret"
-          key: "username"
-    password:
-      valueFrom:
-        secretKeyRef:
-          name: "kafka-secret"
-          key: "password"
     mechanism: "SCRAM-SHA-512"
 
 bootstrap:
   db:
     clientImage:
       registry: "registry.example.com"
+  kafka:
+    sasl:
+      username:
+        value: "bootstrap"
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: "kafka-credentials"
+            key: "bootstrap"
+
+workers:
+  crypto:
+    kafka:
+      sasl:
+        username:
+          value: "crypto"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "crypto"
+  db:
+    kafka:
+      sasl:
+        username:
+          value: "db"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "db"
+  flow:
+    kafka:
+      sasl:
+        username:
+          value: "flow"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "flow"
+  membership:
+    kafka:
+      sasl:
+        username:
+          value: "membership"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "membership"
+  p2pGateway:
+    kafka:
+      sasl:
+        username:
+          value: "p2pGateway"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "p2pGateway"
+  p2pLinkManager:
+    kafka:
+      sasl:
+        username:
+          value: "p2pLinkManager"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "p2pLinkManager"
+  rpc:
+    kafka:
+      sasl:
+        username:
+          value: "rpc"
+        password:
+          valueFrom:
+            secretKeyRef:
+              name: "kafka-credentials"
+              key: "rpc"
 ```
 
 ## Deployment
 
 Once the configuration for the environment has been defined in a YAML file, you can install the Helm chart:
 ```shell
-helm install -n <NAMESPACE> <HELM-RELEASE-NAME> corda-5.0.0-Eagle.tgz -f <PATH-TO-YAML-FILE>
+helm install -n <NAMESPACE> <HELM-RELEASE-NAME> corda-5.0.0-Fox.tgz -f <PATH-TO-YAML-FILE>
 ```
 For example, to create a Helm release called `corda` in the `corda` namespace using the overrides specified in a file called `values.yaml`, run the following:
 
 ```shell
-helm install -n corda corda corda-5.0.0-Eagle.tgz -f values.yaml
+helm install -n corda corda corda-5.0.0-Fox.tgz -f values.yaml
 ```
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how to access the [Corda REST API](../../developing/rest-api/rest-api.html).
