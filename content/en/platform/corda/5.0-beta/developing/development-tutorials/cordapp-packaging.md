@@ -46,7 +46,7 @@ To convert an existing CorDapp project to the new Gradle plugin:
     ```
 
 ## Building a CPK
-To build a CPK, configure the project with either cordapp-cpk2 or cordapp-cpb2 plugin and run the jar Gradle task:
+To build a CPK, configure the project with either the cordapp-cpk2 or cordapp-cpb2 plugin and run the jar Gradle task:
 ```shell
 ./gradlew jar
 ```
