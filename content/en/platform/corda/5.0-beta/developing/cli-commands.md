@@ -83,7 +83,7 @@ The `create-cpi` argument creates a CPI file using the following arguments:
 | --group-policy         | Specifies the [group policy file](../deploying/group-policy.html) to include in the CPI. |
 | --cpi-name         | Specifies a name for the CPI. |
 | --cpi-version        | Specifies the CPI version.|
-| --file         | Speficifes the name of the CPI file to create. |
+| --file         | Specifies the name of the CPI file to create. |
 | --keystore          | Specifies the keystore file used to sign the file. |
 | --storepass          | Specifies the password for the keystore.|
 | --key         | Specifies the name of the key.|
