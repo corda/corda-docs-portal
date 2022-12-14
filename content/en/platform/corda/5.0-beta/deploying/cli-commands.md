@@ -6,10 +6,10 @@ menu:
     weight: 7000
     parent: corda-5-beta-deploy
 section_menu: corda-5-beta
-title: "MGM Corda CLI Command Reference"
+title: "MGM Corda CLI Reference"
 ---
 
-This section lists the [Corda CLI](../getting-started/installing-corda-cli.html) `mgm` commands. You can use these commands to execute membership operations, as described in the [Onboarding Tutorials](deployment-tutorials/onboarding/overview.md).
+This section lists the [Corda CLI](../getting-started/installing-corda-cli.html) `mgm` arguments. You can use these commands to execute membership operations, as described in the [Onboarding Tutorials](deployment-tutorials/onboarding/overview.md).
 
 ## groupPolicy Command
 
