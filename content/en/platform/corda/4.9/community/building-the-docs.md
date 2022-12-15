@@ -58,7 +58,7 @@ repository, make your changes, and submit a pull request targeting the `main` br
 The documentation for all released versions of Corda Community Edition (formerly Corda Open Source), Corda Enterprise, Corda Enterprise Network Manager (CENM),
 and the Corda 5 Developer Preview are organized in sub-directories, following the version and then the product flavor. For example:
 
-`../corda-docs-portal/content/en/platform/corda/4.8/open-source/`
+`../corda-docs-portal/content/en/platform/corda/4.9/community/`
 
 ## Edit web pages directly in Visual Studio Code
 

@@ -31,7 +31,7 @@ title: Time-windows
 
 ## Time in a distributed system
 
-The [notary cluster](../../../../../en/platform/corda/4.8/open-source/key-concepts-notaries.md) acts as the *timestamping authority*.
+The [notary cluster](key-concepts-notaries.md) acts as the *timestamping authority*.
 It verifies that a transaction occurred during a specific time window before notarizing it.
 
 [Nodes](key-concepts-node.md) get time window signatures to prove a transaction happened before, during, or after a specific time. The notary timestamps and notarizes at the same time, so if the node doesn't need to commit to the associated transaction, it can reveal the time window in the future.
