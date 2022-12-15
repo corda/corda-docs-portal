@@ -63,6 +63,8 @@ In this release:
 
 * Previously, Archive Service commands did not write messages to the log files unless an error or issue occurred. An update now means that messages are also written when commands are run successfully. For more information, refer to [Archive Service Command-Line Interface (CLI)](..\..\..\tools\archiving-service\archiving-cli.md)
 
+* The opentelemetry tracing signal is now supported in flows across nodes.
+
 ### Database Schema Changes
 
 
