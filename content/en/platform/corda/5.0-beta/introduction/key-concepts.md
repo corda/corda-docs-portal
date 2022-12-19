@@ -22,12 +22,6 @@ The Corda platform is a layered toolbox that you can approach from the bottom up
 The P2P Layer allows an identity to establish a communication session with another identity on an [application network](#application-networks)at their published address, regardless of whether they reside in the same or different [clusters](#clusters).
 It manages the lifecycle, link establishment, connection recovery, back pressure, caching, heart beating, transmission, message chunking, etc., for communications intended to flow between identities. It has two primary components; the Gateway and Link Manager.
 
-{{< note >}}
-The P2P Layer is not officially exposed to CorDapp Developers to access natively in this Developer Preview of Corda 5 and so its implementation in CorDapps is not currently supported.
-Support will be available in a future release as there is great value in an end-to-end authenticated messaging system that can multiplex thousands of messages whilst remaining HA and secure and also embodying a strong identity model.
-{{< /note >}}
-
-
 ### Flow Layer
 
 The Flow Layer expands the capabilities of the P2P Layer with the introduction of the flow framework.
@@ -45,23 +39,16 @@ This is where the business problem is solved and the majority of code is written
 This is the code that is built, packaged, distributed, installed, and executed.
 
 ### Ledger Layer
-{{< note >}}
-The ledger layer is not available in this Developer Preview of Corda 5.
-{{< /note >}}
+
 The Ledger Layer addresses business problems that require some form of distributed ledger.
 This layer solves problems where orchestrating parties must verify that something is true without trusting one another.
 The layer is itself pluggable, enabling you to select different ledger models as needed.
 When the lifecycle of data continues beyond the parties' first interaction with it, the Ledger Layer allows its evolution without the input of the creating party.
 Ledger code adds the ability to cryptographically verify proposed changes to data such that no parties can repudiate what was agreed.
-Future versions will contain the following ledger models:
+Corda 5 contains the following ledger models:
 *	Consensual
-*	UTXO
-<!--
-#### Consensual
-<<< Ask @Christian Sailer >>>
-#### UTXO
-<<< Ask @Christian Sailer >>>
--->
+*	UTXO (unspent transaction output)
+
 ## CorDapps
 Similar to operating systems, Corda, and DLT in general, is valuable to Developers who they enable but require applications to be useful to users.
 Distributed applications (Dapps) deployed on Corda are known as **CorDapps**.
