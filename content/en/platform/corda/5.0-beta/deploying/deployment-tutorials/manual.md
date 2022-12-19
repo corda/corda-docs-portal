@@ -23,12 +23,7 @@ To create the topics manually, do the following:
      kafka:
        enabled: false
    ```
-
-2. Use the Corda CLI to assist in the creation of the topics prior to Corda installation in one of two ways:
-   * [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
-   * [Topic Creation by Scripting](#topic-creation-by-scripting)
-
-   In both cases, the first step is to create a [Kafka client properties](https://kafka.apache.org/documentation/#configuration) file. The following is an example properties file for a Kafka cluster using TLS and SASL authentication:
+2. Create a [Kafka client properties](https://kafka.apache.org/documentation/#configuration) file. The following is an example properties file for a Kafka cluster using TLS and SASL authentication:
 
    ```properties
    security.protocol=SASL-SSL
@@ -37,8 +32,11 @@ To create the topics manually, do the following:
    ssl.truststore.location=ca.crt
    ssl.truststore.type=PEM
    ```
+   The examples that follow assume that this file is called `config.properties`.
 
-The examples that follow assume that this file is called `config.properties`.
+3. Use the Corda CLI to assist in the creation of the topics prior to Corda installation in one of two ways:
+   * [Topic Creation by Direct Connection](#topic-creation-by-direct-connection)
+   * [Topic Creation by Scripting](#topic-creation-by-scripting)
 
 ### Topic Creation by Direct Connection
 
