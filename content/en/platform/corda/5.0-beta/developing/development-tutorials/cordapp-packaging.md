@@ -3,17 +3,17 @@ date: '2021-11-14'
 title: "CorDapp Packaging"
 menu:
   corda-5-beta:
-    parent: corda-5-beta-tutorials-deploy
+    parent: corda-5-beta-tutorials-develop
     identifier: corda-5-beta-tutorial-deploy-cordapp-packaging
-    weight: 2000
+    weight: 1000
 section_menu: corda-5-beta
 ---
 
-This section describes how to package your CorDapp as CPKs (Corda Packages), CPBs (Corda Package Bundles), and CPIs (Corda Package Installers). You can read more about the CorDapp packaging format in the [Key Concepts](../../introduction/key-concepts.html#packaging) section.
+This section describes how to package your CorDapp as CPKs (Corda Packages), CPBs (Corda Package Bundles), and CPIs (Corda Package Installers). You can read more about the CorDapp packaging format in the [Key Concepts](../../introduction/key-concepts.html#packaging) section. The steps in this section use the [Corda CLI package commands](../cli-commands.html). 
 
 ## Before You Start
 
-You will need a working copy of the Corda CLI with the MGM and package plugins installed. 
+You need a working copy of the [Corda CLI](../getting-started/installing-corda-cli.html) with the MGM and package plugins installed. 
 <!-- See the [Corda CLI Plugin Host](https://github.com/corda/corda-cli-plugin-host#setupbuild). -->
 
 ## Configuring the Gradle Plugin
@@ -44,6 +44,18 @@ To convert an existing CorDapp project to the new Gradle plugin:
     // or
     id 'net.corda.plugins.cordapp-cpb2'
     ```
+
+## Building a CPK
+To build a CPK, configure the project with either the cordapp-cpk2 or cordapp-cpb2 plugin and run the jar Gradle task:
+```shell
+./gradlew jar
+```
+
+## Building a CPB
+To build a CPB, configure the project with the cordapp-cpb2 plugin and run the cpb Gradle task:
+```shell
+./gradlew cpb
+```
 
 ## Generating a Code Signing Key
 
@@ -79,22 +91,39 @@ This key can be generated once and kept for reuse.
 
 ## Generating a Group Policy File
 
-If you intend to run a basic [static network](../network-types.html#static-networks) setup, you can use the Corda CLI to generate a group policy file. For example, you could run the following command to generate the file:
-```shell
-./corda-cli.sh mgm groupPolicy > GroupPolicy.json
-```
+If you intend to run a basic [static network](../..deploying/network-types.html#static-networks) setup, you can use the Corda CLI to generate a group policy file. For example, you could run the following command to generate the file:
 
+   {{< tabs name="static-networks">}}
+   {{% tab name="Linux" %}}
+   ```sh
+   ./corda-cli.sh mgm groupPolicy > GroupPolicy.json
+   ```
+   {{% /tab %}}
+  {{% tab name="macOS" %}}
+   ```sh
+   ./corda-cli.sh mgm groupPolicy > GroupPolicy.json
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   corda-cli.cmd mgm groupPolicy > GroupPolicy.json
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 Refer to the [Group Policy](../../../../../../en/platform/corda/5.0-beta/deploying/group-policy.html) section to learn more about the `GroupPolicy.json` file.
 
 <!-- For more information on this plugin, refer to the [README.md](https://github.com/corda/corda-runtime-os/blob/release/os/5.0/tools/plugins/mgm/README.md). -->
 
-If you are running a dynamic network, you will need to export the group policy file from the MGM using the HTTP API. To learn how to do this, see the [MGM Onboarding](../deployment-tutorials/onboarding/mgm-onboarding.html) tutorial for more information.
+If you are running a [dynamic network](../..deploying/network-types.html#dynamic-networks), you must export the group policy file from the MGM using the HTTP API. To learn how to do this, see the [MGM Onboarding](../deployment-tutorials/onboarding/mgm-onboarding.html) tutorial for more information.
 
 ## Building a CPI
 
 The Gradle plugin builds the CPB. Run the following command to turn a CPB into a CPI:
-```shell 
-./corda-cli.sh package create-cpi \
+
+   {{< tabs name="build-cpi">}}
+   {{% tab name="Linux" %}}
+   ```shell 
+   ./corda-cli.sh package create-cpi \
     --cpb mycpb.cpb \
     --group-policy GroupPolicy.json \
     --cpi-name "cpi name" \
@@ -103,7 +132,35 @@ The Gradle plugin builds the CPB. Run the following command to turn a CPB into a
     --keystore signingkeys.pfx \
     --storepass "keystore password" \
     --key "signing key 1"
-```
+   ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```shell 
+   ./corda-cli.sh package create-cpi \
+    --cpb mycpb.cpb \
+    --group-policy GroupPolicy.json \
+    --cpi-name "cpi name" \
+    --cpi-version "1.0.0.0-SNAPSHOT" \
+    --file output.cpi \
+    --keystore signingkeys.pfx \
+    --storepass "keystore password" \
+    --key "signing key 1"
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell 
+   corda-cli.cmd package create-cpi `
+    --cpb mycpb.cpb `
+    --group-policy GroupPolicy.json `
+    --cpi-name "cpi name" `
+    --cpi-version "1.0.0.0-SNAPSHOT" `
+    --file output.cpi `
+    --keystore signingkeys.pfx `
+    --storepass "keystore password" `
+    --key "signing key 1"
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 ## Importing Trusted Code Signing Certificates
 
