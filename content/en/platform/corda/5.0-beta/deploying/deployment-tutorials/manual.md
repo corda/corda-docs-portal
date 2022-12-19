@@ -43,61 +43,165 @@ To create the topics manually, do the following:
 In the first option, the Corda CLI connects directly to the Kafka broker to create the topics.
 The Corda CLI command to create the topics looks as follows:
 
-```shell
+{{< tabs name="create-topics">}}
+{{% tab name="Linux" %}}
+```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <RELICAS> -p <PARTITIONS> connect
 ```
+{{% /tab %}}
+{{% tab name="macOS" %}}
+```sh
+corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
+  create -r <RELICAS> -p <PARTITIONS> connect
+   ```
+{{% /tab %}}
+{{% tab name="Windows" %}}
+```shell
+corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <RELICAS> -p <PARTITIONS> connect
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 For example:
 
-```shell
+{{< tabs name="create-topics-example">}}
+{{% tab name="Linux" %}}
+```sh
 corda-cli.sh topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 connect
 ```
+{{% /tab %}}
+{{% tab name="macOS" %}}
+```sh
+corda-cli.sh topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 connect
+```
+{{% /tab %}}
+{{% tab name="Windows" %}}
+```shell
+corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 connect
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 If you are authenticating Kafka users, the Corda CLI can also create Access Control List (ACL) entries as appropriate for each Corda worker.
 Specify a set of name-value pairs giving the Kafka username that will be used for each Corda worker:
 
-```shell
+{{< tabs name="acl">}}
+{{% tab name="Linux" %}}
+```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <RELICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
   -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
   connect
 ```
+{{% /tab %}}
+{{% tab name="macOS" %}}
+```sh
+corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
+  create -r <RELICAS> -p <PARTITIONS> \
+  -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
+  connect
+```
+{{% /tab %}}
+{{% tab name="Windows" %}}
+```shell
+corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
+  create -r <RELICAS> -p <PARTITIONS> `
+  -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> `
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> `
+  connect
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 
 ### Topic Creation by Scripting
 
-Alternatively, the Corda CLI can generate a shell script which you should review before executing against the broker.
-The shell script makes use of the `kafka-topic.sh` script provided with a Kafka installation.
+Alternatively, the Corda CLI can generate a script which you should review before executing against the broker.
+The script makes use of the `kafka-topic.sh` script provided with a Kafka installation.
 
-The Corda CLI command looks as follows:
+Run the following Corda CLI command to generate the script:
 
-```shell
+{{< tabs name="cli-script">}}
+{{% tab name="Linux" %}}
+```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <RELICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
 ```
+{{% /tab %}}
+{{% tab name="macOS" %}}
+```sh
+corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
+  create -r <RELICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
+```
+{{% /tab %}}
+{{% tab name="Windows" %}}
+```shell
+corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <RELICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 Where `<FILE>` is the name of the file in which to save the script and `<CONCURRENCY>` is the number of topics to create in parallel to speed execution.
 
 For example:
 
-```shell
+{{< tabs name="cli-script-example">}}
+{{% tab name="Linux" %}}
+```sh
 corda-cli.sh topic -b kafka-1.example.com -k config.properties \
   create -r 3 -p 10 script -f create.sh -c 6
 ```
+{{% /tab %}}
+{{% tab name="macOS" %}}
+```sh
+corda-cli.sh topic -b kafka-1.example.com -k config.properties \
+  create -r 3 -p 10 script -f create.sh -c 6
+```
+{{% /tab %}}
+{{% tab name="Windows" %}}
+```shell
+corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 script -f create.cmd -c 6
+```
+{{% /tab %}}
+{{< /tabs >}}
 
-Again, if you are authenticating Kafka users, the Corda CLI can also create Access Control List (ACL) entries as appropriate for each Corda worker.
+If you are authenticating Kafka users, the Corda CLI can also create Access Control List (ACL) entries as appropriate for each Corda worker.
 Specify a set of name-value pairs giving the Kafka username that will be used for each Corda worker:
 
-```shell
+{{< tabs name="acl2">}}
+{{% tab name="Linux" %}}
+```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <RELICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
   -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
-  script -f <FILE> -c <CONCURRENCY>
+  connect
 ```
+{{% /tab %}}
+{{% tab name="macOS" %}}
+```sh
+corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
+  create -r <RELICAS> -p <PARTITIONS> \
+  -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
+  connect
+```
+{{% /tab %}}
+{{% tab name="Windows" %}}
+```shell
+corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
+  create -r <RELICAS> -p <PARTITIONS> `
+  -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> `
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> `
+  connect
+```
+{{% /tab %}}
+{{< /tabs >}}
 
-You can then execute the `create.sh` script to create the topics.
+You can then execute the `create` script to create the topics.
 
 ## Database
 
@@ -110,8 +214,6 @@ To create the schema manually, do the following:
      db:
        enabled: false
    ```
-
-
 
 2. Use the Corda CLI to generate DML files for creating the database schema. For example, the following command generates the files in the directory `/tmp/db`:
 
