@@ -8,10 +8,13 @@ menu:
 section_menu: corda-5-beta
 title: Installing the Corda CLI
 ---
+
 Corda CLI (command line interface) is a command line tool that supports various Corda-related tasks, including [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) creation and Corda cluster management.
 The CorDapp Standard Development Environment (CSDE) uses Corda CLI in the background. As a result, you must install Corda CLI before using CSDE.
 
-
+{{< note >}}
+Performing command line instructions directly is described in the relevant sections throughout the documentation. 
+{{< /note >}}
 
 ## Third-Party Prerequisites
 
@@ -72,7 +75,7 @@ To obtain the Corda CLI installer:
    {{< /note >}}
 
 6. Run the following command to verify your installation:
-  ```shell
-  corda-cli.cmd -h
-  ```
-  If successful, this outputs details of the Corda CLI commands.   
+     ```shell
+     corda-cli.cmd -h
+     ```
+    If successful, this outputs details of the Corda CLI commands.   
