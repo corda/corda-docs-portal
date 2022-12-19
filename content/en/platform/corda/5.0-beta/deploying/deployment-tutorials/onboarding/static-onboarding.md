@@ -82,5 +82,5 @@ Only members with `ACTIVE` membership status should be visible.
 
 If you are registering a member as a notary service representative, you must add the following as the context when registering:
 ```shell
-"context": { "corda.key.scheme": "CORDA.ECDSA.SECP256R1", "corda.roles.0" : "notary", "corda.notary.service.name" : <notary-service-X500-name>, "corda.notary.service.plugin" : "corda.notary.type.nonvalidating" }
+"context": { "corda.key.scheme": "CORDA.ECDSA.SECP256R1", "corda.roles.0" : "notary", "corda.notary.service.name" : <notary-service-X500-name>, "corda.notary.service.plugin" : "net.corda.notary.NonValidatingNotary" }
 ```
