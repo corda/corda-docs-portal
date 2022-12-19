@@ -116,7 +116,6 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
 {{% /tab %}}
 {{< /tabs >}}
 
-
 ### Topic Creation by Scripting
 
 Alternatively, the Corda CLI can generate a script which you should review before executing against the broker.
@@ -217,13 +216,27 @@ To create the schema manually, do the following:
 
 2. Use the Corda CLI to generate DML files for creating the database schema. For example, the following command generates the files in the directory `/tmp/db`:
 
-   ```shell
+   {{< tabs name="DML">}}
+   {{% tab name="Linux" %}}
+   ```sh
    corda-cli.sh database spec -c -l /tmp/db
    ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```sh
+   corda-cli.sh database spec -c -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   corda-cli.cmd database spec -c -l /tmp/db
+
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 3. Review the DML files generated and then execute against the database.
-
-
+************************
 4. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration:
 
    ```shell
