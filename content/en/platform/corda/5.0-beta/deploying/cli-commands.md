@@ -9,9 +9,31 @@ section_menu: corda-5-beta
 title: "MGM Corda CLI Reference"
 ---
 
-This section lists the [Corda CLI](../getting-started/installing-corda-cli.html) `mgm` arguments. You can use these commands to execute membership operations, as described in the [Onboarding Tutorials](deployment-tutorials/onboarding/overview.md).
+This section lists [Corda CLI](../getting-started/installing-corda-cli.html) arguments used as part of deployment.
 
-## groupPolicy Command
+## topic
+
+This section lists the Corda CLI `topic` arguments. You can use these commands to manually perform setup actions in Kafka, as described in the [Manual Bootstrapping Tutorial](deployment-tutorials/manual.html).
+
+### 
+
+## database
+
+This section lists the Corda CLI `database` arguments. You can use these commands to manually perform setup actions in the database, as described in the [Manual Bootstrapping Tutorial](deployment-tutorials/manual.html).
+
+### 
+
+## initial-config
+
+This section lists the Corda CLI `database` arguments. You can use these commands to manually perform various setup actions for Corda RBAC, as described in the [Manual Bootstrapping Tutorial](deployment-tutorials/manual.html).
+
+### 
+
+## mgm
+
+This section lists the Corda CLI `mgm` arguments. You can use these commands to execute membership operations, as described in the [Onboarding Tutorials](deployment-tutorials/onboarding/overview.html).
+
+### groupPolicy Command
 
 Running the `groupPolicy` command without any arguments prints a sample `GroupPolicy.json` file that you can manually tweak.
    {{< tabs name="groupPolicy">}}
@@ -41,7 +63,7 @@ Alternatively, use the following command line arguments to define the static net
 | --endpoint          | The endpoint base URL; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).|
 | --endpoint-protocol | The version of end-to-end authentication protocol; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).|
 
-### Generating GroupPolicy Using File Input
+#### Generating GroupPolicy Using File Input
 
 To generate GroupPolicy using file input:
    {{< tabs name="groupPolicy-file">}}
@@ -68,7 +90,7 @@ To generate GroupPolicy using file input:
 * Endpoint information specified under `members` overrides endpoint information set at the root level. An error is thrown if no endpoint information is provided.
 {{< /note >}}
 
-#### Sample Files
+##### Sample Files
 
 * JSON with `memberNames`:
   ```json
@@ -115,7 +137,7 @@ To generate GroupPolicy using file input:
     - name: "C=GB, L=London, O=Member2"
   ```
 
-### Generating GroupPolicy Using String Parameters
+#### Generating GroupPolicy Using String Parameters
 
 To generate GroupPolicy using parameters:
    {{< tabs name="groupPolicy-params">}}
