@@ -517,6 +517,12 @@ name = "Static Networks"
 weight = 1000
 
 [[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-develop"
+parent = "corda-5-beta-develop"
+name = "Development Tutorials"
+weight = 2000
+
+[[corda-5-beta]]
 identifier = "corda-5-beta-operate-rest-ref"
 parent = "corda-5-beta-operate-rest-api"
 name = "REST API Reference"
