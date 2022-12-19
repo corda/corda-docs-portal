@@ -455,7 +455,7 @@ export REGISTRATION_CONTEXT='{
   "corda.endpoints.0.protocolVersion": "1",
   "corda.roles.0" : "notary",
   "corda.notary.service.name" : <An X500 name for the notary service>,
-  "corda.notary.service.plugin" : "corda.notary.type.nonvalidating"
+  "corda.notary.service.plugin" : "net.corda.notary.NonValidatingNotary"
 }'
 ```
 {{% /tab %}}
@@ -470,7 +470,7 @@ $REGISTRATION_CONTEXT = @{
   'corda.endpoints.0.protocolVersion' = "1"
   'corda.roles.0' : "notary",
   'corda.notary.service.name' : <An X500 name for the notary service>,
-  'corda.notary.service.plugin' : "corda.notary.type.nonvalidating"
+  'corda.notary.service.plugin' : "net.corda.notary.NonValidatingNotary"
 }
 ```
 {{% /tab %}}
