@@ -25,7 +25,7 @@ You can use several flexible query mechanisms to access the vault, including:
 
 
 * The vault query API.
-* A JDBC session (see [State Persistence](../../../../../../en/platform/corda/4.10/enterprise/cordapps/state-persistence.md)).
+* A JDBC session (see [State Persistence](state-persistence.md)).
 * Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries.
 * Custom third-party data access frameworks such as [Spring Data](http://projects.spring.io/spring-data).
 
@@ -168,7 +168,7 @@ There are four implementations of this interface. You can chain them together to
 
 
 * `VaultQueryCriteria` provides filterable criteria on attributes within the **VAULT_STATES** table. Filterable attributes include one or more of the following: status (`UNCONSUMED`,
-`CONSUMED`), state reference, contract state type, notary name, soft locked states, timestamps (`RECORDED`, `CONSUMED`), state constraints (see [Constraint Types](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contract-constraints.html#implicit-constraint-types), relevancy (`ALL`, `RELEVANT`, `NON_RELEVANT`), and participants (exact or any match).
+`CONSUMED`), state reference, contract state type, notary name, soft locked states, timestamps (`RECORDED`, `CONSUMED`), state constraints (see [Constraint Types](api-contract-constraints.html#implicit-constraint-types), relevancy (`ALL`, `RELEVANT`, `NON_RELEVANT`), and participants (exact or any match).
 {{< note >}}
 Sensible defaults are defined for frequently used attributes (`status` = `UNCONSUMED`, always include soft
 locked states).{{< /note >}}
@@ -192,7 +192,7 @@ interfaces' common state attributes to the **VAULT_LINEAR_STATES** table.{{< /no
 
 
 * `VaultCustomQueryCriteria` provides the means to specify one or many arbitrary expressions on attributes defined
-by a custom contract state that implements its own schema as described in the [State Persistence](../../../../../../en/platform/corda/4.10/enterprise/cordapps/state-persistence.md)
+by a custom contract state that implements its own schema as described in the [State Persistence](state-persistence.md)
 documentation. You can express custom criteria using one of these type-safe forms of
 `CriteriaExpression`: `BinaryLogical`, `Not`, `ColumnPredicateExpression`, and `AggregateFunctionExpression`. The
 `ColumnPredicateExpression` allows for the specification of arbitrary criteria using the previously enumerated operator

@@ -286,7 +286,7 @@ kubectl get pods -o wide
 You will find the truststore password in the `signer/files/pki.conf`, where the default value used in this Helm chart is `trust-store-password`.
 
 {{< note >}} For more details about joining a CENM network, see:
-[Joining an existing compatibility zone](../../../../../../../en/platform/corda/4.10/open-source/joining-a-compatibility-zone.md).
+[Joining an existing compatibility zone](../../network/joining-a-compatibility-zone.md).
 {{< /note >}}
 
 ### Display logs
@@ -560,4 +560,4 @@ kubectl get svc --namespace cenm nmap --template "{{ range (index .status.loadBa
 
 ## Appendix A: Docker Images
 
-Visit the [platform support matrix](../../../../../../../en/platform/corda/4.10/enterprise/platform-support-matrix.html#docker-images) for information on Corda Docker Images for version 4.8.
+Visit the [platform support matrix](../../platform-support-matrix.html#docker-images) for information on Corda Docker Images for version 4.8.

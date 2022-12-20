@@ -110,7 +110,7 @@ the network, along with the network parameters file and identity certificates. G
 online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
-More information can be found in [Network Bootstrapper](../../../../../../en/platform/corda/4.10/enterprise/network-bootstrapper.md).
+More information can be found in [Network Bootstrapper](../network-bootstrapper.md).
 
 
 

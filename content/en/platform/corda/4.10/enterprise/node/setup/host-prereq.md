@@ -60,9 +60,9 @@ weight: 2
 
 ## Sizing
 
-The recommended minimum vault database size is 2GB. As with the Corda node, the use case determines the sizing needs for the database. When testing in your development environment, pay attention to the size of objects created in the `NODE_CHECKPOINT_BLOBS` and `NODE_TRANSACTIONS` tables, to inform the sizing requirements of your use case. Some guidance on this is provided in the [Performance benchmarking results](../../../../../../../en/platform/corda/4.10/enterprise/performance-testing/performance-results.html#sizing) documentation. In a production implementation, a separate high availability database instance should be deployed for each Corda node. However, it’s possible to create a separate schema for each node within a single database instance subject to performance, availability, and security constraints (the schema to be used is defined in the node configuration file).
+The recommended minimum vault database size is 2GB. As with the Corda node, the use case determines the sizing needs for the database. When testing in your development environment, pay attention to the size of objects created in the `NODE_CHECKPOINT_BLOBS` and `NODE_TRANSACTIONS` tables, to inform the sizing requirements of your use case. Some guidance on this is provided in the [Performance benchmarking results](../../performance-testing/performance-results.html#sizing) documentation. In a production implementation, a separate high availability database instance should be deployed for each Corda node. However, it’s possible to create a separate schema for each node within a single database instance subject to performance, availability, and security constraints (the schema to be used is defined in the node configuration file).
 
-Corda Enterprise uses Liquibase to generate the requisite database schemas for both the Corda node the CorDapps the node has installed. The `run-migration-script` sub-command controls whether these database schemas are generated automatically. In many production scenarios, you may require more control over the creation and running of those scripts. In these cases, simply do not run the `run-migration-script` sub-command. The [Corda Enterprise Database Management Tool](../../../../../../../en/platform/corda/4.10/enterprise/cordapps/database-management.html#creating-script-for-initial-table-creation-using-corda-database-management-tool) can assist a database administrator by creating scripts for initial table creation.
+Corda Enterprise uses Liquibase to generate the requisite database schemas for both the Corda node the CorDapps the node has installed. The `run-migration-script` sub-command controls whether these database schemas are generated automatically. In many production scenarios, you may require more control over the creation and running of those scripts. In these cases, simply do not run the `run-migration-script` sub-command. The [Corda Enterprise Database Management Tool](../../cordapps/database-management.html#creating-script-for-initial-table-creation-using-corda-database-management-tool) can assist a database administrator by creating scripts for initial table creation.
 
 
 ## Corda Node, Bridge and Float
@@ -144,6 +144,6 @@ During deployment the following system (not user) tables will be created in the 
 * VAULT_TRANSACTION_NOTES
 * V_PKEY_HASH_EX_ID_MAP
 
-Detailed information on the Corda Vault can be found [here](../../../../../../../en/platform/corda/4.10/enterprise/node/operating/node-database.md).
+Detailed information on the Corda Vault can be found [here](../operating/node-database.md).
 
 JDBC Connectivity to the Corda Vault is handled in the Corda Enterprise `node.conf` file in `/opt/corda`. Here are examples for each supported RDBMS.

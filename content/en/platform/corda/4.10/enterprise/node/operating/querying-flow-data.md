@@ -24,7 +24,7 @@ With Corda Enterprise, you can query flow data in the following ways:
 
 ## Querying flow data via RPC
 
-Corda Enterprise exposes a number of custom, remote RPC interfaces, which enable you to interact with your node. For a list of all the remote interfaces that are available in Corda Enterprise, see [Building a Multi RPC Client](../../../../../../../en/platform/corda/4.10/enterprise/node/operating/clientrpc.html#building-the-multi-rpc-client).
+Corda Enterprise exposes a number of custom, remote RPC interfaces, which enable you to interact with your node. For a list of all the remote interfaces that are available in Corda Enterprise, see [Building a Multi RPC Client](clientrpc.html#building-the-multi-rpc-client).
 
 The `net.corda.client.rpc.proxy.NodeFlowStatusRpcOps` interface is an RPC extension which enables external applications to query and view the status of the flows which are currently being monitored by the Flow Hospital.
 
@@ -50,7 +50,7 @@ To view the full code sample, see [NodeFlowStatusRpcOps.kt](../../resources/exte
 The Multi RPC Client version must be aligned with the node version, meaning that both must be running the same Corda Enterprise version.
 {{< /warning >}}
 
-For details of how to build a Multi RPC Client, see [Building a Multi RPC Client](../../../../../../../en/platform/corda/4.10/enterprise/node/operating/clientrpc.html#building-the-multi-rpc-client). See also [MultiRPCClient](../../../../../../../en/api-ref/corda/4.10/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
+For details of how to build a Multi RPC Client, see [Building a Multi RPC Client](clientrpc.html#building-the-multi-rpc-client). See also [MultiRPCClient](../../../../../../../en/api-ref/corda/4.10/open-source/javadoc/net/corda/client/rpc/ext/MultiRPCClient.html) in the API documentation.
 
 ### Specifying the query criteria
 
@@ -125,7 +125,7 @@ When this query is executed, a list of the flow IDs for all flows that did not c
 
 ## Querying flow data via the node shell
 
-To query the node for flow data via the [Node Shell](../../../../../../../en/platform/corda/4.10/enterprise/node/operating/shell.md), you must use the `flowStatus` query command.
+To query the node for flow data via the [Node Shell](shell.md), you must use the `flowStatus` query command.
 
 You can use the `flowStatus` query command, in combination with one or more parameters, to retrieve various types of flow data from the node's checkpoints.
 

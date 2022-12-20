@@ -57,5 +57,5 @@ Make sure your contracts are secure. Check that:
 
 ## Related Content
 Learn more about:
-* [Writing flows](../../../../../en/platform/corda/4.10/enterprise/flow-state-machines.md)
-* [Contracts](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contracts.html)
+* [Writing flows](flow-state-machines.md)
+* [Contracts](cordapps/api-contracts.html)

@@ -16,7 +16,7 @@ weight: 100
 
 # Node monitoring scenarios
 
-Some common node monitoring scenarios are described below that you may observe when using [node metrics data](../../../../../../../../en/platform/corda/4.10/enterprise/node/operating/monitoring-and-logging/node-metrics.md).
+Some common node monitoring scenarios are described below that you may observe when using [node metrics data](node-metrics.md).
 
 One important reason to monitor a node is to decide when to failover.
 

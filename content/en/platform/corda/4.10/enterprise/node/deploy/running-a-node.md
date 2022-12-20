@@ -16,7 +16,7 @@ weight: 5
 
 {{< note >}}
 You should already have generated your node(s) with their CorDapps installed by following the instructions in
-[Creating nodes locally](../../../../../../../en/platform/corda/4.10/enterprise/node/deploy/generating-a-node.md).
+[Creating nodes locally](generating-a-node.md).
 {{< /note >}}
 
 There are several ways to run a Corda node locally for testing purposes.
@@ -33,13 +33,13 @@ By default, the node will look for a configuration file called `node.conf` and a
 in the current working directory. You can override the configuration file and workspace paths on the command line (e.g.
 `./corda.jar --config-file=test.conf --base-directory=/opt/corda/nodes/test`).
 
-If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](../../../../../../../en/platform/corda/4.10/enterprise/node/node-commandline.md) for details.
+If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](../node-commandline.md) for details.
 
 {{< note >}}
 If your node configuration file is obfuscated and you want to deobfuscate it when running the node, you need to pass the
 obfuscation seed and passphrase to the node in the node run command.
 
-To do so using the [Configuration Obfuscator](../../../../../../../en/platform/corda/4.10/enterprise/tools-config-obfuscator.md) command-line tool, use the
+To do so using the [Configuration Obfuscator](../../tools-config-obfuscator.md) command-line tool, use the
 `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
 
 The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration
@@ -145,7 +145,7 @@ You can optionally start a node using the following command-line options:
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: `ERROR`, `WARN`, `INFO` (default), `DEBUG`, `TRACE`.
 * `--help`, `-h`: Show this help message and exit.
 * `--version`, `-V`: Print version information and exit.
-* `--pause-all-flows`: Paused all flows when the node starts up. Starting a node with the `--pause-all-flows` command-line option automatically enables flow draining mode but does not modify the node's configuration file. See [Pause and resume flows](../../../../../../../en/platform/corda/4.10/enterprise/flow-pause-and-resume.html#starting-the-node-and-pausing-all-flows) for more information.
+* `--pause-all-flows`: Paused all flows when the node starts up. Starting a node with the `--pause-all-flows` command-line option automatically enables flow draining mode but does not modify the node's configuration file. See [Pause and resume flows](../../flow-pause-and-resume.html#starting-the-node-and-pausing-all-flows) for more information.
 * `--allow-hibernate-to-manage-app-schema`: enable this option to make the node manage app schemas automatically using Hibernate
 with H2 in dev mode.
 
@@ -186,7 +186,7 @@ Parameters:
 
 `generate-rpc-ssl-settings`: Generates the SSL keystore and truststore for a secure RPC connection.
 
-`install-shell-extensions`: Installs a `corda` alias and auto completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications](../../../../../../../en/platform/corda/4.10/enterprise/node/operating/cli-application-shell-extensions.md).
+`install-shell-extensions`: Installs a `corda` alias and auto completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications](../operating/cli-application-shell-extensions.md).
 
 `validate-configuration`: Validates the actual configuration without starting the node.
 
@@ -241,7 +241,7 @@ Java heap memory available to them, which you can do when running them individua
 
 ### docker-compose
 
-If you created your nodes using [Dockerform](../../../../../../../en/platform/corda/4.10/enterprise/node/deploy/generating-a-node.md), the `docker-compose.yml` file has been created and configured appropriately. Navigate to `build/nodes` directory and run the `docker-compose up` command. This will start up nodes inside a new, internal network. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
+If you created your nodes using [Dockerform](generating-a-node.md), the `docker-compose.yml` file has been created and configured appropriately. Navigate to `build/nodes` directory and run the `docker-compose up` command. This will start up nodes inside a new, internal network. After the nodes are started, you can use the `docker ps` command to see how the ports are mapped.
 
 {{< warning >}}
 You need both `Docker` and `docker-compose` installed and enabled to use this method. Docker CE
@@ -259,13 +259,13 @@ As an alternative, you can specify this parameter when running the `docker-compo
 
 ## Starting all nodes at once on a remote machine from the command line
 
-By default, a [Cordform](../../../../../../../en/platform/corda/4.10/enterprise/node/deploy/generating-a-node.md) task will run all the generated nodes on the same host machine.
+By default, a [Cordform](generating-a-node.md) task will run all the generated nodes on the same host machine.
 In order to run the nodes remotely, you can deploy them locally and then copy them to a remote server.
 If after copying the nodes to the remote machine you encounter errors related to a `localhost` resolution, you should follow the additional steps below.
 
 To create nodes locally and run on a remote machine, perform the following steps:
 
-* Configure a Cordform task and deploy the nodes locally as described in [Creating nodes locally](../../../../../../../en/platform/corda/4.10/enterprise/node/deploy/generating-a-node.md).
+* Configure a Cordform task and deploy the nodes locally as described in [Creating nodes locally](generating-a-node.md).
 * Copy the generated directory structure to a remote machine, for example using Secure Copy.
 * Optionally, add database configuration settings if they could not be configured in the first step and the local machine does not have access to the remote database.
 In each top-level `[NODE NAME]_node.conf` configuration file, add the database settings and copy the JDBC driver `.jar` file (if required).
@@ -279,9 +279,9 @@ The steps described above enable you to create the same test deployment as a `de
 ## Database migrations
 
 Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
-For more information, see [Database management](../../../../../../../en/platform/corda/4.10/enterprise/node-database-intro.md).
+For more information, see [Database management](../../node-database-intro.md).
 
-If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](../../../../../../../en/platform/corda/4.10/enterprise/node/node-commandline.md) for details.
+If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](../node-commandline.md) for details.
 
 
 ## Stability of the Corda Node

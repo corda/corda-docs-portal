@@ -38,7 +38,7 @@ At a high level, the process is as follows:
 
 ## Editing network parameters configuration
 
-See [Setting the Network Parameters](../../../../4.10/enterprise/network/network-map.html#network-parameters)
+See [Setting the Network Parameters](../../network/network-map.html#network-parameters)
 for information on the network parameters configuration file format and options. You can find supplementary information in the [CENM Network Map documentation](../../../../1.5/cenm/network-map.html#network-parameters).
 
 When updating the network parameters, ensure that the network parameters file has the

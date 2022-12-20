@@ -137,7 +137,7 @@ Look for the `Started Server in X seconds` message &mdash; don’t rely on the %
 
 
 {{< warning >}}
-On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](../../../../../../en/platform/corda/4.10/enterprise/node/operating/shell.md).
+On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](../node/operating/shell.md).
 {{< /warning >}}
 
 
@@ -274,12 +274,12 @@ You can see the newly-created IOU by running `run vaultQuery contractStateType: 
 ### Via the h2 web console
 
 
-You can connect directly to your node’s database to see its stored states, transactions and attachments. Follow the instructions in [Node database](../../../../../../en/platform/corda/4.10/enterprise/node/operating/node-database.md).
+You can connect directly to your node’s database to see its stored states, transactions and attachments. Follow the instructions in [Node database](../node/operating/node-database.md).
 
 
 ## Step 6: Test the CorDapp
 
-Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the **hammer icon**.  For a general guide, see [Running tests in IntelliJ](../../../../../../en/platform/corda/4.10/enterprise/testing.html#running-tests-in-intellij).
+Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the **hammer icon**.  For a general guide, see [Running tests in IntelliJ](../testing.html#running-tests-in-intellij).
 
 ### Integration tests
 

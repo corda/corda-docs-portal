@@ -51,11 +51,11 @@ This change does not remove the file size limit from a network, so if the export
 
 ### Changes in V1.2
 
-In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service](../../../../../../../en/platform/corda/4.10/enterprise/node/archiving/archiving-setup.md).
+In Collaborative Recovery V1.2, LedgerSync has been modified to be compatible with the [Archive Service](../archiving/archiving-setup.md).
 
 ### Changes from V1.0 to V1.1
 
-Collaborative Recovery 1.1 now makes use of [LedgerGraph as a stand-alone CorDapp](./../operating/ledger-graph.md) to get in-memory access to transaction data. In V 1.0, this was bundled with the other Collaborative Recovery CorDapps. Support for **Confidential Identities** has been moved from **LedgerSync** to **LedgerGraph** CorDapps.
+Collaborative Recovery 1.1 now makes use of [LedgerGraph as a stand-alone CorDapp](../operating/ledger-graph.md) to get in-memory access to transaction data. In V 1.0, this was bundled with the other Collaborative Recovery CorDapps. Support for **Confidential Identities** has been moved from **LedgerSync** to **LedgerGraph** CorDapps.
 
 ## Main stages of Collaborative Recovery
 
@@ -88,7 +88,7 @@ If you find yourself in this position, or if your other disaster recovery proced
 
 ## Who can use Collaborative Recovery
 
-Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with [Corda Enterprise](../../../../../../../en/platform/corda/4.10/enterprise#corda-enterprise-vs-corda-open-source:-feature-comparison) nodes.
+Collaborative Recovery applications have a minimum platform version of 6 and are compatible only with Corda Enterprise nodes.
 
 Collaborative Recovery is an Enterprise, CorDapp-level solution and is not shipped as a part of Corda itself. Only nodes that have the Collaborative Recovery CorDapps installed can participate in Collaborative Recovery. In mixed networks that consist of both Open Source and Enterprise nodes, only the Enterprise nodes of the right version that have the Collaborative Recovery CorDapps installed will be able to participate in Collaborative Recovery.
 

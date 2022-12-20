@@ -121,23 +121,23 @@ node {
 
 ## Required configuration
 
-* `name` &lt;string&gt; - use this configuration option to specify the legal identity name of the Corda node. For more information, see [myLegalName](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-fields.html#mylegalname). For example:
+* `name` &lt;string&gt; - use this configuration option to specify the legal identity name of the Corda node. For more information, see [myLegalName](../setup/corda-configuration-fields.html#mylegalname). For example:
 
 ```kotlin
 name "O=PartyA,L=London,C=GB"
 ```
-* `p2pAddress` &lt;string&gt; - use this configuration option to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-fields.html#p2paddress). **Required if `p2pPort` is not specified**. For example:
+* `p2pAddress` &lt;string&gt; - use this configuration option to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress](../setup/corda-configuration-fields.html#p2paddress). **Required if `p2pPort` is not specified**. For example:
 
 ```kotlin
 p2pAddress "example.com:10002"
 ```
-* `p2pPort` &lt;integer&gt; - use this configuration option to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-fields.html#p2paddress). For example:
+* `p2pPort` &lt;integer&gt; - use this configuration option to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress](../setup/corda-configuration-fields.html#p2paddress). For example:
 
 ```kotlin
 p2pPort 10006  // "localhost:10006"
 ```
 
-* `rpcSettings` &lt;config&gt; - use this configuration option to specify RPC settings for the node. For more information, see [rpcSettings](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-fields.html#rpcsettings). For example:
+* `rpcSettings` &lt;config&gt; - use this configuration option to specify RPC settings for the node. For more information, see [rpcSettings](../setup/corda-configuration-fields.html#rpcsettings). For example:
 
 ```kotlin
 rpcSettings {
@@ -148,15 +148,15 @@ rpcSettings {
 
 ## Optional configuration
 
-* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required**> for Notary nodes. For more information, see [notary](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-fields.html#notary).
+* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required**> for Notary nodes. For more information, see [notary](../setup/corda-configuration-fields.html#notary).
 
-* `devMode` &lt;boolean&gt; - use this configuration option to enable development mode when you set its value to `true`. For more information, see [devMode](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-fields.html#devmode). For example:
+* `devMode` &lt;boolean&gt; - use this configuration option to enable development mode when you set its value to `true`. For more information, see [devMode](../setup/corda-configuration-fields.html#devmode). For example:
 
 ```kotlin
 devMode true
 ```
 
-* `rpcUsers` &lt;list&gt; - use this configuration option to set the RPC users for the node. For more information, see [rpcUsers](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-fields.html#rpcusers). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
+* `rpcUsers` &lt;list&gt; - use this configuration option to set the RPC users for the node. For more information, see [rpcUsers](../setup/corda-configuration-fields.html#rpcusers). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
 
 ```kotlin
 rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
@@ -182,7 +182,7 @@ You can extend the `deployNodes` task with more `node {}` blocks to generate as 
 When adding nodes, make sure that there are no port clashes!
 {{< /warning >}}
 
-To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [Node configuration](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-file.md) format of `node.conf`. The properties set there will be appended to the generated node configuration.
+To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [Node configuration](../setup/corda-configuration-file.md) format of `node.conf`. The properties set there will be appended to the generated node configuration.
 
 {{< note >}}
 If you add a property to the additional configuration file that has already been created by the `deployNodes` task, both properties will be present in generated node configuration.
@@ -222,7 +222,7 @@ running the bootstrapper.
 
 ## Package namespace ownership
 
-To configure [package namespace ownership](../../../../../../../en/platform/corda/4.8/enterprise/node/deploy/env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](../../../../../../../en/platform/corda/4.10/enterprise/network-bootstrapper.md) tool. For example:
+To configure [package namespace ownership](../../../../../../../en/platform/corda/4.8/enterprise/node/deploy/env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](../../network-bootstrapper.md) tool. For example:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -248,7 +248,7 @@ The default Cordform behaviour is to deploy CorDapp `.jar` files “as built”.
 * As of Corda 4.0, CorDapp `.jar` files created by the gradle `cordapp` plug-in are signed by a Corda development certificate by default.
 
 You can use the Cordform `signing` entry to override and customise the signing of CorDapp `.jar` files.
-Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract Constraints](../../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contract-constraints.md).
+Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract Constraints](../../cordapps/api-contract-constraints.md).
 
 The signing task may use an external keystore, or create a new one.
 You can use the following parameters in the `signing` entry:
@@ -289,8 +289,8 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 
 Contracts classes from signed CorDapp `.jar` files are checked by signature constraints by default.
-You can force them to be checked by zone constraints by adding contract class names to the `includeWhitelist` entry - the list will generate an `include_whitelist.txt` file used internally by the [Network Bootstrapper](../../../../../../../en/platform/corda/4.10/enterprise/network-bootstrapper.md) tool.
-Before you add `includeWhitelist` to the `deployNodes` task, see [Contract Constraints](../../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contract-constraints.md) to understand the implications of using different constraint types.
+You can force them to be checked by zone constraints by adding contract class names to the `includeWhitelist` entry - the list will generate an `include_whitelist.txt` file used internally by the [Network Bootstrapper](../../network-bootstrapper.md) tool.
+Before you add `includeWhitelist` to the `deployNodes` task, see [Contract Constraints](../../cordapps/api-contract-constraints.md) to understand the implications of using different constraint types.
 The snippet below configures contracts classes from the Finance CorDapp to be verified using zone constraints instead of signature constraints:
 
 ```groovy

@@ -37,7 +37,7 @@ A CorDapp that stores data in a custom table contains an embedded Liquibase data
 This follows the [Liquibase](http://www.liquibase.org) functionality used by Corda for the database schema management.
 
 Creating a new database table requires a similar procedure to creating a Corda database schema using Corda Database Management Tool.
-Because of that, most of the steps are similar to those described in [Database schema setup](../../../../../../../en/platform/corda/4.10/enterprise/node/operating/node-database-admin.md).
+Because of that, most of the steps are similar to those described in [Database schema setup](node-database-admin.md).
 
 
 ### 1. Check if the CorDapp requires custom tables

@@ -40,7 +40,7 @@ This document provides the information you need in order to understand what happ
 Corda transactions evolve input states into output states. A state is a data structure containing: the actual data fact (that is expressed as a
 strongly typed serialized java object) and a reference to the logic (contract) that needs to verify a transition to and from this state.
 Corda does not embed the actual verification bytecode in transactions. The logic is expressed as a Java class name and a contract constraint
-(read more in [Contract Constraints](../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contract-constraints.md)), and the actual code is contained in a `.jar`  file that is referenced by the transaction.
+(read more in [Contract Constraints](cordapps/api-contract-constraints.md)), and the actual code is contained in a `.jar`  file that is referenced by the transaction.
 
 
 ### The basic threat model and security requirement.
@@ -80,7 +80,7 @@ When building the `LedgerTransaction`, the `inputs` and `references` are resolve
 fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#contract-execution-in-the-attachmentsclassloader-and-the-no-overlap-rule)).
 This model has consequences when it comes to how states can be evolved. Removing a field from a newer version of a state would mean
 that when deserialising that state in the context of a transaction using the more recent code, that field could just disappear.
-In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution](../../../../../en/platform/corda/4.10/enterprise/serialization-default-evolution.md).
+In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution](serialization-default-evolution.md).
 
 {{< /note >}}
 
@@ -118,7 +118,7 @@ Given that the input states are already agreed to be valid facts, the attached c
 {{< note >}}
 The output states created by this transaction must also specify constraints and, to prevent a malicious transaction creator specifying
 constraints that enable their malicious code to take control of a state in a future transaction, these constraints must be consistent
-with those of any input states of the same type. This is explained more fully as part of the platform’s ‘constraints propagation’ rules documentation [Constraints propagation](../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contract-constraints.html#constraints-propagation) .
+with those of any input states of the same type. This is explained more fully as part of the platform’s ‘constraints propagation’ rules documentation [Constraints propagation](cordapps/api-contract-constraints.html#constraints-propagation) .
 
 {{< /note >}}
 The rule for contract code attachment validity checking is that for each state there must be one and only one attachment that contains the fully qualified contract class name.
@@ -295,7 +295,7 @@ But if another CorDapp developer, `OrangeCo` bundles the `Fruit` library, they m
 This will create a `com.fruitcompany.Banana` signed by the `OrangeCo`, so there could be two types of Banana states on the network,
 but “owned” by two different parties. This means that while they might have started using the same code, nothing stops these `Banana` contracts from diverging.
 Parties on the network receiving a `com.fruitcompany.Banana` will need to explicitly check the constraint to understand what they received.
-In Corda 4, to help avoid this type of confusion, we introduced the concept of Package Namespace Ownership (see [Package namespace ownership](../../../../../en/platform/corda/4.10/enterprise/node/deploy/env-dev.html#package-namespace-ownership)).
+In Corda 4, to help avoid this type of confusion, we introduced the concept of Package Namespace Ownership (see [Package namespace ownership](node/deploy/env-dev.html#package-namespace-ownership)).
 Briefly, it allows companies to claim namespaces and anyone who encounters a class in that package that is not signed by the registered key knows is invalid.
 
 This new feature can be used to solve the above scenario. If `FruitCo` claims package ownership of `com.fruitcompany`, it will prevent anyone

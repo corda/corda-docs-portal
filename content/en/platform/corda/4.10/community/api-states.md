@@ -20,7 +20,7 @@ title: 'API: States'
 
 # CorDapp states
 
-Before you read this article, make sure you understand the [state key concepts](../../../../../en/platform/corda/4.8/open-source/key-concepts-states.html).
+Before you read this article, make sure you understand the [state key concepts](key-concepts-states.html).
 
 In Corda, a contract state (or just ‘state’) stores data that the CorDapp needs to move from one transaction to another.
 

@@ -330,11 +330,11 @@ removed. This experience will be improved in the future. Making it easier to kil
 There are two types of contract/state upgrade:
 
 
-* *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints. See [Contract Constraints](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contract-constraints.md) to learn more.
+* *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints. See [Contract Constraints](api-contract-constraints.md) to learn more.
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contract-constraints.html#implicit-and-explicit-contract-upgrades).
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.html#implicit-and-explicit-contract-upgrades).
 
 
 
@@ -346,7 +346,7 @@ constraint of the states it’s allowed to replace.
 
 
 {{< warning >}}
-In Corda 4 we’ve introduced the Signature Constraint (see [Contract Constraints](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contract-constraints.md)). States created or migrated to
+In Corda 4 we’ve introduced the Signature Constraint (see [Contract Constraints](api-contract-constraints.md)). States created or migrated to
 the Signature Constraint can’t be explicitly upgraded using the Contract upgrade transaction. This feature might be added in a future version.
 Given the nature of the Signature constraint there should be little need to create a brand new contract to fix issues in the old contract.
 
@@ -379,7 +379,7 @@ interface UpgradedContract<in OldState : ContractState, out NewState : ContractS
 
 The `upgrade` method describes how the old state type is upgraded to the new state type.
 
-By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [Contract Constraints](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contract-constraints.md)).
+By default this new contract will only be able to upgrade legacy states which are constrained by the zone whitelist (see [Contract Constraints](api-contract-constraints.md)).
 
 {{< note >}}
 The requirement for a `legacyContractConstraint` arises from the fact that when a transaction chain is verified and a `Contract Upgrade` is
@@ -429,7 +429,7 @@ in progress.
 #### 6. Re-run the network bootstrapper (only if you want to whitelist the new contract)
 
 If you’re using the network bootstrapper instead of a network map server and have defined any new contracts, you need to
-re-run the network bootstrapper to whitelist the new contracts. See the [Network Bootstrapper documentation](../../../../../../en/platform/corda/4.10/enterprise/network-bootstrapper.md).
+re-run the network bootstrapper to whitelist the new contracts. See the [Network Bootstrapper documentation](../network-bootstrapper.md).
 
 
 #### 7. Restart the nodes
@@ -468,7 +468,7 @@ which references the new contract code.
 
 #### 10. Migrate the new upgraded state to the Signature Constraint from the zone constraint
 
-Follow the guide in [Contract Constraints](../../../../../../en/platform/corda/4.10/enterprise/cordapps/api-contract-constraints.md).
+Follow the guide in [Contract Constraints](api-contract-constraints.md).
 
 
 ### Points to note

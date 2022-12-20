@@ -18,7 +18,7 @@ By default, the private keys that belong to the node CA, legal identity and TLS 
 directory. Users may wish to instead store this key in a hardware security module (HSM) or similar.
 
 
-See the [Hardware Security Modules (HSM)](../../../../../../../en/platform/corda/4.10/enterprise/platform-support-matrix.html#hardware-security-modules-hsm) for supported HSMs and their features.
+See the [Hardware Security Modules (HSM)](../../platform-support-matrix.html#hardware-security-modules-hsm) for supported HSMs and their features.
 
 The cryptographic operations that are performed by the HSM are key generation and signing. The private key material is
 stored in the HSM if the node is configured to use an HSM. The public keys are stored in the HSM (if configured for the node)
@@ -45,7 +45,7 @@ Importing existing keys from the file-based key store into a HSM is not supporte
 
 ## Configuration
 
-As mentioned in the description of the configuration file ([Node configuration](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-file.md)), the `node.conf` has three relevant fields:
+As mentioned in the description of the configuration file ([Node configuration](../setup/corda-configuration-file.md)), the `node.conf` has three relevant fields:
 * `cryptoServiceName`
 * `cryptoServiceConf`
 * Optional: `cryptoServiceTimeout`
@@ -53,7 +53,7 @@ As mentioned in the description of the configuration file ([Node configuration](
 If you do not add the `cryptoServiceTimeout` parameter, it defaults to 10000 milliseconds. You can increase it to mitigate the time-out error.
 
 {{< warning >}}
-The file containing the configuration for the HSM (referenced by the `cryptoServiceConf` field) contains sensitive information. For this reason, we strongly advise you to use the [Configuration Obfuscator](../../../../../../../en/platform/corda/4.10/enterprise/tools-config-obfuscator.md) tool.
+The file containing the configuration for the HSM (referenced by the `cryptoServiceConf` field) contains sensitive information. For this reason, we strongly advise you to use the [Configuration Obfuscator](../../tools-config-obfuscator.md) tool.
 
 {{< /warning >}}
 

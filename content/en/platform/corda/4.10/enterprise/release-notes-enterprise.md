@@ -20,9 +20,9 @@ Corda: Enterprise Edition 4.10 features a series of improvements over the previo
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.10/enterprise.html) as soon as possible. The latest Corda: Enterprise Edition  release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.10/enterprise/upgrading-index.md).
+As a developer, you should upgrade to the [latest released version of Corda](enterprise.html) as soon as possible. The latest Corda: Enterprise Edition  release notes are on this page, and you can find the latest upgrade guide [here](upgrading-index.md).
 
-As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.10/enterprise.html).
+As a node operator, you should upgrade to the [latest released version of Corda](enterprise.html).
 
 ### Fixed issues
 

@@ -37,7 +37,7 @@ There are a few possible recovery actions for a stuck flow. You can:
 
 ### Kill and retry the flow
 
-To kill a flow, use the [Corda shell](../../../../../../../../en/platform/corda/4.10/enterprise/node/operating/shell.md).
+To kill a flow, use the [Corda shell](../shell.md).
 
 1. Open the node shell.
 2. Run the `flow kill <flow-id>`, where `<flow-id>` is the unique flow ID. The output will look something like this:
@@ -59,4 +59,4 @@ The node has a graceful shutdown mode that drains outstanding flows to checkpoin
 
 ### Contact other network participants
 
-If a peer node is not responding to an initiated flow, you may need to contact the node operator. The checkpoint dump includes diagnostic information including the destination peer participant node that is not responding. For more information on the checkpoint tools available, see the [checkpoint tooling documentation](../../../../../../../../en/platform/corda/4.10/enterprise/node/operating/monitoring-and-logging/checkpoint-tooling.md).
+If a peer node is not responding to an initiated flow, you may need to contact the node operator. The checkpoint dump includes diagnostic information including the destination peer participant node that is not responding. For more information on the checkpoint tools available, see the [checkpoint tooling documentation](checkpoint-tooling.md).

@@ -12,7 +12,7 @@ weight: 76
 
 # Node management console
 
-The Node management console allows you to see information about a node and perform some operations on it. It runs as a plug-in for the [Gateway Service](../../../../../../../en/platform/corda/4.10/enterprise/node/gateway-service.md).
+The Node management console allows you to see information about a node and perform some operations on it. It runs as a plug-in for the [Gateway Service](../gateway-service.md).
 
 The node management console allows you to see the following information about the node:
 

@@ -61,7 +61,7 @@ if you are building a CorDapp on Corda 4.10, use the `release-V4` branch.
 ### Build system
 
 The templates are built using Gradle. A Gradle wrapper is provided in the `wrapper` folder, and the dependencies are
-defined in the `build.gradle` files. See [Building and installing a CorDapp](../../../../../../en/platform/corda/4.10/enterprise/cordapps/cordapp-build-systems.md) for more information.
+defined in the `build.gradle` files. See [Building and installing a CorDapp](cordapp-build-systems.md) for more information.
 
 No templates are currently provided for Maven or other build systems.
 

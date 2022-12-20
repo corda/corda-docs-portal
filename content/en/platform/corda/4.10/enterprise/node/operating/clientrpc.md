@@ -368,7 +368,7 @@ To interact with your node via any of the following interfaces, you need to buil
 All of these interfaces are located in the `:client:extensions-rpc` module.
 
 {{< note >}}
-`COMPLETED`, `FAILED`, and `KILLED` flows can only be queried when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs using a unique, client-provided ID. For more information, see [Starting a flow with a client-provided unique ID](../../../../../../../en/platform/corda/4.10/enterprise/flow-start-with-client-id.md).
+`COMPLETED`, `FAILED`, and `KILLED` flows can only be queried when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs using a unique, client-provided ID. For more information, see [Starting a flow with a client-provided unique ID](../../flow-start-with-client-id.md).
 {{< /note >}}
 
 {{< note >}}
@@ -697,7 +697,7 @@ any resources.
 
 ## Versioning
 
-The client RPC protocol is versioned using the node’s platform version number (see [Versioning](../../../../../../../en/platform/corda/4.10/enterprise/cordapps/versioning.md)). When a proxy is created,
+The client RPC protocol is versioned using the node’s platform version number (see [Versioning](../../cordapps/versioning.md)). When a proxy is created,
 the server is queried for its version, and you can specify your minimum requirement. Methods added in later versions
 are tagged with the `@RPCSinceVersion` annotation. If you try to use a method that the server isn’t advertising support
 for, an `UnsupportedOperationException` is thrown. If you want to know the version of the server, just use the
@@ -732,8 +732,8 @@ side as if it were thrown from inside the called RPC method. These exceptions ca
 
 ## Configuring wire security
 
-If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options](../../../../../../../en/platform/corda/4.10/enterprise/node/setup/corda-configuration-file.md)).
-The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options](../../../../../../../en/platform/corda/4.10/enterprise/node/node-commandline.md)).
+If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options](../setup/corda-configuration-file.md)).
+The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options](../node-commandline.md)).
 The generated RPC TLS trust root certificate is exported to a `certificates/export/rpcssltruststore.jks` file, which should be distributed to the authorised RPC clients.
 
 The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](../../../../../../../en/api-ref/corda/4.10/open-source/javadoc/net/corda/client/rpc/CordaRPCClient.html)) and set this constructor

@@ -37,10 +37,10 @@ or [Migrating from the H2 database to another database vendor](#migrating-from-t
 
 
 * Ensure CorDapps contain Liquibase database management scripts.
-You can check if the CorDapp JAR contains Liquibase scripts as described in [Database update](../../../../../en/platform/corda/4.10/enterprise/node/operating/node-operations-cordapp-deployment.html#database-update).
+You can check if the CorDapp JAR contains Liquibase scripts as described in [Database update](node/operating/node-operations-cordapp-deployment.html#database-update).
 If the Cordapp stores data in the custom tables (consult with the CorDapp developer/provider)
 and it doesn’t contain Liquibase scripts, follow the procedure
-[to add the script retrospectively](../../../../../en/platform/corda/4.10/enterprise/cordapps/database-management.html#adding-scripts-retrospectively-to-an-existing-cordapp).{{< note >}}
+[to add the script retrospectively](cordapps/database-management.html#adding-scripts-retrospectively-to-an-existing-cordapp).{{< note >}}
 Adding a Liquibase migration script to a CorDapp should be done by a CorDapp developer.{{< /note >}}
 
 * Generate CorDapp changesets against an empty database.Any custom tables required by CorDapps will have been created manually or by Hibernate upon node startup.
@@ -55,7 +55,7 @@ java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_
 The option `-b` points to the base directory (the directory containing a `node.conf` file, and the *drivers* and *cordapps* subdirectories). The generated script (*migration/*.sql*) will be present in the base directory.
 This script contains all of the statements to create the data structures (e.g. tables/indexes) for CorDapps,
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
-For a description of the options, refer to the [Corda Database Management Tool](../../../../../en/platform/corda/4.10/enterprise/database-management-tool.md) manual.
+For a description of the options, refer to the [Corda Database Management Tool](database-management-tool.md) manual.
 
 * Run selected insert statements to update Liquibase database change logIn the generated script, find all inserts into *DATABASECHANGELOG* table related to your CorDapp,
 you can search for *– Changeset migration/<file-name>* lines, where <file-name> references the Liquibase Script file name from the CorDapp.
@@ -81,9 +81,9 @@ we have validated for this upgrade exercise.
 The procedure for migrating from H2 to a commercial database is as follows:
 
 
-* Create a database schema and configure a Corda node to connect to the new database following [Database schema setup](../../../../../en/platform/corda/4.10/enterprise/node/operating/node-database-admin.md) instructions
+* Create a database schema and configure a Corda node to connect to the new database following [Database schema setup](node/operating/node-database-admin.md) instructions
 for a production system, or [Simplified database schema setup for development](node/operating/node-database-developer.md) instructions for development/testing purposes.
-Refer to [Understanding the node database](../../../../../en/platform/corda/4.10/enterprise/node/operating/node-database.md) to decide which setup is more suitable.
+Refer to [Understanding the node database](node/operating/node-database.md) to decide which setup is more suitable.
 * Migrate data from H2 databaseThe migration from the H2 database requires a third party specialized tool.
 Your organisation may need to purchase a licence to use the tool.
 Please contact R3 for further advice.
