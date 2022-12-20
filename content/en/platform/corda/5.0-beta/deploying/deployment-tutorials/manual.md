@@ -427,7 +427,7 @@ To create the roles manually, do the following:
 
 2. Execute the following three commands:
 
-   {{< tabs name="rbac>}}
+   {{< tabs name="rbac">}}
    {{% tab name="Linux" %}}
    ```sh
    corda-cli.sh initial-rbac user-admin --yield 300 --user <INITIAL-ADMIN-USERNAME> \
