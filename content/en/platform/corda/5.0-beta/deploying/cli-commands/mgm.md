@@ -1,39 +1,17 @@
 ---
-date: '2022-12-13'
+date: '2022-12-20'
 menu:
   corda-5-beta:
-    identifier: corda-5-beta-cordacli-deploy-commands
-    weight: 7000
-    parent: corda-5-beta-deploy
+    identifier: corda-5-beta-cordacli-mgm
+    weight: 4000
+    parent: corda-5-beta-cordacli-deploy-commands
 section_menu: corda-5-beta
-title: "MGM Corda CLI Reference"
+title: "mgm"
 ---
-
-This section lists [Corda CLI](../getting-started/installing-corda-cli.html) arguments used as part of deployment.
-
-## topic
-
-This section lists the Corda CLI `topic` arguments. You can use these commands to manually perform setup actions in Kafka, as described in the [Manual Bootstrapping Tutorial](deployment-tutorials/manual.html).
-
-### 
-
-## database
-
-This section lists the Corda CLI `database` arguments. You can use these commands to manually perform setup actions in the database, as described in the [Manual Bootstrapping Tutorial](deployment-tutorials/manual.html).
-
-### 
-
-## initial-config
-
-This section lists the Corda CLI `database` arguments. You can use these commands to manually perform various setup actions for Corda RBAC, as described in the [Manual Bootstrapping Tutorial](deployment-tutorials/manual.html).
-
-### 
-
-## mgm
 
 This section lists the Corda CLI `mgm` arguments. You can use these commands to execute membership operations, as described in the [Onboarding Tutorials](deployment-tutorials/onboarding/overview.html).
 
-### groupPolicy Command
+### groupPolicy
 
 Running the `groupPolicy` command without any arguments prints a sample `GroupPolicy.json` file that you can manually tweak.
    {{< tabs name="groupPolicy">}}
