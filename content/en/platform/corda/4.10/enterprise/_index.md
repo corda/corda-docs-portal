@@ -14,7 +14,7 @@ version: 'Enterprise 4.10'
 
 # Introduction to Corda
 
-A Corda Network is a peer-to-peer network of [Nodes](node/component-topology.html), each representing a party on the network.
+A Corda Network is a peer-to-peer network of [Nodes](enterprise/node/component-topology.md), each representing a party on the network.
 These Nodes run Corda applications [(CorDapps)](cordapps/cordapp-overview.html), and transact between Nodes using public or
 confidential identities.
 
