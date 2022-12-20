@@ -230,20 +230,37 @@ To create the schema manually, do the following:
    {{% tab name="Windows" %}}
    ```shell
    corda-cli.cmd database spec -c -l /tmp/db
-
    ```
    {{% /tab %}}
    {{< /tabs >}}
 
 3. Review the DML files generated and then execute against the database.
-************************
+
 4. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration:
 
-   ```shell
+   {{< tabs name="RBAC">}}
+   {{% tab name="Linux" %}}
+   ```sh
    corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
      --name corda-rbac --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
      --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
+     --name corda-rbac --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
+     --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> `
+     --name corda-rbac --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
+     --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
    The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the Corda deployment configuration for the DB worker:
 
@@ -256,41 +273,108 @@ To create the schema manually, do the following:
 
    For example:
 
-   ```shell
+   {{< tabs name="RBAC-example">}}
+   {{% tab name="Linux" %}}
+   ```sh
    corda-cli.sh initial-config create-db-config -u rbac-user -p rc9VLHU3 \
      --name corda-rbac --jdbcURL jdbc:postgresql://postgres.example.com:5432/cordacluster \
      --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u rbac-user -p rc9VLHU3 \
+     --name corda-rbac --jdbcURL jdbc:postgresql://postgres.example.com:5432/cordacluster \
+     --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u rbac-user -p rc9VLHU3 `
+     --name corda-rbac --jdbcURL jdbc:postgresql://postgres.example.com:5432/cordacluster `
+     --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 5. Review the DDL files generated and then execute against the database.
 
-
 6. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration:
 
-   ```shell
+   {{< tabs name="DDL-crypto">}}
+   {{% tab name="Linux" %}}
+   ```sh
    corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> \
      --name corda-crypto --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO \
      --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> \
+     --name corda-crypto --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO \
+     --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> `
+     --name corda-crypto --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO `
+     --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
 
    The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
 
    For example:
 
-   ```shell
+   {{< tabs name="DDL-crypto-example">}}
+   {{% tab name="Linux" %}}
+   ```sh
    corda-cli.sh initial-config create-db-config -u crypto-user -p TqoCp4v2 \
      --name corda-crypto --jdbcURL jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO \
      --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```sh
+   corda-cli.sh initial-config create-db-config -u crypto-user -p TqoCp4v2 \
+     --name corda-crypto --jdbcURL jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO \
+     --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   corda-cli.cmd initial-config create-db-config -u crypto-user -p TqoCp4v2 `
+     --name corda-crypto --jdbcURL jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO `
+     --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 7. Review the DDL files generated and then execute against the database.
 
-
 8. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda:
 
-   ```shell
+   {{< tabs name="DDL-user">}}
+   {{% tab name="Linux" %}}
+   ```sh
    corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
    ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```sh
+   corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 9. Review the DDL files generated and then execute against the database.
 
@@ -307,10 +391,23 @@ To create the schema manually, do the following:
 
 11. Execute the following Corda CLI command to generate DDL for populating the initial crypto configuration:
 
-    ```shell
+   {{< tabs name="DDL-crypto-config">}}
+   {{% tab name="Linux" %}}
+   ```sh
     corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-    ```
-
+   ```
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```sh
+    corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+    corda-cli.cmd initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
     The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
 
 12. Review the DDL files generated and then execute against the database.
@@ -319,6 +416,7 @@ To create the schema manually, do the following:
 
 By default, a post-install job normally creates three default RBAC roles for the Corda API.
 To create the roles manually, do the following:
+
 1. Set the following override in the deployment configuration to disable the automatic creation:
 
    ```yaml
@@ -329,7 +427,9 @@ To create the roles manually, do the following:
 
 2. Execute the following three commands:
 
-   ```shell
+   {{< tabs name="rbac>}}
+   {{% tab name="Linux" %}}
+   ```sh
    corda-cli.sh initial-rbac user-admin --yield 300 --user <INITIAL-ADMIN-USERNAME> \
      --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
    corda-cli.sh initial-rbac vnode-creator --yield 300 --user <INITIAL-ADMIN-USERNAME> \
@@ -337,5 +437,26 @@ To create the roles manually, do the following:
    corda-cli.sh initial-rbac corda-developer --yield 300 --user <INITIAL-ADMIN-USERNAME> \
      --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
    ```
-
+   {{% /tab %}}
+   {{% tab name="macOS" %}}
+   ```sh
+   corda-cli.sh initial-rbac user-admin --yield 300 --user <INITIAL-ADMIN-USERNAME> \
+     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
+   corda-cli.sh initial-rbac vnode-creator --yield 300 --user <INITIAL-ADMIN-USERNAME> \
+     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
+   corda-cli.sh initial-rbac corda-developer --yield 300 --user <INITIAL-ADMIN-USERNAME> \
+     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
+   ```
+   {{% /tab %}}
+   {{% tab name="Windows" %}}
+   ```shell
+   corda-cli.cmd initial-rbac user-admin --yield 300 --user <INITIAL-ADMIN-USERNAME> `
+     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
+   corda-cli.cmd initial-rbac vnode-creator --yield 300 --user <INITIAL-ADMIN-USERNAME> `
+     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
+   corda-cli.cmd initial-rbac corda-developer --yield 300 --user <INITIAL-ADMIN-USERNAME> `
+     --password <INITIAL-ADMIN-PASSWORD> --target <API-ENDPOINT>
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
    `<API-ENDPOINT>` should be a URL where the Corda API is accessible, either via a load balancer or by forwarding port 8888 from one of the RPC worker pods.
