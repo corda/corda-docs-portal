@@ -47,18 +47,18 @@ The Corda CLI command to create the topics looks as follows:
 {{% tab name="Linux" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <RELICAS> -p <PARTITIONS> connect
+  create -r <REPLICAS> -p <PARTITIONS> connect
 ```
 {{% /tab %}}
 {{% tab name="macOS" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <RELICAS> -p <PARTITIONS> connect
+  create -r <REPLICAS> -p <PARTITIONS> connect
    ```
 {{% /tab %}}
 {{% tab name="Windows" %}}
 ```shell
-corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <RELICAS> -p <PARTITIONS> connect
+corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLICAS> -p <PARTITIONS> connect
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -90,7 +90,7 @@ Specify a set of name-value pairs giving the Kafka username that will be used fo
 {{% tab name="Linux" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <RELICAS> -p <PARTITIONS> \
+  create -r <REPLICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
   -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
   connect
@@ -99,7 +99,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
 {{% tab name="macOS" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <RELICAS> -p <PARTITIONS> \
+  create -r <REPLICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
   -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
   connect
@@ -108,7 +108,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
 {{% tab name="Windows" %}}
 ```shell
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
-  create -r <RELICAS> -p <PARTITIONS> `
+  create -r <REPLICAS> -p <PARTITIONS> `
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> `
   -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> `
   connect
@@ -127,18 +127,18 @@ Run the following Corda CLI command to generate the script:
 {{% tab name="Linux" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <RELICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
+  create -r <REPLICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
 ```
 {{% /tab %}}
 {{% tab name="macOS" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <RELICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
+  create -r <REPLICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
 ```
 {{% /tab %}}
 {{% tab name="Windows" %}}
 ```shell
-corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <RELICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
+corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLICAS> -p <PARTITIONS> script -f <FILE> -c <CONCURRENCY>
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -174,7 +174,7 @@ Specify a set of name-value pairs giving the Kafka username that will be used fo
 {{% tab name="Linux" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <RELICAS> -p <PARTITIONS> \
+  create -r <REPLICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
   -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
   connect
@@ -183,7 +183,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
 {{% tab name="macOS" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <RELICAS> -p <PARTITIONS> \
+  create -r <REPLICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
   -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
   connect
@@ -192,7 +192,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
 {{% tab name="Windows" %}}
 ```shell
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
-  create -r <RELICAS> -p <PARTITIONS> `
+  create -r <REPLICAS> -p <PARTITIONS> `
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> `
   -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> `
   connect
