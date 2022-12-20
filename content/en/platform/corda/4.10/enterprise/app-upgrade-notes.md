@@ -80,7 +80,7 @@ Follow the steps below for each upgrade path.
 
 #### Upgrade a node from Corda 4.5 (or earlier 4.x version)
 
-1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file](    `   node/setup/corda-configuration-file.md).
+1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, `initialiseAppSchema`, and `runMigration` from the database section of your [node configuration file](node/setup/corda-configuration-file.md).
 2. Update any missing core schema changes by either running the [Database Management Tool](database-management-tool.md) (recommended) or running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
 
 #### Upgrade a node from Corda 3.x or Corda Enterprise 3.x
