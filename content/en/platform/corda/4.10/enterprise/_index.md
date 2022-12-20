@@ -15,18 +15,18 @@ version: 'Enterprise 4.10'
 # Introduction to Corda
 
 A Corda Network is a peer-to-peer network of [Nodes](enterprise/node/component-topology.md), each representing a party on the network.
-These Nodes run Corda applications [(CorDapps)](cordapps/cordapp-overview.html), and transact between Nodes using public or
+These Nodes run Corda applications [(CorDapps)](enterprise/cordapps/cordapp-overview.html), and transact between Nodes using public or
 confidential identities.
 
-When one or more Nodes are involved in a transaction, the transaction must be notarised. [Notaries](notary/ha-notary-service-overview.html) are a specialised type
+When one or more Nodes are involved in a transaction, the transaction must be notarised. [Notaries](enterprise/notary/ha-notary-service-overview.html) are a specialised type
 of Node that provides uniqueness consensus by attesting that, for a given transaction, it has not already signed other
 transactions that consumes any of the proposed transaction’s input states.
 
 {{< note >}}
 **Release notes**
 
-* For the latest Corda Enterprise release notes, see the [Corda Enterprise Edition 4.10 release notes](release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
-* For the Corda Community Edition release notes, see the [Corda Community Edition 4.10 release notes](../community/release-notes.md) page.
+* For the latest Corda Enterprise release notes, see the [Corda Enterprise Edition 4.10 release notes](enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
+* For the Corda Community Edition release notes, see the [Corda Community Edition 4.10 release notes](../../community/release-notes.md) page.
 * For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](../../../../../en/platform/corda/1.5/cenm/release-notes.md) page.
 {{< /note >}}
 
@@ -37,8 +37,8 @@ throughput demands of modern day business. Corda Enterprise is interoperable and
 is designed for organisations with exacting requirements around quality of service and the network infrastructure in
 which they operate.
 
-Corda Enterprise contains all the core Corda functionality, but also includes the [Corda Firewall](node/corda-firewall-component.html),
-support for high-availability Node and Notary deployments, and compatibility with hardware security modules [(HSMs)](node/operating/cryptoservice-configuration.html).
+Corda Enterprise contains all the core Corda functionality, but also includes the [Corda Firewall](enterprise/node/corda-firewall-component.html),
+support for high-availability Node and Notary deployments, and compatibility with hardware security modules [(HSMs)](enterprise/node/operating/cryptoservice-configuration.html).
 
 ## Corda Enterprise vs Corda Community Edition
 
