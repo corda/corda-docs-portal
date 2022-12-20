@@ -11,26 +11,25 @@ title: "mgm"
 
 This section lists the Corda CLI `mgm` arguments. You can use these commands to execute membership operations, as described in the [Onboarding Tutorials](deployment-tutorials/onboarding/overview.html).
 
-### groupPolicy
-
 Running the `groupPolicy` command without any arguments prints a sample `GroupPolicy.json` file that you can manually tweak.
-   {{< tabs name="groupPolicy">}}
-   {{% tab name="Linux" %}}
-   ```sh
-   corda-cli.sh mgm groupPolicy
-   ```
-   {{% /tab %}}
-  {{% tab name="macOS" %}}
-   ```sh
-   corda-cli.sh mgm groupPolicy
-   ```
-   {{% /tab %}}
-   {{% tab name="Windows" %}}
-   ```shell
-   corda-cli.cmd mgm groupPolicy
-   ```
-   {{% /tab %}}
-   {{< /tabs >}}
+
+{{< tabs name="groupPolicy">}}
+{{% tab name="Linux" %}}
+```sh
+corda-cli.sh mgm groupPolicy
+```
+{{% /tab %}}
+{{% tab name="macOS" %}}
+```sh
+corda-cli.sh mgm groupPolicy
+```
+{{% /tab %}}
+{{% tab name="Windows" %}}
+```shell
+corda-cli.cmd mgm groupPolicy
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 Alternatively, use the following command line arguments to define the static network section of the GroupPolicy:
 
@@ -41,7 +40,7 @@ Alternatively, use the following command line arguments to define the static net
 | --endpoint          | The endpoint base URL; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).|
 | --endpoint-protocol | The version of end-to-end authentication protocol; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).|
 
-#### Generating GroupPolicy Using File Input
+## Generating GroupPolicy Using File Input
 
 To generate GroupPolicy using file input:
    {{< tabs name="groupPolicy-file">}}
@@ -68,7 +67,7 @@ To generate GroupPolicy using file input:
 * Endpoint information specified under `members` overrides endpoint information set at the root level. An error is thrown if no endpoint information is provided.
 {{< /note >}}
 
-##### Sample Files
+### Sample Files
 
 * JSON with `memberNames`:
   ```json
@@ -115,7 +114,7 @@ To generate GroupPolicy using file input:
     - name: "C=GB, L=London, O=Member2"
   ```
 
-#### Generating GroupPolicy Using String Parameters
+## Generating GroupPolicy Using String Parameters
 
 To generate GroupPolicy using parameters:
    {{< tabs name="groupPolicy-params">}}

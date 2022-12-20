@@ -11,143 +11,89 @@ title: "initial-config"
 
 This section lists the Corda CLI `initial-config` arguments. You can use these commands to manually perform various setup actions, as described in the [Manual Bootstrapping Tutorial](deployment-tutorials/manual.html).
 
-### create-user-config 
+## create-user-config 
 
-### create-db-config
+The `create-user-config` command creates the SQL script to add the RBAC configuration for an initial admin user. 
 
-### create-crypto-config
+| Argument       | Description                                   |
+| -------------- | --------------------------------------------- |
+| -l, --location | The path to write the generated SQL files to. |
+| -p, --password | The password of the initial admin user.       |
+| -u, --user     | The user name of the initial admin user.      |
 
-## mgm
+{{< tabs name="DDL-user">}}
+{{% tab name="Linux" %}}
+```sh
+corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
+```
+{{% /tab %}}
+{{% tab name="macOS" %}}
+```sh
+corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
+```
+{{% /tab %}}
+{{% tab name="Windows" %}}
+```shell
+corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
+```
+{{% /tab %}}
+{{< /tabs >}}
 
-This section lists the Corda CLI `mgm` arguments. You can use these commands to execute membership operations, as described in the [Onboarding Tutorials](deployment-tutorials/onboarding/overview.html).
+## create-db-config
 
-### groupPolicy
+The `create-db-config` command creates the SQL statements to insert the connection manager configuration for the database.
+*************************************
+Usage: corda initial-config create-db-config [-a] [-d=<description>]
+       -e=<passphrase> -j=<jdbcUrl> [--jdbcPoolMaxSize=<jdbcPoolMaxSize>]
+       [-l=<location>] -n=<connectionName> -p=<password> -s=<salt> -u=<username>
 
-Running the `groupPolicy` command without any arguments prints a sample `GroupPolicy.json` file that you can manually tweak.
-   {{< tabs name="groupPolicy">}}
-   {{% tab name="Linux" %}}
-   ```sh
-   corda-cli.sh mgm groupPolicy
-   ```
-   {{% /tab %}}
-  {{% tab name="macOS" %}}
-   ```sh
-   corda-cli.sh mgm groupPolicy
-   ```
-   {{% /tab %}}
-   {{% tab name="Windows" %}}
-   ```shell
-   corda-cli.cmd mgm groupPolicy
-   ```
-   {{% /tab %}}
-   {{< /tabs >}}
 
-Alternatively, use the following command line arguments to define the static network section of the GroupPolicy:
+  -d, --description=<description>
+                            Detailed info on the database connection
+  -e, --passphrase=<passphrase>
+                            Passphrase for the encrypting secrets service
+  -j, --jdbcURL=<jdbcUrl>   The JDBC URL for the connection. Required.
+      --jdbcPoolMaxSize=<jdbcPoolMaxSize>
+                            The maximum size for the JDBC connection pool.
+                              Defaults to 10
+  -l, --location=<location> location to write the sql output to
+  -n, --name=<connectionName>
+                            Name of the database connection. Required.
+  -p, --password=<password> Password name for the database connection. Required.
+  -s, --salt=<salt>         Salt for the encrypting secrets service
+  -u, --user=<username>     User name for the database connection. Required.
 
-| Argument            | Description                                                          |
-|---------------------|----------------------------------------------------------------------|
-| --file, -f          | The path to a JSON or YAML file that contains static network information; see [Generating GroupPolicy Using File Input](#generating-groupPolicy-using-file-input).|
-| --name              | The X.500 name of the member; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).|
-| --endpoint          | The endpoint base URL; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).|
-| --endpoint-protocol | The version of end-to-end authentication protocol; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).|
 
-#### Generating GroupPolicy Using File Input
+| Argument       | Description                                   |
+| -------------- | --------------------------------------------- |
+| -a, --isAdmin | Specifies if this is an admin (DDL) connection. The default value is false. |
 
-To generate GroupPolicy using file input:
-   {{< tabs name="groupPolicy-file">}}
-   {{% tab name="Linux" %}}
-   ```sh
-   corda-cli.sh groupPolicy --file="app/build/resources/src.yaml"
-   ```
-   {{% /tab %}}
-  {{% tab name="macOS" %}}
-   ```sh
-   corda-cli.sh groupPolicy --file="app/build/resources/src.yaml"
-   ```
-   {{% /tab %}}
-   {{% tab name="Windows" %}}
-   ```shell
-   corda-cli.cmd groupPolicy --file="app/build/resources/src.yaml"
-   ```
-   {{% /tab %}}
-   {{< /tabs >}}
 
-{{< note >}}
-* Only `memberNames` or `members` blocks may be present.
-* A single endpoint is assumed for all members when `memberNames` is used.
-* Endpoint information specified under `members` overrides endpoint information set at the root level. An error is thrown if no endpoint information is provided.
-{{< /note >}}
 
-##### Sample Files
+{{< tabs name="RBAC">}}
+{{% tab name="Linux" %}}
+```sh
+corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
+  --name corda-rbac --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
+  --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+```
+{{% /tab %}}
+{{% tab name="macOS" %}}
+```sh
+corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
+  --name corda-rbac --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
+  --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+```
+{{% /tab %}}
+{{% tab name="Windows" %}}
+```shell
+corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> `
+  --name corda-rbac --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
+  --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+```
+{{% /tab %}}
+{{< /tabs >}}
 
-* JSON with `memberNames`:
-  ```json
-  {
-    "endpoint": "http://dummy-url",
-    "endpointProtocol": 5,
-    "memberNames": ["C=GB, L=London, O=Member1", "C=GB, L=London, O=Member2"]
-  }
-  ```
+   The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the Corda deployment configuration for the DB worker:
 
-* JSON with `members`:
-  ```json
-  {
-    "members": [
-        {
-        "name": "C=GB, L=London, O=Member1",
-        "status": "PENDING",
-        "endpoint": "http://dummy-url",
-        "endpointProtocol": 5
-        },
-        {
-          "name": "C=GB, L=London, O=Member2",
-          "endpoint": "http://dummy-url2",
-          "endpointProtocol": 5
-        }
-      ]
-  }
-  ```
-* YAML with `memberNames`:
-  ```yaml
-  endpoint: "http://dummy-url"
-  endpointProtocol: 5
-  memberNames: ["C=GB, L=London, O=Member1", "C=GB, L=London, O=Member2"]
-  ```
-
-* YAML with `members` which all use a common endpoint, and Member1 overrides the protocol version:
-  ```yaml
-  endpoint: "http://dummy-url"
-  endpointProtocol: 5
-  members:
-    - name: "C=GB, L=London, O=Member1"
-      status: "PENDING"
-      endpointProtocol: 10
-    - name: "C=GB, L=London, O=Member2"
-  ```
-
-#### Generating GroupPolicy Using String Parameters
-
-To generate GroupPolicy using parameters:
-   {{< tabs name="groupPolicy-params">}}
-   {{% tab name="Linux" %}}
-   ```sh
-   corda-cli.sh groupPolicy --name="C=GB, L=London, O=Member1" --name="C=GB, L=London, O=Member2" --endpoint-protocol=5 --endpoint="http://dummy-url"
-   ```
-   {{% /tab %}}
-   {{% tab name="macOS" %}}
-   ```sh
-   corda-cli.sh groupPolicy --name="C=GB, L=London, O=Member1" --name="C=GB, L=London, O=Member2" --endpoint-protocol=5 --endpoint="http://dummy-url"
-   ```
-   {{% /tab %}}
-   {{% tab name="Windows" %}}
-   ```shell
-   corda-cli.cmd groupPolicy --name="C=GB, L=London, O=Member1" --name="C=GB, L=London, O=Member2" --endpoint-protocol=5 --endpoint="http://dummy-url"
-   ```
-   {{% /tab %}}
-   {{< /tabs >}}
-
-{{< note >}}
-* Passing one or more `--name` arguments without specifying endpoint information throws an error.
-* Not passing any `--name` arguments returns a GroupPolicy with an empty list of static members.
-* A single endpoint is assumed for all members.
-{{< /note >}}
+## create-crypto-config
