@@ -15,7 +15,7 @@ This section lists the Corda CLI `database` arguments. You can use these command
 | -------------------- | ---------------------------------------------------------------------------------- |
 | spec                 | Generates the database schema from liquibase.                                      |
 | -c, --clearChangeLog | Deletes the changelogCSV in the PWD to force generation of the SQL files.          |
-| -l, --location       | The path to write the generated DML files to.                                          |
+| -l, --location       | The path to write the generated DML files to.                                      |
 | -s, --schemas        | The file of schema files to generate. If not specified, all schemas are generated. |
 
 For example, the following command generates the files in the directory `/tmp/db`:
