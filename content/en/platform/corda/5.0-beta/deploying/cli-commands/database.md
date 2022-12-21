@@ -11,17 +11,6 @@ title: "database"
 
 This section lists the Corda CLI `database` arguments. You can use these commands to manually perform setup actions in the database, as described in the [Manual Bootstrapping Tutorial](deployment-tutorials/manual.html).
 
-Usage: corda database spec [-c] [-l=<outputDir>] [-s=<schemasToGenerate>[,
-                           <schemasToGenerate>...]]...
-Does database schema generation from liquibase
-  -c, --clearChangeLog   Automatically delete the changelogCSV in the PWD to
-                           force generation of the sql files
-  -l, --location=<outputDir>
-                         Directory to write all files to
-  -s, --schemas=<schemasToGenerate>[,<schemasToGenerate>...]
-                         File of schema files to generate. Default is all
-                           schemas
-
 | Argument             | Description                                                                        |
 | -------------------- | ---------------------------------------------------------------------------------- |
 | spec                 | Generates the database schema from liquibase.                                      |

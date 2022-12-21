@@ -43,7 +43,7 @@ corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <
 
 The `create-db-config` command creates the SQL statements to insert the connection manager configuration for the database.
 
-| Argument          | Description                                                                                                                                      |
+| <div style="width:290px">Argument</div>           | Description                                                                                                                                      |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | -a, --isAdmin     | Specifies if this is an admin (DDL) connection. The default value is false.                                                                      |
 | -d, --description | Detailed informoation about the database connection.                                                                                             |

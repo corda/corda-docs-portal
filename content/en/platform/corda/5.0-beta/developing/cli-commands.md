@@ -9,7 +9,7 @@ section_menu: corda-5-beta
 title: "Corda CLI Package Reference"
 ---
 
-This section lists the [Corda CLI](../getting-started/installing-corda-cli.html) `package` arguments. You can use these commands to execute operations for working with CPB and CPI files, as described in the [CorDapp Packaging](development-tutorials/cordapp-packaging.md) section.
+This section lists the [Corda CLI](../getting-started/installing-corda-cli.html) `package` arguments. You can use these commands to execute operations for working with CPB and CPI files, as described in the [CorDapp Packaging](development-tutorials/cordapp-packaging.md) tutorial.
 
 | Argument     | Description                                        |
 | ------------ | -------------------------------------------------- |
