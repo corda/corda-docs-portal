@@ -66,7 +66,7 @@ The `initiator`:
 
 The `initiator`:
 
-1. Runs the [contracts](pi-contracts.md) contained in the CorDapp.
+1. Runs the [contracts](api-contracts.md) contained in the CorDapp.
 2. Verifies that the transaction is valid based on the contracts.
 
 
