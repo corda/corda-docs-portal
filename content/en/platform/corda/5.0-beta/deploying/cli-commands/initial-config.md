@@ -15,11 +15,11 @@ This section lists the Corda CLI `initial-config` arguments. You can use these c
 
 The `create-user-config` command creates the SQL script to add the RBAC configuration for an initial admin user. 
 
-| Argument       | Description                                   |
-| -------------- | --------------------------------------------- |
-| -l, --location | The path to write the generated SQL files to. |
-| -p, --password | The password of the initial admin user.       |
-| -u, --user     | The user name of the initial admin user.      |
+| <div style="width:160px">Argument</div> | Description                                   |
+| --------------------------------------- | --------------------------------------------- |
+| -l, \-\-location                        | The path to write the generated SQL files to. |
+| -p, \-\-password                        | The password of the initial admin user.       |
+| -u, \-\-user                            | The user name of the initial admin user.      |
 
 {{< tabs name="DDL-user">}}
 {{% tab name="Linux" %}}
@@ -43,18 +43,18 @@ corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <
 
 The `create-db-config` command creates the SQL statements to insert the connection manager configuration for the database.
 
-| <div style="width:180px">Argument</div> | Description                                                                                                                                      |
+| <div style="width:160px">Argument</div> | Description                                                                                                                                      |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | -a, \-\-isAdmin                         | Specifies if this is an admin (DDL) connection. The default value is false.                                                                      |
-| -d, --description                       | Detailed informoation about the database connection.                                                                                             |
-| -e, --passphrase                        | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the DB worker. |
-| -j, --jdbcURL                           | The JDBC URL for the connection. This value is required.                                                                                         |
-| --jdbcPoolMaxSize                       | The maximum size of the JDBC connection pool. The default value is 10.                                                                           |
-| -l, --location                          | The path to write the generated SQL files to.                                                                                                    |
-| -n, --name                              | The name of the database connection. Required.                                                                                                   |
-| -p, --password                          | The password name for the database connection. Required.                                                                                         |
-| -s, --salt                              | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the DB worker.            |
-| -u, --user                              | The user name for the database connection. Required.                                                                                             |
+| -d, \-\-description                     | Detailed informoation about the database connection.                                                                                             |
+| -e, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the DB worker. |
+| -j, \-\-jdbcURL                         | The JDBC URL for the connection. This value is required.                                                                                         |
+| \-\-jdbcPoolMaxSize                     | The maximum size of the JDBC connection pool. The default value is 10.                                                                           |
+| -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |
+| -n, \-\-name                            | The name of the database connection. Required.                                                                                                   |
+| -p, \-\-password                        | The password name for the database connection. Required.                                                                                         |
+| -s, \-\-salt                            | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the DB worker.            |
+| -u, \-\-user                            | The user name for the database connection. Required.                                                                                             |
 
 {{< tabs name="RBAC">}}
 {{% tab name="Linux" %}}
@@ -84,13 +84,13 @@ corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWO
 
 The `create-crypto-config` command creates the SQL statements to insert the initial crypto configuration for the database. This operation must be performed after the cluster database is initialized but before the cluster is started.
 
-| Argument                   | Description                                                                                                                                      |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| -l, --location             | The path to write the generated SQL files to.                                                                                                    |
-| -p, --passphrase           | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the DB worker. |
-| -s, --salt                 | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the DB worker.            |
-| -wp, --wrapping-passphrase | The passphrase for the SOFT HSM root wrapping key.                                                                                               |
-| -ws, --wrapping-salt       | Salt for the SOFT HSM root wrapping key.                                                                                                         |
+| <div style="width:160px">Argument</div> | Description                                                                                                                                      |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |
+| -p, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the DB worker. |
+| -s, \-\-salt                            | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the DB worker.            |
+| -wp, \-\-wrapping-passphrase            | The passphrase for the SOFT HSM root wrapping key.                                                                                               |
+| -ws, \-\-wrapping-salt                  | Salt for the SOFT HSM root wrapping key.                                                                                                         |
 
 {{< tabs name="DDL-crypto-config">}}
 {{% tab name="Linux" %}}

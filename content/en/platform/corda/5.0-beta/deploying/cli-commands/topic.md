@@ -11,18 +11,18 @@ title: "topic"
 
 This section lists the Corda CLI `topic` arguments. You can use these commands to manually create or delete topics in Kafka, as described in the [Manual Bootstrapping Tutorial](deployment-tutorials/manual.html).
 
-| Argument               | Description                                                                                                                                           |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -b, --bootstrap-server | The address of the bootstrap server.                                                                                                                  |
-| -k, --kafka-config     | The path to the Kafka configuration file.                                                                                                             |
-| -n, --name-prefix      | The name prefix for topics.                                                                                                                           |
-| -r                     | The number of replicas.                                                                                                                               |
-| -p                     | The number of partitions.                                                                                                                             |
-| -connect               | Connects to the specified server; see [Topic Creation by Direct Connection](../deployment-tutorials/manual.html#topic-creation-by-direct-connection). |
-| -f                     | The name of the script file genrated; see [Topic Creation by Scripting](../deployment-tutorials/manual.html#topic-creation-by-scripting).             |
-| -c                     | The number of topics to create in parallel; see [Topic Creation by Scripting](../deployment-tutorials/manual.html#topic-creation-by-scripting).       |
-| create                 | Creates kafka topics; see [create](#create).                                                                                                          |
-| delete                 | Deletes kafka topics; see [delete](#delete).                                                                                                          |
+| <div style="width:160px">Argument</div> | Description                                                                                                                                           |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -b, \-\-bootstrap-server                | The address of the bootstrap server.                                                                                                                  |
+| -k, \-\-kafka-config                    | The path to the Kafka configuration file.                                                                                                             |
+| -n, \-\-name-prefix                     | The name prefix for topics.                                                                                                                           |
+| -r                                      | The number of replicas.                                                                                                                               |
+| -p                                      | The number of partitions.                                                                                                                             |
+| -connect                                | Connects to the specified server; see [Topic Creation by Direct Connection](../deployment-tutorials/manual.html#topic-creation-by-direct-connection). |
+| -f                                      | The name of the script file genrated; see [Topic Creation by Scripting](../deployment-tutorials/manual.html#topic-creation-by-scripting).             |
+| -c                                      | The number of topics to create in parallel; see [Topic Creation by Scripting](../deployment-tutorials/manual.html#topic-creation-by-scripting).       |
+| create                                  | Creates kafka topics; see [create](#create).                                                                                                          |
+| delete                                  | Deletes kafka topics; see [delete](#delete).                                                                                                          |
 
 ## create
 
