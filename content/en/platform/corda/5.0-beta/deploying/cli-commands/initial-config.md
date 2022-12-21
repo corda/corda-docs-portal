@@ -46,7 +46,7 @@ The `create-db-config` command creates the SQL statements to insert the connecti
 | <div style="width:160px">Argument</div> | Description                                                                                                                                      |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | -a, \-\-isAdmin                         | Specifies if this is an admin (DDL) connection. The default value is false.                                                                      |
-| -d, \-\-description                     | Detailed informoation about the database connection.                                                                                             |
+| -d, \-\-description                     | Detailed information about the database connection.                                                                                             |
 | -e, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the DB worker. |
 | -j, \-\-jdbcURL                         | The JDBC URL for the connection. This value is required.                                                                                         |
 | \-\-jdbcPoolMaxSize                     | The maximum size of the JDBC connection pool. The default value is 10.                                                                           |
