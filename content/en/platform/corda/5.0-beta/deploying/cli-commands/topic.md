@@ -22,7 +22,7 @@ This section lists the Corda CLI `topic` arguments. You can use these commands t
 | -f                                      | The name of the script file genrated; see [Topic Creation by Scripting](../deployment-tutorials/manual.html#topic-creation-by-scripting).             |
 | -c                                      | The number of topics to create in parallel; see [Topic Creation by Scripting](../deployment-tutorials/manual.html#topic-creation-by-scripting).       |
 | create                                  | Creates Kafka topics; see [create](#create).                                                                                                          |
-| delete                                  | Deletes kafka topics; see [delete](#delete).                                                                                                          |
+| delete                                  | Deletes Kafka topics; see [delete](#delete).                                                                                                          |
 
 ## create
 
