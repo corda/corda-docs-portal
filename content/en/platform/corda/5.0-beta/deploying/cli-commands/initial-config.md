@@ -42,33 +42,19 @@ corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <
 ## create-db-config
 
 The `create-db-config` command creates the SQL statements to insert the connection manager configuration for the database.
-*************************************
-Usage: corda initial-config create-db-config [-a] [-d=<description>]
-       -e=<passphrase> -j=<jdbcUrl> [--jdbcPoolMaxSize=<jdbcPoolMaxSize>]
-       [-l=<location>] -n=<connectionName> -p=<password> -s=<salt> -u=<username>
 
-
-  -d, --description=<description>
-                            Detailed info on the database connection
-  -e, --passphrase=<passphrase>
-                            Passphrase for the encrypting secrets service
-  -j, --jdbcURL=<jdbcUrl>   The JDBC URL for the connection. Required.
-      --jdbcPoolMaxSize=<jdbcPoolMaxSize>
-                            The maximum size for the JDBC connection pool.
-                              Defaults to 10
-  -l, --location=<location> location to write the sql output to
-  -n, --name=<connectionName>
-                            Name of the database connection. Required.
-  -p, --password=<password> Password name for the database connection. Required.
-  -s, --salt=<salt>         Salt for the encrypting secrets service
-  -u, --user=<username>     User name for the database connection. Required.
-
-
-| Argument       | Description                                   |
-| -------------- | --------------------------------------------- |
-| -a, --isAdmin | Specifies if this is an admin (DDL) connection. The default value is false. |
-
-
+| Argument          | Description                                                                                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -a, --isAdmin     | Specifies if this is an admin (DDL) connection. The default value is false.                                                                      |
+| -d, --description | Detailed informoation about the database connection.                                                                                             |
+| -e, --passphrase  | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the DB worker. |
+| -j, --jdbcURL     | The JDBC URL for the connection. This value is required.                                                                                         |
+| --jdbcPoolMaxSize | The maximum size of the JDBC connection pool. The default value is 10.                                                                           |
+| -l, --location    | The path to write the generated SQL files to.                                                                                                    |
+| -n, --name        | The name of the database connection. Required.                                                                                                   |
+| -p, --password    | The password name for the database connection. Required.                                                                                         |
+| -s, --salt        | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the DB worker.            |
+| -u, --user        | The user name for the database connection. Required.                                                                                             |
 
 {{< tabs name="RBAC">}}
 {{% tab name="Linux" %}}
@@ -94,6 +80,32 @@ corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWO
 {{% /tab %}}
 {{< /tabs >}}
 
-   The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the Corda deployment configuration for the DB worker:
-
 ## create-crypto-config
+
+The `create-crypto-config` command creates the SQL statements to insert the initial crypto configuration for the database. This operation must be performed after the cluster database is initialised but before the cluster is started.
+
+| Argument         | Description                                                                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -l, --location   | The path to write the generated SQL files to.                                                                                                    |
+| -p, --passphrase | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the DB worker. |
+| -s, --salt       | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the DB worker.            |
+| -wp, --wrapping-passphrase   | The passphrase for the SOFT HSM root wrapping key.                                                                                                   |
+| -ws, --wrapping-salt   | Salt for the SOFT HSM root wrapping key.                                                                                                  |
+
+{{< tabs name="DDL-crypto-config">}}
+{{% tab name="Linux" %}}
+```sh
+corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+```
+{{% /tab %}}
+{{% tab name="macOS" %}}
+```sh
+corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+```
+{{% /tab %}}
+{{% tab name="Windows" %}}
+```shell
+corda-cli.cmd initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+```
+{{% /tab %}}
+{{< /tabs >}}
