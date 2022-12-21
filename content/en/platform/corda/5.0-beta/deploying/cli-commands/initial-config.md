@@ -52,7 +52,7 @@ The `create-db-config` command creates the SQL statements to insert the connecti
 | \-\-jdbcPoolMaxSize                     | The maximum size of the JDBC connection pool. The default value is 10.                                                                           |
 | -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |
 | -n, \-\-name                            | The name of the database connection. Required.                                                                                                   |
-| -p, \-\-password                        | The password name for the database connection. Required.                                                                                         |
+| -p, \-\-password                        | The password for the database connection. Required.                                                                                         |
 | -s, \-\-salt                            | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the DB worker.            |
 | -u, \-\-user                            | The user name for the database connection. Required.                                                                                             |
 
