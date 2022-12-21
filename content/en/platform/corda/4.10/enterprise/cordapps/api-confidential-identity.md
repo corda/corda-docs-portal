@@ -16,7 +16,7 @@ weight: 1
 
 {{< warning >}}
 The `confidential-identities` module is still not stabilised, so this API may change in future releases.
-See [API stability guarantees](cordapps/api-stability-guarantees.md).
+See [API stability guarantees](api-stability-guarantees.md).
 
 {{< /warning >}}
 
