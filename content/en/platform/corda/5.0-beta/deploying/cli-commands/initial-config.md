@@ -43,9 +43,9 @@ corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <
 
 The `create-db-config` command creates the SQL statements to insert the connection manager configuration for the database.
 
-| <div style="width:290px">Argument</div>           | Description                                                                                                                                      |
+| <div style="width:200px">Argument</div>           | Description                                                                                                                                      |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| -a, --isAdmin     | Specifies if this is an admin (DDL) connection. The default value is false.                                                                      |
+| -a, /-/-isAdmin     | Specifies if this is an admin (DDL) connection. The default value is false.                                                                      |
 | -d, --description | Detailed informoation about the database connection.                                                                                             |
 | -e, --passphrase  | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the DB worker. |
 | -j, --jdbcURL     | The JDBC URL for the connection. This value is required.                                                                                         |
