@@ -132,7 +132,7 @@ from the local bridge to the original node’s float and then on to the original
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 
 The simplest development deployment of the node is without firewall and thus just use the embedded bridge and Peer-to-Peer
