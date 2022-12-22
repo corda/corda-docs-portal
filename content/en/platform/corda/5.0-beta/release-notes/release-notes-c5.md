@@ -22,8 +22,8 @@ This section describes the new features in Corda 5.0 Beta 1.
 
 This section describes the issues resolved in Corda 5.0 Beta 1.
 
-### Multiple CPIs with Same Group ID in Same Network
+### Multiple CPIs with Same Group ID in Same Cluster
 
-It was not possible to upload a CPI that contained a group policy file associated to a group ID of a CPI that was already present in the network.
+It was not possible to upload a CPI that contained a group policy file associated to a group ID of a CPI that was already present in the cluster.
 As of this release, this validation has been removed and Corda only checks that a CPI does not have the same name, version, and signer of an existing CPI. 
-This facilitates Notary plugin CPIs and other scenarios where two different CPBs must use the same group ID to interact with each other on the same network.
+This facilitates Notary plugin CPIs and other scenarios where two different CPBs must use the same group ID to interact with each other on the same cluster.
