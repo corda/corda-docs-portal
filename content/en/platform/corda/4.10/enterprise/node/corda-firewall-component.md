@@ -148,7 +148,7 @@ where this is the only available option:
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 
@@ -221,7 +221,7 @@ networkParametersPath = network-parameters
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 
@@ -317,7 +317,7 @@ floatOuterConfig {
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 * SOCKS Proxy
@@ -412,7 +412,7 @@ floatOuterConfig {
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 * Zookeeper v3.6.1
@@ -553,7 +553,7 @@ More specifically, in order to ensure optimal performance it is required:
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development](../cordapps/getting-set-up.md))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 * Apache Artemis v2.6.2 or RedHat amq broker v7.2.2
