@@ -23,7 +23,7 @@ title: Notaries
 * The notary service prevents “double-spends”.
 * The notary also acts as the time-stamping authority. If a transaction includes a time window, it can only be notarized during that window.
 * Notary clusters may optionally also validate transactions, in which case they are called “validating” notaries, as opposed to “non-validating”.
-* A network can have several notary clusters, all running different [consensus algorithms](../../../../../en/platform/corda/4.8/open-source/key-concepts-consensus.md).
+* A network can have several notary clusters, all running different [consensus algorithms](key-concepts-consensus.md).
 
 ## Video
 

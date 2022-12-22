@@ -2,7 +2,7 @@
 date: '2022-11-15'
 title: "Network Types"
 menu:
-  corda-5:
+  corda-5-alpha:
     identifier: corda-5-alpha-deploy-network-types
     parent: corda-5-alpha-deploy
     weight: 2000
