@@ -529,6 +529,12 @@ name = "REST API Reference"
 weight = 2000
 url = 'C5_OpenAPI.html'
 
+[[corda-5-beta]]
+identifier = "corda-5-beta-cordacli-deploy-commands"
+parent = "corda-5-beta-deploy"
+name = "Corda CLI Deployment Reference"     
+weight = 7000
+
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
 #identifier = "tools-cdl"
