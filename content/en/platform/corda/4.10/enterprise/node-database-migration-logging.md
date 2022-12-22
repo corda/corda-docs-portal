@@ -114,9 +114,8 @@ as predefined categories grouping potentially many specific errors.  The followi
 * 2 - missing database driver or an invalid value for the dataSourceClassName property, for example:
 
 ```none
-DatabaseInitialisation(id="bMmdUxxZ";status="error";error_code="2";message="Could not find the database driver class. Please add it to the 'drivers' folder. See [Node configuration](node/setup/corda-configuration-file.md)).
+DatabaseInitialisation(id="bMmdUxxZ";status="error";error_code="2";message="Could not find the database driver class. Please add it to the 'drivers' folder.
 ```
-
 
 * 3 - invalid data source property, for example:
 
