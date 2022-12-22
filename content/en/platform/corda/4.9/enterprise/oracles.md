@@ -327,7 +327,7 @@ class FixSignFlow(val tx: TransactionBuilder, val oracle: Party,
 [RatesFixFlow.kt](https://github.com/corda/corda/blob/release/os/4.9/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/flows/RatesFixFlow.kt)
 
 You’ll note that the `FixSignFlow` requires a `FilterTransaction` instance which includes only `Fix` commands.
-You can find a further explanation of this in [Oracles](../../../../../en/platform/corda/4.9/community/key-concepts-oracles.md). Below you will see how to build such a
+You can find a further explanation of this in [Oracles](../community/key-concepts-oracles.md). Below you will see how to build such a
 transaction with hidden fields.
 
 
