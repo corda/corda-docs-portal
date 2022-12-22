@@ -6,28 +6,28 @@ menu:
     weight: 3000
     parent: corda-5-beta-develop
 section_menu: corda-5-beta
-title: "Package Corda CLI Reference"
+title: "Corda CLI Package Reference"
 ---
 
-This section lists the [Corda CLI](../getting-started/installing-corda-cli.html) `package` arguments. You can use these commands to execute operations for working with CPB and CPI files, as described in the [CorDapp Packaging](development-tutorials/cordapp-packaging.md) section.
+This section lists the [Corda CLI](../getting-started/installing-corda-cli.html) `package` arguments. You can use these commands to execute operations for working with CPB and CPI files, as described in the [CorDapp Packaging](development-tutorials/cordapp-packaging.md) tutorial.
 
-| Argument     | Description                                        |
-| ------------ | -------------------------------------------------- |
-| --create-cpb | Creates a CPB file. See [create-cpb](#create-cpb). |
-| --create-cpi | Creates a CPI file. See [create-cpi](#create-cpi). |
+| <div style="width:160px">Argument</div> | Description                                        |
+| --------------------------------------- | -------------------------------------------------- |
+| \-\-create-cpb                          | Creates a CPB file. See [create-cpb](#create-cpb). |
+| \-\-create-cpi                          | Creates a CPI file. See [create-cpi](#create-cpi). |
 
 ## create-cpb
 
 The `create-cpb` argument creates a CPB file from a set of CPK files using the following arguments:
 
-| Argument      | Description                                        |
-| ------------- | -------------------------------------------------- |
-| --cpb-name    | Specifies a name for the CPB.                      |
-| --cpb-version | Specifies the CPB version.                         |
-| --file        | Specifies the name of the CPB file to create.      |
-| --keystore    | Specifies the keystore file used to sign the file. |
-| --storepass   | Specifies the password for the keystore.           |
-| --key         | Specifies the name of the key.                     |
+| <div style="width:160px">Argument</div> | Description                                        |
+| --------------------------------------- | -------------------------------------------------- |
+| \-\-cpb-name                            | Specifies a name for the CPB.                      |
+| \-\-cpb-version                         | Specifies the CPB version.                         |
+| \-\-file                                | Specifies the name of the CPB file to create.      |
+| \-\-keystore                            | Specifies the keystore file used to sign the file. |
+| \-\-storepass                           | Specifies the password for the keystore.           |
+| \-\-key                                 | Specifies the name of the key.                     |
 
 For example:
 
@@ -74,16 +74,16 @@ For example:
 
 The `create-cpi` argument creates a CPI file using the following arguments:
 
-| Argument       | Description                                                                              |
-| -------------- | ---------------------------------------------------------------------------------------- |
-| --cpb          | Specifies the CPB file to include in the CPI.                                            |
-| --group-policy | Specifies the [group policy file](../deploying/group-policy.html) to include in the CPI. |
-| --cpi-name     | Specifies a name for the CPI.                                                            |
-| --cpi-version  | Specifies the CPI version.                                                               |
-| --file         | Specifies the name of the CPI file to create.                                            |
-| --keystore     | Specifies the keystore file used to sign the file.                                       |
-| --storepass    | Specifies the password for the keystore.                                                 |
-| --key          | Specifies the name of the key.                                                           |
+| <div style="width:160px">Argument</div> | Description                                                                              |
+| --------------------------------------- | ---------------------------------------------------------------------------------------- |
+| \-\-cpb                                 | Specifies the CPB file to include in the CPI.                                            |
+| \-\-group-policy                        | Specifies the [group policy file](../deploying/group-policy.html) to include in the CPI. |
+| \-\-cpi-name                            | Specifies a name for the CPI.                                                            |
+| \-\-cpi-version                         | Specifies the CPI version.                                                               |
+| \-\-file                                | Specifies the name of the CPI file to create.                                            |
+| \-\-keystore                            | Specifies the keystore file used to sign the file.                                       |
+| \-\-storepass                           | Specifies the password for the keystore.                                                 |
+| \-\-key                                 | Specifies the name of the key.                                                           |
 
 For example:
 
