@@ -10,8 +10,8 @@ section_menu: corda-5-beta
 
 Corda 5.0 Beta is a pre-release version for testing purposes only.
 {{< note >}}
-If you are not part of the Beta Program, the Corda 5.0 Beta documentation is for information only.
-R3 will be running a Beta Program for Corda 5.0 beginning in 2023. Contact R3 to register your interest.
+If you are not part of the current beta program, the Corda 5.0 Beta documentation is for information only.
+R3 will be running a beta program for Corda 5.0 beginning in 2023. Contact R3 to register your interest.
 {{< /note >}}
 
 ## Enhancements
