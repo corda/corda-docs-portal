@@ -90,7 +90,7 @@ menu:
   <div class="card h-100">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="5.0-beta/release-notes/release-notes-c5-beta.html">
+      <a href="5.0-beta/release-notes/release-notes-c5.html">
       <img src="5.0-beta/icons/release-notes.png" alt="Release notes" style="padding: 1rem; border: 0;" class="light-only" height="124">
       <img src="5.0-beta/icons/release-notes.png" alt="Release notes" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
               <span>Release Notes</span></h3></a>
