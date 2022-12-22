@@ -112,4 +112,4 @@ Learn more about:
 
 * [The Corda firewall](corda-firewall-component.md)
 * [The node database](operating/node-database.md)
-* [Node configuration](etup/corda-configuration-fields.md)
+* [Node configuration](setup/corda-configuration-fields.md)
