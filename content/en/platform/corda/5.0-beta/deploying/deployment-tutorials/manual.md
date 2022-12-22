@@ -162,7 +162,7 @@ corda-cli.sh topic -b kafka-1.example.com -k config.properties \
 {{% /tab %}}
 {{% tab name="Windows" %}}
 ```shell
-corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 script -f create.cmd -c 6
+corda-cli.cmd topic -b kafka-1.example.com -k config.properties create -r 3 -p 10 script -f create.sh -c 6
 ```
 {{% /tab %}}
 {{< /tabs >}}
