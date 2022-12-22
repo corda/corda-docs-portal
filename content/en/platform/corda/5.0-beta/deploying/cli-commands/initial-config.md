@@ -89,7 +89,7 @@ The `create-crypto-config` command creates the SQL statements to insert the init
 | -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |
 | -p, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the DB worker. |
 | -s, \-\-salt                            | Salt for the encrypting secrets service. This must match the value specified in the Corda deployment configuration for the DB worker.            |
-| -wp, \-\-wrapping-passphrase            | The passphrase for the SOFT HSM root wrapping key.                                                                                               |
+| -wp, \-\-wrapping-passphrase            | The passphrase for the soft HSM root wrapping key.                                                                                               |
 | -ws, \-\-wrapping-salt                  | Salt for the SOFT HSM root wrapping key.                                                                                                         |
 
 {{< tabs name="DDL-crypto-config">}}
