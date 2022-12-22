@@ -49,7 +49,7 @@ Overview of changes:
 
 ### Changes in V1.2.2
 
-In V1.2.2, a new [Token Selection](token-selection.md) feature allows the exception `InsufficientNotLockedBalanceException` to be thrown when  sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
+In V1.2.2, a new [Token Selection](token-selection.md) feature allows the exception `InsufficientNotLockedBalanceException` to be thrown when sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
 
 ### Upgrade Tokens SDK
 

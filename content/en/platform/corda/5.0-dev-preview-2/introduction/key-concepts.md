@@ -96,7 +96,7 @@ It approves or declines new members and distributes membership lists to members.
 The MGM is a CorDapp which runs as a virtual node, allowing you to create and operate many application networks using the same Corda deployment.
 
 Entities permitted to join an application network are represented by a public/private keypair, optionally attested by a certificate authority as belonging to an X500 identity.
-The application network operator sets the rules in the CPI as to which certificate authority it trusts to attest that an identity matches.
+The application network operator sets the rules in the [CPI](#corda-package-installer-cpi) as to which certificate authority it trusts to attest that an identity matches.
 The operator can run any additional checks they wish.
 The keypair is used to sign things within the context of the application by the identity, attesting that it agrees to what is being proposed.
 

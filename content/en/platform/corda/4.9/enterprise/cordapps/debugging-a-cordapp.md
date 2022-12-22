@@ -22,7 +22,7 @@ You can attach the [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/
 `MockNetwork` to debug your CorDapp.
 
 
-1. Define your [flow tests](../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-testing.md).
+1. Define your [flow tests](api-testing.md).
 2. Set `threadPerNode` to `false` in your `MockNetwork`.
 3. Set your breakpoints.
 4. Run the flow tests using the debugger. When the tests hit a breakpoint, execution will pause.
@@ -38,7 +38,7 @@ running via the node driver to debug your CorDapp. You can debug the CorDapp:
 
 ### Debug with the nodes in-process
 
-1. [Define a network using the node driver](../../../../../../en/tutorials/corda/4.9/os/supplementary-tutorials/tutorial-integration-testing.md).
+1. [Define a network using the node driver](../../../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-integration-testing.md).
 2. Check your `DriverParameters` and make sure that `startNodesInProcess` is set to `true`.
 3. Run the driver using the debugger.
 4. Set your breakpoints.
@@ -51,7 +51,7 @@ The debugger cannot attach to the node's webservers - they always run in a separ
 
 ### Debug remotely
 
-1. [Define a network using the node driver](../../../../../../en/tutorials/corda/4.9/os/supplementary-tutorials/tutorial-integration-testing.md).
+1. [Define a network using the node driver](../../../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-integration-testing.md).
 2. Check your `DriverParameters` and make sure that `startNodesInProcess` is set to `false` and `isDebug` is set to
 `true`.
 3. Run the driver. The remote debug ports for each node are generated automatically and printed to the terminal.
@@ -79,5 +79,5 @@ The debugger cannot attach to the node's webservers - they always run in a separ
 ## Method 3: Enable remote debugging on a node
 
 
-See [Enabling remote debugging](../../../../../../en/platform/corda/4.9/enterprise/node/node-commandline.html#enabling-remote-debugging).
+See [Enabling remote debugging](../node/node-commandline.html#enabling-remote-debugging).
 

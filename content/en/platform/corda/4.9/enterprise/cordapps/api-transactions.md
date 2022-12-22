@@ -102,7 +102,7 @@ The `StateRef` links an input state back to the transaction that created it. Thi
 to “walk the chain” and verify that each input was generated through a valid sequence of transactions.
 
 {{< note >}}
-See [Reissuing states](../../../../../../en/platform/corda/4.9/enterprise/cordapps/reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
+See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
 {{< /note >}}
 
 
@@ -407,7 +407,7 @@ TransactionBuilder txBuilder = new TransactionBuilder(specificNotary);
 
 {{< /tabs >}}
 
-We discuss the selection of a notary in [Writing CorDapp Flows](../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-flows.md).
+We discuss the selection of a notary in [Writing CorDapp Flows](api-flows.md).
 
 If the transaction does not have any input states or a time-window, it does not require a notary, and can be
 instantiated without one:
@@ -790,7 +790,7 @@ If a transaction has inputs, we need to retrieve all the states in the transacti
 verify the transaction’s contents. This is because the transaction is only valid if its dependency chain is also valid.
 We do this by requesting any states in the chain that our node doesn’t currently have in its local storage from the
 proposer(s) of the transaction. This process is handled by a built-in flow called `ReceiveTransactionFlow`.
-See [Writing CorDapp Flows](../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-flows.md) for more details.
+See [Writing CorDapp Flows](api-flows.md) for more details.
 
 We can now verify the transaction’s contents to ensure that it satisfies the contracts of all the transaction’s input
 and output states:
@@ -1073,5 +1073,5 @@ TransactionSignature sig2 = getServiceHub().createSignature(onceSignedTx, otherI
 
 ### Notarising and recording
 
-Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [Writing CorDapp Flows](../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-flows.md) for
+Notarising and recording a transaction is handled by a built-in flow called `FinalityFlow`. See [Writing CorDapp Flows](api-flows.md) for
 more details.

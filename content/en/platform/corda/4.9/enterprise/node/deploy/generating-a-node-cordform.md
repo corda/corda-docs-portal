@@ -168,7 +168,7 @@ rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
 ```
 
-* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#sshd). For example:
+* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](../setup/corda-configuration-fields.html#sshd). For example:
 
 ```kotlin
 sshd {
@@ -222,7 +222,7 @@ running the bootstrapper.
 
 ## Package namespace ownership
 
-To configure [package namespace ownership](../../../../../../../en/platform/corda/4.8/enterprise/node/deploy/env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](../../../../../../../en/platform/corda/4.9/enterprise/network-bootstrapper.md) tool. For example:
+To configure [package namespace ownership](env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](../../network-bootstrapper.md) tool. For example:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -300,7 +300,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 ## Optional migration step
 
-If you are migrating your database schema from an older Corda version to Corda 4.8, you must add the following parameter to the node section in the `build.gradle` and set it to `true`, as follows:
+If you are migrating your database schema from an older Corda version to Corda 4.9, you must add the following parameter to the node section in the `build.gradle` and set it to `true`, as follows:
 
 ```
         runSchemaMigration = true

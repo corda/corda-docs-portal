@@ -127,7 +127,7 @@ method on [CordaRPCClient](../../../../../../../en/api-ref/corda/4.9/community/j
 a new proxy for every call you make - reuse an existing one.
 {{< /warning >}}
 
-For further information on using the RPC API, see [Working with the CordaRPCClient API](../../../../../../../en/tutorials/corda/4.9/os/supplementary-tutorials/tutorial-clientrpc-api.md).
+For further information on using the RPC API, see [Working with the CordaRPCClient API](../../../../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-clientrpc-api.md).
 
 ### Defining RPC users and permissions
 
@@ -368,7 +368,7 @@ To interact with your node via any of the following interfaces, you need to buil
 All of these interfaces are located in the `:client:extensions-rpc` module.
 
 {{< note >}}
-`COMPLETED`, `FAILED`, and `KILLED` flows can only be queried when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs using a unique, client-provided ID. For more information, see [Starting a flow with a client-provided unique ID](../../../../../../../en/platform/corda/4.9/enterprise/flow-start-with-client-id.md).
+`COMPLETED`, `FAILED`, and `KILLED` flows can only be queried when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs using a unique, client-provided ID. For more information, see [Starting a flow with a client-provided unique ID](../../flow-start-with-client-id.md).
 {{< /note >}}
 
 {{< note >}}
@@ -741,4 +741,4 @@ Note that RPC TLS does not use mutual authentication, and delegates fine-grained
 
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
-`@CordaSerializable` annotation (see [Serialization](../../../../../../../en/platform/corda/4.9/enterprise/serialization-index.md)). An example is shown in [Working with the CordaRPCClient API](../../../../../../../en/tutorials/corda/4.9/os/supplementary-tutorials/tutorial-clientrpc-api.md).
+`@CordaSerializable` annotation (see [Serialization](../../../../../../../en/platform/corda/4.9/enterprise/serialization-index.md)). An example is shown in [Working with the CordaRPCClient API](../../../../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-clientrpc-api.md).
