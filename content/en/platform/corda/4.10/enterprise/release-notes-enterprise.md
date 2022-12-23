@@ -20,7 +20,7 @@ Corda: Enterprise Edition 4.10 features a series of improvements over the previo
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../enterprise) as soon as possible. The latest Corda: Enterprise Edition  release notes are on this page, and you can find the latest upgrade guide [here](upgrading-index.md).
+As a developer, you should upgrade to the [latest released version of Corda](../enterprise.html) as soon as possible. The latest Corda: Enterprise Edition  release notes are on this page, and you can find the latest upgrade guide [here](upgrading-index.md).
 
 As a node operator, you should upgrade to the [latest released version of Corda](../enterprise.html).
 
@@ -61,7 +61,7 @@ In this release:
 
 * Corda can fetch users' credentials and permissions from an external data source (for example, from a remote RDBMS). Credentials of this database are configured in the file node.conf. Previously, when a node was run, Corda was logging the password of this database to the log file. This issue has been resolved and the password is no longer written to the log file.
 
-* Previously, Archive Service commands did not write messages to the log files unless an error or issue occurred. An update now means that messages are also written when commands are run successfully. For more information, refer to [Archive Service Command-Line Interface (CLI)](..\..\..\tools\archiving-service\archiving-cli.md)
+* Previously, Archive Service commands did not write messages to the log files unless an error or issue occurred. An update now means that messages are also written when commands are run successfully. For more information, refer to [Archive Service Command-Line Interface (CLI)](..\..\..\..\tools\archiving-service\archiving-cli.md)
 
 * The opentelemetry tracing signal is now supported in flows across nodes.
 
