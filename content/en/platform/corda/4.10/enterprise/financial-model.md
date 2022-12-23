@@ -33,7 +33,7 @@ A type used to define the underlying financial product in a transaction.
 
 ## Amount
 
-The [Amount](../../../../../en/api-ref/corda/4.10/open-source/kotlin/corda/net.corda.core.contracts/-amount/index.html) class represents an amount of
+The [Amount](../../../../../en/api-ref/corda/4.10/community/kotlin/corda/net.corda.core.contracts/-amount/index.html) class represents an amount of
 a fungible asset. It is a generic class which wraps around the token. For example, the `Amount` could be:
 * The standard JDK type `Currency`.
 * An `Issued` instance.

@@ -164,7 +164,7 @@ It is an append only table and the size will be fairly small.
 
 The ledger data is formed of transactions and attachments.
 In future versions this data will be encrypted using SGX.
-Read more in [Ledger](../../../../../../../en/platform/corda/4.10/open-source/key-concepts-ledger.md).
+Read more in [Ledger](../../../../../../../en/platform/corda/4.10/community/key-concepts-ledger.md).
 
 
 ### Attachments
