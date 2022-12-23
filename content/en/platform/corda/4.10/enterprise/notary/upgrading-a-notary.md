@@ -230,5 +230,5 @@ echo --Done
     ```
 ## Next steps
 After the notary data migration is complete, at least one JPA notary node must be provisioned. To set up a JPA notary node,
-see the [JPA Notary Setup](ha-notary-service-overview.md/) and [Notary Worker Configuration](installing-the-notary-service.md/) documentation.
+see the [JPA Notary Setup](ha-notary-service-overview.md) and [Notary Worker Configuration](installing-the-notary-service.md/) documentation.
 After the JPA notary is operating, you should run the [Notary Health Check tool](../notary-healthcheck.md/) to ensure that the network is up and responsive.
