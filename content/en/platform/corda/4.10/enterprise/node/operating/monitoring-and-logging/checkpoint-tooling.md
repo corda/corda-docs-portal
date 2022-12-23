@@ -305,7 +305,7 @@ The detection of unrestorable checkpoints can be enabled either by a node config
 To enable this feature in the node configuration:
 
 1. Open the `node.conf` node configuration file.
-2. Add the `reloadCheckpointAfterSuspend` [option](../setup/corda-configuration-fields.html#reloadCheckpointAfterSuspend) to your node configuration, set to true:
+2. Add the `reloadCheckpointAfterSuspend` [option](../../setup/corda-configuration-fields.html#reloadCheckpointAfterSuspend) to your node configuration, set to true:
     ```
     reloadCheckpointAfterSuspend = true
     ```
