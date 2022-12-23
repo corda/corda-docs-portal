@@ -95,7 +95,7 @@ Use the `MeteringCollectionFlow` to collect metering data from a node. You must 
 
 The flow returns the total count of metering events that match the filters within the time window, and a breakdown of these events based on the commands involved and the signing entities based on the information held by the current node.
 
-You invoke this flow from the [shell](../..//shell.md). The flow takes the following arguments:
+You invoke this flow from the [shell](../shell.md). The flow takes the following arguments:
 
 - A time window over which the flow runs. This is a mandatory argument. The accepted time window formats are either a start date and an end date (both of type `Instant`), or a start date and a duration (see the [Usage](#usage) section below). Note that the minimum time unit you can use is an hour, so the flow is unable to collect metering data over durations shorter than an hour.
 - A filter to select which CorDapps to collect data for. To specify a filter, provide a `MeteringFilter` object, which consists of `filterBy` criteria and a list of strings that describe
