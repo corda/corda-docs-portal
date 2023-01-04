@@ -231,6 +231,10 @@ If using Bash, the result contains `session key ID` (e.g. 3B9A266F96E2). Run the
 ```shell
 export SESSION_KEY_ID=<session key ID>
 ```
+{{< note >}}
+You can use a certifcate in addition to the session initiation key pair. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
+{{< /note >}}
+
 To generate an Elliptic-curve Diffie–Hellman (ECDH) key pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
