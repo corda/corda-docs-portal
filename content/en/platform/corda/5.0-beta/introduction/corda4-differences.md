@@ -1,5 +1,5 @@
 ---
-date: '2022-09-10'
+date: '2023-01-04'
 title: "Changes From Corda 4"
 menu:
   corda-5-beta:
@@ -64,3 +64,12 @@ To read about starting the combined worker using the CSDE, see [Starting the Cor
 
 ## Pluggable Ledger Model
 Past Corda versions tightly embedded the UTXO ledger model at the heart of the architecture. Corda 5, with its layered approach, makes this model pluggable. This means that various ledger models, from UTXO through consensual, to some form of rules-based implementation, are all possible to deploy on top of the same tech stack and run in parallel. The right tool for the job can be selected, rather than requiring the full set of UTXO and smart contract features, which can overcomplicate applications that do not mesh well with that paradigm.
+
+## Notary
+
+Similar to the ledger, notary protocols are now pluggable. Notary protocols are implemented by plugin CorDapps. Corda 5.0 supports the non-validating notary protocol only, and is designed for use by CorDapps that use the UTXO ledger model. Notary protocols can make use of a fixed-function uniqueness service, which provides double-spend protection and time-window validation amongst other things.
+
+The non-validating notary protocol behaves similarly to the equivalent protocol in Corda 4, the main differences being:
+
+* Transactions requiring notarization must specify a time window upper bound.
+* Issuance only transactions (those which only contain output states) are now notarized, as both unspent and spent states are now tracked by the uniqueness service.
