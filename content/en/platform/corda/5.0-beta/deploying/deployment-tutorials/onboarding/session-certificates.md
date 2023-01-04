@@ -13,10 +13,9 @@ You can configure a dynamic network to use session certificates when sending mes
 ## Set Variables
 
 * Set the holding identity short hash of the virtual node of either the MGM or member as a variable for use in later commands:
-```shell
-export HOLDING_ID=<holding-id>
-```
-<!--add links to two section where holding ID is retrieved?-->
+  ```shell
+  export HOLDING_ID=<holding-id>
+  ```
 
 ## Build Registration Context for MGM Registration
 
@@ -43,9 +42,11 @@ You can optionally omit the root certificate.
 If you upload a certificate chain consisting of more than one certificates, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
 {{< /note >}}
 
-### Disable Revocation Checks
+### Revocation Checks
 
-If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks. By default, revocation checks are enabled.
+If session certificates are used, revocation checks are performed by the P2P Gateway. As a result, the P2P Gateway's firewall zone must be configured to allow access to the certificate's online certificate status protocol (OSCP) and/or Certificate Revocation List (CRL) endpoint.
+
+If the CA has not been configured with revocation, you can disable revocation checks. By default, revocation checks are enabled.
 To disable revocation checks, do the following:
 1. Retrieve the current link manager configuration version:
    ```shell
