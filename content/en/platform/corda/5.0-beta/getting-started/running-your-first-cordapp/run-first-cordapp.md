@@ -10,7 +10,7 @@ section_menu: corda-5-beta
 ---
 The CSDE includes flows and tests for a very simple CorDapp, which you can run out of the box.
 
-The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.MyFirstFlow.kt` file. This is also the code described in the [first flow section](../first-flow.html).
+The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.MyFirstFlow.kt` file. This is also the code described in the [first flow section](../first-flow/first-flow.html).
 
 ## Starting the Corda Combined Worker
 
@@ -130,7 +130,7 @@ To check the flow status:
 {{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}  
    If the flow is successful, you will see the following response:
 {{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
-   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow](../first-flow.html).
+   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow](../first-flow/first-flow.html).
 
 {{< note >}}
 If you receive a response with a status of "RUNNING”, wait a short time and retry the status check.
