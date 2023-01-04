@@ -67,7 +67,7 @@ Past Corda versions tightly embedded the UTXO ledger model at the heart of the a
 
 ## Notary
 
-Similar to the ledger, notary protocols are now pluggable. Notary protocols are implemented by plugin CorDapps. Corda 5.0 supports the non-validating notary protocol only, and is designed for use by CorDapps that use the UTXO ledger model. Notary protocols can make use of a fixed-function uniqueness service, which provides double-spend protection and time-window validation amongst other things.
+Similar to the ledger, notary protocols are now pluggable. Notary protocols are implemented by plugin CorDapps. Corda 5.0 supports the non-validating notary protocol only and it is designed for use by CorDapps that use the UTXO ledger model. Notary protocols can make use of a fixed-function uniqueness service, which provides double-spend protection and time-window validation, amongst other things.
 
 The non-validating notary protocol behaves similarly to the equivalent protocol in Corda 4, the main differences being:
 
