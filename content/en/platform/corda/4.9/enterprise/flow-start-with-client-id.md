@@ -22,7 +22,7 @@ You can use this feature to enable an RPC client to reconnect to an existing flo
 You can also enable an RPC client to signal to Corda to retain the flow's result or exception, so that it could be reclaimed at any time in the future.
 
 {{< note >}}
-`COMPLETED`, `FAILED`, and `KILLED` flows can only be queried via the Multi RPC client when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs described further below. For more information, see the [Interacting with a node](../../../../../en/platform/corda/4.9/enterprise/node/operating/clientrpc.md).
+`COMPLETED`, `FAILED`, and `KILLED` flows can only be queried via the Multi RPC client when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs described further below. For more information, see the [Interacting with a node](node/operating/clientrpc.md).
 {{< /note >}}
 
 
@@ -36,7 +36,7 @@ When a flow is started using one of the new APIs, the following scenarios are po
 * There is a running flow mapped to the `clientId`: re-hook to the existing flow by returning the flow's future (completes when the flow finishes).
 * There is a completed flow or a failed flow, mapped to the `clientId`: return a completed future containing the flow's result, or the exception that caused it to fail.
 
-The two APIs are available from `CordaRPCOps` (see [Using the client RPC API](../../../../../en/tutorials/corda/4.9/os/supplementary-tutorials/tutorial-clientrpc-api.md)). They both return a `FlowHandleWithClientId`, which extends `FlowHandle` but also contains the `clientId` that the flow started with.
+The two APIs are available from `CordaRPCOps` (see [Using the client RPC API](../../../../tutorials/corda/4.9/community/supplementary-tutorials/tutorial-clientrpc-api.md)). They both return a `FlowHandleWithClientId`, which extends `FlowHandle` but also contains the `clientId` that the flow started with.
 
 ### `startFlowDynamicWithClientId` API
 
