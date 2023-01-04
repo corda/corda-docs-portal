@@ -341,6 +341,24 @@ bootstrap:
     enabled: true
 ```
 
+### Custom Annotations for Worker Pods
+
+You can define custom annotations for worker pods. You can add these globally or to individual workers. For example, to define `annotation-key-1` for all workers:
+
+```yaml
+annotations:
+  annotation-key-1: "custom-value"
+```
+
+To define `annotation-key-2` for only the crypto worker:
+
+```yaml
+workers:
+  crypto:
+    annotations:
+      annotation-key-2/is-safe: "true" 
+```
+
 ### Example Configuration
 
 {{< warning >}}
