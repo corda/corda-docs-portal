@@ -353,7 +353,7 @@ annotations:
 To define `annotation-key-2` for only the crypto worker:
 
 ```yaml
-workers
+workers:
   crypto:
     annotations:
       annotation-key-2/is-safe: "true" 
