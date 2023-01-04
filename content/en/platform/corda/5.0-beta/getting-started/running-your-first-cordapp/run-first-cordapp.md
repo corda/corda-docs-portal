@@ -10,7 +10,7 @@ section_menu: corda-5-beta
 ---
 The CSDE includes flows and tests for a very simple CorDapp, which you can run out of the box.
 
-The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.MyFirstFlow.kt` file. This is also the code described in the [first flow section](../first-flow.html).
+The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.MyFirstFlow.kt` file. This is also the code described in the [first flow section](../first-flow/first-flow.html).
 
 ## Starting the Corda Combined Worker
 
