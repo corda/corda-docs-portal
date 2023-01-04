@@ -42,26 +42,6 @@ section_menu: homepage
   * Enterprise
     * [Main documentation](en/platform/corda/4.5/enterprise.html)
     * [Release notes](en/platform/corda/4.5/enterprise/release-notes-enterprise.html)
-* 4.4
-  * Open Source
-    * [Main documentation](en/platform/corda/4.4/open-source.html)
-    * [Release notes](en/platform/corda/4.4/open-source/release-notes.html)
-
-* 4.3
-  * Open Source
-    * [Main documentation](en/platform/corda/4.3/open-source.html)
-    * [Release notes](en/platform/corda/4.3/open-source/release-notes.html)
-
-* 4.1
-  * Open Source
-    * [Main documentation](en/platform/corda/4.1/open-source.html)
-    * [Release notes](en/platform/corda/4.1/open-source/release-notes.html)
-
-* 4.0
-  * Open Source
-    * [Main documentation](en/platform/corda/4.0/open-source.html)
-    * [Release notes](en/platform/corda/4.0/open-source/release-notes.html)
-
 
 ## Corda Enterprise Network Manager
 
