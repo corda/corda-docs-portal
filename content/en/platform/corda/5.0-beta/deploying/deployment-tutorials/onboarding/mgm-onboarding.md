@@ -40,7 +40,7 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`.
+   These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`.
 
 2. Set the [REST API](../../../developing/rest-api/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
