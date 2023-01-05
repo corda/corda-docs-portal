@@ -341,59 +341,60 @@ bootstrap:
     enabled: true
 ```
 
-### Service Account
+### Service Accounts
 
-A service account can be specified for the Corda workers and bootstrap containers if additional permissions are required.
+If additional permissions are required, you can specify a service account for the Corda workers and bootstrap containers.
 
-For example, when running with Red Hat OpenShift Container Platform it is necessary to use a service account with the priviliged security context constraint.
-Create a file `sa.yaml` defining a custom service account bound to a role that provides the required security context constraint.
+For example, when running with Red Hat OpenShift Container Platform, you must use a service account with the priviliged security context constraint:
 
-```yaml
-kind: ServiceAccount
-apiVersion: v1
-metadata:
-  name: corda-privileged
+1. Create a file `sa.yaml` defining a custom service account bound to a role that provides the required security context constraint:
 
-kind: Role
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: corda-privileged
-rules:
-  - verbs:
-      - use
-    apiGroups:
-      - security.openshift.io
-    resources:
-      - securitycontextconstraints
-    resourceNames:
-      - privileged
+   ```yaml
+   kind: ServiceAccount
+   apiVersion: v1
+   metadata:
+     name: corda-privileged
 
-kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: corda-privileged
-subjects:
-  - kind: ServiceAccount
-    name: corda-privileged
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: corda-privileged
-```
+   kind: Role
+   apiVersion: rbac.authorization.k8s.io/v1
+   metadata:
+     name: corda-privileged
+   rules:
+     - verbs:
+         - use
+       apiGroups:
+         - security.openshift.io
+       resources:
+         - securitycontextconstraints
+       resourceNames:
+         - privileged
 
-Create the service account, role, and role binding in the namespace where Corda is to be deployed:
+   kind: RoleBinding
+   apiVersion: rbac.authorization.k8s.io/v1
+   metadata:
+     name: corda-privileged
+   subjects:
+     - kind: ServiceAccount
+       name: corda-privileged
+   roleRef:
+     apiGroup: rbac.authorization.k8s.io
+     kind: Role
+     name: corda-privileged
+   ```
 
-```shell
-kubectl apply -f sa.yaml
-```
+2. Create the service account, role, and role binding in the namespace where Corda is to be deployed:
 
-In the configuration YAML for the Corda deployment, specify the service account to be used:
+   ```shell
+   kubectl apply -f sa.yaml
+   ```
 
-```yaml
-serviceAccount: "corda-privileged"
-bootstrap:
-  serviceAccount: "corda-privileged"
-```
+3. In the configuration YAML for the Corda deployment, specify the service account to be used:
+
+   ```yaml
+   serviceAccount: "corda-privileged"
+   bootstrap:
+     serviceAccount: "corda-privileged"
+   ```
 
 ### Custom Annotations for Worker Pods
 
