@@ -32,6 +32,7 @@ Corda deployments have been tested with Windows 11 and macOS Monterey version 12
 |-----------------------------------------|---------|
 | Kubernetes                              | 1.23    |
 | Amazon Elastic Kubernetes Service (EKS) | 1.23    |
+| Red Hat OpenShift Container Platform    | 4.10    |
 
 ### Messaging
 

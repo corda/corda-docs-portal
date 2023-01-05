@@ -341,6 +341,60 @@ bootstrap:
     enabled: true
 ```
 
+### Service Account
+
+A service account can be specified for the Corda workers and bootstrap containers if additional permissions are required.
+
+For example, when running with Red Hat OpenShift Container Platform it is necessary to use a service account with the priviliged security context constraint.
+Create a file `sa.yaml` defining a custom service account bound to a role that provides the required security context constraint.
+
+```yaml
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: corda-privileged
+
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: corda-privileged
+rules:
+  - verbs:
+      - use
+    apiGroups:
+      - security.openshift.io
+    resources:
+      - securitycontextconstraints
+    resourceNames:
+      - privileged
+
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: corda-privileged
+subjects:
+  - kind: ServiceAccount
+    name: corda-privileged
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: corda-privileged
+```
+
+Create the service account, role, and role binding in the namespace where Corda is to be deployed:
+
+```shell
+kubectl apply -f sa.yaml
+```
+
+In the configuration YAML for the Corda deployment, specify the service account to be used:
+
+```yaml
+serviceAccount: "corda-privileged"
+bootstrap:
+  serviceAccount: "corda-privileged"
+```
+
 ### Custom Annotations for Worker Pods
 
 You can define custom annotations for worker pods. You can add these globally or to individual workers. For example, to define `annotation-key-1` for all workers:
@@ -374,22 +428,6 @@ image:
 imagePullSecrets:
   - "registry-secret"
 
-workers:
-  crypto:
-    replicaCount: 3
-  db:
-    replicaCount: 3
-  flow:
-    replicaCount: 3
-  membership:
-    replicaCount: 3
-  rpc:
-    replicaCount: 3
-  p2pGateway:
-    replicaCount: 3
-  p2pLinkManager:
-    replicaCount: 3
-
 resources:
   requests:
     memory: "512Mi"
@@ -398,15 +436,7 @@ resources:
     memory: "2048Mi"
     cpu: "1000m"
 
-workers:
-  rpc:
-    service:
-      type: "LoadBalancer"
-      annotations:
-        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-        service.beta.kubernetes.io/aws-load-balancer-scheme: "internal"
-        service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
-        external-dns.beta.kubernetes.io/hostname: "corda.example.com"
+serviceAccount: "corda-privileged"
 
 db:
   cluster:
@@ -442,6 +472,7 @@ bootstrap:
           secretKeyRef:
             name: "kafka-credentials"
             key: "bootstrap"
+  serviceAccount: "corda-privileged"
 
 workers:
   crypto:
@@ -454,6 +485,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "crypto"
+    replicaCount: 3
   db:
     kafka:
       sasl:
@@ -464,6 +496,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "db"
+    replicaCount: 3
   flow:
     kafka:
       sasl:
@@ -474,6 +507,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "flow"
+    replicaCount: 3
   membership:
     kafka:
       sasl:
@@ -484,6 +518,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "membership"
+    replicaCount: 3
   p2pGateway:
     kafka:
       sasl:
@@ -494,6 +529,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "p2pGateway"
+    replicaCount: 3
   p2pLinkManager:
     kafka:
       sasl:
@@ -504,6 +540,7 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "p2pLinkManager"
+    replicaCount: 3
   rpc:
     kafka:
       sasl:
@@ -514,6 +551,14 @@ workers:
             secretKeyRef:
               name: "kafka-credentials"
               key: "rpc"
+    replicaCount: 3
+    service:
+      type: "LoadBalancer"
+      annotations:
+        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+        service.beta.kubernetes.io/aws-load-balancer-scheme: "internal"
+        service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+        external-dns.beta.kubernetes.io/hostname: "corda.example.com"
 ```
 
 ## Deployment
