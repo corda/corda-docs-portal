@@ -37,10 +37,6 @@ The Corda platform documentation covers the following versions of the Corda plat
 * [Corda 4.7 Open Source](../platform/corda/4.7/open-source.html)
 * [Corda 4.6 Open Source](../platform/corda/4.6/open-source.html)
 * [Corda 4.5 Open Source](../platform/corda/4.5/open-source.html)
-* [Corda 4.4 Open Source](../platform/corda/4.4/open-source.html)
-* [Corda 4.3 Open Source](../platform/corda/4.3/open-source.html)
-* [Corda 4.1 Open Source](../platform/corda/4.1/open-source.html)
-* [Corda 4.0 Open Source](../platform/corda/4.0/open-source.html)
 
 ### Corda 4 Enterprise
 
