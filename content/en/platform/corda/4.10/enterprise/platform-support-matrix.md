@@ -1,5 +1,5 @@
 ---
-date: '2021-07-26'
+date: '2023-01-05'
 menu:
   corda-enterprise-4-10:
     parent: corda-enterprise-4-10-upgrading-menu
@@ -20,7 +20,7 @@ Production use of Corda Enterprise Edition 4.10 is only supported on Linux OS, s
 
 ## JDK support
 
-Corda Enterprise Edition 4.10 has been tested and verified to work with **Oracle JDK 8 JVM 8u251** and **Azul Zulu Enterprise 8u312**, for Azure deployment downloadable from
+Corda Enterprise Edition 4.10 has been tested and verified to work with **Oracle JDK 8 JVM 8u351** and **Azul Zulu Enterprise 8u352**, for Azure deployment downloadable from
 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/).
 
 Other distributions of the [OpenJDK](https://openjdk.java.net/) are not officially supported but should be compatible with Corda Enterprise Edition 4.10.
@@ -56,10 +56,10 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 |Supported JDKs|Latest supported version|
 |-----------------------------------|-----------|
-|[Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)|8u322|
+|[Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)|8u351|
 |[Amazon Corretto 8](https://aws.amazon.com/corretto/)|8.252.09.1|
 |[Red Hat's OpenJDK](https://developers.redhat.com/products/openjdk/overview/)|8u322|
-|[Zulu's OpenJDK](https://www.azul.com/)|8u322b06|
+|[Zulu's OpenJDK](https://www.azul.com/)|8u352|
 
 {{< /table >}}
 
