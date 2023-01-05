@@ -29,16 +29,14 @@ Code samples guide you at every step.
 
 You will need to:
 
-* Know [what a CorDapp is](../../../../../../en/platform/corda/4.9/enterprise/cordapps/cordapp-overview.md).
-* Set up your [development environment](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md).
-* Run a [sample CorDapp](../../../../../../en/platform/corda/4.9/enterprise/cordapps/tutorial-cordapp.md) to see Corda in action (optional).
-* Install the [CorDapp gradle plugin](https://plugins.gradle.org/plugin/net.corda.plugins.cordapp). To ensure you are using the correct version of Gradle, use the Gradle wrapper provided. Copy across
-the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the [Java CorDapp Template](https://github.com/corda/cordapp-template-java) to your project's root directory:
+* Know [what a CorDapp is](cordapp-overview.md).
+* Set up your [development environment](getting-set-up.md).
+* Run a [sample CorDapp](tutorial-cordapp.md) to see Corda in action (optional).
+* Install the [CorDapp Gradle plugin](https://plugins.gradle.org/plugin/net.corda.plugins.cordapp). To ensure you are using the correct version of Gradle, use the Gradle wrapper provided. Copy across the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the [Java CorDapp Template](https://github.com/corda/cordapp-template-java) to your project's root directory:
 
     * `gradle/`
     * `gradlew`
     * `gradlew.bat`
-
 
 {{< note >}}
 You can write CorDapps in any language that targets the JVM. However, Corda itself and most of the samples are written in Kotlin. If you’re unfamiliar with Kotlin and want to learn more, you can refer to their [getting started guide](https://kotlinlang.org/docs/tutorials/), and series of [Kotlin Koans](https://kotlinlang.org/docs/tutorials/koans.html).
@@ -152,8 +150,6 @@ dependency from being included twice (once in the CorDapp `.jar` and once in the
 is for declaring a compile-time dependency on a “semi-fat” CorDapp `.jar` in the same way as `cordaCompile`, except
 that `Cordformation` will only deploy CorDapps contained within the `cordapp` configuration.
 
-
-
 ### Dependencies on other CorDapps
 
 Your CorDapp may also depend on classes defined in another CorDapp, such as states, contracts and flows. There are two
@@ -170,6 +166,22 @@ The `cordapp` Gradle configuration serves two purposes:
 {{< note >}}
 The `cordformation` and `cordapp` Gradle plugins can be used at the same time.
 {{< /note >}}
+
+### Migrating to the latest version of Corda Gradle plugins
+
+{{< note >}}
+The latest version of Corda Gradle plugins is 5.1.x, which require Gradle 7.
+{{< /note >}}
+
+The `cordformation` plugin has been updated to enhance understanding of its use. It now creates the following Gradle configurations:
+
+* `cordapp` - Used for any CorDapps you want to deploy, excluding any CorDapp built by the local project.
+* `cordaDriver` - Used for any artifacts that must be added to each node's drivers/directory; for example, database drivers or the Corda shell.
+* `corda` - The Corda artifact itself, or the Corda TestServer.
+* `cordaBootstrapper` - Used for Corda's Bootstrapper artifact; i.e. a compatible version of `corda-node-api`. You may also wish to include an implementation of SLF4J for the Bootstrapper to use; for example, `slf4j-simple`.
+
+The `corda` and `cordaBootstrapper` configurations replace the need for the `cordaRuntime` configuration when using `cordformation`. Using `cordaRuntime` was creating the false impression that CorDapps needed to declare runtime dependencies on either Corda, the Bootstrapper, or both.
+There is no need to apply the `net.corda.plugins.cordapp` Gradle plugin along with `cordformation`, unless that project is also building a CorDapp.
 
 ### Other dependencies
 
@@ -242,7 +254,7 @@ timestamp at creation. Nodes running the same CorDapp must ensure they are using
 The filename of the `.jar` must include a unique identifier to deduplicate it from other releases of the same CorDapp.
 This is typically done by appending the version string to the CorDapp’s name. This unique identifier should not change
 once the `.jar` has been deployed on a node. If it does, make sure no one is relying on `FlowContext.appName` in their
-flows (see [Versioning](../../../../../../en/platform/corda/4.9/enterprise/cordapps/versioning.md)).
+flows (see [Versioning](versioning.md)).
 
 
 
@@ -318,9 +330,7 @@ You could sign the CorDapp automatically by:
 * Disabling signing in the `cordapp` plugin and signing the CorDapp `.jar` downstream in your build pipeline.
 
 ### Run development and production modes
-Nodes only accept CorDapps signed by Corda development certificates when running in development mode. If you need to run a CorDapp signed by the (default) development key in the production mode (for example, for testing), add the `cordappSignerKeyFingerprintBlacklist = []` property set to an empty list. See
-
-[Configuring a node](../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.html#limitations)).
+Nodes only accept CorDapps signed by Corda development certificates when running in development mode. If you need to run a CorDapp signed by the (default) development key in the production mode (for example, for testing), add the `cordappSignerKeyFingerprintBlacklist = []` property set to an empty list. See [Configuring a node](../node/setup/corda-configuration-file.html#limitations)).
 
 
 You can use one `build.gradle` file for both a development build (defaulting to the Corda development keystore) and for a production build (using an external keystore) by contexually overwriting signing options using system properties.
@@ -370,7 +380,7 @@ To check if the CorDapp is signed, use the [JAR signing and verification tool](h
 jarsigner --verify path/to/cordapp.jar
 ```
 
-The Cordformation plugin can also sign CorDapp `.jar`s when [deploying a set of nodes](../../../../../../en/platform/corda/4.9/enterprise/node/deploy/generating-a-node.md).
+The Cordformation plugin can also sign CorDapp `.jar`s when [deploying a set of nodes](../node/deploy/generating-a-node.md).
 
 If your build system post-processes the Cordapp `.jar`, then the modified `.jar` content may be out of date or missing a signature file. In this case, sign the Cordapp as a separate step and disable automatic signing by the `cordapp` plugin.
 
@@ -592,7 +602,7 @@ CorDapp Contract `.jar`s must be installed on a node by a trusted uploader, eith
 
 
 * Installing manually as per [Installing the CorDapp JAR](#install-the-cordapp) and re-starting the node.
-* Uploading the attachment `.jar` to the node via RPC, either programmatically (see [Connecting to a node via RPC](../../../../../../en/platform/corda/4.9/enterprise/node/operating/clientrpc.html#clientrpc-connect-ref))
+* Uploading the attachment `.jar` to the node via RPC, either programmatically (see [Connecting to a node via RPC](../node/operating/clientrpc.html#clientrpc-connect-ref))
 or via the shell using the command: `>>> run uploadAttachment jar: path/to/the/file.jar`.
 
 Contract attachments received over the p2p network are **untrusted** and throw a *UntrustedAttachmentsException* exception if they are processed by a listening flow that cannot resolve the attachment with its local attachment storage. The flow will be suspended and sent to the node's `node-flow-hospital` for recovery and retry.
@@ -615,7 +625,7 @@ Deterministic JVM is integrated into Corda whereby execution takes place in a sa
 ## Install the CorDapp
 
 {{< note >}}
-Before you install a CorDapp `.jar`, you must [create one or more nodes](../../../../../../en/platform/corda/4.9/enterprise/operations/deployment/generating-a-node.md) to install it on.
+Before you install a CorDapp `.jar`, you must [create one or more nodes](../operations/deployment/generating-a-node.md) to install it on.
 
 {{< /note >}}
 Nodes load any CorDapps present in their `cordapps` folder at startup. To install a CorDapp on a node, you must add the

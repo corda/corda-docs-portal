@@ -52,14 +52,14 @@ for more details.
 ## Crash fault-tolerant (experimental)
 
 Corda provides a prototype [Raft-based](http://atomix.io/) highly available notary implementation. You can try it out on our
-[notary demo](https://github.com/corda/corda/blob/release/os/4.8/samples/notary-demo) page. Note that it has known limitations
+[notary demo](https://github.com/corda/corda/blob/release/os/4.9/samples/notary-demo) page. Note that it has known limitations
 and is not recommended for production use.
 
 
 ## Byzantine fault-tolerant (experimental)
 
 A prototype BFT notary implementation based on [BFT-Smart](https://github.com/bft-smart/library) is available. You can
-try it out on our [notary demo](https://github.com/corda/corda/blob/release/os/4.8/samples/notary-demo) page. Note that it
+try it out on our [notary demo](https://github.com/corda/corda/blob/release/os/4.9/samples/notary-demo) page. Note that it
 is still experimental and there is active work ongoing for a production ready solution. Additionally, BFT-Smart requires Java
 serialization which is disabled by default in Corda due to security risks, and it will only work in dev mode where this can
 be customised.

@@ -63,8 +63,6 @@ Please also remember that *states are always consumable if the version of the Co
 In the simplest of scenarios it may be easier to re-issue existing hash or CZ whitelist constrained states (eg. exit them from the ledger using
 the original unsigned CorDapp and re-issuing them using the new signed CorDapp).
 
-
-
 ## Migrating hash constraints
 
 {{< note >}}

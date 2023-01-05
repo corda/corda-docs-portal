@@ -113,7 +113,7 @@ query soft locks associated with states as required by their CorDapp application
 
 ```
 
-[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.8/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
+[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.9/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
 
 
 ### Querying the vault with `SoftLockingCondition`
@@ -134,7 +134,7 @@ By default, vault queries always include locked states in its result sets. Custo
 
 ```
 
-[QueryCriteria.kt](https://github.com/corda/corda/blob/release/os/4.8/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
+[QueryCriteria.kt](https://github.com/corda/corda/blob/release/os/4.9/core/src/main/kotlin/net/corda/core/node/services/vault/QueryCriteria.kt)
 
 
 ### Explicit Usage

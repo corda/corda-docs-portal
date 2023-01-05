@@ -479,7 +479,7 @@ Use the different flow commands available to make changes on the ledger. You can
 
 #### Query flow data
 
-The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](../../4.8/enterprise/node/operating/querying-flow-data.html#querying-flow-data-via-the-node-shell).
+The shell can be used to query flow data. For more information on the types of data that can be queried and instructions for doing so, see the documentation on [Querying flow data](../enterprise/node/operating/querying-flow-data.html#querying-flow-data-via-the-node-shell).
 
 
 #### Start a flow

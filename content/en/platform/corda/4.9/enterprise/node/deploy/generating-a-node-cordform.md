@@ -148,7 +148,7 @@ rpcSettings {
 
 ## Optional configuration
 
-* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required**> for Notary nodes. For more information, see [notary](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#notary).
+* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required for Notary nodes.** For more information, see [notary](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#notary).
 
 * `devMode` &lt;boolean&gt; - use this configuration option to enable development mode when you set its value to `true`. For more information, see [devMode](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#devmode). For example:
 
@@ -168,7 +168,7 @@ rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
 ```
 
-* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#sshd). For example:
+* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](../setup/corda-configuration-fields.html#sshd). For example:
 
 ```kotlin
 sshd {
@@ -182,7 +182,7 @@ You can extend the `deployNodes` task with more `node {}` blocks to generate as 
 When adding nodes, make sure that there are no port clashes!
 {{< /warning >}}
 
-To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [Node configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md) format of `node.conf`. The properties set there will be appended to the generated node configuration.
+To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [node configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md) format of `node.conf`. The properties set there will be appended to the generated node configuration.
 
 {{< note >}}
 If you add a property to the additional configuration file that has already been created by the `deployNodes` task, both properties will be present in generated node configuration.
@@ -222,7 +222,7 @@ running the bootstrapper.
 
 ## Package namespace ownership
 
-To configure [package namespace ownership](../../../../../../../en/platform/corda/4.8/enterprise/node/deploy/env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](../../../../../../../en/platform/corda/4.9/enterprise/network-bootstrapper.md) tool. For example:
+To configure [package namespace ownership](env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](../../network-bootstrapper.md) tool. For example:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -300,7 +300,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 ## Optional migration step
 
-If you are migrating your database schema from an older Corda version to Corda 4.8, you must add the following parameter to the node section in the `build.gradle` and set it to `true`, as follows:
+If you are migrating your database schema from an older Corda version to Corda 4.9, you must add the following parameter to the node section in the `build.gradle` and set it to `true`, as follows:
 
 ```
         runSchemaMigration = true

@@ -22,7 +22,7 @@ See the [Corda 5 Developer Preview API reference](../../en/api-ref/corda/5.0-dev
 
 ## Corda 4 API reference
 
-See the [Corda 4 API reference](../../en/api-ref/api-ref-corda-4.md) page to access the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda open source 4.0 to 4.8, Corda Community Edition 4.9, Corda Enterprise 4.0 to 4.8, and Corda Enterprise Network Manager (CENM) 1.0 to 1.5.
+See the [Corda 4 API reference](../../en/api-ref/api-ref-corda-4.md) page to access the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda Open Source 4.0 to 4.8, Corda Community Edition 4.9, Corda Enterprise 4.0 to 4.9, and Corda Enterprise Network Manager (CENM) 1.0 to 1.5.
 
 ## Older Corda API reference
 

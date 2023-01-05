@@ -1,17 +1,12 @@
 ---
 aliases:
-- /head/api-persistence.html
-- /HEAD/api-persistence.html
-- /api-persistence.html
-- /releases/release-V4.4/api-persistence.html
-- /docs/corda-os/head/api-persistence.html
-- /docs/corda-os/api-persistence.html
+- /releases/4.1/api-persistence.html
 date: '2020-01-08T09:59:25Z'
 menu:
-  corda-os-4-4:
-    identifier: corda-os-4-4-api-persistence
-    parent: corda-os-4-4-corda-api
-    weight: 240
+  corda-enterprise-4-1:
+    identifier: corda-enterprise-4-1-api-persistence
+    parent: corda-enterprise-4-1-corda-api
+    weight: 1020
 tags:
 - api
 - persistence
@@ -68,7 +63,7 @@ interface QueryableState : ContractState {
 
 ```
 
-[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
+[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.1/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
 
 The `QueryableState` interface requires the state to enumerate the different relational schemas it supports, for
 instance in situations where the schema has evolved. Each relational schema is represented as a `MappedSchema`
@@ -84,9 +79,14 @@ representation (mapped object) via the `generateMappedObject` method, the output
  */
 interface SchemaService {
     /**
-     * All available schemas in this node
+     * Represents any options configured on the node for a schema.
      */
-    val schemas: Set<MappedSchema>
+    data class SchemaOptions(val databaseSchema: String? = null, val tablePrefix: String? = null)
+
+    /**
+     * Options configured for this node's schemas.  A missing entry for a schema implies all properties are null.
+     */
+    val schemaOptions: Map<MappedSchema, SchemaOptions>
 
     /**
      * Given a state, select schemas to map it to that are supported by [generateMappedObject] and that are configured
@@ -103,7 +103,7 @@ interface SchemaService {
 
 ```
 
-[SchemaService.kt](https://github.com/corda/corda/blob/release/os/4.4/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt)
+[SchemaService.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/main/kotlin/net/corda/node/services/api/SchemaService.kt)
 
 ```kotlin
 /**
@@ -150,7 +150,7 @@ open class MappedSchema(schemaFamily: Class<*>,
 
 ```
 
-[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.4/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
+[PersistentTypes.kt](https://github.com/corda/corda/blob/release/os/4.1/core/src/main/kotlin/net/corda/core/schemas/PersistentTypes.kt)
 
 With this framework, the relational view of ledger states can evolve in a controlled fashion in lock-step with internal systems or other
 integration points and is not dependant on changes to the contract code.
@@ -158,7 +158,7 @@ integration points and is not dependant on changes to the contract code.
 It is expected that multiple contract state implementations might provide mappings within a single schema.
 For example an Interest Rate Swap contract and an Equity OTC Option contract might both provide a mapping to
 a Derivative contract within the same schema. The schemas should typically not be part of the contract itself and should exist independently
-to encourage re-use of a common set within a particular business area or CorDapp.
+to encourage re-use of a common set within a particular business area or Cordapp.
 
 {{< note >}}
 It’s advisable to avoid cross-references between different schemas as this may cause issues when evolving `MappedSchema`
@@ -238,7 +238,6 @@ object CashSchema
  * First version of a cash contract ORM schema that maps all fields of the [Cash] contract state as it stood
  * at the time of writing.
  */
-@Suppress("MagicNumber") // SQL column length
 @CordaSerializable
 object CashSchemaV1 : MappedSchema(schemaFamily = CashSchema.javaClass, version = 1, mappedTypes = listOf(PersistentCashState::class.java)) {
 
@@ -272,7 +271,7 @@ object CashSchemaV1 : MappedSchema(schemaFamily = CashSchema.javaClass, version 
 
 
 
-[CashSchemaV1.kt](https://github.com/corda/corda/blob/release/os/4.4/finance/contracts/src/main/kotlin/net/corda/finance/schemas/CashSchemaV1.kt) | ![github](/images/svg/github.svg "github")
+[CashSchemaV1.kt](https://github.com/corda/corda/blob/release/os/4.1/finance/contracts/src/main/kotlin/net/corda/finance/schemas/CashSchemaV1.kt) | ![github](/images/svg/github.svg "github")
 
 {{< /tabs >}}
 
@@ -286,219 +285,62 @@ e.g. for Oracle database, prior to version 12.2 the maximum length of table/colu
 
 ## Persisting Hierarchical Data
 
-You may wish to persist hierarchical relationships within states using multiple database tables
+You may want to persist hierarchical relationships within state data using multiple database tables. 
+To facilitate this, you must implement all queries making use of hierarchical relations as native SQL. 
 
-You may wish to persist hierarchical relationships within state data using multiple database tables. In order to facillitate this, multiple `PersistentState`
-subclasses may be implemented. The relationship between these classes is defined using JPA annotations. It is important to note that the `MappedSchema`
-constructor requires a list of *all* of these subclasses.
+Example schemas implementing hierarchical relationships have been implemented below. 
 
-An example Schema implementing hierarchical relationships with JPA annotations has been implemented below. This Schema will cause `parent_data` and `child_data` tables to be
-created.
+For one-to-one scenarios, use the following:
 
-{{< tabs name="tabs-2" >}}
-{{% tab name="java" %}}
-```java
-@CordaSerializable
-public class SchemaV1 extends MappedSchema {
+```kotlin
+// Parent schema implemented as usual
+class PersistentParent(
+  @Column(name = "linear_id")
+  var linearId: UUID
+) : PersistentState() {
+  constructor() : this( UUID.randomUUID() )
+}
 
-    /**
-     * This class must extend the MappedSchema class. Its name is based on the SchemaFamily name and the associated version number abbreviation (V1, V2... Vn).
-     * In the constructor, use the super keyword to call the constructor of MappedSchema with the following arguments: a class literal representing the schema family,
-     * a version number and a collection of mappedTypes (class literals) which represent JPA entity classes that the ORM layer needs to be configured with for this schema.
-     */
-
-    public SchemaV1() {
-        super(Schema.class, 1, ImmutableList.of(PersistentParentToken.class, PersistentChildToken.class));
-    }
-
-    /**
-     * The @entity annotation signifies that the specified POJO class' non-transient fields should be persisted to a relational database using the services
-     * of an entity manager. The @table annotation specifies properties of the table that will be created to contain the persisted data, in this case we have
-     * specified a name argument which will be used the table's title.
-     */
-
-    @Entity
-    @Table(name = "parent_data")
-    public static class PersistentParentToken extends PersistentState {
-
-        /**
-         * The @Column annotations specify the columns that will comprise the inserted table and specify the shape of the fields and associated
-         * data types of each database entry.
-         */
-
-        @Column(name = "owner") private final String owner;
-        @Column(name = "issuer") private final String issuer;
-        @Column(name = "amount") private final int amount;
-        @Column(name = "linear_id") public final UUID linearId;
-
-        /**
-         * The @OneToMany annotation specifies a one-to-many relationship between this class and a collection included as a field.
-         * The @JoinColumn and @JoinColumns annotations specify on which columns these tables will be joined on.
-         */
-
-        @OneToMany(cascade = CascadeType.PERSIST)
-        @JoinColumns({
-                @JoinColumn(name = "output_index", referencedColumnName = "output_index"),
-                @JoinColumn(name = "transaction_id", referencedColumnName = "transaction_id"),
-        })
-        private final List<PersistentChildToken> listOfPersistentChildTokens;
-
-        public PersistentParentToken(String owner, String issuer, int amount, UUID linearId, List<PersistentChildToken> listOfPersistentChildTokens) {
-            this.owner = owner;
-            this.issuer = issuer;
-            this.amount = amount;
-            this.linearId = linearId;
-            this.listOfPersistentChildTokens = listOfPersistentChildTokens;
-        }
-
-        // Default constructor required by hibernate.
-        public PersistentParentToken() {
-            this.owner = "";
-            this.issuer = "";
-            this.amount = 0;
-            this.linearId = UUID.randomUUID();
-            this.listOfPersistentChildTokens = null;
-        }
-
-        public String getOwner() {
-            return owner;
-        }
-
-        public String getIssuer() {
-            return issuer;
-        }
-
-        public int getAmount() {
-            return amount;
-        }
-
-        public UUID getLinearId() {
-            return linearId;
-        }
-
-        public List<PersistentChildToken> getChildTokens() { return listOfPersistentChildTokens; }
-    }
-
-    @Entity
-    @CordaSerializable
-    @Table(name = "child_data")
-    public static class PersistentChildToken {
-        // The @Id annotation marks this field as the primary key of the persisted entity.
-        @Id
-        private final UUID Id;
-        @Column(name = "owner")
-        private final String owner;
-        @Column(name = "issuer")
-        private final String issuer;
-        @Column(name = "amount")
-        private final int amount;
-
-        /**
-         * The @ManyToOne annotation specifies that this class will be present as a member of a collection on a parent class and that it should
-         * be persisted with the joining columns specified in the parent class. It is important to note the targetEntity parameter which should correspond
-         * to a class literal of the parent class.
-         */
-
-        @ManyToOne(targetEntity = PersistentParentToken.class)
-        private final TokenState persistentParentToken;
-
-
-        public PersistentChildToken(String owner, String issuer, int amount) {
-            this.Id = UUID.randomUUID();
-            this.owner = owner;
-            this.issuer = issuer;
-            this.amount = amount;
-            this.persistentParentToken = null;
-        }
-
-        // Default constructor required by hibernate.
-        public PersistentChildToken() {
-            this.Id = UUID.randomUUID();
-            this.owner = "";
-            this.issuer = "";
-            this.amount = 0;
-            this.persistentParentToken = null;
-        }
-
-        public UUID getId() {
-            return Id;
-        }
-
-        public String getOwner() {
-            return owner;
-        }
-
-        public String getIssuer() {
-            return issuer;
-        }
-
-        public int getAmount() {
-            return amount;
-        }
-
-        public TokenState getPersistentToken() {
-            return persistentToken;
-        }
-
-    }
-
+// Child has a reference to its parent
+class PersistentChild(
+  @Column(name = "linear_id")
+  var linearId: UUID
+  @Column=(name = "parent_linear_id")
+  var parentLinearId: UUID
+) : PersistentState() {
+  constructor() : this( UUID.randomUUID(), UUID.randomUUID() )
 }
 ```
-{{% /tab %}}
 
-{{% tab name="kotlin" %}}
-```kotlin
-@CordaSerializable
-object SchemaV1 : MappedSchema(schemaFamily = Schema::class.java, version = 1, mappedTypes = listOf(PersistentParentToken::class.java, PersistentChildToken::class.java)) {
+For one-to-many scenarios, use the following:
 
-    @Entity
-    @Table(name = "parent_data")
-    class PersistentParentToken(
-            @Column(name = "owner")
-            var owner: String,
-
-            @Column(name = "issuer")
-            var issuer: String,
-
-            @Column(name = "amount")
-            var currency: Int,
-
-            @Column(name = "linear_id")
-            var linear_id: UUID,
-
-             @JoinColumns(JoinColumn(name = "transaction_id", referencedColumnName = "transaction_id"), JoinColumn(name = "output_index", referencedColumnName = "output_index"))
-
-            var listOfPersistentChildTokens: MutableList<PersistentChildToken>
-    ) : PersistentState()
-
-    @Entity
-    @CordaSerializable
-    @Table(name = "child_data")
-    class PersistentChildToken(
-            @Id
-            var Id: UUID = UUID.randomUUID(),
-
-            @Column(name = "owner")
-            var owner: String,
-
-            @Column(name = "issuer")
-            var issuer: String,
-
-            @Column(name = "amount")
-            var currency: Int,
-
-            @Column(name = "linear_id")
-            var linear_id: UUID,
-
-            @ManyToOne(targetEntity = PersistentParentToken::class)
-            var persistentParentToken: TokenState
-
-    ) : PersistentState()
 ```
-{{% /tab %}}
+// Parent schema implemented as usual
+class PersistentParent(
+  @Column(name = "linear_id")
+  var linearId: UUID
+) : PersistentState() {
+  constructor() : this( UUID.randomUUID() )
+}
 
-{{< /tabs >}}
+// Child schema implemented as usual
+class PersistentChild(
+  @Column(name = "linear_id")
+  var linearId: UUID
+) : PersistentState() {
+  constructor() : this( UUID.randomUUID())
+}
 
+// ParentChildThrough table schema
+class PersistentThroughTable(
+  @Column(name = "parent_linear_id")
+  var parentLinearId: UUID
+  @Column(name="child_linear_id")
+  var childLinearId: UUID
+) : PersistentState() {
+  constructor() : this( UUID.randomUUID(), UUID.randomUUID() )
+}
+```
 
 ## Identity mapping
 
@@ -512,7 +354,9 @@ the `IdentityService` to resolve keys from well know X500 identity names.
 ## JDBC session
 
 {{< warning >}}
-Using JDBC to interact with a node's database can have serious consequences if not carried out correctly. You must ensure you are able to test any changes in a safe environment and roll back if you encounter any errors. This method should be seen as a last resort if you cannot perform your tasks using any other method.
+Using JDBC to interact with a node's database can have serious consequences if not carried out correctly. You must ensure
+you are able to test any changes in a safe environment and roll back if you encounter any errors. This method should be
+seen as a last resort if you cannot perform your tasks using any other method.
 {{< /warning >}}
 
 Apps may also interact directly with the underlying Node’s database by using a standard
@@ -530,7 +374,7 @@ Use the `ServiceHub` `jdbcSession` function to obtain a JDBC connection as illus
 
 ```
 
-[HibernateConfigurationTest.kt](https://github.com/corda/corda/blob/release/os/4.4/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)
+[HibernateConfigurationTest.kt](https://github.com/corda/corda/blob/release/os/4.1/node/src/test/kotlin/net/corda/node/services/persistence/HibernateConfigurationTest.kt)
 
 JDBC sessions can be used in flows and services (see “[Writing flows](flow-state-machines.md)”).
 
@@ -583,7 +427,7 @@ object CustomVaultQuery {
 
 ```
 
-[CustomVaultQuery.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
+[CustomVaultQuery.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
 
 which is then referenced within a custom flow:
 
@@ -613,7 +457,7 @@ which is then referenced within a custom flow:
 
 ```
 
-[CustomVaultQuery.kt](https://github.com/corda/corda/blob/release/os/4.4/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
+[CustomVaultQuery.kt](https://github.com/corda/corda/blob/release/os/4.1/docs/source/example-code/src/main/kotlin/net/corda/docs/kotlin/vault/CustomVaultQuery.kt)
 
 For examples on testing `@CordaService` implementations, see the oracle example [here](oracles.md).
 
