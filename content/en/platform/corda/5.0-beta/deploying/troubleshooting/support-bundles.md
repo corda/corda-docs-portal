@@ -25,7 +25,7 @@ This page describes how to gather the information required by R3 to assist you w
     * [via the provided scripts](#creating-a-support-bundle-using-scripts), or
     * [manually](#manually-gathering-information-for-support).
 
-## Scripted creation of a support bundle
+## Creating a Support Bundle Using Scripts
 
 1. Obtain the bundle creation script [support_bundle.sh](https://raw.githubusercontent.com/corda/corda-runtime-os/release/os/5.0/support_bundle.sh)(Bash) or [support_bundle.ps1](https://raw.githubusercontent.com/corda/corda-runtime-os/release/os/5.0/support_bundle.ps1)(PowerShell) from GitHub, or from Customer Hub.
 
