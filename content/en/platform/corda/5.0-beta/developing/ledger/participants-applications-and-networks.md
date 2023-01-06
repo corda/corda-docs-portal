@@ -5,7 +5,7 @@ menu:
   corda-5-beta:
     parent: corda-5-beta-ledger
     identifier: corda-5-beta-participants-apps-networks
-    weight: 1000
+    weight: 9000
 section_menu: corda-5-beta
 ---
 

@@ -5,7 +5,7 @@ menu:
   corda-5-beta:
     parent: corda-5-beta-ledger
     identifier: corda-5-beta-flows
-    weight: 3000
+    weight: 4000
 section_menu: corda-5-beta
 ---
 

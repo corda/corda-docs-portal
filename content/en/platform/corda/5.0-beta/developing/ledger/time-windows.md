@@ -5,7 +5,7 @@ menu:
   corda-5-beta:
     parent: corda-5-beta-ledger
     identifier: corda-5-beta-time-windows
-    weight: 7000
+    weight: 8000
 section_menu: corda-5-beta
 ---
 
