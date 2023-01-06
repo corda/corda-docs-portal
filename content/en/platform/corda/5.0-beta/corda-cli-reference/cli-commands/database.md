@@ -5,8 +5,8 @@ menu:
     identifier: corda-5-beta-cordacli-database
     weight: 5000
     parent: corda-5-cli-reference
-section_menu: corda-5-beta
-title: "database"
+  section_menu: corda-5-beta
+  title: "database"
 ---
 
 This section lists the Corda CLI `database` arguments. You can use these commands to manually perform setup actions in the database, as described in the [Manual Bootstrapping Tutorial](deployment-tutorials/manual.html).
