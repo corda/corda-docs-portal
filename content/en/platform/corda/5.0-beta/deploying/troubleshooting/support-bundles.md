@@ -43,7 +43,7 @@ This page describes how to gather the information required by R3 to assist you w
    {{% /tab %}}
    {{< /tabs >}}
 
-## Manually gathering information for support
+## Manually Gathering Information for Support
 
 1. Collect the Corda Helm chart release name, version, and app version:
 
