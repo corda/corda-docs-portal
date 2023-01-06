@@ -12,7 +12,7 @@ section_menu: corda-5-beta
 
 This page describes how to gather the information required by R3 to assist you with troubleshooting in the event of an issue with a Corda deployment on Kubernetes.
 
-1. Set the Kubernetes context to default to the namespace where Corda is installed.
+1. Set the Kubernetes context to use the namespace where Corda is installed by default.
 
     ```shell
     kubectl config set-context --current --namespace=$CORDA_NAMESPACE
