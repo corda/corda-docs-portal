@@ -185,7 +185,7 @@ devMode true
 rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
 ```
 
-* `configFile` &lt;string&gt; - use this configuration option to generate an extended node configuration. For more information, see [extended node configuration](#optional-configuration). For example:
+* `configFile` &lt;string&gt; - use this configuration option to generate an extended node configuration. For more information, see [Node configuration](../setup/corda-configuration-file.md). For example:
 
 ```kotlin
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
