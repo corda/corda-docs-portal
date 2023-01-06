@@ -12,14 +12,13 @@ section_menu: corda-5-beta
 
 This section outlines what you need to know to get a notary up and running on a Corda 5 application network.
 
-* [Network Member Roles](../notaries/notary-network-member-roles.md)
-* [Notary Plugin CorDapps](../notaries/notary-plugin-cordapps.md)
-* [CSDE Environment](../notaries/csde-notaries.md)
-
+* [Network Member Roles](../notaries/network-member-roles.md)
+* [Notary Plugin CorDapps](../notaries/plugin-cordapps-notary.md)
+* [CSDE Environment](../notaries/csde.md)
 
 For information on deploying notary virtual nodes in Corda 5.0, see the [Notary Deployment](../../deploying/notaries/notary-deployment.md) section.
 
-# Points to note in the Beta 1 release
+## Points to note in the Beta 1 release
 
 * Notary virtual nodes use an additional “uniqueness” database for capturing state data for double spend prevention. This is similar to the existing “crypto” and “vault” DBs. Currently, when auto-provisioning virtual node DBs, we always provision a uniqueness DB, regardless of whether it is a notary virtual node or not. This will be addressed in a future release.
 
