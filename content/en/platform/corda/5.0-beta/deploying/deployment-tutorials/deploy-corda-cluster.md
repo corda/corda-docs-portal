@@ -135,7 +135,7 @@ As with the number of replicas, you may need to adjust these values based on tes
 
 ### REST API Load Balancer
 
-By default, the [REST API](../../developing/rest-api/rest-api.html) is exposed on an internal Kubernetes service. To enable access from outside the Kubernetes cluster, the API should be fronted by a load balancer. The Helm chart allows annotations to be specified to facilitate the creation of a load balancer by a cloud-platform specific controller. For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html) fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
+By default, the [REST API](../../operating/rest-api/rest-api.html) is exposed on an internal Kubernetes service. To enable access from outside the Kubernetes cluster, the API should be fronted by a load balancer. The Helm chart allows annotations to be specified to facilitate the creation of a load balancer by a cloud-platform specific controller. For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html) fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
 ```yaml
 workers:
   rpc:
