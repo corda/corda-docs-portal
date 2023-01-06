@@ -4,7 +4,7 @@ menu:
   corda-5-beta:
     identifier: corda-5-beta-cordacli-database
     weight: 2000
-    parent: corda-5-beta-cordacli-deploy-commands
+    parent: corda-5-beta-cli-reference
 section_menu: corda-5-beta
 title: "database"
 ---
