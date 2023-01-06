@@ -4,8 +4,8 @@ title: "Onboarding to Networks"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-onboarding-tutorials
-    parent: corda-5-beta-tutorials-deploy
-    weight: 3000
+    parent: corda-5-beta-tutorials-operate
+    weight: 1000
 section_menu: corda-5-beta
 ---
 The following tutorials describe how to onboard to Corda 5 networks:

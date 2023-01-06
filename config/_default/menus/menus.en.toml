@@ -505,6 +505,12 @@ name = "Deployment Tutorials"
 weight = 5000
 
 [[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-operate"
+parent = "corda-5-beta-operate"
+name = "Operating Tutorials"
+weight = 1000
+
+[[corda-5-beta]]
 identifier = "corda-5-beta-tutorials-deploy-dynamic"
 parent = "corda-5-beta-onboarding-tutorials"
 name = "Dynamic Networks"
