@@ -91,23 +91,23 @@ The configuration values used in the example are described below.
 
 #### Required configuration
 
-* `name` &lt;string&gt; - use this configuration option to specify the legal identity name of the Corda node. For more information, see [myLegalName](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#mylegalname). For example:
+* `name` &lt;string&gt; - use this configuration option to specify the legal identity name of the Corda node. For more information, see [myLegalName](../../node/setup/corda-configuration-fields.html#mylegalname). For example:
 
 ```kotlin
 name "O=PartyA,L=London,C=GB"
 ```
-* `p2pAddress` &lt;string&gt; - use this configuration option to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#p2paddress). **Required if `p2pPort` is not specified**. For example:
+* `p2pAddress` &lt;string&gt; - use this configuration option to specify the address/port the node uses for inbound communication from other nodes. For more information, see [p2pAddress](../../node/setup/corda-configuration-fields.html#p2paddress). **Required if `p2pPort` is not specified**. For example:
 
 ```kotlin
 p2pAddress "example.com:10002"
 ```
-* `p2pPort` &lt;integer&gt; - use this configuration option to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#p2paddress). For example:
+* `p2pPort` &lt;integer&gt; - use this configuration option to specify the port the node uses for inbound communication from other nodes. The assumed IP address is `localhost`. For more information, see [p2pAddress](../../node/setup/corda-configuration-fields.html#p2paddress). For example:
 
 ```kotlin
 p2pPort 10006  // "localhost:10006"
 ```
 
-* `rpcSettings` &lt;config&gt; - use this configuration option to specify RPC settings for the node. For more information, see [rpcSettings](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#rpcsettings). For example:
+* `rpcSettings` &lt;config&gt; - use this configuration option to specify RPC settings for the node. For more information, see [rpcSettings](../../node/setup/corda-configuration-fields.html#rpcsettings). For example:
 
 ```kotlin
 rpcSettings {
@@ -118,27 +118,27 @@ rpcSettings {
 
 #### Optional configuration
 
-* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required**> for Notary nodes. For more information, see [notary](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#notary).
+* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required**> for Notary nodes. For more information, see [notary](../../node/setup/corda-configuration-fields.html#notary).
 
-* `devMode` &lt;boolean&gt; - use this configuration option to enable development mode when you set its value to `true`. For more information, see [devMode](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#devmode). For example:
+* `devMode` &lt;boolean&gt; - use this configuration option to enable development mode when you set its value to `true`. For more information, see [devMode](../../node/setup/corda-configuration-fields.html#devmode). For example:
 
 ```kotlin
 devMode true
 ```
 
-* `rpcUsers` &lt;list&gt; - use this configuration option to set the RPC users for the node. For more information, see [rpcUsers](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#rpcusers). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
+* `rpcUsers` &lt;list&gt; - use this configuration option to set the RPC users for the node. For more information, see [rpcUsers](../../node/setup/corda-configuration-fields.html#rpcusers). You can use arbitrary values in this configuration block - "incorrect" settings will not cause a DSL error. An example follows below:
 
 ```kotlin
 rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
 ```
 
-* `configFile` &lt;string&gt; - use this configuration option to generate an extended node configuration. For more information, see [extended node configuration](#generating-a-node-extended-config). For example:
+* `configFile` &lt;string&gt; - use this configuration option to generate an extended node configuration. For more information, see [extended node configuration](../../node/setup/corda-configuration-file.md). For example:
 
 ```kotlin
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
 ```
 
-* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#sshd). For example:
+* `sshdPort` &lt;integer&gt; - use this configuration option to specify the SSH port for the Docker container. This will be mapped to the same port on the host.  If `sshdPort` is specified, then that port must be available on the host and not in use by some other service. If `sshdPort` is not specified, then a default value will be used for the SSH port on the container. Use the `docker port <container_name>` command to check which port has been allocated on the host for your container. For more information, see [sshd](../../node/setup/corda-configuration-fields.html#sshd). For example:
 
 ```kotlin
 sshd {
@@ -152,7 +152,7 @@ You can extend the `deployNodes` task with more `node {}` blocks to generate as 
 When adding nodes, make sure that there are no port clashes!
 {{< /warning >}}
 
-To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [Node configuration](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-file.md) format of `node.conf`. The properties set there will be appended to the generated node configuration.
+To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [Node configuration](../../node/setup/corda-configuration-file.md) format of `node.conf`. The properties set there will be appended to the generated node configuration.
 
 {{< note >}}
 If you add a property to the additional configuration file that has already been created by the `deployNodes` task, both properties will be present in generated node configuration.
