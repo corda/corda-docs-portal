@@ -162,7 +162,7 @@ devMode true
 rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
 ```
 
-* `configFile` &lt;string&gt; - use this configuration option to generate an extended node configuration. For more information, see [Optional configuration](#optional-configuration). For example:
+* `configFile` &lt;string&gt; - use this configuration option to generate an extended node configuration. For more information, see [Node configuration](../setup/corda-configuration-file.md). For example:
 
 ```kotlin
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
@@ -182,7 +182,7 @@ You can extend the `deployNodes` task with more `node {}` blocks to generate as 
 When adding nodes, make sure that there are no port clashes!
 {{< /warning >}}
 
-To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [node configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md) format of `node.conf`. The properties set there will be appended to the generated node configuration.
+To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [node configuration](../setup/corda-configuration-file.md) format of `node.conf`. The properties set there will be appended to the generated node configuration.
 
 {{< note >}}
 If you add a property to the additional configuration file that has already been created by the `deployNodes` task, both properties will be present in generated node configuration.
