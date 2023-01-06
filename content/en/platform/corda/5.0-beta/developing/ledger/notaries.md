@@ -7,7 +7,7 @@ menu:
     identifier: corda-5-beta-notaries
     weight: 6000
 section_menu: corda-5-beta
-
+---
 
 
 The notary is Corda’s uniqueness consensus service. The notary’s primary role is to prevent double-spends by ensuring each transaction contains only unique unconsumed input states. It also acts as the time-stamping authority. Every transaction includes a time window and it can only be notarized during that window.   
