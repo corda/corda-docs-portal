@@ -22,7 +22,7 @@ This page describes how to gather the information required by R3 to assist you w
 
 2. Gather the required information either:
 
-    * [via the provided scripts](#scripted-creation-of-a-support-bundle), or
+    * [via the provided scripts](#creating-a-support-bundle-using-scripts), or
     * [manually](#manually-gathering-information-for-support).
 
 ## Scripted creation of a support bundle
