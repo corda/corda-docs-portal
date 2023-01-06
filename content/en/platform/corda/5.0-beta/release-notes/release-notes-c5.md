@@ -27,3 +27,11 @@ This section describes the issues resolved in Corda 5.0 Beta 1.
 It was not possible to upload a CPI that contained a group policy file associated to a group ID of a CPI that was already present in the cluster.
 As of this release, this validation has been removed and Corda only checks that a CPI does not have the same name, version, and signer of an existing CPI. 
 This facilitates Notary plugin CPIs and other scenarios where two different CPBs must use the same group ID to interact with each other on the same cluster.
+
+## Known Limitations
+
+* Corda 4 CorDapps will not run on Corda 5; it is a different set of incompatible APIs.
+* Upgrade from Corda 4 to Corda 5 is not supported; a future version will provide migration guidance and tooling.
+* There is no support for the Corda 4 Accounts SDK.
+* There is no support for the Corda 4 Tokens SDK.
+* There is no support for upgrades from the early access beta versions.
