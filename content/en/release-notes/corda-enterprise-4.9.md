@@ -2,10 +2,10 @@
 date: '2021-04-24T00:00:00Z'
 menu:
   releases:
-    name: Corda Enterprise 4.9 release
+    name: Corda Enterprise 4.9
     identifier: corda-enterprise-4.9-release
 title: Corda Enterprise 4.9 release
-weight: 30
+weight: 20
 ---
 
 Corda: Enterprise Edition 4.9 is a long-term support release, with commitments to wire and API stability. It introduces several fixes and improvements. States and CorDapps from version 3.0 and above are compatible with Corda: Enterprise Edition 4.9. See the [full 4.9 release notes](../../en/platform/corda/4.9/enterprise/release-notes-enterprise.md).

@@ -5,7 +5,7 @@ menu:
     name: Corda downloads
     identifier: corda-downloads
 title: Corda downloads
-weight: 200
+weight: 60
 ---
 
 ## Corda Enterprise downloads

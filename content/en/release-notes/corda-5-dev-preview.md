@@ -2,7 +2,7 @@
 date: '2021-04-24T00:00:00Z'
 menu:
   releases:
-    name: Corda 5 Developer Preview 2 release
+    name: Corda 5 Developer Preview 2
     identifier: corda-5-dev-preview-release
 title: Corda 5 Developer Preview 2 release
 weight: 10
