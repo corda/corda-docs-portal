@@ -530,9 +530,8 @@ weight = 2000
 
 [[corda-5-beta]]
 identifier = "corda-5-beta-operate-rest-ref"
-parent = "corda-5-beta-operate-rest-api"
 name = "REST API Reference"
-weight = 2000
+weight = 5050
 url = 'C5_OpenAPI.html'
 
 [[corda-5-beta]]
