@@ -98,9 +98,9 @@ Some states need to be referred to by the contracts of other input or output sta
 ## Other Transaction Components
 As well as input states and output states, transactions contain:
 
-* [Commands]()
-* Attachments
-* Time windows
+* [Commands](#commands)
+* [Attachments](#attachments)
+* [Time windows](#time-windows)
 * A notary
 
 {{< note >}}
@@ -114,3 +114,38 @@ For example, suppose Alice uses $5 cash to pay off $5 of an IOU with Bob. This t
 	 src="full-tx.png"
 	 figcaption="Transaction Backchain Example"
 >}}
+
+### Commands
+Commands enable you to make adjustments to rules. Including a command in a transaction indicates the transaction’s intent, affecting how you check the validity of the transaction. For example, if you had a transaction with a cash state and a bond state as inputs, and a cash state and a bond state as outputs, it could represent either a bond purchase or a coupon payment on a bond. Different rules are required to define what constitutes a valid transaction depending on whether it is a purchase or a coupon payment. For example, in the case of a purchase, you would require a change in the bond’s current owner, but not for a coupon payment.
+
+{{< 
+  figure
+	 src="commands.png"
+	 figcaption="Commands"
+>}}
+
+### Attachments
+
+{{< note >}}
+Attachments are not implemented in Corda 5.0 Beta 1.
+{{< /note >}}
+
+Attachments enable you to reuse a large piece of data for several transactions, such as:
+
+* A calendar of public holidays.
+* Supporting legal documentation.
+* A table of currency codes.
+
+## Time Windows
+
+Each transaction requires a defined time window during which it can be approved and completed. The minimum requirement is an end date by which the transaction validation and notarisation must be complete. You may also want a proposed transaction to be approved during a certain period of time. For example:
+
+* An option that can only be exercised after a certain date.
+
+* A bond that may only be redeemed before its expiry date.
+
+This is enforced by adding a time window to the transaction, which specifies when the transaction can be committed. The notary enforces time window validity.
+
+## Notary
+Notaries provide uniqueness consensus by attesting that, for a given transaction, it has not already signed other transactions that consume any of the proposed transaction’s input states. This is the final check before a transaction is committed to the ledger.
+Every transaction must be notarised, even if you are creating an issuance transaction that does not consume any other states and cannot double-spend, as this is required to enforce the time window validity. This allows for a much more efficient notary protocol where the notary tracks valid input states rather than spent states. For more information, see the [Notary section].
