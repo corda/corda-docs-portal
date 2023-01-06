@@ -9,12 +9,6 @@ menu:
 section_menu: corda-5-beta
 ---
 
-A transaction is a proposal to update the ledger. It is only committed to the ledger if it:
-
-* does not contain double-spends.
-* is contractually valid.
-* is signed by the required parties.
-
 You can not edit the Corda ledger. The only way to change it is to add new transactions to it. A transaction updates the ledger by consuming existing input states and outputting new states. The states the transaction consumes are marked “consumed”.
 
 Every state is immutable. It can not be changed. This is called an UTXO (unspent transaction output) model.
@@ -44,3 +38,79 @@ There are two basic types of transactions:
 {{< note >}}
 Notary-change transactions will be implemented in a future release.
 {{< /note >}}
+
+## Transaction Backchains
+Transaction backchains enable a participant to verify that each input was generated from a valid series of transactions. This is called backchain verification. If you need to break this chain (for example, because you want to increase performance by reducing the number of transactions the node has to check, or because you want to keep previous transactions private) you can reissue states.
+
+Backchains are created as input state references (StateRefs) linked together over time. Input state references let you use the outputs of previous transactions as the inputs of new transactions.
+
+Input state references (StateRefs) consist of:
+
+* The hash of the transaction that created the input.
+* The input’s index (location in the backchain) in the outputs of the previous transaction.
+
+You can see how this works in this example transaction:
+
+{{< 
+  figure
+	 src="tx-chain.png"
+	 figcaption="Transaction Backchain Example"
+>}}
+
+## Committing Transactions to the Ledger
+Initially, a transaction is only a proposal to update the ledger. It represents the future state of the ledger desired by the transaction builders. It is only committed to the ledger if it:
+
+* does not contain double-spends.
+* is contractually valid.
+* is signed by the required parties.
+
+### Signatures
+
+To be committed to the ledger, the transaction must receive signatures from all of the required signatories. Each required signatory appends their signature to the transaction to approve the proposal. For example, the following shows a proposed transaction:
+{{< 
+  figure
+	 src="tx-with-sigs.png"
+	 figcaption="Proposed Signed Transaction"
+>}}
+
+The transaction has the required signatures and so the inputs may be marked as consumed, and cannot be used in any future transactions. The transaction’s outputs become part of the current state of the ledger: 
+
+{{< 
+  figure
+	 src="tx-chain.png"
+	 figcaption="Transaction Backchain Example"
+>}}
+
+### Validity
+
+Just gathering the required signatures is not enough to commit a transaction to the ledger. It must also be:
+
+* Valid — the proposed transaction and every transaction the backchain of the proposed inputs must be contractually valid.
+* Unique — no other committed transaction has consumed any of the inputs to the proposed transaction. Uniqueness is determined by a notary.
+
+If the transaction gathers all of the required signatures without meeting these conditions, the transaction’s outputs are not valid and will not be accepted as inputs to subsequent transactions.
+
+## Reference States
+Some states need to be referred to by the contracts of other input or output states but not updated/consumed. This is where reference states come in. When a state is added to the references list of a transaction, instead of the inputs or outputs list, it is treated as a reference state. There are two important differences between regular input states and reference states:
+* The specified notary for the transaction does check whether the reference states are current. However, reference states are not consumed when the transaction containing them is committed to the ledger.
+* The contracts for reference states are not executed for the transaction containing them.
+
+## Other Transaction Components
+As well as input states and output states, transactions contain:
+
+* [Commands]()
+* Attachments
+* Time windows
+* A notary
+
+{{< note >}}
+Attachments will be implemented in a future release.
+{{< /note >}}
+
+For example, suppose Alice uses $5 cash to pay off $5 of an IOU with Bob. This transaction contains a settlement command which reduces the amount outstanding on the IOU, and a payment command which changes the ownership of $5 from Alice to Bob. It also has two supporting attachments, and is notarized by `NotaryClusterA` if the notary pool receives it within the specified time window:
+
+{{< 
+  figure
+	 src="full-tx.png"
+	 figcaption="Transaction Backchain Example"
+>}}

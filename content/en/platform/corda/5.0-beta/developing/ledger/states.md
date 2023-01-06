@@ -44,4 +44,4 @@ Each participant's vault stores the current and consumed states in which it is i
 >}}
 
 ## Reference States
-Not all states need to be updated by the parties which use them. One participant can create a state containing reference data. This state can be used, but not updated, by other parties. For this use case, the states containing reference data are referred to as reference states. Reference states are no different to regular states. However, they are handled differently in Corda transactions.
+Not all states need to be updated by the parties which use them. One participant can create a state containing reference data. This state can be used, but not updated, by other parties. For this use case, the states containing reference data are referred to as reference states. Reference states are no different to regular states. However, they are handled differently in Corda transactions. For more information, see the [Transactions section](transactions.html#reference-states).
