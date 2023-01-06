@@ -58,7 +58,7 @@ Corda provides a library of flows to handle common tasks. As a result, you do no
 * Notarising and recording a transaction.
 * Gathering signatures from counterparty nodes.
 * Verifying a chain of transactions.
-For further information on the available built-in flows, see API: Flows.#
+Rather than exposing a library of subflows, this functionality is invoked via the `UtxoLedgerService` class. For example, calling the `finalize()` method invokes a subflow under the hood.
 
 ## Concurrency
 Virtual nodes can have multiple active flows running at once. Flows are serialized to the message bus whenever they enter a blocking state. For example, when waiting on I/O or a networking call. This allows flows to be active for long periods of time, even during interruptions such as node restarts and upgrades. Instead of waiting for the flow to become unblocked, the node immediately starts work on any other scheduled flows, returning to the original flow at a later date. A flow will suspend whenever it needs to perform an operation using platform APIs. Flows can survive a failover event, allowing them to migrate to another flow worker process if required.
