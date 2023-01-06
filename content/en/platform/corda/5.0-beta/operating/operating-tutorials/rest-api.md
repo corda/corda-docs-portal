@@ -40,4 +40,4 @@ If you did not explicitly specify the password for the initial admin user at ins
 
 You can access the Swagger documentation for the REST API at the path `/api/v1/swagger`. For example, when using port forwarding the documentation is available at [https://localhost:8888/api/v1/swagger](https://localhost:8888/api/v1/swagger).
 
-You can also view the REST API documentation [here](C5_OpenAPI.html).
+You can also view the REST API documentation [here](../../rest-api/C5_OpenAPI.html)

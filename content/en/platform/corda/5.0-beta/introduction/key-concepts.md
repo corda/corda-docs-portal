@@ -89,7 +89,7 @@ Currently, the MGM allows each network member to be aware of every other member.
 However, based on feedback, we could introduce additional models. For example, a broker model where each client is only aware of the brokers, but the brokers are aware of every other node.
 {{< /note >}}
 
-You can learn more about configuring an MGM in [Onboarding the MGM](../deploying/deployment-tutorials/onboarding/mgm-onboarding.html).
+You can learn more about configuring an MGM in [Onboarding the MGM](../operating/operating-tutorials/onboarding/mgm-onboarding.html).
 
 ## Virtual Nodes
 
