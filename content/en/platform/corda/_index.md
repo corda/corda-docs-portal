@@ -32,6 +32,7 @@ The Corda platform documentation covers the following versions of the Corda plat
 
 ### Corda 4 Community Edition (Formerly Open Source)
 
+* [Corda 4.10 Community Edition](../platform/corda/4.10/open-source.html)
 * [Corda 4.9 Community Edition](../platform/corda/4.9/open-source.html)
 * [Corda 4.8 Open Source](../platform/corda/4.8/open-source.html)
 * [Corda 4.7 Open Source](../platform/corda/4.7/open-source.html)
@@ -40,7 +41,8 @@ The Corda platform documentation covers the following versions of the Corda plat
 
 ### Corda 4 Enterprise
 
-* [Corda 4.9 Enterprise](../platform/corda/4.8/enterprise.html)
+* [Corda 4.10 Enterprise](../platform/corda/4.10/enterprise.html)
+* [Corda 4.9 Enterprise](../platform/corda/4.9/enterprise.html)
 * [Corda 4.8 Enterprise](../platform/corda/4.8/enterprise.html)
 * [Corda 4.7 Enterprise](../platform/corda/4.7/enterprise.html)
 * [Corda 4.6 Enterprise](../platform/corda/4.6/enterprise.html)

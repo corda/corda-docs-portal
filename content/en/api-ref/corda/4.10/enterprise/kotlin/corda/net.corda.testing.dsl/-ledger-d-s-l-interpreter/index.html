@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>LedgerDSLInterpreter - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.dsl</a>&nbsp;/&nbsp;<a href="./index.html">LedgerDSLInterpreter</a><br/>
+<br/>
+<h1>LedgerDSLInterpreter</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">LedgerDSLInterpreter</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-verifies/index.html"><span class="identifier">Verifies</span></a><span class="symbol">, </span><a href="../-output-state-lookup/index.html"><span class="identifier">OutputStateLookup</span></a></code>
+<p>This interface defines the bare bone functionality that a Ledger DSL interpreter should implement.</p>
+<p>TODO (Kotlin 1.1): Use type synonyms to make the type params less unwieldy</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="_transaction.html">_transaction</a></h4>
+</td>
+<td>
+<p>Creates and adds a transaction to the ledger.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">_transaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.LedgerDSLInterpreter$_transaction(kotlin.String, net.corda.core.transactions.TransactionBuilder, kotlin.Function1((net.corda.testing.dsl.LedgerDSLInterpreter.T, net.corda.testing.dsl.EnforceVerifyOrFail)))/transactionLabel">transactionLabel</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.LedgerDSLInterpreter$_transaction(kotlin.String, net.corda.core.transactions.TransactionBuilder, kotlin.Function1((net.corda.testing.dsl.LedgerDSLInterpreter.T, net.corda.testing.dsl.EnforceVerifyOrFail)))/transactionBuilder">transactionBuilder</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionBuilder</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.LedgerDSLInterpreter$_transaction(kotlin.String, net.corda.core.transactions.TransactionBuilder, kotlin.Function1((net.corda.testing.dsl.LedgerDSLInterpreter.T, net.corda.testing.dsl.EnforceVerifyOrFail)))/dsl">dsl</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="../-enforce-verify-or-fail.html"><span class="identifier">EnforceVerifyOrFail</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">WireTransaction</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="_tweak.html">_tweak</a></h4>
+</td>
+<td>
+<p>Creates a local scoped copy of the ledger.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">_tweak</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.LedgerDSLInterpreter$_tweak(kotlin.Function1((net.corda.testing.dsl.LedgerDSLInterpreter((net.corda.testing.dsl.LedgerDSLInterpreter.T)), kotlin.Unit)))/dsl">dsl</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LedgerDSLInterpreter</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="_unverified-transaction.html">_unverifiedTransaction</a></h4>
+</td>
+<td>
+<p>Creates and adds a transaction to the ledger that will not be verified by <a href="../-verifies/verifies.html">verifies</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">_unverifiedTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.LedgerDSLInterpreter$_unverifiedTransaction(kotlin.String, net.corda.core.transactions.TransactionBuilder, kotlin.Function1((net.corda.testing.dsl.LedgerDSLInterpreter.T, kotlin.Unit)))/transactionLabel">transactionLabel</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.LedgerDSLInterpreter$_unverifiedTransaction(kotlin.String, net.corda.core.transactions.TransactionBuilder, kotlin.Function1((net.corda.testing.dsl.LedgerDSLInterpreter.T, kotlin.Unit)))/transactionBuilder">transactionBuilder</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionBuilder</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.LedgerDSLInterpreter$_unverifiedTransaction(kotlin.String, net.corda.core.transactions.TransactionBuilder, kotlin.Function1((net.corda.testing.dsl.LedgerDSLInterpreter.T, kotlin.Unit)))/dsl">dsl</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">WireTransaction</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="attachment.html">attachment</a></h4>
+</td>
+<td>
+<p>Adds an attachment to the ledger.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">attachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.LedgerDSLInterpreter$attachment(java.io.InputStream)/attachment">attachment</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SecureHash</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-ledger-d-s-l/index.html">LedgerDSL</a></h4>
+</td>
+<td>
+<p>This is the class that defines the syntactic sugar of the ledger Test DSL and delegates to the contained interpreter,
+and what is actually used in <code>ledger { (...) }</code>. Add convenience functions here, or if you want to extend the DSL
+functionality then first add your primitive to <a href="./index.html">LedgerDSLInterpreter</a> and then add the convenience defaults/extension
+methods here.</p>
+<code><span class="keyword">class </span><span class="identifier">LedgerDSL</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">, </span><span class="keyword">out</span>&nbsp;<span class="identifier">L</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LedgerDSLInterpreter</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LedgerDSLInterpreter</span></a><span class="symbol">&lt;</span><a href="../-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-test-ledger-d-s-l-interpreter/index.html">TestLedgerDSLInterpreter</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">TestLedgerDSLInterpreter</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LedgerDSLInterpreter</span></a><span class="symbol">&lt;</span><a href="../-test-transaction-d-s-l-interpreter/index.html"><span class="identifier">TestTransactionDSLInterpreter</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

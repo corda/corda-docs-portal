@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Cash.State - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.finance.contracts.asset</a>&nbsp;/&nbsp;<a href="../index.html">Cash</a>&nbsp;/&nbsp;<a href="./index.html">State</a><br/>
+<br/>
+<h1>State</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">State</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-fungible-asset/index.html"><span class="identifier">FungibleAsset</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../../../net.corda.core.schemas/-queryable-state/index.html"><span class="identifier">QueryableState</span></a></code>
+<p>A state representing a cash claim against some party.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">State</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$<init>(net.corda.core.contracts.PartyAndReference, net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.AbstractParty)/deposit">deposit</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-party-and-reference/index.html"><span class="identifier">PartyAndReference</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$<init>(net.corda.core.contracts.PartyAndReference, net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.AbstractParty)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$<init>(net.corda.core.contracts.PartyAndReference, net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.identity.AbstractParty)/owner">owner</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">)</span></code>
+<p>A state representing a cash claim against some party.</p>
+<code><span class="identifier">State</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$<init>(net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), net.corda.core.identity.AbstractParty)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$<init>(net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), net.corda.core.identity.AbstractParty)/owner">owner</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="amount.html">amount</a></h4>
+</td>
+<td>
+<p>Amount represents a positive quantity of some issued product which can be cash, tokens, assets, or generally
+anything else that's quantifiable with integer quantities. See <a href="../../../net.corda.core.contracts/-issued/index.html">Issued</a> and <a href="../../../net.corda.core.contracts/-amount/index.html">Amount</a> for more details.</p>
+<code><span class="keyword">val </span><span class="identifier">amount</span><span class="symbol">: </span><a href="../../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="exit-keys.html">exitKeys</a></h4>
+</td>
+<td>
+<p>There must be an ExitCommand signed by these keys to destroy the amount. While all states require their
+owner to sign, some (i.e. cash) also require the issuer.</p>
+<code><span class="keyword">val </span><span class="identifier">exitKeys</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="owner.html">owner</a></h4>
+</td>
+<td>
+<p>There must be a MoveCommand signed by this key to claim the amount.</p>
+<code><span class="keyword">val </span><span class="identifier">owner</span><span class="symbol">: </span><a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="participants.html">participants</a></h4>
+</td>
+<td>
+<p>A <em>participant</em> is any party that should be notified when the state is created or consumed.</p>
+<code><span class="keyword">val </span><span class="identifier">participants</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="generate-mapped-object.html">generateMappedObject</a></h4>
+</td>
+<td>
+<p>Object Relational Mapping support.</p>
+<code><span class="keyword">fun </span><span class="identifier">generateMappedObject</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$generateMappedObject(net.corda.core.schemas.MappedSchema)/schema">schema</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.schemas/-mapped-schema/index.html"><span class="identifier">MappedSchema</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.schemas/-persistent-state/index.html"><span class="identifier">PersistentState</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="issued-by.html">issuedBy</a></h4>
+</td>
+<td>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="identifier">issuedBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$issuedBy(net.corda.core.identity.AbstractParty)/party">party</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">State</span></code><br/>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="identifier">issuedBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$issuedBy(net.corda.core.contracts.PartyAndReference)/deposit">deposit</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-party-and-reference/index.html"><span class="identifier">PartyAndReference</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">State</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="owned-by.html">ownedBy</a></h4>
+</td>
+<td>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="identifier">ownedBy</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$ownedBy(net.corda.core.identity.AbstractParty)/owner">owner</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">State</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="supported-schemas.html">supportedSchemas</a></h4>
+</td>
+<td>
+<p>Object Relational Mapping support.</p>
+<code><span class="keyword">fun </span><span class="identifier">supportedSchemas</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.schemas/-mapped-schema/index.html"><span class="identifier">MappedSchema</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-deposit.html">withDeposit</a></h4>
+</td>
+<td>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="identifier">withDeposit</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$withDeposit(net.corda.core.contracts.PartyAndReference)/deposit">deposit</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-party-and-reference/index.html"><span class="identifier">PartyAndReference</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">State</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-new-owner.html">withNewOwner</a></h4>
+</td>
+<td>
+<p>Copies the underlying data structure, replacing the owner field with this new value and leaving the rest alone.</p>
+<code><span class="keyword">fun </span><span class="identifier">withNewOwner</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$withNewOwner(net.corda.core.identity.AbstractParty)/newOwner">newOwner</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.contracts/-command-and-state/index.html"><span class="identifier">CommandAndState</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-new-owner-and-amount.html">withNewOwnerAndAmount</a></h4>
+</td>
+<td>
+<p>Copies the underlying data structure, replacing the amount and owner fields with the new values and leaving the
+rest (exitKeys) alone.</p>
+<code><span class="keyword">fun </span><span class="identifier">withNewOwnerAndAmount</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$withNewOwnerAndAmount(net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), net.corda.core.identity.AbstractParty)/newAmount">newAmount</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.contracts/-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.asset.Cash.State$withNewOwnerAndAmount(net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((java.util.Currency)))), net.corda.core.identity.AbstractParty)/newOwner">newOwner</span><span class="symbol">:</span>&nbsp;<a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../../net.corda.core.contracts/-fungible-asset/index.html"><span class="identifier">FungibleAsset</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

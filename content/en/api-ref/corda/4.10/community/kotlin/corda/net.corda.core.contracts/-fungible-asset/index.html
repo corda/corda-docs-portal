@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FungibleAsset - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="./index.html">FungibleAsset</a><br/>
+<br/>
+<h1>FungibleAsset</h1>
+<code><span class="keyword">interface </span><span class="identifier">FungibleAsset</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-fungible-state/index.html"><span class="identifier">FungibleState</span></a><span class="symbol">&lt;</span><a href="../-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../-ownable-state/index.html"><span class="identifier">OwnableState</span></a></code>
+<p>Interface for contract states representing assets which are fungible, countable and issued by a
+specific party. States contain assets which are equivalent (such as cash of the same currency),
+so records of their existence can be merged or split as needed where the issuer is the same. For
+instance, dollars issued by the Fed are fungible and countable (in cents), barrels of West Texas
+crude are fungible and countable (oil from two small containers can be poured into one large
+container), shares of the same class in a specific company are fungible and countable, and so on.</p>
+<p>An example usage would be a cash transaction contract that implements currency using state objects that implement
+this interface.</p>
+<h3>Parameters</h3>
+<p><a name="T"></a>
+<code>T</code> - a type that represents the asset in question. This should describe the basic type of the asset
+(GBP, USD, oil, shares in company , etc.) and any additional metadata (issuer, grade, class, etc.).</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="amount.html">amount</a></h4>
+</td>
+<td>
+<p>Amount represents a positive quantity of some issued product which can be cash, tokens, assets, or generally
+anything else that's quantifiable with integer quantities. See <a href="../-issued/index.html">Issued</a> and <a href="../-amount/index.html">Amount</a> for more details.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">amount</span><span class="symbol">: </span><a href="../-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="../-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="exit-keys.html">exitKeys</a></h4>
+</td>
+<td>
+<p>There must be an ExitCommand signed by these keys to destroy the amount. While all states require their
+owner to sign, some (i.e. cash) also require the issuer.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">exitKeys</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="with-new-owner-and-amount.html">withNewOwnerAndAmount</a></h4>
+</td>
+<td>
+<p>Copies the underlying data structure, replacing the amount and owner fields with the new values and leaving the
+rest (exitKeys) alone.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withNewOwnerAndAmount</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.FungibleAsset$withNewOwnerAndAmount(net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((net.corda.core.contracts.FungibleAsset.T)))), net.corda.core.identity.AbstractParty)/newAmount">newAmount</span><span class="symbol">:</span>&nbsp;<a href="../-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="../-issued/index.html"><span class="identifier">Issued</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.FungibleAsset$withNewOwnerAndAmount(net.corda.core.contracts.Amount((net.corda.core.contracts.Issued((net.corda.core.contracts.FungibleAsset.T)))), net.corda.core.identity.AbstractParty)/newOwner">newOwner</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">FungibleAsset</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../hash.html">hash</a></h4>
+</td>
+<td>
+<p>Returns the SHA-256 hash of the serialised contents of this state (not cached!)</p>
+<code><span class="keyword">fun </span><a href="../-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">.</span><span class="identifier">hash</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code>
+<p>Returns the hash of the serialised contents of this state (not cached!)</p>
+<code><span class="keyword">fun </span><a href="../-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">.</span><span class="identifier">hash</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts$hash(net.corda.core.contracts.ContractState, kotlin.String)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

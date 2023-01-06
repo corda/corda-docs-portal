@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowExternalOperation - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">FlowExternalOperation</a><br/>
+<br/>
+<h1>FlowExternalOperation</h1>
+<code><span class="keyword">interface </span><span class="identifier">FlowExternalOperation</span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code>
+<p><a href="./index.html">FlowExternalOperation</a> represents an external process that blocks a flow from continuing until the result of <a href="execute.html">execute</a>
+has been retrieved. Examples of external processes where <a href="./index.html">FlowExternalOperation</a> would be useful include, triggering a long running
+process on an external system or retrieving information from a service that might be down.</p>
+<p>The flow will suspend while it is blocked to free up a flow worker thread, which allows other flows to continue processing while waiting
+for the result of this process.</p>
+<p>Implementations of <a href="./index.html">FlowExternalOperation</a> should ideally hold references to any external values required by <a href="execute.html">execute</a>. These references
+should be passed into the implementation's constructor. For example, an amount or a reference to a Corda Service could be passed in.</p>
+<p>It is discouraged to insert into the node's database from a <a href="./index.html">FlowExternalOperation</a>, except for keeping track of <a href="#">deduplicationId</a>s that
+have been processed. It is possible to interact with the database from inside a <a href="./index.html">FlowExternalOperation</a> but, for most operations, is not
+currently supported.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="execute.html">execute</a></h4>
+</td>
+<td>
+<p>Executes a blocking operation.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">execute</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowExternalOperation$execute(kotlin.String)/deduplicationId">deduplicationId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

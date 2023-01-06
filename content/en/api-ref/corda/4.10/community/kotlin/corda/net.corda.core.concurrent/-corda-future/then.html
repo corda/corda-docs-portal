@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaFuture.then - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.concurrent</a>&nbsp;/&nbsp;<a href="index.html">CordaFuture</a>&nbsp;/&nbsp;<a href="./then.html">then</a><br/>
+<br/>
+<h1>then</h1>
+<a name="net.corda.core.concurrent.CordaFuture$then(kotlin.Function1((net.corda.core.concurrent.CordaFuture((net.corda.core.concurrent.CordaFuture.V)), net.corda.core.concurrent.CordaFuture.then.W)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">W</span><span class="symbol">&gt;</span> <span class="identifier">then</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.concurrent.CordaFuture$then(kotlin.Function1((net.corda.core.concurrent.CordaFuture((net.corda.core.concurrent.CordaFuture.V)), net.corda.core.concurrent.CordaFuture.then.W)))/callback">callback</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="index.html"><span class="identifier">CordaFuture</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">W</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run the given callback when this future is done, on the completion thread.
+If the completion thread is problematic for you e.g. deadlock, you can submit to an executor manually.
+If callback fails, its throwable is logged.</p>
+</BODY>
+</HTML>

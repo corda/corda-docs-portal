@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>continueOnError - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.observable</a>&nbsp;/&nbsp;<a href="index.html">rx.Observable</a>&nbsp;/&nbsp;<a href="./continue-on-error.html">continueOnError</a><br/>
+<br/>
+<h1>continueOnError</h1>
+<a name="net.corda.core.observable$continueOnError(rx.Observable((net.corda.core.observable.continueOnError.T)))"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">continueOnError</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p><a href="./continue-on-error.html">Observable.continueOnError</a> is used to return an Observable, through which we can subscribe non unsubscribing <a href="#">rx.Observer</a>s
+to the source <a href="#">Observable</a>. Namely, it makes the <a href="#">rx.Observer</a>s resilient to exceptions coming out of <a href="#">rx.Observer.onNext</a>.</p>
+<p><a href="./continue-on-error.html">Observable.continueOnError</a> should be called before every subscribe to have the aforementioned effect.</p>
+</BODY>
+</HTML>

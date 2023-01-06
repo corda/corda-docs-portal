@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionDSL.input - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.dsl</a>&nbsp;/&nbsp;<a href="index.html">TransactionDSL</a>&nbsp;/&nbsp;<a href="./input.html">input</a><br/>
+<br/>
+<h1>input</h1>
+<a name="net.corda.testing.dsl.TransactionDSL$input(kotlin.String)"></a>
+<code><span class="keyword">fun </span><span class="identifier">input</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TransactionDSL$input(kotlin.String)/stateLabel">stateLabel</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Looks up the output label and adds the found state as an input.</p>
+<h3>Parameters</h3>
+<p><a name="stateLabel"></a>
+<code>stateLabel</code> - The label of the output state specified when calling <a href="../-transaction-d-s-l-interpreter/output.html">TransactionDSLInterpreter.output</a> and friends.</p>
+<a name="net.corda.testing.dsl.TransactionDSL$input(kotlin.String, kotlin.String)"></a>
+<code><span class="keyword">fun </span><span class="identifier">input</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TransactionDSL$input(kotlin.String, kotlin.String)/contractClassName">contractClassName</span><span class="symbol">:</span>&nbsp;<span class="identifier">ContractClassName</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TransactionDSL$input(kotlin.String, kotlin.String)/stateLabel">stateLabel</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><a name="net.corda.testing.dsl.TransactionDSL$input(kotlin.String, net.corda.core.contracts.ContractState)"></a>
+<code><span class="keyword">fun </span><span class="identifier">input</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TransactionDSL$input(kotlin.String, net.corda.core.contracts.ContractState)/contractClassName">contractClassName</span><span class="symbol">:</span>&nbsp;<span class="identifier">ContractClassName</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TransactionDSL$input(kotlin.String, net.corda.core.contracts.ContractState)/state">state</span><span class="symbol">:</span>&nbsp;<span class="identifier">ContractState</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Creates an <a href="../-ledger-d-s-l-interpreter/_unverified-transaction.html">LedgerDSLInterpreter._unverifiedTransaction</a> with a single output state and adds its reference as an
+input to the current transaction.</p>
+<h3>Parameters</h3>
+<p><a name="state"></a>
+<code>state</code> - The state to be added.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaRPCClient.start - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc</a>&nbsp;/&nbsp;<a href="index.html">CordaRPCClient</a>&nbsp;/&nbsp;<a href="./start.html">start</a><br/>
+<br/>
+<h1>start</h1>
+<a name="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.client.rpc.GracefulReconnect)"></a>
+<code><span class="identifier">@JvmOverloads</span> <span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.client.rpc.GracefulReconnect)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.client.rpc.GracefulReconnect)/password">password</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.client.rpc.GracefulReconnect)/gracefulReconnect">gracefulReconnect</span><span class="symbol">:</span>&nbsp;<a href="../-graceful-reconnect/index.html"><span class="identifier">GracefulReconnect</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="../-corda-r-p-c-connection/index.html"><span class="identifier">CordaRPCConnection</span></a></code>
+<p>Logs in to the target server and returns an active connection. The returned connection is a <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html">java.io.Closeable</a>
+and can be used with a try-with-resources statement. If you don't use that, you should use the
+<a href="../-r-p-c-connection/notify-server-and-close.html">RPCConnection.notifyServerAndClose</a> or <a href="../-r-p-c-connection/force-close.html">RPCConnection.forceClose</a> methods to dispose of the connection object
+when done.</p>
+<h3>Parameters</h3>
+<p><a name="username"></a>
+<code>username</code> - The username to authenticate with.</p>
+<p><a name="password"></a>
+<code>password</code> - The password to authenticate with.</p>
+<p><a name="gracefulReconnect"></a>
+<code>gracefulReconnect</code> - a <a href="../-graceful-reconnect/index.html">GracefulReconnect</a> class containing callback logic when the RPC is dis/reconnected unexpectedly</p>
+<h3>Exceptions</h3>
+<p><a name="RPCException"></a>
+<code>RPCException</code> - if the server version is too low or if the server isn't reachable within a reasonable timeout.</p>
+<a name="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.identity.CordaX500Name, net.corda.client.rpc.GracefulReconnect)"></a>
+<code><span class="identifier">@JvmOverloads</span> <span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.identity.CordaX500Name, net.corda.client.rpc.GracefulReconnect)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.identity.CordaX500Name, net.corda.client.rpc.GracefulReconnect)/password">password</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.identity.CordaX500Name, net.corda.client.rpc.GracefulReconnect)/targetLegalIdentity">targetLegalIdentity</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.identity.CordaX500Name, net.corda.client.rpc.GracefulReconnect)/gracefulReconnect">gracefulReconnect</span><span class="symbol">:</span>&nbsp;<a href="../-graceful-reconnect/index.html"><span class="identifier">GracefulReconnect</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="../-corda-r-p-c-connection/index.html"><span class="identifier">CordaRPCConnection</span></a></code>
+<p>Logs in to the target server and returns an active connection. The returned connection is a <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html">java.io.Closeable</a>
+and can be used with a try-with-resources statement. If you don't use that, you should use the
+<a href="../-r-p-c-connection/notify-server-and-close.html">RPCConnection.notifyServerAndClose</a> or <a href="../-r-p-c-connection/force-close.html">RPCConnection.forceClose</a> methods to dispose of the connection object
+when done.</p>
+<h3>Parameters</h3>
+<p><a name="username"></a>
+<code>username</code> - The username to authenticate with.</p>
+<p><a name="password"></a>
+<code>password</code> - The password to authenticate with.</p>
+<p><a name="targetLegalIdentity"></a>
+<code>targetLegalIdentity</code> - in case of multi-identity RPC endpoint specific legal identity to which the calls must be addressed.</p>
+<p><a name="gracefulReconnect"></a>
+<code>gracefulReconnect</code> - a <a href="../-graceful-reconnect/index.html">GracefulReconnect</a> class containing callback logic when the RPC is dis/reconnected unexpectedly</p>
+<h3>Exceptions</h3>
+<p><a name="RPCException"></a>
+<code>RPCException</code> - if the server version is too low or if the server isn't reachable within a reasonable timeout.</p>
+<a name="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.client.rpc.GracefulReconnect)"></a>
+<code><span class="identifier">@JvmOverloads</span> <span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.client.rpc.GracefulReconnect)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.client.rpc.GracefulReconnect)/password">password</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.client.rpc.GracefulReconnect)/externalTrace">externalTrace</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.context/-trace/index.html"><span class="identifier">Trace</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.client.rpc.GracefulReconnect)/impersonatedActor">impersonatedActor</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.context/-actor/index.html"><span class="identifier">Actor</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.client.rpc.GracefulReconnect)/gracefulReconnect">gracefulReconnect</span><span class="symbol">:</span>&nbsp;<a href="../-graceful-reconnect/index.html"><span class="identifier">GracefulReconnect</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="../-corda-r-p-c-connection/index.html"><span class="identifier">CordaRPCConnection</span></a></code>
+<p>Logs in to the target server and returns an active connection. The returned connection is a <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html">java.io.Closeable</a>
+and can be used with a try-with-resources statement. If you don't use that, you should use the
+<a href="../-r-p-c-connection/notify-server-and-close.html">RPCConnection.notifyServerAndClose</a> or <a href="../-r-p-c-connection/force-close.html">RPCConnection.forceClose</a> methods to dispose of the connection object
+when done.</p>
+<h3>Parameters</h3>
+<p><a name="username"></a>
+<code>username</code> - The username to authenticate with.</p>
+<p><a name="password"></a>
+<code>password</code> - The password to authenticate with.</p>
+<p><a name="externalTrace"></a>
+<code>externalTrace</code> - external <a href="../../net.corda.core.context/-trace/index.html">Trace</a> for correlation.</p>
+<p><a name="impersonatedActor"></a>
+<code>impersonatedActor</code> - the actor on behalf of which all the invocations will be made.</p>
+<p><a name="gracefulReconnect"></a>
+<code>gracefulReconnect</code> - a <a href="../-graceful-reconnect/index.html">GracefulReconnect</a> class containing callback logic when the RPC is dis/reconnected unexpectedly</p>
+<h3>Exceptions</h3>
+<p><a name="RPCException"></a>
+<code>RPCException</code> - if the server version is too low or if the server isn't reachable within a reasonable timeout.</p>
+<a name="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.core.identity.CordaX500Name, net.corda.client.rpc.GracefulReconnect)"></a>
+<code><span class="identifier">@JvmOverloads</span> <span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.core.identity.CordaX500Name, net.corda.client.rpc.GracefulReconnect)/username">username</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.core.identity.CordaX500Name, net.corda.client.rpc.GracefulReconnect)/password">password</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.core.identity.CordaX500Name, net.corda.client.rpc.GracefulReconnect)/externalTrace">externalTrace</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.context/-trace/index.html"><span class="identifier">Trace</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.core.identity.CordaX500Name, net.corda.client.rpc.GracefulReconnect)/impersonatedActor">impersonatedActor</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.context/-actor/index.html"><span class="identifier">Actor</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.core.identity.CordaX500Name, net.corda.client.rpc.GracefulReconnect)/targetLegalIdentity">targetLegalIdentity</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.client.rpc.CordaRPCClient$start(kotlin.String, kotlin.String, net.corda.core.context.Trace, net.corda.core.context.Actor, net.corda.core.identity.CordaX500Name, net.corda.client.rpc.GracefulReconnect)/gracefulReconnect">gracefulReconnect</span><span class="symbol">:</span>&nbsp;<a href="../-graceful-reconnect/index.html"><span class="identifier">GracefulReconnect</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="../-corda-r-p-c-connection/index.html"><span class="identifier">CordaRPCConnection</span></a></code>
+<p>Logs in to the target server and returns an active connection. The returned connection is a <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html">java.io.Closeable</a>
+and can be used with a try-with-resources statement. If you don't use that, you should use the
+<a href="../-r-p-c-connection/notify-server-and-close.html">RPCConnection.notifyServerAndClose</a> or <a href="../-r-p-c-connection/force-close.html">RPCConnection.forceClose</a> methods to dispose of the connection object
+when done.</p>
+<h3>Parameters</h3>
+<p><a name="username"></a>
+<code>username</code> - The username to authenticate with.</p>
+<p><a name="password"></a>
+<code>password</code> - The password to authenticate with.</p>
+<p><a name="externalTrace"></a>
+<code>externalTrace</code> - external <a href="../../net.corda.core.context/-trace/index.html">Trace</a> for correlation.</p>
+<p><a name="impersonatedActor"></a>
+<code>impersonatedActor</code> - the actor on behalf of which all the invocations will be made.</p>
+<p><a name="targetLegalIdentity"></a>
+<code>targetLegalIdentity</code> - in case of multi-identity RPC endpoint specific legal identity to which the calls must be addressed.</p>
+<p><a name="gracefulReconnect"></a>
+<code>gracefulReconnect</code> - a <a href="../-graceful-reconnect/index.html">GracefulReconnect</a> class containing callback logic when the RPC is dis/reconnected unexpectedly.
+Note that when using graceful reconnect the values for <a href="../-corda-r-p-c-client-configuration/connection-max-retry-interval.html">CordaRPCClientConfiguration.connectionMaxRetryInterval</a> and
+<a href="../-corda-r-p-c-client-configuration/max-reconnect-attempts.html">CordaRPCClientConfiguration.maxReconnectAttempts</a> will be overridden in order to mangage the reconnects.</p>
+<h3>Exceptions</h3>
+<p><a name="RPCException"></a>
+<code>RPCException</code> - if the server version is too low or if the server isn't reachable within a reasonable timeout.</p>
+</BODY>
+</HTML>

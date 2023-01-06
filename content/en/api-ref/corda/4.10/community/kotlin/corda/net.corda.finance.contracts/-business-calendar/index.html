@@ -1,0 +1,148 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BusinessCalendar - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.contracts</a>&nbsp;/&nbsp;<a href="./index.html">BusinessCalendar</a><br/>
+<br/>
+<h1>BusinessCalendar</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">BusinessCalendar</span></code>
+<p>A business calendar performs date calculations that take into account national holidays and weekends. This is a
+typical feature of financial contracts, in which a business may not want a payment event to fall on a day when
+no staff are around to handle problems.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A business calendar performs date calculations that take into account national holidays and weekends. This is a
+typical feature of financial contracts, in which a business may not want a payment event to fall on a day when
+no staff are around to handle problems.</p>
+<code><span class="identifier">BusinessCalendar</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar$<init>(java.util.SortedSet((java.time.LocalDate)))/holidayDates">holidayDates</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/SortedSet.html"><span class="identifier">SortedSet</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="holiday-dates.html">holidayDates</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">holidayDates</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/SortedSet.html"><span class="identifier">SortedSet</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="apply-roll-convention.html">applyRollConvention</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">applyRollConvention</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar$applyRollConvention(java.time.LocalDate, net.corda.finance.contracts.DateRollConvention)/testDate">testDate</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar$applyRollConvention(java.time.LocalDate, net.corda.finance.contracts.DateRollConvention)/dateRollConvention">dateRollConvention</span><span class="symbol">:</span>&nbsp;<a href="../-date-roll-convention/index.html"><span class="identifier">DateRollConvention</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="equals.html">equals</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-code.html">hashCode</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-working-day.html">isWorkingDay</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">isWorkingDay</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar$isWorkingDay(java.time.LocalDate)/date">date</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="move-business-days.html">moveBusinessDays</a></h4>
+</td>
+<td>
+<p>Returns a date which is the inbound date plus/minus a given number of business days.
+TODO: Make more efficient if necessary</p>
+<code><span class="keyword">fun </span><span class="identifier">moveBusinessDays</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar$moveBusinessDays(java.time.LocalDate, net.corda.finance.contracts.DateRollDirection, kotlin.Int)/date">date</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar$moveBusinessDays(java.time.LocalDate, net.corda.finance.contracts.DateRollDirection, kotlin.Int)/direction">direction</span><span class="symbol">:</span>&nbsp;<a href="../-date-roll-direction/index.html"><span class="identifier">DateRollDirection</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar$moveBusinessDays(java.time.LocalDate, net.corda.finance.contracts.DateRollDirection, kotlin.Int)/i">i</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="plus.html">plus</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">plus</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar$plus(net.corda.finance.contracts.BusinessCalendar)/other">other</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">BusinessCalendar</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">BusinessCalendar</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-e-m-p-t-y.html">EMPTY</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">EMPTY</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">BusinessCalendar</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="calculate-days-between.html">calculateDaysBetween</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">calculateDaysBetween</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$calculateDaysBetween(java.time.LocalDate, java.time.LocalDate, net.corda.finance.contracts.DayCountBasisYear, net.corda.finance.contracts.DayCountBasisDay)/startDate">startDate</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$calculateDaysBetween(java.time.LocalDate, java.time.LocalDate, net.corda.finance.contracts.DayCountBasisYear, net.corda.finance.contracts.DayCountBasisDay)/endDate">endDate</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$calculateDaysBetween(java.time.LocalDate, java.time.LocalDate, net.corda.finance.contracts.DayCountBasisYear, net.corda.finance.contracts.DayCountBasisDay)/dcbYear">dcbYear</span><span class="symbol">:</span>&nbsp;<a href="../-day-count-basis-year/index.html"><span class="identifier">DayCountBasisYear</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$calculateDaysBetween(java.time.LocalDate, java.time.LocalDate, net.corda.finance.contracts.DayCountBasisYear, net.corda.finance.contracts.DayCountBasisDay)/dcbDay">dcbDay</span><span class="symbol">:</span>&nbsp;<a href="../-day-count-basis-day/index.html"><span class="identifier">DayCountBasisDay</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-generic-schedule.html">createGenericSchedule</a></h4>
+</td>
+<td>
+<p>Calculates an event schedule that moves events around to ensure they fall on working days.</p>
+<code><span class="keyword">fun </span><span class="identifier">createGenericSchedule</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$createGenericSchedule(java.time.LocalDate, net.corda.finance.contracts.Frequency, net.corda.finance.contracts.BusinessCalendar, net.corda.finance.contracts.DateRollConvention, kotlin.Int, java.time.LocalDate, kotlin.Int)/startDate">startDate</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$createGenericSchedule(java.time.LocalDate, net.corda.finance.contracts.Frequency, net.corda.finance.contracts.BusinessCalendar, net.corda.finance.contracts.DateRollConvention, kotlin.Int, java.time.LocalDate, kotlin.Int)/period">period</span><span class="symbol">:</span>&nbsp;<a href="../-frequency/index.html"><span class="identifier">Frequency</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$createGenericSchedule(java.time.LocalDate, net.corda.finance.contracts.Frequency, net.corda.finance.contracts.BusinessCalendar, net.corda.finance.contracts.DateRollConvention, kotlin.Int, java.time.LocalDate, kotlin.Int)/calendar">calendar</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">BusinessCalendar</span></a>&nbsp;<span class="symbol">=</span>&nbsp;EMPTY<span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$createGenericSchedule(java.time.LocalDate, net.corda.finance.contracts.Frequency, net.corda.finance.contracts.BusinessCalendar, net.corda.finance.contracts.DateRollConvention, kotlin.Int, java.time.LocalDate, kotlin.Int)/dateRollConvention">dateRollConvention</span><span class="symbol">:</span>&nbsp;<a href="../-date-roll-convention/index.html"><span class="identifier">DateRollConvention</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DateRollConvention.Following<span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$createGenericSchedule(java.time.LocalDate, net.corda.finance.contracts.Frequency, net.corda.finance.contracts.BusinessCalendar, net.corda.finance.contracts.DateRollConvention, kotlin.Int, java.time.LocalDate, kotlin.Int)/noOfAdditionalPeriods">noOfAdditionalPeriods</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Integer.MAX_VALUE<span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$createGenericSchedule(java.time.LocalDate, net.corda.finance.contracts.Frequency, net.corda.finance.contracts.BusinessCalendar, net.corda.finance.contracts.DateRollConvention, kotlin.Int, java.time.LocalDate, kotlin.Int)/endDate">endDate</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$createGenericSchedule(java.time.LocalDate, net.corda.finance.contracts.Frequency, net.corda.finance.contracts.BusinessCalendar, net.corda.finance.contracts.DateRollConvention, kotlin.Int, java.time.LocalDate, kotlin.Int)/periodOffset">periodOffset</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-offset-date.html">getOffsetDate</a></h4>
+</td>
+<td>
+<p>Calculates the date from @startDate moving forward 'steps' of time size 'period'. Does not apply calendar
+logic / roll conventions.</p>
+<code><span class="keyword">fun </span><span class="identifier">getOffsetDate</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$getOffsetDate(java.time.LocalDate, net.corda.finance.contracts.Frequency, kotlin.Int)/startDate">startDate</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$getOffsetDate(java.time.LocalDate, net.corda.finance.contracts.Frequency, kotlin.Int)/period">period</span><span class="symbol">:</span>&nbsp;<a href="../-frequency/index.html"><span class="identifier">Frequency</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$getOffsetDate(java.time.LocalDate, net.corda.finance.contracts.Frequency, kotlin.Int)/steps">steps</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1<span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parse-date-from-string.html">parseDateFromString</a></h4>
+</td>
+<td>
+<p>Parses a date of the form YYYY-MM-DD, like 2016-01-10 for 10th Jan.</p>
+<code><span class="keyword">fun </span><span class="identifier">parseDateFromString</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.contracts.BusinessCalendar.Companion$parseDateFromString(kotlin.String)/it">it</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html"><span class="identifier">LocalDate</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NodeDiagnosticInfo - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node</a>&nbsp;/&nbsp;<a href="./index.html">NodeDiagnosticInfo</a><br/>
+<br/>
+<h1>NodeDiagnosticInfo</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NodeDiagnosticInfo</span></code>
+<p>A <a href="./index.html">NodeDiagnosticInfo</a> holds information about the current node version.</p>
+<h3>Parameters</h3>
+<p><a name="version"></a>
+<code>version</code> - The current node version string, e.g. 4.3, 4.4-SNAPSHOT. Note that this string is effectively freeform, and so should only
+    be used for providing diagnostic information. It should not be used to make functionality decisions (the platformVersion
+    is a better fit for this).</p>
+<p><a name="revision"></a>
+<code>revision</code> - The git commit hash this node was built from</p>
+<p><a name="platformVersion"></a>
+<code>platformVersion</code> - The platform version of this node. This number represents a released API version, and should be used to make
+    functionality decisions (e.g. enabling an app feature only if an underlying platform feature exists)</p>
+<p><a name="vendor"></a>
+<code>vendor</code> - The vendor of this node</p>
+<p><a name="cordapps"></a>
+<code>cordapps</code> - A list of CorDapps currently installed on this node</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A <a href="./index.html">NodeDiagnosticInfo</a> holds information about the current node version.</p>
+<code><span class="identifier">NodeDiagnosticInfo</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.NodeDiagnosticInfo$<init>(kotlin.String, kotlin.String, kotlin.Int, kotlin.String, kotlin.collections.List((net.corda.core.cordapp.CordappInfo)))/version">version</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.NodeDiagnosticInfo$<init>(kotlin.String, kotlin.String, kotlin.Int, kotlin.String, kotlin.collections.List((net.corda.core.cordapp.CordappInfo)))/revision">revision</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.NodeDiagnosticInfo$<init>(kotlin.String, kotlin.String, kotlin.Int, kotlin.String, kotlin.collections.List((net.corda.core.cordapp.CordappInfo)))/platformVersion">platformVersion</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.NodeDiagnosticInfo$<init>(kotlin.String, kotlin.String, kotlin.Int, kotlin.String, kotlin.collections.List((net.corda.core.cordapp.CordappInfo)))/vendor">vendor</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.NodeDiagnosticInfo$<init>(kotlin.String, kotlin.String, kotlin.Int, kotlin.String, kotlin.collections.List((net.corda.core.cordapp.CordappInfo)))/cordapps">cordapps</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.cordapp/-cordapp-info/index.html"><span class="identifier">CordappInfo</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="cordapps.html">cordapps</a></h4>
+</td>
+<td>
+<p>A list of CorDapps currently installed on this node</p>
+<code><span class="keyword">val </span><span class="identifier">cordapps</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.cordapp/-cordapp-info/index.html"><span class="identifier">CordappInfo</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="platform-version.html">platformVersion</a></h4>
+</td>
+<td>
+<p>The platform version of this node. This number represents a released API version, and should be used to make
+    functionality decisions (e.g. enabling an app feature only if an underlying platform feature exists)</p>
+<code><span class="keyword">val </span><span class="identifier">platformVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="revision.html">revision</a></h4>
+</td>
+<td>
+<p>The git commit hash this node was built from</p>
+<code><span class="keyword">val </span><span class="identifier">revision</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="vendor.html">vendor</a></h4>
+</td>
+<td>
+<p>The vendor of this node</p>
+<code><span class="keyword">val </span><span class="identifier">vendor</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="version.html">version</a></h4>
+</td>
+<td>
+<p>The current node version string, e.g. 4.3, 4.4-SNAPSHOT. Note that this string is effectively freeform, and so should only
+    be used for providing diagnostic information. It should not be used to make functionality decisions (the platformVersion
+    is a better fit for this).</p>
+<code><span class="keyword">val </span><span class="identifier">version</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
