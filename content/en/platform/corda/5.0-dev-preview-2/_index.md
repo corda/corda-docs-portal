@@ -6,7 +6,7 @@ version: 'Corda 5 Developer Preview 2'
 section_menu: corda-5-dev-preview2
 menu:
   versions:
-    weight: -649
+    weight: -652
   corda-5-dev-preview2:
     weight: 1000
     name: Corda 5 Dev Preview 2

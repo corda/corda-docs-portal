@@ -2,7 +2,7 @@
 date: '2020-01-08T09:59:25Z'
 menu:
   versions:
-    weight: -630
+    weight: 290
   cenm-1-5:
     weight: 1
     name: CENM 1.5

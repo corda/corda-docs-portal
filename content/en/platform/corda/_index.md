@@ -13,7 +13,7 @@ menu:
   versions:
     version: 'Corda index'
     name: "Corda index"
-    weight: 150000
+    weight: -800
 ---
 
 # Welcome to Corda
