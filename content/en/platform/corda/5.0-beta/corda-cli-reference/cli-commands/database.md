@@ -3,7 +3,7 @@ date: '2022-12-20'
 menu:
   corda-5-beta:
     identifier: corda-5-beta-cordacli-database
-    weight: 2000
+    weight: 5000
     parent: corda-5-beta-cli-reference
 section_menu: corda-5-beta
 title: "database"
