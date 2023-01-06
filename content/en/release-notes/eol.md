@@ -5,7 +5,7 @@ menu:
     name: Corda end of life schedule
     identifier: corda-end-of-life-schedule
 title: Corda end of support schedule
-weight: 100
+weight: 70
 ---
 
 Use the following table to track the end of life for each version of Corda. Each version of Corda Enterprise and Corda Community Edition has support available from R3 for a fixed period. After this period has ended, these versions will no longer be supported by R3. You should always aim to upgrade to the latest version of Corda whenever possible.

@@ -5,7 +5,7 @@ menu:
     name: Log4j patches
     identifier: log4j-patches
     title: Log4j patches
-weight: 40
+weight: 50
 ---
 
 # Log4j patch releases
