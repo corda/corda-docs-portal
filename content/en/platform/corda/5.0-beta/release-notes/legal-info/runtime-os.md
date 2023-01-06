@@ -10,8 +10,6 @@ project: corda-5
 section_menu: corda-5-beta
 ---
 
-## io.prometheus : simpleclient_tracer_otel_agent : 0.16.0
-
 ### Licenced Under
     Apache-2.0
 
