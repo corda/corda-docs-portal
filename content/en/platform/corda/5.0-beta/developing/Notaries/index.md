@@ -17,4 +17,4 @@ This section outlines what you need to know to get a notary up and running on a 
 * [CSDE Environment](notaries-csde.md)
 
 
-For information on deploying notary virtual nodes in Corda 5.0 Beta 1, see the [Notary Deployment](../../../5.0-beta/deploying/Notaries/deploying-notaries.md) section.
+For information on deploying notary virtual nodes in Corda 5.0, see the [Notary Deployment](../../../5.0-beta/deploying/Notaries/deploying-notaries.md) section.
