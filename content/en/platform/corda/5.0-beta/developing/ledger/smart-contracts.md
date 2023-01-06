@@ -17,14 +17,13 @@ The contract code is replicated on the virtual nodes in an application network. 
 Putting a contract on Corda gives it unique features:
 
 * A smart contract cannot be changed: it can only be replaced with an updated version.
-
 * Once executed, the results are irreversible.
 
-## Smart contract languages
+## Smart Contract Languages
 
 Corda smart contracts must be written in Kotlin or Java.
 
-## Contractual validity
+## Contractual Validity
 
 Transactions must be digitally signed by all required signatories. However, even if a transaction gathers all the required signatures, it cannot be executed unless it is also contractually valid. A transaction that is not contractually valid is not a valid proposal to update the ledger, and can never be committed to the ledger. This means that contracts can impose rules on the evolution of states over time that are independent of the willingness of the required signatories to sign a given transaction.
 
@@ -39,20 +38,16 @@ Each transaction state specifies a contract type. The contract specified takes t
 The contract code can:
 
 * Check the number of inputs, outputs, commands, or attachments.
-
 * Check for time windows.
-
 * Check the contents of all components.
-
 * Evaluate looping constructs, variable assignments, function calls, helper methods, and other aspects of the transaction code.
-
 * Group similar states to validate them as a group. For example, it can impose a rule on the combined value of all the cash states.
 
 ## Determinism
 
 For the nodes on a network to reach consensus about a proposed update to the ledger, transaction verification must be deterministic. That means contracts must always accept or always reject a given transaction. For example, a transaction’s validity cannot depend on the time it was validated, or the amount of information the node running the contract holds.
 
-## Contract limitations
+## Contract Limitations
 
 By design, contracts do not have access to information from the outside world. They can only check transactions for internal validity. For example, a contract cannot know that the transaction is in accordance with what the parties involved originally agreed.
 

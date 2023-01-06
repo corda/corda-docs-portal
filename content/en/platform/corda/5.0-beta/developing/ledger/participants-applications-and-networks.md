@@ -1,6 +1,7 @@
 ---
 date: '2023-01-05'
-title: "Participants, applications and networks"
+title: "Participants, Applications and Networks"
+draft: true
 menu:
   corda-5-beta:
     parent: corda-5-beta-ledger
@@ -20,11 +21,8 @@ In the current implementation in Corda 5 beta 1, all participants need to be mem
 Corda 5 is organized into *application networks*. Each network has:
 
 * a set of applications packaged into a CPB (Corda package bundle)
-
 * a network ID and a network policy; these are bundled with the CPB into a CPI (Corda package installer)
-
 * a Membership Group Manager (MGM); this is a member that controls membership in the network
-
 * (optionally) one or more notaries; these are required to use the UTXO ledger
 
 ## Applications
