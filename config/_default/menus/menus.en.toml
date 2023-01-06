@@ -532,7 +532,7 @@ weight = 2000
 identifier = "corda-5-beta-operate-rest-ref"
 name = "REST API Reference"
 weight = 5050
-url = 'C5_OpenAPI.html'
+url = 'content\en\platform\corda\5.0-beta\rest-api\C5_OpenAPI.html'
 
 [[corda-5-beta]]
 identifier = "corda-5-beta-cordacli-deploy-commands"
