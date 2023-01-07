@@ -114,7 +114,7 @@ Refer to the [Group Policy](../../../../../../en/platform/corda/5.0-beta/deployi
 
 <!-- For more information on this plugin, refer to the [README.md](https://github.com/corda/corda-runtime-os/blob/release/os/5.0/tools/plugins/mgm/README.md). -->
 
-If you are running a [dynamic network](../..deploying/network-types.html#dynamic-networks), you must export the group policy file from the MGM using the HTTP API. To learn how to do this, see the [MGM Onboarding](../deployment-tutorials/onboarding/mgm-onboarding.html) tutorial for more information.
+If you are running a [dynamic network](../..deploying/network-types.html#dynamic-networks), you must export the group policy file from the MGM using the HTTP API. To learn how to do this, see the [MGM Onboarding](../../operating/operating-tutorials/onboarding/mgm-onboarding.html) tutorial for more information.
 
 ## Building a CPI
 

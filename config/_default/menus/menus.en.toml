@@ -505,6 +505,12 @@ name = "Deployment Tutorials"
 weight = 5000
 
 [[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-operate"
+parent = "corda-5-beta-operate"
+name = "Operating Tutorials"
+weight = 1000
+
+[[corda-5-beta]]
 identifier = "corda-5-beta-tutorials-deploy-dynamic"
 parent = "corda-5-beta-onboarding-tutorials"
 name = "Dynamic Networks"
@@ -524,10 +530,9 @@ weight = 2000
 
 [[corda-5-beta]]
 identifier = "corda-5-beta-operate-rest-ref"
-parent = "corda-5-beta-operate-rest-api"
 name = "REST API Reference"
-weight = 2000
-url = 'C5_OpenAPI.html'
+weight = 5050
+url = '../../../../../../en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html'
 
 [[corda-5-beta]]
 identifier = "corda-5-beta-cordacli-deploy-commands"
