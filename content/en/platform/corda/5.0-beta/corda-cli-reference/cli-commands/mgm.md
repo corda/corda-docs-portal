@@ -9,7 +9,7 @@ section_menu: corda-5-beta
 title: "mgm"
 ---
 
-This section lists the Corda CLI `mgm` arguments. You can use these commands to execute membership operations, as described in the [Onboarding Tutorials](deployment-tutorials/onboarding/overview.html).
+This section lists the Corda CLI `mgm` arguments. You can use these commands to execute membership operations, as described in the [Onboarding Tutorials](../operating/operating-tutorials/onboarding/overview.html).
 
 Running the `groupPolicy` command without any arguments prints a sample `GroupPolicy.json` file that you can manually tweak.
 
