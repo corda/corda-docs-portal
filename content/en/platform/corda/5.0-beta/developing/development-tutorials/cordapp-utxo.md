@@ -4,7 +4,7 @@ title: "Writing a UTXO CorDapp"
 menu:
   corda-5-beta:
     parent: corda-5-beta-tutorials-develop
-    identifier: corda-5-beta-tutorial-deploy-cordapp-packaging
+    identifier: corda-5-beta-tutorial-deploy-cordapp-utxo
     weight: 1000
 section_menu: corda-5-beta
 ---
