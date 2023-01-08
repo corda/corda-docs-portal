@@ -11,9 +11,9 @@ title: "Notary Deployment"
 
 Deploying notary virtual nodes to your network follows an almost identical process to deploying regular application virtual nodes to your network, with some small changes:
 
-* The appropriate R3 signing keys must be allowed on the network, in addition to any signing keys used to sign application CPKs/CPBs.
+* The appropriate R3 signing keys must be allowed on the network, in addition to any signing keys used to sign application CPKs (Corda Packages)/CPBs (Corda Package Bundles).
 
-* Prior to constructing a notary virtual node, you must upload the notary CPI to the application network.
+* Prior to constructing a notary virtual node, you must upload the notary CPI (Corda Package Installer) to the application network.
 
 * When creating a notary virtual node, you must specify the hash of the notary CPI rather than the application CPI.
 
@@ -29,4 +29,4 @@ It is currently only possible to have a single notary virtual node associated wi
 
 * `"corda.notary.service.plugin" : "net.corda.notary.NonValidatingNotary"` - This attribute replaces the validating Boolean flag in Corda 4. This is effectively the equivalent to setting `validating = false` in Corda 4.
 
-For information on developing notary plugin CorDapps in Corda 5.0, see the [Developing](../../developing/notaries/index.md) section.
+For information on developing notary plugin CorDapps in Corda 5.0, see the [Developing](../../developing/notaries/overview.md) section.
