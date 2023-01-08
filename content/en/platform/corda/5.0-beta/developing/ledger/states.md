@@ -17,7 +17,7 @@ For example, this state represents an IOU; an agreement that Alice owes Bob £10
 
 {{< 
   figure
-	 src="state.png"
+	 src="images/state.png"
 	 figcaption="IOU State"
 >}}
 
@@ -31,7 +31,7 @@ For example, if Alice pays Bob £5, the state sequence would be:
 
 {{< 
   figure
-	 src="state-sequence.png"
+	 src="images/state-sequence.png"
 	 figcaption="IOU State Sequence"
 >}}
 
@@ -39,7 +39,7 @@ Each participant's vault stores the current and consumed states in which it is i
 
 {{< 
   figure
-	 src="vault-simple.png"
+	 src="images/vault-simple.png"
 	 figcaption="Consumed and Unconcumed States in the Vault"
 >}}
 

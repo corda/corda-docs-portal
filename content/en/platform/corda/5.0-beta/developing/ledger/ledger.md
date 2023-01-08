@@ -20,7 +20,7 @@ This diagram shows a network with five participants (Alice, Bob, Carl, Demi, and
 
 {{< 
   figure
-	 src="ledger-venn.png"
+	 src="images/ledger-venn.png"
 	 figcaption="Facts Shared Among Participants"
 >}}
 

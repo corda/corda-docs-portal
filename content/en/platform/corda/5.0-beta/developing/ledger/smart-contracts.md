@@ -31,7 +31,7 @@ Each transaction state specifies a contract type. The contract specified takes t
 
 {{< 
   figure
-	 src="tx-validation.png"
+	 src="images/tx-validation.png"
 	 figcaption="Transaction Validation"
 >}}
 

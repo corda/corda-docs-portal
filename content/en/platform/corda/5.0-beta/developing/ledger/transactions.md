@@ -16,7 +16,7 @@ The following is an example of a transaction with two inputs and two outputs:
 
 {{< 
   figure
-	 src="basic-tx.png"
+	 src="images/basic-tx.png"
 	 figcaption="Basic Transaction"
 >}}
 
@@ -52,7 +52,7 @@ The following example transaction shows how this works:
 
 {{< 
   figure
-	 src="tx-chain.png"
+	 src="images/tx-chain.png"
 	 figcaption="Transaction Backchain Example"
 >}}
 
@@ -68,7 +68,7 @@ Initially, a transaction is only a proposal to update the ledger. It represents 
 To be committed to the ledger, the transaction must receive signatures from all of the required signatories. Each required signatory appends their signature to the transaction to approve the proposal. For example, the following shows a proposed transaction:
 {{< 
   figure
-	 src="tx-with-sigs.png"
+	 src="images/tx-with-sigs.png"
 	 figcaption="Proposed Signed Transaction"
 >}}
 
@@ -76,7 +76,7 @@ The transaction has the required signatures and so the inputs may be marked as c
 
 {{< 
   figure
-	 src="tx-chain.png"
+	 src="images/tx-chain.png"
 	 figcaption="Transaction Backchain Example"
 >}}
 
@@ -110,7 +110,7 @@ For example, suppose Alice uses $5 cash to pay off $5 of an IOU with Bob. This t
 
 {{< 
   figure
-	 src="full-tx.png"
+	 src="images/full-tx.png"
 	 figcaption="Transaction Backchain Example"
 >}}
 
@@ -119,7 +119,7 @@ Commands enable you to make adjustments to rules. Including a command in a trans
 
 {{< 
   figure
-	 src="commands.png"
+	 src="images/commands.png"
 	 figcaption="Commands"
 >}}
 

@@ -24,7 +24,7 @@ A participant may not send a transaction to the notary right away; they might ne
 
 {{< 
   figure
-	 src="time-window.gif"
+	 src="images/time-window.gif"
 	 figcaption="Time Windows"
 >}}
 

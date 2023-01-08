@@ -38,7 +38,7 @@ Walking the chain for this transaction would look like this:
 
 {{< 
   figure
-	 src="validation-consensus.png"
+	 src="images/validation-consensus.png"
 	 figcaption="Walking the Chain"
 >}}
 
@@ -57,7 +57,7 @@ Both transactions will achieve validity consensus, yet Alice has managed to “d
 
 {{< 
   figure
-	 src="uniqueness-consensus.png"
+	 src="images/uniqueness-consensus.png"
 	 figcaption="Uniqueness Consensus"
 >}}
 

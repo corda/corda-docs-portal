@@ -19,7 +19,7 @@ For example, the following shows Alice and Bob agreeing a ledger update using th
 
 {{< 
   figure
-	 src=flows.gif"
+	 src=images/flows.gif"
 	 figcaption="Messaging Example"
 >}}
 
@@ -30,7 +30,7 @@ For example, the following shows the flow’s steps used between Alice and Bob t
 
 {{< 
   figure
-	 src=flow-sequence.png"
+	 src=images/flow-sequence.png"
 	 figcaption="Flow Sequence Example"
 >}}
 
