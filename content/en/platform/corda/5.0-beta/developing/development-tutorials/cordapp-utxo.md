@@ -20,10 +20,10 @@ All of these CPKs can be compiled into one CPB that has both workflows and contr
 ## States and Contracts
 
 ### States
-Currently, only contract states are defined at the platform level. A contract state must implement the `ContractState` interface and provide a list of participants in the form of their public keys that will be used for signing the relevant transaction. States must be linked to a contract using the `@BelongsToContract` annotation on the state implementation class.
+Currently, only contract [states](../ledger/states.html) are defined at the platform level. A contract state must implement the `ContractState` interface and provide a list of participants in the form of their public keys that will be used for signing the relevant transaction. States must be linked to a contract using the `@BelongsToContract` annotation on the state implementation class.
 
 ### Contracts
-Contracts must implement the `Contract` interface, providing an implementation of the `verify` method. This method gets given a `UtxoLedgerTransaction` and has to verify that the given combination of inputs, reference states, outputs, and commands forms a valid transaction. This is were the actual contract enforcement happens.
+[Contracts](../ledger/smart-contracts.html) must implement the `Contract` interface, providing an implementation of the `verify` method. This method gets given a `UtxoLedgerTransaction` and has to verify that the given combination of inputs, reference states, outputs, and commands forms a valid transaction. This is were the actual contract enforcement happens.
 
 #### Commands
 To this end, the contract implementation needs to define the commands it supports by providing one or more classes implementing the `Command` interface. Commands can be added to the transaction builder and define what the transaction does.

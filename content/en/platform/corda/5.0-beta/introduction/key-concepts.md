@@ -40,7 +40,7 @@ This is the code that is built, packaged, distributed, installed, and executed.
 
 ### Ledger Layer
 
-The Ledger Layer addresses business problems that require some form of distributed ledger.
+The [Ledger](../developing/ledger/ledger.html) Layer addresses business problems that require some form of distributed ledger.
 This layer solves problems where orchestrating parties must verify that something is true without trusting one another.
 The layer is itself pluggable, enabling you to select different ledger models as needed.
 When the lifecycle of data continues beyond the parties' first interaction with it, the Ledger Layer allows its evolution without the input of the creating party.

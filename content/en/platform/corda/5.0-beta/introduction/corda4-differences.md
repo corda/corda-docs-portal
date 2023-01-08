@@ -67,7 +67,7 @@ Past Corda versions tightly embedded the UTXO ledger model at the heart of the a
 
 ### UTXO Ledger Model
 
-Conceptually, the Corda 5 UTXO ledger is very similar to the Corda 4 ledger. All of the key concepts, such as states, transactions, smart contracts, notaries, encumbrance, etc, are still valid. Some of the details have changed, the APIs look slightly different, and the implementation works differently, but the concepts still stand, so any Corda 4 CorDapp knowledge should transfer quite nicely.
+Conceptually, the Corda 5 UTXO ledger is very similar to the Corda 4 ledger. All of the key concepts, such as states, transactions, smart contracts, notaries, encumbrance, etc, are still valid. Some of the details have changed, the APIs look slightly different, and the implementation works differently, but the concepts still stand, so any Corda 4 CorDapp knowledge should transfer quite nicely. For more information, about UTXO CorDapps, see [Writing a UTXO CorDapp](../developing/development-tutorials/cordapp-utxo.html).
 
 ## Notary
 
