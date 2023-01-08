@@ -1,19 +1,19 @@
 ---
 date: '2022-11-23'
-title: Corda 5 Beta
+title: Corda 5.0 Beta 1
 project: corda
-version: 'Corda 5 Beta'
+version: 'Corda 5.0 Beta 1'
 section_menu: corda-5-beta
 menu:
   versions:
     weight: -647
   corda-5-beta:
     weight: 1000
-    name: Corda 5 Beta
+    name: Corda 5.0 Beta 1
 ---
 <section class="section" style="text-align:center; color:white; background-image:url('5.0-beta/icons/bg-dark.jpg');">
   <h1>
-    Corda 5 Beta
+    Corda 5.0 Beta 1
   </h1>
 </section>
 <section class="section">
