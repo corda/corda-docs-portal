@@ -1,6 +1,6 @@
 ---
 date: '2021-11-14'
-title: "Writing a UTXO CorDapp"
+title: "UTXO CorDapps"
 menu:
   corda-5-beta:
     parent: corda-5-beta-ledger
