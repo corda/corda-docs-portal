@@ -3,9 +3,9 @@ date: '2021-11-14'
 title: "Writing a UTXO CorDapp"
 menu:
   corda-5-beta:
-    parent: corda-5-beta-tutorials-develop
+    parent: corda-5-beta-ledger
     identifier: corda-5-beta-tutorial-deploy-cordapp-utxo
-    weight: 1000
+    weight: 9000
 section_menu: corda-5-beta
 ---
 
