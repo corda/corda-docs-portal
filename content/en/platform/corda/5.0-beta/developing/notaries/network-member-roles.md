@@ -14,7 +14,7 @@ section_menu: corda-5-beta
 
 With the introduction of the UTXO ledger and notaries, network operators must be aware of the different roles that exist on a network. As of Beta 1, network participants can take one of three roles:
 
-* **Application:** Members which run a CPI (Corda Package Installer) containing a CPB (Corda Package Bundle) which provides a CorDapp to run on the network. Most members fulfil this role, and would be our archtypical “Alice”, “Bob” nodes etc.
+* **Application:** Members which run a CPI (Corda Package Installer) containing a CPB (Corda Package Bundle) which provides a CorDapp to run on the network. Most members fulfil this role, and would be our archetypical “Alice” or “Bob” nodes.
 
 * **Notary:** Members which run a CPI containing a CPB which provide a notarization service to the network. These are effectively representatives of a notary service, similar to how “notary workers” represented a notary service in a Corda 4 high availability notary setup.
 
