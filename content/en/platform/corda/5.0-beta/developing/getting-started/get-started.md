@@ -17,14 +17,9 @@ This section guides Developers who are new to Corda 5 from setting up their deve
 
 ## Corda 4 vs Corda 5
 
-Corda 5 is a complete re-write of Corda 4. This was necessary to achieve the massive gains in non-functional performance that Corda 5 offers. When writing CorDapps, some things will seem familiar and some things will feel different. For example, the basic mechanism of flows is similar, whereas the structure of the Corda network, the way flows are tested, and the way flows are instantiated (via REST) have changed significantly. You can read more about these changes in the [Introduction](../introduction/introduction.html).
+Corda 5 is a complete re-write of Corda 4. This was necessary to achieve the massive gains in non-functional performance that Corda 5 offers. When writing CorDapps, some things will seem familiar and some things will feel different. For example, the basic mechanism of flows is similar, whereas the structure of the Corda network, the way flows are tested, and the way flows are instantiated (via REST) have changed significantly. You can read more about these changes in the [Introduction](../../introduction/introduction.html).
 
 This documentation does not assume any prior knowledge of Corda 4.
-
-## Ledger
-
-As at the cut for Developer Preview 2, the Corda 5 [ledger](../introduction/key-concepts.html#ledger-layer) is not at the stage of development where it can be usefully previewed, hence there is no ledger in Developer Preview 2.
-There are however some of the ledger building blocks around cryptography, serialization, and persistence and so with a bit of extra work you can still prototype useful distributed ledger applications.
 
 ## Other Sources of Documentation
 
