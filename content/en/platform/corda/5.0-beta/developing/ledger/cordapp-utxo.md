@@ -15,7 +15,7 @@ UTXO ledger CorDapps should be split in to two parts:
 
 * Workflow CPKs that contain all other code (workflows, persistence, business logic, and so on) that can depend on any other CPK, including the contract CPKs.
 
-All of these CPKs can be compiled into one CPB that has both workflows and contracts. A UTXO ledger CPB must also include a notary client and be configured to use a notary. <!--add link-->
+All of these CPKs can be compiled into one CPB that has both workflows and contracts. A UTXO ledger CPB must also include a notary client and be configured to use a notary. For more information about notaries, see the [Notaries section](../notaries/overview.html).
 
 ## States and Contracts
 
