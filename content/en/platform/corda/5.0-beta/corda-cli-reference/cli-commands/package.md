@@ -1,12 +1,12 @@
 ---
-date: '2022-12-13'
+date: '2023-01-06'
 menu:
   corda-5-beta:
     identifier: corda-5-beta-cordacli-develop-commands
-    weight: 3000
-    parent: corda-5-beta-develop
+    weight: 5000
+    parent: corda-5-cli-reference
 section_menu: corda-5-beta
-title: "Corda CLI Package Reference"
+title: "package"
 ---
 
 This section lists the [Corda CLI](../developing/getting-started/installing-corda-cli.html) `package` arguments. You can use these commands to execute operations for working with CPB and CPI files, as described in the [CorDapp Packaging](development-tutorials/cordapp-packaging.md) tutorial.

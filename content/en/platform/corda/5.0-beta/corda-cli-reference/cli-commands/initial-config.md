@@ -3,8 +3,8 @@ date: '2022-12-20'
 menu:
   corda-5-beta:
     identifier: corda-5-beta-cordacli-initial-config
-    weight: 3000
-    parent: corda-5-beta-cordacli-deploy-commands
+    weight: 5000
+    parent: corda-5-cli-reference
 section_menu: corda-5-beta
 title: "initial-config"
 ---
