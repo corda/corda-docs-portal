@@ -16,21 +16,14 @@ Static networks do not use an [MGM](../../../introduction/key-concepts.html#memb
 
 ## Create the Group Policy File
 
-1. Create a directory to store your files. For example:
-   ```shell
-   mkdir -p ~/Desktop/register-member/
-   ```
-2. Use the [Corda CLI](../../installing-corda-cli.html) to generate a [GroupPolicy.json file](../../group-policy.html#static-network-member-group-policy):
-   ```shell
-   corda-cli.sh mgm groupPolicy --name="C=GB, L=London, O=Alice" --name="C=GB, L=London, O=Bob" --name="C=GB, L=London, O=Charlie" --endpoint-protocol=1 --endpoint="http://localhost:1080" > ~/Desktop/register-member/GroupPolicy.json
-   ```
+Use the [Corda CLI](../../installing-corda-cli.html) to generate a [GroupPolicy.json file](../../group-policy.html#static-network-member-group-policy), where `group-policy-folder` is the path to the folder in which you want to generate the file:
+```shell
+corda-cli.sh mgm groupPolicy --name="C=GB, L=London, O=Alice" --name="C=GB, L=London, O=Bob" --name="C=GB, L=London, O=Charlie" --endpoint-protocol=1 --endpoint="http://localhost:1080" > <group-policy-folder/GroupPolicy.json>
+```
 
 ## Create a CPI
 
-Build a CPI using the [Corda CLI](../../installing-corda-cli.html) packaging plugin, passing in the [group policy](#create-the-group-policy-file) file.
-
-<!--Add link when ready
-See this [CorDapp Packaging]() for more details.-->
+Build a CPI using the Corda CLI packaging plugin, passing in your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section](../../../developing/development-tutorials/cordapp-packaging.md).
 
 ## Upload the CPI
 
