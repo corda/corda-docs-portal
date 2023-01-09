@@ -26,19 +26,19 @@ Java     | Azul JDK 11
 
 To obtain the Corda CLI installer:
 1. Download `platform-jars-Fox.tar.gz` from the [R3 Customer Hub](https://r3.force.com/).
-2. Extract `corda-cli-installer-5.0.0.0-Fox.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Fox`.
+2. Extract `corda-cli-installer-5.0.0.0-Fox1.0.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Fox1.0`.
 
 ## Installing on Linux/macOS
 
 1. Start a shell session (bash or zsh).
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox.zip`.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox1.0.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   unzip ./corda-cli-installer-5.0.0.0-Fox.zip -d corda-cli-installer-5.0.0.0-Fox
+   unzip ./corda-cli-installer-5.0.0.0-Fox1.0.zip -d corda-cli-installer-5.0.0.0-Fox1.0
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-installer-5.0.0.0-Fox
+   cd corda-cli-installer-5.0.0.0-Fox1.0
    ```
 5. Run the install script:
    ```shell
@@ -55,14 +55,14 @@ To obtain the Corda CLI installer:
 ## Installing on Windows
 
 1. Start a Powershell session.
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox`.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox1.0`.
 3. Extract the contents of the `zip` file:
    ```shell
-   Expand-Archive .\corda-cli-installer-5.0.0.0-Fox.zip
+   Expand-Archive .\corda-cli-installer-5.0.0.0-Fox1.0.zip
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-installer-5.0.0.0-Fox
+   cd corda-cli-installer-5.0.0.0-Fox1.0
    ```
 5. Run the install script:
    ```shell
