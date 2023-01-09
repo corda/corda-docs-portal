@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-09'
 menu:
   corda-enterprise-4-10:
     parent: corda-enterprise-4-10-cordapps-flows
@@ -28,12 +28,9 @@ grouped together. These functions can then be called from other services or flow
 
 To define a Service class:
 
-
-
 * Add the `CordaService` annotation
 * Add a constructor with a single parameter of `AppServiceHub`
 * Extend `SingletonSerializeAsToken`
-
 
 Below is an empty implementation of a Service class:
 
@@ -112,6 +109,19 @@ Also the `AppServiceHub` provides ability for `CordaService` to subscribe for li
 about node finishing initialisation and when the node is shutting down such that `CordaService` will be able to perform clean-up of some
 critical resources. For more details please have refer to KDocs for `ServiceLifecycleObserver`.
 
+## Service Lifecycle Events
+
+A Corda node will notify services when significant events occur via *service lifecycle events*. Upon initialization, a service can register a function to receive the events and act in whatever way is required. Handler functions do not need to handle every single type of event, merely the events that the service is interested in.
+
+The Corda node issues events to all registered handler functions. Where multiple event handlers are registered, there is no guarantee for the order in which an event is dispatched to them.
+
+The following service lifecycle events are issued by the node.
+
+* **ServiceLifecycleEvent.BEFORE_STATE_MACHINE_START:** The node is starting up and the State Machine Manager is about to start.
+The node issues this event synchronously to each service, meaning that the State Machine Manager will not be started until all handler functions have returned from processing this event. This can be useful if a CorDapp does not want flows to be processed until it is ready, perhaps after completing some lengthy startup processing of its own, in which case the event handler can block on this event until the CorDapp is ready.
+
+* **ServiceLifecycleEvent.STATE_MACHINE_STARTED:** The node is starting up and the State Machine Manager has started.
+The node issues this event asynchronously to each service, meaning that the node startup sequence will proceed regardless of whether handler functions have finished processing this event.
 
 ## Retrieving a Service
 
@@ -139,21 +149,15 @@ needed or set after the flow’s `call` function has been triggered.
 
 {{< /warning >}}
 
-
-
-
 ## Starting Flows from a Service
 
 Starting flows via a service can lead to deadlock within the node’s flow worker queue, which will prevent new flows from
 starting. To avoid this, the rules below should be followed:
 
-
-
 * When called from a running flow, the service must invoke the new flow from another thread. The existing flow cannot await the
 execution of the new flow.
 * When `ServiceHub.trackBy` is placed inside the service, flows started inside the observable must be placed onto another thread.
 * Flows started by other means, do not require any special treatment.
-
 
 {{< note >}}
 It is possible to avoid deadlock without following these rules depending on the number of flows running within the node. But, if the
