@@ -64,4 +64,4 @@ Both transactions will achieve validity consensus, yet Alice has managed to “d
 
 To prevent this, a valid transaction proposal must also achieve uniqueness consensus. Uniqueness consensus is the requirement that none of the inputs to a proposed transaction have already been consumed in another transaction.
 
-If one or more of the inputs have already been consumed in another transaction, this is known as a double spend, and the notary marks the transaction proposal as invalid.
+If one or more of the inputs have already been consumed in another transaction, this is known as a double-spend, and the notary marks the transaction proposal as invalid.
