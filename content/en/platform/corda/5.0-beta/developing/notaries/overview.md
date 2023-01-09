@@ -22,7 +22,7 @@ For information on deploying notary virtual nodes to your network, see the [Nota
 
 * Notary virtual nodes use an additional “uniqueness” database for capturing state data for double-spend prevention. This is similar to the existing “crypto” and “vault” databases. Currently, when auto-provisioning virtual node databases, a uniqueness database is always provisioned, regardless of whether it is a notary virtual node or not. This will be addressed in a future release.
 
-* Notary virtual nodes currently sign successful notarization requests with the ledger key for that virtual node. A separate notary key will be introduced before GA, and this will be used instead. This means that future releases will not be backwards compatible with Beta 1 from the perspective of notary signature verification. To use the notary key (for example for signature verification purposes) in your CorDapp, you will need to do something like:
+* Notary virtual nodes currently sign successful notarization requests with the ledger key for that virtual node. A separate notary key will be introduced before GA, and this will be used instead. This means that future releases will not be backward compatible with Beta 1 from the perspective of notary signature verification. To use the notary key (for example for signature verification purposes) in your CorDapp, you will need to do something like:
 
 ```kotlin
 val notaryKey = memberLookup.lookup().first {
