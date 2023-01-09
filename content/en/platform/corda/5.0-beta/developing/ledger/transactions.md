@@ -84,7 +84,7 @@ The transaction has the required signatures and so the inputs may be marked as c
 
 Just gathering the required signatures is not enough to commit a transaction to the ledger. It must also be:
 
-* Valid — the proposed transaction and every transaction the backchain of the proposed inputs must be contractually valid.
+* Valid — the proposed transaction and every transaction on the backchain of the proposed inputs must be contractually valid.
 * Unique — no other committed transaction has consumed any of the inputs to the proposed transaction. Uniqueness is determined by a [notary](#notary).
 
 If the transaction gathers all of the required signatures without meeting these conditions, the transaction’s outputs are not valid and will not be accepted as inputs to subsequent transactions.
