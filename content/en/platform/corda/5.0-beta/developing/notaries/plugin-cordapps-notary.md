@@ -12,7 +12,7 @@ section_menu: corda-5-beta
 
 # Notary Plugin CorDapps
 
-In Corda 5, notary functionality is provided in the form of plugin CorDapps. In theory, anyone can write a new notary protocol by implementing their own CorDapps, but initially, it is expected to only have R3 provided protocols. For a given notary protocol, two CPBs (Corda Package Bundles) are expected to be required:
+In Corda 5, notary functionality is provided in the form of plugin CorDapps. In theory, anyone can write a new notary protocol by implementing their own CorDapps. However, initially, it is expected to only have protocols provided by R3. For a given notary protocol, two CPBs (Corda Package Bundles) are expected to be required:
 
 * A **client**, or **application** CPB, which should be used to generate a CPI (Corda Package Installer) associated with application virtual nodes. At a minimum, this would contain a CPK (Corda Package) that has an initiating flow that is automatically invoked by the Corda 5 flow framework to initiate a notarization request.
 
