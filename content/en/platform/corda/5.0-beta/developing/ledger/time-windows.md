@@ -39,5 +39,5 @@ Time windows let you represent transactions that follow different models, such a
 If you need to convert a time window to an absolute time, such as for display purposes, you can use a utility method to calculate the midpoint.
 
 {{< note >}}
-Corda requires every transaction to be completed within a specified time, and thus requires a time window that at least specifies and end time. The end time can be long (for example, 3 months), but must be defined. This is required in order to implement a more efficient notary protocol where the notary only tracks valid input states.
+Corda requires every transaction to be completed within a specified time, and thus requires a time window that at least specifies and end time. The end time can be long (for example, three months), but must be defined. This is required to implement a more efficient notary protocol where the notary only tracks valid input states.
 {{< /note >}}
