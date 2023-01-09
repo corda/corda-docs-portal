@@ -1,11 +1,11 @@
 ---
 date: '2021-11-14'
-title: "CorDapp Packaging"
+title: "Packaging a CorDapp"
 menu:
   corda-5-beta:
     parent: corda-5-beta-tutorials-develop
     identifier: corda-5-beta-tutorial-deploy-cordapp-packaging
-    weight: 1000
+    weight: 2000
 section_menu: corda-5-beta
 ---
 
