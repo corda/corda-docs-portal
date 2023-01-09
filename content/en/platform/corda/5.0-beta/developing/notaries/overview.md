@@ -4,7 +4,7 @@ title: "Notaries"
 menu:
   corda-5-beta:
     parent: corda-5-beta-develop
-    identifier: corda-5-beta-notaries
+    identifier: corda-5-beta-notaries-overview
     weight: 4000
 section_menu: corda-5-beta
 

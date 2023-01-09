@@ -3,7 +3,7 @@ date: '2023-01-05'
 title: "CSDE Environment"
 menu:
   corda-5-beta:
-    parent: corda-5-beta-notaries
+    parent: corda-5-beta-notaries-overview
     identifier: corda-5-beta-notary-csde-environment
     weight: 7000
 section_menu: corda-5-beta
