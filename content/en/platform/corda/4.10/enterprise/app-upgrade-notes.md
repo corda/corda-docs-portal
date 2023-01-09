@@ -224,7 +224,7 @@ Change the versions in your Gradle build file as follows.
 ext.corda_release_version = '4.4'
 ext.corda_gradle_plugins_version = '5.0.6'
 ext.kotlin_version = '1.2.71'
-ext.quasar_version = '0.7.14_r3'
+ext.quasar_version = '0.7.15_r3'
 ```
 
 You also need to add `corda-dependencies` to your list of repositories to make the custom-built version of Quasar available.
@@ -889,7 +889,7 @@ been removed.
 
 You can do either of the following.
 
-* Upgrade your `quasar.jar` file to `0.7.14_r3`.
+* Upgrade your `quasar.jar` file to `0.7.15_r3`.
 * Delete your `lib` directory and switch to using the Gradle test runner.
 
 You can find instructions for both options in [Running tests in IntelliJ](../community/testing.html#running-tests-in-intellij).

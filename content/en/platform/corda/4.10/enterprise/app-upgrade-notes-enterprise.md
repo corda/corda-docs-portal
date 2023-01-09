@@ -44,7 +44,7 @@ ext.corda_release_version = '4.10'
 ext.corda_core_release_version = '4.10'
 ext.corda_gradle_plugins_version = '5.0.12'
 ext.kotlin_version = '1.2.71'
-ext.quasar_version = '0.7.14_r3'
+ext.quasar_version = '0.7.15_r3'
 ```
 
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
