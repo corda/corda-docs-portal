@@ -16,6 +16,6 @@ With the introduction of the UTXO ledger and notaries, network operators must be
 
 * **Application:** Members which run a CPI (Corda Package Installer) containing a CPB (Corda Package Bundle) which provides a CorDapp to run on the network. Most members fulfil this role, and would be our archetypical “Alice” or “Bob” nodes.
 
-* **Notary:** Members which run a CPI containing a CPB which provide a notarization service to the network. These are effectively representatives of a notary service, similar to how “notary workers” represented a notary service in a Corda 4 high availability notary setup.
+* **Notary:** Members which run a CPI containing a CPB which provide a notarization service to the network. These are effectively representatives of a notary service, similar to how notary workers represented a notary service in a Corda 4 high-availability notary setup.
 
 * **MGM:** The Membership Group Manager. In the context of notaries, this special role can be ignored as the deployment of a MGM virtual node is handled transparently by our deployments.
