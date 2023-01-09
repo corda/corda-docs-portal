@@ -2,19 +2,19 @@
 date: '2022-09-19'
 title: "Running Your First CorDapp"
 menu:
-  corda-5-dev-preview2:
-    parent: corda-5-dev-preview-start
-    identifier: corda-5-dev-preview-run-first-cordapp
+  corda-5-beta:
+    parent: corda-5-beta-start
+    identifier: corda-5-beta-run-first-cordapp
     weight: 3000
-section_menu: corda-5-dev-preview2
+section_menu: corda-5-beta
 ---
 The CSDE includes flows and tests for a very simple CorDapp, which you can run out of the box.
 
-The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.MyFirstFlow.kt` file. This is also the code described in the [first flow section](../first-flow/first-flow.html).
+The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.MyFirstFlow.kt` file. This is also the code described in the [first flow section](../introduction/first-flow.html).
 
 ## Starting the Corda Combined Worker
 
-To run the flow, you must first start a local [combined worker](../../introduction/corda4-differences.html#combined-worker) version of Corda. CSDE includes helper Gradle tasks to do this.
+To run the flow, you must first start a local [combined worker](../../../introduction/corda4-differences.html#combined-worker) version of Corda. CSDE includes helper Gradle tasks to do this.
 {{< figure src="starting-corda.png" width="50%" figcaption="CSDE startCorda task" alt="CSDE task to start the combined worker in IntelliJ" >}}
 
 The `startCorda` task should complete relatively quickly with this message:
@@ -25,7 +25,7 @@ Currently, we do not have a liveness detector for Corda in the CSDE so we check 
 
 ## Testing Liveness and Swagger
 
-Corda exposes [HTTP REST API](../../developing/rest-api/rest-api.html) endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
+Corda exposes [HTTP REST API](../../../developing/rest-api/rest-api.html) endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
 
 ### Displaying the Swagger UI
 To display the Swagger UI, use the following link:
@@ -76,9 +76,9 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 1. Click the `deployCorda` Gradle task:
 {{< figure src="deploy-cordapp.png" width="50%" figcaption="CSDE deployCorda task" alt="CSDE task to deploy a CorDapp in IntelliJ" >}}
    This task runs a series of Gradle tasks to:
-   * Build the [CPB](../../introduction/key-concepts.html#corda-package-bundles-cpbs)
+   * Build the [CPB](../../../introduction/key-concepts.html#corda-package-bundles-cpbs)
    * Create the GroupPolicy (Application Network definition)
-   * Generate signing keys to sign the CPB and [CPI](../../introduction/key-concepts.html#corda-package-installer-cpi)
+   * Generate signing keys to sign the CPB and [CPI](../../../introduction/key-concepts.html#corda-package-installer-cpi)
    * Build the CPI (combination of CPB and Group Policy)
    * Sign the CPI
    * Upload the CPI to Corda
@@ -130,7 +130,7 @@ To check the flow status:
 {{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}  
    If the flow is successful, you will see the following response:
 {{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
-   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow](../first-flow/first-flow.html).
+   You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow](../introduction/first-flow.html).
 
 {{< note >}}
 If you receive a response with a status of "RUNNING”, wait a short time and retry the status check.

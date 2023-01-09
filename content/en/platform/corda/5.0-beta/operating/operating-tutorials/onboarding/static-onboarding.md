@@ -2,11 +2,11 @@
 date: '2021-10-26'
 title: "Onboarding Members to Static Networks"
 menu:
-  corda-5-alpha:
-    identifier: corda-5-alpha-static-onboarding
-    parent: corda-5-alpha-tutorials-deploy-static
+  corda-5-beta:
+    identifier: corda-5-beta-static-onboarding
+    parent: corda-5-beta-tutorials-deploy-static
     weight: 4000
-section_menu: corda-5-alpha
+section_menu: corda-5-beta
 ---
 This section describes the onboarding process for [static networks](../../network-types.html#static-networks).
 
@@ -16,20 +16,14 @@ Static networks do not use an [MGM](../../../introduction/key-concepts.html#memb
 
 ## Create the Group Policy File
 
-1. Create a directory to store your files. For example:
-   ```shell
-   mkdir -p ~/Desktop/register-member/
-   ```
-2. Use the [Corda CLI](../../installing-corda-cli.html) to generate a [GroupPolicy.json file](../../group-policy.html#static-network-member-group-policy):
-   ```shell
-   corda-cli.sh mgm groupPolicy --name="C=GB, L=London, O=Alice" --name="C=GB, L=London, O=Bob" --name="C=GB, L=London, O=Charlie" --endpoint-protocol=1 --endpoint="http://localhost:1080" > ~/Desktop/register-member/GroupPolicy.json
-   ```
+Use the [Corda CLI](../../installing-corda-cli.html) to generate a [GroupPolicy.json file](../../group-policy.html#static-network-member-group-policy), where `group-policy-folder` is the path to the folder in which you want to generate the file:
+```shell
+corda-cli.sh mgm groupPolicy --name="C=GB, L=London, O=Alice" --name="C=GB, L=London, O=Bob" --name="C=GB, L=London, O=Charlie" --endpoint-protocol=1 --endpoint="http://localhost:1080" > <group-policy-folder/GroupPolicy.json>
+```
 
 ## Create a CPI
 
-Build a CPI using the [Corda CLI](../../installing-corda-cli.html) packaging plugin, passing in the [group policy](#create-the-group-policy-file) file.
-
-To read more about building CPIs, see [CorDapp Packaging](../../deployment-tutorials/cordapp-packaging.html). 
+Build a CPI using the Corda CLI packaging plugin, passing in your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section](../../../developing/development-tutorials/cordapp-packaging.md).
 
 ## Upload the CPI
 
@@ -78,3 +72,8 @@ curl --insecure -u admin:admin -X GET https://localhost:8888/api/v1/members/<ID-
 {{< note >}}
 Only members with `ACTIVE` membership status should be visible.
 {{< /note >}}
+
+If you are registering a member as a notary service representative, you must add the following as the context when registering:
+```shell
+"context": { "corda.key.scheme": "CORDA.ECDSA.SECP256R1", "corda.roles.0" : "notary", "corda.notary.service.name" : <notary-service-X500-name>, "corda.notary.service.plugin" : "net.corda.notary.NonValidatingNotary" }
+```

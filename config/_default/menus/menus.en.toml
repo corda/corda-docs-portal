@@ -392,6 +392,54 @@ parent = "corda-5-alpha-onboarding-tutorials"
 name = "Static Networks"
 weight = 1000
 
+[[corda-5-beta]]
+identifier = "corda-5-beta-deploy-troubleshoot"
+parent = "corda-5-beta-deploy"
+name = "Troubleshooting"
+weight = 6000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-deploy"
+parent = "corda-5-beta-deploy"
+name = "Deployment Tutorials"
+weight = 5000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-operate"
+parent = "corda-5-beta-operate"
+name = "Operating Tutorials"
+weight = 1000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-deploy-dynamic"
+parent = "corda-5-beta-onboarding-tutorials"
+name = "Dynamic Networks"
+weight = 2000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-deploy-static"
+parent = "corda-5-beta-onboarding-tutorials"
+name = "Static Networks"
+weight = 1000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-develop"
+parent = "corda-5-beta-develop"
+name = "Development Tutorials"
+weight = 2000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-operate-rest-ref"
+name = "REST API Reference"
+weight = 5050
+url = '../../../../../../en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html'
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-cordacli-deploy-commands"
+parent = "corda-5-beta-deploy"
+name = "Corda CLI Deployment Reference"     
+weight = 7000
+
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
 #identifier = "tools-cdl"
