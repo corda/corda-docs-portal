@@ -6,7 +6,7 @@ version: 'Corda 5.0 Beta 1'
 section_menu: corda-5-beta
 menu:
   versions:
-    weight: -647
+    weight: -651
   corda-5-beta:
     weight: 1000
     name: Corda 5.0 Beta 1
