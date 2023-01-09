@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>MemberX500Name</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.523-Fox1.0-RC03
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="base::net.corda.v5.base.types/MemberX500Name///PointingToDeclaration//1417650263">
+  <div class="breadcrumbs"><a href="../../index.html">base</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.base.types</a><span class="delimiter">/</span><span class="current">MemberX500Name</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Member</span><wbr><span><span>X500Name</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">MemberX500Name</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>commonName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>organizationUnit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>organization<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>locality<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>state<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>country<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html">Comparable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">MemberX500Name</a><span class="token operator">&gt; </span></div><p class="paragraph">X.500 distinguished name data type customised to how Corda membership uses names.</p><p class="paragraph">This restricts the attributes to those Corda supports, and requires that organization, locality and country attributes are specified. See also RFC 4519 for the underlying attribute type definitions.</p><p class="paragraph">The class also guaranties the reliable equality comparison regardless which order the attributes are specified when parsing from the string or X500principal as well outputs the attributes to string in predictable order.</p><p class="paragraph">There may be additional network specific requirements which need to be taken into account when creating a name by the user. For example, the network operator may require a particular format for names so that they can issue suitable certificates. Finding and giving a suitable name will be the user's responsibility.</p><p class="paragraph">The order of attributes for building the names is the following: CN, OU, O, L, ST, C</p><p class="paragraph">Example usages:</p><div class="sample-container"><pre><code class="block lang-java" theme="idea">String commonName = "Alice";<br>String organizationUnit = "Accounting";<br>String organization = "R3";<br>String locality = "New York";<br>String state = "New York";<br>String country = "US";<br><br><br>MemberX500Name exampleNameFirst = new MemberX500Name(organization, locality, country);<br>MemberX500Name exampleNameSecond = new MemberX500Name(commonName, organizationUnit, organization, locality, state, country);<br>MemberX500Name exampleNameThird = new MemberX500Name(commonName, organization, locality, country);<br><br>String commonNameForExampleNameThird = exampleNameThird.getCommonName();<br>String organizationUnitForExampleNameThird = exampleNameThird.getOrganisationUnit();<br>String organizationForExampleNameThird = exampleNameThird.getOrganisation();<br>String localityForExampleNameThird = exampleNameThird.getLocality();<br>String stateForExampleNameThird = exampleNameThird.getState();<br>String countryForExampleNameThird = exampleNameThird.getCountry();<br>X500Principal principalForExampleNameThird = exampleNameThird.getX500Principal();<br><br>String name = "O=organization,L=London,C=GB";<br>X500Principal principalForNewName = new X500Principal(name);<br>MemberX500Name nameByPrincipal = MemberX500Name.build(principalForNewName);<br>MemberX500Name nameByParse = MemberX500Name.parse(name);<br><br>Map&lt;String, String map = MemberX500Name.toAttributesMap("CN=alice, OU=Accounting, O=R3, L=Seattle, ST=Washington, C=US");</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">val commonName = "Alice"<br>val organizationUnit = "Accounting"<br>val organization = "R3"<br>val locality = "New York"<br>val state = "New York"<br>val country = "US"<br><br>val exampleNameFirst = MemberX500Name(organization, locality, country)<br>val exampleNameSecond = MemberX500Name(commonName, organizationUnit, organization, locality, state, country)<br>val exampleNameThird = MemberX500Name(commonName, organization, locality, country)<br><br>val commonNameForExampleNameThird = exampleNameThird.commonName<br>val organizationUnitForExampleNameThird = exampleNameThird.organizationUnit<br>val organizationForExampleNameThird = exampleNameThird.organization<br>val localityForExampleNameThird = exampleNameThird.locality<br>val stateForExampleNameThird = exampleNameThird.state<br>val countryForExampleNameThird = exampleNameThird.country<br>val principalForExampleNameThird = exampleNameThird.x500Principal<br>val name = "O=organization,L=London,C=GB"<br>val principalForNewName = X500Principal(name)<br>val nameByPrincipal = MemberX500Name.build(principalForNewName)<br>val nameByParse = MemberX500Name.parse(name)<br><br>val map = MemberX500Name.toAttributesMap("CN=alice, OU=Accounting, O=R3, L=Seattle, ST=Washington, C=US")</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button><button class="section-tab" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button><button class="section-tab" data-togglable="Parameters">Parameters</button></div>
+    <div class="tabs-section-body">
+      <h4 class="">Parameters</h4>
+      <div data-togglable="Parameters">
+        <div class="platform-hinted WithExtraAttributes" data-platform-hinted="data-platform-hinted" data-togglable="Parameters"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><div data-togglable="Parameters"><div class="table" data-togglable="Parameters"><div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span>common</span><wbr><span><span>Name</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">Summary name by which the entity is usually known. Corresponds to the "CN" attribute type.</p></div></div></div></div></div><div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span>organization</span><wbr><span><span>Unit</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">Name of a unit within the <a href="organization.html">organization</a>, typically the department, or business unit. Corresponds to the "OU" attribute type.</p></div></div></div></div></div><div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span><span>organization</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">Name of the organization, typically the company name. Corresponds to the "O" attribute type.</p></div></div></div></div></div><div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span><span>locality</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">Locality of the organization, typically the nearest major city. Corresponds to the "L" attribute type.</p></div></div></div></div></div><div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span><span>state</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">The full name of the state or province the organization is based in. Corresponds to the "ST" attribute type.</p></div></div></div></div></div><div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span><span>country</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">Country the organization is in, as an ISO 3166-1 2-letter country code. Corresponds to the "C" attribute type.</p></div></div></div></div></div></div></div></div></div>
+      </div>
+      <h2 class="tabbedcontent">Constructors</h2>
+      <div class="table" data-togglable="Constructors"><a data-name="1175690149%2FConstructors%2F1417650263" anchor-label="MemberX500Name" id="1175690149%2FConstructors%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-member-x500-name.html"><span>Member</span><wbr><span><span>X500Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1175690149%2FConstructors%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-member-x500-name.html"><span class="token function">MemberX500Name</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">commonName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">organization<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">locality<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">country<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1283984064%2FConstructors%2F1417650263" anchor-label="MemberX500Name" id="1283984064%2FConstructors%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-member-x500-name.html"><span>Member</span><wbr><span><span>X500Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1283984064%2FConstructors%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-member-x500-name.html"><span class="token function">MemberX500Name</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">organization<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">locality<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">country<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-167084216%2FConstructors%2F1417650263" anchor-label="MemberX500Name" id="-167084216%2FConstructors%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-member-x500-name.html"><span>Member</span><wbr><span><span>X500Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-167084216%2FConstructors%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-member-x500-name.html"><span class="token function">MemberX500Name</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">commonName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">organizationUnit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">organization<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">locality<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">state<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">country<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Types</h2>
+      <div class="table" data-togglable="Types"><a data-name="-2065698927%2FClasslikes%2F1417650263" anchor-label="Companion" id="-2065698927%2FClasslikes%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2065698927%2FClasslikes%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="1943414729%2FFunctions%2F1417650263" anchor-label="compareTo" id="1943414729%2FFunctions%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="compare-to.html"><span>compare</span><wbr><span><span>To</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1943414729%2FFunctions%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="compare-to.html"><span class="token function">compareTo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">MemberX500Name</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Compares this X500 names to another MemberX500Name.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-623556111%2FFunctions%2F1417650263" anchor-label="equals" id="-623556111%2FFunctions%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="equals.html"><span><span>equals</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-623556111%2FFunctions%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="equals.html"><span class="token function">equals</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1165212629%2FFunctions%2F1417650263" anchor-label="hashCode" id="1165212629%2FFunctions%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="hash-code.html"><span>hash</span><wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1165212629%2FFunctions%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="hash-code.html"><span class="token function">hashCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="987046564%2FFunctions%2F1417650263" anchor-label="toString" id="987046564%2FFunctions%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="to-string.html"><span>to</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="987046564%2FFunctions%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="to-string.html"><span class="token function">toString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Returns the string equivalent of this name where the order of RDNs is CN, OU, O, L, ST, C.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="1135072378%2FProperties%2F1417650263" anchor-label="commonName" id="1135072378%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="common-name.html"><span>common</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1135072378%2FProperties%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><a data-name="1135072378%2FProperties%2F1417650263" anchor-label="commonName" id="1135072378%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="common-name.html">commonName</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><a data-name="1135072378%2FProperties%2F1417650263" anchor-label="commonName" id="1135072378%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><p class="paragraph">Optional field, summary name by which the entity is usually known. Corresponds to the "CN" attribute type. Null, if not provided.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="361339572%2FProperties%2F1417650263" anchor-label="country" id="361339572%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="country.html"><span><span>country</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="361339572%2FProperties%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><a data-name="361339572%2FProperties%2F1417650263" anchor-label="country" id="361339572%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="country.html">country</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="361339572%2FProperties%2F1417650263" anchor-label="country" id="361339572%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><p class="paragraph">Mandatory field, country the organization is in, as an ISO 3166-1 2-letter country code. Corresponds to the "C" attribute type. Must be provided.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="253881229%2FProperties%2F1417650263" anchor-label="locality" id="253881229%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="locality.html"><span><span>locality</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="253881229%2FProperties%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><a data-name="253881229%2FProperties%2F1417650263" anchor-label="locality" id="253881229%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="locality.html">locality</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="253881229%2FProperties%2F1417650263" anchor-label="locality" id="253881229%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><p class="paragraph">Mandatory field, locality of the organization, typically the nearest major city. Corresponds to the "L" attribute type. Must be provided.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="228410429%2FProperties%2F1417650263" anchor-label="organization" id="228410429%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="organization.html"><span><span>organization</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="228410429%2FProperties%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><a data-name="228410429%2FProperties%2F1417650263" anchor-label="organization" id="228410429%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="organization.html">organization</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="228410429%2FProperties%2F1417650263" anchor-label="organization" id="228410429%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><p class="paragraph">Mandatory field, name of the organization, typically the company name. Corresponds to the "O" attribute type. Must be provided.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="48928537%2FProperties%2F1417650263" anchor-label="organizationUnit" id="48928537%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="organization-unit.html"><span>organization</span><wbr><span><span>Unit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="48928537%2FProperties%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><a data-name="48928537%2FProperties%2F1417650263" anchor-label="organizationUnit" id="48928537%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="organization-unit.html">organizationUnit</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><a data-name="48928537%2FProperties%2F1417650263" anchor-label="organizationUnit" id="48928537%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><p class="paragraph">Optional field, name of a unit within the <a href="organization.html">organization</a>, typically the department, or business unit. Corresponds to the "OU" attribute type. Null, if not provided.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1817559719%2FProperties%2F1417650263" anchor-label="state" id="-1817559719%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="state.html"><span><span>state</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1817559719%2FProperties%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><a data-name="-1817559719%2FProperties%2F1417650263" anchor-label="state" id="-1817559719%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="state.html">state</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><a data-name="-1817559719%2FProperties%2F1417650263" anchor-label="state" id="-1817559719%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><p class="paragraph">Optional field, the full name of the state or province the organization is based in. Corresponds to the "ST" attribute type. Null, if not provided.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1308870073%2FProperties%2F1417650263" anchor-label="x500Principal" id="1308870073%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":base:dokkaHtmlPartial/main" data-filterable-set=":base:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="x500-principal.html"><span><span>x500Principal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1308870073%2FProperties%2F1417650263"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":base:dokkaHtmlPartial/main"><a data-name="1308870073%2FProperties%2F1417650263" anchor-label="x500Principal" id="1308870073%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="x500-principal.html">x500Principal</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/javax/security/auth/x500/X500Principal.html">X500Principal</a></div><div class="brief "><a data-name="1308870073%2FProperties%2F1417650263" anchor-label="x500Principal" id="1308870073%2FProperties%2F1417650263" data-filterable-set=":base:dokkaHtmlPartial/main"></a><p class="paragraph">Returns the <a href="https://docs.oracle.com/javase/8/docs/api/javax/security/auth/x500/X500Principal.html">X500Principal</a> equivalent of this name where the order of RDNs is C, ST, L, O, OU, CN (the printing order would be reversed).</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

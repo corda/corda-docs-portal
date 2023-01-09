@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>UtxoToken</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.523-Fox1.0-RC03
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="ledger-utxo::net.corda.v5.ledger.utxo.observer/UtxoToken///PointingToDeclaration//-692495681">
+  <div class="breadcrumbs"><a href="../../index.html">ledger-utxo</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.ledger.utxo.observer</a><span class="delimiter">/</span><span class="current">UtxoToken</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Utxo</span><wbr><span><span>Token</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">UtxoToken</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>poolKey<span class="token operator">: </span><a href="../-utxo-token-pool-key/index.html">UtxoTokenPoolKey</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>amount<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>filterFields<span class="token operator">: </span><a href="../-utxo-token-filter-fields/index.html">UtxoTokenFilterFields</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><p class="paragraph">The <a href="index.html">UtxoToken</a> defines the structure of a token produced by an instance of <a href="../-utxo-ledger-token-state-observer/index.html">UtxoLedgerTokenStateObserver</a></p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="tabbedcontent">Constructors</h2>
+      <div class="table" data-togglable="Constructors"><a data-name="-1514884299%2FConstructors%2F-692495681" anchor-label="UtxoToken" id="-1514884299%2FConstructors%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-utxo-token.html"><span>Utxo</span><wbr><span><span>Token</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1514884299%2FConstructors%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-utxo-token.html"><span class="token function">UtxoToken</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">poolKey<span class="token operator">: </span><a href="../-utxo-token-pool-key/index.html">UtxoTokenPoolKey</a><span class="token punctuation">, </span></span><span class="parameter ">amount<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">filterFields<span class="token operator">: </span><a href="../-utxo-token-filter-fields/index.html">UtxoTokenFilterFields</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="-508034330%2FProperties%2F-692495681" anchor-label="amount" id="-508034330%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="amount.html"><span><span>amount</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-508034330%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="-508034330%2FProperties%2F-692495681" anchor-label="amount" id="-508034330%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="amount.html">amount</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html">BigDecimal</a></div><div class="brief "><a data-name="-508034330%2FProperties%2F-692495681" anchor-label="amount" id="-508034330%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The amount represented by this token.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="548842573%2FProperties%2F-692495681" anchor-label="filterFields" id="548842573%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="filter-fields.html"><span>filter</span><wbr><span><span>Fields</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="548842573%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="548842573%2FProperties%2F-692495681" anchor-label="filterFields" id="548842573%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="filter-fields.html">filterFields</a><span class="token operator">: </span><a href="../-utxo-token-filter-fields/index.html">UtxoTokenFilterFields</a><span class="token operator">?</span></div><div class="brief "><a data-name="548842573%2FProperties%2F-692495681" anchor-label="filterFields" id="548842573%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">Optional fields available to the <a href="../../net.corda.v5.ledger.utxo.token.selection/-token-selection/index.html">TokenSelection</a> API <a href="../../net.corda.v5.ledger.utxo.token.selection/-token-claim-criteria/index.html">TokenClaimCriteria</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="641580057%2FProperties%2F-692495681" anchor-label="poolKey" id="641580057%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="pool-key.html"><span>pool</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="641580057%2FProperties%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><a data-name="641580057%2FProperties%2F-692495681" anchor-label="poolKey" id="641580057%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="pool-key.html">poolKey</a><span class="token operator">: </span><a href="../-utxo-token-pool-key/index.html">UtxoTokenPoolKey</a></div><div class="brief "><a data-name="641580057%2FProperties%2F-692495681" anchor-label="poolKey" id="641580057%2FProperties%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a><p class="paragraph">The key of the token pool this token belongs to.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

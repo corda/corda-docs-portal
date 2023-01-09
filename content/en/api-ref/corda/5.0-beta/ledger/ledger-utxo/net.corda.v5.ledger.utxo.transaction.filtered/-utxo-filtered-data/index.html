@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>UtxoFilteredData</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.523-Fox1.0-RC03
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="ledger-utxo::net.corda.v5.ledger.utxo.transaction.filtered/UtxoFilteredData///PointingToDeclaration//-692495681">
+  <div class="breadcrumbs"><a href="../../index.html">ledger-utxo</a><span class="delimiter">/</span><a href="../index.html">net.corda.v5.ledger.utxo.transaction.filtered</a><span class="delimiter">/</span><span class="current">UtxoFilteredData</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Utxo</span><wbr><span>Filtered</span><wbr><span><span>Data</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-do-not-implement/index.html"><span class="token annotation builtin">DoNotImplement</span></a></div></div><span class="token keyword">interface </span><a href="index.html">UtxoFilteredData</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">T</a><span class="token operator">&gt;</span></div><p class="paragraph">A container for retrieving information from a <a href="../-utxo-filtered-transaction/index.html">UtxoFilteredTransaction</a>.</p><p class="paragraph">The underlying data in the original transaction is a component group, i.e. a list of entries in a Merkle tree structure (this is what allows us to filter out bits and still calculate the id). The component group can either be</p><ul><li><p class="paragraph">Completely filtered out - we do not get any inforamtion about this data set</p></li><li><p class="paragraph">A size-only merkle proof - in this case, we can only retrieve the size of the original list</p></li><li><p class="paragraph">An audit proof - in this case, we get access to some or all of the entries of the original list.</p></li></ul></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button><button class="section-tab" data-togglable="Inheritors">Inheritors</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Types</h2>
+      <div class="table" data-togglable="Types"><a data-name="-1394906965%2FClasslikes%2F-692495681" anchor-label="Audit" id="-1394906965%2FClasslikes%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-audit/index.html"><span><span>Audit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1394906965%2FClasslikes%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-do-not-implement/index.html"><span class="token annotation builtin">DoNotImplement</span></a></div></div><span class="token keyword">interface </span><a href="-audit/index.html">Audit</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-audit/index.html">T</a><span class="token operator">&gt;</span> : <a href="index.html">UtxoFilteredData</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-audit/index.html">T</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Interface for an audit proof.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1493437818%2FClasslikes%2F-692495681" anchor-label="Removed" id="-1493437818%2FClasslikes%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-removed/index.html"><span><span>Removed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1493437818%2FClasslikes%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-do-not-implement/index.html"><span class="token annotation builtin">DoNotImplement</span></a></div></div><span class="token keyword">interface </span><a href="-removed/index.html">Removed</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-removed/index.html">T</a><span class="token operator">&gt;</span> : <a href="index.html">UtxoFilteredData</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-removed/index.html">T</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Marker interface for a completely filtered out component group. No further information is available</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-584664721%2FClasslikes%2F-692495681" anchor-label="SizeOnly" id="-584664721%2FClasslikes%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-size-only/index.html"><span>Size</span><wbr><span><span>Only</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-584664721%2FClasslikes%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ledger:ledger-utxo:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="../../../../base/net.corda.v5.base.annotations/-do-not-implement/index.html"><span class="token annotation builtin">DoNotImplement</span></a></div></div><span class="token keyword">interface </span><a href="-size-only/index.html">SizeOnly</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-size-only/index.html">T</a><span class="token operator">&gt;</span> : <a href="index.html">UtxoFilteredData</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-size-only/index.html">T</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Interface for a size only proof. This will only tell us how many entries there were originally, but not their content.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Inheritors</h2>
+      <div class="table" data-togglable="Inheritors"><a data-name="-1493437818%2FInheritors%2F-692495681" anchor-label="Removed" id="-1493437818%2FInheritors%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-removed/index.html">Removed</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1493437818%2FInheritors%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+<a data-name="-584664721%2FInheritors%2F-692495681" anchor-label="SizeOnly" id="-584664721%2FInheritors%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-size-only/index.html">SizeOnly</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-584664721%2FInheritors%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+<a data-name="-1394906965%2FInheritors%2F-692495681" anchor-label="Audit" id="-1394906965%2FInheritors%2F-692495681" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ledger:ledger-utxo:dokkaHtmlPartial/main" data-filterable-set=":ledger:ledger-utxo:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-audit/index.html">Audit</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1394906965%2FInheritors%2F-692495681"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+
