@@ -10,7 +10,7 @@ section_menu: corda-5-beta
 ---
 
 
-First the test class instantiates `MemberX500Name` for two actors. `MemberX500Name` is the primary way that identities are represented on a Corda [application network](../../introduction/key-concepts.html#application-network). `MemberX500Name` has a static method `parse()` that turns the string representation of a members identity into a `MemberX500Name` object.
+First the test class instantiates `MemberX500Name` for two actors. `MemberX500Name` is the primary way that identities are represented on a Corda [application network](../../../introduction/key-concepts.html#application-network). `MemberX500Name` has a static method `parse()` that turns the string representation of a members identity into a `MemberX500Name` object.
 1. Set up Alice and Bob identities:
    ```java
    class MyFirstFlowTest {

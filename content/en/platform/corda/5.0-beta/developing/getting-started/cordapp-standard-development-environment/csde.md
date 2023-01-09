@@ -16,7 +16,7 @@ The CorDapp Standard Development Environment (CSDE) makes the process of prototy
 The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cordapp-template-java` repository to your local machine. The CSDE provides:
 * a prepared CorDapp project that you can use as a starting point to develop your own prototypes.
 * a base Gradle configuration that brings in the dependencies you need to write and test a Corda 5 CorDapp.
-* a set of Gradle helper tasks which speed up and simplify the development and deployment process; these are effectively wrappers over the [Corda CLI](../../developing/corda-cli/overview.html).
+* a set of Gradle helper tasks which speed up and simplify the development and deployment process; these are effectively wrappers over the [Corda CLI](../installing-corda-cli.html).
 * debug configuration for debugging a local Corda cluster.
 * the `MyFirstFlow` code which forms the basis of the Getting Started documentation.
 * the ability to configure the members of the local Corda network.
@@ -100,9 +100,9 @@ The `stopCorda` task does the following:
 
 The `deployCorDapp` task does the following to compile and deploy the CorDapp to the combined worker:
 
-1. Compiles the [CPB](../../introduction/key-concepts.html#corda-package-bundles-cpbs) and [CPI](../../introduction/key-concepts.html#corda-package-installer-cpi) using the [buildCPI](#buildCPI-task) task
+1. Compiles the [CPB](../../../introduction/key-concepts.html#corda-package-bundles-cpbs) and [CPI](../../../introduction/key-concepts.html#corda-package-installer-cpi) using the [buildCPI](#buildCPI-task) task
 2. Uploads the CPI to the combined worker
-3. Generates the [virtual nodes](../../introduction/key-concepts.html#virtual-nodes) with the CPI
+3. Generates the [virtual nodes](../../../introduction/key-concepts.html#virtual-nodes) with the CPI
 
 #### `buildCPI`
 
