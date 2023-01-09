@@ -3,7 +3,7 @@ date: '2022-01-05'
 title: "Notary Plugin CorDapps"
 menu:
   corda-5-beta:
-    parent: corda-5-beta-notaries
+    parent: corda-5-beta-notaries-overview
     identifier: corda-5-beta-notary-plugin-cordapps
     weight: 6000
 section_menu: corda-5-beta
