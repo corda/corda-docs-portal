@@ -40,7 +40,7 @@ This is the code that is built, packaged, distributed, installed, and executed.
 
 ### Ledger Layer
 
-The Ledger Layer addresses business problems that require some form of distributed ledger.
+The [Ledger](../developing/ledger/ledger.html) Layer addresses business problems that require some form of distributed ledger.
 This layer solves problems where orchestrating parties must verify that something is true without trusting one another.
 The layer is itself pluggable, enabling you to select different ledger models as needed.
 When the lifecycle of data continues beyond the parties' first interaction with it, the Ledger Layer allows its evolution without the input of the creating party.
@@ -75,7 +75,20 @@ You can learn more about networks in [Network Types](../deploying/network-types.
 
 ## Membership Management
 
-The **Membership Group Manager (MGM)** enables network operators to set the rules for their [application network](#application-networks).
+### Members
+
+*Members* are identified by a holding ID, which is a combination of a network group ID (or the hash thereof) and an X.500 name. The X.500 name must be unique within a single network. 
+Corda creates the holding ID when a [virtual node](#virtual-nodes) for a member is created on a cluster that has the CPI for the desired network installed.
+
+After creation of the virtual node, the member must be registered with the [Membership Group Manager (MGM)](#mgm). Only after registration with the MGM will the member:
+
+* have a valid public/private ledger key pair to sign transactions and identify themselves as participants.
+* be visible to other members for interactions.
+* be able to use flow session to communicate to other members.
+
+### MGM
+
+The **MGM** enables network operators to set the rules for their [application network](#application-networks).
 It approves or declines new members and distributes membership lists to members. Lists are signed and verifiable to prevent tampering, ensuring [virtual nodes](#virtual-nodes) can trust each other.
 The MGM is a CorDapp which runs as a virtual node, allowing you to create and operate many application networks using the same Corda deployment.
 
@@ -99,8 +112,8 @@ Virtual nodes reduce the overhead of each identity on an [application network](#
 At the time of onboarding, the overhead of an identity relates only to the load it brings to the system rather than incurring a cost for simply existing.
 The overhead of keeping onboarded identities available to transact with other members is not fixed and identities are transient, only active when actually required.
 
-A virtual node is the combination of the context of an identity and the temporary compute instances created to execute [flows](#flows) on behalf of that identity.
-An instance of a virtual node is created for long enough to handle the required execution steps and then allowed to dematerialize.
+A **virtual node** is the combination of the context of an identity and the temporary compute instances created to execute [flows](#flows) on behalf of that identity.
+An instance of a virtual node is created for long enough to handle the required execution steps and then allowed to dematerialize. It is identified by the short hash of the member’s holding ID. It consists of all of the required configuration to create the various sandboxes that are required to run the virtual node’s code on the workers of the cluster, plus database tables, and cryptographic keys so that the virtual node can store data and sign and verify transactions.
 {{< figure src="images/virtual-node.png" figcaption="Virtual node interaction" alt="Virtual node" >}}
 At any point in time, many instances of a virtual node may be executing, limited only by the availability of [flow workers](#workers). An additional number of flows may be inflight with other virtual node instances suspended in a checkpoint store.
 
