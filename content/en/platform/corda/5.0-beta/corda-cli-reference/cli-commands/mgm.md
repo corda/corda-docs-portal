@@ -4,7 +4,7 @@ menu:
   corda-5-beta:
     identifier: corda-5-beta-cordacli-mgm
     weight: 5000
-    parent: corda-5-beta-cli-reference
+    parent: corda-5-cli-reference
 section_menu: corda-5-beta
 title: "mgm"
 ---
