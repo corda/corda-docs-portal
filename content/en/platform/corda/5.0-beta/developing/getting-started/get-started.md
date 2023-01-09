@@ -1,10 +1,11 @@
 ---
-date: '2022-11-23'
+date: '2023-01-09'
 title: "Getting Started"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-start
-    weight: 2000
+    parent: corda-5-beta-develop
+    weight: 1000
 section_menu: corda-5-beta
 ---
 
