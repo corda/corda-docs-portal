@@ -1,5 +1,5 @@
 ---
-date: '2022-12-01'
+date: '2023-01-05'
 title: "Network Member Roles"
 menu:
   corda-5-beta:
