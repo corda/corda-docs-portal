@@ -33,7 +33,7 @@ menu:
        <div class="card h-100">
          <div class="card-body">
            <h3 class="card-title">
-           <a href="5.0-beta/getting-started/get-started.html">
+           <a href="5.0-betadeveloping/getting-started/get-started.html">
            <img src="5.0-beta/icons/get-started.png" alt="Getting started" style="padding: 1rem; border: 0;" height="124" class="light-only">
            <img src="5.0-beta/icons/get-started.png" alt="Getting started"  style="background: #202020; padding: 1rem; border: 0;" height="124"class="dark-only"></br>
              <span>Getting Started</span></h3></a>
