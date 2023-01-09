@@ -10,7 +10,7 @@ section_menu: corda-5-beta
 ---
 
 This section lists the third-party software prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html)
-For information about the prerequisites for multi-worker cluster deployments, see [Prerequisites for Cluster Deployments](../../deploying/prerequisites.html).
+For information about the prerequisites for multi-worker cluster deployments, see [Prerequisites for Cluster Deployments](../../../deploying/prerequisites.html).
 
 {{< note >}}
 You cannot start Corda via the CSDE `startCorda` task if any existing local programs are using ports 5432, 7000, or 8888. Reserve these ports.

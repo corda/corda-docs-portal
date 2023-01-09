@@ -30,7 +30,7 @@ Corda 5 changes this by allowing inter-network interoperability and focusing on 
 Corda 4 used Advanced Message Queuing Protocol (AMQP) as its communication mechanism. This meant that all RPC commands required an intermediate client to interoperate with CorDapps, complicating development and deployment. Corda 5 switches RPC over to industry standard REST calls, removing the need for that client and allowing applications to directly interact with Corda.
 
 ## Corda CLI
-The [Corda Command Line Interface (CLI)](../getting-started/installing-corda-cli.html) replaces the Corda Shell from older versions of Corda. It understands the new RESTful RPC mechanics, as well as the much improved RBAC system which Corda 5 employs. This allows for managed sessions to be executed by different users with differing permission levels.
+The [Corda Command Line Interface (CLI)](../developing/getting-started/installing-corda-cli.html) replaces the Corda Shell from older versions of Corda. It understands the new RESTful RPC mechanics, as well as the much improved RBAC system which Corda 5 employs. This allows for managed sessions to be executed by different users with differing permission levels.
 
 Through a plugin mechanism, the CLI is extensible so that all aspects of Corda can be managed from it, including both the developer and operator lifecycles, as well as CorDapp operators.
 
@@ -60,7 +60,7 @@ The worker architecture allows us to deliver Corda in various guises. For highly
 
 This can be augmented through the addition of an in-memory message bus, forsaking Kafka. This allows deterministic testing and better observability when running through the full software development lifecycle on a laptop.
 
-To read about starting the combined worker using the CSDE, see [Starting the Corda Combined Worker](../getting-started/running-your-first-cordapp/run-first-cordapp.html#starting-the-corda-combined-worker).
+To read about starting the combined worker using the CSDE, see [Starting the Corda Combined Worker](../developing/getting-started/running-your-first-cordapp/run-first-cordapp.html#starting-the-corda-combined-worker).
 
 ## Pluggable Ledger Model
 Past Corda versions tightly embedded the UTXO ledger model at the heart of the architecture. Corda 5, with its layered approach, makes this model pluggable. This means that various ledger models, from UTXO through consensual, to some form of rules-based implementation, are all possible to deploy on top of the same tech stack and run in parallel. The right tool for the job can be selected, rather than requiring the full set of UTXO and smart contract features, which can overcomplicate applications that do not mesh well with that paradigm.

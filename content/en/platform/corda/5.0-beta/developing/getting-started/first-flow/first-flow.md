@@ -16,8 +16,6 @@ Many of the features will be familiar to those Developers who have written Corda
 * Initiating and responder flows are linked with a protocol rather than class names.
 * Singletons should be avoided in flow code because there is no guarantee that the same flow worker will continue to execute a flow after it has been check-pointed and restarted.
 
-It is also worth noting that, as of Developer Preview 2, there is no ledger service available to the flows. This means that you cannot create tokens, transactions, or states yet.
-
 ## MyFirstFlow Use Case
 
 The use case in the example flows is very simple:
