@@ -52,9 +52,6 @@ It is also possible to load transactions by ID.
 To finalize a transaction (verify, store, distribute to participants, collect signatures, notarize, distribute signatures), you must call the finalize function on the ledger service. On the counterparty (initiated flow), you need a matching call to `receiveFinality`. These calls will start subflows under the hood that deal with the messaging and finality.
 
 {{< note >}}
-In Beta 1, it is strongly recommended that you wrap the call to `finalize`/`receiveFinality` in a `try...catch` block, and in the case of an exception, do the following:
-* log the exception
-* suppress the exception
-* jump to the end of the flow to stop any further processing
+In Beta 1, it is strongly recommended that you wrap the call to `finalize`/`receiveFinality` in a `try...catch` block. In the case of an exception, you should log and suppress the exception and jump to the end of the flow to stop any further processing.
 The reason for this is that a verification or notarization failure will throw an exception and letting an exception escape out of an initializing or initialized flow will unravel the flow session. This may result in error messages not handled correctly and the error payload send by the finality responder might get lost.
 {{< /note >}}
