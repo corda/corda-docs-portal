@@ -33,7 +33,7 @@ The non-validating notary protocol maintains a degree of privacy by only reveali
 | Time window                       | Fully visible             |
 | Notary identity                   | Fully visible             |
 | Signatures                        | Hidden                    |
-| Transaction Metadata              | Fully visible             |
+| Transaction metadata              | Fully visible             |
 
 The protocol also record the calling party’s identity in the form of its X.500 Distinguished Name.
 
