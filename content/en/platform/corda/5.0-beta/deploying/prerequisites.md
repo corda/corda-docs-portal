@@ -11,13 +11,13 @@ section_menu: corda-5-beta
 
 This section lists the software prerequisites for multi-worker cluster deployments.
 The prerequisites for both the target environment and the environment from which you are deploying are listed.
-For information about the prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html), see [Prerequisites for the CSDE](..developing/getting-started/prerequisites.html).
+For information about the prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html), see [Prerequisites for the CSDE](../developing/getting-started/prerequisites.html).
 
 ## Local Environment
 
 | Software | Version        |
 |----------|----------------|
-| [Corda CLI](..developing/getting-started/installing-corda-cli.html)  |   |  
+| [Corda CLI](../developing/getting-started/installing-corda-cli.html)  |   |  
 | kubectl  | 1.23           |
 | Helm     | 3.9.4 or newer |
 | Docker   |                |
