@@ -21,7 +21,7 @@ Deploying notary virtual nodes to your network follows an almost identical proce
 
   - `"corda.roles.0" : "notary"` - This flags the virtual node as taking the role of a notary on the network.
 
-  - `"corda.notary.service.name" : <x500 name>` - This is a user-specified x500 name for the notary service that this virtual node will represent. This is the name that will be used by CorDapps when specifying which notary to use for notarization.
+  - `"corda.notary.service.name" : <x500 name>` - This is a user-specified X.500 name for the notary service that this virtual node will represent. This is the name that will be used by CorDapps when specifying which notary to use for notarization.
 
 {{< note >}}
 It is currently only possible to have a single notary virtual node associated with a notary service x500 name. The eventual intent is to allow a many to one mapping, similar to the HA notary implementation in Corda 4. This will allow a notary service to be hosted across multiple Corda clusters/regions.
