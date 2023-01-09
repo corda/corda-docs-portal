@@ -10,7 +10,7 @@ section_menu: corda-5-beta
 ---
 
 
-First the test class instantiates `MemberX500Name` for two actors. `MemberX500Name` is the primary way that identities are represented on a Corda [application network](../../introduction/key-concepts.html#application-network). `MemberX500Name` has a static method `parse()` that turns the string representation of a members identity into a `MemberX500Name` object.
+First the test class instantiates `MemberX500Name` for two actors. `MemberX500Name` is the primary way that identities are represented on a Corda [application network](../../../introduction/key-concepts.html#application-network). `MemberX500Name` has a static method `parse()` that turns the string representation of a members identity into a `MemberX500Name` object.
 1. Set up Alice and Bob identities:
    ```java
    class MyFirstFlowTest {
@@ -49,7 +49,7 @@ First the test class instantiates `MemberX500Name` for two actors. `MemberX500Na
    SimulatedVirtualNode aliceVN = simulator.createVirtualNode(aliceHoldingID, MyFirstFlow.class);
    simulator.createVirtualNode(bobHoldingID, MyFirstFlowResponder.class);
    ```
-   You can read more about initiating flows and responder flows in the section on [Your first flow ](../first-flow/first-flow.html#initiating-and-responding-flows).
+   You can read more about initiating flows and responder flows in the section on [Your first flow ](../../first-flow/first-flow.html#initiating-and-responding-flows).
 6. Create the arguments to pass to the flow. In the flow file `MyFirstFlowStartArgs.java`, create a class `MyFirstFlowStartArgs` specifically for holding the flow start arguments:
    ```java
    // A class to hold the arguments required to start the flow
