@@ -1,5 +1,5 @@
 ---
-date: '2022-12-07'
+date: '2023-01-09'
 menu:
   corda-enterprise-4-10:
     identifier: "corda-enterprise-4-10-cordapp-upgrade"
@@ -13,10 +13,6 @@ weight: 30
 ---
 
 # Upgrading a CorDapp to a newer platform version
-
-{{< warning >}}
-Corda Enterprise Edition 4.10 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.10, read the guidance on [upgrading your notary service](notary/upgrading-the-ha-notary-service.md).
-{{< /warning >}}
 
 This guide shows you how to upgrade your CorDapp from previous platform versions to benefit
 from the new features in the latest release.
