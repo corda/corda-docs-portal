@@ -29,8 +29,7 @@ Static networks do not use an [MGM](../../../introduction/key-concepts.html#memb
 
 Build a CPI using the [Corda CLI](../../installing-corda-cli.html) packaging plugin, passing in the [group policy](#create-the-group-policy-file) file.
 
-<!--Add link when ready
-See this [CorDapp Packaging]() for more details.-->
+To read more about building CPIs, see [CorDapp Packaging](../../deployment-tutorials/cordapp-packaging.html). 
 
 ## Upload the CPI
 
