@@ -66,7 +66,7 @@ menu:
   <div class="card h-100">
     <div class="card-body">
       <h3 class="card-title">
-      <a href="en/platform/corda/5.0-beta/operating/overview.html">
+      <a href="5.0-beta/operating/overview.html">
           <img src="5.0-beta/icons/operate.png" alt="Operate" style="padding: 1rem; border: 0;" class="light-only" height="124">
           <img src="5.0-beta/icons/operate.png" alt="Operate" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
         <span>Operating</span></h3></a>
