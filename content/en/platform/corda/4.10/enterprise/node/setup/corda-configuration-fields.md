@@ -52,6 +52,12 @@ Cannot be set at the same time as the `networkServices` option.
 
 *Default:* not defined
 
+## `copyBaggageToTags`
+
+In OpenTelemetry, it is possible to define baggage. Baggage are fields which can be passed around with the invocations. A value of `true` in this parameter will cause baggage to be copied to tags when generating spans.
+
+*Default:* false
+
 ## `cordappSignerKeyFingerprintBlacklist`
 
 List of the public keys fingerprints (SHA-256 of public key hash) not allowed as Cordapp JARs signers.
@@ -762,6 +768,18 @@ If the Corda compatibility zone services, both network map and registration (doo
   * Optional token to provide alongside the certificate signing request (CSR) as part of the HTTP header during node registration. The token can be used by certificate signing authority (or Identity Manager Service) to verify additional identity requirements. The maximum token length is limited by the maximum HTTP header size, which is normally 8KB, assuming that a few other internal attributes are also present in the header. Also, the token length itself may never exceed 8192, limited by the database structure. Only US-ASCII characters are allowed.
   * *Default:* not defined
 
+## `openTelemetry` 
+
+OpenTelemetry specifies if the node should generate spans to be sent to a collector. 
+
+The node will only generate spans if this property is set to `true` and an OpenTelemetry SDK is on the node classpath. 
+By default, no OpenTelemetry SDK is on the node class path, meaning by default no spans are actually generated. 
+To prevent spans being generated regardless of whether the OpenTelemetry SDK is on the classpath, this configuration field should be set to `false`.
+
+See the [open telemetry](../../../enterprise/node/operating/monitoring-and-logging/opentelemetry.md) documentation for more details. 
+
+*Default:* true
+
 ## `p2pAddress`
 
 The host and port on which the node is available for protocol operations over ArtemisMQ.
@@ -862,6 +880,22 @@ Each user in the list is a configuration object with the following fields:
 ## `security`
 
 Contains various nested fields controlling user authentication/authorization, in particular for RPC accesses.
+
+## `simpleLogTelemeteryEnabled`
+
+This field enables an alternative form of telemetry. If this field is set to `true`, log lines are written to logs when a flow or significant operation is started, or ended. The log line specifies a trace ID, which allows flows to be matched up across nodes. For more information, see the [open telemetry documentation](../operating/monitoring-and-logging/opentelemetry.md).
+
+*Default:* false
+
+## `spanStartEndEventsEnabled`
+
+When Corda generates spans for flows and certain significant operations, it has the capability to generate a span for starting the operation, and a span for ending the operation. This means that in addition to generating a single span to cover the whole operation, it can also generate two spans, a start span and an end span.
+
+This can be useful to determine where a flow is stuck, as you will only see the start spans and not the end spans.
+
+This is not standard OpenTelemetry and it could also result in a lot of spans flooding the network. Setting this field to `true` will enable this behaviour.
+
+*Default:* false
 
 ## `sshd`
 
