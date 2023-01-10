@@ -138,12 +138,16 @@ The Link Manager sometimes sent the wrong session certificate to a counterparty 
 
 #### State Relevancy Flag
 Context: When building a transaction, newly created states (outputs) MUST be marked as relevant once the transaction is finalized.
+
 Issue: The State relevancy flag can be inconsistently set due to a difference in the way transactions are finalized between `UtxoReceivedFinalityFlow` and `UtxoFinalityFlow`.
 `UtxoReceivedFinalityFlow` on the counterparty side correctly persists State relevancy when the transaction is verified. `UtxoFinalityFlow` on the initiating side incorrectly persists State relevancy when the transaction is still unverified.
+
 Impact: For the initiating participant on a transaction, a Relevant State could be flagged as available when the State should still be flagged as unavailable.
 This also has a knock-on effect on the feed into the token selection mechanism.
 
 #### Transaction Failures
 Context: States must be marked as consumed in the vault when they have been used as input for a successful transaction. They should not be marked as consumed when used in a transaction that eventually fails to transact.
+
 Issue: Input states to a UTXO transaction are marked as consumed when the transaction is first persisted, before it is completely signed and notarised. Should counter-signing or notarisation fail, states will be wrongly marked as consumed in the initiating's node vault and no longer be available as inputs.
+
 Impact: In the case of transaction failures, states will be wrongly marked as consumed and thus unusable. Transaction rollback does not behave correctly in the current version of the UTXO ledger.
