@@ -3,7 +3,7 @@ aliases:
 - /head/docker-image.html
 - /HEAD/docker-image.html
 - /docker-image.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-10'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-docker-image
@@ -16,8 +16,8 @@ title: Official Corda Docker Image
 ---
 # Official Corda Docker image
 
-The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/community/corda/community/4.9.1-zulu-openjdk8/images/sha256-b7b536977dd1d13dc042c57299add348543158479063dbc1ad993373ebfa9f7b?context=explore)
-is `corda/corda-enterprise:4.10-zulu-openjdk8-alpine`.
+The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/corda/community/4.10-zulu-openjdk8/images/sha256-3d94ee8ab9e3ca91c40c0543291c4ac66c1787ed5b5b7c90c3ceadd1e4714168)
+is `corda/community:4.10-zulu-openjdk8`.
 
 ## Prerequisites
 
