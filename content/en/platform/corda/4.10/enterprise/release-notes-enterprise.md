@@ -65,24 +65,18 @@ In this release:
 
 * The opentelemetry tracing signal is now supported in flows across nodes.
 
-* Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resource in the HSM. This issue occurred when:
-
-  * The Securosys HSM was configured in a master-clone cluster.
-
-  * The master HSM had failed and Corda had failed-over to use the clone HSM.
-
-  * There was an attempt to create a transaction using confidential identities.
-
-  The issue is now resolved. When generating a wrapped key-pair, the temporary key-pair is not persisted in the HSM and thus cannot be leaked.
-
-  On applying this update it is recommended that the PrimusX JCE should be upgraded to version 2.3.4 or later for optimum performance of the HSM. If the JCE is not updated, then no keys are leaked but they are temporarily created in the HSM and are then garbage-collected within 24 hours.
-
-  There is no need to upgrade the HSM firmware version for this update, but it is recommended to keep the firmware up to date as a matter of course. Currently the latest firmware version is 2.8.50.
-
 ### Database Schema Changes
 
-
-
+There are no database changes between 4.9 and 4.10.
 
 ### Third party component upgrades
 
+The following table lists the dependency version changes between 4.9.5 and 4.10 Enterprise Editions:
+
+| Dependency                         | Name                | Version 4.9.5 Enterprise | Version 4.10 Enterprise|
+|------------------------------------|---------------------|--------------------------|------------------------|
+| com.squareup.okhttp3               | OKHttp              | 3.14.2                   | 3.14.9                 |
+| org.bouncycastle                   | Bouncy Castle       | 1.68                     | 1.70                   |
+| io.opentelemetry                   | Open Telemetry      | -                        | 1.20.1                 |
+| org.apache.commons:commons-text    | Apache Commons-Text | 1.9                      | 1.10.0                 |
+| org.apache.shiro                   | Apache Shiro        | 1.9.1                    | 1.10.0                 |
