@@ -29,7 +29,7 @@ The instructions in this section use the following terms:
    * On macOS, this is typically something like `/Users/charlie.smith`.
    * On Linux, this typically something like `/home/charlie.smith`.
 
-To rest the CSDE:
+To reset the CSDE:
 1. Stop any running combined worker processes:
    * On Linux/macOS:
       1. To find the process ID (pid), run:
