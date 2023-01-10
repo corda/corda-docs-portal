@@ -59,11 +59,12 @@ In this release:
 * Previously, Archive Service commands did not write messages to the log files unless an error or issue occurred. An update now means that messages are also written when commands are run successfully. For more information, refer to [Archive Service Command-Line Interface (CLI)](..\..\..\..\tools\archiving-service\archiving-cli.md)
 
 * The opentelemetry tracing signal is now supported in flows across nodes.
+
+* A rare condition was found when database transactions were rolled back under heavy load that caused flow state machine threads to stop processing flows. This resulted in eventual node lockup in certain circumstances. This fix prevents this from happening.
   
 ### Database Schema Changes
 
 There are no database changes between 4.9 and 4.10.
-
 
 ### Third party component upgrades
 
