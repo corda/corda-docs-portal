@@ -1,0 +1,582 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Builder</title>
+<link href="../../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../../index.html">
+<span>corda-api</span>            </a>    </div>
+    <div>5.0.0.523-Fox1.0-RC03
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="avro-schema::net.corda.data.flow.output/FlowStatus.Builder///PointingToDeclaration//380713788">
+  <div class="breadcrumbs"><a href="../../../index.html">avro-schema</a><span class="delimiter">/</span><a href="../../index.html">net.corda.data.flow.output</a><span class="delimiter">/</span><a href="../index.html">FlowStatus</a><span class="delimiter">/</span><span class="current">Builder</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Builder</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">Builder</a> : <span data-unresolved-link="org.apache.avro.specific/SpecificRecordBuilderBase///PointingToDeclaration/">SpecificRecordBuilderBase</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.avro.specific/SpecificRecordBuilderBase///PointingToGenericParameters(0)/">T</span><span class="token operator">&gt; </span>, <span data-unresolved-link="org.apache.avro.data/RecordBuilder///PointingToDeclaration/">RecordBuilder</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.avro.data/RecordBuilder///PointingToGenericParameters(0)/">T</span><span class="token operator">&gt; </span></div><p class="paragraph">RecordBuilder for FlowStatus instances.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="637902683%2FFunctions%2F380713788" anchor-label="build" id="637902683%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="build.html"><span><span>build</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="637902683%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="build.html"><span class="token function">build</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../index.html">FlowStatus</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1775359726%2FFunctions%2F380713788" anchor-label="clearCreatedTimestamp" id="1775359726%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="clear-created-timestamp.html"><span>clear</span><wbr><span>Created</span><wbr><span><span>Timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1775359726%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-created-timestamp.html"><span class="token function">clearCreatedTimestamp</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">FlowStatus.Builder</a></div><div class="brief ">Clears the value of the 'createdTimestamp' field.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1578046058%2FFunctions%2F380713788" anchor-label="clearError" id="-1578046058%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="clear-error.html"><span>clear</span><wbr><span><span>Error</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1578046058%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-error.html"><span class="token function">clearError</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">FlowStatus.Builder</a></div><div class="brief ">Clears the value of the 'error' field.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1838356311%2FFunctions%2F380713788" anchor-label="clearFlowClassName" id="-1838356311%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="clear-flow-class-name.html"><span>clear</span><wbr><span>Flow</span><wbr><span>Class</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1838356311%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-flow-class-name.html"><span class="token function">clearFlowClassName</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">FlowStatus.Builder</a></div><div class="brief ">Clears the value of the 'flowClassName' field.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-884625869%2FFunctions%2F380713788" anchor-label="clearFlowId" id="-884625869%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="clear-flow-id.html"><span>clear</span><wbr><span>Flow</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-884625869%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-flow-id.html"><span class="token function">clearFlowId</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">FlowStatus.Builder</a></div><div class="brief ">Clears the value of the 'flowId' field.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1606681924%2FFunctions%2F380713788" anchor-label="clearFlowStatus" id="-1606681924%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="clear-flow-status.html"><span>clear</span><wbr><span>Flow</span><wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1606681924%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-flow-status.html"><span class="token function">clearFlowStatus</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">FlowStatus.Builder</a></div><div class="brief ">Clears the value of the 'flowStatus' field.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1731130443%2FFunctions%2F380713788" anchor-label="clearInitiatorType" id="-1731130443%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="clear-initiator-type.html"><span>clear</span><wbr><span>Initiator</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1731130443%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-initiator-type.html"><span class="token function">clearInitiatorType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">FlowStatus.Builder</a></div><div class="brief ">Clears the value of the 'initiatorType' field.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1437457057%2FFunctions%2F380713788" anchor-label="clearKey" id="-1437457057%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="clear-key.html"><span>clear</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1437457057%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-key.html"><span class="token function">clearKey</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">FlowStatus.Builder</a></div><div class="brief ">Clears the value of the 'key' field.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-855126041%2FFunctions%2F380713788" anchor-label="clearLastUpdateTimestamp" id="-855126041%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="clear-last-update-timestamp.html"><span>clear</span><wbr><span>Last</span><wbr><span>Update</span><wbr><span><span>Timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-855126041%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-last-update-timestamp.html"><span class="token function">clearLastUpdateTimestamp</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">FlowStatus.Builder</a></div><div class="brief ">Clears the value of the 'lastUpdateTimestamp' field.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2025742207%2FFunctions%2F380713788" anchor-label="clearResult" id="2025742207%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="clear-result.html"><span>clear</span><wbr><span><span>Result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2025742207%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-result.html"><span class="token function">clearResult</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">FlowStatus.Builder</a></div><div class="brief ">Clears the value of the 'result' field.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1611854712%2FFunctions%2F380713788" anchor-label="equals" id="1611854712%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../../net.corda.p2p.app/-unauthenticated-message-header/-builder/index.html#1611854712%2FFunctions%2F380713788"><span><span>equals</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1611854712%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../../net.corda.p2p.app/-unauthenticated-message-header/-builder/index.html#1611854712%2FFunctions%2F380713788"><span class="token function">equals</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">obj<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="493787201%2FFunctions%2F380713788" anchor-label="hasCreatedTimestamp" id="493787201%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="has-created-timestamp.html"><span>has</span><wbr><span>Created</span><wbr><span><span>Timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="493787201%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-created-timestamp.html"><span class="token function">hasCreatedTimestamp</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'createdTimestamp' field has been set.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="929022499%2FFunctions%2F380713788" anchor-label="hasError" id="929022499%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="has-error.html"><span>has</span><wbr><span><span>Error</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="929022499%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-error.html"><span class="token function">hasError</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'error' field has been set.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1796075388%2FFunctions%2F380713788" anchor-label="hasErrorBuilder" id="1796075388%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="has-error-builder.html"><span>has</span><wbr><span>Error</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1796075388%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-error-builder.html"><span class="token function">hasErrorBuilder</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'error' field has an active Builder instance Optional error message, this will be set if the flow status is 'FAILED'</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="796450870%2FFunctions%2F380713788" anchor-label="hasFlowClassName" id="796450870%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="has-flow-class-name.html"><span>has</span><wbr><span>Flow</span><wbr><span>Class</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="796450870%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-flow-class-name.html"><span class="token function">hasFlowClassName</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'flowClassName' field has been set.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-474911930%2FFunctions%2F380713788" anchor-label="hasFlowId" id="-474911930%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="has-flow-id.html"><span>has</span><wbr><span>Flow</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-474911930%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-flow-id.html"><span class="token function">hasFlowId</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'flowId' field has been set.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-208865713%2FFunctions%2F380713788" anchor-label="hasFlowStatus" id="-208865713%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="has-flow-status.html"><span>has</span><wbr><span>Flow</span><wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-208865713%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-flow-status.html"><span class="token function">hasFlowStatus</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'flowStatus' field has been set.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2075362737%2FFunctions%2F380713788" anchor-label="hashCode" id="-2075362737%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../../net.corda.p2p.app/-unauthenticated-message-header/-builder/index.html#-2075362737%2FFunctions%2F380713788"><span>hash</span><wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2075362737%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../../net.corda.p2p.app/-unauthenticated-message-header/-builder/index.html#-2075362737%2FFunctions%2F380713788"><span class="token function">hashCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="903676738%2FFunctions%2F380713788" anchor-label="hasInitiatorType" id="903676738%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="has-initiator-type.html"><span>has</span><wbr><span>Initiator</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="903676738%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-initiator-type.html"><span class="token function">hasInitiatorType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'initiatorType' field has been set.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1050065196%2FFunctions%2F380713788" anchor-label="hasKey" id="1050065196%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="has-key.html"><span>has</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1050065196%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-key.html"><span class="token function">hasKey</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'key' field has been set.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-464671661%2FFunctions%2F380713788" anchor-label="hasKeyBuilder" id="-464671661%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="has-key-builder.html"><span>has</span><wbr><span>Key</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-464671661%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-key-builder.html"><span class="token function">hasKeyBuilder</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'key' field has an active Builder instance The unique ID for the status</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2077043124%2FFunctions%2F380713788" anchor-label="hasLastUpdateTimestamp" id="2077043124%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="has-last-update-timestamp.html"><span>has</span><wbr><span>Last</span><wbr><span>Update</span><wbr><span><span>Timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2077043124%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-last-update-timestamp.html"><span class="token function">hasLastUpdateTimestamp</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'lastUpdateTimestamp' field has been set.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1859511150%2FFunctions%2F380713788" anchor-label="hasResult" id="-1859511150%2FFunctions%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="has-result.html"><span>has</span><wbr><span><span>Result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1859511150%2FFunctions%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-result.html"><span class="token function">hasResult</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks whether the 'result' field has been set.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="-117600605%2FProperties%2F380713788" anchor-label="createdTimestamp" id="-117600605%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="created-timestamp.html"><span>created</span><wbr><span><span>Timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-117600605%2FProperties%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><a data-name="-117600605%2FProperties%2F380713788" anchor-label="createdTimestamp" id="-117600605%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="created-timestamp.html">createdTimestamp</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html">Instant</a></div><div class="brief "><a data-name="-117600605%2FProperties%2F380713788" anchor-label="createdTimestamp" id="-117600605%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>The date the flow was created.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-380963583%2FProperties%2F380713788" anchor-label="error" id="-380963583%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="error.html"><span><span>error</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-380963583%2FProperties%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><a data-name="-380963583%2FProperties%2F380713788" anchor-label="error" id="-380963583%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="error.html">error</a><span class="token operator">: </span><a href="../../../net.corda.data/-exception-envelope/index.html">ExceptionEnvelope</a></div><div class="brief "><a data-name="-380963583%2FProperties%2F380713788" anchor-label="error" id="-380963583%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>Optional error message, this will be set if the flow status is 'FAILED'</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-624204066%2FProperties%2F380713788" anchor-label="errorBuilder" id="-624204066%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="error-builder.html"><span>error</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-624204066%2FProperties%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><a data-name="-624204066%2FProperties%2F380713788" anchor-label="errorBuilder" id="-624204066%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="error-builder.html">errorBuilder</a><span class="token operator">: </span><a href="../../../net.corda.data/-exception-envelope/-builder/index.html">ExceptionEnvelope.Builder</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1217768172%2FProperties%2F380713788" anchor-label="flowClassName" id="-1217768172%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="flow-class-name.html"><span>flow</span><wbr><span>Class</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1217768172%2FProperties%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><a data-name="-1217768172%2FProperties%2F380713788" anchor-label="flowClassName" id="-1217768172%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="flow-class-name.html">flowClassName</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief "><a data-name="-1217768172%2FProperties%2F380713788" anchor-label="flowClassName" id="-1217768172%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>The fully qualified class name of the flow</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1865192488%2FProperties%2F380713788" anchor-label="flowId" id="1865192488%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="flow-id.html"><span>flow</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1865192488%2FProperties%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><a data-name="1865192488%2FProperties%2F380713788" anchor-label="flowId" id="1865192488%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="flow-id.html">flowId</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief "><a data-name="1865192488%2FProperties%2F380713788" anchor-label="flowId" id="1865192488%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>The unique flow ID</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1985683919%2FProperties%2F380713788" anchor-label="flowStatus" id="-1985683919%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="flow-status.html"><span>flow</span><wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1985683919%2FProperties%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><a data-name="-1985683919%2FProperties%2F380713788" anchor-label="flowStatus" id="-1985683919%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="flow-status.html">flowStatus</a><span class="token operator">: </span><a href="../../-flow-states/index.html">FlowStates</a></div><div class="brief "><a data-name="-1985683919%2FProperties%2F380713788" anchor-label="flowStatus" id="-1985683919%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>The current processing status of a flow</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1110542304%2FProperties%2F380713788" anchor-label="initiatorType" id="-1110542304%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="initiator-type.html"><span>initiator</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1110542304%2FProperties%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><a data-name="-1110542304%2FProperties%2F380713788" anchor-label="initiatorType" id="-1110542304%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="initiator-type.html">initiatorType</a><span class="token operator">: </span><a href="../../../net.corda.data.flow/-flow-initiator-type/index.html">FlowInitiatorType</a></div><div class="brief "><a data-name="-1110542304%2FProperties%2F380713788" anchor-label="initiatorType" id="-1110542304%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>The type of initiator that started the flow</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1530066038%2FProperties%2F380713788" anchor-label="key" id="-1530066038%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="key.html"><span><span>key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1530066038%2FProperties%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><a data-name="-1530066038%2FProperties%2F380713788" anchor-label="key" id="-1530066038%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="key.html">key</a><span class="token operator">: </span><a href="../../../net.corda.data.flow/-flow-key/index.html">FlowKey</a></div><div class="brief "><a data-name="-1530066038%2FProperties%2F380713788" anchor-label="key" id="-1530066038%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>The unique ID for the status</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2053477429%2FProperties%2F380713788" anchor-label="keyBuilder" id="2053477429%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="key-builder.html"><span>key</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2053477429%2FProperties%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><a data-name="2053477429%2FProperties%2F380713788" anchor-label="keyBuilder" id="2053477429%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="key-builder.html">keyBuilder</a><span class="token operator">: </span><a href="../../../net.corda.data.flow/-flow-key/-builder/index.html">FlowKey.Builder</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1115750382%2FProperties%2F380713788" anchor-label="lastUpdateTimestamp" id="-1115750382%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="last-update-timestamp.html"><span>last</span><wbr><span>Update</span><wbr><span><span>Timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1115750382%2FProperties%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><a data-name="-1115750382%2FProperties%2F380713788" anchor-label="lastUpdateTimestamp" id="-1115750382%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="last-update-timestamp.html">lastUpdateTimestamp</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html">Instant</a></div><div class="brief "><a data-name="-1115750382%2FProperties%2F380713788" anchor-label="lastUpdateTimestamp" id="-1115750382%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>The date and time this status update was published.</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="480593268%2FProperties%2F380713788" anchor-label="result" id="480593268%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":data:avro-schema:dokkaHtmlPartial/main" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="result.html"><span><span>result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="480593268%2FProperties%2F380713788"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data:avro-schema:dokkaHtmlPartial/main"><a data-name="480593268%2FProperties%2F380713788" anchor-label="result" id="480593268%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">var </span><a href="result.html">result</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief "><a data-name="480593268%2FProperties%2F380713788" anchor-label="result" id="480593268%2FProperties%2F380713788" data-filterable-set=":data:avro-schema:dokkaHtmlPartial/main"></a>Optional result, this contains the result from the flow will only be set if the flow status is 'COMPLETED'</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+
