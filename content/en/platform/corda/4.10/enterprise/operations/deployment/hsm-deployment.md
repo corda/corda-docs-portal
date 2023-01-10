@@ -230,8 +230,8 @@ repositories {
 }
 
 dependencies {
-    compile 'com.microsoft.azure:azure-keyvault:1.2.1'
-    compile 'com.microsoft.azure:adal4j:1.6.4'
+    compile 'com.azure:azure-security-keyvault-keys:4.2.3'
+    compile 'com.azure:azure-identity:1.2.0'
 }
 
 shadowJar {
