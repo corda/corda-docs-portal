@@ -11,7 +11,7 @@ section_menu: corda-5-beta
 
 This section lists the software prerequisites for multi-worker cluster deployments.
 The prerequisites for both the target environment and the environment from which you are deploying are listed.
-For information about the prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html), see [Prerequisites for the CSDE](../developing/getting-started/prerequisites.html).
+For information about the prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../developing/getting-started/cordapp-standard-development-environment/csde.html), see [Prerequisites for the CSDE](../developing/getting-started/prerequisites/prerequisites.html).
 
 ## Local Environment
 
