@@ -65,6 +65,12 @@ In this release:
 
 * The opentelemetry tracing signal is now supported in flows across nodes.
 
+* Previously, a memory leak in the transaction cache occurred due to weight of in-flight entries being undervalued. Improvements have been made to prevent in-flight entry weights from being undervalued and, because they are now estimated more correctly, this results in a large decrease in the total size of cached entities.
+
+* Flow draining mode no longer acknowledges P2P in-flight messages that have not yet been committed to the database. Previously, flow draining mode acknowledged all in-flight messages as duplicate.
+
+* Previously, the attachment class loader was being closed too early if it is evicted from the cache. Now, closing of attachment class loaders is delayed until all SerializationContext that refer to them (from BasicVerifier) have gone out of scope.
+
 ### Database Schema Changes
 
 There are no database changes between 4.9 and 4.10.
