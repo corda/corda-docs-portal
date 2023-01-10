@@ -70,6 +70,8 @@ In this release:
 * Flow draining mode no longer acknowledges P2P in-flight messages that have not yet been committed to the database. Previously, flow draining mode acknowledged all in-flight messages as duplicate.
 
 * Previously, the attachment class loader was being closed too early if it is evicted from the cache. Now, closing of attachment class loaders is delayed until all SerializationContext that refer to them (from BasicVerifier) have gone out of scope.
+ 
+* A rare condition was found when database transactions were rolled back under heavy load that caused flow state machine threads to stop processing flows. This resulted in eventual node lockup in certain circumstances. This fix prevents this from happening.
 
 ### Database Schema Changes
 
