@@ -148,7 +148,7 @@ rpcSettings {
 
 ## Optional configuration
 
-* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required** for Notary nodes**. For more information, see [notary](../setup/corda-configuration-fields.html#notary).
+* `notary` &lt;config&gt; - use this configuration option to specify the node as a Notary node. **Required for Notary nodes**. For more information, see [notary](../setup/corda-configuration-fields.html#notary).
 
 * `devMode` &lt;boolean&gt; - use this configuration option to enable development mode when you set its value to `true`. For more information, see [devMode](../setup/corda-configuration-fields.html#devmode). For example:
 
