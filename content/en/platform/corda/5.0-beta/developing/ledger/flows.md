@@ -19,7 +19,7 @@ For example, the following shows Alice and Bob agreeing a ledger update using th
 
 {{< 
   figure
-	 src=images/flows.gif"
+	 src="images/flow.gif"
 	 figcaption="Messaging Example"
 >}}
 
@@ -30,13 +30,13 @@ For example, the following shows the flow’s steps used between Alice and Bob t
 
 {{< 
   figure
-	 src=images/flow-sequence.png"
+	 src="images/flow-sequence.png"
 	 figcaption="Flow Sequence Example"
 >}}
 
 ## Running Flows
 
-Node operators use [REST](../../operating/rest-api/overview.html) calls to instruct their node to start a specific flow. The flow abstracts all the networking, I/O, and concurrency issues away from the node operator.
+Node operators use [REST](../../operating/operating-tutorials/rest-api.html) calls to instruct their node to start a specific flow. The flow abstracts all the networking, I/O, and concurrency issues away from the node operator.
 All activity on the node occurs in the context of these flows. Unlike contracts, flows execute in a flow sandbox, meaning that nodes can perform actions such as networking, I/O, and use sources of randomness within the execution of a flow.
 
 ### Inter-Node Communication
