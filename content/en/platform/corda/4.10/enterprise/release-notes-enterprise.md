@@ -65,7 +65,7 @@ In this release:
 
 * The opentelemetry tracing signal is now supported in flows across nodes.
 
-* A rare condition was found when database transactions are rolled back under heavy load that caused flow state machine threads to stop processing flows, leading to eventual node lockup in certain circumstances.  This fix prevents this from happening.
+* A rare condition was found when database transactions were rolled back under heavy load that caused flow state machine threads to stop processing flows. This resulted in eventual node lockup in certain circumstances. This fix prevents this from happening.
 
 ### Database Schema Changes
 
