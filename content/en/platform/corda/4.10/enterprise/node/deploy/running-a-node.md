@@ -208,7 +208,7 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 This command will start the node with JMX metrics accessible via HTTP on port 7005.
 
-See [Monitoring via Jolokia](../../../../../../../en/platform/corda/4.10/enterprise/node/operating/node-administration.html#monitoring-via-jolokia) for further details.
+See [Monitoring via Jolokia](../operating/node-administration.html#monitoring-via-jolokia) for further details.
 
 
 ## Starting all nodes at once on a local machine from the command prompt
@@ -270,7 +270,7 @@ To create nodes locally and run on a remote machine, perform the following steps
 * Optionally, add database configuration settings if they could not be configured in the first step and the local machine does not have access to the remote database.
 In each top-level `[NODE NAME]_node.conf` configuration file, add the database settings and copy the JDBC driver `.jar` file (if required).
 Edit the top-level `[NODE NAME]_node.conf` files only and not the files inside the node sub-directories (for example, `node.conf`).
-* Optionally, bootstrap the network on the remote machine. This is an optional step when a remote machine does not accept `localhost` addresses, or if the generated nodes are configured to run on another host’s IP address. If needed, change the host addresses in the top-level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress`, `rpcSettings.address`, and  `rpcSettings.adminAddress`. Run the network bootstrapper tool to regenerate the nodes network map: `java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`. For more information, see [Network bootstrapper](../../../../../../../en/platform/corda/4.10/enterprise/network-bootstrapper.md).
+* Optionally, bootstrap the network on the remote machine. This is an optional step when a remote machine does not accept `localhost` addresses, or if the generated nodes are configured to run on another host’s IP address. If needed, change the host addresses in the top-level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress`, `rpcSettings.address`, and  `rpcSettings.adminAddress`. Run the network bootstrapper tool to regenerate the nodes network map: `java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`. For more information, see [Network bootstrapper](../../network-bootstrapper.md).
 * Run nodes on the remote machine using [runnodes command](#starting-all-nodes-at-once-on-a-local-machine-from-the-command-prompt).
 
 The steps described above enable you to create the same test deployment as a `deployNodes` Gradle task would create on a local machine.
