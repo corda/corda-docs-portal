@@ -107,7 +107,7 @@ cp testing/cpbs/mgm/build/libs/mgm-5.0.0.0-SNAPSHOT-package.cpb $WORK_DIR
 
 ## Create the Group Policy File
 
-Create the [GroupPolicy.json file](../../group-policy.html#mgm-group-policy) in the same directory as the CPB:
+Create the [GroupPolicy.json file](../../../deploying/group-policy.html#mgm-group-policy) in the same directory as the CPB:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
@@ -135,10 +135,7 @@ Add-Content $WORK_DIR/GroupPolicy.json @"
 
 ## Build the CPI
 
-Build the CPI using the [Corda CLI](../../installing-corda-cli.html) packaging plugin, passing in the [MGM CPB](#create-the-cpb) and [group policy](#create-the-group-policy-file) files.
-
-<!--Add link when ready
-See this [CorDapp Packaging]() for more details.-->
+Build a CPI using the Corda CLI packaging plugin, passing in your generated MGM `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section](../../../developing/development-tutorials/cordapp-packaging.md).
 
 ## Upload the CPI
 
