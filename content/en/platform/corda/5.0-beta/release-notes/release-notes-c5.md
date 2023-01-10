@@ -39,10 +39,6 @@ It is now possible to use certificates, in addition to cryptographic keys, in en
 
 The Ledger Layer has now been implemented to enable initial testing and development of ledger CorDapps. For more information, see the [Ledger section](../developing/ledger/ledger.md).
 
-{{< note >}}
-The UTXO Finality Flow does not yet support notarisation.
-{{< /note >}}
-
 #### Smart Contract Interfaces
 Interfaces are now available to define and handle smart contracts in the Corda 5 UTXO ledger.
 
