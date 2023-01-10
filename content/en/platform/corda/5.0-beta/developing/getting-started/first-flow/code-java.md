@@ -14,10 +14,10 @@ The Java code for the flows and supporting classes can be found in the CSDE repo
 ## Java Flow Files
 
 The `src/main/java/com/r3/developers/csdetemplate` folder contains the following files:
-* [Message.java](#message.java)
-* [MyFirstFlow.java](#myfirstflow.java)
-* [MyFirstFlowResponder.java](#myfirstflowresponder.java)
-* [MyFirstFlowStartArgs.java](#myfirstflowstartargs.java)
+* [Message.java](#messagejava)
+* [MyFirstFlow.java](#myfirstflowjava)
+* [MyFirstFlowResponder.java](#myfirstflowresponderjava)
+* [MyFirstFlowStartArgs.java](#myfirstflowstartargsjava)
 
 ### Message.java
 
