@@ -407,7 +407,7 @@ To register the MGM, you must first generate the registration context:
 
 The examples in this section set `corda.group.key.session.policy` to `Distinct`, indicating that the ledger and session initiation key must not be the same key. Alternatively, setting `corda.group.key.session.policy` to `Combined` means that the ledger key used by a member must be the same as the session initiation key.
 
-You can also optionally set the session certificate trustroot using the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`, however when `corda.group.pki.session` is set to `NoPKI`, the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
+You can also optionally set the session certificate trustroot using the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`. However, when `corda.group.pki.session` is set to `NoPKI`, the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
 
 {{< note >}}
 If using session certificates for the P2P layer, see [Configuring Optional Session Certificates](session-certificates.html#build-registration-context-for-mgm-registration) for information about the additional JSON fields required.
