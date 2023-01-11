@@ -66,7 +66,7 @@ You can link to the OpenTelemetry SDK from a client project in two ways:
 * By compiling against the OpenTelemetry driver which includes the OpenTelemetry SDK. 
 * By running the client with the OpenTelemetry Java agent attached.
 
-To use the OpenTelemetry driver, add the following dependency to the build.gradle file of the client:
+To use the OpenTelemetry driver, add the following dependency to the `build.gradle` file of the client:
 
 ```kotlin
 dependencies {
