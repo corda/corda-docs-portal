@@ -11,13 +11,14 @@ title: Corda 4 API reference
 
 # Corda 4 API reference
 
-This page provides links to the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda open source 4.0 to 4.8, Corda Enterprise 4.0 to 4.8, and Corda Enterprise Network Manager (CENM) 1.0 to 1.5.
+This page provides links to the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda Community 4.10, Corda Enterprise 4.5 to 4.10, and Corda Enterprise Network Manager (CENM) 1.0 to 1.5.
 
 ## Corda Enterprise 4.x API reference
 
 {{< table >}}
 |Corda Enterprise version|Javadoc API reference|Kotlin doc API reference|
 |:----|:----|:----|
+|4.10|<a href="../../../en/api-ref/corda/4.10/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.10/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |4.9|<a href="../../../en/api-ref/corda/4.9/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.9/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |4.8|<a href="../../../en/api-ref/corda/4.8/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.8/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |4.7|<a href="../../../en/api-ref/corda/4.7/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.7/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
@@ -31,30 +32,13 @@ This page provides links to the API reference documentation for all API modules 
 
 {{< /table >}}
 
-## Corda Community Edition 4.x API reference
+## Corda Community Edition 4.10 API reference
 
 {{< table >}}
 
 |Corda Community Edition version|Javadoc API reference|Kotlin doc API reference|
 |:----|:----|:----|
-|4.9|<a href="../../../en/api-ref/corda/4.9/community/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.9/community/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-
-{{< /table >}}
-
-## Corda open source 4.x API reference
-
-{{< table >}}
-
-|Corda open source version|Javadoc API reference|Kotlin doc API reference|
-|:----|:----|:----|
-|4.8|<a href="../../../en/api-ref/corda/4.8/open-source/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.8/open-source/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-|4.7|<a href="../../../en/api-ref/corda/4.7/open-source/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.7/open-source/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-|4.6|<a href="../../../en/api-ref/corda/4.6/open-source/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.6/open-source/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-|4.5|<a href="../../../en/api-ref/corda/4.5/open-source/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.5/open-source/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-|4.4|<a href="../../../en/api-ref/corda/4.4/open-source/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.4/open-source/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-|4.3|<a href="../../../en/api-ref/corda/4.3/open-source/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.3/open-source/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-|4.1|<a href="../../../en/api-ref/corda/4.1/open-source/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.1/open-source/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-|4.0|<a href="../../../en/api-ref/corda/4.0/open-source/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.0/open-source/kotlin/corda/index.html" target="_blank">Kotlin</a>|
+|4.9|<a href="../../../en/api-ref/corda/4.10/community/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.10/community/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 
 {{< /table >}}
 
