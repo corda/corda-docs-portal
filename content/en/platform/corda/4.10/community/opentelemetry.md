@@ -46,7 +46,7 @@ To use the OpenTelemetry Java agent:
    
    
    
-3. Replace `PATH-TO-OT-JAVAAGENT` with the full path to where you placed the OpenTelemetry Java agent.
+3. Replace `PATH-TO-OT-JAVAAGENT` with the full path of the directory where you placed the OpenTelemetry Java agent.
 4. Replace `YOUR-SERVICE-NAME` with the service name you would like the Corda node to be identified as.
 
 {{< note >}}
