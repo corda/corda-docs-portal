@@ -65,10 +65,18 @@ OpenTelemetry span generation is also incorporated into the RPC client API. If y
 ## Creating your own Spans
 
 The OpenTelemetry API may be used in your flows and in your client code to create spans and baggage. To get an instance of the OpenTelemetry API in a flow, make the following call:
-`val openTelemetry: OpenTelemetry? = serviceHub.telemetryService.getTelemetryHandle(OpenTelemetry::class.java)`.
 
+    ```kotlin
+    val openTelemetry: OpenTelemetry? = serviceHub.telemetryService.getTelemetryHandle(OpenTelemetry::class.java)
+    }
+    ```
+    
 From the client API, where RPC is a CordaRPCConnection, you would use the following:
-`val openTelemetry: OpenTelemetry? = rpc.getTelemetryHandle(OpenTelemetry::class.java)`.
+
+    ```kotlin
+    val openTelemetry: OpenTelemetry? = rpc.getTelemetryHandle(OpenTelemetry::class.java)
+    }
+    ```
 
 When creating your own spans, you can also create your own baggage. If you create your own baggage, it will also be sent to other nodes, and you can specify if you want this baggage to be copied to span tags. If you do, all of the spans involved in the transaction for that node will also get a copy of the baggage. This can be enabled with the following parameter:
 `telementry.copyBaggageToTags = true`.
@@ -76,7 +84,7 @@ When creating your own spans, you can also create your own baggage. If you creat
 The default value of this setting is `false`.
 
 {{< note >}}
-Within a checkpoint, only the span ID has a checkpoint, meaning spans do not survive a node restart. If the node restarts, the parent span information will be lost, and new spans will be generated for the flows. The root span after the node restart won't know who the parent span was before the node restart.
+When checkpointing, only the span id is checkpointed, meaning spans do not survive a node restart. If the node restarts, the parent span information will be lost, and new spans will be generated for the flows. The root span after the node restart won't know who the parent span was before the node restart.
 {{< /note >}}
 
 ## Start and End Spans
@@ -90,7 +98,7 @@ If a child span doesn't complete, parent spans also do not complete.
 As an alternative, the Corda OpenTelemetry component sends a start or end span to the backend when a flow or operation starts or stops, in addition to the normal spans sent for the operation. This is effectively a start flow span event and an end flow span event. With this view of the spans, it becomes easier to determine where the flow got stuck, as it will be the lowest child without an end span event. 
 
 {{< note >}}
-These start and end span events are only generated for spans that Corda generated. If you create a span in your own flow code, you won’t see equivalent start and end span events for your flows, as Corda knows nothing of them before the node restart.
+These start and end span events are only generated for spans that Corda has generated. If you create a span in your own flow code, you won’t see equivalent start and end span events for your flows, as Corda knows nothing of them.
 {{< /note >}}
 
 Creating these start and end span events will also cause more spans to be sent out to the network, meaning there could be a performance impact on the network. By default, this functionality is disabled, but can be enabled via the following configuration property:
