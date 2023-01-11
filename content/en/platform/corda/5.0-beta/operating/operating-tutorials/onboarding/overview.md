@@ -1,5 +1,5 @@
 ---
-date: '2022-11-15'
+date: '2023-01-11'
 title: "Onboarding to Networks"
 menu:
   corda-5-beta:
@@ -15,6 +15,6 @@ The following tutorials describe how to onboard to Corda 5 networks:
 
 {{< note >}}
 These tutorials all assume that you have:
-* [deployed Corda 5 to a Kubernetes cluster](../deploy-corda-cluster.html).
+* [deployed Corda 5 to a Kubernetes cluster](../../../deploying/deployment-tutorials/deploy-corda-cluster.html).
 * cloned the [corda-runtime-os repository](https://github.com/corda/corda-runtime-os).
 {{< /note >}}
