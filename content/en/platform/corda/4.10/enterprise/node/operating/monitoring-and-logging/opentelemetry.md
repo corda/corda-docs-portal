@@ -118,7 +118,7 @@ If a child span does not complete, parent spans also do not complete.
 As an alternative, the Corda OpenTelemetry component sends a start or end span to the backend when a flow or operation starts or stops, in addition to the normal spans sent for the operation. This is effectively a start flow span event and an end flow span event. With this view of the spans, it becomes easier to determine where the flow got stuck, as it will be the lowest child without an end span event. 
 
 {{< note >}}
-These start and end span events are only generated for spans that Corda has generated. If you create a span in your own flow code, you won’t see equivalent start and end span events for your flows, as Corda knows nothing of them.
+These start and end span events are only generated for spans that Corda has generated. If you create a span in your own flow code, you will not see equivalent start and end span events for your flows, as Corda knows nothing of them.
 {{< /note >}}
 
 Creating these start and end span events will also cause more spans to be sent out to the network, meaning there could be a performance impact on the network. By default, this functionality is disabled, but can be enabled via the following configuration property:
