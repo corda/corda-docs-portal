@@ -115,6 +115,19 @@ Optional name of the CryptoService implementation. This only needs to be set if 
 
 Optional path to the configuration file for the CryptoService provider. This may have to be present if you use a different CryptoService provider than the default one.
 
+## `cryptoServiceFlowRetryCount`
+ 
+`cryptoServiceFlowRetryCount` is used to specify which actions should be taken in the event of a flow suffering a CryptoServiceException due to a timeout. 
+
+The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of times that the flow is retried. The *sign* of the value determines what happens when all retries are exhausted: 
+
+* If a *negative* value is specified, then a `CryptoServiceException` is propagated back to the calling code and the flow fails; this was the default behaviour in versions of Corda before 4.10.
+* If a *positive* value is specified, then the flow is held in the flow hospital for overnight observation so that a node operator can review it.
+
+For example, if `cryptoServiceFlowRetryCount` is set to `-2`, then the flow is retried a maximum of two times. If it still fails, then the exception is propagated back to the code that invoked the flow and the flow failed.
+
+*Default:* -2 
+
 ## `cryptoServiceTimeout`
 
 Optional timeout value of actions sent to the the CryptoService (HSM). If the HSM takes longer than this duration to respond then a `TimedCryptoServiceException` will be thrown and handled by the Flow Hospital.
