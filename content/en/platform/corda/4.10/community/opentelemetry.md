@@ -84,7 +84,7 @@ Alternatively, you can attach your client to the OpenTelemetry Java agent via th
 
 `java -javaagent:%PATH-TO-OT-JAVAAGENT%/opentelemetry-javaagent.jar -Dotel.service.name=YOUR-SERVICE-NAME -jar ./your-client.jar`.
 
-## Creating your own Spans
+## Creating your own spans
 
 The OpenTelemetry API may be used in your flows and in your client code to create spans and baggage. To get an instance of the OpenTelemetry API in a flow, make the following call:
 
