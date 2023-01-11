@@ -104,7 +104,7 @@ When creating your own spans, you can also create your own baggage. If you creat
 The default value of this setting is `false`.
 
 {{< note >}}
-When checkpointing, only the span id is checkpointed, meaning spans do not survive a node restart. If the node restarts, the parent span information will be lost, and new spans will be generated for the flows. The root span after the node restart won't know who the parent span was before the node restart.
+When checkpointing, only the span ID is checkpointed, meaning spans do not survive a node restart. If the node restarts, the parent span information will be lost, and new spans will be generated for the flows. The root span after the node restart will not know who the parent span was before the node restart.
 {{< /note >}}
 
 ## Start and End Spans
