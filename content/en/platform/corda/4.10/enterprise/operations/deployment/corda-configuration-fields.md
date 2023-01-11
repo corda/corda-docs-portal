@@ -124,7 +124,7 @@ The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of t
 * If a *negative* value is specified, then a CryptoServiceException is propagated back to the calling code and the flow fails; this was the default behaviour in versions of Corda before 4.10.
 * If a *positive* value is specified, then the flow is held in the flow hospital for overnight observation so that a node operator can review it.
 
-For example, if `cryptoServiceFlowRetryCount` is set to `-2`, then the flow is retried a maximum of two times, and if it still fails then the exception is propagated back to the code that invoked the flow and the flow failed.
+For example, if `cryptoServiceFlowRetryCount` is set to `-2`, then the flow is retried a maximum of two times. If it still fails, then the exception is propagated back to the code that invoked the flow and the flow failed.
 
 *Default:* -2 
 
