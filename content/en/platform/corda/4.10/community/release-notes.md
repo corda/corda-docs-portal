@@ -39,28 +39,9 @@ Some RPCs provided by the node are now “quick” in that they bypass the stand
 
 Previously, if a node failed to open an AMQP connection to a peer node because there was a failure due to a problem with the TLS handshake, it was possible for the peer to be permanently blocked such that further connection attempts would not be attempted unless the node was restarted. With this update, peer nodes are now not permanently blocked but connections are retried using longer intervals - 5x 5 minutes, and then once a day.
 
-### New crypto service configuration option introduced
-
-A new node configuration option, `cryptoServiceFlowRetryCount`, has been introduced.
-
-### Improved cryptoservice exception behavior
-
-Previously, flows that suffered a `CryptoServiceException` were admitted to the flow hospital for processing. The flow was retried a maximum of two times, and if it still failed then the exception was propagated back to the code that invoked the flow and the flow was failed.
-
-Now, *cryptoServiceFlowRetryCount* can be used to override the above default actions for when a CryptoServiceException exception has been thrown due to a timeout with the crypto service. Other causes of `CryptoServiceException` are unaffected by this update.
-
-The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of times a flow is retried. The *sign* of the value determines what happens when all retries are exhausted:
-
-* If a *negative* value is specified, then a CryptoServiceException is propagated back to the calling code and the flow fails; this was the default behaviour in versions of Corda before 4.10.
-* If a *positive* value is specified, then the flow is held in the flow hospital for overnight observation so that a node operator can review it.
-
 ### Node status published via JMX
 
 A node now publishes a status via JMX - net.corda.Node.Status - that indicates what it is currently doing. The status is only available if the node is configured to publish information/metrics via JMX.
-
-### Java serialization disabled in the firewall
-
-Java serialization is now disabled in the Corda firewall component, as a mitigation against attack should access be obtained maliciously to perform remote code execution.
 
 ### Postgres support
 
