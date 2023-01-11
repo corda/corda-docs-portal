@@ -401,6 +401,14 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 ## Build Registration Context
 
+To register the MGM, you must first generate the registration context:
+* [Build Registration Context Using Bash](#build-registration-context-using-bash)
+* [Build Registration Context Using PowerShell](#build-registration-context-using-powershell)
+
+The examples in this section set `corda.group.key.session.policy` to `Distinct`, indicating that the ledger and session initiation key must not be the same key. Alternatively, setting `corda.group.key.session.policy` to `Combined` means that the ledger key used by a member must be the same as the session initiation key.
+
+You can also optionally set the session certificate trustroot using the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`, however when `corda.group.pki.session` is set to `NoPKI`, the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
+
 {{< note >}}
 If using session certificates for the P2P layer, see [Configuring Optional Session Certificates](session-certificates.html#build-registration-context-for-mgm-registration) for information about the additional JSON fields required.
 {{< /note >}}
@@ -417,7 +425,7 @@ export REGISTRATION_CONTEXT='{
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
   "corda.group.protocol.synchronisation": "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl",
   "corda.group.protocol.p2p.mode": "Authenticated_Encryption",
-  "corda.group.key.session.policy": "Combined",
+  "corda.group.key.session.policy": "Distinct",
   "corda.group.pki.session": "NoPKI",
   "corda.group.pki.tls": "Standard",
   "corda.group.tls.version": "1.3",
@@ -426,8 +434,6 @@ export REGISTRATION_CONTEXT='{
   "corda.group.truststore.tls.0" : "'$TLS_CA_CERT'"
 }'
 ```
-Optionally, you can set the session certificate trustroot with the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`, however when `corda.group.pki.session` is set to `NoPKI`, the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
-
 ### Build Registration Context Using PowerShell
 
 To build the registration context using PowerShell, run the following command, setting `TLS_CA_CERT_PATH` to the certificate path:
@@ -439,7 +445,7 @@ $REGISTRATION_CONTEXT = @{
   'corda.group.protocol.registration' = "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService"
   'corda.group.protocol.synchronisation' = "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl"
   'corda.group.protocol.p2p.mode' = "Authenticated_Encryption"
-  'corda.group.key.session.policy' = "Combined"
+  'corda.group.key.session.policy' = "Distinct"
   'corda.group.pki.session' = "NoPKI"
   'corda.group.pki.tls' = "Standard"
   'corda.group.tls.version' = "1.3"
@@ -451,7 +457,9 @@ $REGISTRATION_CONTEXT = @{
 
 ## Register the MGM
 
-You can now use the registration context to register the MGM on the network.
+You can now use the registration context to register the MGM on the network:
+* [Register the MGM using Bash](#register-the-mgm-using-bash)
+* [Register the MGM using PowerShell](#register-the-mgm-using-powershell)
 
 ### Register the MGM using Bash
 
@@ -486,11 +494,11 @@ jq -n '.memberRegistrationRequest.action="requestJoin"' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.registration"="net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService"' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.synchronisation"="net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl"' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.p2p.mode"="Authenticated_Encryption"' | \
-  jq '.memberRegistrationRequest.context."corda.group.key.session.policy"="Combined"' | \
+  jq '.memberRegistrationRequest.context."corda.group.key.session.policy"="Distinct"' | \
   jq '.memberRegistrationRequest.context."corda.group.pki.session"="NoPKI"' | \
   jq '.memberRegistrationRequest.context."corda.group.pki.tls"="Standard"' | \
   jq '.memberRegistrationRequest.context."corda.group.tls.version"="1.3"' | \
-  jq '.memberRegistrationRequest.context."corda.group.key.session.policy"="Combined"' | \
+  jq '.memberRegistrationRequest.context."corda.group.key.session.policy"="Distinct"' | \
   jq --arg p2p_url "https://$P2P_GATEWAY_HOST:$P2P_GATEWAY_PORT" '.memberRegistrationRequest.context."corda.endpoints.0.connectionURL"=$p2p_url' | \
   jq '.memberRegistrationRequest.context."corda.endpoints.0.protocolVersion"="1"' | \
   jq --rawfile root_certicicate /tmp/ca/ca/root-certificate.pem '.memberRegistrationRequest.context."corda.group.truststore.tls.0"=$root_certicicate' \
