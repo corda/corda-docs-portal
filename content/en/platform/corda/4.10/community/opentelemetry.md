@@ -10,7 +10,7 @@ title: OpenTelemetry
 
 # OpenTelemetry
 
-This section describes how to setup OpenTelemetry and the simple log telemetry.
+This topic describes how to set up OpenTelemetry and the simple log telemetry.
 
 Telemetry has been implemented in Corda 4.10 with a pluggable architecture. There are two telemetry components:
 
