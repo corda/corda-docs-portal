@@ -13,7 +13,7 @@ menu:
   versions:
     version: 'Corda index'
     name: "Corda index"
-    weight: 150000
+    weight: -800
 ---
 
 # Welcome to Corda
@@ -34,10 +34,6 @@ The Corda platform documentation covers the following versions of the Corda plat
 
 * [Corda 4.10 Community Edition](../platform/corda/4.10/open-source.html)
 * [Corda 4.9 Community Edition](../platform/corda/4.9/open-source.html)
-* [Corda 4.8 Open Source](../platform/corda/4.8/open-source.html)
-* [Corda 4.7 Open Source](../platform/corda/4.7/open-source.html)
-* [Corda 4.6 Open Source](../platform/corda/4.6/open-source.html)
-* [Corda 4.5 Open Source](../platform/corda/4.5/open-source.html)
 
 ### Corda 4 Enterprise
 

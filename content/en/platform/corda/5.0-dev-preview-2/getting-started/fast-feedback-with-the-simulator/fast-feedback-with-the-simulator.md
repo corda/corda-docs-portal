@@ -23,7 +23,7 @@ As Simulator is not executing Corda code, the error messages are likely to be di
 
 ## Using Simulator
 
-Simulator is designed to be used within a normal Java or Kotlin testing framework. In this documentation, we describe using JUnit. [MyFirstFlow](../first-flow.html) has a corresponding test class `MyFirstFlowTest` that demonstrates how to use Simulator. This file is in `/src/test/kotlin/com.r3.developers.csdetemplate.MyFirstFlowTest.kt` in the [CSDE](../cordapp-standard-development-environment/csde.html) template repository.
+Simulator is designed to be used within a normal Java or Kotlin testing framework. In this documentation, we describe using JUnit. [MyFirstFlow](../first-flow/first-flow.html) has a corresponding test class `MyFirstFlowTest` that demonstrates how to use Simulator. This file is in `/src/test/kotlin/com.r3.developers.csdetemplate.MyFirstFlowTest.kt` in the [CSDE](../cordapp-standard-development-environment/csde.html) template repository.
 
 The full listing with explanatory comments:
 ```kotlin
@@ -117,7 +117,7 @@ First the test class instantiates `MemberX500Name` for two actors. `MemberX500Na
            val aliceVN = simulator.createVirtualNode(aliceHoldingID, MyFirstFlow::class.java)
            val bobVN = simulator.createVirtualNode(bobHoldingID, MyFirstFlowResponder::class.java)
     ```
-    You can read more about initiating flows and responder flows in the section on *[Your first flow ](../first-flow.html#initiating-and-responding-flows)*.
+    You can read more about initiating flows and responder flows in the section on *[Your first flow ](../first-flow/first-flow.html#initiating-and-responding-flows)*.
 6. Create the arguments to pass to the flow. In the flow file `MyFirstFlow.kt`, create a class `MyFirstFlowArguments` specifically for holding the flow start arguments:
    ```kotlin
    // A class to hold the arguments required to start the flow

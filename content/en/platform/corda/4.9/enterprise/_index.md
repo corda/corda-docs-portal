@@ -2,7 +2,7 @@
 date: '2020-04-07T12:00:00Z'
 menu:
   versions:
-    weight: -655
+    weight: -646
   corda-enterprise-4-9:
     weight: 1
     name: Corda Enterprise Edition 4.9
