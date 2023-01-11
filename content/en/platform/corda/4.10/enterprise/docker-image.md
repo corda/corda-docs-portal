@@ -1,5 +1,5 @@
 ---
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-11'
 menu:
   corda-enterprise-4-10:
     parent: corda-enterprise-4-10-corda-nodes
@@ -12,7 +12,7 @@ weight: 120
 
 # Official Corda Docker image
 
-The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/corda/corda-enterprise/4.10-zulu-openjdk8-alpine/images/sha256-c97af2e8f2fdbf87bfea9bab67a10aad9f65d5c232f0d512e55905fac8488a76?context=explore)
+The official Corda Docker image is found at the [Corda Docker hub](https://hub.docker.com/u/corda). The [latest version](https://hub.docker.com/layers/corda/corda-enterprise/4.10-zulu-openjdk8-alpine/images/sha256-c41b5876238c7d7904d2e5f737a9ebdfcd1d65842a8318c83ee35d550235cb2e)
 is `corda/corda-enterprise:4.10-zulu-openjdk8-alpine`.
 
 ## Prerequisites
