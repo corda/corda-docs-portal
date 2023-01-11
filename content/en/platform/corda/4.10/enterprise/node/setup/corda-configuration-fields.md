@@ -54,7 +54,7 @@ Cannot be set at the same time as the `networkServices` option.
 
 ## `copyBaggageToTags`
 
-In OpenTelemetry, it is possible to define baggage. Baggage are fields which can be passed around with the invocation of OpenTelemetry. A value of `true` in this parameter will cause baggage to be copied to tags when generating spans. For more information, see the [OpenTelemetry](../operating/monitoring-and-logging/opentelemetry.md) section.
+If set to `true`, this parameter will cause baggage to be copied to tags when generating spans. Baggage are fields which can be passed around with the invocation of OpenTelemetry. For more information, see the [OpenTelemetry](../operating/monitoring-and-logging/opentelemetry.md) section.
 
 *Default:* false
 
@@ -770,7 +770,7 @@ If the Corda compatibility zone services, both network map and registration (doo
 
 ## `openTelemetry` 
 
-OpenTelemetry specifies if the node should generate spans to be sent to a collector. The node will only generate spans if this property is set to `true` and an OpenTelemetry SDK is on the node classpath. By default, no OpenTelemetry SDK is on the node classpath, meaning by default no spans are actually generated. To prevent spans being generated regardless of whether the OpenTelemetry SDK is on the classpath, this configuration field should be set to `false`. See the [OpenTelemetry](../../../enterprise/node/operating/monitoring-and-logging/opentelemetry.md) section for more details. 
+Specifies if the node should generate spans to be sent to a collector. The node will only generate spans if this property is set to `true` and an OpenTelemetry SDK is on the node classpath. By default, no OpenTelemetry SDK is on the node classpath, meaning by default no spans are actually generated. To prevent spans being generated regardless of whether the OpenTelemetry SDK is on the classpath, this configuration field should be set to `false`. See the [OpenTelemetry](../../../enterprise/node/operating/monitoring-and-logging/opentelemetry.md) section for more information. 
 
 *Default:* true
 
@@ -877,7 +877,7 @@ Contains various nested fields controlling user authentication/authorization, in
 
 ## `simpleLogTelemeteryEnabled`
 
-This field enables an alternative form of telemetry. If this field is set to `true`, log lines are written to logs when a flow or significant operation is started, or ended. The log line specifies a trace ID, which allows flows to be matched up across nodes. For more information, see the [OpenTelemetry](../operating/monitoring-and-logging/opentelemetry.md) section.
+Enables an alternative form of telemetry. If this field is set to `true`, log lines are written to logs when a flow or significant operation is started, or ended. The log line specifies a trace ID, which allows flows to be matched up across nodes. For more information, see the [OpenTelemetry](../operating/monitoring-and-logging/opentelemetry.md) section.
 
 *Default:* false
 

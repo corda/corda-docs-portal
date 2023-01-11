@@ -64,11 +64,14 @@ OpenTelemetry span generation is also incorporated into the RPC client API. If y
 
 ## Creating your own Spans
 
-The OpenTelemetry API may be used in your flows and in your client code to create spans and baggage. To get an instance of the OpenTelemetry API in a flow, make the following call: `val openTelemetry: OpenTelemetry? = serviceHub.telemetryService.getTelemetryHandle(OpenTelemetry::class.java)`.
+The OpenTelemetry API may be used in your flows and in your client code to create spans and baggage. To get an instance of the OpenTelemetry API in a flow, make the following call:
+`val openTelemetry: OpenTelemetry? = serviceHub.telemetryService.getTelemetryHandle(OpenTelemetry::class.java)`.
 
-From the client API, where RPC is a CordaRPCConnection, you would use the following: `val openTelemetry: OpenTelemetry? = rpc.getTelemetryHandle(OpenTelemetry::class.java)`.
+From the client API, where RPC is a CordaRPCConnection, you would use the following:
+`val openTelemetry: OpenTelemetry? = rpc.getTelemetryHandle(OpenTelemetry::class.java)`.
 
-When creating your own spans, you can also create your own baggage. If you create your own baggage, it will also be sent to other nodes, and you can specify if you want this baggage to be copied to span tags. If you do, all of the spans involved in the transaction for that node will also get a copy of the baggage. This can be enabled with the following parameter: `telementry.copyBaggageToTags = true`.
+When creating your own spans, you can also create your own baggage. If you create your own baggage, it will also be sent to other nodes, and you can specify if you want this baggage to be copied to span tags. If you do, all of the spans involved in the transaction for that node will also get a copy of the baggage. This can be enabled with the following parameter:
+`telementry.copyBaggageToTags = true`.
 
 The default value of this setting is `false`.
 
@@ -90,7 +93,8 @@ As an alternative, the Corda OpenTelemetry component sends a start or end span t
 These start and end span events are only generated for spans that Corda generated. If you create a span in your own flow code, you won’t see equivalent start and end span events for your flows, as Corda knows nothing of them before the node restart.
 {{< /note >}}
 
-Creating these start and end span events will also cause more spans to be sent out to the network, meaning there could be a performance impact on the network. By default, this functionality is disabled, but can be enabled via the following configuration property: `telementry. spanStartEndEventsEnabled = true`.
+Creating these start and end span events will also cause more spans to be sent out to the network, meaning there could be a performance impact on the network. By default, this functionality is disabled, but can be enabled via the following configuration property:
+`telementry. spanStartEndEventsEnabled = true`.
 
 ## Simple Log Telemetry Component
 
