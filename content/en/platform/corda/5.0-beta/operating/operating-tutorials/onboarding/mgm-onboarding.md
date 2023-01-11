@@ -335,17 +335,17 @@ To set up the TLS key pair and certificate for the cluster:
 
 3. Provide the chosen CA with this CSR and request for certificate issuance.
 
-4. To upload the certificate chain to the Corda cluster, run this command:
+4. To upload the certificate chain to the Corda cluster, run this command, where <certificate-folder> is the path to the folder in which you saved the certificate received from the CA:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin -X PUT  -F certificate=@/tmp/ca/request1/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/cluster/p2p-tls
+   curl -k -u admin:admin -X PUT  -F certificate=<certificate-folder>/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/cluster/p2p-tls
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$API_URL/certificates/cluster/p2p-tls"  -Form @{
-       certificate = Get-Item -Path $env:TEMP\tmp\ca\request1\certificate.pem
+       certificate = Get-Item -Path <certificate-folder>\certificate.pem
        alias = "p2p-tls-cert"
    }
    ```
