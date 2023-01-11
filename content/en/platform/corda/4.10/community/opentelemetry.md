@@ -61,7 +61,23 @@ If this setting is true and the OpenTelemetry SDK has been linked to Corda as de
 
 OpenTelemetry span generation is also incorporated into the RPC client API. If you want your Corda client code to generate spans, you need to include the OpenTelemetry SDK as a dependency. The methods described above only apply to the Corda node. 
 
-<!-- (TODO: Give example of dependencies needed). -->
+You can link to the OpenTelemetry SDK from a client project in two ways:
+
+* By compiling against the OpenTelemetry driver which includes the OpenTelemetry SDK. 
+* By running the client with the OpenTelemetry Java agent attached.
+
+To use the OpenTelemetry driver, add the following dependency to the build.gradle file of the client:
+
+```kotlin
+dependencies {
+...
+compile "net.corda:corda-opentelemetry-driver:$corda_release_version"
+}
+``` 
+
+Alternatively, you can attach your client to the OpenTelemetry Java agent via the following command line:
+
+`java -javaagent:%PATH-TO-OT-JAVAAGENT%/opentelemetry-javaagent.jar -Dotel.service.name=YOUR-SERVICE-NAME -jar ./your-client.jar`.
 
 ## Creating your own Spans
 
@@ -78,6 +94,9 @@ From the client API, where RPC is a CordaRPCConnection, you would use the follow
 val openTelemetry: OpenTelemetry? = rpc.getTelemetryHandle(OpenTelemetry::class.java)
     }
 ``` 
+Once you have the OpenTelemetry handle, you can call the OpenTelemetry API.
+
+### Baggage 
 
 When creating your own spans, you can also create your own baggage. If you create your own baggage, it will also be sent to other nodes, and you can specify if you want this baggage to be copied to span tags. If you do, all of the spans involved in the transaction for that node will also get a copy of the baggage. This can be enabled with the following parameter:
 `telementry.copyBaggageToTags = true`.

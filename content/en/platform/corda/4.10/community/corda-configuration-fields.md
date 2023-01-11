@@ -515,7 +515,7 @@ Deprecated. Use rpcSettings instead.**
 
 New configuration fields for telemetry. See the [OpenTelemetry](../../../enterprise/node/operating/monitoring-and-logging/opentelemetry.md) section for more information. 
 
-* `openTelemetry` 
+* `openTelemetryEnabled` 
   * Specifies if the node should generate spans to be sent to a collector. The node will only generate spans if this property is set to `true` and an OpenTelemetry SDK is on the node classpath. By default, no OpenTelemetry SDK is on the node classpath, meaning by default no spans are actually generated. To prevent spans being generated regardless of whether the OpenTelemetry SDK is on the classpath, this configuration field should be set to `false`.
   * *Default:* true
 * `spanStartEndEventsEnabled`
