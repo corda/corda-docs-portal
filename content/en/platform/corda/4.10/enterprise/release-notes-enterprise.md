@@ -42,11 +42,11 @@ Previously, if a node failed to open an AMQP connection to a peer node because t
 
 A new node configuration option, `cryptoServiceFlowRetryCount`, has been introduced.
 
-### Improved cryptoservice exception behaviour
+### Improved cryptoservice exception behavior
 
-Previously, flows that suffered any variant of `CryptoServiceException` were admitted to the flow hospital for processing. The flow was retried a maximum of two times, and if it still failed then the exception was propagated back to the code that invoked the flow and the flow failed. 
+Previously, flows that suffered a `CryptoServiceException` were admitted to the flow hospital for processing. The flow was retried a maximum of two times, and if it still failed then the exception was propagated back to the code that invoked the flow and the flow was failed.
 
-Now, *cryptoServiceFlowRetryCount* can be used to override the above default actions. 
+Now, *cryptoServiceFlowRetryCount* can be used to override the above default actions for when a CryptoServiceException exception has been thrown due to a timeout with the crypto service. Other causes of `CryptoServiceException` are unaffected by this update.
 
 The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of times a flow is retried. The *sign* of the value determines what happens when all retries are exhausted:
 
@@ -89,7 +89,7 @@ This release includes the following fixes:
  
 * Occasionally, database transactions were rolled back under heavy load that caused flow state machine threads to stop processing flows. This resulted in eventual node lockup in certain circumstances.
 
-### Database Schema Changes
+### Database schema changes
 
 There are no database changes between 4.9 and 4.10.
 
