@@ -66,17 +66,17 @@ OpenTelemetry span generation is also incorporated into the RPC client API. If y
 
 The OpenTelemetry API may be used in your flows and in your client code to create spans and baggage. To get an instance of the OpenTelemetry API in a flow, make the following call:
 
-    ```kotlin
-    val openTelemetry: OpenTelemetry? = serviceHub.telemetryService.getTelemetryHandle(OpenTelemetry::class.java)
+```kotlin
+val openTelemetry: OpenTelemetry? = serviceHub.telemetryService.getTelemetryHandle(OpenTelemetry::class.java)
     }
-    ```
-    
+``` 
+
 From the client API, where RPC is a CordaRPCConnection, you would use the following:
 
-    ```kotlin
-    val openTelemetry: OpenTelemetry? = rpc.getTelemetryHandle(OpenTelemetry::class.java)
+```kotlin
+val openTelemetry: OpenTelemetry? = rpc.getTelemetryHandle(OpenTelemetry::class.java)
     }
-    ```
+``` 
 
 When creating your own spans, you can also create your own baggage. If you create your own baggage, it will also be sent to other nodes, and you can specify if you want this baggage to be copied to span tags. If you do, all of the spans involved in the transaction for that node will also get a copy of the baggage. This can be enabled with the following parameter:
 `telementry.copyBaggageToTags = true`.
