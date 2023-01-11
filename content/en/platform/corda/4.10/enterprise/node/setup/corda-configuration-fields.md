@@ -905,7 +905,7 @@ New configuration fields for telemetry. See the [OpenTelemetry](../../../enterpr
 * `simpleLogTelemetryEnabled`
   * Enables an alternative form of telemetry. If this field is set to `true`, log lines are written to logs when a flow or significant operation is started, or ended. The log line specifies a trace ID, which allows flows to be matched up across nodes.
   * *Default:* false
-* For example:
+* Example configuration:
 
 ```kotlin
 telemetry {
