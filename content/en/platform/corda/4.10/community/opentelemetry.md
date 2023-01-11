@@ -117,7 +117,7 @@ When checkpointing, only the span ID is checkpointed, meaning spans do not survi
 The current implementation of OpenTelemetry will send spans to the backend when the flow or operation is completed. This is handled via the OpenTelemetry SDK. If the flow somehow gets stuck or does not complete, the span representing that flow will never reach the backend. It can be difficult to figure out what went wrong by just looking at the spans, as you will only see the complete spans.
 
 {{< note >}}
-If a child span doesn't complete, parent spans also do not complete.
+If a child span does not complete, parent spans also do not complete.
 {{< /note >}}
 
 As an alternative, the Corda OpenTelemetry component sends a start or end span to the backend when a flow or operation starts or stops, in addition to the normal spans sent for the operation. This is effectively a start flow span event and an end flow span event. With this view of the spans, it becomes easier to determine where the flow got stuck, as it will be the lowest child without an end span event. 
