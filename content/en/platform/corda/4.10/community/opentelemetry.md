@@ -60,7 +60,7 @@ Corda has been tested with the OpenTelemetry collector and a Jaeger backend. Ref
 
 Corda OpenTelemetry can also be enabled or disabled via a node configuration parameter, such as `telementry.openTelemetryEnabled = true`.
 
-If this setting is true and the OpenTelemetry SDK has been linked to Corda as described above, the node will generate spans. If this setting is false, the node won't generate spans, even if the node is linked with the SDK.
+If this setting is true and the OpenTelemetry SDK has been linked to Corda as described above, the node will generate spans. If this setting is false, the node will not generate spans, even if the node is linked with the SDK.
 
 ## Client API
 
