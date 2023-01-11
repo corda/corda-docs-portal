@@ -525,7 +525,7 @@ There are new configuration fields for telemetry. See the [OpenTelemetry](../../
   * If set to `true`, this parameter will cause baggage to be copied to tags when generating spans. Baggage are fields which can be passed around with the invocation of OpenTelemetry.
   * *Default:* false
 * `simpleLogTelemetryEnabled`
-  * Enables an alternative form of telemetry. If this field is set to `true`, log lines are written to logs when a flow or significant operation is started, or ended. The log line specifies a trace ID, which allows flows to be matched up across nodes.
+  * Enables an alternative form of telemetry. If this field is set to `true`, log lines are written to logs when a flow or significant operation is started or ended. The log line specifies a trace ID, which allows flows to be matched up across nodes.
   * *Default:* false
 * Example configuration:
 
