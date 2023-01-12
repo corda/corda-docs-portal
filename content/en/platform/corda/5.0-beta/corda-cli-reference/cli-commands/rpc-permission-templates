@@ -1,12 +1,12 @@
 ---
-date: '2023-01-11'
-title: "RPC permission templates"
+date: '2023-01-10'
 menu:
   corda-5-beta:
+    identifier: corda-5-beta-rpc-permissions-templates
+    weight: 5000
     parent: corda-5-cli-reference
-    identifier: corda-5-beta-rpc-templates
-    weight: 5075
 section_menu: corda-5-beta
+title: "RPC permission templates"
 ---
 
 ## Create common RPC permission templates
@@ -70,6 +70,7 @@ The draft of a test plan may look like the following:
 6. Build a CPI with some usable flows.
 7. Log on as "vNodeCreator" and upload CPI and create a vNode.
 8. Create a 'FlowExecutorRole" role for running flows for a vNode using the CLI tool:
+
 > java -jar corda-cli.jar initial-rbac flow-executor -t <https://localhost:8888> -u UserAdmin -p UserAdmin -v 9B02C806787D
 
 {{< note >}}
