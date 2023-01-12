@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>QueryCriteria.FungibleStateQueryCriteria - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.node.services.vault</a>&nbsp;/&nbsp;<a href="../index.html">QueryCriteria</a>&nbsp;/&nbsp;<a href="./index.html">FungibleStateQueryCriteria</a><br/>
+<br/>
+<h1>FungibleStateQueryCriteria</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">FungibleStateQueryCriteria</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CommonQueryCriteria</span></code>
+<p>FungibleStateQueryCriteria: provides query by attributes defined in <a href="#">VaultSchema.VaultFungibleStates</a></p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>FungibleStateQueryCriteria: provides query by attributes defined in <a href="#">VaultSchema.VaultFungibleStates</a></p>
+<code><span class="identifier">FungibleStateQueryCriteria</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.FungibleStateQueryCriteria$<init>(kotlin.collections.List((net.corda.core.identity.AbstractParty)), net.corda.core.node.services.vault.ColumnPredicate((kotlin.Long)), net.corda.core.node.services.Vault.StateStatus, kotlin.collections.Set((java.lang.Class((net.corda.core.contracts.ContractState)))), net.corda.core.node.services.Vault.RelevancyStatus)/participants">participants</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.FungibleStateQueryCriteria$<init>(kotlin.collections.List((net.corda.core.identity.AbstractParty)), net.corda.core.node.services.vault.ColumnPredicate((kotlin.Long)), net.corda.core.node.services.Vault.StateStatus, kotlin.collections.Set((java.lang.Class((net.corda.core.contracts.ContractState)))), net.corda.core.node.services.Vault.RelevancyStatus)/quantity">quantity</span><span class="symbol">:</span>&nbsp;<a href="../../-column-predicate/index.html"><span class="identifier">ColumnPredicate</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.FungibleStateQueryCriteria$<init>(kotlin.collections.List((net.corda.core.identity.AbstractParty)), net.corda.core.node.services.vault.ColumnPredicate((kotlin.Long)), net.corda.core.node.services.Vault.StateStatus, kotlin.collections.Set((java.lang.Class((net.corda.core.contracts.ContractState)))), net.corda.core.node.services.Vault.RelevancyStatus)/status">status</span><span class="symbol">:</span>&nbsp;<span class="identifier">StateStatus</span>&nbsp;<span class="symbol">=</span>&nbsp;Vault.StateStatus.UNCONSUMED<span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.FungibleStateQueryCriteria$<init>(kotlin.collections.List((net.corda.core.identity.AbstractParty)), net.corda.core.node.services.vault.ColumnPredicate((kotlin.Long)), net.corda.core.node.services.Vault.StateStatus, kotlin.collections.Set((java.lang.Class((net.corda.core.contracts.ContractState)))), net.corda.core.node.services.Vault.RelevancyStatus)/contractStateTypes">contractStateTypes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.FungibleStateQueryCriteria$<init>(kotlin.collections.List((net.corda.core.identity.AbstractParty)), net.corda.core.node.services.vault.ColumnPredicate((kotlin.Long)), net.corda.core.node.services.Vault.StateStatus, kotlin.collections.Set((java.lang.Class((net.corda.core.contracts.ContractState)))), net.corda.core.node.services.Vault.RelevancyStatus)/relevancyStatus">relevancyStatus</span><span class="symbol">:</span>&nbsp;<span class="identifier">RelevancyStatus</span>&nbsp;<span class="symbol">=</span>&nbsp;Vault.RelevancyStatus.ALL<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="contract-state-types.html">contractStateTypes</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">contractStateTypes</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="participants.html">participants</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">participants</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="quantity.html">quantity</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">quantity</span><span class="symbol">: </span><a href="../../-column-predicate/index.html"><span class="identifier">ColumnPredicate</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="relevancy-status.html">relevancyStatus</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">relevancyStatus</span><span class="symbol">: </span><span class="identifier">RelevancyStatus</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="status.html">status</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">status</span><span class="symbol">: </span><span class="identifier">StateStatus</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="visit.html">visit</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">visit</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.FungibleStateQueryCriteria$visit(net.corda.core.node.services.vault.IQueryCriteriaParser)/parser">parser</span><span class="symbol">:</span>&nbsp;<a href="../../-i-query-criteria-parser/index.html"><span class="identifier">IQueryCriteriaParser</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">Predicate</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-contract-state-types.html">withContractStateTypes</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withContractStateTypes</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.FungibleStateQueryCriteria$withContractStateTypes(kotlin.collections.Set((java.lang.Class((net.corda.core.contracts.ContractState)))))/contractStateTypes">contractStateTypes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="../../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FungibleStateQueryCriteria</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-participants.html">withParticipants</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withParticipants</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.FungibleStateQueryCriteria$withParticipants(kotlin.collections.List((net.corda.core.identity.AbstractParty)))/participants">participants</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FungibleStateQueryCriteria</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-quantity.html">withQuantity</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withQuantity</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.FungibleStateQueryCriteria$withQuantity(net.corda.core.node.services.vault.ColumnPredicate((kotlin.Long)))/quantity">quantity</span><span class="symbol">:</span>&nbsp;<a href="../../-column-predicate/index.html"><span class="identifier">ColumnPredicate</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FungibleStateQueryCriteria</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-relevancy-status.html">withRelevancyStatus</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withRelevancyStatus</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.FungibleStateQueryCriteria$withRelevancyStatus(net.corda.core.node.services.Vault.RelevancyStatus)/relevancyStatus">relevancyStatus</span><span class="symbol">:</span>&nbsp;<span class="identifier">RelevancyStatus</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FungibleStateQueryCriteria</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-status.html">withStatus</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withStatus</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.vault.QueryCriteria.FungibleStateQueryCriteria$withStatus(net.corda.core.node.services.Vault.StateStatus)/status">status</span><span class="symbol">:</span>&nbsp;<span class="identifier">StateStatus</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FungibleStateQueryCriteria</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

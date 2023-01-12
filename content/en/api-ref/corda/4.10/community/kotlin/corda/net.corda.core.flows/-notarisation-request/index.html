@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NotarisationRequest - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">NotarisationRequest</a><br/>
+<br/>
+<h1>NotarisationRequest</h1>
+<code><span class="keyword">class </span><span class="identifier">NotarisationRequest</span></code>
+<p>A notarisation request specifies a list of states to consume and the id of the consuming transaction. Its primary
+purpose is for notarisation traceability – a signature over the notarisation request, <a href="../-notarisation-request-signature/index.html">NotarisationRequestSignature</a>,
+allows a notary to prove that a certain party requested the consumption of a particular state.</p>
+<p>While the signature must be retained, the notarisation request does not need to be transferred or stored anywhere - it
+can be built from a <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a> or a <a href="../../net.corda.core.transactions/-core-transaction/index.html">CoreTransaction</a>. The notary can recompute it from the committed states index.</p>
+<p>Reference inputs states are not included as a separate property in the <a href="./index.html">NotarisationRequest</a> as they are not
+consumed.</p>
+<p>In case there is a need to prove that a party spent a particular state, the notary will:</p>
+<ol><li>Locate the consuming transaction id in the index, along with all other states consumed in the same transaction.</li>
+<li>Build a <a href="./index.html">NotarisationRequest</a>.</li>
+<li>Locate the <a href="../-notarisation-request-signature/index.html">NotarisationRequestSignature</a> for the transaction id. The signature will contain the signing public key.</li>
+<li>Demonstrate the signature verifies against the serialized request. The provided states are always sorted internally,
+    to ensure the serialization does not get affected by the order.</li>
+</ol>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A notarisation request specifies a list of states to consume and the id of the consuming transaction. Its primary
+purpose is for notarisation traceability – a signature over the notarisation request, <a href="../-notarisation-request-signature/index.html">NotarisationRequestSignature</a>,
+allows a notary to prove that a certain party requested the consumption of a particular state.</p>
+<code><span class="identifier">NotarisationRequest</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.NotarisationRequest$<init>(kotlin.collections.List((net.corda.core.contracts.StateRef)), net.corda.core.crypto.SecureHash)/statesToConsume">statesToConsume</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.NotarisationRequest$<init>(kotlin.collections.List((net.corda.core.contracts.StateRef)), net.corda.core.crypto.SecureHash)/transactionId">transactionId</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="states-to-consume.html">statesToConsume</a></h4>
+</td>
+<td>
+<p>States this request specifies to be consumed. Sorted to ensure the serialized form does not get affected by the state order.</p>
+<code><span class="keyword">val </span><span class="identifier">statesToConsume</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="transaction-id.html">transactionId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">transactionId</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

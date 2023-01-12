@@ -1,0 +1,218 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MockNetwork - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="./index.html">MockNetwork</a><br/>
+<br/>
+<h1>MockNetwork</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">MockNetwork</span></code>
+<p>A mock node brings up a suite of in-memory services in a fast manner suitable for unit testing.
+Components that do IO are either swapped out for mocks, or pointed to a <a href="#">Jimfs</a> in memory filesystem or an in
+memory H2 database instance.</p>
+<p>Java users can use the constructor that takes an (optional) <a href="../-mock-network-parameters/index.html">MockNetworkParameters</a> builder, which may be more
+convenient than specifying all the defaults by hand. Please see <a href="../-mock-network-parameters/index.html">MockNetworkParameters</a> for the documentation
+of each parameter.</p>
+<p>Mock network nodes require manual pumping by default: they will not run asynchronous. This means that
+for message exchanges to take place (and associated handlers to run), you must call the <a href="run-network.html">runNetwork</a>
+method. If you want messages to flow automatically, use automatic pumping with a thread per node but watch out
+for code running parallel to your unit tests: you will need to use futures correctly to ensure race-free results.</p>
+<p>By default a single notary node is automatically started, which forms part of the network parameters for all the nodes.
+This node is available by calling <a href="default-notary-node.html">defaultNotaryNode</a>.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">MockNetwork</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$<init>(kotlin.collections.List((kotlin.String)), net.corda.testing.node.MockNetworkParameters)/cordappPackages">cordappPackages</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$<init>(kotlin.collections.List((kotlin.String)), net.corda.testing.node.MockNetworkParameters)/parameters">parameters</span><span class="symbol">:</span>&nbsp;<a href="../-mock-network-parameters/index.html"><span class="identifier">MockNetworkParameters</span></a>&nbsp;<span class="symbol">=</span>&nbsp;MockNetworkParameters()<span class="symbol">)</span></code><br/>
+<code><span class="identifier">MockNetwork</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$<init>(net.corda.testing.node.MockNetworkParameters)/parameters">parameters</span><span class="symbol">:</span>&nbsp;<a href="../-mock-network-parameters/index.html"><span class="identifier">MockNetworkParameters</span></a><span class="symbol">)</span></code>
+<p>A mock node brings up a suite of in-memory services in a fast manner suitable for unit testing.
+Components that do IO are either swapped out for mocks, or pointed to a <a href="#">Jimfs</a> in memory filesystem or an in
+memory H2 database instance.</p>
+<code><span class="identifier">MockNetwork</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$<init>(kotlin.collections.List((kotlin.String)), net.corda.testing.node.MockNetworkParameters, kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/cordappPackages">cordappPackages</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$<init>(kotlin.collections.List((kotlin.String)), net.corda.testing.node.MockNetworkParameters, kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/defaultParameters">defaultParameters</span><span class="symbol">:</span>&nbsp;<a href="../-mock-network-parameters/index.html"><span class="identifier">MockNetworkParameters</span></a>&nbsp;<span class="symbol">=</span>&nbsp;MockNetworkParameters()<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$<init>(kotlin.collections.List((kotlin.String)), net.corda.testing.node.MockNetworkParameters, kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/networkSendManuallyPumped">networkSendManuallyPumped</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.networkSendManuallyPumped<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$<init>(kotlin.collections.List((kotlin.String)), net.corda.testing.node.MockNetworkParameters, kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/threadPerNode">threadPerNode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.threadPerNode<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$<init>(kotlin.collections.List((kotlin.String)), net.corda.testing.node.MockNetworkParameters, kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/servicePeerAllocationStrategy">servicePeerAllocationStrategy</span><span class="symbol">:</span>&nbsp;<span class="identifier">ServicePeerAllocationStrategy</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.servicePeerAllocationStrategy<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$<init>(kotlin.collections.List((kotlin.String)), net.corda.testing.node.MockNetworkParameters, kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/notarySpecs">notarySpecs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-mock-network-notary-spec/index.html"><span class="identifier">MockNetworkNotarySpec</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.notarySpecs<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$<init>(kotlin.collections.List((kotlin.String)), net.corda.testing.node.MockNetworkParameters, kotlin.Boolean, kotlin.Boolean, net.corda.testing.node.InMemoryMessagingNetwork.ServicePeerAllocationStrategy, kotlin.collections.List((net.corda.testing.node.MockNetworkNotarySpec)), net.corda.core.node.NetworkParameters)/networkParameters">networkParameters</span><span class="symbol">:</span>&nbsp;<span class="identifier">NetworkParameters</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.networkParameters<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="cordapp-packages.html">cordappPackages</a></h4>
+</td>
+<td>
+<p>A <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a> of cordapp packages to scan for any cordapp code, e.g. contract verification code, flows and services.</p>
+<code><span class="keyword">val </span><s><span class="identifier">cordappPackages</span></s><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="default-notary-identity.html">defaultNotaryIdentity</a></h4>
+</td>
+<td>
+<p>Return the identity of the default notary node.</p>
+<code><span class="keyword">val </span><span class="identifier">defaultNotaryIdentity</span><span class="symbol">: </span><span class="identifier">Party</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="default-notary-node.html">defaultNotaryNode</a></h4>
+</td>
+<td>
+<p>Returns the single notary node on the network. Throws an exception if there are none or more than one.</p>
+<code><span class="keyword">val </span><span class="identifier">defaultNotaryNode</span><span class="symbol">: </span><a href="../-started-mock-node/index.html"><span class="identifier">StartedMockNode</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="default-parameters.html">defaultParameters</a></h4>
+</td>
+<td>
+<p>The default parameters for the network. If any of the remaining constructor parameters are specified then
+their values are taken instead of the corresponding value in <a href="default-parameters.html">defaultParameters</a>.</p>
+<code><span class="keyword">val </span><span class="identifier">defaultParameters</span><span class="symbol">: </span><a href="../-mock-network-parameters/index.html"><span class="identifier">MockNetworkParameters</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters.html">networkParameters</a></h4>
+</td>
+<td>
+<p>The network parameters to be used by all the nodes. <a href="#">NetworkParameters.notaries</a> must be
+empty as notaries are defined by <a href="notary-specs.html">notarySpecs</a>.</p>
+<code><span class="keyword">val </span><span class="identifier">networkParameters</span><span class="symbol">: </span><span class="identifier">NetworkParameters</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-send-manually-pumped.html">networkSendManuallyPumped</a></h4>
+</td>
+<td>
+<p>If false then messages will not be routed from sender to receiver until you use
+the <a href="run-network.html">MockNetwork.runNetwork</a> method. This is useful for writing single-threaded unit test code that can examine the
+state of the mock network before and after a message is sent, without races and without the receiving node immediately
+sending a response. The default is false, so you must call runNetwork.</p>
+<code><span class="keyword">val </span><span class="identifier">networkSendManuallyPumped</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="next-node-id.html">nextNodeId</a></h4>
+</td>
+<td>
+<p>In a mock network, nodes have an incrementing integer ID. Real networks do not have this. Returns the next ID that will be used.</p>
+<code><span class="keyword">val </span><span class="identifier">nextNodeId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary-nodes.html">notaryNodes</a></h4>
+</td>
+<td>
+<p>Returns the list of notary nodes started by the network.</p>
+<code><span class="keyword">val </span><span class="identifier">notaryNodes</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-started-mock-node/index.html"><span class="identifier">StartedMockNode</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary-specs.html">notarySpecs</a></h4>
+</td>
+<td>
+<p>The notaries to use in the mock network. By default you get one mock notary and that is usually sufficient.</p>
+<code><span class="keyword">val </span><span class="identifier">notarySpecs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-mock-network-notary-spec/index.html"><span class="identifier">MockNetworkNotarySpec</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="service-peer-allocation-strategy.html">servicePeerAllocationStrategy</a></h4>
+</td>
+<td>
+<p>How messages are load balanced in the case where a single compound identity
+is used by multiple nodes. You rarely if ever need to change that, it's primarily of interest to people testing
+notary code.</p>
+<code><span class="keyword">val </span><span class="identifier">servicePeerAllocationStrategy</span><span class="symbol">: </span><span class="identifier">ServicePeerAllocationStrategy</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="thread-per-node.html">threadPerNode</a></h4>
+</td>
+<td>
+<p>If true then each node will be run in its own thread. This can result in race conditions in
+your code if not carefully written, but is more realistic and may help if you have flows in your app that do long
+blocking operations. The default is false.</p>
+<code><span class="keyword">val </span><span class="identifier">threadPerNode</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="base-directory.html">baseDirectory</a></h4>
+</td>
+<td>
+<p>Get the base directory for the given node id.</p>
+<code><span class="keyword">fun </span><span class="identifier">baseDirectory</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$baseDirectory(kotlin.Int)/nodeId">nodeId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html"><span class="identifier">Path</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-node.html">createNode</a></h4>
+</td>
+<td>
+<p>Create a started node with the given parameters.</p>
+<code><span class="keyword">fun </span><span class="identifier">createNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$createNode(net.corda.testing.node.MockNodeParameters)/parameters">parameters</span><span class="symbol">:</span>&nbsp;<a href="../-mock-node-parameters/index.html"><span class="identifier">MockNodeParameters</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-started-mock-node/index.html"><span class="identifier">StartedMockNode</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">createNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$createNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)/legalName">legalName</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$createNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)/forcedID">forcedID</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$createNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)/entropyRoot">entropyRoot</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a>&nbsp;<span class="symbol">=</span>&nbsp;BigInteger.valueOf(random63BitValue())<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$createNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)/configOverrides">configOverrides</span><span class="symbol">:</span>&nbsp;<a href="../-mock-node-config-overrides/index.html"><span class="identifier">MockNodeConfigOverrides</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="../-started-mock-node/index.html"><span class="identifier">StartedMockNode</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-party-node.html">createPartyNode</a></h4>
+</td>
+<td>
+<p>Create a started node with the given identity.</p>
+<code><span class="keyword">fun </span><span class="identifier">createPartyNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$createPartyNode(net.corda.core.identity.CordaX500Name)/legalName">legalName</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="../-started-mock-node/index.html"><span class="identifier">StartedMockNode</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-unstarted-node.html">createUnstartedNode</a></h4>
+</td>
+<td>
+<p>Create an unstarted node with the given parameters.</p>
+<code><span class="keyword">fun </span><span class="identifier">createUnstartedNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$createUnstartedNode(net.corda.testing.node.MockNodeParameters)/parameters">parameters</span><span class="symbol">:</span>&nbsp;<a href="../-mock-node-parameters/index.html"><span class="identifier">MockNodeParameters</span></a>&nbsp;<span class="symbol">=</span>&nbsp;MockNodeParameters()<span class="symbol">)</span><span class="symbol">: </span><a href="../-unstarted-mock-node/index.html"><span class="identifier">UnstartedMockNode</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">createUnstartedNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$createUnstartedNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)/legalName">legalName</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$createUnstartedNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)/forcedID">forcedID</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$createUnstartedNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)/entropyRoot">entropyRoot</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a>&nbsp;<span class="symbol">=</span>&nbsp;BigInteger.valueOf(random63BitValue())<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$createUnstartedNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)/configOverrides">configOverrides</span><span class="symbol">:</span>&nbsp;<a href="../-mock-node-config-overrides/index.html"><span class="identifier">MockNodeConfigOverrides</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="../-unstarted-mock-node/index.html"><span class="identifier">UnstartedMockNode</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="run-network.html">runNetwork</a></h4>
+</td>
+<td>
+<p>Asks every node in order to process any queued up inbound messages. This may in turn result in nodes
+sending more messages to each other, thus, a typical usage is to call runNetwork with the <a href="run-network.html#net.corda.testing.node.MockNetwork$runNetwork(kotlin.Int)/rounds">rounds</a>
+parameter set to -1 (the default) which simply runs as many rounds as necessary to result in network
+stability (no nodes sent any messages in the last round).</p>
+<code><span class="keyword">fun </span><span class="identifier">runNetwork</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$runNetwork(kotlin.Int)/rounds">rounds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;-1<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start-nodes.html">startNodes</a></h4>
+</td>
+<td>
+<p>Start all nodes that aren't already started.</p>
+<code><span class="keyword">fun </span><span class="identifier">startNodes</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="stop-nodes.html">stopNodes</a></h4>
+</td>
+<td>
+<p>Stop all nodes.</p>
+<code><span class="keyword">fun </span><span class="identifier">stopNodes</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="wait-quiescent.html">waitQuiescent</a></h4>
+</td>
+<td>
+<p>Block until all scheduled activity, active flows and network activity has ceased.</p>
+<code><span class="keyword">fun </span><span class="identifier">waitQuiescent</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

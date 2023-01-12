@@ -1,0 +1,277 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionVerificationException - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="./index.html">TransactionVerificationException</a><br/>
+<br/>
+<h1>TransactionVerificationException</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">TransactionVerificationException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-exception/index.html"><span class="identifier">FlowException</span></a></code>
+<p>Indicates that some aspect of the transaction named by <a href="tx-id.html">txId</a> violates the platform rules. The exact type of failure
+is expressed using a subclass. TransactionVerificationException is a <a href="../../net.corda.core.flows/-flow-exception/index.html">FlowException</a> and thus when thrown inside
+a flow, the details of the failure will be serialised, propagated to the peer and rethrown.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-direction/index.html">Direction</a></h4>
+</td>
+<td>
+<p>Whether the inputs or outputs list contains an encumbrance issue, see <a href="-transaction-missing-encumbrance-exception/index.html">TransactionMissingEncumbranceException</a>.</p>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Direction</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-attachment-too-big-exception/index.html">AttachmentTooBigException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AttachmentTooBigException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-broken-transaction-exception/index.html">BrokenTransactionException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">BrokenTransactionException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-conflicting-attachments-rejection/index.html">ConflictingAttachmentsRejection</a></h4>
+</td>
+<td>
+<p>Indicates this transaction violates the "no overlap" rule: two attachments are trying to provide the same file
+path. Whereas Java classpaths would normally allow that with the first class taking precedence, this is not
+allowed in transactions for security reasons. This usually indicates that two separate apps share a dependency,
+in which case you could try 'shading the fat jars' to rename classes of dependencies. Or you could manually
+attach dependency JARs when building the transaction.</p>
+<code><span class="keyword">class </span><span class="identifier">ConflictingAttachmentsRejection</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-constraint-propagation-rejection/index.html">ConstraintPropagationRejection</a></h4>
+</td>
+<td>
+<p>This exception happens when a transaction was not built correctly.
+When a contract is not annotated with <a href="../-no-constraint-propagation/index.html">NoConstraintPropagation</a>, then the platform ensures that the constraints of output states transition correctly from input states.</p>
+<code><span class="keyword">class </span><span class="identifier">ConstraintPropagationRejection</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-contract-constraint-rejection/index.html">ContractConstraintRejection</a></h4>
+</td>
+<td>
+<p>The transaction attachment that contains the <a href="-contract-constraint-rejection/contract-class.html">contractClass</a> class didn't meet the constraints specified by
+the <a href="../-transaction-state/constraint.html">TransactionState.constraint</a> object. This usually implies a version mismatch of some kind.</p>
+<code><span class="keyword">class </span><span class="identifier">ContractConstraintRejection</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-contract-creation-error/index.html">ContractCreationError</a></h4>
+</td>
+<td>
+<p>A <a href="../-contract/index.html">Contract</a> class named by a state could not be constructed. Most likely you do not have a no-argument
+constructor, or the class doesn't subclass <a href="../-contract/index.html">Contract</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">ContractCreationError</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-contract-rejection/index.html">ContractRejection</a></h4>
+</td>
+<td>
+<p>Indicates that one of the <a href="../-contract/verify.html">Contract.verify</a> methods selected by the contract constraints and attachments
+rejected the transaction by throwing an exception.</p>
+<code><span class="keyword">class </span><span class="identifier">ContractRejection</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-duplicate-attachments-rejection/index.html">DuplicateAttachmentsRejection</a></h4>
+</td>
+<td>
+<p>Indicates that the same attachment has been added multiple times to a transaction.</p>
+<code><span class="keyword">class </span><span class="identifier">DuplicateAttachmentsRejection</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-invalid-attachment-exception/index.html">InvalidAttachmentException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">InvalidAttachmentException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-invalid-constraint-rejection/index.html">InvalidConstraintRejection</a></h4>
+</td>
+<td>
+<p>A constraint attached to a state was invalid, e.g. due to size limitations.</p>
+<code><span class="keyword">class </span><span class="identifier">InvalidConstraintRejection</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-missing-attachment-rejection/index.html">MissingAttachmentRejection</a></h4>
+</td>
+<td>
+<p>A state requested a contract class via its <a href="../-transaction-state/contract.html">TransactionState.contract</a> field that didn't appear in any attached
+JAR at all. This usually implies the attachments were forgotten or a version mismatch.</p>
+<code><span class="keyword">class </span><span class="identifier">MissingAttachmentRejection</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-missing-network-parameters-exception/index.html">MissingNetworkParametersException</a></h4>
+</td>
+<td>
+<p>Thrown when the network parameters with hash: missingNetworkParametersHash is not available at this node. Usually all the parameters
+that are in the resolution chain for transaction with txId should be fetched from peer via <a href="#">FetchParametersFlow</a> or from network map.</p>
+<code><span class="keyword">class </span><span class="identifier">MissingNetworkParametersException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-notary-change-in-wrong-transaction-type/index.html">NotaryChangeInWrongTransactionType</a></h4>
+</td>
+<td>
+<p>An output state has a notary that doesn't match the transaction's notary field. It must!</p>
+<code><span class="keyword">class </span><span class="identifier">NotaryChangeInWrongTransactionType</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-overlapping-attachments-exception/index.html">OverlappingAttachmentsException</a></h4>
+</td>
+<td>
+<p>Thrown when multiple attachments provide the same file when building the AttachmentsClassloader for a transaction.</p>
+<code><span class="keyword">class </span><span class="identifier">OverlappingAttachmentsException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-package-ownership-exception/index.html">PackageOwnershipException</a></h4>
+</td>
+<td>
+<p>Thrown to indicate that a contract attachment is not signed by the network-wide package owner. Please note that
+the <a href="tx-id.html">txId</a> will always be <a href="../../net.corda.core.crypto/-secure-hash/-companion/zero-hash.html">SecureHash.zeroHash</a> because package ownership is an error with a particular attachment,
+and because attachment classloaders are reused this is independent of any particular transaction.</p>
+<code><span class="keyword">class </span><span class="identifier">PackageOwnershipException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-contract-conflict-exception/index.html">TransactionContractConflictException</a></h4>
+</td>
+<td>
+<p>If a state is identified as belonging to a contract, either because the state class is defined as an inner class
+of the contract class or because the state class is annotated with <a href="../-belongs-to-contract/index.html">BelongsToContract</a>, then it must not be
+bundled in a <a href="../-transaction-state/index.html">TransactionState</a> with a different contract.</p>
+<code><span class="keyword">class </span><span class="identifier">TransactionContractConflictException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-duplicate-encumbrance-exception/index.html">TransactionDuplicateEncumbranceException</a></h4>
+</td>
+<td>
+<p>If two or more states refer to another state (as their encumbrance), then the bi-directionality property cannot
+be satisfied.</p>
+<code><span class="keyword">class </span><span class="identifier">TransactionDuplicateEncumbranceException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-missing-encumbrance-exception/index.html">TransactionMissingEncumbranceException</a></h4>
+</td>
+<td>
+<p>If a state is encumbered (the <a href="../-transaction-state/encumbrance.html">TransactionState.encumbrance</a> field is set) then its encumbrance must be used
+as an input to any transaction that uses it. In this way states can be tied together in chains, thus composing
+logic. Note that encumbrances aren't fully supported by all aspects of the platform at this time so if you use
+them, you may find transactions created by the platform don't always respect the encumbrance rule.</p>
+<code><span class="keyword">class </span><span class="identifier">TransactionMissingEncumbranceException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-network-parameter-ordering-exception/index.html">TransactionNetworkParameterOrderingException</a></h4>
+</td>
+<td>
+<p>If the network parameters associated with an input or reference state in a transaction are more recent than the network parameters of the new transaction itself.</p>
+<code><span class="keyword">class </span><span class="identifier">TransactionNetworkParameterOrderingException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-non-matching-encumbrance-exception/index.html">TransactionNonMatchingEncumbranceException</a></h4>
+</td>
+<td>
+<p>An encumbered state should also be referenced as the encumbrance of another state in order to satisfy the
+bi-directionality property (a full cycle should be present).</p>
+<code><span class="keyword">class </span><span class="identifier">TransactionNonMatchingEncumbranceException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-notary-mismatch-encumbrance-exception/index.html">TransactionNotaryMismatchEncumbranceException</a></h4>
+</td>
+<td>
+<p>All encumbered states should be assigned to the same notary. This is due to the fact that multi-notary
+transactions are not supported and thus two encumbered states with different notaries cannot be consumed
+in the same transaction.</p>
+<code><span class="keyword">class </span><span class="identifier">TransactionNotaryMismatchEncumbranceException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-transaction-required-contract-unspecified-exception/index.html">TransactionRequiredContractUnspecifiedException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">TransactionRequiredContractUnspecifiedException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-unsupported-class-version-error/index.html">UnsupportedClassVersionError</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">UnsupportedClassVersionError</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-unsupported-hash-type-exception/index.html">UnsupportedHashTypeException</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">UnsupportedHashTypeException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionVerificationException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-untrusted-attachments-exception/index.html">UntrustedAttachmentsException</a></h4>
+</td>
+<td>
+<p>Thrown during classloading upon encountering an untrusted attachment (eg. not in the <a href="#">TRUSTED_UPLOADERS</a> list)</p>
+<code><span class="keyword">class </span><span class="identifier">UntrustedAttachmentsException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core/-corda-exception/index.html"><span class="identifier">CordaException</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Indicates that some aspect of the transaction named by <a href="tx-id.html">txId</a> violates the platform rules. The exact type of failure
+is expressed using a subclass. TransactionVerificationException is a <a href="../../net.corda.core.flows/-flow-exception/index.html">FlowException</a> and thus when thrown inside
+a flow, the details of the failure will be serialised, propagated to the peer and rethrown.</p>
+<code><span class="identifier">TransactionVerificationException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.contracts.TransactionVerificationException$<init>(net.corda.core.crypto.SecureHash, kotlin.String, kotlin.Throwable)/txId">txId</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TransactionVerificationException$<init>(net.corda.core.crypto.SecureHash, kotlin.String, kotlin.Throwable)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.contracts.TransactionVerificationException$<init>(net.corda.core.crypto.SecureHash, kotlin.String, kotlin.Throwable)/cause">cause</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">?</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="tx-id.html">txId</a></h4>
+</td>
+<td>
+<p>the Merkle root hash (identifier) of the transaction that failed verification.</p>
+<code><span class="keyword">val </span><span class="identifier">txId</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

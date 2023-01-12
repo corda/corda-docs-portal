@@ -1,0 +1,201 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SecureHash.Companion - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="../index.html">SecureHash</a>&nbsp;/&nbsp;<a href="./index.html">Companion</a><br/>
+<br/>
+<h1>Companion</h1>
+<code><span class="keyword">companion</span> <span class="keyword">object </span><span class="identifier">Companion</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Internable</span><span class="symbol">&lt;</span><a href="../index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span></code>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="all-ones-hash.html">allOnesHash</a></h4>
+</td>
+<td>
+<p>A SHA-256 hash value consisting of 32 0xFF bytes.
+This field provides more intuitive access from Java.</p>
+<code><span class="keyword">val </span><span class="identifier">allOnesHash</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-d-e-l-i-m-i-t-e-r.html">DELIMITER</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">DELIMITER</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><span class="identifier">Char</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="interner.html">interner</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">interner</span><span class="symbol">: </span><span class="identifier">PrivateInterner</span><span class="symbol">&lt;</span><a href="../index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-s-h-a2_256.html">SHA2_256</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">SHA2_256</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-s-h-a2_384.html">SHA2_384</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">SHA2_384</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-s-h-a2_512.html">SHA2_512</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">SHA2_512</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="zero-hash.html">zeroHash</a></h4>
+</td>
+<td>
+<p>A SHA-256 hash value consisting of 32 0x00 bytes.
+This field provides more intuitive access from Java.</p>
+<code><span class="keyword">val </span><span class="identifier">zeroHash</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="all-ones-hash-for.html">allOnesHashFor</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">allOnesHashFor</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$allOnesHashFor(kotlin.String)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="component-hash-as.html">componentHashAs</a></h4>
+</td>
+<td>
+<p>Computes the digest of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> which is resistant to pre-image attacks.
+It computes the hash of the hash for SHA2-256 and other algorithms loaded via JCA <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">MessageDigest</a>.
+For custom algorithms the strategy can be modified via <a href="../../-digest-algorithm/index.html">DigestAlgorithm</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">componentHashAs</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$componentHashAs(kotlin.String, kotlin.ByteArray)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$componentHashAs(kotlin.String, kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create.html">create</a></h4>
+</td>
+<td>
+<p>Converts a SecureHash hash value represented as a {algorithm:}hexadecimal <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> into a <a href="../index.html">SecureHash</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$create(kotlin.String)/str">str</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-s-h-a256.html">createSHA256</a></h4>
+</td>
+<td>
+<p>Factory method for SHA256 to be used in preference to the constructor.</p>
+<code><span class="keyword">fun </span><span class="identifier">createSHA256</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$createSHA256(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="digest-length-for.html">digestLengthFor</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">digestLengthFor</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$digestLengthFor(kotlin.String)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-all-ones-hash.html">getAllOnesHash</a></h4>
+</td>
+<td>
+<p>A SHA-256 hash value consisting of 32 0xFF bytes.
+This function is provided for API stability.</p>
+<code><span class="keyword">fun </span><span class="identifier">getAllOnesHash</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-zero-hash.html">getZeroHash</a></h4>
+</td>
+<td>
+<p>A SHA-256 hash value consisting of 32 0x00 bytes.
+This function is provided for API stability.</p>
+<code><span class="keyword">fun </span><span class="identifier">getZeroHash</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-as.html">hashAs</a></h4>
+</td>
+<td>
+<p>Computes the hash value of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">hashAs</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$hashAs(kotlin.String, kotlin.ByteArray)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$hashAs(kotlin.String, kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="nonce-hash-as.html">nonceHashAs</a></h4>
+</td>
+<td>
+<p>Computes the digest of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> which is resistant to pre-image attacks.
+It computes the hash of the hash for SHA2-256 and other algorithms loaded via JCA <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">MessageDigest</a>.
+For custom algorithms the strategy can be modified via <a href="../../-digest-algorithm/index.html">DigestAlgorithm</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">nonceHashAs</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$nonceHashAs(kotlin.String, kotlin.ByteArray)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$nonceHashAs(kotlin.String, kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parse.html">parse</a></h4>
+</td>
+<td>
+<p>Converts a SHA-256 hash value represented as a hexadecimal <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> into a <a href="../index.html">SecureHash</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">parse</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$parse(kotlin.String)/str">str</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="random.html">random</a></h4>
+</td>
+<td>
+<p>Generates a random hash value.</p>
+<code><span class="keyword">fun </span><span class="identifier">random</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$random(kotlin.String)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="random-s-h-a256.html">randomSHA256</a></h4>
+</td>
+<td>
+<p>Generates a random SHA-256 value.</p>
+<code><span class="keyword">fun </span><span class="identifier">randomSHA256</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sha256.html">sha256</a></h4>
+</td>
+<td>
+<p>Computes the SHA-256 hash value of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">sha256</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$sha256(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code>
+<p>Computes the SHA-256 hash of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>'s UTF-8 byte contents.</p>
+<code><span class="keyword">fun </span><span class="identifier">sha256</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$sha256(kotlin.String)/str">str</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sha256-twice.html">sha256Twice</a></h4>
+</td>
+<td>
+<p>Computes the SHA-256 hash of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>, and then computes the SHA-256 hash of the hash.</p>
+<code><span class="keyword">fun </span><span class="identifier">sha256Twice</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$sha256Twice(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="zero-hash-for.html">zeroHashFor</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">zeroHashFor</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$zeroHashFor(kotlin.String)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SendStateAndRefFlow.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">SendStateAndRefFlow</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.flows.SendStateAndRefFlow$&lt;init&gt;(net.corda.core.flows.FlowSession, kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))))"></a>
+<code><span class="identifier">SendStateAndRefFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.SendStateAndRefFlow$<init>(net.corda.core.flows.FlowSession, kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))))/otherSideSession">otherSideSession</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.SendStateAndRefFlow$<init>(net.corda.core.flows.FlowSession, kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))))/stateAndRefs">stateAndRefs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>The <a href="index.html">SendStateAndRefFlow</a> should be used to send a list of input <a href="../../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a> to another peer that wishes to verify
+the input's integrity by resolving and checking the dependencies as well. The other side should invoke <a href="../-receive-state-and-ref-flow/index.html">ReceiveStateAndRefFlow</a>
+at the right point in the conversation to receive the input state and ref and perform the resolution back-and-forth
+required to check the dependencies.</p>
+<h3>Parameters</h3>
+<p><a name="otherSideSession"></a>
+<code>otherSideSession</code> - the target session.</p>
+<p><a name="stateAndRefs"></a>
+<code>stateAndRefs</code> - the list of <a href="../../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a> being sent to the <a href="../-data-vending-flow/other-side-session.html">otherSideSession</a>.</p>
+</BODY>
+</HTML>

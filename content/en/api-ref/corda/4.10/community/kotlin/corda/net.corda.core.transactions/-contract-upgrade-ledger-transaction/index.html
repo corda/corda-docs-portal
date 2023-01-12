@@ -1,0 +1,237 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ContractUpgradeLedgerTransaction - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="./index.html">ContractUpgradeLedgerTransaction</a><br/>
+<br/>
+<h1>ContractUpgradeLedgerTransaction</h1>
+<code><span class="keyword">class </span><span class="identifier">ContractUpgradeLedgerTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-full-transaction/index.html"><span class="identifier">FullTransaction</span></a><span class="symbol">, </span><a href="../-transaction-with-signatures/index.html"><span class="identifier">TransactionWithSignatures</span></a></code>
+<p>A contract upgrade transaction with fully resolved inputs and signatures. Contract upgrade transactions are separate
+to regular transactions because their validation logic is specialised; the original contract by definition cannot be
+aware of the upgraded contract (it was written after the original contract was developed), so its validation logic
+cannot succeed. Instead alternative verification logic is used which verifies that the outputs correspond to the
+inputs after upgrading.</p>
+<p>In contrast with a regular transaction, signatures are checked against the signers specified by input states'
+<em>participants</em> fields, so full resolution is needed for signature verification.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">ContractUpgradeLedgerTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/inputs">inputs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/legacyContractAttachment">legacyContractAttachment</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-attachment/index.html"><span class="identifier">Attachment</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/upgradedContractClassName">upgradedContractClassName</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/upgradedContractAttachment">upgradedContractAttachment</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-attachment/index.html"><span class="identifier">Attachment</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/id">id</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/privacySalt">privacySalt</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/sigs">sigs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$<init>(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/networkParameters">networkParameters</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-network-parameters/index.html"><span class="identifier">NetworkParameters</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="inputs.html">inputs</a></h4>
+</td>
+<td>
+<p>The inputs of this transaction. Note that in BaseTransaction subclasses the type of this list may change!</p>
+<code><span class="keyword">val </span><span class="identifier">inputs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="legacy-contract-attachment.html">legacyContractAttachment</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">legacyContractAttachment</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-attachment/index.html"><span class="identifier">Attachment</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters.html">networkParameters</a></h4>
+</td>
+<td>
+<p>Network parameters that were in force when this transaction was created. Resolved from the hash of network parameters on the corresponding
+wire transaction.</p>
+<code><span class="keyword">val </span><span class="identifier">networkParameters</span><span class="symbol">: </span><a href="../../net.corda.core.node/-network-parameters/index.html"><span class="identifier">NetworkParameters</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary.html">notary</a></h4>
+</td>
+<td>
+<p>If present, the notary for this transaction. If absent then the transaction is not notarised at all.
+This is intended for issuance/genesis transactions that don't consume any other states and thus can't
+double spend anything.</p>
+<code><span class="keyword">val </span><span class="identifier">notary</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="outputs.html">outputs</a></h4>
+</td>
+<td>
+<p>Outputs are computed by running the contract upgrade logic on input states. This is done eagerly so that the
+transaction is verified during construction.</p>
+<code><span class="keyword">val </span><span class="identifier">outputs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-transaction-state/index.html"><span class="identifier">TransactionState</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="privacy-salt.html">privacySalt</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">privacySalt</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="references.html">references</a></h4>
+</td>
+<td>
+<p>ContractUpgradeLedgerTransactions do not contain reference input states.</p>
+<code><span class="keyword">val </span><span class="identifier">references</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="required-signing-keys.html">requiredSigningKeys</a></h4>
+</td>
+<td>
+<p>The required signers are the set of all input states' participants.</p>
+<code><span class="keyword">val </span><span class="identifier">requiredSigningKeys</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sigs.html">sigs</a></h4>
+</td>
+<td>
+<p>List of signatures on this transaction.</p>
+<code><span class="keyword">val </span><span class="identifier">sigs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="upgraded-contract-attachment.html">upgradedContractAttachment</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">upgradedContractAttachment</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-attachment/index.html"><span class="identifier">Attachment</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="upgraded-contract-class-name.html">upgradedContractClassName</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">upgradedContractClassName</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="component1.html">component1</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component1</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="component2.html">component2</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component2</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="component3.html">component3</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component3</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-attachment/index.html"><span class="identifier">Attachment</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="component4.html">component4</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component4</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="component5.html">component5</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component5</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-attachment/index.html"><span class="identifier">Attachment</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="component6.html">component6</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component6</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="component7.html">component7</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component7</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="component8.html">component8</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component8</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="component9.html">component9</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component9</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.node/-network-parameters/index.html"><span class="identifier">NetworkParameters</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="copy.html">copy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">copy</span></s><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$copy(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/inputs">inputs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;this.inputs<span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$copy(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a>&nbsp;<span class="symbol">=</span>&nbsp;this.notary<span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$copy(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/legacyContractAttachment">legacyContractAttachment</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-attachment/index.html"><span class="identifier">Attachment</span></a>&nbsp;<span class="symbol">=</span>&nbsp;this.legacyContractAttachment<span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$copy(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/upgradedContractClassName">upgradedContractClassName</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a>&nbsp;<span class="symbol">=</span>&nbsp;this.upgradedContract::class.java.name<span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$copy(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/upgradedContractAttachment">upgradedContractAttachment</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-attachment/index.html"><span class="identifier">Attachment</span></a>&nbsp;<span class="symbol">=</span>&nbsp;this.upgradedContractAttachment<span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$copy(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/id">id</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a>&nbsp;<span class="symbol">=</span>&nbsp;this.id<span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$copy(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/privacySalt">privacySalt</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a>&nbsp;<span class="symbol">=</span>&nbsp;this.privacySalt<span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$copy(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/sigs">sigs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;this.sigs<span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$copy(kotlin.collections.List((net.corda.core.contracts.StateAndRef((net.corda.core.contracts.ContractState)))), net.corda.core.identity.Party, net.corda.core.contracts.Attachment, kotlin.String, net.corda.core.contracts.Attachment, net.corda.core.crypto.SecureHash, net.corda.core.contracts.PrivacySalt, kotlin.collections.List((net.corda.core.crypto.TransactionSignature)), net.corda.core.node.NetworkParameters)/networkParameters">networkParameters</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node/-network-parameters/index.html"><span class="identifier">NetworkParameters</span></a>&nbsp;<span class="symbol">=</span>&nbsp;this.networkParameters<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ContractUpgradeLedgerTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="equals.html">equals</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-key-descriptions.html">getKeyDescriptions</a></h4>
+</td>
+<td>
+<p>Get a human readable description of where signatures are required from, and are missing, to assist in debugging
+the underlying cause.</p>
+<code><span class="keyword">fun </span><span class="identifier">getKeyDescriptions</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.ContractUpgradeLedgerTransaction$getKeyDescriptions(kotlin.collections.Set((java.security.PublicKey)))/keys">keys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-code.html">hashCode</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

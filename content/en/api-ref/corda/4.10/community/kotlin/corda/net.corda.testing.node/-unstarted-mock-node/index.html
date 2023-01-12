@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>UnstartedMockNode - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="./index.html">UnstartedMockNode</a><br/>
+<br/>
+<h1>UnstartedMockNode</h1>
+<code><span class="keyword">class </span><span class="identifier">UnstartedMockNode</span></code>
+<p>A class that represents an unstarted mock node for testing.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<p>An identifier for the node. By default this is allocated sequentially in a <a href="../-mock-network/index.html">MockNetwork</a></p>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-started.html">isStarted</a></h4>
+</td>
+<td>
+<p>Whether this node has been started yet.</p>
+<code><span class="keyword">val </span><span class="identifier">isStarted</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="started.html">started</a></h4>
+</td>
+<td>
+<p>A <a href="../-started-mock-node/index.html">StartedMockNode</a> object for this running node.</p>
+<code><span class="keyword">val </span><span class="identifier">started</span><span class="symbol">: </span><a href="../-started-mock-node/index.html"><span class="identifier">StartedMockNode</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="install-corda-service.html">installCordaService</a></h4>
+</td>
+<td>
+<p>Install a custom test-only <a href="../../net.corda.core.node.services/-corda-service/index.html">CordaService</a>.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialize-as-token/index.html"><span class="identifier">SerializeAsToken</span></a><span class="symbol">&gt;</span> <span class="identifier">installCordaService</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.UnstartedMockNode$installCordaService(java.lang.Class((net.corda.testing.node.UnstartedMockNode.installCordaService.T)))/serviceClass">serviceClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start.html">start</a></h4>
+</td>
+<td>
+<p>Start the node</p>
+<code><span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-started-mock-node/index.html"><span class="identifier">StartedMockNode</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
