@@ -1,12 +1,12 @@
 ---
-date: '2022-12-20'
+date: '2021-01-10'
+title: "RPC permission templates"
 menu:
   corda-5-beta:
-    identifier: corda-5-rpc-templates
-    weight: 5000
+    identifier: corda-5-beta-rpc-templates
     parent: corda-5-cli-reference
+    weight: 5000
 section_menu: corda-5-beta
-title: "RPC permission templates"
 ---
 
 # Create common RPC permission templates
