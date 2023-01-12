@@ -889,6 +889,32 @@ Keys and values of the map should be strings. e.g. `systemProperties = { "visual
 
 *Default:* not defined
 
+## `telemetry`
+
+There are new configuration fields for telemetry. See the [OpenTelemetry](../../../enterprise/node/operating/monitoring-and-logging/opentelemetry.md) section for more information. 
+
+* `openTelemetryEnabled` 
+  * Specifies if the node should generate spans to be sent to a collector. The node will only generate spans if this property is set to `true` and an OpenTelemetry SDK is on the node classpath. By default, no OpenTelemetry SDK is on the node classpath, meaning by default no spans are actually generated. To prevent spans being generated regardless of whether the OpenTelemetry SDK is on the classpath, this configuration field should be set to `false`.
+  * *Default:* true
+* `spanStartEndEventsEnabled`
+  * When Corda generates spans for flows and certain significant operations, it has the capability to generate a span for starting the operation, ending the operation, and generating a single span to cover the whole operation. This can be useful to determine where a flow is stuck, as you will only see the start spans, and not the end spans. This is not standard OpenTelemetry behaviour, and it could also result in a lot of spans flooding the network. Setting this field to `true` will enable it. 
+  * *Default:* false
+* `copyBaggageToTags`
+  * If set to `true`, this parameter will cause baggage to be copied to tags when generating spans. Baggage are fields which can be passed around with the invocation of OpenTelemetry.
+  * *Default:* false
+* `simpleLogTelemetryEnabled`
+  * Enables an alternative form of telemetry. If this field is set to `true`, log lines are written to logs when a flow or significant operation is started, or ended. The log line specifies a trace ID, which allows flows to be matched up across nodes.
+  * *Default:* false
+* Example configuration:
+
+```kotlin
+telemetry {
+        openTelemetryEnabled=true
+        spanStartEndEventsEnabled=false
+        simpleLogTelemetryEnabled=false
+      }
+```
+
 ## `transactionCacheSizeMegaBytes`
 
 Optionally specify how much memory should be used for caching of ledger transactions in memory.

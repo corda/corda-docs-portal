@@ -11,5 +11,7 @@
 <a name="net.corda.core.messaging.RPCOps$protocolVersion"></a>
 <code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">protocolVersion</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
 <p>Returns the RPC protocol version. Exists since version 0 so guaranteed to be present.</p>
+<p>Getting this property is handled as a quick RPC, meaning that it is handled outside the node's standard
+thread pool in order to provide a quick response even when the node is dealing with a high volume of RPC calls.</p>
 </BODY>
 </HTML>

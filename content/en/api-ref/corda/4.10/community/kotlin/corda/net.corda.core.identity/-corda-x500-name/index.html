@@ -12,6 +12,18 @@
 <p>X.500 distinguished name data type customised to how Corda uses names. This restricts the attributes to those Corda
 supports, and requires that organisation, locality and country attributes are specified. See also RFC 4519 for
 the underlying attribute type definitions</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-companion/index.html">Companion</a></h4>
+</td>
+<td>
+<code><span class="keyword">companion</span> <span class="keyword">object </span><span class="identifier">Companion</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Internable</span><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -109,6 +121,13 @@ attribute type.</p>
 <h3>Companion Object Properties</h3>
 <table>
 <tbody>
+<tr>
+<td>
+<h4><a href="interner.html">interner</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">interner</span><span class="symbol">: </span><span class="identifier">PrivateInterner</span><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
 <tr>
 <td>
 <h4><a href="-l-e-n-g-t-h_-c-o-u-n-t-r-y.html">LENGTH_COUNTRY</a></h4>

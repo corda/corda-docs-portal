@@ -11,5 +11,7 @@
 <a name="net.corda.core.messaging.CordaRPCOps$currentNodeTime()"></a>
 <code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">currentNodeTime</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html"><span class="identifier">Instant</span></a></code>
 <p>Returns the node's current time.</p>
+<p>Is a quick RPC, meaning that it is handled outside the node's standard thread pool in order to provide a
+quick response even when the node is dealing with a high volume of RPC calls.</p>
 </BODY>
 </HTML>

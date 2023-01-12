@@ -70,6 +70,7 @@ The OpenTelemetry tracing signal is now supported in flows across nodes. For mor
 ### Improved node diagnostics
 
 This release includes improved node diagnostics:
+
 * Every five minutes, there is a thread dump to the log file
 * There is a periodic check to determine if the state machine thread pool seems to be blocked, and a warning is generated if so.
 * Log messages are now output, on both nodes initiating flows on other flows and on the receiving nodes, to tie outgoing initiate sessions to their message ID and likewise for inbound initiate sessions to their message ID so logs across nodes can be more easily diagnosed.
