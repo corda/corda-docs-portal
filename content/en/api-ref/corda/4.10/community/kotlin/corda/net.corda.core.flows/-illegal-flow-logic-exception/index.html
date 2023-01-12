@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>IllegalFlowLogicException - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">IllegalFlowLogicException</a><br/>
+<br/>
+<h1>IllegalFlowLogicException</h1>
+<code><span class="keyword">class </span><span class="identifier">IllegalFlowLogicException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html"><span class="identifier">IllegalArgumentException</span></a></code>
+<p>Thrown if the structure of a class implementing a flow is not correct. There can be several causes for this such as
+not inheriting from <a href="../-flow-logic/index.html">FlowLogic</a>, not having a valid constructor and so on.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">IllegalFlowLogicException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.IllegalFlowLogicException$<init>(java.lang.Class((kotlin.Any)), kotlin.String)/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.IllegalFlowLogicException$<init>(java.lang.Class((kotlin.Any)), kotlin.String)/msg">msg</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code>
+<p>Thrown if the structure of a class implementing a flow is not correct. There can be several causes for this such as
+not inheriting from <a href="../-flow-logic/index.html">FlowLogic</a>, not having a valid constructor and so on.</p>
+<code><span class="identifier">IllegalFlowLogicException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.IllegalFlowLogicException$<init>(kotlin.String, kotlin.String)/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.IllegalFlowLogicException$<init>(kotlin.String, kotlin.String)/msg">msg</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="type.html">type</a></h4>
+</td>
+<td>
+<p>the fully qualified name of the class that failed checks.</p>
+<code><span class="keyword">val </span><span class="identifier">type</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

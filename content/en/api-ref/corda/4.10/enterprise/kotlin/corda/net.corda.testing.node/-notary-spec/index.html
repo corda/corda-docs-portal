@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NotarySpec - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="./index.html">NotarySpec</a><br/>
+<br/>
+<h1>NotarySpec</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NotarySpec</span></code>
+<p>A notary spec for describing a notary which will be started automatically by the driver and which will be part of
+the network parameters used by all the nodes.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">NotarySpec</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec)/validating">validating</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec)/rpcUsers">rpcUsers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-user/index.html"><span class="identifier">User</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptyList()<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec)/verifierType">verifierType</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.testing.driver/-verifier-type/index.html"><span class="identifier">VerifierType</span></a>&nbsp;<span class="symbol">=</span>&nbsp;VerifierType.InMemory<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec)/cluster">cluster</span><span class="symbol">:</span>&nbsp;<a href="../-cluster-spec/index.html"><span class="identifier">ClusterSpec</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span></code><br/>
+<code><span class="identifier">NotarySpec</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String)/validating">validating</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String)/rpcUsers">rpcUsers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-user/index.html"><span class="identifier">User</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptyList()<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String)/verifierType">verifierType</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.testing.driver/-verifier-type/index.html"><span class="identifier">VerifierType</span></a>&nbsp;<span class="symbol">=</span>&nbsp;VerifierType.InMemory<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String)/cluster">cluster</span><span class="symbol">:</span>&nbsp;<a href="../-cluster-spec/index.html"><span class="identifier">ClusterSpec</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String)/maximumHeapSize">maximumHeapSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code><br/>
+<code><span class="identifier">NotarySpec</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String, kotlin.Boolean)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String, kotlin.Boolean)/validating">validating</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String, kotlin.Boolean)/rpcUsers">rpcUsers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-user/index.html"><span class="identifier">User</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptyList()<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String, kotlin.Boolean)/verifierType">verifierType</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.testing.driver/-verifier-type/index.html"><span class="identifier">VerifierType</span></a>&nbsp;<span class="symbol">=</span>&nbsp;VerifierType.InMemory<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String, kotlin.Boolean)/cluster">cluster</span><span class="symbol">:</span>&nbsp;<a href="../-cluster-spec/index.html"><span class="identifier">ClusterSpec</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String, kotlin.Boolean)/maximumHeapSize">maximumHeapSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;"512m"<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.String, kotlin.Boolean)/startInProcess">startInProcess</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span></code>
+<p>A notary spec for describing a notary which will be started automatically by the driver and which will be part of
+the network parameters used by all the nodes.</p>
+<code><span class="identifier">NotarySpec</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.Boolean)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.Boolean)/validating">validating</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.Boolean)/rpcUsers">rpcUsers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-user/index.html"><span class="identifier">User</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptyList()<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.Boolean)/verifierType">verifierType</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.testing.driver/-verifier-type/index.html"><span class="identifier">VerifierType</span></a>&nbsp;<span class="symbol">=</span>&nbsp;VerifierType.InMemory<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.Boolean)/cluster">cluster</span><span class="symbol">:</span>&nbsp;<a href="../-cluster-spec/index.html"><span class="identifier">ClusterSpec</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$<init>(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec, kotlin.Boolean)/startInProcess">startInProcess</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="cluster.html">cluster</a></h4>
+</td>
+<td>
+<p><a href="../-cluster-spec/index.html">ClusterSpec</a> if this is a distributed cluster notary. If null then this is a single-node notary.</p>
+<code><span class="keyword">val </span><span class="identifier">cluster</span><span class="symbol">: </span><a href="../-cluster-spec/index.html"><span class="identifier">ClusterSpec</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="maximum-heap-size.html">maximumHeapSize</a></h4>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">maximumHeapSize</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="name.html">name</a></h4>
+</td>
+<td>
+<p>The name of the notary. If this is a notary cluster then each node member will be assigned a name based on this name.</p>
+<code><span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><span class="identifier">CordaX500Name</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="rpc-users.html">rpcUsers</a></h4>
+</td>
+<td>
+<p>A list of users able to instigate RPC for this node or cluster of nodes.</p>
+<code><span class="keyword">val </span><span class="identifier">rpcUsers</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-user/index.html"><span class="identifier">User</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start-in-process.html">startInProcess</a></h4>
+</td>
+<td>
+<p>Should the notary be started in process.</p>
+<code><span class="keyword">val </span><span class="identifier">startInProcess</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="validating.html">validating</a></h4>
+</td>
+<td>
+<p>Boolean for whether the notary is validating or non-validating.</p>
+<code><span class="keyword">val </span><span class="identifier">validating</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="verifier-type.html">verifierType</a></h4>
+</td>
+<td>
+<p>How the notary will verify transactions.</p>
+<code><span class="keyword">val </span><span class="identifier">verifierType</span><span class="symbol">: </span><a href="../../net.corda.testing.driver/-verifier-type/index.html"><span class="identifier">VerifierType</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="copy.html">copy</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">copy</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.NotarySpec$copy(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$copy(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec)/validating">validating</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$copy(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec)/rpcUsers">rpcUsers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-user/index.html"><span class="identifier">User</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptyList()<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$copy(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec)/verifierType">verifierType</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.testing.driver/-verifier-type/index.html"><span class="identifier">VerifierType</span></a>&nbsp;<span class="symbol">=</span>&nbsp;VerifierType.InMemory<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.NotarySpec$copy(net.corda.core.identity.CordaX500Name, kotlin.Boolean, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, net.corda.testing.node.ClusterSpec)/cluster">cluster</span><span class="symbol">:</span>&nbsp;<a href="../-cluster-spec/index.html"><span class="identifier">ClusterSpec</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">NotarySpec</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AppServiceHub.register - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node</a>&nbsp;/&nbsp;<a href="index.html">AppServiceHub</a>&nbsp;/&nbsp;<a href="./register.html">register</a><br/>
+<br/>
+<h1>register</h1>
+<a name="net.corda.core.node.AppServiceHub$register(kotlin.Int, net.corda.core.node.services.ServiceLifecycleObserver)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">register</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.AppServiceHub$register(kotlin.Int, net.corda.core.node.services.ServiceLifecycleObserver)/priority">priority</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SERVICE_PRIORITY_NORMAL<span class="symbol">, </span><span class="identifier" id="net.corda.core.node.AppServiceHub$register(kotlin.Int, net.corda.core.node.services.ServiceLifecycleObserver)/observer">observer</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.node.services/-service-lifecycle-observer/index.html"><span class="identifier">ServiceLifecycleObserver</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Allows to register <a href="../../net.corda.core.node.services/-service-lifecycle-observer/index.html">ServiceLifecycleObserver</a> such that it will start receiving <a href="../../net.corda.core.node.services/-service-lifecycle-event/index.html">net.corda.core.node.services.ServiceLifecycleEvent</a>s</p>
+<h3>Parameters</h3>
+<p><a name="priority"></a>
+<code>priority</code> - controls to which queue <a href="register.html#net.corda.core.node.AppServiceHub$register(kotlin.Int, net.corda.core.node.services.ServiceLifecycleObserver)/observer">observer</a> will be added. Higher values correspond to higher priorities.</p>
+<p><a name="observer"></a>
+<code>observer</code> - an instance of <a href="../../net.corda.core.node.services/-service-lifecycle-observer/index.html">ServiceLifecycleObserver</a> to be registered.</p>
+<a name="net.corda.core.node.AppServiceHub$register(kotlin.Int, kotlin.Function1((net.corda.core.node.services.ServiceLifecycleEvent, net.corda.core.node.AppServiceHub.register.T)))"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">register</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.AppServiceHub$register(kotlin.Int, kotlin.Function1((net.corda.core.node.services.ServiceLifecycleEvent, net.corda.core.node.AppServiceHub.register.T)))/priority">priority</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SERVICE_PRIORITY_NORMAL<span class="symbol">, </span><span class="identifier" id="net.corda.core.node.AppServiceHub$register(kotlin.Int, kotlin.Function1((net.corda.core.node.services.ServiceLifecycleEvent, net.corda.core.node.AppServiceHub.register.T)))/func">func</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="../../net.corda.core.node.services/-service-lifecycle-event/index.html"><span class="identifier">ServiceLifecycleEvent</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Convenience method to be able to add an arbitrary function as a <a href="./register.html">register</a> callback.</p>
+</BODY>
+</HTML>

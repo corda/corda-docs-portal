@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Crypto.toSupportedPublicKey - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">Crypto</a>&nbsp;/&nbsp;<a href="./to-supported-public-key.html">toSupportedPublicKey</a><br/>
+<br/>
+<h1>toSupportedPublicKey</h1>
+<a name="net.corda.core.crypto.Crypto$toSupportedPublicKey(org.bouncycastle.asn1.x509.SubjectPublicKeyInfo)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">toSupportedPublicKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$toSupportedPublicKey(org.bouncycastle.asn1.x509.SubjectPublicKeyInfo)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://www.bouncycastle.org/docs/docs1.5on/org/bouncycastle/asn1/x509/SubjectPublicKeyInfo.html"><span class="identifier">SubjectPublicKeyInfo</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Convert a public key to a supported implementation.</p>
+<h3>Parameters</h3>
+<p><a name="key"></a>
+<code>key</code> - a public key.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - on not supported scheme or if the given key specification
+is inappropriate for a supported key factory to produce a private key.</p>
+<p><strong>Return</strong><br/>
+a supported implementation of the input public key.</p>
+<a name="net.corda.core.crypto.Crypto$toSupportedPublicKey(java.security.PublicKey)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">toSupportedPublicKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.Crypto$toSupportedPublicKey(java.security.PublicKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Convert a public key to a supported implementation. This can be used to convert a SUN's EC key to an BC key.
+This method is usually required to retrieve a key (via its corresponding cert) from JKS keystores that by default
+return SUN implementations.</p>
+<h3>Parameters</h3>
+<p><a name="key"></a>
+<code>key</code> - a public key.</p>
+<h3>Exceptions</h3>
+<p><a name="IllegalArgumentException"></a>
+<code>IllegalArgumentException</code> - on not supported scheme or if the given key specification
+is inappropriate for a supported key factory to produce a private key.</p>
+<p><strong>Return</strong><br/>
+a supported implementation of the input public key.</p>
+</BODY>
+</HTML>

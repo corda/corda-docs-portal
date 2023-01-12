@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DigestService.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">DigestService</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.crypto.DigestService$&lt;init&gt;(kotlin.String)"></a>
+<code><span class="identifier">DigestService</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestService$<init>(kotlin.String)/hashAlgorithm">hashAlgorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code>
+<p>The DigestService class is a service that offers the main crypto methods for calculating transaction hashes and
+building Merkle trees. The <a href="default.html">default</a> instance is passed by default to instances of classes like TransactionBuilder
+and as a parameter to MerkleTree.getMerkleTree(...) method. In future the <a href="default.html">default</a> instance can be parametrized
+to initialize with the network default hash algorithm or just a more secure algorithm (e.g. SHA3_256). While the
+SHA2_256 is vulnerable to pre-image attacks, the computeNonce and componentHash methods behaviour is defined by
+the hashTwiceNonce and hashTwiceComponent; with SHA2_256 they both must be set to true to ensure pre-image attack
+won't work (and for backward compatibility), but for other algorithms like SHA3_256 that are not affected, they
+can and should be set to false as hashing twice would not improve security but affect performance.</p>
+<h3>Parameters</h3>
+<p><a name="hashAlgorithm"></a>
+<code>hashAlgorithm</code> - the name of the hash algorithm to be used for the instance</p>
+</BODY>
+</HTML>

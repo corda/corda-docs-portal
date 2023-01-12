@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SerializedBytes - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.serialization</a>&nbsp;/&nbsp;<a href="./index.html">SerializedBytes</a><br/>
+<br/>
+<h1>SerializedBytes</h1>
+<code><span class="keyword">class </span><span class="identifier">SerializedBytes</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a></code>
+<p>A type safe wrapper around a byte array that contains a serialised object. You can call <a href="../deserialize.html">SerializedBytes.deserialize</a>
+to get the original object back.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A type safe wrapper around a byte array that contains a serialised object. You can call <a href="../deserialize.html">SerializedBytes.deserialize</a>
+to get the original object back.</p>
+<code><span class="identifier">SerializedBytes</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization.SerializedBytes$<init>(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="hash.html">hash</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">hash</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="from.html">from</a></h4>
+</td>
+<td>
+<p>Serializes the given object and returns a <a href="./index.html">SerializedBytes</a> wrapper for it. An alias for <a href="../serialize.html">Any.serialize</a>
+intended to make the calling smoother for Java users.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">from</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization.SerializedBytes.Companion$from(net.corda.core.serialization.SerializedBytes.Companion.from.T, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/obj">obj</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization.SerializedBytes.Companion$from(net.corda.core.serialization.SerializedBytes.Companion.from.T, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/serializationFactory">serializationFactory</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-factory/index.html"><span class="identifier">SerializationFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SerializationFactory.defaultFactory<span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization.SerializedBytes.Companion$from(net.corda.core.serialization.SerializedBytes.Companion.from.T, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-context/index.html"><span class="identifier">SerializationContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;serializationFactory.defaultContext<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SerializedBytes</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.crypto/is-zero.html">isZero</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">.</span><span class="identifier">isZero</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../deserialize.html">deserialize</a></h4>
+</td>
+<td>
+<p>Convenience extension method for deserializing SerializedBytes with type matching, utilising the defaults.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">SerializedBytes</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">deserialize</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization$deserialize(net.corda.core.serialization.SerializedBytes((net.corda.core.serialization.deserialize.T)), net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/serializationFactory">serializationFactory</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-factory/index.html"><span class="identifier">SerializationFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SerializationFactory.defaultFactory<span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization$deserialize(net.corda.core.serialization.SerializedBytes((net.corda.core.serialization.deserialize.T)), net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-context/index.html"><span class="identifier">SerializationContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;serializationFactory.defaultContext<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../deserialize-with-compatible-context.html">deserializeWithCompatibleContext</a></h4>
+</td>
+<td>
+<p>Additionally returns <a href="../-serialization-context/index.html">SerializationContext</a> which was used for encoding.
+It might be helpful to know <a href="../-serialization-context/index.html">SerializationContext</a> to use the same encoding in the reply.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../../net.corda.core.utilities/-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a><span class="symbol">.</span><span class="identifier">deserializeWithCompatibleContext</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization$deserializeWithCompatibleContext(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/serializationFactory">serializationFactory</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-factory/index.html"><span class="identifier">SerializationFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SerializationFactory.defaultFactory<span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization$deserializeWithCompatibleContext(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../-serialization-context/index.html"><span class="identifier">SerializationContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;serializationFactory.defaultContext<span class="symbol">)</span><span class="symbol">: </span><a href="../-object-with-compatible-context/index.html"><span class="identifier">ObjectWithCompatibleContext</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.crypto/hash-as.html">hashAs</a></h4>
+</td>
+<td>
+<p>Compute the <a href="../../net.corda.core.crypto/hash-as.html#net.corda.core.crypto$hashAs(net.corda.core.utilities.OpaqueBytes, kotlin.String)/algorithm">algorithm</a> hash for the contents of the <a href="../../net.corda.core.utilities/-opaque-bytes/index.html">OpaqueBytes</a>.</p>
+<code><span class="keyword">fun </span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">.</span><span class="identifier">hashAs</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto$hashAs(net.corda.core.utilities.OpaqueBytes, kotlin.String)/algorithm">algorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.crypto/sha256.html">sha256</a></h4>
+</td>
+<td>
+<p>Compute the SHA-256 hash for the contents of the <a href="../../net.corda.core.utilities/-opaque-bytes/index.html">OpaqueBytes</a>.</p>
+<code><span class="keyword">fun </span><a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">.</span><span class="identifier">sha256</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

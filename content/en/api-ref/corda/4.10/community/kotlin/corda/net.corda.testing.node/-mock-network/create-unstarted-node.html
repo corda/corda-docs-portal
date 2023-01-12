@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MockNetwork.createUnstartedNode - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="index.html">MockNetwork</a>&nbsp;/&nbsp;<a href="./create-unstarted-node.html">createUnstartedNode</a><br/>
+<br/>
+<h1>createUnstartedNode</h1>
+<a name="net.corda.testing.node.MockNetwork$createUnstartedNode(net.corda.testing.node.MockNodeParameters)"></a>
+<code><span class="keyword">fun </span><span class="identifier">createUnstartedNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$createUnstartedNode(net.corda.testing.node.MockNodeParameters)/parameters">parameters</span><span class="symbol">:</span>&nbsp;<a href="../-mock-node-parameters/index.html"><span class="identifier">MockNodeParameters</span></a>&nbsp;<span class="symbol">=</span>&nbsp;MockNodeParameters()<span class="symbol">)</span><span class="symbol">: </span><a href="../-unstarted-mock-node/index.html"><span class="identifier">UnstartedMockNode</span></a></code>
+<p>Create an unstarted node with the given parameters.</p>
+<a name="net.corda.testing.node.MockNetwork$createUnstartedNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)"></a>
+<code><span class="identifier">@JvmOverloads</span> <span class="keyword">fun </span><span class="identifier">createUnstartedNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockNetwork$createUnstartedNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)/legalName">legalName</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$createUnstartedNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)/forcedID">forcedID</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$createUnstartedNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)/entropyRoot">entropyRoot</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a>&nbsp;<span class="symbol">=</span>&nbsp;BigInteger.valueOf(random63BitValue())<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.MockNetwork$createUnstartedNode(net.corda.core.identity.CordaX500Name, kotlin.Int, java.math.BigInteger, net.corda.testing.node.MockNodeConfigOverrides)/configOverrides">configOverrides</span><span class="symbol">:</span>&nbsp;<a href="../-mock-node-config-overrides/index.html"><span class="identifier">MockNodeConfigOverrides</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="../-unstarted-mock-node/index.html"><span class="identifier">UnstartedMockNode</span></a></code>
+<p>Create an unstarted node with the given parameters.</p>
+<h3>Parameters</h3>
+<p><a name="legalName"></a>
+<code>legalName</code> - The node's legal name.</p>
+<p><a name="forcedID"></a>
+<code>forcedID</code> - A unique identifier for the node.</p>
+<p><a name="entropyRoot"></a>
+<code>entropyRoot</code> - The initial entropy value to use when generating keys. Defaults to an (insecure) random value,
+but can be overridden to cause nodes to have stable or colliding identity/service keys.</p>
+<p><a name="configOverrides"></a>
+<code>configOverrides</code> - Add/override behaviour of the <a href="#">NodeConfiguration</a> mock object.</p>
+</BODY>
+</HTML>

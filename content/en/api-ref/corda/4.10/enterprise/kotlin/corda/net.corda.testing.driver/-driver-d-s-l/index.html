@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DriverDSL - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.driver</a>&nbsp;/&nbsp;<a href="./index.html">DriverDSL</a><br/>
+<br/>
+<h1>DriverDSL</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">DriverDSL</span></code>
+<p>Underlying interface for the driver DSL. Do not instantiate directly, instead use the <a href="../driver.html">driver</a> function.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="default-notary-handle.html">defaultNotaryHandle</a></h4>
+</td>
+<td>
+<p>Returns the <a href="../-notary-handle/index.html">NotaryHandle</a> for the single notary on the network. Throws if there are none or more than one.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">defaultNotaryHandle</span><span class="symbol">: </span><a href="../-notary-handle/index.html"><span class="identifier">NotaryHandle</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="default-notary-identity.html">defaultNotaryIdentity</a></h4>
+</td>
+<td>
+<p>Returns the identity of the single notary on the network. Throws if there are none or more than one.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">defaultNotaryIdentity</span><span class="symbol">: </span><span class="identifier">Party</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="default-notary-node.html">defaultNotaryNode</a></h4>
+</td>
+<td>
+<p>Returns a <a href="#">CordaFuture</a> on the <a href="../-node-handle/index.html">NodeHandle</a> for the single-node notary on the network. Throws if there
+are no notaries or more than one, or if the notary is a distributed cluster.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">defaultNotaryNode</span><span class="symbol">: </span><span class="identifier">CordaFuture</span><span class="symbol">&lt;</span><a href="../-node-handle/index.html"><span class="identifier">NodeHandle</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary-handles.html">notaryHandles</a></h4>
+</td>
+<td>
+<p>Returns a list of <a href="../-notary-handle/index.html">NotaryHandle</a>s matching the list of <a href="../../net.corda.testing.node/-notary-spec/index.html">NotarySpec</a>s passed into <a href="../driver.html">driver</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">notaryHandles</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-notary-handle/index.html"><span class="identifier">NotaryHandle</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="base-directory.html">baseDirectory</a></h4>
+</td>
+<td>
+<p>Returns the base directory for a node with the given <a href="#">CordaX500Name</a>. This method is useful if the base directory
+is needed before the node is started.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">baseDirectory</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.driver.DriverDSL$baseDirectory(net.corda.core.identity.CordaX500Name)/nodeName">nodeName</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html"><span class="identifier">Path</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="next-port.html">nextPort</a></h4>
+</td>
+<td>
+<p>Returns the next port to use when instantiating test processes that must not conflict on the same machine</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">nextPort</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start-node.html">startNode</a></h4>
+</td>
+<td>
+<p>Start a node using the default values of <a href="../-node-parameters/index.html">NodeParameters</a>.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">startNode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CordaFuture</span><span class="symbol">&lt;</span><a href="../-node-handle/index.html"><span class="identifier">NodeHandle</span></a><span class="symbol">&gt;</span></code>
+<p>Start a node using the parameter values of the given <a href="../-node-parameters/index.html">NodeParameters</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">startNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters)/parameters">parameters</span><span class="symbol">:</span>&nbsp;<a href="../-node-parameters/index.html"><span class="identifier">NodeParameters</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CordaFuture</span><span class="symbol">&lt;</span><a href="../-node-handle/index.html"><span class="identifier">NodeHandle</span></a><span class="symbol">&gt;</span></code>
+<p>Start a node.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">startNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String, kotlin.String)/defaultParameters">defaultParameters</span><span class="symbol">:</span>&nbsp;<a href="../-node-parameters/index.html"><span class="identifier">NodeParameters</span></a>&nbsp;<span class="symbol">=</span>&nbsp;NodeParameters()<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String, kotlin.String)/providedName">providedName</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.providedName<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String, kotlin.String)/rpcUsers">rpcUsers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.testing.node/-user/index.html"><span class="identifier">User</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.rpcUsers<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String, kotlin.String)/verifierType">verifierType</span><span class="symbol">:</span>&nbsp;<a href="../-verifier-type/index.html"><span class="identifier">VerifierType</span></a>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.verifierType<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String, kotlin.String)/customOverrides">customOverrides</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.customOverrides<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String, kotlin.String)/startInSameProcess">startInSameProcess</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.startInSameProcess<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String, kotlin.String)/maximumHeapSize">maximumHeapSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.maximumHeapSize<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String, kotlin.String)/logLevelOverride">logLevelOverride</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.logLevelOverride<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CordaFuture</span><span class="symbol">&lt;</span><a href="../-node-handle/index.html"><span class="identifier">NodeHandle</span></a><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">startNode</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String)/defaultParameters">defaultParameters</span><span class="symbol">:</span>&nbsp;<a href="../-node-parameters/index.html"><span class="identifier">NodeParameters</span></a>&nbsp;<span class="symbol">=</span>&nbsp;NodeParameters()<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String)/providedName">providedName</span><span class="symbol">:</span>&nbsp;<span class="identifier">CordaX500Name</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.providedName<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String)/rpcUsers">rpcUsers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.testing.node/-user/index.html"><span class="identifier">User</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.rpcUsers<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String)/verifierType">verifierType</span><span class="symbol">:</span>&nbsp;<a href="../-verifier-type/index.html"><span class="identifier">VerifierType</span></a>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.verifierType<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String)/customOverrides">customOverrides</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.customOverrides<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String)/startInSameProcess">startInSameProcess</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.startInSameProcess<span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startNode(net.corda.testing.driver.NodeParameters, net.corda.core.identity.CordaX500Name, kotlin.collections.List((net.corda.testing.node.User)), net.corda.testing.driver.VerifierType, kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.Boolean, kotlin.String)/maximumHeapSize">maximumHeapSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;defaultParameters.maximumHeapSize<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CordaFuture</span><span class="symbol">&lt;</span><a href="../-node-handle/index.html"><span class="identifier">NodeHandle</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start-webserver.html">startWebserver</a></h4>
+</td>
+<td>
+<p>Call <a href="start-webserver.html">startWebserver</a> with a default maximumHeapSize.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">startWebserver</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startWebserver(net.corda.testing.driver.NodeHandle)/handle">handle</span><span class="symbol">:</span>&nbsp;<a href="../-node-handle/index.html"><span class="identifier">NodeHandle</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CordaFuture</span><span class="symbol">&lt;</span><a href="../-webserver-handle/index.html"><span class="identifier">WebserverHandle</span></a><span class="symbol">&gt;</span></code>
+<p>Starts a web server for a node</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">startWebserver</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startWebserver(net.corda.testing.driver.NodeHandle, kotlin.String)/handle">handle</span><span class="symbol">:</span>&nbsp;<a href="../-node-handle/index.html"><span class="identifier">NodeHandle</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.driver.DriverDSL$startWebserver(net.corda.testing.driver.NodeHandle, kotlin.String)/maximumHeapSize">maximumHeapSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CordaFuture</span><span class="symbol">&lt;</span><a href="../-webserver-handle/index.html"><span class="identifier">WebserverHandle</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

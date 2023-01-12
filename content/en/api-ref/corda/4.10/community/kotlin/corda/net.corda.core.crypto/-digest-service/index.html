@@ -1,0 +1,176 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DigestService - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="./index.html">DigestService</a><br/>
+<br/>
+<h1>DigestService</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">DigestService</span></code>
+<p>The DigestService class is a service that offers the main crypto methods for calculating transaction hashes and
+building Merkle trees. The <a href="default.html">default</a> instance is passed by default to instances of classes like TransactionBuilder
+and as a parameter to MerkleTree.getMerkleTree(...) method. In future the <a href="default.html">default</a> instance can be parametrized
+to initialize with the network default hash algorithm or just a more secure algorithm (e.g. SHA3_256). While the
+SHA2_256 is vulnerable to pre-image attacks, the computeNonce and componentHash methods behaviour is defined by
+the hashTwiceNonce and hashTwiceComponent; with SHA2_256 they both must be set to true to ensure pre-image attack
+won't work (and for backward compatibility), but for other algorithms like SHA3_256 that are not affected, they
+can and should be set to false as hashing twice would not improve security but affect performance.</p>
+<h3>Parameters</h3>
+<p><a name="hashAlgorithm"></a>
+<code>hashAlgorithm</code> - the name of the hash algorithm to be used for the instance</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>The DigestService class is a service that offers the main crypto methods for calculating transaction hashes and
+building Merkle trees. The <a href="default.html">default</a> instance is passed by default to instances of classes like TransactionBuilder
+and as a parameter to MerkleTree.getMerkleTree(...) method. In future the <a href="default.html">default</a> instance can be parametrized
+to initialize with the network default hash algorithm or just a more secure algorithm (e.g. SHA3_256). While the
+SHA2_256 is vulnerable to pre-image attacks, the computeNonce and componentHash methods behaviour is defined by
+the hashTwiceNonce and hashTwiceComponent; with SHA2_256 they both must be set to true to ensure pre-image attack
+won't work (and for backward compatibility), but for other algorithms like SHA3_256 that are not affected, they
+can and should be set to false as hashing twice would not improve security but affect performance.</p>
+<code><span class="identifier">DigestService</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestService$<init>(kotlin.String)/hashAlgorithm">hashAlgorithm</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="all-ones-hash.html">allOnesHash</a></h4>
+</td>
+<td>
+<p>A digest value consisting of 0xFF bytes.</p>
+<code><span class="keyword">val </span><span class="identifier">allOnesHash</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="digest-length.html">digestLength</a></h4>
+</td>
+<td>
+<p>Specifies the WORD size for the given hash algorithm.</p>
+<code><span class="keyword">val </span><span class="identifier">digestLength</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-algorithm.html">hashAlgorithm</a></h4>
+</td>
+<td>
+<p>the name of the hash algorithm to be used for the instance</p>
+<code><span class="keyword">val </span><span class="identifier">hashAlgorithm</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="zero-hash.html">zeroHash</a></h4>
+</td>
+<td>
+<p>A hash value consisting of 0x00 bytes.</p>
+<code><span class="keyword">val </span><span class="identifier">zeroHash</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="component-hash.html">componentHash</a></h4>
+</td>
+<td>
+<p>Compute the hash of each serialised component so as to be used as Merkle tree leaf. The resultant output (leaf) is
+calculated using the service's hash algorithm, thus HASH(HASH(nonce || serializedComponent)) for SHA2-256 and other
+algorithms loaded via JCA <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">MessageDigest</a>, or DigestAlgorithm.componentDigest(nonce || serializedComponent)
+otherwise, where nonce is computed from <a href="compute-nonce.html">computeNonce</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">componentHash</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestService$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/opaqueBytes">opaqueBytes</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.DigestService$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/privacySalt">privacySalt</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.DigestService$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/componentGroupIndex">componentGroupIndex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.DigestService$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/internalIndex">internalIndex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code>
+<p>Return the HASH(HASH(nonce || serializedComponent)) for SHA2-256 and other algorithms loaded via JCA <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">MessageDigest</a>,
+otherwise it's defined by DigestAlgorithm.componentDigest(nonce || serializedComponent).</p>
+<code><span class="keyword">fun </span><span class="identifier">componentHash</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestService$componentHash(net.corda.core.crypto.SecureHash, net.corda.core.utilities.OpaqueBytes)/nonce">nonce</span><span class="symbol">:</span>&nbsp;<a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.DigestService$componentHash(net.corda.core.crypto.SecureHash, net.corda.core.utilities.OpaqueBytes)/opaqueBytes">opaqueBytes</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="compute-nonce.html">computeNonce</a></h4>
+</td>
+<td>
+<p>Method to compute a nonce based on privacySalt, component group index and component internal index.
+SHA256d (double SHA256) is used to prevent length extension attacks.</p>
+<code><span class="keyword">fun </span><span class="identifier">computeNonce</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestService$computeNonce(net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/privacySalt">privacySalt</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.DigestService$computeNonce(net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/groupIndex">groupIndex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.DigestService$computeNonce(net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/internalIndex">internalIndex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash.html">hash</a></h4>
+</td>
+<td>
+<p>Computes the digest of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">hash</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestService$hash(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code>
+<p>Computes the digest of the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>'s UTF-8 byte contents.</p>
+<code><span class="keyword">fun </span><span class="identifier">hash</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestService$hash(kotlin.String)/str">str</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="serialized-hash.html">serializedHash</a></h4>
+</td>
+<td>
+<p>Serialise the object and return the hash of the serialized bytes. Note that the resulting hash may not be deterministic
+across platform versions: serialization can produce different values if any of the types being serialized have changed,
+or if the version of serialization specified by the context changes.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">serializedHash</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestService$serializedHash(net.corda.core.crypto.DigestService.serializedHash.T)/x">x</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="default.html">default</a></h4>
+</td>
+<td>
+<p>The <a href="default.html">default</a> instance will be parametrized and initialized at runtime. It would be probably useful to assume an override
+priority order.</p>
+<code><span class="keyword">val </span><span class="identifier">default</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">DigestService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sha2_256.html">sha2_256</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">sha2_256</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">DigestService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sha2_384.html">sha2_384</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">sha2_384</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">DigestService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sha2_512.html">sha2_512</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">sha2_512</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">DigestService</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../random-hash.html">randomHash</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">DigestService</span></a><span class="symbol">.</span><span class="identifier">randomHash</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

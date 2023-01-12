@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Issued.issuer - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="index.html">Issued</a>&nbsp;/&nbsp;<a href="./issuer.html">issuer</a><br/>
+<br/>
+<h1>issuer</h1>
+<a name="net.corda.core.contracts.Issued$issuer"></a>
+<code><span class="keyword">val </span><span class="identifier">issuer</span><span class="symbol">: </span><a href="../-party-and-reference/index.html"><span class="identifier">PartyAndReference</span></a></code>
+<p>The <a href="../../net.corda.core.identity/-abstract-party/index.html">AbstractParty</a> details of the entity which issued the asset
+and a reference blob, which can contain other details related to the token creation e.g. serial number,
+warehouse location, etc.
+The issuer is the gatekeeper for creating, or destroying the tokens on the digital ledger and
+only their <a href="#">PrivateKey</a> signature can authorise transactions that do not conserve the total number
+of tokens on the ledger.
+Other identities may own the tokens, but they can only create transactions that conserve the total token count.
+Typically the issuer is also a well know organisation that can convert digital tokens to external assets
+and thus underwrites the digital tokens.
+Different issuer values may coexist for a particular product, but these cannot be merged.</p>
+<h3>Property</h3>
+<p><a name="issuer"></a>
+<code>issuer</code> - The <a href="../../net.corda.core.identity/-abstract-party/index.html">AbstractParty</a> details of the entity which issued the asset
+and a reference blob, which can contain other details related to the token creation e.g. serial number,
+warehouse location, etc.
+The issuer is the gatekeeper for creating, or destroying the tokens on the digital ledger and
+only their <a href="#">PrivateKey</a> signature can authorise transactions that do not conserve the total number
+of tokens on the ledger.
+Other identities may own the tokens, but they can only create transactions that conserve the total token count.
+Typically the issuer is also a well know organisation that can convert digital tokens to external assets
+and thus underwrites the digital tokens.
+Different issuer values may coexist for a particular product, but these cannot be merged.</p>
+</BODY>
+</HTML>
