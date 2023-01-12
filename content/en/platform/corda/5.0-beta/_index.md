@@ -23,7 +23,7 @@ menu:
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-beta/introduction/introduction.html">
-      <img src="5.0-beta/icons/corda.svg" alt="Introduction" style="padding: 1rem; border: 0;" class="light-only" height="124">
+      <img src="5.0-beta/icons/corda.svg" alt="Introduction" style="padding: 1rem; border: 0;" class="light-only" >
       <img src="5.0-beta/icons/corda.svg" alt="Introduction" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
       <span>Introduction</span></h3></a>
     </div>
