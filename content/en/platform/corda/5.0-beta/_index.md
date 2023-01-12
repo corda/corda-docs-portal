@@ -33,17 +33,6 @@ menu:
        <div class="card h-100">
          <div class="card-body">
            <h3 class="card-title">
-           <a href="5.0-beta/developing/getting-started/get-started.html">
-           <img src="5.0-beta/icons/get-started.png" alt="Getting started" style="padding: 1rem; border: 0;" height="124" class="light-only">
-           <img src="5.0-beta/icons/get-started.png" alt="Getting started"  style="background: #202020; padding: 1rem; border: 0;" height="124"class="dark-only"></br>
-             <span>Getting Started</span></h3></a>
-         </div>
-       </div>
-     </div>
-<div class="col">
-       <div class="card h-100">
-         <div class="card-body">
-           <h3 class="card-title">
            <a href="5.0-beta/developing/overview.html">
             <img src="5.0-beta/icons/develop.png" alt="Developing" style="padding: 1rem; border: 0;" class="light-only" height="124">
             <img src="5.0-beta/icons/develop.png" alt="Developing" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
@@ -70,6 +59,28 @@ menu:
           <img src="5.0-beta/icons/operate.png" alt="Operate" style="padding: 1rem; border: 0;" class="light-only" height="124">
           <img src="5.0-beta/icons/operate.png" alt="Operate" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
         <span>Operating</span></h3></a>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="card h-100">
+    <div class="card-body">
+      <h3 class="card-title">
+      <a href="5.0-beta/operating/overview.html">
+          <img src="5.0-beta/icons/corda-cli.png" alt="Corda CLI Reference" style="padding: 1rem; border: 0;" class="light-only" height="124">
+          <img src="5.0-beta/icons/corda-cli.png" alt="Corda CLI Reference" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
+        <span>Corda CLI Reference</span></h3></a>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="card h-100">
+    <div class="card-body">
+      <h3 class="card-title">
+      <a href="5.0-beta/operating/overview.html">
+          <img src="5.0-beta/icons/API.png" alt="REST API" style="padding: 1rem; border: 0;" class="light-only" height="124">
+          <img src="5.0-beta/icons/API.png" alt="REST API" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
+        <span>REST API Reference</span></h3></a>
     </div>
   </div>
 </div>
