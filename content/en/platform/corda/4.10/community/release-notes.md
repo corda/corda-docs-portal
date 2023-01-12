@@ -51,6 +51,13 @@ Postgres 13.8 is now supported.
 
 The OpenTelemetry tracing signal is now supported in flows across nodes. For more information, see [OpenTelemetry](opentelemetry.md).
 
+### Improved node diagnostics
+
+This release includes improved node diagnostics:
+* There is a thread dump to the log file every five minutes.
+* There is a periodic check to determine if the state machine thread pool is blocked and a warning is generated if so.
+* Log messages are now output, both on the nodes initiating flows on other flows and also on the receiving nodes. This ties outgoing initiate sessions to their message ID and also inbound initiate sessions to their message ID. This enables easier diagnosis of logs across nodes.
+
 ## Fixed issues
 
 This release includes the following fixes:
