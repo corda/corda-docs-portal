@@ -11,6 +11,18 @@
 <code><span class="identifier">@DoNotImplement</span> <span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">AbstractParty</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-destination.html"><span class="identifier">Destination</span></a></code>
 <p>An <a href="./index.html">AbstractParty</a> contains the common elements of <a href="../-party/index.html">Party</a> and <a href="../-anonymous-party/index.html">AnonymousParty</a>, specifically the owning key of
 the party. In most cases <a href="../-party/index.html">Party</a> or <a href="../-anonymous-party/index.html">AnonymousParty</a> should be used, depending on use-case.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-companion/index.html">Companion</a></h4>
+</td>
+<td>
+<code><span class="keyword">companion</span> <span class="keyword">object </span><span class="identifier">Companion</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Internable</span><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -71,6 +83,18 @@ the party. In most cases <a href="../-party/index.html">Party</a> or <a href="..
 ledger.</p>
 <code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">ref</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.AbstractParty$ref(net.corda.core.utilities.OpaqueBytes)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-party-and-reference/index.html"><span class="identifier">PartyAndReference</span></a></code><br/>
 <code><span class="keyword">fun </span><span class="identifier">ref</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.core.identity.AbstractParty$ref(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><span class="identifier">Byte</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-party-and-reference/index.html"><span class="identifier">PartyAndReference</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="interner.html">interner</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">interner</span><span class="symbol">: </span><span class="identifier">PrivateInterner</span><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">&gt;</span></code></td>
 </tr>
 </tbody>
 </table>
