@@ -19,7 +19,7 @@ menu:
 <section class="section">
   <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-5">
 <div class="col">
-  <div class="card h-100">
+  <div class="card h-60">
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-beta/introduction/introduction.html">
@@ -30,7 +30,7 @@ menu:
   </div>
 </div>
 <div class="col">
-       <div class="card h-100">
+       <div class="card h-60">
          <div class="card-body">
            <h3 class="card-title">
            <a href="5.0-beta/developing/overview.html">
@@ -41,7 +41,7 @@ menu:
        </div>
 </div>
 <div class="col">
-  <div class="card h-100">
+  <div class="card h-60">
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-beta/deploying/overview.html">
@@ -52,7 +52,7 @@ menu:
   </div>
 </div>
 <div class="col">
-  <div class="card h-100">
+  <div class="card h-60">
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-beta/operating/overview.html">
@@ -63,7 +63,7 @@ menu:
   </div>
 </div>
 <div class="col">
-  <div class="card h-100">
+  <div class="card h-60">
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-beta/operating/overview.html">
@@ -74,7 +74,7 @@ menu:
   </div>
 </div>
 <div class="col">
-  <div class="card h-100">
+  <div class="card h-60">
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-beta/operating/overview.html">
@@ -86,7 +86,7 @@ menu:
 </div>
 <!--
 <div class="col">
-  <div class="card h-100">
+  <div class="card h-60">
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-beta/use-cases/overview.html">
@@ -98,7 +98,7 @@ menu:
 </div>
 -->
 <div class="col">
-  <div class="card h-100">
+  <div class="card h-60">
     <div class="card-body">
       <h3 class="card-title">
       <a href="5.0-beta/release-notes/release-notes-c5.html">
