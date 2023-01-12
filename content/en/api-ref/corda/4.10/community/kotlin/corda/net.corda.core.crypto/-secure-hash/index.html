@@ -16,6 +16,13 @@ Provides utilities for generating a cryptographic hash using different algorithm
 <tbody>
 <tr>
 <td>
+<h4><a href="-companion/index.html">Companion</a></h4>
+</td>
+<td>
+<code><span class="keyword">companion</span> <span class="keyword">object </span><span class="identifier">Companion</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Internable</span><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="-h-a-s-h/index.html">HASH</a></h4>
 </td>
 <td>
@@ -117,6 +124,13 @@ This field provides more intuitive access from Java.</p>
 </tr>
 <tr>
 <td>
+<h4><a href="interner.html">interner</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">interner</span><span class="symbol">: </span><span class="identifier">PrivateInterner</span><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="-s-h-a2_256.html">SHA2_256</a></h4>
 </td>
 <td>
@@ -174,6 +188,14 @@ For custom algorithms the strategy can be modified via <a href="../-digest-algor
 <td>
 <p>Converts a SecureHash hash value represented as a {algorithm:}hexadecimal <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> into a <a href="./index.html">SecureHash</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$create(kotlin.String)/str">str</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-s-h-a256.html">createSHA256</a></h4>
+</td>
+<td>
+<p>Factory method for SHA256 to be used in preference to the constructor.</p>
+<code><span class="keyword">fun </span><span class="identifier">createSHA256</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.SecureHash.Companion$createSHA256(kotlin.ByteArray)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SHA256</span></code></td>
 </tr>
 <tr>
 <td>
