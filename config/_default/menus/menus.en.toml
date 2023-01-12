@@ -368,30 +368,6 @@ identifier = "corda-community-4-9-contributing-index"
 name = "Participate"
 weight = 500
 
-[[corda-5-alpha]]
-identifier = "corda-5-alpha-deploy-troubleshoot"
-parent = "corda-5-alpha-deploy"
-name = "Troubleshooting"
-weight = 6000
-
-[[corda-5-alpha]]
-identifier = "corda-5-alpha-tutorials-deploy"
-parent = "corda-5-alpha-deploy"
-name = "Deployment Tutorials"
-weight = 5000
-
-[[corda-5-alpha]]
-identifier = "corda-5-alpha-tutorials-deploy-dynamic"
-parent = "corda-5-alpha-onboarding-tutorials"
-name = "Dynamic Networks"
-weight = 2000
-
-[[corda-5-alpha]]
-identifier = "corda-5-alpha-tutorials-deploy-static"
-parent = "corda-5-alpha-onboarding-tutorials"
-name = "Static Networks"
-weight = 1000
-
 [[corda-5-beta]]
 identifier = "corda-5-beta-deploy-troubleshoot"
 parent = "corda-5-beta-deploy"
@@ -426,7 +402,7 @@ weight = 1000
 identifier = "corda-5-beta-tutorials-develop"
 parent = "corda-5-beta-develop"
 name = "Development Tutorials"
-weight = 2000
+weight = 9000
 
 [[corda-5-beta]]
 identifier = "corda-5-beta-operate-rest-ref"
