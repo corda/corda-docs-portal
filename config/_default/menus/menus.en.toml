@@ -378,7 +378,7 @@ weight = 6000
 identifier = "corda-5-beta-tutorials-deploy"
 parent = "corda-5-beta-deploy"
 name = "Deployment Tutorials"
-weight = 5000
+weight = 9000
 
 [[corda-5-beta]]
 identifier = "corda-5-beta-tutorials-operate"
