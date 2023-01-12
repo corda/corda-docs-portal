@@ -21,12 +21,6 @@ The notary cluster acts as the timestamping authority. It verifies that a transa
 
 A participant may not send a transaction to the notary right away; they might need to circulate the transaction to other participants involved in the transaction, or request human sign-off. Even if the participant sends it as soon as it is generated, the node’s clock and the notary’s clock will never be perfectly in sync due to latency and physics. This means that the timestamp on a transaction is usually different from the time it was created.
 
-{{< 
-  figure
-	 src="images/time-window.gif"
-	 figcaption="Time Windows"
->}}
-
 When both a before and an after time are included, the transaction occurred at some point within that time window.
 
 Time windows let you represent transactions that follow different models, such as those that occur:
