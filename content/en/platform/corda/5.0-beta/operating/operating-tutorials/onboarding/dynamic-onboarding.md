@@ -113,13 +113,9 @@ To retrieve the `GroupPolicy.json` file from the MGM:
    curl --insecure -u admin:admin -X GET $MGM_API_URL/mgm/$MGM_HOLDING_ID/info > $WORK_DIR/GroupPolicy.json
    ```
 
-## Build the CPI
+## Create a CPI
 
-Build the [CPI](../../../introduction/key-concepts.html#corda-package-installer-cpi) using the [Corda CLI](../../installing-corda-cli.html) packaging plugin, passing in the member [CPB](../../../introduction/key-concepts.html#corda-package-bundles-cpbs) and [group policy](#create-the-group-policy-file) files.
-
-<!--Add link when ready
-See this [CorDapp Packaging]() for more details.-->
-
+Build a CPI using the Corda CLI packaging plugin, passing in the member CPB and your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section](../../../developing/development-tutorials/cordapp-packaging.md).
 
 ## Upload the CPI
 
