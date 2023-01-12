@@ -5,7 +5,7 @@ menu:
   corda-5-beta:
     parent: corda-5-cli-reference
     identifier: corda-5-beta-rpc-templates
-    weight: 5000
+    weight: 6000
 section_menu: corda-5-beta
 ---
 
