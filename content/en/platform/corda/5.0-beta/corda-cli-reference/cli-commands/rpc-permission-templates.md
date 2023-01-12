@@ -9,7 +9,7 @@ section_menu: corda-5-beta
 title: "RPC permission templates"
 ---
 
-## Create common RPC permission templates
+## Create Common RPC Permission Templates
 
 Currently, when the C5 Cluster starts there is a single "admin" account auto-created which can do everything. While this account can be used to perform any action, there is room for error if not used carefully. The idea is to create fine-grained roles for specific actions such as:
 
@@ -43,56 +43,55 @@ However, there might be cases when a new role is being setup and existing permis
 Being unable to do this creates potentially duplicated permissions.
 {{< /note >}}
 
-## Implement permissions check when starting a particular flow
+## Implement Permissions Check When Starting a Particular Flow
 
 Currently, the check is made to assert whether a user can execute startFlow RPC operations. No checks are made to whether the user can start a particular flow.
 
 These checks should be performed against the RBAC sub-system even before passing start request to FlowWorker.
 
-## RPC permission templates: Test plan draft
+## RPC Permission Templates: Test Plan Draft
 
 This describes a draft manual QA script that can be executed to independently verify that functionality is working as expected.
 
 The draft of a test plan may look like the following:
 
-1.Make sure UserAdminRole, VNodeCreatorRole and CordaDeveloperRole are either available at cluster bootstap time:
+1. Make sure UserAdminRole, VNodeCreatorRole and CordaDeveloperRole are either available at cluster bootstap time:
 "GET <https://localhost:8888/api/v1/role>" or if not (e.g. in case of Combined Worker), they can be created used CLI tools:
 
-> java -jar corda-cli.jar initial-rbac user-admin -t <https://localhost:8888> -u admin -p admin
-> java -jar corda-cli.jar initial-rbac vnode-creator -t <https://localhost:8888> -u admin -p admin
-> java -jar corda-cli.jar initial-rbac corda-developer -t <https://localhost:8888> -u admin -p admin
+`> java -jar corda-cli.jar initial-rbac user-admin -t <https://localhost:8888> -u admin -p admin`
+`> java -jar corda-cli.jar initial-rbac vnode-creator -t <https://localhost:8888> -u admin -p admin`
+`> java -jar corda-cli.jar initial-rbac corda-developer -t <https://localhost:8888> -u admin -p admin`
 
-2.Use Swagger UI to create user "UserAdmin" and assign "UserAdminRole" to it.
+2. Use Swagger UI to create user "UserAdmin" and assign "UserAdminRole" to it.
 
-3.Logout as "admin" and login as user "UserAdmin".
+3. Logout as "admin" and login as user "UserAdmin".
 4. Use Swagger UI, as "UserAdmin" to create user "vNodeCreator" and assign the "VNodeCreatorRole" to it.
 5. Use Swagger UI, as "UserAdmin" to create user" CordaDeveloper" and assign the "CordaDeveloperRole" to it.
 6. Build a CPI with some usable flows.
 7. Log on as "vNodeCreator" and upload CPI and create a vNode.
 8. Create a 'FlowExecutorRole" role for running flows for a vNode using the CLI tool:
 
-> java -jar corda-cli.jar initial-rbac flow-executor -t <https://localhost:8888> -u UserAdmin -p UserAdmin -v 9B02C806787D
+`>java -jar corda-cli.jar initial-rbac flow-executor -t <https://localhost:8888> -u UserAdmin -p UserAdmin -v 9B02C806787D`
 
 {{< note >}}
 This is done using "UserAdmin" and not as all mighty "admin".
 After creation role name should be: "FlowExecutorRole-9B02C806787D"
 {{< /note >}}
 
-9.Use Swagger UI, as "UserAdmin" to create user "FlowExecutor" and assign "FlowExecutorRole-9B02C806787D" to it.
-10.Using Swagger UI, log on as "FlowExecutor" and run a flow ensuring that it successfully completes with expected result returned.
-When checking results of the flow make sure that vNode ID: 9B02C806787D is used, the calls will be forbidden for any other vNodes.
-11.Execute some negative testing scenarios, e.g.:
+9. Use Swagger UI, as "UserAdmin" to create user "FlowExecutor" and assign "FlowExecutorRole-9B02C806787D" to it.
+10. Using Swagger UI, log on as "FlowExecutor" and run a flow ensuring that it successfully completes with expected result returned. When checking results of the flow make sure that vNode ID: 9B02C806787D is used, the calls will be forbidden for any other vNodes.
+11. Execute some negative testing scenarios, e.g.:
 • Ensure that "UserAdmin" cannot upload CPIs, create vNodes or run flows.
 Ensure that "FlowExecutor" and "vNodeCreator" cannot perform any RBAC operations.
 
-## Create RBAC operation to create and assign multiple permissions to a role
+## Create RBAC Operation to Create and Assign Multiple Permissions to a Role
 
 A dedicated HTTP RPC call which will permit the following:
 
 • Create multiple permissions
 • Assign them all to the existing roles in a single call
 
-## Allow the vNodeld to pass when performing RBAC
+## Allow the vNodeld to Pass when Performing RBAC
 
 The virtualNode attribute is a part of the RBAC permission, however, when performing permission checks, there is no way to pass the vNode identifier into the PermissionValidator.
 
