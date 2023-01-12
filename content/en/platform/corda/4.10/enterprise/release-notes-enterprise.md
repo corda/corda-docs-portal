@@ -65,7 +65,7 @@ Postgres 13.8 is now supported.
 
 ### Flows can now generate OpenTelemetry spans
 
-The opentelemetry tracing signal is now supported in flows across nodes.
+The OpenTelemetry tracing signal is now supported in flows across nodes. For more information, see [OpenTelemetry](node/operating/monitoring-and-logging/opentelemetry.md).
 
 ## Fixed issues
 
