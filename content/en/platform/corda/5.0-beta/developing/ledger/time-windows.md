@@ -9,14 +9,13 @@ menu:
 section_menu: corda-5-beta
 ---
 
-Every transaction includes a *time window*: the transaction can only be committed during that window. Times in transactions are specified as time windows and not absolute times. Time windows can be either open-ended or fully-bounded:
+Every transaction includes a *time window*: the transaction can only be committed during that window. Times in transactions are specified as time windows and not absolute times. Transaction time windows must have one of the following:
+* a start time and an end time
+* only an end time
 
-* **Open-ended:** Specify the time window as only before or after a particular time.
-* **Fully-bounded:** Specify both a before and an after time.
-
-{{< warning >}}
-A time window for a valid Corda transaction must specify an end time. For more information, see [Why is an end time required](#why-is-an-end-time-required).
-{{</ warning >}}
+{{< note >}}
+Corda requires every transaction to be completed within a specified time, and thus requires a time window that at least specifies an end time. The end time can be long (for example, three months), but must be defined. This is required to implement a more efficient notary protocol where the notary only tracks valid input states.
+{{< /note >}}
 
 The notary cluster acts as the timestamping authority. It verifies that a transaction occurred during a specific time window before notarizing it.
 
@@ -37,7 +36,3 @@ Time windows let you represent transactions that follow different models, such a
 * Around a given time, such as on a specific day.
 
 If you need to convert a time window to an absolute time, such as for display purposes, you can use a utility method to calculate the midpoint.
-
-{{< note >}}
-Corda requires every transaction to be completed within a specified time, and thus requires a time window that at least specifies and end time. The end time can be long (for example, three months), but must be defined. This is required to implement a more efficient notary protocol where the notary only tracks valid input states.
-{{< /note >}}
