@@ -88,7 +88,7 @@ Ensure that "FlowExecutor" and "vNodeCreator" cannot perform any RBAC operations
 A dedicated HTTP RPC call which will permit the following:
 
 • Create multiple permissions
-• Assign them all to the existing roles in a single call.
+• Assign them all to the existing roles in a single call
 
 ## Allow the vNodeld to pass when performing RBAC
 
