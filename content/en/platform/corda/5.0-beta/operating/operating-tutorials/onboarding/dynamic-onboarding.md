@@ -160,7 +160,7 @@ The result contains the `cpiFileChecksum`. Save this for the next step.
 
 ## Create a Virtual Node
 
-To create a virtual node for the member, run the following commands, changing the X500 name:
+To create a virtual node for the member, run the following commands, changing the X.500 name:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -187,7 +187,7 @@ $HOLDING_ID = $VIRTUAL_NODE_RESPONSE.holdingIdentity.shortHash
 
 If using Bash, run the following, replacing `<holding identity ID>` with the ID returned in `holdingIdentity.shortHash` (for example, `58B6030FABDD`).
 ```
-export MGM_HOLDING_ID=<holding identity ID>
+export HOLDING_ID=<holding identity ID>
 ```
 
 ## Configure the P2P Session Initiation Key Pair and Certificate

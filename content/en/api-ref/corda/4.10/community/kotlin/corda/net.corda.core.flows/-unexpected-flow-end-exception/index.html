@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>UnexpectedFlowEndException - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">UnexpectedFlowEndException</a><br/>
+<br/>
+<h1>UnexpectedFlowEndException</h1>
+<code><span class="keyword">class </span><span class="identifier">UnexpectedFlowEndException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core/-corda-runtime-exception/index.html"><span class="identifier">CordaRuntimeException</span></a><span class="symbol">, </span><span class="identifier">IdentifiableException</span></code>
+<p>Thrown when a flow session ends unexpectedly due to a type mismatch (the other side sent an object of a type
+that we were not expecting), or the other side had an internal error, or the other side terminated when we
+were waiting for a response.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">UnexpectedFlowEndException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.UnexpectedFlowEndException$<init>(kotlin.String, kotlin.Throwable)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.UnexpectedFlowEndException$<init>(kotlin.String, kotlin.Throwable)/cause">cause</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">?</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">UnexpectedFlowEndException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.UnexpectedFlowEndException$<init>(kotlin.String)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code>
+<p>Thrown when a flow session ends unexpectedly due to a type mismatch (the other side sent an object of a type
+that we were not expecting), or the other side had an internal error, or the other side terminated when we
+were waiting for a response.</p>
+<code><span class="identifier">UnexpectedFlowEndException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.UnexpectedFlowEndException$<init>(kotlin.String, kotlin.Throwable, kotlin.Long)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.UnexpectedFlowEndException$<init>(kotlin.String, kotlin.Throwable, kotlin.Long)/cause">cause</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.UnexpectedFlowEndException$<init>(kotlin.String, kotlin.Throwable, kotlin.Long)/originalErrorId">originalErrorId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="original-error-id.html">originalErrorId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">originalErrorId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-error-id.html">getErrorId</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getErrorId</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

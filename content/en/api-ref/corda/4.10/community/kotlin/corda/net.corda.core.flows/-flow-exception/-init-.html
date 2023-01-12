@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowException.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowException</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.flows.FlowException$&lt;init&gt;(kotlin.String, kotlin.Throwable)"></a>
+<code><span class="identifier">FlowException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowException$<init>(kotlin.String, kotlin.Throwable)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowException$<init>(kotlin.String, kotlin.Throwable)/cause">cause</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">?</span><span class="symbol">)</span></code><br/>
+<a name="net.corda.core.flows.FlowException$&lt;init&gt;(kotlin.String)"></a>
+<code><span class="identifier">FlowException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowException$<init>(kotlin.String)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span></code><br/>
+<a name="net.corda.core.flows.FlowException$&lt;init&gt;(kotlin.Throwable)"></a>
+<code><span class="identifier">FlowException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowException$<init>(kotlin.Throwable)/cause">cause</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">?</span><span class="symbol">)</span></code><br/>
+<a name="net.corda.core.flows.FlowException$&lt;init&gt;()"></a>
+<code><span class="identifier">FlowException</span><span class="symbol">(</span><span class="symbol">)</span></code><a name="net.corda.core.flows.FlowException$&lt;init&gt;(kotlin.String, kotlin.Throwable, kotlin.Long)"></a>
+<code><span class="identifier">FlowException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowException$<init>(kotlin.String, kotlin.Throwable, kotlin.Long)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowException$<init>(kotlin.String, kotlin.Throwable, kotlin.Long)/cause">cause</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowException$<init>(kotlin.String, kotlin.Throwable, kotlin.Long)/originalErrorId">originalErrorId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span></code>
+<p>Exception which can be thrown by a <a href="../-flow-logic/index.html">FlowLogic</a> at any point in its logic to unexpectedly bring it to a permanent end.
+The exception will propagate to all counterparty flows and will be thrown on their end the next time they wait on a
+<a href="../-flow-session/receive.html">FlowSession.receive</a> or <a href="../-flow-session/send-and-receive.html">FlowSession.sendAndReceive</a>. Any flow which no longer needs to do a receive, or has already
+ended, will not receive the exception (if this is required then have them wait for a confirmation message).</p>
+<p>If the <em>rethrown</em> <a href="index.html">FlowException</a> is uncaught in counterparty flows and propagation triggers then the exception is
+downgraded to an <a href="../-unexpected-flow-end-exception/index.html">UnexpectedFlowEndException</a>. This means only immediate counterparty flows will receive information
+about what the exception was.</p>
+<p><a href="index.html">FlowException</a> (or a subclass) can be a valid expected response from a flow, particularly ones which act as a service.
+It is recommended a <a href="../-flow-logic/index.html">FlowLogic</a> document the <a href="index.html">FlowException</a> types it can throw.</p>
+</BODY>
+</HTML>

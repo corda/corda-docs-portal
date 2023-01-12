@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowSession.getCounterpartyFlowInfo - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowSession</a>&nbsp;/&nbsp;<a href="./get-counterparty-flow-info.html">getCounterpartyFlowInfo</a><br/>
+<br/>
+<h1>getCounterpartyFlowInfo</h1>
+<a name="net.corda.core.flows.FlowSession$getCounterpartyFlowInfo(kotlin.Boolean)"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getCounterpartyFlowInfo</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowSession$getCounterpartyFlowInfo(kotlin.Boolean)/maySkipCheckpoint">maySkipCheckpoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-flow-info/index.html"><span class="identifier">FlowInfo</span></a></code>
+<p>Returns a <a href="../-flow-info/index.html">FlowInfo</a> object describing the flow <a href="counterparty.html">counterparty</a> is using. With <a href="../-flow-info/flow-version.html">FlowInfo.flowVersion</a> it
+provides the necessary information needed for the evolution of flows and enabling backwards compatibility.</p>
+<p>This method can be called before any send or receive has been done with <a href="counterparty.html">counterparty</a>. In such a case this will
+force them to start their flow.</p>
+<h3>Parameters</h3>
+<p><a name="maySkipCheckpoint"></a>
+<code>maySkipCheckpoint</code> - setting it to true indicates to the platform that it may optimise away the checkpoint.</p>
+<a name="net.corda.core.flows.FlowSession$getCounterpartyFlowInfo()"></a>
+<code><span class="identifier">@Suspendable</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getCounterpartyFlowInfo</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-flow-info/index.html"><span class="identifier">FlowInfo</span></a></code>
+<p>Returns a <a href="../-flow-info/index.html">FlowInfo</a> object describing the flow <a href="counterparty.html">counterparty</a> is using. With <a href="../-flow-info/flow-version.html">FlowInfo.flowVersion</a> it
+provides the necessary information needed for the evolution of flows and enabling backwards compatibility.</p>
+<p>This method can be called before any send or receive has been done with <a href="counterparty.html">counterparty</a>. In such a case this will
+force them to start their flow.</p>
+</BODY>
+</HTML>

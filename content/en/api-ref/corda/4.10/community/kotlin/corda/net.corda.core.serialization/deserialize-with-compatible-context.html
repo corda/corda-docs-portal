@@ -1,0 +1,16 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>deserializeWithCompatibleContext - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="index.html">net.corda.core.serialization</a>&nbsp;/&nbsp;<a href="./deserialize-with-compatible-context.html">deserializeWithCompatibleContext</a><br/>
+<br/>
+<h1>deserializeWithCompatibleContext</h1>
+<a name="net.corda.core.serialization$deserializeWithCompatibleContext(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="keyword">reified</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../net.corda.core.utilities/-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a><span class="symbol">.</span><span class="identifier">deserializeWithCompatibleContext</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization$deserializeWithCompatibleContext(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/serializationFactory">serializationFactory</span><span class="symbol">:</span>&nbsp;<a href="-serialization-factory/index.html"><span class="identifier">SerializationFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SerializationFactory.defaultFactory<span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization$deserializeWithCompatibleContext(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="-serialization-context/index.html"><span class="identifier">SerializationContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;serializationFactory.defaultContext<span class="symbol">)</span><span class="symbol">: </span><a href="-object-with-compatible-context/index.html"><span class="identifier">ObjectWithCompatibleContext</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Additionally returns <a href="-serialization-context/index.html">SerializationContext</a> which was used for encoding.
+It might be helpful to know <a href="-serialization-context/index.html">SerializationContext</a> to use the same encoding in the reply.</p>
+</BODY>
+</HTML>

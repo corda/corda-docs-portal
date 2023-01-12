@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowSession.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="index.html">FlowSession</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.core.flows.FlowSession$&lt;init&gt;()"></a>
+<code><span class="identifier">FlowSession</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>A <a href="index.html">FlowSession</a> is a handle on a communication sequence between two paired flows, possibly running on separate nodes.
+It is used to send and receive messages between the flows as well as to query information about the counter-flow.</p>
+<p>There are two ways of obtaining such a session:</p>
+<ol><li>Calling <a href="../-flow-logic/initiate-flow.html">FlowLogic.initiateFlow</a>. This will create a <a href="index.html">FlowSession</a> object on which the first send/receive
+operation will attempt to kick off a corresponding <a href="../-initiated-by/index.html">InitiatedBy</a> flow on the counterparty's node.</li>
+<li>As constructor parameter to <a href="../-initiated-by/index.html">InitiatedBy</a> flows. This session is the one corresponding to the initiating flow and
+may be used for replies.</li>
+</ol>
+<p>To port flows using the old Party-based API:</p>
+<p>Look for <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/index.html">Deprecated</a> usages of send/receive/sendAndReceive/getFlowInfo.</p>
+<p>If it's an InitiatingFlow:</p>
+<p>Look for the send/receive that kicks off the counter flow. Insert a</p>
+<pre><code>    val session = initiateFlow(party)</code></pre>
+<p>and use this session afterwards for send/receives.
+For example:
+    send(party, something)
+will become
+    session.send(something)</p>
+<p>If it's an InitiatedBy flow:</p>
+<p>Change the constructor to take an otherSideSession: FlowSession instead of a counterparty: Party
+Then look for usages of the deprecated functions and change them to use the FlowSession
+For example:
+    send(counterparty, something)
+will become
+    otherSideSession.send(something)</p>
+</BODY>
+</HTML>

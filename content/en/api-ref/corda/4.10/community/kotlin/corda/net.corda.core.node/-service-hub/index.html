@@ -1,0 +1,308 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ServiceHub - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node</a>&nbsp;/&nbsp;<a href="./index.html">ServiceHub</a><br/>
+<br/>
+<h1>ServiceHub</h1>
+<code><span class="keyword">interface </span><span class="identifier">ServiceHub</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-services-for-resolution/index.html"><span class="identifier">ServicesForResolution</span></a></code>
+<p>A service hub is the starting point for most operations you can do inside the node. You are provided with one
+when a class annotated with <a href="../../net.corda.core.node.services/-corda-service/index.html">CordaService</a> is constructed, and you have access to one inside flows. Most RPCs
+simply forward to the services found here after some access checking.</p>
+<p>The APIs are organised roughly by category, with a few very important top level APIs available on the ServiceHub
+itself. Inside a flow, it's safe to keep a reference to services found here on the stack: checkpointing will do the
+right thing (it won't try to serialise the internals of the service).</p>
+<p>In unit test environments, some of those services may be missing or mocked out.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="clock.html">clock</a></h4>
+</td>
+<td>
+<p>A <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Clock.html">Clock</a> representing the node's current time. This should be used in preference to directly accessing the
+clock so the current time can be controlled during unit testing.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">clock</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Clock.html"><span class="identifier">Clock</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="contract-upgrade-service.html">contractUpgradeService</a></h4>
+</td>
+<td>
+<p>The <a href="../../net.corda.core.node.services/-contract-upgrade-service/index.html">ContractUpgradeService</a> is responsible for securely upgrading contract state objects according to
+a specified and mutually agreed (amongst participants) contract version.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">contractUpgradeService</span><span class="symbol">: </span><a href="../../net.corda.core.node.services/-contract-upgrade-service/index.html"><span class="identifier">ContractUpgradeService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="diagnostics-service.html">diagnosticsService</a></h4>
+</td>
+<td>
+<p>The <a href="../../net.corda.core.node.services.diagnostics/-diagnostics-service/index.html">DiagnosticsService</a> provides diagnostic level information about the node, including the current version of the node, and the
+CorDapps currently installed on the node. Note that this information should be used to provide diagnostics only, and no functional
+decisions should be made based on this.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">diagnosticsService</span><span class="symbol">: </span><a href="../../net.corda.core.node.services.diagnostics/-diagnostics-service/index.html"><span class="identifier">DiagnosticsService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="key-management-service.html">keyManagementService</a></h4>
+</td>
+<td>
+<p>The key management service is responsible for storing and using private keys to sign things. An
+implementation of this may, for example, call out to a hardware security module that enforces various
+auditing and frequency-of-use requirements.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">keyManagementService</span><span class="symbol">: </span><a href="../../net.corda.core.node.services/-key-management-service/index.html"><span class="identifier">KeyManagementService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="my-info.html">myInfo</a></h4>
+</td>
+<td>
+<p>The <a href="../-node-info/index.html">NodeInfo</a> object corresponding to our own entry in the network map.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">myInfo</span><span class="symbol">: </span><a href="../-node-info/index.html"><span class="identifier">NodeInfo</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-map-cache.html">networkMapCache</a></h4>
+</td>
+<td>
+<p>A network map contains lists of nodes on the network along with information about their identity keys, services
+they provide and host names or IP addresses where they can be connected to. The cache wraps around a map fetched
+from an authoritative service, and adds easy lookup of the data stored within it. Generally it would be initialised
+with a specified network map service, which it fetches data from and then subscribes to updates of.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">networkMapCache</span><span class="symbol">: </span><a href="../../net.corda.core.node.services/-network-map-cache/index.html"><span class="identifier">NetworkMapCache</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="telemetry-service.html">telemetryService</a></h4>
+</td>
+<td>
+<p>Provides operations to support telemetry and telemetry data between nodes.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">telemetryService</span><span class="symbol">: </span><a href="../../net.corda.core.node.services/-telemetry-service/index.html"><span class="identifier">TelemetryService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="validated-transactions.html">validatedTransactions</a></h4>
+</td>
+<td>
+<p>A map of hash-&gt;tx where tx has been signature/contract validated and the states are known to be correct.
+The signatures aren't technically needed after that point, but we keep them around so that we can relay
+the transaction data to other nodes that need it.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">validatedTransactions</span><span class="symbol">: </span><a href="../../net.corda.core.node.services/-transaction-storage/index.html"><span class="identifier">TransactionStorage</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="vault-service.html">vaultService</a></h4>
+</td>
+<td>
+<p>The vault service lets you observe, soft lock and add notes to states that involve you or are relevant to your
+node in some way. Additionally you may query and track states that correspond to various criteria.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">vaultService</span><span class="symbol">: </span><a href="../../net.corda.core.node.services/-vault-service/index.html"><span class="identifier">VaultService</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="add-signature.html">addSignature</a></h4>
+</td>
+<td>
+<p>Helper method to append an additional signature to an existing (partially) <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addSignature</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$addSignature(net.corda.core.transactions.SignedTransaction, java.security.PublicKey)/signedTransaction">signedTransaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.ServiceHub$addSignature(net.corda.core.transactions.SignedTransaction, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Helper method to append an additional signature for an existing (partially) <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>
+using the default identity signing key of the node.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addSignature</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$addSignature(net.corda.core.transactions.SignedTransaction)/signedTransaction">signedTransaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="corda-service.html">cordaService</a></h4>
+</td>
+<td>
+<p>Return the singleton instance of the given Corda service type. This is a class that is annotated with
+<a href="../../net.corda.core.node.services/-corda-service/index.html">CordaService</a> and will have automatically been registered by the node.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialize-as-token/index.html"><span class="identifier">SerializeAsToken</span></a><span class="symbol">&gt;</span> <span class="identifier">cordaService</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$cordaService(java.lang.Class((net.corda.core.node.ServiceHub.cordaService.T)))/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="corda-telemetry-component.html">cordaTelemetryComponent</a></h4>
+</td>
+<td>
+<p>Return the singleton instance of the given Corda telemetry component type. This is a class that implements TelemetryComponent
+and will have automatically been registered by the node.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TelemetryComponent</span><span class="symbol">&gt;</span> <span class="identifier">cordaTelemetryComponent</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$cordaTelemetryComponent(java.lang.Class((net.corda.core.node.ServiceHub.cordaTelemetryComponent.T)))/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="create-signature.html">createSignature</a></h4>
+</td>
+<td>
+<p>Helper method to create an additional signature for an existing (partially) <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>. Additional
+<a href="../../net.corda.core.crypto/-signature-metadata/index.html">SignatureMetadata</a>, including the
+platform version used during signing and the cryptographic signature scheme use, is added to the signature.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">createSignature</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$createSignature(net.corda.core.transactions.SignedTransaction, java.security.PublicKey)/signedTransaction">signedTransaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.ServiceHub$createSignature(net.corda.core.transactions.SignedTransaction, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a></code>
+<p>Helper method to create a signature for an existing (partially) <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>
+using the default identity signing key of the node. The legal identity key is used to sign. Additional
+<a href="../../net.corda.core.crypto/-signature-metadata/index.html">SignatureMetadata</a>, including the
+platform version used during signing and the cryptographic signature scheme use, is added to the signature.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">createSignature</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$createSignature(net.corda.core.transactions.SignedTransaction)/signedTransaction">signedTransaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a></code>
+<p>Helper method to create a signature for a FilteredTransaction. Additional <a href="../../net.corda.core.crypto/-signature-metadata/index.html">SignatureMetadata</a>, including the
+platform version used during signing and the cryptographic signature scheme use, is added to the signature.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">createSignature</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$createSignature(net.corda.core.transactions.FilteredTransaction, java.security.PublicKey)/filteredTransaction">filteredTransaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-filtered-transaction/index.html"><span class="identifier">FilteredTransaction</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.ServiceHub$createSignature(net.corda.core.transactions.FilteredTransaction, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a></code>
+<p>Helper method to create a signature for a FilteredTransaction
+using the default identity signing key of the node. The legal identity key is used to sign. Additional
+<a href="../../net.corda.core.crypto/-signature-metadata/index.html">SignatureMetadata</a>, including the platform version used during signing and the cryptographic signature scheme use,
+is added to the signature.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">createSignature</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$createSignature(net.corda.core.transactions.FilteredTransaction)/filteredTransaction">filteredTransaction</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-filtered-transaction/index.html"><span class="identifier">FilteredTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-app-context.html">getAppContext</a></h4>
+</td>
+<td>
+<p>See <a href="../../net.corda.core.cordapp/-cordapp-provider/get-app-context.html">CordappProvider.getAppContext</a></p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getAppContext</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.cordapp/-cordapp-context/index.html"><span class="identifier">CordappContext</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="jdbc-session.html">jdbcSession</a></h4>
+</td>
+<td>
+<p>Exposes a JDBC connection (session) object using the currently configured database.
+Applications can use this to execute arbitrary SQL queries (native, direct, prepared, callable)
+against its Node database tables (including custom contract tables defined by extending
+<a href="../../net.corda.core.schemas/-queryable-state/index.html">net.corda.core.schemas.QueryableState</a>).</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">jdbcSession</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/Connection.html"><span class="identifier">Connection</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="record-transactions.html">recordTransactions</a></h4>
+</td>
+<td>
+<p>Stores the given <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>s in the local transaction storage and then sends them to the vault for
+further processing if <a href="record-transactions.html#net.corda.core.node.ServiceHub$recordTransactions(kotlin.Boolean, kotlin.collections.Iterable((net.corda.core.transactions.SignedTransaction)))/notifyVault">notifyVault</a> is true. This is expected to be run within a database transaction.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">recordTransactions</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$recordTransactions(kotlin.Boolean, kotlin.collections.Iterable((net.corda.core.transactions.SignedTransaction)))/notifyVault">notifyVault</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.ServiceHub$recordTransactions(kotlin.Boolean, kotlin.collections.Iterable((net.corda.core.transactions.SignedTransaction)))/txs">txs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">recordTransactions</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$recordTransactions(kotlin.Boolean, net.corda.core.transactions.SignedTransaction, kotlin.Array((net.corda.core.transactions.SignedTransaction)))/notifyVault">notifyVault</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.ServiceHub$recordTransactions(kotlin.Boolean, net.corda.core.transactions.SignedTransaction, kotlin.Array((net.corda.core.transactions.SignedTransaction)))/first">first</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.core.node.ServiceHub$recordTransactions(kotlin.Boolean, net.corda.core.transactions.SignedTransaction, kotlin.Array((net.corda.core.transactions.SignedTransaction)))/remaining">remaining</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stores the given <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>s in the local transaction storage and then sends them to the vault for
+further processing if <a href="record-transactions.html#net.corda.core.node.ServiceHub$recordTransactions(net.corda.core.node.StatesToRecord, kotlin.collections.Iterable((net.corda.core.transactions.SignedTransaction)))/statesToRecord">statesToRecord</a> is not <a href="../-states-to-record/-n-o-n-e.html">StatesToRecord.NONE</a>.
+This is expected to be run within a database transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">recordTransactions</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$recordTransactions(net.corda.core.node.StatesToRecord, kotlin.collections.Iterable((net.corda.core.transactions.SignedTransaction)))/statesToRecord">statesToRecord</span><span class="symbol">:</span>&nbsp;<a href="../-states-to-record/index.html"><span class="identifier">StatesToRecord</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.ServiceHub$recordTransactions(net.corda.core.node.StatesToRecord, kotlin.collections.Iterable((net.corda.core.transactions.SignedTransaction)))/txs">txs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stores the given <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>s in the local transaction storage and then sends them to the vault for
+further processing. This is expected to be run within a database transaction.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">recordTransactions</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$recordTransactions(net.corda.core.transactions.SignedTransaction, kotlin.Array((net.corda.core.transactions.SignedTransaction)))/first">first</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.core.node.ServiceHub$recordTransactions(net.corda.core.transactions.SignedTransaction, kotlin.Array((net.corda.core.transactions.SignedTransaction)))/remaining">remaining</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">recordTransactions</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$recordTransactions(kotlin.collections.Iterable((net.corda.core.transactions.SignedTransaction)))/txs">txs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="register-unload-handler.html">registerUnloadHandler</a></h4>
+</td>
+<td>
+<p>Allows the registration of a callback that may inform services when the app is shutting down.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">registerUnloadHandler</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$registerUnloadHandler(kotlin.Function0((kotlin.Unit)))/runOnStop">runOnStop</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sign-initial-transaction.html">signInitialTransaction</a></h4>
+</td>
+<td>
+<p>Helper method to construct an initial partially signed transaction from a <a href="../../net.corda.core.transactions/-transaction-builder/index.html">TransactionBuilder</a>
+using keys stored inside the node. Signature metadata is added automatically.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">signInitialTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder, java.security.PublicKey)/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-transaction-builder/index.html"><span class="identifier">TransactionBuilder</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder, java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Helper method to construct an initial partially signed transaction from a TransactionBuilder
+using the default identity key contained in the node. The legal identity key is used to sign.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">signInitialTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder)/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-transaction-builder/index.html"><span class="identifier">TransactionBuilder</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code>
+<p>Helper method to construct an initial partially signed transaction from a <a href="../../net.corda.core.transactions/-transaction-builder/index.html">TransactionBuilder</a>
+using a set of keys all held in this node.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">signInitialTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder, kotlin.collections.Iterable((java.security.PublicKey)))/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.transactions/-transaction-builder/index.html"><span class="identifier">TransactionBuilder</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.ServiceHub$signInitialTransaction(net.corda.core.transactions.TransactionBuilder, kotlin.collections.Iterable((java.security.PublicKey)))/signingPubKeys">signingPubKeys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-state-and-ref.html">toStateAndRef</a></h4>
+</td>
+<td>
+<p>Converts the given <a href="../../net.corda.core.contracts/-state-ref/index.html">StateRef</a> into a <a href="../../net.corda.core.contracts/-state-and-ref/index.html">StateAndRef</a> object.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span> <span class="identifier">toStateAndRef</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$toStateAndRef(net.corda.core.contracts.StateRef)/stateRef">stateRef</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="with-entity-manager.html">withEntityManager</a></h4>
+</td>
+<td>
+<p>Exposes the Java Persistence API (JPA) to flows via a restricted <a href="#">EntityManager</a>. This method can be used to
+persist and query entities which inherit from <a href="#">MappedSchema</a>. This is particularly useful if off-ledger data
+needs to be kept in conjunction with on-ledger state data.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">withEntityManager</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$withEntityManager(kotlin.Function1((javax.persistence.EntityManager, net.corda.core.node.ServiceHub.withEntityManager.T)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="identifier">EntityManager</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code><br/>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">withEntityManager</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.ServiceHub$withEntityManager(java.util.function.Consumer((javax.persistence.EntityManager)))/block">block</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html"><span class="identifier">Consumer</span></a><span class="symbol">&lt;</span><span class="identifier">EntityManager</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.finance.workflows/get-cash-balance.html">getCashBalance</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">.</span><span class="identifier">getCashBalance</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows$getCashBalance(net.corda.core.node.ServiceHub, java.util.Currency)/currency">currency</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.finance.workflows/get-cash-balances.html">getCashBalances</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">.</span><span class="identifier">getCashBalances</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.testing.node/ledger.html">ledger</a></h4>
+</td>
+<td>
+<p>Creates and tests a ledger built by the passed in dsl.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">.</span><span class="identifier">ledger</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node$ledger(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.LedgerDSL((net.corda.testing.dsl.TestTransactionDSLInterpreter, net.corda.testing.dsl.TestLedgerDSLInterpreter)), kotlin.Unit)))/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a>&nbsp;<span class="symbol">=</span>&nbsp;TestIdentity.fresh("ledger notary").party<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node$ledger(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.LedgerDSL((net.corda.testing.dsl.TestTransactionDSLInterpreter, net.corda.testing.dsl.TestLedgerDSLInterpreter)), kotlin.Unit)))/script">script</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.testing.dsl/-ledger-d-s-l/index.html"><span class="identifier">LedgerDSL</span></a><span class="symbol">&lt;</span><a href="../../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html"><span class="identifier">TestTransactionDSLInterpreter</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html"><span class="identifier">TestLedgerDSLInterpreter</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.testing.dsl/-ledger-d-s-l/index.html"><span class="identifier">LedgerDSL</span></a><span class="symbol">&lt;</span><a href="../../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html"><span class="identifier">TestTransactionDSLInterpreter</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html"><span class="identifier">TestLedgerDSLInterpreter</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.testing.node/transaction.html">transaction</a></h4>
+</td>
+<td>
+<p>Creates a ledger with a single transaction, built by the passed in dsl.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">ServiceHub</span></a><span class="symbol">.</span><span class="identifier">transaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node$transaction(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.TransactionDSL((net.corda.testing.dsl.TransactionDSLInterpreter)), net.corda.testing.dsl.EnforceVerifyOrFail)))/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a>&nbsp;<span class="symbol">=</span>&nbsp;TestIdentity.fresh("transaction notary").party<span class="symbol">, </span><span class="identifier" id="net.corda.testing.node$transaction(net.corda.core.node.ServiceHub, net.corda.core.identity.Party, kotlin.Function1((net.corda.testing.dsl.TransactionDSL((net.corda.testing.dsl.TransactionDSLInterpreter)), net.corda.testing.dsl.EnforceVerifyOrFail)))/script">script</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.testing.dsl/-transaction-d-s-l/index.html"><span class="identifier">TransactionDSL</span></a><span class="symbol">&lt;</span><a href="../../net.corda.testing.dsl/-transaction-d-s-l-interpreter/index.html"><span class="identifier">TransactionDSLInterpreter</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="../../net.corda.testing.dsl/-enforce-verify-or-fail.html"><span class="identifier">EnforceVerifyOrFail</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.testing.dsl/-ledger-d-s-l/index.html"><span class="identifier">LedgerDSL</span></a><span class="symbol">&lt;</span><a href="../../net.corda.testing.dsl/-test-transaction-d-s-l-interpreter/index.html"><span class="identifier">TestTransactionDSLInterpreter</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.testing.dsl/-test-ledger-d-s-l-interpreter/index.html"><span class="identifier">TestLedgerDSLInterpreter</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-app-service-hub/index.html">AppServiceHub</a></h4>
+</td>
+<td>
+<p>A <a href="../../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> annotated class requires a constructor taking a
+single parameter of type <a href="../-app-service-hub/index.html">AppServiceHub</a>.
+With the <a href="../-app-service-hub/index.html">AppServiceHub</a> parameter a <a href="../../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> is able to access to privileged operations.
+In particular such a <a href="../../net.corda.core.node.services/-corda-service/index.html">net.corda.core.node.services.CordaService</a> can initiate and track flows marked
+with <a href="../../net.corda.core.flows/-startable-by-service/index.html">net.corda.core.flows.StartableByService</a>.</p>
+<code><span class="keyword">interface </span><span class="identifier">AppServiceHub</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">ServiceHub</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.testing.node/-mock-services/index.html">MockServices</a></h4>
+</td>
+<td>
+<p>An implementation of <a href="./index.html">ServiceHub</a> that is designed for in-memory unit tests of contract validation logic. It has
+enough functionality to do tests of code that queries the vault, inserts to the vault, and constructs/checks
+transactions. However it isn't enough to test flows and other aspects of an app that require a network. For that
+you should investigate <a href="../../net.corda.testing.node/-mock-network/index.html">MockNetwork</a>.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">MockServices</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">ServiceHub</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

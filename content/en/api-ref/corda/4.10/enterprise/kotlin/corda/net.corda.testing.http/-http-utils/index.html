@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>HttpUtils - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.http</a>&nbsp;/&nbsp;<a href="./index.html">HttpUtils</a><br/>
+<br/>
+<h1>HttpUtils</h1>
+<code><span class="keyword">object </span><span class="identifier">HttpUtils</span></code>
+<p>A small set of utilities for making HttpCalls, aimed at demos and tests.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="default-mapper.html">defaultMapper</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">defaultMapper</span><span class="symbol">: </span><span class="identifier">ObjectMapper</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-json.html">getJson</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">getJson</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.http.HttpUtils$getJson(java.net.URL, kotlin.collections.Map((kotlin.String, )), com.fasterxml.jackson.databind.ObjectMapper)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/net/URL.html"><span class="identifier">URL</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.http.HttpUtils$getJson(java.net.URL, kotlin.collections.Map((kotlin.String, )), com.fasterxml.jackson.databind.ObjectMapper)/params">params</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;mapOf()<span class="symbol">, </span><span class="identifier" id="net.corda.testing.http.HttpUtils$getJson(java.net.URL, kotlin.collections.Map((kotlin.String, )), com.fasterxml.jackson.databind.ObjectMapper)/mapper">mapper</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObjectMapper</span>&nbsp;<span class="symbol">=</span>&nbsp;defaultMapper<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="post-json.html">postJson</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">postJson</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.http.HttpUtils$postJson(java.net.URL, kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/net/URL.html"><span class="identifier">URL</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.http.HttpUtils$postJson(java.net.URL, kotlin.String)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="post-plain.html">postPlain</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">postPlain</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.http.HttpUtils$postPlain(java.net.URL, kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/net/URL.html"><span class="identifier">URL</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.http.HttpUtils$postPlain(java.net.URL, kotlin.String)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="put-json.html">putJson</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putJson</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.http.HttpUtils$putJson(java.net.URL, kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/net/URL.html"><span class="identifier">URL</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.http.HttpUtils$putJson(java.net.URL, kotlin.String)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

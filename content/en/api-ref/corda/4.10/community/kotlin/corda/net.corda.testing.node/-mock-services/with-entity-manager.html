@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MockServices.withEntityManager - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="index.html">MockServices</a>&nbsp;/&nbsp;<a href="./with-entity-manager.html">withEntityManager</a><br/>
+<br/>
+<h1>withEntityManager</h1>
+<a name="net.corda.testing.node.MockServices$withEntityManager(kotlin.Function1((javax.persistence.EntityManager, net.corda.testing.node.MockServices.withEntityManager.T)))"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">withEntityManager</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockServices$withEntityManager(kotlin.Function1((javax.persistence.EntityManager, net.corda.testing.node.MockServices.withEntityManager.T)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="identifier">EntityManager</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code><br/>
+<a name="net.corda.testing.node.MockServices$withEntityManager(java.util.function.Consumer((javax.persistence.EntityManager)))"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">withEntityManager</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.MockServices$withEntityManager(java.util.function.Consumer((javax.persistence.EntityManager)))/block">block</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html"><span class="identifier">Consumer</span></a><span class="symbol">&lt;</span><span class="identifier">EntityManager</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Exposes the Java Persistence API (JPA) to flows via a restricted <a href="#">EntityManager</a>. This method can be used to
+persist and query entities which inherit from <a href="#">MappedSchema</a>. This is particularly useful if off-ledger data
+needs to be kept in conjunction with on-ledger state data.</p>
+<p>NOTE: Suspendable flow operations such as send, receive, subFlow and sleep, cannot be called within the lambda.</p>
+<h3>Parameters</h3>
+<p><a name="block"></a>
+<code>block</code> - 
+<p>a lambda function with access to an <a href="#">EntityManager</a>.</p>
+
+
+<p>We want to make sure users have a restricted access to administrative functions.
+The following methods are blocked:</p>
+
+<ul><li>close()</li>
+<li>unwrap(cls: Class?)</li>
+<li>getDelegate(): Any</li>
+<li>getMetamodel()</li>
+<li>joinTransaction()</li>
+<li>lock(entity: Any?, lockMode: LockModeType?)</li>
+<li>lock(entity: Any?, lockMode: LockModeType?, properties: MutableMap&lt;String, Any&gt;?)</li>
+<li>setProperty(propertyName: String?, value: Any?)</li>
+</ul>
+
+
+<p>getTransaction returns a <a href="#">RestrictedEntityTransaction</a> to prevent unsafe manipulation of a flow's underlying
+database transaction.
+The following methods are blocked:</p>
+
+<ul><li>begin()</li>
+<li>commit()</li>
+<li>rollback()</li>
+</ul>
+</p>
+</BODY>
+</HTML>

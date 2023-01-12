@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OpaqueBytesSubSequence - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.utilities</a>&nbsp;/&nbsp;<a href="./index.html">OpaqueBytesSubSequence</a><br/>
+<br/>
+<h1>OpaqueBytesSubSequence</h1>
+<code><span class="keyword">class </span><span class="identifier">OpaqueBytesSubSequence</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a></code>
+<p>Class is public for serialization purposes.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Class is public for serialization purposes.</p>
+<code><span class="identifier">OpaqueBytesSubSequence</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities.OpaqueBytesSubSequence$<init>(kotlin.ByteArray, kotlin.Int, kotlin.Int)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.utilities.OpaqueBytesSubSequence$<init>(kotlin.ByteArray, kotlin.Int, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.utilities.OpaqueBytesSubSequence$<init>(kotlin.ByteArray, kotlin.Int, kotlin.Int)/size">size</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="bytes.html">bytes</a></h4>
+</td>
+<td>
+<p>The underlying bytes.  Some implementations may choose to make a copy of the underlying <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> for
+security reasons.  For example, <a href="../-opaque-bytes/index.html">OpaqueBytes</a>.</p>
+<code><span class="keyword">val </span><span class="identifier">bytes</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.serialization/deserialize.html">deserialize</a></h4>
+</td>
+<td>
+<p>Convenience extension method for deserializing a ByteSequence, utilising the defaults.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a><span class="symbol">.</span><span class="identifier">deserialize</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization$deserialize(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/serializationFactory">serializationFactory</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialization-factory/index.html"><span class="identifier">SerializationFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SerializationFactory.defaultFactory<span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization$deserialize(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialization-context/index.html"><span class="identifier">SerializationContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;serializationFactory.defaultContext<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.serialization/deserialize-with-compatible-context.html">deserializeWithCompatibleContext</a></h4>
+</td>
+<td>
+<p>Additionally returns <a href="../../net.corda.core.serialization/-serialization-context/index.html">SerializationContext</a> which was used for encoding.
+It might be helpful to know <a href="../../net.corda.core.serialization/-serialization-context/index.html">SerializationContext</a> to use the same encoding in the reply.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a><span class="symbol">.</span><span class="identifier">deserializeWithCompatibleContext</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization$deserializeWithCompatibleContext(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/serializationFactory">serializationFactory</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialization-factory/index.html"><span class="identifier">SerializationFactory</span></a>&nbsp;<span class="symbol">=</span>&nbsp;SerializationFactory.defaultFactory<span class="symbol">, </span><span class="identifier" id="net.corda.core.serialization$deserializeWithCompatibleContext(net.corda.core.utilities.ByteSequence, net.corda.core.serialization.SerializationFactory, net.corda.core.serialization.SerializationContext)/context">context</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.serialization/-serialization-context/index.html"><span class="identifier">SerializationContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;serializationFactory.defaultContext<span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.serialization/-object-with-compatible-context/index.html"><span class="identifier">ObjectWithCompatibleContext</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
