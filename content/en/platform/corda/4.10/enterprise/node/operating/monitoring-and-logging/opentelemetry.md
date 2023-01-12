@@ -53,7 +53,7 @@ This method of linking the SDK with the Corda node enables OpenTelemetry automat
 
 Corda has been tested with the OpenTelemetry collector and a Jaeger backend. Refer to the [OpenTelemetry](https://opentelemetry.io/docs/collector/) and [Jaeger](https://www.jaegertracing.io/) websites for details on how to setup a collector and Jaeger backend.
 
-Corda OpenTelemetry can also be enabled or disabled via a node configuration parameter, such as `telementry.openTelemetryEnabled = true`.
+Corda OpenTelemetry can also be enabled or disabled via a node configuration parameter, such as `telemetry.openTelemetryEnabled = true`.
 
 If this setting is true and the OpenTelemetry SDK has been linked to Corda as described above, the node will generate spans. If this setting is false, the node will not generate spans, even if the node is linked with the SDK.
 
@@ -99,7 +99,7 @@ Once you have the OpenTelemetry handle, you can call the OpenTelemetry API.
 ### Baggage 
 
 When creating your own spans, you can also create your own baggage. If you create your own baggage, it will also be sent to other nodes, and you can specify if you want this baggage to be copied to span tags. If you do, all of the spans involved in the transaction for that node will also get a copy of the baggage. This can be enabled with the following parameter:
-`telementry.copyBaggageToTags = true`.
+`telemetry.copyBaggageToTags = true`.
 
 The default value of this setting is `false`.
 
@@ -122,10 +122,10 @@ These start and end span events are only generated for spans that Corda has gene
 {{< /note >}}
 
 Creating these start and end span events will also cause more spans to be sent out to the network, meaning there could be a performance impact on the network. By default, this functionality is disabled, but can be enabled via the following configuration property:
-`telementry. spanStartEndEventsEnabled = true`.
+`telemetry. spanStartEndEventsEnabled = true`.
 
 ## Simple Log Telemetry Component
 
-The Simple log telemetry component is the second type of telemetry supported. Instead of creating spans, this component simply writes log lines which record the trace ID. The trace ID is propagated to flows and other nodes involved in the transaction. By using grep on the trace ID, you can see all of the flows on different nodes involved in the same transaction. This component is enabled via the following configuration flag: `telementry.simpleLogTelemeteryEnabled = true`.
+The Simple log telemetry component is the second type of telemetry supported. Instead of creating spans, this component simply writes log lines which record the trace ID. The trace ID is propagated to flows and other nodes involved in the transaction. By using grep on the trace ID, you can see all of the flows on different nodes involved in the same transaction. This component is enabled via the following configuration flag: `telemetry.simpleLogTelemetryEnabled = true`.
 
 The default value of this flag is `false`. The logger associated with this component is `SimpleLogTelemetryComponent`.
