@@ -3,7 +3,7 @@ date: '2023-01-10'
 menu:
   corda-5-beta:
     identifier: corda-5-beta-rpc-permissions-templates
-    weight: 5000
+    weight: 6000
     parent: corda-5-cli-reference
 section_menu: corda-5-beta
 title: "RPC permission templates"
