@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 
-# Create common RPC permission templates
+## Create common RPC permission templates
 
 Currently, when the C5 Cluster starts there is a single "admin" account auto-created which can do everything. While this account can be used to perform any action, there is room for error if not used carefully. The idea is to create fine-grained roles for specific actions such as:
 
@@ -26,6 +26,7 @@ UserAdminRole- Creates roles, permissions, and controls all associations between
 VNodeCreatorRole- Set all the necessary permissions to create a virtual node, including CPI upload and CPI update. Create this role at cluster bootstrapping time.
 
 CordaDeveloperRole- Users can do the following:
+
 1. VNode reset
 2. Vnode status update
 
@@ -55,21 +56,21 @@ This describes a draft manual QA script that can be executed to independently ve
 The draft of a test plan may look like the following:
 
 1.Make sure UserAdminRole, VNodeCreatorRole and CordaDeveloperRole are either available at cluster bootstap time:
-"GET https://localhost:8888/api/v1/role" or if not (e.g. in case of Combined Worker), they can be created used CLI tools:
+"GET <https://localhost:8888/api/v1/role>" or if not (e.g. in case of Combined Worker), they can be created used CLI tools:
 
-> java -jar corda-cli.jar initial-rbac user-admin -t https://localhost:8888 -u admin -p admin
-> java -jar corda-cli.jar initial-rbac vnode-creator -t https://localhost:8888 -u admin -p admin
-> java -jar corda-cli.jar initial-rbac corda-developer -t https://localhost:8888 -u admin -p admin
+> java -jar corda-cli.jar initial-rbac user-admin -t <https://localhost:8888> -u admin -p admin
+> java -jar corda-cli.jar initial-rbac vnode-creator -t <https://localhost:8888> -u admin -p admin
+> java -jar corda-cli.jar initial-rbac corda-developer -t <https://localhost:8888> -u admin -p admin
 
 2.Use Swagger UI to create user "UserAdmin" and assign "UserAdminRole" to it.
 
 3.Logout as "admin" and login as user "UserAdmin".
-4. Use Swagger UI, as "UserAdmin" to create user "vNodeCreator" and assign the "VNodeCreatorRole" to it. 
+4. Use Swagger UI, as "UserAdmin" to create user "vNodeCreator" and assign the "VNodeCreatorRole" to it.
 5. Use Swagger UI, as "UserAdmin" to create user" CordaDeveloper" and assign the "CordaDeveloperRole" to it.
 6. Build a CPI with some usable flows.
-7. Log on as "vNodeCreator" and upload CPI and create a vNode. 
-8. Create a 'FlowExecutorRole" role for running flows for a vNode using the CLI tool: 
-> java -jar corda-cli.jar initial-rbac flow-executor -t https://localhost:8888 -u UserAdmin -p UserAdmin -v 9B02C806787D
+7. Log on as "vNodeCreator" and upload CPI and create a vNode.
+8. Create a 'FlowExecutorRole" role for running flows for a vNode using the CLI tool:
+> java -jar corda-cli.jar initial-rbac flow-executor -t <https://localhost:8888> -u UserAdmin -p UserAdmin -v 9B02C806787D
 
 {{< note >}}
 This is done using "UserAdmin" and not as all mighty "admin".
