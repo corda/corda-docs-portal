@@ -48,7 +48,7 @@ Currently, Corda checks if a user can execute startFlow RPC operations. No check
 
 These checks should be performed against the RBAC sub-system even before passing start request to FlowWorker.
 
-## RPC Permission Templates: Test Plan Draft
+## RPC Permission Templates
 
 This describes a draft manual QA script that can be executed to independently verify that functionality is working as expected.
 
@@ -83,15 +83,9 @@ After creation role name should be: "FlowExecutorRole-9B02C806787D"
 • Ensure that "UserAdmin" cannot upload CPIs, create vNodes or run flows.
 Ensure that "FlowExecutor" and "vNodeCreator" cannot perform any RBAC operations.
 
-## Create RBAC Operation to Create and Assign Multiple Permissions to a Role
+## Create and Assign Multiple Permissions to a Role
 
 A dedicated HTTP RPC call which permits the following:
 
 * Create multiple permissions
 * Assign them all to the existing roles in a single call
-
-## Allow the vNodeld to Pass when Performing RBAC
-
-The virtualNode attribute is a part of the RBAC permission, however, when performing permission checks, there is no way to pass the vNode identifier into the PermissionValidator.
-
-The virtualNode attribute should be optional as cluster-level permission operations will not have a virtualNode specified.
