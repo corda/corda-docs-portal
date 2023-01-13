@@ -31,7 +31,7 @@ These roles and permissions enable certain common operations. The creation of us
 
 This role should be provisioned at cluster boostrap time and should re-use previously created permissions for other roles.
 
-FlowExecutorRole- Once the vNode is created, a new CLI command will permit creation of such role for a given vNode.
+`FlowExecutorRole` - Once the vNode is created, a new CLI command will permit creation of such role for a given vNode to start new flows and enquire about the status of the running flows.
 
 ## Querying Permissions via HTTP RPC
 
