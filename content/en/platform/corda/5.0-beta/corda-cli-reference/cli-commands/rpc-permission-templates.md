@@ -14,7 +14,7 @@ By default, when a cluster starts there is a single "admin" account auto-created
 
 * A dedicated role which can create users, roles, permissions and drive all the associations between them.
 * A dedicated role with a set of all the necessary permissions to create a virtual node (including CPI upload).
-• A dedicated role which allows flows to run on this vNode.
+* A dedicated role which allows flows to run on this vNode.
 
 {{< note >}}
 These roles and permissions enable certain common operations. Creation of users and associating such users to the roles should be still done manually by an admin user.
