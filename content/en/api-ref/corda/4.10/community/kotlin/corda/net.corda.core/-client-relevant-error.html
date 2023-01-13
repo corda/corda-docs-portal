@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ClientRelevantError - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="index.html">net.corda.core</a>&nbsp;/&nbsp;<a href="./-client-relevant-error.html">ClientRelevantError</a><br/>
+<br/>
+<h1>ClientRelevantError</h1>
+<code><span class="keyword">interface </span><s><span class="identifier">ClientRelevantError</span></s></code><br/>
+<strong>Deprecated:</strong> This is no longer used as the exception obfuscation feature is no longer available.<br/>
+<br/>
+<p>Allows an implementing <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html">Throwable</a> to be propagated to clients.</p>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../net.corda.client.rpc/-permission-exception/index.html">PermissionException</a></h4>
+</td>
+<td>
+<p>Thrown to indicate that the calling user does not have permission for something they have requested (for example
+calling a method).</p>
+<code><span class="keyword">class </span><span class="identifier">PermissionException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-corda-runtime-exception/index.html"><span class="identifier">CordaRuntimeException</span></a><span class="symbol">, </span><span class="identifier">RpcSerializableError</span><span class="symbol">, </span><a href="./-client-relevant-error.html"><span class="identifier">ClientRelevantError</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CashExitFlow - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="./index.html">CashExitFlow</a><br/>
+<br/>
+<h1>CashExitFlow</h1>
+<code><span class="identifier">@InitiatingFlow</span> <span class="identifier">@StartableByRPC</span> <span class="keyword">class </span><span class="identifier">CashExitFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-abstract-cash-flow/index.html"><span class="identifier">AbstractCashFlow</span></a><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span></code>
+<p>Initiates a flow that produces an cash exit transaction.</p>
+<h3>Parameters</h3>
+<p><a name="amount"></a>
+<code>amount</code> - the amount of a currency to remove from the ledger.</p>
+<p><a name="issuerRef"></a>
+<code>issuerRef</code> - the reference on the issued currency. Added to the node's legal identity to determine the
+issuer.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-exit-request/index.html">ExitRequest</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">ExitRequest</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AbstractRequest</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">CashExitFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashExitFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashExitFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes)/issuerRef">issuerRef</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">)</span></code><br/>
+<code><span class="identifier">CashExitFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashExitFlow$<init>(net.corda.finance.flows.CashExitFlow.ExitRequest)/request">request</span><span class="symbol">:</span>&nbsp;<span class="identifier">ExitRequest</span><span class="symbol">)</span></code>
+<p>Initiates a flow that produces an cash exit transaction.</p>
+<code><span class="identifier">CashExitFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashExitFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.utilities.ProgressTracker)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashExitFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.utilities.ProgressTracker)/issuerRef">issuerRef</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashExitFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Result</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="tracker.html">tracker</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">tracker</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.testing.flows/receive-all.html">receiveAll</a></h4>
+</td>
+<td>
+<p>Suspends until a message has been received for each session in the specified <a href="../../net.corda.testing.flows/receive-all.html#net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))/sessions">sessions</a>.</p>
+<code><span class="keyword">fun </span><a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))/session">session</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.flows/-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.flows/-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.flows/-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/receiveType">receiveType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/session">session</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="../../net.corda.core.flows/-flow-logic/index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/session">session</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.flows/-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

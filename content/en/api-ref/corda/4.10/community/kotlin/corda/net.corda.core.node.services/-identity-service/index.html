@@ -1,0 +1,166 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>IdentityService - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="./index.html">IdentityService</a><br/>
+<br/>
+<h1>IdentityService</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">IdentityService</span></code>
+<p>An identity service maintains a directory of parties by their associated distinguished name/public keys and thus
+supports lookup of a party given its key, or name. The service also manages the certificates linking confidential
+identities back to the well known identity.</p>
+<p>Well known identities in Corda are the public identity of a party, registered with the network map directory,
+whereas confidential identities are distributed only on a need to know basis (typically between parties in
+a transaction being built). See <a href="../-network-map-cache/index.html">NetworkMapCache</a> for retrieving well known identities from the network map.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="ca-cert-store.html">caCertStore</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">caCertStore</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/CertStore.html"><span class="identifier">CertStore</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="trust-anchor.html">trustAnchor</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">trustAnchor</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/TrustAnchor.html"><span class="identifier">TrustAnchor</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="trust-root.html">trustRoot</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">trustRoot</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="assert-ownership.html">assertOwnership</a></h4>
+</td>
+<td>
+<p>Asserts that an anonymous party maps to the given full party, by looking up the certificate chain associated with
+the anonymous party and resolving it back to the given full party.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">assertOwnership</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$assertOwnership(net.corda.core.identity.Party, net.corda.core.identity.AnonymousParty)/party">party</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.IdentityService$assertOwnership(net.corda.core.identity.Party, net.corda.core.identity.AnonymousParty)/anonymousParty">anonymousParty</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-anonymous-party/index.html"><span class="identifier">AnonymousParty</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="certificate-from-key.html">certificateFromKey</a></h4>
+</td>
+<td>
+<p>Resolves a public key to the well known identity <a href="../../net.corda.core.identity/-party-and-certificate/index.html">PartyAndCertificate</a> instance which is owned by the key.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">certificateFromKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$certificateFromKey(java.security.PublicKey)/owningKey">owningKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="external-id-for-public-key.html">externalIdForPublicKey</a></h4>
+</td>
+<td>
+<p>This method allows lookups of <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a>s to an associated "external ID" / <a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a>. Providing a <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> that is unknown by the node
+or is not mapped to an external ID will return null. Otherwise, if the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> has been mapped to an external ID, then the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a>
+for that external ID will be returned. The method looks up keys generated by the node as well as keys generated on other nodes and
+registered with the <a href="./index.html">IdentityService</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">externalIdForPublicKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$externalIdForPublicKey(java.security.PublicKey)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-all-identities.html">getAllIdentities</a></h4>
+</td>
+<td>
+<p>Get all identities known to the service. This is expensive, and <a href="party-from-key.html">partyFromKey</a> or <a href="#">partyFromX500Name</a> should be
+used in preference where possible.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getAllIdentities</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="parties-from-name.html">partiesFromName</a></h4>
+</td>
+<td>
+<p>Returns a list of candidate matches for a given string, with optional fuzzy(ish) matching. Fuzzy matching may
+get smarter with time e.g. to correct spelling errors, so you should not hard-code indexes into the results
+but rather show them via a user interface and let the user pick the one they wanted.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">partiesFromName</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$partiesFromName(kotlin.String, kotlin.Boolean)/query">query</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.IdentityService$partiesFromName(kotlin.String, kotlin.Boolean)/exactMatch">exactMatch</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="party-from-key.html">partyFromKey</a></h4>
+</td>
+<td>
+<p>Converts an owning <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> to the X500Name extended <a href="../../net.corda.core.identity/-party/index.html">Party</a> object if the <a href="../../net.corda.core.identity/-party/index.html">Party</a> has been
+previously registered with the <a href="./index.html">IdentityService</a> either as a well known network map identity,
+or as a part of flows creating and exchanging the identity.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">partyFromKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$partyFromKey(java.security.PublicKey)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="public-keys-for-external-id.html">publicKeysForExternalId</a></h4>
+</td>
+<td>
+<p>This method returns all the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a>s which have been mapped to the supplied external ID.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">publicKeysForExternalId</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$publicKeysForExternalId(java.util.UUID)/externalId">externalId</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html"><span class="identifier">Iterable</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="register-key.html">registerKey</a></h4>
+</td>
+<td>
+<p>Registers a mapping in the database between the provided <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> and <a href="../../net.corda.core.identity/-party/index.html">Party</a> if one does not already exist. If an entry
+exists for the supplied <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> but the associated <a href="../../net.corda.core.identity/-party/index.html">Party</a> does not match the one supplied to the method then a warning will be
+logged and the operation will not be carried out as a key can only ever be registered to one <a href="../../net.corda.core.identity/-party/index.html">Party</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">registerKey</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$registerKey(java.security.PublicKey, net.corda.core.identity.Party, java.util.UUID)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.IdentityService$registerKey(java.security.PublicKey, net.corda.core.identity.Party, java.util.UUID)/party">party</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.IdentityService$registerKey(java.security.PublicKey, net.corda.core.identity.Party, java.util.UUID)/externalId">externalId</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="require-well-known-party-from-anonymous.html">requireWellKnownPartyFromAnonymous</a></h4>
+</td>
+<td>
+<p>Resolve the well known identity of a party. Throws an exception if the party cannot be identified.
+If the party passed in is already a well known identity (i.e. a <a href="../../net.corda.core.identity/-party/index.html">Party</a>) this returns it as-is.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">requireWellKnownPartyFromAnonymous</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$requireWellKnownPartyFromAnonymous(net.corda.core.identity.AbstractParty)/party">party</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="verify-and-register-identity.html">verifyAndRegisterIdentity</a></h4>
+</td>
+<td>
+<p>Verify and then store an identity.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">verifyAndRegisterIdentity</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$verifyAndRegisterIdentity(net.corda.core.identity.PartyAndCertificate)/identity">identity</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="well-known-party-from-anonymous.html">wellKnownPartyFromAnonymous</a></h4>
+</td>
+<td>
+<p>Resolves a (optionally) confidential identity to the corresponding well known identity <a href="../../net.corda.core.identity/-party/index.html">Party</a>.
+It transparently handles returning the well known identity back if a well known identity is passed in.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">wellKnownPartyFromAnonymous</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$wellKnownPartyFromAnonymous(net.corda.core.identity.AbstractParty)/party">party</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-abstract-party/index.html"><span class="identifier">AbstractParty</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">?</span></code>
+<p>Resolves a (optionally) confidential identity to the corresponding well known identity <a href="../../net.corda.core.identity/-party/index.html">Party</a>.
+Convenience method which unwraps the <a href="../../net.corda.core.identity/-party/index.html">Party</a> from the <a href="../../net.corda.core.contracts/-party-and-reference/index.html">PartyAndReference</a> and then resolves the
+well known identity as normal.
+It transparently handles returning the well known identity back if a well known identity is passed in.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">wellKnownPartyFromAnonymous</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$wellKnownPartyFromAnonymous(net.corda.core.contracts.PartyAndReference)/partyRef">partyRef</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-party-and-reference/index.html"><span class="identifier">PartyAndReference</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="well-known-party-from-x500-name.html">wellKnownPartyFromX500Name</a></h4>
+</td>
+<td>
+<p>Resolves a party name to the well known identity <a href="../../net.corda.core.identity/-party/index.html">Party</a> instance for this name. Where possible well known identity
+lookup from name should be done from the network map (via <a href="../-network-map-cache/index.html">NetworkMapCache</a>) instead, as it is the authoritative
+source of well known identities.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">wellKnownPartyFromX500Name</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.IdentityService$wellKnownPartyFromX500Name(net.corda.core.identity.CordaX500Name)/name">name</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

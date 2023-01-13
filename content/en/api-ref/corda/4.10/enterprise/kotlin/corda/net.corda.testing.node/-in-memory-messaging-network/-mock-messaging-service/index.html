@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>InMemoryMessagingNetwork.MockMessagingService - corda</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">corda</a>&nbsp;/&nbsp;<a href="../../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="../index.html">InMemoryMessagingNetwork</a>&nbsp;/&nbsp;<a href="./index.html">MockMessagingService</a><br/>
+<br/>
+<h1>MockMessagingService</h1>
+<code><span class="keyword">class </span><span class="identifier">MockMessagingService</span></code>
+<p>A class that provides an abstraction over the nodes' messaging service that also contains the ability to
+receive messages from the queue for testing purposes.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="pump-receive.html">pumpReceive</a></h4>
+</td>
+<td>
+<p>Delivers a single message from the internal queue. If there are no messages waiting to be delivered and block
+is true, waits until one has been provided on a different thread via send. If block is false, the return
+result indicates whether a message was delivered or not.</p>
+<code><span class="keyword">fun </span><span class="identifier">pumpReceive</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.InMemoryMessagingNetwork.MockMessagingService$pumpReceive(kotlin.Boolean)/block">block</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MessageTransfer</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

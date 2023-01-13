@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NotaryException - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">NotaryException</a><br/>
+<br/>
+<h1>NotaryException</h1>
+<code><span class="keyword">class </span><span class="identifier">NotaryException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-flow-exception/index.html"><span class="identifier">FlowException</span></a></code>
+<p>Exception thrown by the notary service if any issues are encountered while trying to commit a transaction. The
+underlying <a href="error.html">error</a> specifies the cause of failure.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Exception thrown by the notary service if any issues are encountered while trying to commit a transaction. The
+underlying <a href="error.html">error</a> specifies the cause of failure.</p>
+<code><span class="identifier">NotaryException</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.NotaryException$<init>(net.corda.core.flows.NotaryError, net.corda.core.crypto.SecureHash)/error">error</span><span class="symbol">:</span>&nbsp;<a href="../-notary-error/index.html"><span class="identifier">NotaryError</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.NotaryException$<init>(net.corda.core.flows.NotaryError, net.corda.core.crypto.SecureHash)/txId">txId</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="error.html">error</a></h4>
+</td>
+<td>
+<p>Cause of notarisation failure.</p>
+<code><span class="keyword">val </span><span class="identifier">error</span><span class="symbol">: </span><a href="../-notary-error/index.html"><span class="identifier">NotaryError</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="tx-id.html">txId</a></h4>
+</td>
+<td>
+<p>Id of the transaction to be notarised. Can be <em>null</em> if an error occurred before the id could be resolved.</p>
+<code><span class="keyword">val </span><span class="identifier">txId</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MockAttachmentStorage - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.services</a>&nbsp;/&nbsp;<a href="./index.html">MockAttachmentStorage</a><br/>
+<br/>
+<h1>MockAttachmentStorage</h1>
+<code><span class="keyword">class </span><span class="identifier">MockAttachmentStorage</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AttachmentStorage</span><span class="symbol">, </span><span class="identifier">SingletonSerializeAsToken</span></code>
+<p>A mock implementation of <a href="#">AttachmentStorage</a> for use within tests</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A mock implementation of <a href="#">AttachmentStorage</a> for use within tests</p>
+<code><span class="identifier">MockAttachmentStorage</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="files.html">files</a></h4>
+</td>
+<td>
+<p>A map of the currently stored files by their <a href="#">SecureHash</a></p>
+<code><span class="keyword">val </span><span class="identifier">files</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><span class="identifier">SecureHash</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><span class="identifier">Attachment</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-attachment-id-and-bytes.html">getAttachmentIdAndBytes</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAttachmentIdAndBytes</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$getAttachmentIdAndBytes(java.io.InputStream)/jar">jar</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><span class="identifier">AttachmentId</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-latest-contract-attachments.html">getLatestContractAttachments</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getLatestContractAttachments</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$getLatestContractAttachments(kotlin.String, kotlin.Int)/contractClassName">contractClassName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$getLatestContractAttachments(kotlin.String, kotlin.Int)/minContractVersion">minContractVersion</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">AttachmentId</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="has-attachment.html">hasAttachment</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hasAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$hasAttachment(net.corda.core.crypto.SecureHash)/attachmentId">attachmentId</span><span class="symbol">:</span>&nbsp;<span class="identifier">AttachmentId</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="import-attachment.html">importAttachment</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">importAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$importAttachment(java.io.InputStream)/jar">jar</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">AttachmentId</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">importAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$importAttachment(java.io.InputStream, kotlin.String, kotlin.String)/jar">jar</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$importAttachment(java.io.InputStream, kotlin.String, kotlin.String)/uploader">uploader</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$importAttachment(java.io.InputStream, kotlin.String, kotlin.String)/filename">filename</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">AttachmentId</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="import-contract-attachment.html">importContractAttachment</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">importContractAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$importContractAttachment(kotlin.collections.List((kotlin.String)), kotlin.String, java.io.InputStream, net.corda.core.crypto.SecureHash, kotlin.collections.List((java.security.PublicKey)))/contractClassNames">contractClassNames</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">ContractClassName</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$importContractAttachment(kotlin.collections.List((kotlin.String)), kotlin.String, java.io.InputStream, net.corda.core.crypto.SecureHash, kotlin.collections.List((java.security.PublicKey)))/uploader">uploader</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$importContractAttachment(kotlin.collections.List((kotlin.String)), kotlin.String, java.io.InputStream, net.corda.core.crypto.SecureHash, kotlin.collections.List((java.security.PublicKey)))/jar">jar</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$importContractAttachment(kotlin.collections.List((kotlin.String)), kotlin.String, java.io.InputStream, net.corda.core.crypto.SecureHash, kotlin.collections.List((java.security.PublicKey)))/attachmentId">attachmentId</span><span class="symbol">:</span>&nbsp;<span class="identifier">AttachmentId</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$importContractAttachment(kotlin.collections.List((kotlin.String)), kotlin.String, java.io.InputStream, net.corda.core.crypto.SecureHash, kotlin.collections.List((java.security.PublicKey)))/signers">signers</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptyList()<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">AttachmentId</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">importContractAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$importContractAttachment(net.corda.core.crypto.SecureHash, net.corda.core.contracts.ContractAttachment)/attachmentId">attachmentId</span><span class="symbol">:</span>&nbsp;<span class="identifier">AttachmentId</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$importContractAttachment(net.corda.core.crypto.SecureHash, net.corda.core.contracts.ContractAttachment)/contractAttachment">contractAttachment</span><span class="symbol">:</span>&nbsp;<span class="identifier">ContractAttachment</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="import-or-get-attachment.html">importOrGetAttachment</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">importOrGetAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$importOrGetAttachment(java.io.InputStream)/jar">jar</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">AttachmentId</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="open-attachment.html">openAttachment</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">openAttachment</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$openAttachment(net.corda.core.crypto.SecureHash)/id">id</span><span class="symbol">:</span>&nbsp;<span class="identifier">SecureHash</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Attachment</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="query-attachments.html">queryAttachments</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">queryAttachments</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$queryAttachments(net.corda.core.node.services.vault.AttachmentQueryCriteria, net.corda.core.node.services.vault.AttachmentSort)/criteria">criteria</span><span class="symbol">:</span>&nbsp;<span class="identifier">AttachmentQueryCriteria</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.services.MockAttachmentStorage$queryAttachments(net.corda.core.node.services.vault.AttachmentQueryCriteria, net.corda.core.node.services.vault.AttachmentSort)/sorting">sorting</span><span class="symbol">:</span>&nbsp;<span class="identifier">AttachmentSort</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">AttachmentId</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

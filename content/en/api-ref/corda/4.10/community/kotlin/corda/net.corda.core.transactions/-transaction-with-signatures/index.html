@@ -1,0 +1,129 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionWithSignatures - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="./index.html">TransactionWithSignatures</a><br/>
+<br/>
+<h1>TransactionWithSignatures</h1>
+<code><span class="identifier">@DoNotImplement</span> <span class="keyword">interface </span><span class="identifier">TransactionWithSignatures</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-named-by-hash/index.html"><span class="identifier">NamedByHash</span></a></code>
+<p>An interface for transactions containing signatures, with logic for signature verification.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="required-signing-keys.html">requiredSigningKeys</a></h4>
+</td>
+<td>
+<p>Specifies all the public keys that require signatures for the transaction to be valid.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">requiredSigningKeys</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sigs.html">sigs</a></h4>
+</td>
+<td>
+<p>List of signatures on this transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">sigs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="check-signatures-are-valid.html">checkSignaturesAreValid</a></h4>
+</td>
+<td>
+<p>Mathematically validates the signatures that are present on this transaction. This does not imply that
+the signatures are by the right keys, or that there are sufficient signatures, just that they aren't
+corrupt. If you use this function directly you'll need to do the other checks yourself. Probably you
+want <a href="verify-required-signatures.html">verifyRequiredSignatures</a> instead.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">checkSignaturesAreValid</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-key-descriptions.html">getKeyDescriptions</a></h4>
+</td>
+<td>
+<p>Get a human readable description of where signatures are required from, and are missing, to assist in debugging
+the underlying cause.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getKeyDescriptions</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.TransactionWithSignatures$getKeyDescriptions(kotlin.collections.Set((java.security.PublicKey)))/keys">keys</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-missing-signers.html">getMissingSigners</a></h4>
+</td>
+<td>
+<p>Return the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a>s for which we still need signatures.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getMissingSigners</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="verify-required-signatures.html">verifyRequiredSignatures</a></h4>
+</td>
+<td>
+<p>Verifies the signatures on this transaction and throws if any are missing. In this context, "verifying" means
+checking they are valid signatures and that their public keys are in the <a href="required-signing-keys.html">requiredSigningKeys</a> set.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">verifyRequiredSignatures</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="verify-signatures-except.html">verifySignaturesExcept</a></h4>
+</td>
+<td>
+<p>Verifies the signatures on this transaction and throws if any are missing which aren't passed as parameters.
+In this context, "verifying" means checking they are valid signatures and that their public keys are in
+the <a href="required-signing-keys.html">requiredSigningKeys</a> set.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">verifySignaturesExcept</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.core.transactions.TransactionWithSignatures$verifySignaturesExcept(kotlin.Array((java.security.PublicKey)))/allowedToBeMissing">allowedToBeMissing</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">verifySignaturesExcept</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.TransactionWithSignatures$verifySignaturesExcept(kotlin.collections.Collection((java.security.PublicKey)))/allowedToBeMissing">allowedToBeMissing</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-contract-upgrade-ledger-transaction/index.html">ContractUpgradeLedgerTransaction</a></h4>
+</td>
+<td>
+<p>A contract upgrade transaction with fully resolved inputs and signatures. Contract upgrade transactions are separate
+to regular transactions because their validation logic is specialised; the original contract by definition cannot be
+aware of the upgraded contract (it was written after the original contract was developed), so its validation logic
+cannot succeed. Instead alternative verification logic is used which verifies that the outputs correspond to the
+inputs after upgrading.</p>
+<code><span class="keyword">class </span><span class="identifier">ContractUpgradeLedgerTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-full-transaction/index.html"><span class="identifier">FullTransaction</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">TransactionWithSignatures</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-notary-change-ledger-transaction/index.html">NotaryChangeLedgerTransaction</a></h4>
+</td>
+<td>
+<p>A notary change transaction with fully resolved inputs and signatures. In contrast with a regular transaction,
+signatures are checked against the signers specified by input states' <em>participants</em> fields, so full resolution is
+needed for signature verification.</p>
+<code><span class="keyword">class </span><span class="identifier">NotaryChangeLedgerTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-full-transaction/index.html"><span class="identifier">FullTransaction</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">TransactionWithSignatures</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-signed-transaction/index.html">SignedTransaction</a></h4>
+</td>
+<td>
+<p>SignedTransaction wraps a serialized WireTransaction. It contains one or more signatures, each one for
+a public key (including composite keys) that is mentioned inside a transaction command. SignedTransaction is the top level transaction type
+and the type most frequently passed around the network and stored. The identity of a transaction is the hash of Merkle root
+of a WireTransaction, therefore if you are storing data keyed by WT hash be aware that multiple different STs may
+map to the same key (and they could be different in important ways, like validity!). The signatures on a
+SignedTransaction might be invalid or missing: the type does not imply validity.
+A transaction ID should be the hash of the <a href="../-wire-transaction/index.html">WireTransaction</a> Merkle tree root. Thus adding or removing a signature does not change it.</p>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SignedTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TransactionWithSignatures</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

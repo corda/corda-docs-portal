@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ServiceLifecycleEvent.BEFORE_STATE_MACHINE_START - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="index.html">ServiceLifecycleEvent</a>&nbsp;/&nbsp;<a href="./-b-e-f-o-r-e_-s-t-a-t-e_-m-a-c-h-i-n-e_-s-t-a-r-t.html">BEFORE_STATE_MACHINE_START</a><br/>
+<br/>
+<h1>BEFORE_STATE_MACHINE_START</h1>
+<a name="net.corda.core.node.services.ServiceLifecycleEvent.BEFORE_STATE_MACHINE_START"></a>
+<code><span class="identifier">BEFORE_STATE_MACHINE_START</span></code>
+<p>This event is dispatched when State Machine is fully started such that <a href="../../net.corda.core.node/-app-service-hub/index.html">net.corda.core.node.AppServiceHub</a> available
+for <a href="../-corda-service/index.html">CordaService</a> to be use.</p>
+<p>If a handler for this event throws <a href="../-corda-service-critical-failure-exception/index.html">CordaServiceCriticalFailureException</a> - this is the way to flag that it will not make
+sense for Corda node to continue its operation. The lifecycle events dispatcher will endeavor to terminate node's JVM as soon
+as practically possible.</p>
+</BODY>
+</HTML>

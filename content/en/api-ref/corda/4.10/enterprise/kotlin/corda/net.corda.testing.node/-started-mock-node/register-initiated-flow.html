@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StartedMockNode.registerInitiatedFlow - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="index.html">StartedMockNode</a>&nbsp;/&nbsp;<a href="./register-initiated-flow.html">registerInitiatedFlow</a><br/>
+<br/>
+<h1>registerInitiatedFlow</h1>
+<a name="net.corda.testing.node.StartedMockNode$registerInitiatedFlow(java.lang.Class((net.corda.testing.node.StartedMockNode.registerInitiatedFlow.F)))"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">F</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowLogic</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">registerInitiatedFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.StartedMockNode$registerInitiatedFlow(java.lang.Class((net.corda.testing.node.StartedMockNode.registerInitiatedFlow.F)))/initiatedFlowClass">initiatedFlowClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">F</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">F</span><span class="symbol">&gt;</span></code>
+<p>Manually register an initiating-responder flow pair based on the <a href="#">FlowLogic</a> annotations.</p>
+<p>NOTE: There is no need to call this method if the flow pair is defined in the CorDapp and the <a href="../-test-cordapp/index.html">TestCordapp</a> API is used.</p>
+<h3>Parameters</h3>
+<p><a name="initiatedFlowClass"></a>
+<code>initiatedFlowClass</code> - <a href="#">FlowLogic</a> class which is annotated with <a href="#">InitiatedBy</a>.</p>
+<p><strong>Return</strong><br/>
+An <a href="#">Observable</a> which emits responder flows each time one is executed.</p>
+<a name="net.corda.testing.node.StartedMockNode$registerInitiatedFlow(java.lang.Class((net.corda.core.flows.FlowLogic((kotlin.Any)))), java.lang.Class((net.corda.testing.node.StartedMockNode.registerInitiatedFlow.F)))"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">F</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowLogic</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">registerInitiatedFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.node.StartedMockNode$registerInitiatedFlow(java.lang.Class((net.corda.core.flows.FlowLogic((kotlin.Any)))), java.lang.Class((net.corda.testing.node.StartedMockNode.registerInitiatedFlow.F)))/initiatingFlowClass">initiatingFlowClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">FlowLogic</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.node.StartedMockNode$registerInitiatedFlow(java.lang.Class((net.corda.core.flows.FlowLogic((kotlin.Any)))), java.lang.Class((net.corda.testing.node.StartedMockNode.registerInitiatedFlow.F)))/initiatedFlowClass">initiatedFlowClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">F</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">F</span><span class="symbol">&gt;</span></code>
+<p>Register a <em>custom</em> relationship between initiating and receiving flow on a node-by-node basis. This is used when
+we want to manually specify that a particular initiating flow class will have a particular responder.</p>
+<p>Note that this change affects <em>only</em> the node on which this method is called, and not the entire network.</p>
+<h3>Parameters</h3>
+<p><a name="initiatingFlowClass"></a>
+<code>initiatingFlowClass</code> - The <a href="#">FlowLogic</a>-inheriting class to register a new responder for.</p>
+<p><a name="initiatedFlowClass"></a>
+<code>initiatedFlowClass</code> - The class of the responder flow.</p>
+<p><strong>Return</strong><br/>
+An <a href="#">Observable</a> which emits responder flows each time one is executed.</p>
+</BODY>
+</HTML>

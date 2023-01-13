@@ -113,13 +113,9 @@ To retrieve the `GroupPolicy.json` file from the MGM:
    curl --insecure -u admin:admin -X GET $MGM_API_URL/mgm/$MGM_HOLDING_ID/info > $WORK_DIR/GroupPolicy.json
    ```
 
-## Build the CPI
+## Create a CPI
 
-Build the [CPI](../../../introduction/key-concepts.html#corda-package-installer-cpi) using the [Corda CLI](../../installing-corda-cli.html) packaging plugin, passing in the member [CPB](../../../introduction/key-concepts.html#corda-package-bundles-cpbs) and [group policy](#create-the-group-policy-file) files.
-
-<!--Add link when ready
-See this [CorDapp Packaging]() for more details.-->
-
+Build a CPI using the Corda CLI packaging plugin, passing in the member CPB and your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section](../../../developing/development-tutorials/cordapp-packaging.md).
 
 ## Upload the CPI
 
@@ -160,7 +156,7 @@ The result contains the `cpiFileChecksum`. Save this for the next step.
 
 ## Create a Virtual Node
 
-To create a virtual node for the member, run the following commands, changing the X500 name:
+To create a virtual node for the member, run the following commands, changing the X.500 name:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -187,7 +183,7 @@ $HOLDING_ID = $VIRTUAL_NODE_RESPONSE.holdingIdentity.shortHash
 
 If using Bash, run the following, replacing `<holding identity ID>` with the ID returned in `holdingIdentity.shortHash` (for example, `58B6030FABDD`).
 ```
-export MGM_HOLDING_ID=<holding identity ID>
+export HOLDING_ID=<holding identity ID>
 ```
 
 ## Configure the P2P Session Initiation Key Pair and Certificate
@@ -317,17 +313,17 @@ Use the Certificate Authority (CA) whose trustroot certificate was configured in
 
 3. Provide the chosen CA with this CSR and request for certificate issuance.
 
-4. To upload the certificate chain to the Corda cluster, run this command:
+4. To upload the certificate chain to the Corda cluster, run this command, where `certificate-folder` is the path to the folder in which you saved the certificate received from the CA:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin -X PUT  -F certificate=@/tmp/ca/request1/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/cluster/p2p-tls
+   curl -k -u admin:admin -X PUT  -F certificate=<certificate-folder>/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/cluster/p2p-tls
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$API_URL/certificates/cluster/p2p-tls"  -Form @{
-       certificate = Get-Item -Path $env:TEMP\tmp\ca\request1\certificate.pem
+       certificate = Get-Item -Path <certificate-folder>\certificate.pem
        alias = "p2p-tls-cert"
    }
    ```

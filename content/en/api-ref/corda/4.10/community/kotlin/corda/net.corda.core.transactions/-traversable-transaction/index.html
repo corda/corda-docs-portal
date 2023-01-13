@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TraversableTransaction - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.transactions</a>&nbsp;/&nbsp;<a href="./index.html">TraversableTransaction</a><br/>
+<br/>
+<h1>TraversableTransaction</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">TraversableTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-core-transaction/index.html"><span class="identifier">CoreTransaction</span></a></code>
+<p>Implemented by <a href="../-wire-transaction/index.html">WireTransaction</a> and <a href="../-filtered-transaction/index.html">FilteredTransaction</a>. A TraversableTransaction allows you to iterate
+over the flattened components of the underlying transaction structure, taking into account that some
+may be missing in the case of this representing a "torn" transaction. Please see the user guide section
+"Transaction tear-offs" to learn more about this feature.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Old version of <a href="./index.html">TraversableTransaction</a> constructor for ABI compatibility.</p>
+<code><span class="identifier">TraversableTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.TraversableTransaction$<init>(kotlin.collections.List((net.corda.core.transactions.ComponentGroup)))/componentGroups">componentGroups</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-component-group/index.html"><span class="identifier">ComponentGroup</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Implemented by <a href="../-wire-transaction/index.html">WireTransaction</a> and <a href="../-filtered-transaction/index.html">FilteredTransaction</a>. A TraversableTransaction allows you to iterate
+over the flattened components of the underlying transaction structure, taking into account that some
+may be missing in the case of this representing a "torn" transaction. Please see the user guide section
+"Transaction tear-offs" to learn more about this feature.</p>
+<code><span class="identifier">TraversableTransaction</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.transactions.TraversableTransaction$<init>(kotlin.collections.List((net.corda.core.transactions.ComponentGroup)), net.corda.core.crypto.DigestService)/componentGroups">componentGroups</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-component-group/index.html"><span class="identifier">ComponentGroup</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.transactions.TraversableTransaction$<init>(kotlin.collections.List((net.corda.core.transactions.ComponentGroup)), net.corda.core.crypto.DigestService)/digestService">digestService</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-digest-service/index.html"><span class="identifier">DigestService</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="attachments.html">attachments</a></h4>
+</td>
+<td>
+<p>Hashes of the ZIP/JAR files that are needed to interpret the contents of this wire transaction.</p>
+<code><span class="keyword">val </span><span class="identifier">attachments</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="available-component-groups.html">availableComponentGroups</a></h4>
+</td>
+<td>
+<p>Returns a list of all the component groups that are present in the transaction, excluding the privacySalt,
+in the following order (which is the same with the order in <a href="../../net.corda.core.contracts/-component-group-enum/index.html">ComponentGroupEnum</a>:</p>
+<code><span class="keyword">val </span><span class="identifier">availableComponentGroups</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="commands.html">commands</a></h4>
+</td>
+<td>
+<p>Ordered list of (<a href="../../net.corda.core.contracts/-command-data.html">CommandData</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a>) pairs that instruct the contracts what to do.</p>
+<code><span class="keyword">val </span><span class="identifier">commands</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-command/index.html"><span class="identifier">Command</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="component-groups.html">componentGroups</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">componentGroups</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-component-group/index.html"><span class="identifier">ComponentGroup</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="digest-service.html">digestService</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">digestService</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-digest-service/index.html"><span class="identifier">DigestService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="inputs.html">inputs</a></h4>
+</td>
+<td>
+<p>Pointers to the input states on the ledger, identified by (tx identity hash, output index).</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">inputs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="network-parameters-hash.html">networkParametersHash</a></h4>
+</td>
+<td>
+<p>Hash of the network parameters that were in force when the transaction was notarised. Null means, that the transaction
+was created on older version of Corda (before 4), resolution will default to initial parameters.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">networkParametersHash</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notary.html">notary</a></h4>
+</td>
+<td>
+<p>If present, the notary for this transaction. If absent then the transaction is not notarised at all.
+This is intended for issuance/genesis transactions that don't consume any other states and thus can't
+double spend anything.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">notary</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="outputs.html">outputs</a></h4>
+</td>
+<td>
+<p>Ordered list of states defined by this transaction, along with the associated notaries.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">outputs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-transaction-state/index.html"><span class="identifier">TransactionState</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="references.html">references</a></h4>
+</td>
+<td>
+<p>Pointers to reference states, identified by (tx identity hash, output index).</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">references</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="time-window.html">timeWindow</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">timeWindow</span><span class="symbol">: </span><a href="../../net.corda.core.contracts/-time-window/index.html"><span class="identifier">TimeWindow</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-filtered-transaction/index.html">FilteredTransaction</a></h4>
+</td>
+<td>
+<p>Class representing merkleized filtered transaction.</p>
+<code><span class="keyword">class </span><span class="identifier">FilteredTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TraversableTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-wire-transaction/index.html">WireTransaction</a></h4>
+</td>
+<td>
+<p>A transaction ready for serialisation, without any signatures attached. A WireTransaction is usually wrapped
+by a <a href="../-signed-transaction/index.html">SignedTransaction</a> that carries the signatures over this payload.
+The identity of the transaction is the Merkle tree root of its components (see <a href="../../net.corda.core.crypto/-merkle-tree/index.html">MerkleTree</a>).</p>
+<code><span class="keyword">class </span><span class="identifier">WireTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">TraversableTransaction</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

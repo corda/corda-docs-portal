@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CheckpointCustomSerializer - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.serialization</a>&nbsp;/&nbsp;<a href="./index.html">CheckpointCustomSerializer</a><br/>
+<br/>
+<h1>CheckpointCustomSerializer</h1>
+<code><span class="keyword">interface </span><span class="identifier">CheckpointCustomSerializer</span><span class="symbol">&lt;</span><span class="identifier">OBJ</span><span class="symbol">, </span><span class="identifier">PROXY</span><span class="symbol">&gt;</span></code>
+<p>Allows CorDapps to provide custom serializers for classes that do not serialize successfully during a checkpoint.
+In this case, a proxy serializer can be written that implements this interface whose purpose is to move between
+unserializable types and an intermediate representation.</p>
+<p>NOTE: Only implement this interface if you have a class that triggers an error during normal checkpoint
+serialization/deserialization.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="from-proxy.html">fromProxy</a></h4>
+</td>
+<td>
+<p>Should facilitate the conversion of the proxy object into a new instance of the
+unserializable type</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">fromProxy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization.CheckpointCustomSerializer$fromProxy(net.corda.core.serialization.CheckpointCustomSerializer.PROXY)/proxy">proxy</span><span class="symbol">:</span>&nbsp;<span class="identifier">PROXY</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">OBJ</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-proxy.html">toProxy</a></h4>
+</td>
+<td>
+<p>Should facilitate the conversion of the third party object into the serializable
+local class specified by <a href="index.html#PROXY">PROXY</a></p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">toProxy</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.serialization.CheckpointCustomSerializer$toProxy(net.corda.core.serialization.CheckpointCustomSerializer.OBJ)/obj">obj</span><span class="symbol">:</span>&nbsp;<span class="identifier">OBJ</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">PROXY</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

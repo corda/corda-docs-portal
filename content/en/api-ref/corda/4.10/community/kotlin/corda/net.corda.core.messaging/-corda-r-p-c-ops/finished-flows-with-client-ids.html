@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaRPCOps.finishedFlowsWithClientIds - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.messaging</a>&nbsp;/&nbsp;<a href="index.html">CordaRPCOps</a>&nbsp;/&nbsp;<a href="./finished-flows-with-client-ids.html">finishedFlowsWithClientIds</a><br/>
+<br/>
+<h1>finishedFlowsWithClientIds</h1>
+<a name="net.corda.core.messaging.CordaRPCOps$finishedFlowsWithClientIds()"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">finishedFlowsWithClientIds</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code>
+<p>Returns all finished flows that were started with a client ID for which the client ID mapping has not been removed. This version only
+returns the client ids for flows started by the same user currently calling <a href="./finished-flows-with-client-ids.html">finishedFlowsWithClientIds</a>.</p>
+<p><strong>Return</strong><br/>
+A <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a> containing client ids for finished flows started by the user calling <a href="./finished-flows-with-client-ids.html">finishedFlowsWithClientIds</a>, mapped to <a href="#">true</a>
+if finished successfully, <a href="#">false</a> if completed exceptionally.</p>
+</BODY>
+</HTML>

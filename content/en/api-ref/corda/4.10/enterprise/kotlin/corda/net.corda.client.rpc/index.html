@@ -1,0 +1,133 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.client.rpc - corda</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.client.rpc</a><br/>
+<br/>
+<h2>Package net.corda.client.rpc</h2>
+<p>RPC client interface to Corda, for use both by user-facing client and integration with external systems.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-corda-r-p-c-client/index.html">CordaRPCClient</a></h4>
+</td>
+<td>
+<p>An RPC client connects to the specified server and allows you to make calls to the server that perform various
+useful tasks. Please see the Client RPC section of docs.corda.net to learn more about how this API works. A brief
+description is provided here.</p>
+<code><span class="keyword">class </span><span class="identifier">CordaRPCClient</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-corda-r-p-c-client-configuration/index.html">CordaRPCClientConfiguration</a></h4>
+</td>
+<td>
+<p>Can be used to configure the RPC client connection.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CordaRPCClientConfiguration</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-corda-r-p-c-connection/index.html">CordaRPCConnection</a></h4>
+</td>
+<td>
+<p>This class is essentially just a wrapper for an <code>RPCConnection&lt;CordaRPCOps&gt;</code> and can be treated identically.</p>
+<code><span class="keyword">class </span><span class="identifier">CordaRPCConnection</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-r-p-c-connection/index.html"><span class="identifier">RPCConnection</span></a><span class="symbol">&lt;</span><span class="identifier">CordaRPCOps</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-graceful-reconnect/index.html">GracefulReconnect</a></h4>
+</td>
+<td>
+<p>GracefulReconnect provides the opportunity to perform certain logic when the RPC encounters a connection disconnect
+during communication with the node.</p>
+<code><span class="keyword">class </span><span class="identifier">GracefulReconnect</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-r-p-c-connection/index.html">RPCConnection</a></h4>
+</td>
+<td>
+<p>Holds a <a href="-r-p-c-connection/proxy.html">proxy</a> object implementing <a href="-r-p-c-connection/index.html#I">I</a> that forwards requests to the RPC server. The server version can be queried
+via this interface.</p>
+<code><span class="keyword">interface </span><span class="identifier">RPCConnection</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">I</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Annotations</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-r-p-c-since-version/index.html">RPCSinceVersion</a></h4>
+</td>
+<td>
+<p>Records the protocol version in which this RPC was added.</p>
+<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">RPCSinceVersion</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-connection-failure-exception/index.html">ConnectionFailureException</a></h4>
+</td>
+<td>
+<p>Signals that the underlying <a href="-r-p-c-connection/index.html">RPCConnection</a> dropped.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ConnectionFailureException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-r-p-c-exception/index.html"><span class="identifier">RPCException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-max-rpc-retry-exception/index.html">MaxRpcRetryException</a></h4>
+</td>
+<td>
+<p>Thrown to indicate an RPC operation has been retried for the <a href="#">maxNumberOfRetries</a> unsuccessfully.</p>
+<code><span class="keyword">class </span><span class="identifier">MaxRpcRetryException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-r-p-c-exception/index.html"><span class="identifier">RPCException</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-permission-exception/index.html">PermissionException</a></h4>
+</td>
+<td>
+<p>Thrown to indicate that the calling user does not have permission for something they have requested (for example
+calling a method).</p>
+<code><span class="keyword">class </span><span class="identifier">PermissionException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaRuntimeException</span><span class="symbol">, </span><span class="identifier">RpcSerializableError</span><span class="symbol">, </span><span class="identifier">ClientRelevantError</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-r-p-c-exception/index.html">RPCException</a></h4>
+</td>
+<td>
+<p>Thrown to indicate a fatal error in the RPC system itself, as opposed to an error generated by the invoked method.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">RPCException</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">CordaRuntimeException</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-unrecoverable-r-p-c-exception/index.html">UnrecoverableRPCException</a></h4>
+</td>
+<td>
+<p>Thrown to indicate a fatal error in the RPC system which cannot be recovered from and so needs some manual support.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">UnrecoverableRPCException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-r-p-c-exception/index.html"><span class="identifier">RPCException</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="rx.-observable/index.html">rx.Observable</a></h4>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

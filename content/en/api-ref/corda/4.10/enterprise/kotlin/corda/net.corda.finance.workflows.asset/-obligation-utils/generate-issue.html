@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ObligationUtils.generateIssue - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.workflows.asset</a>&nbsp;/&nbsp;<a href="index.html">ObligationUtils</a>&nbsp;/&nbsp;<a href="./generate-issue.html">generateIssue</a><br/>
+<br/>
+<h1>generateIssue</h1>
+<a name="net.corda.finance.workflows.asset.ObligationUtils$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.identity.AbstractParty, net.corda.finance.contracts.asset.Obligation.Terms((net.corda.finance.workflows.asset.ObligationUtils.generateIssue.P)), kotlin.Long, net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">generateIssue</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows.asset.ObligationUtils$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.identity.AbstractParty, net.corda.finance.contracts.asset.Obligation.Terms((net.corda.finance.workflows.asset.ObligationUtils.generateIssue.P)), kotlin.Long, net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/tx">tx</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionBuilder</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.ObligationUtils$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.identity.AbstractParty, net.corda.finance.contracts.asset.Obligation.Terms((net.corda.finance.workflows.asset.ObligationUtils.generateIssue.P)), kotlin.Long, net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/obligor">obligor</span><span class="symbol">:</span>&nbsp;<span class="identifier">AbstractParty</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.ObligationUtils$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.identity.AbstractParty, net.corda.finance.contracts.asset.Obligation.Terms((net.corda.finance.workflows.asset.ObligationUtils.generateIssue.P)), kotlin.Long, net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/issuanceDef">issuanceDef</span><span class="symbol">:</span>&nbsp;<span class="identifier">Terms</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.ObligationUtils$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.identity.AbstractParty, net.corda.finance.contracts.asset.Obligation.Terms((net.corda.finance.workflows.asset.ObligationUtils.generateIssue.P)), kotlin.Long, net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/pennies">pennies</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.ObligationUtils$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.identity.AbstractParty, net.corda.finance.contracts.asset.Obligation.Terms((net.corda.finance.workflows.asset.ObligationUtils.generateIssue.P)), kotlin.Long, net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/beneficiary">beneficiary</span><span class="symbol">:</span>&nbsp;<span class="identifier">AbstractParty</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.ObligationUtils$generateIssue(net.corda.core.transactions.TransactionBuilder, net.corda.core.identity.AbstractParty, net.corda.finance.contracts.asset.Obligation.Terms((net.corda.finance.workflows.asset.ObligationUtils.generateIssue.P)), kotlin.Long, net.corda.core.identity.AbstractParty, net.corda.core.identity.Party)/notary">notary</span><span class="symbol">:</span>&nbsp;<span class="identifier">Party</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">&gt;</span></code>
+<p>Puts together an issuance transaction for the specified amount that starts out being owned by the given pubkey.</p>
+<h3>Parameters</h3>
+<p><a name="tx"></a>
+<code>tx</code> - transaction builder to add states and commands to.</p>
+<p><a name="obligor"></a>
+<code>obligor</code> - the party who is expected to pay some amount to fulfil the obligation.</p>
+<p><a name="issuanceDef"></a>
+<code>issuanceDef</code> - the terms of the obligation, including which contracts and underlying assets are acceptable
+forms of payment.</p>
+<p><a name="pennies"></a>
+<code>pennies</code> - the quantity of the asset (in the smallest normal unit of measurement) owed.</p>
+<p><a name="beneficiary"></a>
+<code>beneficiary</code> - the party the obligor is expected to pay.</p>
+<p><a name="notary"></a>
+<code>notary</code> - the notary for this transaction's outputs.</p>
+</BODY>
+</HTML>

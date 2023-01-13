@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CashIssueFlow.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.flows</a>&nbsp;/&nbsp;<a href="index.html">CashIssueFlow</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.finance.flows.CashIssueFlow$&lt;init&gt;(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.identity.Party)"></a>
+<code><span class="identifier">CashIssueFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashIssueFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.identity.Party)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashIssueFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.identity.Party)/issuerBankPartyRef">issuerBankPartyRef</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashIssueFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.identity.Party)/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span></code><br/>
+<a name="net.corda.finance.flows.CashIssueFlow$&lt;init&gt;(net.corda.finance.flows.CashIssueFlow.IssueRequest)"></a>
+<code><span class="identifier">CashIssueFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashIssueFlow$<init>(net.corda.finance.flows.CashIssueFlow.IssueRequest)/request">request</span><span class="symbol">:</span>&nbsp;<span class="identifier">IssueRequest</span><span class="symbol">)</span></code><a name="net.corda.finance.flows.CashIssueFlow$&lt;init&gt;(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.identity.Party, net.corda.core.utilities.ProgressTracker)"></a>
+<code><span class="identifier">CashIssueFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.flows.CashIssueFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.identity.Party, net.corda.core.utilities.ProgressTracker)/amount">amount</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-amount/index.html"><span class="identifier">Amount</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Currency.html"><span class="identifier">Currency</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashIssueFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.identity.Party, net.corda.core.utilities.ProgressTracker)/issuerBankPartyRef">issuerBankPartyRef</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashIssueFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.identity.Party, net.corda.core.utilities.ProgressTracker)/notary">notary</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.finance.flows.CashIssueFlow$<init>(net.corda.core.contracts.Amount((java.util.Currency)), net.corda.core.utilities.OpaqueBytes, net.corda.core.identity.Party, net.corda.core.utilities.ProgressTracker)/progressTracker">progressTracker</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a><span class="symbol">)</span></code>
+<p>Initiates a flow that self-issues cash (which should then be sent to recipient(s) using a payment transaction).</p>
+<p>We issue cash only to ourselves so that all KYC/AML checks on payments are enforced consistently, rather than risk
+checks for issuance and payments differing. Outside of test scenarios it would be extremely unusual to issue cash
+and immediately transfer it, so impact of this limitation is considered minimal.</p>
+<h3>Parameters</h3>
+<p><a name="amount"></a>
+<code>amount</code> - the amount of currency to issue.</p>
+<p><a name="issuerBankPartyRef"></a>
+<code>issuerBankPartyRef</code> - a reference to put on the issued currency.</p>
+<p><a name="notary"></a>
+<code>notary</code> - the notary to set on the output states.</p>
+</BODY>
+</HTML>

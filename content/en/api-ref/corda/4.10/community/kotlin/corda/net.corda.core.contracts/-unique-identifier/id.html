@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>UniqueIdentifier.id - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="index.html">UniqueIdentifier</a>&nbsp;/&nbsp;<a href="./id.html">id</a><br/>
+<br/>
+<h1>id</h1>
+<a name="net.corda.core.contracts.UniqueIdentifier$id"></a>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a></code>
+<p>Should never be set by user code and left as default initialised.
+So that the first time a state is issued this should be given a new UUID.
+Subsequent copies and evolutions of a state should just copy the <a href="external-id.html">externalId</a> and <a href="./id.html">id</a> fields unmodified.</p>
+</BODY>
+</HTML>
