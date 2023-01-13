@@ -12,7 +12,7 @@ title: "RPC Permission Templates"
 
 By default, when a cluster starts there is a single "admin" account auto-created which can do everything. While this account can be used to perform any action, there is room for error if not used carefully. RPC permission templates enable you to create fine-grained roles for specific actions such as:
 
-• A dedicated role which can create users, roles, permissions and drive all the associations between them;
+* A dedicated role which can create users, roles, permissions and drive all the associations between them.
 * A dedicated role with a set of all the necessary permissions to create a virtual node (including CPI upload).
 • A dedicated role which allows flows to run on this vNode.
 
