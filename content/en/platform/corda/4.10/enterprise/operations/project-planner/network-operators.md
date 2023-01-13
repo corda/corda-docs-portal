@@ -87,7 +87,7 @@ All Corda Nodes have a database. A range of third-party databases are supported 
 
 {{< table >}}
 
-|Device|Legal Identity & CA keys|TLS keys|Confidential Identity keys|Notary service keys|
+|Device|Legal identity and CA keys|TLS keys|Confidential Identity keys|Notary service keys|
 |-------------------------------|----------------------------|----------------------------|----------------------------|-----------------------------|
 | Utimaco SecurityServer Se Gen2| * Firmware version 4.21.1  | * Firmware version 4.21.1  | Not supported              | * Firmware version 4.21.1   |
 |                               | * Driver version 4.21.1    | * Driver version 4.21.1    |                            | * Driver version 4.21.1     |
@@ -97,8 +97,8 @@ All Corda Nodes have a database. A range of third-party databases are supported 
 |                               | * PKCS#11 version 3.1      | * PKCS#11 version 3.1      | * PKCS#11 version 3.1      | * PKCS#11 version 3.1       |
 |                               | * FXJCA version 1.17       | * FXJCA version 1.17       | * FXJCA version 1.17       | * FXJCA version 1.17        |
 | Azure Key Vault               | * Driver version 1.2.1     | * Driver version 1.2.1     | * Driver version 1.2.1 (SOFTWARE mode only)| * Driver version 1.2.1      |
-| Securosys PrimusX             | * Firmware version 2.7.4   | * Firmware version 2.7.4   | * Firmware version 2.7.4   | * Firmware version 2.7.4    |
-|                               | * Driver version 1.8.2     | * Driver version 1.8.2     | * Driver version 1.8.2     | * Driver version 1.8.2      |
+| Securosys PrimusX             | * Firmware version 2.7.4 or newer   | * Firmware version 2.7.4   | * Firmware version 2.8.5 or newer   | * Firmware version 2.7.4 or newer  |
+|                               | * Driver version 1.8.2 or newer     | * Driver version 1.8.2 or newer     | * Driver version 2.3.4 or newer     | * Driver version 1.8.2 or newer      |
 | nCipher nShield Connect       | * Firmware version 12.50.11| * Firmware version 12.50.11| * Firmware version 12.50.11| * Firmware version 12.50.11 |
 |                               | * Driver version 12.60.2   | * Driver version 12.60.2   | * Driver version 12.60.2   | * Driver version 12.60.2    |
 | AWS CloudHSM                  | * Driver version 3.1.2     | * Driver version 3.1.2     | * Driver version 3.1.2     | * Driver version 3.1.2      |
