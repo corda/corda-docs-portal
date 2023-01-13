@@ -20,7 +20,7 @@ By default, when a cluster starts there is a single "admin" account auto-created
 These roles and permissions enable certain common operations. The creation of users and associating such users to these roles should be done manually by an admin user.
 {{< /note >}}
 
-UserAdminRole- Creates roles, permissions, and controls all associations between the user, roles, and permissions. Create this role at cluster bootstrap by the admin user. There is no direct write into DB like previously done with the admin user.
+`UserAdminRole` - Creates roles, permissions, and controls all associations between the user, roles, and permissions. This role is created at cluster bootstrap by the admin user. This role is created via REST call enabling to have complete audit trail of the operation performed.
 
 VNodeCreatorRole- Set all the necessary permissions to create a virtual node, including CPI upload and CPI update. Create this role at cluster bootstrapping time.
 
