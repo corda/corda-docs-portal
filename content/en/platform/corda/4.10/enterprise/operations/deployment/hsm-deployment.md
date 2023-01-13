@@ -291,7 +291,7 @@ username: "my-username"
 password: "my-password"
 ```
 
-In addition to the configuration, the Securosys’ Primus X JCA provider (version 1.8.2) needs to be placed in the node’s `drivers` folder.
+In addition to the configuration, the Securosys’ Primus X JCA provider (version 1.8.2 or newer) needs to be placed in the node’s `drivers` folder.
 
 ## nCipher nShield
 
