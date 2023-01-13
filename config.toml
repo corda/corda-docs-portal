@@ -86,3 +86,8 @@ googleTagManagerID = "G-NCYRYSGJ7C"
   [[module.mounts]]
     source = "node_modules/katex"
     target = "assets/js/vendor/katex"
+  [[module.mounts]]
+    source = 'content/en'
+    target = 'content/en'
+    excludeFiles = ['archived-docs/**']
+    
