@@ -85,7 +85,7 @@ This release includes the following fixes:
 
 * Corda can fetch users' credentials and permissions from an external data source (for example, from a remote RDBMS). Credentials of this database are configured in the file `node.conf`. Previously, when a node was run, Corda logged the password of this database to the log file. This issue has been resolved and the password is no longer written to the log file.
 
-* Previously, Archive Service commands did not write messages to the log files unless an error or issue occurred. An update now means that messages are also written when commands are run successfully. For more information, refer to [Archive Service Command-Line Interface (CLI)](..\..\..\..\tools\archiving-service\archiving-cli.md)
+* Previously, Archive Service commands did not write messages to the log files unless an error or issue occurred. An update now means that messages are also written when commands are run successfully. For more information, refer to [Archive Service Command-Line Interface (CLI)](../../../../tools/archiving-service/archiving-cli.md)
 
 * Previously, a memory leak in the transaction cache occurred due to the weight of in-flight entries being undervalued. Improvements have been made to prevent in-flight entry weights from being undervalued and, because they are now estimated more correctly, this results in a large decrease in the total size of cached entities.
 

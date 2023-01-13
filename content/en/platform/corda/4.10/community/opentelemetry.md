@@ -10,7 +10,7 @@ title: OpenTelemetry
 
 # OpenTelemetry
 
-This topic describes how to set up OpenTelemetry and the simple log telemetry.
+This section describes how to setup OpenTelemetry and the simple log telemetry.
 
 Telemetry has been implemented in Corda 4.10 with a pluggable architecture. There are two telemetry components:
 
@@ -41,7 +41,7 @@ To use the OpenTelemetry Java agent:
 
 1. Download the agent from [GitHub](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases). The file you need is `opentelemetry-javaagent.jar`.
 2. Start the Corda node with the following example command line:
-   `java -Dcapsule.jvm.args=“-javaagent:/PATH-TO-OT-JAVAAGENT/opentelemetry-javaagent.jar -Dotel.service.name=YOUR-SERVICE-NAME” -jar corda.jar`. 
+   `java -Dcapsule.jvm.args=“-javaagent:/PATH-TO-OT-JAVAAGENT/opentelemetry-javaagent.jar -Dotel.service.name=YOUR-SERVICE-NAME” -jar corda.jar`.
 3. Replace `PATH-TO-OT-JAVAAGENT` with the full path of the directory where you placed the OpenTelemetry Java agent.
 4. Replace `YOUR-SERVICE-NAME` with the service name you would like the Corda node to be identified as.
 
@@ -54,7 +54,7 @@ This method of linking the SDK with the Corda node enables OpenTelemetry automat
 
 Corda has been tested with the OpenTelemetry collector and a Jaeger backend. Refer to the [OpenTelemetry](https://opentelemetry.io/docs/collector/) and [Jaeger](https://www.jaegertracing.io/) websites for details on how to setup a collector and Jaeger backend.
 
-Corda OpenTelemetry can also be enabled or disabled via a node configuration parameter, such as `telementry.openTelemetryEnabled = true`.
+Corda OpenTelemetry can also be enabled or disabled via a node configuration parameter, such as `telemetry.openTelemetryEnabled = true`.
 
 If this setting is true and the OpenTelemetry SDK has been linked to Corda as described above, the node will generate spans. If this setting is false, the node will not generate spans, even if the node is linked with the SDK.
 
@@ -80,7 +80,7 @@ Alternatively, you can attach your client to the OpenTelemetry Java agent via th
 
 `java -javaagent:%PATH-TO-OT-JAVAAGENT%/opentelemetry-javaagent.jar -Dotel.service.name=YOUR-SERVICE-NAME -jar ./your-client.jar`.
 
-## Creating your own spans
+## Creating your own Spans
 
 The OpenTelemetry API may be used in your flows and in your client code to create spans and baggage. To get an instance of the OpenTelemetry API in a flow, make the following call:
 
@@ -100,7 +100,7 @@ Once you have the OpenTelemetry handle, you can call the OpenTelemetry API.
 ### Baggage 
 
 When creating your own spans, you can also create your own baggage. If you create your own baggage, it will also be sent to other nodes, and you can specify if you want this baggage to be copied to span tags. If you do, all of the spans involved in the transaction for that node will also get a copy of the baggage. This can be enabled with the following parameter:
-`telementry.copyBaggageToTags = true`.
+`telemetry.copyBaggageToTags = true`.
 
 The default value of this setting is `false`.
 
@@ -119,14 +119,14 @@ If a child span does not complete, parent spans also do not complete.
 As an alternative, the Corda OpenTelemetry component sends a start or end span to the backend when a flow or operation starts or stops, in addition to the normal spans sent for the operation. This is effectively a start flow span event and an end flow span event. With this view of the spans, it becomes easier to determine where the flow got stuck, as it will be the lowest child without an end span event. 
 
 {{< note >}}
-These start and end span events are only generated for spans that Corda has generated. If you create a span in your own flow code, you won’t see equivalent start and end span events for your flows, as Corda knows nothing of them.
+These start and end span events are only generated for spans that Corda has generated. If you create a span in your own flow code, you will not see equivalent start and end span events for your flows, as Corda knows nothing of them.
 {{< /note >}}
 
 Creating these start and end span events will also cause more spans to be sent out to the network, meaning there could be a performance impact on the network. By default, this functionality is disabled, but can be enabled via the following configuration property:
-`telementry. spanStartEndEventsEnabled = true`.
+`telemetry. spanStartEndEventsEnabled = true`.
 
 ## Simple Log Telemetry Component
 
-The Simple log telemetry component is the second type of telemetry supported. Instead of creating spans, this component simply writes log lines which record the trace ID. The trace ID is propagated to flows and other nodes involved in the transaction. By using grep on the trace ID, you can see all of the flows on different nodes involved in the same transaction. This component is enabled via the following configuration flag: `telementry.simpleLogTelemeteryEnabled = true`.
+The Simple log telemetry component is the second type of telemetry supported. Instead of creating spans, this component simply writes log lines which record the trace ID. The trace ID is propagated to flows and other nodes involved in the transaction. By using grep on the trace ID, you can see all of the flows on different nodes involved in the same transaction. This component is enabled via the following configuration flag: `telemetry.simpleLogTelemetryEnabled = true`.
 
 The default value of this flag is `false`. The logger associated with this component is `SimpleLogTelemetryComponent`.
