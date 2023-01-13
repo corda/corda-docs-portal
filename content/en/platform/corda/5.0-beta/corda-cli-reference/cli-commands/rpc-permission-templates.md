@@ -33,7 +33,7 @@ This role should be provisioned at cluster boostrap time and should re-use previ
 
 FlowExecutorRole- Once the vNode is created, a new CLI command will permit creation of such role for a given vNode.
 
-## Ability to query permissions via HTTP RPC
+## Querying Permissions via HTTP RPC
 
 At the moment it is only possible to retrieve a permission if its identifier is known to the caller.
 However, there might be cases when a new role is being setup and existing permissions need to be included. It would be helpful to do a search of the permissions available.
