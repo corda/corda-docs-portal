@@ -9,7 +9,6 @@ section_menu: corda-5-beta
 title: "RPC Permission Templates"
 ---
 
-## Create Common RPC Permission Templates
 
 Currently, when the C5 Cluster starts there is a single "admin" account auto-created which can do everything. While this account can be used to perform any action, there is room for error if not used carefully. The idea is to create fine-grained roles for specific actions such as:
 
