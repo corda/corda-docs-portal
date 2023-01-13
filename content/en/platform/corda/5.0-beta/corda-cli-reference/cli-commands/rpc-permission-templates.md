@@ -17,7 +17,7 @@ By default, when a cluster starts there is a single "admin" account auto-created
 * A dedicated role which allows flows to run on this vNode.
 
 {{< note >}}
-These roles and permissions enable certain common operations. Creation of users and associating such users to the roles should be still done manually by an admin user.
+These roles and permissions enable certain common operations. The creation of users and associating such users to these roles should be done manually by an admin user.
 {{< /note >}}
 
 UserAdminRole- Creates roles, permissions, and controls all associations between the user, roles, and permissions. Create this role at cluster bootstrap by the admin user. There is no direct write into DB like previously done with the admin user.
