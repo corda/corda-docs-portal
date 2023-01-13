@@ -24,7 +24,7 @@ These roles and permissions enable certain common operations. The creation of us
 
 `VNodeCreatorRole` - Set all the necessary permissions to create a virtual node, including CPI upload and CPI update. Create this role at cluster bootstrapping time.
 
-CordaDeveloperRole- Users can do the following:
+`CordaDeveloperRole` - Users can do the following:
 
 1. VNode reset
 2. Vnode status update
