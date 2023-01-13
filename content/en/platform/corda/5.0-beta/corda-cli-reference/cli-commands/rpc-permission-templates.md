@@ -6,7 +6,7 @@ menu:
     weight: 6000
     parent: corda-5-cli-reference
 section_menu: corda-5-beta
-title: "RPC permission templates"
+title: "RPC Permission Templates"
 ---
 
 ## Create Common RPC Permission Templates
