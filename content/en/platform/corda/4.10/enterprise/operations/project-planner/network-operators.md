@@ -87,7 +87,7 @@ All Corda Nodes have a database. A range of third-party databases are supported 
 
 {{< table >}}
 
-|Device|Legal Identity & CA keys|TLS keys|Confidential Identity keys|Notary service keys|
+|Device|Legal identity and CA keys|TLS keys|Confidential Identity keys|Notary service keys|
 |-------------------------------|----------------------------|----------------------------|----------------------------|-----------------------------|
 | Utimaco SecurityServer Se Gen2| * Firmware version 4.21.1  | * Firmware version 4.21.1  | Not supported              | * Firmware version 4.21.1   |
 |                               | * Driver version 4.21.1    | * Driver version 4.21.1    |                            | * Driver version 4.21.1     |

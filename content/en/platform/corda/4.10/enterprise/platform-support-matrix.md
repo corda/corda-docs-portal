@@ -126,7 +126,7 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 {{< table >}}
 
-|Device                         | Legal identity & CA keys  | TLS keys                | Confidential identity keys | Notary service keys         |
+|Device                         | Legal identity and CA keys  | TLS keys                | Confidential identity keys | Notary service keys         |
 |-------------------------------|--------------------------|--------------------------|----------------------------|-----------------------------|
 | Utimaco SecurityServer Se Gen2| Firmware version 4.21.1  | Firmware version 4.21.1  | Firmware version 4.21.1    | Firmware version 4.21.1     |
 |                               | Driver version 4.21.1    | Driver version 4.21.1    | Driver version 4.21.1      | Driver version 4.21.1       |
