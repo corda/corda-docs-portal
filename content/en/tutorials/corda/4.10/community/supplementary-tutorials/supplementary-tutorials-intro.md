@@ -1,15 +1,9 @@
 ---
-aliases:
-- /head/tutorials-index.html
-- /HEAD/tutorials-index.html
-- /tutorials-index.html
-- /docs/corda-os/4.8/supplementary-tutorials-index.html
-- /docs/platform/corda/4.8/os/supplementary-tutorials-index.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-12'
 menu:
   tutorials:
-    identifier: corda-community-4-9-supplementary-tutorials-index
-    parent: tutorials-corda-4-9
+    identifier: corda-community-4-10-supplementary-tutorials-index
+    parent: tutorials-corda-4-10
     weight: 1030
 tags:
 - tutorials

@@ -1,16 +1,10 @@
 ---
-aliases:
-- /head/tutorial-clientrpc-api.html
-- /HEAD/tutorial-clientrpc-api.html
-- /tutorial-clientrpc-api.html
-- /docs/corda-os/4.8/tutorial-clientrpc-api.html
-- /docs/platform/corda/4.8/os/tutorial-clientrpc-api.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-12'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-tutorial-clientrpc-api
-    parent: corda-community-4-9-supplementary-tutorials-index
+    identifier: corda-community-4-10-tutorial-clientrpc-api
+    parent: corda-community-4-10-supplementary-tutorials-index
     weight: 1090
 tags:
 - tutorial

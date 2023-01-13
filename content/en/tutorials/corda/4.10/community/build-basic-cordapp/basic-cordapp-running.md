@@ -1,10 +1,10 @@
 ---
-date: '2021-09-22'
+date: '2023-01-13'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-tutorial-basic-cordapp-running
-    parent: corda-community-4-9-tutorial-basic-cordapp-intro
+    identifier: corda-community-4-10-tutorial-basic-cordapp-running
+    parent: corda-community-4-10-tutorial-basic-cordapp-intro
     weight: 1060
 tags:
 - tutorial

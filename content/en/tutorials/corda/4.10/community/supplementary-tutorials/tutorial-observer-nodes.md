@@ -1,16 +1,10 @@
 ---
-aliases:
-- /head/tutorial-observer-nodes.html
-- /HEAD/tutorial-observer-nodes.html
-- /tutorial-observer-nodes.html
-- /docs/corda-os/4.8/tutorial-observer-nodes.html
-- /docs/platform/corda/4.8/os/tutorial-observer-nodes.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-12'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-tutorial-observer-nodes
-    parent: corda-community-4-9-supplementary-tutorials-index
+    identifier: corda-community-4-10-tutorial-observer-nodes
+    parent: corda-community-4-10-supplementary-tutorials-index
     weight: 1060
 tags:
 - tutorial
