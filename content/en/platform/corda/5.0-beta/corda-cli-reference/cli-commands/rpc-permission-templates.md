@@ -42,7 +42,7 @@ However, there might be cases when a new role is being setup and existing permis
 Being unable to do this creates potentially duplicated permissions.
 {{< /note >}}
 
-## Implement Permissions Check When Starting a Particular Flow
+## Check Permissions When Starting Flows
 
 Currently, the check is made to assert whether a user can execute startFlow RPC operations. No checks are made to whether the user can start a particular flow.
 
