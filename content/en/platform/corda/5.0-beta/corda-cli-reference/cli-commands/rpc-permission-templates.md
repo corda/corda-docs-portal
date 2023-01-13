@@ -44,7 +44,7 @@ Being unable to do this creates potentially duplicated permissions.
 
 ## Check Permissions When Starting Flows
 
-Currently, the check is made to assert whether a user can execute startFlow RPC operations. No checks are made to whether the user can start a particular flow.
+Currently, Corda checks if a user can execute startFlow RPC operations. No checks are made to whether the user can start a particular flow.
 
 These checks should be performed against the RBAC sub-system even before passing start request to FlowWorker.
 
