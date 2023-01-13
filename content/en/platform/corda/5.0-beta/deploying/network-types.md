@@ -44,7 +44,7 @@ To run a dynamic network, you must complete the following high-level steps:
 7. [Create required keys and optionally import required certificates](../operating/operating-tutorials/onboarding/mgm-onboarding.html#configure-the-cluster-tls-key-pair-and-certificate).
 8. [Build the registration context](../operating/operating-tutorials/onboarding/mgm-onboarding.html#build-registration-context).
 9. [Use the register endpoint to finalise the MGM setup so that it is ready to accept members](../operating/operating-tutorials/onboarding/mgm-onboarding.html#register-the-mgm).
-10. [Export the GroupPolicy.json file that members require to join the group](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#generate-the-group-policy-file).
+10. [Export the GroupPolicy.json file that members require to join the group](../operating/operating-tutorials/onboarding/mgm-onboarding.html#export-the-group-policy).
 11. [Package this GroupPolicy.json file into a member CPI](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#build-the-cpi).
 12. [Upload this CPI to the cluster](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#upload-the-cpi).
 13. [Create the virtual node for the member](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#create-a-virtual-node).
