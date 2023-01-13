@@ -22,7 +22,7 @@ These roles and permissions enable certain common operations. The creation of us
 
 `UserAdminRole` - Creates roles, permissions, and controls all associations between the user, roles, and permissions. This role is created at cluster bootstrap by the admin user. This role is created via REST call enabling to have complete audit trail of the operation performed.
 
-VNodeCreatorRole- Set all the necessary permissions to create a virtual node, including CPI upload and CPI update. Create this role at cluster bootstrapping time.
+`VNodeCreatorRole` - Set all the necessary permissions to create a virtual node, including CPI upload and CPI update. Create this role at cluster bootstrapping time.
 
 CordaDeveloperRole- Users can do the following:
 
