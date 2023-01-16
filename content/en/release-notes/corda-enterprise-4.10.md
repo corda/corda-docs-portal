@@ -8,7 +8,7 @@ title: Corda Enterprise 4.10 release
 weight: 20
 ---
 
-Corda: Enterprise Edition 4.10 introduces several fixes and improvements. See the [full 4.9 release notes](../../en/platform/corda/4.10/enterprise/release-notes-enterprise.md).
+Corda: Enterprise Edition 4.10 introduces several fixes and improvements. See the [full 4.10 release notes](../../en/platform/corda/4.10/enterprise/release-notes-enterprise.md).
 
 ### Previous versions of Corda Enterprise
 
