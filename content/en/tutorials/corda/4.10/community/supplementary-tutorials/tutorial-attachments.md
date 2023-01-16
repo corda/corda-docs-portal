@@ -12,9 +12,6 @@ tags:
 title: Working with attachments
 ---
 
-
-
-
 # Working with attachments
 
 This tutorial outlines how to work with attachments, also known as contract attachments.
@@ -38,7 +35,7 @@ It is encouraged that, where possible, attachments are reusable data, so that no
 
 ### Uploading an attachment
 
-To upload an attachment to the node, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](../../../../../platform/corda/4.8/open-source/clientrpc.md) or you can upload your attachment via the [Node shell](../../../../../platform/corda/4.8/open-source/shell.md).
+To upload an attachment to the node, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](../../../../../platform/corda/4.10/community/clientrpc.md) or you can upload your attachment via the [Node shell](../../../../../platform/corda/4.10/community/shell.md).
 
 To upload an attachment, run the following command:
 
@@ -59,7 +56,7 @@ identified inside the node.
 
 ### Downloading an attachment
 
-To download an attachment named by its hash, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](../../../../../platform/corda/4.8/open-source/clientrpc.md) or you can upload your attachment via the [Node shell](../../../../../platform/corda/4.8/open-source/shell.md).
+To download an attachment named by its hash, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](../../../../../platform/corda/4.10/community/clientrpc.md) or you can upload your attachment via the [Node shell](../../../../../platform/corda/4.10/community/shell.md).
 
 To download an attachment, run the following command, replacing the ID with the hash of the attachment that you want to download:
 
@@ -74,7 +71,7 @@ a JVM client.
 
 ## Searching for attachments
 
-Attachment metadata can be queried in a similar way to the vault (see [API: Vault Query](../../../../../platform/corda/4.8/open-source/api-vault-query.md)).
+Attachment metadata can be queried in a similar way to the vault (see [API: Vault Query](../../../../../platform/corda/4.10/community/api-vault-query.md)).
 
 `AttachmentQueryCriteria` can be used to build a query using the following set of column operations:
 

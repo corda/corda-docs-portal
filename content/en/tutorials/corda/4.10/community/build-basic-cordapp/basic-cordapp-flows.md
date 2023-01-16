@@ -28,7 +28,7 @@ After you have completed this tutorial, you will know how to write and implement
 
 ## Before you start
 
-Before you start writing flows, read [Key concepts: Flows](../../../../../platform/corda/4.8/open-source/key-concepts-flows.md).
+Before you start writing flows, read [Key concepts: Flows](../../../../../platform/corda/4.10/community/key-concepts-flows.md).
 
 ## Write the `CreateAndIssueAppleStamp` flow
 
