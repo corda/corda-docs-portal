@@ -41,36 +41,3 @@ Being unable to do this creates potentially duplicated permissions.
 Currently, Corda checks if a user can execute startFlow RPC operations. No checks are made to whether the user can start a particular flow.
 
 These checks should be performed against the RBAC sub-system even before passing start request to FlowWorker.
-
-## RPC Permission Templates
-
-The draft of a test plan may look like the following:
-
-1. Make sure UserAdminRole, VNodeCreatorRole and CordaDeveloperRole are either available at cluster bootstap time:
-"GET <https://localhost:8888/api/v1/role>" or if not (e.g. in case of Combined Worker), they can be created used CLI tools:
-
-`> java -jar corda-cli.jar initial-rbac user-admin -t <https://localhost:8888> -u admin -p admin`
-`> java -jar corda-cli.jar initial-rbac vnode-creator -t <https://localhost:8888> -u admin -p admin`
-`> java -jar corda-cli.jar initial-rbac corda-developer -t <https://localhost:8888> -u admin -p admin`
-
-2. Use Swagger UI to create user "UserAdmin" and assign "UserAdminRole" to it.
-
-3. Logout as "admin" and login as user "UserAdmin".
-4. Use Swagger UI, as "UserAdmin" to create user "vNodeCreator" and assign the "VNodeCreatorRole" to it.
-5. Use Swagger UI, as "UserAdmin" to create user" CordaDeveloper" and assign the "CordaDeveloperRole" to it.
-6. Build a CPI with some usable flows.
-7. Log on as "vNodeCreator" and upload CPI and create a vNode.
-8. Create a 'FlowExecutorRole" role for running flows for a vNode using the CLI tool:
-
-`>java -jar corda-cli.jar initial-rbac flow-executor -t <https://localhost:8888> -u UserAdmin -p UserAdmin -v 9B02C806787D`
-
-{{< note >}}
-This is done using "UserAdmin" and not as all mighty "admin".
-After creation role name should be: "FlowExecutorRole-9B02C806787D"
-{{< /note >}}
-
-9. Use Swagger UI, as "UserAdmin" to create user "FlowExecutor" and assign "FlowExecutorRole-9B02C806787D" to it.
-10. Using Swagger UI, log on as "FlowExecutor" and run a flow ensuring that it successfully completes with expected result returned. When checking results of the flow make sure that vNode ID: 9B02C806787D is used, the calls will be forbidden for any other vNodes.
-11. Execute some negative testing scenarios, e.g.:
-• Ensure that "UserAdmin" cannot upload CPIs, create vNodes or run flows.
-Ensure that "FlowExecutor" and "vNodeCreator" cannot perform any RBAC operations.
