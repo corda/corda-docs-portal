@@ -1,10 +1,10 @@
 ---
-date: '2021-09-22'
+date: '2023-01-13'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-tutorial-basic-cordapp-flows
-    parent: corda-community-4-9-tutorial-basic-cordapp-intro
+    identifier: corda-community-4-10-tutorial-basic-cordapp-flows
+    parent: corda-community-4-10-tutorial-basic-cordapp-intro
     weight: 1040
 tags:
 - tutorial
@@ -28,7 +28,7 @@ After you have completed this tutorial, you will know how to write and implement
 
 ## Before you start
 
-Before you start writing flows, read [Key concepts: Flows](../../../../../platform/corda/4.8/open-source/key-concepts-flows.md).
+Before you start writing flows, read [Key concepts: Flows](../../../../../platform/corda/4.10/community/key-concepts-flows.md).
 
 ## Write the `CreateAndIssueAppleStamp` flow
 

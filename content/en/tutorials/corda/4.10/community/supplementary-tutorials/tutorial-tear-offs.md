@@ -1,16 +1,10 @@
 ---
-aliases:
-- /head/tutorial-tear-offs.html
-- /HEAD/tutorial-tear-offs.html
-- /tutorial-tear-offs.html
-- /docs/corda-os/4.8/tutorial-tear-offs.html
-- /docs/platform/corda/4.8/os/tutorial-tear-offs.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-12'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-tutorial-tear-offs
-    parent: corda-community-4-9-supplementary-tutorials-index
+    identifier: corda-community-4-10-tutorial-tear-offs
+    parent: corda-community-4-10-supplementary-tutorials-index
     weight: 1050
 tags:
 - tutorial
@@ -125,7 +119,7 @@ fun sign(ftx: FilteredTransaction): TransactionSignature {
 
 ```
 
-[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.8/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
+[NodeInterestRates.kt](https://github.com/corda/corda/blob/release/os/4.10/samples/irs-demo/cordapp/workflows-irs/src/main/kotlin/net.corda.irs/api/NodeInterestRates.kt)
 
 {{< note >}}
 The way the `FilteredTransaction` is constructed ensures that after signing of the root hash, it is impossible to add or remove

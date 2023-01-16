@@ -1,16 +1,10 @@
 ---
-aliases:
-- /head/tutorial-building-transactions.html
-- /HEAD/tutorial-building-transactions.html
-- /tutorial-building-transactions.html
-- /docs/corda-os/4.8/tutorial-building-transactions.html
-- /docs/platform/corda/4.8/os/tutorial-building-transactions.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-12'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-tutorial-building-transactions
-    parent: corda-community-4-9-supplementary-tutorials-index
+    identifier: corda-community-4-10-tutorial-building-transactions
+    parent: corda-community-4-10-supplementary-tutorials-index
     weight: 1030
 tags:
 - tutorial
@@ -77,7 +71,7 @@ rather than calling the individual steps manually. However, do note that the fin
 asynchronous, so care must be used in unit testing to correctly await the vault updates.
 
 {{< note >}}
-See [Reissuing states](../../../../../platform/corda/4.8/open-source/reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
+See [Reissuing states](../../../../../platform/corda/4.10/community/reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
 {{< /note >}}
 
 ## Gathering inputs
