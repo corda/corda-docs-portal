@@ -259,7 +259,7 @@ of azure key vault has. For further details see [https://github.com/Azure/azure-
 
 ## Securosys Primus X
 
-Corda Enterprise nodes can be configured to store their legal identity keys in [Securosys Primus X](https://www.securosys.ch/product/high-availability-high-performance-hardware-security-module) HSMs running firmware version 2.7.4.
+Corda Enterprise nodes can be configured to store their legal identity keys in [Securosys Primus X](https://www.securosys.ch/product/high-availability-high-performance-hardware-security-module) HSMs running firmware version 2.7.4 or newer. Confidential identity keys can be used on Securosys PrimusX 2.8.5 or newer.
 
 In the `node.conf`, the `cryptoServiceName` needs to be set to “PRIMUS_X”, and `cryptoServiceConf` should contain the path to a configuration file, the content of which is explained further down.
 
@@ -291,7 +291,7 @@ username: "my-username"
 password: "my-password"
 ```
 
-In addition to the configuration, the Securosys’ Primus X JCA provider (version 1.8.2) needs to be placed in the node’s `drivers` folder.
+In addition to the configuration, the Securosys’ Primus X JCA provider (version 1.8.2 or newer) needs to be placed in the node’s `drivers` folder.
 
 ## nCipher nShield
 
