@@ -50,8 +50,6 @@ These checks should be performed against the RBAC sub-system even before passing
 
 ## RPC Permission Templates
 
-This describes a draft manual QA script that can be executed to independently verify that functionality is working as expected.
-
 The draft of a test plan may look like the following:
 
 1. Make sure UserAdminRole, VNodeCreatorRole and CordaDeveloperRole are either available at cluster bootstap time:
@@ -82,10 +80,3 @@ After creation role name should be: "FlowExecutorRole-9B02C806787D"
 11. Execute some negative testing scenarios, e.g.:
 • Ensure that "UserAdmin" cannot upload CPIs, create vNodes or run flows.
 Ensure that "FlowExecutor" and "vNodeCreator" cannot perform any RBAC operations.
-
-## Create and Assign Multiple Permissions to a Role
-
-A dedicated HTTP RPC call which permits the following:
-
-* Create multiple permissions
-* Assign them all to the existing roles in a single call
