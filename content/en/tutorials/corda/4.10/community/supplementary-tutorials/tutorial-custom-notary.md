@@ -1,16 +1,10 @@
 ---
-aliases:
-- /head/tutorial-custom-notary.html
-- /HEAD/tutorial-custom-notary.html
-- /tutorial-custom-notary.html
-- /docs/corda-os/4.8/tutorial-custom-notary.html
-- /docs/platform/corda/4.8/os/tutorial-custom-notary.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-12'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-tutorial-custom-notary
-    parent: corda-community-4-9-supplementary-tutorials-index
+    identifier: corda-community-4-10-tutorial-custom-notary
+    parent: corda-community-4-10-supplementary-tutorials-index
     weight: 1080
 tags:
 - tutorial
@@ -55,7 +49,7 @@ class MyCustomValidatingNotaryService(
 
 ```
 
-[MyCustomNotaryService.kt](https://github.com/corda/corda/blob/release/os/4.8/samples/notary-demo/workflows/src/main/kotlin/net/corda/notarydemo/MyCustomNotaryService.kt)
+[MyCustomNotaryService.kt](https://github.com/corda/corda/blob/release/os/4.10/samples/notary-demo/workflows/src/main/kotlin/net/corda/notarydemo/MyCustomNotaryService.kt)
 
 ## Writing a flow for the custom notary service
 
@@ -98,7 +92,7 @@ class MyValidatingNotaryFlow(otherSide: FlowSession, service: MyCustomValidating
 
 ```
 
-[MyCustomNotaryService.kt](https://github.com/corda/corda/blob/release/os/4.8/samples/notary-demo/workflows/src/main/kotlin/net/corda/notarydemo/MyCustomNotaryService.kt)
+[MyCustomNotaryService.kt](https://github.com/corda/corda/blob/release/os/4.10/samples/notary-demo/workflows/src/main/kotlin/net/corda/notarydemo/MyCustomNotaryService.kt)
 
 ## Updating the node configuration
 
@@ -128,6 +122,6 @@ To create a flow test that uses your custom notary service, you can set the clas
 
 ```
 
-[CustomNotaryTest.kt](https://github.com/corda/corda/blob/release/os/4.8/testing/node-driver/src/test/kotlin/net/corda/testing/node/CustomNotaryTest.kt)
+[CustomNotaryTest.kt](https://github.com/corda/corda/blob/release/os/4.10/testing/node-driver/src/test/kotlin/net/corda/testing/node/CustomNotaryTest.kt)
 
-After this, your custom notary will be the default notary on the mock network, and can be used in the same way as described in [Write integration tests](../../../../../../en/tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-unit-testing.md).
+After this, your custom notary will be the default notary on the mock network, and can be used in the same way as described in [Write integration tests](../../../../../../en/tutorials/corda/4.10/community/build-basic-cordapp/basic-cordapp-unit-testing.md).

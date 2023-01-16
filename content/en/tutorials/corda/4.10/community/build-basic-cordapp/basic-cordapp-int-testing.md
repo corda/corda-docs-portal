@@ -1,10 +1,10 @@
 ---
-date: '2021-09-23'
+date: '2023-01-13'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-tutorial-basic-cordapp-int-test
-    parent: corda-community-4-9-tutorial-basic-cordapp-intro
+    identifier: corda-community-4-10-tutorial-basic-cordapp-int-test
+    parent: corda-community-4-10-tutorial-basic-cordapp-intro
     weight: 1070
 tags:
 - tutorial
@@ -24,7 +24,7 @@ After you've completed this tutorial, you will be able to write integration test
 
 Before you start writing your own unit tests:
 
-* Read the [API: Testing](../../../../../platform/corda/4.8/open-source/api-testing.md) documentation.
+* Read the [API: Testing](../../../../../platform/corda/4.10/community/api-testing.md) documentation.
 * Download `TemplateInitiator.java` and `TemplateContract.java` from the [CorDapp tutorial repository](https://github.com/corda/samples-java/tree/master/Basic/tutorial-applestamp).
 * Move `TemplateState.java` into your `com.tutorial` package.
 

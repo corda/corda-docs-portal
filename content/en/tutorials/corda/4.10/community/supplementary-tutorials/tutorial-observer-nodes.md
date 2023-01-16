@@ -1,16 +1,10 @@
 ---
-aliases:
-- /head/tutorial-observer-nodes.html
-- /HEAD/tutorial-observer-nodes.html
-- /tutorial-observer-nodes.html
-- /docs/corda-os/4.8/tutorial-observer-nodes.html
-- /docs/platform/corda/4.8/os/tutorial-observer-nodes.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-12'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-tutorial-observer-nodes
-    parent: corda-community-4-9-supplementary-tutorials-index
+    identifier: corda-community-4-10-tutorial-observer-nodes
+    parent: corda-community-4-10-supplementary-tutorials-index
     weight: 1060
 tags:
 - tutorial
@@ -196,7 +190,7 @@ public class ReportManuallyResponder extends FlowLogic<Void> {
 
 * By default, vault queries do not differentiate between states you recorded as a participant/owner, and states you
 recorded as an observer. You will have to write custom vault queries that only return states for which you are a
-participant/owner. See the Example usage section of the [API: Vault Query](../../../../../platform/corda/4.8/open-source/api-vault-query.md) page for information on how to do this.
+participant/owner. See the Example usage section of the [API: Vault Query](../../../../../platform/corda/4.10/community/api-vault-query.md) page for information on how to do this.
 This also means that `Cash.generateSpend` should not be used when recording `Cash.State` states as an observer.
 
 * When an observer node is sent a transaction with the `ALL_VISIBLE` flag set, any transactions in the transaction history

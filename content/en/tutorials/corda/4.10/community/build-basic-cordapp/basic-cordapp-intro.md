@@ -1,16 +1,13 @@
 ---
-aliases:
-- /docs/corda-os/4.8/core-tutorials-index.html
-- /docs/platform/corda/4.8/os/core-tutorials-index.html
-date: 2021-08-26
+date: '2023-01-13'
 section_menu: tutorials
 section_menu: tutorials
 menu:
   tutorials:
-    parent: tutorials-corda-4-9
+    parent: tutorials-corda-4-10
     name: Building your first basic CorDapp
     weight: 1010
-    identifier: corda-community-4-9-tutorial-basic-cordapp-intro
+    identifier: corda-community-4-10-tutorial-basic-cordapp-intro
 title: Building your first basic CorDapp
 ---
 
@@ -49,7 +46,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 ## How will it work on Corda?
 
-1. Farmer Bob issues a voucher to Peter via a ledger transaction. In your CorDapp this voucher is called `AppleStamp` and is a [state](../../../../../platform/corda/4.8/open-source/key-concepts-states.md) on the [ledger](../../../../../platform/corda/4.8/open-source/key-concepts-ledger.md). One transaction has been performed so far.
+1. Farmer Bob issues a voucher to Peter via a ledger transaction. In your CorDapp this voucher is called `AppleStamp` and is a [state](../../../../../platform/corda/4.10/community/key-concepts-states.md) on the [ledger](../../../../../platform/corda/4.10/community/key-concepts-ledger.md). One transaction has been performed so far.
 
 2. When Farmer Bob prepares the apples Peter requested, he self-issues a bushel of apples via a self-issue transaction. This is another state on the ledger - `BasketofApples`. Two transactions have been performed so far.
 
@@ -57,7 +54,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 4. The `BasketofApples` state is transferred to Peter when the `AppleStamp` state is consumed and Farmer Bob gives Peter his apples.
 
-All of these transactions are initiated by [flows](../../../../../platform/corda/4.8/open-source/key-concepts-flows.md).
+All of these transactions are initiated by [flows](../../../../../platform/corda/4.10/community/key-concepts-flows.md).
 
 ## Next steps
 
