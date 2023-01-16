@@ -24,13 +24,8 @@ These roles and permissions enable certain common operations. The creation of us
 | ----------- | ----------- |
 | `UserAdminRole` | Creates roles, permissions, and controls all associations between the user, roles, and permissions. This role is created at cluster bootstrap by the admin user. This role is created via REST call enabling to have complete audit trail of the operation performed.       |
 | `VNodeCreatorRole` | Set all the necessary permissions to create a virtual node, including CPI upload and CPI update. Create this role at cluster bootstrapping time.|
-| `CordaDeveloperRole` | Users can do the following:
-
-1. VNode reset
-2. Vnode status update
-
-This role should be provisioned at cluster boostrap time and should re-use previously created permissions for other roles. |
-| `FlowExecutorRole`|  Once the vNode is created, a new CLI command will permit creation of such role for a given vNode to start new flows and enquire about the status of the running flows. |
+| `CordaDeveloperRole` | Users can use VNode reset and Vnode status update. This role should be provisioned at cluster boostrap time and should re-use previously created permissions for other roles.|
+| `FlowExecutorRole`|  Once the vNode is created, a new CLI command will permit creation of such role for a given vNode to start new flows and enquire about the status of the running flows.|
 
 ## Querying Permissions via HTTP RPC
 
