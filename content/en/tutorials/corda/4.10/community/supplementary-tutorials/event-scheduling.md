@@ -1,16 +1,10 @@
 ---
-aliases:
-- /head/event-scheduling.html
-- /HEAD/event-scheduling.html
-- /event-scheduling.html
-- /docs/corda-os/4.8/event-scheduling.html
-- /docs/platform/corda/4.8/os/event-scheduling.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-12'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-event-scheduling
-    parent: corda-community-4-9-supplementary-tutorials-index
+    identifier: corda-community-4-10-event-scheduling
+    parent: corda-community-4-10-supplementary-tutorials-index
     weight: 1000
 tags:
 - event
@@ -46,7 +40,7 @@ due.  If a contract state is consumed in the UTXO model, then what *was* the nex
 and the next time sensitive event is determined by any successor contract state.
 
 Knowing when the next time sensitive event is due to occur is useful, but typically some *activity* is expected to take
-place when this event occurs. We already have a model for business processes in the form of [flows](../../../../../platform/corda/4.8/open-source/key-concepts-flows.md),
+place when this event occurs. We already have a model for business processes in the form of [flows](../../../../../platform/corda/4.10/community/key-concepts-flows.md),
 so in the platform we have introduced the concept of *scheduled activities* that can invoke flow state machines
 at a scheduled time. A contract state can optionally described the next scheduled activity for itself. If it omits
 to do so, then nothing will be scheduled.

@@ -1,13 +1,10 @@
 ---
-aliases:
-- /docs/corda-os/4.8/tutorial-contract.html
-- /docs/platform/corda/4.8/os/tutorial-contract.html
-date: '2021-08-27'
+date: '2023-01-12'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-tutorial-basic-cordapp-contract
-    parent: corda-community-4-9-tutorial-basic-cordapp-intro
+    identifier: corda-community-4-10-tutorial-basic-cordapp-contract
+    parent: corda-community-4-10-tutorial-basic-cordapp-intro
     weight: 1030
 tags:
 - tutorial

@@ -1,16 +1,10 @@
 ---
-aliases:
-- /head/contract-upgrade.html
-- /HEAD/contract-upgrade.html
-- /contract-upgrade.html
-- /docs/corda-os/4.8/contract-upgrade.html
-- /docs/platform/corda/4.8/os/contract-upgrade.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-12'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-contract-upgrade
-    parent: corda-community-4-9-supplementary-tutorials-index
+    identifier: corda-community-4-10-contract-upgrade
+    parent: corda-community-4-10-supplementary-tutorials-index
     weight: 1010
 tags:
 - contract

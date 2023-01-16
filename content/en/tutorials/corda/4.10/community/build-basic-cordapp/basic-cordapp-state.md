@@ -1,10 +1,10 @@
 ---
-date: '2021-07-03'
+date: '2023-01-12'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-tutorial-basic-cordapp-state
-    parent: corda-community-4-9-tutorial-basic-cordapp-intro
+    identifier: corda-community-4-10-tutorial-basic-cordapp-state
+    parent: corda-community-4-10-tutorial-basic-cordapp-intro
     weight: 1020
 tags:
 - tutorial
@@ -20,7 +20,7 @@ After you have completed this tutorial, you will know how to create and implemen
 
 ## Before you start
 
-Before you start building states, read [Key concepts: States](../../../../../platform/corda/4.8/open-source/key-concepts-states.md).
+Before you start building states, read [Key concepts: States](../../../../../platform/corda/4.10/community/key-concepts-states.md).
 
 
 ## Clone the CorDapp template repo
@@ -112,7 +112,7 @@ You've probably noticed that the state template includes imports at the top of t
 
 ### Implement the state
 
-The next line of code you add defines the type of <a href="../../../../../platform/corda/4.8/open-source/api-states.html#contractstate-sub-interfaces">`ContractState`</a> you implement with the `AppleStamp` class. Add this line to ensure that Corda recognizes the `AppleStamp` as a state.
+The next line of code you add defines the type of <a href="../../../../../platform/corda/4.10/community/api-states.html#contractstate-sub-interfaces">`ContractState`</a> you implement with the `AppleStamp` class. Add this line to ensure that Corda recognizes the `AppleStamp` as a state.
 
 In this case, use a `LinearState` to tie the `AppleStamp` to a `LinearID`.
 
@@ -481,5 +481,5 @@ Follow the [Write the contracts](basic-cordapp-contract.md) tutorial to continue
 
 ## Related content
 
-* [API: States](../../../../../platform/corda/4.8/open-source/api-states.md)
-* [Reissuing states](../../../../../platform/corda/4.8/open-source/reissuing-states.md)
+* [API: States](../../../../../platform/corda/4.10/community/api-states.md)
+* [Reissuing states](../../../../../platform/corda/4.10/community/reissuing-states.md)

@@ -1,25 +1,16 @@
 ---
-aliases:
-- /head/tutorial-attachments.html
-- /HEAD/tutorial-attachments.html
-- /tutorial-attachments.html
-- /docs/corda-os/4.8/tutorial-attachments.html
-- /docs/platform/corda/4.8/os/tutorial-attachments.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-12'
 section_menu: tutorials
 menu:
   tutorials:
-    identifier: corda-community-4-9-tutorial-attachments
-    parent: corda-community-4-9-supplementary-tutorials-index
+    identifier: corda-community-4-10-tutorial-attachments
+    parent: corda-community-4-10-supplementary-tutorials-index
     weight: 1040
 tags:
 - tutorial
 - attachments
 title: Working with attachments
 ---
-
-
-
 
 # Working with attachments
 
@@ -44,7 +35,7 @@ It is encouraged that, where possible, attachments are reusable data, so that no
 
 ### Uploading an attachment
 
-To upload an attachment to the node, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](../../../../../platform/corda/4.8/open-source/clientrpc.md) or you can upload your attachment via the [Node shell](../../../../../platform/corda/4.8/open-source/shell.md).
+To upload an attachment to the node, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](../../../../../platform/corda/4.10/community/clientrpc.md) or you can upload your attachment via the [Node shell](../../../../../platform/corda/4.10/community/shell.md).
 
 To upload an attachment, run the following command:
 
@@ -65,7 +56,7 @@ identified inside the node.
 
 ### Downloading an attachment
 
-To download an attachment named by its hash, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](../../../../../platform/corda/4.8/open-source/clientrpc.md) or you can upload your attachment via the [Node shell](../../../../../platform/corda/4.8/open-source/shell.md).
+To download an attachment named by its hash, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](../../../../../platform/corda/4.10/community/clientrpc.md) or you can upload your attachment via the [Node shell](../../../../../platform/corda/4.10/community/shell.md).
 
 To download an attachment, run the following command, replacing the ID with the hash of the attachment that you want to download:
 
@@ -80,7 +71,7 @@ a JVM client.
 
 ## Searching for attachments
 
-Attachment metadata can be queried in a similar way to the vault (see [API: Vault Query](../../../../../platform/corda/4.8/open-source/api-vault-query.md)).
+Attachment metadata can be queried in a similar way to the vault (see [API: Vault Query](../../../../../platform/corda/4.10/community/api-vault-query.md)).
 
 `AttachmentQueryCriteria` can be used to build a query using the following set of column operations:
 

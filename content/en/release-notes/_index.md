@@ -22,9 +22,8 @@ Release notes for R3 products let you see what's new, what's been enhanced, what
 
 Find here the release notes for the latest versions of Corda Community (formerly Corda Open Source), Corda Enterprise, and Corda Enterprise Network Manager (CENM), plus links to historic release notes for reference.
 
-
-* [Corda: Community Edition 4.9](../../en/release-notes/corda-community-4.9.md)
-* [Corda: Enterprise Edition 4.9](../../en/release-notes/corda-enterprise-4.9.md)
+* [Corda: Community Edition 4.10](../../en/release-notes/corda-community-4.10.md)
+* [Corda: Enterprise Edition 4.10](../../en/release-notes/corda-enterprise-4.10.md)
 * [Corda 5 Developer Preview](../../en/release-notes/corda-5-dev-preview.md)
 * [CENM 1.5](../../en/release-notes/cenm-1.5.md)
 

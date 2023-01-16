@@ -1,5 +1,5 @@
 ---
-date: '2021-04-24T00:00:00Z'
+date: '2023-01-16'
 menu:
   releases:
     name: Corda downloads
@@ -31,6 +31,6 @@ The table below provides links to download Corda:
 
 | Corda Community Edition version | .tar    | Docker | Github repo |
 | :------------- | :------------- | :------------- | :------------- |
-|[4.9](/en/platform/corda/4.9/community.html) | [Download](https://download.corda.net/corda-community-edition/4.9/community-4.9.tar) | [Docker Hub](https://hub.docker.com/repository/docker/corda/community)  | [Github](https://github.com/corda/corda)  |
+|[4.10](/en/platform/corda/4.10/community.html) | [Download](https://download.corda.net/corda-community-edition/4.10/community-4.10.tar) | [Docker Hub](https://hub.docker.com/repository/docker/corda/community)  | [Github](https://github.com/corda/corda)  |
 
 {{< /table >}}
