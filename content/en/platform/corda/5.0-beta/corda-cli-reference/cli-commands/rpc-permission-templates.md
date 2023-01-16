@@ -36,7 +36,7 @@ However, there might be cases when a new role is being setup and existing permis
 Being unable to do this creates potentially duplicated permissions.
 {{< /note >}}
 
-## Check Permissions When Starting Flows
+## Checking Permissions When Starting Flows
 
 Currently, Corda checks if a user can execute startFlow RPC operations. No checks are made to whether the user can start a particular flow.
 
