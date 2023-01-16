@@ -14,12 +14,12 @@ The best way to get started with Corda is to:
 1. Decide whether you need to use:
    * Corda Enterprise - the enterprise version of Corda, for which you require a commercial contract with R3.
    * Corda open source - the open source version of Corda, which you can build on now.
-   Jump to: [Corda](../../en/platform/corda/4.8/open-source.html) or [Corda Enterprise](../../en/platform/corda/4.8/enterprise.html).
+   Jump to: [Corda](../../en/platform/corda/4.10/community.html) or [Corda Enterprise](../../en/platform/corda/4.10/enterprise.html).
 2. Familiarize yourself with the [Corda key concepts](./corda-key-concepts.md).
-3. Run a [sample CorDapp](../../en/platform/corda/4.8/open-source/tutorial-cordapp.md) to see Corda in action.
-4. [Build your own CorDapp](../../en/tutorials/corda/4.8/os/build-basic-cordapp/basic-cordapp-intro.md) from scratch.
+3. Run a [sample CorDapp](../../en/platform/corda/4.10/community/tutorial-cordapp.md) to see Corda in action.
+4. [Build your own CorDapp](../../en/tutorials/corda/4.10/community/build-basic-cordapp/basic-cordapp-intro.md) from scratch.
 
-Then, you can take your Corda integration to the next level by deep-diving into specific topics in our [Corda 4 core documentation set](../../en/platform/corda/4.8/open-source.html), viewing the [API reference material](../../en/api-ref.html), or browsing [featured apps](../../en/apps.html) and [tools and add-ons](../../en/tools.html).
+Then, you can take your Corda integration to the next level by deep-diving into specific topics in our [Corda 4 core documentation set](../../en/platform/corda/4.10/community.html), viewing the [API reference material](../../en/api-ref.html), or browsing [featured apps](../../en/apps.html) and [tools and add-ons](../../en/tools.html).
 
 {{< note >}}
 <b>Read the Corda white papers</b>
