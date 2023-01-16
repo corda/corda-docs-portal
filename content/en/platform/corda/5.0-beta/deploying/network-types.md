@@ -48,8 +48,9 @@ To run a dynamic network, you must complete the following high-level steps:
 11. [Package this GroupPolicy.json file into a member CPI](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#build-the-cpi).
 12. [Upload this CPI to the cluster](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#upload-the-cpi).
 13. [Create the virtual node for the member](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#create-a-virtual-node).
-14. [Assign required HSMs for P2P session initiation](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#configure-the-p2p-session-initiation-key-pair-and-certificate).
-15. [Assign required HSMs for the ledger](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#configure-the-ledger-key-pair-and-certificate).
-16. [Create required keys, and optionally import required certificates](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#configure-the-tls-key-pair-and-certificate).
-17. [Build the registration context](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#build-registration-context).
-18. [Use the register endpoint to request membership from the MGM](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#register-members).
+14. [Assign the required HSMs for P2P session initiation](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#configure-the-p2p-session-initiation-key-pair-and-certificate).
+15. [Assign the required HSMs for the ledger](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#configure-the-ledger-key-pair-and-certificate).
+16. [Create the required keys, and optionally import required certificates](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#configure-the-tls-key-pair-and-certificate).
+17. [Configure the member virtual node for network communication](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#configure-the-member-virtual-node-for-network-communication).
+18. [Build the registration context](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#build-registration-context).
+19. [Use the register endpoint to request membership from the MGM](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#register-members).
