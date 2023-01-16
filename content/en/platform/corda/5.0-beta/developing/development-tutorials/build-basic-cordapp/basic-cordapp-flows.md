@@ -317,368 +317,480 @@ return try {
 ```
 
 
-### Write the responder flow
+### Write the Responder Flow
 
 As noted above, the initiator flow needs a corresponding responder flow. The counterparty runs the responder flow.
 
-#### Add annotation
 
-Add the `@InitiatedBy` annotation with the `CreateAndIssueAppleStampInitiator` class to indicate that this is the responder flow.
+#### Implement the `CreateAndIssueAppleStampResponderFlow` Class
 
-#### Add the `CreateAndIssueAppleStampResponder` subclass
+1. Add the `CreateAndIssueAppleStampResponderFlow` class to `net/cordapp/utxo/apples/flowsnet/cordapp/utxo/apples/flows/issue`.
 
-Add the `CreateAndIssueAppleStampResponder` public static class to extend `FlowLogic`. The return type here is `Void`.
+2. Make `CreateAndIssueAppleStampResponderFlow` implement `ResponderFlow`.
 
-#### Add variables
+This allows the flow to be initiated when an initiating flow starts a session. You must implement this interface if you want a flow to respond to initiation requests with an initiating flow.
 
-1. Add the `FlowSession Counterparty session`.
-2. Add the public variable `CreateAndIssueAppleStampResponder` with a `FlowSession` to open the `counterpartySession`.
+3. Add the `@InitiatiedBy` annotation to `CreateAndIssueAppleStampResponderFlow`.
 
-Your variables should look like this:
+This indicates that this flow is the initiated flow in an initiating and initiated flow pair. A `protocol` must be defined that both the initiating and initiated flow reference.
 
-```java
-        private FlowSession counterpartySession;
+So far your code should look like this:
 
-        public CreateAndIssueAppleStampResponder(FlowSession counterpartySession) {
-            this.counterpartySession = counterpartySession;
+```kotlin
+@InitiatedBy(protocol = "create-and-issue-apple-stamp")
+class CreateAndIssueAppleStampResponderFlow : ResponderFlow
 ```
 
-#### Add the `call` method
 
-1. Add the `@Suspendable` annotation.
-2. Add the `@Override` annotation.
-3. Add the `call` method with a `subFlow` that will sign the partially signed transaction from the initiator:
-```java
-SignedTransaction signedTransaction = subFlow(new SignTransactionFlow(counterpartySession)
-```
-4. Inside the subflow, you can perform checks on the transaction using `checkTransaction`. If these checks fail, an exception is thrown. You do not need to add any checks for this CorDapp.
-5. Store the transactions in the database using the subflow `ReceiveFinalityFlow` with the `counterpartySession` and the `signedTransaction.`
+#### Add the `call` Method
 
-You have now written the `CreateAndIssueAppleStamp` flow. Your code should look like this:
+1. Add the `call` method with a `FlowSession` argument (that `ResponderFlow` requires implemented).
 
-```java
-package com.tutorial.flows;
+2. Add the `@Suspendable` annotation.
 
-import co.paralleluniverse.fibers.Suspendable;
-import com.tutorial.contracts.AppleStampContract;
-import com.tutorial.states.AppleStamp;
-import net.corda.core.contracts.UniqueIdentifier;
-import net.corda.core.flows.*;
-import net.corda.core.identity.Party;
-import net.corda.core.transactions.SignedTransaction;
-import net.corda.core.transactions.TransactionBuilder;
+Your code should now look like this:
 
-import java.util.ArrayList;
-import java.util.Arrays;
+```kotlin
+@InitiatedBy(protocol = "create-and-issue-apple-stamp")
+class CreateAndIssueAppleStampResponderFlow : ResponderFlow {
 
-public class CreateAndIssueAppleStamp {
+    @Suspendable
+    override fun call(session: FlowSession) {
 
-    @InitiatingFlow
-    @StartableByRPC
-    public static class CreateAndIssueAppleStampInitiator  extends FlowLogic<SignedTransaction>{
-
-        private String stampDescription;
-        private Party holder;
-
-        public CreateAndIssueAppleStampInitiator(String stampDescription,  Party holder) {
-            this.stampDescription = stampDescription;
-            this.holder = holder;
-        }
-
-        @Suspendable
-        @Override
-        public SignedTransaction call() throws FlowException {
-
-            /* Obtain a reference to a notary we wish to use.
-             * METHOD 1: Take first notary on network, WARNING: use for test, non-prod environments, and single-notary networks only!*
-             *  METHOD 2: Explicit selection of notary by CordaX500Name - argument can by coded in flows or parsed from config (Preferred)
-             *  * - For production you always want to1 use Method 2 as it guarantees the expected notary is returned.
-             */
-            final Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0); // METHOD 1
-            //final Party notary = getServiceHub().getNetworkMapCache().getNotary(CordaX500Name.parse("O=Notary,L=London,C=GB")); // METHOD 2
-
-            //Building the output AppleStamp state
-            UniqueIdentifier uniqueID = new UniqueIdentifier();
-            AppleStamp newStamp = new AppleStamp(this.stampDescription,this.getOurIdentity(),this.holder,uniqueID);
-
-            //Compositing the transaction
-            TransactionBuilder txBuilder = new TransactionBuilder(notary)
-                    .addOutputState(newStamp)
-                    .addCommand(new AppleStampContract.Commands.Issue(),
-                            Arrays.asList(getOurIdentity().getOwningKey(),holder.getOwningKey()));
-
-            // Verify that the transaction is valid.
-            txBuilder.verify(getServiceHub());
-
-            // Sign the transaction.
-            final SignedTransaction partSignedTx = getServiceHub().signInitialTransaction(txBuilder);
-
-            // Send the state to the counterparty, and receive it back with their signature.
-            FlowSession otherPartySession = initiateFlow(holder);
-            final SignedTransaction fullySignedTx = subFlow(
-                    new CollectSignaturesFlow(partSignedTx, Arrays.asList(otherPartySession)));
-
-            // Notarise and record the transaction in both parties' vaults.
-            return subFlow(new FinalityFlow(fullySignedTx, Arrays.asList(otherPartySession)));
-        }
     }
-
-    @InitiatedBy(CreateAndIssueAppleStampInitiator.class)
-    public static class CreateAndIssueAppleStampResponder extends FlowLogic<Void>{
-
-        //private variable
-        private FlowSession counterpartySession;
-
-        public CreateAndIssueAppleStampResponder(FlowSession counterpartySession) {
-            this.counterpartySession = counterpartySession;
-        }
-
-        @Override
-        @Suspendable
-        public Void call() throws FlowException {
-            SignedTransaction signedTransaction = subFlow(new SignTransactionFlow(counterpartySession) {
-                @Override
-                @Suspendable
-                protected void checkTransaction(SignedTransaction stx) throws FlowException {
-                    /*
-                     * SignTransactionFlow will automatically verify the transaction and its signatures before signing it.
-                     * However, just because a transaction is contractually valid doesn’t mean we necessarily want to sign.
-                     * What if we don’t want to deal with the counterparty in question, or the value is too high,
-                     * or we’re not happy with the transaction’s structure? checkTransaction
-                     * allows us to define these additional checks. If any of these conditions are not met,
-                     * we will not sign the transaction - even if the transaction and its signatures are contractually valid.
-                     * ----------
-                     * For this hello-world cordapp, we will not implement any additional checks.
-                     * */
-                }
-            });
-
-            //Stored the transaction into data base.
-            subFlow(new ReceiveFinalityFlow(counterpartySession, signedTransaction.getId()));
-            return null;
-        }
-    }
-
 }
 ```
 
-## Write the `PackageApples` and `RedeemApples` flows
+#### Inject the Required Services into `CreateAndIssueAppleStampResponderFlow`
 
-Now that you have written the `CreateAndIssueAppleStamp` flow, try writing the `PackageApples` and `RedeemApples` flows on your own.
+Inject the UtxoLedgerService into `CreateAndIssueAppleStampResponderFlow`. WHY? WHAT DOE THIS SERVICE DO?
 
-### `PackageApples` flow
+Your code should now look like this:
 
-The `PackageApples` flow is simpler than the `CreateAndIssueAppleStamp` flow, in that it only involves one party. This flow represents Farmer Bob preparing the apples for Peter to collect.
+```kotlin
+@InitiatedBy(protocol = "create-and-issue-apple-stamp")
+class CreateAndIssueAppleStampResponderFlow : ResponderFlow {
 
-Since the flow only involves one party (Farmer Bob), you only need an initiator flow, not a pair of initiator and responder flows. However, you still must add the `@InitiatingFlow` annotation to the initiating flow.
+    @CordaInject
+    lateinit var utxoLedgerService: UtxoLedgerService
+
+    @Suspendable
+    override fun call(session: FlowSession) {
+
+    }
+}
+```
+
+
+#### Finalize the Transaction in `CreateAndIssueAppleStampResponderFlow`
+
+Call `UtxoLedgerService.receiveFinality` and pass in the `FlowSession` from `call`'s arguments to finalize a transaction. This is the responding side which matches the `UtxoLedgerService.finalize` called by `CreateAndIssueAppleStampResponderFlow`.
+
+`receiveFinality` requires a callback to be defined that validates the received transaction, you can leave this empty for now.
+
+
+#### Check Your Work
+
+You have now written both `CreateAndIssueAppleStampFlow` and `CreateAndIssueAppleStampResponderFlow`. You code should look like this:
+
+##### `CreateAndIssueAppleStampRequest`
+
+```kotlin
+package net.cordapp.utxo.apples.flows.issue
+
+import net.corda.v5.base.types.MemberX500Name
+
+data class CreateAndIssueAppleStampRequest(val stampDescription: String, val holder: MemberX500Name)
+```
+
+##### `CreateAndIssueAppleStampFlow`
+
+```kotlin
+package net.cordapp.utxo.apples.flows.issue
+
+import net.corda.v5.application.flows.CordaInject
+import net.corda.v5.application.flows.InitiatingFlow
+import net.corda.v5.application.flows.RPCRequestData
+import net.corda.v5.application.flows.RPCStartableFlow
+import net.corda.v5.application.flows.getRequestBodyAs
+import net.corda.v5.application.marshalling.JsonMarshallingService
+import net.corda.v5.application.membership.MemberLookup
+import net.corda.v5.application.messaging.FlowMessaging
+import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.ledger.common.NotaryLookup
+import net.corda.v5.ledger.common.Party
+import net.corda.v5.ledger.utxo.UtxoLedgerService
+import net.cordapp.utxo.apples.states.AppleStamp
+import net.cordapp.utxo.apples.contracts.AppleStampContract
+import java.time.Instant
+import java.time.temporal.ChronoUnit
+import java.util.UUID
+
+@InitiatingFlow(protocol = "create-and-issue-apple-stamp")
+class CreateAndIssueAppleStampFlow : RPCStartableFlow {
+
+    @CordaInject
+    lateinit var flowMessaging: FlowMessaging
+
+    @CordaInject
+    lateinit var jsonMarshallingService: JsonMarshallingService
+
+    @CordaInject
+    lateinit var memberLookup: MemberLookup
+
+    @CordaInject
+    lateinit var notaryLookup: NotaryLookup
+
+    @CordaInject
+    lateinit var utxoLedgerService: UtxoLedgerService
+
+    @Suspendable
+    override fun call(requestBody: RPCRequestData): String {
+        val request = requestBody.getRequestBodyAs<CreateAndIssueAppleStampRequest>(jsonMarshallingService)
+        val stampDescription = request.stampDescription
+        val holderName = request.holder
+
+        // Retrieve the notaries public key (this will change)
+        val notaryInfo = notaryLookup.notaryServices.single()
+        val notaryKey = memberLookup.lookup().single {
+            it.memberProvidedContext["corda.notary.service.name"] == notaryInfo.name.toString()
+        }.ledgerKeys.first()
+        val notary = Party(notaryInfo.name, notaryKey)
+
+        val issuer = memberLookup.myInfo().let { Party(it.name, it.ledgerKeys.first()) }
+        val holder = memberLookup.lookup(holderName)
+            ?.let { Party(it.name, it.ledgerKeys.first()) }
+            ?: throw IllegalArgumentException("The holder $holderName does not exist within the network")
+
+        // Building the output AppleStamp state
+        val newStamp = AppleStamp(
+            id = UUID.randomUUID(),
+            stampDesc = stampDescription,
+            issuer = issuer,
+            holder = holder,
+            participants = listOf(issuer.owningKey, holder.owningKey)
+        )
+
+        // Create the transaction
+        @Suppress("DEPRECATION")
+        val transaction = utxoLedgerService.getTransactionBuilder()
+            .setNotary(notary)
+            .addOutputState(newStamp)
+            .addCommand(AppleStampContract.Commands.Issue())
+            .setTimeWindowUntil(Instant.now().plus(1, ChronoUnit.DAYS))
+            .addSignatories(listOf(issuer.owningKey, holder.owningKey))
+            .toSignedTransaction(issuer.owningKey)
+
+        val session = flowMessaging.initiateFlow(holderName)
+
+        return try {
+            // Send the transaction and state to the counterparty and let them sign it
+            // Then notarise and record the transaction in both parties' vaults.
+            utxoLedgerService.finalize(transaction, listOf(session))
+            newStamp.id.toString()
+        } catch (e: Exception) {
+            "Flow failed, message: ${e.message}"
+        }
+    }
+}
+
+```
+
+##### `CreateAndIssueAppleStampResponderFlow`
+
+```kotlin
+package net.cordapp.utxo.apples.flows.issue
+
+import net.corda.v5.application.flows.CordaInject
+import net.corda.v5.application.flows.InitiatedBy
+import net.corda.v5.application.flows.ResponderFlow
+import net.corda.v5.application.messaging.FlowSession
+import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.ledger.utxo.UtxoLedgerService
+
+@InitiatedBy(protocol = "create-and-issue-apple-stamp")
+class CreateAndIssueAppleStampResponderFlow : ResponderFlow {
+
+    @CordaInject
+    lateinit var utxoLedgerService: UtxoLedgerService
+
+    @Suspendable
+    override fun call(session: FlowSession) {
+        // Receive, verify, validate, sign and record the transaction sent from the initiator
+        utxoLedgerService.receiveFinality(session) { transaction ->
+            /*
+             * [receiveFinality] will automatically verify the transaction and its signatures before signing it.
+             * However, just because a transaction is contractually valid doesn't mean we necessarily want to sign.
+             * What if we don't want to deal with the counterparty in question, or the value is too high,
+             * or we're not happy with the transaction's structure? [UtxoTransactionValidator] (the lambda created
+             * here) allows us to define the additional checks. If any of these conditions are not met,
+             * we will not sign the transaction - even if the transaction and its signatures are contractually valid.
+             */
+        }
+    }
+}
+```
+
+## Write the `PackageApplesFlow` and `RedeemApplesFlow`
+
+Now that you have written the `CreateAndIssueAppleStampFlow`, try writing the `PackageApplesFlow` and `RedeemApplesFlow` on your own.
+
+
+### Write the `PackageApplesFlow`
+
+The `PackageApples` flow is simpler than the `CreateAndIssueAppleStamp` flow in that it only involves one party. This flow represents Farmer Bob preparing the apples for Peter to collect.
+
+Since the flow only involves one party (Farmer Bob), there is no need to initiate any sessions and therefore neither `@InitiatingFlow` or `@InitiatedBy` are required.
 
 Include these variables in the flow:
 
 * `appleDescription` - Relevant information, such as the type of apple. Use type `String`.
 * `weight` - The weight of the apples. Use type `int`.
 
-Though you don't need a notary in a single-party flow, all standard flows include a notary. You can add one to this flow, although it won't do anything in your transaction.
 
-#### Check your work
+#### Check Your Work
 
-After you've written the `PackageApples` flow, your code should look like this:
+After you've written the `PackageApplesFlow`, your code should look like this:
 
-```java
-package com.tutorial.flows;
+##### `PackageApplesRequest`
 
-import co.paralleluniverse.fibers.Suspendable;
-import com.tutorial.contracts.BasketOfAppleContract;
-import com.tutorial.states.BasketOfApple;
-import net.corda.core.flows.*;
-import net.corda.core.identity.Party;
-import net.corda.core.transactions.SignedTransaction;
-import net.corda.core.transactions.TransactionBuilder;
+```kotlin
+package net.cordapp.utxo.apples.flows.pack
 
-import java.util.Collections;
+data class PackApplesRequest(val appleDescription: String, val weight: Int)
+```
 
-public class PackageApples {
+##### `PackageApplesFlow`
 
-    @InitiatingFlow
-    @StartableByRPC
-    public static class PackApplesInitiator extends FlowLogic<SignedTransaction> {
+```kotlin
+package net.cordapp.utxo.apples.flows.pack
 
-        private String appleDescription;
-        private int weight;
+import net.corda.v5.application.flows.CordaInject
+import net.corda.v5.application.flows.RPCRequestData
+import net.corda.v5.application.flows.RPCStartableFlow
+import net.corda.v5.application.flows.getRequestBodyAs
+import net.corda.v5.application.marshalling.JsonMarshallingService
+import net.corda.v5.application.membership.MemberLookup
+import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.ledger.common.NotaryLookup
+import net.corda.v5.ledger.common.Party
+import net.corda.v5.ledger.utxo.UtxoLedgerService
+import net.cordapp.utxo.apples.states.BasketOfApples
+import net.cordapp.utxo.apples.contracts.BasketOfApplesContract
+import java.time.Instant
+import java.time.temporal.ChronoUnit
 
-        public PackApplesInitiator(String appleDescription, int weight) {
-            this.appleDescription = appleDescription;
-            this.weight = weight;
-        }
+class PackApplesFlow : RPCStartableFlow {
 
-        @Override
-        @Suspendable
-        public SignedTransaction call() throws FlowException {
+    @CordaInject
+    lateinit var jsonMarshallingService: JsonMarshallingService
 
-            /* Obtain a reference to a notary we wish to use.
-             * METHOD 1: Take first notary on network, WARNING: use for test, non-prod environments, and single-notary networks only!*
-             *  METHOD 2: Explicit selection of notary by CordaX500Name - argument can by coded in flows or parsed from config (Preferred)
-             *  * - For production you always want to use Method 2 as it guarantees the expected notary is returned.
-             */
-            final Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0); // METHOD 1
-            //final Party notary = getServiceHub().getNetworkMapCache().getNotary(CordaX500Name.parse("O=Notary,L=London,C=GB")); // METHOD 2
+    @CordaInject
+    lateinit var memberLookup: MemberLookup
 
-            //Create the output object
-            BasketOfApples basket = new BasketOfApple(this.appleDescription,this.getOurIdentity(),this.weight);
+    @CordaInject
+    lateinit var notaryLookup: NotaryLookup
 
-            //Building transaction
-            TransactionBuilder txBuilder = new TransactionBuilder(notary)
-                    .addOutputState(basket)
-                    .addCommand(new BasketOfAppleContract.Commands.packToBasket(), this.getOurIdentity().getOwningKey());
+    @CordaInject
+    lateinit var utxoLedgerService: UtxoLedgerService
 
-            // Verify the transaction
-            txBuilder.verify(getServiceHub());
+    @Suspendable
+    override fun call(requestBody: RPCRequestData): String {
+        val request = requestBody.getRequestBodyAs<PackApplesRequest>(jsonMarshallingService)
+        val appleDescription = request.appleDescription
+        val weight = request.weight
 
-            // Sign the transaction
-            SignedTransaction signedTransaction = getServiceHub().signInitialTransaction(txBuilder);
+        // Retrieve the notaries public key (this will change)
+        val notary = notaryLookup.notaryServices.single()
+        val notaryKey = memberLookup.lookup().single {
+            it.memberProvidedContext["corda.notary.service.name"] == notary.name.toString()
+        }.ledgerKeys.first()
 
-            // Notarise the transaction and record the states in the ledger.
-            return subFlow(new FinalityFlow(signedTransaction, Collections.emptyList()));
+        val myInfo = memberLookup.myInfo()
+        val ourIdentity = Party(myInfo.name, myInfo.ledgerKeys.first())
+
+        // Building the output BasketOfApples state
+        val basket = BasketOfApples(
+            description = appleDescription,
+            farm = ourIdentity,
+            owner = ourIdentity,
+            weight = weight,
+            participants = listOf(ourIdentity.owningKey)
+        )
+
+        // Create the transaction
+        val transaction = utxoLedgerService.getTransactionBuilder()
+            .setNotary(Party(notary.name, notaryKey))
+            .addOutputState(basket)
+            .addCommand(BasketOfApplesContract.Commands.PackBasket())
+            .setTimeWindowUntil(Instant.now().plus(1, ChronoUnit.DAYS))
+            .addSignatories(listOf(ourIdentity.owningKey))
+            .toSignedTransaction(ourIdentity.owningKey)
+
+        return try {
+            // Record the transaction, no sessions are passed in as the transaction is only being
+            // recorded locally
+            utxoLedgerService.finalize(transaction, emptyList()).toString()
+        } catch (e: Exception) {
+            "Flow failed, message: ${e.message}"
         }
     }
-
 }
 ```
 
-### `RedeemApples` flow
+### Write the `RedeemApplesFlow`
 
-The `RedeemApples` flow involves two parties: Farmer Bob and Peter. When this flow is called, Peter redeems his `AppleStamp` for the `BasketOfApples` that Famrer Bob gives him.
-
-You will need an initiator and responder flow pair for this flow.
+The `RedeemApples` flow involves two parties: Farmer Bob and Peter. When this flow is called, Peter redeems his `AppleStamp` for the `BasketOfApples` that Farmer Bob gives him. You will need an initiator and responder flow pair for this flow.
 
 Include these variables in the flow:
 
 * `buyer` - The customer buying the apples, in this case Peter.
 * `stampId` - The unique identifier of the `AppleStamp`.
 
-{{< note >}}
-The `RedeemApples` flow has an additional step that you did not see in the previous two flows. It must query the output states from the previous two transactions. These output states are the inputs for the `RedeemApples` flow.
-{{< /note >}}
+The `RedeemApples` flow has an additional step that you did not see in the previous two flows. It must query the output states from the previous two transactions. These output states are the inputs for the `RedeemApples` flow. Use the `UtxoLedgerService` to find these states.
 
-#### Check your work
+#### Check Your Work
 
-After you've written the `PackageApples` flow, your code should look like this:
+After you’ve written the `RedeemApplesFlow`, your code should look like this:
 
-```java
-package com.tutorial.flows;
+##### `RedeemApplesRequest`
 
-import co.paralleluniverse.fibers.Suspendable;
-import com.tutorial.contracts.AppleStampContract;
-import com.tutorial.contracts.BasketOfAppleContract;
-import com.tutorial.states.AppleStamp;
-import com.tutorial.states.BasketOfApple;
-import net.corda.core.contracts.StateAndRef;
-import net.corda.core.contracts.UniqueIdentifier;
-import net.corda.core.flows.*;
-import net.corda.core.identity.Party;
-import net.corda.core.node.services.Vault;
-import net.corda.core.node.services.vault.QueryCriteria;
-import net.corda.core.transactions.SignedTransaction;
-import net.corda.core.transactions.TransactionBuilder;
+```kotlin
+package net.cordapp.utxo.apples.flows.redeem
 
-import java.util.Arrays;
-import java.util.UUID;
+import net.corda.v5.base.types.MemberX500Name
+import java.util.UUID
 
-public class RedeemApples {
+data class RedeemApplesRequest(val buyer: MemberX500Name, val stampId: UUID)
+```
 
-    @InitiatingFlow
-    @StartableByRPC
-    public static class RedeemApplesInitiator extends FlowLogic<SignedTransaction>{
+##### `RedeemApplesFlow`
 
-        private Party buyer;
-        private UniqueIdentifier stampId;
+```kotlin
+package net.cordapp.utxo.apples.flows.redeem
 
-        public RedeemApplesInitiator(Party buyer, UniqueIdentifier stampId) {
-            this.buyer = buyer;
-            this.stampId = stampId;
-        }
+import net.corda.v5.application.flows.CordaInject
+import net.corda.v5.application.flows.InitiatingFlow
+import net.corda.v5.application.flows.RPCRequestData
+import net.corda.v5.application.flows.RPCStartableFlow
+import net.corda.v5.application.flows.getRequestBodyAs
+import net.corda.v5.application.marshalling.JsonMarshallingService
+import net.corda.v5.application.membership.MemberLookup
+import net.corda.v5.application.messaging.FlowMessaging
+import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.ledger.common.NotaryLookup
+import net.corda.v5.ledger.common.Party
+import net.corda.v5.ledger.utxo.UtxoLedgerService
+import net.cordapp.utxo.apples.states.AppleStamp
+import net.cordapp.utxo.apples.states.BasketOfApples
+import net.cordapp.utxo.apples.contracts.BasketOfApplesContract
+import java.time.Instant
+import java.time.temporal.ChronoUnit
 
-        @Override
-        @Suspendable
-        public SignedTransaction call() throws FlowException {
+@InitiatingFlow(protocol = "redeem-apples")
+class RedeemApplesFlow : RPCStartableFlow {
 
-            /* Obtain a reference to a notary we wish to use.
-             * METHOD 1: Take first notary on network, WARNING: use for test, non-prod environments, and single-notary networks only!*
-             *  METHOD 2: Explicit selection of notary by CordaX500Name - argument can by coded in flows or parsed from config (Preferred)
-             *  * - For production you always want to use Method 2 as it guarantees the expected notary is returned.
-             */
-            final Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0); // METHOD 1
-            //final Party notary = getServiceHub().getNetworkMapCache().getNotary(CordaX500Name.parse("O=Notary,L=London,C=GB")); // METHOD 2
+    @CordaInject
+    lateinit var flowMessaging: FlowMessaging
 
-            //Query the AppleStamp
-            QueryCriteria.LinearStateQueryCriteria inputCriteria = new QueryCriteria.LinearStateQueryCriteria()
-                    .withUuid(Arrays.asList(UUID.fromString(stampId.toString())))
-                    .withStatus(Vault.StateStatus.UNCONSUMED)
-                    .withRelevancyStatus(Vault.RelevancyStatus.RELEVANT);
-            StateAndRef appleStampStateAndRef = getServiceHub().getVaultService().queryBy(AppleStamp.class, inputCriteria).getStates().get(0);
+    @CordaInject
+    lateinit var jsonMarshallingService: JsonMarshallingService
 
-            //Query output BasketOfApples
-            QueryCriteria.VaultQueryCriteria outputCriteria = new QueryCriteria.VaultQueryCriteria()
-                    .withStatus(Vault.StateStatus.UNCONSUMED)
-                    .withRelevancyStatus(Vault.RelevancyStatus.RELEVANT);
-            StateAndRef basketOfAppleStateAndRef = getServiceHub().getVaultService().queryBy(BasketOfApple.class, outputCriteria).getStates().get(0);
-            BasketOfApples originalBasketOfApples = (BasketOfApples) basketOfAppleStateAndRef.getState().getData();
+    @CordaInject
+    lateinit var memberLookup: MemberLookup
 
-            //Modify output to address the owner change
-            BasketOfApples output = originalBasketOfApple.changeOwner(buyer);
+    @CordaInject
+    lateinit var notaryLookup: NotaryLookup
 
-            //Build Transaction
-            TransactionBuilder txBuilder = new TransactionBuilder(notary)
-                    .addInputState(appleStampStateAndRef)
-                    .addInputState(basketOfAppleStateAndRef)
-                    .addOutputState(output, BasketOfAppleContract.ID)
-                    .addCommand(new BasketOfAppleContract.Commands.Redeem(),
-                            Arrays.asList(getOurIdentity().getOwningKey(),this.buyer.getOwningKey()));
+    @CordaInject
+    lateinit var utxoLedgerService: UtxoLedgerService
 
-            // Verify that the transaction is valid.
-            txBuilder.verify(getServiceHub());
+    @Suspendable
+    override fun call(requestBody: RPCRequestData): String {
+        val request = requestBody.getRequestBodyAs<RedeemApplesRequest>(jsonMarshallingService)
+        val buyerName = request.buyer
+        val stampId = request.stampId
 
-            // Sign the transaction.
-            final SignedTransaction partSignedTx = getServiceHub().signInitialTransaction(txBuilder);
+        // Retrieve the notaries public key (this will change)
+        val notaryInfo = notaryLookup.notaryServices.single()
+        val notaryKey = memberLookup.lookup().single {
+            it.memberProvidedContext["corda.notary.service.name"] == notaryInfo.name.toString()
+        }.ledgerKeys.first()
+        val notary = Party(notaryInfo.name, notaryKey)
 
-            // Send the state to the counterparty, and receive it back with their signature.
-            FlowSession otherPartySession = initiateFlow(buyer);
-            final SignedTransaction fullySignedTx = subFlow(
-                    new CollectSignaturesFlow(partSignedTx, Arrays.asList(otherPartySession)));
+        val ourIdentity = memberLookup.myInfo().let { Party(it.name, it.ledgerKeys.first()) }
 
-            // Notarise and record the transaction in both parties' vaults.
-            SignedTransaction result = subFlow(new FinalityFlow(fullySignedTx, Arrays.asList(otherPartySession)));
+        val buyer = memberLookup.lookup(buyerName)
+            ?.let { Party(it.name, it.ledgerKeys.first()) }
+            ?: throw IllegalArgumentException("The buyer does not exist within the network")
 
-            return result;
-        }
-    }
+        val appleStampStateAndRef = utxoLedgerService.findUnconsumedStatesByType(AppleStamp::class.java)
+            .firstOrNull { stateAndRef -> stateAndRef.state.contractState.id == stampId }
+            ?: throw IllegalArgumentException("No apple stamp matching the stamp id $stampId")
 
-    @InitiatedBy(RedeemApplesInitiator.class)
-    public static class RedeemApplesResponder extends FlowLogic<Void>{
-        //private variable
-        private FlowSession counterpartySession;
+        val basketOfApplesStampStateAndRef = utxoLedgerService.findUnconsumedStatesByType(BasketOfApples::class.java)
+            .firstOrNull()
+            ?: throw IllegalArgumentException("There are no baskets of apples")
 
-        public RedeemApplesResponder(FlowSession counterpartySession) {
-            this.counterpartySession = counterpartySession;
-        }
+        val originalBasketOfApples = basketOfApplesStampStateAndRef.state.contractState
 
-        @Override
-        @Suspendable
-        public Void call() throws FlowException {
-            SignedTransaction signedTransaction = subFlow(new SignTransactionFlow(counterpartySession) {
-                @Override
-                protected void checkTransaction(SignedTransaction stx) throws FlowException {
-                }
-            });
+        val updatedBasket = originalBasketOfApples.changeOwner(buyer)
 
-            //Stored the transaction into data base.
-            subFlow(new ReceiveFinalityFlow(counterpartySession, signedTransaction.getId()));
-            return null;
+        // Create the transaction
+        @Suppress("DEPRECATION")
+        val transaction = utxoLedgerService.getTransactionBuilder()
+            .setNotary(notary)
+            .addInputStates(appleStampStateAndRef.ref, basketOfApplesStampStateAndRef.ref)
+            .addOutputState(updatedBasket)
+            .addCommand(BasketOfApplesContract.Commands.Redeem())
+            .setTimeWindowUntil(Instant.now().plus(1, ChronoUnit.DAYS))
+            .addSignatories(listOf(ourIdentity.owningKey, buyer.owningKey))
+            .toSignedTransaction(ourIdentity.owningKey)
+
+        val session = flowMessaging.initiateFlow(buyerName)
+
+        return try {
+            // Send the transaction and state to the counterparty and let them sign it
+            // Then notarise and record the transaction in both parties' vaults.
+            utxoLedgerService.finalize(transaction, listOf(session)).toString()
+        } catch (e: Exception) {
+            "Flow failed, message: ${e.message}"
         }
     }
-
 }
 ```
 
-## Next steps
+##### `RedeemApplesResponderFlow`
 
-Follow the [Write unit tests](basic-cordapp-unit-testing.md) tutorial to continue on this learning path.
+```kotlin
+package net.cordapp.utxo.apples.flows.redeem
+
+import net.corda.v5.application.flows.CordaInject
+import net.corda.v5.application.flows.InitiatedBy
+import net.corda.v5.application.flows.ResponderFlow
+import net.corda.v5.application.messaging.FlowSession
+import net.corda.v5.base.annotations.Suspendable
+import net.corda.v5.ledger.utxo.UtxoLedgerService
+
+@InitiatedBy(protocol = "redeem-apples")
+class RedeemApplesResponderFlow : ResponderFlow {
+
+    @CordaInject
+    lateinit var utxoLedgerService: UtxoLedgerService
+
+    @Suspendable
+    override fun call(session: FlowSession) {
+        // Receive, verify, validate, sign and record the transaction sent from the initiator
+        utxoLedgerService.receiveFinality(session) { transaction ->
+            /*
+             * [receiveFinality] will automatically verify the transaction and its signatures before signing it.
+             * However, just because a transaction is contractually valid doesn't mean we necessarily want to sign.
+             * What if we don't want to deal with the counterparty in question, or the value is too high,
+             * or we're not happy with the transaction's structure? [UtxoTransactionValidator] (the lambda created
+             * here) allows us to define the additional checks. If any of these conditions are not met,
+             * we will not sign the transaction - even if the transaction and its signatures are contractually valid.
+             */
+        }
+    }
+}
+```
