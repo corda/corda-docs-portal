@@ -29,7 +29,7 @@ These roles and permissions enable certain common operations. The creation of us
 
 ## Querying Permissions via HTTP RPC
 
-At the moment it is only possible to retrieve a permission if its identifier is known to the caller.
+At the moment, it is only possible to retrieve a permission if its identifier is known to the caller.
 However, there might be cases when a new role is being setup and existing permissions need to be included. It would be helpful to do a search of the permissions available.
 
 {{< note >}}
