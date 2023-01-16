@@ -46,10 +46,10 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 |Supported JDKs|Latest supported version|
 |-----------------------------------|-----------|
-|[Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)|8u322|
+|[Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)|8u351|
 |[Amazon Corretto 8](https://aws.amazon.com/corretto/)|8.252.09.1|
 |[Red Hat's OpenJDK](https://developers.redhat.com/products/openjdk/overview/)|8u322|
-|[Zulu's OpenJDK](https://www.azul.com/)|8u322b06|
+|[Zulu's OpenJDK](https://www.azul.com/)|8u352|
 
 {{< /table >}}
 
@@ -61,7 +61,7 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 |-------------------------------|------------------|-----------|
 |Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|16.04, 18.04|
+|Ubuntu Linux|x86-64|16.04, 16.10, 18.04, 20.04|
 |Oracle Linux|x86-64|7.x, 6.x|
 
 {{< /table >}}

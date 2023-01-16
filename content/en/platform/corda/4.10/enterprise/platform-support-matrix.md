@@ -71,7 +71,7 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 |-------------------------------|------------------|-----------|
 |Red Hat Enterprise Linux|x86-64|8.x, 7.x, 6.x|
 |Suse Linux Enterprise Server|x86-64|12.x, 11.x|
-|Ubuntu Linux|x86-64|16.04, 18.04|
+|Ubuntu Linux|x86-64|16.04, 16.10, 18.04, 20.04| 
 |Oracle Linux|x86-64|7.x, 6.x|
 
 {{< /table >}}
@@ -97,6 +97,8 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 |Microsoft|x86-64|Azure SQL,SQL Server 2017|Microsoft JDBC Driver 6.4|
 |Oracle|x86-64|19c|Oracle JDBC 6|
 |Oracle|x86-64|19c|Oracle JDBC 8|
+|Oracle|x86-64|12cR2|Oracle JDBC 8|
+|Oracle|x86-64|11gR2|Oracle JDBC 6 |
 |PostgreSQL|x86-64|9.6, 10.10, 11.5, 13.8|PostgreSQL JDBC Driver 42.1.4 / 42.2.9|
 
 {{< /table >}}
@@ -117,7 +119,7 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 |Vendor|CPU architecture|Versions|JDBC driver|
 |-------------------------------|------------------|------------------|--------------------|
-|CockroachDB|x86-64|21.2.x|PostgreSQL JDBCDriver 42.2.9|
+|CockroachDB|x86-64|22.1.x|PostgreSQL JDBCDriver 42.5.0|
 |Oracle RAC|x86-64|19c|Oracle JDBC 8|
 
 {{< /table >}}
@@ -126,22 +128,22 @@ Install the **Java 8 JDK**. Corda does not currently support Java 9 or higher.
 
 {{< table >}}
 
-|Device|Legal identity & CA keys|TLS keys|Confidential identity keys|Notary service keys|
-|-------------------------------|----------------------------|----------------------------|----------------------------|-----------------------------|
-| Utimaco SecurityServer Se Gen2| Firmware version 4.21.1  | Firmware version 4.21.1  | Firmware version 4.21.1 | Firmware version 4.21.1   |
-|                               | Driver version 4.21.1    | Driver version 4.21.1    | Driver version 4.21.1   | Driver version 4.21.1     |
-| Gemalto Luna                  | Firmware version 7.0.3   | Firmware version 7.0.3   | Firmware version 7.0.3  | Firmware version 7.0.3    |
-|                               | Driver version 7.3       | Driver version 7.3       | Driver version 7.3      | Driver version 7.3        |
-| FutureX Vectera Plus          | Firmware version 6.1.5.8 | Firmware version 6.1.5.8 | Firmware version 6.1.5.8 | Firmware version 6.1.5.8  |
-|                               | PKCS#11 version 3.1      | PKCS#11 version 3.1      | PKCS#11 version 3.1      | PKCS#11 version 3.1       |
-|                               | FXJCA version 1.17       | FXJCA version 1.17       | FXJCA version 1.17       | FXJCA version 1.17        |
-| Azure Key Vault               | Driver version           | Driver version           | Driver version (SOFTWARE mode only)| Driver version  |
-|                               | azure-identity 1.2.0     | azure-identity 1.2.0     | azure-identity 1.2.0     | azure-identity 1.2.0      |
+|Device                         | Legal identity and CA keys  | TLS keys                | Confidential identity keys | Notary service keys         |
+|-------------------------------|--------------------------|--------------------------|----------------------------|-----------------------------|
+| Utimaco SecurityServer Se Gen2| Firmware version 4.21.1  | Firmware version 4.21.1  | Firmware version 4.21.1    | Firmware version 4.21.1     |
+|                               | Driver version 4.21.1    | Driver version 4.21.1    | Driver version 4.21.1      | Driver version 4.21.1       |
+| Gemalto Luna                  | Firmware version 7.0.3   | Firmware version 7.0.3   | Firmware version 7.0.3     | Firmware version 7.0.3      |
+|                               | Driver version 7.3       | Driver version 7.3       | Driver version 7.3         | Driver version 7.3          |
+| FutureX Vectera Plus          | Firmware version 6.1.5.8 | Firmware version 6.1.5.8 | Firmware version 6.1.5.8   | Firmware version 6.1.5.8    |
+|                               | PKCS#11 version 3.1      | PKCS#11 version 3.1      | PKCS#11 version 3.1        | PKCS#11 version 3.1         |
+|                               | FXJCA version 1.17       | FXJCA version 1.17       | FXJCA version 1.17         | FXJCA version 1.17          |
+| Azure Key Vault               | Driver version           | Driver version           | Driver version (SOFTWARE mode only)| Driver version      |
+|                               | azure-identity 1.2.0     | azure-identity 1.2.0     | azure-identity 1.2.0       | azure-identity 1.2.0        |
 |                               | azure-security-keyvault-keys 4.2.3| azure-security-keyvault-keys 4.2.3| azure-security-keyvault-keys 4.2.3| azure-security-keyvault-keys 4.2.3|
-| Securosys PrimusX             | Firmware version 2.7.4   | Firmware version 2.7.4   | Firmware version 2.7.4   | Firmware version 2.7.4    |
-|                               | Driver version 1.8.2     | Driver version 1.8.2     | Driver version 1.8.2     | Driver version 1.8.2      |
-| nCipher nShield Connect       | Firmware version 12.50.11| Firmware version 12.50.11| Firmware version 12.50.11| Firmware version 12.50.11 |
-|                               | Driver version 12.60.2   | Driver version 12.60.2   | Driver version 12.60.2   | Driver version 12.60.2    |
-| AWS CloudHSM                  | Driver version 3.2.1     | Driver version 3.2.1     | Driver version 3.2.1     | Driver version 3.2.1      |
+| Securosys PrimusX             | Firmware version 2.7.4 or newer  | Firmware version 2.7.4 or newer | Firmware version 2.8.5 or newer   | Firmware version 2.7.4 or newer |
+|                               | Driver version 1.8.2 or newer    | Driver version 1.8.2 or newer    | Driver version 2.3.4 or newer       | Driver version 1.8.2 or newer      |
+| nCipher nShield Connect       | Firmware version 12.50.11| Firmware version 12.50.11| Firmware version 12.50.11  | Firmware version 12.50.11 |
+|                               | Driver version 12.60.2   | Driver version 12.60.2   | Driver version 12.60.2     | Driver version 12.60.2    |
+| AWS CloudHSM                  | Driver version 3.2.1     | Driver version 3.2.1     | Driver version 3.2.1       | Driver version 3.2.1      |
 
 {{< /table >}}
