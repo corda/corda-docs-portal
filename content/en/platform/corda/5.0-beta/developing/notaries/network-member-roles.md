@@ -18,4 +18,4 @@ With the introduction of the UTXO ledger and notaries, network operators must be
 
 * **Notary:** Members which run a CPI containing a CPB which provide a notarization service to the network. These are effectively representatives of a notary service, similar to how notary workers represented a notary service in a Corda 4 high-availability notary setup.
 
-* **MGM:** The Membership Group Manager. In the context of notary functionality, there is nothing different about the MGM. The deployment of a MGM virtual node is handled transparently by our deployments.
+* **MGM:** The Membership Group Manager. In the context of notary functionality, there is nothing special or different about the MGM. The MGM virtual node is deployed as part of your standard network setup.
