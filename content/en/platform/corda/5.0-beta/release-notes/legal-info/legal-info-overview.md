@@ -8,5 +8,5 @@ menu:
     weight: 20
 section_menu: corda-5-beta
 ---
-* [corda-api](api.html)
-* [corda-runtime-os](runtime-os.html)
+* [corda-api](legal-info-api.html)
+* [corda-runtime-os](legal-info-runtime-os.html)
