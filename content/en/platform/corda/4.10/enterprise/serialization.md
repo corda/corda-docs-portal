@@ -159,6 +159,10 @@ java.util.EnumSet
 java.util.EnumMap (but only if there is at least one entry)
 ```
 
+ {{< note >}}
+ If you receive a deserialisation error when running your Cordapp, we recommend to change java.util.Map to java.util.LinkedHashMap to resolve the error.
+ {{< /note >}}
+
 
 ### JVM primitives
 
