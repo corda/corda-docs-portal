@@ -3,7 +3,7 @@ aliases:
 - /head/tutorials-index.html
 - /HEAD/tutorials-index.html
 - /tutorials-index.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-01-17'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-tutorials-index
@@ -17,7 +17,7 @@ title: Tutorials
 
 #  Tutorials
 
-The Corda Community Edition 4.10 tutorials can now be found in the [Tutorials](../../../../tutorials/corda/4.10/Community.html) section. There you can learn about:
+The Corda Community Edition 4.10 tutorials can now be found in the [Tutorials](../../../../tutorials/corda/4.10/community/overview.md) section. There you can learn about:
 
 * [Building your first basic CorDapp](../../../../tutorials/corda/4.10/community/build-basic-cordapp/basic-cordapp-intro.md)
 * [Platform feature tutorials](../../../../tutorials/corda/4.10/community/supplementary-tutorials/supplementary-tutorials-intro.md)
