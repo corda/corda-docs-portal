@@ -9,11 +9,9 @@ menu:
 section_menu: corda-5-beta
 ---
 
-Follow this learning path to build your first CorDapp with a step-by-step guide. This set of tutorials teaches you how to implement the functionality and features you will need to get any CorDapp up and running. It reinforces [best practices for building CorDapps](../../../../platform/corda/4.8/open-source/writing-a-cordapp.md).
+Follow this learning path to build your first CorDapp with a step-by-step guide. This set of tutorials teaches you how to implement the functionality and features you will need to get any CorDapp up and running.
 
-<!---The solution for this CorDapp is available in [Java](https://github.com/corda/samples-java/tree/master/Basic/tutorial-applestamp) and [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Basic/tutorial-applestamp). This tutorial walks you through the Java version of the Apple Stamp CorDapp.--->
-
-## Before you start
+## Before You Start
 
 Before you start building your first CorDapp:
 
@@ -21,7 +19,7 @@ Before you start building your first CorDapp:
 - [Get set up for CorDapp development](../../getting-started/get-started.md).
 - [Run the sample CorDapp](../../getting-started/running-your-first-cordapp/run-first-cordapp.md).
 
-## The story
+## The Story
 
 This example showcases a delivery versus payment (DvP) scenario. You are building a CorDapp for an apple orchard that wants to offer a way for customers to purchase a voucher that they will later redeem for a bushel of apples.
 
@@ -42,7 +40,7 @@ Your CorDapp must follow this process:
 
 An important feature of this CorDapp is that the voucher cannot be used more than once. It must be considered invalid after it is redeemed.
 
-## How will it work on Corda?
+## How Will It Work on Corda?
 
 1. Farmer Bob issues a voucher to Peter via a ledger transaction. In your CorDapp this voucher is called `AppleStamp` and is a [state](../../ledger/states.md) on the [ledger](../../ledger/ledger.md). One transaction has been performed so far.
 
@@ -54,11 +52,9 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 All of these transactions are initiated by [flows](../../ledger/flows.md).
 
-## Next steps
+## Next Steps
 
 Follow these tutorials in sequential order to build your CorDapp:
-
-<!---These will all link to the new tutorials when they are added.--->
 
 1. [Initial Setup](basic-cordapp-setup.md)
 

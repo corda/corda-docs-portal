@@ -22,7 +22,7 @@ Before you start building states, read more about [states](../../ledger/states.m
 
 ## Create the `AppleStamp` State
 
-First create the `AppleStamp` state. This state is the voucher issued to customers.
+First, create the `AppleStamp` state. This state is the voucher issued to customers.
 
 1. Right-click the **states** folder, select **New > Kotlin Class** and create a file called `AppleStamp`.
 
@@ -124,11 +124,8 @@ The `BasketOfApples` state is the basket of apples that Farmer Bob self-issues t
 Properties:
 
 * `description` - The brand or type of apple. Use type `String`.
-
 * `farm` - The origin of the apples. Use type `Party`.
-
 * `owner` - The person exchanging the basket of apples for the voucher (Farmer Bob). Use type `Party`.
-
 * `weight` - The weight of the basket of apples. Use type `int`.
 
 The `BasketOfApples` state is involved in two transactions. In the first transaction, Farmer Bob self-issues the `BasketOfApples`. The `Farm` party then fills both the `owner` and `farm` fields of the transaction.

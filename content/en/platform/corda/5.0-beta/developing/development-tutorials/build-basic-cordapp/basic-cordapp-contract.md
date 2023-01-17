@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 
-This tutorial guides you through writing the two contracts you need in your CorDapp: `AppleStampContract` and `BasketOfApplesContract`. You will link these contracts to the states that you created in the [Write the states](basic-cordapp-state.md) tutorial.
+This tutorial guides you through writing the two contracts you need in your CorDapp: `AppleStampContract` and `BasketOfApplesContract`. You will link these contracts to the states that you created in the [Write States](basic-cordapp-state.md) tutorial.
 
 You will create these contracts in the `ledger-utxo-example-apples-contract/src/main/kotlin/net/cordapp/utxo/apples/contracts` directory in this tutorial.
 

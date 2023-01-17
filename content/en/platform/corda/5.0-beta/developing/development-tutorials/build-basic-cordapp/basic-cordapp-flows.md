@@ -57,7 +57,7 @@ class CreateAndIssueAppleStampFlow : RPCStartableFlow
 
 Add the `@InitiatingFlow` annotation to `CreateAndIssueAppleStampFlow`.
 
-This indicates that this flow is the initiating flow in an initiating and initiated flow pair. A `protocol` must be defined that both the initiating and initiated flow reference. // THIS DOESN'T MAKE SENSE TO ME. IS IT "DEFINED THAT BOTH..." OR "DEFINED IN BOTH"
+This indicates that this flow is the initiating flow in an initiating and initiated flow pair. A `protocol` must be defined that both the initiating and initiated flow reference.
 
 So far your code should look like this:
 
@@ -201,7 +201,7 @@ val notary = Party(notaryInfo.name, notaryKey)
 
 3. Repeat the same process for the holder of the new `AppleStamp` state using the `holderName` from the flow’s input parameters.
 
-4. Verify that this participant exists in the network. //WHICH PARTICIPANT? THE ONE THAT IS EXECUTING THE FLOW OR HOLDER OR BOTH?
+4. Verify that this participant exists in the network.
 
 Your code should now contain the following lines:
 
@@ -215,7 +215,7 @@ val holder = memberLookup.lookup(holderName)
 
 #### Build the Output `AppleStamp` State
 
-In flows with inputs, you use those inputs to determine the outputs a flow will have. Since this flow is creating and issuing the `AppleStamp`, there are no inputs to utilize. //IS THIS INTRO CORRECT? YOU DELETED IT IN YOUR DOC.
+In flows with inputs, you use those inputs to determine the outputs a flow will have. Since this flow is creating and issuing the `AppleStamp`, there are no inputs to utilize.
 
 Build the output `newStamp` using the parameters from the `AppleStamp` state:
 
@@ -266,7 +266,7 @@ Finalizing a transaction does the following:
 * Validate the transaction’s contents.
 * Sign the transaction.
 
-2. Notarises the transaction.
+2. Notarizes the transaction.
 
 3. Records the transaction for the current participant.
 

@@ -16,7 +16,7 @@ section_menu: corda-5-beta
 
 
 
-## Perfom Initial Setup of Your CorDapp
+## Perform Initial Setup of Your CorDapp
 
 1. Create the `ledger-utxo-example-apples-app` module by performing the following steps:
 
