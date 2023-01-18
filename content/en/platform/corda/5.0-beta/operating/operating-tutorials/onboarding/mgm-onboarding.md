@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 
-This section describes how to configure the MGM, through which a membership group is created for a [dynamic network](../../network-types.html#dynamic-networks).
+This section describes how to configure the MGM, through which a membership group is created for a [dynamic network](../../../deploying/network-types.html#dynamic-networks).
 
 {{< note >}}
 The PowerShell commands listed on this page are for use with  PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
@@ -18,7 +18,7 @@ The PowerShell commands listed on this page are for use with  PowerShell 7.0 and
 ## Set Variables
 Set the values of variables for use in later commands:
 
-1. Set the P2P gateway host and port and the [REST API](../../../developing/rest-api/rest-api.html) host and port. 
+1. Set the P2P gateway host and port and the [REST API](../../../operating/operating-tutorials/rest-api.html) host and port. 
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -42,7 +42,7 @@ Set the values of variables for use in later commands:
 
    These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`.
 
-2. Set the [REST API](../../../developing/rest-api/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
+2. Set the [REST API](../../../operating/operating-tutorials/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
