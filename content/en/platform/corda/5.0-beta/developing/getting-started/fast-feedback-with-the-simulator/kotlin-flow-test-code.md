@@ -41,7 +41,7 @@ First the test class instantiates `MemberX500Name` for two actors. `MemberX500Na
    val aliceVN = simulator.createVirtualNode(aliceHoldingID, MyFirstFlow::class.java)
    simulator.createVirtualNode(bobHoldingID, MyFirstFlowResponder::class.java)
    ```
-    You can read more about initiating flows and responder flows in the section on [Your first flow ](../../first-flow/first-flow.html#initiating-and-responding-flows).
+    You can read more about initiating flows and responder flows in the section on [Your first flow ](../first-flow/code-kotlin.md#initiating-and-responding-flows).
 6. Create the arguments to pass to the flow. In the flow file `MyFirstFlow.kt`, create a class `MyFirstFlowStartArgs` specifically for holding the flow start arguments:
    ```kotlin
    // A class to hold the arguments required to start the flow
