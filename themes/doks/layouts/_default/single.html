@@ -34,8 +34,10 @@
         {{ partial "main/edit-page.html" . }}
       {{ end -}}
 			<p class="lead">{{ .Params.lead | safeHTML }}</p>
-			{{ partial "main/headline-hash.html" .Content }}
+
 			{{ partial "main/docs-navigation.html" . }}
+
+      {{ partial "main/feedback.html" . }}
 	</main>
 	</div>
 {{ end }}
