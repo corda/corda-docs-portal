@@ -29,8 +29,7 @@
 				</nav>
 			{{ end }}
       <h1>{{ .Title }}</h1>
-{{ end }}
-{{ define "footer" }}
+	</main>
       {{ if .Site.Params.editPage -}}
         {{ partial "main/edit-page.html" . }}
       {{ end -}}
@@ -38,6 +37,6 @@
 			{{ partial "main/headline-hash.html" .Content }}
 			{{ partial "main/docs-navigation.html" . }}
       {{ partial "main/feedback.html" . }}
-		</main>
+
 	</div>
 {{ end }}
