@@ -24,17 +24,13 @@ These roles and permissions enable certain common operations. The creation of us
 | ----------- | ----------- |
 | `UserAdminRole` | Creates roles and permissions and controls all associations between the user roles, and permissions. This role is created at cluster bootstrap by the admin user. This role is created via a REST call enabling to have complete audit trail of the operation performed.       |
 | `VNodeCreatorRole` | Sets all the necessary permissions to create a virtual node, including CPI upload and CPI update. Create this role at cluster bootstrapping time.|
-| `CordaDeveloperRole` | Users can use virtual node reset and virtual node status update. This role should be provisioned at cluster boostrap time and should re-use previously created permissions for other roles.|
-| `FlowExecutorRole`|  Once the virtual node is created, a new CLI command permits the creation of such a role for a given virtual node to start new flows and enquire about the status of the running flows.|
+| `CordaDeveloperRole` | Enables the use of virtual node reset and virtual node status update. This role should be provisioned at cluster boostrap time and should re-use previously created permissions for other roles.|
+| `FlowExecutorRole`|  Permits the creation of a role for a given virtual node to start flows and enquire the status of the running flows once the virtual node is created.|
 
 ## Querying Permissions via HTTP RPC
 
 At the moment, it is only possible to retrieve a permission if its identifier is known to the caller.
-However, there might be cases when a new role is being set up and existing permissions need to be included. It would be helpful to do a search of the permissions available.
-
-{{< note >}}
-Being unable to do this creates potentially duplicated permissions.
-{{< /note >}}
+However, there might be cases when a new role is being set up and existing permissions need to be included.
 
 ## Checking Permissions When Starting Flows
 
