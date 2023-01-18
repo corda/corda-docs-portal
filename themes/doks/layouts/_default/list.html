@@ -1,0 +1,18 @@
+{{ define "main" }}
+	<div class="row flex-xl-nowrap">
+    {{ if ne .Params.sidebar false -}}
+		<div class="col-lg-5 col-xl-4 docs-sidebar collapse d-lg-block">
+      <div class="docs-sidebar-content">
+        <nav class="docs-links" aria-label="Main navigation">
+          {{ partial "sidebar/pages_in_version_menu.html" . }}
+        </nav>
+      </div>
+		</div>
+    {{ end -}}
+		<main class="docs-content col-lg-11 col-xl-9 mx-lg-auto">
+      {{- .Content -}}
+      {{ partial "main/feedback.html" . }}
+		</main>
+	</div>
+</div>
+{{ end }}
