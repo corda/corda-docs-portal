@@ -8,7 +8,7 @@ menu:
     weight: 2000
 section_menu: corda-5-beta
 ---
-This section describes how to configure a [dynamic network](../../network-types.html#dynamic-networks) to onboard new members. It assumes that you have configured the [MGM for the network](mgm-onboarding.html).
+This section describes how to configure a [dynamic network](../../../deploying/network-types.html#dynamic-networks) to onboard new members. It assumes that you have configured the [MGM for the network](mgm-onboarding.html).
 
 {{< note >}}
 The PowerShell commands listed on this page are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
@@ -17,7 +17,7 @@ The PowerShell commands listed on this page are for use with PowerShell 7.0 and 
 ## Set Variables
 Set the values of variables for use in later commands:
 
-1. Set the P2P gateway host and port and the [REST API](../../../developing/rest-api/rest-api.html) host and port. This may also vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
+1. Set the P2P gateway host and port and the [REST API](../../../operating/operating-tutorials/rest-api.html) host and port. This may also vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -38,7 +38,7 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Set the [REST API](../../../developing/rest-api/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
+2. Set the [REST API](../../../operating/operating-tutorials/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -83,7 +83,7 @@ Set the values of variables for use in later commands:
 
 ## Generate the Group Policy File
 
-To onboard members to a group, a [running MGM](mgm-onboarding.html) is required. To join, members must use a [group policy file](../../group-policy.html) exported from the MGM of that group.
+To onboard members to a group, a [running MGM](mgm-onboarding.html) is required. To join, members must use a [group policy file](../../../deploying/group-policy.html) exported from the MGM of that group.
 
 To retrieve the `GroupPolicy.json` file from the MGM:
 

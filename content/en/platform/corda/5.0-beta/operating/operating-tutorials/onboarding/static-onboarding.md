@@ -8,7 +8,7 @@ menu:
     weight: 4000
 section_menu: corda-5-beta
 ---
-This section describes the onboarding process for [static networks](../../network-types.html#static-networks).
+This section describes the onboarding process for [static networks](../../../deploying/network-types.html#static-networks).
 
 {{< note >}}
 Static networks do not use an [MGM](../../../introduction/key-concepts.html#membership-management). If you require an MGM, see [Dynamic Onboarding](dynamic-onboarding.html).
@@ -16,7 +16,7 @@ Static networks do not use an [MGM](../../../introduction/key-concepts.html#memb
 
 ## Create the Group Policy File
 
-Use the [Corda CLI](../../installing-corda-cli.html) to generate a [GroupPolicy.json file](../../group-policy.html#static-network-member-group-policy), where `group-policy-folder` is the path to the folder in which you want to generate the file:
+Use the [Corda CLI](../../../developing/getting-started/installing-corda-cli.html) to generate a [GroupPolicy.json file](../../../deploying/group-policy.md#static-network-member-group-policy), where `group-policy-folder` is the path to the folder in which you want to generate the file:
 ```shell
 corda-cli.sh mgm groupPolicy --name="C=GB, L=London, O=Alice" --name="C=GB, L=London, O=Bob" --name="C=GB, L=London, O=Charlie" --endpoint-protocol=1 --endpoint="http://localhost:1080" > <group-policy-folder/GroupPolicy.json>
 ```
