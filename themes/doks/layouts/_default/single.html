@@ -29,13 +29,14 @@
 				</nav>
 			{{ end }}
       <h1>{{ .Title }}</h1>
-	</main>
+
       {{ if .Site.Params.editPage -}}
         {{ partial "main/edit-page.html" . }}
       {{ end -}}
 			<p class="lead">{{ .Params.lead | safeHTML }}</p>
 			{{ partial "main/headline-hash.html" .Content }}
 			{{ partial "main/docs-navigation.html" . }}
+		</main>
       {{ partial "main/feedback.html" . }}
 
 	</div>
