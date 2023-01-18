@@ -36,8 +36,9 @@
 			<p class="lead">{{ .Params.lead | safeHTML }}</p>
 			{{ partial "main/headline-hash.html" .Content }}
 			{{ partial "main/docs-navigation.html" . }}
-
+		</main>
+		<footer class>
       {{ partial "main/feedback.html" . }}
-	</main>
+	</footer>
 	</div>
 {{ end }}
