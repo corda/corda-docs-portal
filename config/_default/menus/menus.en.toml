@@ -375,31 +375,6 @@ name = "Operating a Corda Node"
 parent = "corda-enterprise-4-10-corda-nodes"
 weight = 60
 
-[[corda-community-4-9]]
-identifier = "corda-community-4-9-upgrading"
-name = "Upgrading CorDapps and nodes"
-weight = 15
-
-[[corda-community-4-9]]
-identifier = "corda-community-4-9-corda-api"
-name = "Corda API"
-weight = 17
-
-[[corda-community-4-9]]
-identifier = "corda-community-4-9-development"
-name = "Development"
-weight = 20
-
-[[corda-community-4-9]]
-identifier = "corda-community-4-9-operations"
-name = "Operations"
-weight = 30
-
-[[corda-community-4-9]]
-identifier = "corda-community-4-9-contributing-index"
-name = "Participate"
-weight = 500
-
 [[corda-community-4-10]]
 identifier = "corda-community-4-10-upgrading"
 name = "Upgrading CorDapps and nodes"
@@ -479,17 +454,17 @@ url = 'https://docs.r3.com/en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html'
 
 #this entry is required to create a link to the corda docs in the homepage menu
 [[homepage]]
-identifier = "platform-corda-os"
+identifier = "platform-corda-comm"
 parent = "platform-corda-4"
-url = "/en/platform/corda/4.8/open-source.html"
-name = "Corda open source"
+url = "/en/platform/corda/4.10/community.html"
+name = "Corda Community "
 weight = 100
 
 #this entry is required to create a link to the corda ent docs in the homepage menu
 [[homepage]]
 identifier = "platform-corda-ent"
 parent = "platform-corda-4"
-url = "/en/platform/corda/4.8/enterprise.html"
+url = "/en/platform/corda/4.10/enterprise.html"
 name = "Corda Enterprise"
 weight = 200
 
