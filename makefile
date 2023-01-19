@@ -66,7 +66,7 @@ prod-docker-serve: prod-docker-image ## Run the nginx container locally on port 
 	$(DOCKER_RUN) -it -p "8888:80" $(PROD_IMAGE)
 
 prod-hugo-serve: prod-hugo-build ## Start Hugo and serve production build
-	$(DOCKER_RUN) --env HOME=/tmp -u $$(id -u):$$(id -g) -it -p 1313:1313 $(HUGO_DOCKER_IMAGE) npm run server
+	$(DOCKER_RUN) -u $$(id -u):$$(id -g) -it -p 1313:1313 $(HUGO_DOCKER_IMAGE) npm run server
 
 #######################################################################################################################
 #  Main target for CI:
@@ -119,10 +119,11 @@ linkchecker: hugo-docker-image ## Check all links are valid
 		--build-arg HUGO_VERSION=$(HUGO_VERSION) \
 		--build-arg MUFFET_VERSION=$(MUFFET_VERSION) \
 		--build-arg REGISTRY=$(REGISTRY) \
-		--build-arg S3DEPLOY_VERSION=$(S3DEPLOY_VERSION)
+		--build-arg S3DEPLOY_VERSION=$(S3DEPLOY_VERSION) \
+		--build-arg BUILDER_UID=$$(id -u)
 	touch $@
 
 .prod-hugo-build:
-	$(DOCKER_RUN) --env HOME=/tmp -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) npm install
-	$(DOCKER_RUN) --env HOME=/tmp -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) npm run build
+	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) npm install
+	$(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) npm run build
 	touch $@
