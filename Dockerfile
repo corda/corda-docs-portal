@@ -3,8 +3,10 @@ FROM ${REGISTRY}/ubuntu:focal
 
 RUN apt-get update && \
     apt-get install curl git tar gzip unzip jq -y
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
+RUN npm install -g npm@7.0.7
+RUN npm --version
 
 ARG MUFFET_VERSION
 
@@ -49,3 +51,8 @@ WORKDIR /src
 
 # Expose the default hugo webserver port
 EXPOSE 1313
+
+# Create a user to make Hugo and NPM happy
+ARG BUILDER_USER=builder
+ARG BUILDER_UID=1000
+RUN useradd --create-home --non-unique --uid="${BUILDER_UID}" "${BUILDER_USER}"
