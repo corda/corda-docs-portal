@@ -30,7 +30,7 @@ The following are not supported:
 * Changing the type of existing constructor parameters.
 
 {{< note >}}
-Any transient properties that aren't declared in the constructor are not serialized.
+Any transient properties that are not declared in the constructor are not serialized.
 {{< /note >}}
 
 ## Adding nullable properties
