@@ -102,7 +102,7 @@ existing open source Corda nodes should be a simple case of updating the Corda `
 See node-upgrade-notes for general instructions on upgrading your node.
 For developer information on recompiling CorDapps against Corda Enterprise, see upgrade-notes.
 
-Please ensure you follow the instructions in the [Corda 3.3 Upgrade Notes](https://github.com/corda/corda-docs-portal/blob/main/archived-docs/corda-enterprise/3.3/upgrade-notes.md)
+Please ensure you follow the instructions in the [Corda 3.3 Upgrade Notes](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/3.3/upgrade-notes.md)
 to upgrade your database to the latest minor release of Corda (3.3 as time of writing),
 and then proceed with the upgrade following the instructions in [above](#upgrade-from-corda-open-source-to-corda-enterprise).
 
