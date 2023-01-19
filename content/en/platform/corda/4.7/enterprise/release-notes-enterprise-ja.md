@@ -39,10 +39,10 @@ Corda Enterprise Edition 4.7における主な新機能と機能強化は以下�
 
 Corda 4.7の一環として提供される以下のような新機能、機能強化、修正については、[Cordaオープンソースリリースノート](../../corda-os/4.7/release-notes-ja.md)をご覧ください。
 
-* [保証されたステートのリプレイスメントを伴うステートの再発行を行うことで、取引のバックチェーンを断ち切る機能](../../corda-os/4.7/release-notes-ja.md#保証されたステートのリプレイスメントを伴うステートの再発行を行うことで取引のバックチェーンを断ち切る機能)
-* [ビジネスネットワークメンバーシップバージョン1.1](../../corda-os/4.7/release-notes-ja.md#ビジネスネットワークメンバーシップバージョン11)
-* [新しいマルチRPCクライアントを通じてCordaノードとやり取りをする機能](../../corda-os/4.7/release-notes-ja.md#新しいマルチrpcクライアントを通じてcordaノードとやり取りをする機能)
-* [参照アプリケーション：](../../corda-os/4.7/release-notes-ja.md#参照アプリ-bank-in-a-box)
+* [保証されたステートのリプレイスメントを伴うステートの再発行を行うことで、取引のバックチェーンを断ち切る機能](../../corda-os/4.7/release-notes-ja.html#保証されたステートのリプレイスメントを伴うステートの再発行を行うことで取引のバックチェーンを断ち切る機能)
+* [ビジネスネットワークメンバーシップバージョン1.1](../../corda-os/4.7/release-notes-ja.html#ビジネスネットワークメンバーシップバージョン11)
+* [新しいマルチRPCクライアントを通じてCordaノードとやり取りをする機能](../../corda-os/4.7/release-notes-ja.html#新しいマルチrpcクライアントを通じてcordaノードとやり取りをする機能)
+* [参照アプリケーション：](../../corda-os/4.7/release-notes-ja.html#参照アプリ-bank-in-a-box)
 {{< /note >}}
 
 ## 新機能と機能強化
@@ -88,10 +88,10 @@ Corda Enterprise Edition 4.7では、ノード鍵（Legal Identity）とその�
 
 * **Azure ADを使ったシングルサインオン**Azure ADとCorda Authサービスで[簡単な設定](node/azure-ad-sso)を行うだけで、CordaサービスとAzure AD間でシングルサインオン（SSO）設定を運用できるようになりました。
 * **HSM統合サポート**Corda Enterpriseでは、サポートされていないHSMとCorda Enterpriseインスタンスのユーザーによる統合をサポートするようになりました。今回のリリースには、例として使えるJava実装のサンプルと、展開前に実装をテストできるテストスイートが含まれています。HSM統合の書き方ガイドについては[HSMに関する項](operations/deployment/hsm-integration.md/)をご覧ください。
-* **HSMにConfidential Identity鍵を保存する機能**Corda Enterpriseは、nCipher、FuturexとAzure Key VaultのHSMにおけるConfidential Identityに関する鍵の保管をサポートするようになりました。nCipherとAzure Key VaultのHSMではConfidential Identity鍵のネイティブでの利用をサポートし、FuturexのHSMではキーラップモードをサポートします。これらのHSMにおけるConfidential Identity鍵保管の設定については、[HSMに関する項](operations/deployment/hsm-deployment-confidential.md#using-an-hsm-with-confidential-identities/)をご覧ください。
+* **HSMにConfidential Identity鍵を保存する機能**Corda Enterpriseは、nCipher、FuturexとAzure Key VaultのHSMにおけるConfidential Identityに関する鍵の保管をサポートするようになりました。nCipherとAzure Key VaultのHSMではConfidential Identity鍵のネイティブでの利用をサポートし、FuturexのHSMではキーラップモードをサポートします。これらのHSMにおけるConfidential Identity鍵保管の設定については、[HSMに関する項](operations/deployment/hsm-deployment-confidential.html#using-an-hsm-with-confidential-identities/)をご覧ください。
 * **HSM API**Corda Enterprise Edition 4.7では、外部のツール開発者がCorda EnterpriseのHSMサポートを拡張するために使える独自のAPIを有するHSMライブラリーが導入されています。
-* ネットワークへの初期登録（`initial-registration`）時に、Nodeは`identity-private-key`のエイリアス作成を行うようになりました。詳細については、[Nodeのフォルダ構成](node/setup/node-structure.md#node-folder-structure)の項をご覧ください。これまでは、`cordaclientca`と`cordaclienttls`のエイリアスだけが`initial-registration`中に作成され、`identity-private-key`は初回のNode実行時に必要に応じて生成されていました。そのため、Corda Enterprise Edition 4.7では、`nodekeystore.jks`の内容は通常のNode実行中に変更されません（証明書ディレクトリを事前に設定したキー保管で埋められる`devMode = true`を除きます）。
-* Notaryの`batchTimeoutMs`[設定オプション](node/setup/corda-configuration-fields.md#notary)を調整することでパフォーマンス向上を得られる可能性について解説を追加しました。ただし、デフォルト設定は変更されていません。
+* ネットワークへの初期登録（`initial-registration`）時に、Nodeは`identity-private-key`のエイリアス作成を行うようになりました。詳細については、[Nodeのフォルダ構成](node/setup/node-structure.html#node-folder-structure)の項をご覧ください。これまでは、`cordaclientca`と`cordaclienttls`のエイリアスだけが`initial-registration`中に作成され、`identity-private-key`は初回のNode実行時に必要に応じて生成されていました。そのため、Corda Enterprise Edition 4.7では、`nodekeystore.jks`の内容は通常のNode実行中に変更されません（証明書ディレクトリを事前に設定したキー保管で埋められる`devMode = true`を除きます）。
+* Notaryの`batchTimeoutMs`[設定オプション](node/setup/corda-configuration-fields.html#notary)を調整することでパフォーマンス向上を得られる可能性について解説を追加しました。ただし、デフォルト設定は変更されていません。
 
 ## プラットフォームバージョン変更
 
