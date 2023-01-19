@@ -26,9 +26,10 @@ Developers can use the Corda Platform to solve problems by building Corda Distri
 
 The Corda platform documentation covers the following versions of the Corda platform which have been officially released.
 
-### Corda 5 Developer Preview
+### Corda 5
 
-* Corda 5 [Corda 5 Developer Preview 2](../platform/corda/5.0-dev-preview-2.html)
+* [Corda 5.0 Developer Preview 2](../platform/corda/5.0-dev-preview-2.html)
+* [Corda 5.0 Beta 1](../platform/corda/5.0-beta.html)
 
 ### Corda 4 Community Edition (Formerly Open Source)
 
