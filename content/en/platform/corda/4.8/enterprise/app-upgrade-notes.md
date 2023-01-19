@@ -654,7 +654,7 @@ You no longer need to use `waitForLedgerCommit` in your responder flow. `Receive
 
 ### 6. Improve the security of your CorDapp by upgrading your use of `SwapIdentitiesFlow`
 
-The [confidential identities](cordapps/api-confidential-identity.md#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
+The [confidential identities](cordapps/api-confidential-identity.html#confidential-identities-ref) API is experimental in Corda 3 and remains so in Corda 4. In this release, the `SwapIdentitiesFlow`
 has been adjusted in the same way as the `FinalityFlow` (above). This is to resolve problems with confidential identities being injectable into a node
 outside of other flow context. Old code will still work, but it is recommended to adjust your call sites so a session is passed into
 the `SwapIdentitiesFlow`.

@@ -1169,7 +1169,7 @@ Threading needs to be explicitly handled when using `FlowExternalAsyncOperation`
 thread pool.
 
 {{< note >}}
-The size of the external operation thread pool can be configured, see [the node configuration documentation](../node/setup/corda-configuration-file.md#corda-configuration-flow-external-operation-thread-pool-size).
+The size of the external operation thread pool can be configured, see [the node configuration documentation](../node/setup/corda-configuration-file.html#corda-configuration-flow-external-operation-thread-pool-size).
 
 {{< /note >}}
 Below is an example of how `FlowExternalOperation` can be called from a flow to run an operation on a new thread, allowing the flow to suspend:
