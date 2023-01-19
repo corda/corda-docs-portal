@@ -49,13 +49,13 @@ For the purposes of constraints migration, it is desirable that any new output s
 
 ### Should I use the **implicit** or **explicit** upgrade path?
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.md#implicit-and-explicit-contract-upgrades). **Implicit** upgrades allow pre-authorising multiple implementations of the contract ahead of time. They do not require additional coding and do not incur a complex choreographed operational upgrade process.
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.html#implicit-and-explicit-contract-upgrades). **Implicit** upgrades allow pre-authorising multiple implementations of the contract ahead of time. They do not require additional coding and do not incur a complex choreographed operational upgrade process.
 
 
 {{< warning >}}
 The steps outlined in this page assume you are using the same CorDapp Contract (for example, same state definition, commands and verification code) and
 wish to use that CorDapp to leverage the upgradeability benefits of Corda 4 signature constraints. If you are looking to upgrade code within an existing
-Contract CorDapp please read [Contract and state versioning](upgrading-cordapps.md#contract-and-state-versioning) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
+Contract CorDapp please read [Contract and state versioning](upgrading-cordapps.html#contract-and-state-versioning) and [CorDapp Upgradeability Guarantees](cordapp-upgradeability.md) to understand your options.
 {{< /warning >}}
 
 

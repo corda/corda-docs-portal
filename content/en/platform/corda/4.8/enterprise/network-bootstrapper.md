@@ -313,7 +313,7 @@ when you are updating an existing network, the value in the existing network par
 
 {{< note >}}
 All fields can contain placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
-variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node/operating/node-administration.md#hiding-sensitive-data).
+variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node/operating/node-administration.html#hiding-sensitive-data).
 
 {{< /note >}}
 The available configuration fields are:
