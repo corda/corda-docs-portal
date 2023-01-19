@@ -9,14 +9,21 @@ menu:
 section_menu: corda-5-beta
 ---
 
-## Introduction
-
-
 ## Learning Objectives
 
+After you have completed this tutorial, you will know how to create two modules containing the required setup to build your CorDapp. You will create the following modules:
+
+* `ledger-utxo-example-apples-app` - This is where you will write your application logic.
+* `ledger-utxo-example-apples-contract` - This is where your object definitions will be placed.
+
+{{< note >}}
+The packages are not required but they allow to define a suggested structure for the users to follow.
+{{< /note >}}
 
 
 ## Perform Initial Setup of Your CorDapp
+
+Create two modules in the project's root directory.
 
 1. Create the `ledger-utxo-example-apples-app` module by performing the following steps:
 

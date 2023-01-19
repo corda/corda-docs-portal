@@ -55,9 +55,11 @@ class CreateAndIssueAppleStampFlow : RPCStartableFlow
 
 #### Allow `CreateAndIssueAppleStampFlow` to Initiate Flows with Peers
 
-Add the `@InitiatingFlow` annotation to `CreateAndIssueAppleStampFlow`.
+1. Add the `@InitiatingFlow` annotation to `CreateAndIssueAppleStampFlow`.
 
-This indicates that this flow is the initiating flow in an initiating and initiated flow pair. A `protocol` must be defined that both the initiating and initiated flow reference.
+This indicates that this flow is the initiating flow in an initiating and initiated flow pair.
+
+2. Define a `protocol` in both the initiating and initiated flow.
 
 So far your code should look like this:
 
@@ -201,7 +203,7 @@ val notary = Party(notaryInfo.name, notaryKey)
 
 3. Repeat the same process for the holder of the new `AppleStamp` state using the `holderName` from the flow’s input parameters.
 
-4. Verify that this participant exists in the network.
+4. Verify that the participant with the passed in `holderName` exists in the network.
 
 Your code should now contain the following lines:
 
