@@ -9,7 +9,7 @@ section_menu: corda-5-beta
 title: "package"
 ---
 
-This section lists the [Corda CLI](../developing/getting-started/installing-corda-cli.html) `package` arguments. You can use these commands to execute operations for working with CPB and CPI files, as described in the [CorDapp Packaging](development-tutorials/cordapp-packaging.md) tutorial.
+This section lists the [Corda CLI](../../developing/getting-started/installing-corda-cli.md) `package` arguments. You can use these commands to execute operations for working with CPB and CPI files, as described in the [CorDapp Packaging](development-tutorials/cordapp-packaging.md) tutorial.
 
 | <div style="width:160px">Argument</div> | Description                                        |
 | --------------------------------------- | -------------------------------------------------- |
@@ -77,7 +77,7 @@ The `create-cpi` argument creates a CPI file using the following arguments:
 | <div style="width:160px">Argument</div> | Description                                                                              |
 | --------------------------------------- | ---------------------------------------------------------------------------------------- |
 | \-\-cpb                                 | Specifies the CPB file to include in the CPI.                                            |
-| \-\-group-policy                        | Specifies the [group policy file](../deploying/group-policy.html) to include in the CPI. |
+| \-\-group-policy                        | Specifies the [group policy file](../../deploying/group-policy.html) to include in the CPI. |
 | \-\-cpi-name                            | Specifies a name for the CPI.                                                            |
 | \-\-cpi-version                         | Specifies the CPI version.                                                               |
 | \-\-file                                | Specifies the name of the CPI file to create.                                            |
