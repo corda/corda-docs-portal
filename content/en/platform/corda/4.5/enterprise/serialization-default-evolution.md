@@ -28,15 +28,6 @@ the actual code changes. These are:
 * Removing properties
 * Reordering constructor parameters
 
-The following are not supported:
-
-* Renaming existing constructor properties.
-* Changing the type of existing constructor parameters.
-
-{{< note >}}
-Any transient properties that aren't declared in the constructor are not serialized.
-{{< /note >}}
-
 ## Adding Nullable Properties
 
 The serialization framework allows nullable properties to be freely added. For example:
