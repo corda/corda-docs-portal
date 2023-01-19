@@ -62,7 +62,7 @@ The `include` file reference is resolved relative to the resources path in the C
 
 To run the migrations:
 1. Upload the CPI.
-2. Create a virtual node using the [Corda 5 REST API](../../developing/rest-api/rest-api.html).
+2. Create a virtual node using the [Corda 5 REST API](../../operating/operating-tutorials/rest-api.html).
 
   The migrations run when the virtual node is created and logging shows the migrations executing.
   If you have direct database access, you should see the tables being created.

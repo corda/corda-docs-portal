@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PartyAndCertificate - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.identity</a>&nbsp;/&nbsp;<a href="./index.html">PartyAndCertificate</a><br/>
+<br/>
+<h1>PartyAndCertificate</h1>
+<code><span class="keyword">class </span><span class="identifier">PartyAndCertificate</span></code>
+<p>A full party plus the X.509 certificate and path linking the party back to a trust root. Equality of
+<a href="./index.html">PartyAndCertificate</a> instances is based on the party only, as certificate and path are data associated with the party,
+not part of the identifier themselves.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A full party plus the X.509 certificate and path linking the party back to a trust root. Equality of
+<a href="./index.html">PartyAndCertificate</a> instances is based on the party only, as certificate and path are data associated with the party,
+not part of the identifier themselves.</p>
+<code><span class="identifier">PartyAndCertificate</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.PartyAndCertificate$<init>(java.security.cert.CertPath)/certPath">certPath</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/CertPath.html"><span class="identifier">CertPath</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="certificate.html">certificate</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">certificate</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="cert-path.html">certPath</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">certPath</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/CertPath.html"><span class="identifier">CertPath</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="name.html">name</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="../-corda-x500-name/index.html"><span class="identifier">CordaX500Name</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="owning-key.html">owningKey</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">owningKey</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="party.html">party</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">party</span><span class="symbol">: </span><a href="../-party/index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="component1.html">component1</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component1</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-party/index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="component2.html">component2</a></h4>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">component2</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/X509Certificate.html"><span class="identifier">X509Certificate</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="equals.html">equals</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.PartyAndCertificate$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hash-code.html">hashCode</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="verify.html">verify</a></h4>
+</td>
+<td>
+<p>Verify the certificate path is valid.</p>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.PartyAndCertificate$verify(java.security.cert.TrustAnchor)/trustAnchor">trustAnchor</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/TrustAnchor.html"><span class="identifier">TrustAnchor</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/PKIXCertPathValidatorResult.html"><span class="identifier">PKIXCertPathValidatorResult</span></a></code>
+<p>Verify the certificate path is valid against one of the specified trust anchors.</p>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.identity.PartyAndCertificate$verify(kotlin.collections.Set((java.security.cert.TrustAnchor)))/trustAnchors">trustAnchors</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/TrustAnchor.html"><span class="identifier">TrustAnchor</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/security/cert/PKIXCertPathValidatorResult.html"><span class="identifier">PKIXCertPathValidatorResult</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

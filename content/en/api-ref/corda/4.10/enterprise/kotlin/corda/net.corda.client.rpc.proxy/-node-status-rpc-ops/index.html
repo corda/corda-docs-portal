@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NodeStatusRpcOps - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy</a>&nbsp;/&nbsp;<a href="./index.html">NodeStatusRpcOps</a><br/>
+<br/>
+<h1>NodeStatusRpcOps</h1>
+<code><span class="keyword">interface </span><span class="identifier">NodeStatusRpcOps</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span></code>
+<p>An RPC extension which provides access to the Node Status</p>
+<p>This interface is designed to allow external applications to query and view the status
+of the node</p>
+<p>example use:</p>
+<pre><code>val rpcAddress = NetworkHostAndPort("nodeAddress", 1000)
+val client = MultiRPCClient(rpcAddress, NodeFlowStatusRpcOps::class.java, rpcUser.username, rpcUser.password)
+val connFuture = client.start()
+val conn = connFuture.get()
+val nodeStatusRPCOPs = conn.proxy
+
+println(nodeStatusRPCOPs.getConfigAsHOCONString())
+}
+</code></pre>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-config-as-h-o-c-o-n-string.html">getConfigAsHOCONString</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getConfigAsHOCONString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-installed-drivers.html">getInstalledDrivers</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getInstalledDrivers</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">DriverMetadata</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-log-config-as-x-m-l-string.html">getLogConfigAsXMLString</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getLogConfigAsXMLString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-log-snapshot.html">getLogSnapshot</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getLogSnapshot</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.NodeStatusRpcOps$getLogSnapshot(kotlin.Int)/numberOfElements">numberOfElements</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

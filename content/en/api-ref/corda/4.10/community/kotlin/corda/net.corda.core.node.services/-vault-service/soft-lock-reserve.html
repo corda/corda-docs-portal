@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>VaultService.softLockReserve - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.node.services</a>&nbsp;/&nbsp;<a href="index.html">VaultService</a>&nbsp;/&nbsp;<a href="./soft-lock-reserve.html">softLockReserve</a><br/>
+<br/>
+<h1>softLockReserve</h1>
+<a name="net.corda.core.node.services.VaultService$softLockReserve(java.util.UUID, net.corda.core.utilities.NonEmptySet((net.corda.core.contracts.StateRef)))"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">softLockReserve</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.node.services.VaultService$softLockReserve(java.util.UUID, net.corda.core.utilities.NonEmptySet((net.corda.core.contracts.StateRef)))/lockId">lockId</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.node.services.VaultService$softLockReserve(java.util.UUID, net.corda.core.utilities.NonEmptySet((net.corda.core.contracts.StateRef)))/stateRefs">stateRefs</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-non-empty-set/index.html"><span class="identifier">NonEmptySet</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Reserve a set of <a href="../../net.corda.core.contracts/-state-ref/index.html">StateRef</a> for a given <a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a> unique identifier.
+Typically, the unique identifier will refer to a <a href="../../net.corda.core.flows/-flow-logic/run-id.html">FlowLogic.runId</a>'s <a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a> associated with an in-flight flow.
+In this case if the flow terminates the locks will automatically be freed, even if there is an error.
+However, the user can specify their own <a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a> and manage this manually, possibly across the lifetime of multiple
+flows, or from other thread contexts e.g. <a href="../-corda-service/index.html">CordaService</a> instances.
+In the case of coin selection, soft locks are automatically taken upon gathering relevant unconsumed input refs.</p>
+<h3>Exceptions</h3>
+<p><a name="StatesNotAvailableException"></a>
+<code>StatesNotAvailableException</code> - when not possible to soft-lock all of requested <a href="../../net.corda.core.contracts/-state-ref/index.html">StateRef</a>.</p>
+</BODY>
+</HTML>

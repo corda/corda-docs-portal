@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DigestService.componentHash - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">DigestService</a>&nbsp;/&nbsp;<a href="./component-hash.html">componentHash</a><br/>
+<br/>
+<h1>componentHash</h1>
+<a name="net.corda.core.crypto.DigestService$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)"></a>
+<code><span class="keyword">fun </span><span class="identifier">componentHash</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestService$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/opaqueBytes">opaqueBytes</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.DigestService$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/privacySalt">privacySalt</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-privacy-salt/index.html"><span class="identifier">PrivacySalt</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.DigestService$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/componentGroupIndex">componentGroupIndex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.DigestService$componentHash(net.corda.core.utilities.OpaqueBytes, net.corda.core.contracts.PrivacySalt, kotlin.Int, kotlin.Int)/internalIndex">internalIndex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code>
+<p>Compute the hash of each serialised component so as to be used as Merkle tree leaf. The resultant output (leaf) is
+calculated using the service's hash algorithm, thus HASH(HASH(nonce || serializedComponent)) for SHA2-256 and other
+algorithms loaded via JCA <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">MessageDigest</a>, or DigestAlgorithm.componentDigest(nonce || serializedComponent)
+otherwise, where nonce is computed from <a href="compute-nonce.html">computeNonce</a>.</p>
+<a name="net.corda.core.crypto.DigestService$componentHash(net.corda.core.crypto.SecureHash, net.corda.core.utilities.OpaqueBytes)"></a>
+<code><span class="keyword">fun </span><span class="identifier">componentHash</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.DigestService$componentHash(net.corda.core.crypto.SecureHash, net.corda.core.utilities.OpaqueBytes)/nonce">nonce</span><span class="symbol">:</span>&nbsp;<a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.DigestService$componentHash(net.corda.core.crypto.SecureHash, net.corda.core.utilities.OpaqueBytes)/opaqueBytes">opaqueBytes</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-opaque-bytes/index.html"><span class="identifier">OpaqueBytes</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code>
+<p>Return the HASH(HASH(nonce || serializedComponent)) for SHA2-256 and other algorithms loaded via JCA <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">MessageDigest</a>,
+otherwise it's defined by DigestAlgorithm.componentDigest(nonce || serializedComponent).</p>
+</BODY>
+</HTML>

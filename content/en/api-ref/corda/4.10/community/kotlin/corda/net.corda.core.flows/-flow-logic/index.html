@@ -1,0 +1,491 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FlowLogic - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.flows</a>&nbsp;/&nbsp;<a href="./index.html">FlowLogic</a><br/>
+<br/>
+<h1>FlowLogic</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">FlowLogic</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>A sub-class of <a href="./index.html">FlowLogic</a> implements a flow using direct, straight line blocking code. Thus you
+can write complex flow logic in an ordinary fashion, without having to think about callbacks, restarting after
+a node crash, how many instances of your flow there are running and so on.</p>
+<p>Invoking the network will cause the call stack to be suspended onto the heap and then serialized to a database using
+the Quasar fibers framework. Because of this, if you need access to data that might change over time, you should
+request it just-in-time via the <a href="service-hub.html">serviceHub</a> property which is provided. Don't try and keep data you got from a
+service across calls to send/receive/sendAndReceive because the world might change in arbitrary ways out from
+underneath you, for instance, if the node is restarted or reconfigured!</p>
+<p>Additionally, be aware of what data you pin either via the stack or in your <a href="./index.html">FlowLogic</a> implementation. Very large
+objects or datasets will hurt performance by increasing the amount of data stored in each checkpoint.</p>
+<p>If you'd like to use another FlowLogic class as a component of your own, construct it on the fly and then pass
+it to the <a href="sub-flow.html">subFlow</a> method. It will return the result of that flow when it completes.</p>
+<p>If your flow (whether it's a top-level flow or a subflow) is supposed to initiate a session with the counterparty
+and request they start their counterpart flow, then make sure it's annotated with <a href="../-initiating-flow/index.html">InitiatingFlow</a>. This annotation
+also has a version property to allow you to version your flow and enables a node to restrict support for the flow to
+that particular version.</p>
+<p>Functions that suspend the flow (including all functions on <a href="../-flow-session/index.html">FlowSession</a>) accept a maySkipCheckpoint parameter
+defaulting to false, false meaning a checkpoint should always be created on suspend. This parameter may be set to
+true which allows the implementation to potentially optimise away the checkpoint, saving a roundtrip to the database.</p>
+<p>This option however comes with a big warning sign: Setting the parameter to true requires the flow's code to be
+replayable from the previous checkpoint (or start of flow) up until the next checkpoint (or end of flow) in order to
+prepare for hard failures. As suspending functions always commit the flow's database transaction regardless of this
+parameter the flow must be prepared for scenarios where a previous running of the flow <em>already committed itsrelevant database transactions</em>. Only set this option to true if you know what you're doing.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>A sub-class of <a href="./index.html">FlowLogic</a> implements a flow using direct, straight line blocking code. Thus you
+can write complex flow logic in an ordinary fashion, without having to think about callbacks, restarting after
+a node crash, how many instances of your flow there are running and so on.</p>
+<code><span class="identifier">FlowLogic</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="is-killed.html">isKilled</a></h4>
+</td>
+<td>
+<p>Returns <code>true</code> when the current <a href="./index.html">FlowLogic</a> has been killed (has received a command to halt its progress and terminate).</p>
+<code><span class="keyword">val </span><span class="identifier">isKilled</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="logger.html">logger</a></h4>
+</td>
+<td>
+<p>This is where you should log things to.</p>
+<code><span class="keyword">val </span><span class="identifier">logger</span><span class="symbol">: </span><span class="identifier">Logger</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="our-identity.html">ourIdentity</a></h4>
+</td>
+<td>
+<p>Specifies the identity to use for this flow. This will be one of the multiple identities that belong to this node.
+This is the same as calling <code>ourIdentityAndCert.party</code>.</p>
+<code><span class="keyword">val </span><span class="identifier">ourIdentity</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="our-identity-and-cert.html">ourIdentityAndCert</a></h4>
+</td>
+<td>
+<p>Specifies the identity, with certificate, to use for this flow. This will be one of the multiple identities that
+belong to this node.</p>
+<code><span class="keyword">val </span><span class="identifier">ourIdentityAndCert</span><span class="symbol">: </span><a href="../../net.corda.core.identity/-party-and-certificate/index.html"><span class="identifier">PartyAndCertificate</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="progress-tracker.html">progressTracker</a></h4>
+</td>
+<td>
+<p>Override this to provide a <a href="../../net.corda.core.utilities/-progress-tracker/index.html">ProgressTracker</a>. If one is provided and stepped, the framework will do something
+helpful with the progress reports e.g record to the audit service. If this flow is invoked as a subflow of another,
+then the tracker will be made a child of the current step in the parent. If it's null, this flow doesn't track
+progress.</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">progressTracker</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-progress-tracker/index.html"><span class="identifier">ProgressTracker</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="run-id.html">runId</a></h4>
+</td>
+<td>
+<p>Returns a wrapped <a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">java.util.UUID</a> object that identifies this state machine run (i.e. subflows have the same
+identifier as their parents).</p>
+<code><span class="keyword">val </span><span class="identifier">runId</span><span class="symbol">: </span><a href="../-state-machine-run-id/index.html"><span class="identifier">StateMachineRunId</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="service-hub.html">serviceHub</a></h4>
+</td>
+<td>
+<p>Provides access to big, heavy classes that may be reconstructed from time to time, e.g. across restarts. It is
+only available once the flow has started, which means it cannot be accessed in the constructor. Either
+access this lazily or from inside <a href="call.html">call</a>.</p>
+<code><span class="keyword">val </span><span class="identifier">serviceHub</span><span class="symbol">: </span><a href="../../net.corda.core.node/-service-hub/index.html"><span class="identifier">ServiceHub</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="await.html">await</a></h4>
+</td>
+<td>
+<p>Executes the specified <a href="await.html#net.corda.core.flows.FlowLogic$await(net.corda.core.flows.FlowExternalAsyncOperation((net.corda.core.flows.FlowLogic.await.R)))/operation">operation</a> and suspends until operation completion.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">await</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$await(net.corda.core.flows.FlowExternalAsyncOperation((net.corda.core.flows.FlowLogic.await.R)))/operation">operation</span><span class="symbol">:</span>&nbsp;<a href="../-flow-external-async-operation/index.html"><span class="identifier">FlowExternalAsyncOperation</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">await</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$await(net.corda.core.flows.FlowExternalOperation((net.corda.core.flows.FlowLogic.await.R)))/operation">operation</span><span class="symbol">:</span>&nbsp;<a href="../-flow-external-operation/index.html"><span class="identifier">FlowExternalOperation</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="call.html">call</a></h4>
+</td>
+<td>
+<p>This is where you fill out your business logic.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">call</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="check-flow-is-not-killed.html">checkFlowIsNotKilled</a></h4>
+</td>
+<td>
+<p>Helper function that throws a <a href="../-killed-flow-exception/index.html">KilledFlowException</a> if the current <a href="./index.html">FlowLogic</a> has been killed.</p>
+<code><span class="keyword">fun </span><span class="identifier">checkFlowIsNotKilled</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Helper function that throws a <a href="../-killed-flow-exception/index.html">KilledFlowException</a> if the current <a href="./index.html">FlowLogic</a> has been killed. The provided message is added to the
+thrown <a href="../-killed-flow-exception/index.html">KilledFlowException</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">checkFlowIsNotKilled</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$checkFlowIsNotKilled(kotlin.Function0((kotlin.Any)))/lazyMessage">lazyMessage</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="check-flow-permission.html">checkFlowPermission</a></h4>
+</td>
+<td>
+<p>Flows can call this method to ensure that the active FlowInitiator is authorised for a particular action.
+This provides fine grained control over application level permissions, when RPC control over starting the flow is insufficient,
+or the permission is runtime dependent upon the choices made inside long lived flow code.
+For example some users may have restricted limits on how much cash they can transfer, or whether they can change certain fields.
+An audit event is always recorded whenever this method is used.
+If the permission is not granted for the FlowInitiator a FlowException is thrown.</p>
+<code><span class="keyword">fun </span><span class="identifier">checkFlowPermission</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$checkFlowPermission(kotlin.String, kotlin.collections.Map((kotlin.String, )))/permissionName">permissionName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$checkFlowPermission(kotlin.String, kotlin.collections.Map((kotlin.String, )))/extraAuditData">extraAuditData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="close.html">close</a></h4>
+</td>
+<td>
+<p>Closes the provided sessions and performs cleanup of any resources tied to these sessions.</p>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$close(net.corda.core.utilities.NonEmptySet((net.corda.core.flows.FlowSession)))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.utilities/-non-empty-set/index.html"><span class="identifier">NonEmptySet</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="flow-stack-snapshot.html">flowStackSnapshot</a></h4>
+</td>
+<td>
+<p>Returns a shallow copy of the Quasar stack frames at the time of call to <a href="flow-stack-snapshot.html">flowStackSnapshot</a>. Use this to inspect
+what objects would be serialised at the time of call to a suspending action (e.g. send/receive).
+Note: This logic is only available during tests and is not meant to be used during the production deployment.
+Therefore the default implementation does nothing.</p>
+<code><span class="keyword">fun </span><span class="identifier">flowStackSnapshot</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-flow-stack-snapshot/index.html"><span class="identifier">FlowStackSnapshot</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-flow-info.html">getFlowInfo</a></h4>
+</td>
+<td>
+<p>Returns a <a href="../-flow-info/index.html">FlowInfo</a> object describing the flow <a href="get-flow-info.html#net.corda.core.flows.FlowLogic$getFlowInfo(net.corda.core.identity.Party)/otherParty">otherParty</a> is using. With <a href="../-flow-info/flow-version.html">FlowInfo.flowVersion</a> it
+provides the necessary information needed for the evolution of flows and enabling backwards compatibility.</p>
+<code><span class="keyword">fun </span><s><span class="identifier">getFlowInfo</span></s><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$getFlowInfo(net.corda.core.identity.Party)/otherParty">otherParty</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-flow-info/index.html"><span class="identifier">FlowInfo</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="initiate-flow.html">initiateFlow</a></h4>
+</td>
+<td>
+<p>Creates a communication session with <a href="initiate-flow.html#net.corda.core.flows.FlowLogic$initiateFlow(net.corda.core.flows.Destination)/destination">destination</a>. Subsequently you may send/receive using this session object. How the messaging
+is routed depends on the <a href="../-destination.html">Destination</a> type, including whether this call does any initial communication.</p>
+<code><span class="keyword">fun </span><span class="identifier">initiateFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$initiateFlow(net.corda.core.flows.Destination)/destination">destination</span><span class="symbol">:</span>&nbsp;<a href="../-destination.html"><span class="identifier">Destination</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a></code>
+<p>Creates a communication session with <a href="initiate-flow.html#net.corda.core.flows.FlowLogic$initiateFlow(net.corda.core.identity.Party)/party">party</a>. Subsequently you may send/receive using this session object. Note
+that this function does not communicate in itself, the counter-flow will be kicked off by the first send/receive.</p>
+<code><span class="keyword">fun </span><span class="identifier">initiateFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$initiateFlow(net.corda.core.identity.Party)/party">party</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="persist-flow-stack-snapshot.html">persistFlowStackSnapshot</a></h4>
+</td>
+<td>
+<p>Persists a shallow copy of the Quasar stack frames at the time of call to <a href="persist-flow-stack-snapshot.html">persistFlowStackSnapshot</a>.
+Use this to track the monitor evolution of the quasar stack values during the flow execution.
+The flow stack snapshot is stored in a file located in {baseDir}/flowStackSnapshots/YYYY-MM-DD/{flowId}/
+where baseDir is the node running directory and flowId is the flow unique identifier generated by the platform.</p>
+<code><span class="keyword">fun </span><span class="identifier">persistFlowStackSnapshot</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="receive.html">receive</a></h4>
+</td>
+<td>
+<p>Suspends until the specified <a href="receive.html#net.corda.core.flows.FlowLogic$receive(net.corda.core.identity.Party)/otherParty">otherParty</a> sends us a message of type <a href="receive.html#R">R</a>.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <s><span class="identifier">receive</span></s><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$receive(net.corda.core.identity.Party)/otherParty">otherParty</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code>
+<p>Suspends until the specified <a href="receive.html#net.corda.core.flows.FlowLogic$receive(java.lang.Class((net.corda.core.flows.FlowLogic.receive.R)), net.corda.core.identity.Party)/otherParty">otherParty</a> sends us a message of type <a href="receive.html#net.corda.core.flows.FlowLogic$receive(java.lang.Class((net.corda.core.flows.FlowLogic.receive.R)), net.corda.core.identity.Party)/receiveType">receiveType</a>.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <s><span class="identifier">receive</span></s><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$receive(java.lang.Class((net.corda.core.flows.FlowLogic.receive.R)), net.corda.core.identity.Party)/receiveType">receiveType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$receive(java.lang.Class((net.corda.core.flows.FlowLogic.receive.R)), net.corda.core.identity.Party)/otherParty">otherParty</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="receive-all.html">receiveAll</a></h4>
+</td>
+<td>
+<p>Suspends until a message has been received for each session in the specified <a href="receive-all.html#net.corda.core.flows.FlowLogic$receiveAll(java.lang.Class((net.corda.core.flows.FlowLogic.receiveAll.R)), kotlin.collections.List((net.corda.core.flows.FlowSession)), kotlin.Boolean)/sessions">sessions</a>.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$receiveAll(java.lang.Class((net.corda.core.flows.FlowLogic.receiveAll.R)), kotlin.collections.List((net.corda.core.flows.FlowSession)), kotlin.Boolean)/receiveType">receiveType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$receiveAll(java.lang.Class((net.corda.core.flows.FlowLogic.receiveAll.R)), kotlin.collections.List((net.corda.core.flows.FlowSession)), kotlin.Boolean)/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$receiveAll(java.lang.Class((net.corda.core.flows.FlowLogic.receiveAll.R)), kotlin.collections.List((net.corda.core.flows.FlowSession)), kotlin.Boolean)/maySkipCheckpoint">maySkipCheckpoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="receive-all-map.html">receiveAllMap</a></h4>
+</td>
+<td>
+<p>Suspends until a message has been received for each session in the specified <a href="receive-all-map.html#net.corda.core.flows.FlowLogic$receiveAllMap(kotlin.collections.Map((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Boolean)/sessions">sessions</a>.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">receiveAllMap</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$receiveAllMap(kotlin.collections.Map((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Boolean)/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$receiveAllMap(kotlin.collections.Map((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Boolean)/maySkipCheckpoint">maySkipCheckpoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="record-audit-event.html">recordAuditEvent</a></h4>
+</td>
+<td>
+<p>Flows can call this method to record application level flow audit events</p>
+<code><span class="keyword">fun </span><span class="identifier">recordAuditEvent</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$recordAuditEvent(kotlin.String, kotlin.String, kotlin.collections.Map((kotlin.String, )))/eventType">eventType</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$recordAuditEvent(kotlin.String, kotlin.String, kotlin.collections.Map((kotlin.String, )))/comment">comment</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$recordAuditEvent(kotlin.String, kotlin.String, kotlin.collections.Map((kotlin.String, )))/extraAuditData">extraAuditData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send.html">send</a></h4>
+</td>
+<td>
+<p>Queues the given <a href="send.html#net.corda.core.flows.FlowLogic$send(net.corda.core.identity.Party, kotlin.Any)/payload">payload</a> for sending to the <a href="send.html#net.corda.core.flows.FlowLogic$send(net.corda.core.identity.Party, kotlin.Any)/otherParty">otherParty</a> and continues without suspending.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><s><span class="identifier">send</span></s><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$send(net.corda.core.identity.Party, kotlin.Any)/otherParty">otherParty</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$send(net.corda.core.identity.Party, kotlin.Any)/payload">payload</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-all.html">sendAll</a></h4>
+</td>
+<td>
+<p>Queues the given <a href="send-all.html#net.corda.core.flows.FlowLogic$sendAll(kotlin.Any, kotlin.collections.Set((net.corda.core.flows.FlowSession)), kotlin.Boolean)/payload">payload</a> for sending to the provided <a href="send-all.html#net.corda.core.flows.FlowLogic$sendAll(kotlin.Any, kotlin.collections.Set((net.corda.core.flows.FlowSession)), kotlin.Boolean)/sessions">sessions</a> and continues without suspending.</p>
+<code><span class="keyword">fun </span><span class="identifier">sendAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$sendAll(kotlin.Any, kotlin.collections.Set((net.corda.core.flows.FlowSession)), kotlin.Boolean)/payload">payload</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$sendAll(kotlin.Any, kotlin.collections.Set((net.corda.core.flows.FlowSession)), kotlin.Boolean)/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$sendAll(kotlin.Any, kotlin.collections.Set((net.corda.core.flows.FlowSession)), kotlin.Boolean)/maySkipCheckpoint">maySkipCheckpoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-all-map.html">sendAllMap</a></h4>
+</td>
+<td>
+<p>Queues the given payloads for sending to the provided sessions and continues without suspending.</p>
+<code><span class="keyword">fun </span><span class="identifier">sendAllMap</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$sendAllMap(kotlin.collections.Map((net.corda.core.flows.FlowSession, kotlin.Any)), kotlin.Boolean)/payloadsPerSession">payloadsPerSession</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$sendAllMap(kotlin.collections.Map((net.corda.core.flows.FlowSession, kotlin.Any)), kotlin.Boolean)/maySkipCheckpoint">maySkipCheckpoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="send-and-receive.html">sendAndReceive</a></h4>
+</td>
+<td>
+<p>Serializes and queues the given <a href="send-and-receive.html#net.corda.core.flows.FlowLogic$sendAndReceive(net.corda.core.identity.Party, kotlin.Any)/payload">payload</a> object for sending to the <a href="send-and-receive.html#net.corda.core.flows.FlowLogic$sendAndReceive(net.corda.core.identity.Party, kotlin.Any)/otherParty">otherParty</a>. Suspends until a response
+is received, which must be of the given <a href="send-and-receive.html#R">R</a> type.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <s><span class="identifier">sendAndReceive</span></s><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$sendAndReceive(net.corda.core.identity.Party, kotlin.Any)/otherParty">otherParty</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$sendAndReceive(net.corda.core.identity.Party, kotlin.Any)/payload">payload</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code>
+<p>Serializes and queues the given <a href="send-and-receive.html#net.corda.core.flows.FlowLogic$sendAndReceive(java.lang.Class((net.corda.core.flows.FlowLogic.sendAndReceive.R)), net.corda.core.identity.Party, kotlin.Any)/payload">payload</a> object for sending to the <a href="send-and-receive.html#net.corda.core.flows.FlowLogic$sendAndReceive(java.lang.Class((net.corda.core.flows.FlowLogic.sendAndReceive.R)), net.corda.core.identity.Party, kotlin.Any)/otherParty">otherParty</a>. Suspends until a response
+is received, which must be of the given <a href="send-and-receive.html#net.corda.core.flows.FlowLogic$sendAndReceive(java.lang.Class((net.corda.core.flows.FlowLogic.sendAndReceive.R)), net.corda.core.identity.Party, kotlin.Any)/receiveType">receiveType</a>. Remember that when receiving data from other parties the data
+should not be trusted until it's been thoroughly verified for consistency and that all expectations are
+satisfied, as a malicious peer may send you subtly corrupted data in order to exploit your code.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <s><span class="identifier">sendAndReceive</span></s><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$sendAndReceive(java.lang.Class((net.corda.core.flows.FlowLogic.sendAndReceive.R)), net.corda.core.identity.Party, kotlin.Any)/receiveType">receiveType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$sendAndReceive(java.lang.Class((net.corda.core.flows.FlowLogic.sendAndReceive.R)), net.corda.core.identity.Party, kotlin.Any)/otherParty">otherParty</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.identity/-party/index.html"><span class="identifier">Party</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$sendAndReceive(java.lang.Class((net.corda.core.flows.FlowLogic.sendAndReceive.R)), net.corda.core.identity.Party, kotlin.Any)/payload">payload</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="sub-flow.html">subFlow</a></h4>
+</td>
+<td>
+<p>Invokes the given subflow. This function returns once the subflow completes successfully with the result
+returned by that subflow's <a href="call.html">call</a> method. If the subflow has a progress tracker, it is attached to the
+current step in this flow's progress tracker.</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">subFlow</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$subFlow(net.corda.core.flows.FlowLogic((net.corda.core.flows.FlowLogic.subFlow.R)))/subLogic">subLogic</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="track.html">track</a></h4>
+</td>
+<td>
+<p>Returns a pair of the current progress step, as a string, and an observable of stringified changes to the
+<a href="progress-tracker.html">progressTracker</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">track</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.messaging/-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="track-steps-tree.html">trackStepsTree</a></h4>
+</td>
+<td>
+<p>Returns a pair of the current steps tree of current <a href="progress-tracker.html">progressTracker</a> as pairs of zero-based depth and stringified step
+label and observable of upcoming changes to the structure.</p>
+<code><span class="keyword">fun </span><span class="identifier">trackStepsTree</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.messaging/-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="track-steps-tree-index.html">trackStepsTreeIndex</a></h4>
+</td>
+<td>
+<p>Returns a pair of the current progress step index (as integer) in steps tree of current <a href="progress-tracker.html">progressTracker</a>, and an observable
+of its upcoming changes.</p>
+<code><span class="keyword">fun </span><span class="identifier">trackStepsTreeIndex</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.messaging/-data-feed/index.html"><span class="identifier">DataFeed</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="wait-for-ledger-commit.html">waitForLedgerCommit</a></h4>
+</td>
+<td>
+<p>Suspends the flow until the transaction with the specified ID is received, successfully verified and
+sent to the vault for processing. Note that this call suspends until the transaction is considered
+valid by the local node, but that doesn't imply the vault will consider it relevant.</p>
+<code><span class="keyword">fun </span><span class="identifier">waitForLedgerCommit</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$waitForLedgerCommit(net.corda.core.crypto.SecureHash, kotlin.Boolean)/hash">hash</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic$waitForLedgerCommit(net.corda.core.crypto.SecureHash, kotlin.Boolean)/maySkipCheckpoint">maySkipCheckpoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="wait-for-state-consumption.html">waitForStateConsumption</a></h4>
+</td>
+<td>
+<p>Suspends the current flow until all the provided <a href="../../net.corda.core.contracts/-state-ref/index.html">StateRef</a>s have been consumed.</p>
+<code><span class="keyword">fun </span><span class="identifier">waitForStateConsumption</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic$waitForStateConsumption(kotlin.collections.Set((net.corda.core.contracts.StateRef)))/stateRefs">stateRefs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-ref/index.html"><span class="identifier">StateRef</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="current-top-level.html">currentTopLevel</a></h4>
+</td>
+<td>
+<p>Return the outermost <a href="./index.html">FlowLogic</a> instance, or null if not in a flow.</p>
+<code><span class="keyword">val </span><span class="identifier">currentTopLevel</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="sleep.html">sleep</a></h4>
+</td>
+<td>
+<p>If on a flow, suspends the flow and only wakes it up after at least <a href="sleep.html#net.corda.core.flows.FlowLogic.Companion$sleep(java.time.Duration, kotlin.Boolean)/duration">duration</a> time has passed.  Otherwise,
+just sleep for <a href="sleep.html#net.corda.core.flows.FlowLogic.Companion$sleep(java.time.Duration, kotlin.Boolean)/duration">duration</a>.  This sleep function is not designed to aid scheduling, for which you should
+consider using <a href="../../net.corda.core.contracts/-schedulable-state/index.html">net.corda.core.contracts.SchedulableState</a>.  It is designed to aid with managing contention
+for which you have not managed via another means.</p>
+<code><span class="keyword">fun </span><span class="identifier">sleep</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.flows.FlowLogic.Companion$sleep(java.time.Duration, kotlin.Boolean)/duration">duration</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html"><span class="identifier">Duration</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.core.flows.FlowLogic.Companion$sleep(java.time.Duration, kotlin.Boolean)/maySkipCheckpoint">maySkipCheckpoint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.testing.flows/receive-all.html">receiveAll</a></h4>
+</td>
+<td>
+<p>Suspends until a message has been received for each session in the specified <a href="../../net.corda.testing.flows/receive-all.html#net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))/sessions">sessions</a>.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))/session">session</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))), kotlin.Array((kotlin.Pair((net.corda.core.flows.FlowSession, java.lang.Class((kotlin.Any)))))))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">,</span>&nbsp;<a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/receiveType">receiveType</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/session">session</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), java.lang.Class((net.corda.testing.flows.receiveAll.R)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">receiveAll</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/session">session</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="net.corda.testing.flows$receiveAll(net.corda.core.flows.FlowLogic((kotlin.Any)), net.corda.core.flows.FlowSession, kotlin.Array((net.corda.core.flows.FlowSession)))/sessions">sessions</span><span class="symbol">:</span>&nbsp;<a href="../-flow-session/index.html"><span class="identifier">FlowSession</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.utilities/-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../net.corda.finance.flows/-abstract-cash-flow/index.html">AbstractCashFlow</a></h4>
+</td>
+<td>
+<p>Initiates a flow that produces an Issue/Move or Exit Cash transaction.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">AbstractCashFlow</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.finance.flows/-cash-exit-responder-flow/index.html">CashExitResponderFlow</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CashExitResponderFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.finance.flows/-cash-payment-receiver-flow/index.html">CashPaymentReceiverFlow</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CashPaymentReceiverFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-collect-signature-flow/index.html">CollectSignatureFlow</a></h4>
+</td>
+<td>
+<p>Get and check the required signature.</p>
+<code><span class="keyword">class </span><span class="identifier">CollectSignatureFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.crypto/-transaction-signature/index.html"><span class="identifier">TransactionSignature</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-collect-signatures-flow/index.html">CollectSignaturesFlow</a></h4>
+</td>
+<td>
+<p>The <a href="../-collect-signatures-flow/index.html">CollectSignaturesFlow</a> is used to automate the collection of counterparty signatures for a given transaction.</p>
+<code><span class="keyword">class </span><span class="identifier">CollectSignaturesFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-data-vending-flow/index.html">DataVendingFlow</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">DataVendingFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Void.html"><span class="identifier">Void</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-finality-flow/index.html">FinalityFlow</a></h4>
+</td>
+<td>
+<p>Verifies the given transaction, then sends it to the named notary. If the notary agrees that the transaction
+is acceptable then it is from that point onwards committed to the ledger, and will be written through to the
+vault. Additionally it will be distributed to the parties reflected in the participants list of the states.</p>
+<code><span class="keyword">class </span><span class="identifier">FinalityFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-receive-finality-flow/index.html">ReceiveFinalityFlow</a></h4>
+</td>
+<td>
+<p>The receiving counterpart to <a href="../-finality-flow/index.html">FinalityFlow</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">ReceiveFinalityFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-receive-state-and-ref-flow/index.html">ReceiveStateAndRefFlow</a></h4>
+</td>
+<td>
+<p>The <a href="../-receive-state-and-ref-flow/index.html">ReceiveStateAndRefFlow</a> should be called in response to the <a href="../-send-state-and-ref-flow/index.html">SendStateAndRefFlow</a>.</p>
+<code><span class="keyword">class </span><span class="identifier">ReceiveStateAndRefFlow</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.contracts/-state-and-ref/index.html"><span class="identifier">StateAndRef</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-receive-transaction-flow/index.html">ReceiveTransactionFlow</a></h4>
+</td>
+<td>
+<p>The <a href="../-receive-transaction-flow/index.html">ReceiveTransactionFlow</a> should be called in response to the <a href="../-send-transaction-flow/index.html">SendTransactionFlow</a>.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ReceiveTransactionFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-sign-transaction-flow/index.html">SignTransactionFlow</a></h4>
+</td>
+<td>
+<p>The <a href="../-sign-transaction-flow/index.html">SignTransactionFlow</a> should be called in response to the <a href="../-collect-signatures-flow/index.html">CollectSignaturesFlow</a>. It automates the signing of
+a transaction providing the transaction:</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">SignTransactionFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><a href="../../net.corda.core.transactions/-signed-transaction/index.html"><span class="identifier">SignedTransaction</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-with-referenced-states-flow/index.html">WithReferencedStatesFlow</a></h4>
+</td>
+<td>
+<p>Given a flow which uses reference states, the <a href="../-with-referenced-states-flow/index.html">WithReferencedStatesFlow</a> will execute the flow as a subFlow.
+If the flow fails due to a <a href="../-notary-error/-conflict/index.html">NotaryError.Conflict</a> for a reference state, then WithReferencedStatesFlow will be suspended until the
+state refs for the reference states are consumed. In this case, a consumption means that:</p>
+<code><span class="keyword">class </span><span class="identifier">WithReferencedStatesFlow</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">FlowLogic</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

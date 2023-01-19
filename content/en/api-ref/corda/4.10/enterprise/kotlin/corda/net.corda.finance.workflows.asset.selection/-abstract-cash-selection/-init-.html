@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AbstractCashSelection.<init> - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.finance.workflows.asset.selection</a>&nbsp;/&nbsp;<a href="index.html">AbstractCashSelection</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="net.corda.finance.workflows.asset.selection.AbstractCashSelection$&lt;init&gt;(kotlin.Int, kotlin.Int, kotlin.Int)"></a>
+<code><span class="identifier">AbstractCashSelection</span><span class="symbol">(</span><span class="identifier" id="net.corda.finance.workflows.asset.selection.AbstractCashSelection$<init>(kotlin.Int, kotlin.Int, kotlin.Int)/maxRetries">maxRetries</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;8<span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.AbstractCashSelection$<init>(kotlin.Int, kotlin.Int, kotlin.Int)/retrySleep">retrySleep</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;100<span class="symbol">, </span><span class="identifier" id="net.corda.finance.workflows.asset.selection.AbstractCashSelection$<init>(kotlin.Int, kotlin.Int, kotlin.Int)/retryCap">retryCap</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;2000<span class="symbol">)</span></code>
+<p>Pluggable interface to allow for different cash selection provider implementations
+Default implementation in finance workflow module uses H2 database and a custom function within H2 to perform aggregation.
+Custom implementations must implement this interface and declare their implementation in
+<code>META-INF/services/net.corda.finance.workflows.asset.selection.AbstractCashSelection</code>.</p>
+</BODY>
+</HTML>

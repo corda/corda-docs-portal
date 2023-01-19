@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NamedByHash - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.contracts</a>&nbsp;/&nbsp;<a href="./index.html">NamedByHash</a><br/>
+<br/>
+<h1>NamedByHash</h1>
+<code><span class="keyword">interface </span><span class="identifier">NamedByHash</span></code>
+<p>Implemented by anything that can be named by a secure hash value (e.g. transactions, attachments).</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><a href="../../net.corda.core.crypto/-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-attachment/index.html">Attachment</a></h4>
+</td>
+<td>
+<p>An attachment is a ZIP (or an optionally signed JAR) that contains one or more files. Attachments are meant to
+contain public static data which can be referenced from transactions and utilised from contracts. Good examples
+of how attachments are meant to be used include:</p>
+<code><span class="keyword">interface </span><span class="identifier">Attachment</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NamedByHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.transactions/-base-transaction/index.html">BaseTransaction</a></h4>
+</td>
+<td>
+<p>An abstract class defining fields shared by all transaction types in the system.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NamedByHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.flows/-maybe-serialized-signed-transaction/index.html">MaybeSerializedSignedTransaction</a></h4>
+</td>
+<td>
+<p>In the words of Matt working code is more important then pretty code. This class that contains code that may
+be serialized. If it were always serialized then the local disk fetch would need to serialize then de-serialize
+which wastes time. However over the wire we get batch fetch items serialized. This is because we need to get the exact
+length of the objects to pack them into the 10MB max message size buffer. We do not want to serialize them multiple times
+so it's a lot more efficient to send the byte stream.</p>
+<code><span class="keyword">class </span><span class="identifier">MaybeSerializedSignedTransaction</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NamedByHash</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../net.corda.core.transactions/-transaction-with-signatures/index.html">TransactionWithSignatures</a></h4>
+</td>
+<td>
+<p>An interface for transactions containing signatures, with logic for signature verification.</p>
+<code><span class="keyword">interface </span><span class="identifier">TransactionWithSignatures</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NamedByHash</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

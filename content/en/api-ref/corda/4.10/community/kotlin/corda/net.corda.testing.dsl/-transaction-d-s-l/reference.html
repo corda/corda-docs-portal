@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransactionDSL.reference - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.dsl</a>&nbsp;/&nbsp;<a href="index.html">TransactionDSL</a>&nbsp;/&nbsp;<a href="./reference.html">reference</a><br/>
+<br/>
+<h1>reference</h1>
+<a name="net.corda.testing.dsl.TransactionDSL$reference(kotlin.String)"></a>
+<code><span class="keyword">fun </span><span class="identifier">reference</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TransactionDSL$reference(kotlin.String)/stateLabel">stateLabel</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Looks up the output label and adds the found state as an reference input state.</p>
+<h3>Parameters</h3>
+<p><a name="stateLabel"></a>
+<code>stateLabel</code> - The label of the output state specified when calling <a href="../-transaction-d-s-l-interpreter/output.html">TransactionDSLInterpreter.output</a> and friends.</p>
+<a name="net.corda.testing.dsl.TransactionDSL$reference(kotlin.String, net.corda.core.contracts.ContractState)"></a>
+<code><span class="keyword">fun </span><span class="identifier">reference</span><span class="symbol">(</span><span class="identifier" id="net.corda.testing.dsl.TransactionDSL$reference(kotlin.String, net.corda.core.contracts.ContractState)/contractClassName">contractClassName</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-contract-class-name.html"><span class="identifier">ContractClassName</span></a><span class="symbol">, </span><span class="identifier" id="net.corda.testing.dsl.TransactionDSL$reference(kotlin.String, net.corda.core.contracts.ContractState)/state">state</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.core.contracts/-contract-state/index.html"><span class="identifier">ContractState</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Creates an <a href="../-ledger-d-s-l-interpreter/_unverified-transaction.html">LedgerDSLInterpreter._unverifiedTransaction</a> with a single reference input state and adds its
+reference as in input to the current transaction.</p>
+<h3>Parameters</h3>
+<p><a name="state"></a>
+<code>state</code> - The state to be added.</p>
+</BODY>
+</HTML>

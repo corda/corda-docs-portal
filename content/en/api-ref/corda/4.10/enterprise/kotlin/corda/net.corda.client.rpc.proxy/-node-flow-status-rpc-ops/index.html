@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NodeFlowStatusRpcOps - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc.proxy</a>&nbsp;/&nbsp;<a href="./index.html">NodeFlowStatusRpcOps</a><br/>
+<br/>
+<h1>NodeFlowStatusRpcOps</h1>
+<code><span class="keyword">interface </span><span class="identifier">NodeFlowStatusRpcOps</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RPCOps</span></code>
+<p>An RPC extension which provides access to the FlowHospital</p>
+<p>This interface is designed to allow external applications to query and view the status
+of the flows which are currently under monitoring by the FlowHospital</p>
+<p>example use:</p>
+<pre><code>val rpcAddress = NetworkHostAndPort("nodeAddress", 1000)
+val client = MultiRPCClient(rpcAddress, NodeFlowStatusRpcOps::class.java, rpcUser.username, rpcUser.password)
+val connFuture = client.start()
+val conn = connFuture.get()
+val flowStatusRPCOPs = conn.proxy
+
+val matchingFlows: List&lt;String&gt;  = flowStatusRPCOPs.getFlowsMatching(FlowStatusQuery(
+flowClass = "IssueToken",
+flowState = FlowState.RUNNABLE,
+progressStep = "SIGNING",
+cordapp = "tokens-workflows",
+compatibleWithCurrentCordaRuntime = true,
+suspensionDuration = Duration.ofMinutes(10),
+flowStart = FlowTimeWindow.between(Instant.now().minus(30, ChronoUnit.MINUTES), Instant.now())
+)
+)
+matchingFlows.forEach { flowId -&gt;
+println(flowStatusRPCOPs.getFlowStatus(flowId))
+}
+</code></pre>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-flow-counts.html">getFlowCounts</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getFlowCounts</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="../../net.corda.nodeapi.flow.hospital/-flow-state/index.html"><span class="identifier">FlowState</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-flows-matching.html">getFlowsMatching</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getFlowsMatching</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.NodeFlowStatusRpcOps$getFlowsMatching(net.corda.nodeapi.flow.hospital.FlowStatusQuery)/query">query</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.nodeapi.flow.hospital/-flow-status-query/index.html"><span class="identifier">FlowStatusQuery</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-flows-matching-v2.html">getFlowsMatchingV2</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getFlowsMatchingV2</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.NodeFlowStatusRpcOps$getFlowsMatchingV2(net.corda.nodeapi.flow.hospital.FlowStatusQueryV2)/query">query</span><span class="symbol">:</span>&nbsp;<a href="../../net.corda.nodeapi.flow.hospital/-flow-status-query-v2/index.html"><span class="identifier">FlowStatusQueryV2</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-flow-status.html">getFlowStatus</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getFlowStatus</span><span class="symbol">(</span><span class="identifier" id="net.corda.client.rpc.proxy.NodeFlowStatusRpcOps$getFlowStatus(kotlin.String)/flowId">flowId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../net.corda.nodeapi.flow.hospital/-flow-info/index.html"><span class="identifier">FlowInfo</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

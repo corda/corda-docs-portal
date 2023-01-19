@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PartialMerkleTree.rootAndUsedHashes - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.core.crypto</a>&nbsp;/&nbsp;<a href="index.html">PartialMerkleTree</a>&nbsp;/&nbsp;<a href="./root-and-used-hashes.html">rootAndUsedHashes</a><br/>
+<br/>
+<h1>rootAndUsedHashes</h1>
+<a name="net.corda.core.crypto.PartialMerkleTree.Companion$rootAndUsedHashes(net.corda.core.crypto.PartialMerkleTree.PartialTree, kotlin.collections.MutableList((net.corda.core.crypto.SecureHash)))"></a>
+<code><span class="keyword">fun </span><span class="identifier">rootAndUsedHashes</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.crypto.PartialMerkleTree.Companion$rootAndUsedHashes(net.corda.core.crypto.PartialMerkleTree.PartialTree, kotlin.collections.MutableList((net.corda.core.crypto.SecureHash)))/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">PartialTree</span><span class="symbol">, </span><span class="identifier" id="net.corda.core.crypto.PartialMerkleTree.Companion$rootAndUsedHashes(net.corda.core.crypto.PartialMerkleTree.PartialTree, kotlin.collections.MutableList((net.corda.core.crypto.SecureHash)))/usedHashes">usedHashes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-secure-hash/index.html"><span class="identifier">SecureHash</span></a></code>
+<p>Recursive calculation of root of this partial tree.
+Modifies usedHashes to later check for inclusion with hashes provided.</p>
+<h3>Parameters</h3>
+<p><a name="node"></a>
+<code>node</code> - the partial Merkle tree for which we want to calculate the Merkle root.</p>
+<p><a name="usedHashes"></a>
+<code>usedHashes</code> - a mutable list that at the end of this recursive algorithm, it will consist of the included leaves (hashes of the visible components).</p>
+<p><strong>Return</strong><br/>
+the root <a href="../-secure-hash/index.html">SecureHash</a> of this partial Merkle tree.</p>
+</BODY>
+</HTML>

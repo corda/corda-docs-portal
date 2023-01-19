@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MockServices.keyManagementService - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.testing.node</a>&nbsp;/&nbsp;<a href="index.html">MockServices</a>&nbsp;/&nbsp;<a href="./key-management-service.html">keyManagementService</a><br/>
+<br/>
+<h1>keyManagementService</h1>
+<a name="net.corda.testing.node.MockServices$keyManagementService"></a>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">keyManagementService</span><span class="symbol">: </span><a href="../../net.corda.core.node.services/-key-management-service/index.html"><span class="identifier">KeyManagementService</span></a></code>
+<p>The key management service is responsible for storing and using private keys to sign things. An
+implementation of this may, for example, call out to a hardware security module that enforces various
+auditing and frequency-of-use requirements.</p>
+<p>You don't normally need to use this directly. If you have a <a href="../../net.corda.core.transactions/-transaction-builder/index.html">TransactionBuilder</a> and wish to sign it to
+get a <a href="../../net.corda.core.transactions/-signed-transaction/index.html">SignedTransaction</a>, look at <a href="#">signInitialTransaction</a>.</p>
+</BODY>
+</HTML>

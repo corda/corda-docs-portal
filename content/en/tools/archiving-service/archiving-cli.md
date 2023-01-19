@@ -179,7 +179,11 @@ Number of archivable attachments: 0
 Optionally record to a file the IDs of transactions and attachments which will
 be marked for archiving if the `--write` option is given.
 
-This command does not update any archive log tables.
+This command writes a message similar to the following to the log file:
+
+```
+[INFO] <date-and-time> [main] cliutils.CliWrapperBase. - Application Args: list-items --consumed-only=false --ignore-related=true --filter-config=./vault-states-filter.conf
+```
 
 ## Create Snapshot command
 
@@ -212,6 +216,8 @@ Attachment Tables
   <table name>: <row count>
 ```
 
+
+
 ## Export command
 
 ```text
@@ -228,9 +234,29 @@ Copy the archived items from the vault to permanent storage using the listed exp
 
 Displays the results of the export.
 
-```text
-SomeExporter:
-  Completed export of 5 states to CONTRACT_NODE_STATES-snapshot-name.csv
+```
+<exporter-name>:
+  Completed export of <n> transactions to <filename>-<date>.zip
+```
+
+For example, when exporting using the FormattedTransactionExporter:
+
+```
+FormattedTransactionExporter:
+  Completed export of <n> transactions to formatted-transaction-<date>.zip
+```
+
+When using the ZippedFileExporter:
+
+```
+ZippedFileExporter:
+  Completed export of <n> transactions to transaction-<date>.zip
+  Completed export of <n> attachments to attachment-<date>.zip
+```
+This command writes a message similar to the following to the log file:
+
+```
+[INFO] <date-and-time> [main] cliutils.CliWrapperBase. - Application Args: export-snapshot --exporters FormattedTransactionExporter
 ```
 
 ## Import command
@@ -265,6 +291,12 @@ database updates are executed.
 
 If the Corda database user has not been granted rights to delete items from the vault schema then the
 `--record` option must be used.
+
+This command writes a message similar to the following to the log file:
+
+```
+[INFO] <date-and-time> [main] cliutils.CliWrapperBase. - Application Args: delete-vaults
+```
 
 ## Delete Snapshot command
 

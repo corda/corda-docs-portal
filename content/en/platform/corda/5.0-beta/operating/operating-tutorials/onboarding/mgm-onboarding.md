@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 
-This section describes how to configure the MGM, through which a membership group is created for a [dynamic network](../../network-types.html#dynamic-networks).
+This section describes how to configure the MGM, through which a membership group is created for a [dynamic network](../../../deploying/network-types.html#dynamic-networks).
 
 {{< note >}}
 The PowerShell commands listed on this page are for use with  PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
@@ -18,7 +18,7 @@ The PowerShell commands listed on this page are for use with  PowerShell 7.0 and
 ## Set Variables
 Set the values of variables for use in later commands:
 
-1. Set the P2P gateway host and port and the [REST API](../../../developing/rest-api/rest-api.html) host and port. 
+1. Set the P2P gateway host and port and the [REST API](../../../operating/operating-tutorials/rest-api.html) host and port. 
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -42,7 +42,7 @@ Set the values of variables for use in later commands:
 
    These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`.
 
-2. Set the [REST API](../../../developing/rest-api/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
+2. Set the [REST API](../../../operating/operating-tutorials/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -335,17 +335,17 @@ To set up the TLS key pair and certificate for the cluster:
 
 3. Provide the chosen CA with this CSR and request for certificate issuance.
 
-4. To upload the certificate chain to the Corda cluster, run this command:
+4. To upload the certificate chain to the Corda cluster, run this command, where `certificate-folder` is the path to the folder in which you saved the certificate received from the CA:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin -X PUT  -F certificate=@/tmp/ca/request1/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/cluster/p2p-tls
+   curl -k -u admin:admin -X PUT  -F certificate=<certificate-folder>/certificate.pem -F alias=p2p-tls-cert $API_URL/certificates/cluster/p2p-tls
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$API_URL/certificates/cluster/p2p-tls"  -Form @{
-       certificate = Get-Item -Path $env:TEMP\tmp\ca\request1\certificate.pem
+       certificate = Get-Item -Path <certificate-folder>\certificate.pem
        alias = "p2p-tls-cert"
    }
    ```
@@ -401,6 +401,14 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 ## Build Registration Context
 
+To register the MGM, you must first generate the registration context:
+* [Build Registration Context Using Bash](#build-registration-context-using-bash)
+* [Build Registration Context Using PowerShell](#build-registration-context-using-powershell)
+
+The examples in this section set `corda.group.key.session.policy` to `Distinct`, indicating that the ledger and session initiation key must not be the same key. Alternatively, setting `corda.group.key.session.policy` to `Combined` means that the ledger key used by a member must be the same as the session initiation key.
+
+You can also optionally set the session certificate trustroot using the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`. However, when `corda.group.pki.session` is set to `NoPKI`, the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
+
 {{< note >}}
 If using session certificates for the P2P layer, see [Configuring Optional Session Certificates](session-certificates.html#build-registration-context-for-mgm-registration) for information about the additional JSON fields required.
 {{< /note >}}
@@ -417,7 +425,7 @@ export REGISTRATION_CONTEXT='{
   "corda.group.protocol.registration": "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService",
   "corda.group.protocol.synchronisation": "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl",
   "corda.group.protocol.p2p.mode": "Authenticated_Encryption",
-  "corda.group.key.session.policy": "Combined",
+  "corda.group.key.session.policy": "Distinct",
   "corda.group.pki.session": "NoPKI",
   "corda.group.pki.tls": "Standard",
   "corda.group.tls.version": "1.3",
@@ -426,8 +434,6 @@ export REGISTRATION_CONTEXT='{
   "corda.group.truststore.tls.0" : "'$TLS_CA_CERT'"
 }'
 ```
-Optionally, you can set the session certificate trustroot with the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`, however when `corda.group.pki.session` is set to `NoPKI`, the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
-
 ### Build Registration Context Using PowerShell
 
 To build the registration context using PowerShell, run the following command, setting `TLS_CA_CERT_PATH` to the certificate path:
@@ -439,7 +445,7 @@ $REGISTRATION_CONTEXT = @{
   'corda.group.protocol.registration' = "net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService"
   'corda.group.protocol.synchronisation' = "net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl"
   'corda.group.protocol.p2p.mode' = "Authenticated_Encryption"
-  'corda.group.key.session.policy' = "Combined"
+  'corda.group.key.session.policy' = "Distinct"
   'corda.group.pki.session' = "NoPKI"
   'corda.group.pki.tls' = "Standard"
   'corda.group.tls.version' = "1.3"
@@ -451,7 +457,9 @@ $REGISTRATION_CONTEXT = @{
 
 ## Register the MGM
 
-You can now use the registration context to register the MGM on the network.
+You can now use the registration context to register the MGM on the network:
+* [Register the MGM using Bash](#register-the-mgm-using-bash)
+* [Register the MGM using PowerShell](#register-the-mgm-using-powershell)
 
 ### Register the MGM using Bash
 
@@ -486,11 +494,11 @@ jq -n '.memberRegistrationRequest.action="requestJoin"' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.registration"="net.corda.membership.impl.registration.dynamic.member.DynamicMemberRegistrationService"' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.synchronisation"="net.corda.membership.impl.synchronisation.MemberSynchronisationServiceImpl"' | \
   jq '.memberRegistrationRequest.context."corda.group.protocol.p2p.mode"="Authenticated_Encryption"' | \
-  jq '.memberRegistrationRequest.context."corda.group.key.session.policy"="Combined"' | \
+  jq '.memberRegistrationRequest.context."corda.group.key.session.policy"="Distinct"' | \
   jq '.memberRegistrationRequest.context."corda.group.pki.session"="NoPKI"' | \
   jq '.memberRegistrationRequest.context."corda.group.pki.tls"="Standard"' | \
   jq '.memberRegistrationRequest.context."corda.group.tls.version"="1.3"' | \
-  jq '.memberRegistrationRequest.context."corda.group.key.session.policy"="Combined"' | \
+  jq '.memberRegistrationRequest.context."corda.group.key.session.policy"="Distinct"' | \
   jq --arg p2p_url "https://$P2P_GATEWAY_HOST:$P2P_GATEWAY_PORT" '.memberRegistrationRequest.context."corda.endpoints.0.connectionURL"=$p2p_url' | \
   jq '.memberRegistrationRequest.context."corda.endpoints.0.protocolVersion"="1"' | \
   jq --rawfile root_certicicate /tmp/ca/ca/root-certificate.pem '.memberRegistrationRequest.context."corda.group.truststore.tls.0"=$root_certicicate' \

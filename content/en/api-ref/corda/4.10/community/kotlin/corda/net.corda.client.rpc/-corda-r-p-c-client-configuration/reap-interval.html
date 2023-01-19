@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CordaRPCClientConfiguration.reapInterval - corda</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">corda</a>&nbsp;/&nbsp;<a href="../index.html">net.corda.client.rpc</a>&nbsp;/&nbsp;<a href="index.html">CordaRPCClientConfiguration</a>&nbsp;/&nbsp;<a href="./reap-interval.html">reapInterval</a><br/>
+<br/>
+<h1>reapInterval</h1>
+<a name="net.corda.client.rpc.CordaRPCClientConfiguration$reapInterval"></a>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">reapInterval</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html"><span class="identifier">Duration</span></a></code>
+<p>The interval of unused observable reaping. Leaked Observables (unused ones) are detected using weak references
+and are cleaned up in batches in this interval. If set too large it will waste server side resources for this
+duration. If set too low it wastes client side cycles. The default is to check once per second.</p>
+</BODY>
+</HTML>

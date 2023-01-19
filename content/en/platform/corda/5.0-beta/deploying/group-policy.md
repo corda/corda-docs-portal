@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 A [Corda Package Installer (CPI)](../introduction/key-concepts.html#corda-package-installer-cpi) is composed of a [Corda Package Bundle (CPB)](../introduction/key-concepts.html#corda-package-bundles-cpbs) and network information defined in a JSON file called `GroupPolicy.json`.
-You can create this file using the [Corda CLI](cli-commands.html) or, for members joining a group, export it from the MGM.
+You can create this file using the [Corda CLI](../developing/getting-started/installing-corda-cli.html) or, for members joining a group, export it from the MGM.
 
 ## Group Policy Types
 
@@ -55,7 +55,7 @@ Alternatively, with optional parameters:
 }
 ```
 
-For more information, see [MGM Onboarding](../deployment-tutorials/membership/mgm-onboarding.html).
+For more information, see [MGM Onboarding](../operating/operating-tutorials/onboarding/mgm-onboarding.md).
 
 ### Dynamic Network Member Group Policy
 
@@ -185,7 +185,7 @@ For example:
 ```
 
 {{< note >}}
-You can build a group policy file using the Corda CLI. For more information, see [Onboarding Members to Static Networks](../deployment-tutorials/membership/static-onboarding.html).
+You can build a group policy file using the Corda CLI. For more information, see [Onboarding Members to Static Networks](../operating/operating-tutorials/onboarding/static-onboarding.html).
 {{< /note >}}
 
 ## Validation

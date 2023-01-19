@@ -9,12 +9,11 @@ menu:
 section_menu: corda-5-beta
 ---
 
-This section describes how to package your CorDapp as CPKs (Corda Packages), CPBs (Corda Package Bundles), and CPIs (Corda Package Installers). You can read more about the CorDapp packaging format in the [Key Concepts](../../introduction/key-concepts.html#packaging) section. The steps in this section use the [Corda CLI package commands](../package.html).
+This section describes how to package your CorDapp as CPKs (Corda Packages), CPBs (Corda Package Bundles), and CPIs (Corda Package Installers). You can read more about the CorDapp packaging format in the [Key Concepts](../../introduction/key-concepts.html#packaging) section. The steps in this section use the [Corda CLI package commands](../../corda-cli-reference/cli-commands/package.md).
 
 ## Before You Start
 
-You need a working copy of the [Corda CLI](../developing/getting-started/installing-corda-cli.html) with the MGM and package plugins installed. 
-<!-- See the [Corda CLI Plugin Host](https://github.com/corda/corda-cli-plugin-host#setupbuild). -->
+You need a working copy of the [Corda CLI](../getting-started/installing-corda-cli.html) with the MGM and package plugins installed. 
 
 ## Configuring the Gradle Plugin
 
