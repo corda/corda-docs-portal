@@ -25,8 +25,8 @@ that are otherwise available from [Corda Network](https://corda.network), which 
 **Release notes**
 
 * For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](../../../../../en/platform/corda/1.5/cenm/release-notes.md) page.
-* For the latest Corda Enterprise release notes, see the [Corda Enterprise Edition 4.8 release notes](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
-* For all Corda open source release notes, see the [Corda release notes](../../../../../en/platform/corda/4.8/open-source/release-notes.md) page.
+* For all Corda 4 Enterprise Edition release notes, see [Corda 4 Community Edition (Formerly Open Source)](../../../../../en/platform/corda.md#corda-4-enterprise).
+* For all Corda 4 Community Edition release notes, see [Welcome to Corda](../../../../../en/platform/corda.md#corda-4-community-edition-formerly-open-source).
 
 {{< /note >}}
 
