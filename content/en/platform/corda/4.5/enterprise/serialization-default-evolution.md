@@ -28,8 +28,6 @@ the actual code changes. These are:
 * Removing properties
 * Reordering constructor parameters
 
-
-
 ## Adding Nullable Properties
 
 The serialization framework allows nullable properties to be freely added. For example:

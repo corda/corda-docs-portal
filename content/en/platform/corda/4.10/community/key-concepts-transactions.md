@@ -91,7 +91,7 @@ Just gathering the required signatures is not enough to commit a transaction to 
 
 * *Valid:* The proposed transaction and every transaction the backchain of the proposed inputs must be signed by all the required parties and [contractually valid](key-concepts-contracts.md).
 * *Unique:* No other committed transaction has consumed any of the inputs to
-the proposed transaction. [Uniqueness](key-concepts-consensus.md#uniqueness-consensus) is determined by a [notary](key-concepts-notaries.md).
+the proposed transaction. [Uniqueness](key-concepts-consensus.html#uniqueness-consensus) is determined by a [notary](key-concepts-notaries.md).
 
 If the transaction gathers all the required signatures without meeting these conditions, the transaction’s outputs
 are not valid and will not be accepted as inputs to subsequent transactions.

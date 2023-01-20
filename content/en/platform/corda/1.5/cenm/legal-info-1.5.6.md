@@ -3,15 +3,15 @@ date: '2023-01-20'
 menu:
   cenm-1-5:
     identifier: cenm-1-5-6-legal-info
-    parent: cenm-1-6-cenm-releases
-    weight: 129
+    parent: cenm-1-5-cenm-releases
+    weight: 130
 tags:
 - legal
 - info
-title: Third-party software notices and licence information - CENM 1.5.5
+title: Third-party software notices and licence information - CENM 1.5.6
 ---
 
-# Corda Enterprise Network Manager 1.5.5 third-party software notices and licence information
+# Corda Enterprise Network Manager 1.5.6 third-party software notices and licence information
 
 **Do not translate or localise.**
 
