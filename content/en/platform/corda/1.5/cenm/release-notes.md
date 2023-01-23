@@ -17,6 +17,7 @@ title: Release notes
 ## Corda Enterprise Network Manager 1.5.6
 
 * Due to a vulnerability, Jackson Databind is now excluded.
+* Due to a vulnerability, Spring Framework is now excluded.
 
 ## Corda Enterprise Network Manager 1.5.5
 
