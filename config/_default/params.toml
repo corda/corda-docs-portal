@@ -4,7 +4,7 @@
 title = "R3 Documentation"
 titleSeparator = "-"
 titleAddition = "Home"
-description = "Find tutorials, sample code, developer guides, and API references for Corda and Conclave."
+description = "Find tutorials, sample code, developer guides, and API references for Corda."
 
 ## Open Graph + Twitter Cards
 images = ["r3-docs-open-graph.png"]
