@@ -16,10 +16,10 @@ title: Release notes
 
 ## Corda Enterprise Network Manager 1.5.6
 
-CENM 1.5.6 fixes two vulnerability issues:
+CENM 1.5.6 fixes two vulnerabilities by:
 
-* Due to a vulnerability, Jackson Databind is now excluded.
-* Due to a vulnerability, Spring Framework is now excluded.
+* excluding Jackson Databind.
+* excluding Spring Framework.
 
 ## Corda Enterprise Network Manager 1.5.5
 
