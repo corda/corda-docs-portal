@@ -17,7 +17,7 @@ The foundation for the Chat app is the ChatState which is the data model for fac
 
 Where:
 
-* id is a unique identifier for the chat, it is the equivalent of a linearId in Corda 4, ie it is the common identifier for all the states in the backchain for a particular chat between two participants. (LinearStates and LinearId are not implemented yet in Corda 5 as of Beta-1).
+* id is a unique identifier for the chat, it is the equivalent of a linearId in Corda 4, in other words it is the common identifier for all the states in the backchain for a particular chat between two participants. (LinearStates and LinearId are not implemented yet in Corda 5 as of Beta-1).
 * chatName is a human readable name for the chat, it does not guarantee uniqueness.
 * messageFrom is the MemberX500Name for the Virtual node which created this ChatState.
 * message is the message in the Chat
@@ -46,8 +46,8 @@ The evolution of the Ledger when stepping through the walkthrough steps can be s
 
 {{< figure src="chat-state-evolution-view.png" figcaption="CDL State evolution view" alt="CDL State evolution view" >}}
 
-* The Create transaction has no input and starts a new chat with a unique id. the id operates similarly to the Corda 4  LinearStateId, which has not been implemented yet in Corda 5.
-* Each Update transaction creates the new ChatState as an output and consumes the previous ChatState as an input thus growing the backchain.
+* The Create transaction has no input and starts a new chat with a unique id. The id operates similarly to the Corda 4  LinearStateId, which has not been implemented yet in Corda 5.
+* Each Update transaction creates the new ChatState as an output and consumes the previous ChatState as an input.
 * To recreate the historic conversation the back chain is traversed from newest (unconsummed) state to oldest.
 
 ### Chat Flows
@@ -57,7 +57,7 @@ There are six flows in the Chat Application:
 {{< table >}}
  | Flow                      | Flow type        | Inputs |            Action|
  |---------------------------|------------------|--------------------|-----------------|
- | CreateNewChatFlow         | RPCStartableFlow | chatName,otherMember,message| Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided. Signs the draft transaction with the VNodes first Ledger Key. Calls FinalizeChatSubFlow which finalises the transaction.|
+ | CreateNewChatFlow         | RPCStartableFlow | *chatName, *otherMember, *message| Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided. Signs the draft transaction with the VNodes first Ledger Key. Calls FinalizeChatSubFlow which finalises the transaction.|
  | UpdateChatFlow            | RPCStartableFlow | id, message        | Locates the last message in the backchain for the given id. Creates a draft transaction which consumes the last message in the chain and creates a new chatState with the latest message. Signs the draft transaction with the VNodes first Ledger Key. Calls FinalizeChatSubFlow which finalises the transaction.  |
  | ListChatsFlow             | RPCStartableFlow | <none>   |Calls FinalizeChatSubFlow which finalises the transaction.|
  | GetChatsFlow              | RPCStartableFlow | id, numberofRecords | Reads the backchain to a depth of ‘numberOfRecords’ for a given id. Returns the list of messages together with who sent them. |
