@@ -31,8 +31,8 @@ The Corda platform documentation covers the following current versions of the Co
 | Corda version                 | Link to documentation                                 | 
 |-------------------------------|-------------------------------------------------------|
 | **Corda 5**                   |                                                       |
-| Corda 5.0 Developer Preview 2 |[Link](../platform/corda/5.0-dev-preview-2.html)       |
 | Corda 5.0 Beta 1              |[Link](../platform/corda/5.0-beta.html)                |
+| Corda 5.0 Developer Preview 2 |[Link](../platform/corda/5.0-dev-preview-2.html)       |
 | **Corda 4 Community Edition (Formerly Open Source)**|                                 |
 | Corda 4.10 Community Edition  |[Link](../platform/corda/4.10/community.html)          |
 | **Corda 4 Enterprise**        |                                                       |
