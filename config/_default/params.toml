@@ -36,7 +36,7 @@ portraitPhotoWidths = [800, 700, 600, 500]
 lqipWidth = "20x"
 
 # Footer
-footer = "&copy; 2021 R3, All Rights Reserved"
+footer = "&copy; 2023 R3, All Rights Reserved"
 
 # Alert
 alert = false
