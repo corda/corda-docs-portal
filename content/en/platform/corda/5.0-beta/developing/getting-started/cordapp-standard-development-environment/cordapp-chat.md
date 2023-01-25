@@ -64,8 +64,8 @@ There are six flows in the Chat Application:
 
 <table>
 <col style="width:30%">
-<col style="width:10%">
-<col style="width:10%">
+<col style="width:30%">
+<col style="width:30%">
 <col style="width:50%">
 <thead>
 <tr>
