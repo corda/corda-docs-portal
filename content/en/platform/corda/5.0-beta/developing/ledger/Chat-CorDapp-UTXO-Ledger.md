@@ -12,12 +12,11 @@ section_menu: corda-5-beta
 
 The foundation for the Chat app is the ChatState which is the data model for facts recorded to the ledger. It can be represented in the CDL as follows:
 
-{{< 
+{{<
   figure
-	 src="images/chat-state.png"
-	 figcaption="Data model for facts recorded to the ledger"
+    src="images/chat-state.png"
+    figcaption="Data model for facts recorded to the ledger"
 >}}
-
 
 Where:
 
@@ -37,10 +36,10 @@ The history of a chat will be recorded in the backchain of the chat.
 
 The Smart Contract (combination of the ChatState and ChatContract) can be represented by a simple Smart Contract View diagram:
 
-{{< 
+{{<
   figure
-	 src="images/chat-smart-contract-view.png"
-	 figcaption="Smart Contract View diagram""
+    src="images/chat-smart-contract-view.png"
+    figcaption="Smart Contract View diagram""
 >}}
 
 Points to note:
@@ -60,10 +59,10 @@ Points to note:
 
 The evolution of the ledger when stepping through the walkthrough steps can be shown using the CDL State evolution view:
 
-{{< 
+{{<
   figure
-	 src="images/chat-state-evolution-view.png"
-	 figcaption="CDL State evolution view""
+    src="images/chat-state-evolution-view.png"
+    figcaption="CDL State evolution view""
 >}}
 
 * The Create transaction has no input and starts a new chat with a unique id. The id operates similarly to the Corda 4  LinearStateId, which has not been implemented yet in Corda 5.
@@ -76,7 +75,7 @@ There are six flows in the Chat Application:
 
 {{< table >}}
  | Flow                      | Flow type        | Inputs |            Action|
- |---------------------------|------------------|--------------------|-----------------|
+ |:---------------------------:| :------------------:|:-------------------- :|:-----------------:|
  | CreateNewChatFlow         | RPCStartableFlow  | chatName, otherMember, message   | Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided. Signs the draft transaction with the VNodes first Ledger Key. Calls FinalizeChatSubFlow which finalizes the transaction.|
  | UpdateChatFlow            | RPCStartableFlow | id, message        | Locates the last message in the backchain for the given id. Creates a draft transaction which consumes the last message in the chain and creates a new chatState with the latest message. Signs the draft transaction with the VNodes first Ledger Key. Calls FinalizeChatSubFlow which finalises the transaction.  |
  | ListChatsFlow             | RPCStartableFlow | <none>   |Calls FinalizeChatSubFlow which finalises the transaction.|
