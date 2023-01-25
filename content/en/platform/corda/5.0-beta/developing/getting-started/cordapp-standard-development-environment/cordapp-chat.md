@@ -62,9 +62,6 @@ The evolution of the ledger when stepping through the walkthrough steps can be s
 
 There are six flows in the Chat Application:
 
- | FinalizeChatResponderFlow | ResponderFlow     | FlowSession           | Runs the receiveFinality() function which performs the responder side of the finality() function. ReceiveFinality() takes a Lambda verifier which runs validations on the transactions. The validator checks for banned words and checks that the message comes from the same party as the messageFrom field. |
- {{< /table >}}
-
  {{< table >}}
 
  |Flow                        |Flow type              | Inputs              | Action
