@@ -62,17 +62,58 @@ The evolution of the ledger when stepping through the walkthrough steps can be s
 
 There are six flows in the Chat Application:
 
- {{< table >}}
-
- |Flow                        |Flow type              | Inputs              | Action
- |--------------------------------|---------------------------|-------------------------|---------------------------|
- |CreateNewChatFlow           |RPCStartableFlow       | chatName,otherMember,message            | Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided. Signs the draft transaction with the VNodes first Ledger Key. Calls `FinalizeChatSubFlow` which finalizes the transaction.|
-|UpdateChatFlow               |RPCStartableFlow       |  id, message           | Locates the last message in the backchain for the given id.Creates a draft transaction which consumes the last message in the chain and creates a new chatState with the latest message. Signs the draft transaction with the VNodes first Ledger Key.  Calls `FinalizeChatSubFlow` which finalises the transaction. |
-| ListChatsFlow             | RPCStartableFlow | none   |Calls `FinalizeChatSubFlow` which finalises the transaction.|
-| GetChatsFlow              | RPCStartableFlow |  id, numberofRecords | Reads the backchain to a depth of `numberOfRecords` for a given id. Returns the list of messages together with who sent them. |
-|FinalizeChatFlow           |SubFlow            | signedTransaction (to finalize),otherMember | The common subflow used by both by both CreateNewChatFlow and UpdateChatFlow. This removes the need to duplicate the responder code. Sets up a session with the `FinalizeChatResponderFlow` and calls the finality() function. finality()/ receiveFinality() functions, collects required signatures, notarises the transaction and stores the finalized transaction to the respective vaults. |
-|FinalizeChatResponderFlow  | ResponderFlow     | FlowSession       | Runs the `receiveFinality()` function which performs the responder side of the finality() function.`ReceiveFinality()` takes a Lambda verifier which runs validations on the transactions.The validator checks for banned words and checks that the message comes from the same party as the messageFrom field.|
-{{< /table >}}
+<table>
+<col style="width:30%">
+<col style="width:10%">
+<col style="width:10%">
+<col style="width:50%">
+<thead>
+<tr>
+<th>Flow</th>
+<th>Flow type</th>
+<th>Inputs</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CreateNewChatFlow </code></td>
+<td><code>RPCStartableFlow </code></td>
+<td><code>chatName,otherMember,message</code></td>
+<td> Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided. Signs the draft transaction with the VNodes first Ledger Key. Calls <code>FinalizeChatSubFlow</code> which finalizes the transaction.</td>
+</tr>
+<tr>
+<td><code>UpdateChatFlow </code></td>
+<td><code>RPCStartableFlow </code></td>
+<td><code> id, message </code></td>
+<td> Locates the last message in the backchain for the given id.Creates a draft transaction which consumes the last message in the chain and creates a new chatState with the latest message. Signs the draft transaction with the VNodes first Ledger Key.  Calls <code>FinalizeChatSubFlow</code> which finalises the transaction. </td>
+</tr>
+<tr>
+<td><code>ListChatsFlow </code></a></td>
+<td><code>RPCStartableFlow </code></td>
+<td><code>none</code></td>
+<td>Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</td>
+</tr>
+<tr>
+<td><code>GetChatsFlow </code></td>
+<td><code>RPCStartableFlow </code></td>
+<td><code>id, numberofRecords </code></td>
+<td>Reads the backchain to a depth of `numberOfRecords` for a given id. Returns the list of messages together with who sent them.</td>
+</tr>
+<tr>
+<td><code>FinalizeChatFlow </code></td>
+<td><code>SubFlow </code></td>
+<td><code>signedTransaction (to finalize),otherMember </code></td>
+<td>The common subflow used by both by both <code>CreateNewChatFlow</code> and <code>UpdateChatFlow</code>. This removes the need to duplicate the responder code. Sets up a session with the <code>FinalizeChatResponderFlow</code> and calls the finality() function. finality()/ receiveFinality() functions, collects required signatures, notarises the transaction and stores the finalized transaction to the respective vaults.</td>
+</tr>
+<tr>
+<td><code>FinalizeChatResponderFlow</code></td>
+<td><code>ResponderFlow </code></td>
+<td><code>FlowSession  </code></td>
+<td>Runs the <code>receiveFinality()</code> function which performs the responder side of the finality() function.<code>ReceiveFinality()<code> takes a Lambda verifier which runs validations on the transactions.The validator checks for banned words and checks that the message comes from the same party as the messageFrom field.</td>
+</tr>
+</tbody>
+</table>
 
 ## Configuring the Application Network (Virtual Nodes)
 
