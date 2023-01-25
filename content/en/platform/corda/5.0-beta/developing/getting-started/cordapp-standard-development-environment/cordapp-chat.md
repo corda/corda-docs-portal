@@ -13,11 +13,7 @@ section_menu: corda-5-beta
 
 The foundation for the Chat app is the ChatState which is the data model for facts recorded to the ledger. It can be represented in the CDL as follows:
 
-{{<
-  figure
-    src="chat-state.png"
-    figcaption="Data model for facts recorded to the ledger"
->}}
+{{< figure src="chat-state.png" figcaption="Data model for facts recorded to the ledger" alt="Data model for facts recorded to the ledger" >}}
 
 Where:
 
@@ -37,11 +33,7 @@ The history of a chat will be recorded in the backchain of the chat.
 
 The Smart Contract (combination of the ChatState and ChatContract) can be represented by a simple Smart Contract View diagram:
 
-{{<
-  figure
-    src="chat-smart-contract-view.png"
-    figcaption="Smart Contract View diagram""
->}}
+{{< figure src="chat-smart-contract-view.png" figcaption="Smart Contract View diagram" alt="Smart Contract View diagram" >}}
 
 Points to note:
 
@@ -60,11 +52,7 @@ Points to note:
 
 The evolution of the ledger when stepping through the walkthrough steps can be shown using the CDL State evolution view:
 
-{{<
-  figure
-    src="chat-state-evolution-view.png"
-    figcaption="CDL State evolution view""
->}}
+{{< figure src="chat-state-evolution-view.png" figcaption="CDL state evolution view"" alt="CDL state evolution view" >}}
 
 * The Create transaction has no input and starts a new chat with a unique id. The id operates similarly to the Corda 4  LinearStateId, which has not been implemented yet in Corda 5.
 * Each Update transaction creates the new ChatState as an output and consumes the previous ChatState as an input.
