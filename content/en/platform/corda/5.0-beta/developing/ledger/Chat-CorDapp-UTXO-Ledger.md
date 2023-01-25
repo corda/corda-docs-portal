@@ -1,14 +1,13 @@
 ---
-date: '2022-09-19'
-title: "Chat CorDapp UTXO Ledger"
+date: '2023-01-23'
+title: "Chat CorDapp"
 menu:
   corda-5-beta:
-    parent: corda-5-beta-start
-    identifier: corda-5-beta-csde
-    weight: 2000
+    parent: corda-5-beta-ledger
+    identifier: corda-5-beta-chatstate
+    weight: 5000
 section_menu: corda-5-beta
 ---
-
 ## ChatState
 
 The foundation for the Chat app is the ChatState which is the data model for facts recorded to the ledger. It can be represented in the CDL as follows:
