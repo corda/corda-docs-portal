@@ -65,7 +65,7 @@ There are six flows in the Chat Application:
  {{< table >}}
 
  |Flow                        |Flow type              | Inputs              | Action
- |----------------------------|-----------------------|---------------------|---------------------------|
+ |--------------------------------|---------------------------|-------------------------|---------------------------|
  |CreateNewChatFlow           |RPCStartableFlow       | chatName,otherMember,message            | Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided. Signs the draft transaction with the VNodes first Ledger Key. Calls `FinalizeChatSubFlow` which finalizes the transaction.|
 |UpdateChatFlow               |RPCStartableFlow       |  id, message           | Locates the last message in the backchain for the given id.Creates a draft transaction which consumes the last message in the chain and creates a new chatState with the latest message. Signs the draft transaction with the VNodes first Ledger Key.  Calls `FinalizeChatSubFlow` which finalises the transaction. |
 | ListChatsFlow             | RPCStartableFlow | none   |Calls `FinalizeChatSubFlow` which finalises the transaction.|
