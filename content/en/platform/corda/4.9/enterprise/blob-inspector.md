@@ -129,4 +129,4 @@ never normally need to specify this. Possible values [BINARY, HEX, BASE64]. Defa
 
 ### Sub-commands
 
-`install-shell-extensions`: Install `blob-inspector` alias and auto-completion for bash and zsh. See [Shell extensions for CLI Applications](../../../../../en/platform/corda/4.9/community/cli-application-shell-extensions.md).
+`install-shell-extensions`: Install `blob-inspector` alias and auto-completion for bash and zsh. See [Shell extensions for CLI Applications](node/operating/cli-application-shell-extensions.md).

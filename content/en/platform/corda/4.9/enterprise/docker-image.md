@@ -20,7 +20,7 @@ is `corda/corda-enterprise:4.9.2-zulu-openjdk8-alpine`.
 * Install and enable `Docker` and `docker-compose`. Docker CE (Community Edition) is sufficient. Docker, Inc. publish installation instructions for all major operating systems:
     * [Docker CE](https://www.docker.com/community-edition)
     * [Docker Compose](https://docs.docker.com/compose/install/).
-* Ensure you have a valid [node.conf file](../../../../../en/platform/corda/4.9/community/node-database-tables.md) and set of certificates.
+* Ensure you have a valid [node.conf file](node/operating/node-database-tables.md) and set of certificates.
 
 ## Getting started
 
