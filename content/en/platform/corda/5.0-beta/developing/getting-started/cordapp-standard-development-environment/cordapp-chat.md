@@ -1,6 +1,6 @@
 ---
 date: '2023-01-23'
-title: "UXTO Ledger Example CorDapp"
+title: "Chat CorDapp"
 menu:
   corda-5-beta:
     parent: corda-5-beta-start
@@ -14,11 +14,11 @@ section_menu: corda-5-beta
 The CSDE template includes examples of CorDapp code for a simple UTXO (Unspent Transaction Output) Chat application. The Chat CorDapp allows pairs of participants on a Corda Application network to do the following:
 
 * Create and name a unique bilateral chat between the two virtual nodes.
-* Update chats with new messages from either Virtual Node.
+* Update chats with new messages from either virtual node.
 * Obtain a list of chats that the virtual node is a participant in.
 * Retrieve a specified number of previous messages from a chat.
 
-There is both a Kotlin and Java implementation of the Chat CorDapp in the respective csde-cordapp-template-kotlin and csde-cordapp-template-java-repos.
+There is both a Kotlin and Java implementation of the Chat CorDapp in the respective `csde-cordapp-template-kotlin` and `csde-cordapp-template-java-repos`.
 
 ## ChatState
 
@@ -31,6 +31,7 @@ Where:
 * `id` is a unique identifier for the chat, it is the equivalent of a linearId in Corda 4, in other words it is the common identifier for all the states in the backchain for a particular chat between two participants. (`LinearStates` and `LinearId` are not implemented yet in Corda 5 as of Beta-1).
 
 * `chatName` is a human readable name for the chat, it does not guarantee uniqueness.
+
 * `messageFrom` is the `MemberX500Name` for the virtual node which created this ChatState.
 
 * `message` is the message in the Chat.
@@ -66,7 +67,7 @@ The evolution of the ledger when stepping through the walkthrough steps can be s
 
 {{< figure src="chat-state-evolution-view.png" figcaption="CDL state evolution view" alt="CDL state evolution view" >}}
 
-* The Create transaction has no input and starts a new chat with a unique id. The id operates similarly to the Corda 4  `LinearStateId`, which has not been implemented yet in Corda 5.
+* The Create transaction has no input and starts a new chat with a unique `id`. The `id` operates similarly to the Corda 4  `LinearStateId`, which has not been implemented yet in Corda 5.
 * Each update transaction creates the new ChatState as an output and consumes the previous ChatState as an input.
 * To recreate the historic conversation the back chain is traversed from newest (unconsummed) state to oldest.
 
@@ -98,7 +99,7 @@ There are six flows in the Chat Application:
 <td><code>UpdateChatFlow </code></td>
 <td><code>RPCStartableFlow </code></td>
 <td><code> <li>id</li><li>message</li> </code></td>
-<td> <li>Locates the last message in the backchain for the given id.</li><li> Creates a draft transaction which consumes the last message in the chain and creates a new chatState with the latest message.</li> Signs the draft transaction with the VNodes first Ledger Key.<li> Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
+<td> <li>Locates the last message in the backchain for the given id.</li><li> Creates a draft transaction which consumes the last message in the chain and creates a new ChatState with the latest message.</li> <li>Signs the draft transaction with the VNodes first Ledger Key.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
 </tr>
 <tr>
 <td><code>ListChatsFlow </code></a></td>
@@ -110,53 +111,57 @@ There are six flows in the Chat Application:
 <td><code>GetChatsFlow </code></td>
 <td><code>RPCStartableFlow </code></td>
 <td><code><li>id</li><li>numberofRecords</li> </code></td>
-<td><li>Reads the backchain to a depth of `numberOfRecords` for a given id.</li><li> Returns the list of messages together with who sent them.</li></td>
+<td><li>Reads the backchain to a depth of <code>numberOfRecords</code> for a given <code>id</code>.</li><li> Returns the list of messages together with who sent them.</li></td>
 </tr>
 <tr>
 <td><code>FinalizeChatFlow </code></td>
 <td><code>SubFlow </code></td>
 <td><code><li>signedTransaction (to finalize)</li><li>otherMember</li> </code></td>
-<td><li>The common subflow used by both by both <code>CreateNewChatFlow</code> and <code>UpdateChatFlow</code>.</li><li> This removes the need to duplicate the responder code.<li> Sets up a session with the <code>FinalizeChatResponderFlow</code> and calls the finality() function finality()/ receiveFinality() functions.</li><li> Collects required signatures, notarises the transaction and stores the finalized transaction to the respective vaults.</li></td>
+<td><li>The common subflow used by both by both <code>CreateNewChatFlow</code> and <code>UpdateChatFlow</code>.</li><li> This removes the need to duplicate the responder code.<li> Sets up a session with the <code>FinalizeChatResponderFlow</code> and calls the <code>finality()</code> function <code>finality()/ receiveFinality(</code> functions, collects required signatures, notarises the transaction, and stores the finalized transaction to the respective vaults.</li></td>
 </tr>
 <tr>
 <td><code>FinalizeChatResponderFlow</code></td>
 <td><code>ResponderFlow </code></td>
 <td><code><li>FlowSession</li></code></td>
-<td><li>Runs the <code>receiveFinality()</code> function which performs the responder side of the finality() function.<code>ReceiveFinality()<code> takes a Lambda verifier which runs validations on the transactions.</li><li>The validator checks for banned words and checks that the message comes from the same party as the messageFrom field.</li></td>
+<td><li>Runs the <code>receiveFinality()</code> function which performs the responder side of the finality() function.<code>ReceiveFinality()</code> takes a Lambda verifier which runs validations on the transactions.</li><li> The validator checks for banned words and checks that the message comes from the same party as the <code>messageFrom</code> field.</li></td>
 </tr>
 </tbody>
 </table>
 
 ## Configuring the Application Network (Virtual Nodes)
 
-The CSDE is configured to create a four party application network required to run the Chat Cordapp, including virtual nodes for Alice, Bob, Charlie and a Notary. If you want to change the network configuration please see section [Configuring the Network Participants](../../getting-started/configure-the-network-participants/network-participants.md)
+The CSDE is configured to create a four party application network required to run the Chat Cordapp, including virtual nodes for Alice, Bob, Charlie and a Notary. To change the network configuration, please see section [Configuring the Network Participants](../../getting-started/configure-the-network-participants/network-participants.md)
 
 {{< note >}}
-You will need to keep the notary party otherwise the application will not be able to finalise transactions.
+You must keep the notary node to enable the CorDapp to finalise transactions.
 {{< /note >}}
 
 ## Deploying the CorDapp
 
-To deploy and run the CorDapp you will follow the same steps as outlined in the [Running Your First CorDapp](../../getting-started/running-your-first-cordapp/run-first-cordapp.md) section of this getting started guide.
-However, when you come to trigger the flows you will need to trigger the appropriate `ChatFlow` rather than `MyFirstFlow`.
+To deploy and run the CorDapp, follow the same steps as outlined in the [Running Your First CorDapp](../../getting-started/running-your-first-cordapp/run-first-cordapp.md) section of this Getting Started guide.
+However, when you come to trigger the flows, you must trigger the appropriate `ChatFlow` rather than `MyFirstFlow`.
+
+{{< note >}}
 Remember to start your docker engine before you attempt to start Corda and make sure Corda is responding to requests before deploying the CorDapp.
+{{< /note >}}
 
 ## Using Swagger
 
-For this walkthrough we will assume you are using the `Swagger GUI` to trigger flows. For each flow we will be using the Flow Management section of the API.
-You will need to know the `holdingidentityshorthash` for both Alice and Bob’s nodes, you can get this by running the `listVNodes` Gradle helper in the csde-queries section of the gradle helper tasks.
+For this walkthrough, we assume you are using the `Swagger GUI` to trigger flows. For each flow we use the Flow Management section of the API.
+You must know the `holdingidentityshorthash` for both Alice and Bob’s nodes. You can retrieve this by running the `listVNodes` Gradle helper in the `csde-queries` section of the [gradle helper](../../../../5.0-beta/developing/getting-started/cordapp-standard-development-environment/csde.md) tasks.
 
 {{< figure src="listvnodes.png" figcaption="listVnodes Gradler helper" alt="listVnodes Gradler helper" >}}
 
-Which will return something similar to this:
+The task returns something similar to this:
 
 {{< figure src="listvnodes-result.png" figcaption="listVnodes result" alt="listVnodes result" >}}
 
-The Vnode `holdingidentityshorthashes` (short hashes) are the 12 digit hex numbers. In the above Alice’s short hash is "17F49B05B2B5" and Bob’s is “8C73E39AF476”. Whenever the API requires the short hash substitute the appropriate number depending on which Vnode you want to run the flow on.
+The Vnode `holdingidentityshorthashes` (short hashes) are the 12 digit hex numbers. In the above example,  Alice’s short hash is "17F49B05B2B5" and Bob’s is “8C73E39AF476”. Whenever the API requires the short hash, substitute the appropriate number depending on which vnode you want to run the flow on.
 
-For running the flows we will use the `POST: /flow/{holdingidentityshorthash}/` end point. This requires a request body to be provided which includes:
+For running the flows use the `POST: /flow/{holdingidentityshorthash}/` end point. This requires a request body to be provided which includes:
 
 * `clientRequestId` to uniquely identify the request
+
 * `flowClassName` which provides the fully qualified name of the flow to be triggered
 
 * `requestData` which provides the input arguments for the flow
@@ -269,7 +274,7 @@ It should return “COMPLETED” after a short delay.
   ```
 
 Followed by polling for status with:`GET: /flow/{holdingidentityshorthash}/{clientrequestid}`
-It should return “COMPLETED” after a short delay the output will show the `flowResult` with the single chat that Bob is a participant in. From this he can get the id number 674276c9-f311-43a6-90b8-73439bc7e28b which he will need to update the chat.
+It should return “COMPLETED” after a short delay the output will show the `flowResult` with the single chat that Bob is a participant in. From this he can get the `id` number 674276c9-f311-43a6-90b8-73439bc7e28b and update the chat.
 
   ```java
 {
@@ -283,7 +288,7 @@ It should return “COMPLETED” after a short delay the output will show the `f
 }
   ```
 
-3. Bob updates the chat twice using UpdateChatFlow.
+3. Bob updates the chat twice using `UpdateChatFlow`.
 `POST: /flow/{holdingidentityshorthash}`
 
   ```java
@@ -298,7 +303,7 @@ It should return “COMPLETED” after a short delay the output will show the `f
   ```
 
 {{< note >}}
-Remember to update the id otherwise you will get an error or update the wrong chat.
+Remember to update the `id` otherwise you will get an error or update the wrong chat.
 {{< /note >}}
 
 Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status.
