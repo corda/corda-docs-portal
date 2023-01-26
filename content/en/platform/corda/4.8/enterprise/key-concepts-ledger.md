@@ -5,9 +5,9 @@ aliases:
 - /key-concepts-ledger.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-os-4-8:
-    identifier: corda-os-4-8-key-concepts-ledger
-    parent: corda-os-4-8-key-concepts
+  corda-enterprise-4-8:
+    identifier: corda-enterprise-4-8-key-concepts-ledger
+    parent: corda-enterprise-4-8-key-concepts
     weight: 1020
 tags:
 - concepts

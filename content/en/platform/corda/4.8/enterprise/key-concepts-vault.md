@@ -5,9 +5,9 @@ aliases:
 - /key-concepts-vault.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-community-4-10:
-    identifier: corda-community-4-10-key-concepts-vault
-    parent: corda-community-4-10-key-concepts
+  corda-enterprise-4-8:
+    identifier: corda-enterprise-4-8-key-concepts-vault
+    parent: corda-enterprise-4-8-key-concepts
     weight: 1090
 tags:
 - concepts
@@ -49,12 +49,12 @@ This diagram illustrates the breakdown of the vault into sub-system components:
 
 You can see:
 
-* The vault's on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a [smart contract](key-concepts-smart-contracts.md) and commit a transaction to the ledger.
+* The vault's on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a smart contract and commit a transaction to the ledger.
 * The vault “Off Ledger” store refers to additional data added by the node owner subsequent to transaction recording.
 * The vault performs fungible state spending (and in future, fungible state optimisation management including merging, splitting and re-issuance).
 * Vault extensions represent additional custom plugin code a developer may write to query specific custom contract state attributes.
 * Customer “Off Ledger” (private store) represents internal organisational data that may be joined with the vault data to perform additional reporting or processing.
-* A [Vault Query API](api-vault-query.md) is exposed to developers using standard Corda RPC and CorDapp plugin mechanisms.
+* A [Vault Query API](cordapps/api-vault-query.md) is exposed to developers using standard Corda RPC and CorDapp plugin mechanisms.
 * Transaction recording flows use a vault update API internally.
 * The vault database schemas are directly accessible via JDBC for customer joins and queries.
 
@@ -81,7 +81,7 @@ this table to ensure correct locking and selection of states to satisfy minimum 
 
 {{< /note >}}
 
-Flows that issue or receive new states have soft locks applied automatically.
+Flows that issue or receive new states have soft locks applied automatically. 
 These states are effectively soft locked until flow termination (exit or error) or by explicit release.
 
 In addition, the `VaultService` exposes a number of functions a developer may use to explicitly reserve, release and

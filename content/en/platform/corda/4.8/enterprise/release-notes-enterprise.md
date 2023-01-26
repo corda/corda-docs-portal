@@ -21,7 +21,7 @@ Corda Enterprise Edition 4.8.9 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](upgrading-index.md).
 
 ### Fixed issues
 
@@ -33,7 +33,7 @@ Corda Enterprise Edition 4.8.8 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](upgrading-index.md).
 
 ### Fixed issues
 
@@ -212,19 +212,19 @@ Corda Enterprise Edition 4.8, released on April 21st 2021, includes several new 
 {{< note >}}
 This page only describes functionality specific to Corda Enterprise Edition 4.8. However, as a Corda Enterprise customer, you can also make full use of the features available as part of the Corda open source releases.
 
-See the [Corda open source release notes](../../../../../en/platform/corda/4.8/open-source/release-notes.md) for information about new features, enhancements, and fixes shipped as part of Corda 4.8.
+See the [Corda open source release notes](en/archived-docs/corda-os/4.8/release-notes.md) for information about new features, enhancements, and fixes shipped as part of Corda 4.8.
 {{< /note >}}
 
 {{< note >}}
 You can use states and CorDapps valid in Corda 3.0 and above with Corda 4.8 and Corda Enterprise Edition 4.8.
 
 
-For the commitment Corda makes to wire and API stability, see [API stability guarantees](../../../../../en/platform/corda/4.8/enterprise/cordapps/api-stability-guarantees.md).
+For the commitment Corda makes to wire and API stability, see [API stability guarantees](cordapps/api-stability-guarantees.md).
 {{< /note >}}
 
 ## Long-term support release
 
-[Corda 4.8](../../../../../en/platform/corda/4.8/open-source/release-notes.md) and Corda Enterprise Edition 4.8 are our long-term support (LTS) platform versions.
+[Corda 4.8](en/archived-docs/corda-os/4.8/release-notes.md) and Corda Enterprise Edition 4.8 are our long-term support (LTS) platform versions.
 
 R3 provides LTS for this release for 30 months starting April 21st 2021. This is 6 months longer than the support periods for previous releases, giving Corda customers extra time to plan for the next upgrade.
 
@@ -250,7 +250,7 @@ See [Using an HSM with Corda Enterprise](../../../../../en/platform/corda/4.8/en
 
 You can now configure timer and histogram metrics to use time-window data gathering. Time-window data gathering collects all data points for a given time window, allowing outlying data points to be properly represented.
 
-See [Node metrics](../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/node-metrics.md) for more information.
+See [Node metrics](node/operating/monitoring-and-logging/node-metrics.md) for more information.
 
 ### Additional notary metrics
 
@@ -259,7 +259,7 @@ You can use `StartupQueueTime` and `BatchSignLatency` metrics to help calculate 
 * `StartupQueueTime` represents the time a flow has been queued before starting, in milliseconds.
 * `BatchSignLatency` represents the time elapsed during a batch signature, in milliseconds.
 
-See [Monitoring Notary Latency](../../../../../en/platform/corda/4.8/enterprise/notary/faq/notary-latency-monitoring.md) for more information.
+See [Monitoring Notary Latency](notary/faq/notary-latency-monitoring.md) for more information.
 
 
 ## Fixed issues
