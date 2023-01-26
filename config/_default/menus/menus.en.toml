@@ -443,7 +443,7 @@ weight = 5050
 url = 'https://docs.r3.com/en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html'
 
 [[corda-5-beta]]
-identifier: corda-5-beta-release-notes
+identifier: "corda-5-beta-release-notes"
 name: "Release Notes"
 weight: 6000
 
