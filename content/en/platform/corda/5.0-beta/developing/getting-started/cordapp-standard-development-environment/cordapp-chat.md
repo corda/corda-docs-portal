@@ -255,7 +255,7 @@ POST: /flow/{holdingidentityshorthash}
 ```
 
 Followed by polling for status with: GET: /flow/{holdingidentityshorthash}/{clientrequestid}
-It should return “COMPLETED” after a short delay the output will show the flowResult with the single chat that Bob is a participant in. From this he can get the id number 674276c9-f311-43a6-90b8-73439bc7e28b which he will need to update the chat.
+It should return “COMPLETED” after a short delay. The output shows the flowResult with the single chat that Bob is a participant in. From this he can get the id number `674276c9-f311-43a6-90b8-73439bc7e28b` which he needs to update the chat.
 
   ```java
 {
