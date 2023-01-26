@@ -127,7 +127,7 @@ method on [CordaRPCClient](../../../../../../../en/api-ref/corda/4.7/open-source
 a new proxy for every call you make - reuse an existing one.
 {{< /warning >}}
 
-For further information on using the RPC API, see [Working with the CordaRPCClient API](../../../../../../../en/platform/corda/4.7/open-source/tutorial-clientrpc-api.md).
+For further information on using the RPC API, see [Working with the CordaRPCClient API](../../tutorial-clientrpc-api.md).
 
 ### Define RPC users and permissions
 
@@ -728,7 +728,7 @@ side as if it were thrown from inside the called RPC method. These exceptions ca
 
 ## Configure wire security
 
-If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.md)).
+If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options](../setup/corda-configuration-file.md)).
 The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options](../node-commandline.md)).
 The generated RPC TLS trust root certificate is exported to a `certificates/export/rpcssltruststore.jks` file, which should be distributed to the authorised RPC clients.
 
@@ -741,4 +741,4 @@ Note that RPC TLS does not use mutual authentication, and delegates fine-grained
 
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
-`@CordaSerializable` annotation (see [Serialization](../../serialization-index.md)). An example is shown in [Working with the CordaRPCClient API](../../../../../../../en/platform/corda/4.7/open-source/tutorial-clientrpc-api.md).
+`@CordaSerializable` annotation (see [Serialization](../../serialization-index.md)). An example is shown in [Working with the CordaRPCClient API](../../tutorial-clientrpc-api.md).

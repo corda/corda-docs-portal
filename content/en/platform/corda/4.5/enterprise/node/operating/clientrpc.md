@@ -123,7 +123,7 @@ a new proxy for every call you make - reuse an existing one.
 
 {{< /warning >}}
 
-For further information on using the RPC API, see [Using the client RPC API](../../../open-source/tutorial-clientrpc-api.md).
+For further information on using the RPC API, see [Using the client RPC API](../../tutorial-clientrpc-api.md).
 
 ## RPC permissions
 
@@ -631,4 +631,4 @@ Note that RPC TLS does not use mutual authentication, and delegates fine grained
 
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
-`@CordaSerializable` annotation (see [Object serialization](../../serialization.md)). An example is shown in [Using the client RPC API](../../../open-source/tutorial-clientrpc-api.md).
+`@CordaSerializable` annotation (see [Object serialization](../../serialization.md)). An example is shown in [Using the client RPC API](../../tutorial-clientrpc-api.md).

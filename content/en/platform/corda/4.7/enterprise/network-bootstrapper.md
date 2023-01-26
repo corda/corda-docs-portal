@@ -403,7 +403,7 @@ The alias for the name associated with the certificate to be associated with the
 
 
 Using the Example CorDapp (found in these repositories in [Java](https://github.com/corda/samples-java/tree/master/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Basic/cordapp-example)) as an example, we will initialise a simple network and then register and unregister a package namespace.
-Check the sample CorDapp out, then follow the [instructions to build it](../../../../../en/platform/corda/4.7/open-source/tutorial-cordapp.md).
+Check the sample CorDapp out, then follow the [instructions to build it](cordapps/tutorial-cordapp.md).
 
 {{< note >}}
 You can point to any existing bootstrapped Corda network (this will have the effect of updating the associated network parameters file).
