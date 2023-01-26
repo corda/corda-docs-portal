@@ -1,6 +1,6 @@
 ---
 date: '2023-01-23'
-title: "Chat CorDapp"
+title: "UXTO Ledger Example CorDapp"
 menu:
   corda-5-beta:
     parent: corda-5-beta-start
@@ -9,32 +9,46 @@ menu:
 section_menu: corda-5-beta
 ---
 
+## UXTO Ledger Example CorDapp
+
+The CSDE template includes examples of CorDapp code for a simple UTXO (Unspent Transaction Output) Chat application. The Chat CorDapp allows pairs of participants on a Corda Application network to do the following:
+
+* Create and name a unique bilateral chat between the two virtual nodes.
+* Update chats with new messages from either Virtual Node.
+* Obtain a list of chats that the virtual node is a participant in.
+* Retrieve a specified number of previous messages from a chat.
+
+There is both a Kotlin and Java implementation of the Chat CorDapp in the respective csde-cordapp-template-kotlin and csde-cordapp-template-java-repos.
+
 ## ChatState
 
-The foundation for the Chat app is the ChatState which is the data model for facts recorded to the ledger. It can be represented in the CDL as follows:
+The foundation for the Chat app is the ChatState which is the data model for facts recorded to the ledger. It can be represented in the CDL [CorDapp Design Language](../../../../../../../en/tools/cdl/cdl-overview.md) as follows:
 
 {{< figure src="chat-state.png" figcaption="Data model for facts recorded to the ledger" alt="Data model for facts recorded to the ledger" >}}
 
 Where:
 
-* `id` is a unique identifier for the chat. It is the equivalent of a `linearId` in Corda 4 and is the common identifier for all the states in the backchain for a particular chat between two participants. (`LinearStates` and `LinearId` are not implemented yet in Corda 5, as of Beta 1).
-* `chatName` is a human readable name for the chat. It does not guarantee uniqueness.
+* id is a unique identifier for the chat, it is the equivalent of a linearId in Corda 4, in other words it is the common identifier for all the states in the backchain for a particular chat between two participants. (`LinearStates` and `LinearId` are not implemented yet in Corda 5 as of Beta-1).
 
-* `messageFrom` is the `MemberX500Name` for the virtual node which created this `ChatState`.
+* `chatName` is a human readable name for the chat, it does not guarantee uniqueness.
+
+* `messageFrom` is the `MemberX500Name` for the virtual node which created this ChatState.
+
 * `message` is the message in the Chat.
-* participants is the list of PublicKeys belonging to the Vnodes of the participants of the chat.
 
-The backchain of a chat records the history of the chat.
+* `participants` is the list of PublicKeys belonging to the Vnodes of the participants of the chat.
+
+The history of a chat will be recorded in the backchain of the chat.
 
 ### Chat Smart Contract
 
-The Smart Contract (a combination of the ChatState and ChatContract) can be represented by a simple Smart Contract view diagram:
+The Smart Contract (combination of the ChatState and ChatContract) can be represented by a simple Smart Contract View diagram:
 
 {{< figure src="chat-smart-contract-view.png" figcaption="Smart Contract View diagram" alt="Smart Contract View diagram" >}}
 
-Points to note:
+ {{< note >}}
 
-* In CDL the arrows represent transactions with the indicated command type. The state at the beginning of the arrow represents the input state and the state at the end of the arrow represents the output state for the transaction.
+* In CDL the arrows represent transactions with the indicated command type. The state at the beginning of the arrow represents the input state, the state at the end of the arrow represents the output state for the transaction.
 * There is no ChatState status in this simple design.
 
 * The multiplicities (numbers on the arrows) indicate that for the create command there should be no input state and one output ChatState.
@@ -43,7 +57,9 @@ Points to note:
 
 * SC: indicates the signing constraint, that is who needs to sign the transaction. In this case both participants for both the create and update commands.
 
-* The universal constraint applies to all transactions. In this case that there should always be only two  participants in the ChatState.
+* The universal constraint applies to all transactions, in this case that there should always be only two  participants in the ChatState.
+
+ {{< /note >}}
 
 ### Chat State Evolution
 
@@ -53,7 +69,7 @@ The evolution of the ledger when stepping through the walkthrough steps can be s
 
 * The Create transaction has no input and starts a new chat with a unique id. The id operates similarly to the Corda 4  `LinearStateId`, which has not been implemented yet in Corda 5.
 * Each Update transaction creates the new ChatState as an output and consumes the previous ChatState as an input.
-* To recreate the historic conversation the backchain is traversed from newest (unconsummed) state to oldest.
+* To recreate the historic conversation the back chain is traversed from newest (unconsummed) state to oldest.
 
 ### Chat Flows
 
@@ -77,37 +93,37 @@ There are six flows in the Chat Application:
 <td><code>CreateNewChatFlow </code></td>
 <td><code>RPCStartableFlow </code></td>
 <td><code>chatName,otherMember,message</code></td>
-<td> Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided. Signs the draft transaction with the VNodes first Ledger Key. Calls <code>FinalizeChatSubFlow</code> which finalizes the transaction.</td>
+<td> <li>Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided.</li> <li> Signs the draft transaction with the VNodes first Ledger Key.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalizes the transaction.</li></td>
 </tr>
 <tr>
 <td><code>UpdateChatFlow </code></td>
 <td><code>RPCStartableFlow </code></td>
 <td><code> id, message </code></td>
-<td> Locates the last message in the backchain for the given id.Creates a draft transaction which consumes the last message in the chain and creates a new chatState with the latest message. Signs the draft transaction with the VNodes first Ledger Key.  Calls <code>FinalizeChatSubFlow</code> which finalises the transaction. </td>
+<td> <li>Locates the last message in the backchain for the given id.</li><li> Creates a draft transaction which consumes the last message in the chain and creates a new chatState with the latest message.</li> Signs the draft transaction with the VNodes first Ledger Key.<li> Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
 </tr>
 <tr>
 <td><code>ListChatsFlow </code></a></td>
 <td><code>RPCStartableFlow </code></td>
 <td><code>none</code></td>
-<td>Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</td>
+<td><li>Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
 </tr>
 <tr>
 <td><code>GetChatsFlow </code></td>
 <td><code>RPCStartableFlow </code></td>
 <td><code>id, numberofRecords </code></td>
-<td>Reads the backchain to a depth of `numberOfRecords` for a given id. Returns the list of messages together with who sent them.</td>
+<td><li>Reads the backchain to a depth of `numberOfRecords` for a given id.</li><li> Returns the list of messages together with who sent them.</li></td>
 </tr>
 <tr>
 <td><code>FinalizeChatFlow </code></td>
 <td><code>SubFlow </code></td>
 <td><code>signedTransaction (to finalize),otherMember </code></td>
-<td>The common subflow used by both by both <code>CreateNewChatFlow</code> and <code>UpdateChatFlow</code>. This removes the need to duplicate the responder code. Sets up a session with the <code>FinalizeChatResponderFlow</code> and calls the finality() function. finality()/ receiveFinality() functions, collects required signatures, notarises the transaction and stores the finalized transaction to the respective vaults.</td>
+<td><li>The common subflow used by both by both <code>CreateNewChatFlow</code> and <code>UpdateChatFlow</code>.</li><li> This removes the need to duplicate the responder code.<li> Sets up a session with the <code>FinalizeChatResponderFlow</code> and calls the finality() function finality()/ receiveFinality() functions.</li><li> Collects required signatures, notarises the transaction and stores the finalized transaction to the respective vaults.</li></td>
 </tr>
 <tr>
 <td><code>FinalizeChatResponderFlow</code></td>
 <td><code>ResponderFlow </code></td>
 <td><code>FlowSession  </code></td>
-<td>Runs the <code>receiveFinality()</code> function which performs the responder side of the finality() function.<code>ReceiveFinality()<code> takes a Lambda verifier which runs validations on the transactions.The validator checks for banned words and checks that the message comes from the same party as the messageFrom field.</td>
+<td><li>Runs the <code>receiveFinality()</code> function which performs the responder side of the finality() function.<code>ReceiveFinality()<code> takes a Lambda verifier which runs validations on the transactions.</li><li>The validator checks for banned words and checks that the message comes from the same party as the messageFrom field.</li></td>
 </tr>
 </tbody>
 </table>
@@ -139,13 +155,13 @@ Which will return something similar to this:
 
 The Vnode `holdingidentityshorthashes` (short hashes) are the 12 digit hex numbers. In the above Alice’s short hash is "17F49B05B2B5" and Bob’s is “8C73E39AF476”. Whenever the API requires the short hash substitute the appropriate number depending on which Vnode you want to run the flow on.
 
-For running the flows we will use the POST: /flow/{holdingidentityshorthash}/ end point. This requires a request body to be provided which includes:
+For running the flows we will use the `POST: /flow/{holdingidentityshorthash}/` end point. This requires a request body to be provided which includes:
 
-* clientRequestId to uniquely identify the request
+* `clientRequestId` to uniquely identify the request
 
-* flowClassName which provides the fully qualified name of the flow to be triggered
+* `flowClassName` which provides the fully qualified name of the flow to be triggered
 
-* requestData which provides the input arguments for the flow
+* `requestData` which provides the input arguments for the flow
 
 For example:
 
@@ -194,13 +210,15 @@ If the flow has been successfully started Swagger will show a “START REQEUSTED
 ```
 
 If something has gone wrong you will get an error response.
-For polling for the result of a flow we will use the GET: /flow/{holdingidentityshorthash}/{clientrequestid} endpoint. This requires the short hash of the node the flow was run against and the clientRequestId specified when the flow was run.
+For polling for the result of a flow we will use the `GET: /flow/{holdingidentityshorthash}/{clientrequestid}` endpoint. This requires the short hash of the node the flow was run against and the `clientRequestId` specified when the flow was run.
 
 The curl version is:
-curl -X 'GET' \
+  ```java
+  curl -X 'GET' \
   'https://localhost:8888/api/v1/flow/17F49B05B2B5/create-1' \
   -H 'accept: application/json'
-If the flow has run successfully this will return a “COMPLETED” Status together with the flowResult.
+  ```
+If the flow has run successfully this will return a “COMPLETED” status together with the `flowResult`.
 
   ```java
 {
@@ -212,10 +230,10 @@ If the flow has run successfully this will return a “COMPLETED” Status toget
   "flowError": null,
   "timestamp": "2023-01-18T10:36:16.889777Z"
 }
-```
+  ```
 
 {{< note >}}
-It can take up to a minute for Corda to Process the flow, this is likely a function of using the local Combined Worker version of Corda which runs all the cluster processes in one JVM with limited resources. If this were to be run in a more typical cloud deployment you would expect it to be much faster. Whilst corda is still processing the request you would get a “RUNNING” status returned. Keep polling the end point every 10 seconds or so until you get a result.
+It can take up to a minute for Corda to Process the flow, this is likely a function of using the local Combined Worker version of Corda which runs all the cluster processes in one JVM with limited resources. If this were to be run in a more typical cloud deployment you would expect it to be much faster. Whilst corda is still processing the request you will get a “RUNNING” status returned. Keep polling the end point every 10 seconds or so until you get a result.
 {{< /note >}}
 
 ## Typical Set of Flows
@@ -224,7 +242,7 @@ A typical set of flows for a conversation between Alice and Bob would be as foll
 
 1. Alice Creates an new Chat using the CreateNewChatFlow
 
-POST: /flow/{holdingidentityshorthash}
+`POST: /flow/{holdingidentityshorthash}`
 
   ```java
 {
@@ -236,13 +254,13 @@ POST: /flow/{holdingidentityshorthash}
         "message": "Hello Bob"
         }
 }
-```
+  ```
 
-Followed by polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`
+Followed by polling for status with: `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`
 It should return “COMPLETED” after a short delay.
 
-2. Bob lists his Chats that he is a participant in using the `ListChatFlow`.
-POST: /flow/{holdingidentityshorthash}  
+2. Bob lists his chats that he is a participant in using the `ListChatFlow`.
+`POST: /flow/{holdingidentityshorthash}`  
 
   ```java
 {
@@ -250,10 +268,10 @@ POST: /flow/{holdingidentityshorthash}
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.ListChatsFlow",
     "requestData": {}
 }
-```
+  ```
 
-Followed by polling for status with: `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`
-It should return “COMPLETED” after a short delay. The output shows the flowResult with the single chat that Bob is a participant in. From this he can get the id number `674276c9-f311-43a6-90b8-73439bc7e28b` which he needs to update the chat.
+Followed by polling for status with:`GET: /flow/{holdingidentityshorthash}/{clientrequestid}`
+It should return “COMPLETED” after a short delay the output will show the `flowResult` with the single chat that Bob is a participant in. From this he can get the id number 674276c9-f311-43a6-90b8-73439bc7e28b which he will need to update the chat.
 
   ```java
 {
@@ -265,10 +283,10 @@ It should return “COMPLETED” after a short delay. The output shows the flowR
   "flowError": null,
   "timestamp": "2023-01-18T10:47:13.104870Z"
 }
- ```
+  ```
 
 3. Bob updates the chat twice using UpdateChatFlow.
-POST: /flow/{holdingidentityshorthash}
+`POST: /flow/{holdingidentityshorthash}`
 
   ```java
 {
@@ -279,14 +297,14 @@ POST: /flow/{holdingidentityshorthash}
         "message": "Hi Alice"
         }
 }
- ```
+  ```
 
 {{< note >}}
 Remember to update the id otherwise you will get an error or update the wrong chat.
 {{< /note >}}
 
-Polling for status with GET: /flow/{holdingidentityshorthash}/{clientrequestid}, wait for “COMPLETED” status.
-POST: /flow/{holdingidentityshorthash}
+Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status.
+`POST: /flow/{holdingidentityshorthash}`
 
   ```java
 {
@@ -297,12 +315,12 @@ POST: /flow/{holdingidentityshorthash}
         "message": "How are you today?"
         }
 }
-```
+  ```
 
-Polling for status with GET: /flow/{holdingidentityshorthash}/{clientrequestid}, wait for “COMPLETED” statuses.
+Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” statuses.
 
 4. Alice uses ListCHatsFlow to get the id of the chat with Bob.
-POST: /flow/{holdingidentityshorthash}
+`POST: /flow/{holdingidentityshorthash}`
 
   ```java
 {
@@ -310,12 +328,12 @@ POST: /flow/{holdingidentityshorthash}
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.ListChatsFlow",
     "requestData": {}
 }
-```
+  ```
 
-Polling for status with GET: /flow/{holdingidentityshorthash}/{clientrequestid}, wait for “COMPLETED” status.
+Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status.
 
 5. Alice checks the history on the chat with Bob using GetChatFlow.
-POST: /flow/{holdingidentityshorthash}
+`POST: /flow/{holdingidentityshorthash}`
 
   ```java
 {
@@ -326,9 +344,9 @@ POST: /flow/{holdingidentityshorthash}
         "numberOfRecords":"4"
     }
 }
-```
+  ```
 
-Polling for status with GET: /flow/{holdingidentityshorthash}/{clientrequestid}, wait for “COMPLETED” status. The flowResult will show the previous messages for the chat in reverse order:
+Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status. The `flowResult` will show the previous messages for the chat in reverse order:
 
   ```java
 {
@@ -340,10 +358,10 @@ Polling for status with GET: /flow/{holdingidentityshorthash}/{clientrequestid},
   "flowError": null,
   "timestamp": "2023-01-18T11:02:58.526047Z"
 }
-```
+  ```
 
 6. Alice replies to Bob using the UpdateChatFlow.
-POST: /flow/{holdingidentityshorthash}
+`POST: /flow/{holdingidentityshorthash}`
 
   ```java
 {
@@ -354,12 +372,12 @@ POST: /flow/{holdingidentityshorthash}
         "message": "I am very well thank you"
         }
 }
-```
+  ```
 
-Polling for status with GET: /flow/{holdingidentityshorthash}/{clientrequestid}, wait for “COMPLETED” status.
+Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status.
 
 7. Bob get the chat history using GetChatFlow, but limits it to the last 2 entries.
-POST: /flow/{holdingidentityshorthash}
+`POST: /flow/{holdingidentityshorthash}`
 
   ```java
 
@@ -371,9 +389,9 @@ POST: /flow/{holdingidentityshorthash}
         "numberOfRecords":"2"
     }
 }
-```
+  ```
 
-Polling for status with GET: /flow/{holdingidentityshorthash}/{clientrequestid}, wait for “COMPLETED” status. The resultData should show the last two messages in the chat:
+Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status. The `resultData` should show the last two messages in the chat:
 
   ```java
 {
@@ -385,4 +403,4 @@ Polling for status with GET: /flow/{holdingidentityshorthash}/{clientrequestid},
   "flowError": null,
   "timestamp": "2023-01-18T11:09:13.282302Z"
 }
-```
+  ```
