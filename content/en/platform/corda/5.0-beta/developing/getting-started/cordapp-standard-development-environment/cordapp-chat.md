@@ -240,7 +240,7 @@ POST: /flow/{holdingidentityshorthash}
 }
 ```
 
-Followed by polling for status with: GET: /flow/{holdingidentityshorthash}/{clientrequestid}
+Followed by polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`
 It should return “COMPLETED” after a short delay.
 
 2. Bob lists his Chats that he is a participant in using the ListChatFlow.
