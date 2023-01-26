@@ -18,7 +18,7 @@ The CSDE template includes examples of CorDapp code for a simple UTXO (Unspent T
 * Obtain a list of chats that the virtual node is a participant in.
 * Retrieve a specified number of previous messages from a chat.
 
-There is both a Kotlin and Java implementation of the Chat CorDapp in the respective `csde-cordapp-template-kotlin` and `csde-cordapp-template-java-repos`.
+There is both a Kotlin and Java implementation of the Chat CorDapp in the respective `csde-cordapp-template-kotlin` and `csde-cordapp-template-java` repos.
 
 ## ChatState
 
