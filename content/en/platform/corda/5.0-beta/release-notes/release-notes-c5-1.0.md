@@ -1,10 +1,11 @@
 ---
-date: '2022-11-15'
-title: "Release Notes"
+date: '2023-01-26'
+title: "Corda 5.0 Beta 1.0 Release Notes"
 menu:
   corda-5-beta:
-    identifier: corda-5-beta-release-notes
-    weight: 6000
+    parent: corda-5-beta-release-notes
+    identifier: corda-5-beta-release-notes-1.0
+    weight: 2000
 section_menu: corda-5-beta
 ---
 
