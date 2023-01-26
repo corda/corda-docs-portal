@@ -99,7 +99,7 @@ There are six flows in the Chat Application:
 <td><code>UpdateChatFlow </code></td>
 <td><code>RPCStartableFlow </code></td>
 <td><code> <li>id</li><li>message</li> </code></td>
-<td> <li>Locates the last message in the backchain for the given id.</li><li> Creates a draft transaction which consumes the last message in the chain and creates a new ChatState with the latest message.</li> <li>Signs the draft transaction with the VNodes first Ledger Key.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
+<td> <li>Locates the last message in the backchain for the given <code>id</code>.</li><li> Creates a draft transaction which consumes the last message in the chain and creates a new ChatState with the latest message.</li> <li>Signs the draft transaction with the vnodes first Ledger Key.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
 </tr>
 <tr>
 <td><code>ListChatsFlow </code></a></td>
@@ -138,7 +138,7 @@ You must keep the notary node to enable the CorDapp to finalise transactions.
 
 ## Deploying the CorDapp
 
-To deploy and run the CorDapp, follow the same steps as outlined in the [Running Your First CorDapp](../../getting-started/running-your-first-cordapp/run-first-cordapp.md) section of this Getting Started guide.
+To deploy and run the CorDapp, follow the same steps as outlined in the [Running Your First CorDapp](../../getting-started/running-your-first-cordapp/run-first-cordapp.md) section of this [Getting Started guide](../../getting-started/get-started.md).
 However, when you come to trigger the flows, you must trigger the appropriate `ChatFlow` rather than `MyFirstFlow`.
 
 {{< note >}}
@@ -198,7 +198,7 @@ curl -X 'POST' \
 }'
 ```
 
-If the flow has been successfully started Swagger will show a “START REQEUSTED” response, for example:
+If the flow has been successfully started Swagger will show a “START REQUESTED” response, for example:
 
   ```java
 {
@@ -236,7 +236,7 @@ If the flow has run successfully this will return a “COMPLETED” status toget
   ```
 
 {{< note >}}
-It can take up to a minute for Corda to Process the flow, this is likely a function of using the local Combined Worker version of Corda which runs all the cluster processes in one JVM with limited resources. If this were to be run in a more typical cloud deployment you would expect it to be much faster. Whilst corda is still processing the request you will get a “RUNNING” status returned. Keep polling the end point every 10 seconds or so until you get a result.
+It can take up to a minute for Corda to process the flow, this is likely a function of using the local Combined Worker version of Corda which runs all the cluster processes in one JVM with limited resources. If this were to be run in a more typical cloud deployment you would expect it to be much faster. Whilst corda is still processing the request you will get a “RUNNING” status returned. Keep polling the end point every 10 seconds or so until you get a result.
 {{< /note >}}
 
 ## Typical Set of Flows
@@ -322,7 +322,7 @@ Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}
 
 Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” statuses.
 
-4. Alice uses ListCHatsFlow to get the id of the chat with Bob.
+4. Alice uses `ListCHatsFlow` to get the `id` of the chat with Bob.
 `POST: /flow/{holdingidentityshorthash}`
 
   ```java
@@ -335,7 +335,7 @@ Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}
 
 Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status.
 
-5. Alice checks the history on the chat with Bob using GetChatFlow.
+5. Alice checks the history on the chat with Bob using `GetChatFlow`.
 `POST: /flow/{holdingidentityshorthash}`
 
   ```java
@@ -363,7 +363,7 @@ Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}
 }
   ```
 
-6. Alice replies to Bob using the UpdateChatFlow.
+6. Alice replies to Bob using the `UpdateChatFlow`.
 `POST: /flow/{holdingidentityshorthash}`
 
   ```java
@@ -379,7 +379,7 @@ Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}
 
 Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status.
 
-7. Bob get the chat history using GetChatFlow, but limits it to the last 2 entries.
+7. Bob get the chat history using `GetChatFlow`, but limits it to the last 2 entries.
 `POST: /flow/{holdingidentityshorthash}`
 
   ```java
