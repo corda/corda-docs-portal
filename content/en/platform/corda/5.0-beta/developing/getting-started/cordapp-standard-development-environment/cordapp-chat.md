@@ -17,7 +17,7 @@ The foundation for the Chat app is the ChatState which is the data model for fac
 
 Where:
 
-* id is a unique identifier for the chat, it is the equivalent of a linearId in Corda 4, in other words it is the common identifier for all the states in the backchain for a particular chat between two participants. (`LinearStates` and `LinearId` are not implemented yet in Corda 5 as of Beta-1).
+* `id` is a unique identifier for the chat. It is the equivalent of a `linearId` in Corda 4 and is the common identifier for all the states in the backchain for a particular chat between two participants. (`LinearStates` and `LinearId` are not implemented yet in Corda 5, as of Beta 1).
 
 * chatName is a human readable name for the chat, it does not guarantee uniqueness.
 
