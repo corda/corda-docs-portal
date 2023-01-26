@@ -36,7 +36,7 @@ Where:
 
 * `message` is the message in the Chat.
 
-* `participants` is the list of PublicKeys belonging to the Vnodes of the participants of the chat.
+* `participants` is the list of `PublicKeys` belonging to the vnodes of the participants of the chat.
 
 The history of a chat will be recorded in the backchain of the chat.
 
@@ -180,7 +180,7 @@ For example:
 }
  ```
 
-Swagger will also give you the curl command which can be used to run the request directly from the command line, for example:
+Swagger also gives the curl command which you can use to run the request directly from the command line, for example:
 
   ```java
 curl -X 'POST' \
@@ -198,7 +198,7 @@ curl -X 'POST' \
 }'
 ```
 
-If the flow has been successfully started Swagger will show a “START REQUESTED” response, for example:
+If the flow has been successfully started, Swagger shows “START REQUESTED” response, for example:
 
   ```java
 {
@@ -212,8 +212,8 @@ If the flow has been successfully started Swagger will show a “START REQUESTED
 }
 ```
 
-If something has gone wrong you will get an error response.
-For polling for the result of a flow we will use the `GET: /flow/{holdingidentityshorthash}/{clientrequestid}` endpoint. This requires the short hash of the node the flow was run against and the `clientRequestId` specified when the flow was run.
+If something has gone wrong, Swagger shows an error response.
+For polling for the result of a flow, use the `GET: /flow/{holdingidentityshorthash}/{clientrequestid}` endpoint. This requires the short hash of the node the flow was run against and the `clientRequestId` specified when the flow was run.
 
 The curl version is:
   ```java
@@ -236,18 +236,18 @@ If the flow has run successfully this will return a “COMPLETED” status toget
   ```
 
 {{< note >}}
-It can take up to a minute for Corda to process the flow, this is likely a function of using the local Combined Worker version of Corda which runs all the cluster processes in one JVM with limited resources. If this were to be run in a more typical cloud deployment you would expect it to be much faster. Whilst corda is still processing the request you will get a “RUNNING” status returned. Keep polling the end point every 10 seconds or so until you get a result.
+It can take up to a minute for Corda to process the flow, this is likely a function of using the local Combined Worker version of Corda which runs all the cluster processes in one JVM with limited resources. If this were to be run in a more typical cloud deployment, you would expect it to be much faster. Whilst corda is still processing the request, Swagger returns a “RUNNING” status. Keep polling the end point every 10 seconds or so until you get a result.
 {{< /note >}}
 
 ## Typical Set of Flows
 
 A typical set of flows for a conversation between Alice and Bob would be as follows:
 
-1. Alice Creates an new Chat using the CreateNewChatFlow
+1. Alice Creates a new Chat using the `CreateNewChatFlow`.
 
-`POST: /flow/{holdingidentityshorthash}`
+  `POST: /flow/{holdingidentityshorthash}`
 
-  ```java
+```java
 {
     "clientRequestId": "create-1",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.CreateNewChatFlow",
