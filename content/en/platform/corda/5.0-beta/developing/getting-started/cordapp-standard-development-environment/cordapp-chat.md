@@ -34,7 +34,7 @@ The Smart Contract (a combination of the ChatState and ChatContract) can be repr
 
 Points to note:
 
-* In CDL the arrows represent transactions with the indicated command type. The state at the beginning of the arrow represents the input state, the state at the end of the arrow represents the output state for the transaction.
+* In CDL the arrows represent transactions with the indicated command type. The state at the beginning of the arrow represents the input state and the state at the end of the arrow represents the output state for the transaction.
 * There is no ChatState status in this simple design.
 
 * The multiplicities (numbers on the arrows) indicate that for the create command there should be no input state and one output ChatState.
