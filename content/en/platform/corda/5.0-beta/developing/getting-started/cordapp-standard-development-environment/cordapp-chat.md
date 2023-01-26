@@ -158,7 +158,6 @@ The Vnode `holdingidentityshorthashes` (short hashes) are the 12 digit hex numbe
 For running the flows we will use the `POST: /flow/{holdingidentityshorthash}/` end point. This requires a request body to be provided which includes:
 
 * `clientRequestId` to uniquely identify the request
-
 * `flowClassName` which provides the fully qualified name of the flow to be triggered
 
 * `requestData` which provides the input arguments for the flow
