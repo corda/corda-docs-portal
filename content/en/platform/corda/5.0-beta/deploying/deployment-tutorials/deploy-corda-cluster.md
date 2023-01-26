@@ -55,7 +55,7 @@ If not, then the following instructions describe how to push the images from the
 
 ## Download the Corda Helm Chart
 
-If you have access to Docker Hub, the Corda Helm chart can be downloaded using the following command:
+If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
 
 ```shell
 helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Fox.1.1
