@@ -15,7 +15,7 @@ This page describes how to deploy Corda 5 Beta. It assumes all necessary [prereq
 
 The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
 By default, the images are made available via Docker Hub.
-If your Kubernetes cluster is able to pull images from Docker Hub, you may skip this section.
+If your Kubernetes cluster can pull images from Docker Hub, you can skip this section.
 If not, then the following instructions describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster.
 
 1. Download `corda-worker-images-Fox.tar` from the [R3 Customer Hub](https://r3.force.com/).
