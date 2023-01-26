@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 
-## UXTO Ledger Example CorDapp
+## Introduction
 
 The CSDE template includes examples of CorDapp code for a simple UTXO (Unspent Transaction Output) Chat application. The Chat CorDapp allows pairs of participants on a Corda Application network to do the following:
 
@@ -28,7 +28,7 @@ The foundation for the Chat app is the ChatState which is the data model for fac
 
 Where:
 
-* id is a unique identifier for the chat, it is the equivalent of a linearId in Corda 4, in other words it is the common identifier for all the states in the backchain for a particular chat between two participants. (`LinearStates` and `LinearId` are not implemented yet in Corda 5 as of Beta-1).
+* `id` is a unique identifier for the chat, it is the equivalent of a linearId in Corda 4, in other words it is the common identifier for all the states in the backchain for a particular chat between two participants. (`LinearStates` and `LinearId` are not implemented yet in Corda 5 as of Beta-1).
 
 * `chatName` is a human readable name for the chat, it does not guarantee uniqueness.
 
@@ -68,7 +68,7 @@ The evolution of the ledger when stepping through the walkthrough steps can be s
 {{< figure src="chat-state-evolution-view.png" figcaption="CDL state evolution view" alt="CDL state evolution view" >}}
 
 * The Create transaction has no input and starts a new chat with a unique id. The id operates similarly to the Corda 4  `LinearStateId`, which has not been implemented yet in Corda 5.
-* Each Update transaction creates the new ChatState as an output and consumes the previous ChatState as an input.
+* Each update transaction creates the new ChatState as an output and consumes the previous ChatState as an input.
 * To recreate the historic conversation the back chain is traversed from newest (unconsummed) state to oldest.
 
 ### Chat Flows
@@ -92,37 +92,37 @@ There are six flows in the Chat Application:
 <tr>
 <td><code>CreateNewChatFlow </code></td>
 <td><code>RPCStartableFlow </code></td>
-<td><code>chatName,otherMember,message</code></td>
+<td><code><li>chatName</li><li>otherMember</li><li>message</li></code></td>
 <td> <li>Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided.</li> <li> Signs the draft transaction with the VNodes first Ledger Key.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalizes the transaction.</li></td>
 </tr>
 <tr>
 <td><code>UpdateChatFlow </code></td>
 <td><code>RPCStartableFlow </code></td>
-<td><code> id, message </code></td>
+<td><code> <li>id</li><li>message</li> </code></td>
 <td> <li>Locates the last message in the backchain for the given id.</li><li> Creates a draft transaction which consumes the last message in the chain and creates a new chatState with the latest message.</li> Signs the draft transaction with the VNodes first Ledger Key.<li> Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
 </tr>
 <tr>
 <td><code>ListChatsFlow </code></a></td>
 <td><code>RPCStartableFlow </code></td>
-<td><code>none</code></td>
+<td><code><li>none</li></code></td>
 <td><li>Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
 </tr>
 <tr>
 <td><code>GetChatsFlow </code></td>
 <td><code>RPCStartableFlow </code></td>
-<td><code>id, numberofRecords </code></td>
+<td><code><li>id</li><li>numberofRecords</li> </code></td>
 <td><li>Reads the backchain to a depth of `numberOfRecords` for a given id.</li><li> Returns the list of messages together with who sent them.</li></td>
 </tr>
 <tr>
 <td><code>FinalizeChatFlow </code></td>
 <td><code>SubFlow </code></td>
-<td><code>signedTransaction (to finalize),otherMember </code></td>
+<td><code><li>signedTransaction (to finalize)</li><li>otherMember</li> </code></td>
 <td><li>The common subflow used by both by both <code>CreateNewChatFlow</code> and <code>UpdateChatFlow</code>.</li><li> This removes the need to duplicate the responder code.<li> Sets up a session with the <code>FinalizeChatResponderFlow</code> and calls the finality() function finality()/ receiveFinality() functions.</li><li> Collects required signatures, notarises the transaction and stores the finalized transaction to the respective vaults.</li></td>
 </tr>
 <tr>
 <td><code>FinalizeChatResponderFlow</code></td>
 <td><code>ResponderFlow </code></td>
-<td><code>FlowSession  </code></td>
+<td><code><li>FlowSession</li></code></td>
 <td><li>Runs the <code>receiveFinality()</code> function which performs the responder side of the finality() function.<code>ReceiveFinality()<code> takes a Lambda verifier which runs validations on the transactions.</li><li>The validator checks for banned words and checks that the message comes from the same party as the messageFrom field.</li></td>
 </tr>
 </tbody>
