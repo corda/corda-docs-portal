@@ -28,7 +28,7 @@ The backchain of a chat records the history of the chat.
 
 ### Chat Smart Contract
 
-The Smart Contract (combination of the ChatState and ChatContract) can be represented by a simple Smart Contract View diagram:
+The Smart Contract (a combination of the ChatState and ChatContract) can be represented by a simple Smart Contract view diagram:
 
 {{< figure src="chat-smart-contract-view.png" figcaption="Smart Contract View diagram" alt="Smart Contract View diagram" >}}
 
