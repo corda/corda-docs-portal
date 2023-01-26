@@ -1,5 +1,5 @@
 ---
-date: '2023-01-09'
+date: '2023-01-26'
 title: "Deploying a Corda Cluster"
 menu:
   corda-5-beta:
@@ -11,9 +11,12 @@ section_menu: corda-5-beta
 
 This page describes how to deploy Corda 5 Beta. It assumes all necessary [prerequisites](../prerequisites.html) have been installed.
 
-## Download and Push Docker Images to a Registry
+## Download and Push Container Images to a Registry
 
-The Corda Docker images must be in a Docker registry that is accessible from the Kubernetes cluster in which Corda will run. The images are provided in a `tar` file that can be loaded into a local Docker engine and then pushed from there to the registry.
+The Corda container images must be in a registry that is accessible from the Kubernetes cluster in which Corda will run.
+By default, the images are made available via Docker Hub.
+If your Kubernetes cluster is able to pull images from Docker Hub, you may skip this section.
+If not, then the following instructions describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster.
 
 1. Download `corda-worker-images-Fox.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
@@ -22,7 +25,7 @@ The Corda Docker images must be in a Docker registry that is accessible from the
    docker load -i corda-worker-images-Fox.tar
    ```
 
-3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target Docker registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
+3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
    ```shell
    #!/bin/bash
    if [ -z "$1" ]; then
@@ -35,7 +38,7 @@ The Corda Docker images must be in a Docker registry that is accessible from the
     "corda-os-member-worker" "corda-os-p2p-gateway-worker"
     "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
     "corda-os-crypto-worker" "corda-os-plugins" )
-   tag=5.0.0.0-Fox1.0
+   tag=5.0.0.0-Fox1.1
    target_registry=$1
 
    for image in "${images[@]}"; do
@@ -50,9 +53,15 @@ The Corda Docker images must be in a Docker registry that is accessible from the
    docker push $target_registry/postgres:14.4
    ```
 
-## Download Helm Charts
+## Download the Corda Helm Chart
 
-* Download the Helm charts `corda-5.0.0-Fox1.0.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
+If you have access to Docker Hub, the Corda Helm chart can be downloaded using the following command:
+
+```shell
+helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Fox.1.1
+```
+
+If you do not have access to Docker Hub, you can download the `corda-5.0.0-Fox1.1.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
@@ -60,23 +69,23 @@ For each deployment, you should create a YAML file to define a set of Helm overr
 The following sections describe the minimal set of configuration options required for a deployment.
 You can extract a README containing the full set of options from the Helm chart using the following command:
 ```shell
-helm show readme corda-5.0.0-Fox1.0.tgz
+helm show readme corda-5.0.0-Fox1.1.tgz
 ```
 
 You can extract a YAML file containing all of the default values using the following command:
 ```shell
-helm show values corda-5.0.0-Fox1.0.tgz
+helm show values corda-5.0.0-Fox1.1.tgz
 ```
 
 ### Image Registry
 
-Define an override for the name of the Docker registry containing the Corda Docker images:
+If you are not using the Corda container images from Docker Hub, define an override specifying the name of the container registry to which you pushed the images:
 ```yaml
 image:
   registry: <REGISTRY-NAME>
 ```
 
-If the registry requires authentication, create a [Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets) containing the Docker registry credentials, in the Kubernetes namespace where Corda is to be deployed. Specify an override with the name of the Kubernetes secret:
+If the registry requires authentication, create a [Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets) containing the container registry credentials, in the Kubernetes namespace where Corda is to be deployed. Specify an override with the name of the Kubernetes secret:
 ```yaml
 imagePullSecrets:
   - <IMAGE-PULL-SECRET-NAME>
@@ -566,11 +575,18 @@ workers:
 
 Once the configuration for the environment has been defined in a YAML file, you can install the Helm chart:
 ```shell
-helm install -n <NAMESPACE> <HELM-RELEASE-NAME> corda-5.0.0-Fox1.0.tgz -f <PATH-TO-YAML-FILE>
+helm install -n <NAMESPACE> <HELM-RELEASE-NAME> corda-5.0.0-Fox1.1.tgz -f <PATH-TO-YAML-FILE>
 ```
 For example, to create a Helm release called `corda` in the `corda` namespace using the overrides specified in a file called `values.yaml`, run the following:
 
 ```shell
-helm install -n corda corda corda-5.0.0-Fox1.0.tgz -f values.yaml
+helm install -n corda corda corda-5.0.0-Fox1.1.tgz -f values.yaml
 ```
-Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how to access the [Corda REST API](../../operating/operating-tutorials/rest-api.html).
+
+If you are using the Helm chart from Docker Hub, you can install directly from there rather than using `helm fetch` first. For example:
+
+```shell
+helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0.0-Fox.1.1 -f values.yaml
+```
+
+Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how to access the [Corda REST API](../../operating/operating-tutorials/rest-api.html). If the Helm install fails, see the troubleshooting section on [Cluster Health](../troubleshooting/cluster-health.html).
