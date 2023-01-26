@@ -24,7 +24,7 @@ Where:
 * `message` is the message in the Chat.
 * participants is the list of PublicKeys belonging to the Vnodes of the participants of the chat.
 
-The history of a chat will be recorded in the backchain of the chat.
+The backchain of a chat records the history of the chat.
 
 ### Chat Smart Contract
 
