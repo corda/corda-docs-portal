@@ -21,7 +21,6 @@ Where:
 * `chatName` is a human readable name for the chat. It does not guarantee uniqueness.
 
 * `messageFrom` is the `MemberX500Name` for the virtual node which created this `ChatState`.
-
 * message is the message in the Chat.
 * participants is the list of PublicKeys belonging to the Vnodes of the participants of the chat.
 
