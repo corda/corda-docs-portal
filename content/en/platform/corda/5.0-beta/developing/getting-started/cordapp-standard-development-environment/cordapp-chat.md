@@ -43,7 +43,7 @@ Points to note:
 
 * SC: indicates the signing constraint, that is who needs to sign the transaction. In this case both participants for both the create and update commands.
 
-* The universal constraint applies to all transactions, in this case that there should always be only two  participants in the ChatState.
+* The universal constraint applies to all transactions. In this case that there should always be only two  participants in the ChatState.
 
 ### Chat State Evolution
 
