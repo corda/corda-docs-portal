@@ -443,7 +443,7 @@ The nodes can be configured to communicate as a network even when distributed ac
 * For each node, open its `node.conf` file and change `localhost` in its `p2pAddress` to the IP address of the machine
 where the node will be run (e.g. `p2pAddress="10.18.0.166:10007"`)
 * These changes require new node-info files to be distributed amongst the nodes. Use the network bootstrapper tool
-(see [Network Bootstrapper](../../../../../../../en/platform/corda/4.5/open-source/network-bootstrapper.md)) to update the files and have them distributed locally:`java -jar network-bootstrapper.jar /build/nodes`
+(see [Network Bootstrapper](../network-bootstrapper.md)) to update the files and have them distributed locally:`java -jar network-bootstrapper.jar /build/nodes`
 * Move the node folders to their individual machines (for example, using a USB key). It is important that none of the
 nodes - including the notary - end up on more than one machine. Each computer should also have a copy of `runnodes`
 and `runnodes.bat`. For example, you may end up with the following layout:

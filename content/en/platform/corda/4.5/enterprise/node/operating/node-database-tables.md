@@ -93,7 +93,7 @@ Read more in [Network map](../../network/network-map.md).
 
 ### Node identities
 
-The following four tables are used by the `IdentityService` and are created from the NodeInfos. They are append only tables used for persistent caching. They will also be cleared on `rpc.clearNetworkMapCache()`. Read more in [CorDapp identities](../../../../../../../en/platform/corda/4.5/enterprise/cordapps/api-identity.md) and [Node services](../../../../../../../en/platform/corda/4.5/enterprise/node-services.md).
+The following four tables are used by the `IdentityService` and are created from the NodeInfos. They are append only tables used for persistent caching. They will also be cleared on `rpc.clearNetworkMapCache()`. Read more in [CorDapp identities](../../../../../../../en/platform/corda/4.5/enterprise/cordapps/api-identity.md) and [Node services](../../node-services.md).
 
 
 {{< table >}}
@@ -162,12 +162,12 @@ It is an append only table and the size will be fairly small.
 
 The ledger data is formed of transactions and attachments.
 In future versions this data will be encrypted using SGX.
-Read more in [Ledger](../../../../../../../en/platform/corda/4.5/open-source/key-concepts-ledger.md).
+Read more in [Ledger](../../key-concepts-ledger.md).
 
 
 ### Attachments
 
-Read more in [Working with attachments](../../../../../../../en/platform/corda/4.5/open-source/tutorial-attachments.md) and [Node services](../../../../../../../en/platform/corda/4.5/enterprise/node-services.md).
+Read more in [Working with attachments](../../tutorial-attachments.md) and [Node services](../..//node-services.md).
 
 ![attachments tables](/en/images/attachments_tables.png "attachments tables")
 
@@ -207,7 +207,7 @@ Read more in [Working with attachments](../../../../../../../en/platform/corda/4
 
 ### Transactions
 
-These are all the transactions that the node has created or has ever downloaded as part of transaction resolution. This table can grow very large. It is an append-only table, and the data will never change. Read more in [Node services](../../../../../../../en/platform/corda/4.5/enterprise/node-services.md) - `DBTransactionStorage`. This is the key ledger table used as a source of truth. In the future the content will be encrypted to preserve confidentiality.
+These are all the transactions that the node has created or has ever downloaded as part of transaction resolution. This table can grow very large. It is an append-only table, and the data will never change. Read more in [Node services](../../node-services.md) - `DBTransactionStorage`. This is the key ledger table used as a source of truth. In the future the content will be encrypted to preserve confidentiality.
 
 
 {{< table >}}
@@ -230,7 +230,7 @@ These are all the transactions that the node has created or has ever downloaded 
 
 ### Contract upgrades
 
-Read more in [Upgrading contracts](../../../../../../../en/platform/corda/4.5/enterprise/contract-upgrade.md).
+Read more in [Upgrading contracts](../../contract-upgrade.md).
 
 
 {{< table >}}
@@ -247,7 +247,7 @@ This table should be empty when no states are authorised for upgrade or after au
 
 ### Scheduling
 
-Read more in [Scheduling time-based events](../../../../../../../en/platform/corda/4.5/enterprise/event-scheduling.md).
+Read more in [Scheduling time-based events](../../event-scheduling.md).
 
 
 {{< table >}}
@@ -296,7 +296,7 @@ These tables should be append only.
 
 ### Node state machine
 
-Read more in [Node services](../../../../../../../en/platform/corda/4.5/enterprise/node-services.md).
+Read more in [Node services](../../node-services.md).
 
 
 {{< table >}}
@@ -344,7 +344,7 @@ The size should be fairly constant.
 
 ## Vault tables
 
-Read more about the vault in [Vault](../../../../../../../en/platform/corda/4.5/open-source/key-concepts-vault.md).
+Read more about the vault in [Vault](../../key-concepts-vault.md).
 
 Note that the vault tables are guaranteed to remain backwards compatible and are safe to be used directly by third party applications.
 
