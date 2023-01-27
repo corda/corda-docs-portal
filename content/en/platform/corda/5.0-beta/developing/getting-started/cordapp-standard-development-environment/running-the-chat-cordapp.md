@@ -4,7 +4,7 @@ title: " Running the Chat CorDapp"
 menu:
   corda-5-beta:
     parent: corda-5-beta-utxo-ledger
-    identifier: corda-5-beta-runchatcordapp
+    identifier: corda-5-beta-runchat
     weight: 2000
 section_menu: corda-5-beta
 ---
