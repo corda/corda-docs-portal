@@ -39,9 +39,15 @@ This section describes the issues resolved in Corda 5.0 Beta 1.1.
 
 ### UTXO Ledger
 
-
 #### Transaction Failures
-Input states to a UTXO transaction were marked as consumed when the transaction was first persisted, before it was completely signed and notarised. If counter-signing or notarisation failed, states were incorrectly marked as consumed in the initiating's node vault and were no longer available as inputs.
+Input states to a UTXO transaction were marked as consumed when the transaction was first persisted, before it was completely signed and notarised. 
+As a result, if counter-signing or notarisation failed, states were incorrectly marked as consumed in the initiating's node vault and were no longer available as inputs.
+
+#### State Relevancy Flag
+
+Transactions were finalized differently by the `UtxoReceivedFinalityFlow` and `UtxoFinalityFlow` causing the relevancy flag to be inconsistently set. 
+As a result, for the initiating participant on a transaction, a Relevant State could incorrectly be flagged as available.
+As of this release, both `UtxoReceivedFinalityFlow` on the counterparty side and `UtxoFinalityFlow` on the initiating side correctly persist State relevancy when the transaction is verified. 
 
 ## Known Limitations and Issues
 
@@ -50,14 +56,3 @@ Input states to a UTXO transaction were marked as consumed when the transaction 
 * There is no support for the Corda 4 Accounts SDK.
 * There is no support for the Corda 4 Tokens SDK.
 * There is no support for upgrades from the early access beta versions.
-
- 
-
-#### State Relevancy Flag???????????
-Context: When building a transaction, newly created states (outputs) MUST be marked as relevant once the transaction is finalized.
-
-Issue: The State relevancy flag can be inconsistently set due to a difference in the way transactions are finalized between `UtxoReceivedFinalityFlow` and `UtxoFinalityFlow`.
-`UtxoReceivedFinalityFlow` on the counterparty side correctly persists State relevancy when the transaction is verified. `UtxoFinalityFlow` on the initiating side incorrectly persists State relevancy when the transaction is still unverified.
-
-Impact: For the initiating participant on a transaction, a Relevant State could be flagged as available when the State should still be flagged as unavailable.
-This also has a knock-on effect on the feed into the token selection mechanism.
