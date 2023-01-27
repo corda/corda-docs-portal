@@ -1,6 +1,6 @@
 ---
 date: '2023-01-23'
-title: "Chat Cordapp"
+title: "Using the Chat Cordapp"
 menu:
   corda-5-beta:
     parent: corda-5-beta-utxo-ledger
