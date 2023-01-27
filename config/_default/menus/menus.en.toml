@@ -443,10 +443,10 @@ weight = 5050
 url = 'https://docs.r3.com/en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html'
 
 [[corda-5-beta]]
-identifier = "corda-5-beta-utxo-ledger"
+identifier = " "
 parent = "corda-5-beta-start"
 name = "UTXO Ledger Example CorDapp"
-weight = 5000
+weight = 7000
 
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
