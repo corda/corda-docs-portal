@@ -140,7 +140,7 @@ Issue: The State relevancy flag can be inconsistently set due to a difference in
 `UtxoReceivedFinalityFlow` on the counterparty side correctly persists State relevancy when the transaction is verified. `UtxoFinalityFlow` on the initiating side incorrectly persists State relevancy when the transaction is still unverified.
 
 Impact: For the initiating participant on a transaction, a Relevant State could be flagged as available when the State should still be flagged as unavailable.
-This also has a knock-on affect on the feed into the token selection mechanism.
+This also has a knock-on effect on the feed into the token selection mechanism.
 
 #### Transaction Failures
 Context: States must be marked as consumed in the vault when they have been used as input for a successful transaction. They should not be marked as consumed when used in a transaction that eventually fails to transact.
