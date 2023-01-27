@@ -3,7 +3,7 @@ date: '2023-01-27'
 title: "UTXO Ledger Example CorDapp"
 menu:
   corda-5-beta:
-    parent: corda-5-beta-start
+    parent: corda-5-beta-utxo-ledger
     identifier: corda-5-beta-utxo
     weight: 5000
 section_menu: corda-5-beta
