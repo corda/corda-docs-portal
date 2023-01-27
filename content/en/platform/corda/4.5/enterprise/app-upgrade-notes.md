@@ -94,7 +94,7 @@ The issue here is that a new `Destination` interface introduced in Platform Vers
 used as an `AbstractParty` but has an actual value that is one of `Party` or `AnonymousParty`. These subclasses
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not a valid type for use as an `AbstractParty` later.
-(For more information on `Destination`, see the [Changelog](../../../../../../en/platform/corda/4.4/open-source/changelog.md for Platform Version 5, or the KDocs for the interface
+(For more information on `Destination`, see the KDocs for the interface
 [here](../../../../../../en/api-ref/corda/4.5/open-source/kotlin/corda/net.corda.core.flows/-destination.html))
 
 Note that this is a Kotlin-specific issue. Java can instead choose `? extends AbstractParty & Destination` here, which can later be used
