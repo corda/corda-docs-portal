@@ -51,7 +51,7 @@ As of this release, both `UtxoReceivedFinalityFlow` on the counterparty side and
 
 #### ContractState Cast Exception
 
-An exception was incorrectly thrown if an attempt was made to cast a `ContractState`.
+An exception was incorrectly thrown if an attempt was made to call `getInputStateAndRefs()`.
 
 ## Known Limitations and Issues
 
