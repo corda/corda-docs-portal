@@ -1,6 +1,6 @@
 ---
 date: '2023-01-23'
-title: " UXTO Ledger Example CorDapp"
+title: "Chat Cordapp"
 menu:
   corda-5-beta:
     parent: corda-5-beta-utxo-ledger
