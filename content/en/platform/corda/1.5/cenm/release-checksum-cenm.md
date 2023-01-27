@@ -14,7 +14,7 @@ Customers who have access to the Corda repositories can download the release fil
 
 Before installing any downloaded file, we recommend that you verify the integrity of each file as a security precaution, to ensure that the files have not been tampered with or become corrupted during the download. You can do this by calculating the checksum of your downloaded file and then comparing its value to the checksum value provided below.
 
-## Corda Enterprise Network Manager 1.5.65 release files and checksums
+## Corda Enterprise Network Manager 1.5.6 release files and checksums
 
 * accounts-application-1.1.5.jar (85 Mb / 89540292 bytes)
   * `263ef17de6b4f0deb77ba1acc6312343e63b6402` (sha1)
