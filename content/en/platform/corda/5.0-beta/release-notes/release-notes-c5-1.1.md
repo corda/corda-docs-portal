@@ -49,6 +49,10 @@ Transactions were finalized differently by the `UtxoReceivedFinalityFlow` and `U
 As a result, for the initiating participant on a transaction, a Relevant State could incorrectly be flagged as available.
 As of this release, both `UtxoReceivedFinalityFlow` on the counterparty side and `UtxoFinalityFlow` on the initiating side correctly persist State relevancy when the transaction is verified. 
 
+#### ContractState Cast Exception
+
+An exception was incorrectly thrown if an attempt was made to cast a `ContractState`.
+
 ## Known Limitations and Issues
 
 * Corda 4 CorDapps will not run on Corda 5; it is a different set of incompatible APIs.
