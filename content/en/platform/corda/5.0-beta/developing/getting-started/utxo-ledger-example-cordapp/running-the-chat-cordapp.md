@@ -3,7 +3,7 @@ date: '2023-01-23'
 title: "Running the Chat CorDapp"
 menu:
   corda-5-beta:
-    parent: corda-5-beta-utxo-ledger
+    parent: corda-5-beta-utxo-example
     identifier: corda-5-beta-runchat
     weight: 2000
 section_menu: corda-5-beta

@@ -3,13 +3,11 @@ date: '2023-01-27'
 title: "UTXO Ledger Example CorDapp"
 menu:
   corda-5-beta:
-    parent: corda-5-beta-utxo-ledger
-    identifier: corda-5-beta-utxo
-    weight: 5000
+    parent: "corda-5-beta-start"
+    identifier: corda-5-beta-utxo-example
+    weight: 7000
 section_menu: corda-5-beta
 ---
-
-## Introduction
 
 The CSDE template includes examples of CorDapp code for a simple UTXO (Unspent Transaction Output) chat application. The chat CorDapp allows pairs of participants on a Corda application network to do the following:
 

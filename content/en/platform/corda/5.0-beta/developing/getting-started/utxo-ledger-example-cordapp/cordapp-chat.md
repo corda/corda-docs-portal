@@ -3,7 +3,7 @@ date: '2023-01-23'
 title: "Chat CorDapp design"
 menu:
   corda-5-beta:
-    parent: corda-5-beta-utxo-ledger
+    parent: corda-5-beta-utxo-example
     identifier: corda-5-beta-chatcordapp
     weight: 1000
 section_menu: corda-5-beta
