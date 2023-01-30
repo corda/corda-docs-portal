@@ -3,7 +3,7 @@ aliases:
 - /head/contributing-flow-internals.html
 - /HEAD/contributing-flow-internals.html
 - /contributing-flow-internals.html
-date: '2023-01-26
+date: '2023-01-26'
 menu:
   corda-enterprise-4-7:
     identifier: corda-enterprise-4-7-contributing-flow-internals
