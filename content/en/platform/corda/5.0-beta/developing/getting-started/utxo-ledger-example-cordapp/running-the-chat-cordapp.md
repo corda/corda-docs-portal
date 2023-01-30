@@ -40,7 +40,7 @@ The task returns something similar to this:
 
 The Vnode `holdingidentityshorthashes` (short hashes) are the 12 digit hex numbers. In the above example,  Alice’s short hash is "17F49B05B2B5" and Bob’s is “8C73E39AF476”. Whenever the API requires the short hash, substitute the appropriate number depending on which vnode you want to run the flow on.
 
-For running the flows use the `POST: /flow/{holdingidentityshorthash}/` end point. This requires a request body to be provided which includes:
+For running the flows use the `POST: /flow/{holdingidentityshorthash}/` endpoint. This requires a request body to be provided which includes:
 
 * `clientRequestId` to uniquely identify the request
 
@@ -103,7 +103,7 @@ The curl version is:
   'https://localhost:8888/api/v1/flow/17F49B05B2B5/create-1' \
   -H 'accept: application/json'
   ```
-If the flow has run successfully this will return a “COMPLETED” status together with the `flowResult`.
+If the flow has run successfully, this returns a “COMPLETED” status together with the `flowResult`.
 
   ```java
 {
@@ -151,10 +151,10 @@ Ths following is a typical set of flows for a conversation between Alice and Bob
    }
    ```
 
-   Followed by polling for status with`GET: /flow/{holdingidentityshorthash}/{clientrequestid}`. This should return “COMPLETED” after a short delay. The output shows the `flowResult` with the single chat that Bob is a participant in. From this he can get the `id` number 674276c9-f311-43a6-90b8-73439bc7e28b and update the chat.
+   Followed by polling for the status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`. This should return “COMPLETED” after a short delay. The output shows the `flowResult` with the single chat that Bob is a participant in. From this he can get the `id` number 674276c9-f311-43a6-90b8-73439bc7e28b and update the chat.
 
-   ```java
-   {
+     ```java
+    {
      "holdingIdentityShortHash": "8C73E39AF476",
      "clientRequestId": "list-1",
      "flowId": "fee5d450-4796-49ec-9347-247a9dfd4c5b",
@@ -162,8 +162,8 @@ Ths following is a typical set of flows for a conversation between Alice and Bob
      "flowResult": "[{\"id\":\"674276c9-f311-43a6-90b8-73439bc7e28b\",\"chatName\":\"Chat with Bob\",\"messageFromName\":\"CN=Alice, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"Hello Bob\"}]",
      "flowError": null,
      "timestamp": "2023-01-18T10:47:13.104870Z"
-  }
-   ```
+     }
+     ```
 
 3. Bob updates the chat twice using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:   
 
@@ -182,7 +182,7 @@ Ths following is a typical set of flows for a conversation between Alice and Bob
    Remember to update the `id` or you will get an error or update the wrong chat.
    {{< /note >}}
 
-   Poll for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`:
+   Poll for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}` and the following code:
 
    ```java
    {
@@ -225,13 +225,13 @@ Ths following is a typical set of flows for a conversation between Alice and Bob
 
    ```java
    {
-  "holdingIdentityShortHash": "17F49B05B2B5",
-  "clientRequestId": "get-1",
-  "flowId": "25932ec9-ff81-4b58-bf7c-c21e67487cf9",
-  "flowStatus": "COMPLETED",
-  "flowResult": "[{\"messageFrom\":\"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"How are you today?\"},{\"messageFrom\":\"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"Hi Alice\"},{\"messageFrom\":\"CN=Alice, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"Hello Bob\"}]",
-  "flowError": null,
-  "timestamp": "2023-01-18T11:02:58.526047Z"
+     "holdingIdentityShortHash": "17F49B05B2B5",
+     "clientRequestId": "get-1",
+     "flowId": "25932ec9-ff81-4b58-bf7c-c21e67487cf9",
+     "flowStatus": "COMPLETED",
+     "flowResult": "[{\"messageFrom\":\"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"How are you today?\"},{\"messageFrom\":\"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"Hi Alice\"},{\"messageFrom\":\"CN=Alice, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"Hello Bob\"}]",
+     "flowError": null,
+     "timestamp": "2023-01-18T11:02:58.526047Z"
    }
    ```
 
@@ -267,12 +267,12 @@ Ths following is a typical set of flows for a conversation between Alice and Bob
 
    ```java
    {
-  "holdingIdentityShortHash": "8C73E39AF476",
-  "clientRequestId": "get-2",
-  "flowId": "7dd326dc-31b5-42b7-b20b-ca8512b076db",
-  "flowStatus": "COMPLETED",
-  "flowResult": "[{\"messageFrom\":\"CN=Alice, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"I am very well thank you\"},{\"messageFrom\":\"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"How are you today?\"}]",
-  "flowError": null,
-  "timestamp": "2023-01-18T11:09:13.282302Z"
+     "holdingIdentityShortHash": "8C73E39AF476",
+     "clientRequestId": "get-2",
+     "flowId": "7dd326dc-31b5-42b7-b20b-ca8512b076db",
+     "flowStatus": "COMPLETED",
+     "flowResult": "[{\"messageFrom\":\"CN=Alice, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"I am very well thank you\"},{\"messageFrom\":\"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"How are you today?\"}]",
+     "flowError": null,
+     "timestamp": "2023-01-18T11:09:13.282302Z"
    }
    ```
