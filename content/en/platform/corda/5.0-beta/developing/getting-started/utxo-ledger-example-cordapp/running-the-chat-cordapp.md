@@ -196,7 +196,7 @@ Ths following is a typical set of flows for a conversation between Alice and Bob
    ```
    Wait for “COMPLETED” status.
 
-4. Alice uses teh `POST: /flow/{holdingidentityshorthash}` endpoint and the following code to get the `id` of the chat with Bob:
+4. Alice uses the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code to get the `id` of the chat with Bob:
 
    ```java
    {
@@ -238,7 +238,7 @@ Ths following is a typical set of flows for a conversation between Alice and Bob
 6. Alice replies to Bob using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:    
 
    ```java
-  {
+   {
     "clientRequestId": "update-4",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.UpdateChatFlow",
     "requestData": {
