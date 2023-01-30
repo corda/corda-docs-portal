@@ -79,7 +79,7 @@ For example:
 kubectl logs --previous corda-db-worker-f9994f756-tqtx7
 ```
 
-The type of the failing work may also give a clue to the root cause.
+The type of the failing worker may also give a clue to the root cause.
 For example, all of the workers connect to Kafka but only the database and Crypto workers connect to PostgreSQL.
 Failures in the pods for these two workers may therefore indicate an issue with PostgreSQL.
 

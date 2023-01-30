@@ -30,11 +30,3 @@ Find here the release notes for the latest versions of Corda Community (formerly
 ## Log4j patches
 Find [all patches](../../en/release-notes/log4j-patches.md) addressing the December 2021 Log4j vulnerability.
 
-## Archived documentation for older non-supported Corda releases
-
-Documentation for non-supported releases of Corda Open Source, Corda Enterprise, and CENM, is accessible from the [archived docs](https://github.com/corda/corda-docs-portal/tree/main/archived-docs) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repository. 
-
-{{< note >}}
-For information about our documentation end of life schedule and links to each archived version, refer to the [Corda end of life schedule](../../en/release-notes/eol.md).
-{{< /note >}}
-

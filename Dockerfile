@@ -3,8 +3,10 @@ FROM ${REGISTRY}/ubuntu:focal
 
 RUN apt-get update && \
     apt-get install curl git tar gzip unzip jq -y
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
+RUN npm install -g npm@7.0.7
+RUN npm --version
 
 ARG MUFFET_VERSION
 
@@ -34,7 +36,7 @@ RUN mkdir -p /tmp/hugo && cd /tmp/hugo && \
 ARG S3DEPLOY_VERSION
 
 RUN mkdir -p /tmp/s3deploy && cd /tmp/s3deploy && \
-    curl -L https://github.com/bep/s3deploy/releases/download/v${S3DEPLOY_VERSION}/s3deploy_${S3DEPLOY_VERSION}_Linux-64bit.tar.gz | tar -xz && \
+    curl -L https://github.com/bep/s3deploy/releases/download/v${S3DEPLOY_VERSION}/s3deploy_${S3DEPLOY_VERSION}_linux-"$(dpkg --print-architecture)".tar.gz | tar -xz && \
     install -o root -g root -m 755 -t /usr/local/bin s3deploy && \
     rm -rf /tmp/s3deploy
 
@@ -49,3 +51,8 @@ WORKDIR /src
 
 # Expose the default hugo webserver port
 EXPOSE 1313
+
+# Create a user to make Hugo and NPM happy
+ARG BUILDER_USER=builder
+ARG BUILDER_UID=1000
+RUN useradd --create-home --non-unique --uid="${BUILDER_UID}" "${BUILDER_USER}"
