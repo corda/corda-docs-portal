@@ -49,12 +49,12 @@ This diagram illustrates the breakdown of the vault into sub-system components:
 
 You can see:
 
-* The vault's on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a [smart contract](key-concepts-smart-contracts.md) and commit a transaction to the ledger.
+* The vault's on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a [smart contract](key-concepts-contracts.md) and commit a transaction to the ledger.
 * The vault “Off Ledger” store refers to additional data added by the node owner subsequent to transaction recording.
 * The vault performs fungible state spending (and in future, fungible state optimisation management including merging, splitting and re-issuance).
 * Vault extensions represent additional custom plugin code a developer may write to query specific custom contract state attributes.
 * Customer “Off Ledger” (private store) represents internal organisational data that may be joined with the vault data to perform additional reporting or processing.
-* A [Vault Query API](api-vault-query.md) is exposed to developers using standard Corda RPC and CorDapp plugin mechanisms.
+* A [Vault Query API](cordapps/api-vault-query.md) is exposed to developers using standard Corda RPC and CorDapp plugin mechanisms.
 * Transaction recording flows use a vault update API internally.
 * The vault database schemas are directly accessible via JDBC for customer joins and queries.
 
@@ -113,7 +113,7 @@ query soft locks associated with states as required by their CorDapp application
 
 ```
 
-[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.8/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
+[VaultService.kt](https://github.com/corda/corda/blob/release/os/4.10/core/src/main/kotlin/net/corda/core/node/services/VaultService.kt)
 
 
 ### Querying the vault with `SoftLockingCondition`

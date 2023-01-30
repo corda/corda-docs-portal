@@ -49,7 +49,7 @@ This diagram illustrates the breakdown of the vault into sub-system components:
 
 You can see:
 
-* The vault's on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a [smart contract](key-concepts-smart-contracts.md) and commit a transaction to the ledger.
+* The vault's on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a [smart contract](key-concepts-contracts.md) and commit a transaction to the ledger.
 * The vault “Off Ledger” store refers to additional data added by the node owner subsequent to transaction recording.
 * The vault performs fungible state spending (and in future, fungible state optimisation management including merging, splitting and re-issuance).
 * Vault extensions represent additional custom plugin code a developer may write to query specific custom contract state attributes.
