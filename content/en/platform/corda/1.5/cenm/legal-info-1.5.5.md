@@ -2,8 +2,8 @@
 date: '2023-01-20'
 menu:
   cenm-1-5:
-    identifier: cenm-1-5-6-legal-info
-    parent: cenm-1-6-cenm-releases
+    identifier: cenm-1-5-5-legal-info
+    parent: cenm-1-5-cenm-releases
     weight: 129
 tags:
 - legal
