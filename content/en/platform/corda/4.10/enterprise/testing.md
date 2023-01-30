@@ -6,8 +6,8 @@ aliases:
 date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-10:
-    identifier: corda-community-4-10-enterprise
-    parent: corda-community-4-10-contributing-index
+    identifier: corda-enterprise-4-10-enterprise
+    parent: corda-enterprise-4-10-contributing-index
     weight: 1040
 tags:
 - testing
