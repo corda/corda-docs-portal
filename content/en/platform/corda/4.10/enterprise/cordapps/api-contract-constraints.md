@@ -66,7 +66,7 @@ Before signature constraints were released with Corda 4.0, constraints were mana
 * **Hash constraint**: Participants can only use one version of the CorDapp state. This prevents the CorDapp from being upgraded in the future while still making use of any states created using the original version.
 * **Compatibility zone whitelisted (or CZ whitelisted) constraint**: The compatibility zone operator lists the hashes of the versions that can be used with a contract class name.
 
-Learn more about constraints before Corda 4.0 in the <a href="https://github.com/corda/corda-docs-portal/tree/main/archived-docs">`archived-docs`</a> directory of the <a href="https://github.com/corda/corda-docs-portal">`corda-docs-portal`</a> repository. You can also [migrate CorDapp contraints](cordapp-constraint-migration.md) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
+Learn more about constraints before Corda 4.0 in the <a href="https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs">`archived-docs`</a> directory of the <a href="https://github.com/corda/corda-docs-portal">`corda-docs-portal`</a> repository. You can also [migrate CorDapp contraints](cordapp-constraint-migration.md) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
 
 
 ## Signature constraints

@@ -328,7 +328,7 @@ Your upgrade is complete.
 
 {{< warning >}}
 If upgrading from Corda Enterprise 3.x, please ensure your node has been upgraded to the latest point release of that
-distribution. See [Upgrade a Corda 3.X Enterprise Node](../../../../../../archived-docs/corda-enterprise/3.3/node-operations-upgrading.html#upgrading-a-corda-enterprise-node)
+distribution. See [Upgrade a Corda 3.X Enterprise Node]((https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/3.3/node-operations-upgrading.html)
 for information on upgrading Corda 3.x versions.
 
 {{< /warning >}}

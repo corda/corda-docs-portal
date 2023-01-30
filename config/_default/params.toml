@@ -4,7 +4,7 @@
 title = "R3 Documentation"
 titleSeparator = "-"
 titleAddition = "Home"
-description = "Find tutorials, sample code, developer guides, and API references for Corda and Conclave."
+description = "Find tutorials, sample code, developer guides, and API references for Corda."
 
 ## Open Graph + Twitter Cards
 images = ["r3-docs-open-graph.png"]
@@ -36,7 +36,7 @@ portraitPhotoWidths = [800, 700, 600, 500]
 lqipWidth = "20x"
 
 # Footer
-footer = "&copy; 2021 R3, All Rights Reserved"
+footer = "&copy; 2023 R3, All Rights Reserved"
 
 # Alert
 alert = false

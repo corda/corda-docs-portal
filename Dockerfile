@@ -36,7 +36,7 @@ RUN mkdir -p /tmp/hugo && cd /tmp/hugo && \
 ARG S3DEPLOY_VERSION
 
 RUN mkdir -p /tmp/s3deploy && cd /tmp/s3deploy && \
-    curl -L https://github.com/bep/s3deploy/releases/download/v${S3DEPLOY_VERSION}/s3deploy_${S3DEPLOY_VERSION}_Linux-64bit.tar.gz | tar -xz && \
+    curl -L https://github.com/bep/s3deploy/releases/download/v${S3DEPLOY_VERSION}/s3deploy_${S3DEPLOY_VERSION}_linux-"$(dpkg --print-architecture)".tar.gz | tar -xz && \
     install -o root -g root -m 755 -t /usr/local/bin s3deploy && \
     rm -rf /tmp/s3deploy
 

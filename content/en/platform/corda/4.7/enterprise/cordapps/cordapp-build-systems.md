@@ -95,7 +95,6 @@ repositories {
 }
 ```
 
-In certain cases, you may also wish to build against the unstable Master branch. See building-against-master.
 
 
 ### Corda dependencies
