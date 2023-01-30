@@ -442,6 +442,12 @@ name = "REST API Reference"
 weight = 5050
 url = 'https://docs.r3.com/en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html'
 
+[[corda-5-beta]]
+name = "net.corda.v5.ledger.utxo"
+identifier: corda-5-beta-api-ledger-utxo
+parent: corda-5-beta-api
+weight: 5500
+
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
 #identifier = "tools-cdl"
