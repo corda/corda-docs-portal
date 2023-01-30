@@ -4,7 +4,7 @@ menu:
   corda-community-4-10:
     identifier: corda-community-4-10-corda-nodes-archive-service
     name: "Archive Service"
-    parent: corda-community-4-10-corda-nodes
+    parent: corda-community-4-10-corda-nodes-index
 tags:
 - archive
 - backup schema
