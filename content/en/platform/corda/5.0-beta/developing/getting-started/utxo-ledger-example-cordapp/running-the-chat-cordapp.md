@@ -125,7 +125,7 @@ It can take up to a minute for Corda to process the flow, this is likely a funct
 
 Ths following is a typical set of flows for a conversation between Alice and Bob:
 
-1. Alice creates a new chat using the `CreateNewChatFlow`,  the `POST: /flow/{holdingidentityshorthash}` endpoint, and the following code:
+1. Alice creates a new chat using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:
 
    ```java
    {
@@ -139,100 +139,92 @@ Ths following is a typical set of flows for a conversation between Alice and Bob
    }
    ```
 
-Followed by polling for status with: `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`
-It should return “COMPLETED” after a short delay.
+   Followed by polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`. This should return “COMPLETED” after a short delay.
 
-2. Bob lists his chats that he is a participant in using the `ListChatFlow`.
-`POST: /flow/{holdingidentityshorthash}`  
+2. Bob lists his chats that he is a participant in using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:   
 
-  ```java
-{
+   ```java
+   {
     "clientRequestId": "list-1",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.ListChatsFlow",
     "requestData": {}
-}
-  ```
+   }
+   ```
 
-Followed by polling for status with:`GET: /flow/{holdingidentityshorthash}/{clientrequestid}`
-It should return “COMPLETED” after a short delay the output will show the `flowResult` with the single chat that Bob is a participant in. From this he can get the `id` number 674276c9-f311-43a6-90b8-73439bc7e28b and update the chat.
+   Followed by polling for status with`GET: /flow/{holdingidentityshorthash}/{clientrequestid}`. This should return “COMPLETED” after a short delay. The output shows the `flowResult` with the single chat that Bob is a participant in. From this he can get the `id` number 674276c9-f311-43a6-90b8-73439bc7e28b and update the chat.
 
-  ```java
-{
-  "holdingIdentityShortHash": "8C73E39AF476",
-  "clientRequestId": "list-1",
-  "flowId": "fee5d450-4796-49ec-9347-247a9dfd4c5b",
-  "flowStatus": "COMPLETED",
-  "flowResult": "[{\"id\":\"674276c9-f311-43a6-90b8-73439bc7e28b\",\"chatName\":\"Chat with Bob\",\"messageFromName\":\"CN=Alice, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"Hello Bob\"}]",
-  "flowError": null,
-  "timestamp": "2023-01-18T10:47:13.104870Z"
-}
-  ```
+   ```java
+   {
+     "holdingIdentityShortHash": "8C73E39AF476",
+     "clientRequestId": "list-1",
+     "flowId": "fee5d450-4796-49ec-9347-247a9dfd4c5b",
+     "flowStatus": "COMPLETED",
+     "flowResult": "[{\"id\":\"674276c9-f311-43a6-90b8-73439bc7e28b\",\"chatName\":\"Chat with Bob\",\"messageFromName\":\"CN=Alice, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"Hello Bob\"}]",
+     "flowError": null,
+     "timestamp": "2023-01-18T10:47:13.104870Z"
+  }
+   ```
 
-3. Bob updates the chat twice using `UpdateChatFlow`.
-`POST: /flow/{holdingidentityshorthash}`
+3. Bob updates the chat twice using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:   
 
-  ```java
-{
+   ```java
+   {
     "clientRequestId": "update-1",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.UpdateChatFlow",
     "requestData": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "message": "Hi Alice"
         }
-}
-  ```
+   }
+   ```
 
-{{< note >}}
-Remember to update the `id` otherwise you will get an error or update the wrong chat.
-{{< /note >}}
+   {{< note >}}
+   Remember to update the `id` or you will get an error or update the wrong chat.
+   {{< /note >}}
 
-Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status.
-`POST: /flow/{holdingidentityshorthash}`
+   Poll for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`:
 
-  ```java
-{
+   ```java
+   {
     "clientRequestId": "update-2",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.UpdateChatFlow",
     "requestData": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "message": "How are you today?"
         }
-}
-  ```
+   }
+   ```
+   Wait for “COMPLETED” status.
 
-Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” statuses.
+4. Alice uses teh `POST: /flow/{holdingidentityshorthash}` endpoint and the following code to get the `id` of the chat with Bob:
 
-4. Alice uses `ListCHatsFlow` to get the `id` of the chat with Bob.
-`POST: /flow/{holdingidentityshorthash}`
-
-  ```java
-{
+   ```java
+   {
     "clientRequestId": "list-2",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.ListChatsFlow",
     "requestData": {}
-}
-  ```
+   }
+   ```
 
-Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status.
+   Poll for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}` and wait for “COMPLETED” status.
 
-5. Alice checks the history on the chat with Bob using `GetChatFlow`.
-`POST: /flow/{holdingidentityshorthash}`
+5. Alice checks the history on the chat with Bob using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:   
 
-  ```java
-{
+   ```java
+   {
     "clientRequestId": "get-1",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.GetChatFlow",
     "requestData": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "numberOfRecords":"4"
     }
-}
-  ```
+   }
+   ```
 
-Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status. The `flowResult` will show the previous messages for the chat in reverse order:
+   Poll for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}` and wait for “COMPLETED” status. The `flowResult` shows the previous messages for the chat in reverse order:
 
-  ```java
-{
+   ```java
+   {
   "holdingIdentityShortHash": "17F49B05B2B5",
   "clientRequestId": "get-1",
   "flowId": "25932ec9-ff81-4b58-bf7c-c21e67487cf9",
@@ -240,44 +232,41 @@ Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}
   "flowResult": "[{\"messageFrom\":\"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"How are you today?\"},{\"messageFrom\":\"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"Hi Alice\"},{\"messageFrom\":\"CN=Alice, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"Hello Bob\"}]",
   "flowError": null,
   "timestamp": "2023-01-18T11:02:58.526047Z"
-}
-  ```
+   }
+   ```
 
-6. Alice replies to Bob using the `UpdateChatFlow`.
-`POST: /flow/{holdingidentityshorthash}`
+6. Alice replies to Bob using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:    
 
-  ```java
-{
+   ```java
+  {
     "clientRequestId": "update-4",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.UpdateChatFlow",
     "requestData": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "message": "I am very well thank you"
         }
-}
-  ```
+   }
+   ```
 
-Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status.
+   Poll for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}` and wait for “COMPLETED” status.
 
-7. Bob get the chat history using `GetChatFlow`, but limits it to the last 2 entries.
-`POST: /flow/{holdingidentityshorthash}`
+7. Bob gets the chat history limited it to the last 2 entries using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:   
 
-  ```java
-
-{
+   ```java
+   {
     "clientRequestId": "get-2",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.GetChatFlow",
     "requestData": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "numberOfRecords":"2"
     }
-}
-  ```
+   }
+   ```
 
-Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`, wait for “COMPLETED” status. The `resultData` should show the last two messages in the chat:
+   Poll for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}` and wait for “COMPLETED” status. The `resultData` should show the last two messages in the chat:
 
-  ```java
-{
+   ```java
+   {
   "holdingIdentityShortHash": "8C73E39AF476",
   "clientRequestId": "get-2",
   "flowId": "7dd326dc-31b5-42b7-b20b-ca8512b076db",
@@ -285,5 +274,5 @@ Polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}
   "flowResult": "[{\"messageFrom\":\"CN=Alice, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"I am very well thank you\"},{\"messageFrom\":\"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB\",\"message\":\"How are you today?\"}]",
   "flowError": null,
   "timestamp": "2023-01-18T11:09:13.282302Z"
-}
-  ```
+   }
+   ```
