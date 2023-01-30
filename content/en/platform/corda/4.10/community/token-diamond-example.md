@@ -3,7 +3,7 @@ date: '2020-05-10T12:00:00Z'
 menu:
   corda-community-4-10:
     parent: corda-community-4-10-token-sdk
-weight: 200
+weight: 999
 tags:
 title: Tokens SDK evolvable token example
 ---

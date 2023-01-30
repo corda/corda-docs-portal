@@ -8,7 +8,7 @@ menu:
   corda-community-4-10:
     identifier: corda-community-4-10-serialization-index
     parent: corda-community-4-10-development
-    weight: 140
+    weight: 1000
 tags:
 - serialization
 title: Serialization

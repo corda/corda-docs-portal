@@ -8,7 +8,7 @@ menu:
   corda-community-4-10:
     identifier: corda-community-4-10-tools-index
     parent: corda-community-4-10-development
-    weight: 110
+    weight: 997
 tags:
 - tools
 title: Tools
