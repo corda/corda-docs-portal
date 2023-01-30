@@ -3,7 +3,7 @@ ROOT_DIR          := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 DOCKER             = docker
 DOCKER_RUN         = $(DOCKER) run --rm --volume $(ROOT_DIR):/src $(DOCKER_BUILD_ARGS)
 HUGO_VERSION       = 0.74.3
-S3DEPLOY_VERSION   = 2.3.5
+S3DEPLOY_VERSION   = 2.9.0
 REGISTRY           = library
 CADDY_VERSION      = 2.4.3
 MUFFET_VERSION     = 2.4.2
@@ -78,6 +78,7 @@ publish: prod-hugo-build ## Build site, and publish it to the S3 bucket - MAIN T
 		-bucket $(S3_BUCKET) \
 		-distribution-id $(DISTRIBUTION_ID) \
 		-source ./public/ \
+		-max-delete 100000 \
 		-v
 	@echo The website is available at \
 		https://$(shell $(DOCKER_RUN) -u $$(id -u):$$(id -g) $(HUGO_DOCKER_IMAGE) ./with-assumed-role "${ROLE_ARN}" \

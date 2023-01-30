@@ -37,7 +37,7 @@ The protocol is designed to tolerate node outages. During the upgrade process, p
 
 {{< warning >}}
 If upgrading from Corda Enterprise 3.x:
-* First ensure your node has been upgraded to the latest point release of that distribution. See [Upgrade a Corda 3.X Enterprise Node](https://github.com/corda/corda-docs-portal/tree/main/archived-docs) for information on upgrading Corda 3.x versions.
+* First ensure your node has been upgraded to the latest point release of that distribution. See [Upgrade a Corda 3.X Enterprise Node](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs) for information on upgrading Corda 3.x versions.
 * Then, upgrade to 4.5.
 * Finally, upgrade to 4.7.
 {{< /warning >}}

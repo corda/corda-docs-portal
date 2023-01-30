@@ -56,12 +56,16 @@ If you intend to proceed directly to run a sample CorDapp, as described in [Runn
 
 If you'd prefer to install Gradle manually, navigate to [Gradle](https://gradle.org/releases/) then locate and install Gradle **version 5.6.4**. Corda requires a Gradle version between 5.1 and 5.6.4, and does not support Gradle 6.x.
 
-## Next steps
+ ## Run a sample CorDapp *(optional)*
 
-First, run the [sample CorDapp](tutorial-cordapp.md).
+We recommend [running a sample CorDapp](tutorial-cordapp.md) to see Corda in action before you start developing.
 
-By then, you’ll be ready to start writing your own CorDapps. You may want to refer to the
-API documentation, the [flow cookbook](flow-cookbook.md) and the
-[samples](https://www.corda.net/samples/) along the way.
+## Resources
 
-If you encounter any issues, please ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/corda) or via [our Slack channels](https://slack.corda.net/).
+* [Sample CorDapps, templates, and community projects](https://www.corda.net/samples/).
+* [Corda API documentation](../../../../../../en/api-ref.html).
+* [Flow cookbook](flow-cookbook.md).
+* CorDapp [Java](https://github.com/corda/samples-java) and [Kotlin](https://github.com/corda/samples-kotlin) sample repositories - contain multiple sample CorDapps, from those to get you started, to those which demonstrate specific features and advanced usage.
+* CorDapp [Java](https://github.com/corda/cordapp-template-java) and [Kotlin](https://github.com/corda/cordapp-template-kotlin) templates - a stubbed-out CorDapp that you can use to bootstrap your own CorDapps.
+
+For more developer resources, open-source projects, and CorDapp templates, check out R3's [Developer Portal](https://developer.r3.com/corda/).

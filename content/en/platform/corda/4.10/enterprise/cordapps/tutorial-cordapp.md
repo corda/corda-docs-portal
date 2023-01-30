@@ -146,25 +146,26 @@ The `runnodes` script creates a node tab/window for each node. It usually takes 
 ```none
    ______               __
   / ____/     _________/ /___ _
- / /     __  / ___/ __  / __ `/         Top tip: never say "oops", instead
-/ /___  /_/ / /  / /_/ / /_/ /          always say "Ah, Interesting!"
+ / /     __  / ___/ __  / __ `/         I won $3M on the lottery so I donated a quarter
+/ /___  /_/ / /  / /_/ / /_/ /          of it to charity. Now I have $2,999,999.75.
 \____/     /_/   \__,_/\__,_/
 
---- Corda Community Edition corda-4.10 (4157c25) -----------------------------------------------
+--- Corda Community Edition 4.10 (fa98aa7) -------------------------------------------------------------
 
 
-Logs can be found in                    : /Users/cordauser/Desktop/cordapp-example/workflows-java/build/nodes/PartyA/logs
-Database connection url is              : jdbc:h2:tcp://localhost:59472/node
-Incoming connection address             : localhost:10005
-Listening on port                       : 10005
-Loaded CorDapps                         : corda-finance-corda-4.10, cordapp-example-0.1, corda-core-corda-4.10
-Node for "PartyA" started up and registered in 38.59 sec
+Logs can be found in                    : /Users/cordauser/src/samples-kotlin/Basic/cordapp-example/build/nodes/PartyA/logs
+⚠️   ATTENTION: This node is running in development mode! 👩‍💻   This is not safe for production deployment.
+Advertised P2P messaging addresses      : localhost:10005
+RPC connection address                  : localhost:10006
+RPC admin connection address            : localhost:10046
+Loaded 2 CorDapp(s)                     : Contract CorDapp: Example-Cordapp Contracts version 1 by vendor Corda Open Source with licence Apache License, Version 2.0, Workflow CorDapp: Example-Cordapp Flows version 1 by vendor Corda Open Source with licence Apache License, Version 2.0
+Node for "PartyA" started up and registered in 8.07 sec
 
 
 Welcome to the Corda interactive shell.
-Useful commands include 'help' to see what is available, and 'bye' to shut down the node.
+You can see the available commands by typing 'help'.
 
-Fri Mar 02 17:34:02 GMT 2018>>>
+Tue Jan 24 16:30:32 GMT 2023>>> Running P2PMessaging loop
 ```
 
 
