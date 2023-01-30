@@ -12,7 +12,7 @@ section_menu: corda-5-beta
 
 ## Configuring the Application Network (Virtual Nodes)
 
-The CSDE is configured to create a four party application network required to run the Chat Cordapp, including virtual nodes for Alice, Bob, Charlie and a Notary. To change the network configuration, please see section [Configuring the Network Participants](../../getting-started/configure-the-network-participants/network-participants.md)
+The CSDE is configured to create a four party application network required to run the Chat Cordapp, including virtual nodes for Alice, Bob, Charlie and a Notary. To change the network configuration, see [Configuring the Network Participants](../../getting-started/configure-the-network-participants/network-participants.md).
 
 {{< note >}}
 You must keep the notary node to enable the CorDapp to finalise transactions.
@@ -123,14 +123,12 @@ It can take up to a minute for Corda to process the flow, this is likely a funct
 
 ## Typical Set of Flows
 
-A typical set of flows for a conversation between Alice and Bob would be as follows:
+Ths following is a typical set of flows for a conversation between Alice and Bob:
 
-1. Alice Creates a new Chat using the `CreateNewChatFlow`.
+1. Alice creates a new chat using the `CreateNewChatFlow`,  the `POST: /flow/{holdingidentityshorthash}` endpoint, and the following code:
 
-  `POST: /flow/{holdingidentityshorthash}`
-
-```java
-{
+   ```java
+   {
     "clientRequestId": "create-1",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.CreateNewChatFlow",
     "requestData": {
@@ -138,8 +136,8 @@ A typical set of flows for a conversation between Alice and Bob would be as foll
         "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB",
         "message": "Hello Bob"
         }
-}
-  ```
+   }
+   ```
 
 Followed by polling for status with: `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`
 It should return “COMPLETED” after a short delay.
