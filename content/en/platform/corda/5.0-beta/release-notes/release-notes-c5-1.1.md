@@ -27,7 +27,7 @@ The [CorDapp Standard Development Environment (CSDE)](cordapp-standard-developme
 
 #### Example UTXO Ledger CorDapp
 
-The CSDE now includes an [example  UTXO (unspent transaction output) ledger CorDapp](....). This simple chat application  is available in both the [CSDE-cordapp-template-kotlin](https://github.com/corda/CSDE-cordapp-template-kotlin) and [CSDE-cordapp-template-java](https://github.com/corda/CSDE-cordapp-template-java) repositories.
+The CSDE now includes an [example  UTXO (unspent transaction output) ledger CorDapp](....). This simple chat application is available in both the [CSDE-cordapp-template-kotlin](https://github.com/corda/CSDE-cordapp-template-kotlin) and [CSDE-cordapp-template-java](https://github.com/corda/CSDE-cordapp-template-java) repositories.
 
 #### Gradle Helpers
 
