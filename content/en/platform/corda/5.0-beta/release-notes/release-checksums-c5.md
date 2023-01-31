@@ -5,7 +5,7 @@ menu:
   corda-5-beta:
     identifier: corda-5-beta-release-checksums
     parent: corda-5-beta-release-notes
-    weight: 30
+    weight: 3000
     name: "Release files and checksums"
 section_menu: corda-5-beta
 ---
