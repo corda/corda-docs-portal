@@ -9,20 +9,22 @@ menu:
 section_menu: corda-5-beta
 ---
 
-## Token Selection
-
 The Token Selection API enables a flow to exclusively select a set of states to potentially use as input states in a UTXO transaction. Although this can be achieved with simple vault queries, the selection API offers the following key features that improve the performance and reliability of the flows:
 
 * **Exclusivity** In an environment where multiple instances of a flow are running in parallel, it is important that each flow can exclusively claim states to spend. Without this, there is a high chance that multiple flows could attempt to spend the same states at the same time, causing transactions to fail during notarization, due to an attempt to spend a state that has already been spent.
 * **Target Amount Selection** When selecting fungible states to spend it is usual to select multiple states that sum to at least the target value of the proposed transaction. The selection API provides an explicit model for achieving this, which would be difficult to achieve using standard vault queries.
 * **Performance** Providing a dedicated API for this specific type of state selection allows implementations that are not coupled to the vault query API and therefore can be optimized for the specific query patterns.
 
+{{< note >}}
+To learn more about using the Token Selection API, see [Using the UTXO Ledger Token Selection API](../development-tutorials/token-selection.md) in the Tutorials section.
+{{< /note >}}
+
 ## Token Selection Components
 
 ### Tokens
 
 The API defines a generic token that is used to represent a state. The purpose of the token is to allow a consistent model for querying user defined states. Attributes of the token are partly derived by the platform and partly derived by the CorDapp using an implementation of `UtxoLedgerTokenStateObserver` for the given state. The following table describes these attributes:
-| Attribute        | Type             | Provided By | Description                                                                                                                                                                             |
+| Attribute        | Type             | <div style="width:160px">Provided By </div>| Description                                                                                                                                                                             |
 | ---------------- | ---------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | StateRef         | StateRef         | Platform    | The reference to the state linked to this token.                                                                                                                                        |
 | Notary X500 Name | Notary X500 Name | Platform    | The notary of the state linked to this token.                                                                                                                                           |
@@ -57,7 +59,3 @@ As described, a Token is a representation of state that is available to spend. T
 * **Consumed/Unconsumed Status** Only tokens that are unconsumed are eligible for selection. When a transaction is finalized, all the input states for that transaction are considered consumed and immediately become ineligible for selection. Conversely, any output states of a finalized transaction, become available for selection, if the other criteria below are met.
 * **Relevancy** By default, a state is relevant if the holding identity (node) is a participant in the transaction. However, the you can control the relevancy of a state by implementing the `isRelevant` method on the states contract. Only output states marked as `isRelevant=true` are available for selection.
 * **State Observer** Only states that have an associated implementation of `UtxoLedgerTokenStateObserver` are available for selection.
-
-{{< note >}}
-To learn more about using the Token Selection API, see [Using the UTXO Ledger Token Selection API](../development-tutorials/token-selection.md) in the Tutorials section.
-{{< /note >}}
