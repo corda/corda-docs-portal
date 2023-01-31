@@ -443,7 +443,7 @@ weight = 5050
 url = 'https://docs.r3.com/en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html'
 
 [[corda-5-beta]]
-name = "net.corda.v5.ledger
+name = "net.corda.v5.ledger"
 identifier = "corda-5-beta-api-ledger"
 parent = "corda-5-beta-api"
 weight = 5500
