@@ -3,11 +3,11 @@ aliases:
 - /head/key-concepts-vault.html
 - /HEAD/key-concepts-vault.html
 - /key-concepts-vault.html
-date: '2023-01-26'
+date: '2020-04-07T12:00:00Z'
 menu:
-  corda-enterprise-4-7:
-    identifier: corda-enterprise-4-7-key-concepts-vault
-    parent: corda-enterprise-4-7-key-concepts
+  corda-enterprise-4-5:
+    identifier: corda-enterprise-4-5-key-concepts-vault
+    parent: corda-enterprise-4-5-key-concepts
     weight: 1090
 tags:
 - concepts
@@ -65,7 +65,7 @@ The vault supports the management of data in both authoritative (“on-ledger”
 
 The following diagram illustrates the breakdown of the vault into sub-system components:
 
-{{< figure alt="vault" width=80% zoom="/en/images/vault.png" >}}
+![vault](/en/images/vault.png "vault")
 Note the following:
 
 
@@ -75,8 +75,10 @@ Note the following:
 * The vault performs fungible state spending (and in future, fungible state optimisation management including merging, splitting and re-issuance).
 * Vault extensions represent additional custom plugin code a developer may write to query specific custom contract state attributes.
 * Customer “Off Ledger” (private store) represents internal organisational data that may be joined with the vault data to perform additional reporting or processing.
-* A [Vault Query API](cordapps/api-vault-query.md) is exposed to developers using standard Corda RPC and CorDapp plugin mechanisms.
+* A [Vault Query API](api-vault-query.md) is exposed to developers using standard Corda RPC and CorDapp plugin mechanisms.
 * A vault update API is internally used by transaction recording flows.
 * The vault database schemas are directly accessible via JDBC for customer joins and queries.
 
-Section 8 of the [Technical white paper](https://www.r3.com/white-papers/corda-technical-whitepaper/) describes features of the vault yet to be implemented including private key management, state splitting and merging, asset re-issuance and node event scheduling.
+Section 8 of the [Technical white paper](/en/pdf/corda-technical-whitepaper.pdf) describes features of the vault yet to be implemented including private key management, state splitting and merging, asset re-issuance and node event scheduling.
+
+

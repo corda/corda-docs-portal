@@ -28,7 +28,7 @@ This tutorial will take you through how to work with the CordaRPCClient API to i
 
 In this tutorial, we will build a simple command line utility that connects to a node via RPC, creates some cash transactions
 and dumps the transaction graph to the standard output. We will then put some simple visualisation on top. For an
-explanation of how RPC works in Corda, see [Interacting with a node](node\operating\clientrpc.md).
+explanation of how RPC works in Corda, see [Interacting with a node](node/operating/clientrpc.md).
 
 ## Connecting to the node and defining permissions
 
