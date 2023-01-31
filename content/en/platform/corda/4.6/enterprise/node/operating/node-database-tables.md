@@ -93,7 +93,7 @@ Read more in [Network map](../../network/network-map.md).
 
 ### Node identities
 
-The following four tables are used by the `IdentityService` and are created from the NodeInfos. They are append only tables used for persistent caching. They will also be cleared on `rpc.clearNetworkMapCache()`. Read more in [CorDapp identities](../..//cordapps/api-identity.md) and [Node services](../../node-services.md).
+The following four tables are used by the `IdentityService` and are created from the NodeInfos. They are append only tables used for persistent caching. They will also be cleared on `rpc.clearNetworkMapCache()`. Read more in [CorDapp identities](../../cordapps/api-identity.md) and [Node services](../../node-services.md).
 
 
 {{< table >}}
