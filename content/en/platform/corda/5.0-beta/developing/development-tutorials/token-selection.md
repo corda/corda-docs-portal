@@ -42,7 +42,7 @@ The following example outlines the basic building blocks to consider when using 
             filterFields = UtxoTokenFilterFields(state.tag, state.ownerHash)
         )
     }
-  }
+   }
    ```
 
    Corda can now create pools of tokens for the unconsumed `CoinStates`.
