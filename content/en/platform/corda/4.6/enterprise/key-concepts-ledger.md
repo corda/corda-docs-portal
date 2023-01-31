@@ -3,7 +3,7 @@ aliases:
 - /head/key-concepts-ledger.html
 - /HEAD/key-concepts-ledger.html
 - /key-concepts-ledger.html
-date: '2023-04-07T12:00:00Z'
+date: '2023-01-31'
 menu:
   corda-enterprise-4-6:
     identifier: corda-enterprise-4-6-key-concepts-ledger
