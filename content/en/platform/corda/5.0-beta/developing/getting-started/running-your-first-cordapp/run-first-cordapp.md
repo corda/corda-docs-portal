@@ -10,7 +10,7 @@ section_menu: corda-5-beta
 ---
 The CSDE includes flows and tests for a very simple CorDapp, which you can run out of the box.
 
-The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.MyFirstFlow.kt` file. This is also the code described in the [first flow section](../first-flow/first-flow.md).
+The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow.kt` file. This is also the code described in the [first flow section](../first-flow/first-flow.md).
 
 ## Starting the Corda Combined Worker
 
@@ -21,7 +21,7 @@ The `startCorda` task should complete relatively quickly with this message:
 {{< figure src="starting-corda-complete.png" figcaption="CSDE startCorda task completed" alt="CSDE task to start the combined worker in IntelliJ completed" >}}
 
 However, you must wait approximately one minute for Corda to finish its start-up routine.
-Currently, we do not have a liveness detector for Corda in the CSDE so we check liveness by manually hitting an endpoint.
+Currently, we do not have a liveness detector for Corda in the CSDE so we check liveness by manually hitting an endpoint. You can use the listVNodes helper for this.
 
 ## Testing Liveness and Swagger
 
@@ -67,13 +67,13 @@ Once authorised, you can start hitting endpoints. The easiest one to try is `/cp
    {{< figure src="get-cpi-error.png" figcaption="Swagger showing an error response to GET /cpi" alt="Swagger showing an error response to GET /cpi" >}}
    If this occurs, you either have not started Corda, Corda has not finished starting, or something has gone wrong. If something has gone wrong, you should try again or [reset the environment](../reset-csde.html) and start again.
    {{< note >}}
-   Each time you start Corda, it is a fresh instance. There is no persistence of state between restarts.
+   Each time you start Corda it is a fresh instance. There is no persistence of state between restarts.
    {{< /note >}}
 
 ## Deploying a CorDapp
 
 You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
-1. Click the `deployCorda` Gradle task:
+1. Click the `quickDeployCorda` Gradle task:
 {{< figure src="deploy-cordapp.png" width="50%" figcaption="CSDE deployCorda task" alt="CSDE task to deploy a CorDapp in IntelliJ" >}}
    This task runs a series of Gradle tasks to:
    * Build the [CPB](../../../introduction/key-concepts.html#corda-package-bundles-cpbs)
@@ -104,7 +104,7 @@ requestBody code:
 ```kotlin
 {
    "clientRequestId": "r1",
-   "flowClassName": "com.r3.developers.csdetemplate.MyFirstFlow",
+   "flowClassName": "com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow",
    "requestData": {
       "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB"
    }
@@ -127,7 +127,7 @@ Because the API is asynchronous, at this stage you only receive the confirmation
 To check the flow status:
 1. Expand the `GET /flow/{holdingidentityshorthash}/{clientrequestid}` endpoint in Swagger and click **Try it out**.
 2. Enter the hash and the `requestid` used when [starting the flow](#starting-your-first-flow) and click **Execute**.
-{{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}  
+{{< figure src="get-flow-arguments.png" figcaption="Arguments for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
    If the flow is successful, you will see the following response:
 {{< figure src="get-flow-completed.png" figcaption="Successful response for GET /flow/{holdingidentityshorthash}/{clientrequestid}" >}}
    You will learn more about the flowResult of "Hello Alice best wishes from Bob" in [Your first flow](../first-flow/first-flow.html).

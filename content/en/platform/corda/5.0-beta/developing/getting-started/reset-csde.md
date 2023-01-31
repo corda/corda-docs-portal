@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 The CSDE creates temporary files to store data required to generate and upload [Corda Package Installer (CPI)](../../introduction/key-concepts.html#corda-package-installer-cpi) files and manage the Corda cluster.
-If these files are modified, deleted, or otherwise get out of sync with the actual state of the Corda cluster, the CSDE Gradle tasks may not function correctly.   
+If these files are modified, deleted, or otherwise get out of sync with the actual state of the Corda cluster, the CSDE Gradle tasks may not function correctly.
 For example:
 * A Corda cluster is started without using the `startCorda` task or by running `startCorda` from a different CSDE repository.
 * A CPI file is uploaded without using the CSDE Gradle task.
@@ -34,20 +34,20 @@ To reset the CSDE:
    * On Linux/macOS:
       1. To find the process ID (pid), run:
          ```shell
-         ps | grep corda-combined-worker
+         ps -ef | grep corda-combined-worker
          ```
       2. To stop the process, run:
          ```shell
          kill <pid-for-corda-combined-worker>
          ```
    * On Windows, run in PowerShell:
-     ```shell   
+     ```shell
      Invoke-CimMethod -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'" -MethodName "Terminate"
      ```
 2. Check if the above commands were successful:
    * On Linux/macOS, run:
       ```shell
-      ps | grep corda-combined-worker
+      ps -ef | grep corda-combined-worker
       ```
    * On Windows, run:
       ```shell

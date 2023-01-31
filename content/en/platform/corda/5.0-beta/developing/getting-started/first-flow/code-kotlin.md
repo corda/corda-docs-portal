@@ -9,11 +9,11 @@ menu:
 section_menu: corda-5-beta
 ---
 
-The Kotlin code for the flows and supporting classes can be found in the CSDE repo at `src/main/kotlin/com/r3/developers/csdetemplate/MyFirstFlow.kt`.
+The Kotlin code for the flows and supporting classes can be found in the CSDE repo at `src/main/kotlin/com/r3/developers/csdetemplate/flowexample/workflows/MyFirstFlow.kt`.
 
 The full listing with explanatory comments is as follows:
 ```kotlin
-package com.r3.developers.csdetemplate
+package com.r3.developers.csdetemplate.flowexample.workflows
 
 import net.corda.v5.application.flows.*
 import net.corda.v5.application.marshalling.JsonMarshallingService
