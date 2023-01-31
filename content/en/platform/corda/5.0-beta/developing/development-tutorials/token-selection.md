@@ -20,11 +20,11 @@ The following example outlines the basic building blocks to consider when using 
       val value: BigDecimal,
       val tag: String? = null,
       val ownerHash: SecureHash? = null
-  ) : ContractState {
+    ) : ContractState {
       companion object {
           val tokenType = CoinState::class.java.name.toString()
-    }
-  ```
+     }
+   ```
 2. Create an observer to convert the state to a token:
    ```java
    class CoinStateObserver : UtxoLedgerTokenStateObserver<CoinState> {
@@ -45,7 +45,7 @@ The following example outlines the basic building blocks to consider when using 
   }
    ```
 
-   Corda can now create pools of tokens for the unconsumed `CoinState`s.
+   Corda can now create pools of tokens for the unconsumed `CoinStates`.
 
 3. You can now begin selecting states to spend in a flow. This example does not show code for creating transactions but in a real example you would need to create a flow to mint the coins (states) by creating and finalizing UTXO transactions that have `CoinStates` as output states. Add the token selection API to a flow as an injected property:
    ```java
