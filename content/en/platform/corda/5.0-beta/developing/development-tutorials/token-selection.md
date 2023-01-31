@@ -67,7 +67,7 @@ The following example outlines the basic building blocks to consider when using 
      notaryX500Name = notary.name,
      symbol = "GBP",
      targetAmount = BigDecimal(100)
-  )
+   )
    ```
 
    Issue the query, handle the response, and clean-up any claim we make:
