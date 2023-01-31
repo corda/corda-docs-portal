@@ -1,5 +1,5 @@
 ---
-date: '2023-01-26'
+date: '2023-01-01'
 title: "Corda 5.0 Beta 1.0 Release Notes"
 menu:
   corda-5-beta:
