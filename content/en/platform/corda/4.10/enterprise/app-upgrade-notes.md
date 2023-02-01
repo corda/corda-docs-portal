@@ -892,7 +892,7 @@ You can do either of the following.
 * Upgrade your `quasar.jar` file to `0.7.15_r3`.
 * Delete your `lib` directory and switch to using the Gradle test runner.
 
-You can find instructions for both options in [Running tests in IntelliJ](../community/testing.html#running-tests-in-intellij).
+You can find instructions for both options in [Running tests in IntelliJ](testing.html#running-tests-in-intellij).
 
 ### 14. Other features that you may find useful
 There are several new APIs in the Corda 4 release that can help you build your application.
