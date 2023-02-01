@@ -97,7 +97,7 @@ The helpers are split into three folders:
 
 #### csde-corda
 
-These task help with the lifecycle of your local Corda Cluster.
+These tasks help with the lifecycle of your local Corda cluster.
 
 `startCorda` which:
 1. Downloads and locally stores a copy of the combined worker JAR, if required
