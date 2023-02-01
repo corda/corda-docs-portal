@@ -46,6 +46,7 @@ To reset the CSDE:
       ```
       
       b. To stop the process, run:
+         
          ```shell
          kill <pid-for-corda-combined-worker>
          ```
