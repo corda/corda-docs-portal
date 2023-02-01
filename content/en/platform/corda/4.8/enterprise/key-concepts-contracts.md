@@ -3,11 +3,11 @@ aliases:
 - /head/key-concepts-contracts.html
 - /HEAD/key-concepts-contracts.html
 - /key-concepts-contracts.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-02-01'
 menu:
-  corda-os-4-8:
-    identifier: corda-os-4-8-key-concepts-contracts
-    parent: corda-os-4-8-key-concepts
+  corda-enterprise-4-8:
+    identifier: corda-enterprise-4-8-key-concepts-contracts
+    parent: corda-enterprise-4-8-key-concepts
     weight: 1050
 tags:
 - concepts
@@ -66,7 +66,7 @@ The contract code can:
 states.
 
 {{< note >}}
-See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
+See [Reissuing states](cordapps/reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
 {{< /note >}}
 
 ## Determinism
