@@ -122,7 +122,7 @@ These tasks help with the compilation and deployment of your Cordapp.
 
 `2-createKeyStore` creates the signing keys for publishing the CPIs.
 
-`3-buildCPIs` builds your Cordapp and wraps it in a signed CPI.
+`3-buildCPIs` builds your CorDapp and wraps it in a signed CPI.
 
 `4-deployCPIs` deploys the CPI to your local corda cluster.
 
