@@ -200,12 +200,12 @@ The main new features and enhancements in Corda Enterprise Edition 4.7 are liste
 {{< note >}}
 This page only describes functionality specific to Corda Enterprise Edition 4.7. However, as a Corda Enterprise customer, you can also make full use of the entire range of features available as part of Corda open source releases.
 
-See the [Corda open source release notes](/en/archived-docs/corda-os/4.7/open-source/release-notes.md) for information about new features, enhancements, and fixes shipped as part of Corda 4.7, such as:
+See the [Corda open source release notes](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-os/4.7/release-notes.md) for information about new features, enhancements, and fixes shipped as part of Corda 4.7, such as:
 
-* [Ability to break transaction backchains by reissuing a state with a guaranteed state replacement](/en/archived-docs/corda-os/4.7/open-source/release-notes.html#ability-to-break-transaction-backchains-by-reissuing-a-state-with-a-guaranteed-state-replacement).
-* [Business Network Membership version 1.1](/en/archived-docs/corda-os/4.7/open-source/release-notes.html#business-network-membership-version-11).
-* [Ability to interact with a Corda node via the new Multi RPC Client](/en/archived-docs/corda-os/4.7/open-source/release-notes.html#ability-to-interact-with-a-corda-node-via-the-new-multi-rpc-client).
-* [Reference application: Bank in a Box](/en/archived-docs/corda-os/4.7/open-source/release-notes.html#reference-app-bank-in-a-box).
+* Ability to break transaction backchains by reissuing a state with a guaranteed state replacement
+* Business Network Membership version 1.1
+* Ability to interact with a Corda node via the new Multi RPC Client
+* Reference application: Bank in a Box
 {{< /note >}}
 
 ## New features and enhancements

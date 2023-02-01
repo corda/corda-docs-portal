@@ -28,7 +28,7 @@ This tutorial will take you through how to work with the CordaRPCClient API to i
 
 In this tutorial, we will build a simple command line utility that connects to a node via RPC, creates some cash transactions
 and dumps the transaction graph to the standard output. We will then put some simple visualisation on top. For an
-explanation of how RPC works in Corda, see [Interacting with a node](node/;operating/clientrpc.md).
+explanation of how RPC works in Corda, see [Interacting with a node](node/operating/clientrpc.md).
 
 ## Connecting to the node and defining permissions
 
@@ -637,4 +637,4 @@ You can then deploy and launch the nodes (Notary and Alice) as follows:
 With regards to the start flow RPCs, there is an extra layer of security whereby the flow to be executed has to be
 annotated with `@StartableByRPC`. Flows without this annotation cannot execute using RPC.
 
-See more on security in [Secure coding guidelines](secure-coding-guidelines.md), node configuration in [Node configuration](corda-configuration-file.md) and Cordformation in [Running nodes locally](node/deploy/running-a-node.md).
+See more on security in [Secure coding guidelines](secure-coding-guidelines.md), node configuration in [Node configuration](node/setup/corda-configuration-file.md) and Cordformation in [Running nodes locally](node/deploy/running-a-node.md).

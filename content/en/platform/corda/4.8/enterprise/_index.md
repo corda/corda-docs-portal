@@ -25,8 +25,8 @@ transactions that consumes any of the proposed transaction’s input states.
 {{< note >}}
 **Release notes**
 
-* For the latest Corda Enterprise release notes, see the [Corda Enterprise Edition 4.8 release notes](../enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
-* For all Corda open source release notes, see the [Corda release notes](en/archived-docs/corda-os/4.8/release-notes.md) page.
+* For the latest Corda Enterprise release notes, see the [Corda Enterprise Edition 4.8 release notes](enterprise/release-notes-enterprise.md) page. You can view release notes for previous versions of Corda Enterprise in the relevant documentation section for each version, accessible from the left-hand side menu.
+* For all Corda open source release notes, see the [Corda release notes](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-os/4.8/release-notes.md) page.
 * For all Corda Enterprise Network Manager release notes, see the [Corda Enterprise Network Manager release notes](../../../../../en/platform/corda/1.5/cenm/release-notes.md) page.
 {{< /note >}}
 

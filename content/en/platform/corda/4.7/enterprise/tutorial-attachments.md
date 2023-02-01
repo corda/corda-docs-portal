@@ -41,7 +41,7 @@ It is encouraged that, where possible, attachments are reusable data, so that no
 
 ### Uploading an attachment
 
-To upload an attachment to the node, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](node/operating/clientrpc.md) or you can upload your attachment via the [Node shell](node\operating\shell.md).
+To upload an attachment to the node, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](node/operating/clientrpc.md) or you can upload your attachment via the [Node shell](node/operating/shell.md).
 
 To upload an attachment, run the following command:
 
@@ -62,7 +62,7 @@ identified inside the node.
 
 ### Downloading an attachment
 
-To download an attachment named by its hash, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](node/operating/clientrpc.md) or you can upload your attachment via the [Node shell](node\operating\shell.md).
+To download an attachment named by its hash, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](node/operating/clientrpc.md) or you can upload your attachment via the [Node shell](node/operating/shell.md).
 
 To download an attachment, run the following command, replacing the ID with the hash of the attachment that you want to download:
 
