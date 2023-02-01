@@ -81,7 +81,8 @@ For test code, use the corresponding test folder.
 
 {{< note >}}
 The Simulator has not yet been updated for `UTXOLedgerService` and so the flow tests you can run are currently limited. There is also currently no unit testing framework for contract code.
-As an approximation, in the Kotlin template there is the ContractTestFlow, which when run as a normal flow from swagger will test the utxoexample Contract.
+As an approximation, the Kotlin template contains `ContractTestFlow`, which, when run as a normal flow from swagger, tests the `utxoexample` contract.
+{{< /note >}}
 
 
 
