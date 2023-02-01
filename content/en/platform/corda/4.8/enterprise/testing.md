@@ -7,7 +7,7 @@ date: '2023-02-01'
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-testing
-    parent: corda-enterprise-4-8-contributing-index
+    parent: corda-enterprise-4-10-cordapps
     weight: 1040
 tags:
 - testing
