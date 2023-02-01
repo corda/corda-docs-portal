@@ -21,7 +21,7 @@ The `startCorda` task should complete relatively quickly with this message:
 {{< figure src="starting-corda-complete.png" figcaption="CSDE startCorda task completed" alt="CSDE task to start the combined worker in IntelliJ completed" >}}
 
 However, you must wait approximately one minute for Corda to finish its start-up routine.
-Currently, we do not have a liveness detector for Corda in the CSDE so we check liveness by manually hitting an endpoint. You can use the listVNodes helper for this.
+Currently, we do not have a liveness detector for Corda in the CSDE so we check liveness by manually hitting an endpoint. You can use the [`listVNodes` helper](cordapp-standard-development-environment/csde.html#csde-queries) to do this.
 
 ## Testing Liveness and Swagger
 
