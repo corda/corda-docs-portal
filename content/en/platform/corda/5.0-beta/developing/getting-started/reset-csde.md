@@ -64,7 +64,7 @@ To reset the CSDE:
       ```shell
       Get-CimInstance -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'"
       ```
-3. Stop any `CSDEpostgresql` containers:
+3. To stop any `CSDEpostgresql` containers, run:
    ```shell
    docker stop CSDEpostgresql
    ```
