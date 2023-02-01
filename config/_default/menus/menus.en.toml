@@ -454,6 +454,11 @@ identifier = "corda-5-beta-api-ledger-utxo"
 parent = "corda-5-beta-api-ledger"
 weight = 1000
 
+[[corda-5-beta]]
+identifier = "corda-5-beta-release-notes"
+name = "Release Notes"
+weight = 6000
+
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
 #identifier = "tools-cdl"

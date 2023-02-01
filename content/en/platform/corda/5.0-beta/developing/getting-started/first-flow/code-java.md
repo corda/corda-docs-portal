@@ -9,11 +9,11 @@ menu:
 section_menu: corda-5-beta
 ---
 
-The Java code for the flows and supporting classes can be found in the CSDE repo in the `src/main/java/com/r3/developers/csdetemplate` folder.
+The Java code for the flows and supporting classes can be found in the CSDE repo in the `src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder.
 
 ## Java Flow Files
 
-The `src/main/java/com/r3/developers/csdetemplate` folder contains the following files:
+The `src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder contains the following files:
 * [Message.java](#messagejava)
 * [MyFirstFlow.java](#myfirstflowjava)
 * [MyFirstFlowResponder.java](#myfirstflowresponderjava)
@@ -22,7 +22,7 @@ The `src/main/java/com/r3/developers/csdetemplate` folder contains the following
 ### Message.java
 
 ```java
-package com.r3.developers.csdetemplate;
+package com.r3.developers.csdetemplate.flowexample.workflows;
 
 import net.corda.v5.base.annotations.CordaSerializable;
 import net.corda.v5.base.types.MemberX500Name;
@@ -52,7 +52,7 @@ public class Message {
 ### MyFirstFlow.java
 
 ```java
-package com.r3.developers.csdetemplate;
+package com.r3.developers.csdetemplate.flowexample.workflows;
 
 import net.corda.v5.application.flows.*;
 import net.corda.v5.application.marshalling.JsonMarshallingService;
@@ -156,7 +156,7 @@ RequestBody for triggering the flow via http-rpc:
 ### MyFirstFlowResponder.java
 
 ```java
-package com.r3.developers.csdetemplate;
+package com.r3.developers.csdetemplate.flowexample.workflows;
 
 import net.corda.v5.application.flows.CordaInject;
 import net.corda.v5.application.flows.InitiatedBy;
@@ -233,7 +233,7 @@ RequestBody for triggering the flow via http-rpc:
 ### MyFirstFlowStartArgs.java
 
 ```java
-package com.r3.developers.csdetemplate;
+package com.r3.developers.csdetemplate.flowexample.workflows;
 
 import net.corda.v5.base.types.MemberX500Name;
 
@@ -453,7 +453,7 @@ As with Corda 4, there is also a `sendAndReceive` method on `FlowSession` that s
 In Corda 4, when payloads were received they were wrapped in an `UntrustworthyData` class which required unwrapping:
 ```java
 // (Corda 4)
-<ReceiveType> corda4Response = myFlowSession.sendAndReceive(<ReceiveType>.class, payload).unwrap( it->{      
+<ReceiveType> corda4Response = myFlowSession.sendAndReceive(<ReceiveType>.class, payload).unwrap( it->{
    <validationcode>
 });
 ```
