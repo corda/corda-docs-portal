@@ -132,7 +132,7 @@ Each of these tasks has a dependency on the previous, so if you run 3, it will a
 `quickDeployCordapp` is just an alias for `5-createAndRegisterVNodes`. You should click this to do your first deployment of your CorDapp to a newly started cluster.
 
 {{< note >}}
-You only need to run `quickDeployCordapp` the first time you upload your CPI to the corda cluster. On subsequent builds you can just click `4-deployCPIs`. This will reduce your turnaround time for deploying your code from 1-2 mins to around 20-30 seconds.
+You only need to run `quickDeployCordapp` the first time you upload your CPI to the corda cluster. On subsequent builds, you can just run `4-deployCPIs`. This reduces your turnaround time for deploying your code from 1-2 mins to around 20-30 seconds.
 {{< /note >}}
 
 #### csde-queries
