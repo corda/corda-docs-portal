@@ -68,4 +68,4 @@ to regular states. However, they are handled differently in Corda **[transaction
 ## Reissuing states
 
 Corda uses a state reissuance mechanism that allows you to break transaction backchains. Read about
-**[reissuing states](reissuing-states.md)** with a guaranteed state replacement.
+**[reissuing states](cordapps/reissuing-states.md)** with a guaranteed state replacement.

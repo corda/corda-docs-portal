@@ -66,7 +66,7 @@ The contract code can:
 states.
 
 {{< note >}}
-See [Reissuing states](reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
+See [Reissuing states](cordapps/reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
 {{< /note >}}
 
 ## Determinism

@@ -54,7 +54,7 @@ There are two basic types of transactions:
 
 ## Transaction backchains
 
-Transaction backchains let a [node](key-concepts-node.md) verify that each input was generated from a valid series of transactions. This is called "walking the chain." If you need to break this chain (for example, because you want to increase performance by reducing the number of transactions the node has to check, or because you want to keep previous transactions private) you can [reissue states](reissuing-states.md).
+Transaction backchains let a [node](key-concepts-node.md) verify that each input was generated from a valid series of transactions. This is called "walking the chain." If you need to break this chain (for example, because you want to increase performance by reducing the number of transactions the node has to check, or because you want to keep previous transactions private) you can [reissue states](cordapps/reissuing-states.md).
 
 Backchains are created as *input state references* linked together over time. Input state references let you use the outputs of previous transactions as the inputs of new transactions.
 
