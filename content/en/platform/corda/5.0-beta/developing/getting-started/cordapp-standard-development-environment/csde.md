@@ -117,7 +117,7 @@ Note, Corda takes about one minute to start up. However, at present, the Gradle 
 
 These tasks help with the compilation and deployment of your Cordapp.
 
-`1-createGroupPolicy` creates the Group policy which is required to set up the Application Network.
+`1-createGroupPolicy` creates the Group policy which is required to set up the application network.
 
 `2-createKeyStore` creates the signing keys for publishing the CPIs.
 
