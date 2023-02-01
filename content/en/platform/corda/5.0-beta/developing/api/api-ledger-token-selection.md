@@ -59,15 +59,3 @@ As described, a Token is a representation of state that is available to spend. T
 * **Consumed/Unconsumed Status** Only tokens that are unconsumed are eligible for selection. When a transaction is finalized, all the input states for that transaction are considered consumed and immediately become ineligible for selection. Conversely, any output states of a finalized transaction, become available for selection, if the other criteria below are met.
 * **Relevancy** By default, a state is relevant if the holding identity (node) is a participant in the transaction. However, the you can control the relevancy of a state by implementing the `isRelevant` method on the states contract. Only output states marked as `isRelevant=true` are available for selection.
 * **State Observer** Only states that have an associated implementation of `UtxoLedgerTokenStateObserver` are available for selection.
-
-## Token Selection Cache Sync
-
-The fundamental purpose of the Token Selection service is to allow flows to claim tokens for spending without the need for expensive or intrusive database operations. To achieve this, the service uses a cache to store tokens and their lock status. This cache is backed by the messaging APIs. As a result, Corda must manage hydrating the cache, updating the cache in near real-time with database updates, checking that the cache and database are in-sync, and re-syncing the cache when required.
-
-Corda supports re-sync requests that force a complete re-publish from the database to the cache. Thiss can be triggered manually via an API call or triggered by Corda if it detects that it is out of sync. The assumption is that on a full reset, the system starts, runs a sync test, detects that it is out of sync, and requests a re-sync.
-
-On a state produce or consume event in the database, Corda publishes and updates the cache.
-
-To cover missing states from the cache, Corda periodically (~every 10 mins) publishes a batch of unconsumed state refs (~5K) as a sync check. The cache validates that these refs are in the cache and if any are missing, publish a resync request to trigger Corda to perform a full re-sync. The batch of state refs published should be on a rolling basis, from oldest to newest.
-
-To cover stale states in the cache, the cache periodically publishes a block of state refs (~5k) back to the database to check if any are consumed. If any are consumed, the datbase should publish consume events for the states to bring the cache back inline with the database.
