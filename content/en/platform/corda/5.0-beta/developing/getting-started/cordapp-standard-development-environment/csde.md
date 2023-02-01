@@ -44,7 +44,7 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Change to the new directory and checkout the beta 1 branch:
+2. Change to the new directory and checkout the Beta 1 branch:
 
    ```sh
    git checkout release/corda-5-beta-1
