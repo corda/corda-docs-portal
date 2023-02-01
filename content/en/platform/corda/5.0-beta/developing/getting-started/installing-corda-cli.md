@@ -25,7 +25,7 @@ Java     | Azul JDK 11
 ## Downloading Corda CLI
 
 To obtain the Corda CLI installer from the release pack on Customer Hub:
-1. Download `platform-jars-Fox.tar.gz` from the [R3 Customer Hub](https://r3.force.com/).
+1. Download `platform-jars-Fox.tar.gz` from the [R3 Customer Hub](https://r3.force.com/) or from the [R3 S3 repository](https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-Fox1.1/corda-cli-downloader-5.0.0.0-Fox1.1.zip).
 2. Extract `corda-cli-installer-5.0.0.0-Fox1.1.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Fox1.1`.
 
 1. Download `platform-jars-Fox.tar.gz` from the R3 S3 repository [here](https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-Fox1.1/corda-cli-downloader-5.0.0.0-Fox1.1.zip).
