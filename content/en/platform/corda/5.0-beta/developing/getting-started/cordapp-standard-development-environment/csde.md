@@ -94,7 +94,9 @@ The **combined worker** is a Corda cluster that runs all of the workers in one J
 
 
 The helpers are split into three folders:
-
+* [csde-corda](#csde-corda)
+* [csde-cordapp](#csde-cordapp)
+* [csde-queries](#csde-queries)
 #### csde-corda
 
 These tasks help with the lifecycle of your local Corda cluster.
