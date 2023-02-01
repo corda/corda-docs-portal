@@ -27,16 +27,20 @@ The instructions in this section use the following terms:
 * `user-home` — the user home directory.
    * On Windows, this is typically something like `C:\Users\Charlie.Smith`.
    * On macOS, this is typically something like `/Users/charlie.smith`.
-   * On Linux, this typically something like `/home/charlie.smith`.
+   * On Linux, this is typically something like `/home/charlie.smith`.
 
 To reset the CSDE:
 1. Stop any running combined worker processes:
    * On Linux/macOS:
-      1. To find the process ID (pid), run:
+      a. To find the process ID (pid), run:
          ```shell
          ps -ef | grep corda-combined-worker
          ```
-      2. To stop the process, run:
+         The combined worker process is the second ID returned. For example, 63892 in the following response:
+         ```shell
+         503 63892 52310   0  1:05PM ??         2:36.96 /Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home/bin/java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Dco.paralleluniverse.fibers.verifyInstrumentation=true -jar /Users/matthew.bradbury/.gradle/caches/modules-2/files-2.1/net.corda/corda-combined-worker/5.0.0.0-Fox1.1/1b7c6fdecd5e54e09ec080905f2b6e14fad1a4d5/corda-combined-worker-5.0.0.0-Fox1.1.jar --instanceId=0 -mbus.busType=DATABASE -spassphrase=password -ssalt=salt -spassphrase=password -ssalt=salt -ddatabase.user=user -ddatabase.pass=password -ddatabase.jdbc.url=jdbc:postgresql://localhost:5432/cordacluster -ddatabase.jdbc.directory=/Users/matthew.bradbury/.corda/corda5/jdbcDrivers
+         ```
+      b. To stop the process, run:
          ```shell
          kill <pid-for-corda-combined-worker>
          ```
@@ -53,7 +57,7 @@ To reset the CSDE:
       ```shell
       Get-CimInstance -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'"
       ```
-3. To stop any `CSDEpostgresql` containers, run:
+3. Stop any `CSDEpostgresql` containers:
    ```shell
    docker stop CSDEpostgresql
    ```
@@ -69,4 +73,4 @@ To reset the CSDE:
 
 6. Delete the `<project-root-dir>/workspace` directory and its contents.
 
-   You should now be able to run all CSDE Gradle tasks again. These download the Corda cluster software and recreate all of the temporary files, as required.
+   You should now be able to run all CSDE Gradle tasks again. These tasks download the Corda cluster software and recreate all of the temporary files, as required.
