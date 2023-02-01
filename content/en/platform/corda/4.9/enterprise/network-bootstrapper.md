@@ -94,12 +94,12 @@ alongside the configuration files. For example, for a directory with this struct
 ```
 
 The `cordapp-a.jar` and `cordapp-b.jar` will be installed in each node directory, and any contracts within them will be
-added to the [contract whitelist](###whitelist-contracts).
+added to the [contract whitelist](#create-a-contracts-whitelist).
 
 
 
 ### Create a contracts whitelist
-If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist](https://docs.corda.net/docs/4.9/enterprise/cordapps/api-contract-constraints.html) for the network.
+If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist](cordapps/api-contract-constraints.html) for the network.
 
 {{< note >}}
 If you want to whitelist the CorDapps without copying them to each node, run them using the `--copy-cordapps=No` option.
@@ -123,7 +123,7 @@ net.corda.finance.contracts.asset.Cash
 net.corda.finance.contracts.asset.CommercialPaper
 ```
 
-Before you add `exclude_whitelist.txt` or `include_whitelist.txt` files, refer to [contract constraints](https://docs.corda.net/docs/4.9/enterprise/cordapps/api-contract-constraints.html) to understand different constraint types.
+Before you add `exclude_whitelist.txt` or `include_whitelist.txt` files, refer to [contract constraints](cordapps/api-contract-constraints.html) to understand different constraint types.
 
 
 
@@ -337,7 +337,7 @@ The available configuration fields are:
 
 
 * **packageOwnership**:
-  A list of package owners. See [Package namespace ownership](#id1). For each package owner, these fields
+  A list of package owners. See [Package namespace ownership](#package-namespace-ownership). For each package owner, these fields
   are required:
 
 

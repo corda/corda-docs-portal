@@ -95,7 +95,7 @@ alongside the configuration files. For example, for a directory with this struct
 ```
 
 The `cordapp-a.jar` and `cordapp-b.jar` will be installed in each node directory, and any contracts within them will be
-added to the [contract whitelist](###whitelist-contracts).
+added to the [contract whitelist](#create-a-contracts-whitelist).
 
 
 

@@ -63,4 +63,4 @@ When multiple nodes on a network share an evolving fact, the changes to the fact
 On-ledger facts don't have to be shared between nodes. For example, fact 11 in Alice's vault is not shared with Bob.
 Facts that are not shared are *unilateral facts*.
 
-Although there is no central ledger, you can broadcast a basic fact to all nodes of a network using the [network map](network-map.md) service.
+Although there is no central ledger, you can broadcast a basic fact to all nodes of a network using the [network map](network/network-map.md) service.

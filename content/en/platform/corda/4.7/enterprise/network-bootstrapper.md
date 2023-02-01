@@ -100,7 +100,7 @@ If you only wish to whitelist the CorDapps but not copy them to each node then r
 
 {{< /note >}}
 The CorDapp JARs will be hashed and scanned for `Contract` classes. These contract class implementations will become part
-of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` in [Network parameters](../../../../../en/platform/corda/4.7/enterprise/network/network-map.html#network-parameters)).
+of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` in [Network parameters](network/network-map.html#network-parameters)).
 
 By default the Bootstrapper will whitelist all the contracts found in the unsigned CorDapp JARs (a JAR file not signed by jarSigner tool).
 Whitelisted contracts are checked by *Zone constraints*, while contract classes from signed JARs will be checked by *Signature constraints*.
@@ -300,7 +300,7 @@ are updating an existing network, the value in the existing network parameters f
 
 {{< note >}}
 All fields can be used with placeholders for environment variables. For example: `${KEY_STORE_PASSWORD}` would be replaced by the contents of environment
-variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](../../../../../en/platform/corda/4.7/enterprise/node/operating/node-administration.html#hiding-sensitive-data).
+variable `KEY_STORE_PASSWORD`. See: [Hiding sensitive data](node/operating/node-administration.html#hiding-sensitive-data).
 
 {{< /note >}}
 The available configuration fields are listed below:
