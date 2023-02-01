@@ -1,6 +1,6 @@
 ---
-date: '2020-09-08T12:00:00Z'
-title: "Corda 5 Beta Release files and checksums"
+date: '2023-02-01'
+title: "Corda 5.0 Beta 1.1 Release files and checksums"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-release-checksums
