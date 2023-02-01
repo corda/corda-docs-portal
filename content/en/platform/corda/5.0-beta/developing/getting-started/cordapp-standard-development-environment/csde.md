@@ -106,7 +106,7 @@ These tasks help with the lifecycle of your local Corda cluster.
 2. Starts an instance of a Postgres Docker container; you will need Docker Engine or Docker Desktop running
 3. Starts the combined worker
 
-Note, corda takes around a minute to start up, however at present the gradle tasks shows as complete before the start up has finished. It is best to poll the cluster with one of the csde-query helpers until it responds, this will tell you the cluster is live and ready to interact.
+Note, Corda takes about one minute to start up. However, at present, the Gradle task shows as complete before the start up has finished. It is best to poll the cluster with one of the `csde-query` helpers until it responds to confirm if the cluster is live and ready to interact.
 
 `stopCorda` which:
 
