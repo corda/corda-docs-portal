@@ -77,7 +77,7 @@ For Kotlin, write your flow code in `workflows/src/main/kotlin/<your package pat
 
 For Java, use `workflows/src/main/java/<your package path>` and your contract and states code in `/contracts/src/main/kotlin<your package path>`.
 
-For test code use the corresponding test folder.
+For test code, use the corresponding test folder.
 
 Note, The Simulator has not yet been updated for UTXOLedgerService, hence the flow tests you can run will be limited for the time being. There is also currently no unit testing framework for contract code.
 As an approximation, in the Kotlin template there is the ContractTestFlow, which when run as a normal flow from swagger will test the utxoexample Contract.
