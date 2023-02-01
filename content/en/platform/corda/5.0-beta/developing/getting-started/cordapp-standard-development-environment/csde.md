@@ -110,7 +110,6 @@ Note, Corda takes about one minute to start up. However, at present, the Gradle 
 
 `stopCorda` which:
 
-#### `startCorda`
 1. Stops the Postgres database
 2. Stops the combined worker
 
