@@ -63,7 +63,7 @@ To obtain the Corda CLI installer from the release pack on Customer Hub:
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-installer-5.0.0.0-Fox1.0
+   cd corda-cli-installer-5.0.0.0-Fox1.1
    ```
 5. Run the install script:
    ```shell
