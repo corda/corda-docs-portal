@@ -8,6 +8,11 @@ menu:
     weight: 4000
 section_menu: corda-5-beta
 ---
+
+{{< note >}}
+As of Beta 1.1, Simulator does not support the `UTXOLedgerService`. For now, this limits the usefulness of Simulator for UTXO based applications.
+{{< /note >}}
+
 When writing any application, including CorDapps, it is helpful to have a fast feedback loop: code > test > debug > modify.
 This accelerates the development process.
 Although it is possible to develop directly against a Corda cluster (as described in [Running your first CorDapp](../running-your-first-cordapp/run-first-cordapp.html)), to deploy a CorDapp onto a Corda cluster is time-consuming, and unit testing by manually hitting endpoints is clumsy.
@@ -23,7 +28,7 @@ As Simulator is not executing Corda code, the error messages are likely to be di
 
 ## Using Simulator
 
-Simulator is designed to be used within a normal Java or Kotlin testing framework. This documentation describes using JUnit. [MyFirstFlow](../first-flow/first-flow.html) has a corresponding test class `MyFirstFlowTest` that demonstrates how to use Simulator. This file is in `/src/test/kotlin/com.r3.developers.csdetemplate.MyFirstFlowTest.kt` or `/src/test/java/com.r3.developers.csdetemplate.MyFirstFlowTest.java` in the [CSDE](../cordapp-standard-development-environment/csde.html) template repository.
+Simulator is designed to be used within a normal Java or Kotlin testing framework. This documentation describes using JUnit. [MyFirstFlow](../first-flow/first-flow.html) has a corresponding test class `MyFirstFlowTest` that demonstrates how to use Simulator. This file is in `/src/test/kotlin/com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlowTest.kt` or `/src/test/java/com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlowTest.java` in the [CSDE](../cordapp-standard-development-environment/csde.html) template repository.
 
 To run the test, click the green triangle next to the test method and select **Run 'MyFirstFlowTest…'**:
 {{< figure src="run-test.png" width="50%" figcaption="Run MyFirstFlowTest" alt="Command to run MyFirstFlowTest in IntelliJ" >}}
@@ -43,7 +48,7 @@ This section contains the full listing of `MyFirstFlowTest` with explanatory com
 {{< tabs name="simulator">}}
 {{% tab name="Kotlin"%}}
 ```kotlin
-package com.r3.developers.csdetemplate
+package com.r3.developers.csdetemplate.flowexample.workflows
 
 import net.corda.simulator.HoldingIdentity
 import net.corda.simulator.RequestData
@@ -92,7 +97,7 @@ class MyFirstFlowTest {
 {{% /tab %}}
 {{% tab name="Java" %}}
 ```java
-package com.r3.developers.csdetemplate;
+package com.r3.developers.csdetemplate.flowexample.workflows;
 
 import net.corda.simulator.HoldingIdentity;
 import net.corda.simulator.RequestData;
