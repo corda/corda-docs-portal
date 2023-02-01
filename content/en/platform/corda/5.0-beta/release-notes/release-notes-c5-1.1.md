@@ -23,7 +23,7 @@ This section describes the new features in Corda 5.0 Beta 1.1.
 
 #### Beta 1.1 API
 
-The [CorDapp Standard Development Environment (CSDE)](../developing/getting-started/cordapp-standard-development-environment/csde.html) has been upgraded to use the Corda 5.0 Beta 1.1 API. 
+The [CorDapp Standard Development Environment (CSDE)](../developing/getting-started/cordapp-standard-development-environment/csde.md) has been upgraded to use the Corda 5.0 Beta 1.1 API. 
 
 #### Example UTXO Ledger CorDapp
 
