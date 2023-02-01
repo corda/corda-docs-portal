@@ -62,7 +62,7 @@ Set the values of variables for use in later commands:
    {{% tab name="Bash"%}}
    ```shell
    export WORK_DIR=~/Desktop/register-mgm
-   mkdir -p $WORK_DIR
+   mkdir -p "$WORK_DIR"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -100,9 +100,9 @@ This root CA certificate in PEM format must be included later when onboarding th
 The MGM only requires a `GroupPolicy` file and an empty CPB is sufficient for the CPI.
 You can run the following to use the MGM test CPB included in `corda-runtime-os`, or alternatively you can use any empty CPB:
 ``` shell
-cd $RUNTIME_OS
+cd "$RUNTIME_OS"
 ./gradlew testing:cpbs:mgm:build
-cp testing/cpbs/mgm/build/libs/mgm-5.0.0.0-SNAPSHOT-package.cpb $WORK_DIR
+cp testing/cpbs/mgm/build/libs/mgm-5.0.0.0-SNAPSHOT-package.cpb "$WORK_DIR"
 ```
 
 ## Create the Group Policy File
@@ -116,7 +116,7 @@ echo '{
   "groupId" : "CREATE_ID",
   "registrationProtocol" :"net.corda.membership.impl.registration.dynamic.mgm.MGMRegistrationService",
   "synchronisationProtocol": "net.corda.membership.impl.synchronisation.MgmSynchronisationServiceImpl"
-}' > $WORK_DIR/GroupPolicy.json
+}' > "$WORK_DIR"/GroupPolicy.json
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -298,7 +298,7 @@ To set up the TLS key pair and certificate for the cluster:
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/certificates/p2p/$TLS_KEY_ID" -Body (ConvertTo-Json @{
        x500Name = "CN=CordaOperator, C=GB, L=London"
        subjectAlternativeNames = @($P2P_GATEWAY_HOST)
-   }) > $WORK_DIR/request1.csr
+   }) > "$WORK_DIR"/request1.csr
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -418,7 +418,7 @@ If using session certificates for the P2P layer, see [Configuring Optional Sessi
 To build the registration context using Bash, run the following command, replacing `<TLS-CA-PEM-certificate>` with the PEM format certificate of the CA. This is the trustroot used to validate member certificates.
 The certificate must all be on one line in the curl command. Replace new lines with `\n`.
 ```shell
-export TLS_CA_CERT=<TLS-CA-PEM-certificate>
+export TLS_CA_CERT=$(cat /tmp/ca/ca/root-certificate.pem | awk '{printf "%s\\n", $0}')
 export REGISTRATION_CONTEXT='{
   "corda.session.key.id": "'$SESSION_KEY_ID'",
   "corda.ecdh.key.id": "'$ECDH_KEY_ID'",
@@ -465,7 +465,8 @@ You can now use the registration context to register the MGM on the network:
 
 To register the MGM using Bash, run this command:
 ```shell
-curl --insecure -u admin:admin -d '{"memberRegistrationRequest":{"action": "requestJoin", "context": '$REGISTRATION_CONTEXT'}}' $API_URL/membership/$MGM_HOLDING_ID
+REGISTRATION_REQUEST='{"memberRegistrationRequest":{"action": "requestJoin", "context": '$REGISTRATION_CONTEXT'}}'
+curl --insecure -u admin:admin -d "$REGISTRATION_REQUEST" $API_URL/membership/$MGM_HOLDING_ID
 ```
 For example:
 ``` shell
@@ -568,8 +569,8 @@ Now that the MGM is onboarded, the MGM can export a group policy file with the c
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-mkdir -p ~/Desktop/register-member
-curl --insecure -u admin:admin -X GET $API_URL/mgm/$MGM_HOLDING_ID/info > ~/Desktop/register-member/GroupPolicy.json
+mkdir -p "~/Desktop/register-member"
+curl --insecure -u admin:admin -X GET $API_URL/mgm/$MGM_HOLDING_ID/info > "~/Desktop/register-member/GroupPolicy.json"
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
