@@ -100,7 +100,7 @@ added to the [contract whitelist](###whitelist-contracts).
 
 
 ### Create a contracts whitelist
-If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist](https://docs.corda.net/docs/4.8/enterprise/cordapps/api-contract-constraints.html) for the network.
+If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist](cordapps/api-contract-constraints.md) for the network.
 
 {{< note >}}
 If you want to whitelist the CorDapps without copying them to each node, run them using the `--copy-cordapps=No` option.
@@ -124,7 +124,7 @@ net.corda.finance.contracts.asset.Cash
 net.corda.finance.contracts.asset.CommercialPaper
 ```
 
-Before you add `exclude_whitelist.txt` or `include_whitelist.txt` files, refer to [contract constraints](https://docs.corda.net/docs/4.8/enterprise/cordapps/api-contract-constraints.html) to understand different constraint types.
+Before you add `exclude_whitelist.txt` or `include_whitelist.txt` files, refer to [contract constraints](cordapps/api-contract-constraints.html) to understand different constraint types.
 
 
 
@@ -333,12 +333,12 @@ The available configuration fields are:
 
 * **eventHorizon**:
   The time after which nodes will be removed from the network map if they have not been seen during this period. This parameter uses
-  the `parse` function on the `java.time.Duration` class to interpret the data. See [Oracle's documentation](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-)
+  the `parse` function on the `java.time.Duration` class to interpret the data. See [Oracle documentation](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-)
   for information on valid inputs.
 
 
 * **packageOwnership**:
-  A list of package owners. See [Package namespace ownership](#id1). For each package owner, these fields
+  A list of package owners. See [Package namespace ownership](#package-namespace-ownership). For each package owner, these fields
   are required:
 
 

@@ -212,7 +212,7 @@ Corda Enterprise Edition 4.8, released on April 21st 2021, includes several new 
 {{< note >}}
 This page only describes functionality specific to Corda Enterprise Edition 4.8. However, as a Corda Enterprise customer, you can also make full use of the features available as part of the Corda open source releases.
 
-See the [Corda open source release notes](en/archived-docs/corda-os/4.8/release-notes.md) for information about new features, enhancements, and fixes shipped as part of Corda 4.8.
+See the [Corda open source release notes](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-os/4.8/release-notes.md) for information about new features, enhancements, and fixes shipped as part of Corda 4.8.
 {{< /note >}}
 
 {{< note >}}
@@ -224,7 +224,7 @@ For the commitment Corda makes to wire and API stability, see [API stability gua
 
 ## Long-term support release
 
-[Corda 4.8](en/archived-docs/corda-os/4.8/release-notes.md) and Corda Enterprise Edition 4.8 are our long-term support (LTS) platform versions.
+[Corda 4.8](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-os/4.8/release-notes.md) and Corda Enterprise Edition 4.8 are our long-term support (LTS) platform versions.
 
 R3 provides LTS for this release for 30 months starting April 21st 2021. This is 6 months longer than the support periods for previous releases, giving Corda customers extra time to plan for the next upgrade.
 
