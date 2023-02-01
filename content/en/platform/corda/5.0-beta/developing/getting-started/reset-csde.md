@@ -47,9 +47,10 @@ To reset the CSDE:
       
       b. To stop the process, run:
          
-         ```shell
-         kill <pid-for-corda-combined-worker>
-         ```
+      ```shell
+      kill <pid-for-corda-combined-worker>
+      ```
+      
    * On Windows, run in PowerShell:
      ```shell
      Invoke-CimMethod -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'" -MethodName "Terminate"
