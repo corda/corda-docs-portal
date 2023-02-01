@@ -123,7 +123,7 @@ You only need to run `quickDeployCordapp` the first time you upload your CPI to 
 
 #### csde-queries
 
-These are standard queries which you will find useful to run against your Corda cluster.
+These are standard queries that are useful to run against your Corda cluster.
 
 | <div style="width:220px">Helper</div> | Description                                                                                                               |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
