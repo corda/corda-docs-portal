@@ -113,9 +113,9 @@ These tasks help with the lifecycle of your local Corda cluster.
 | `3-buildCPIs`                         | Builds your Cordapp and wraps it in a signed CPI.                                                      |
 | `4-deployCPIs`                        | Deploys the CPI to your local Corda cluster.                                                           |
 | `5-createAndRegisterVNodes`           | Sets up the Virtual Nodes specified in `config/dev-net.json` on you local corda with the uploaded CPI. |
+| `quickDeployCordapp`           | An alias for `5-createAndRegisterVNodes`. Run this to perform your first deployment of your CorDapp to a newly started cluster. |
 
 Each of these tasks has a dependency on the previous. So, if you run 3, it also runs 1 and 2.
-`quickDeployCordapp` is just an alias for `5-createAndRegisterVNodes`. You should click this to do your first deployment of your CorDapp to a newly started cluster.
 
 {{< note >}}
 You only need to run `quickDeployCordapp` the first time you upload your CPI to the corda cluster. On subsequent builds, you can just run `4-deployCPIs`. This reduces your turnaround time for deploying your code from 1-2 mins to around 20-30 seconds.
