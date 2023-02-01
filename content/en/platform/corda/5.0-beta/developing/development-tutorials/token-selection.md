@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 
-The following example outlines the basic building blocks to consider when using the [token selection API](../api/api-ledger-token-selection.md) with the UTXO ledger. The example only covers the token selection aspects of a flow and omits any details about how to create [UTXO ledger transactions](****).
+The following example outlines the basic building blocks to consider when using the [token selection API](../api/api-ledger-token-selection.md) with the UTXO ledger. The example only covers the token selection aspects of a flow and omits any details about how to create [UTXO ledger transactions](../ledger/transactions.md).
 
 1. Define a custom state with enough detail to create a token from:
    ```java
