@@ -5,7 +5,7 @@ aliases:
 - /key-concepts-consensus.html
 date: '2023-01-30'
 menu:
-  corda-community-4-10:
+  corda-enterprise-4-10:
     identifier: corda-enterprise-4-10-key-concepts-consensus
     parent: corda-enterprise-4-10-key-concepts
     weight: 1070

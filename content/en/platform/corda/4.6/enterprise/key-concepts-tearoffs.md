@@ -3,11 +3,11 @@ aliases:
 - /head/key-concepts-tearoffs.html
 - /HEAD/key-concepts-tearoffs.html
 - /key-concepts-tearoffs.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-02-01'
 menu:
-  corda-os-4-6:
-    identifier: corda-os-4-6-key-concepts-tearoffs
-    parent: corda-os-4-6-key-concepts
+  corda-enterprise-4-6:
+    identifier: corda-enterprise-4-6-key-concepts-tearoffs
+    parent: corda-enterprise-4-6-key-concepts
     weight: 1130
 tags:
 - concepts

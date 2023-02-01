@@ -131,8 +131,7 @@ Because the transaction is sent to the oracle for signing, ordinarily the oracle
 of that transaction including the inputs, output contract states and all the commands, not just the one (in this case)
 relevant command.  This is an obvious privacy leak for the other participants.  We currently solve this using a
 `FilteredTransaction`, which implements a Merkle Tree.  These reveal only the necessary parts of the transaction to the
-oracle but still allow it to sign it by providing the Merkle hashes for the remaining parts.  See [Oracles](key-concepts-oracles.md)
-for more details.
+oracle but still allow it to sign it by providing the Merkle hashes for the remaining parts.  See [Oracles](key-concepts-oracles.md) for more details.
 
 
 ### Pay-per-play oracles

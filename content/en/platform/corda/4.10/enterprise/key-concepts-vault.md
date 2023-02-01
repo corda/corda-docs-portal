@@ -3,11 +3,11 @@ aliases:
 - /head/key-concepts-vault.html
 - /HEAD/key-concepts-vault.html
 - /key-concepts-vault.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-02-01'
 menu:
-  corda-community-4-10:
-    identifier: corda-community-4-10-key-concepts-vault
-    parent: corda-community-4-10-key-concepts
+  corda-enterprise-4-10:
+    identifier: corda-enterprise-4-10-key-concepts-vault
+    parent: corda-enterprise-4-10-key-concepts
     weight: 1090
 tags:
 - concepts

@@ -3,11 +3,11 @@ aliases:
 - /head/key-concepts-transactions.html
 - /HEAD/key-concepts-transactions.html
 - /key-concepts-transactions.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-02-01'
 menu:
-  corda-community-4-9:
-    identifier: corda-community-4-9-key-concepts-transactions
-    parent: corda-community-4-9-key-concepts
+  corda-enterprise-4-9:
+    identifier: corda-enterprise-4-9-key-concepts-transactions
+    parent: corda-enterprise-4-9-key-concepts
     weight: 1040
 tags:
 - concepts
