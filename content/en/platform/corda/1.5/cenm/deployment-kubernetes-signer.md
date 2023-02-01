@@ -54,10 +54,10 @@ The name needs to be a valid X500 name and commas need to be escaped by a backsl
 | -------------------------------------------- | -------------------------------------------------------- | --------------------- |
 | `bashDebug`                                  | Display additional information while running bash scripts (useful while investigating issues) | `false` |
 | `signerImage.repository`                     | URL to Signing Service Docker image repository           | `corda/enterprise-signer` |
-| `signerImage.tag`                            | Docker image Tag | `1.5.4-zulu-openjdk8u242` |
+| `signerImage.tag`                            | Docker image Tag | `1.5.6-zulu-openjdk8u242` |
 | `signerImage.pullPolicy`                     | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `dockerImageCli.repository`                  | URL to CLI image repository | `corda/enterprise-cenm-cli` |
-| `dockerImageCli.tag`                         | Docker image tag | `1.5.4-zulu-openjdk8u242` |
+| `dockerImageCli.tag`                         | Docker image tag | `1.5.6-zulu-openjdk8u242` |
 | `dockerImageCli.pullPolicy`                  | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `volumeSizeSignerEtc`                        | Volume size for the `etc/` directory | `1Mi` |
 | `volumeSizeSignerLogs`                       | Volume size for the `logs/` directory | `10Gi` |
