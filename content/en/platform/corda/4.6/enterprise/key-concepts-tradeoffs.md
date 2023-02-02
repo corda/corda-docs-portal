@@ -5,9 +5,9 @@ aliases:
 - /key-concepts-tradeoffs.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-os-4-5:
-    identifier: corda-os-4-5-key-concepts-tradeoffs
-    parent: corda-os-4-5-key-concepts
+  corda-os-4-6:
+    identifier: corda-enterprise-4-6-key-concepts-tradeoffs
+    parent: corda-enterprise-4-6-key-concepts
     weight: 1140
 tags:
 - concepts
@@ -62,7 +62,7 @@ Corda also uses several other techniques to maximize privacy on the network:
 
 
 * **Transaction tear-offs**: Transactions are structured in a way that allows them to be digitally signed without
-disclosing the transaction’s contents. This is achieved using a data structure called a Merkle tree.
+disclosing the transaction’s contents. This is achieved using a data structure called a Merkle tree. 
 * **Key randomisation**: The parties to a transaction are identified only by their public keys, and fresh key pairs are
 generated for each transaction. As a result, an onlooker cannot identify which parties were involved in a given
 transaction.
@@ -102,4 +102,3 @@ example, Corda re-uses:
 * Standard JVM programming languages for the development of CorDapps
 * Existing SQL databases
 * Existing message queue implementations
-
