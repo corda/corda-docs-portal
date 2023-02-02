@@ -53,7 +53,7 @@ The following example outlines the basic building blocks to consider when using 
    lateinit var tokenSelection: TokenSelection
    ```
 
-   Create the criteria for the type of tokens we need and set a target amount:
+   a. Create the criteria for the type of tokens we need and set a target amount:
    ```java
    // Assume we have an issuer who has created some coin states
    val bankX500 = MemberX500Name.parse(ISSUING_BANK_X500) 
