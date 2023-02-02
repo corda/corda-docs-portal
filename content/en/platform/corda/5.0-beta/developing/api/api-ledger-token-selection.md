@@ -33,7 +33,7 @@ The API defines a generic token that is used to represent a state. The purpose o
 | Symbol           | String           | User        | The user-defined symbol for the token.                                                                                                                                                  |
 | Amount           | BigDecimal       | User        | The amount/value of the state linked to this token.                                                                                                                                     |
 | Tag              | String           | User        | An optional string that can be searched using a regular expression when selecting tokens.                                                                                               |
-| Owner Hash       | SecureHash       | User        | An optional Hash of the owner of the state.                                                                                                                                             |
+| Owner Hash       | SecureHash       | User        | An optional hash of the owner of the state.                                                                                                                                             |
 
 ### Token Pools
 
