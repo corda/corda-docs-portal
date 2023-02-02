@@ -7,7 +7,7 @@ date: '2023-01-26'
 menu:
   corda-enterprise-4-5:
     identifier: corda-enterprise-4-5-key-concepts
-    parent: corda-enterprise-4-5-development
+    parent: corda-enterprise-4-5-cordapps
     weight: 80
 tags:
 - concepts

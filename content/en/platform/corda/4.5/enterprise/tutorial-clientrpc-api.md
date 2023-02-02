@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-5:
     identifier: corda-enterprise-4-5-tutorial-clientrpc-api
-    parent: corda-enterprise-4-5-tutorials-index
+    parent: corda-enterprise-4-5-corda-nodes
     weight: 1080
 tags:
 - tutorial
