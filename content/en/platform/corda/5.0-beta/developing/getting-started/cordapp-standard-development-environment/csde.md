@@ -9,16 +9,17 @@ menu:
 section_menu: corda-5-beta
 ---
 {{< note >}}
-The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://community.r3.com/c/corda-5-developer-preview/41).  
+The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://community.r3.com/c/corda-5-developer-preview/41).
 {{< /note >}}
 
-The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Developer Preview 2 more straight-forward.
+The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Beta 1.1 more straight-forward.
 The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cordapp-template-java` repository to your local machine. The CSDE provides:
 * a prepared CorDapp project that you can use as a starting point to develop your own prototypes.
 * a base Gradle configuration that brings in the dependencies you need to write and test a Corda 5 CorDapp.
 * a set of Gradle helper tasks which speed up and simplify the development and deployment process; these are effectively wrappers over the [Corda CLI](../installing-corda-cli.html).
 * debug configuration for debugging a local Corda cluster.
 * the `MyFirstFlow` code which forms the basis of the Getting Started documentation.
+* the `utxoexample` Chat Cordapp, which provides a basic, working utxo Ledger Cordapp.
 * the ability to configure the members of the local Corda network.
 
 {{< note >}}
@@ -43,10 +44,10 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Change to the new directory and checkout the Developer Preview 2 branch:
+2. Change to the new directory and checkout the Beta 1 branch:
 
    ```sh
-   git checkout release/corda-5-developer-preview-2
+   git checkout release/corda-5-beta-1
    ```
 
 3. Initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo.
@@ -54,7 +55,7 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
 3. Open the project in IntelliJ and let the import process complete.
   When complete, the project structure looks as follows:
 
-  {{< figure src="CDSE-full-screen-kotlin.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
+  {{< figure src="CDSE-full-screen.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
 
 
 ## Configuring the CSDE
@@ -72,8 +73,16 @@ This section provides an overview of the content of CSDE. Other sections show yo
 On the left, you can see the folder structure created, ready for CorDapps development.
 {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
 
-For Kotlin, write your flow code in `src/main/kotlin/<your package path>` and your flow tests in `src/test/kotlin/<your package path>`.
-For Java, use `src/main/java/<your package path>` and `src/test/java/<your package path>` respectively.
+For Kotlin, write your flow code in `workflows/src/main/kotlin/<your package path>` and your contract and states code in `/contracts/src/main/kotlin<your package path>`.
+
+For Java, use `workflows/src/main/java/<your package path>` and your contract and states code in `/contracts/src/main/kotlin<your package path>`.
+
+For test code, use the corresponding test folder.
+
+{{< note >}}
+The Simulator has not yet been updated for `UTXOLedgerService` and so the flow tests you can run are currently limited. There is also currently no unit testing framework for contract code.
+As an approximation, the Kotlin template contains `ContractTestFlow`, which, when run as a normal flow from swagger, tests the `utxoexample` contract.
+{{< /note >}}
 
 ### Gradle Helpers for the Combined Worker
 
@@ -81,36 +90,45 @@ On the right, you can see the Gradle tasks that we have included to help you wor
 {{< figure src="gradle-helpers.png" figcaption="CSDE gradle helpers" alt="CSDE gradle tasks in IntelliJ" >}}
 The **combined worker** is a Corda cluster that runs all of the workers in one JVM process.
 
-#### `startCorda`
+The helpers are split into three folders:
+* [csde-corda](#csde-corda)
+* [csde-cordapp](#csde-cordapp)
+* [csde-queries](#csde-queries)
 
-The `startCorda` task does the following:
+#### csde-corda
 
-1. Downloads and locally stores a copy of the combined worker JAR, if required
-2. Starts an instance of a Postgres Docker container; you will need Docker Engine or Docker Desktop running
-3. Starts the combined worker
+These tasks help with the lifecycle of your local Corda cluster.
 
-#### `stopCorda`
+| <div style="width:220px">Helper   </div> | Description                              |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `startCorda`                             | 1. Downloads and locally stores a copy of the combined worker JAR, if required. <br> 2. Starts an instance of a Postgres Docker container. You will need Docker Engine or Docker Desktop running.<br> 3. Starts the combined worker.<br> Note, Corda takes about one minute to start up. However, at present, the Gradle task shows as complete before the start up has finished. It is best to poll the cluster with one of the `csde-query` helpers until it responds to confirm if the cluster is live and ready to interact. |
+| `stopCorda`                              | 1. Stops the Postgres database. <br> 2. Stops the combined worker.        |
 
-The `stopCorda` task does the following:
+#### csde-cordapp
 
-* Stops the Postgres database
-* Stops the combined worker
+| <div style="width:220px">Helper</div> | Description                                                                                            |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `1-createGroupPolicy`                 | Creates the Group policy which is required to set up the Application Network.                          |
+| `2-createKeyStore`                    | Creates the signing keys for publishing the CPIs.                                                      |
+| `3-buildCPIs`                         | Builds your Cordapp and wraps it in a signed CPI.                                                      |
+| `4-deployCPIs`                        | Deploys the CPI to your local Corda cluster.                                                           |
+| `5-createAndRegisterVNodes`           | Sets up the Virtual Nodes specified in `config/dev-net.json` on you local corda with the uploaded CPI. |
+| `quickDeployCordapp`           | An alias for `5-createAndRegisterVNodes`. Run this to perform your first deployment of your CorDapp to a newly started cluster. |
 
-#### `deployCorDapp`
+Each of these tasks has a dependency on the previous. So, if you run 3, it also runs 1 and 2.
 
-The `deployCorDapp` task does the following to compile and deploy the CorDapp to the combined worker:
+{{< note >}}
+You only need to run `quickDeployCordapp` the first time you upload your CPI to the corda cluster. On subsequent builds, you can just run `4-deployCPIs`. This reduces your turnaround time for deploying your code from 1-2 mins to around 20-30 seconds.
+{{< /note >}}
 
-1. Compiles the [CPB](../../../introduction/key-concepts.html#corda-package-bundles-cpbs) and [CPI](../../../introduction/key-concepts.html#corda-package-installer-cpi) using the [buildCPI](#buildCPI-task) task
-2. Uploads the CPI to the combined worker
-3. Generates the [virtual nodes](../../../introduction/key-concepts.html#virtual-nodes) with the CPI
+#### csde-queries
 
-#### `buildCPI`
+These are standard queries that are useful to run against your Corda cluster.
 
-The `buildCPI` task compiles your CorDapp into a CPI file.
-
-#### `listVNodes`
-
-The `listVNodes` task displays a list of the virtual nodes on the local Corda cluster.
+| <div style="width:220px">Helper</div> | Description                                                                                                               |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `listVNodes`                          | Queries the Corda cluster and returns the list of vnodes. This includes the `ShortHash` that you  need for running flows. |
+| `listCPIs`                          | Queries the Corda cluster and returns the list of CPIs uploaded. |
 
 ### Debug Configuration
 In the toolbar, you can select the `DebugCorDapp` run configuration to debug the running Corda from IntelliJ.

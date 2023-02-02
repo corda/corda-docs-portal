@@ -24,21 +24,22 @@ Java     | Azul JDK 11
 
 ## Downloading Corda CLI
 
-To obtain the Corda CLI installer:
-1. Download `platform-jars-Fox.tar.gz` from the [R3 Customer Hub](https://r3.force.com/).
-2. Extract `corda-cli-installer-5.0.0.0-Fox1.0.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Fox1.0`.
+To obtain the Corda CLI installer from the release pack on Customer Hub:
+1. Download `platform-jars-Fox.tar.gz` from the [R3 Customer Hub](https://r3.force.com/) or from the [R3 S3 repository](https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-Fox1.1/corda-cli-downloader-5.0.0.0-Fox1.1.zip).
+2. Extract `corda-cli-installer-5.0.0.0-Fox1.1.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Fox1.1`.
+
 
 ## Installing on Linux/macOS
 
 1. Start a shell session (bash or zsh).
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox1.0.zip`.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox1.1.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   unzip ./corda-cli-installer-5.0.0.0-Fox1.0.zip -d corda-cli-installer-5.0.0.0-Fox1.0
+   unzip ./corda-cli-installer-5.0.0.0-Fox1.1.zip -d corda-cli-installer-5.0.0.0-Fox1.1
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-installer-5.0.0.0-Fox1.0
+   cd corda-cli-installer-5.0.0.0-Fox1.1
    ```
 5. Run the install script:
    ```shell
@@ -55,14 +56,14 @@ To obtain the Corda CLI installer:
 ## Installing on Windows
 
 1. Start a Powershell session.
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox1.0`.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox1.1`.
 3. Extract the contents of the `zip` file:
    ```shell
-   Expand-Archive .\corda-cli-installer-5.0.0.0-Fox1.0.zip
+   Expand-Archive .\corda-cli-installer-5.0.0.0-Fox1.1.zip
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-installer-5.0.0.0-Fox1.0
+   cd corda-cli-installer-5.0.0.0-Fox1.1
    ```
 5. Run the install script:
    ```shell
@@ -78,4 +79,4 @@ To obtain the Corda CLI installer:
      ```shell
      corda-cli.cmd -h
      ```
-    If successful, this outputs details of the Corda CLI commands.   
+    If successful, this outputs details of the Corda CLI commands.
