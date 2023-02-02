@@ -70,7 +70,7 @@ The following example outlines the basic building blocks to consider when using 
    )
    ```
 
-   Issue the query, handle the response, and clean-up any claim we make:
+   b. Issue the query, handle the response, and clean-up any claim we make:
    ```java
     // Query for required tokens
    val tokenClaim = tokenSelection.tryClaim(selectionCriteria)
