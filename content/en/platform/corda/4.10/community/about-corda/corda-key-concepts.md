@@ -20,14 +20,14 @@ Familiarize yourself with the key concepts and features of the Corda platform in
 
 This content is intended for readers who are new to Corda and who want to understand its architecture and main building blocks. It does not contain any code and is suitable for non-developers.
 
-## 1. The Corda distributed ledger
+## The Corda distributed ledger
 
 Read an **overview** of the Corda distributed ledger:
 
 * [The network](../../community/key-concepts-ecosystem.md) - the ecosystem that Corda exists in.
 * [The ledger](../../community/key-concepts-ledger.md), and how facts on the ledger are shared between nodes.
 
-## 2. Core CorDapp concepts
+## Core CorDapp concepts
 
 Read about the core **CorDapp concepts**:
 
@@ -40,7 +40,7 @@ Read about the core **CorDapp concepts**:
 When you build a custom CorDapp, your CorDapp will have state, transaction, contract, and flow classes.
 {{< /note >}}
 
-## 3. Advanced Corda concepts
+## Advanced Corda concepts
 
 The following **advanced Corda concepts** describe important conceptual information:
 
@@ -48,7 +48,7 @@ The following **advanced Corda concepts** describe important conceptual informat
 * [Notaries](../../community/key-concepts-notaries.md) - the component that assures uniqueness consensus (prevents double spends).
 * [Vault](../../community/key-concepts-vault.md) - the component that stores on-ledger shared facts for a node.
 
-## 4. More key concepts
+## More key concepts
 
 Finally, some concepts that expand on other areas:
 
@@ -59,7 +59,7 @@ Finally, some concepts that expand on other areas:
 * [Trade-offs](../../community/key-concepts-tradeoffs.md) that have been made in designing Corda and CorDapps.
 * [Deterministic JVM](../../community/key-concepts-djvm.md) - information about the importance and details of the deterministic JVM.
 
-## 5. Corda white papers
+## Corda white papers
 
 The detailed thinking and rationale behind these concepts are presented in two white papers:
 
