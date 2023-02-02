@@ -5,13 +5,14 @@ date: '2021-07-01'
 menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-10-release-notes
+    parent: about-corda-landing
     name: "Release notes"
 tags:
 - release
 - notes
 - enterprise
 
-weight: 1
+weight: 300
 ---
 
 # Corda Enterprise Edition 4.10 release notes

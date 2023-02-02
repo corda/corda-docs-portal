@@ -1,11 +1,12 @@
 ---
-date: '2020-07-15T12:00:00Z'
+date: '2023-01-27'
 menu:
-  get-started:
-    identifier: get-started-corda-4
-    name: Getting started with Corda 4
+  corda-enterprise-4-7:
+    parent: get-started-landing
+    weight: 210
+    name: "Getting started with Corda 4"
 title: Getting started with Corda 4
-weight: 400
+weight: 40
 ---
 
 # Getting started with Corda 4
@@ -20,11 +21,12 @@ The best way to get started with Corda is to:
      * Download the latest Corda Community Edition `.tar` [file](https://download.corda.net/corda-community-edition/4.10/community-4.10.tar) that contains the required Corda `.jars`. 
      * Use the Docker image and accompanying guide from the [Docker Hub](https://hub.docker.com/repository/docker/corda/community).
 
-2. Familiarize yourself with the [Corda key concepts](./corda-key-concepts.md). 
-3. Run a [sample CorDapp](../../en/platform/corda/4.10/community/tutorial-cordapp.md) to see Corda in action.
-4. [Build your own CorDapp](../../en/tutorials/corda/4.10/community/build-basic-cordapp/basic-cordapp-intro.md) from scratch.
+2. Familiarize yourself with the [Corda key concepts](../../enterprise/about-corda/corda-key-concepts.md). 
+3. Run a [sample CorDapp](../../community/tutorial-cordapp.md) to see Corda in action. 
+(../../community/key-concepts-time-windows.md)
+4. [Build your own CorDapp](../../community/building-a-cordapp-index.md) from scratch.
 
-You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition](../../en/platform/corda/4.10/community.html) documentation, or [Corda Enterprise](../../en/platform/corda/4.10/enterprise.html) documentation. You can also view the [API reference material](../../en/api-ref.html), browse [featured apps](../../en/apps.html), or browse [tools and add-ons](../../en/tools.html).
+You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Enterprise](../../enterprise/_index.md) documentation. You can also view the [API reference material](../../../../../api-ref/_index.md), browse [featured apps](../../../../../apps/_index.md), or browse [tools and add-ons](../../../../../tools/_index.md).
 
 {{< note >}}
 <b>Read Corda white papers</b>
@@ -34,7 +36,7 @@ You can then take your Corda integration to the next level by deep-diving into s
 
 ## Getting started with Corda Enterprise Network Manager (CENM) 1.5
 
-Before you deploy [CENM](../../en/platform/corda/1.5/cenm.html), read about [Corda networks](../../en/platform/corda/1.5/cenm/corda-networks.md) and the [components of CENM](../../en/platform/corda/1.5/cenm/enm-components.md). For instructions on deploying:
-* CENM with Docker, Kubernetes, and Helm charts, see [CENM Deployment with Docker, Kubernetes, and Helm charts](../../en/platform/corda/1.5/cenm/deployment-kubernetes.md).
-* CENM with Amazon Web Services (AWS), see [CENM Deployment on AWS](../../en/platform/corda/1.5/cenm/aws-deployment-guide.md).
-* CENM services as a test environment, see the [CENM test environment quick start guide](../../en/platform/corda/1.5/cenm/quick-start.md).
+Before you deploy [CENM](../../../../corda/1.5/cenm/_index.md), read about [Corda networks](../../../../corda/1.5/cenm/corda-networks.md) and the [components of CENM](../../../../corda/1.5/cenm/enm-components.md). For instructions on deploying:
+* CENM with Docker, Kubernetes, and Helm charts, see [CENM Deployment with Docker, Kubernetes, and Helm charts](../../../..//corda/1.5/cenm/deployment-kubernetes.md).
+* CENM with Amazon Web Services (AWS), see [CENM Deployment on AWS](../../../../corda/1.5/cenm/aws-deployment-guide.md).
+* CENM services as a test environment, see the [CENM test environment quick start guide](../../../../corda/1.5/cenm/quick-start.md).
