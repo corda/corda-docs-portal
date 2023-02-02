@@ -1,4 +1,7 @@
 ---
+
+---
+
 aliases:
 - /head/key-concepts.html
 - /HEAD/key-concepts.html
@@ -12,9 +15,6 @@ menu:
 tags:
 - concepts
 title: Key concepts
----
-
-
 
 # Key concepts
 

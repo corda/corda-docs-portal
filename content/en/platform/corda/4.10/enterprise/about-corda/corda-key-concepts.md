@@ -4,6 +4,7 @@ date: '2021-07-02'
 menu:
   corda-enterprise-4-10:
     parent: about-corda-landing
+    identifier: corda-enterprise-4-10-key-concepts
     weight: 100
     name: "Corda key concepts"
 tags:
