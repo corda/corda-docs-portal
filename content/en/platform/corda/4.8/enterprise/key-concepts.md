@@ -5,9 +5,9 @@ aliases:
 - /key-concepts.html
 date: '2023-02-01'
 menu:
-  corda-enterprise-4-9:
-    identifier: corda-enterprise-4-9-key-concepts
-    parent: corda-enterprise-4-9-cordapps
+  corda-enterprise-4-8:
+    identifier: corda-enterprise-4-8-key-concepts
+    parent: corda-enterprise-4-8-development
     weight: 80
 tags:
 - concepts
@@ -45,7 +45,7 @@ Then, learn how nodes can exchange assets on Corda.
 * You can use [Merkle trees](key-concepts-tearoffs.md) to add additional security to transactions that use oracles and non-validating notaries.
 * [Time windows](key-concepts-time-windows.md) let you validate that a transaction happened before, after, or during a specific time.
 
-After you're familiar with the key concepts of Corda, see them in action by [running a sample CorDapp](tutorial-cordapp.md).
+After you're familiar with the key concepts of Corda, see them in action by [running a sample CorDapp](cordapps/tutorial-cordapp.md).
 
 
 

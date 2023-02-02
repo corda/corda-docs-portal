@@ -7,7 +7,7 @@ date: '2020-01-30'
 menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-10-tools-index
-    parent: corda-enterprise-4-10-development
+    parent: corda-enterprise-4-10-cordapps
     weight: 110
 tags:
 - tools

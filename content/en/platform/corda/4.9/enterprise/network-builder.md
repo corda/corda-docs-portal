@@ -7,7 +7,7 @@ date: '2023-02-01'
 menu:
   corda-enterprise-4-9:
     identifier: corda-enterprise-4-9-network-builder
-    parent: corda-enterprise-4-9-tools-index
+    parent: corda-enterprise-4-9-corda-network
     weight: 1010
 tags:
 - network
