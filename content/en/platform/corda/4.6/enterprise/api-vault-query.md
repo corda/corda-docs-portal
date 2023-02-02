@@ -7,7 +7,7 @@ date: '2023-01-26'
 menu:
   corda-enterprise-4-6:
     identifier: corda-enterprise-4-6-api-vault-query
-    parent: corda-enterprise-4-6-corda-api
+    parent: corda-enterprise-4-5-cordapps-flows
     weight: 310
 tags:
 - api
