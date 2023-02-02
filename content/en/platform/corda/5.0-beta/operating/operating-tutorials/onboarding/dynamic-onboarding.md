@@ -1,5 +1,5 @@
 ---
-date: '2022-11-16'
+date: '2023-02-02'
 title: "Onboarding Members to Dynamic Networks"
 menu:
   corda-5-beta:
@@ -57,26 +57,13 @@ Set the values of variables for use in later commands:
    {{% tab name="Bash"%}}
    ```shell
    export WORK_DIR=~/Desktop/register-member
-   mkdir -p $WORK_DIR
+   mkdir -p "$WORK_DIR"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    $WORK_DIR = "$HOME/register-member"
    md $WORK_DIR -Force
-   ```
-   {{% /tab %}}
-   {{< /tabs >}}
-4. Set the path to your local clone of `corda-runtime-os`:
-   {{< tabs >}}
-   {{% tab name="Bash"%}}
-   ```shell
-   export RUNTIME_OS=~/dev/corda-runtime-os
-   ```
-   {{% /tab %}}
-   {{% tab name="PowerShell" %}}
-   ```shell
-   $RUNTIME_OS = "~/dev/corda-runtime-os"
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -110,7 +97,7 @@ To retrieve the `GroupPolicy.json` file from the MGM:
    {{< /tabs >}}
    If using Bash, create the `GroupPolicy.json` by exporting it using the MGM, by running this command:
    ```shell
-   curl --insecure -u admin:admin -X GET $MGM_API_URL/mgm/$MGM_HOLDING_ID/info > $WORK_DIR/GroupPolicy.json
+   curl --insecure -u admin:admin -X GET $MGM_API_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
    ```
 
 ## Create a CPI
@@ -299,7 +286,7 @@ Use the Certificate Authority (CA) whose trustroot certificate was configured in
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL/certificates/p2p/$TLS_KEY_ID > $WORK_DIR/request1.csr
+   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL/certificates/p2p/$TLS_KEY_ID > "$WORK_DIR"/request1.csr
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
