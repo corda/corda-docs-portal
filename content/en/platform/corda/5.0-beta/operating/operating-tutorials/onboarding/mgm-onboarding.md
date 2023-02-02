@@ -74,6 +74,21 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
+4. Set the path to your local clone of `corda-runtime-os`:
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
+   ```shell
+   export RUNTIME_OS=~/dev/corda-runtime-os
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   $RUNTIME_OS = "~/dev/corda-runtime-os"
+   ```
+   }
+   {{% /tab %}}
+   {{< /tabs >}}
+
 ## Select a Certificate Authority
 
 Corda uses an external Certificate Authority (CA) for the keys it generates.
