@@ -443,6 +443,18 @@ weight = 5050
 url = 'https://docs.r3.com/en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html'
 
 [[corda-5-beta]]
+name = "net.corda.v5.ledger"
+identifier = "corda-5-beta-api-ledger"
+parent = "corda-5-beta-api"
+weight = 5500
+
+[[corda-5-beta]]
+name = "net.corda.v5.ledger.utxo"
+identifier = "corda-5-beta-api-ledger-utxo"
+parent = "corda-5-beta-api-ledger"
+weight = 1000
+
+[[corda-5-beta]]
 identifier = "corda-5-beta-release-notes"
 name = "Release Notes"
 weight = 6000

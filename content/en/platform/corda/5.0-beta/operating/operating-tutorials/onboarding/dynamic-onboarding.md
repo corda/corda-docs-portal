@@ -1,5 +1,5 @@
 ---
-date: '2022-11-16'
+date: '2023-02-02'
 title: "Onboarding Members to Dynamic Networks"
 menu:
   corda-5-beta:
@@ -57,26 +57,13 @@ Set the values of variables for use in later commands:
    {{% tab name="Bash"%}}
    ```shell
    export WORK_DIR=~/Desktop/register-member
-   mkdir -p $WORK_DIR
+   mkdir -p "$WORK_DIR"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    $WORK_DIR = "$HOME/register-member"
    md $WORK_DIR -Force
-   ```
-   {{% /tab %}}
-   {{< /tabs >}}
-4. Set the path to your local clone of `corda-runtime-os`:
-   {{< tabs >}}
-   {{% tab name="Bash"%}}
-   ```shell
-   export RUNTIME_OS=~/dev/corda-runtime-os
-   ```
-   {{% /tab %}}
-   {{% tab name="PowerShell" %}}
-   ```shell
-   $RUNTIME_OS = "~/dev/corda-runtime-os"
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -110,7 +97,7 @@ To retrieve the `GroupPolicy.json` file from the MGM:
    {{< /tabs >}}
    If using Bash, create the `GroupPolicy.json` by exporting it using the MGM, by running this command:
    ```shell
-   curl --insecure -u admin:admin -X GET $MGM_API_URL/mgm/$MGM_HOLDING_ID/info > $WORK_DIR/GroupPolicy.json
+   curl --insecure -u admin:admin -X GET $MGM_API_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
    ```
 
 ## Create a CPI
@@ -186,7 +173,9 @@ If using Bash, run the following, replacing `<holding identity ID>` with the ID 
 export HOLDING_ID=<holding identity ID>
 ```
 
-## Configure the P2P Session Initiation Key Pair and Certificate
+## Configure Key Pairs and Certificates
+ 
+### P2P Session Initiation Key Pair and Certificate
 
 To assign a soft high security module (HSM) and generate a session initiation key pair:
 {{< tabs >}}
@@ -205,11 +194,11 @@ $SESSION_KEY_ID = $SESSION_KEY_RESPONSE.id
 {{% /tab %}}
 {{< /tabs >}}
 
-If using Bash, the result contains `session key ID` (e.g. 3B9A266F96E2). Run the following command to save this ID for use in subsequent steps:
+If using Bash, the result contains `session key ID` (for example, 3B9A266F96E2). Run the following command to save this ID for use in subsequent steps:
 ```shell
 export SESSION_KEY_ID=<session key ID>
 ```
-## Configure the Ledger Key Pair and Certificate
+### Ledger Key Pair and Certificate
 
 To assign a soft high security module (HSM) and generate a ledger key pair:
 {{< tabs >}}
@@ -228,12 +217,41 @@ $LEDGER_KEY_ID = $LEDGER_KEY_RESPONSE.id
 {{% /tab %}}
 {{< /tabs >}}
 
-If using Bash, the result contains the ledger key ID (e.g. 3B9A266F96E2). Run the following command to save this ID for use in subsequent steps:
+If using Bash, the result contains the ledger key ID (for example, 3B9A266F96E2). Run the following command to save this ID for use in subsequent steps:
 ```shell
 export LEDGER_KEY_ID=<ledger key ID>
 ```
 
-## Configure the TLS Key Pair and Certificate
+### Notary Key Pair
+
+{{< note >}}
+This step is only necessary if you are onboarding a member as a notary. 
+{{< /note >}}
+
+Gnerate notary keys in a similar way as done for other key types. First, create a HSM, then generate the key and store the ID:
+
+{{< tabs >}}
+{{% tab name="Bash"%}}
+```shell
+curl --insecure -u admin:admin -X POST $API_URL/hsm/soft/$HOLDING_ID/NOTARY
+curl --insecure -u admin:admin -X POST $API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-notary/category/NOTARY/scheme/CORDA.ECDSA.SECP256R1
+```
+{{% /tab %}}
+{{% tab name="PowerShell" %}}
+```
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/hsm/soft/$HOLDING_ID/NOTARY"
+$LEDGER_KEY_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-notary/category/NOTARY/scheme/CORDA.ECDSA.SECP256R1"
+$NOTARY_KEY_ID = $NOTARY_KEY_RESPONSE.id
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+If using Bash, the result contains the notary key ID (for example, 3B9A266F96E2). Run the following command to save this ID for use in subsequent steps:
+```shell
+export NOTARY_KEY_ID=<notary key ID>
+```
+
+### TLS Key Pair and Certificate
 
 {{< note >}}
 This step is only necessary if setting up a new cluster.
@@ -268,7 +286,7 @@ Use the Certificate Authority (CA) whose trustroot certificate was configured in
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL/certificates/p2p/$TLS_KEY_ID > $WORK_DIR/request1.csr
+   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL/certificates/p2p/$TLS_KEY_ID > "$WORK_DIR"/request1.csr
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -286,7 +304,8 @@ Use the Certificate Authority (CA) whose trustroot certificate was configured in
    openssl req -text -noout -verify -in ./request1.csr
    ```
    The contents should resemble the following:
-   ```properties
+   
+   ```shell
    -----BEGIN CERTIFICATE REQUEST-----
    MIIDkjCCAfwCAQAwLjELMAkGA1UEBhMCR0IxDzANBgNVBAcTBkxvbmRvbjEOMAwG
    A1UEAxMFQWxpY2UwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQChJ9CW
@@ -335,10 +354,11 @@ Use the Certificate Authority (CA) whose trustroot certificate was configured in
    If you upload a certificate chain consisting of more than one certificate, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
    {{< /note >}}
 
-### Disable Revocation Checks
+#### Disable Revocation Checks
 
 If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks. By default, revocation checks are enabled.
 This only needs to be done once per cluster.
+
 #### Disable Revocation Checks Using Bash
 
 If using Bash, to disable revocation checks, do the following:

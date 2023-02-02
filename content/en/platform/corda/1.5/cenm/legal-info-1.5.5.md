@@ -1,5 +1,5 @@
 ---
-date: '2022-01-28T09:59:25Z'
+date: '2023-01-20'
 menu:
   cenm-1-5:
     identifier: cenm-1-5-5-legal-info
