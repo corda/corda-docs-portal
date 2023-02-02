@@ -4,12 +4,13 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-6:
     identifier: "corda-enterprise-4-6-release-notes"
+    parent: about-corda-landing
     name: "Release notes"
 tags:
 - release
 - notes
 - enterprise
-weight: 1
+weight: 300
 
 ---
 

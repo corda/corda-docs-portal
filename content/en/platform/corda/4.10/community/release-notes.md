@@ -4,15 +4,18 @@ aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
 - /release-notes.html
-date: '2021-06-29'
+date: '2023-02-01'
 menu:
   corda-community-4-10:
-    identifier: corda-community-4-10-release-notes
-    weight: 1
+    identifier: 4-10-release-notes
+    parent: about-corda-landing
+    weight: 300
     name: "Release notes"
 tags:
 - release
+- community
 - notes
+
 ---
 
 # Corda Community Edition 4.10 release notes
