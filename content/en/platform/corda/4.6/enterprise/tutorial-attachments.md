@@ -7,7 +7,7 @@ date: '2023-01-26'
 menu:
   corda-enterprise-4-6:
     identifier: corda-enterprise-4-6-tutorial-attachments
-    parent: corda-enterprise-4-7-key-concepts
+    parent: corda-enterprise-4-6-key-concepts
     weight: 1080
 tags:
 - tutorial
