@@ -1,5 +1,5 @@
 ---
-date: '2022-11-15'
+date: '2023-02-02'
 title: "Onboarding the MGM"
 menu:
   corda-5-beta:
