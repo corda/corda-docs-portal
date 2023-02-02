@@ -7,7 +7,7 @@ date: '2023-01-26'
 menu:
   corda-enterprise-4-7:
     identifier: corda-enterprise-4-7-contributing-flow-internals
-    parent: corda-enterprise-4-7-contributing-index
+    parent: corda-enterprise-4-7-cordapps-flows
     weight: 1100
 tags:
 - contributing

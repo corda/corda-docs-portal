@@ -7,7 +7,7 @@ date: '2023-01-26'
 menu:
   corda-enterprise-4-7:
     identifier: corda-enterprise-4-7-tutorial-attachments
-    parent: corda-enterprise-4-7-supplementary-tutorials-index
+    parent: corda-enterprise-4-7-key-concepts
     weight: 1080
 tags:
 - tutorial
@@ -18,7 +18,7 @@ title: Working with attachments
 
 
 
-# Working with attachments
+# Attachments
 
 This tutorial outlines how to work with attachments, also known as contract attachments.
 
