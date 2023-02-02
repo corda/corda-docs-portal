@@ -51,7 +51,7 @@ A token observer converts a custom state into a token when a transaction is fina
 When a flow needs to select fungible states to spend, it can execute a claim query using the `TokenSelection` API. The API supports a single method `tryClaim` that takes a `TokenClaimCriteria` describing the target amount required and the type of tokens required. 
 
 ### Token Claim
-When a flow executes a successful query to select tokens via the selection API, it receives a Token Claim. The claim represents a list of tokens that have been exclusively claimed and can be used as inputs to a new transaction. Once the flow has completed (successfully or not) it should release the claim, signaling which tokens, if any, were consumed in a transaction. Any unused tokens are released back to the pool for others to use.
+When a flow executes a successful query to select tokens via the selection API, it receives a Token Claim. The claim represents a list of tokens that have been exclusively claimed and can be used as inputs to a new transaction. Once the flow has completed (successfully or not), it should release the claim, signaling which tokens, if any, were consumed in a transaction. Any unused tokens are released back to the pool for others to use.
 
 ## Token Eligibility
 As described, a Token is a representation of state that is available to spend. There following rules control the eligibility of a token/state for selection:
