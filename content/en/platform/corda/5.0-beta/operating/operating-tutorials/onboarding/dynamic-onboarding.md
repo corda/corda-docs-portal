@@ -1,5 +1,5 @@
 ---
-date: '2022-11-16'
+date: '2023-02-02'
 title: "Onboarding Members to Dynamic Networks"
 menu:
   corda-5-beta:
@@ -57,7 +57,7 @@ Set the values of variables for use in later commands:
    {{% tab name="Bash"%}}
    ```shell
    export WORK_DIR=~/Desktop/register-member
-   mkdir -p $WORK_DIR
+   mkdir -p "$WORK_DIR"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -110,7 +110,7 @@ To retrieve the `GroupPolicy.json` file from the MGM:
    {{< /tabs >}}
    If using Bash, create the `GroupPolicy.json` by exporting it using the MGM, by running this command:
    ```shell
-   curl --insecure -u admin:admin -X GET $MGM_API_URL/mgm/$MGM_HOLDING_ID/info > $WORK_DIR/GroupPolicy.json
+   curl --insecure -u admin:admin -X GET $MGM_API_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
    ```
 
 ## Create a CPI
