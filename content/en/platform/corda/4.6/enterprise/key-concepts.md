@@ -7,7 +7,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-os-4-6:
     identifier: corda-enterprise-4-6-key-concepts
-    parent: corda-enterprise-4-6-development
+    parent: corda-enterprise-4-6-cordapps
     weight: 80
 tags:
 - concepts

@@ -7,7 +7,7 @@ date: '2023-01-26'
 menu:
   corda-enterprise-4-6:
     identifier: corda-enterprise-4-6-api-persistence
-    parent: corda-enterprise-4-6-corda-api
+    parent: corda-enterprise-4-6-cordapps-flows
     weight: 240
 tags:
 - api
