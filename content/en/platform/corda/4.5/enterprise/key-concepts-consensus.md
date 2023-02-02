@@ -3,9 +3,9 @@ aliases:
 - /head/key-concepts-consensus.html
 - /HEAD/key-concepts-consensus.html
 - /key-concepts-consensus.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-02-02'
 menu:
-  corda-os-4-5:
+  corda-enterprise-4-5:
     identifier: corda-enterprise-4-5-key-concepts-consensus
     parent: corda-enterprise-4-5-key-concepts
     weight: 1070

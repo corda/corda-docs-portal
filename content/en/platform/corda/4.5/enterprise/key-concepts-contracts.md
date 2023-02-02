@@ -5,7 +5,7 @@ aliases:
 - /key-concepts-contracts.html
 date: '2020-04-07T12:00:00Z'
 menu:
-  corda-os-4-5:
+  corda-enterprise-4-5:
     identifier: corda-enterprise-4-5-key-concepts-contracts
     parent: corda-enterprise-4-5-key-concepts
     weight: 1050
