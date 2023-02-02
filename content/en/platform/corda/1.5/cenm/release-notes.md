@@ -1,5 +1,5 @@
 ---
-date: '2020-01-08T09:59:25Z'
+date: '2023-01-23'
 menu:
   cenm-1-5:
     identifier: cenm-1-5-release-notes
@@ -13,6 +13,13 @@ title: Release notes
 ---
 
 # Corda Enterprise Network Manager release notes
+
+## Corda Enterprise Network Manager 1.5.6
+
+CENM 1.5.6 fixes two vulnerabilities by:
+
+* excluding Jackson Databind.
+* excluding Spring Framework.
 
 ## Corda Enterprise Network Manager 1.5.5
 
