@@ -67,19 +67,6 @@ Set the values of variables for use in later commands:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-4. Set the path to your local clone of `corda-runtime-os`:
-   {{< tabs >}}
-   {{% tab name="Bash"%}}
-   ```shell
-   export RUNTIME_OS=~/dev/corda-runtime-os
-   ```
-   {{% /tab %}}
-   {{% tab name="PowerShell" %}}
-   ```shell
-   $RUNTIME_OS = "~/dev/corda-runtime-os"
-   ```
-   {{% /tab %}}
-   {{< /tabs >}}
 
 ## Generate the Group Policy File
 
@@ -299,7 +286,7 @@ Use the Certificate Authority (CA) whose trustroot certificate was configured in
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL/certificates/p2p/$TLS_KEY_ID > $WORK_DIR/request1.csr
+   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL/certificates/p2p/$TLS_KEY_ID > "$WORK_DIR"/request1.csr
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
