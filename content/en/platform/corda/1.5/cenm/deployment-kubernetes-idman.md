@@ -35,10 +35,10 @@ helm install cenm-idman idman --set idmanPublicIP=X.X.X.X --set prefix=cenm --se
 | ----------------------------- | -------------------------------------------------------- | --------------------- |
 | `bashDebug`                   | Display additional information while running bash scripts (useful while investigating issues) | `false` |
 | `dockerImage.name`            | URL to Identity Manager Docker image used by the Identity Manager Service Helm chart | `corda/enterprise-identitymanager` |
-| `dockerImage.tag`             | Docker image Tag for the Docker image used by the Identity Manager Service Helm chart | `1.5.4-zulu-openjdk8u242` |
+| `dockerImage.tag`             | Docker image Tag for the Docker image used by the Identity Manager Service Helm chart | `1.5.6-zulu-openjdk8u242` |
 | `dockerImage.pullPolicy`      | Docker image pull policy for the Docker image used by the Identity Manager Service Helm chart. More info: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `dockerImageCli.name`            | URL to Identity Manager Docker image used by the CENM Command-Line (CLI) tool Helm chart | `corda/enterprise-cenm-cli` |
-| `dockerImageCli.tag`             | Docker image Tag for the Docker image used by the CENM Command-Line (CLI) tool Helm chart | `1.5.4-zulu-openjdk8u242` |
+| `dockerImageCli.tag`             | Docker image Tag for the Docker image used by the CENM Command-Line (CLI) tool Helm chart | `1.5.6-zulu-openjdk8u242` |
 | `dockerImageCli.pullPolicy`      | Docker image pull policy for the Docker image used by the CENM Command-Line (CLI) tool Helm chart. More info: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `volumeSizeIdmanEtc`          | Volume size for the `etc/` directory | `1Gi` |
 | `volumeSizeIdmanLogs`         | Volume size for `logs/` directory | `10Gi` |

@@ -9,10 +9,6 @@ menu:
 section_menu: corda-5-beta
 ---
 
-{{< note >}}
-Development of the Corda 5.0 Beta version of the [CorDapp Standard Development Environment (CSDE)](cordapp-standard-development-environment/csde.html) is ongoing. A new version will be released shortly.
-{{< /note >}}
-
 This section guides Developers who are new to Corda 5 from setting up their development environment through to writing, compiling, and running their first basic CorDapp.
 
 ## Corda 4 vs Corda 5
