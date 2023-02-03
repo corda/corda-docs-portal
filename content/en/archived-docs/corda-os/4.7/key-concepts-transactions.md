@@ -5,9 +5,9 @@ aliases:
 - /key-concepts-transactions.html
 date: '2023-02-01'
 menu:
-  corda-enterprise-4-7:
-    identifier: corda-enterprise-4-7-key-concepts-transactions
-    parent: corda-enterprise-4-7-key-concepts
+  corda-os-4-7:
+    identifier: corda-os-4-7-key-concepts-transactions
+    parent: corda-os-4-7-key-concepts
     weight: 1040
 tags:
 - concepts
