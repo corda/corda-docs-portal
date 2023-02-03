@@ -3,10 +3,10 @@ date: '2023-01-27'
 menu:
   corda-enterprise-4-7:
     parent: get-started-landing
-    weight: 210
+    weight: 40
     name: "Getting started with Corda 4"
 title: Getting started with Corda 4
-weight: 40
+
 ---
 
 # Getting started with Corda 4
