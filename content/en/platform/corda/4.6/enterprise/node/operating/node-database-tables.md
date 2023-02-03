@@ -93,7 +93,7 @@ Read more in [Network map](../../network/network-map.md).
 
 ### Node identities
 
-The following four tables are used by the `IdentityService` and are created from the NodeInfos. They are append only tables used for persistent caching. They will also be cleared on `rpc.clearNetworkMapCache()`. Read more in [CorDapp identities](../../../../../../../en/platform/corda/4.6/enterprise/cordapps/api-identity.md) and [Node services](../../../../../../../en/platform/corda/4.6/enterprise/node-services.md).
+The following four tables are used by the `IdentityService` and are created from the NodeInfos. They are append only tables used for persistent caching. They will also be cleared on `rpc.clearNetworkMapCache()`. Read more in [CorDapp identities](../../cordapps/api-identity.md) and [Node services](../../node-services.md).
 
 
 {{< table >}}
@@ -162,12 +162,12 @@ It is an append only table and the size will be fairly small.
 
 The ledger data is formed of transactions and attachments.
 In future versions this data will be encrypted using SGX.
-Read more in [Ledger](../../../../../../../en/platform/corda/4.6/open-source/key-concepts-ledger.md).
+Read more in [Ledger](../../key-concepts-ledger.md).
 
 
 ### Attachments
 
-Read more in [Working with attachments](../../../../../../../en/platform/corda/4.6/open-source/tutorial-attachments.md) and [Node services](../../node-services.md).
+Read more in [Working with attachments](../../tutorial-attachments.md) and [Node services](../../node-services.md).
 
 {{< figure alt="attachments tables" width=80% zoom="/en/images/attachments_tables.png" >}}
 
@@ -396,7 +396,7 @@ The size should be fairly constant.
 
 ## Vault tables
 
-Read more about the vault in [Vault](../../../open-source/key-concepts-vault.md).
+Read more about the vault in [Vault](../../key-concepts-vault.md).
 
 Note that the vault tables are guaranteed to remain backwards compatible and are safe to be used directly by third party applications.
 

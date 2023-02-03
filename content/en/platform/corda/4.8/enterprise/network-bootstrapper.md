@@ -95,12 +95,12 @@ alongside the configuration files. For example, for a directory with this struct
 ```
 
 The `cordapp-a.jar` and `cordapp-b.jar` will be installed in each node directory, and any contracts within them will be
-added to the [contract whitelist](###whitelist-contracts).
+added to the [contract whitelist](#create-a-contracts-whitelist).
 
 
 
 ### Create a contracts whitelist
-If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist](https://docs.corda.net/docs/4.8/enterprise/cordapps/api-contract-constraints.html) for the network.
+If you provide a CorDapp, the boostrapper will hash it, then scan it for instances of the `contacts` class. If it finds contracts, it will use them to create a [compatibility zone whitelist](cordapps/api-contract-constraints.md) for the network.
 
 {{< note >}}
 If you want to whitelist the CorDapps without copying them to each node, run them using the `--copy-cordapps=No` option.
@@ -124,7 +124,7 @@ net.corda.finance.contracts.asset.Cash
 net.corda.finance.contracts.asset.CommercialPaper
 ```
 
-Before you add `exclude_whitelist.txt` or `include_whitelist.txt` files, refer to [contract constraints](https://docs.corda.net/docs/4.8/enterprise/cordapps/api-contract-constraints.html) to understand different constraint types.
+Before you add `exclude_whitelist.txt` or `include_whitelist.txt` files, refer to [contract constraints](cordapps/api-contract-constraints.html) to understand different constraint types.
 
 
 
@@ -333,12 +333,12 @@ The available configuration fields are:
 
 * **eventHorizon**:
   The time after which nodes will be removed from the network map if they have not been seen during this period. This parameter uses
-  the `parse` function on the `java.time.Duration` class to interpret the data. See [Oracle's documentation](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-)
+  the `parse` function on the `java.time.Duration` class to interpret the data. See [Oracle documentation](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-)
   for information on valid inputs.
 
 
 * **packageOwnership**:
-  A list of package owners. See [Package namespace ownership](#id1). For each package owner, these fields
+  A list of package owners. See [Package namespace ownership](#package-namespace-ownership). For each package owner, these fields
   are required:
 
 
@@ -417,7 +417,7 @@ To register a package, you need to provide the:
 
 We've created a sample CorDapp (available in [Java](https://github.com/corda/samples-java/tree/master/Basic/cordapp-example) and [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Basic/cordapp-example)) you can use to practice initializing a simple network and registering and unregistering a package namespace.
 
-1. Check the sample CorDapp out, then follow the [instructions to build it](../../../../../en/platform/corda/4.8/open-source/tutorial-cordapp.html#building-the-example-cordapp).
+1. Check the sample CorDapp out, then follow the [instructions to build it](cordapps/tutorial-cordapp.html#building-the-example-cordapp).
 
 {{< note >}}
 You can point to any existing bootstrapped network on Corda. This will update the associated network parameters file for that network).
@@ -507,4 +507,4 @@ bootstrapper [-hvV] [--copy-cordapps=<copyCordapps>] [--dir=<dir>]
 
 ### Sub-commands
 
-`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extentions for CLI applications](../../../../../en/platform/corda/4.8/open-source/cli-application-shell-extensions.html#shell-extensions-for-cli-applications).
+`install-shell-extensions`: Installs the `bootstrapper` alias and auto-completion for bash and zsh. See [Shell extentions for CLI applications](node/operating/cli-application-shell-extensions.html#shell-extensions-for-cli-applications).

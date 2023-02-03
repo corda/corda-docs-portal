@@ -416,8 +416,7 @@ Given two configuration files above, in order to produce node keystores the foll
 java -jar corda-tools-ha-utilities-4.6.jar node-registration --config-files=./entityA/node.conf --config-files=./entityB/node.conf --network-root-truststore=network-root-truststore.jks --network-root-truststore-password=trustpass
 ```
 
-This call will process `node.conf` files and for each legal name performs Doorman registration. Depending on Corda Network configuration this process may require manual approval
-and the program will poll for for Certification Signing Request(CSR) completion. For more information see joining-a-compatibility-zone.
+This call will process `node.conf` files and for each legal name performs Doorman registration. Depending on Corda Network configuration this process may require manual approval and the program will poll for for Certification Signing Request(CSR) completion. For more information see [Joining a compatibility zone](../../network/joining-a-compatibility-zone.md).
 
 After successful execution this will produce two directories `entityA/certificates` and `entityB/certificates` containing the following files:
 

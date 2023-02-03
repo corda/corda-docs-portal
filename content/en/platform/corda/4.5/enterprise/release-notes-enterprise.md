@@ -229,7 +229,7 @@ This release extends the [Corda Enterprise Edition 4.4 release](../../../../../e
 
 Corda Enterprise Edition 4.5 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. See the Corda Enterprise [platform support matrix](../../../../../en/platform/corda/4.5/enterprise/platform-support-matrix.md) for more information.
 
-Corda Enterprise Edition 4.5 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise Edition 4.4, 4.3, 4.2, 4.1, 4.0, and 3.x. See the [Corda (open source) release notes](../../../../../en/platform/corda/4.5/open-source/release-notes.md) for more information.
+Corda Enterprise Edition 4.5 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise Edition 4.4, 4.3, 4.2, 4.1, 4.0, and 3.x. See the [Corda (open source) release notes](/en/archived-docs/corda-os/4.5/release-notes.md) for more information.
 
 ## New features and enhancements
 
@@ -353,7 +353,7 @@ The documentation has been relocated to the main Corda and Corda Enterprise docu
 
 The platform version of Corda Enterprise Edition 4.5 has been bumped up from 6 to 7 due to the addition of the new flow framework APIs `sendAll` and `sendAllMap`, which can be used to send messages to multiple counterparties with improved performance.
 
-For more information about platform versions, see [Versioning](../../../../../en/platform/corda/4.5/open-source/versioning.md).
+For more information about platform versions, see [Versioning](cordapps/versioning.md).
 
 ## Fixed issues
 
@@ -389,5 +389,5 @@ For more information about platform versions, see [Versioning](../../../../../en
 * We have fixed an issue where the Corda Health Survey tool ignored HTTP 301 and 404 response codes when resolving network information.
 * We have fixed an issue where the Corda Health Survey tool did not perform HTTP / HTTPS network map redirections.
 * We have fixed an issue with a flaky test where `net.corda.coretests.transactions.AttachmentsClassLoaderTests.attachment` was still available in verify after forced garbage collection.
-* We have moved the `backchainFetchBatchSize` option, used for bulk backchain resolution, into the correct Corda Enterprise-specific tuning section of the [Node configuration](../../../../../en/platform/corda/4.5/enterprise/node/setup/corda-configuration-file.md) (this section contains options that should be changed only in consultation with R3).
+* We have moved the `backchainFetchBatchSize` option, used for bulk backchain resolution, into the correct Corda Enterprise-specific tuning section of the [Node configuration](node/setup/corda-configuration-file.md) (this section contains options that should be changed only in consultation with R3).
 * We have fixed an issue where sensitive information was exposed as plain text in logs and the shell terminal when using the [Database Management Tool](../../../../../en/platform/corda/4.5/enterprise/database-management-tool.md).

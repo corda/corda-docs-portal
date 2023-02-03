@@ -60,7 +60,7 @@ If you'd prefer to install Gradle manually, navigate to [Gradle](https://gradle.
 
 First, run the [example CorDapp](tutorial-cordapp.md).
 
-Next, read through the [Corda Key Concepts](../../../../../../../en/platform/corda/4.5/open-source/key-concepts.md) to understand how Corda works.
+Next, read through the [Corda Key Concepts](../key-concepts.md) to understand how Corda works.
 
 By then, you’ll be ready to start writing your own CorDapps. You may want to refer to the
 API documentation, the [flow cookbook](flow-cookbook.md) and the

@@ -49,13 +49,13 @@ Corda nodes operate with the following assumptions on the certificates hierarchy
 * They need to have the common root certificate, which is present in the node’s trust store.
 The length of the certificate chain can be arbitrary. As such, there can be any number of certificates between the Identity Manager and Network Map certificates as long
 as they root to the same certificate.
-* They need to have a custom extension defining the role of the certificate in the context of Corda. See the [Network Certificates](../../open-source/permissioning.html#certificate-role-extension) documentation for more details.
+* They need to have a custom extension defining the role of the certificate in the context of Corda. See the [Network Certificates](../network/permissioning.html#certificate-role-extension) documentation for more details.
 
 
 Other than that, Corda nodes stay agnostic to the certificate hierarchy (in particular the depth of the certificate hierarchy tree).
 
 ![hierarchy agnostic](../resources/hierarchy-agnostic.png "hierarchy agnostic")
-At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found in the [Network Certificates](../../open-source/permissioning.md) documentation.
+At the time of writing this document, the Corda Network assumes the certificate hierarchy that can be found in the [Network Certificates](../network/permissioning.md) documentation.
 
 
 ### Certificate Revocation List
@@ -131,6 +131,6 @@ is only required to provide only essential information to the tool. At the same 
 defaults and have the configuration adjusted to the specific needs of different scenarios.
 
 {{< note >}}
-To learn more about running the tool, see the documentation on the [Public Key Infrastructure (PKI) Tool](../../../../../../en/platform/corda/4.5/enterprise/pki-tool.md)
+To learn more about running the tool, see the documentation on the [Public Key Infrastructure (PKI) Tool](../pki-tool.md)
 
 {{< /note >}}

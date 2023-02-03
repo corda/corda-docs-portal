@@ -3,7 +3,7 @@ aliases:
 - /head/key-concepts-transactions.html
 - /HEAD/key-concepts-transactions.html
 - /key-concepts-transactions.html
-date: '2020-04-07T12:00:00Z'
+date: '2023-02-01'
 menu:
   corda-os-4-7:
     identifier: corda-os-4-7-key-concepts-transactions
