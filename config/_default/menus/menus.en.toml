@@ -226,43 +226,6 @@ identifier = "cenm-1-5-signing-plugin-samples"
 name = "Signing Plugin Samples"
 weight = 330
 
-[[corda-enterprise-4-5]]
-identifier = "corda-enterprise-4-5-upgrading-and-tools"
-name = "Upgrading CorDapps and Nodes"
-weight = 10
-
-[[corda-enterprise-4-5]]
-identifier = "corda-enterprise-4-5-notaries"
-name = "Corda Notaries"
-weight = 35
-
-[[corda-enterprise-4-5]]
-identifier = "corda-enterprise-4-5-corda-networks"
-name = "Corda Networks"
-weight = 40
-
-[[corda-enterprise-4-5]]
-identifier = "corda-enterprise-4-5-corda-nodes-operating"
-name = "Operating a Corda Node"
-parent = "corda-enterprise-4-5-corda-nodes"
-weight = 60
-
-[[corda-enterprise-4-6]]
-identifier = "corda-enterprise-4-6-notaries"
-name = "Corda Notaries"
-weight = 35
-
-[[corda-enterprise-4-6]]
-identifier = "corda-enterprise-4-6-corda-networks"
-name = "Corda Networks"
-weight = 40
-
-[[corda-enterprise-4-6]]
-identifier = "corda-enterprise-4-6-corda-nodes-operating"
-name = "Operating a Corda Node"
-parent = "corda-enterprise-4-6-corda-nodes"
-weight = 60
-
 [[corda-enterprise-4-7]]
 identifier = "corda-enterprise-4-7-notaries"
 name = "Corda Notaries"
