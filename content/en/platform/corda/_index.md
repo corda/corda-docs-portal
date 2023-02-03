@@ -39,8 +39,6 @@ The Corda platform documentation covers the following current versions of the Co
 | Corda 4.9 Enterprise          |[Link](../platform/corda/4.9/enterprise.html)          |
 | Corda 4.8 Enterprise          |[Link](../platform/corda/4.8/enterprise.html)          |
 | Corda 4.7 Enterprise          |[Link](../platform/corda/4.7/enterprise.html)          |
-| Corda 4.6 Enterprise          |[Link](../platform/corda/4.6/enterprise.html)          |
-| Corda 4.5 Enterprise          |[Link](../platform/corda/4.5/enterprise.html)          |
 | **Corda Enterprise Network Manager (CENM)** |                                         |
 | CENM 1.5                      |[Link](../platform/corda/1.5/cenm.html)                |
 | CENM 1.4                      |[Link](../platform/corda/1.4/cenm.html)                |
@@ -95,7 +93,9 @@ Documentation for non-supported releases of Corda Open Source, Corda Enterprise,
 | Corda Enterprise 4.1   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.1) | 
 | Corda Enterprise 4.2   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.2) | 
 | Corda Enterprise 4.3   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.3) | 
-| Corda Enterprise 4.4   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.4) | 
+| Corda Enterprise 4.4   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.4) |
+| Corda Enterprise 4.5   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.5) |
+| Corda Enterprise 4.6   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.6) | 
 | Corda Open Source 1.0  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/1.0) | 
 | Corda Open Source 2.0  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/2.0) | 
 | Corda Open Source 3.0  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/3.0) | 
