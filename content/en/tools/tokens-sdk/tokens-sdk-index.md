@@ -18,13 +18,8 @@ With the SDK, you can define your token and its attributes, then add functionali
 {{< note >}}
 Tokens SDK V1.2.2 is compatible with **Corda release version 4.6** and higher. Please use this version for Corda 4.6+ series work.
 
-Please use the newest Tokens SDK V2.0 for Corda 5 Developer Preview (and future Corda 5.x series) work.
 {{< /note >}}
 
 ## Tokens SDK V1.2.2
 
 Read the full documentation about Tokens SDK V1.2.2 [here](../../../en/platform/corda/4.8/enterprise/cordapps/token-sdk-introduction.md).
-
-## Tokens SDK V2.0
-
-Read the full documentation about [Tokens SDK V2.0](../../../en/platform/corda/5.0-dev-preview-1/tokens-sdk/overview.md).
