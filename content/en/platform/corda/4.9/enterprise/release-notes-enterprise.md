@@ -1,6 +1,6 @@
 ---
 title: Corda Enterprise Edition 4.9 release notes
-date: '2022-11-28'
+date: '2023-02-03'
 
 menu:
   corda-enterprise-4-9:
@@ -16,6 +16,14 @@ weight: 300
 ---
 
 # Corda Enterprise Edition 4.9 release notes
+
+## Corda Enterprise Edition 4.9.6 release notes
+
+Corda Enterprise Edition 4.9.5 is a patch release of Corda Enterprise focused on resolving issues.
+
+* When FIPS mode is activated in the Luna HSM, version 7.7.1 of the firmware does not allow the mechanism AES/CBC/PKCS5Padding to use wrap functionality. This has resulted in flow errors with confidential identities when using "wrapped" mode. 
+
+  A new mechanism has been implemented that allows wrapping when in FIPS mode. Also, a new Boolean configuration parameter, `usekwp`, has been added to the Luna HSM configuration file. If this parameter is set to true, then the new mechanism is used. If set to false or the parameter does not exist in the configuration file, then the existing mechanism is used.
 
 ## Corda Enterprise Edition 4.9.5 release notes
 
