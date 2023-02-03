@@ -44,8 +44,6 @@ The Corda platform documentation covers the following current versions of the Co
 | CENM 1.4                      |[Link](../platform/corda/1.4/cenm.html)                |
 | CENM 1.3                      |[Link](../platform/corda/1.3/cenm.html)                |
 | CENM 1.2                      |[Link](../platform/corda/1.2/cenm.html)                |
-| CENM 1.1                      |[Link](../platform/corda/1.1/cenm.html)                |
-| CENM 1.0                      |[Link](../platform/corda/1.0/cenm.html)                |
 
 {{< /table >}}
 
@@ -111,5 +109,7 @@ Documentation for non-supported releases of Corda Open Source, Corda Enterprise,
 | Corda Open Source 4.6  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.6) | 
 | Corda Open Source 4.7  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7) | 
 | Corda Open Source 4.8  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.8) | 
+| CENM 1.0  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/CENM/1.0) | 
+| CENM 1.1  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/CENM/1.1) | 
 
 {{< /table >}}
