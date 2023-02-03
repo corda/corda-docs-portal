@@ -24,7 +24,7 @@ Find here the release notes for the latest versions of Corda Community (formerly
 
 * [Corda: Community Edition 4.10](../../en/release-notes/corda-community-4.10.md)
 * [Corda: Enterprise Edition 4.10](../../en/release-notes/corda-enterprise-4.10.md)
-* [Corda 5 Developer Preview](../../en/release-notes/corda-5-dev-preview.md)
+* [Corda 5 Beta 1](../../en/platform/corda/5.0-beta/release-notes/release-notes-c5-1.1.md)
 * [CENM 1.5](../../en/release-notes/cenm-1.5.md)
 
 ## Log4j patches
