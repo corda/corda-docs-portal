@@ -676,7 +676,7 @@ A simple procedure for adding a new node might look like the following:
 
 
 * Back up and shut down all Corda components - Nodes, Bridges, Artemis broker and Float.
-* Register your new entities with the network operator. See joining-a-compatibility-zone.
+* Register your new entities with the network operator. See [Joining a compatibility zone](../network/joining-a-compatibility-zone.md).
 * Locate the SSL keystore file in node’s certificate folder. e.g. `<node base directory>/certificates/sslkeystore.jks`
 * Copy the SSL keystores generated from the registration process to Bridge if they are on a different host.
 * Using the HA Utilities, copy the newly acquired legal entity’s SSL key to the bridge’s SSL keystore.

@@ -279,7 +279,7 @@ You can connect directly to your node’s database to see its stored states, tra
 
 ## Step 6: Test the CorDapp
 
-Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the **hammer icon**.  For a general guide, see [Running tests in IntelliJ](../../../../../../en/platform/corda/4.9/enterprise/testing.html#running-tests-in-intellij).
+Corda provides several frameworks for writing unit and integration tests for CorDapps. To access test flows in IntelliJ, select an option from the ‘Run Configurations’ dropdown next to the **hammer icon**.  For a general guide, see [Running tests in IntelliJ](../testing.html#running-tests-in-intellij).
 
 ### Integration tests
 

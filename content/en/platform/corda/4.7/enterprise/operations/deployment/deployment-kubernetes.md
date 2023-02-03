@@ -286,7 +286,7 @@ kubectl get pods -o wide
 You will find the truststore password in the `signer/files/pki.conf`, where the default value used in this Helm chart is `trust-store-password`.
 
 {{< note >}} For more details about joining a CENM network, see:
-[Joining an existing compatibility zone](../../../../../../../en/platform/corda/4.7/open-source/joining-a-compatibility-zone.md).
+[Joining an existing compatibility zone](../../network/joining-a-compatibility-zone.md).
 {{< /note >}}
 
 ### Display logs
@@ -335,7 +335,7 @@ database {
 Use the CENM [Command-Line (CLI) tool](../../../../1.5/cenm/cenm-cli-tool.md) to run commands to update the network parameters.
 
 See the CENM documentation for more information about the list of available [network parameters](../../../../1.5/cenm/config-network-parameters.md)
-and instructions on [updating network parameters](./updating-network-parameters.md).
+and instructions on [updating network parameters](updating-network-parameters.md).
 
 ### Run Flag Day
 
@@ -560,4 +560,4 @@ kubectl get svc --namespace cenm nmap --template "{{ range (index .status.loadBa
 
 ## Appendix A: Docker Images
 
-Visit the [platform support matrix](../../../../../../../en/platform/corda/4.7/enterprise/platform-support-matrix.html#docker-images) for information on Corda Docker Images for version 4.7.
+Visit the [platform support matrix](../../platform-support-matrix.html#docker-images) for information on Corda Docker Images for version 4.7.

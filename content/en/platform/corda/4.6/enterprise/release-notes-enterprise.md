@@ -273,7 +273,7 @@ Plus a lot more - please read these release notes carefully to understand whatâ€
 
 Corda Enterprise Edition 4.6 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. See the Corda Enterprise [platform support matrix](../../../../../en/platform/corda/4.6/enterprise/platform-support-matrix.md) for more information.
 
-Corda Enterprise Edition 4.6 extends the [Corda Enterprise Edition 4.5 release](../../../../../en/platform/corda/4.5/enterprise/release-notes-enterprise.md) and is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise Edition 4.5, 4.4, 4.3, 4.2, 4.1, 4.0, and 3.x. See the [Corda (open source) release notes](../../../../../en/platform/corda/4.6/open-source/release-notes.md) for more information.
+Corda Enterprise Edition 4.6 extends the [Corda Enterprise Edition 4.5 release](../../../../../en/platform/corda/4.5/enterprise/release-notes-enterprise.md) and is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise Edition 4.5, 4.4, 4.3, 4.2, 4.1, 4.0, and 3.x. See the [Corda (open source) release notes](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-os/4.6/release-notes.md) for more information.
 
 {{< note >}}
 Just as prior releases have brought with them commitments to wire and API stability, Corda 4.6 comes with those same guarantees.

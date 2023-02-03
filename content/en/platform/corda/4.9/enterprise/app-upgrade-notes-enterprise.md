@@ -85,7 +85,7 @@ You can do either of the following:
 * Upgrade your `quasar.jar` file to the version consistent with your Corda version.
 * Delete your `lib` directory and switch to using the Gradle test runner.
 
-You can find instructions for both options in [Running tests in IntelliJ](../community/testing.html#running-tests-in-intellij).
+You can find instructions for both options in [Running tests in IntelliJ](testing.html#running-tests-in-intellij).
 
 4. Check you're using Corda Gradle plugins version 5.0.12, and that Corda Enterprise dependencies are referenced with the right distribution.
 

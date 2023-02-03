@@ -62,7 +62,7 @@ You can see:
 
 To prevent a node database from becoming too large, you can use the Archive service to remove all but the minimum required data relating to consumed transactions. If you plan your CorDapp design accordingly, you can ensure that your spent states are moved to the archive regularly. By using the archive, your vault does not get weighed down by the full backchain data, but retains the essential information to maintain ledger integrity.
 
-Find out more about the [Archive Service](archive-service.md).
+Find out more about the [Archive Service](archiving-setup.md).
 
 ## Soft locking to prevent double spend attempts
 
