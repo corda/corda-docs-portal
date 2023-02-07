@@ -1,0 +1,698 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>net.corda.core.utilities - corda</title>
+<link rel="stylesheet" href="../../style.css">
+
+<meta name="docsearch:language" content="en">
+<meta name="docsearch:version" content="4.0">
+<meta name="docsearch:project" content="corda-enterprise">
+</head>
+<BODY>
+<a href="../index.html">corda</a>&nbsp;/&nbsp;<a href="./index.html">net.corda.core.utilities</a><br/>
+<br/>
+<h2>Package net.corda.core.utilities</h2>
+<p>Corda utility classes, providing a broad range of functionality to help implement both Corda nodes and CorDapps.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-byte-sequence/index.html">ByteSequence</a></p>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">ByteSequence</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><a href="-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a><span class="symbol">&gt;</span></code>
+<p>An abstraction of a byte array, with offset and size that does no copying of bytes unless asked to.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-id/index.html">Id</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">Id</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">VALUE</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code>
+<p>Represents a unique, timestamped id.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-network-host-and-port/index.html">NetworkHostAndPort</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">NetworkHostAndPort</span></code>
+<p>Tuple of host and port. Use <a href="-network-host-and-port/parse.html">NetworkHostAndPort.parse</a> on untrusted data.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-non-empty-set/index.html">NonEmptySet</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">NonEmptySet</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><a href="-non-empty-set/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>An immutable ordered non-empty set.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-opaque-bytes/index.html">OpaqueBytes</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">OpaqueBytes</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a></code>
+<p>A simple class that wraps a byte array and makes the equals/hashCode/toString methods work as you actually expect.
+In an ideal JVM this would be a value type and be completely overhead free. Project Valhalla is adding such
+functionality to Java, but it won't arrive for a few years yet!</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-opaque-bytes-sub-sequence/index.html">OpaqueBytesSubSequence</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">OpaqueBytesSubSequence</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-byte-sequence/index.html"><span class="identifier">ByteSequence</span></a></code>
+<p>Class is public for serialization purposes.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-progress-tracker/index.html">ProgressTracker</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">ProgressTracker</span></code>
+<p>A progress tracker helps surface information about the progress of an operation to a user interface or API of some
+kind. It lets you define a set of <em>steps</em> that represent an operation. A step is represented by an object (typically
+a singleton).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-property-delegate/index.html">PropertyDelegate</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">PropertyDelegate</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Simple interface encapsulating the implicit Kotlin contract for immutable property delegates.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-sgx-support/index.html">SgxSupport</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">SgxSupport</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-try/index.html">Try</a></p>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Try</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">A</span><span class="symbol">&gt;</span></code>
+<p>Representation of an operation that has either succeeded with a result (represented by <a href="-try/-success/index.html">Success</a>) or failed with an
+exception (represented by <a href="-try/-failure/index.html">Failure</a>).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-untrustworthy-data/index.html">UntrustworthyData</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">UntrustworthyData</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>A small utility to approximate taint tracking: if a method gives you back one of these, it means the data came from
+a remote source that may be incentivised to pass us junk that violates basic assumptions and thus must be checked
+first. The wrapper helps you to avoid forgetting this vital step. Things you might want to check are:</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-uuid-generator/index.html">UuidGenerator</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">UuidGenerator</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-variable-property-delegate/index.html">VariablePropertyDelegate</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">VariablePropertyDelegate</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-property-delegate/index.html"><span class="identifier">PropertyDelegate</span></a><span class="symbol">&lt;</span><a href="-variable-property-delegate/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Simple interface encapsulating the implicit Kotlin contract for mutable property delegates.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="java.security.-public-key/index.html">java.security.PublicKey</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="java.util.concurrent.-future/index.html">java.util.concurrent.Future</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="kotlin.-any/index.html">kotlin.Any</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="kotlin.-byte-array/index.html">kotlin.ByteArray</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="kotlin.-int/index.html">kotlin.Int</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="kotlin.-long/index.html">kotlin.Long</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="kotlin.-string/index.html">kotlin.String</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="kotlin.collections.-collection/index.html">kotlin.collections.Collection</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="org.slf4j.-logger/index.html">org.slf4j.Logger</a></p>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-m-a-x_-h-a-s-h_-h-e-x_-s-i-z-e.html">MAX_HASH_HEX_SIZE</a></p>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">MAX_HASH_HEX_SIZE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>The maximum supported field-size for hash HEX-encoded outputs (e.g. database fields).
+This value is enough to support hash functions with outputs up to 512 bits (e.g. SHA3-512), in which
+case 128 HEX characters are required.
+130 was selected instead of 128, to allow for 2 extra characters that will be used as hash-scheme identifiers.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="detailed-logger.html">detailedLogger</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">detailedLogger</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Logger</span></code>
+<p>Returns the logger used for detailed logging.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="logger-for.html">loggerFor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <span class="identifier">loggerFor</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Logger</span></code>
+<p>Usually you won't need this method:</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="parse-public-key-base58.html">parsePublicKeyBase58</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">parsePublicKeyBase58</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities$parsePublicKeyBase58(kotlin.String)/base58String">base58String</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Method to return the <a href="http://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html">PublicKey</a> object given its Base58-<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> representation.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="transient.html">transient</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">transient</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities$transient(kotlin.Function0((net.corda.core.utilities.transient.T)))/initializer">initializer</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="transient.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-property-delegate/index.html"><span class="identifier">PropertyDelegate</span></a><span class="symbol">&lt;</span><a href="transient.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>A simple wrapper that enables the use of Kotlin's <code>val x by transient { ... }</code> syntax. Such a property
+will not be serialized, and if it's missing (or the first time it's accessed), the initializer will be
+used to set it up.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="unwrap.html">unwrap</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">, </span><span class="identifier">R</span><span class="symbol">&gt;</span> <a href="-untrustworthy-data/index.html"><span class="identifier">UntrustworthyData</span></a><span class="symbol">&lt;</span><a href="unwrap.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">unwrap</span><span class="symbol">(</span><span class="identifier" id="net.corda.core.utilities$unwrap(net.corda.core.utilities.UntrustworthyData((net.corda.core.utilities.unwrap.T)), kotlin.Function1((net.corda.core.utilities.unwrap.T, net.corda.core.utilities.unwrap.R)))/validator">validator</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="unwrap.html#T"><span class="identifier">T</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="unwrap.html#R"><span class="identifier">R</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="unwrap.html#R"><span class="identifier">R</span></a></code></td>
+</tr>
+</tbody>
+</table>
+
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600");
+    #cookies-eu-banner {
+        background-color: rgba(83, 88, 95, 0.9);
+        border-radius: 3px;
+        color: #fff;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        left: 3px;
+        position: fixed;
+        padding: 6px;
+        right: 3px;
+        text-align: center;
+        top: 100px;
+        z-index: 1000;
+    }
+    
+    #cookies-eu-banner h3,
+    #cookies-eu-banner p {
+        color: #fff;
+        font-size: 18px;
+        letter-spacing: 0;
+    }
+    
+    #cookies-eu-banner h3 {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.2;
+        margin: 9px 0 0;
+        text-transform: uppercase;
+    }
+    
+    #cookies-eu-banner p {
+        margin-bottom: 10px;
+        padding: 8px 36px 0;
+        text-align: justify;
+        line-height: 1.4em;
+    }
+    
+    #cookies-eu-banner fieldset {
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+    
+    #cookies-eu-banner legend {
+        color: inherit;
+        display: block;
+        font-size: 18px;
+        line-height: inherit;
+        max-width: 100%;
+        margin-bottom: 16px;
+        padding: 0;
+        white-space: normal;
+        width: 100%;
+    }
+    
+    #cookies-eu-banner a {
+        color: #62AAF1;
+    }
+    
+    #cookies-eu-banner .cookies-button-group {
+        display: flex;
+        justify-content: center;
+    }
+    
+    #cookies-eu-accept,
+    #cookies-eu-accept-all {
+        background-color: #ec1d24;
+        border: none;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        margin: 0 10px 10px;
+        max-height: 40px;
+        height: 40px;
+        line-height: 1.1;
+        text-decoration: none;
+        width: 150px;
+    }
+    
+    .cookies-checkbox {
+        display: inline-block;
+        margin: 5px 10px;
+    }
+    
+    .cookies-checkbox label {
+        font-size: 16px;
+        margin-left: 3px;
+    }
+    
+    @media screen and (min-width: 768px) {
+        #cookies-eu-banner {
+            bottom: 5px;
+            top: inherit;
+        }
+        #cookies-eu-accept,
+        #cookies-eu-accept-all {
+            font-size: 14px;
+        }
+    }
+</style>
+<div id="cookies-eu-banner" style="display: none;">
+    <h3 style="text-transform:none">Your privacy</h3>
+    <div class='cookie-flex'>
+        <p>
+            We use cookies to improve your experience on our site, and to help us understand how people use our documentation. For more detailed information, see our <a href="https://www.r3.com/privacy-policy/">privacy policy</a> and <a href="#">cookie declaration</a>.
+        </p>
+        <form id='cookie-consent-form'>
+            <fieldset>
+                <legend>
+                    Please select from the following options to continue to our site.
+                </legend>
+                <div class='cookies-button-group'>
+                    <button id="cookies-eu-accept" type="button">
+                      Allow cookies selected
+                    </button>
+                    <button id="cookies-eu-accept-all" type="button">
+                      Allow all cookies
+                    </button>
+                    <span class='cookies-checkbox'>
+                      <input
+                      type="checkbox"
+                      id="necessary"
+                      name="necessary"
+                      autocomplete="off"
+                      checked
+                      disabled />
+                        <input
+                        name="necessary"
+                        type="hidden"
+                        value="on"/>
+                        <label for="necessary">Necessary</label>
+                    </span>
+                    <span class='cookies-checkbox'>
+                      <input
+                      type="checkbox"
+                      id="preferences"
+                      name="preferences"
+                      autocomplete="off" />
+                      <label for="preferences">Preferences</label>
+                    </span>
+                    <span class='cookies-checkbox'>
+                      <input
+                      type="checkbox"
+                      id="statistics"
+                      name="statistics"
+                      autocomplete="off" />
+                      <label for="statistics">Statistics</label>
+                    </span>
+                    <span class='cookies-checkbox'>
+                      <input
+                      type="checkbox"
+                      id="marketing"
+                      name="marketing"
+                      autocomplete="off" />
+                      <label for="marketing">Marketing</label>
+                    </span>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script class='api-keys'>
+    var gaKey = 'UA-87760032-1';
+    var algolia_appId = "UX2KMUWFAL";
+    var algolia_apiKey = "1fe3367db02689b4aeebc59efad5abaf";
+    var algolia_index = "docs.corda.net";
+</script>
+<script class='cookies-eu-banner'>
+    ! function(root, factory) {
+        "use strict";
+        "function" == typeof define && define.amd ? define([], factory) : "object" == typeof exports ? module.exports = factory() : root.CookiesEuBanner = factory()
+    }(window, function() {
+        "use strict";
+        var document = window.document,
+            CookiesEuBanner = function(launchFunction, waitAccept, useLocalStorage, undefined) {
+                if (!(this instanceof CookiesEuBanner)) return new CookiesEuBanner(launchFunction);
+                this.cookieTimeout = 33696e6, this.bots = /bot|crawler|spider|crawling/i, this.cookieName = "hasConsent", this.trackingCookiesNames = ["__utma", "__utmb", "__utmc", "__utmt", "__utmv", "__utmz", "_ga", "_gat", "_gid"], this.launchFunction = launchFunction, this.waitAccept = waitAccept || !1, this.useLocalStorage = useLocalStorage || !1, this.init()
+            };
+        return CookiesEuBanner.prototype = {
+            init: function() {
+                var isBot = this.bots.test(navigator.userAgent);
+                navigator.doNotTrack || navigator.msDoNotTrack || window.doNotTrack;
+                return isBot || !1 === this.hasConsent() ? (this.removeBanner(0), !1) : !0 === this.hasConsent() ? (this.launchFunction(), !0) : (this.showBanner(), void(this.waitAccept || this.setConsent(!0)))
+            },
+            showBanner: function() {
+                var _this = this,
+                    getElementById = document.getElementById.bind(document),
+                    banner = getElementById("cookies-eu-banner"),
+                    rejectButton = getElementById("cookies-eu-reject"),
+                    acceptButton = getElementById("cookies-eu-accept"),
+                    moreLink = getElementById("cookies-eu-more"),
+                    waitRemove = void 0 === banner.dataset.waitRemove ? 0 : parseInt(banner.dataset.waitRemove),
+                    addClickListener = this.addClickListener,
+                    removeBanner = _this.removeBanner.bind(_this, waitRemove);
+                banner.style.display = "block", moreLink && addClickListener(moreLink, function() {
+                    _this.deleteCookie(_this.cookieName)
+                }), acceptButton && addClickListener(acceptButton, function() {
+                    removeBanner(), _this.setConsent(!0), _this.launchFunction()
+                }), rejectButton && addClickListener(rejectButton, function() {
+                    removeBanner(), _this.setConsent(!1), _this.trackingCookiesNames.map(_this.deleteCookie)
+                })
+            },
+            setConsent: function(consent) {
+                if (this.useLocalStorage) return localStorage.setItem(this.cookieName, consent);
+                this.setCookie(this.cookieName, consent)
+            },
+            hasConsent: function() {
+                function isCookieSetTo(value) {
+                    return -1 < document.cookie.indexOf(cookieName + "=" + value) || localStorage.getItem(cookieName) === value
+                }
+                var cookieName = this.cookieName;
+                return !!isCookieSetTo("true") || !isCookieSetTo("false") && null
+            },
+            setCookie: function(name, value) {
+                var date = new Date;
+                date.setTime(date.getTime() + this.cookieTimeout), document.cookie = name + "=" + value + ";SameSite=Strict;expires=" + date.toGMTString() + ";path=/"
+            },
+            deleteCookie: function(name) {
+                var hostname = document.location.hostname.replace(/^www\./, ""),
+                    commonSuffix = "; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/";
+                document.cookie = name + "=; domain=." + hostname + commonSuffix, document.cookie = name + "=" + commonSuffix
+            },
+            addClickListener: function(DOMElement, callback) {
+                if (DOMElement.attachEvent) return DOMElement.attachEvent("onclick", callback);
+                DOMElement.addEventListener("click", callback)
+            },
+            removeBanner: function(wait) {
+                setTimeout(function() {
+                    var banner = document.getElementById("cookies-eu-banner");
+                    banner && banner.parentNode && banner.parentNode.removeChild(banner)
+                }, wait)
+            }
+        }, CookiesEuBanner
+    });
+</script>
+<script class='google-analytics'>
+    function googleAnalytics() {
+        var i, s, o, r, a, m;
+        i = window, s = document, o = "script", r = "ga", i.GoogleAnalyticsObject = r, i.ga = i.ga || function() {
+            (i.ga.q = i.ga.q || []).push(arguments)
+        }, i.ga.l = +new Date, a = s.createElement(o), m = s.getElementsByTagName(o)[0], a.async = 1, a.src = "//www.google-analytics.com/analytics.js", m.parentNode.insertBefore(a, m), window.ga("create", "UA-87760032-1", "auto"), window.ga("send", "pageview")
+    }
+</script>
+<script class='docSearchInit'>
+    function docSearchInit() {
+        var algoliaOptions;
+        document.querySelector("#search-input") && (algoliaOptions = {
+            hitsPerPage: 5,
+            facetFilters: facetFilters
+        }, /404.html/.test(window.location.pathname) && delete algoliaOptions.facetFilters, window.docsearch({
+            appId: algolia_appId,
+            apiKey: algolia_apiKey,
+            indexName: algolia_index,
+            inputSelector: "#search-input",
+            algoliaOptions: algoliaOptions
+        }))
+    }
+</script>
+<script class='corda-cookie-banner'>
+    const docsearchLoad = (resolve, reject) => {
+        const script = document.createElement('script');
+        document.body.appendChild(script);
+        script.onload = resolve;
+        script.onerror = reject;
+        script.async = true;
+        script.src = "https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js";
+    };
+
+    class DocsiteCookies {
+        constructor() {
+            this.name = 'corda_cookie';
+            this.cookiesAccepted = {
+                set: true,
+                necessary: true,
+                preferences: false,
+                statistics: false,
+                marketing: false
+            };
+            this.form = document.querySelector('#cookie-consent-form');
+            this.handleAllCookies();
+
+            new CookiesEuBanner(() => {
+                this.cookieBanner();
+            }, true);
+        }
+
+        handleAllCookies() {
+            const acceptButton = document.querySelector('#cookies-eu-accept');
+            const allCookiesButton = document.querySelector('#cookies-eu-accept-all');
+
+            allCookiesButton.addEventListener('click', e => {
+                e.preventDefault();
+                this.allowAllCookies(this.form);
+                acceptButton.click();
+            });
+        }
+
+        cookieBanner() {
+            if (!this.checkConsent()) {
+                this.formToCookie(this.name, this.form);
+                this.setAdditionalServices();
+            } else {
+                this.setAdditionalServices();
+            }
+        }
+
+        allowAllCookies(form) {
+            let cookiePreferences = form.querySelectorAll('.cookies-checkbox');
+            for (let cookie of cookiePreferences) {
+                cookie.querySelector('input').checked = true;
+            }
+        }
+
+        formToCookie(name, form) {
+            const thirteenMonthsInMils = 31104000000;
+
+            let date = new Date();
+            date.setTime(date.getTime() + thirteenMonthsInMils);
+
+            let formData = new FormData(form);
+            for (var pair of formData.entries()) {
+                switch (pair[0]) {
+                    case "necessary":
+                        this.cookiesAccepted.necessary = (pair[1] === 'on') ?
+                            true :
+                            false;
+                        break;
+                    case "preferences":
+                        this.cookiesAccepted.preferences = (pair[1] === 'on') ?
+                            true :
+                            false;
+                        break;
+                    case "statistics":
+                        this.cookiesAccepted.statistics = (pair[1] === 'on') ?
+                            true :
+                            false;
+                        break;
+                    case "marketing":
+                        this.cookiesAccepted.marketing = (pair[1] === 'on') ?
+                            true :
+                            false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            let cookieValue = JSON.stringify(this.cookiesAccepted);
+
+            document.cookie = `${name}=${cookieValue};SameSite=Strict;expires=${date.toGMTString()};path=/`;
+        }
+
+        checkConsent() {
+            let cookieName = this.name;
+            let cookieValue = this.getCookie(cookieName);
+
+            if (cookieValue) {
+                if (cookieValue.set === true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        getCookie(name) {
+            let value = "; " + document.cookie;
+            let parts = value.split("; " + name + "=");
+            let cValue = "";
+
+            if (parts.length == 2) {
+                cValue = parts.pop().split(";").shift();
+            }
+
+            if (hasJsonStructure(cValue)) {
+                return JSON.parse(cValue);
+            } else {
+                return cValue;
+            }
+        }
+
+        setAdditionalServices() {
+            let cookieConsent = this.getCookie(this.name);
+            for (let [key, value] of Object.entries(cookieConsent)) {
+                if (key === 'necessary' && value === true) {
+                    new Promise(docsearchLoad)
+                        .then(() => {
+                            docSearchInit();
+                        })
+                        .catch(err => console.log(err));
+                }
+                if (key === 'statistics' && value === true) {
+                    googleAnalytics();
+                }
+            }
+        }
+    }
+
+    function hasJsonStructure(str) {
+        if (typeof str !== 'string') return false;
+        try {
+            const result = JSON.parse(str);
+            const type = Object.prototype.toString.call(result);
+            return type === '[object Object]' ||
+                type === '[object Array]';
+        } catch (err) {
+            return false;
+        }
+    }
+</script>
+<script class='initialise'>
+    new DocsiteCookies();
+</script>
+</body>
+</HTML>
