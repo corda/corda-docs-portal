@@ -296,3 +296,6 @@ For more information about platform versions, see [Versioning](../../../../../en
 {{< note >}}
 The list above contains known issues specific to Corda Enterprise Edition 4.7. See the release notes for previous Corda Enterprise releases for information about known issues specific to those versions.
 {{< /note >}}
+
+## Log4j patches
+Click [here](./log4j-patches.md) to find all patches addressing the December 2021 Log4j vulnerability.

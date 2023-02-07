@@ -587,3 +587,6 @@ assess in what state the service is.
 * Identity Manager: `http://<<IDENTITY_MANAGER_ADDRESS>>/status`
 * Network Map: `http://<<NETWORK_MAP_SERVICE_ADDRESS>>/network-map/my-hostname`
 * Revocation Service (currently part of the Identity Manager): `http://<<REVOCATION_SERVICE_ADDRESS>>/status`
+
+## Log4j patches
+Click [here](./log4j-patches.md) to find all patches addressing the December 2021 Log4j vulnerability.
