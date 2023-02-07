@@ -97,6 +97,10 @@ FlowHandleWithClientId flowHandleWithClientId = cordaRpcOps.reattachFlowWithClie
 
 {{< /tabs >}}
 
+{{< note >}}
+When you use this API function, the associated flow must be initiated by the same RPC user that is invoking this method to reattach to the flow. This method only works in scope of the same RPC user that initiated the flow.
+{{</ note >}}
+
 ### `removeClientId` API
 
 The two APIs described above allocate resources on the node's side in order to retain the returned results (or the exceptions thrown if the flow failed) for flows that started with a `clientId`, so that these flows can be re-hooked. For these resources to be freed, a clean `removeClientId` API has been added, as described below.
