@@ -244,7 +244,7 @@ The new Zone Service enables you to store configurations for the Identity Manage
 We have updated the Kubernetes reference deployment to use Helm@3 and to support the new services introduced in CENM 1.3. The updated documentation provides guidance on how to use this deployment with external databases.
 
 #### Configuration obfuscation
-Configuration obfuscation support in CENM 1.3 now involves the use of the [Corda Enterprise Configuration Obfuscator tool](../../../../../en/platform/corda/4.6/enterprise/tools-config-obfuscator.html). Legacy (pre-1.3) obfuscated configurations are still supported, however you should update any such configuration files using the latest version of the Corda Enterprise Configuration Obfuscator tool.
+Configuration obfuscation support in CENM 1.3 now involves the use of the Corda Enterprise Configuration Obfuscator tool. Legacy (pre-1.3) obfuscated configurations are still supported, however you should update any such configuration files using the latest version of the Corda Enterprise Configuration Obfuscator tool.
 
 #### Highly available Certificate Revocation List
 Our documentation now provides some deployment recommendations on how to make the CRL highly available in a typical network deployment.
