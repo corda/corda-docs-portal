@@ -182,7 +182,7 @@ To create a new customer, use the `CreateCustomerFlow`. This flow also adds pers
 * `contactNumber`: Customer phone number.
 * `emailAddress`: Customer email address.
 * `postCode`: Post code of customer's address.
-* `attachments`: List of `SecureHash`, `String` pairs with references to the Corda attachments of additional customer documentation. For more information on the standard process for uploading attachments to Corda, see the documentation on [CorDapp Contract Attachments](/en/archived-docs/corda-os/4.7/cordapp-build-systems.html#cordapp-contract-attachments).
+* `attachments`: List of `SecureHash`, `String` pairs with references to the Corda attachments of additional customer documentation. For more information on the standard process for uploading attachments to Corda, see the documentation on [CorDapp Contract Attachments](../en/archived-docs/corda-os/4.7/cordapp-build-systems.html#cordapp-contract-attachments).
 
 This flows returns `UUID`, the customer ID.
 
