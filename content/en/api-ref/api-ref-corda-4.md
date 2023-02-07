@@ -28,7 +28,6 @@ This page provides links to the API reference documentation for all API modules 
 |4.3|<a href="../../../en/api-ref/corda/4.3/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.3/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |4.2|<a href="../../../en/api-ref/corda/4.2/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.2/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |4.1|<a href="../../../en/api-ref/corda/4.1/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.1/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-|4.0|<a href="../../../en/api-ref/corda/4.0/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.0/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 
 {{< /table >}}
 
@@ -52,7 +51,5 @@ This page provides links to the API reference documentation for all API modules 
 |1.4|<a href="../../../en/api-ref/corda/1.4/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.4/cenm/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |1.3|<a href="../../../en/api-ref/corda/1.3/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.3/cenm/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |1.2|<a href="../../../en/api-ref/corda/1.2/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.2/cenm/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-|1.1|<a href="../../../en/api-ref/corda/1.1/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.1/cenm/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-|1.0|<a href="../../../en/api-ref/corda/1.0/cenm/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/1.0/cenm/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 
 {{< /table >}}
