@@ -123,7 +123,7 @@ cryptoServiceName : "GEMALTO_LUNA"
 cryptoServiceConf : "gemalto.conf"
 ```
 
-The configuration file for Gemalto Luna has two paa. The `keyStore` field needs to specify a slot or partition. The `password` field contains the password associated with the slot or partition.
+The configuration file for Gemalto Luna has two parameters. The `keyStore` parameter needs to specify a slot or partition. The `password` parameter contains the password associated with the slot or partition.
 
 * **keyStore**:
 specify the slot or partition.
