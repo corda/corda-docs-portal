@@ -36,7 +36,7 @@ the removed Notary have to be moved to a new Notary before the pointed one is de
 to the end as Flows often use the ordering of notaries during selection (i.e. pick the first),
 and therefore changing the order could cause errors elsewhere.
 Also note you can provide only file path to the node info file or X500 name of the notary, not both.
-For guidance on using notaries in flows, see [the API Flows page](../../../../../en/platform/corda/4.6/open-source/api-flows.html?highlight=flow#notaries).
+For guidance on using notaries in flows, see [the API Flows page](../../../../../en/archived-docs/corda-os/4.6/api-flows.html?highlight=flow#notaries).
 
 ## Configuration parameters
 

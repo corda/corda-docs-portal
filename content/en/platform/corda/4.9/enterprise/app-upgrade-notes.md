@@ -135,7 +135,7 @@ If you try to compile this code in platform version 5, you'll get the following 
 This is because a new `Destination` interface (introduced in platform version 5) can cause type inference failures when using a variable as an `AbstractParty` which has an actual value that is one of `Party` or `AnonymousParty`. These subclasses
 implement `Destination`, while the superclass does not. Kotlin must pick a type for the variable, and so chooses the most specific
 ancestor of both `AbstractParty` and `Destination`. This is `Any`, which is not subsequently a valid type for `AbstractParty`.
-For more information on `Destination`, see the [Changelog](../../../../../en/platform/corda/4.4/open-source/changelog.html) for platform version 5, or the [KDocs](../../../../api-ref/api-ref-corda-4.html#corda-enterprise-4x-api-reference) for the interface.
+For more information on `Destination`, see the [Changelog](../../../../../en/archived-docs/corda-os/4.4/changelog.html) for platform version 5, or the [KDocs](../../../../api-ref/api-ref-corda-4.html#corda-enterprise-4x-api-reference) for the interface.
 
 
 {{< note >}}

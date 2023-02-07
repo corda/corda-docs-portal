@@ -60,4 +60,4 @@ helm install notary notary --set shell.password="superDifficultPassword"
 
 {{< /table >}}
 
-For additional information on database connection details refer to the [Corda database documentation](../../../../../en/platform/corda/4.4/open-source/corda-configuration-file.html#configuration-file-fields).
+For additional information on database connection details refer to the [Corda database documentation](../../../../../en//archived-docs/corda-os/4.4/corda-configuration-file.html#configuration-file-fields).
