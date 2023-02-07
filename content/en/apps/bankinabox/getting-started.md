@@ -17,7 +17,7 @@ Follow this guide to set up Bank in a Box so you can start testing its features 
 
 ## Prerequisites
 
-Testing the Bank in a Box CorDapp or building your own banking CorDapp both require some Corda programming knowledge. If you are new to Corda, read about [Corda key concepts](../../../en/archived-docs/corda-os/4.7/key-concepts.md) and [CorDapps](../../../en/archived-docs/corda-os/4.7/cordapp-overview.md) to get up to speed.
+Testing the Bank in a Box CorDapp or building your own banking CorDapp both require some Corda programming knowledge. If you are new to Corda, read about [Corda key concepts](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/key-concepts.md) and [CorDapps](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/cordapp-overview.md) to get up to speed.
 
 Follow the general instructions for [Getting set up](../../../en/platform/corda/4.7/open-source/getting-set-up.md) to develop CorDapps once you are ready to get started with Bank in a Box.
 
