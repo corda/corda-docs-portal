@@ -19,7 +19,7 @@ weight: 300
 
 ## Corda Enterprise Edition 4.9.6 release notes
 
-Corda Enterprise Edition 4.9.5 is a patch release of Corda Enterprise focused on resolving issues.
+Corda Enterprise Edition 4.9.6 is a patch release of Corda Enterprise focused on resolving issues.
 
 * When FIPS mode is activated in the Luna HSM, version 7.7.1 of the firmware does not allow the mechanism AES/CBC/PKCS5Padding to use wrap functionality. This has resulted in flow errors with confidential identities when using "wrapped" mode. 
   
