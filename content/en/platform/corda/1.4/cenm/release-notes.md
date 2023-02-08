@@ -85,7 +85,7 @@ Read more about improvements of this release below.
 
 #### CENM error condition knowledge base
 
-In CENM 1.4, we have adapted to CENM the internal Corda error handling logic introduced in [Corda 4.5](../../../../../en/platform/corda/4.5/open-source/error-codes.md) and [Corda Enterprise Edition 4.5](../../../../../en/platform/corda/4.5/enterprise/node-database-migration-logging.html#error-codes) for Corda nodes.
+In CENM 1.4, we have adapted to CENM the internal Corda error handling logic introduced in Corda 4.5 and Corda Enterprise Edition 4.5 for Corda nodes.
 
 As a result, CENM exceptions are now treated as CENM error codes and an error code is generated for each exception. The initial set of error codes, related to configuration parsing/validation errors, are described in the new [CENM error codes documentation page](cenm-error-codes.md). This is the start of a growing CENM error condition knowledge base, which will expand in future releases.
 
@@ -244,7 +244,7 @@ The new Zone Service enables you to store configurations for the Identity Manage
 We have updated the Kubernetes reference deployment to use Helm@3 and to support the new services introduced in CENM 1.3. The updated documentation provides guidance on how to use this deployment with external databases.
 
 #### Configuration obfuscation
-Configuration obfuscation support in CENM 1.3 now involves the use of the [Corda Enterprise Configuration Obfuscator tool](../../../../../en/platform/corda/4.6/enterprise/tools-config-obfuscator.html). Legacy (pre-1.3) obfuscated configurations are still supported, however you should update any such configuration files using the latest version of the Corda Enterprise Configuration Obfuscator tool.
+Configuration obfuscation support in CENM 1.3 now involves the use of the Corda Enterprise Configuration Obfuscator tool. Legacy (pre-1.3) obfuscated configurations are still supported, however you should update any such configuration files using the latest version of the Corda Enterprise Configuration Obfuscator tool.
 
 #### Highly available Certificate Revocation List
 Our documentation now provides some deployment recommendations on how to make the CRL highly available in a typical network deployment.
@@ -426,7 +426,7 @@ as well as for Gemalto and Securosys HSMs in both the PKI Tool and Signing Servi
 
 * CENM now supports encryption of passwords in configuration files, using encryption keys derived from
 hardware attributes. An obfuscation tool ships with CENM, to process configuration files and encrypt
-marked fields. For more details on usage see [Config Obfuscation Tool](../../../../../en/platform/corda/4.6/enterprise/tools-config-obfuscator.md).
+marked fields. For more details on usage see [Config Obfuscation Tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.6/enterprise/tools-config-obfuscator.md).
 * Fixed an internal error which occurred when using H2 versions below 1.4.198 due to use of unsupported
 lock types.
 * Added `run purgeAllStagedNodeInfos` and `run purgeStagedNodeInfo nodeInfoHash: <node_info_hash>` commands
