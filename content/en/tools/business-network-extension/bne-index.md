@@ -17,4 +17,4 @@ Corda nodes outside of your business network are not aware of its members. The n
 
 In a business network, there is at least one authorized member. This member has sufficient permissions to execute management operations over the network and its members.
 
-Read the full documentation about the [Corda Business Network membership management extension](../../../en/platform/corda/4.8/open-source/business-network-membership.md).
+Read the full documentation about the [Corda Business Network membership management extension](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.8/business-network-membership.md).

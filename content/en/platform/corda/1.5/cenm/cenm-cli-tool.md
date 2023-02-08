@@ -79,7 +79,7 @@ To set up a new network with the CLI:
 
     `./cenm identity-manager config set-admin-address -a=identity-manager:5053`
 
-3. Set the Identity Manager config. This command returns a **Zone token** which you should pass to your [Angel Service](../../../../../en/platform/corda/1.5/cenm/angel-service.md):
+3. Set the Identity Manager config. This command returns a **Zone token** which you should pass to your [Angel Service](angel-service.md):
 
     `./cenm identity-manager config set -f config/identitymanager.conf --zone-token`
 
