@@ -1,6 +1,6 @@
 ---
 title: Corda Enterprise Edition 4.8 release notes
-date: '2021-07-01'
+date: '2023-02-08'
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-release-notes
@@ -15,6 +15,30 @@ weight: 300
 
 
 # Corda Enterprise Edition 4.8 release notes
+
+## Corda Enterprise Edition 4.8.10 release notes
+
+Corda Enterprise Edition 4.8.10 is a patch release of Corda Enterprise focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](upgrading-index.md).
+
+### Fixed issues
+
+* Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resource in the HSM. This issue occurred when:
+
+  * The Securosys HSM was configured in a master-clone cluster.
+
+  * The master HSM had failed and Corda had failed-over to use the clone HSM.
+
+  * There was an attempt to create a transaction using confidential identities.
+
+  The issue is now resolved. When generating a wrapped key-pair, the temporary key-pair is not persisted in the HSM and thus cannot be leaked.
+
+  On applying this update, it is recommended that the PrimusX JCE should be upgraded to version 2.3.4 or later for optimum performance of the HSM. If the JCE is not updated, then no keys are leaked but they are temporarily created in the HSM and are then garbage-collected within 24 hours.
+
+  There is no need to upgrade the HSM firmware version for this update, but it is recommended to keep the firmware up to date as a matter of course. Currently the latest firmware version is 2.8.50.
 
 ## Corda Enterprise Edition 4.8.9 release notes
 
