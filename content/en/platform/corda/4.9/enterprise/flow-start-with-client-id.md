@@ -98,7 +98,7 @@ FlowHandleWithClientId flowHandleWithClientId = cordaRpcOps.reattachFlowWithClie
 {{< /tabs >}}
 
 {{< note >}}
-When you use this API function, the associated flow must be initiated by the same RPC user that is invoking this method to reattach to the flow. Only admins can remove client `id` mappings of any user.
+When you use this API function, the associated flow must be initiated by the same RPC user that is invoking this method to re-attach to the flow. Only admins can remove client `id` mappings of any user.
 {{</ note >}}
 
 ### `removeClientId` API
