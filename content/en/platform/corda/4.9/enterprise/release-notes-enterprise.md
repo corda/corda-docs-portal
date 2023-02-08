@@ -149,3 +149,6 @@ The Corda shell has a dependency on Groovy that the Corda API does not. As a res
 
 * The `node_named_identities` table has been re-introduced. It was removed in Corda Enterprise Edition 4.7 following updates to certificate rotation functionality.
   * The reintroduction of this table ensures that the behavior of `rpcOps.wellKnownPartyFromX500Name` is identical for both revoked and non-revoked identities.
+
+## Log4j patches
+Click [here](./log4j-patches.md) to find all patches addressing the December 2021 Log4j vulnerability.

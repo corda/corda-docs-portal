@@ -269,7 +269,7 @@ kubectl get pods -o wide`
 
 Truststore password can be found in the `signer/files/pki.conf`, the default value used in this helm chart:  `trust-store-password`
 
-For more details about joining CENM network see: [Joining an existing compatibility zone](../../../../../en/platform/corda/4.3/enterprise/joining-a-compatibility-zone.html?highlight=registration#joining-an-existing-compatibility-zone).
+For more details about joining CENM network see: [Joining an existing compatibility zone](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.3/joining-a-compatibility-zone.md).
 
 ### Display logs
 

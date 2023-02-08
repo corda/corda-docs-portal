@@ -88,7 +88,7 @@ The new Zone Service enables you to store configurations for the Identity Manage
 We have updated the Kubernetes reference deployment to use Helm@3 and to support the new services introduced in CENM 1.3. The updated documentation provides guidance on how to use this deployment with external databases.
 
 #### Configuration obfuscation
-Configuration obfuscation support in CENM 1.3 now involves the use of the [Corda Enterprise Configuration Obfuscator tool](../../../../../en/platform/corda/4.5/enterprise/tools-config-obfuscator.html). Legacy (pre-1.3) obfuscated configurations are still supported, however you should update any such configuration files using the latest version of the Corda Enterprise Configuration Obfuscator tool.
+Configuration obfuscation support in CENM 1.3 now involves the use of the [Corda Enterprise Configuration Obfuscator tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.5/enterprise/tools-config-obfuscator.md). Legacy (pre-1.3) obfuscated configurations are still supported, however you should update any such configuration files using the latest version of the Corda Enterprise Configuration Obfuscator tool.
 
 #### Highly available Certificate Revocation List
 Our documentation now provides some deployment recommendations on how to make the CRL highly available in a typical network deployment.
@@ -270,7 +270,7 @@ as well as for Gemalto and Securosys HSMs in both the PKI Tool and Signing Servi
 
 * CENM now supports encryption of passwords in configuration files, using encryption keys derived from
 hardware attributes. An obfuscation tool ships with CENM, to process configuration files and encrypt
-marked fields. For more details on usage see [Config Obfuscation Tool](../../../../../en/platform/corda/4.5/enterprise/tools-config-obfuscator.md).
+marked fields. For more details on usage see [Config Obfuscation Tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.5/enterprise/tools-config-obfuscator.md).
 * Fixed an internal error which occurred when using H2 versions below 1.4.198 due to use of unsupported
 lock types.
 * Added `run purgeAllStagedNodeInfos` and `run purgeStagedNodeInfo nodeInfoHash: <node_info_hash>` commands
@@ -431,3 +431,6 @@ assess in what state the service is.
 * Identity Manager: `http://<<IDENTITY_MANAGER_ADDRESS>>/status`
 * Network Map: `http://<<NETWORK_MAP_SERVICE_ADDRESS>>/network-map/my-hostname`
 * Revocation Service (currently part of the Identity Manager): `http://<<REVOCATION_SERVICE_ADDRESS>>/status`
+
+## Log4j patches
+Click [here](./log4j-patches.md) to find all patches addressing the December 2021 Log4j vulnerability.

@@ -56,56 +56,6 @@
   url = "https://www.r3.com/trademark-policy/"
   weight = 30
 
-[[cenm-1-0]]
-identifier = "cenm-1-0-concepts-and-overview"
-name = "Concepts and Overview"
-weight = 10
-
-[[cenm-1-0]]
-identifier = "cenm-1-0-configuration"
-name = "Configuration"
-weight = 200
-
-[[cenm-1-0]]
-identifier = "cenm-1-0-enm-releases"
-name = "ENM Releases"
-weight = 70
-
-[[cenm-1-0]]
-identifier = "cenm-1-0-operations"
-name = "Operations"
-weight = 110
-
-[[cenm-1-0]]
-identifier = "cenm-1-0-public-key-infrastructure"
-name = "Public Key Infrastructure"
-weight = 310
-
-[[cenm-1-1]]
-identifier = "cenm-1-1-cenm-releases"
-name = "CENM Releases"
-weight = 70
-
-[[cenm-1-1]]
-identifier = "cenm-1-1-concepts-and-overview"
-name = "Concepts and Overview"
-weight = 10
-
-[[cenm-1-1]]
-identifier = "cenm-1-1-configuration"
-name = "Configuration"
-weight = 210
-
-[[cenm-1-1]]
-identifier = "cenm-1-1-operations"
-name = "Operations"
-weight = 110
-
-[[cenm-1-1]]
-identifier = "cenm-1-1-public-key-infrastructure"
-name = "Public Key Infrastructure"
-weight = 300
-
 [[cenm-1-2]]
 identifier = "cenm-1-2-cenm-releases"
 name = "CENM Releases"
