@@ -229,7 +229,7 @@ This release extends the [Corda Enterprise Edition 4.4 release](../../../../../e
 
 Corda Enterprise Edition 4.5 supports Linux for production deployments, with Windows and macOS support for development and demonstration purposes only. See the Corda Enterprise [platform support matrix](../../../../../en/platform/corda/4.5/enterprise/platform-support-matrix.md) for more information.
 
-Corda Enterprise Edition 4.5 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise Edition 4.4, 4.3, 4.2, 4.1, 4.0, and 3.x. See the [Corda (open source) release notes](/en/archived-docs/corda-os/4.5/release-notes.md) for more information.
+Corda Enterprise Edition 4.5 is operationally compatible with Corda (open source) 4.x and 3.x, and Corda Enterprise Edition 4.4, 4.3, 4.2, 4.1, 4.0, and 3.x. See the [Corda (open source) release notes](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.5/release-notes.md) for more information.
 
 ## New features and enhancements
 
