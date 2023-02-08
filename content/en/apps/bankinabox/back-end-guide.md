@@ -182,7 +182,7 @@ To create a new customer, use the `CreateCustomerFlow`. This flow also adds pers
 * `contactNumber`: Customer phone number.
 * `emailAddress`: Customer email address.
 * `postCode`: Post code of customer's address.
-* `attachments`: List of `SecureHash`, `String` pairs with references to the Corda attachments of additional customer documentation. For more information on the standard process for uploading attachments to Corda, see the documentation on [CorDapp Contract Attachments](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/cordapp-build-systems.html#cordapp-contract-attachments).
+* `attachments`: List of `SecureHash`, `String` pairs with references to the Corda attachments of additional customer documentation. For more information on the standard process for uploading attachments to Corda, see the documentation on [CorDapp Contract Attachments](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/cordapp-build-systems.md).
 
 This flows returns `UUID`, the customer ID.
 
@@ -322,9 +322,9 @@ subFlow(ApproveOverdraftFlow(accountId, amount))
 
 ## Loans
 
-The Bank in a Box application uses [Oracles](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/key-concepts-oracles.html#oracles) in various contexts, one of which is in the issuance of loans. A dummy Oracle is used to call external services based on a customer ID and sign off on the loan. The response is then embedded in the transaction that issues the loan. This mimics a real-life scenario where a bank calls a rating provider before giving a customer a loan.
+The Bank in a Box application uses [Oracles](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/key-concepts-oracles.md) in various contexts, one of which is in the issuance of loans. A dummy Oracle is used to call external services based on a customer ID and sign off on the loan. The response is then embedded in the transaction that issues the loan. This mimics a real-life scenario where a bank calls a rating provider before giving a customer a loan.
 
-Oracle signatures use [partial Merkle tree signing](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/key-concepts-tearoffs.html#hiding-data), which provides privacy for the transaction. In this way, the external party present in the loan issuance transaction can only see the contents of the transaction that they must confirm before signing the transaction.
+Oracle signatures use [partial Merkle tree signing](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/key-concepts-tearoffs.md), which provides privacy for the transaction. In this way, the external party present in the loan issuance transaction can only see the contents of the transaction that they must confirm before signing the transaction.
 
 When a loan is issued, money is transferred to the customer's current account. In the background, this transaction uses [Corda scheduled states](../../../en/platform/corda/4.10/enterprise/event-scheduling.html#implementing-scheduled-events) to create a recurring payment for that loan, into the loan account.
 
@@ -739,7 +739,7 @@ The business logic behind Bank in a Box payments is explained below, addressing:
 
 #### Deduplicating payment logs
 
-In Corda, notaries prevent the double spending of contract states but this naturally excludes off-ledger systems. Instead, Corda provides a <a href="https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/api-flows.html#flowexternalasyncoperation">`FlowExternalOperation`</a> that is executed with a `deduplicationId`, allowing for custom handling of duplicate runs. Each recurring payment execution is logged and duplicate logs can be avoided by creating the payment log instance within a subclass of `FlowExternalOperation`. 
+In Corda, notaries prevent the double spending of contract states but this naturally excludes off-ledger systems. Instead, Corda provides a <a href="https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/api-flows.md">`FlowExternalOperation`</a> that is executed with a `deduplicationId`, allowing for custom handling of duplicate runs. Each recurring payment execution is logged and duplicate logs can be avoided by creating the payment log instance within a subclass of `FlowExternalOperation`. 
 
 The skeleton `CreateRecurringPaymentLogOperation` is as follows:
 
