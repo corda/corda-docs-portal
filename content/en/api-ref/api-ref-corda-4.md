@@ -26,8 +26,6 @@ This page provides links to the API reference documentation for all API modules 
 |4.5|<a href="../../../en/api-ref/corda/4.5/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.5/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |4.4|<a href="../../../en/api-ref/corda/4.4/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.4/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 |4.3|<a href="../../../en/api-ref/corda/4.3/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.3/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-|4.2|<a href="../../../en/api-ref/corda/4.2/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.2/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
-|4.1|<a href="../../../en/api-ref/corda/4.1/enterprise/javadoc/index.html" target="_blank">Javadoc</a>|<a href="../../../en/api-ref/corda/4.1/enterprise/kotlin/corda/index.html" target="_blank">Kotlin</a>|
 
 {{< /table >}}
 
