@@ -17,6 +17,6 @@ A _Corda node admin_ is a user who sets up the Corda node on behalf of the organ
 * [Node metrics](../node-metrics.md)
 * [Node monitoring and logging](../node/operating/monitoring-logging.md)
 * [Health survey tool](../health-survey.html)
-* [Metering collection tool](../metering-collector.html)
+* [Metering collection tool](../node/operating/monitoring-and-logging/metering-collector.md)
 * [Flow hospital](../node/node-flow-hospital.md)
 * [Firewall component overview](../node/corda-firewall-component.md)
