@@ -26,7 +26,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-* Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resource in the HSM. This issue occurred when:
+* Previously, when configured to use confidential identities and the Securosys PrimusX HSM, it was possible for Corda to fail to generate a wrapped key-pair for a new confidential identity. This would cause a temporary key-pair to be leaked, consuming resources in the HSM. This issue occurred when:
 
   * The Securosys HSM was configured in a master-clone cluster.
 
