@@ -69,7 +69,7 @@ To upgrade your CorDapps to platform version 8, you need to:
 
 ### Upgrade existing nodes to version 4.6
 
-When upgrading to Corda 4.6 from a previous version, you need to upgrade your nodes because of the operational improvements for [database schema harmonization](../../../../../en/platform/corda/4.6/enterprise/release-notes-enterprise.html#database-schema-harmonisation) that were introduced as part of this release.
+When upgrading to Corda 4.6 from a previous version, you need to upgrade your nodes because of the operational improvements for database schema harmonization that were introduced as part of this release.
 
 Follow the steps below for each upgrade path.
 

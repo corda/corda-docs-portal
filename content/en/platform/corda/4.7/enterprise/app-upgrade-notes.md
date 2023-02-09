@@ -59,7 +59,7 @@ No manual upgrade steps are required.
 
 ### Required actions relating to database optimisation in Corda 4.6
 
-The operational improvements around [database schema harmonisation](release-notes-enterprise.html#database-schema-harmonisation) that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version.
+The operational improvements around database schema harmonisation that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version.
 
 The required steps for each upgrade path are described below.
 
