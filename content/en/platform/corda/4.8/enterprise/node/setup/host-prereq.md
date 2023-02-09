@@ -58,7 +58,7 @@ weight: 2
 {{< /table >}}
 
 {{< note >}}
-Third party managed service variants are not supported unless explicitly stated.
+Third-party managed service variants are not supported unless explicitly stated.
 {{</ note >}}
 
 
