@@ -59,4 +59,4 @@ The node has a graceful shutdown mode that drains outstanding flows to checkpoin
 
 ### Contact other network participants
 
-If a peer node is not responding to an initiated flow, you may need to contact the node operator. The checkpoint dump includes diagnostic information including the destination peer participant node that is not responding. For more information on the checkpoint tools available, see the [checkpoint tooling documentation](../../../../../../../../en/platform/corda/4.9/enterprise/node/operating/monitoring-and-logging/checkpoint-tooling.md).
+If a peer node is not responding to an initiated flow, you may need to contact the node operator. The checkpoint dump includes diagnostic information including the destination peer participant node that is not responding. For more information on the checkpoint tools available, see the [checkpoint tooling documentation](checkpoint-tooling.md).
