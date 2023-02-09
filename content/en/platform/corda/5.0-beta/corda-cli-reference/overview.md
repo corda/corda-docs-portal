@@ -7,4 +7,4 @@ menu:
     weight: 5000
 section_menu: corda-5-beta
 ---
-This section introduces the CLI commands.
+This section describes the CLI commands and introduces RPC permission templates.
