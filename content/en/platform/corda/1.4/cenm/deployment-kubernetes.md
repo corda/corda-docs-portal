@@ -602,4 +602,4 @@ echo ${idmanPublicIP}
 
 ## Appendix A: Docker Images
 
-Visit the [platform support matrix](../../../../../en/platform/corda/4.6/enterprise/platform-support-matrix.html#docker-images) for information on Corda Docker Images for version 1.4.
+Visit the platform support matrix for information on Corda Docker Images for version 1.4.
