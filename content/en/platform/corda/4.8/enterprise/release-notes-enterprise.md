@@ -109,7 +109,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 
 In this patch release:
 
-* Artemis keystore details have been added to the bridge configuration example in the [Firewall component overview](../../../../../en/platform/corda/4.8/enterprise/corda-firewall-component.html#full-production-ha-dmz-ready-mode-hotcold-node-hotwarm-bridge).
+* Artemis keystore details have been added to the bridge configuration example in the [Firewall component overview](node/corda-firewall-component.html#full-production-ha-dmz-ready-mode-hotcold-node-hotwarm-bridge).
 * Serializer configuration updated to fix an issue where a node could not restore its flow from checkpoints in cases of failure.
 * Instances of the `ValidatingNotaryFlow` being incorrectly marked as an `IdempotentFlow` has been fixed.
 * A rare issue where records could show up in the vault in an inconsistent state has been resolved. On failed database entries, the vault cache is now invalidated and re-synced with the database.
