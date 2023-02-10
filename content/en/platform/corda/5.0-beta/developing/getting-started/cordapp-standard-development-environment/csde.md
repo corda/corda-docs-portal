@@ -19,7 +19,7 @@ The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cord
 * a set of Gradle helper tasks which speed up and simplify the development and deployment process; these are effectively wrappers over the [Corda CLI](../installing-corda-cli.html).
 * debug configuration for debugging a local Corda cluster.
 * the `MyFirstFlow` code which forms the basis of the Getting Started documentation.
-* the `utxoexample` Chat Cordapp, which provides a basic, working utxo Ledger Cordapp.
+* the `utxoexample` Chat CorDapp, which provides a basic, working utxo Ledger CorDapp.
 * the ability to configure the members of the local Corda network.
 
 {{< note >}}
@@ -110,7 +110,7 @@ These tasks help with the lifecycle of your local Corda cluster.
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `1-createGroupPolicy`                 | Creates the Group policy which is required to set up the Application Network.                          |
 | `2-createKeyStore`                    | Creates the signing keys for publishing the CPIs.                                                      |
-| `3-buildCPIs`                         | Builds your Cordapp and wraps it in a signed CPI.                                                      |
+| `3-buildCPIs`                         | Builds your CorDapp and wraps it in a signed CPI.                                                      |
 | `4-deployCPIs`                        | Deploys the CPI to your local Corda cluster.                                                           |
 | `5-createAndRegisterVNodes`           | Sets up the Virtual Nodes specified in `config/dev-net.json` on you local corda with the uploaded CPI. |
 | `quickDeployCordapp`           | An alias for `5-createAndRegisterVNodes`. Run this to perform your first deployment of your CorDapp to a newly started cluster. |
