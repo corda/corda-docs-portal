@@ -9,7 +9,7 @@ menu:
 title: Building your first basic CorDapp
 ---
 
-Follow this learning path to build your first CorDapp with a step-by-step guide. This set of tutorials teaches you how to implement the functionality and features you will need to get any CorDapp up and running. It reinforces [best practices for building CorDapps](../../../../../4.10/community/writing-a-cordapp.md).
+Follow this learning path to build your first CorDapp with a step-by-step guide. This set of tutorials teaches you how to implement the functionality and features you will need to get any CorDapp up and running. It reinforces [best practices for building CorDapps](../../../cordapps/writing-a-cordapp.md).
 
 The solution for this CorDapp is available in [Java](https://github.com/corda/samples-java/tree/master/Basic/tutorial-applestamp) and [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Basic/tutorial-applestamp). This tutorial walks you through the Java version of the Apple Stamp CorDapp.
 
