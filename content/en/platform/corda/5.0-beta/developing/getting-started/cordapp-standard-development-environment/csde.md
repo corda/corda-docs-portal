@@ -19,7 +19,7 @@ The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cord
 * a set of Gradle helper tasks which speed up and simplify the development and deployment process; these are effectively wrappers over the [Corda CLI](../installing-corda-cli.html).
 * debug configuration for debugging a local Corda cluster.
 * the `MyFirstFlow` code which forms the basis of the Getting Started documentation.
-* the `utxoexample` Chat CorDapp, which provides a basic, working utxo Ledger CorDapp.
+* the `utxoexample` Chat CorDapp, which provides a basic, working UTXO Ledger CorDapp.
 * the ability to configure the members of the local Corda network.
 
 {{< note >}}
