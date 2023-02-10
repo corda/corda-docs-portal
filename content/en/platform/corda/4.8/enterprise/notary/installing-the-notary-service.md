@@ -177,10 +177,6 @@ dataSourceProperties = {
 }
 ```
 
-[config_obfuscator](../resources/config_obfuscator)
-
-
-
 ## Obtaining the notary service identity
 
 The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration](../ha-utilities.html#notary-registration).

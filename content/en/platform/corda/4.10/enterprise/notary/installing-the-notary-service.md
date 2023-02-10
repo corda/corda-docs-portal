@@ -180,9 +180,6 @@ dataSourceProperties = {
 }
 ```
 
-[config_obfuscator](../resources/config_obfuscator)
-
-
 
 ## Obtaining the notary service identity
 
