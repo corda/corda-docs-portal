@@ -17,6 +17,10 @@ tags:
 
 # Corda Community Edition 4.9 release notes
 
+## Corda Community Edition 4.9.6 release notes
+
+Corda Community Edition 4.9.6 is a patch release of Corda Community Edition to keep it synchronised with the release of Corda Enterprise Edition 4.9.6.
+
 ## Corda Community Edition 4.9.5 release notes
 
 Corda Community Edition 4.9.5 is a patch release of Corda Community Edition which includes resolved issues.
