@@ -9,4 +9,4 @@ menu:
 section_menu: corda-5-beta
 ---
 
-The `crypto` package provides services and types for performing cryptographic operations. The main services are the `SigningService` for signing objects, and the `DigitalSignatureVerificationService` for verifying signatures.
+The `crypto` package provides services and types for performing cryptographic operations. The main services are the <a href="../../../../../../api-ref/corda/5.0-beta/kotlin/application/net.corda.v5.application.crypto/-signing-service/index.html" target="_blank">`SigningService`</a> for signing objects, and the <a href="../../../../../../api-ref/corda/5.0-beta/kotlin/application/net.corda.v5.application.crypto/-digital-signature-verification-service/index.html" target="_blank">`DigitalSignatureVerificationService`</a> for verifying signatures.
