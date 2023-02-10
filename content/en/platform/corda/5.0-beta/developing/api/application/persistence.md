@@ -1,13 +1,16 @@
 ---
-date: '2021-04-24T00:00:00Z'
+date: '2023-02-10'
 title: "net.corda.v5.application.persistence"
 menu:
   corda-5-beta:
-    identifier: corda-5-beta-api-persistence
+    identifier: corda-5-beta-api-app-persistence
     parent: corda-5-beta-api-application
-    weight: 1000
+    weight: 6000
 section_menu: corda-5-beta
 ---
+
+The `persistence` package provides services for performing persistence operations; mainly reading and writing data to and from the database. The `PersistenceService` is the main service for providing this functionality.
+
 Corda 5 supports CRUD (Create, Read, Update, Delete) operations for user-defined types. This is achieved using JPA-annotated entities and, to manage database migrations, Liquibase.
 
 ## Defining Custom Tables Using Liquibase Migrations
@@ -129,50 +132,53 @@ If they are not specified, JPA uses defaults.
 
 ## Using the Persistence API From a CorDapp Flow
 
+To use the Persistence API from a flow:
+
 1. Define a reference to the persistence service. This should be supplied via the Corda dependency injection system:
-```kotlin
-  import net.corda.v5.application.flows.CordaInject
-  import net.corda.v5.application.flows.RPCStartableFlow
-  import net.corda.v5.application.persistence.PersistenceService
+   ```kotlin
+   import net.corda.v5.application.flows.CordaInject
+   import net.corda.v5.application.flows.RPCStartableFlow
+   import net.corda.v5.application.persistence.PersistenceService
 
-  class MyExampleFlow : RPCStartableFlow {
-      @CordaInject
-      lateinit var persistenceService: PersistenceService
+   class MyExampleFlow : RPCStartableFlow {
+       @CordaInject
+       lateinit var persistenceService: PersistenceService
 
-      // your code goes here
-```
+       // your code goes here
+   ```
+
 2. To create a `Dog` entity that writes a row to the database, use the following code:
-```kotlin
-  val dog = Dog(dogId, "dog", Instant.now(), "none")
-  persistenceService.persist(dog)
- ```   
+   ```kotlin
+     val dog = Dog(dogId, "dog", Instant.now(), "none")
+     persistenceService.persist(dog)
+    ```   
 
    {{< note >}}
   All persistence operations are processed over the message bus.
    {{< /note >}}
 
 3. To load a row from the database by ID, use the following code:
-```kotlin
-  val dog = persistenceService.find(Dog::class.java, dogId)
-  return if (dog == null) {
-      "no dog found"
-  } else {
-      "found dog id='${dog.id}' name='${dog.name}"
-  }
-```
+   ```kotlin
+     val dog = persistenceService.find(Dog::class.java, dogId)
+     return if (dog == null) {
+         "no dog found"
+     } else {
+         "found dog id='${dog.id}' name='${dog.name}"
+     }
+   ```
 
-  Alternatively, to load all entities and create `Dog` instances for every record in the `Dog` table in the database, use the following code:
-  ```kotlin
-  val dogs = persistenceService.findAll(Dog::class.java).execute()
-  ```
+     Alternatively, to load all entities and create `Dog` instances for every record in the `Dog` table in the database, use the following code:
+     ```kotlin
+     val dogs = persistenceService.findAll(Dog::class.java).execute()
+     ```
 
 4. To update a record, use the merge operation. For example, to change the name of a `Dog` and set the owner to null:
-```kotlin
-val newDogName = input.getValue("name")
-persistenceService.merge(Dog(dogId, newDogName, Instant.now(), "none"))
-```
-All of the operations available are defined in the public interface: `PersistenceService`.
-<!-- add link to KDocs -->
+   ```kotlin
+   val newDogName = input.getValue("name")
+   persistenceService.merge(Dog(dogId, newDogName, Instant.now(), "none"))
+   ```
+   All of the operations available are defined in the public interface: <a href="../../../../../../api-ref/corda/5.0-beta/kotlin/application/net.corda.v5.application.persistence/-persistence-service/index.html" target="_blank">`PersistenceService`</a>.
+
 
 {{< note >}}
 Currently, inputs and outputs to `PersistenceService` must fit in a ~1MB (972,800 bytes) Kafka message. This size limit will be removed in future versions.
