@@ -111,7 +111,7 @@ You've probably noticed that the state template includes imports at the top of t
 
 ### Implement the state
 
-The next line of code you add defines the type of <a href="../../../../community/api-states.html#contractstate-sub-interfaces">`ContractState`</a> you implement with the `AppleStamp` class. Add this line to ensure that Corda recognizes the `AppleStamp` as a state.
+The next line of code you add defines the type of <a href="../../../../../4.10/community/api-states.html#contractstate-sub-interfaces">`ContractState`</a> you implement with the `AppleStamp` class. Add this line to ensure that Corda recognizes the `AppleStamp` as a state.
 
 In this case, use a `LinearState` to tie the `AppleStamp` to a `LinearID`.
 
