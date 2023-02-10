@@ -69,7 +69,7 @@ No manual upgrade steps are required.
 
 ### Required actions relating to database optimisation in Corda 4.6
 
-The operational improvements around database schema harmonisation that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version. For more information, see the Corda Open Source 4.6 release notes available in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repo).
+The operational improvements around database schema harmonisation that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version. For more information, see the Corda Open Source 4.6 release notes available in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repo.
 The required steps for each upgrade path are described below.
 
 #### Upgrading an existing node from Corda 4.5 (or earlier 4.x version) to version 4.6
