@@ -12,7 +12,7 @@ section_menu: corda-5-beta
 
 ## Configuring the Application Network (Virtual Nodes)
 
-The CSDE is configured to create a four party application network required to run the Chat Cordapp, including virtual nodes for Alice, Bob, Charlie and a Notary. To change the network configuration, see [Configuring the Network Participants](../../getting-started/configure-the-network-participants/network-participants.md).
+The CSDE is configured to create a four party application network required to run the Chat CorDapp, including virtual nodes for Alice, Bob, Charlie and a Notary. To change the network configuration, see [Configuring the Network Participants](../../getting-started/configure-the-network-participants/network-participants.md).
 
 {{< note >}}
 You must keep the notary node to enable the CorDapp to finalise transactions.
@@ -38,7 +38,7 @@ The task returns something similar to this:
 
 {{< figure src="listvnodes-result.png" figcaption="listVnodes result" alt="listVnodes result" >}}
 
-The Vnode `holdingidentityshorthashes` (short hashes) are the 12 digit hex numbers. In the above example,  Alice’s short hash is "17F49B05B2B5" and Bob’s is “8C73E39AF476”. Whenever the API requires the short hash, substitute the appropriate number depending on which vnode you want to run the flow on.
+The vnode `holdingidentityshorthashes` (short hashes) are the 12 digit hex numbers. In the above example,  Alice’s short hash is "17F49B05B2B5" and Bob’s is “8C73E39AF476”. Whenever the API requires the short hash, substitute the appropriate number depending on which vnode you want to run the flow on.
 
 For running the flows use the `POST: /flow/{holdingidentityshorthash}/` endpoint. This requires a request body to be provided which includes:
 
@@ -123,7 +123,7 @@ It can take up to a minute for Corda to process the flow, this is likely a funct
 
 ## Typical Set of Flows
 
-Ths following is a typical set of flows for a conversation between Alice and Bob:
+The following is a typical set of flows for a conversation between Alice and Bob:
 
 1. Alice creates a new chat using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:
 

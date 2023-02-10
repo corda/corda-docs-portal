@@ -9,7 +9,6 @@ section_menu: corda-5-beta
 title: "RPC Permission Templates"
 ---
 
-
 By default, when a cluster starts there is a single "admin" account auto-created which can do everything. While this account can be used to perform any action, there is room for error if not used carefully. RPC permission templates enable you to create fine-grained roles for specific actions such as:
 
 * A dedicated role which can create users, roles, and permissions and drive all the associations between them.
@@ -20,7 +19,7 @@ By default, when a cluster starts there is a single "admin" account auto-created
 These roles and permissions enable certain common operations. The creation of users and associating such users to these roles should be done manually by an admin user.
 {{< /note >}}
 
-| Role   | Description |
+| <div style="width:160px">Role</div>   | Description |
 | ----------- | ----------- |
 | `UserAdminRole` | Creates roles and permissions and controls all associations between the user roles, and permissions. This role is created at cluster bootstrap by the admin user. This role is created via a REST call enabling to have complete audit trail of the operation performed.       |
 | `VNodeCreatorRole` | Sets all the necessary permissions to create a virtual node, including CPI upload and CPI update. Create this role at cluster bootstrapping time.|

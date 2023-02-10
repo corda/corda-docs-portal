@@ -1,6 +1,6 @@
 ---
-date: '2021-04-24T00:00:00Z'
-title: "net.corda.v5.crypto.extensions"
+date: '2023-02-10'
+title: "net.corda.v5.crypto"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-api-crypto
@@ -9,9 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 
-The `corda-crypto` module is one of several modules of the `Corda Crypto API`. The module defines low-level services that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK. The dependencies on Corda Crypto API are shown in the diagram below.
-
-{{< figure src="public-crypto-api-usage.png" figcaption="Corda Crypto API" alt="Corda Crypto API dependencies" >}}
+The `corda-crypto` module is one of several modules of the `Corda Crypto API`. The module defines low-level services that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK. 
 
 # Extending Supported Digest Algorithms
 
@@ -102,4 +100,4 @@ dependencies {
 You must reference `net.corda:corda-crypto-extensions`.
 {{< /note >}}
 
-For the CorDApp packaging instructions, see the relevant documentation.
+For information about packaging a CorDapp, see the [development tutorial](../development-tutorials/cordapp-packaging.md).

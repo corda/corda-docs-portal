@@ -740,8 +740,9 @@ Once a transaction has been notarised and its input states consumed by the flow 
 transaction fail to verify it, or the receiving flow (the finality handler) fails due to some other error, we then have a scenario where not
 all parties have the correct up to date view of the ledger (a condition where eventual consistency between participants takes longer than is
 normally the case under Corda’s [eventual consistency model](https://en.wikipedia.org/wiki/Eventual_consistency)). To recover from this scenario,
-the receiver’s finality handler will automatically be sent to the node-flow-hospital where it’s suspended and retried from its last checkpoint
-upon node restart, or according to other conditional retry rules explained in [flow hospital runtime behaviour](../../../../../en/platform/corda/4.7/enterprise/node/node-flow-hospital.html#flow-hospital-runtime).
+the receiver’s finality handler will automatically be sent to the node flow
+hospital where it’s suspended and retried from its last checkpoint
+upon node restart, or according to other conditional retry rules explained in [flow hospital runtime behaviour](../node/node-flow-hospital.html#run-time-behaviour).
 This gives the node operator the opportunity to recover from the error. Until the issue is resolved the node will continue to retry the flow
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent once again.
 
@@ -1006,7 +1007,7 @@ execution in such situations. By throwing a `HospitalizeFlowException` a flow wi
 A `HospitalizeFlowException` can be defined in various ways:
 
 {{< note >}}
-If a `HospitalizeFlowException` is wrapping or extending an exception already being handled by the node-flow-hospital, the outcome of a flow may change. For example, the flow
+If a `HospitalizeFlowException` is wrapping or extending an exception already being handled by the node flow hospital, the outcome of a flow may change. For example, the flow
 could instantly retry or terminate if a critical error occurred.
 
 {{< /note >}}
