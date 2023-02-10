@@ -47,7 +47,7 @@ To understand the information in the logs, which data is important, and what can
 
 ## Monitoring - the basics
 
-You can monitor the health and performance of your node using tools such as [Jolokia and Graphite](../../node/operating/monitoring-and-logging/overview.html#node-monitoring).. Whenever using these tools, you should follow best-practice steps such as setting up TCP checks for the ports the node communicates on, database health checks etc.
+You can monitor the health and performance of your node using tools such as [Jolokia and Graphite](../../node/operating/monitoring-and-logging/overview.html#node-monitoring). Whenever using these tools, you should follow best-practice steps such as setting up TCP checks for the ports the node communicates on, database health checks etc.
 
 ### Monitoring via Jolokia
 
