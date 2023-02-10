@@ -109,6 +109,7 @@ Documentation for non-supported releases of Corda Open Source, Corda Enterprise,
 | Corda Open Source 4.6  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.6) | 
 | Corda Open Source 4.7  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7) | 
 | Corda Open Source 4.8  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.8) | 
+| Corda Open Source 4.9  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.9) | 
 | CENM 1.0  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/CENM/1.0) | 
 | CENM 1.1  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/CENM/1.1) | 
 
