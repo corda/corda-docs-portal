@@ -69,15 +69,14 @@ No manual upgrade steps are required.
 
 ### Required actions relating to database optimisation in Corda 4.6
 
-The operational improvements around [database schema harmonisation](release-notes.md) that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version.
-
+The operational improvements around database schema harmonisation that we have made in Corda 4.6 require a number of manual steps when upgrading to Corda 4.6 from a previous version. For more information, see the Corda Open Source 4.6 release notes available in the [archived-docs](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repo.
 The required steps for each upgrade path are described below.
 
 #### Upgrading an existing node from Corda 4.5 (or earlier 4.x version) to version 4.6
 
 1. Remove any entries of `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` from the database section of your node configuration file.
 2. Update any missing core schema changes by running the node in `run-migration-scripts` mode: `java -jar corda.jar run-migration-scripts --core-schemas`.
-3. Add Liquibase resources to CorDapps. In Corda 4.6, CorDapps that introduce custom schema need Liquibase migration scripts allowing them to create the schema upfront. For existing CorDapps that do not have migration scripts in their resources, they can be added as an external migration `.jar` file, as documented in the [Corda Enterprise documentation](../../4.6/enterprise/cordapps/database-management.html#adding-scripts-retrospectively-to-an-existing-cordapp).
+3. Add Liquibase resources to CorDapps. In Corda 4.6, CorDapps that introduce custom schema need Liquibase migration scripts allowing them to create the schema upfront. For existing CorDapps that do not have migration scripts in their resources, they can be added as an external migration `.jar` file, as documented in the Corda Enterprise 4.6 database management scripts documentation (available in the [archived-docs](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.6/enterprise/cordapps/database-management.md) directory of the [corda/corda-docs-portal](https://github.com/corda/corda-docs-portal) repo).
 4. Update the changelog for existing schemas. After upgrading the Corda `.jar` file and adding Liquibase scripts to the CorDapp(s), any custom schemas from the apps are present
 in the database, but the changelog entries in the Liquibase changelog table are missing (as they have been created by Liquibase). This will cause issues when starting the node, and also when running `run-migration-scripts` as tables that already exist cannot be recreated. By running the new sub-command `sync-app-schemas`, changelog entries are created for all existing mapped schemas from CorDapps: `java -jar corda.jar sync-app-schemas`.
 
