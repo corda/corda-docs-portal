@@ -47,7 +47,7 @@ To understand the information in the logs, which data is important, and what can
 
 ## Monitoring - the basics
 
-You can monitor the health and performance of your node using tools such as Jolokia and graphite. Whenever using these tools, you should follow best-practice steps such as setting up TCP checks for the ports the node communicates on, database health checks etc.
+You can monitor the health and performance of your node using tools such as [Jolokia and Graphite](../../node/operating/monitoring-and-logging/overview.html#node-monitoring).. Whenever using these tools, you should follow best-practice steps such as setting up TCP checks for the ports the node communicates on, database health checks etc.
 
 ### Monitoring via Jolokia
 
@@ -68,21 +68,21 @@ via a file called `jolokia-access.xml`.
 Several Jolokia policy based security configuration files (`jolokia-access.xml`) are available for dev, test, and prod
 environments under `/config/<env>`.
 
-### Monitoring via graphite
+### Monitoring via Graphite
 
-Corda nodes alternatively support publishing metrics collected via the Codahale metrics library directly to a graphite
+Corda nodes alternatively support publishing metrics collected via the Codahale metrics library directly to a Graphite
 server. This needs to be configured in the node configuration file:
 
 ```kotlin
 graphiteOptions = {
   prefix = "<node specific prefix>"
-  server = <host name of the graphite server>
-  port = <write port on the graphite server>
+  server = <host name of the Graphite server>
+  port = <write port on the Graphite server>
 }
 ```
 
 The prefix should clearly indicate the node where the metrics are coming from, as this will be the top level discrimator
-in the graphite metric hierarchy.
-The graphite server must be running with python pickle transport enabled. Please refer to the documentation on
-[https://graphiteapp.org](https://graphiteapp.org) on how to install and run a graphite server.
+in the Graphite metric hierarchy.
+The Graphite server must be running with python pickle transport enabled. Please refer to the documentation on
+[https://graphiteapp.org](https://graphiteapp.org) on how to install and run a Graphite server.
 
