@@ -20,7 +20,7 @@ The `MemberInfo` interface exposes properties of a virtual node's membership. Th
 
 Information provided by the virtual node operator at time of registration is the content of the `MemberContext` and the information provided by the MGM is the source of the `MGMContext` content.
 
-Instances of `MemberInfo` must be retrieved through a lookup API. `MemberLookup` from the `corda-application` module, is the lookup API which provides membership information to CorDapps. This can be used to lookup the information of the member executing a flow or other members available to transact with within the group.
+Instances of `MemberInfo` must be retrieved through a lookup API. `MemberLookup` from the <a href="application/membership.md">`corda-application` module</a>, is the lookup API which provides membership information to CorDapps. This can be used to lookup the information of the member executing a flow or other members available to transact with within the group. 
 
 The `MemberInfo` interface extends the `LayeredPropertyMap` interface, which means that membership information is key-value `String` pairs that are parsed and returned through properties. Generally, any properties required for use within a CorDapp are exposed through the `MemberInfo` interface. Other properties may only be relevant internally or at certain layers within the codebase so these are exposed through extension functions.
 
