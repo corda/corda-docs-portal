@@ -58,7 +58,7 @@ The evolution of the ledger when stepping through the walkthrough steps can be s
 
 * The Create transaction has no input and starts a new chat with a unique `id`. The `id` operates similarly to the Corda 4  `LinearStateId`, which has not been implemented yet in Corda 5.
 * Each update transaction creates the new ChatState as an output and consumes the previous ChatState as an input.
-* To recreate the historic conversation the back chain is traversed from newest (unconsummed) state to oldest.
+* To recreate the historic conversation the back chain is traversed from newest (unconsumed) state to oldest.
 
 ### Chat Flows
 

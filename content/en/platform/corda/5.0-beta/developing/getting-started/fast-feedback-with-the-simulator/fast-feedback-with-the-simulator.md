@@ -10,7 +10,7 @@ section_menu: corda-5-beta
 ---
 
 {{< note >}}
-As of Beta 1.1, Simulator does not support the `UTXOLedgerService`. For now, this limits the usefulness of Simulator for UTXO based applications.
+As of Beta 1.1, Simulator does not support the `UTXOLedgerService`. For now, this limits the usefulness of Simulator for UTXO-based applications.
 {{< /note >}}
 
 When writing any application, including CorDapps, it is helpful to have a fast feedback loop: code > test > debug > modify.
