@@ -15,9 +15,9 @@ Corda 5 supports CRUD (Create, Read, Update, Delete) operations for user-defined
 
 ## Defining Custom Tables Using Liquibase Migrations
 
-[CorDapps](../../introduction/key-concepts.html#cordapps) store data in a relational database.
-When Corda creates a [virtual node](../../introduction/key-concepts.html#virtual-nodes) for a CorDapp (as part of a [CPI](../../introduction/key-concepts.html#corda-package-installer-cpi)), it requires associated tables, indexes, foreign-keys, etc.
-To create these, you must embed Liquibase files into the CorDapp [CPK](../../introduction/key-concepts.html#corda-packages-cpks).
+[CorDapps](../../../introduction/key-concepts.html#cordapps) store data in a relational database.
+When Corda creates a [virtual node](../../../introduction/key-concepts.html#virtual-nodes) for a CorDapp (as part of a [CPI](../../../introduction/key-concepts.html#corda-package-installer-cpi)), it requires associated tables, indexes, foreign-keys, etc.
+To create these, you must embed Liquibase files into the CorDapp [CPK](../../../introduction/key-concepts.html#corda-packages-cpks).
 
 Liquibase manages DB changes in a “Change Log” which references one or more change sets.
 You must specify the top level `databaseChangeLog` in a resource file in the CPK called `migration/db.changelog-master.xml`.
@@ -65,7 +65,7 @@ The `include` file reference is resolved relative to the resources path in the C
 
 To run the migrations:
 1. Upload the CPI.
-2. Create a virtual node using the [Corda 5 REST API](../../operating/operating-tutorials/rest-api.html).
+2. Create a virtual node using the [Corda 5 REST API](../../../operating/operating-tutorials/rest-api.html).
 
   The migrations run when the virtual node is created and logging shows the migrations executing.
   If you have direct database access, you should see the tables being created.
