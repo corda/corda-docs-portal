@@ -222,7 +222,7 @@ Read more about improvements of this release below.
 
 #### CENM error condition knowledge base
 
-In CENM 1.4, we have adapted to CENM the internal Corda error handling logic introduced in [Corda 4.5](../../../../../en/platform/corda/4.5/open-source/error-codes.md) and [Corda Enterprise Edition 4.5](../../../../../en/platform/corda/4.5/enterprise/node/operating/error-codes.md) for Corda nodes.
+In CENM 1.4, we have adapted to CENM the internal Corda error handling logic introduced in [Corda 4.5](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-os/4.5/error-codes.md) and [Corda Enterprise Edition 4.5](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.5/enterprise/node/operating/error-codes.md) for Corda nodes.
 
 As a result, CENM exceptions are now treated as CENM error codes and an error code is generated for each exception. The initial set of error codes, related to configuration parsing/validation errors, are described in the new [CENM error codes documentation page](../../../../../en/platform/corda/1.4/cenm/cenm-error-codes.md). This is the start of a growing CENM error condition knowledge base, which will expand in future releases.
 
