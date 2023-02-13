@@ -100,7 +100,7 @@ security actions:
 Before the `updateDeadline` time, nodes will have to run the `acceptNewNetworkParameters()` RPC command to accept
 new parameters. This will not
 activate the new network parameters on the nodes - it will only inform the Network Map Service that the node has agreed to the
-update. See [the Corda node RPC API](../../../../../en/platform/corda/4.6/open-source/tutorial-clientrpc-api.md) for further details.
+update. See [the Client RPC API](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.6/enterprise/tutorial-clientrpc-api.md) for further details.
 
 To list network participants that have or have not accepted the new network parameters,
 run the following command:
