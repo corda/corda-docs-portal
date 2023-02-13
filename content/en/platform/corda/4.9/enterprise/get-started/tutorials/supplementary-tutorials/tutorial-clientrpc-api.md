@@ -20,7 +20,7 @@ This tutorial will take you through how to work with the CordaRPCClient API to i
 
 In this tutorial, we will build a simple command line utility that connects to a node via RPC, creates some cash transactions
 and dumps the transaction graph to the standard output. We will then put some simple visualisation on top. For an
-explanation of how RPC works in Corda, see [Interacting with a node](../../../../community/clientrpc.md).
+explanation of how RPC works in Corda, see [Interacting with a node](../../../node/operating/clientrpc.md).
 
 ## Connecting to the node and defining permissions
 
@@ -434,7 +434,7 @@ thread {
 The RPC operation you need in order to create the transaction graph is `internalVerifiedTransactionsFeed`. The type of
 signature tells us that the RPC operation will return a list of transactions and an `Observable` stream. This is a
 general pattern: we query some data and the node will return the current snapshot and future updates done to it.
-Observables are described in more detail in [Interacting with a node](../../../../community/clientrpc.md).
+Observables are described in more detail in [Interacting with a node](../../../node/operating/clientrpc.md).
 
 ```kotlin
 val (transactions: List<SignedTransaction>, futureTransactions: Observable<SignedTransaction>) = proxy.internalVerifiedTransactionsFeed()
@@ -546,7 +546,7 @@ If you run the client with `Visualise`, you should see a simple random graph bei
 
 ## Whitelisting classes from your CorDapp with the Corda node
 
-As described in [Interacting with a node](../../../../community/clientrpc.md), you have to whitelist any additional classes you add that are needed in RPC interactions
+As described in [Interacting with a node](../../../node/operating/clientrpc.md), you have to whitelist any additional classes you add that are needed in RPC interactions
 (requests or responses) with the Corda node. Here’s an example that shows the two ways that you can do this for a couple of example classes.
 
 ```kotlin
@@ -564,7 +564,7 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 
 ```
 
-See more on plugins in [Running nodes locally](../../../../community/running-a-node.md).
+See more on plugins in [Running nodes locally](../../../operations/deployment/running-a-node.md).
 
 
 ## Defining RPC credentials and permissions
@@ -629,5 +629,4 @@ You can then deploy and launch the nodes (Notary and Alice) as follows:
 With regards to the start flow RPCs, there is an extra layer of security whereby the flow to be executed has to be
 annotated with `@StartableByRPC`. Flows without this annotation cannot execute using RPC.
 
-See more on security in [Secure coding guidelines](../../../../community/secure-coding-guidelines.md), node configuration in [Node configuration](../../corda-configuration-file.md) and
-Cordformation in [Running nodes locally](../../../../community/running-a-node.md).
+See more on security in [Secure coding guidelines](../../../../../4.10/community/secure-coding-guidelines.md), node configuration in [Node configuration](../../corda-configuration-file.md) and Cordformation in [Running nodes locally](../../../operations/deployment/running-a-node.md).

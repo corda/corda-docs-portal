@@ -70,7 +70,7 @@ rather than calling the individual steps manually. However, do note that the fin
 asynchronous, so care must be used in unit testing to correctly await the vault updates.
 
 {{< note >}}
-See [Reissuing states](../../../../community/reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
+See [Reissuing states](../../../cordapps/reissuing-states.md) for information about reissuing states with a guaranteed state replacement, which allows you to break transaction backchains.
 {{< /note >}}
 
 ## Gathering inputs
