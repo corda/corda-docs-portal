@@ -57,7 +57,7 @@ the latest Network Map they will be notified of the proposed parameter update.
 * Before the `updateDeadline` time, nodes will have to run the `acceptNewNetworkParameters()` RPC command to accept
 new parameters. This will not
 activate the new network parameters on the nodes, only inform the Network Map service that the node has agreed to the
-update. See [https://docs.corda.net/tutorial-clientrpc-api.html](../../../../../en/platform/corda/4.5/open-source/tutorial-clientrpc-api.md) for further details.
+update. See [Using the Client RPC API](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.5/enterprise/tutorial-clientrpc-api.md) for further details.
 The Network Map’s shell contains a command to list network participants that have or haven’t accepted the new
 network parameters:>
 ```bash
