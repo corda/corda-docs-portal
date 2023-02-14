@@ -318,7 +318,7 @@ Allows fine-grained controls of various features only available in the enterpris
 * `metricsConfiguration`
   * Optional configuration section that controls metric configuration.
   * Parameters:
-    * `reservoirType`: Sets the reservoir type. Valid values are `EDR` (default) and `TIME_WINDOW`. For more information, see the [metrics documentation](../../../../../../../../en/platform/corda/4.8/enterprise/node-metrics.md).
+    * `reservoirType`: Sets the reservoir type. Valid values are `EDR` (default) and `TIME_WINDOW`. For more information, see the [metrics documentation](../../node-metrics.md).
     * `timeWindow`: Sets the data gathering duration for `TIME_WINDOW` data reservoirs. If not set, the default is five minutes.
 
 * `tuning`
@@ -543,6 +543,10 @@ If running as part of a HA notary cluster, you must specify the `serviceLegalNam
 For a single-node notary, you must specify the `validating` and `serviceLegalName` configuration fields.
 {{< /warning >}}
 
+{{< note >}}
+Once a notary is configured with a default value, it cannot be reconfigured. To change a non-validating notary to validating
+(or vice-versa), you need to create and register a new notary.
+{{< /note >}}
 * `validating`
   * Boolean to determine whether the notary is a validating or non-validating one.
   * *Default:* false
@@ -821,7 +825,7 @@ Options for the RPC server exposed by the Node.
   * boolean, indicates whether the node will connect to a standalone broker for RPC.
   * *Default:* false
 * `useSsl`
-  * boolean, indicates whether the node should require clients to use SSL for RPC connections.
+  * boolean, indicates if the node should require clients to use SSL for RPC connections.
   * *Default:* false
 * `ssl`
   * (mandatory if `useSsl=true`) SSL settings for the RPC server.
@@ -912,7 +916,7 @@ This is the non-secret value for the development certificates automatically gene
 ## `useOpenSsl`
 
 If set to true, the node will use a native SSL implementation for TLS rather than the JVM SSL. The native SSL library currently shipped with
-Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to `false`.
+Corda Enterprise is BoringSsl. The default is to use JVM SSL, i.e. the flag being set to `false`.  This configuration offers higher performance than the built-in library, but you can't use it with the Corda Firewall or an HSM—so this configuration is only recommended for private networks where there is a requirement to extract maximum performance.
 
 ## `useTestClock`
 

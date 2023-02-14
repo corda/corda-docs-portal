@@ -117,9 +117,9 @@ Optional path to the configuration file for the CryptoService provider. This may
 
 ## `cryptoServiceTimeout`
 
-Optional timeout value of actions sent to the the CryptoService (HSM). If the HSM takes longer than this duration to respond then a `TimedCryptoServiceException` will be thrown and handled by the Flow Hospital.
+Optional timeout value of actions sent to the CryptoService (HSM). If the HSM takes longer than this duration to respond then a `TimedCryptoServiceException` will be thrown and handled by the Flow Hospital. You can increase it to mitigate the time-out error.
 
-*Default:* 1s
+*Default:* 1,000 milliseconds
 
 ## `custom`
 
@@ -211,7 +211,7 @@ The email address responsible for node administration, used by the Compatibility
 
 Allows fine-grained controls of various features only available in the enterprise version of Corda.
 
-* `mutualExclusion`
+* `mutualExclusionConfiguration`
   * Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).
 * `on`
   * Enables the logic. Values can be either true or false.
@@ -316,6 +316,11 @@ Allows fine-grained controls of various features only available in the enterpris
   * Enables URL connection caching. It is set to `false` by default and it is highly recommended to keep it that way.
   * When caching is enabled (set to `true`), `.jar` files will be cached, which can cause leaking of file handles. This is caused by the way the `ServiceLoader` handles `.jar` files that are children of the `URLClassLoader`. For more information, see [here](https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8156014).
     * *Default:* `false`
+* `metricsConfiguration`
+  * Optional configuration section that controls metric configuration.
+  * Parameters:
+    * `reservoirType`: Sets the reservoir type. Valid values are `EDR` (default) and `TIME_WINDOW`. For more information, see the [metrics documentation](../../node-metrics.md).
+    * `timeWindow`: Sets the data gathering duration for `TIME_WINDOW` data reservoirs. If not set, the default is five minutes.                                                                                                   
 
 ## Tuning
 
@@ -371,7 +376,7 @@ Private network UUID should be provided by network operator and lets you see nod
 
 The number of threads available to execute external operations that have been called from flows.
 
-*Default:* Set to the lesser of either the maximum number of cores allocated to the node, or 10.
+*Default:* Set to the lower value between the maximum number of cores allocated to the node, or 10 cores if the maximum exceeds 10.
 
 ## `flowMonitorPeriodMillis`
 
@@ -389,7 +394,13 @@ Threshold duration suspended flows waiting for IO need to exceed before they are
 
 When a flow implementing the `TimedFlow` interface and setting the `isTimeoutEnabled` flag does not complete within a defined elapsed time, it is restarted from the initial checkpoint.
 Currently only used for notarisation requests with clustered notaries: if a notary cluster member dies while processing a notarisation request, the client flow eventually times out and gets restarted.
-On restart the request is resent to a different notary cluster member in a round-robin fashion. Note that the flow will keep retrying forever.
+On restart the request is resent to a different notary cluster member in a round-robin fashion. Note that the flow will keep retrying forever.  The calculation of the retry timer is as follows:
+
+```
+Timeout = Base timeout * Backoff base ^ Retry count * Jitter factor
+```
+
+The jitter factor is set to a random number between 1 and 1.5, and is intended to introduce a degree of randomness to the calculation, helping to protect the notary against sudden increases in notarisation requests causing a subsequent increase in retry attempts.
 
 * `timeout`
   * The initial flow timeout period.
@@ -691,7 +702,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
         ```json
           jpa {
             connectionRetries=2
-            dataSource {
+            dataSource.[VALUE] {
               autoCommit="false"
               jdbcUrl="jdbc:postgresql://10.18.1.1,10.18.1.2,10.18.1.3/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8&user=corda"
               username="corda"

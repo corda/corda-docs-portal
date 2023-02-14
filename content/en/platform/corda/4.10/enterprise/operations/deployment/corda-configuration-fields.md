@@ -121,7 +121,7 @@ Optional path to the configuration file for the CryptoService provider. This may
 
 The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of times that the flow is retried. The *sign* of the value determines what happens when all retries are exhausted: 
 
-* If a *negative* value is specified, then a `CryptoServiceException` is propagated back to the calling code and the flow fails; this was the default behaviour in versions of Corda before 4.10.
+* If a *negative* value is specified, a `CryptoServiceException` is propagated back to the calling code and the flow fails; this was the default behaviour in versions of Corda before 4.10.
 * If a *positive* value is specified, then the flow is held in the flow hospital for overnight observation so that a node operator can review it.
 
 For example, if `cryptoServiceFlowRetryCount` is set to `-2`, then the flow is retried a maximum of two times. If it still fails, then the exception is propagated back to the code that invoked the flow and the flow failed.
@@ -130,9 +130,9 @@ For example, if `cryptoServiceFlowRetryCount` is set to `-2`, then the flow is r
 
 ## `cryptoServiceTimeout`
 
-Optional timeout value of actions sent to the the CryptoService (HSM). If the HSM takes longer than this duration to respond then a `TimedCryptoServiceException` will be thrown and handled by the Flow Hospital.
+Optional timeout value of actions sent to the the CryptoService (HSM). If the HSM takes longer than this duration to respond then a `TimedCryptoServiceException` will be thrown and handled by the Flow Hospital.  You can increase it to mitigate the time-out error.
 
-*Default:* 1s
+*Default:* 1,000 milliseconds
 
 ## `custom`
 
@@ -224,7 +224,7 @@ The email address responsible for node administration, used by the Compatibility
 
 Allows fine-grained controls of various features only available in the enterprise version of Corda.
 
-* `mutualExclusion`
+* `mutualExclusionConfiguration`
   * Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).
 * `on`
   * Enables the logic. Values can be either true or false.
@@ -329,7 +329,11 @@ Allows fine-grained controls of various features only available in the enterpris
   * Enables URL connection caching. It is set to `false` by default and it is highly recommended to keep it that way.
   * When caching is enabled (set to `true`), `.jar` files will be cached, which can cause leaking of file handles. This is caused by the way the `ServiceLoader` handles `.jar` files that are children of the `URLClassLoader`. For more information, see [here](https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8156014).
     * *Default:* `false`
-
+* `metricsConfiguration`
+  * Optional configuration section that controls metric configuration.
+  * Parameters:
+    * `reservoirType`: Sets the reservoir type. Valid values are `EDR` (default) and `TIME_WINDOW`. For more information, see the [metrics documentation](../operating/monitoring-and-logging/node-metrics.md).
+    * `timeWindow`: Sets the data gathering duration for `TIME_WINDOW` data reservoirs. If not set, the default is five minutes.
 ## Tuning
 
 Tuning is a section within the Corda Node configuration file that contains performance tuning parameters for Corda Enterprise Nodes.
@@ -384,7 +388,7 @@ Private network UUID should be provided by network operator and lets you see nod
 
 The number of threads available to execute external operations that have been called from flows.
 
-*Default:* Set to the lesser of either the maximum number of cores allocated to the node, or 10.
+*Default:* Set to the lower value between the maximum number of cores allocated to the node, or 10 cores if the maximum exceeds 10.
 
 ## `flowMonitorPeriodMillis`
 
@@ -402,7 +406,14 @@ Threshold duration suspended flows waiting for IO need to exceed before they are
 
 When a flow implementing the `TimedFlow` interface and setting the `isTimeoutEnabled` flag does not complete within a defined elapsed time, it is restarted from the initial checkpoint.
 Currently only used for notarisation requests with clustered notaries: if a notary cluster member dies while processing a notarisation request, the client flow eventually times out and gets restarted.
-On restart the request is resent to a different notary cluster member in a round-robin fashion. Note that the flow will keep retrying forever.
+On restart the request is resent to a different notary cluster member in a round-robin fashion. Note that the flow will keep retrying forever. The calculation of the retry timer is as follows:
+
+```
+Timeout = Base timeout * Backoff base ^ Retry count * Jitter factor
+```
+
+The jitter factor is set to a random number between 1 and 1.5, and is intended to introduce a degree of randomness to the calculation, helping to protect the notary against sudden increases in notarisation requests causing a subsequent increase in retry attempts.
+
 
 * `timeout`
   * The initial flow timeout period.
@@ -881,6 +892,32 @@ An optional map of additional system properties to be set when launching via `co
 Keys and values of the map should be strings. e.g. `systemProperties = { "visualvm.display.name" = FooBar }`
 
 *Default:* not defined
+
+## `telemetry`
+
+There are new configuration fields for telemetry. See the [OpenTelemetry](../../../enterprise/node/operating/monitoring-and-logging/opentelemetry.md) section for more information. 
+
+* `openTelemetryEnabled` 
+  * Specifies if the node should generate spans to be sent to a collector. The node will only generate spans if this property is set to `true` and an OpenTelemetry SDK is on the node classpath. By default, no OpenTelemetry SDK is on the node classpath, meaning by default no spans are actually generated. To prevent spans being generated regardless of whether the OpenTelemetry SDK is on the classpath, this configuration field should be set to `false`.
+  * *Default:* true
+* `spanStartEndEventsEnabled`
+  * When Corda generates spans for flows and certain significant operations, it has the capability to generate a span for starting the operation, ending the operation, and generating a single span to cover the whole operation. This can be useful to determine where a flow is stuck, as you will only see the start spans, and not the end spans. This is not standard OpenTelemetry behaviour, and it could also result in a lot of spans flooding the network. Setting this field to `true` will enable it. 
+  * *Default:* false
+* `copyBaggageToTags`
+  * If set to `true`, this parameter will cause baggage to be copied to tags when generating spans. Baggage are fields which can be passed around with the invocation of OpenTelemetry.
+  * *Default:* false
+* `simpleLogTelemetryEnabled`
+  * Enables an alternative form of telemetry. If this field is set to `true`, log lines are written to logs when a flow or significant operation is started, or ended. The log line specifies a trace ID, which allows flows to be matched up across nodes.
+  * *Default:* false
+* Example configuration:
+
+```kotlin
+telemetry {
+        openTelemetryEnabled=true
+        spanStartEndEventsEnabled=false
+        simpleLogTelemetryEnabled=false
+      }
+```
 
 ## `transactionCacheSizeMegaBytes`
 

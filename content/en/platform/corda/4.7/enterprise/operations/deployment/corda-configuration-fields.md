@@ -123,7 +123,7 @@ Optional path to the configuration file for the CryptoService provider. This may
 
 Optional time-out value of actions sent to the CryptoService (HSM). If the HSM takes longer than this duration to respond, then a `TimedCryptoServiceException` will be thrown and handled by the Flow Hospital. You can increase it to mitigate the time-out error.
 
-*Default:* 10000 milliseconds
+*Default:* 1,000 milliseconds
 
 ## `custom`
 
@@ -215,7 +215,7 @@ The email address responsible for node administration, used by the Compatibility
 
 Allows fine-grained controls of various features only available in the enterprise version of Corda.
 
-* `mutualExclusion`
+* `mutualExclusionConfiguration`
   * Enable the protective heartbeat logic so that only one node instance is ever running (hot-cold deployment).
 * `on`
   * Enables the logic. Values can be either true or false.
@@ -365,7 +365,7 @@ architecture. For these reasons, the default size for the flow framework thread 
 ## `extraNetworkMapKeys`
 
 An optional list of private network map UUIDs. Your node will fetch the public network and private network maps based on these keys.
-Private network UUID should be provided by network operator and lets you see nodes not visible on public network.
+A private network UUID should be provided by network operator and lets you see nodes that are not visible on the public network.
 
 **Important: This is a temporary feature for onboarding network participants that limits their visibility for privacy reasons.**
 
@@ -394,6 +394,13 @@ Threshold duration suspended flows waiting for IO need to exceed before they are
 When a flow implementing the `TimedFlow` interface and setting the `isTimeoutEnabled` flag does not complete within a defined elapsed time, it is restarted from the initial checkpoint.
 Currently only used for notarisation requests with clustered notaries: if a notary cluster member dies while processing a notarisation request, the client flow eventually times out and gets restarted.
 On restart the request is resent to a different notary cluster member in a round-robin fashion. Note that the flow will keep retrying forever.
+The calculation of the retry timer is as follows:
+
+```
+Timeout = Base timeout * Backoff base ^ Retry count * Jitter factor
+```
+
+The jitter factor is set to a random number between 1 and 1.5, and is intended to introduce a degree of randomness to the calculation, helping to protect the notary against sudden increases in notarisation requests causing a subsequent increase in retry attempts.
 
 * `timeout`
   * The initial flow timeout period.
