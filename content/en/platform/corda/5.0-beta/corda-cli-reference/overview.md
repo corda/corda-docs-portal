@@ -7,4 +7,4 @@ menu:
     weight: 5000
 section_menu: corda-5-beta
 ---
-This section describes the CLI commands and introduces RPC permission templates.
+This section describes the CLI commands and introduces RPC permission templates. To l earn how to insall the CLI, see [Installing the Corda CLI](../developing/getting-started/installing-corda-cli.md).
