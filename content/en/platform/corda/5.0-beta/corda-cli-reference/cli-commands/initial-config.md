@@ -45,11 +45,11 @@ The `create-db-config` command creates the SQL statements to insert the connecti
 
 | <div style="width:160px">Argument</div> | Description                                                                                                                                      |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| -a, \-\-isAdmin                         | Specifies if this is an admin (DDL) connection. The default value is false.                                                                      |
+| -a, \-\-is-admin                         | Specifies if this is an admin (DDL) connection. The default value is false.                                                                      |
 | -d, \-\-description                     | Detailed information about the database connection.                                                                                             |
 | -e, \-\-passphrase                      | The passphrase for the encrypting secrets service.  This must match the value specified in the Corda deployment configuration for the DB worker. |
-| -j, \-\-jdbcURL                         | The JDBC URL for the connection. This value is required.                                                                                         |
-| \-\-jdbcPoolMaxSize                     | The maximum size of the JDBC connection pool. The default value is 10.                                                                           |
+| -j, \-\-jbdc-url                         | The JDBC URL for the connection. This value is required.                                                                                         |
+| \-\-jdbc-pool-max-size                     | The maximum size of the JDBC connection pool. The default value is 10.                                                                           |
 | -l, \-\-location                        | The path to write the generated SQL files to.                                                                                                    |
 | -n, \-\-name                            | The name of the database connection. Required.                                                                                                   |
 | -p, \-\-password                        | The password for the database connection. Required.                                                                                         |
@@ -60,22 +60,22 @@ The `create-db-config` command creates the SQL statements to insert the connecti
 {{% tab name="Linux" %}}
 ```sh
 corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
-  --name corda-rbac --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
-  --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+  --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
+  --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
 ```
 {{% /tab %}}
 {{% tab name="macOS" %}}
 ```sh
 corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
-  --name corda-rbac --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
-  --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+  --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
+  --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
 ```
 {{% /tab %}}
 {{% tab name="Windows" %}}
 ```shell
 corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> `
-  --name corda-rbac --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
-  --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+  --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
+  --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
 ```
 {{% /tab %}}
 {{< /tabs >}}
