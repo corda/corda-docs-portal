@@ -629,5 +629,5 @@ You can then deploy and launch the nodes (Notary and Alice) as follows:
 With regards to the start flow RPCs, there is an extra layer of security whereby the flow to be executed has to be
 annotated with `@StartableByRPC`. Flows without this annotation cannot execute using RPC.
 
-See more on security in [Secure coding guidelines](../../../../../4.10/community/secure-coding-guidelines.md), node configuration in [Node configuration](../../corda-configuration-file.md) and
+See more on security in [Secure coding guidelines](../../../secure-coding-guidelines.md), node configuration in [Node configuration](../../corda-configuration-file.md) and
 Cordformation in [Running nodes locally](../../../operations/deployment/running-a-node.md).
