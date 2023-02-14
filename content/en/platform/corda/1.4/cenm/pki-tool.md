@@ -43,7 +43,7 @@ separate HSM to only existing as offline shards distributed across different geo
 
 The PKI Tool is a CENM provided utility that can be used to generate a Corda compliant hierarchy.
 
-For more information about X.500 Name constraints, see the `Node identity` section in the [Corda documentation](../../../../../en/platform/corda/4.6/open-source/node-naming.md).
+For more information about X.500 Name constraints, see the `Node identity` section in the [Corda documentation](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-enterprise/4.6/enterprise/node/setup/node-naming.md).
 
 ## Features
 
