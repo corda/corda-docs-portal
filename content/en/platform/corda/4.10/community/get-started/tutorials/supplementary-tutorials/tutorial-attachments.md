@@ -55,7 +55,7 @@ identified inside the node.
 
 ### Downloading an attachment
 
-To download an attachment named by its hash, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](../../clientrpc.md) or you can upload your attachment via the [Node shell](../../shell.md).
+To download an attachment named by its hash, you need to first connect to the relevant node. You can do this via the Corda RPC Client, as described in [Interacting with a node](../../../clientrpc.md) or you can upload your attachment via the [Node shell](../../../shell.md).
 
 To download an attachment, run the following command, replacing the ID with the hash of the attachment that you want to download:
 
