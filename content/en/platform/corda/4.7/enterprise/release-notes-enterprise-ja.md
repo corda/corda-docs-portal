@@ -37,12 +37,12 @@ Corda Enterprise Edition 4.7における主な新機能と機能強化は以下�
 {{< note >}}
 このページでは、Corda Enterprise Edition 4.7に特有の機能のみを記載しています。しかし、Corda Enterpriseのお客様は、Cordaオープンソースリリースの一部としてご利用いただける機能をすべて活用できます。
 
-Corda 4.7の一環として提供される以下のような新機能、機能強化、修正については、[Cordaオープンソースリリースノート](../../corda-os/4.7/release-notes-ja.md)をご覧ください。
+Corda 4.7の一環として提供される以下のような新機能、機能強化、修正については、[Cordaオープンソースリリースノート](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-os/4.7/release-notes-ja.md)をご覧ください。
 
-* [保証されたステートのリプレイスメントを伴うステートの再発行を行うことで、取引のバックチェーンを断ち切る機能](../../corda-os/4.7/release-notes-ja.html#保証されたステートのリプレイスメントを伴うステートの再発行を行うことで取引のバックチェーンを断ち切る機能)
-* [ビジネスネットワークメンバーシップバージョン1.1](../../corda-os/4.7/release-notes-ja.html#ビジネスネットワークメンバーシップバージョン11)
-* [新しいマルチRPCクライアントを通じてCordaノードとやり取りをする機能](../../corda-os/4.7/release-notes-ja.html#新しいマルチrpcクライアントを通じてcordaノードとやり取りをする機能)
-* [参照アプリケーション：](../../corda-os/4.7/release-notes-ja.html#参照アプリ-bank-in-a-box)
+* 保証されたステートのリプレイスメントを伴うステートの再発行を行うことで、取引のバックチェーンを断ち切る機能
+* ビジネスネットワークメンバーシップバージョン1.1
+* 新しいマルチRPCクライアントを通じてCordaノードとやり取りをする機能
+* 参照アプリケーション：
 {{< /note >}}
 
 ## 新機能と機能強化
@@ -86,7 +86,7 @@ Corda Enterprise Edition 4.7では、ノード鍵（Legal Identity）とその�
 
 ### その他の変更と改善
 
-* **Azure ADを使ったシングルサインオン**Azure ADとCorda Authサービスで[簡単な設定](node/azure-ad-sso)を行うだけで、CordaサービスとAzure AD間でシングルサインオン（SSO）設定を運用できるようになりました。
+* **Azure ADを使ったシングルサインオン**Azure ADとCorda Authサービスで[簡単な設定](node/azure-ad-sso.html)を行うだけで、CordaサービスとAzure AD間でシングルサインオン（SSO）設定を運用できるようになりました。
 * **HSM統合サポート**Corda Enterpriseでは、サポートされていないHSMとCorda Enterpriseインスタンスのユーザーによる統合をサポートするようになりました。今回のリリースには、例として使えるJava実装のサンプルと、展開前に実装をテストできるテストスイートが含まれています。HSM統合の書き方ガイドについては[HSMに関する項](operations/deployment/hsm-integration.md/)をご覧ください。
 * **HSMにConfidential Identity鍵を保存する機能**Corda Enterpriseは、nCipher、FuturexとAzure Key VaultのHSMにおけるConfidential Identityに関する鍵の保管をサポートするようになりました。nCipherとAzure Key VaultのHSMではConfidential Identity鍵のネイティブでの利用をサポートし、FuturexのHSMではキーラップモードをサポートします。これらのHSMにおけるConfidential Identity鍵保管の設定については、[HSMに関する項](operations/deployment/hsm-deployment-confidential.html#using-an-hsm-with-confidential-identities/)をご覧ください。
 * **HSM API**Corda Enterprise Edition 4.7では、外部のツール開発者がCorda EnterpriseのHSMサポートを拡張するために使える独自のAPIを有するHSMライブラリーが導入されています。

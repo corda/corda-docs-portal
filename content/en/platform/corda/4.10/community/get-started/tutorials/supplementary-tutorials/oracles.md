@@ -239,7 +239,7 @@ transaction and return it.
 {{< note >}}
 Before reading any further, we advise that you understand the concept of flows and how to write them and use
 them. See [Key concepts: Flow](../../../key-concepts-flows.md). Likewise, some understanding of CorDapps, plugins, and services will be helpful.
-See [Running nodes locally](../../../../enterprise/node/deploy/running-a-node.md).
+See [Running nodes locally](../../../running-a-node.md).
 
 {{< /note >}}
 The first step is to create the oracle as a service by annotating its class with `@CordaService`.  Let’s see how that’s

@@ -163,7 +163,7 @@ If you Corda instance is set to dev mode you can access Hibernate statistics usi
 
 ### Monitoring your node using Graphite
 
-Corda supports publishing metrics directly to a Graphite server if those metrics were collected using the Codahale metrics library. The graphite server must be running with python pickle transport enabled. Please refer to the documentation on [https://graphiteapp.org](https://graphiteapp.org) on how to install and run a graphite server.
+Corda supports publishing metrics directly to a Graphite server if those metrics were collected using the Codahale metrics library. The Graphite server must be running with python pickle transport enabled. Please refer to the documentation on [https://graphiteapp.org](https://graphiteapp.org) on how to install and run a Graphite server.
 
 To publish metrics to a Graphite server:
 
@@ -173,8 +173,8 @@ To publish metrics to a Graphite server:
     ```kotlin
     graphiteOptions = {
       prefix = "<node specific prefix>"
-      server = <host name of the graphite server>
-      port = <pickle receiver port on the graphite server>
+      server = <host name of the Graphite server>
+      port = <pickle receiver port on the Graphite server>
     }
     ```
 

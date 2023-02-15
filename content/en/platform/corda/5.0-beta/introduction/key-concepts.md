@@ -19,7 +19,7 @@ The Corda platform is a layered toolbox that you can approach from the bottom up
 
 ### P2P Layer
 
-The P2P Layer allows an identity to establish a communication session with another identity on an [application network](#application-networks)at their published address, regardless of whether they reside in the same or different [clusters](#clusters).
+The P2P Layer allows an identity to establish a communication session with another identity on an [application network](#application-networks) at their published address, regardless of whether they reside in the same or different [clusters](#clusters).
 It manages the lifecycle, link establishment, connection recovery, back pressure, caching, heart beating, transmission, message chunking, etc., for communications intended to flow between identities. It has two primary components; the Gateway and Link Manager.
 
 ### Flow Layer
@@ -146,7 +146,7 @@ Flows utilize the Corda API to perform the required actions to solve a business 
 * Proposing an update to something and getting agreement from all parties.
 * When event Y occurs, do Z.
 
-For more information about the flows API, see [Corda API](../developing/api/api-application.html#flows).
+For more information about the flows API, see [Corda API](../developing/api/application/application.html#flows).
 
 ## Workers
 
