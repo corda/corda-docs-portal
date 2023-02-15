@@ -9,6 +9,7 @@ tags:
 - Bank in a Box
 - API
 weight: 400
+section_menu: corda-enterprise-4-10
 ---
 
 # Bank in a Box API guide
@@ -19,7 +20,7 @@ These endpoints and their corresponding flows are described below, organised by 
 
 ## Base URL
 
-As Bank in a Box is used for testing and learning, the base URL is `localhost` with the [port assigned during installation](../../../en/apps/bankinabox/getting-started.html#service-endpoints-display-logs-and-exec-into-container) using the Kubernetes port forward feature.
+As Bank in a Box is used for testing and learning, the base URL is `localhost` with the [port assigned during installation](./getting-started.html#service-endpoints-display-logs-and-exec-into-container) using the Kubernetes port forward feature.
 
 For the examples shown below, the base URL is: `http://localhost:7777/`
 
@@ -263,7 +264,7 @@ The Account Controller includes API endpoints that manage user accounts in the B
 
 ### Create a Current Account
 
-Send a `POST` request to the `/accounts/create-current-account` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#createcurrentaccountflow">`CreateCurrentAccountFlow`</a>. This flow creates a zero balance current account for a customer with the provided customer ID. The user also has the option to specify a withdrawal and/or transfer daily limit. This request requires authorization. It can be sent by an admin user.
+Send a `POST` request to the `/accounts/create-current-account` endpoint to invoke the <a href="./back-end-guide.html#createcurrentaccountflow">`CreateCurrentAccountFlow`</a>. This flow creates a zero balance current account for a customer with the provided customer ID. The user also has the option to specify a withdrawal and/or transfer daily limit. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `POST`.
 - Path: `/accounts/create-current-account`.
@@ -323,7 +324,7 @@ Sample response:
 
 ### Create a Savings Account
 
-Send a `POST` request to the `/accounts/create-savings-account` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#createsavingsaccountflow">`CreateSavingsAccountFlow`</a>. This flow creates a zero balance savings account for a customer with the provided customer ID. This request requires authorization. It can be sent by an admin user.
+Send a `POST` request to the `/accounts/create-savings-account` endpoint to invoke the <a href="./back-end-guide.html#createsavingsaccountflow">`CreateSavingsAccountFlow`</a>. This flow creates a zero balance savings account for a customer with the provided customer ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `POST`.
 - Path: `/accounts/create-savings-account`.
@@ -381,7 +382,7 @@ Sample response:
 
 ### Approve overdraft
 
-Send a `PUT` request to the `/accounts/approve-overdraft-account` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#approveoverdraftflow">`ApproveOverdraftFlow`</a>. This flow is used to approve an overdraft limit for an account with the specified account ID. This request requires authorization. It can be sent by an admin user.
+Send a `PUT` request to the `/accounts/approve-overdraft-account` endpoint to invoke the <a href="./back-end-guide.html#approveoverdraftflow">`ApproveOverdraftFlow`</a>. This flow is used to approve an overdraft limit for an account with the specified account ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `PUT`.
 - Path: `/accounts/approve-overdraft-account`.
@@ -438,7 +439,7 @@ Sample response:
 
 ### Issue a loan
 
-Send a `POST` request to the `/accounts/issue-loan` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#issueloanflow">`IssueLoanFlow`</a>. The `IssueLoanFlow` issues a new loan to a customer with the repayment account referenced by the account ID. This request requires authorization. It can be sent by an admin user.
+Send a `POST` request to the `/accounts/issue-loan` endpoint to invoke the <a href="./back-end-guide.html#issueloanflow">`IssueLoanFlow`</a>. The `IssueLoanFlow` issues a new loan to a customer with the repayment account referenced by the account ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `POST`.
 - Path: `/accounts/issue-loan`.
@@ -523,7 +524,7 @@ Sample response:
 
 ### Set Account Status
 
-Send a `PUT` request to the `/accounts/set-status` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#setaccountstatusflow">`SetAccountStatusFlow`</a>. The `SetAccountStatusFlow` updates the status of an account with a specified account ID. This request requires authorization. It can be sent by an admin user.
+Send a `PUT` request to the `/accounts/set-status` endpoint to invoke the <a href="./back-end-guide.html#setaccountstatusflow">`SetAccountStatusFlow`</a>. The `SetAccountStatusFlow` updates the status of an account with a specified account ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `PUT`.
 - Path: `/accounts/set-status`.
@@ -636,7 +637,7 @@ Sample response:
 
 ### Get account by account ID
 
-Send a `GET` request to the `/accounts/{accountId}` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#getaccountflow">`GetAccountFlow`</a>. This flow returns the account information for a given account ID. This request requires authorization. It can be sent by an admin user or the customer who owns the account.
+Send a `GET` request to the `/accounts/{accountId}` endpoint to invoke the <a href="./back-end-guide.html#getaccountflow">`GetAccountFlow`</a>. This flow returns the account information for a given account ID. This request requires authorization. It can be sent by an admin user or the customer who owns the account.
 
 - Request type: `GET`.
 - Path: `/accounts/{accountId}`.
@@ -685,7 +686,7 @@ Sample response:
 
 ### Get accounts
 
-Send a `GET` request to the `/accounts` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#getaccountspaginatedflow">`GetAccountsPaginatedFlow`</a>. This flows displays a list of accounts and their associated customer information that match the given search criteria. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/accounts` endpoint to invoke the <a href="./back-end-guide.html#getaccountspaginatedflow">`GetAccountsPaginatedFlow`</a>. This flows displays a list of accounts and their associated customer information that match the given search criteria. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `GET`.
 - Path: `/accounts`.
@@ -1002,7 +1003,7 @@ Sample response:
 
 ### Get accounts for a specific customer ID
 
-Send a `GET` request to the `/accounts/customer/{customerId}` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#getaccountsforcustomerpaginatedflow">`GetAccountsForCustomerPaginatedFlow`</a>. The `GetAccountsForCustomerPaginatedFlow` displays a list of accounts for the given customer ID. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/accounts/customer/{customerId}` endpoint to invoke the <a href="./back-end-guide.html#getaccountsforcustomerpaginatedflow">`GetAccountsForCustomerPaginatedFlow`</a>. The `GetAccountsForCustomerPaginatedFlow` displays a list of accounts for the given customer ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `GET`.
 - Path: `/accounts/customer/{customerId}`.
@@ -1190,7 +1191,7 @@ Sample response:
 
 ### Create a customer
 
-Send a `POST` request to the `/customers/create` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#createcustomerflow">`CreateCustomerFlow`</a>. This flow creates a customer profile that includes personal details and contact information, and returns the customer ID. This request requires authorization. It can be sent by an admin user.
+Send a `POST` request to the `/customers/create` endpoint to invoke the <a href="./back-end-guide.html#createcustomerflow">`CreateCustomerFlow`</a>. This flow creates a customer profile that includes personal details and contact information, and returns the customer ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `POST`.
 - Path: `/customers/create`.
@@ -1225,7 +1226,7 @@ Sample response:
 
 ### Get customers
 
-Send a `GET` request to the `/customers` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#getcustomerspaginatedflow">`GetCustomersPaginatedFlow`</a>. This flow returns a paginated list of all customers matching the given search crtieria. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/customers` endpoint to invoke the <a href="./back-end-guide.html#getcustomerspaginatedflow">`GetCustomersPaginatedFlow`</a>. This flow returns a paginated list of all customers matching the given search crtieria. This request requires authorization. It can be sent by an admin user.
 
  - Request type: `GET`.
  - Path: `/customers`.
@@ -1383,7 +1384,7 @@ Sample response:
 
 ### Update customer
 
-Send a `PUT` request to the `/customers/update/{customerId}` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#updatecustomerflow">`UpdateCustomerFlow`</a>. This flow adds personal details and contact information, and returns the customer ID. This request requires authorization. It can be sent by an admin user or the customer user.
+Send a `PUT` request to the `/customers/update/{customerId}` endpoint to invoke the <a href="./back-end-guide.html#updatecustomerflow">`UpdateCustomerFlow`</a>. This flow adds personal details and contact information, and returns the customer ID. This request requires authorization. It can be sent by an admin user or the customer user.
 
 - Request type: `PUT`.
 - Path: `/customers/update/{customerId}`.
@@ -1443,7 +1444,7 @@ The Payments Controller includes API endpoints that manage payments in Bank in a
 
 ### Withdraw money
 
-Send a `POST` request to the `/payments/withdraw-fiat` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#withdrawfiatflow">`WithdrawFiatFlow`</a>. The `WithdrawFiatFlow` withdraws a specified amount from an account with the provided account ID. This request requires authorization. It can be sent by an admin user.
+Send a `POST` request to the `/payments/withdraw-fiat` endpoint to invoke the <a href="./back-end-guide.html#withdrawfiatflow">`WithdrawFiatFlow`</a>. The `WithdrawFiatFlow` withdraws a specified amount from an account with the provided account ID. This request requires authorization. It can be sent by an admin user.
 
  - Request type: `POST`.
  - Path: `/payments/withdraw-fiat`.
@@ -1500,7 +1501,7 @@ Sample response:
 
 ### Deposit money
 
-Send a `POST` request to the `/payments/deposit-fiat` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#depositfiatflow">`DepositFiatFlow`</a>. The `DepositFiatFlow` is used to deposit a specified amount to an account with the provided account ID. This request requires authorization. It can be sent by an admin user. 
+Send a `POST` request to the `/payments/deposit-fiat` endpoint to invoke the <a href="./back-end-guide.html#depositfiatflow">`DepositFiatFlow`</a>. The `DepositFiatFlow` is used to deposit a specified amount to an account with the provided account ID. This request requires authorization. It can be sent by an admin user. 
 
 - Request type: `POST`.
 - Path: `/payments/deposit-fiat`.
@@ -1561,7 +1562,7 @@ Sample response:
 
 ### Make an intrabank payment
 
-Send a `POST` request to the `/payments/intrabank-payment` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#intrabankpaymentflow">`IntrabankPaymentFlow`</a>. The `IntrabankPaymentFlow` is used to transfer a specified amount of money from a current account to another account. It can be sent by a customer user.
+Send a `POST` request to the `/payments/intrabank-payment` endpoint to invoke the <a href="./back-end-guide.html#intrabankpaymentflow">`IntrabankPaymentFlow`</a>. The `IntrabankPaymentFlow` is used to transfer a specified amount of money from a current account to another account. It can be sent by a customer user.
 
 This request can only be performed by the customer who owns the `fromAccount`. This requires authorization from a **customer** bearer token. Use a customer's [Bank in a Box username](#register-a-user-account) to [request a token](#authentication) for this request.
 
@@ -1630,7 +1631,7 @@ Sample response:
 
 ### Create a recurring payment
 
-Send a `POST` request to the `/payments/create-recurring-payment` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#createrecurringpaymentflow">`CreateRecurringPaymentFlow`</a>. The `CreateRecurringPaymentFlow` creates a recurring payment for the specified amount of money to be transferred from a current account to another account. It can be sent by a customer user.
+Send a `POST` request to the `/payments/create-recurring-payment` endpoint to invoke the <a href="./back-end-guide.html#createrecurringpaymentflow">`CreateRecurringPaymentFlow`</a>. The `CreateRecurringPaymentFlow` creates a recurring payment for the specified amount of money to be transferred from a current account to another account. It can be sent by a customer user.
 
 This request can only be performed by the customer who owns the `fromAccount`. This requires authorization from a **customer** bearer token. Use a customer's [Bank in a Box username](#register-a-user-account) to [request a token](#authentication) for this request.
 
@@ -1680,7 +1681,7 @@ Sample response:
 
 ### Cancel recurring payment
 
-Send a `POST` request to the `/payments/cancel-recurring-payment` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#cancelrecurringpaymentflow">`CancelRecurringPaymentFlow`</a>. The `CancelRecurringPaymentFlow` cancels a recurring payment specified by its recurring payment ID. It can be sent by an admin user or a customer user.
+Send a `POST` request to the `/payments/cancel-recurring-payment` endpoint to invoke the <a href="./back-end-guide.html#cancelrecurringpaymentflow">`CancelRecurringPaymentFlow`</a>. The `CancelRecurringPaymentFlow` cancels a recurring payment specified by its recurring payment ID. It can be sent by an admin user or a customer user.
 
 This request can only be performed by the customer who owns the `fromAccount`. This requires authorization from a **customer** bearer token. Use a customer's [Bank in a Box username](#register-a-user-account) to [request a token](#authentication) for this request.
 
@@ -1716,7 +1717,7 @@ The Recurring Payments Controller includes API endpoints that reference recurrin
 
 ### Get recurring payment by ID
 
-Send a `GET` request to the `/recurring-payments/{recurringPaymentId}` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#getrecurringpaymentsbyidflow">`GetRecurringPaymentByIdFlow`</a>. The `GetRecurringPaymentByIdFlow` returns information for a recurring payment, specified by its recurring payment ID. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/recurring-payments/{recurringPaymentId}` endpoint to invoke the <a href="./back-end-guide.html#getrecurringpaymentsbyidflow">`GetRecurringPaymentByIdFlow`</a>. The `GetRecurringPaymentByIdFlow` returns information for a recurring payment, specified by its recurring payment ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `GET`.
 - Path: `/recurring-payments/{recurringPaymentId}`.
@@ -1748,7 +1749,7 @@ Response: This request returns a data transfer object that stores details of a r
 
 ### Get recurring payments paginated
 
-Send a `GET` request to the `/recurring-payments` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#getrecurringpaymentspaginatedflow">`GetRecurringPaymentsPaginatedFlow`</a>. The `GetRecurringPaymentsPaginatedFlow` returns a list of recurring payments that match the given search criteria. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/recurring-payments` endpoint to invoke the <a href="./back-end-guide.html#getrecurringpaymentspaginatedflow">`GetRecurringPaymentsPaginatedFlow`</a>. The `GetRecurringPaymentsPaginatedFlow` returns a list of recurring payments that match the given search criteria. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `GET`.
 - Path: `/recurring-payments`.
@@ -1826,7 +1827,7 @@ Sample response:
 
 ### Get recurring payments for a specified account
 
-Send a `GET` request to the `/recurring-payments/account/{accountId}` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#getrecurringpaymentsforaccountpaginatedflow">`GetRecurringPaymentsForAccountPaginatedFlow`</a>. The `GetRecurringPaymentsForAccountPaginatedFlow` returns a list of recurring payments for a specified account that match the given search criteria. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/recurring-payments/account/{accountId}` endpoint to invoke the <a href="./back-end-guide.html#getrecurringpaymentsforaccountpaginatedflow">`GetRecurringPaymentsForAccountPaginatedFlow`</a>. The `GetRecurringPaymentsForAccountPaginatedFlow` returns a list of recurring payments for a specified account that match the given search criteria. This request requires authorization. It can be sent by an admin user.
 
  - Request type: `GET`.
  - Path: `/recurring-payments/account/{accountId}`.
@@ -1956,7 +1957,7 @@ Sample response:
 
 ### Get recurring payments for a specified customer
 
-Send a `GET` request to the `/recurring-payments/customer/{customerId}` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#getrecurringpaymentsforcustomerpaginatedflow">`GetRecurringPaymentsForCustomerPaginatedFlow`</a>. The `GetRecurringPaymentsForCustomerPaginatedFlow` returns a list of recurring payments for the specified customer ID that match the given search criteria. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/recurring-payments/customer/{customerId}` endpoint to invoke the <a href="./back-end-guide.html#getrecurringpaymentsforcustomerpaginatedflow">`GetRecurringPaymentsForCustomerPaginatedFlow`</a>. The `GetRecurringPaymentsForCustomerPaginatedFlow` returns a list of recurring payments for the specified customer ID that match the given search criteria. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `GET`.
 - Path: `/recurring-payments/customer/{customerId}`.
@@ -2129,7 +2130,7 @@ The Transaction Controller includes API endpoints that reference transactions in
 
 ### Get transactions
 
-Send a `GET` request to the `/transactions` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#gettransactionspaginatedflow">`GetTransactionsPaginatedFlow`</a>. The `GetTransactionsPaginatedFlow` returns a list of all transactions matching the given search criteria. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/transactions` endpoint to invoke the <a href="./back-end-guide.html#gettransactionspaginatedflow">`GetTransactionsPaginatedFlow`</a>. The `GetTransactionsPaginatedFlow` returns a list of all transactions matching the given search criteria. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `GET`.
 - Path: `/transactions`.
@@ -2214,7 +2215,7 @@ Sample response:
 
 ### Get transactions for a specified account
 
-Send a `GET` request to the `/transactions/account/{accountId}` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#gettransactionsforaccountpaginatedflow">`GetTransactionsForAccountPaginatedFlow`</a>. The `GetTransactionsForAccountPaginatedFlow` returns a list of transactions for a specified account ID, matching the given search criteria. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/transactions/account/{accountId}` endpoint to invoke the <a href="./back-end-guide.html#gettransactionsforaccountpaginatedflow">`GetTransactionsForAccountPaginatedFlow`</a>. The `GetTransactionsForAccountPaginatedFlow` returns a list of transactions for a specified account ID, matching the given search criteria. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `GET`.
 - Path: `/transactions/account/{accountId}`.
@@ -2344,7 +2345,7 @@ Sample response:
 
 ### Get transactions for a specified customer
 
-Send a `GET` request to the `/transactions/customer/{customerId}` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#gettransactionsforcustomerpaginatedflow">`GetTransactionsForCustomerPaginatedFlow`</a>. The `GetTransactionsForCustomerPaginatedFlow` returns a list of transactions for a specified customer ID, matching the given search criteria. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/transactions/customer/{customerId}` endpoint to invoke the <a href="./back-end-guide.html#gettransactionsforcustomerpaginatedflow">`GetTransactionsForCustomerPaginatedFlow`</a>. The `GetTransactionsForCustomerPaginatedFlow` returns a list of transactions for a specified customer ID, matching the given search criteria. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `GET`.
 - Path: `/transactions/customer/{customerId}`.
@@ -2473,7 +2474,7 @@ Sample response:
 
 ### Get transactions by transaction ID
 
-Send a `GET` request to the `/transactions/{transactionId}` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#gettransactionbyidflow">`GetTransactionByIdFlow`</a>. The `GetTransactionByIdFlow` returns the transaction information for a specified transaction ID. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/transactions/{transactionId}` endpoint to invoke the <a href="./back-end-guide.html#gettransactionbyidflow">`GetTransactionByIdFlow`</a>. The `GetTransactionByIdFlow` returns the transaction information for a specified transaction ID. This request requires authorization. It can be sent by an admin user.
 
 - Request type: `GET`.
 - Path: `/transactions/{transactionId}`.

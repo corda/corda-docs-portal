@@ -10,6 +10,7 @@ tags:
 - Bank in a Box
 - back end
 weight: 200
+section_menu: corda-enterprise-4-10
 ---
 
 # Back end guide
@@ -327,7 +328,7 @@ The Bank in a Box application uses [Oracles](https://github.com/corda/corda-docs
 
 Oracle signatures use [partial Merkle tree signing](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7/key-concepts-tearoffs.md), which provides privacy for the transaction. In this way, the external party present in the loan issuance transaction can only see the contents of the transaction that they must confirm before signing the transaction.
 
-When a loan is issued, money is transferred to the customer's current account. In the background, this transaction uses [Corda scheduled states](../../../en/platform/corda/4.10/enterprise/event-scheduling.html#implementing-scheduled-events) to create a recurring payment for that loan, into the loan account.
+When a loan is issued, money is transferred to the customer's current account. In the background, this transaction uses [Corda scheduled states](../../../enterprise/event-scheduling.html#how-to-implement-scheduled-events) to create a recurring payment for that loan, into the loan account.
 
 ### Business logic
 
@@ -727,7 +728,7 @@ val signedTx = subFlow(DepositFiatFlow(accountId, amount))
 
 ## Payments
 
-As noted in the [Loans](#loans) section, [Corda scheduled states](../../../en/platform/corda/4.10/enterprise/event-scheduling.html#implementing-scheduled-events) are utilised in Bank in a Box to create recurring payments that start on a given date and are executed in a specific time period.
+As noted in the [Loans](#loans) section, [Corda scheduled states](../../../enterprise/event-scheduling.html#implementing-scheduled-events) are utilised in Bank in a Box to create recurring payments that start on a given date and are executed in a specific time period.
 
 Payments in Bank in a Box are also a good example of how CorDapps can be integrated with external systems.
 

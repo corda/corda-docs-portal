@@ -7,6 +7,7 @@ menu:
     name: "Corda Payments Preview"
     identifier: payments
 title: Corda Payments Technical Preview
+section_menu: corda-enterprise-4-10
 ---
 
 Corda Payments Technical Preview is an early release of Corda Payments, a solution that allows you to initiate and manage payments from within a Corda network via an external Payment Service Provider (PSP).

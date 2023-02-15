@@ -6,7 +6,7 @@ menu:
     parent: payments
     weight: 600
     name: "Legal information"
-
+section_menu: corda-enterprise-4-10
 ---
 
 **Do not translate or localise.**

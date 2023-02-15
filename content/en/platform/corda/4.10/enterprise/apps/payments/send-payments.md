@@ -6,7 +6,7 @@ menu:
     parent: payments
     weight: 200
     name: "Payments network"
-
+section_menu: corda-enterprise-4-10
 ---
 
 You can use the Corda Payments Technical Preview to locally replicate payments in a live environment. the fastest way to do this is to use the Corda Payments sample CorDapps.

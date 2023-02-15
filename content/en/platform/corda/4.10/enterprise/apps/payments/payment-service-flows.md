@@ -6,7 +6,7 @@ menu:
     parent: payments
     weight: 400
     name: "Payments service"
-
+section_menu: corda-enterprise-4-10
 ---
 
 Use Payment Service flows to initiate payments and account management requests from a node on a Corda network. These requests can then be picked up by the [Payments Agent](payments-agent.md) on your network.

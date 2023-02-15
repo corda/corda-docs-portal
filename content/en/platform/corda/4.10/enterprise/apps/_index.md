@@ -16,6 +16,6 @@ Within the documentation, you will find set-up guides, tips, and operational ins
 
 Explore:
 
-* [Corda Payments](/en/apps/payments/payments-index.md) - A technical preview of Corda's payments feature. 
-* [Bank in a Box](../en/apps/bankinabox/getting-started.md) - A complete retail banking concept that can be hosted on a Corda network.
-* [State reissuance](../en/apps/reissuance/state-reissuance.md) - A mechanism for breaking transaction backchains by reissuing a state with a guaranteed state replacement.
+* [Corda Payments](./payments/payments-index.md) - A technical preview of Corda's payments feature. 
+* [Bank in a Box](./bankinabox/getting-started.md) - A complete retail banking concept that can be hosted on a Corda network.
+* [State reissuance](./reissuance/state-reissuance.md) - A mechanism for breaking transaction backchains by reissuing a state with a guaranteed state replacement.

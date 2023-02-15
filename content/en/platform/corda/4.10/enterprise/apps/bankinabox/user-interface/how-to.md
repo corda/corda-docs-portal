@@ -8,7 +8,8 @@ tags:
 - Bank in a Box
 - UI
 title: How-to guide
-weight: 300
+weight: 330
+section_menu: corda-enterprise-4-10
 ---
 
 # How-to guide

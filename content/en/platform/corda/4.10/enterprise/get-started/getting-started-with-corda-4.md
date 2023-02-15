@@ -9,7 +9,6 @@ title: Getting started with Corda 4
 ---
 
 # Getting started with Corda 4
-
 The best way to get started with Corda is to:
 1. Decide whether you need to use:
    * **Corda Enterprise** - the enterprise version of Corda, for which you require a commercial contract with R3. Corda Enterprise is accessed via R3's customer hub. If you are an existing Corda Enterprise customer, you can find all downloads on [R3 Customer Hub](https://customerhub.r3.com/s/).
