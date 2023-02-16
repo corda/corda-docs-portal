@@ -170,7 +170,7 @@ The key steps for the upgrade are:
 10. Set Network Map Service configuration(s) in the Zone Service.
 11. Set Signing Service configuation in the Zone Service.
 12. Update existing service deployments.
-13. Add [Angel Services](../../../../../en/platform/corda/1.3/cenm/angel-service.html) to Identity Manager, Network Map, and Signing Services, to fetch configurations from the Zone
+13. Add [Angel Services](../../../../../en/platform/corda/1.3/cenm/angel-service.md) to Identity Manager, Network Map, and Signing Services, to fetch configurations from the Zone
    Service.
 
 ### Generating certificates and JWT
@@ -257,7 +257,7 @@ At this point you should shut down the previous services and replace their `.jar
 Do not start them quite yet, as they should be managed by the Angel Service. Add the `angel-1.3.0.jar` file to
 each managed service deployment (Identity Manager, Network Map, Zone), and configure the service start-up
 to be via the Angel Service. Details on the arguments to the Angel Service are covered in the
-[Angel Service documentation](../../../../../en/platform/corda/1.3/cenm/angel-service.html).
+[Angel Service documentation](../../../../../en/platform/corda/1.3/cenm/angel-service.md).
 
 ## 1.2 to 1.2.2
 
