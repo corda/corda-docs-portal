@@ -298,15 +298,7 @@ If you shut down all nodes and upgrade them all at the same time, any incompatib
 
 In situations where some nodes may still be using previous versions of a flow and thus new versions of your flow may talk to old versions, the updated flows need to be backwards-compatible. This will be the case for almost any real deployment in which you cannot easily coordinate the roll-out of new code across the network.
 
-                                                                                                                   
-
-                                                                                                                     
-
-                                                                                                                  
-
-
-                                                                                                                                                   
-
+   
 ### Draining the node
 
 A flow *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack. Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts. Automatic checkpointing is an unusual feature of Corda and significantly helps developers write reliable code that can survive node restarts and crashes. It also assists with scaling up, as flows that are waiting for a response can be flushed from memory.
