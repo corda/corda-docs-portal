@@ -68,21 +68,21 @@ via a file called `jolokia-access.xml`.
 Several Jolokia policy based security configuration files (`jolokia-access.xml`) are available for dev, test, and prod
 environments under `/config/<env>`.
 
-### Monitoring via graphite
+### Monitoring via Graphite
 
-Corda nodes alternatively support publishing metrics collected via the Codahale metrics library directly to a graphite
+Corda nodes alternatively support publishing metrics collected via the Codahale metrics library directly to a Graphite
 server. This needs to be configured in the node configuration file:
 
 ```kotlin
 graphiteOptions = {
   prefix = "<node specific prefix>"
-  server = <host name of the graphite server>
-  port = <write port on the graphite server>
+  server = <host name of the Graphite server>
+  port = <write port on the Graphite server>
 }
 ```
 
 The prefix should clearly indicate the node where the metrics are coming from, as this will be the top level discrimator
-in the graphite metric hierarchy.
-The graphite server must be running with python pickle transport enabled. Please refer to the documentation on
-[https://graphiteapp.org](https://graphiteapp.org) on how to install and run a graphite server.
+in the Graphite metric hierarchy.
+The Graphite server must be running with python pickle transport enabled. Please refer to the documentation on
+[https://graphiteapp.org](https://graphiteapp.org) on how to install and run a Graphite server.
 

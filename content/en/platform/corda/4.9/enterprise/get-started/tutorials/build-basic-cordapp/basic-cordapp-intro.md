@@ -9,7 +9,7 @@ menu:
 title: Building your first basic CorDapp
 ---
 
-Follow this learning path to build your first CorDapp with a step-by-step guide. This set of tutorials teaches you how to implement the functionality and features you will need to get any CorDapp up and running. It reinforces [best practices for building CorDapps](../../writing-a-cordapp.md).
+Follow this learning path to build your first CorDapp with a step-by-step guide. This set of tutorials teaches you how to implement the functionality and features you will need to get any CorDapp up and running. It reinforces [best practices for building CorDapps](../../../cordapps/writing-a-cordapp.md).
 
 The solution for this CorDapp is available in [Java](https://github.com/corda/samples-java/tree/master/Basic/tutorial-applestamp) and [Kotlin](https://github.com/corda/samples-kotlin/tree/master/Basic/tutorial-applestamp). This tutorial walks you through the Java version of the Apple Stamp CorDapp.
 
@@ -17,9 +17,9 @@ The solution for this CorDapp is available in [Java](https://github.com/corda/sa
 
 Before you start building your first CorDapp:
 
-- Read about [Corda key concepts](../../../../community/key-concepts.md).
-- [Get set up for CorDapp development](../../../../community/getting-set-up.md).
-- [Run the sample CorDapp](../../../../community/tutorial-cordapp.md).
+- Read about [Corda key concepts](../../../about-corda/corda-key-concepts.md).
+- [Get set up for CorDapp development](../../../cordapps/getting-set-up.md).
+- [Run the sample CorDapp](../../../cordapps/tutorial-cordapp.md).
 
 ## The story
 
@@ -44,7 +44,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 ## How will it work on Corda?
 
-1. Farmer Bob issues a voucher to Peter via a ledger transaction. In your CorDapp this voucher is called `AppleStamp` and is a [state](../../../../community/key-concepts-states.md) on the [ledger](../../../../community/key-concepts-ledger.md). One transaction has been performed so far.
+1. Farmer Bob issues a voucher to Peter via a ledger transaction. In your CorDapp this voucher is called `AppleStamp` and is a [state](../../../key-concepts-states.md) on the [ledger](../../../key-concepts-ledger.md). One transaction has been performed so far.
 
 2. When Farmer Bob prepares the apples Peter requested, he self-issues a bushel of apples via a self-issue transaction. This is another state on the ledger - `BasketofApples`. Two transactions have been performed so far.
 
@@ -52,7 +52,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 4. The `BasketofApples` state is transferred to Peter when the `AppleStamp` state is consumed and Farmer Bob gives Peter his apples.
 
-All of these transactions are initiated by [flows](../../../../community/key-concepts-flows.md).
+All of these transactions are initiated by [flows](../../../key-concepts-flows.md).
 
 ## Next steps
 
