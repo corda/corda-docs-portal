@@ -174,6 +174,7 @@ Parameters:
 * `--network-root-truststore-password`, `-p`: Network root trust store password obtained from the network operator.
 * `--skip-schema-creation`: Skips the default database migration step.
 
+{{< note >}}
 Node `initial-registration` now includes the creation of `identity-private-key` keystore alias. For more information, see [node folder structure](../../node/setup/node-structure.md). Previously, only `cordaclientca` and `cordaclienttls` aliases were created during `initial-registration`, while `identity-private-key` was generated on demand on the first node run. Hence, in Corda 4.7 the content of `nodekeystore.jks` is never altered during a regular node run (except for `devMode = true`, where the certificates directory can be filled with pre-configured keystores).
 {{< /note >}}
 
@@ -303,6 +304,6 @@ shut itself down, reporting the cause as an error message to its log file.
 On some operating systems, if the machine switches to "sleep" mode while a Corda node is running, the message broker embedded in Node Artemis reports
 the loss of a heartbeat event, which in turn causes a loss of connectivity to Artemis. In such circumstances, the Corda node will exit and will report a broker
 connectivity problem in the log.
-
 {{< /note >}}
+
 Once all the critical resources the node relies on are available again, it is safe for the node operator to restart the node for normal operation.
