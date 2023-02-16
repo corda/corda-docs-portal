@@ -1,6 +1,6 @@
 ---
 title: Corda Enterprise Edition 4.8 release files and checksums
-date: '2023-02-016'
+date: '2023-02-16'
 menu:
   corda-enterprise-4-8:
     parent: corda-enterprise-4-8-release-notes
