@@ -38,7 +38,7 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-   These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`.
+   These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`.
 
 2. Set the [REST API](../../../operating/operating-tutorials/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
@@ -83,7 +83,7 @@ To retrieve the `GroupPolicy.json` file from the MGM:
    ```shell
    export MGM_RPC_HOST=localhost
    export MGM_RPC_PORT=8888
-   export MGM_API_URL="https://$MGM_RPC_HOST:MGM_RPC_PORT/api/v1"
+   export MGM_API_URL="https://$MGM_RPC_HOST:$MGM_RPC_PORT/api/v1"
    export MGM_HOLDING_ID=<MGM Holding ID>
    ```
    {{% /tab %}}
@@ -288,7 +288,7 @@ Use the Certificate Authority (CA) whose trustroot certificate was configured in
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL/certificates/p2p/$TLS_KEY_ID > "$WORK_DIR"/request1.csr
+   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London, O=Org", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL/certificates/p2p/$TLS_KEY_ID > "$WORK_DIR"/request2.csr
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -296,14 +296,14 @@ Use the Certificate Authority (CA) whose trustroot certificate was configured in
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/certificates/p2p/$TLS_KEY_ID" -Body (ConvertTo-Json @{
        x500Name = "CN=CordaOperator, C=GB, L=London"
        subjectAlternativeNames = @($P2P_GATEWAY_HOST)
-   }) > $WORK_DIR/request1.csr
+   }) > $WORK_DIR/request2.csr
    ```
    {{% /tab %}}
    {{< /tabs >}}
 
-   You can inspect the `request1.csr` file by running this command:
+   You can inspect the `request2.csr` file by running this command:
    ```shell
-   openssl req -text -noout -verify -in ./request1.csr
+   openssl req -text -noout -verify -in ./request.csr
    ```
    The contents should resemble the following:
 

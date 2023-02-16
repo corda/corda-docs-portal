@@ -40,7 +40,7 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-   These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`.
+   These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`.
 
 2. Set the [REST API](../../../operating/operating-tutorials/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
@@ -290,13 +290,13 @@ To set up the TLS key pair and certificate for the cluster:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL"/certificates/p2p/"$TLS_KEY_ID > "$WORK_DIR"/request1.csr
+   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London, O=Org", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL"/certificates/p2p/"$TLS_KEY_ID > "$WORK_DIR"/request1.csr
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/certificates/p2p/$TLS_KEY_ID" -Body (ConvertTo-Json @{
-       x500Name = "CN=CordaOperator, C=GB, L=London"
+       x500Name = "CN=CordaOperator, C=GB, L=London, O=Org"
        subjectAlternativeNames = @($P2P_GATEWAY_HOST)
    }) > $WORK_DIR/request1.csr
    ```
@@ -358,7 +358,10 @@ To set up the TLS key pair and certificate for the cluster:
    {{< /note >}}
 
 ### Disable Revocation Checks
-If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks. By default, revocation checks are enabled.
+If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks:
+* [Disable Revocation Checks Using Bash](#disable-revocation-checks-using-bash)
+* [Disable Revocation Checks Using PowerShell](#disable-revocation-checks-using-powershell)
+By default, revocation checks are enabled.
 This only needs to be done once per cluster.
 
 #### Disable Revocation Checks Using Bash
@@ -410,7 +413,8 @@ The examples in this section set `corda.group.key.session.policy` to `Distinct`,
 You can also optionally set the session certificate trustroot using the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`. However, when `corda.group.pki.session` is set to `NoPKI`, the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
 
 {{< note >}}
-If using session certificates for the P2P layer, see [Configuring Optional Session Certificates](session-certificates.html#build-registration-context-for-mgm-registration) for information about the additional JSON fields required.
+* If using session certificates for the P2P layer, see [Configuring Optional Session Certificates](session-certificates.html#build-registration-context-for-mgm-registration) for information about the additional JSON fields required.
+* If using mutual TLS, you must set the `corda.group.tls.type` field to `Mutual`.
 {{< /note >}}
 
 ### Build Registration Context Using Bash
@@ -428,6 +432,7 @@ export REGISTRATION_CONTEXT='{
   "corda.group.key.session.policy": "Distinct",
   "corda.group.pki.session": "NoPKI",
   "corda.group.pki.tls": "Standard",
+  "corda.group.tls.type": "OneWay",
   "corda.group.tls.version": "1.3",
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
   "corda.endpoints.0.protocolVersion": "1",
@@ -479,6 +484,7 @@ curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "action": "r
   "corda.group.key.session.policy": "Distinct",
   "corda.group.pki.session": "NoPKI",
   "corda.group.pki.tls": "Standard",
+  "corda.group.tls.type": "OneWay",
   "corda.group.tls.version": "1.3",
   "corda.endpoints.0.connectionURL": "https://localhost:8080",
   "corda.endpoints.0.protocolVersion": "1",
