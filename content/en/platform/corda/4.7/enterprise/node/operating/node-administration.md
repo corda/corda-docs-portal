@@ -234,7 +234,7 @@ When running in dev mode, Hibernate statistics are also available via the Joloki
 due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
 `exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.html#database-properties-ref).
 
-When starting Corda nodes using Cordformation runner (see running-a-node), you should see a startup message similar to the following:
+When starting Corda nodes using Cordformation runner (see [running nodes locally](../deploy/running-a-node.md), you should see a startup message similar to the following:
 **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
 
 When starting Corda nodes using the ‘driver DSL’, you should see a startup message in the logs similar to the following:
@@ -297,7 +297,7 @@ Unfortunately the JVM does not let you limit the total memory usage of Java prog
 A node which is running out of memory is expected to stop immediately to preserve ledger consistency and avoid flaws in operations.
 Note that it’s a responsibility of a client application to handle RPC reconnection in case this happens. It’s also advised to have
 necessary JVM monitoring and restart infrastructure in place.
-See [Setting JVM arguments](../../../../../../../en/platform/corda/4.7/enterprise/node/deploy/running-a-node.html#setting-jvm-args) for further details on JVM out-of-memory related parameters.
+See [Setting JVM arguments](../deploy/running-a-node.html#setting-jvm-args) for further details on JVM out-of-memory related parameters.
 
 
 

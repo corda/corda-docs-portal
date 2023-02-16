@@ -267,7 +267,7 @@ For instance `custom.jvmArgs = ["-Xmx2G"]` in the configuration file will set 2G
 
 This is equivalent to specifying `-Dcapsule.jvm.args="-Xmx2G"` on the command line, but is easier to track with other configuration and does not risk accidentally setting the properties onto the capsule parent process (e.g. wasting 2Gbyte of memory).
 
-See [Setting JVM arguments](../../../../../../en/platform/corda/4.9/enterprise/node/deploy/running-a-node.html#setting-jvm-arguments) for examples and details on the precedence of the different approaches to settings arguments.
+See [Setting JVM arguments](deploy/running-a-node.html#setting-jvm-arguments) for examples and details on the precedence of the different approaches to settings arguments.
 
 ## revocationConfig
 An optional field that controls the way Certificate Revocation Lists (CRL) are handled for TLS connections. It contains the `mode` field.

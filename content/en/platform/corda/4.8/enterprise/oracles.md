@@ -218,8 +218,8 @@ transaction and return it
 
 {{< note >}}
 Before reading any further, we advise that you understand the concept of flows and how to write them and use
-them. See [Writing flows](../../../../../en/platform/corda/4.8/enterprise/flow-state-machines.md).  Likewise some understanding of Cordapps, plugins and services will be helpful.
-See [Running a node](../../../../../en/platform/corda/4.8/enterprise/node/deploy/running-a-node.md).
+them. See [Writing flows](flow-state-machines.md).  Likewise some understanding of Cordapps, plugins and services will be helpful.
+See [Running a node](node/deploy/running-a-node.md).
 
 {{< /note >}}
 The first step is to create the oracle as a service by annotating its class with `@CordaService`.  Let’s see how that’s
