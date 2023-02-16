@@ -133,7 +133,7 @@ database {
 
 
 * **Config Files**CENM 1.0 Identity Manager and Network Map services are not backwards compatible with 0.x Doorman and Network Map
-config files. 0.2.2 and 0.3 / 0.4 config files can be migrated to 1.0 using the [Config migration tool](tool-config-migration.md).
+config files. 0.2.2 and 0.3 / 0.4 config files can be migrated to 1.0 using the [Config migration tool](../../../../../en/platform/corda/1.2/cenm/tool-config-migration.html)
 Using the generated 1.0 configs, the services can be upgraded by: stopping the services, swapping out the JAR and
 config files and restarting the services.
 

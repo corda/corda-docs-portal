@@ -60,7 +60,7 @@ network parameters. Critically, however, their certificate governance remains un
 Doorman. This way, temporary benefits such as higher privacy, differential network parameters upgrade schedules or use
 of temporary private notaries can be delivered whilst retaining the option (in some cases) for the nodes in the sub zone
 to merge into the ‘main’ zone and gain the benefit of being able to transact with a far broader pool of peers. Note that
-this merging functionality is not currently supported but is planned for a future release. See the [Sub Zones](sub-zones.md)
+this merging functionality is not currently supported but is planned for a future release. See the [Sub Zones](sub-zones.html)
 documentation for more information.
 
 ### Schema Separation
