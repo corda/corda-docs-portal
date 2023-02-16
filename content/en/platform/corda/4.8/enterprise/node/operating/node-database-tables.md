@@ -246,7 +246,7 @@ This table should be empty when no states are authorised for upgrade or after au
 
 ### Scheduling
 
-Read more in [Scheduling time-based events](../../../../../../../en/platform/corda/4.8/enterprise/event-scheduling.md).
+Read more in [Scheduling time-based events](../../event-scheduling.md).
 
 
 {{< table >}}

@@ -238,7 +238,7 @@ when messages arrive. It provides the send/receive/sendAndReceive calls that let
 interaction and it will save/restore serialised versions of the fiber at the right times.
 
 Flows can be invoked in several ways. For instance, they can be triggered by scheduled events (in which case they need to
-be annotated with `@SchedulableFlow`), see [Scheduling events](../../../../../en/platform/corda/4.9/enterprise/event-scheduling.md) to learn more about this. They can also be triggered
+be annotated with `@SchedulableFlow`), see [Scheduling events](event-scheduling.md) to learn more about this. They can also be triggered
 directly via the node’s RPC API from your app code (in which case they need to be annotated with *StartableByRPC*). It’s
 possible for a flow to be of both types.
 
