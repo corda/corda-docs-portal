@@ -77,7 +77,7 @@ You can learn more about networks in [Network Types](../deploying/network-types.
 
 ### Members
 
-*Members* are identified by a holding ID, which is a combination of a network group ID (or the hash thereof) and an X.500 name. The X.500 name must be unique within a single network. 
+*Members* are identified by a holding ID, which is a combination of a network group ID (or the hash thereof) and an X.500 name. The X.500 name must be unique within a single network.
 Corda creates the holding ID when a [virtual node](#virtual-nodes) for a member is created on a cluster that has the CPI for the desired network installed.
 
 After creation of the virtual node, the member must be registered with the [Membership Group Manager (MGM)](#mgm). Only after registration with the MGM will the member:
@@ -92,7 +92,7 @@ The **MGM** enables network operators to set the rules for their [application ne
 It approves or declines new members and distributes membership lists to members. Lists are signed and verifiable to prevent tampering, ensuring [virtual nodes](#virtual-nodes) can trust each other.
 The MGM is a CorDapp which runs as a virtual node, allowing you to create and operate many application networks using the same Corda deployment.
 
-Entities permitted to join an application network are represented by a public/private keypair, optionally attested by a certificate authority as belonging to an X500 identity.
+Entities permitted to join an application network are represented by a public/private keypair, optionally attested by a certificate authority as belonging to an X.500 identity.
 The application network operator sets the rules in the [CPI](#corda-package-installer-cpi) as to which certificate authority it trusts to attest that an identity matches.
 The operator can run any additional checks they wish.
 The keypair is used to sign things within the context of the application by the identity, attesting that it agrees to what is being proposed.
