@@ -447,7 +447,7 @@ To satisfy clients who wish to use third party software or service providers to 
 
 The new service (SMR) extracts signable material from the Identity Manager and Network Map services, and then delegates signing to a plug-in. Customers can implement their own plug-ins to integrate with external signing infrastructure and return signed material back to SMR to pass to the relevant CENM service.
 
-See [Signing Services](../../../../../en/platform/corda/1.2/cenm/signing-service.md) for more details. Also see [EJBCA Sample plug-in](../../../../../en/platform/corda/1.2/cenm/ejbca-plugin.md) for a sample open source CA implementation.
+See [Signing Services](../../../../../en/platform/corda/1.2/cenm/signing-service.html) for more details. Also see [EJBCA Sample plug-in](../../../../../en/platform/corda/1.2/cenm/ejbca-plugin.md) for a sample open source CA implementation.
 
 **CRL Endpoint Check tool**
 
@@ -495,10 +495,10 @@ the logs files do not conflict.
 * Correct service healthcheck command when executed from the CRaSH shell.
 * Add new command to Network Map shell to view list of nodes that have accepted (or haven’t) a given parameters update
 (“view nodesAcceptedParametersUpdate accepted: <true/false>, parametersHash: <parameters update hash value>”),
-which can help to monitor the procedure of [Updating the network parameters](../../../../../en/platform/corda/1.2/cenm/updating-network-parameters.md).
+which can help to monitor the procedure of [Updating the network parameters](../../../../../en/platform/corda/1.2/cenm/updating-network-parameters.html).
 * Add working directory argument for CENM services, which is a path prefix for config and certificate files.
 * Add `run networkParametersRegistration`, `run flagDay` and `run cancelUpdate` commands to the Network Map
-service shell, to enable running flag days without restarting the service. See [Updating the network parameters](../../../../../en/platform/corda/1.2/cenm/updating-network-parameters.md) for full details.
+service shell, to enable running flag days without restarting the service. See [Updating the network parameters](../../../../../en/platform/corda/1.2/cenm/updating-network-parameters.html) for full details.
 * Add `view publicNetworkNodeInfos` command to Network Map service shell, to see all public network participants’ node
 infos, including its’ platform version.
 * Bug fix: Certificate name rules are now enforced during issuance in accordance with Corda network rules,
