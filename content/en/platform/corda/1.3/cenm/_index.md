@@ -45,7 +45,7 @@ Concepts and overview
 * [The node](../../../../../en/platform/corda/1.3/cenm/network-map.html#node-certificate-revocation-checking)
 * [Sub Zones](../../../../../en/platform/corda/1.3/cenm/sub-zones.md)
 * [Network Map overview](../../../../../en/platform/corda/1.3/cenm/network-map-overview.md)
-* [Certificate Revocation List](../../../../../en/platform/corda/1.3/cenm/certificate-revocation.html)
+* [Certificate Revocation List](../../../../../en/platform/corda/1.3/cenm/certificate-revocation.md)
 
 CENM releases
 
@@ -64,13 +64,13 @@ Operations
   * [CENM Zone Service Helm Chart](../../../../../en/platform/corda/1.3/cenm/deployment-kubernetes-zone.md)
 * [CENM test environment quick start guide](../../../../../en/platform/corda/1.3/cenm/quick-start.md)
 * [Zone Service](../../../../../en/platform/corda/1.3/cenm/zone-service.md)
-* [Angel Service](../../../../../en/platform/corda/1.3/cenm/angel-service.html)
+* [Angel Service](../../../../../en/platform/corda/1.3/cenm/angel-service.md)
 * [Identity Manager Service](../../../../../en/platform/corda/1.3/cenm/identity-manager.md)
 * [Network Map Service](../../../../../en/platform/corda/1.3/cenm/network-map.md)
 * [Signing Service](../../../../../en/platform/corda/1.3/cenm/signing-service.md)
-* [Auth Service](../../../../../en/platform/corda/1.3/cenm/auth-service.html)
+* [Auth Service](../../../../../en/platform/corda/1.3/cenm/auth-service.md)
 * [FARM service](../../../../../en/platform/corda/1.3/cenm/gateway-service.md)
-* [CENM Command-line Interface (CLI) tool](../../../../../en/platform/corda/1.3/cenm/cenm-cli-tool.html)
+* [CENM Command-line Interface (CLI) tool](../../../../../en/platform/corda/1.3/cenm/cenm-cli-tool.md)
 * [Updating the network parameters](../../../../../en/platform/corda/1.3/cenm/updating-network-parameters.md)
 * [Upgrading Corda Enterprise Network Manager](../../../../../en/platform/corda/1.3/cenm/upgrade-notes.md)
 * [CENM databases](../../../../../en/platform/corda/1.3/cenm/database-set-up.md)
@@ -80,8 +80,8 @@ Operations
 
 Configuration
 
-* [Identity Manager Service configuration parameters](../../../../../en/platform/corda/1.3/cenm/config-identity-manager-parameters.html)
-* [Network Map Service configuration parameters](../../../../../en/platform/corda/1.3/cenm/config-network-map-parameters.html)
+* [Identity Manager Service configuration parameters](../../../../../en/platform/corda/1.3/cenm/config-identity-manager-parameters.md)
+* [Network Map Service configuration parameters](../../../../../en/platform/corda/1.3/cenm/config-network-map-parameters.md)
 * [Network parameters](../../../../../en/platform/corda/1.3/cenm/config-network-parameters.md)
 * [Configuring the CENM services to use SSL](../../../../../en/platform/corda/1.3/cenm/enm-with-ssl.md)
 * [Workflow](../../../../../en/platform/corda/1.3/cenm/workflow.md)
