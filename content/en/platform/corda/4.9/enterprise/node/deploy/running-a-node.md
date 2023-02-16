@@ -175,7 +175,7 @@ Parameters:
 * `--skip-schema-creation`: Skips the default database migration step.
 
 {{< note >}}
-Node `initial-registration` now includes the creation of `identity-private-key` keystore alias. For more information, see [node folder structure](../../node/setup/node-structure.md). Previously, only `cordaclientca` and `cordaclienttls` aliases were created during `initial-registration`, while `identity-private-key` was generated on demand on the first node run. Hence, in Corda 4.9 the content of `nodekeystore.jks` is never altered during a regular node run (except for `devMode = true`, where the certificates directory can be filled with pre-configured keystores).
+Node `initial-registration` now includes the creation of `identity-private-key` keystore alias. For more information, see [node folder structure](../setup/node-structure.md). Previously, only `cordaclientca` and `cordaclienttls` aliases were created during `initial-registration`, while `identity-private-key` was generated on demand on the first node run. Hence, in Corda 4.9 the content of `nodekeystore.jks` is never altered during a regular node run (except for `devMode = true`, where the certificates directory can be filled with pre-configured keystores).
 {{< /note >}}
 `run-migration-scripts`: From version 4.6, a Corda node can no longer modify/create schema on the fly in normal run mode - schema setup or changes must be
 applied deliberately using this sub-command. It runs the database migration script for the requested schema set defined in the following parameters. Once it creates or modifies the schema(s), the sub-command will exit.

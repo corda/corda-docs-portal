@@ -15,4 +15,4 @@ weight: 10
 
 # Node configuration
 
-This section describes how to configure Corda Nodes. It has information about [Node folder structure](node-structure.md), [host prerequisites and database requirements](host-prereq.md), [Node configuration](corda-configuration-file.md), and [configuration fields](corda-configuration-fields.md).
+This section describes how to configure Corda Nodes. It has information about [Node folder structure](../../node/setup/node-structure.md), [host prerequisites and database requirements](host-prereq.md), [Node configuration](corda-configuration-file.md), and [configuration fields](corda-configuration-fields.md).
