@@ -8,8 +8,8 @@ menu:
   corda-community-4-10:
     name: Tutorials
     weight: 50
-    identifier: tutorials-corda-4-10
-    parent: get-started-landing
+    identifier: tutorials-corda-4-10-community
+    parent: get-started-landing-4-10-community
 tags:
 - tutorials
 title: Tutorials

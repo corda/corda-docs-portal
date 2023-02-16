@@ -2,10 +2,10 @@
 date: '2023-02-14'
 menu:
   corda-enterprise-4-8:
-    parent: apps
+    parent: apps-4-8
     weight: 300
     name: State reissuance
-    identifier: apps-reissuance
+    identifier: apps-reissuance-4-8
 title: State reissuance
 section_menu: corda-enterprise-4-8
 ---

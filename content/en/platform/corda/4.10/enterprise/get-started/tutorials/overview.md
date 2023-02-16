@@ -5,7 +5,7 @@ menu:
     name: Tutorials
     weight: 50
     identifier: tutorials-corda-4-10-enterprise
-    parent: get-started-landing
+    parent: get-started-landing-4-10
 tags:
 - tutorials
 title: Tutorials

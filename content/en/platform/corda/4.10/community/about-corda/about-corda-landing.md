@@ -4,7 +4,7 @@ date: '2023-01-27'
 
 menu:
   corda-community-4-10:
-    identifier: about-corda-landing
+    identifier: about-corda-landing-4-10-community
     name: "About Corda"
 tags:
 - about corda

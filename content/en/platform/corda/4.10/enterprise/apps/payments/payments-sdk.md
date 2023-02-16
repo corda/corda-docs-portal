@@ -3,7 +3,7 @@ title: "Corda Payments SDK"
 date: '2023-02-14'
 menu:
   corda-enterprise-4-10:
-    parent: payments
+    parent: payments-4-10
     weight: 300
     name: "Payments SDK"
 section_menu: corda-enterprise-4-10

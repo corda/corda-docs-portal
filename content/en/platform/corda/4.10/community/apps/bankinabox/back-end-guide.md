@@ -3,9 +3,9 @@ title: "Back end guide"
 date: '2023-02-14'
 menu:
   corda-community-4-10:
-    parent: bankinabox
+    parent: bankinabox-4-10-community
     name: "Back end guide"
-    identifier: bank-in-a-box-back-end-guide
+    identifier: bank-in-a-box-back-end-guide-4-10-community
 tags:
 - Bank in a Box
 - back end

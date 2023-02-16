@@ -2,10 +2,10 @@
 date: '2023-02-14'
 menu:
   corda-enterprise-4-8:
-    parent: apps
+    parent: apps-4-8
     weight: 100
     name: "Corda Payments Preview"
-    identifier: payments
+    identifier: payments-4-8
 title: Corda Payments Technical Preview
 section_menu: corda-enterprise-4-8
 ---

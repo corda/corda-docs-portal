@@ -3,8 +3,8 @@ title: "Bank in a Box API guide"
 date: '2023-02-14'
 menu:
   corda-community-4-10:
-    parent: bankinabox
-    identifier: bank-in-a-box-api-guide
+    parent: bankinabox-4-10-community
+    identifier: bank-in-a-box-api-guide-4-10-community
 tags:
 - Bank in a Box
 - API

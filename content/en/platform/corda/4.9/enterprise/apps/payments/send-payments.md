@@ -3,7 +3,7 @@ title: "Deploy a local payments network"
 date: '2023-02-14'
 menu:
   corda-enterprise-4-9:
-    parent: payments
+    parent: payments-4-9
     weight: 200
     name: "Payments network"
 section_menu: corda-enterprise-4-9

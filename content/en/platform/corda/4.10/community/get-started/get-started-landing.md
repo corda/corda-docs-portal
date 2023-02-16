@@ -4,7 +4,7 @@ date: '2023-01-27'
 
 menu:
   corda-community-4-10:
-    identifier: get-started-landing
+    identifier: get-started-landing-4-10-community
     name: "Get started"
 tags:
 - started

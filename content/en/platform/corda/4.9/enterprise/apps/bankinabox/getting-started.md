@@ -3,7 +3,7 @@ title: "Getting started"
 date: '2023-02-14'
 menu:
   corda-enterprise-4-9:
-    parent: bankinabox
+    parent: bankinabox-4-9
     name: "Getting started"
 tags:
 - Bank in a Box

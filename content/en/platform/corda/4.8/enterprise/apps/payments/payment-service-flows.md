@@ -3,7 +3,7 @@ title: "Payment service flows"
 date: '2023-02-14'
 menu:
   corda-enterprise-4-8:
-    parent: payments
+    parent: payments-4-8
     weight: 400
     name: "Payments service"
 section_menu: corda-enterprise-4-8
