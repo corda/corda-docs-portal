@@ -189,7 +189,7 @@ public class ReportManuallyResponder extends FlowLogic<Void> {
 
 * By default, vault queries do not differentiate between states you recorded as a participant/owner, and states you
 recorded as an observer. You will have to write custom vault queries that only return states for which you are a
-participant/owner. See the Example usage section of the [API: Vault Query](../../../../enterprise/cordapps/api-vault-query.md) page for information on how to do this.
+participant/owner. See the Example usage section of the [API: Vault Query](../../../cordapps/api-vault-query.md) page for information on how to do this.
 This also means that `Cash.generateSpend` should not be used when recording `Cash.State` states as an observer.
 
 * When an observer node is sent a transaction with the `ALL_VISIBLE` flag set, any transactions in the transaction history
