@@ -84,7 +84,7 @@ dependencies {
 }
 ```
 
-3. Add both dependencies in your **Cordform** - `deployNodes` - [task](../../../../../../en/platform/corda/4.7/enterprise/node/deploy/generating-a-node.html#tasks-using-the-cordform-plug-in).
+3. Add both dependencies in your **Cordform** - `deployNodes` - [task](../node/deploy/generating-a-node.html#tasks-using-the-cordform-plug-in).
 
 You have installed the Business Network membership extension.
 
