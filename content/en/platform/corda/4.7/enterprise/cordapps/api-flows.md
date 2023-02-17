@@ -743,6 +743,7 @@ normally the case under Corda’s [eventual consistency model](https://en.wikipe
 the receiver’s finality handler will automatically be sent to the node flow
 hospital where it’s suspended and retried from its last checkpoint
 upon node restart, or according to other conditional retry rules explained in [flow hospital runtime behaviour](../node/node-flow-hospital.html#run-time-behaviour).
+
 This gives the node operator the opportunity to recover from the error. Until the issue is resolved the node will continue to retry the flow
 on each startup. Upon successful completion by the receiver’s finality flow, the ledger will become fully consistent once again.
 

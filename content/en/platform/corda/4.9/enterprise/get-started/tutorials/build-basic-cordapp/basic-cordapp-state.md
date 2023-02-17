@@ -19,7 +19,7 @@ After you have completed this tutorial, you will know how to create and implemen
 
 ## Before you start
 
-Before you start building states, read [Key concepts: States](../../../../community/key-concepts-states.md).
+Before you start building states, read [Key concepts: States](../../../key-concepts-states.md).
 
 
 ## Clone the CorDapp template repo
@@ -68,7 +68,7 @@ git clone https://github.com/corda/cordapp-template-java.git
 
 
 4. After you clone the CorDapp template, open the `cordapp-template-kotlin` or `cordapp-template-java` in [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../../community/tutorial-cordapp.md#step-2-open-the-sample-cordapp-in-intellij-idea).
+If you don't know how to open a CorDapp in IntelliJ, see the documentation on [Running a sample CorDapp](../../../cordapps/tutorial-cordapp.html#step-2-open-the-sample-cordapp-in-intellij-idea).
 
 
 5. [Rename the package](https://www.jetbrains.com/help/idea/rename-refactorings.html#rename_package) to `tutorial`. This changes all instances of the `template` package in the project to `tutorial`. In the drop-down menu that appears, select **Rename module**.
@@ -480,5 +480,5 @@ Follow the [Write the contracts](basic-cordapp-contract.md) tutorial to continue
 
 ## Related content
 
-* [API: States](../../../../community/api-states.md)
-* [Reissuing states](../../../../community/reissuing-states.md)
+* [API: States](../../../cordapps/api-states.md)
+* [Reissuing states](../../../cordapps/reissuing-states.md)
