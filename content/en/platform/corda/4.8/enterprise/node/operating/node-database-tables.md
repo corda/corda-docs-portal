@@ -229,7 +229,7 @@ This is the key ledger table used as a source of truth. In the future the conten
 
 ### Contract upgrades
 
-Read more in [Upgrading contracts](../../../../../../../en/platform/corda/4.8/enterprise/contract-upgrade.md).
+Read more in [Upgrading contracts](../../contract-upgrade.md).
 
 
 {{< table >}}
