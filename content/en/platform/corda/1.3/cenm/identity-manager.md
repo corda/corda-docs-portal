@@ -102,6 +102,7 @@ port. For example, in a cloud environment with the machine inside a “virtual n
 configuration may need to be the private IP address, whilst external nodes would use the machines external
 IP/DNS name to connect to Identity Manager.
 
+If using a fixed IP instead of a DNS address, this can subsequently prevent CRL endpoints in your CENM services' certificates from being reachable if you decide to move CENM services to a new cluster. R3 will not support issues created as a result of fixed IP addresses being used in CRL endpoints. Only use DNS addresses.
 {{< /note >}}
 
 ### Database
