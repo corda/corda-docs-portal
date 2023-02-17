@@ -78,11 +78,11 @@ If a node is registered but not started and the [Network Map Service](../../../.
 All flows can be paused when the node starts up - you can enable this in one of the following ways:
 
 * Use the command-line option `--pause-all-flows`.
-* Add the `smmStartMode="Safe"` option to the [node configuration file](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.md).
+* Add the `smmStartMode="Safe"` option to the [node configuration file](../setup/corda-configuration-file.md).
 
 These flows can then be individually retried via RPC or the node shell.
 
-See [Pause and resume flows](../../../../../../../en/platform/corda/4.7/enterprise/flow-pause-and-resume.html#starting-the-node-and-pausing-all-flows) for more information.
+See [Pause and resume flows](../../flow-pause-and-resume.html#starting-the-node-and-pausing-all-flows) for more information.
 {{< /note >}}
 
 

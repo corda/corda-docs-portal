@@ -45,7 +45,7 @@ cd /opt/corda/current
 
 Review and adjust the content of the configuration files to your needs.
 The main configuration file is the `node.conf` file and database specific configuration is stored in the `dbconfig.conf` file.
-All Corda configuration parameters are described in corda-configuration-file.
+All Corda configuration parameters are described in [Node configuration](node/setup/corda-configuration-file.md).
 Remember to adjust the `p2paddress` to match a FQDN or the public IP address of the VM.
 The public IP address can be obtained from the shell using the following command:
 
@@ -111,7 +111,7 @@ cd /opt/corda/current
 
 Review and adjust the content of the configuration files to your needs.
 The main configuration file is the `node.conf` file and database specific configuration is stored in the `dbconfig.conf` file.
-All Corda configuration parameters are described in corda-configuration-file.
+All Corda configuration parameters are described in [Node configuration](node/setup/corda-configuration-file.md).
 Remember to adjust the `p2paddress` to match a FQDN or the public IP address of the VM.
 The public IP address can be obtained from the shell using the following command:
 
