@@ -145,7 +145,7 @@ To use the checkpoint agent:
 
 1. Download the checkpoint agent from [Artifactory](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-checkpoint-agent/).
 2. Add the `-Dcapsule.jvm.args=-javaagent:<PATH>/checkpoint-agent.jar[=arg=value,...]` option when starting the node. To log checkpoint data only for failing flows, start the checkpoint agent with the `checkpoint-agent.jar=instrumentType=read,instrumentClassname=NONE` arguments.
-3. If you are using the Corda gradle plugin configuration tasks, alter the task to include the checkpoint agent. See [the cordform task](../../../../../../../../en/platform/corda/4.9/enterprise/node/deploy/generating-a-node.md) for information on updating the `cordform` task.
+3. If you are using the Corda gradle plugin configuration tasks, alter the task to include the checkpoint agent. See [the cordform task](../../deploy/generating-a-node.md) for information on updating the `cordform` task.
 
 {{< note >}}
 The checkpoint agent increases the memory requirement of the node. You should set a minimum memory heap size of 1 GB for nodes running the checkpoint agent.

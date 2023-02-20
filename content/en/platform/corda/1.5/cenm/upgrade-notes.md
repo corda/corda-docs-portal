@@ -17,10 +17,10 @@ title: Upgrading Corda Enterprise Network Manager
 # Upgrading Corda Enterprise Network Manager
 
 This document provides instructions for upgrading your network management suite - Identity Manager Service (formerly
-Doorman), Network Map Service, Signing Service, Zone Service, Auth Service, Angel Service - from previous versions to the newest version. Please consult the relevant [release notes](../../../../../en/platform/corda/1.5/cenm/release-notes.md) of the release in question. If not specified, you may assume the versions you are currently using are still in force.
+Doorman), Network Map Service, Signing Service, Zone Service, Auth Service, Angel Service - from previous versions to the newest version. Please consult the relevant [release notes](release-notes.md) of the release in question. If not specified, you may assume the versions you are currently using are still in force.
 
 {{< warning >}}
-Before you start the upgrade, you must consult the [CENM Release Notes](../../../../../en/platform/corda/1.5/cenm/release-notes.md) to confirm all changes between releases.
+Before you start the upgrade, you must consult the [CENM Release Notes](release-notes.md) to confirm all changes between releases.
 {{< /warning >}}
 
 ## 1.3.x / 1.4.x to 1.5
@@ -326,8 +326,8 @@ Ensure the services are not running before replacing the `.jar` files.
 
 CENM 1.1 supports multiple HSMs, however due to to the proprietary nature of the HSM libraries, the release does
 not work with these HSMs "out of the box". The user must provide the relevant libraries and reference them in the
-configuration of the relevant component (Signing Service or PKI Tool). For more information, see [Signing Services](../../../../../en/platform/corda/1.1/cenm/signing-service.md).
-and [Public Key Infrastructure (PKI) Tool](../../../../../en/platform/corda/1.1/cenm/pki-tool.md) for more information.
+configuration of the relevant component (Signing Service or PKI Tool). For more information, see [Signing Services](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.1/signing-service.md).
+and [Public Key Infrastructure (PKI) Tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.1/pki-tool.md) for more information.
 
 ## 0.3+ to 1.0
 
@@ -390,7 +390,7 @@ database {
 ### Configuration files
 
 CENM 1.0 Identity Manager and Network Map Services are not backward-compatible with configuration files for Doorman and Network Map Service versions 0.x.
-Version 0.2.2 and 0.3 / 0.4 configuration files can be migrated to CENM 1.0 using the [configuration migration tool](../../../../../en/platform/corda/1.0/cenm/tool-config-migration.md).
+Version 0.2.2 and 0.3 / 0.4 configuration files can be migrated to CENM 1.0 using the configuration migration tool.
 Using the generated 1.0 configurations, the services can be upgraded by stopping the services, swapping out the `.jar` file and configuration files, and restarting the services.
 
 
@@ -447,7 +447,7 @@ and Revocation services cannot be known by the upgrader.
 {{< warning >}}
 If you require private network functionality or node certificate revocation checking then the configuration
 should be updated to include the appropriate settings. See the *Doorman & Revocation Communication* section
-of the [Network Map Service](../../../../../en/platform/corda/1.0/cenm/network-map.md) document for more information.
+of the [Network Map Service](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.0/network-map.md) document for more information.
 
 {{< /warning >}}
 
@@ -458,20 +458,20 @@ of the [Network Map Service](../../../../../en/platform/corda/1.0/cenm/network-m
 The release modifies the Network Map Signing Service to request data through the Network Map Service rather than going
 directly to the database. Therefore the configuration needs to change to remove the redundant database configuration and
 instead adding the service endpoint. As this information cannot be known by the configuration upgrader, this has to be added
-manually. See [Signing Services](../../../../../en/platform/corda/1.0/cenm/signing-service.md) for more information on how to configure this.
+manually. See [Signing Services](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.0/signing-service.md) for more information on how to configure this.
 
 
 #### The Certificate Revocation Request service requires a configuration update to specify communication the Revocation service
 
 Similarly to above, the CRR Signing Service now pulls data through the Revocation service and therefore requires a
-configuration modification. See [Signing Services](../../../../../en/platform/corda/1.0/cenm/signing-service.md) for more information on how to configure this.
+configuration modification. See [Signing Services](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.0/signing-service.md) for more information on how to configure this.
 
 
 #### Setting the network parameters requires passing the root certificate
 
 When setting network parameters, the Network Map Service cannot validate the proposed notary certificates using the Doorman database.
 Hence the trusted root certificate now needs to be passed during setting of parameters.
-See the “Setting the Network Parameters” section of the [Network Map Service](../../../../../en/platform/corda/1.0/cenm/network-map.md) document for more information.
+See the “Setting the Network Parameters” section of the [Network Map Service](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.0/network-map.md) document for more information.
 
 
 ## 0.1 to 0.2.1

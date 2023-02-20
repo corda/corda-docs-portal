@@ -47,7 +47,7 @@ To start the Node run the following command from the Node VM:
 {{< note >}}
 If your node configuration file is obfuscated and you want to de-obfuscate it when running the node, you need to pass the obfuscation seed and passphrase to the node in the node run command.
 
-To do so using the [Configuration Obfuscator](../../../../../../../en/platform/corda/4.8/enterprise/tools-config-obfuscator.md) command-line tool, use the `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
+To do so using the [Configuration Obfuscator](../../tools-config-obfuscator.md) command-line tool, use the `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
 
 The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration Obfuscator command-line tool:
 
@@ -61,6 +61,17 @@ To pass the seed and passphrase to a node using environment variables, follow th
 ```bash
 $ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=my-passphrase; /usr/bin/java -Xmx2048m -jar /opt/corda/corda-4.8.jar --config-file node.conf
 ```
+{{< /note >}}
+
+{{< note >}}
+If a node is registered but not started and the [Network Map Service](../../../../1.5/cenm/network-map.html#network-map-service) goes down before the first start of the node, the node will fail to restart.
+
+                                                  
+                                                                                                                                                                      
+
+                                                                       
+
+                                                                                                                                                                                                                       
 {{< /note >}}
 
 {{< note >}}
