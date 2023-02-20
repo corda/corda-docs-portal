@@ -99,7 +99,7 @@ The node is using log4j2 asynchronous logging by default (configured via log4j2 
 to ensure that log message flushing is not slowing down the actual processing.
 If you need to switch to synchronous logging (e.g. for debugging/testing purposes), you can override this behaviour
 by adding `-DLog4jContextSelector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector` to the node’s
-command line or to the `jvmArgs` section of the node configuration (see [Corda configuration file](../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.md).
+command line or to the `jvmArgs` section of the node configuration (see [Corda configuration file](setup/corda-configuration-file.md).
 Additionally, you need to override the log4j2 configuration file by specifying `-Dlog4j.configurationFile=<log4j2 config>`.
 The configuration file can be taken from the `config/dev` folder in [Corda Open Source repository](https://github.com/corda/corda).
 When using synchronous logging with `RollingRandomAccessFile` appenders in the configuration file, make sure that they DO NOT
@@ -234,7 +234,7 @@ When running in dev mode, Hibernate statistics are also available via the Joloki
 due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
 `exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#database).
 
-When starting Corda nodes using Cordformation runner (see [Running a node](../../../../../../en/platform/corda/4.7/enterprise/node/deploy/running-a-node.md), you should see a startup message similar to the following:
+When starting Corda nodes using Cordformation runner (see [Running a node](deploy/running-a-node.md), you should see a startup message similar to the following:
 **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
 
 When starting Corda nodes using the ‘driver DSL’, you should see a startup message in the logs similar to the following:

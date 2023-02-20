@@ -58,7 +58,7 @@ needs access to its individual node database, and communicates with the underlyi
 
 When writing the notary worker’s `node.conf` file, the notary worker must have both a `myLegalName` and a `notary.serviceLegalName`
 property. The `myLegalName` property must be unique to each notary worker, however, all notary workers in a cluster
-must share the same `notary.serviceLegalName`. For more information, see the ../corda-configuration-file.
+must share the same `notary.serviceLegalName`. For more information, see the [Node configuration](../node/setup/corda-configuration-file.md)..
 
 
 ## HA Notary registration process
@@ -101,7 +101,7 @@ entry. If configured to use an HSM, the generated keys are stored in the HSM and
 
 In order for network participants to use the new HA notary the notary service must be present in the network parameters. This involves
 configuring and setting the initial network parameters (if setting up a new network), or modifying the existing parameters and performing a
-flag day (if using an existing network). Please refer to the [CENM documentation](../../../../../../en/platform/corda/1.2/cenm.md) for more information on this
+flag day (if using an existing network). Please refer to the [CENM documentation](../../../1.2/cenm.md) for more information on this
 process.
 
 {{< note >}}

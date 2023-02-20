@@ -244,7 +244,7 @@ EFS cannot be mounted on a Windows machine. Please see EFS limits [here](https:/
 ## Node deployment
 
 This section covers the deployment of the back-up Corda instance. It is assumed that the primary has already been deployed.
-For instructions on how to do so, please see [Deploying a node to a server](../../../../../../../en/platform/corda/4.8/enterprise/node/deploy/deploying-a-node.md).
+For instructions on how to do so, please see [Deploying a node to a server](deploying-a-node.md).
 
 The following files and directories need to be copied from the primary instance to the back-up instance as well as any
 CorDapps and jars that exist:

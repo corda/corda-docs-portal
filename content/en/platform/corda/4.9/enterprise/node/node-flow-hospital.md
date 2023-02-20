@@ -83,7 +83,7 @@ Some errors will be generated on failed HSM operations.  After retrying for a nu
 the flow hospital and the error will be allowed to propagate.
 - Error type: `CryptoServiceException`
     * HSM timeouts:
-These errors will be generated when the HSM takes too long to respond to an action.  The timeout value is defined in corda-configuration-file.
+These errors will be generated when the HSM takes too long to respond to an action.  The timeout value is defined in [Node configuration](setup/corda-configuration-file.md).
 - Error type: `TimedCryptoServiceException`
 
 * `HospitalizeFlowException`:

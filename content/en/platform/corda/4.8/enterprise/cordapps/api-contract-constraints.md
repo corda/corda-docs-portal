@@ -339,7 +339,7 @@ Driver.driver(
 
 ### Starting a node that is missing CorDapp(s)
 
-Make sure you place all CorDapp `.jar`s in the `cordapps` directory of each node. The Gradle Cordform task `deployNodes` copies all `.jar`s by default, if you have specified CorDapps to deploy. See [Creating nodes locally](../../../../../../en/platform/corda/4.8/enterprise/node/deploy/generating-a-node.html#creating-nodes-locally) for detailed instructions.
+Make sure you place all CorDapp `.jar`s in the `cordapps` directory of each node. The Gradle Cordform task `deployNodes` copies all `.jar`s by default, if you have specified CorDapps to deploy. See [Creating nodes locally](../node/deploy/generating-a-node.html#creating-nodes-locally) for detailed instructions.
 
 
 ### Including an incorrect fully-qualified contract name

@@ -238,7 +238,7 @@ when messages arrive. It provides the send/receive/sendAndReceive calls that let
 interaction and it will save/restore serialised versions of the fiber at the right times.
 
 Flows can be invoked in several ways. For instance, they can be triggered by scheduled events (in which case they need to
-be annotated with `@SchedulableFlow`), see [Scheduling events](../../../../../en/platform/corda/4.8/enterprise/event-scheduling.md) to learn more about this. They can also be triggered
+be annotated with `@SchedulableFlow`), see [Scheduling events](event-scheduling.md) to learn more about this. They can also be triggered
 directly via the node’s RPC API from your app code (in which case they need to be annotated with *StartableByRPC*). It’s
 possible for a flow to be of both types.
 
@@ -661,7 +661,7 @@ loaded off disk again.
 If a node has flows still in a suspended state, with flow continuations written to disk, it will not be
 possible to upgrade that node to a new version of Corda or your app, because flows must be completely “drained”
 before an upgrade can be performed, and must reach a finished state for draining to complete (see
-[Draining the node](../../../../../en/platform/corda/4.8/enterprise/upgrading-cordapp.html#draining-the-node) for details). While there are mechanisms for “evolving” serialised data held
+[Draining the node](cordapps/upgrading-cordapp.html#draining-the-node) for details). While there are mechanisms for “evolving” serialised data held
 in the vault, there are no equivalent mechanisms for updating serialised checkpoint data. For this
 reason it is not a good idea to design flows with the intention that they should remain in a suspended
 state for a long period of time, as this will obstruct necessary upgrades to Corda itself. Any
