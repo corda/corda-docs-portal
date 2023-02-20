@@ -66,14 +66,14 @@ anything set earlier.
 
 
 * **Default arguments in capsule**:
-The capsuled Corda node has default flags set to `-Xmx512m -XX:+UseG1GC` - this gives the node a relatively
+The capsuled Corda node has default flags set to `-Xmx512m -XX:+UseG1GC`. This gives the node a relatively
 low 512 MB of heap space, and turns on the G1 garbage collector, ensuring low pause times for garbage collection.
 
 When `devMode` is explicitly set to `false`, the default node memory size will be enlarged to 4G: `-Xmx4G -XX:+UseG1GC`.
 
 
 * **Node configuration**:
-The node configuration file can specify custom default JVM arguments by adding a section like the one below:
+The node configuration file can specify custom default JVM arguments by adding a section like the following:
 
 ```none
 custom = {
@@ -97,7 +97,7 @@ java -Dcapsule.jvm.args="-Xmx1G" -jar corda.jar
 Setting a property like this will override any value for this property, but not interfere with any other JVM arguments that are configured
 in any way mentioned above. In this example, it resets the maximum heap memory to `-Xmx1G` but it does not touch the garbage collector settings.
 This is particularly useful for either setting large memory allowances that you don’t want to give to the launcher, or for setting values that
-can only be set on one process at a time - for example, a debug port.
+can only be set on one process at a time; for example, a debug port.
 
 
 * **Command line flag**:
@@ -174,13 +174,16 @@ Parameters:
 * `--network-root-truststore-password`, `-p`: Network root trust store password obtained from the network operator.
 * `--skip-schema-creation`: Skips the default database migration step.
 
-`run-migration-scripts`: from version 4.6, a Corda node can no longer modify/create schema on the fly in normal run mode - schema setup or changes must be
+{{< note >}}
+Node `initial-registration` now includes the creation of `identity-private-key` keystore alias. For more information, see [node folder structure](../../node/setup/node-structure.md). Previously, only `cordaclientca` and `cordaclienttls` aliases were created during `initial-registration`, while `identity-private-key` was generated on demand on the first node run. Hence, in Corda 4.8 the content of `nodekeystore.jks` is never altered during a regular node run (except for `devMode = true`, where the certificates directory can be filled with pre-configured keystores).
+{{< /note >}}
+`run-migration-scripts`: From version 4.6, a Corda node can no longer modify/create schema on the fly in normal run mode - schema setup or changes must be
 applied deliberately using this sub-command. It runs the database migration script for the requested schema set defined in the following parameters. Once it creates or modifies the schema(s), the sub-command will exit.
 
 Parameters:
 
-* `--core-schemas`: use to run the core database migration script for the node database. Core schemas cannot be migrated while there are checkpoints.
-* `--app-schemas`: use to run the app database migration script for CorDapps. To force an app schema to migrate with checkpoints present, use the `--update-app-schema-with-checkpoints` flag alongside the `run-migration-scripts` sub-command.
+* `--core-schemas`: Used to run the core database migration script for the node database. Core schemas cannot be migrated while there are checkpoints.
+* `--app-schemas`: Used to run the app database migration script for CorDapps. To force an app schema to migrate with checkpoints present, use the `--update-app-schema-with-checkpoints` flag alongside the `run-migration-scripts` sub-command.
 
 `generate-node-info`: Performs the node start-up tasks necessary to generate the `node.info` file, saves it to disk, then exits.
 
@@ -206,13 +209,14 @@ To enable export of JMX metrics over HTTP via [Jolokia](https://jolokia.org/), r
 
 `java -Dcapsule.jvm.args="-javaagent:drivers/jolokia-jvm-1.3.7-agent.jar=port=7005" -jar corda.jar`
 
-This command will start the node with JMX metrics accessible via HTTP on port 7005.
+This command will start the node with JMX metrics accessible via HTTP on port 7005.  
+
+The status is published as: `net.corda.Node.Status`, and is available almost immediately at startup.
 
 See [Monitoring via Jolokia](../operating/node-administration.html#monitoring-via-jolokia) for further details.
 
 
 ## Starting all nodes at once on a local machine from the command prompt
-
 
 ### Native
 
