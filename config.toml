@@ -10,7 +10,6 @@ contentDir = "content/"
 
 pluralizeListTitles = false
 
-relativeURLs = true
 uglyurls = true
 
 refLinksErrorLevel = "error"
