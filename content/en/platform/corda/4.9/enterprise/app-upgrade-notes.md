@@ -48,7 +48,7 @@ If you do use them, re-namespace them to a package namespace you control and sig
 | 3.3 | 3 |
 {{< /table >}}
 
-## Upgrading CorDapps to platform version 9, 10, 11, and 12
+## Upgrading CorDapps to platform version 9, 10, and 11
 
 No manual upgrade steps are required.
 
