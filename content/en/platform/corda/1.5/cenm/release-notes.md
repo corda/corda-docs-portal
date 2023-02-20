@@ -69,7 +69,7 @@ Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https:
 
 ### Fixed issues
 
-We have updated the Log4j dependency to version 2.16.0 to mitigate CVE-2021-44228. This includes an update to the [CENM Management Console](../../../../../en/platform/corda/1.5/cenm/cenm-console.md).
+We have updated the Log4j dependency to version 2.16.0 to mitigate CVE-2021-44228. This includes an update to the [CENM Management Console](cenm-console.md).
 
 ## Corda Enterprise Network Manager 1.5.1
 
@@ -79,7 +79,7 @@ CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
 
 * CENM 1.5.1 now supports [Oracle Database 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/index.html).
 * We have bumped the supported version of the AWS CloudHSM client library from 3.0.0 to 3.2.1.
-* Configuration passwords are now hidden in both **CODE VIEW** and **FORM VIEW** modes in the [CENM management console](../../../../../en/platform/corda/1.5/cenm/cenm-console.md) **CONFIGURATION**.
+* Configuration passwords are now hidden in both **CODE VIEW** and **FORM VIEW** modes in the [CENM management console](cenm-console.md) **CONFIGURATION**.
 
 ### Fixed issues
 
@@ -92,11 +92,11 @@ CENM 1.5.1 introduces fixes to known issues in CENM 1.5.
   ```
 * We have fixed an issue where the signing request status command in the CENM Command-line Interface Tool (CLI) did not work for asynchronous signing.
 * We have fixed an issue where the Network Map Service failed to start with an EC public key used in the `packageOwnership` configuration in the network parameters, and an `Unrecognised algorithm` error was thrown.
-* We have fixed an issue where, if a CSR was rejected with a [rejection code](../../../../../en/platform/corda/1.5/cenm/workflow.html#certificate-signing-request-rejection-reasons) between 1 and 11 via the JIRA workflow, the node notification would be incorrect - the `Additional remark` field output would contain technical data instead of a description of the rejection reason.
+* We have fixed an issue where, if a CSR was rejected with a [rejection code](workflow.html#certificate-signing-request-rejection-reasons) between 1 and 11 via the JIRA workflow, the node notification would be incorrect - the `Additional remark` field output would contain technical data instead of a description of the rejection reason.
 
 #### Fixed issues specific to the CENM management console
 
-We have also fixed the following issues specific to the [CENM management console](../../../../../en/platform/corda/1.5/cenm/cenm-console.md):
+We have also fixed the following issues specific to the [CENM management console](cenm-console.md):
 
 * We have fixed an issue where removing scheduled times in **FORM VIEW** mode in the **SIGNER** tab of **CONFIGURATION** showed configuration details in **CODE VIEW** mode, which might result is Signing Service configuration failures.
 * We have fixed an issue where the **Remove Edits** option in **CONFIGURATION** did not work for a number of fields for all configuration types.
@@ -122,7 +122,7 @@ We have also fixed the following issues specific to the [CENM management console
 
 ### Known issues
 
-* There is still an option to view configuration passwords in **FORM VIEW** mode in the [CENM management console](../../../../../en/platform/corda/1.5/cenm/cenm-console.md) **CONFIGURATION**.
+* There is still an option to view configuration passwords in **FORM VIEW** mode in the [CENM management console](cenm-console.md) **CONFIGURATION**.
 
 {{< note >}}
 The known issue listed above is specific to CENM 1.5.1. See the release notes for previous CENM releases further down on this page for information about known issues specific to those versions.
@@ -130,19 +130,19 @@ The known issue listed above is specific to CENM 1.5.1. See the release notes fo
 
 ## Corda Enterprise Network Manager 1.5
 
-Corda Enterprise Network Manager (CENM) 1.5 introduces a number of new features and enhancements, including a new [CENM management console](../../../../../en/platform/corda/1.5/cenm/cenm-console.md), single sign-on for Azure AD for Corda services, and the ability to reissue node legal identity keys and certificates.
+Corda Enterprise Network Manager (CENM) 1.5 introduces a number of new features and enhancements, including a new [CENM management console](cenm-console.md), single sign-on for Azure AD for Corda services, and the ability to reissue node legal identity keys and certificates.
 
 While this release is backward-compatible, you should consider upgrading to this release from earlier versions of the Corda Enterprise Network Manager.
 
 {{< warning >}}
-Make sure to check out the [Upgrading Corda Enterprise Network Manager](../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md) page.
+Make sure to check out the [Upgrading Corda Enterprise Network Manager](upgrade-notes.md) page.
 {{< /warning >}}
 
 ### New features and enhancements
 
 #### CENM management console
 
-The [CENM management console](../../../../../en/platform/corda/1.5/cenm/cenm-console.md) is a new CENM web UI that enables you to view CSR and CRR requests, display nodes in the network map, run a flag day, and update services configuration.
+The [CENM management console](cenm-console.md) is a new CENM web UI that enables you to view CSR and CRR requests, display nodes in the network map, run a flag day, and update services configuration.
 
 #### Single sign-on for Azure AD
 
@@ -153,7 +153,7 @@ CENM 1.5 introduces support for Azure Active Directory (AAD) as a single sign-on
 Corda Enterprise Edition 4.7 introduces a capability for reissuing node legal identity keys and certificates, allowing CENM to re-register a node (including a notary node) with a new certificate in the Network Map. You must not change the node's `myLegalName` during certificate rotation.
 
 {{< warning >}}
-The introduction of this functionality may require changes to your custom Identity Manager Workflow Plugins, regardless of using certificate reissuance functionality in your system. Make sure to check the [Upgrading Corda Enterprise Network Manager](../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md) page.
+The introduction of this functionality may require changes to your custom Identity Manager Workflow Plugins, regardless of using certificate reissuance functionality in your system. Make sure to check the [Upgrading Corda Enterprise Network Manager](upgrade-notes.md) page.
 {{< /warning >}}
 
 For more information about this feature, contact your R3 account manager.
@@ -172,7 +172,7 @@ For more information about this feature, contact your R3 account manager.
 * The CENM Command-line Interface (CLI) Tool does not return a message if a token has expired when running `signer` commands.
 * The Identity Manager Service shows an incorrect error when the `workflow.enmListener.port` parameter is missed.
 * When setting up CENM services with Shell support, the Signing Service and the Network Map Service hang after running the `shutdown` command.
-* When a CSR is rejected with a [rejection code](../../../../../en/platform/corda/1.5/cenm/workflow.html#certificate-signing-request-rejection-reasons) between 1 and 11 via the JIRA workflow, the node notification is incorrect - the `Additional remark` field output contains technical data instead of a description of the rejection reason.
+* When a CSR is rejected with a [rejection code](workflow.html#certificate-signing-request-rejection-reasons) between 1 and 11 via the JIRA workflow, the node notification is incorrect - the `Additional remark` field output contains technical data instead of a description of the rejection reason.
 
 {{< note >}}
 The list above contains known issues specific to CENM 1.5. See the release notes for previous CENM releases further down on this page for information about known issues specific to those versions.
@@ -541,14 +541,14 @@ configurations to be compatible with 1.1.
 **Oracle Database Support**
 
 Support has been added for Oracle DB versions 12cR2 and 11gR2 as a backend data store.
-For full setup instructions see [CENM Databases](../../../../../en/platform/corda/1.1/cenm/database-set-up.md).
+For full setup instructions see [CENM Databases](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.1/database-set-up.md).
 
 **Configuration Migration Tool**
 
 To simplify the upgrade process from early versions of CENM a configuration migration tool has been
 added. This is intended to upgrade v0.2.2 / v0.3+ configurations to v1.1, including both restructuring
 changes to the configuration file and updating the value of fields (such as database driver class).
-See [Config migration tool](../../../../../en/platform/corda/1.1/cenm/tool-config-migration.md) for details on this tool.
+See [Config migration tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.1/tool-config-migration.md) for details on this tool.
 
 **Hardware Security Module Support**
 
@@ -607,18 +607,18 @@ fresh to the product but also those who are upgrading from pre-release versions.
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
 Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
 network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-support for multiple Network Map services. See [Signing Services](../../../../../en/platform/corda/1.0/cenm/signing-service.md) to learn more about this service.
+support for multiple Network Map services. See [Signing Services](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.0/signing-service.md) to learn more about this service.
 
 **Brand new PKI tooling**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
 certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](../../../../../en/platform/corda/1.0/cenm/pki-tool.md) to learn about all the features of the PKI Tool.
+customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.0/pki-tool.md) to learn about all the features of the PKI Tool.
 
 **Full End to End SSL communication**
 
 All CENM components now communicate over SSL with one another, this completes the removal of the “database as message
-queue” of older versions. See [Configuring the CENM services to use SSL](../../../../../en/platform/corda/1.0/cenm/enm-with-ssl.md) for more information.
+queue” of older versions. See [Configuring the CENM services to use SSL](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.0/enm-with-ssl.md) for more information.
 
 **Security And Performance Fixes**
 
@@ -646,13 +646,13 @@ versioned changes to the protocol without changing that which the Corda nodes de
 The Signing Service is a new addition to the suite of CENM services, sitting alongside the Identity Manager and Network
 Map. It provides a network operator with full control over the signing of node identity data (CSRs and CRRs) and global
 network data (Network Map and Network Parameters) and includes features such as HSM integration, signing scheduling and
-support for multiple Network Map services. See [Signing Services](../../../../../en/platform/corda/1.0/cenm/signing-service.md) to learn more about this service.
+support for multiple Network Map services. See [Signing Services](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.0/signing-service.md) to learn more about this service.
 
 **Epoch Control**
 
 The PKI Tool enables a network operator to easily generate Corda-compliant certificate hierarchy (keys and
 certificates) as well as certificate revocation lists. The tool supports both local and HSM key stores and can be
-customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](../../../../../en/platform/corda/1.0/cenm/pki-tool.md) to learn about all the features of the PKI Tool.
+customized with the configuration file. See [Public Key Infrastructure (PKI) Tool](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.0/pki-tool.md) to learn about all the features of the PKI Tool.
 
 **Shell**
 
@@ -677,7 +677,7 @@ sub-zones of nodes that operate in what appear to the nodes to be isolated netwo
 network parameters. Critically, however, their certificate governance remains under the jurisdiction of a global
 Doorman. This way, temporary benefits such as higher privacy, differential network parameters upgrade schedules or use
 of temporary private notaries can be delivered. Note that the ability to merge one sub-zone into another is not
-currently supported. See the [Sub Zones](../../../../../en/platform/corda/1.0/cenm/sub-zones.md) documentation for more information.
+currently supported. See the [Sub Zones](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.0/sub-zones.md) documentation for more information.
 
 **Protocol Separation**
 
@@ -692,12 +692,12 @@ The two top-level endpoints are now
 * `/network-map`
 * `/network-map-user`
 
-see [Network Map Overview](../../../../../en/platform/corda/1.0/cenm/network-map-overview.md) for more information.
+see [Network Map Overview](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.0/network-map-overview.md) for more information.
 
 Another change that is introduced in the newest release is the ability to interact with the Doorman and Network Map
 services via a shell. The commands available currently mainly allow an operator to inspect the state of the service,
 for example by viewing the current set of nodes within the public network, or viewing the list of Certificate Signing
-Requests that are awaiting approval. See the [Embedded Shell](../../../../../en/platform/corda/1.0/cenm/shell.md) documentation for more information.
+Requests that are awaiting approval. See the [Embedded Shell](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/CENM/1.0/shell.md) documentation for more information.
 
 Added support for overriding the default “increment previous value by 1” behaviour for epoch values during network
 parameter updates/initialisation. This allows a user to specify the epoch within the parameter config file and it
