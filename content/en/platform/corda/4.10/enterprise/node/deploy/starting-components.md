@@ -64,6 +64,17 @@ $ export CONFIG_OBFUSCATION_SEED=my-seed; export CONFIG_OBFUSCATION_PASSPHRASE=m
 {{< /note >}}
 
 {{< note >}}
+If a node is registered but not started and the [Network Map Service](../../../../1.5/cenm/network-map.html#network-map-service) goes down before the first start of the node, the node will fail to restart.
+
+                                                  
+                                                                                                              
+
+                                                                       
+
+                                                                                                                                                                     
+{{< /note >}}
+
+{{< note >}}
 All flows can be paused when the node starts up - you can enable this in one of the following ways:
 
 * Use the command-line option `--pause-all-flows`.
