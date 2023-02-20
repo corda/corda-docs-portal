@@ -58,7 +58,7 @@ needs access to its individual node database, and communicates with the underlyi
 
 When writing the notary worker’s `node.conf` file, the notary worker must have both a `myLegalName` and a `notary.serviceLegalName`
 property. The `myLegalName` property must be unique to each notary worker, however, all notary workers in a cluster
-must share the same `notary.serviceLegalName`. For more information, see the ../corda-configuration-file.
+must share the same `notary.serviceLegalName`. For more information, see [Node configuration](../node/setup/corda-configuration-file.md)..
 
 
 ## HA Notary registration process

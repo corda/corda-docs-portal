@@ -52,6 +52,27 @@ they agree to the upgrade before the upgrade can take place. The `ContractUpgrad
 authorization process. Each node administrator can use RPC to trigger either an `Authorize` or a `Deauthorize` flow
 for the state in question.
 
+```kotlin
+@StartableByRPC
+class Authorise(
+        val stateAndRef: StateAndRef<*>,
+        private val upgradedContractClass: Class<out UpgradedContract<*, *>>
+) : FlowLogic<Void?>() {
+
+```
+
+[ContractUpgradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.8/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt)
+
+```kotlin
+@StartableByRPC
+class Deauthorise(val stateRef: StateRef) : FlowLogic<Void?>() {
+    @Suspendable
+    override fun call(): Void? {
+
+```
+
+[ContractUpgradeFlow.kt](https://github.com/corda/corda/blob/release/os/4.8/core/src/main/kotlin/net/corda/core/flows/ContractUpgradeFlow.kt)
+
 
 ## Proposing an upgrade
 
