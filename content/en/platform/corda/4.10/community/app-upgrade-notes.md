@@ -13,11 +13,8 @@ tags:
 - app
 - upgrade
 - notes
-title: Upgrading CorDapps to newer Platform Versions
+title: Upgrading CorDapps to newer platform versions
 ---
-
-
-
 
 # Upgrading CorDapps to newer platform versions
 
@@ -46,6 +43,11 @@ If you are using them you should re-namespace them to a package namespace you co
 | 4.7 | 9 |
 {{< /table >}}
 
-## Upgrading apps to Platform Version 9, 10, 11, and 12
+## Upgrading apps to platform version 9, 10, 11, and 12
 
 No manual upgrade steps are required.
+
+## Upgrading apps to platform version 8 or lower
+
+If you need to upgrade your apps to platform version 8 or lower,
+follow instructions published in our [GitHub documentation repository](https://github.com/corda/corda-docs-portal/blob/main/content/en/archived-docs/corda-os/4.6/app-upgrade-notes.md).
