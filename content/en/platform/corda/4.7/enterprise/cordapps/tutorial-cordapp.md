@@ -263,7 +263,7 @@ The first step is to deploy the CorDapp to nodes running locally. To do this:
 
 
 {{< note >}}
-`deployNodes` is a utility task that can be used in a development environment to create an entirely new set of nodes for testing a CorDapp. In a production environment, you would instead create a single node as described in [Creating nodes locally](../../../../../../en/platform/corda/4.7/enterprise/node/deploy/generating-a-node.md) and build your CorDapp JARs as described
+`deployNodes` is a utility task that can be used in a development environment to create an entirely new set of nodes for testing a CorDapp. In a production environment, you would instead create a single node as described in [Creating nodes locally](../node/deploy/generating-a-node.md) and build your CorDapp JARs as described
 in [Building and installing a CorDapp](cordapp-build-systems.md).
 {{< /note >}}
 
@@ -316,7 +316,7 @@ Fri Mar 02 17:34:02 GMT 2018>>>
 
 It usually takes around 60 seconds for the nodes to finish starting up. Each node will display “Welcome to the Corda interactive shell” along with a prompt when ready.
 
-You can read more about how to generate nodes [here](../../../../../../en/platform/corda/4.7/enterprise/node/deploy/generating-a-node.md).
+You can read more about how to generate nodes [here](../node/deploy/generating-a-node.md).
 
 ## Interacting with the sample CorDapp
 

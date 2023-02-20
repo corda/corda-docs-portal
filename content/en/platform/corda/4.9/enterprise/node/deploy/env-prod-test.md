@@ -93,7 +93,7 @@ This configuration file contains specifies the location of:
 
 
 
-You can find examples of configuration files [available here](../../../../../../../en/platform/corda/4.9/enterprise/node/corda-firewall-configuration-file.md).
+You can find examples of configuration files [available here](../corda-firewall-configuration-file.md).
 
 
 ### Installing the Corda Node
@@ -344,7 +344,7 @@ A full list of the parameters that can be utilized in these configuration files 
 
 ### Corda 3.x vs Corda 4.x Firewall Upgrade
 
-In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found in [Firewall upgrade](../../../../../../../en/platform/corda/4.9/enterprise/node/corda-firewall-upgrade.md).
+In Corda 4.x it is possible to for multiple Nodes representing multiple identities to reside behind the same Corda Firewall. Details on setup can be found in [Firewall upgrade](../corda-firewall-upgrade.md).
 
 
 ### Port Policy and Network Configuration

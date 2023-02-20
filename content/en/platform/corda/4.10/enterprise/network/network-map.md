@@ -291,7 +291,7 @@ be used in the early stages when it’s possible to deduce the members of a busi
 joined the Network, this feature will be turned off and previously private nodes will be made visible in the public network map.
 
 An additional REST `/network-map/{uuid}` endpoint serving private network maps was introduced. For nodes to be able to query
-that information automatically you need to change `node.conf` to include private network UUIDs in `extraNetworkMapKeys` see corda-configuration-file.
+that information automatically you need to change `node.conf` to include private network UUIDs in `extraNetworkMapKeys` see [Node configuration]( ../node/setup/corda-configuration-file.md).
 
 From the node operator’s perspective the process is simple. During the initial registration the Compatibility Zone operator will
 mark the node as belonging to the private network map and will provide the node operator with UUID that should be put in the node’s config file.
