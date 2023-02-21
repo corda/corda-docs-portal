@@ -564,7 +564,7 @@ class ExampleRPCSerializationWhitelist : SerializationWhitelist {
 
 ```
 
-See more on plugins in [Running nodes locally](../../../operations/deployment/running-a-node.md).
+See more on plugins in [Running nodes locally](../../../../community/running-a-node.md).
 
 
 ## Defining RPC credentials and permissions
@@ -629,4 +629,5 @@ You can then deploy and launch the nodes (Notary and Alice) as follows:
 With regards to the start flow RPCs, there is an extra layer of security whereby the flow to be executed has to be
 annotated with `@StartableByRPC`. Flows without this annotation cannot execute using RPC.
 
-See more on security in [Secure coding guidelines](../../../secure-coding-guidelines.md), node configuration in [Node configuration](../../../operations/deployment/corda-configuration-file.md) and Cordformation in [Running nodes locally](../../../operations/deployment/running-a-node.md).
+See more on security in [Secure coding guidelines](../../../../community/secure-coding-guidelines.md), node configuration in [Node configuration](../../corda-configuration-file.md) and
+Cordformation in [Running nodes locally](../../../../community/running-a-node.md).

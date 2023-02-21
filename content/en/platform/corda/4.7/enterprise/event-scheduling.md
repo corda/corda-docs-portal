@@ -11,13 +11,10 @@ weight: 180
 ---
 
 
-
-
 # Scheduling time-based events
 
 This article explains our approach to modelling time based events in code. It explains how a contract
 state can expose an upcoming event and what action to take if the scheduled time for that event is reached.
-
 
 ## Introduction
 
@@ -37,13 +34,13 @@ due.  If a contract state is consumed in the UTXO model, then what *was* the nex
 and the next time sensitive event is determined by any successor contract state.
 
 Knowing when the next time sensitive event is due to occur is useful, but typically some *activity* is expected to take
-place when this event occurs. We already have a model for business processes in the form of [flows](flow-state-machines.md),
+place when this event occurs. We already have a model for business processes in the form of [flows](key-concepts-flows.md),
 so in the platform we have introduced the concept of *scheduled activities* that can invoke flow state machines
 at a scheduled time. A contract state can optionally described the next scheduled activity for itself. If it omits
 to do so, then nothing will be scheduled.
 
 
-## How to implement scheduled events
+## Implementing scheduled events
 
 There are two main steps to implementing scheduled events:
 
@@ -81,7 +78,7 @@ Typically, the flow must include some code to prevent all nodes sharing the stat
 Again, if the state misses the deadline, it will schedule a flow immediately. Modified states can also schedule some new flows at some new time if that is desired.
 
 
-## An example
+## Example 1
 
 Let’s take an example of the interest rate swap fixings for our scheduled events.  The first task is to implement the
 `nextScheduledActivity` method on the `State`.
@@ -107,3 +104,40 @@ should become available and schedules an activity at that time to work out what 
 business process and to take on those roles.  That `FlowLogic` will be handed the `StateRef` for the interest
 rate swap `State` in question, as well as a tolerance `Duration` of how long to wait after the activity is triggered
 for the interest rate before indicating an error.
+
+
+## Example 2
+
+Let’s take the example of heartbeat sample in our `samples` repositories ([Kotlin](https://github.com/corda/samples-kotlin/tree/master/Features/schedulableState-heartbeat), [Java](https://github.com/corda/samples-java/tree/master/Features/schedulablestate-heartbeat)). The first task is to implement the
+`nextScheduledActivity` method on the `State`.
+
+{{< tabs name="tabs-1" >}}
+{{% tab name="kotlin" %}}
+```kotlin
+// Defines the scheduled activity to be conducted by the SchedulableState.
+    override fun nextScheduledActivity(thisStateRef: StateRef, flowLogicRefFactory: FlowLogicRefFactory): ScheduledActivity? {
+        // A heartbeat will be emitted every second. We get the time when the scheduled activity will occur in the constructor rather than in this method. This is
+        // because calling Instant.now() in nextScheduledActivity returns the time at which the function is called, rather than the time at which the state was created.
+        return ScheduledActivity(flowLogicRefFactory.create("com.heartbeat.flows.HeartbeatFlow", thisStateRef), nextActivityTime)
+    }
+
+```
+{{% /tab %}}
+
+{{% tab name="java" %}}
+```java
+// Defines the scheduled activity to be conducted by the SchedulableState.
+    @Nullable
+    @Override
+    public ScheduledActivity nextScheduledActivity(@NotNull StateRef thisStateRef, @NotNull FlowLogicRefFactory flowLogicRefFactory) {
+        // A heartbeat will be emitted every second.
+        // We get the time when the scheduled activity will occur in the constructor rather than in this method. This is
+        // because calling Instant.now() in nextScheduledActivity returns the time at which the function is called, rather
+        // than the time at which the state was created.
+        return new ScheduledActivity(flowLogicRefFactory.create("net.corda.samples.heartbeat.flows.HeartbeatFlow", thisStateRef), nextActivityTime);
+    }
+
+```
+{{% /tab %}}
+{{< /tabs >}}
+                        

@@ -625,7 +625,7 @@ Deterministic JVM is integrated into Corda whereby execution takes place in a sa
 ## Install the CorDapp
 
 {{< note >}}
-Before you install a CorDapp `.jar`, you must [create one or more nodes](../operations/deployment/generating-a-node.md) to install it on.
+Before you install a CorDapp `.jar`, you must [create one or more nodes](../node/deploy/generating-a-node.md) to install it on.
 
 {{< /note >}}
 Nodes load any CorDapps present in their `cordapps` folder at startup. To install a CorDapp on a node, you must add the
