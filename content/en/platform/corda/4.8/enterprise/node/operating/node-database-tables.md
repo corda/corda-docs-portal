@@ -229,7 +229,7 @@ This is the key ledger table used as a source of truth. In the future the conten
 
 ### Contract upgrades
 
-Read more in [Upgrading contracts](../../../../../../../en/platform/corda/4.8/enterprise/contract-upgrade.md).
+Read more in [Upgrading contracts](../../contract-upgrade.md).
 
 
 {{< table >}}
@@ -246,7 +246,7 @@ This table should be empty when no states are authorised for upgrade or after au
 
 ### Scheduling
 
-Read more in [Scheduling time-based events](../../../../../../../en/platform/corda/4.8/enterprise/event-scheduling.md).
+Read more in [Scheduling time-based events](../../event-scheduling.md).
 
 
 {{< table >}}

@@ -11,8 +11,6 @@ weight: 3
 ---
 
 
-
-
 # Release new CorDapp versions
 
 {{< note >}}
@@ -21,6 +19,7 @@ database schemas, etc.).
 
 {{< /note >}}
 
+# Updating a running CorDapp
 
 ## CorDapp versioning
 
@@ -64,7 +63,7 @@ whenever there is a release of a flow which has changes that are not backwards-c
 change is one that changes the interface of the flow.
 
 
-### What defines the interface of a flow?
+### Defining a flow’s interface
 
 The flow interface is defined by the sequence of `send` and `receive` calls between an `InitiatingFlow` and an
 `InitiatedBy` flow, including the types of the data sent and received. We can picture a flow’s interface as follows:
@@ -92,7 +91,7 @@ parties).
 
 
 
-### What constitutes a non-backwards compatible flow change?
+### Non-backwards compatible flow changes
 
 A flow can become backwards-incompatible in two main ways:
 
@@ -105,10 +104,9 @@ A flow can become backwards-incompatible in two main ways:
 * The types of the `send` and `receive` calls changes
 
 
-### What happens when running flows with incompatible versions?
+### Consequences of running flows with incompatible versions
 
-Pairs of `InitiatingFlow` flows and `InitiatedBy` flows that have incompatible interfaces are likely to exhibit the
-following behaviour:
+Pairs of `InitiatingFlow` flows and `InitiatedBy` flows that have incompatible interfaces are likely to exhibit the following behaviour:
 
 
 * The flows hang indefinitely and never terminate, usually because a flow expects a response which is never sent from
@@ -187,7 +185,7 @@ expect a String. This flow is still able to communicate with parties that are ru
 the older flow.
 
 
-### How do I deal with interface changes to inlined subflows?
+### Handling interface changes to inlined subflows
 
 Here is an example of an in-lined subflow:
 
@@ -264,17 +262,12 @@ class FlowB extends FlowLogic<Void> {
 
 {{< /tabs >}}
 
-Inlined subflows are treated as being the flow that invoked them when initiating a new flow session with a counterparty.
-Suppose flow `A` calls inlined subflow B, which, in turn, initiates a session with a counterparty. The `FlowLogic`
-type used by the counterparty to determine which counter-flow to invoke is determined by `A`, and not by `B`. This
-means that the response logic for the inlined flow must be implemented explicitly in the `InitiatedBy` flow. This can
-be done either by calling a matching inlined counter-flow, or by implementing the other side explicitly in the
-initiated parent flow. Inlined subflows also inherit the session IDs of their parent flow.
+Inlined subflows are treated as being the flow that invoked them when initiating a new flow session with a counterparty. Suppose flow `A` calls inlined subflow B, which, in turn, initiates a session with a counterparty. The `FlowLogic` type used by the counterparty to determine which counter-flow to invoke is determined by `A`, and not by `B`. This means that the response logic for the inlined flow must be implemented explicitly in the `InitiatedBy` flow. This can be done either by calling a matching inlined counter-flow, or by implementing the other side explicitly in the initiated parent flow. Inlined subflows also inherit the session IDs of their parent flow.
 
 As such, an interface change to an inlined subflow must be considered a change to the parent flow interfaces.
 
 An example of an inlined subflow is `CollectSignaturesFlow`. It has a response flow called `SignTransactionFlow`
-that isn’t annotated with `InitiatedBy`. This is because both of these flows are inlined. How these flows speak to
+that is not annotated with `InitiatedBy`. This is because both of these flows are inlined. How these flows speak to
 one another is defined by the parent flows that call `CollectSignaturesFlow` and `SignTransactionFlow`.
 
 In code, inlined subflows appear as regular `FlowLogic` instances without either an `InitiatingFlow` or an
@@ -287,27 +280,34 @@ Flows which are not an `InitiatingFlow` or `InitiatedBy` flow, or inlined subflo
 `InitiatingFlow` or `InitiatedBy` flow, can be updated without consideration of backwards-compatibility. Flows of
 this type include utility flows for querying the vault and flows for reaching out to external systems.
 
+### Performing flow upgrades
 
 
-### Flow drains
+* Update the flow and test the changes. Increment the flow version number in the `InitiatingFlow` annotation
+* Ensure that all versions of the existing flow have finished running and there are no pending `SchedulableFlows` on any of the nodes on the business network. This can be done by [Draining the node](#draining-the-node)
+* Shut down the node
+* Replace the existing CorDapp JAR with the CorDapp JAR containing the new flow
+* Start the node
 
-A flow *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack.
-Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when
-sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts. Automatic
-checkpointing is an unusual feature of Corda and significantly helps developers write reliable code that can survive
-node restarts and crashes. It also assists with scaling up, as flows that are waiting for a response can be flushed
-from memory.
+If you shut down all nodes and upgrade them all at the same time, any incompatible change can be made.
+                                                                                                                    
+                                                                                                                   
+            
 
-However, this means that restoring an old checkpoint to a new version of a flow may cause resume failures. For example
-if you remove a local variable from a method that previously had one, then the flow engine won’t be able to figure out
-where to put the stored value of the variable.
+                                                                                                                      
 
-For this reason, in currently released versions of Corda you must *drain the node* before doing an app upgrade that
-changes `@Suspendable` code. A drain blocks new flows from starting but allows existing flows to finish. Thus once
-a drain is complete there should be no outstanding checkpoints or running flows. Upgrading the app will then succeed.
+In situations where some nodes may still be using previous versions of a flow and thus new versions of your flow may talk to old versions, the updated flows need to be backwards-compatible. This will be the case for almost any real deployment in which you cannot easily coordinate the roll-out of new code across the network.
 
-A node can be drained or undrained via RPC using the `setFlowsDrainingModeEnabled` method, and via the shell using
-the standard `run` command to invoke the RPC. See shell to learn more.
+   
+### Draining the node
+
+A flow *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack. Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts. Automatic checkpointing is an unusual feature of Corda and significantly helps developers write reliable code that can survive node restarts and crashes. It also assists with scaling up, as flows that are waiting for a response can be flushed from memory.
+
+However, this means that restoring an old checkpoint to a new version of a flow may cause resume failures. For example if you remove a local variable from a method that previously had one, then the flow engine won’t be able to figure out where to put the stored value of the variable.
+
+For this reason, in currently released versions of Corda you must *drain the node* before doing an app upgrade that changes `@Suspendable` code. A drain blocks new flows from starting but allows existing flows to finish. Thus once a drain is complete there should be no outstanding checkpoints or running flows. Upgrading the app will then succeed.
+
+A node can be drained or undrained via RPC using the `setFlowsDrainingModeEnabled` method, and via the shell using the standard `run` command to invoke the RPC. See [node shell](../node/operating/shell.md) to learn more.
 
 To assist in draining a node, the `checkpoints dump` shell command will output JSON representations of each checkpointed flow.
 A zip containing the JSON files is created in the `logs` directory of the node. This information can then be used to determine the
@@ -334,15 +334,13 @@ There are two types of contract/state upgrade:
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 
-The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.html#implicit-and-explicit-contract-upgrades).
+The general recommendation for Corda 4 is to use **implicit** upgrades for the reasons described [here](api-contract-constraints.html#implicit-vs-explicit-contract-upgrades).
 
 
 
 ### Performing explicit contract and state upgrades
 
-In an explicit upgrade, contracts and states can be changed in arbitrary ways, if and only if all of the state’s
-participants agree to the proposed upgrade. To ensure the continuity of the chain the upgraded contract needs to declare the contract and
-constraint of the states it’s allowed to replace.
+In an explicit upgrade, contracts and states can be changed in arbitrary ways, if and only if all of the state’s participants agree to the proposed upgrade. To ensure the continuity of the chain the upgraded contract needs to declare the contract and constraint of the states it’s allowed to replace.
 
 
 {{< warning >}}
@@ -422,14 +420,14 @@ running.
 #### 5. Stop the nodes
 
 Have each node operator stop their node. If you are also changing flow definitions, you should perform a
-[node drain](#flow-drains) first to avoid the definition of states or contracts changing whilst a flow is
+[node drain](#draining-the-node) first to avoid the definition of states or contracts changing whilst a flow is
 in progress.
 
 
 #### 6. Re-run the network bootstrapper (only if you want to whitelist the new contract)
 
 If you’re using the network bootstrapper instead of a network map server and have defined any new contracts, you need to
-re-run the network bootstrapper to whitelist the new contracts. See the [Network Bootstrapper documentation](../network-bootstrapper.md).
+re-run the network bootstrapper to whitelist the new contracts. See [network bootstrapper](../network-bootstrapper.md).
 
 
 #### 7. Restart the nodes
@@ -488,7 +486,7 @@ side-by-side
 * State schema changes are handled separately
 
 
-#### Writing new states and contracts
+#### Write new states and contracts
 
 
 * If a property is removed from a state, any references to it must be removed from the contract code. Otherwise, you
@@ -500,18 +498,23 @@ value
 * Updated state objects can use the old contract code as long as there is no requirement to update it
 
 
-#### Permissioning
+#### Permissions
 
 
-* Only node administrators are able to run the contract upgrade authorisation and deauthorisation flows
+* Only node administrators are able to run the contract upgrade authorisation and de-authorisation flows
 
 
 #### Logistics
 
 
 * All nodes need to run the contract upgrade authorisation flow
+* Only node administrators are able to run the contract upgrade authorisation and deauthorisation flows
+* Upgrade authorisations can subsequently be deauthorised
+
 * Only one node should run the contract upgrade initiation flow. If multiple nodes run it for the same `StateRef`, a
 double-spend will occur for all but the first completed upgrade
+* Upgrades do not have to happen immediately. For a period, the two parties can use the old states and contracts
+side-by-side
 * The supplied upgrade flows upgrade one state object at a time
 
 
@@ -523,7 +526,7 @@ a schema describing what has been serialized alongside the data itself. This ass
 long-ago archived data, among other things.
 
 
-### Writing classes
+### Writing classes that meet the serialisation format requirements                                                                   
 
 Although not strictly related to versioning, AMQP serialisation dictates that we must write our classes in a particular way:
 
@@ -547,7 +550,7 @@ wildcard
 * Object graph cycles are not supported, so an object cannot refer to itself, directly or indirectly
 
 
-### Writing enums
+### Write enums
 
 Elements cannot be added to enums in a new version of the code. Hence, enums are only a good fit for genuinely static
 data that will never change (e.g. days of the week). A `Buy` or `Sell` flag is another. However, something like
@@ -560,8 +563,7 @@ such as a string.
 By default, all state objects are serialised to the database as a string of bytes and referenced by their `StateRef`.
 However, it is also possible to define custom schemas for serialising particular properties or combinations of
 properties, so that they can be queried from a source other than the Corda Vault. This is done by implementing the
-`QueryableState` interface and creating a custom object relational mapper for the state. See api-persistence
-for details.
+`QueryableState` interface and creating a custom object relational mapper for the state. See [state persistence](state-persistence.html) for details.
 
 For backwards compatible changes such as adding columns, the procedure for upgrading a state schema is to extend the
 existing object relational mapper. For example, we can update:
@@ -769,7 +771,7 @@ override fun generateMappedObject(schema: MappedSchema): PersistentState {
 With this approach, whenever the state object is stored in the vault, a representation of it will be stored in two
 separate database tables where possible - one for each supported schema.
 
-## Testing CorDapp upgrades
+## Test CorDapp upgrades
 
 At the time of this writing there is no platform support to test CorDapp upgrades. There are plans to add support in a future version.
 This means that it is not possible to write automated tests using just the provided tooling.
@@ -782,7 +784,7 @@ This can be simulated with a scenario like this:
 
 
 * Write and individually test the new version of the state and contract.
-* Setup a network of nodes with the previous version. In the simplest form, `deployNodes` can be used for this purpose.
+* Set up a network of nodes with the previous version. In the simplest form, *deployNodes* can be used for this purpose.
 * Run some transactions between nodes.
 * Upgrade a couple of nodes to the new version of the CorDapp.
 
