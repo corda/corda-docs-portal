@@ -384,7 +384,7 @@ To check if the CorDapp is signed, use the [JAR signing and verification tool](h
 jarsigner --verify path/to/cordapp.jar
 ```
 
-The Cordformation plugin can also sign CorDapp `.jar`s when [deploying a set of nodes](../../../../../../en/platform/corda/4.8/enterprise/node/deploy/generating-a-node.md).
+The Cordformation plugin can also sign CorDapp `.jar`s when [deploying a set of nodes](../node/deploy/generating-a-node.md).
 
 If your build system post-processes the Cordapp `.jar`, then the modified `.jar` content may be out of date or missing a signature file. In this case, sign the Cordapp as a separate step and disable automatic signing by the `cordapp` plugin.
 
@@ -629,7 +629,7 @@ Deterministic JVM is integrated into Corda whereby execution takes place in a sa
 ## Install the CorDapp
 
 {{< note >}}
-Before you install a CorDapp `.jar`, you must [create one or more nodes](../../../../../../en/platform/corda/4.8/enterprise/operations/deployment/generating-a-node.md) to install it on.
+Before you install a CorDapp `.jar`, you must [create one or more nodes](../node/deploy/generating-a-node.md) to install it on.
 
 {{< /note >}}
 Nodes load any CorDapps present in their `cordapps` folder at startup. To install a CorDapp on a node, you must add the

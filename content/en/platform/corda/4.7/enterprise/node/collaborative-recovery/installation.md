@@ -97,11 +97,11 @@ Before proceeding, verify that the transfer was completed successfully by checki
 
 ### Step 4: Run any necessary database migrations
 
-If you are using Corda with a permissioned database, you may need to [perform database migrations](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-operations-cordapp-deployment.md).
+If you are using Corda with a permissioned database, you may need to [perform database migrations](../operating/node-operations-cordapp-deployment.md).
 
 ### Step 5: Restart the node
 
-Restart the node in the manner in which the node was [originally started by the node operator](../../../../../../../en/platform/corda/4.7/enterprise/node/deploy/deploying-a-node.md).
+Restart the node in the manner in which the node was [originally started by the node operator](../deploy/deploying-a-node.md).
 
 You have enabled your Corda node for Collaborative Recovery in the event of a disaster scenario.
 

@@ -4,7 +4,7 @@ aliases:
 - /head/release-notes.html
 - /HEAD/release-notes.html
 - /release-notes.html
-date: '2022-11-28'
+date: '2023-02-10'
 menu:
   corda-community-4-9:
     identifier: corda-community-4-9-release-notes
@@ -17,9 +17,13 @@ tags:
 
 # Corda Community Edition 4.9 release notes
 
+## Corda Community Edition 4.9.6 release notes
+
+Corda Community Edition 4.9.6 is a patch release of Corda Community Edition to keep it synchronised with the release of Corda Enterprise Edition 4.9.6.
+
 ## Corda Community Edition 4.9.5 release notes
 
-Corda Community 4.9.5 is a patch release of Corda Community which includes resolved issues.
+Corda Community Edition 4.9.5 is a patch release of Corda Community Edition which includes resolved issues.
 
 ### Fixed issues
 

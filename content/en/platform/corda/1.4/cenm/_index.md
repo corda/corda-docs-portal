@@ -53,7 +53,7 @@ Concepts and overview
 * [Databases](../../../../../en/platform/corda/1.4/cenm/database-set-up.md)
 * [Public Key Infrastructure (PKI)](../../../../../en/platform/corda/1.4/cenm/pki-tool.md)
 * [The node](../../../../../en/platform/corda/1.4/cenm/network-map.html#node-certificate-revocation-checking)
-* [Sub Zones](../../../../../en/platform/corda/1.4/cenm/sub-zones.html)
+* [Sub Zones](../../../../../en/platform/corda/1.4/cenm/sub-zones.md)
 * [Network Map overview](../../../../../en/platform/corda/1.4/cenm/network-map-overview.md)
 * [Certificate Revocation List](../../../../../en/platform/corda/1.4/cenm/certificate-revocation.md)
 
