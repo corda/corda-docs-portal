@@ -148,6 +148,3 @@ Context: States must be marked as consumed in the vault when they have been used
 Issue: Input states to a UTXO transaction are marked as consumed when the transaction is first persisted, before it is completely signed and notarised. Should counter-signing or notarisation fail, states will be wrongly marked as consumed in the initiating's node vault and no longer be available as inputs.
 
 Impact: In the case of transaction failures, states will be wrongly marked as consumed and thus unusable. Transaction rollback does not behave correctly in the current version of the UTXO ledger.
-
-## Log4j patches
-Click [here](./log4j-patches.md) to find all patches addressing the December 2021 Log4j vulnerability.
