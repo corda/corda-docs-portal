@@ -230,7 +230,7 @@ export LEDGER_KEY_ID=<ledger key ID>
 This step is only necessary if you are onboarding a member as a notary.
 {{< /note >}}
 
-Gnerate notary keys in a similar way as done for other key types. First, create a HSM, then generate the key and store the ID:
+Generate notary keys in a similar way as done for other key types. First, create a HSM, then generate the key and store the ID:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
@@ -469,6 +469,8 @@ export REGISTRATION_CONTEXT='{
   "corda.session.key.signature.spec": "SHA256withECDSA",
   "corda.ledger.keys.0.id": "'$LEDGER_KEY_ID'",
   "corda.ledger.keys.0.signature.spec": "SHA256withECDSA",
+  "corda.notary.keys.0.id" = "$NOTARY_KEY_ID",
+  "corda.notary.keys.0.signature.spec" = "SHA256withECDSA"
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
   "corda.endpoints.0.protocolVersion": "1",
   "corda.roles.0" : "notary",
@@ -484,6 +486,8 @@ $REGISTRATION_CONTEXT = @{
   'corda.session.key.signature.spec' = "SHA256withECDSA"
   'corda.ledger.keys.0.id' = $LEDGER_KEY_ID
   'corda.ledger.keys.0.signature.spec' = "SHA256withECDSA"
+  "corda.notary.keys.0.id" = "$NOTARY_KEY_ID",
+  "corda.notary.keys.0.signature.spec" = "SHA256withECDSA"
   'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST`:$P2P_GATEWAY_PORT"
   'corda.endpoints.0.protocolVersion' = "1"
   'corda.roles.0' : "notary",
