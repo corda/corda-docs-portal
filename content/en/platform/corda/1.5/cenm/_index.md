@@ -112,7 +112,6 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 * [Config Obfuscation Tool](../../../../../en/platform/corda/4.5/enterprise/tools-config-obfuscator.md)
 * [CRL Endpoint Check Tool](../cenm/crl-endpoint-check-tool.md)
 * [Embedded shell](../cenm/shell.md)
-* [Embedded shell](../cenm/shells.md)
 
 ## Public Key Infrastructure
 
