@@ -31,7 +31,7 @@ To obtain the Corda CLI installer from the release pack on Customer Hub:
 
 ## Installing on Linux/macOS
 
-1. Ensure you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
+1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
 2. Start a shell session (bash or zsh).
 2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox1.1.zip`.
 3. Extract the contents of the `zip` file:
