@@ -110,8 +110,9 @@ For a quick start guide on deploying Corda Enterprise Network Manager services a
 * [CENM User Admin tool](../../../../../en/platform/corda/1.5/cenm/user-admin.md)
 * [CENM Management Console](../../../../../en/platform/corda/1.5/cenm/cenm-console.md)
 * [Config Obfuscation Tool](../../../../../en/platform/corda/4.5/enterprise/tools-config-obfuscator.md)
-* [CRL Endpoint Check Tool](../../../../../en/platform/corda/1.5/cenm/crl-endpoint-check-tool.md)
-* [Embedded shell](../../../../../en/platform/corda/1.5/cenm/shell.md)
+* [CRL Endpoint Check Tool](../cenm/crl-endpoint-check-tool.md)
+* [Embedded shell](../cenm/shell.md)
+* [Embedded shell](../cenm/shells.md)
 
 ## Public Key Infrastructure
 
