@@ -23,5 +23,5 @@ As an operator of a network, Corda 5 places the control in your hands, acknowled
 {{< warning >}}
 Corda 5.0 Beta is, as the name suggests, a pre-release version for testing purposes only.
 If you are not part of the current beta program, the Corda 5.0 Beta documentation is for information only. 
-R3 will be running a beta program for Corda 5.0 beginning in 2023. Contact R3 to register your interest.
+Contact R3 to register your interest in joining the beta program.
 {{< /warning >}}
