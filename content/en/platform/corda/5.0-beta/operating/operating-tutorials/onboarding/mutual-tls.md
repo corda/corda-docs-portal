@@ -52,7 +52,7 @@ If using Bash, to configure the gateway SSL configuration to enable mutual TLS:
 
 ### Enable Mutual TLS Using PowerShell
 
-If using PowerShell, to configure the gateway SSL configuration to enable mutual TLS, run the following:
+If using PowerShell, perform the following steps to enable mutual TLS by configuring the gateway SSL:
 
    ```shell
    $CONFIG_VERSION = (Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/config/corda.p2p.gateway").version
