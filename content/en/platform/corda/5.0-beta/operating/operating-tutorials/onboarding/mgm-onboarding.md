@@ -308,7 +308,7 @@ To set up the TLS key pair and certificate for the cluster:
    openssl req -text -noout -verify -in ./request1.csr
    ```
    The contents should resemble the following:
-   ```properties
+   ```shell
    -----BEGIN CERTIFICATE REQUEST-----
    MIIDkjCCAfwCAQAwLjELMAkGA1UEBhMCR0IxDzANBgNVBAcTBkxvbmRvbjEOMAwG
    A1UEAxMFQWxpY2UwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQChJ9CW

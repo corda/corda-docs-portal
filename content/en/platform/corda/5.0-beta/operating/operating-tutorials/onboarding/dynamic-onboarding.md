@@ -356,6 +356,10 @@ Use the Certificate Authority (CA) whose trustroot certificate was configured in
    If you upload a certificate chain consisting of more than one certificate, ensure that `-----END CERTIFICATE-----` and `-----BEGIN CERTIFICATE-----` from the next certificate are separated by a new line with no empty spaces in between.
    {{< /note >}}
 
+{{< note >}}
+If using mutual TLS, you must must add the certificate subject to the allowed list of the MGM. For more information, see [Update the MGM Allowed Certificate Subject List](mutual-tls.html#update-the-mgm-allowed-certificate-subject-list).
+
+
 #### Disable Revocation Checks
 
 If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks. By default, revocation checks are enabled.
