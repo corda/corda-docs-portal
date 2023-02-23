@@ -25,7 +25,7 @@ To configure a cluster to use mutual TLS, you must set the `sslConfig.tlsType` f
 
 ### Enable Mutual TLS Using Bash
 
-If using Bash, to configure the gateway SSL configuration to enable mutual TLS:
+If using Bash, perform the following steps to enable mutual TLS by configuring the gateway SSL:
 
 1. Retrieve the current gateway configuration version:
 
