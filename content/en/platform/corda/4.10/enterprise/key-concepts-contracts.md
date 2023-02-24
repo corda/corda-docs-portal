@@ -7,7 +7,7 @@ date: '2023-1-30'
 menu:
   corda-enterprise-4-10:
     identifier: corda-enterprise-4-10-key-concepts-contracts
-    parent: corda-enterprise-4-10-key-concepts
+    parent: corda-enterprise-key-concepts-4-10
     weight: 1050
 tags:
 - concepts

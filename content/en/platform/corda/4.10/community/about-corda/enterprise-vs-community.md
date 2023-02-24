@@ -3,8 +3,8 @@ title: "Corda Enterprise vs Corda Community"
 date: '2021-07-02'
 menu:
   corda-community-4-10:
-    parent: about-corda-landing
-    identifier: enterprise-vs-community
+    parent: about-corda-landing-4-10-community
+    identifier: enterprise-vs-community-4-10-community
     weight: 200
     name: "Enterprise vs Community"
 tags:
@@ -12,7 +12,6 @@ tags:
 - enterprise
 - community 
 - comparison
-
 ---
 
 # Corda Enterprise vs Corda Community Edition

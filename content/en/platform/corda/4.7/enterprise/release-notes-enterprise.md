@@ -4,7 +4,7 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-7:
     identifier: corda-enterprise-4-7-release-notes
-    parent: about-corda-landing
+    parent: about-corda-landing-4-7
     name: "Release notes"
 tags:
 - release
