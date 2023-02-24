@@ -507,13 +507,13 @@ header {
   color: #fff;
   margin-bottom: 0;
   text-align: center;
+}
 
-  &__item {
-    display: none;
-  }
+.banner-message__item {
+  display: none;
+}
 
-  &__item-active {
-    display: block;
-    position: relative;
-  }
+.banner-message__item-active {
+  display: block;
+  position: relative;
 }
