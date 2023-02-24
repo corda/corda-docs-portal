@@ -4,7 +4,7 @@ date: '2023-01-27'
 
 menu:
   corda-enterprise-4-7:
-    identifier: about-corda-landing
+    identifier: about-corda-landing-4-7
     name: "About Corda"
 tags:
 - about corda
