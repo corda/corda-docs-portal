@@ -12,10 +12,10 @@ You can configure a dynamic network to use session certificates when sending mes
 
 ## Set Variables
 
-* Set the holding identity short hash of the virtual node of either the MGM or member as a variable for use in later commands:
-  ```shell
-  export HOLDING_ID=<holding-id>
-  ```
+Set the holding identity short hash of the virtual node of either the MGM or member as a variable for use in later commands:
+```shell
+export HOLDING_ID=<holding-id>
+```
 
 ## Build Registration Context for MGM Registration
 

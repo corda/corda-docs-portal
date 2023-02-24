@@ -308,7 +308,7 @@ To set up the TLS key pair and certificate for the cluster:
    openssl req -text -noout -verify -in ./request1.csr
    ```
    The contents should resemble the following:
-   ```properties
+   ```shell
    -----BEGIN CERTIFICATE REQUEST-----
    MIIDkjCCAfwCAQAwLjELMAkGA1UEBhMCR0IxDzANBgNVBAcTBkxvbmRvbjEOMAwG
    A1UEAxMFQWxpY2UwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQChJ9CW
@@ -414,7 +414,7 @@ You can also optionally set the session certificate trustroot using the property
 
 {{< note >}}
 * If using session certificates for the P2P layer, see [Configuring Optional Session Certificates](session-certificates.html#build-registration-context-for-mgm-registration) for information about the additional JSON fields required.
-* If using mutual TLS, you must set the `corda.group.tls.type` field to `Mutual`.
+* If using mutual TLS, you must set the `corda.group.tls.type` field to `Mutual`. For more information, see [Configuring Mutual TLS](mutual-tls.html#set-the-tls-type-in-the-mgm-context). 
 {{< /note >}}
 
 ### Build Registration Context Using Bash
