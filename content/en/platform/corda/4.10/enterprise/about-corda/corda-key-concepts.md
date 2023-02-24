@@ -3,8 +3,8 @@ title: "Corda Enterprise Edition Key Concepts"
 date: '2021-07-02'
 menu:
   corda-enterprise-4-10:
-    parent: about-corda-landing
-    identifier: corda-enterprise-4-10-key-concepts
+    parent: about-corda-landing-4-10-enterprise
+    identifier: corda-enterprise-key-concepts-4-10
     weight: 100
     name: "Corda key concepts"
 tags:
