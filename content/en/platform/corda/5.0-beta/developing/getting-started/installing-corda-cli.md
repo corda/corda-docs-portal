@@ -31,8 +31,9 @@ To obtain the Corda CLI installer from the release pack on Customer Hub:
 
 ## Installing on Linux/macOS
 
-1. Start a shell session (bash or zsh).
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Gecko2.0.zip`.
+1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
+2. Start a shell session (bash or zsh).
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox1.1.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
    unzip ./corda-cli-installer-5.0.0.0-Gecko2.0.zip -d corda-cli-installer-5.0.0.0-Gecko2.0
@@ -55,8 +56,9 @@ To obtain the Corda CLI installer from the release pack on Customer Hub:
 
 ## Installing on Windows
 
-1. Start a Powershell session.
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Gecko2.0`.
+1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
+2. Start a Powershell session.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox1.1`.
 3. Extract the contents of the `zip` file:
    ```shell
    Expand-Archive .\corda-cli-installer-5.0.0.0-Gecko2.0.zip

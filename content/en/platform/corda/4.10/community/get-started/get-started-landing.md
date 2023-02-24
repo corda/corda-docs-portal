@@ -4,7 +4,7 @@ date: '2023-01-27'
 
 menu:
   corda-community-4-10:
-    identifier: get-started-landing
+    identifier: get-started-landing-4-10-community
     name: "Get started"
 tags:
 - started
@@ -48,7 +48,7 @@ Follow the upgrade guides to make sure your [node](../../community/node-upgrade-
 2. Run a [sample CorDapp](../../community/tutorial-cordapp.md) to see Corda in action.
 4. [Build your own CorDapp](../../community/building-a-cordapp-index.md) from scratch. /
 
-You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition](../_index.md) documentation. You can also view the [API reference material](../../../../../../en/api-ref/_index.md), browse [featured apps](../../../../../../en/apps/_index.md), or browse [tools and add-ons](../../../../../../en/tools/_index.md).
+You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition](../../community.html) documentation. You can also view the [API reference material](../../../../../../en/api-ref.html), browse [featured apps](../../../../../../en/apps.html), or browse [tools and add-ons](../../../../../../en/tools.html).
 
 {{< note >}}
 <b>Read Corda white papers</b>
