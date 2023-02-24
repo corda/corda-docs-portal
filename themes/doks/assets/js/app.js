@@ -1,5 +1,25 @@
 import {DocsiteCookies} from "./cookie-banner";
 
+window.addEventListener('DOMContentLoaded', () => {
+
+	const observer = new IntersectionObserver(entries => {
+		entries.forEach(entry => {
+			const id = entry.target.getAttribute('id');
+			if (entry.intersectionRatio > 0) {
+				document.querySelector(`#TableOfContents li a[href="#${id}"]`).classList.add('active');
+			} else {
+				document.querySelector(`#TableOfContents li a[href="#${id}"]`).classList.remove('active');
+			}
+		});
+	});
+
+	// Track all sections that have an `id` applied
+	document.querySelectorAll('main h2, main h3, main h4, main h5').forEach((section) => {
+		observer.observe(section);
+	});
+	
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   new DocsiteCookies();
 
@@ -23,25 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
-
-  // Update active item for content
-  document.addEventListener('scroll', function(e) {
-    const pos = window.scrollY + window.innerHeight - 100;
-    let max = 0;
-    document.querySelectorAll(`#TableOfContents li a`).forEach((item) => {
-      let top = parseInt(item.dataset.offsettop);
-      if (top > max && top < pos){
-        max = item.dataset.offsettop;
-      }
-      item.classList.remove('active');
-    });
-
-    const menu = document.querySelector(`#TableOfContents li a[data-offsettop="${max}"]`);
-    if (menu){
-      menu.classList.add('active');
-    }
-  });
-
 
   var sidebar = document.getElementsByClassName('docs-sidebar');
   if (sidebar.length > 0){
