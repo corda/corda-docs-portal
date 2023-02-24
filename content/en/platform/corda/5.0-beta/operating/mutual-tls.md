@@ -12,10 +12,6 @@ Corda 5 uses TLS to secure a connection between two clusters. While establishing
 
 As the gateway manages the TLS connections for an entire cluster, the TLS mode (mutual or one-way) is defined in the gateway configuration and applies to the entire cluster. As a result, any group hosted in a mutual TLS cluster must be a mutual TLS group, and all its members must be hosted on a mutual TLS cluster.
 
-{{< note >}}
-Mutual TLS is relevant only for [dynamic networks](../deploying/network-types.html#dynamic-networks), as [static networks](../deploying/network-types.html#static-networks) can only span a single cluster.
-{{< /note >}}
+The server gateway has a set of accepted certificate subjects. As part of the client certificate verification, the server rejects a connection with a certificate that has a subject not specified in the allowed list. Before a member can register with a cluster that is configured with mutual TLS, you must add the certificate subject of that member to the allowed list of the MGM. Once a member is successfully onboarded, the MGM distributes the certificate subject of the member to all other members in the group. The gateway in each member cluster uses this to accept TLS connections from any onboarded member.
 
-The server gateway has a set of accepted certificate subjects. As part of the client certificate verification, the server rejects a connection with a certificate that has a subject not specified in the allowed list.
-
-For information about how to onboard to dynamic networks, see the [operating tutorial](operating-tutorials/onboarding/mutual-tls.md).
+For information about how to onboard to dynamic networks that use mutual TLS, see the [operating tutorial](operating-tutorials/onboarding/mutual-tls.md). Mutual TLS is relevant only for [dynamic networks](../deploying/network-types.html#dynamic-networks), as [static networks](../deploying/network-types.html#static-networks) can only span a single cluster.

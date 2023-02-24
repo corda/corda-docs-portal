@@ -116,8 +116,6 @@ export REGISTRATION_CONTEXT='{
 
 ## Update the MGM Allowed Certificate Subject List
 
-Before a member can register with a cluster that is configured with mutual TLS, you must add the certificate subject of that member to the allowed list of the MGM. Otherwise, the MGM gateway will reject the connection and the member will not be able to register. When the member is successfully onboarded, the MGM then distributes the certificate subject of the member to all other members in the group. The gateway in each member cluster uses this to accept TLS connections from any onboarded member.
-
 To add a member TLS certificate subject to the MGM allowed list, run the following, where `CN=CordaOperator,C=GB,L=London,O=Org` is the subject of the TLS certificate created as part of [member onboarding](dynamic-onboarding.html#tls-key-pair-and-certificate):
 
 {{< tabs >}}
