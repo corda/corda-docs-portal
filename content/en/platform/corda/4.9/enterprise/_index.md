@@ -12,7 +12,7 @@ title: Corda Enterprise Edition 4.9
 version: 'Enterprise 4.9'
 ---
 
-# Introduction to Corda
+# Welcome to Corda Enterprise Edition 4.9
 
 Corda Enterprise is a commercial edition of the Corda platform, specifically optimised to meet the privacy, security and
 throughput demands of modern day business. Corda Enterprise is interoperable and compatible with Corda Community Edition and
