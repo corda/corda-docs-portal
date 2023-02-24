@@ -510,10 +510,10 @@ header {
 
   &__item {
     display: none;
+  }
 
-    &--active {
-      display: block;
-      position: relative;
-    }
+  &__item--active {
+    display: block;
+    position: relative;
   }
 }
