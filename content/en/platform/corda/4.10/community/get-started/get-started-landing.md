@@ -1,11 +1,11 @@
 ---
-title: Get started
+title: Getting started
 date: '2023-01-27'
 
 menu:
   corda-community-4-10:
     identifier: get-started-landing-4-10-community
-    name: "Get started"
+    name: "Getting started"
 tags:
 - started
 - community
@@ -13,7 +13,7 @@ tags:
 weight: -1
 ---
 
-## Set up Corda Community Edition
+## Setting up Corda Community Edition
 
 To start using Corda Community Edition if you have never used Corda before:
 
@@ -32,7 +32,7 @@ To start using Corda Community Edition if you have never used Corda before:
 
 3. Follow the [tutorials](community/tutorial-cordapp.md) to set up a Corda network and start coding your CorDapps.
 
-## Upgrade to Corda Community Edition from Corda Open Source
+## Upgrading to Corda Community Edition from Corda Open Source
 
 If you are already using an open source version of Corda (Corda 4.1–Corda 4.9) and want to upgrade to Corda Community Edition, you can choose to:
 
