@@ -2,14 +2,13 @@
 date: '2023-01-27'
 menu:
   corda-enterprise-4-10:
-    parent: get-started-landing
+    parent: get-started-landing-4-10
     weight: 40
     name: "Getting started with Corda 4"
 title: Getting started with Corda 4
 ---
 
 # Getting started with Corda 4
-
 The best way to get started with Corda is to:
 1. Decide whether you need to use:
    * **Corda Enterprise** - the enterprise version of Corda, for which you require a commercial contract with R3. Corda Enterprise is accessed via R3's customer hub. If you are an existing Corda Enterprise customer, you can find all downloads on [R3 Customer Hub](https://customerhub.r3.com/s/).
@@ -22,10 +21,9 @@ The best way to get started with Corda is to:
 
 2. Familiarize yourself with the [Corda key concepts](../../enterprise/about-corda/corda-key-concepts.md). 
 3. Run a [sample CorDapp](../../community/tutorial-cordapp.md) to see Corda in action. 
-(../../community/key-concepts-time-windows.md)
 4. [Build your own CorDapp](../../community/building-a-cordapp-index.md) from scratch.
 
-You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Enterprise](../../enterprise/_index.md) documentation. You can also view the [API reference material](../../../../../api-ref/_index.md), browse [featured apps](../../../../../apps/_index.md), or browse [tools and add-ons](../../../../../tools/_index.md).
+You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Enterprise](../../enterprise.html) documentation. You can also view the [API reference material](../../../../../api-ref.html), browse [featured apps](../../../../../apps.html), or browse [tools and add-ons](../../../../../tools.html).
 
 {{< note >}}
 <b>Read Corda white papers</b>

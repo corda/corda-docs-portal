@@ -3,7 +3,7 @@ date: '2023-01-12'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-supplementary-tutorials-index
-    parent: tutorials-corda-4-10
+    parent: tutorials-corda-4-10-community
     weight: 130
 tags:
 - tutorials
