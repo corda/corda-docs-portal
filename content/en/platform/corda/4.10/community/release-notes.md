@@ -9,7 +9,7 @@ menu:
   corda-community-4-10:
     identifier: 4-10-release-notes
     parent: about-corda-landing-4-10-community
-    weight: 300
+    weight: 10
     name: "Release notes"
 tags:
 - release
