@@ -18,6 +18,7 @@ module.exports = {
         'tr',
         'th',
         'td',
+        'banner-message__item--active',
         ...whitelister([
           './themes/doks/assets/scss/components/_doks.scss',
           './themes/doks/assets/scss/components/_code.scss',
