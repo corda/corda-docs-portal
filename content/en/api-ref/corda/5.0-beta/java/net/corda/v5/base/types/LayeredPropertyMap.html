@@ -1,0 +1,569 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>LayeredPropertyMap </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html"></a></div>
+        <h2 title="Interface LayeredPropertyMap" class="title">Interface LayeredPropertyMap</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public interface <span class="typeNameLabel"><a href=LayeredPropertyMap.html>LayeredPropertyMap</a></span>
+
+                    </pre>
+                    <div class="block"><p>Interface for supporting <code>Map&lt;String, String&gt;</code> structure. Has the required functions for converting and parsing the String values to Objects. </p><p> The layered property map provides simple conversions to a possibly complex objects which can use several keys in dot-notation. Take as an example of the map: </p><ul><li>&quot;corda.name&quot; to &quot;CN=me, O=R3, L=Dublin, C=IE&quot;,</li><li>&quot;corda.sessionKey&quot; to &quot;-----BEGIN PUBLIC KEY-----Base64–encoded public key-----END PUBLIC KEY-----&quot;,</li><li>&quot;corda.endpoints.0.url&quot; to &quot;localhost&quot;,</li><li>&quot;corda.endpoints.0.protocolVersion&quot; to &quot;1&quot;,</li><li>&quot;corda.endpoints.1.url&quot; to &quot;localhost&quot;,</li><li>&quot;corda.endpoints.1.protocolVersion&quot; to &quot;2&quot;</li></ul> That map can be parsed into: <ul><li><a href=MemberX500Name.html>MemberX500Name</a> using <code>parse(&quot;corda.name&quot;, MemberX500Name.class)</code></li><li>session <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> using <code>parse(&quot;corda.sessionKey&quot;, PublicKey.class)</code></li><li>list of endpoints using <code>parseList(&quot;corda.endpoints&quot;, EndpointInfo.class)</code></li></ul> Example usages: <ul><li>Java:<pre><code>
+Set&lt;Map.Entry&lt;String, String&gt;&gt; entries = propertyMap.getEntries();
+String groupId = propertyMap.parse(&quot;corda.groupId&quot;, String.class);
+Instant modifiedTime = propertyMap.parseOrNull(&quot;corda.modifiedTime&quot;, Instant.class);
+Set&lt;String&gt; additionalInformation = propertyMap.parseSet(&quot;additional.names&quot;, String.class);
+List&lt;EndpointInfo&gt; endpoints = propertyMap.parseList(&quot;corda.endpoints&quot;, EndpointInfo.class);
+</code></pre></li><li>Kotlin:<pre><code>
+val entries = propertyMap.entries
+val groupId = propertyMap.parse(&quot;corda.groupId&quot;, String::class.java)
+val modifiedTime = propertyMap.parseOrNull(&quot;corda.modifiedTime&quot;, Instant::class.java)
+val additionalInformation = propertyMap.parseSet(&quot;additional.names&quot;, String::class.java)
+val endpoints = propertyMap.parseList(&quot;corda.endpoints&quot;, EndpointInfo::class.java)
+</code></pre></li></ul> The default implementation of the <a href=LayeredPropertyMap.html>LayeredPropertyMap</a> is extendable by supplying implementations of custom converters using OSGi. Out of box it supports conversion to simple types like <code>int</code>, <code>boolean</code>, as well as <a href=MemberX500Name.html>MemberX500Name</a>.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.Entry.html>Map.Entry</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=LayeredPropertyMap.html#getEntries()>getEntries</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=LayeredPropertyMap.html#get(String)>get</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> key) </code>
+                                            </th>
+                                            <td class="colLast">Finds the value of the given key in the entries.</td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>abstract &lt;T&gt; <a href=LayeredPropertyMap.html#parse(String,Class)>T</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=LayeredPropertyMap.html#parse(String,Class)>parse</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> key, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=LayeredPropertyMap.html#parse(String,Class)>T</a>&gt; clazz) </code>
+                                            </th>
+                                            <td class="colLast">Converts the value of the given key to the specified type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>abstract &lt;T&gt; <a href=LayeredPropertyMap.html#parseOrNull(String,Class)>T</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=LayeredPropertyMap.html#parseOrNull(String,Class)>parseOrNull</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> key, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=LayeredPropertyMap.html#parseOrNull(String,Class)>T</a>&gt; clazz) </code>
+                                            </th>
+                                            <td class="colLast">Converts the value of the given key to the specified type or returns null if the key is not found or the value itself is <code>null</code>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>abstract &lt;T&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=LayeredPropertyMap.html#parseList(String,Class)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=LayeredPropertyMap.html#parseList(String,Class)>parseList</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> itemKeyPrefix, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=LayeredPropertyMap.html#parseList(String,Class)>T</a>&gt; clazz) </code>
+                                            </th>
+                                            <td class="colLast">Converts several items with the given prefix to the list.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>abstract &lt;T&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=LayeredPropertyMap.html#parseSet(String,Class)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=LayeredPropertyMap.html#parseSet(String,Class)>parseSet</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> itemKeyPrefix, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=LayeredPropertyMap.html#parseSet(String,Class)>T</a>&gt; clazz) </code>
+                                            </th>
+                                            <td class="colLast">Converts several items with the given prefix to <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>.</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getEntries()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getEntries</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/util/Map.Entry.html>Map.Entry</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt;&gt; <a href=LayeredPropertyMap.html#getEntries()>getEntries</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="get(String)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>get</h4>
+                                        <pre class="methodSignature">@Nullable() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=LayeredPropertyMap.html#get(String)>get</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> key)</pre>
+                                        <div class="block"><p>Finds the value of the given key in the entries.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>key</code> - Key for the entry we are looking for.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="parse(String,Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>parse</h4>
+                                        <pre class="methodSignature">@NotNull() abstract &lt;T&gt; <a href=LayeredPropertyMap.html#parse(String,Class)>T</a> <a href=LayeredPropertyMap.html#parse(String,Class)>parse</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> key, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=LayeredPropertyMap.html#parse(String,Class)>T</a>&gt; clazz)</pre>
+                                        <div class="block"><p>Converts the value of the given key to the specified type.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>key</code> - Key for the entry we are looking for.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>clazz</code> - The type of the value we want to convert to.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="parseOrNull(String,Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>parseOrNull</h4>
+                                        <pre class="methodSignature">@Nullable() abstract &lt;T&gt; <a href=LayeredPropertyMap.html#parseOrNull(String,Class)>T</a> <a href=LayeredPropertyMap.html#parseOrNull(String,Class)>parseOrNull</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> key, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=LayeredPropertyMap.html#parseOrNull(String,Class)>T</a>&gt; clazz)</pre>
+                                        <div class="block"><p>Converts the value of the given key to the specified type or returns null if the key is not found or the value itself is <code>null</code>.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>key</code> - Key for the entry we are looking for.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>clazz</code> - The type of the value we want to convert to.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="parseList(String,Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>parseList</h4>
+                                        <pre class="methodSignature">@NotNull() abstract &lt;T&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=LayeredPropertyMap.html#parseList(String,Class)>T</a>&gt; <a href=LayeredPropertyMap.html#parseList(String,Class)>parseList</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> itemKeyPrefix, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=LayeredPropertyMap.html#parseList(String,Class)>T</a>&gt; clazz)</pre>
+                                        <div class="block"><p>Converts several items with the given prefix to the list. </p><p> Here is an example how a list will look like (the <code>itemKeyPrefix</code> have to be &quot;corda.endpoints&quot; or &quot;corda.endpoints.&quot;): </p><pre><code>
+ corda.endpoints.1.url = localhost
+ corda.endpoints.1.protocolVersion = 1
+ corda.endpoints.2.url = localhost
+ corda.endpoints.2.protocolVersion = 1
+ corda.endpoints.3.url = localhost
+ corda.endpoints.3.protocolVersion = 1
+</code></pre></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>itemKeyPrefix</code> - Prefix of the key for the entry we are looking for.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>clazz</code> - The type of the elements in the list.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="parseSet(String,Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>parseSet</h4>
+                                        <pre class="methodSignature">@NotNull() abstract &lt;T&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=LayeredPropertyMap.html#parseSet(String,Class)>T</a>&gt; <a href=LayeredPropertyMap.html#parseSet(String,Class)>parseSet</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> itemKeyPrefix, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=LayeredPropertyMap.html#parseSet(String,Class)>T</a>&gt; clazz)</pre>
+                                        <div class="block"><p>Converts several items with the given prefix to <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>. </p><p> Here is an example of what a set will look like (the <code>itemKeyPrefix</code> has to be &quot;corda.ledgerKeyHashes&quot; or &quot;corda.ledgerKeyHashes.&quot;): </p><pre><code>
+ corda.ledgerKeyHashes.1 = &lt;hash value of ledger key 1&gt;
+ corda.ledgerKeyHashes.2 = &lt;hash value of ledger key 2&gt;
+ corda.ledgerKeyHashes.3 = &lt;hash value of ledger key 3&gt;
+</code></pre></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>itemKeyPrefix</code> - Prefix of the key for the entry we are looking for.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>clazz</code> - The type of the elements in the set.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li>Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>
