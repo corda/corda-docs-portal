@@ -10,7 +10,7 @@ tags:
 - release
 - notes
 - enterprise
-weight: 300
+weight: 10
 ---
 
 

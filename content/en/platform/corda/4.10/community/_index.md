@@ -12,7 +12,7 @@ title: Corda Community Edition 4.10
 version: 'Community 4.10'
 ---
 
-# Corda Community Edition
+# Welcome to Corda Community Edition 4.10
 
 Corda Community Edition is a free to use, open source version of Corda, with added optional support. By choosing to develop using this edition of Corda, you can access affordable technical support to help you take your project to market with confidence.
 

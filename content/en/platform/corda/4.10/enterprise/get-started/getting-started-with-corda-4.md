@@ -1,11 +1,16 @@
 ---
+title: Getting started
 date: '2023-01-27'
+
 menu:
   corda-enterprise-4-10:
-    parent: get-started-landing-4-10
-    weight: 40
-    name: "Getting started with Corda 4"
-title: Getting started with Corda 4
+    identifier: get-started-landing-4-10
+    name: "Getting started"
+tags:
+- started
+- enterprise
+
+weight: -1
 ---
 
 # Getting started with Corda 4
