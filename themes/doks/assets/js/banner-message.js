@@ -1,4 +1,4 @@
-const timeoutDuration = 8000 //milliseconds
+const timeoutDuration = 5000 //milliseconds
 const $bannerMessagesContainer = document.querySelector('[data-banner-messages-container]')
 const numberOfMessages = $bannerMessagesContainer.children.length
 $bannerMessagesContainer.children[0].classList.add("banner-message__item--active")
