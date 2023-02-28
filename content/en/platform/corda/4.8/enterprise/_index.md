@@ -22,13 +22,13 @@ throughput demands of modern day business. Corda Enterprise is interoperable and
 is designed for organisations with exacting requirements around quality of service and the network infrastructure in
 which they operate.
 
-A Corda Network is a peer-to-peer network of [nodes](../../enterprise/node/component-topology.md), each representing a party on the network.
-These nodes run Corda applications [(CorDapps)](../../enterprise/cordapps/cordapp-overview.html), and transact between nodes using public or
+A Corda Network is a peer-to-peer network of [nodes](enterprise/node/component-topology.md), each representing a party on the network.
+These nodes run Corda applications ([CorDapps](enterprise/cordapps/cordapp-overview.html)), and transact between nodes using public or
 confidential identities.
 
-When one or more nodes are involved in a transaction, the transaction must be notarised. [Notaries](../../enterprise/notary/ha-notary-service-overview.md) are a specialised type
+When one or more nodes are involved in a transaction, the transaction must be notarised. [Notaries](enterprise/notary/ha-notary-service-overview.md) are a specialised type
 of node that provides uniqueness consensus by attesting that, for a given transaction, it has not already signed other
 transactions that consumes any of the proposed transaction’s input states.
 
-Corda Enterprise contains all the core Corda functionality, but also includes the [Corda Firewall](../../enterprise/node/corda-firewall-component.md),
-support for high-availability node and notary deployments, and compatibility with hardware security modules [(HSMs)](../../enterprise/node/operating/cryptoservice-configuration.md).
+Corda Enterprise contains all the core Corda functionality, but also includes the [Corda Firewall](enterprise/node/corda-firewall-component.md),
+support for high-availability node and notary deployments, and compatibility with hardware security modules ([HSMs](enterprise/node/operating/cryptoservice-configuration.md)).
