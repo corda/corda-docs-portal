@@ -45,6 +45,7 @@ Many flows in Bank in a Box depend upon other flows being invoked first. After a
 
 Once the flows above have been invoked, all other flows can also be invoked without issue.
 
+
 ## Authentication
 
 Bank in a Box supports [OAuth 2.0](https://oauth.net/2/) authentication.
@@ -65,14 +66,12 @@ Send the sample request listed below (with default admin parameters) the first t
 Response: This request will return an `access_token` and `refresh_token`. Use the access token to authorize future requests. Use the refresh token to get a new access token, which is then valid for 30 minutes.
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/oauth/token?grant_type=password&username=admin&password=password1!' \
 --header 'Authorization: Basic YmFua19pbl90aGVfYm94X2FwcDpwYXNzd29yZDEh'
 ```
 
 Sample response:
-
 ```
 {
     "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAwNTQ3NSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiYjBiZDRjMmYtMzQ4My00ZDBkLTgxOWMtNDJhYjE5Mzc4YTAwIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.HHL-8bxXjFKYvvEY8QivkrouFM83om3txRRUBAY7tO7PirxgoQlsIcJsgcG1-CJD-xRDlep4vbzdFkO13EpTmTx0Z5TVa1OBXtEXyKBGEw1MZ-viECPCjll32GHNduQm3df9E22w-iw2t4JuiWg-qpQuGEPlMm29xLHpnIkKKu7Xp-wKImOJzr70-bNxYwxwAlB2UZcROBvvAVtSvoVKvC0HltziKA9Y_Ye_ix4-erd3cr1y5CVVlElcuqFR_KMJiE_6Bznm70KeiimWP5ulvbFH6owlE26g0lNZ-qP9IuOuLF3Lrq2V1KvppXqnGKW2kAKYvo6420P1n1exu3Tldg",
@@ -111,14 +110,12 @@ After the initial authentication request, you can also use the `refresh_token` f
 {{< /table >}}
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/oauth/token?grant_type=refresh_token&refresh_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImF0aSI6ImM1MDVmMjliLTZlOWUtNDgwMy05ODJiLTIwOTM1MDk2NmJmMCIsImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyMTM2NSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiNGQzYTgxNzMtY2FiNC00MWVhLWI5MzItYmQzNjRiY2U0MTFiIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.YQd9FIUG_-mMB4cJYTuPDTKrdUSBYgdJHMFg1whAktlntyWaqgdJoPXVl60cIGCRbzSmmTeZKi6Z4KVarb-xRAr2-AhJH4k-obuy5fofBenZ2JlHxjBtwG96BfgOYKTCC50__7RxCJ5z3vdD46ErLQgTpzjTCFckwwPyDa9Owj8Yy7mxv3RWcFF0yDFfVihBfT-sOdCfgF1xZ5Ol7ZcbbkGJ3FMRUYtqYJsx4JJRJbBwD0vOD52Ya6149TDzVL_EipR6itEsIYtmufm2ttfW8gKQy3y4XY5b4m3z2EOGnw--jPrJ2sFt8Ty2Ww-tGI2jk2SRL46zvPuW84gyhkhFuA' \
 --header 'Authorization: Basic YmFua19pbl9hX2JveF9hcHA6cGFzc3dvcmQxIQ=='
 ```
 
 Sample response:
-
 ```
 {
     "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAxODc0MSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiMTdhNzNhOTMtNmUxZS00OWQzLWFlMjEtNzc2NGVmNWFhNmM2IiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.wiKppW1sKPUflBLsnfh0yOHdIEOJDR1gY9LE4XOZ0mqMJUzxgcLeAAzpVRi3H5aS150jzBhnpY1Mi-xnJrKcFU1KsO0NtGIUJMQnxmXlMbDioy0pGMmX9YKP8qAqXadTIvHtxgpPZVsTiKPhHedJpLcuvr2JB21k3xfzImFxGG3WrLMqbV83alRX7B_4cpEQAWcDaMKmDsriCfsa3gDMOKW-KNCuNXoy4oTtj97nxlyIuz1pFiBU05c_vvJywXqzU8vaBL9cWFOOAPjdt_9V92y5X_RSdX3FcIIqNK8LLPKTOQE8BK57_Gq_H5Fx_DVv0tLOHJfeQ-vksbE-7k25-w",
@@ -158,12 +155,12 @@ If linking the customer account to an existing customer ID, include the same cus
 Response: `200` - request successful.
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/register/guest?username=alice.smith&password=test2&email=alice.smith@email.com&customerId=0fcf24fd-9297-4ffe-9ba2-c6ddfa0cfee7' \
 --header 'X-XSRF-TOKEN: 567899a7-322d-4d65-b506-5dfffeb5ce42' \
 --form 'file=@"/Users/Admin/Documents/alice-smith-attachment.zip"'
 ```
+
 
 #### Add role to user
 
@@ -182,12 +179,12 @@ When a user account is created, it is given the default role of guest. Send a `P
 Response: `200` - request successful.
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/register/admin/addRole?username=alice.smith&roleName=CUSTOMER' \
 --header 'X-XSRF-TOKEN: 4833d5dd-164e-4ba7-8abb-bea3096b27f0' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzA5NDU4MCwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiYjFlMTZhYmYtNTUyZi00ZGQzLTk2ZjItYzI4NWEwMDg4YzA3IiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.ntIhTDV805ftM_emquArorDa4RuHOo6pWLbZGTX4sqEFY1zdO_Y0NDnGV3-fMN2swHIW-Vu-M0ohk0tn2SpNJIU0177iYB7BIq7FpCiMWT0s8ETsKfTQpMreRT1WZnDSp7WTxzj9X1rPwzPocPtofE3-OVemqznonmi3rOlfmVkFN9kqPoY0SeA_KIDh_MuXmZoMxwY5ocBQuze5t9tgjuSh4Bptb65uJHhkaanOlzOON3SupH38V3h3E7nomEzXs-dq3-6chay0s5ZzySc-kJdmZu86gG_jBDlJfc9ovfqBKSbLsWpI99nRwu1sPKvGU0wqhUQKpv9038JqTIpolQ'
 ```
+
 
 #### Get users in role
 
@@ -209,7 +206,6 @@ Send a `GET` request to the  `/register/admin/users` endpoint to return a list o
 Response: A paginated list of all users assigned to the specified role - `PaginatedResponse<UserResponse>`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/register/admin/users?roleName=CUSTOMER&startPage=1&pageSize=10&sortField=email&sortOrder=ASC' \
 --header 'X-XSRF-TOKEN: 4833d5dd-164e-4ba7-8abb-bea3096b27f0' \
@@ -217,7 +213,6 @@ curl --location --request GET 'http://localhost:7777/register/admin/users?roleNa
 ```
 
 Sample response:
-
 ```
 {
     "result": [
@@ -239,6 +234,7 @@ Sample response:
 }
 ```
 
+
 #### Revoke user role
 
 Send a `POST` request to the `/register/admin/revokeRole` endpoint to revoke a role from a user account. This request requires authorization. It can be sent by an admin user.
@@ -256,7 +252,6 @@ Send a `POST` request to the `/register/admin/revokeRole` endpoint to revoke a r
 Response: `200` - request successful.
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/register/admin/revokeRole?username=alice.smith&roleName=CUSTOMER' \
 --header 'X-XSRF-TOKEN: 4833d5dd-164e-4ba7-8abb-bea3096b27f0' \
@@ -288,14 +283,12 @@ If the `withdrawalDailyLimit` and `transferDailyLimit` are not set, there will b
 Response: the newly-created current account object - `CurrentAccountState`.
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/accounts/create-current-account?customerId=34b439bf-5ec9-4788-b384-012e33a11845&tokenType=EUR&withdrawalDailyLimit&transferDailyLimit' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyMjQ0NSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiZjdjMjhhYzYtODc1NS00N2FkLTg2M2YtZTc5MmM4MGRhYWMzIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.tCU4EQfnyQCDcWOUQe4Wnyck_luGY7ElboIfYzeE7VCvd0jKCZCk0sCjphx2fYIFjVgEZVwHOGdTogUe1tHyplCa8pOwfgnx-zL0ttHilDvPfpoDtzdE8Tu5vpcQg7erwPxqJ2CTlGlV0NJzMcYsHgjx_rcCU-ljVEJRjaldItNCpVTywBm0QejIZ_8rcGfUnkMuBY_JQ3Wf21pEtXO-U_-5pTxuoYNfbcXOHmR9zhMbKIUCodjFdWbgFv8WYl6eZi1OaIqunGmcsW50QE2T1Xfl32zKz5_aNMCgH4NQ6789ufLAWFEOiArz0HEb1bSL6G4TFL4JOXUrQPrCg6bJXA'
 ```
 
 Sample response:
-
 ```
 {
     "accountData": {
@@ -328,6 +321,7 @@ Sample response:
 }
 ```
 
+
 ### Create a Savings Account
 
 Send a `POST` request to the `/accounts/create-savings-account` endpoint to invoke the <a href="./back-end-guide.html#createsavingsaccountflow">`CreateSavingsAccountFlow`</a>. This flow creates a zero balance savings account for a customer with the provided customer ID. This request requires authorization. It can be sent by an admin user.
@@ -349,14 +343,12 @@ Send a `POST` request to the `/accounts/create-savings-account` endpoint to invo
 Response: The newly-created savings account object - `SavingsAccountState`.
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/accounts/create-savings-account?customerId=34b439bf-5ec9-4788-b384-012e33a11845&tokenType=EUR&currentAccountId=20cc3fbb-ba68-4ac6-856e-dda2159bcd82&savingsAmount=100&savingsStartDate=2020-12-09T14:47:00Z&savingsPeriod=1' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyMjQ0NSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiZjdjMjhhYzYtODc1NS00N2FkLTg2M2YtZTc5MmM4MGRhYWMzIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.tCU4EQfnyQCDcWOUQe4Wnyck_luGY7ElboIfYzeE7VCvd0jKCZCk0sCjphx2fYIFjVgEZVwHOGdTogUe1tHyplCa8pOwfgnx-zL0ttHilDvPfpoDtzdE8Tu5vpcQg7erwPxqJ2CTlGlV0NJzMcYsHgjx_rcCU-ljVEJRjaldItNCpVTywBm0QejIZ_8rcGfUnkMuBY_JQ3Wf21pEtXO-U_-5pTxuoYNfbcXOHmR9zhMbKIUCodjFdWbgFv8WYl6eZi1OaIqunGmcsW50QE2T1Xfl32zKz5_aNMCgH4NQ6789ufLAWFEOiArz0HEb1bSL6G4TFL4JOXUrQPrCg6bJXA'
 ```
 
 Sample response:
-
 ```
 {
     "accountData": {
@@ -387,6 +379,7 @@ Sample response:
 }
 ```
 
+
 ### Approve overdraft
 
 Send a `PUT` request to the `/accounts/approve-overdraft-account` endpoint to invoke the <a href="./back-end-guide.html#approveoverdraftflow">`ApproveOverdraftFlow`</a>. This flow is used to approve an overdraft limit for an account with the specified account ID. This request requires authorization. It can be sent by an admin user.
@@ -405,7 +398,6 @@ Send a `PUT` request to the `/accounts/approve-overdraft-account` endpoint to in
 Response: This request returns a `CurrentAccountState` with an overdraft limit of `amount`.
 
 Sample request:
-
 ```
 curl --location --request PUT 'http://localhost:7777/accounts/approve-overdraft-account?currentAccountId=20cc3fbb-ba68-4ac6-856e-dda2159bcd82&tokenType=EUR&amount=200' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyMzQxMSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiMWYwYmU2ZWItZjAxZi00M2FmLWI0YWEtYWJlMjk1MGFlNTM1IiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.orXLAHjySCi28I-MgHYHfaNIf4xqSd7aWEyG0cxIoYFMXe40sfUgyy16IHkHmcJU1WfzIcm2QsEmqubzNsfnCojNRYODK6dVpaP_ZK9nOx5mZH4aHN574geF11vMtdqdDEAaJSFtd0EJAZQUCXcXFDkzh2l9xGRafSgL_GzXCRr0HyX2E-u-euCgnQmAo1irs5TumIrb0SOHt5YUYhu-GRyI5kNrbKsS23SankQN6Yn5uT-QrzyN8zqPOoJn121z_sx8_QpHLV96YqU-ccaypTDrWjpkckMPQ3cHNvzbHqjwg-EKgTOw3MZe2_5duc281KBMvktnQQJUpmlrNs_t_g'
@@ -464,14 +456,12 @@ Send a `POST` request to the `/accounts/issue-loan` endpoint to invoke the <a hr
 Response: This request returns a reference to the payment - `IssueLoanResponse`. It also returns the current account and the issued loan account information.
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/accounts/issue-loan?accountId=20cc3fbb-ba68-4ac6-856e-dda2159bcd82&tokenType=EUR&loanAmount=1000&period=12' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyMjQ0NSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiZjdjMjhhYzYtODc1NS00N2FkLTg2M2YtZTc5MmM4MGRhYWMzIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.tCU4EQfnyQCDcWOUQe4Wnyck_luGY7ElboIfYzeE7VCvd0jKCZCk0sCjphx2fYIFjVgEZVwHOGdTogUe1tHyplCa8pOwfgnx-zL0ttHilDvPfpoDtzdE8Tu5vpcQg7erwPxqJ2CTlGlV0NJzMcYsHgjx_rcCU-ljVEJRjaldItNCpVTywBm0QejIZ_8rcGfUnkMuBY_JQ3Wf21pEtXO-U_-5pTxuoYNfbcXOHmR9zhMbKIUCodjFdWbgFv8WYl6eZi1OaIqunGmcsW50QE2T1Xfl32zKz5_aNMCgH4NQ6789ufLAWFEOiArz0HEb1bSL6G4TFL4JOXUrQPrCg6bJXA'
 ```
 
 Sample response:
-
 ```
 {
     "currentAccount": {
@@ -531,6 +521,7 @@ Sample response:
 }
 ```
 
+
 ### Set Account Status
 
 Send a `PUT` request to the `/accounts/set-status` endpoint to invoke the <a href="./back-end-guide.html#setaccountstatusflow">`SetAccountStatusFlow`</a>. The `SetAccountStatusFlow` updates the status of an account with a specified account ID. This request requires authorization. It can be sent by an admin user.
@@ -548,14 +539,12 @@ Send a `PUT` request to the `/accounts/set-status` endpoint to invoke the <a hre
 Response: This request returns the account information - `Account`.
 
 Sample request:
-
 ```
 curl --location --request PUT 'http://localhost:7777/accounts/set-status?accountId=20cc3fbb-ba68-4ac6-856e-dda2159bcd82&status=ACTIVE' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyMjQ0NSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiZjdjMjhhYzYtODc1NS00N2FkLTg2M2YtZTc5MmM4MGRhYWMzIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.tCU4EQfnyQCDcWOUQe4Wnyck_luGY7ElboIfYzeE7VCvd0jKCZCk0sCjphx2fYIFjVgEZVwHOGdTogUe1tHyplCa8pOwfgnx-zL0ttHilDvPfpoDtzdE8Tu5vpcQg7erwPxqJ2CTlGlV0NJzMcYsHgjx_rcCU-ljVEJRjaldItNCpVTywBm0QejIZ_8rcGfUnkMuBY_JQ3Wf21pEtXO-U_-5pTxuoYNfbcXOHmR9zhMbKIUCodjFdWbgFv8WYl6eZi1OaIqunGmcsW50QE2T1Xfl32zKz5_aNMCgH4NQ6789ufLAWFEOiArz0HEb1bSL6G4TFL4JOXUrQPrCg6bJXA'
 ```
 
 Sample response:
-
 ```
 {
     "accountData": {
@@ -588,6 +577,7 @@ Sample response:
 }
 ```
 
+
 ### Set account limits
 
 Send a `PUT` request to the `/accounts/set-limits` endpoint to invoke the `SetAccountLimitsFlow`. The `SetAccountLimitsFlow` changes the daily withdrawal and transfer limits, or maximum spending, for the provided account ID. This request requires authorization. It can be set by an admin or customer user.
@@ -606,14 +596,12 @@ Send a `PUT` request to the `/accounts/set-limits` endpoint to invoke the `SetAc
 Response: `CurrentAccountState`.
 
 Sample request:
-
 ```
 curl --location --request PUT 'http://localhost:7777/accounts/set-limits?accountId=20cc3fbb-ba68-4ac6-856e-dda2159bcd82&withdrawalDailyLimit=500&transferDailyLimit=500' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyMzQxMSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiMWYwYmU2ZWItZjAxZi00M2FmLWI0YWEtYWJlMjk1MGFlNTM1IiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.orXLAHjySCi28I-MgHYHfaNIf4xqSd7aWEyG0cxIoYFMXe40sfUgyy16IHkHmcJU1WfzIcm2QsEmqubzNsfnCojNRYODK6dVpaP_ZK9nOx5mZH4aHN574geF11vMtdqdDEAaJSFtd0EJAZQUCXcXFDkzh2l9xGRafSgL_GzXCRr0HyX2E-u-euCgnQmAo1irs5TumIrb0SOHt5YUYhu-GRyI5kNrbKsS23SankQN6Yn5uT-QrzyN8zqPOoJn121z_sx8_QpHLV96YqU-ccaypTDrWjpkckMPQ3cHNvzbHqjwg-EKgTOw3MZe2_5duc281KBMvktnQQJUpmlrNs_t_g'
 ```
 
 Sample response:
-
 ```
 {
     "accountData": {
@@ -646,6 +634,7 @@ Sample response:
 }
 ```
 
+
 ### Get account by account ID
 
 Send a `GET` request to the `/accounts/{accountId}` endpoint to invoke the <a href="./back-end-guide.html#getaccountflow">`GetAccountFlow`</a>. This flow returns the account information for a given account ID. This request requires authorization. It can be sent by an admin user or the customer who owns the account.
@@ -656,14 +645,12 @@ Send a `GET` request to the `/accounts/{accountId}` endpoint to invoke the <a hr
 Response: Account information - `Account`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/accounts/20cc3fbb-ba68-4ac6-856e-dda2159bcd82' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyMzQxMSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiMWYwYmU2ZWItZjAxZi00M2FmLWI0YWEtYWJlMjk1MGFlNTM1IiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.orXLAHjySCi28I-MgHYHfaNIf4xqSd7aWEyG0cxIoYFMXe40sfUgyy16IHkHmcJU1WfzIcm2QsEmqubzNsfnCojNRYODK6dVpaP_ZK9nOx5mZH4aHN574geF11vMtdqdDEAaJSFtd0EJAZQUCXcXFDkzh2l9xGRafSgL_GzXCRr0HyX2E-u-euCgnQmAo1irs5TumIrb0SOHt5YUYhu-GRyI5kNrbKsS23SankQN6Yn5uT-QrzyN8zqPOoJn121z_sx8_QpHLV96YqU-ccaypTDrWjpkckMPQ3cHNvzbHqjwg-EKgTOw3MZe2_5duc281KBMvktnQQJUpmlrNs_t_g'
 ```
 
 Sample response:
-
 ```
 {
     "accountData": {
@@ -696,6 +683,7 @@ Sample response:
 }
 ```
 
+
 ### Get accounts
 
 Send a `GET` request to the `/accounts` endpoint to invoke the <a href="./back-end-guide.html#getaccountspaginatedflow">`GetAccountsPaginatedFlow`</a>. This flows displays a list of accounts and their associated customer information that match the given search criteria. This request requires authorization. It can be sent by an admin user.
@@ -718,14 +706,12 @@ Send a `GET` request to the `/accounts` endpoint to invoke the <a href="./back-e
 Response: This request returns a paginated response with the account information and customer information of all accounts matching the search criteria. - `PaginatedResponse<Pair<Account, CustomerSchemaV1.Customer>>`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/accounts' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyMzQxMSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiMWYwYmU2ZWItZjAxZi00M2FmLWI0YWEtYWJlMjk1MGFlNTM1IiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.orXLAHjySCi28I-MgHYHfaNIf4xqSd7aWEyG0cxIoYFMXe40sfUgyy16IHkHmcJU1WfzIcm2QsEmqubzNsfnCojNRYODK6dVpaP_ZK9nOx5mZH4aHN574geF11vMtdqdDEAaJSFtd0EJAZQUCXcXFDkzh2l9xGRafSgL_GzXCRr0HyX2E-u-euCgnQmAo1irs5TumIrb0SOHt5YUYhu-GRyI5kNrbKsS23SankQN6Yn5uT-QrzyN8zqPOoJn121z_sx8_QpHLV96YqU-ccaypTDrWjpkckMPQ3cHNvzbHqjwg-EKgTOw3MZe2_5duc281KBMvktnQQJUpmlrNs_t_g'
 ```
 
 Sample response:
-
 ```
 {
     "result": [
@@ -1014,6 +1000,7 @@ Sample response:
 }
 ```
 
+
 ### Get accounts for a specific customer ID
 
 Send a `GET` request to the `/accounts/customer/{customerId}` endpoint to invoke the <a href="./back-end-guide.html#getaccountsforcustomerpaginatedflow">`GetAccountsForCustomerPaginatedFlow`</a>. The `GetAccountsForCustomerPaginatedFlow` displays a list of accounts for the given customer ID. This request requires authorization. It can be sent by an admin user.
@@ -1036,14 +1023,12 @@ Send a `GET` request to the `/accounts/customer/{customerId}` endpoint to invoke
 Response: This request returns a paginated response with the account information and customer information of all accounts matching the customer ID and given search criteria. - `PaginatedResponse<Pair<Account, CustomerSchemaV1.Customer>>`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/accounts/customer/0cd7363b-66f7-4064-a8c8-527ce1eba8f3' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyMzQxMSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiMWYwYmU2ZWItZjAxZi00M2FmLWI0YWEtYWJlMjk1MGFlNTM1IiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.orXLAHjySCi28I-MgHYHfaNIf4xqSd7aWEyG0cxIoYFMXe40sfUgyy16IHkHmcJU1WfzIcm2QsEmqubzNsfnCojNRYODK6dVpaP_ZK9nOx5mZH4aHN574geF11vMtdqdDEAaJSFtd0EJAZQUCXcXFDkzh2l9xGRafSgL_GzXCRr0HyX2E-u-euCgnQmAo1irs5TumIrb0SOHt5YUYhu-GRyI5kNrbKsS23SankQN6Yn5uT-QrzyN8zqPOoJn121z_sx8_QpHLV96YqU-ccaypTDrWjpkckMPQ3cHNvzbHqjwg-EKgTOw3MZe2_5duc281KBMvktnQQJUpmlrNs_t_g'
 ```
 
 Sample response:
-
 ```
 {
     "result": [
@@ -1167,9 +1152,11 @@ Sample response:
 }
 ```
 
+
 ## Customer Controller
 
 The Customer Controller includes API endpoints that handle customer tasks for Bank in a Box. Requests sent to these endpoints allow users to upload attachments, create customer profiles, return lists of customers matching given search parameters, and update customer profiles.
+
 
 ### Upload an attachment
 
@@ -1188,7 +1175,6 @@ Send a `POST` request to the `/customers/upload-attachment` endpoint to upload a
 Response: This request returns a `String` secure hash of the attachment (`JSON: {"secureHash": "$hash"`).
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/customers/upload-attachment?uploader=admin' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAxODY2NSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiYzUwNWYyOWItNmU5ZS00ODAzLTk4MmItMjA5MzUwOTY2YmYwIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.Ef5rGwCw7RswzLFc98K87Qg0TnWaFo-kjLRjN5B0gF59-soY0whv7puhq3iwacolAqhym1WWN7mjjv-hu-gJlgFRyiGY1F4ys2iI2Yv3u44Ax54_mhfvHVNVRoPoysYXAjt11BCgs80uPDhwPuCxwqyG57ek0mWyWnO3PnV54LZZgHGaC_Hr7ZsJKTdwxLwabU31YMqf86pofXbhaE_vTQF61NnTbC5iui_pU39KzWu5TiAx8Z2II09Rkucb-KA5X3DxcWjnnYc1UbAMVuoIgP29RHhJJLPuSjZC0qarNoP7s3cu_MKdtiye3xY7D_8v-X7x1gP-eku06Tzb2ITjpQ' \
@@ -1196,12 +1182,12 @@ curl --location --request POST 'http://localhost:7777/customers/upload-attachmen
 ```
 
 Sample response:
-
 ```
 {
     "secureHash": "DCD5148BEDB42510D15BFA971D845CC3FC18932E5ECFB13158364A1487E2B7F7"
 }
 ```
+
 
 ### Create a customer
 
@@ -1225,26 +1211,25 @@ The `attachments` parameter is composed of the secure hash returned when an [att
 Response: This request returns a `String` customer ID for the created customer profile.
 
 Sample request:
-
  ```
  curl --location --request POST 'http://localhost:7777/customers/create?customerName=Alice%20Smith&contactNumber=1234567890&emailAddress=alice.smith@email.com&postCode=12345&attachments=alice-smith-attachment.zip:DCD5148BEDB42510D15BFA971D845CC3FC18932E5ECFB13158364A1487E2B7F7' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAxOTkzMywiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiZGU5NGRmNmItN2YwMi00NTFlLTljMjItY2E5MDEzZDQzYTA4IiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.Vd9RPhZoSfgglqsZHtX1HwCmv7AuHZjM9zKvabjjCNf2sEMAZ1ZlLL9dnUvMgYT2XO9Z1GqDP7q8W9A0XojrrmPR-dGJgcxvyBi7Huv9nwvdztLwqtge6p78SCgTb47FD76vhcRQPC7dxXVvnNKDvunWe2Jv8wefbuMOloc3RFNSFR5erAOw3XkuGXQ6MnpGVfQv5CqAC53fm_MBQTN35l0s4vWW1r-xi5oE0wlv7bZYaiID3zGIREyB4YQvsI_kVqPASTJy344NnZWrcf8Cy6fenElkT7bez6Mh83-cazvY-gJero14tjcd5Q2_NDH15iCKszqFmCWwPB3pwhGgQw'
  ```
 
 Sample response:
-
 ```
 {
     "customerId": "34b439bf-5ec9-4788-b384-012e33a11845"
 }
 ```
 
+
 ### Get customers
 
 Send a `GET` request to the `/customers` endpoint to invoke the <a href="./back-end-guide.html#getcustomerspaginatedflow">`GetCustomersPaginatedFlow`</a>. This flow returns a paginated list of all customers matching the given search crtieria. This request requires authorization. It can be sent by an admin user.
 
-- Request type: `GET`.
-- Path: `/customers`.
+ - Request type: `GET`.
+ - Path: `/customers`.
 
 {{< table >}}
 | Param        | Description                                      | Type   | Required |
@@ -1259,14 +1244,12 @@ Send a `GET` request to the `/customers` endpoint to invoke the <a href="./back-
 Response: This request returns a paginated response containing customers matching the given search criteria - `PaginatedResponse<CustomerSchemaV1.Customer>`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/customers' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyMTQ2MywiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiYzRmZThkNzctZDU4Yy00Mjc2LTg1NzYtNzMxMzdmYTY1Y2Y2IiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.fOU2h8FeQuE1fRew2sN8DT3CG9dvpBVD1R5GdKy0_jzPGiFNflgAuBw3ANzZn0Z8KwEti-xwoVFGpjpOxH2mh48nu5hfTw0C_V4qdRfW0oNOYaMRh4qxZpjs6BW6WmU-hnuVxdZyb-oIYKqUJujzyF83a2gJXAMv9UQj2uW4gbVmbTbU-vu0hyUoTkdP1jSfX0kuhZXjn-SArbwI1vxBUe1vHX2Vqk1wZ43fQo3ixCIGJLNu2jXeHZn-15Oh739ZQWZ8Mpu_zYD-oHzyavA0yrPPvuc5SPFqJ2Kw2Jyj6P3sc3SMCr4aALbb1eiNkcoxPZo2Gri8Z0RWHXXfvdrsnA'
 ```
 
 Sample response:
-
 ```
 {
     "result": [
@@ -1332,22 +1315,20 @@ Sample response:
 
 ### Get customer by customer ID
 
-Send a `GET` request to the `/customers/{customerId}` endpoint to invoke the [`GetCustomerByIDFlow`](../../../../../../../en/platform/corda/4.8/enterprise/apps/bankinabox/back-end-guide.md). This flow retrieves the `CustomerSchemaV1.Customer`, which stores personal details and contact information along with creation and modification timestamps, for a given `customerId`. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/customers/{customerId}` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#getcustomerbyidflow">`GetCustomerByIdFlow`</a>. This flow retrieves the `CustomerSchemaV1.Customer`, which stores personal details and contact information along with creation and modification timestamps, for a given `customerId`. This request requires authorization. It can be sent by an admin user.
 
-- Request type: `GET`.
-- Path: `/customers/{customerId}`.
+ - Request type: `GET`.
+ - Path: `/customers/{customerId}`.
 
 Response: This request returns the customer profile information for the specified customer ID - `CustomerSchemaV1.Customer`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/customers/0cd7363b-66f7-4064-a8c8-527ce1eba8f3' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyNDgxNCwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiY2Q0NzE1ZTUtOTVmMS00NTllLTg3NDItMDZiNDQ2MTNlNmYxIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.galmmVFpqrzy-HiwaFq1uvSaR8h7v_TsVu1u2gcv_oekk8S3Be0Qc-gJe12ZsnITvk3qFj5sSmunHOj3RWMASqFC8nBCsLOYHE9WlQDH4qrsnGpfhAoGR0OLUWkoiIJebKkD8oujn9SVxQ0JIGhvTFcpoATi53UOvI27xKWzw9lpz6G_3Giovl9Dy22cFP2eulAAhPwNFD--YFUubuR9k26IT0hKLIGiWob71ASv6Fo9tK7u1WPvajmcf47ywsCc88HW8K4aqXtLle9MWX5qZ13EotwKlj-t1WxK0fYXpoBoH1F7Nxof8KClpZvQvpyT51IPYSUWRz84Ns3hcG9nJQ'
 ```
 
 Sample response:
-
 ```
 {
     "createdOn": "2020-12-03T18:42:10.902Z",
@@ -1377,29 +1358,29 @@ Sample response:
 }
 ```
 
+
 ### Get customer name for account ID
 
 Send a `GET` request to the `/customers/name/{accountId}` endpoint to return a customer's name when searching by an account ID. This request requires authorization. It can be sent by an admin user.
 
-- Request type: `GET`.
-- Path: `/customers/name/{accountId}`.
+ - Request type: `GET`.
+ - Path: `/customers/name/{accountId}`.
 
 Response: This request returns the account owner's customer name for the specified account ID - `CustomerNameResponse`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/customers/name/20cc3fbb-ba68-4ac6-856e-dda2159bcd82' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyNDgxNCwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiY2Q0NzE1ZTUtOTVmMS00NTllLTg3NDItMDZiNDQ2MTNlNmYxIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.galmmVFpqrzy-HiwaFq1uvSaR8h7v_TsVu1u2gcv_oekk8S3Be0Qc-gJe12ZsnITvk3qFj5sSmunHOj3RWMASqFC8nBCsLOYHE9WlQDH4qrsnGpfhAoGR0OLUWkoiIJebKkD8oujn9SVxQ0JIGhvTFcpoATi53UOvI27xKWzw9lpz6G_3Giovl9Dy22cFP2eulAAhPwNFD--YFUubuR9k26IT0hKLIGiWob71ASv6Fo9tK7u1WPvajmcf47ywsCc88HW8K4aqXtLle9MWX5qZ13EotwKlj-t1WxK0fYXpoBoH1F7Nxof8KClpZvQvpyT51IPYSUWRz84Ns3hcG9nJQ'
 ```
 
 Sample response:
-
 ```
 {
     "customerName": "Alice Smith"
 }
 ```
+
 
 ### Update customer
 
@@ -1421,14 +1402,12 @@ The customer will only be able to update the `contactNumber` and `emailAddress` 
 Response: The updated customer information of the specified customer ID is returned - `CustomerSchemaV1.Customer`.
 
 Sample request:
-
 ```
 curl --location --request PUT 'http://localhost:7777/customers/update/0cd7363b-66f7-4064-a8c8-527ce1eba8f3?emailAddress=josh.smith1@email.com' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzAyNDgxNCwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiY2Q0NzE1ZTUtOTVmMS00NTllLTg3NDItMDZiNDQ2MTNlNmYxIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.galmmVFpqrzy-HiwaFq1uvSaR8h7v_TsVu1u2gcv_oekk8S3Be0Qc-gJe12ZsnITvk3qFj5sSmunHOj3RWMASqFC8nBCsLOYHE9WlQDH4qrsnGpfhAoGR0OLUWkoiIJebKkD8oujn9SVxQ0JIGhvTFcpoATi53UOvI27xKWzw9lpz6G_3Giovl9Dy22cFP2eulAAhPwNFD--YFUubuR9k26IT0hKLIGiWob71ASv6Fo9tK7u1WPvajmcf47ywsCc88HW8K4aqXtLle9MWX5qZ13EotwKlj-t1WxK0fYXpoBoH1F7Nxof8KClpZvQvpyT51IPYSUWRz84Ns3hcG9nJQ'
 ```
 
 Sample response:
-
 ```
 {
     "createdOn": "2020-12-03T18:42:10.902Z",
@@ -1458,6 +1437,7 @@ Sample response:
 }
 ```
 
+
 ## Payments Controller
 
 The Payments Controller includes API endpoints that manage payments in Bank in a Box. Requests sent to these endpoints allow customer users to withdraw money, deposit money, make an intrabank payment, create a recurring payment, and cancel a recurring payment.
@@ -1466,8 +1446,8 @@ The Payments Controller includes API endpoints that manage payments in Bank in a
 
 Send a `POST` request to the `/payments/withdraw-fiat` endpoint to invoke the <a href="./back-end-guide.html#withdrawfiatflow">`WithdrawFiatFlow`</a>. The `WithdrawFiatFlow` withdraws a specified amount from an account with the provided account ID. This request requires authorization. It can be sent by an admin user.
 
-- Request type: `POST`.
-- Path: `/payments/withdraw-fiat`.
+ - Request type: `POST`.
+ - Path: `/payments/withdraw-fiat`.
 
 {{< table >}}
 | Param       | Description                                           | Type   | Required |
@@ -1480,14 +1460,12 @@ Send a `POST` request to the `/payments/withdraw-fiat` endpoint to invoke the <a
 Response: This request returns the account information for the specified account ID with the updated balance. See the `balance` field in the sample response below.
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/payments/withdraw-fiat?accountId=56e3fe14-7062-4b5e-8563-4df32cbb4485&tokenType=EUR&amount=1000' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzI3MjM5MCwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiMjljOWI3YzItOWJlZS00YzgzLWIyODMtNmQyN2U1OGU2MzNiIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.rpy3T3u0kuvor8KRqAm4atBa81kF_NWCy7hkxMeQ0UMOGYCBlIXY90guY7jorHlop5b83iKZxEUi0L3lTyGgdPKLZIEp92yodBNhlzG2lODC56zn5ivv_oBPVkaGYROKVES5Bu6Rud0N8j2-dtoHTAi7S5h1u7qqOZXX6TgtvNwYXD6mUryPINkQs86yvMqV_7cPbTJnBm3XyyOMEBSjkdQ_wtXWZH_AKBJVbdyAqsg5AJ8u9KNyrNfJFupJew5X7JCannttkNNyJMBGJaQCj3MCMC7XKPUX_NIUXLy8iiIE-sFiLTbVGrEc9cVgXkpA5U8OTjWNqpaoV0V4XwtIXA'
 ```
 
 Sample response:
-
 ```
 {
     "accountData": {
@@ -1520,9 +1498,10 @@ Sample response:
 }
 ```
 
+
 ### Deposit money
 
-Send a `POST` request to the `/payments/deposit-fiat` endpoint to invoke the <a href="./back-end-guide.html#depositfiatflow">`DepositFiatFlow`</a>. The `DepositFiatFlow` is used to deposit a specified amount to an account with the provided account ID. This request requires authorization. It can be sent by an admin user.
+Send a `POST` request to the `/payments/deposit-fiat` endpoint to invoke the <a href="./back-end-guide.html#depositfiatflow">`DepositFiatFlow`</a>. The `DepositFiatFlow` is used to deposit a specified amount to an account with the provided account ID. This request requires authorization. It can be sent by an admin user. 
 
 - Request type: `POST`.
 - Path: `/payments/deposit-fiat`.
@@ -1542,14 +1521,12 @@ The deposit must have the same `tokenType` as the account. For example - if an a
 Response: This request returns the account information for the specified account ID with the updated balance. See the `balance` field in the sample response below.
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/payments/deposit-fiat?accountId=56e3fe14-7062-4b5e-8563-4df32cbb4485&tokenType=EUR&amount=10000' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzI3MTMyMywiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiNjFlMGExOGQtNzU1Ni00NGI0LTk0NDYtYThlOWJhYzU2NGNhIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.w16b6QJjAbioxLxRi3ePiyiCe4MB-YUNdLnjHN7X61-WUbkTCuoau0HYdpPJ2u-yksAHSh7i6AZWp7kelDdNkSWpiAELEk8gZATcKAU-hrCyRQitVWoiPL16MKHzeNj-3gFi7H5UGdlbzxABoTwzeroRM-LyHuLZnnnFtcf-0iv5wXGyquU9AmR0CD-hmqgukSiAk1V6izss5CDLe7ypnnpE15PqYimqSXfoMp-B8U1AkoY3iIJn6emLyC2rF7VgC27UPu0zewH1GfV95ggm7jtOswe-gj5swUUKBRZoGtYlttxkl6HRcTfkRCzPLUAFSNHwyl3Tx_qKzv8TCgmLzg'
 ```
 
 Sample response:
-
 ```
 {
     "accountData": {
@@ -1582,6 +1559,7 @@ Sample response:
 }
 ```
 
+
 ### Make an intrabank payment
 
 Send a `POST` request to the `/payments/intrabank-payment` endpoint to invoke the <a href="./back-end-guide.html#intrabankpaymentflow">`IntrabankPaymentFlow`</a>. The `IntrabankPaymentFlow` is used to transfer a specified amount of money from a current account to another account. It can be sent by a customer user.
@@ -1607,14 +1585,12 @@ Accounts involved in an intrabank transfer must have the same `tokenType`. The i
 Response: This request returns a reference to the current account the funds were transferred from and the account the funds were transferred to - `IntrabankPaymentResponse`.
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/payments/intrabank-payment?fromAccountId=378774a1-d18a-4b00-84f0-3e58b34091fa&toAccountId=bde1c40a-cf68-4311-b972-56e155497f8b&tokenType=EUR&amount=1000' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFsaWNlLnNtaXRoMSIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJjdXN0b21lcklkIjoiNTA0ODBhZDctYjcwYS00NTc5LTkzMWUtMGQ4NzMwZTM2NmU5IiwiZXhwIjoxNjA3MzM2ODcwLCJhdXRob3JpdGllcyI6WyJHVUVTVCIsIkNVU1RPTUVSIl0sImp0aSI6IjJmYjlmN2Y5LTQ0OTUtNGZkZS04YmViLWYwNzc3ZDRlMzA1MiIsImNsaWVudF9pZCI6ImJhbmtfaW5fYV9ib3hfYXBwIn0.WcIMDX2HgqkMzSRfRyVAUKP_Pxk5ON5SdXpRgXjQDbS1XUg9BELc8bX3-gljUhEyYuO5l7lyCq7I5bPXAafsSRtESssI1zUfBhaM_E8GSgj9o75JwOd8wTE9vI59VlKOwONnuAAb_vdJsJbqPO7nNumEmwfElU2SwwdsV9d5Z1hLXNulMsY2coSO-bUe_o3OMdPpGBVp1_EN7_FVx26lMTYGmFAh7FrGR71K0oSPJP5ULkozmW6ilUb1Ucoo3NDit0pOIyH90RFH-BK_MjeSadMLFO4Iyo8SYwRufmHiWepHqRl92Yxx6DP-LzGFup9fEzeHKhQNXoujb_ATIUSKtw'
 ```
 
 Sample response:
-
 ```
 {
     "fromAccount": {
@@ -1652,6 +1628,7 @@ Sample response:
 }
 ```
 
+
 ### Create a recurring payment
 
 Send a `POST` request to the `/payments/create-recurring-payment` endpoint to invoke the <a href="./back-end-guide.html#createrecurringpaymentflow">`CreateRecurringPaymentFlow`</a>. The `CreateRecurringPaymentFlow` creates a recurring payment for the specified amount of money to be transferred from a current account to another account. It can be sent by a customer user.
@@ -1680,14 +1657,12 @@ The `period` between payments is serialized as `java.util.Duration`. If the `per
 Response: This request returns information on the newly-created recurring payment - `RecurringPaymentState`.
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/payments/create-recurring-payment?fromAccountId=0129dd07-2582-4458-948a-aa7de548d083&toAccountId=378774a1-d18a-4b00-84f0-3e58b34091fa&tokenType=EUR&amount=3000&dateStart=2020-12-07T16:15:42.974Z&period=PT1M&iterationNum=10' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImRhbi5hbGxlbiIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJjdXN0b21lcklkIjoiM2I0NjI2MmItOGFhMC00NWZjLWE0ZDctM2FhNjI5ZTI5YTUyIiwiZXhwIjoxNjA3MzU4MTY4LCJhdXRob3JpdGllcyI6WyJHVUVTVCIsIkNVU1RPTUVSIl0sImp0aSI6IjI1ZmZiYzEyLWQ5MTctNDYyZC1hZDVhLTVlMDVhYjdlZjJjNSIsImNsaWVudF9pZCI6ImJhbmtfaW5fYV9ib3hfYXBwIn0.vuxu3jYhoUhYTSFk5WX_RR537UT8dQfbnuAQ11bGrYVFU1-znA4KqIgP9fvHO_wcEIyQEWSqz6vditYcyrhk6sCiUVe2XIGZb3hgYMGiHK1Z656h1WcHjG0ww8d10mPQ6AW_HdCRTjfEgDAI4YFKemzxtdORYnW3LnAgHwsmXPp4Dncr2SGKXttr3mMB_Zm_kZfZqlcAmyjb6wT16qQfG_P9zxQBPT90C8himNFtTu37P92UqrYkts9HFP6J34hMQfaNUpTzsrsPNkYD_7zs1CZ70SRQtlbguw3rCMedVCCTxyauEQICLk_9WtHmyDw1D_WDk6kS6beqSUe8Wa9fNw'
 ```
 
 Sample response:
-
 ```
 {
     "accountFrom": "0129dd07-2582-4458-948a-aa7de548d083",
@@ -1726,14 +1701,12 @@ Recurring payments for loans can only be cancelled by an admin user. An admin `a
 Response: This request returns a message indicating that the recurring payment has been cancelled in the format of a `MessageResponse`, which wraps a message response from an endpoint.
 
 Sample request:
-
 ```
 curl --location --request POST 'http://localhost:7777/payments/cancel-recurring-payment?recurringPaymentId=637de768-97a7-4014-be42-f5d849b0969d' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImRhbi5hbGxlbiIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJjdXN0b21lcklkIjoiM2I0NjI2MmItOGFhMC00NWZjLWE0ZDctM2FhNjI5ZTI5YTUyIiwiZXhwIjoxNjA3MzM4MTE0LCJhdXRob3JpdGllcyI6WyJHVUVTVCIsIkNVU1RPTUVSIl0sImp0aSI6IjQyMWVlMmU1LTlmNTctNDg5MC1iNmExLTAwN2QxMGMyZGZiMyIsImNsaWVudF9pZCI6ImJhbmtfaW5fYV9ib3hfYXBwIn0.ugFUOip-Q2xNxw2V3ZIzhLzTybLXadIGVh7f74rX4FUvoi41ibFKphSRCsW1z4Sm2GjxP1nWZ1gGFw1oRsxlGW07u0idNZMZFe3dsXAXOgUDrgMp8HOFZ9WnB0agWv5BmQ9mEfp_gduZEBsYb9Lsbv89QoXyVXTrI2jNH00X5zVm1omvuRWBer1KhcETJ6r_p7eHYmdVz95yuRXVpjvB1rxnDx5p6VUUHay_9TWcpG57jyzAqyod5docHrHOyh6sYmllb1LeCZ126Zz99xTt64UOVc1mrmb5CdZ2ILn6_duRFN_9W_xfWg14rO22oVopXephQf9HAM0dCgOC7MA1KA'
 ```
 
 Sample response:
-
 ```
 Recurring payment 637de768-97a7-4014-be42-f5d849b0969d cancelled
 ```
@@ -1752,14 +1725,12 @@ Send a `GET` request to the `/recurring-payments/{recurringPaymentId}` endpoint 
 Response: This request returns a data transfer object that stores details of a recurring payment - `RecurringPaymentResponse`.
 
  Sample request:
-
  ```
  curl --location --request GET 'http://localhost:7777/recurring-payments/2cb772ff-8e5f-4c4a-8261-ea7ee1c2ef0e' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzMzOTAxNiwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiZTRmMDMxYzUtOTA0Yi00MjI5LThhNzctNjk0OTBhODAzZGYwIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.IC_sAE8Tv7Z9QnlfmRnL6PSj-dwZl4DKcEwIG2GLf6n3Vfej2skNCm_Q8gMaWKZVMDHmaOGgDHbGz8XXdePnMHjex_EvLc3iEJNN_dsoSBjEgeih3XzLng4vI4oQ4hzA0-Q8tQQ628HJenlsyalIgQJ5cptrsNaOkzdw0HK2LPZCnqkHZuwV8c26sdw6EwGx3yg_1AEJAt9qv90Dw5Qa2LiEMi5eQkjR9MNITvleKPfKdjJYEq84fnStAn2XWOkxcghMZ1FBZg_N38XlpIuIQImFD1XTEt7oTGv4J5jKoQLcFBEZyeOKvS0kkss3ChgutJP6N67LBur2m-7nni2ARw'
  ```
 
  Sample response:
-
  ```
  {
     "accountFrom": "bde1c40a-cf68-4311-b972-56e155497f8b",
@@ -1798,14 +1769,11 @@ Send a `GET` request to the `/recurring-payments` endpoint to invoke the <a href
 Response: This request returns a paginated response containing recurring payments matching the given search criteria - `PaginatedResponse<RecurringPaymentResponse>`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/recurring-payments/?startPage=1&pageSize=10&sortField=amount&sortOrder=ASC&searchTerm=&dateFrom=2020-11-07T07:49:32.882Z&dateTo=2021-12-07T10:49:32.882Z' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzM1ODEyOCwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiNjY5OTViMGMtYzQwZS00YjQ4LTg0YmUtY2Y2MjlkYjE2NzRiIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.UwAoVf2fd7j1HV1q7VTwzEMrjsmjLdkJRD9unYPzhcsFgtnis31158ynzpBT4RwTQLfZjSHC6cOSUlyIN8bstfRVoe4sszT_sqTcHB_QkgiUddnCn3v4GImctZQSwMqqAWswsplDU1CI_rF0dSTIoQWfzB1SlzyNyq9TIMVxn2cQV8We85LZX_-Er__uCydFxYfxFakaY1QchNJrL7rfpeqCHVYNrz8zeoKqb4QizT8oun04h3qgz_J_ENbq-pkvPWG7SKywijQVuPuexTg2cWtkx09J9x0q1uSYsTNEP39Qfnw-pCAJ0nn_eu_0YdeRzHFIiqAh3CZObpjXhf4tWA'
 ```
-
 Sample response:
-
 ```
 {
     "result": [
@@ -1856,12 +1824,13 @@ Sample response:
 }
 ```
 
+
 ### Get recurring payments for a specified account
 
 Send a `GET` request to the `/recurring-payments/account/{accountId}` endpoint to invoke the <a href="./back-end-guide.html#getrecurringpaymentsforaccountpaginatedflow">`GetRecurringPaymentsForAccountPaginatedFlow`</a>. The `GetRecurringPaymentsForAccountPaginatedFlow` returns a list of recurring payments for a specified account that match the given search criteria. This request requires authorization. It can be sent by an admin user.
 
-- Request type: `GET`.
-- Path: `/recurring-payments/account/{accountId}`.
+ - Request type: `GET`.
+ - Path: `/recurring-payments/account/{accountId}`.
 
 {{< table >}}
 | Param        | Description                                               | Type   | Required |
@@ -1878,14 +1847,12 @@ Send a `GET` request to the `/recurring-payments/account/{accountId}` endpoint t
 Response: This request returns a paginated response containing recurring payments for the specified account, matching the given search criteria - `PaginatedResponse<RecurringPaymentResponse>`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/recurring-payments/account/378774a1-d18a-4b00-84f0-3e58b34091fa?startPage=1&pageSize=10&sortField=amount&sortOrder=ASC&searchTerm=&dateFrom=2020-12-07T08:12:54.289Z&dateTo=2021-12-07T11:12:54.289Z' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzM1ODEyOCwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiNjY5OTViMGMtYzQwZS00YjQ4LTg0YmUtY2Y2MjlkYjE2NzRiIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.UwAoVf2fd7j1HV1q7VTwzEMrjsmjLdkJRD9unYPzhcsFgtnis31158ynzpBT4RwTQLfZjSHC6cOSUlyIN8bstfRVoe4sszT_sqTcHB_QkgiUddnCn3v4GImctZQSwMqqAWswsplDU1CI_rF0dSTIoQWfzB1SlzyNyq9TIMVxn2cQV8We85LZX_-Er__uCydFxYfxFakaY1QchNJrL7rfpeqCHVYNrz8zeoKqb4QizT8oun04h3qgz_J_ENbq-pkvPWG7SKywijQVuPuexTg2cWtkx09J9x0q1uSYsTNEP39Qfnw-pCAJ0nn_eu_0YdeRzHFIiqAh3CZObpjXhf4tWA'
 ```
 
 Sample response:
-
 ```
 {
     "result": [
@@ -2010,14 +1977,12 @@ Send a `GET` request to the `/recurring-payments/customer/{customerId}` endpoint
 Response: This request returns a paginated response containing recurring payments for the specified customer ID, matching the given search criteria - `PaginatedResponse<RecurringPaymentResponse>`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/recurring-payments/customer/50480ad7-b70a-4579-931e-0d8730e366e9?startPage=1&pageSize=10&sortField=amount&sortOrder=ASC&searchTerm=&dateFrom=2020-12-07T08:12:54.289Z&dateTo=2021-12-07T11:12:54.289Z' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzM1OTA0OSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiNTFhODY0ODQtMWE2MC00ZGIzLWIwMGMtZDA1ZjNmNWY4ZDZkIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.NtnTN2ojjlRMwCK66B0TnOSXKmy2C98T-C-NJQLL842d86Qt2P4QZl5qgYaZV1U69V-pqY29k9q_ovwWHHWmhm4UP30BAQ_TLg-FOJv4jRpxEaiOTfU7WAJ4gut_BxkoRAyRXVcpuufUndyaTKeLq_AgCBcxfWQsE2xZQlGYONzmSQlecKK0NqD0I3PC9C8EsEpiXCHyIWcQv_yPwJOVy9ha-AoaBiguU_GzYDT9PpuTGZuHFc3xa82xtbNwvRjYzTA8Q3XDtu_l7wpMzlpvpfqB9KYhRxjlbqONgi94fnvt8TN5fI8PhD_bBlvDhsWSsFaTfjjoI6WviAgiD71Ztg'
 ```
 
 Sample response:
-
 ```
 {
     "result": [
@@ -2185,14 +2150,12 @@ Send a `GET` request to the `/transactions` endpoint to invoke the <a href="./ba
 Response: This request returns a paginated response containing transactions matching the given search criteria - `PaginatedResponse<TransactionLogSchemaV1.TransactionLog>`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/transactions?startPage=1&pageSize=10&sortOrder=ASC&searchTerm&dateFrom=2020-12-03T10:43:24.642Z&dateTo=2021-12-04T10:43:24.642Z' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzM0MDE2MywiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiNzU2NDQ4MGYtNGZiMy00ZmZhLTk1NGItYWRmOWU0OTZhZDk5IiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.ZCG4HJTX7x_4VbqRmDSowgCiVMxIhFDprAAgYZ_Cr4TXwTNZF7xEtwoiytQBwcVjed2m0yI_8iLiqgOzHSEmcs2u6yibGgITPcKEQKUS7pKBPCJM-TkcZjQfCi-JB4T4CrqcTt-9kO0YQRQF9u3jNFWR6MSBao987KhJA3RDT5L7j0gfFiqat5WgqEx3pmcNGRjcA6pg99XQJNqovNu2PRxjK1oDbre0LX7ID705J03PLkwDf_BgiinuygCWsuQQGIRB2rSTTa88DzH5znHJbyUJdlpNihCHOxl2DAYf9dW9l1S_a7FvuwW2UBKBT-XfOEm1cdINmbQm_5VlkluywQ'
 ```
 
 Sample response:
-
 ```
 {
     "result": [
@@ -2249,6 +2212,7 @@ Sample response:
 }
 ```
 
+
 ### Get transactions for a specified account
 
 Send a `GET` request to the `/transactions/account/{accountId}` endpoint to invoke the <a href="./back-end-guide.html#gettransactionsforaccountpaginatedflow">`GetTransactionsForAccountPaginatedFlow`</a>. The `GetTransactionsForAccountPaginatedFlow` returns a list of transactions for a specified account ID, matching the given search criteria. This request requires authorization. It can be sent by an admin user.
@@ -2270,15 +2234,14 @@ Send a `GET` request to the `/transactions/account/{accountId}` endpoint to invo
 
 Response: This request returns a paginated response containing transactions for a specified account ID, matching the given search criteria - `PaginatedResponse<TransactionLogSchemaV1.TransactionLog>`.
 
-Sample request:
 
+Sample request:
 ```
 curl --location --request GET 'http://localhost:7777/transactions/account/378774a1-d18a-4b00-84f0-3e58b34091fa?startPage=1&pageSize=10&sortField=amount&sortOrder=ASC&searchTerm=&dateFrom=2020-12-07T08:12:54.289Z&dateTo=2021-12-07T11:12:54.289Z' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzM1OTA0OSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiNTFhODY0ODQtMWE2MC00ZGIzLWIwMGMtZDA1ZjNmNWY4ZDZkIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.NtnTN2ojjlRMwCK66B0TnOSXKmy2C98T-C-NJQLL842d86Qt2P4QZl5qgYaZV1U69V-pqY29k9q_ovwWHHWmhm4UP30BAQ_TLg-FOJv4jRpxEaiOTfU7WAJ4gut_BxkoRAyRXVcpuufUndyaTKeLq_AgCBcxfWQsE2xZQlGYONzmSQlecKK0NqD0I3PC9C8EsEpiXCHyIWcQv_yPwJOVy9ha-AoaBiguU_GzYDT9PpuTGZuHFc3xa82xtbNwvRjYzTA8Q3XDtu_l7wpMzlpvpfqB9KYhRxjlbqONgi94fnvt8TN5fI8PhD_bBlvDhsWSsFaTfjjoI6WviAgiD71Ztg'
 ```
 
 Sample response:
-
 ```
 {
     "result": [
@@ -2402,14 +2365,12 @@ Send a `GET` request to the `/transactions/customer/{customerId}` endpoint to in
 Response: This request returns a paginated response containing transactions for a specified customer ID, matching the given search criteria - `PaginatedResponse<TransactionLogSchemaV1.TransactionLog>`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/transactions/customer/50480ad7-b70a-4579-931e-0d8730e366e9?startPage=1&pageSize=10&sortField=amount&sortOrder=ASC&searchTerm&dateTo=2021-12-07T08:12:54.289Z&dateFrom=2020-12-07T08:12:54.289Z' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzM1OTA0OSwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiNTFhODY0ODQtMWE2MC00ZGIzLWIwMGMtZDA1ZjNmNWY4ZDZkIiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.NtnTN2ojjlRMwCK66B0TnOSXKmy2C98T-C-NJQLL842d86Qt2P4QZl5qgYaZV1U69V-pqY29k9q_ovwWHHWmhm4UP30BAQ_TLg-FOJv4jRpxEaiOTfU7WAJ4gut_BxkoRAyRXVcpuufUndyaTKeLq_AgCBcxfWQsE2xZQlGYONzmSQlecKK0NqD0I3PC9C8EsEpiXCHyIWcQv_yPwJOVy9ha-AoaBiguU_GzYDT9PpuTGZuHFc3xa82xtbNwvRjYzTA8Q3XDtu_l7wpMzlpvpfqB9KYhRxjlbqONgi94fnvt8TN5fI8PhD_bBlvDhsWSsFaTfjjoI6WviAgiD71Ztg'
 ```
 
 Sample response:
-
 ```
 {
     "result": [
@@ -2533,14 +2494,12 @@ Send a `GET` request to the `/transactions/{transactionId}` endpoint to invoke t
 Response: This request returns the transaction information for a specified transaction ID - `TransactionLogSchemaV1.TransactionLog`.
 
 Sample request:
-
 ```
 curl --location --request GET 'http://localhost:7777/transactions/EF29E160CF7B2A528DBD61DA0592E4CD47B36DBF9ED7CD4D6AAF566BBFAF7795' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiVVNFUl9DTElFTlRfUkVTT1VSQ0UiLCJVU0VSX0FETUlOX1JFU09VUkNFIl0sInVzZXJfbmFtZSI6ImFkbWluIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImN1c3RvbWVySWQiOm51bGwsImV4cCI6MTYwNzM0MDE2MywiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiNzU2NDQ4MGYtNGZiMy00ZmZhLTk1NGItYWRmOWU0OTZhZDk5IiwiY2xpZW50X2lkIjoiYmFua19pbl9hX2JveF9hcHAifQ.ZCG4HJTX7x_4VbqRmDSowgCiVMxIhFDprAAgYZ_Cr4TXwTNZF7xEtwoiytQBwcVjed2m0yI_8iLiqgOzHSEmcs2u6yibGgITPcKEQKUS7pKBPCJM-TkcZjQfCi-JB4T4CrqcTt-9kO0YQRQF9u3jNFWR6MSBao987KhJA3RDT5L7j0gfFiqat5WgqEx3pmcNGRjcA6pg99XQJNqovNu2PRxjK1oDbre0LX7ID705J03PLkwDf_BgiinuygCWsuQQGIRB2rSTTa88DzH5znHJbyUJdlpNihCHOxl2DAYf9dW9l1S_a7FvuwW2UBKBT-XfOEm1cdINmbQm_5VlkluywQ'
 ```
 
 Sample response:
-
 ```
 {
     "txId": "EF29E160CF7B2A528DBD61DA0592E4CD47B36DBF9ED7CD4D6AAF566BBFAF7795",
@@ -2552,6 +2511,7 @@ Sample response:
     "txType": "TRANSFER"
 }
 ```
+
 
 ## Errors
 
