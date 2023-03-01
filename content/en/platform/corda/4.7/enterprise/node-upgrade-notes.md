@@ -76,7 +76,7 @@ For a detailed explanation of Corda backup and recovery guarantees, see [Backup 
 
 ## Step 3. Update the database (manual)
 
-The database update can be performed automatically or manually.
+The database update can be performed automatically or manually and must be performed incrementally for each major version. For example, if you are upgrading from version 4.5 to 4.7, you must first apply the database update from 4.5 to 4.6, and then apply the database update from 4.6 to 4.7. The minor version does not matter since there are no database updates contained in minor version releases.
 
 You can perform an automatic database update when:
 
