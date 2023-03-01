@@ -74,13 +74,13 @@ The certificates API has changed:
 * To import a cluster-level certificate, use PUT with `cluster/<usage>` where `usage` is one of the following:
    * 'p2p-tls' — TLS certificate to be used in P2P communication
    * 'p2p-session' — session certificate to be used in P2P communication
-   * 'rpc-api-tls' — TLS certificate to be used in RPC API communication
+   * 'rest-api-tls' — TLS certificate to be used in REST API communication
    * 'code-signer' — certificate of the code signing service
    The unique alias and the certificate should be in the request body.
 * To import a virtual node certificate, use PUT with `vnode/<holdingIdentityId>/<usage>` where `usage` is one of the following:
    * 'p2p-tls' — TLS certificate to be used in P2P communication
    * 'p2p-session' — session certificate to be used in P2P communication
-   * 'rpc-api-tls' — TLS certificate to be used in RPC API communication
+   * 'rest-api-tls' — TLS certificate to be used in REST API communication
    * 'code-signer' — certificate of the code signing service
    The unique alias and the certificate should be in the request body.
 * To list all of the cluster-level certificate aliases, use GET with `cluster/<usage>`.

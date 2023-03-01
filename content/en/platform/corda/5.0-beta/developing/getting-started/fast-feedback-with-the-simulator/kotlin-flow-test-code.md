@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 
-First the test class instantiates `MemberX500Name` for two actors. `MemberX500Name` is the primary way that identities are represented on a Corda [application Network](../../../introduction/key-concepts.html#application-network). `MemberX500Name` has a static method `parse()` that turns the string representation of a members identity into a `MemberX500Name` object.
+First the test class instantiates `MemberX500Name` for two actors. `MemberX500Name` is the primary way that identities are represented on a Corda [application Network](../../../introduction/key-concepts.html#application-networks). `MemberX500Name` has a static method `parse()` that turns the string representation of a members identity into a `MemberX500Name` object.
 1. Set up Alice and Bob identities:
    ```kotlin
    MyFirstFlowTest {
@@ -52,7 +52,7 @@ First the test class instantiates `MemberX500Name` for two actors. `MemberX500Na
    // Create an instance of the MyFirstFlowStartArgs which contains the request arguments for starting the flow
    val myFirstFlowStartArgs = MyFirstFlowStartArgs(bobX500)
    ```
-   If running this flow on Corda itself, you would send the following `requestBody` over HTTP-RPC:
+   If running this flow on Corda itself, you would send the following `requestBody` over REST:
    ```http
     {
        "clientRequestId": "r1",

@@ -92,7 +92,7 @@ Specify a set of name-value pairs giving the Kafka username that will be used fo
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
   connect
 ```
 {{% /tab %}}
@@ -101,7 +101,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
   connect
 ```
 {{% /tab %}}
@@ -110,7 +110,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
   create -r <REPLICAS> -p <PARTITIONS> `
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> `
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> `
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> `
   connect
 ```
 {{% /tab %}}
@@ -176,7 +176,7 @@ Specify a set of name-value pairs giving the Kafka username that will be used fo
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
   connect
 ```
 {{% /tab %}}
@@ -185,7 +185,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
   connect
 ```
 {{% /tab %}}
@@ -194,7 +194,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
   create -r <REPLICAS> -p <PARTITIONS> `
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> `
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> `
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> `
   connect
 ```
 {{% /tab %}}
@@ -382,8 +382,8 @@ To create the schema manually, do the following:
 
     ```sql
     CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
-    GRANT USAGE ON SCHEMA RPC_RBAC to <RBAC-USERNAME>;
-    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RPC_RBAC to <RBAC-USERNAME>;
+    GRANT USAGE ON SCHEMA REST_RBAC to <RBAC-USERNAME>;
+    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA REST_RBAC to <RBAC-USERNAME>;
     CREATE USER <CRYPTO-USERNAME> WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
     GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
     GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
@@ -459,4 +459,4 @@ To create the roles manually, do the following:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-   `<API-ENDPOINT>` should be a URL where the Corda API is accessible, either via a load balancer or by forwarding port 8888 from one of the RPC worker pods.
+   `<API-ENDPOINT>` should be a URL where the Corda API is accessible, either via a load balancer or by forwarding port 8888 from one of the REST worker pods.

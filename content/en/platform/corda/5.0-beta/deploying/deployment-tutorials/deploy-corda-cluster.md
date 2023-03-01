@@ -34,7 +34,7 @@ If not, then the following instructions describe how to push the images from the
    fi
 
    declare -a images=(
-    "corda-os-rpc-worker" "corda-os-flow-worker"
+    "corda-os-rest-worker" "corda-os-flow-worker"
     "corda-os-member-worker" "corda-os-p2p-gateway-worker"
     "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
     "corda-os-crypto-worker" "corda-os-plugins" )
@@ -104,7 +104,7 @@ workers:
     replicaCount: 3
   membership:
     replicaCount: 3
-  rpc:
+  rest:
     replicaCount: 3
   p2pGateway:
     replicaCount: 3
@@ -147,7 +147,7 @@ As with the number of replicas, you may need to adjust these values based on tes
 By default, the [REST API](../../operating/operating-tutorials/rest-api.html) is exposed on an internal Kubernetes service. To enable access from outside the Kubernetes cluster, the API should be fronted by a load balancer. The Helm chart allows annotations to be specified to facilitate the creation of a load balancer by a cloud-platform specific controller. For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html) fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
 ```yaml
 workers:
-  rpc:
+  rest:
     service:
       type: LoadBalancer
       annotations:
@@ -551,16 +551,16 @@ workers:
               name: "kafka-credentials"
               key: "p2pLinkManager"
     replicaCount: 3
-  rpc:
+  rest:
     kafka:
       sasl:
         username:
-          value: "rpc"
+          value: "rest"
         password:
           valueFrom:
             secretKeyRef:
               name: "kafka-credentials"
-              key: "rpc"
+              key: "rest"
     replicaCount: 3
     service:
       type: "LoadBalancer"
