@@ -48,9 +48,8 @@ Follow the upgrade guides to make sure your [node](../../community/node-upgrade-
 2. Run a [sample CorDapp](../../community/tutorial-cordapp.md) to see Corda in action.
 4. [Build your own CorDapp](../../community/building-a-cordapp-index.md) from scratch. /
 
-You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition](../../community.html) documentation. You can also view the [API reference material](api-ref.html), browse [featured apps](../../../../../../en/apps-index.html), or browse [tools and add-ons](../../../../../../en/tools.html).
+You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition](../../community.html) documentation. You can also view the [API reference material](api-ref.html), browse [featured apps](../../../../../../en/apps-index.md), or browse [tools and add-ons](../../../../../../en/tools.html).
 
-en/platform/corda/4.10/community/apps/apps-index.html
 {{< note >}}
 <b>Read Corda white papers</b>
 * The [introductory white paper](https://www.r3.com/white-papers/the-corda-platform-an-introduction-whitepaper/) describes Corda’s mission and philosophy. It’s suitable for a business audience.
