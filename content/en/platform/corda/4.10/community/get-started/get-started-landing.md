@@ -23,7 +23,7 @@ To start using Corda Community Edition if you have never used Corda before:
    * Git
    * Gradle
 
-   For help finding these, use the [setup guide](community/getting-set-up.md).
+   For help finding these, use the [setup guide]({{< relref "../../community/getting-set-up.md" >}}).
 
 2. Clone the CorDapp samples repository. CorDapps are applications that run on a Corda network. Run the appropriate command:
 
@@ -48,7 +48,7 @@ Follow the upgrade guides to make sure your [node](../../community/node-upgrade-
 2. Run a [sample CorDapp](../../community/tutorial-cordapp.md) to see Corda in action.
 4. [Build your own CorDapp](../../community/building-a-cordapp-index.md) from scratch. /
 
-You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition](../../community.html) documentation. You can also view the [API reference material](../../../../../../en/api-ref.html), browse [featured apps](../../../../../../en/apps.html), or browse [tools and add-ons](../../../../../../en/tools.html).
+You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition](../../community.html) documentation. You can also view the [API reference material](api-ref.html), browse [featured apps](../apps/apps-index.md), or browse [tools and add-ons](../../../../../../en/tools.html).
 
 {{< note >}}
 <b>Read Corda white papers</b>
