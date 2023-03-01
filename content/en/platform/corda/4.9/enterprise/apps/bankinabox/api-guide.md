@@ -1315,7 +1315,7 @@ Sample response:
 
 ### Get customer by customer ID
 
-Send a `GET` request to the `/customers/{customerId}` endpoint to invoke the [`GetCustomerByIDFlow`](../../../../../../../en/platform/corda/4.9/enterprise/apps/bankinabox/back-end-guide.md). This flow retrieves the `CustomerSchemaV1.Customer`, which stores personal details and contact information along with creation and modification timestamps, for a given `customerId`. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/customers/{customerId}` endpoint to invoke the [`GetCustomerByIDFlow`](back-end-guide.md). This flow retrieves the `CustomerSchemaV1.Customer`, which stores personal details and contact information along with creation and modification timestamps, for a given `customerId`. This request requires authorization. It can be sent by an admin user.
 
  - Request type: `GET`.
  - Path: `/customers/{customerId}`.
