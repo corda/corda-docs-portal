@@ -12,7 +12,7 @@ section_menu: corda-5-beta
 The `MyFirstFlow` and `MyFirstResponderFlow` flows are basic flows that illustrate the main features of Corda 5 flows.
 Many of the features will be familiar to those Developers who have written Corda 4 CorDapps. However, there are some important differences when using Corda 5:
 * Services are injected on an as-needed basis.
-* Flows are started via RES, rather than a Java client sending Java classes over AMQP.
+* Flows are started via REST, rather than a Java client sending Java classes over AMQP.
 * Initiating and responder flows are linked with a protocol rather than class names.
 * Singletons should be avoided in flow code because there is no guarantee that the same flow worker will continue to execute a flow after it has been check-pointed and restarted.
 
