@@ -266,7 +266,7 @@ First of all AWS CloudHSM requires a UNIX client running on the machine. It will
 For detailed documentation about setting up the client please visit Amazon’s
 [Getting Started with AWS CloudHSM](https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html).
 After the client is installed the shared library should be under the folder `/opt/cloudhsm/lib` so this should be
-used when configuring the `hsmLibraries` property in the config. The `.jar` can be found under `/opt/cloudhsm/java/cloudhsm-<version>.jar`
+used when configuring the `hsmLibraries` property in the config. The JAR can be found under `/opt/cloudhsm/java/cloudhsm-<version>.jar`
 by default.
 
 

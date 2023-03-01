@@ -80,7 +80,7 @@ Additional options:
 * `--base-directory`, `-b`: (Required) The node working directory where all the files are kept. This defaults to the current working directory if not set.
 * `--config-file`, `-f`: The path to the config file. Defaults to `node.conf`.
 * `--mode`: The operating mode. Possible values: NODE, DOORMAN, JPA_NOTARY. Default: NODE.
-* `--doorman-jar-path=<doormanJarPath>`: The path to the doorman (Identity Manager) `.jar` file.
+* `--doorman-jar-path=<doormanJarPath>`: The path to the doorman (Identity Manager) JAR file.
 * `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
 * `--core-schemas`: Output DB-specific DDL to apply the core node schema migrations.
@@ -106,7 +106,7 @@ database-manager execute-migration [-hvV] [--doorman-jar-path=<doormanJarPath>]
 * `--base-directory`, `-b`: (Required) The node working directory where all the files are kept. This defaults to the current working directory if not set.
 * `--config-file`, `-f`: The path to the config file. Defaults to `node.conf`.
 * `--mode`: The operating mode. Possible values: NODE, DOORMAN, JPA_NOTARY. Default: NODE.
-* `--doorman-jar-path=<doormanJarPath>`: The path to the doorman (Identity Manager) `.jar` file.
+* `--doorman-jar-path=<doormanJarPath>`: The path to the doorman (Identity Manager) JAR file.
 * `--verbose`, `--log-to-console`, `-v`: If set, prints logging to the console as well as to a file.
 * `--logging-level=<loggingLevel>`: Enable logging at this level and higher. Possible values: ERROR, WARN, INFO, DEBUG, TRACE. Default: INFO.
 * `--core-schemas`: Run Liquibase migrations for the node core schema.

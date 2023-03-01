@@ -59,14 +59,14 @@ Environment variables:
   * Defaults to "--verbose"
 
 
-### Install using the .jar file
+### Install using the JAR file
 
 1. Add the file `accounts-application.jar` to your CENM working directory.
 2. Configure the Auth service using the command line.  
 
 ### Prepare for configuration
 
-Before you can configure the Auth service, you need to prepare SSL certificates, create signing keys and add your baseline permissions `.jar` file so that new permissions can be added to the Auth service.
+Before you can configure the Auth service, you need to prepare SSL certificates, create signing keys and add your baseline permissions JAR file so that new permissions can be added to the Auth service.
 
 To do this:
 
@@ -75,7 +75,7 @@ To do this:
 2. Generate a `jwt` signing key (RSA keypair) in a jks file with the following command line command:
 `keytool -genkeypair -alias mytest -keyalg RSA -keypass mypass -keystore mytest.jks -storepass mypass`.
 
-3. Ensure you have your A baseline `.jar` file that contains the set of permissions available in the deployment and optionally predefined roles. This is shipped as part of CENM via Artifcatory. For example, the file for CENM 1.3 is called `accounts-baseline-cenm-1.3.0.jar`. You can also copy this into a folder inside the working directory called `plugins` to avoid having to specify it in the config file.
+3. Ensure you have your A baseline JAR file that contains the set of permissions available in the deployment and optionally predefined roles. This is shipped as part of CENM via Artifcatory. For example, the file for CENM 1.3 is called `accounts-baseline-cenm-1.3.0.jar`. You can also copy this into a folder inside the working directory called `plugins` to avoid having to specify it in the config file.
 
 ## Configure the auth service
 

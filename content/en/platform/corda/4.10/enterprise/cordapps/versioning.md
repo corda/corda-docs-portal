@@ -106,16 +106,16 @@ can be disabled.
 
 ## Publishing versions in your JAR manifest files
 
-The `minimumPlatformVersion` and `targetPlatformVersion` are published in your CorDapp's JAR manifest file of its contract `.jar`.
+The `minimumPlatformVersion` and `targetPlatformVersion` are published in your CorDapp's JAR manifest file of its contract JAR.
 
 A well-structured CorDapp should be split into:
 
-* A contracts `.jar` that contains your states and contract logic.
-* A workflows `.jar` that contains your flows, services, and other support libraries.
+* A contracts JAR that contains your states and contract logic.
+* A workflows JAR that contains your flows, services, and other support libraries.
 
-The contract `.jar` defines the data structures and smart contract logic and is attached to each transaction. Nodes on a network then use the contract `.jar` to validate received transactions. Therefore, you need to split your CorDapp across two `.jar`s to avoid sending your flow logic code over the network to third-party peers that don’t need it.
+The contract JAR defines the data structures and smart contract logic and is attached to each transaction. Nodes on a network then use the contract JAR to validate received transactions. Therefore, you need to split your CorDapp across two JARs to avoid sending your flow logic code over the network to third-party peers that don’t need it.
 
-In the `build.gradle` file for your contract `.jar`, add a block like this:
+In the `build.gradle` file for your contract JAR, add a block like this:
 
 ```kotlin
 cordapp {
@@ -133,7 +133,7 @@ cordapp {
 This will add the necessary entries into your JAR manifest file to set both platform version numbers. If they aren’t specified, both default to 1.
 Your CorDapp also has a version number, which should also be an incremental integer.
 
-In the `build.gradle` file for your workflows `.jar`, add a block like this:
+In the `build.gradle` file for your workflows JAR, add a block like this:
 
 ```kotlin
 cordapp {

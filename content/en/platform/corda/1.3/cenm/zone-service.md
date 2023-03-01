@@ -56,8 +56,8 @@ The full list of configuration options follows below:
 - `--tls-truststore`: The path for the TLS truststore. Required if `--tls` is set to `true`.
 - `--tls-truststore-password`: The password for the TLS truststore. Required if `--tls` is set to `true`.
 - `--run-migration`:  Defines whether schema migration is enabled on the database. Defaults to `false` if no value is provided.
-- `--jdbc-driver`:  The path for the `.jar` file containing the JDBC driver for the database.
-- `--driver-class-name`: The name of the JDBC driver class within the `.jar` file specified by `--jdbc-driver`.
+- `--jdbc-driver`:  The path for the JAR file containing the JDBC driver for the database.
+- `--driver-class-name`: The name of the JDBC driver class within the JAR file specified by `--jdbc-driver`.
 - `--url`: The URL for the Zone Service's database.
 - `--user`: The user for the Zone Service's database.
 - `--password`: The password for the Zone Service's database.

@@ -86,13 +86,13 @@ The shell will display in the node’s terminal window. It connects to the node 
 
 ## The standalone shell
 
-The standalone shell is a standalone application interacting with a Corda node via RPC calls. RPC node permissions are necessary for authentication and authorisation. Certain operations, such as starting flows, require access to the CorDapp `.jar` files.
+The standalone shell is a standalone application interacting with a Corda node via RPC calls. RPC node permissions are necessary for authentication and authorisation. Certain operations, such as starting flows, require access to the CorDapp JAR files.
 
 ### Starting the standalone shell
 
 You can access the standalone shell from [software.r3.com](https://software.r3.com).
 
-Run the `corda-standalone-shell` `.jar` using:
+Run the `corda-standalone-shell` JAR using:
 
 ```
  java -jar corda-standalone-shell-4.10.jar [-hvV] [--logging-level=<loggingLevel>] [--password=<password>]
@@ -147,7 +147,7 @@ Where:
 
 You can install the shell in your node in two different ways:
 
-* Download the `corda-shell` `.jar` from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
+* Download the `corda-shell` JAR from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node.
 By default, a Corda node does not run the shell.
 
 * When using `cordaformation`, the shell can be included in the generated nodes by adding the following in the `dependencies` block. The `dependencies` block must be in the same `build.gradle` file as the `deployNodes` task:

@@ -20,7 +20,7 @@ Enterprise artifacts are available. Look for a file called `jmeter-corda-<versio
 
 The performance test suite is shipped as a `.zip` file containing the following files:
 
-* `jmeter-corda-<version>-capsule.jar`: A fat `.jar` file that contains the wrapped JMeter code to drive performance tests as well as all the required dependencies to run the JMeter application. It is referred to as `jmeter-corda.jar` throughout on this and other related pages in the Corda documentation.
+* `jmeter-corda-<version>-capsule.jar`: A fat JAR file that contains the wrapped JMeter code to drive performance tests as well as all the required dependencies to run the JMeter application. It is referred to as `jmeter-corda.jar` throughout on this and other related pages in the Corda documentation.
 * `corda-ptflows-<version>.jar`: A performance test CorDapp used by the built-in samplers and the included sample test plans. If you intend to use these test plans, you should deploy this CorDapp to any node of the system under test. The CorDapp itself is called `com.r3.corda.enterprise.perftestcordapp`.
 * `settlement-perftest-cordapp-<version>.jar`: A performance test CorDapp used by the built-in samplers and the included sample test plans. If you intend to use these test plans, you should deploy this CorDapp to any node of the system under test. For more information, see [introduction](introduction.html#performance-test-cordapp).
 * A number of test plan `.jmx` files. For more information, see [included testplans](jmeter-testplans.html#included-testplans).

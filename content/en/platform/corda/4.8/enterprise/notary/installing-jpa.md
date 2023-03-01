@@ -282,7 +282,7 @@ Additionally, the same user has to have access to the key in PKCS8 format used t
 ### JDBC driver
 
 The PostgresSQL driver should be used when attempting to connect the JPA notary to CockroachDB. The JPA notary
-service has been tested with driver version 42.2.7. This `.jar` file should be placed in the `drivers` folder.
+service has been tested with driver version 42.2.7. This JAR file should be placed in the `drivers` folder.
 
 
 ### Connection string

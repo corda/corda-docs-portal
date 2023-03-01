@@ -47,7 +47,7 @@ helm install cenm-notary notary --set notaryPublicIP=X.X.X.X --set prefix=cenm -
 | `cordaJarMx`                  | Initial value for memory allocation (GB)                 | `3` |
 | `devMode`                     | Flag to run the Notary in development mode               | `false` |
 | `sshdPort`                    | SSH port for Notary                                      | `2222` |
-| `jarPath`                     | Path to a folder which contains Notary `.jar` files      | `bin` |
+| `jarPath`                     | Path to a folder which contains Notary JAR files      | `bin` |
 | `configPath`                  | Path to a folder which contains Notary configuration file | `etc` |
 | `sleepTimeAfterError`         | Sleep time (in seconds) after an error occurred          | `120` |
 | `jksSource`                   | URL where the network-root-truststore.jks is or would be available from | `""` |

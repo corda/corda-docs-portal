@@ -40,7 +40,7 @@ java -jar angel-<VERSION>.jar --zone-host zone.example.org --zone-port 5050 --to
 
 The full list of arguments you can use when starting the Angel Service are described below:
 
-- `--jar-name`: The name of the service `.jar` file. Optional.
+- `--jar-name`: The name of the service JAR file. Optional.
 - `--webservice-host`: The IP address for the Angel Service's web service to bind to. Optional.
 - `--webservice-port`: The port for the Angel Service's web service to run. Optional, but must be specified for the web service to be started.
 - `--zone-host`: The host or IP address of the Zone Service.

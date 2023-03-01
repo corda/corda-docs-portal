@@ -158,7 +158,7 @@ You might have a large piece of data that can be reused for several transactions
 * A table of currency codes.
 
 You can achieve this with *attachments*. Transactions can refer to attachments by the attachment's [hash](https://www.investopedia.com/terms/h/hash.asp). These
-attachments are `.zip` or `.jar` files with content that the node can use when verifying a [smart contract](key-concepts-contracts.md).
+attachments are `.zip` or JAR files with content that the node can use when verifying a [smart contract](key-concepts-contracts.md).
 
 ### Time windows
 

@@ -39,7 +39,7 @@ The key node components and services are:
 
 CorDapps solve specific problems using the Corda framework. CorDapps are stored on Corda nodes and executed on the Corda network. From the perspective of a node operator, CorDapps are the functional element of Corda that define the operations and interactions of a business network.
 
-CorDapps are installed on a node as `.jar` files located in the `cordapps` directory. For information on building and installing CorDapps on a node, see the [Building and installing CorDapps](../cordapps/cordapp-build-systems.md) documentation. For information on writing your own CorDapps, see the [CorDapp documentation](../cordapps/cordapp-overview.md).
+CorDapps are installed on a node as JAR files located in the `cordapps` directory. For information on building and installing CorDapps on a node, see the [Building and installing CorDapps](../cordapps/cordapp-build-systems.md) documentation. For information on writing your own CorDapps, see the [CorDapp documentation](../cordapps/cordapp-overview.md).
 
 ### The node configuration file
 

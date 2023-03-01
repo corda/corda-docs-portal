@@ -12,11 +12,11 @@ title: Contract Whitelist Generation
 
 # Contract Whitelist Generation
 
-When setting or updating the network parameters, the Network Map Service scans the `.jar` files referenced in the
+When setting or updating the network parameters, the Network Map Service scans the JAR files referenced in the
 configuration file (i.e. *cordappsJar* ) for the presence of any contract classes. If such a class is found then it is
 added to the whitelist. It is possible to exclude certain contract classes by adding their package names to the
 *exclude* section of the configuration file. A user can also define the whitelist using the contract classes and
-corresponding `.jar` hashes explicitly. To do so, the `contracts` attribute holding the list of the explicitly specified
+corresponding JAR hashes explicitly. To do so, the `contracts` attribute holding the list of the explicitly specified
 whitelisted contracts needs to be set. Following is an example of the contract whitelist generation specific
 configuration:
 
@@ -45,7 +45,7 @@ whitelistContracts = {
 
 {{< note >}}
 The `exclude` option allows for filtering contracts during the whitelisting process. For example:
-If a `.jar` file consists of multiple contracts but only some of them need to be whitelisted, then the *exclude* list
+If a JAR file consists of multiple contracts but only some of them need to be whitelisted, then the *exclude* list
 should consist of class names only of those contracts that should NOT be included in the whitelist.
 If both `cordappsJars` and `contracts` are set, then the union of both is considered in the network parameters.
 

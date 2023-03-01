@@ -114,10 +114,10 @@ of all Corda Enterprise artifacts and their dependencies).
 {{< /note >}}
 
 {{< warning >}}
-In Corda 4 the original Finance CorDapp was split into two CorDapps: Contracts and Workflows, both of which are signed `.jar` files.
-To ensure there is only one unique hashed version of the Finance Contracts `.jar` file (recall, the hash of a Contract `.jar` file undergoes strict
-security checking upon transaction resolution) we only publish a single instance of the Finance Contracts `.jar` file (from the open source repository).
-Please ensure any CorDapps that depend on Finance Contract `.jar` file reference this open source dependency as follows:
+In Corda 4 the original Finance CorDapp was split into two CorDapps: Contracts and Workflows, both of which are signed JAR files.
+To ensure there is only one unique hashed version of the Finance Contracts JAR file (recall, the hash of a Contract JAR file undergoes strict
+security checking upon transaction resolution) we only publish a single instance of the Finance Contracts JAR file (from the open source repository).
+Please ensure any CorDapps that depend on Finance Contract JAR file reference this open source dependency as follows:
 
 ```shell
 cordapp "$os_corda_release_distribution:corda-finance-contracts:$os_corda_release_version"

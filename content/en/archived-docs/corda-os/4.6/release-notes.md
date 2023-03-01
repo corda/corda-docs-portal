@@ -490,9 +490,9 @@ The "out-of-process" nodes spawned through Driver DSL  will
 no longer accidentally contain your CorDapps on their application classpath. The following items will be filtered out:
 
 * Directories (only files are allowed)
-* .jar files with Maven classifiers `tests` or `test`
-* .jar files with any CorDapp attributes in their manifests (any of those listed in [Building and installing a CorDapp](cordapp-build-systems.md) or `Target-Platform-Version` and `Min-Platform-Version` if both are present)
-* .jar files with the `Corda-Testing` attribute in their manifests. The manifest of the following artifacts has been
+* JAR files with Maven classifiers `tests` or `test`
+* JAR files with any CorDapp attributes in their manifests (any of those listed in [Building and installing a CorDapp](cordapp-build-systems.md) or `Target-Platform-Version` and `Min-Platform-Version` if both are present)
+* JAR files with the `Corda-Testing` attribute in their manifests. The manifest of the following artifacts has been
 updated to include the `Corda-Testing` attribute:
     * `corda-node-driver`
     * `corda-test-utils`
