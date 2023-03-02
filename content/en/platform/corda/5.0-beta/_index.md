@@ -1,6 +1,6 @@
 ---
 date: '2022-11-23'
-description: "Testing meta data"
+description: "Documentation for the latest beta release for Corda 5.0"
 title: Corda 5.0 Beta 1
 project: corda
 version: 'Corda 5.0 Beta 1'
