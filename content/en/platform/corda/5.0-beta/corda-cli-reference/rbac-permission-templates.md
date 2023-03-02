@@ -2,14 +2,14 @@
 date: '2023-01-10'
 menu:
   corda-5-beta:
-    identifier: corda-5-beta-rest-permissions-templates
+    identifier: corda-5-beta-RBAC-permissions-templates
     weight: 6000
     parent: corda-5-cli-reference
 section_menu: corda-5-beta
-title: "REST Permission Templates"
+title: "RBAC Permission Templates"
 ---
 
-By default, when a cluster starts there is a single "admin" account auto-created which can do everything. While this account can be used to perform any action, there is room for error if not used carefully. REST permission templates enable you to create fine-grained roles for specific actions such as:
+By default, when a cluster starts there is a single "admin" account auto-created which can do everything. While this account can be used to perform any action, there is room for error if not used carefully. RBAC permission templates enable you to create fine-grained roles for specific actions such as:
 
 * A dedicated role which can create users, roles, and permissions and drive all the associations between them.
 * A dedicated role with a set of all the necessary permissions to create a virtual node (including CPI upload).

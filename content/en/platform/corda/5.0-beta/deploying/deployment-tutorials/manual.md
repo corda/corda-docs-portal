@@ -242,21 +242,21 @@ To create the schema manually, do the following:
    {{% tab name="Linux" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
-     --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
+     --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC \
      --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="macOS" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
-     --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
+     --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC \
      --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="Windows" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> `
-     --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
+     --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC `
      --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
@@ -277,21 +277,21 @@ To create the schema manually, do the following:
    {{% tab name="Linux" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u rbac-user -p rc9VLHU3 \
-     --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster \
+     --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC \
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="macOS" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u rbac-user -p rc9VLHU3 \
-     --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster \
+     --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC \
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="Windows" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u rbac-user -p rc9VLHU3 `
-     --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster `
+     --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC `
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
@@ -382,8 +382,8 @@ To create the schema manually, do the following:
 
     ```sql
     CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
-    GRANT USAGE ON SCHEMA REST_RBAC to <RBAC-USERNAME>;
-    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA REST_RBAC to <RBAC-USERNAME>;
+    GRANT USAGE ON SCHEMA RBAC to <RBAC-USERNAME>;
+    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RBAC to <RBAC-USERNAME>;
     CREATE USER <CRYPTO-USERNAME> WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
     GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
     GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
