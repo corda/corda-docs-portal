@@ -118,7 +118,7 @@ the Helm chart of the respective service - for example, `helm/bank-in-a-box/valu
 `values-bank.yaml.yml` file, edit the database section of the configuration to change the JDBC URL, user, and password.
 
 The deployed service already contains JDBC drivers for PostgreSQL. For other RDBMS's, you need to extend
-the Docker images for the service by adding the database JDBC driver `.jar` file to the `/opt/corda/drivers/` directory.
+the Docker images for the service by adding the database JDBC driver JAR file to the `/opt/corda/drivers/` directory.
 
 Example settings for connection to a PostgreSQL database follow below:
 
@@ -138,7 +138,7 @@ In this example, `<HOST>` is a placeholder for the host name of the server, `<PO
 Persistent volume creation is configured to occur in the `/tmp` directory by default. If you do not have write access to this directory, persistent volume creation will fail. To resolve this, open the `volume-corda-node.yaml` file (full path: `helm/bank-in-a-box/templates/volume-corda-node.yaml`) and edit the `path` value to a directory where you do have write access.
 
 
-### Build `.jar` files
+### Build JAR files
 
 The following projects must be built to run Bank in a Box:
 
@@ -149,7 +149,7 @@ The following projects must be built to run Bank in a Box:
 - `webservices`
 
 
-To build your `.jar` files from source code, `cd` into the root of [the repository cloned above](#clone-the-bank-in-a-box-repository) and execute the following commands:
+To build your JAR files from source code, `cd` into the root of [the repository cloned above](#clone-the-bank-in-a-box-repository) and execute the following commands:
 
 `./gradlew workflows:jar`
 

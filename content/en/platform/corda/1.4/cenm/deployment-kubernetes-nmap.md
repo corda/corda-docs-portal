@@ -44,7 +44,7 @@ helm install nmap nmap --set shell.password="superDifficultPassword"
 | `dockerImageCli.tag`          | Docker image tag | `1.4.4-zulu-openjdk8u242` |
 | `dockerImageCli.pullPolicy`   | Image pull policy. Ref.: https://kubernetes.io/docs/concepts/containers/images/#updating-images | `Always` |
 | `nmapJar.xmx`                 | Value for java -Xmx memory settings | `1G` |
-| `nmapJar.path`                | The directory where the Network Map Service `.jar` file is stored | `bin` |
+| `nmapJar.path`                | The directory where the Network Map Service JAR file is stored | `bin` |
 | `nmapJar.configPath`          | The directory where the Network Map Service configuration is stored | `etc` |
 | `database.driverClassName`    | Network Map Service database connection details | `org.h2.Driver` |
 | `database.jdbcDriver`         | Network Map Service database connection details | `""`

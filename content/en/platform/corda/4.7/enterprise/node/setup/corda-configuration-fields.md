@@ -317,7 +317,7 @@ Allows fine-grained controls of various features only available in the enterpris
   * Default value: An empty list.
 * `enableURLConnectionCache`
   * Enables URL connection caching. It is set to `false` by default, and it is highly recommended to keep it that way.
-  * When caching is enabled (set to `true`), `.jar` files will be cached, which can cause leaking of file handles. This is caused by the way the `ServiceLoader` handles `.jar` files that are children of the `URLClassLoader`. For more information, see [here](https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8156014).
+  * When caching is enabled (set to `true`), JAR files will be cached, which can cause leaking of file handles. This is caused by the way the `ServiceLoader` handles JAR files that are children of the `URLClassLoader`. For more information, see [here](https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8156014).
     * *Default:* `false`
 
 * `tuning`

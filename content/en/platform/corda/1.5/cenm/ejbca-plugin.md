@@ -428,7 +428,7 @@ From CENM 1.4, each signing task has a new property called `plugin`, which consi
 
 To run the EJBCA plug-in, you need to:
 
-1. Specify its `.jar` path for CSR and CRL signing tasks in the Signing Service configuration (see [Signing Service](../../../../../en/platform/corda/1.5/cenm/signing-service.md) for details).
+1. Specify its JAR path for CSR and CRL signing tasks in the Signing Service configuration (see [Signing Service](../../../../../en/platform/corda/1.5/cenm/signing-service.md) for details).
 2. Run the Signing Service in the standard way:
 
 ```bash

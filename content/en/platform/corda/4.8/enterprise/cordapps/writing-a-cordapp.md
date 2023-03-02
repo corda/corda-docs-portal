@@ -27,7 +27,7 @@ In this document, you will find:
     When one object uses another object's function.
 
 
-CorDapp source code is typically divided into two or more modules. Each module is compiled into a separate `.jar`. Together, these `.jar`s form a single CorDapp.
+CorDapp source code is typically divided into two or more modules. Each module is compiled into a separate JAR. Together, these JARs form a single CorDapp.
 
 CorDapps are usually independent structures which contain all the classes they need to run. However, some CorDapps are designed as libraries for other CorDapps, and cannot be run independently.
 
@@ -73,7 +73,7 @@ The templates are split into two modules:
 * A `cordapp-contracts-states` module containing the contracts and states.
 * A `cordapp` module containing the classes that depends on the `cordapp-contracts-states` module.
 
-These modules will be compiled into two `.jar`s - a `cordapp-contracts-states` `.jar` and a `cordapp` `.jar`. Together, these form the template CorDapp.
+These modules will be compiled into two JARs - a `cordapp-contracts-states` JAR and a `cordapp` JAR. Together, these form the template CorDapp.
 
 
 #### Module one: `cordapp-contracts-states`

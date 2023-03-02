@@ -216,7 +216,7 @@ for constraints explanation refer to [Contract Constraints](api-contract-constra
 By default, the JAR file is signed by Corda development certificate.
 {{< warning >}}
 
-Confidential identities are signed with development keys by default. You will need to self-sign the `.jar` file when you deploy it to production.
+Confidential identities are signed with development keys by default. You will need to self-sign the JAR file when you deploy it to production.
 
 {{< /warning >}}
 The signing process can be disabled or configured to use an external keystore.

@@ -164,7 +164,7 @@ is present the web server will start.
 
 * **extraAdvertisedServiceIds**: 
 A list of ServiceType id strings to be advertised to the NetworkMapService and thus be available
-when other nodes query the NetworkMapCache for supporting nodes. This can also include plugin services loaded from .jar
+when other nodes query the NetworkMapCache for supporting nodes. This can also include plugin services loaded from JAR
 files in the plugins folder. Optionally, a custom advertised service name can be provided by appending it to the service
 type id: `"corda.notary.validating|Notary A"`
 

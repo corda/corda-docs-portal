@@ -114,11 +114,11 @@ of all Corda Enterprise artifacts and their dependencies) from your R3 support c
 
 {{< warning >}}
 
-Version 4 of the finance CorDapp is split into the following two signed `.jar` files:
+Version 4 of the finance CorDapp is split into the following two signed JAR files:
 
  * `corda-finance-contracts.jar`
  * `corda-finance-workflows.jar`
-As there should only be one unique hashed version of `corda-finance-contracts.jar` (the hash of a contract `.jar` file undergoes strict
+As there should only be one unique hashed version of `corda-finance-contracts.jar` (the hash of a contract JAR file undergoes strict
 security checking upon transaction resolution), only a single instance of `corda-finance-contracts.jar` is published, and this is from the open source repository.
 
 Please ensure any CorDapps that depend on `corda-finance-contracts.jar` reference this open source dependency as follows:

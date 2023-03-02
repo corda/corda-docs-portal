@@ -1168,7 +1168,7 @@ Send a `POST` request to the `/customers/upload-attachment` endpoint to upload a
 {{< table >}}
 | Param      | Description                       | Type   | Required |
 | ---------- | --------------------------------- | ------ | -------- |
-| `file`     | `.zip` or `.jar` file attachment. | string | Yes      |
+| `file`     | `.zip` or JAR file attachment. | string | Yes      |
 | `uploader` | Name of the uploader.             | string | Yes      |
 {{< /table >}}
 

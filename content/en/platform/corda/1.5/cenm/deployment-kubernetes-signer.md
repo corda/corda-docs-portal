@@ -62,7 +62,7 @@ The name needs to be a valid X500 name and commas need to be escaped by a backsl
 | `volumeSizeSignerEtc`                        | Volume size for the `etc/` directory | `1Mi` |
 | `volumeSizeSignerLogs`                       | Volume size for the `logs/` directory | `10Gi` |
 | `signerJar.xmx`                              | Value for java -Xmx memory settings | `1G` |
-| `signerJar.path`                             | The directory where the Signing Service `.jar` file is stored | `bin` |
+| `signerJar.path`                             | The directory where the Signing Service JAR file is stored | `bin` |
 | `signerJar.configPath`                       | The directory where the Signing Service configuration is stored | `etc` |
 | `signerJar.configFile`                       | The file name of the Signing Service configuration file  | `signer.conf` |
 | `signers.CSR.schedule.interval`              | The schedule interval for the CSR signing process | `1m` |

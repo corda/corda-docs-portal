@@ -93,7 +93,7 @@ can be disabled.
 | 3.3 | 3 |
 {{< /table >}}
 
-## Publishing versions in your `.jar` manifests
+## Publishing versions in your JAR manifests
 
 A well structured CorDapp should be split into two separate modules:
 

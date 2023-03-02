@@ -241,7 +241,7 @@ keyVaultURL: "https://<key vault name>.vault.azure.net/"
 protection: "SOFTWARE" # HARDWARE can be specified if using a premium vault
 ```
 
-The drivers directory must contain a `.jar` file built by the gradle script below.
+The drivers directory must contain a JAR file built by the gradle script below.
 
 First copy the following text in to a new file called build.gradle anywhere on your file system.
 Please do not change any of your existing build.gradle files.

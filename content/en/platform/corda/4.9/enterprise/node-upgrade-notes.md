@@ -292,7 +292,7 @@ If you used Corda Shell in the previous version, put Corda Shell in the driver d
 
 Install `corda-shell.jar` as a driver within your node.
 
-Download the `corda-shell` `.jar` from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node. By default, a Corda node does not run the shell.
+Download the `corda-shell` JAR from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node. By default, a Corda node does not run the shell.
 
 For more information, see [Node Shell](node/operating/shell.html).
 

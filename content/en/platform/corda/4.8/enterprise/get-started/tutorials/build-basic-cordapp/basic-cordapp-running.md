@@ -48,7 +48,7 @@ You will see:
 
 {{< note >}}
 
-`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node instead, and build your CorDapp `.jar`s.
+`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node instead, and build your CorDapp JARs.
 
 {{< /note >}}
 
