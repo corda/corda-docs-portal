@@ -85,7 +85,7 @@ a.docs-link {
 }
 
 .docs-link.active,
-.page-links a.active{
+.page-links a.active {
   font-weight: 600;
 }
 
@@ -136,24 +136,25 @@ a.docs-link {
         top: 10px;
         margin-left: -1rem;
         content: url("/icons/icon-arrow-down.svg");
+        transform: rotate(-90deg);
         transition: transform 0.35s ease;
       }
 
       &[aria-expanded="true"]::before {
-        transform: rotate(-180deg);
+        transform: rotate(0deg);
       }
 
       &.collapsed::before {
-        transform: rotate(0deg) !important;
+        transform: rotate(-90deg) !important;
       }
     }
 
-    &.active > button,
-    &.active-page > button {
+    &.active>button,
+    &.active-page>button {
       color: $link-color;
 
       &::before {
-        transform: rotate(-180deg);
+        transform: rotate(0deg);
       }
     }
 
@@ -211,9 +212,9 @@ a.docs-link {
     }
   }
 
-  & > ul {
-    & > li {
-      & > button {
+  &>ul {
+    &>li {
+      &>button {
         font-size: $font-size-base;
         font-weight: 600 !important;
         color: $body-color;
