@@ -65,7 +65,7 @@ For a detailed explanation of Corda backup and recovery guarantees, see [Backup 
 
 ## Step 3: Update the database
 
-The database update can be performed automatically or manually.
+The database update can be performed automatically or manually and must be performed incrementally for each major version. For example, if you are upgrading from version 4.7 to 4.9, you must first apply the database update from 4.7 to 4.8, and then apply the database update from 4.8 to 4.9. The minor version does not matter since there are no database updates contained in minor version releases.
 
 You can perform an automatic database update when:
 
@@ -292,7 +292,7 @@ If you used Corda Shell in the previous version, put Corda Shell in the driver d
 
 Install `corda-shell.jar` as a driver within your node.
 
-Download the `corda-shell` `.jar` from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node. By default, a Corda node does not run the shell.
+Download the `corda-shell` JAR from the [Artifactory](https://software.r3.com/ui/native/r3-corda-releases/com/r3/corda/corda-shell/) and install it in a node's `/drivers` directory to run the shell in the same terminal that starts the node. By default, a Corda node does not run the shell.
 
 For more information, see [Node Shell](node/operating/shell.html).
 

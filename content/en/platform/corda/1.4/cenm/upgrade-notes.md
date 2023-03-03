@@ -32,7 +32,7 @@ The general procedure for upgrading from CENM 1.3 to CENM 1.4 is as follows:
 1. Stop all CENM 1.3 services.
 2. To prevent picking up old Signing Service configurations by the Angel Service, remove or rename all configuration files that have to be updated (see the sections below).
 3. Update Signing Service configuration files, as [described below](#manual-update-of-all-existing-signing-service-configurations). Note that there is a change in the way `subZoneID` is set in Signing Service configurations, as [described below](#signing-service-configuration-changes).
-4. Replace the `.jar` files for all services with the latest CENM 1.4 `.jar` files. **ImportantL** In CENM 1.4, the FARM Service has been renamed to "Gateway Service", so the FARM Service `.jar` file used in CENM 1.3 should be replaced with the Gateway Service `.jar` file used in CENM 1.4.
+4. Replace the JAR files for all services with the latest CENM 1.4 JAR files. **Important** In CENM 1.4, the FARM Service has been renamed to "Gateway Service", so the FARM Service JAR file used in CENM 1.3 should be replaced with the Gateway Service JAR file used in CENM 1.4.
 5. Start the Auth Service, the Zone Service, and the Gateway Service. **Important:** The Zone Service requires the `--run-migration` option to be set to `true`, as [described below](#zone-service-database-migration).
 6. Submit the updated configurations to the Zone Service.
 7. Start the Identity Manager Service, the Signing Service, and the Network Map Service.
@@ -195,7 +195,7 @@ commands do, and adapt them to your deployment:
 
 ### Update existing services
 
-At this point you should shut down the previous services and replace their `.jar` files with `<service>-1.3.0.jar`.
+At this point you should shut down the previous services and replace their JAR files with `<service>-1.3.0.jar`.
 Do not start them quite yet, as they should be managed by the Angel Service. Add the `angel-1.3.0.jar` file to
 each managed service deployment (Identity Manager, Network Map, Zone), and configure the service start-up
 to be via the Angel Service. Details on the arguments to the Angel Service are covered in the
@@ -203,7 +203,7 @@ to be via the Angel Service. Details on the arguments to the Angel Service are c
 
 ## 1.2.1 to 1.2.2
 
-The upgrade process for 1.2.1 to 1.2.2 is a drop-in replacement of the existing `.jar` files with ``<service>-1.2.2.jar``.
+The upgrade process for 1.2.1 to 1.2.2 is a drop-in replacement of the existing JAR files with ``<service>-1.2.2.jar``.
 
 ## 1.2 to 1.2.1
 
@@ -214,8 +214,8 @@ The upgrade process for 1.2.1 to 1.2.2 is a drop-in replacement of the existing 
   Ensure the Identity Manager is configured to perform this migration
   by setting ``runMigration`` property to ``true``.
 
-  The upgrade process is otherwise just a drop-in replacement of the existing `.jar` files with ``<service>-1.2.1.jar``.
-  Ensure you stop the service before replacing the `.jar` files.
+  The upgrade process is otherwise just a drop-in replacement of the existing JAR files with ``<service>-1.2.1.jar``.
+  Ensure you stop the service before replacing the JAR files.
   Ensure that there are no orphan processes running after shout down.
 
 ## 1.1 to 1.2.1
@@ -228,8 +228,8 @@ The release includes changes to database schemas (see [Changelog](../../../../..
 upon each service start-up. Ensure the Identity Manager and Network Map are configured to perform this migration
 by setting `runMigration` property to `true`.
 
-The upgrade process is otherwise just a drop-in replacement of the existing `.jar` files with `<service>-1.2.jar`.
-Ensure you stop the services before replacing the `.jar` files.
+The upgrade process is otherwise just a drop-in replacement of the existing JAR files with `<service>-1.2.jar`.
+Ensure you stop the services before replacing the JAR files.
 Network Map and Signing Services may not shut down properly when using shell command `shutdown`, ensure that there are no
 orphan processes running after shut down. This may specifically impact the services using H2 database,
 as an orphan process locks a H2 database file.
@@ -257,10 +257,10 @@ database {
  }
 ```
 
-This step doesn’t relate to Signing Service as it doesn’t use a database. The upgrade process is just a drop-in replacement of the existing `.jar` files with `<service>-1.1.1.jar`.
-Ensure the services are not running before replacing the `.jar` files.
+This step doesn’t relate to Signing Service as it doesn’t use a database. The upgrade process is just a drop-in replacement of the existing JAR files with `<service>-1.1.1.jar`.
+Ensure the services are not running before replacing the JAR files.
 
-### Dynamic loading of HSM `.jar` files
+### Dynamic loading of HSM JAR files
 
 CENM 1.1 supports multiple HSMs, however due to to the proprietary nature of the HSM libraries, the release does
 not work with these HSMs "out of the box". The user must provide the relevant libraries and reference them in the
@@ -275,15 +275,15 @@ Identity Manager (formerly Doorman) and Network Map Services.
 
 ### Identity Manager Service
 
-The Doorman is now known as the Identity Manager Service. To upgrade, replace the Doorman `.jar` file with the Identity
-Manager Service `.jar` file, and run the service, having migrated the configuration file to be CENM 1.0 compliant. The configuration file
+The Doorman is now known as the Identity Manager Service. To upgrade, replace the Doorman JAR file with the Identity
+Manager Service JAR file, and run the service, having migrated the configuration file to be CENM 1.0 compliant. The configuration file
 has been re-worked - as a result, the service is no longer backward-compatible with pre-1.0 configuration files.
 Currently, configuration file migrations must be performed manually. Refer to the Identity Manager Service documentation
 for further guidance.
 
 ### Network Map Service
 
-The Network Map Service upgrade process is similar to that for the Identity Manager Service. Replace the existing Network Map Service `.jar` file
+The Network Map Service upgrade process is similar to that for the Identity Manager Service. Replace the existing Network Map Service JAR file
 with its CENM 1.0 counterpart, and restart the service. The Network Map Service configuration file has also been re-worked.
 Configurations predating CENM 1.0 must be migrated to be compatible with CENM 1.0. Refer to the Network Map Service documentation for further guidance.
 
@@ -297,7 +297,7 @@ signing tasks by referencing the Signing Service documentation.
 ### SQL Server
 
 If you’re currently using Microsoft SQL server then, in previous versions of CENM, this worked out of the
-box because the JDBC driver `.jar` was shipped as part of the CENM distributable. This is no longer the case
+box because the JDBC driver JAR was shipped as part of the CENM distributable. This is no longer the case
 as CENM expands to support more databases it becomes impractical to do this, it also allows upgrading the
 driver version to be done without shipping a new version of CENM.Using the new database configuration section, you should configure you persistence layer as follows:
 
@@ -329,7 +329,7 @@ database {
 
 CENM 1.0 Identity Manager and Network Map Services are not backward-compatible with configuration files for Doorman and Network Map Service versions 0.x.
 Version 0.2.2 and 0.3 / 0.4 configuration files can be migrated to CENM 1.0 using the [configuration migration tool](tool-config-migration.md).
-Using the generated 1.0 configurations, the services can be upgraded by stopping the services, swapping out the `.jar` file and configuration files, and restarting the services.
+Using the generated 1.0 configurations, the services can be upgraded by stopping the services, swapping out the JAR file and configuration files, and restarting the services.
 
 
 ## 0.2.X to 0.3
@@ -346,8 +346,8 @@ Once this has been done the following steps should be followed to upgrade the se
 
 
 * Stop the current service to prevent new information being persisted to the old database.
-* Use the 0.3 utility `.jar` to migrate the data from the old database to the new database.
-* Swap out the old `.jar` for the new 0.3 CENM jar and updated the service configuration to point to the new database.
+* Use the 0.3 utility JAR to migrate the data from the old database to the new database.
+* Swap out the old JAR for the new 0.3 CENM jar and updated the service configuration to point to the new database.
 * Restart the service.
 
 For example for the Doorman service:
@@ -423,7 +423,7 @@ There are two ways to upgrade your old 0.1 network services environment:
 
 ### Without Upgrading Your Configuration
 
-The 0.2.1 Doorman/Network Map Service and Signing Service `.jar` files will work in place of their 0.1 counterparts, but
+The 0.2.1 Doorman/Network Map Service and Signing Service JAR files will work in place of their 0.1 counterparts, but
 require an additional `--config-is-old` command-line flag to be passed upon start-up. This allows you to use you old
 configuration files without any further steps. For example:
 
@@ -436,7 +436,7 @@ java -jar doorman-0.1.jar --config-file doorman-0.1.conf --config-is-old
 
 You can also use the configuration file upgrade tool to create a new configuration file from your old 0.1 file.
 
-The new `.jar` file can then be run with the new configuration file with no extra steps or command-line arguments.
+The new JAR file can then be run with the new configuration file with no extra steps or command-line arguments.
 
 
 ## 0.2(.0) to 0.2.1

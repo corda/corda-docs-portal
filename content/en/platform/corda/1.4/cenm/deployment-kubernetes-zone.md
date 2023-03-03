@@ -46,7 +46,7 @@ helm install cenm-zone auth --set idmanPublicIP=X.X.X.X --set prefix=cenm --set 
 | `volumeSizeZoneH2`            | Volume size for the `h2/` directory | `1Gi` |
 | `volumeSizeZoneLogs`          | Volume size for the `logs/` directory | `5Gi` |
 | `zoneJar.xmx`                 | Value for java -Xmx flag | `1Gi` |
-| `zoneJar.path`                | The directory where the Zone Service `.jar` is stored | `bin` |
+| `zoneJar.path`                | The directory where the Zone Service JAR is stored | `bin` |
 | `zoneJar.configPath`          | The directory where the Zone Service configuration is stored | `etc` |
 | `authService.host`            | Definition of the Auth Service | `auth`
 | `authService.port`            | Definition of the Auth Service | `8081`

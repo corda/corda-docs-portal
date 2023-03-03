@@ -106,7 +106,7 @@ public class StateTests {
 
 ## Write a contract test
 
-In the contract test, you will use a feature called `MockServices` to fake a transaction in order to test the contract code. You must include the contract `.jar` with the `MockServices` you create. This ensures that everything from the contract folder is available for testing. To run the contract test, you must have both the contracts and states created.
+In the contract test, you will use a feature called `MockServices` to fake a transaction in order to test the contract code. You must include the contract JAR with the `MockServices` you create. This ensures that everything from the contract folder is available for testing. To run the contract test, you must have both the contracts and states created.
 
 ### Add `MockServices` and `TestIdentity`
 
@@ -114,7 +114,7 @@ Follow these steps to create the `MockServices` and mock identities to use when 
 
 1. Create a file called `ContractTests`.
 2. Add the `ContractTests` public class.
-3. Add the private function `MockServices` and reference the `com.tutorial.contracts` `.jar` file.
+3. Add the private function `MockServices` and reference the `com.tutorial.contracts` JAR file.
 4. Add two `TestIdentity`s, giving them both X500 names.
 
 After adding the `MockServices` and `TestIdentity`s, your code should look like this:

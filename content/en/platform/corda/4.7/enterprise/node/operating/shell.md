@@ -136,16 +136,16 @@ Windows does not provide a built-in SSH tool. An alternative such as [PuTTY](htt
 
 ## The standalone shell
 
-The standalone shell is a standalone application interacting with a Corda node via RPC calls. RPC node permissions are necessary for authentication and authorisation. Certain operations, such as starting flows, require access to the CorDapp `.jar` files.
+The standalone shell is a standalone application interacting with a Corda node via RPC calls. RPC node permissions are necessary for authentication and authorisation. Certain operations, such as starting flows, require access to the CorDapp JAR files.
 
 
 ### Starting the standalone shell
 
 To run `corda-shell`:
 
-1. Download the shell `.jar` file for your version of Corda from [Artifactory](https://software.r3.com/ui/repos/tree/General/corda-enterprise-for-customers)—for example, `corda-tools-shell-cli-4.7.jar`.
+1. Download the shell JAR file for your version of Corda from [Artifactory](https://software.r3.com/ui/repos/tree/General/corda-enterprise-for-customers)—for example, `corda-tools-shell-cli-4.7.jar`.
 
-2. Add `corda-shell` to your environment variable that points to the `.jar` file.
+2. Add `corda-shell` to your environment variable that points to the JAR file.
 
 3. Run the following command from the terminal:
 

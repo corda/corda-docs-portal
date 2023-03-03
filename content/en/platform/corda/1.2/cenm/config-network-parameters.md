@@ -76,7 +76,7 @@ Parameters update specific configuration (optional).
 Contract whitelist specific configuration (optional).
 
   * **cordappsJars**:
-  List of file paths referencing CorDapp `.jar` files that will be automatically scanned for contract classes to be included in the whitelist.
+  List of file paths referencing CorDapp JAR files that will be automatically scanned for contract classes to be included in the whitelist.
 
   * **exclude**:
 
@@ -90,7 +90,7 @@ Contract whitelist specific configuration (optional).
     Full package class name of the contract to be whitelisted.
 
     * **attachmentIds**:
-    List of `.jar` file hashes (given as strings) containing the contract class.
+    List of JAR file hashes (given as strings) containing the contract class.
 
 
 * **packageOwnership**:

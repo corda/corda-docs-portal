@@ -94,7 +94,7 @@ It is needed as this URL is encoded in certificates issued by the Identity Manag
   {{< /note >}}
 
   * **pluginJar**:
-  *(Optional)* The absolute path to the `.jar` file of the workflow plugin.
+  *(Optional)* The absolute path to the JAR file of the workflow plugin.
 
   * **config**:
   *(Optional)* A free-form map that allows options to be passed to the plugin class.

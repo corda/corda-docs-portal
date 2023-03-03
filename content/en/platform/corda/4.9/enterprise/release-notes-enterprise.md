@@ -5,14 +5,14 @@ date: '2023-02-03'
 menu:
   corda-enterprise-4-9:
     identifier: corda-enterprise-4-9-release-notes
-    parent: about-corda-landing-4-9
+    parent: about-corda-landing-4-9-enterprise
     name: "Release notes"
 tags:
 - release
 - notes
 - enterprise
 
-weight: 300
+weight: 10
 ---
 
 # Corda Enterprise Edition 4.9 release notes

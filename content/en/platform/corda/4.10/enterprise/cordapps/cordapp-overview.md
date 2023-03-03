@@ -24,7 +24,7 @@ In this document, you will find:
 CorDapps are:
 
 * Distributed applications that can be distributed on the Corda Network.
-* A set of `.jar` files containing Java or Kotlin class definitions.
+* A set of JAR files containing Java or Kotlin class definitions.
 * Made up of components that work together to let nodes communicate and agree on updates to the shared ledger.
 
 ## What is a CorDapp?
@@ -57,7 +57,7 @@ A Corda Distributed Application (CorDapp) solves a specific problem using the Co
 
 ## CorDapp components
 
-A CorDapp is a set of `.jar` files containing class definitions written in Java and/or Kotlin. These definitions function as a blueprint or prototype from which objects are created. It represents the set of properties or methods that are common to all objects of one type.
+A CorDapp is a set of JAR files containing class definitions written in Java and/or Kotlin. These definitions function as a blueprint or prototype from which objects are created. It represents the set of properties or methods that are common to all objects of one type.
 
 These class definitions usually include:
 

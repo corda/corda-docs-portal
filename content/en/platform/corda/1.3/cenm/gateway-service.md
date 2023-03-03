@@ -27,7 +27,7 @@ As a gateway service, FARM does not need its own database - so there is no datab
 
 ## Install the gateway FARM service
 
-You can install the FARM service by installing the FARM service `.jar` file:
+You can install the FARM service by installing the FARM service JAR file:
 
 `java -jar farm-application.jar -f config.conf`
 
