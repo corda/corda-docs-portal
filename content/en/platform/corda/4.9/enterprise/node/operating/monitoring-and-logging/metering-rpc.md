@@ -112,7 +112,7 @@ destinations = [ "O=PartyA,L=London,C=GB", "O=PartyB,L=London,C=GB", "O=PartyC,L
 Metering data will be collected for each listed CorDapp. You can list the CorDapps in the following ways:
 
 * By name (the `shortName` of the workflows part of the CorDapp).
-* By `.jar` hash (SHA-256 hash of the `.jar` file representing the workflows part of the CorDapp).
+* By JAR hash (SHA-256 hash of the JAR file representing the workflows part of the CorDapp).
 * By signature hash (SHA-256 hash of the public key used to sign the workflows part of the CorDapp).
 
 These lists are specified by `cordappsByName`, `cordappsByJarHash`, and `cordappsBySignatureHash`.
@@ -269,7 +269,7 @@ period = "P30D"
 
 ## Run the metering client
 
-The metering client is a `.jar` file which is run on the command line.
+The metering client is a JAR file which is run on the command line.
 
 ```bash
 java -jar corda-tools-metering-rpc-client.jar --config "path/to/config.conf"

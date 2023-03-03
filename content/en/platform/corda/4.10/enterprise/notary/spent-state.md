@@ -25,7 +25,7 @@ The spend state audit tool is only compatible with a [high-availability implemen
 
 ## Using the Spent State Audit Tool
 
-The Spent State Audit Tool is distributed with Corda Enterprise as a `.jar` file that must be run from the command line using the following command:
+The Spent State Audit Tool is distributed with Corda Enterprise as a JAR file that must be run from the command line using the following command:
 
 ```
 java -jar corda-tools-notary-utilities-4.10.jar spent-state-audit <options> <state_reference>

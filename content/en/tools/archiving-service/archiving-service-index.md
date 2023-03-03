@@ -112,7 +112,7 @@ Archive Service V1.0.1 does not support **Accounts** or **Confidential Identitie
 
 ## Installation
 
-The Archive Service CorDapp .jar file should be copied to the node's `cordapps` directory. The Ledger Service CorDapp .jar file
+The Archive Service CorDapp JAR file should be copied to the node's `cordapps` directory. The Ledger Service CorDapp JAR file
 must also be copied to the same directory.
 
 ```text

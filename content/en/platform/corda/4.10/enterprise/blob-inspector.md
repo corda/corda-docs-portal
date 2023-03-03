@@ -25,7 +25,7 @@ java -jar corda-tools-blob-inspector-4.10.jar <file or URL>
 
 Use the `--help` flag for a full list of command line options.
 
-The serialization framework can synthesize any classes found in the blob that are not on the classpath. That means you don't need to include the `.jar`s containing the class definitions when inspecting your custom data structures.
+The serialization framework can synthesize any classes found in the blob that are not on the classpath. That means you don't need to include the JARs containing the class definitions when inspecting your custom data structures.
 
 
 ## Supported formats
@@ -96,12 +96,12 @@ This property is materialized into `NodeInfo` and is output under the `deseriali
 
 ## Classpath
 
-If you run the blob inspector without any `.jar` files on the classpath, then it will deserialize objects using the class carpenter, (see [Object serialization](serialization.md)).
+If you run the blob inspector without any JAR files on the classpath, then it will deserialize objects using the class carpenter, (see [Object serialization](serialization.md)).
 This happens because the types are not available, so the serialization framework has to synthesize them.
 
 {{< note >}}
 If the serialized blob contains an `enum`, you will get this exception `java.lang.NoClassDefFoundError: Could not initialize class _YourEnum_`.
-To solve this known issue, add the `.jar` file that contains the `enum` to the classpath of the blob inspector.
+To solve this known issue, add the JAR file that contains the `enum` to the classpath of the blob inspector.
 
 {{< /note >}}
 

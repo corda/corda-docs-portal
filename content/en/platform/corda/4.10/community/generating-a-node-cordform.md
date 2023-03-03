@@ -249,11 +249,11 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 }
 ```
 
-## Sign CorDapp `.jar` files
+## Sign CorDapp JAR files
 
-CorDapp `.jar` files created by the gradle `cordapp` plug-in are signed by a Corda development certificate by default.
+CorDapp JAR files created by the gradle `cordapp` plug-in are signed by a Corda development certificate by default.
 
-You can use the Cordform `signing` entry to override and customise the signing of CorDapp `.jar` files.
+You can use the Cordform `signing` entry to override and customise the signing of CorDapp JAR files.
 Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract Constraints](api-contract-constraints.md).
 
 The signing task may use an external keystore, or create a new one.
@@ -262,7 +262,7 @@ You can use the following parameters in the `signing` entry:
 
 * `enabled` is the control flag to enable the signing process. It is set to `false` by default. Set to `true` to enable signing.
 * `all`, if set to `true` (default), all CorDapps inside the `cordapp` sub-directory will be signed. If set to `false`, only the generated Cordapp will be signed.
-* `options` covers any relevant parameters of [SignJar ANT task](https://ant.apache.org/manual/Tasks/signjar.html) and [GenKey ANT task](https://ant.apache.org/manual/Tasks/genkey.html). By default, the `.jar` file is signed by a Corda development key. You can specify the external keystore can be specified. The minimal list of required options is shown below. For other options, see [SignJar task](https://ant.apache.org/manual/Tasks/signjar.html).
+* `options` covers any relevant parameters of [SignJar ANT task](https://ant.apache.org/manual/Tasks/signjar.html) and [GenKey ANT task](https://ant.apache.org/manual/Tasks/genkey.html). By default, the JAR file is signed by a Corda development key. You can specify the external keystore can be specified. The minimal list of required options is shown below. For other options, see [SignJar task](https://ant.apache.org/manual/Tasks/signjar.html).
   * `keystore` is the path to the keystore file. The default setting is `cordadevcakeys.jks`. The keystore is shipped with the plug-in.
   * `alias` is the alias to sign under. The default value is `cordaintermediateca`.
   * `storepass` is the keystore password. The default value is `cordacadevpass`.
@@ -295,7 +295,7 @@ The example below shows the minimal set of `options` required to create a dummy 
       //...
   ```
 
-Contract classes from signed CorDapp `.jar` files are checked by signature constraints by default.
+Contract classes from signed CorDapp JAR files are checked by signature constraints by default.
 You can force them to be checked by zone constraints by adding contract class names to the `includeWhitelist` entry - the list will generate an `include_whitelist.txt` file used internally by the [Network Bootstrapper](network-bootstrapper.md) tool.
 Before you add `includeWhitelist` to the `deployNodes` task, see [Contract Constraints](api-contract-constraints.md) to understand the implications of using different constraint types.
 The snippet below configures contracts classes from the Finance CorDapp to be verified using zone constraints instead of signature constraints:
