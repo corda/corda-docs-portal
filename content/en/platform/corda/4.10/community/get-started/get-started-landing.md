@@ -23,7 +23,7 @@ To start using Corda Community Edition if you have never used Corda before:
    * Git
    * Gradle
 
-   For help finding these, use the [setup guide]({{< relref "{{< relref "../../community/getting-set-up" >}}) >}}).
+   For help finding these, use the [setup guide]({{< relref "../../community/getting-set-up" >}}).
 
 2. Clone the CorDapp samples repository. CorDapps are applications that run on a Corda network. Run the appropriate command:
 
