@@ -374,7 +374,7 @@ To check if the CorDapp is signed, use the [JAR signing and verification tool](h
 jarsigner --verify path/to/cordapp.jar
 ```
 
-The Cordformation plugin can also sign CorDapp JARs when [deploying a set of nodes](./generating-a-node.md).
+The Cordformation plugin can also sign CorDapp JARs when [deploying a set of nodes]({{< relref "./generating-a-node.md" >}}).
 
 If your build system post-processes the Cordapp JAR, then the modified JAR content may be out of date or missing a signature file. In this case, sign the Cordapp as a separate step and disable automatic signing by the `cordapp` plugin.
 
