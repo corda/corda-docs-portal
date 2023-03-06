@@ -162,7 +162,7 @@ filter applied to the data, and the paging criteria used.
 * A list of entries giving a breakdown of the metering data. Each entry contains a signing entity, a set of commands, a transaction type,
 and a count of events in this page that match this specification.
 
-The output object can also be serialised into `JSON` format by calling `serialize`.
+The output object can also be serialized into `JSON` format by calling `serialize`.
 
 When you run Metering Collection Tool from the shell, the collected metering data is shown as output on the shell terminal, in `JSON` format. The example below shows the output `JSON` on the shell terminal:
 

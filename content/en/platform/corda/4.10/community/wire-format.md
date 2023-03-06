@@ -98,7 +98,7 @@ most of the lost efficiency.
 
 ## Descriptors
 
-Serialised messages use described types extensively. There are two types of descriptor:
+Serialized messages use described types extensively. There are two types of descriptor:
 
 
 * 64 bit code. In Corda, the top 32 bits are always equal to 0x0000c562 which is R3’s IANA assigned enterprise number. The

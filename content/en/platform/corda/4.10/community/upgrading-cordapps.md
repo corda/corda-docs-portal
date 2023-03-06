@@ -53,7 +53,7 @@ This document will consider the following types of versioning:
 * Flow versioning
 * State and contract versioning
 * State and state schema versioning
-* Serialisation of custom types
+* Serialization of custom types
 
 
 ## Flow versioning
@@ -520,7 +520,7 @@ double-spend will occur for all but the first completed upgrade
 * The supplied upgrade flows upgrade one state object at a time
 
 
-## Serialisation
+## Serialization
 
 Currently, the serialisation format for everything except flow checkpoints (which uses a Kryo-based format) is based
 upon AMQP 1.0, a self-describing and controllable serialisation format. AMQP is desirable because it allows us to have

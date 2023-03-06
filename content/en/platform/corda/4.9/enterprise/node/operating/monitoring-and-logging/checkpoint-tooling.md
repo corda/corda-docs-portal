@@ -14,7 +14,7 @@ This page contains information about the checkpoint dumper and the checkpoint ag
 
 Ensure that you understand the mechanics of [flows](../../../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-flows.md) and [Node flow hospital](../../../../../../../../en/platform/corda/4.9/enterprise/node/node-flow-hospital.md).
 
-A checkpoint is a serialised snapshot of the stack frames associated with the flow and any objects reachable from the stack. Checkpoints are saved to the Corda node database automatically whenever a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts, increasing flow durability.
+A checkpoint is a serialized snapshot of the stack frames associated with the flow and any objects reachable from the stack. Checkpoints are saved to the Corda node database automatically whenever a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts, increasing flow durability.
 
 
 ## Use the checkpoint dumper
