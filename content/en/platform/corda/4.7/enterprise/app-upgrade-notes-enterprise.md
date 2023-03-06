@@ -47,13 +47,13 @@ Please read [Corda and Corda Enterprise compatibility](version-compatibility.md)
 Re-compiling your CorDapp requires updating its associated Gradle build file as follows:
 
 ```shell
-ext.corda_release_distribution = 'com.r3.corda'
-ext.corda_core_release_distribution = 'net.corda'
-ext.corda_release_version = '4.7'
-ext.corda_core_release_version = '4.7'
-ext.corda_gradle_plugins_version = '5.0.12'
-ext.kotlin_version = '1.2.71'
-ext.quasar_version = '0.7.13_r3'
+corda_release_distribution = 'com.r3.corda'
+corda_core_release_distribution = 'net.corda'
+corda_release_version = '4.7'
+corda_core_release_version = '4.7'
+corda_gradle_plugins_version = '5.0.12'
+kotlin_version = '1.2.71'
+quasar_version = '0.7.13_r3'
 ```
 
 and specifying an additional repository entry to point to the location of the Corda Enterprise distribution and Corda dependencies. Any
@@ -143,8 +143,8 @@ Corda Enterprise Edition 4.4 or later will have to depend on the open source ver
 Therefore you have to add the following variables to your build configuration:
 
 ```shell
-ext.corda_core_release_distribution = 'net.corda'
-ext.corda_core_release_version = '4.7'
+corda_core_release_distribution = 'net.corda'
+corda_core_release_version = '4.7'
 ```
 
 Any dependency on `corda-core` (or `corda-serialization`) has to use these new variables to depend on the open source version of those
@@ -157,7 +157,7 @@ cordaCompile "$corda_release_distribution:corda-core:$corda_release_version"
 becomes:
 
 ```shell
-cordaCompile "$ext.corda_core_release_distribution:corda-core:$ext.corda_core_release_version"
+cordaCompile "$corda_core_release_distribution:corda-core:$corda_core_release_version"
 ```
 
 
