@@ -248,7 +248,7 @@ JAR, and not different versions of the JAR created from identical sources.
 The filename of the JAR must include a unique identifier to deduplicate it from other releases of the same CorDapp.
 This is typically done by appending the version string to the CorDapp’s name. This unique identifier should not change
 once the JAR has been deployed on a node. If it does, make sure no one is relying on `FlowContext.appName` in their
-flows (see [Versioning]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/versioning.md" >}})).
+flows (see [Versioning]({{< relref "../enterprise/cordapps/versioning.md" >}})).
 
 
 
