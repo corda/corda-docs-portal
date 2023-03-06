@@ -81,7 +81,7 @@ data class Example1 (val a: Int, b: String, c: Int) { // (Version B)
 {{< /tabs >}}
 
 For this to work we have had to add a new constructor that allows nodes with the class at version B to create an
-instance from serialised form of that class from an older version, in this case version A as per our example
+instance from serialized form of that class from an older version, in this case version A as per our example
 above. A sensible default for the missing value is provided for instantiation of the non null property.
 
 {{< note >}}
@@ -245,7 +245,7 @@ them to null.
 Properties (in Kotlin this corresponds to constructor parameters) may be reordered freely. The evolution serializer will create a
 mapping between how a class was serialized and its current constructor parameter order. This is important to our AMQP framework as it
 constructs objects using their primary (or annotated) constructor. The ordering of whose parameters will have determined the way
-an object’s properties were serialised into the byte stream.
+an object’s properties were serialized into the byte stream.
 
 For an illustrative example consider a simple class:
 
@@ -264,13 +264,13 @@ When we serialize `e` its properties will be encoded in order of its primary con
 
 `999,hello`
 
-Were those parameters to be reordered post serialisation then deserializing, without evolution, would fail with a basic
+Were those parameters to be reordered post serialization then deserializing, without evolution, would fail with a basic
 type error as we’d attempt to create the new value of `Example5` with the values provided in the wrong order:
 
 {{< tabs name="tabs-12" >}}
 {{% tab name="kotlin" %}}
 ```kotlin
-// changed post serialisation
+// changed post serialization
 data class Example5 (val b: String, val a: Int)
 ```
 {{% /tab %}}

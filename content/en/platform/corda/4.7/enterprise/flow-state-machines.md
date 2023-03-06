@@ -42,7 +42,7 @@ desire to avoid using up a thread for every flow instantiation.
 implies that the state of the flow must be persisted to disk.
 * Error handling.
 * Message routing.
-* Serialisation.
+* Serialization.
 * Catching type errors, in which the developer gets temporarily confused and expects to receive/send one type of message
 when actually they need to receive/send another.
 * Unit testing of the finished flow.
@@ -63,8 +63,8 @@ construction of them that automatically handles many of the concerns outlined ab
 
 ## Theory
 
-A *continuation* is a suspended stack frame stored in a regular object that can be passed around, serialised,
-unserialised and resumed from where it was suspended. This concept is sometimes referred to as “fibers”. This may
+A *continuation* is a suspended stack frame stored in a regular object that can be passed around, serialized,
+unserialized and resumed from where it was suspended. This concept is sometimes referred to as “fibers”. This may
 sound abstract but don’t worry, the examples below will make it clearer. The JVM does not natively support
 continuations, so we implement them using a library called Quasar which works through behind-the-scenes
 bytecode rewriting. You don’t have to know how this works to benefit from it, however.
@@ -75,7 +75,7 @@ We use continuations for the following reasons:
 * It allows us to write code that is free of callbacks, that looks like ordinary sequential code.
 * A suspended continuation takes far less memory than a suspended thread. It can be as low as a few hundred bytes.
 In contrast a suspended Java thread stack can easily be 1mb in size.
-* It frees the developer from thinking (much) about persistence and serialisation.
+* It frees the developer from thinking (much) about persistence and serialization.
 
 A *state machine* is a piece of code that moves through various *states*. These are not the same as states in the data
 model (that represent facts about the world on the ledger), but rather indicate different stages in the progression
@@ -130,7 +130,7 @@ object TwoPartyTradeFlow {
     }
 
     /**
-     * This object is serialised to the network and is the first flow message the seller sends to the buyer.
+     * This object is serialized to the network and is the first flow message the seller sends to the buyer.
      *
      * @param payToIdentity anonymous identity of the seller, for payment to be sent to.
      */
@@ -208,7 +208,7 @@ us. More on that in a moment.
 
 The `call` function of the buyer/seller classes is marked with the `@Suspendable` annotation. What does this mean?
 
-As mentioned above, our flow framework will at points suspend the code and serialise it to disk. For this to work,
+As mentioned above, our flow framework will at points suspend the code and serialize it to disk. For this to work,
 any methods on the call stack must have been pre-marked as `@Suspendable` so the bytecode rewriter knows to modify
 the underlying code to support this new feature. A flow is suspended when calling either `receive`, `send` or
 `sendAndReceive` which we will learn more about below. For now, just be aware that when one of these methods is
@@ -235,7 +235,7 @@ plugin framework.  See [Object serialization](serialization.md).  You can see ab
 The `StateMachineManager` is the class responsible for taking care of all running flows in a node. It knows
 how to register handlers with the messaging system (see “[Networking and messaging](messaging.md)”) and iterate the right state machine
 when messages arrive. It provides the send/receive/sendAndReceive calls that let the code request network
-interaction and it will save/restore serialised versions of the fiber at the right times.
+interaction and it will save/restore serialized versions of the fiber at the right times.
 
 Flows can be invoked in several ways. For instance, they can be triggered by scheduled events (in which case they need to
 be annotated with `@SchedulableFlow`), see “[Scheduling events](event-scheduling.md)” to learn more about this. They can also be triggered
@@ -332,7 +332,7 @@ the trade info, and then call `otherSideSession.send`. which takes two arguments
 * The party we wish to send the message to
 * The payload being sent
 
-`otherSideSession.send` will serialise the payload and send it to the other party automatically.
+`otherSideSession.send` will serialize the payload and send it to the other party automatically.
 
 Next, we call a *subflow* called `IdentitySyncFlow.Receive` (see [Sub-flows](#subflows)). `IdentitySyncFlow.Receive`
 ensures that our node can de-anonymise any confidential identities in the transaction it’s about to be asked to sign.
@@ -644,14 +644,14 @@ There are a couple of rules you need to bear in mind when writing a class that w
 The first is that anything on the stack when the function is suspended will be stored into the heap and kept alive by
 the garbage collector. So try to avoid keeping enormous data structures alive unless you really have to.  You can
 always use private methods to keep the stack uncluttered with temporary variables, or to avoid objects that
-Kryo is not able to serialise correctly.
+Kryo is not able to serialize correctly.
 
-The second is that as well as being kept on the heap, objects reachable from the stack will be serialised. The state
-of the function call may be resurrected much later! Kryo doesn’t require objects be marked as serialisable, but even so,
+The second is that as well as being kept on the heap, objects reachable from the stack will be serialized. The state
+of the function call may be resurrected much later! Kryo doesn’t require objects be marked as serializable, but even so,
 doing things like creating threads from inside these calls would be a bad idea. They should only contain business
 logic and only do I/O via the methods exposed by the flow framework.
 
-It’s OK to keep references around to many large internal node services though: these will be serialised using a
+It’s OK to keep references around to many large internal node services though: these will be serialized using a
 special token that’s recognised by the platform, and wired up to the right instance when the continuation is
 loaded off disk again.
 
@@ -661,8 +661,8 @@ loaded off disk again.
 If a node has flows still in a suspended state, with flow continuations written to disk, it will not be
 possible to upgrade that node to a new version of Corda or your app, because flows must be completely “drained”
 before an upgrade can be performed, and must reach a finished state for draining to complete (see
-[Draining the node]({{< relref "../enterprise/node-upgrade-notes.md#step-1-drain-the-node" >}}) for details). While there are mechanisms for “evolving” serialised data held
-in the vault, there are no equivalent mechanisms for updating serialised checkpoint data. For this
+[Draining the node]({{< relref "../enterprise/node-upgrade-notes.md#step-1-drain-the-node" >}}) for details). While there are mechanisms for “evolving” serialized data held
+in the vault, there are no equivalent mechanisms for updating serialized checkpoint data. For this
 reason it is not a good idea to design flows with the intention that they should remain in a suspended
 state for a long period of time, as this will obstruct necessary upgrades to Corda itself. Any
 long-running business process should therefore be structured as a series of discrete transactions,

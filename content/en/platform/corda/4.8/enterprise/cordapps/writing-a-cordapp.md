@@ -23,7 +23,7 @@ In this document, you will find:
     A module is a software component or part of a program that contains one or more routines.
 *class*
     A class defines a set of properties and methods that are common to all objects of one type. Classes are written in a defined structure to create a Java or Kotlin object.
-*dependency*  
+*dependency*
     When one object uses another object's function.
 
 
@@ -157,7 +157,7 @@ The `src` directory is structured as follows:
 
 * `resources/META-INF/services`, which contains registries:
 
-    * `net.corda.core.serialization.SerializationWhitelist`, which registers the CorDapp’s serialisation whitelists.
+    * `net.corda.core.serialization.SerializationWhitelist`, which registers the CorDapp’s serialization whitelists.
     * `net.corda.webserver.services.WebServerPluginRegistry`, which registers the CorDapp’s web plugins.
 
 

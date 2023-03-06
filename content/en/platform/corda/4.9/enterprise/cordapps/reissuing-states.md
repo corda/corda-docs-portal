@@ -139,7 +139,7 @@ Depending on whether the original states have been consumed, there are two possi
 
 ##### Use case 1: Unlock the reissued states if the original states have not been consumed
 
-To unlock a reissued state, call the `UnlockReIssuedStates` flow. The contract code for reissuance lock objects verifies if the status of the `ReIssuanceLock` object is updated to `INACTIVE`, and that the reissued states can be unencumbered. To perform the latter check, an asset exit transaction is added as an attachment - it is serialised and transformed into a `Zip` stream with an entry called `SignedTransaction_[transactionId]`.
+To unlock a reissued state, call the `UnlockReIssuedStates` flow. The contract code for reissuance lock objects verifies if the status of the `ReIssuanceLock` object is updated to `INACTIVE`, and that the reissued states can be unencumbered. To perform the latter check, an asset exit transaction is added as an attachment - it is serialized and transformed into a `Zip` stream with an entry called `SignedTransaction_[transactionId]`.
 
 The `UnlockReIssuedStates` flow has the following arguments:
 
