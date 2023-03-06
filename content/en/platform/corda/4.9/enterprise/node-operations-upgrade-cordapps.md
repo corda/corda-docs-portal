@@ -39,7 +39,7 @@ There are two types of contract and state upgrade that you can perform.
 
 
 1. *Implicit* upgrades allow multiple implementations of the contract ahead of time, using constraints. See
-[contract constraints](../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.md) to learn more.
+[contract constraints](cordapps/api-contract-constraints.md) to learn more.
 2. *Explicit* upgrades create a special *contract upgrade transaction* and require all participants of a state to sign it using the
 contract upgrade flows.
 

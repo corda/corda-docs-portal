@@ -38,13 +38,13 @@ To re-compile your CorDapp for Corda Enterprise Edition 4.10, you need to:
 1. Update your Gradle build file as follows.
 
 ```shell
-ext.corda_release_distribution = 'com.r3.corda'
-ext.corda_core_release_distribution = 'net.corda'
-ext.corda_release_version = '4.10'
-ext.corda_core_release_version = '4.10'
-ext.corda_gradle_plugins_version = '5.0.12'
-ext.kotlin_version = '1.2.71'
-ext.quasar_version = '0.7.15_r3'
+corda_release_distribution = 'com.r3.corda'
+corda_core_release_distribution = 'net.corda'
+corda_release_version = '4.10'
+corda_core_release_version = '4.10'
+corda_gradle_plugins_version = '5.0.12'
+kotlin_version = '1.2.71'
+quasar_version = '0.7.15_r3'
 ```
 
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
