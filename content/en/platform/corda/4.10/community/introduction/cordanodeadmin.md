@@ -7,5 +7,5 @@ A _Corda node admin_ is a user who sets up the Corda node on behalf of the organ
 
 ## Key topics
 
-* [Database tables](../node-database-tables.md)
-* [Flow hospital](../node-flow-hospital.md)
+* [Database tables]({{< relref "../node-database-tables" >}})
+* [Flow hospital]({{< relref "../node-flow-hospital" >}})
