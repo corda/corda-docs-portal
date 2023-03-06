@@ -46,7 +46,7 @@ Follow the upgrade guides to make sure your [node]({{< relref "../../community/n
 
 1. Familiarize yourself with the [Corda key concepts]({{< relref "../about-corda/corda-key-concepts" >}}). 
 2. Run a [sample CorDapp]({{< relref "../../community/tutorial-cordapp" >}}) to see Corda in action.
-4. [Build your own CorDapp]({{< relref "../../community/building-a-cordapp-index" >}}) from scratch. /
+4. [Build your own CorDapp]({{< relref "../../community/building-a-cordapp-index" >}}) from scratch.
 
 You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Community Edition](../../community.html) documentation. You can also view the [API reference material](../../../../../../en/api-ref.html), browse [featured apps]({{< relref "../apps/apps-index" >}}), or browse [tools and add-ons](../../../../../../en/tools.html).
 
