@@ -14,11 +14,11 @@ weight: 9
 
 # JSON
 
-Corda provides a module that extends the popular Jackson serialisation engine. Jackson is often used to serialise
+Corda provides a module that extends the popular Jackson serialization engine. Jackson is often used to serialize
 to and from JSON, but also supports other formats such as YaML and XML. Jackson is itself very modular and has
 a variety of plugins that extend its functionality. You can learn more at the [Jackson home page](https://github.com/FasterXML/jackson).
 
-To gain support for JSON serialisation of common Corda data types, include a dependency on `net.corda:jackson:XXX`
+To gain support for JSON serialization of common Corda data types, include a dependency on `net.corda:jackson:XXX`
 in your Gradle or Maven build file, where XXX is of course the Corda version you are targeting (0.9 for M9, for instance).
 Then you can obtain a Jackson `ObjectMapper` instance configured for use using the `JacksonSupport.createNonRpcMapper()`
 method. There are variants of this method for obtaining Jackson’s configured in other ways: if you have an RPC

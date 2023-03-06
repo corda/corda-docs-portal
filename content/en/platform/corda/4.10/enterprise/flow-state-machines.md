@@ -42,7 +42,7 @@ desire to avoid using up a thread for every flow instantiation.
 implies that the state of the flow must be persisted to disk.
 * Error handling.
 * Message routing.
-* Serialisation.
+* Serialization.
 * Catching type errors, in which the developer gets temporarily confused and expects to receive/send one type of message
 when actually they need to receive/send another.
 * Unit testing of the finished flow.

@@ -116,7 +116,7 @@ functionality. Include manually if the utilities are useful or you are writing a
 * `corda-core-deterministic` (*) - Used by the Corda node for deterministic contracts. Not likely to be used externally.
 * `corda-djvm` (*) - Used by the Corda node for deterministic contracts. Not likely to be used externally.
 * `corda-finance-contracts` (*), `corda-finance-workflows` and deprecated `corda-finance`. Corda finance CorDapp, use contracts and flows parts respectively. Only include as a `cordaCompile` dependency if using as a dependent Cordapp or if you need access to the Corda finance types. Use as a `cordapp` dependency if using as a CorDapp dependency (see below).
-* `corda-jackson` - Corda Jackson support. Use if you plan to serialise Corda objects to and/or from JSON.
+* `corda-jackson` - Corda Jackson support. Use if you plan to serialize Corda objects to and/or from JSON.
 * `corda-jfx` - JavaFX utilities with some Corda-specific models and utilities. Only use with JavaFX apps.
 * `corda-mock` - A small library of useful mocks. Use if the classes fit your purpose.
 * `corda-node` - The Corda node. Do not depend on this. Used only by the Corda fat JAR and indirectly in testing
