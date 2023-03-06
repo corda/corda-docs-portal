@@ -36,7 +36,7 @@ Code samples guide you at every step.
 You will need to:
 
 * Know [what a CorDapp is]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/cordapp-overview.md" >}}).
-* Set up your [development environment]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/getting-set-up.md" >}}).
+* Set up your [development environment]({{< relref "../enterprise/cordapps/getting-set-up.md" >}}).
 * Run a [sample CorDapp]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/tutorial-cordapp.md" >}}) to see Corda in action (optional).
 * Install the [CorDapp gradle plugin](https://plugins.gradle.org/plugin/net.corda.plugins.cordapp). To ensure you are using the correct version of Gradle, use the Gradle wrapper provided. Copy across
   the following folder and files from the [Kotlin CorDapp Template](https://github.com/corda/cordapp-template-kotlin) or the [Java CorDapp Template](https://github.com/corda/cordapp-template-java) to your project's root directory:
