@@ -22,16 +22,16 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export RPC_HOST=localhost
-   export RPC_PORT=8888
+   export REST_HOST=localhost
+   export REST_PORT=8888
    export P2P_GATEWAY_HOST=localhost
    export P2P_GATEWAY_PORT=8080
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $RPC_HOST = "localhost"
-   $RPC_PORT = 8888
+   $REST_HOST = "localhost"
+   $REST_PORT = 8888
    $P2P_GATEWAY_HOST = "localhost"
    $P2P_GATEWAY_PORT = 8080
    $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("admin:admin" -f $username,$password)))
@@ -46,12 +46,12 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export API_URL="https://$RPC_HOST:$RPC_PORT/api/v1"
+   export API_URL="https://$REST_HOST:$REST_PORT/api/v1"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $API_URL="https://$RPC_HOST:$RPC_PORT/api/v1"
+   $API_URL="https://$REST_HOST:$REST_PORT/api/v1"
    ```
    }
    {{% /tab %}}

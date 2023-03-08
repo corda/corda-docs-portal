@@ -38,8 +38,8 @@ class Message(val sender: MemberX500Name, val message: String)
 // MyFirstFlow is an initiating flow, it's corresponding responder flow is called MyFirstFlowResponder (defined below)
 // to link the two sides of the flow together they need to have the same protocol.
 @InitiatingFlow(protocol = "my-first-flow")
-// MyFirstFlow should inherit from RPCStartableFlow, which tells Corda it can be started via an RPC call
-class MyFirstFlow: RPCStartableFlow {
+// MyFirstFlow should inherit from ClientStartableFlow, which tells Corda it can be started via a REST call
+class MyFirstFlow: ClientStartableFlow {
 
     // It is useful to be able to log messages from the flows for debugging.
     private companion object {
@@ -69,7 +69,7 @@ class MyFirstFlow: RPCStartableFlow {
     // call() methods must be marked as @Suspendable, this allows Corda to pause mid-execution to wait
     // for a response from the other flows and services
     @Suspendable
-    override fun call(requestBody: RPCRequestData): String {
+    override fun call(requestBody: ClientRequestBody): String {
 
         // Useful logging to follow what's happening in the console or logs
         log.info("MFF: MyFirstFlow.call() called")
@@ -102,8 +102,8 @@ class MyFirstFlow: RPCStartableFlow {
         // Receive a response from the Responder flow
         val response = session.receive(Message::class.java)
 
-        // The return value of a RPCStartableFlow must always be a String, this string will be passed
-        // back as the REST RPC response when the status of the flow is queried on Corda, or as the return
+        // The return value of a ClientStartableFlow must always be a String, this string will be passed
+        // back as the REST response when the status of the flow is queried on Corda, or as the return
         // value from the flow when testing using the Simulator
         return response.message
     }
@@ -159,7 +159,7 @@ class MyFirstFlowResponder: ResponderFlow {
     }
 }
 /*
-RequestBody for triggering the flow via http-rpc:
+RequestBody for triggering the flow via REST:
 {
     "clientRequestId": "r1",
     "flowClassName": "com.r3.developers.csdetemplate.MyFirstFlow",
@@ -180,10 +180,10 @@ There are two helper classes:
    class Message(val sender: MemberX500Name, val message: String)
    ```
 ## Initiating and Responding Flows
-To trigger a flow from HTTP-RPC, the flow must  inherit from `RPCStartableFlow`. Most flows will come in pairs; one initiating flow and a corresponding responder flow. The responder flow must inherit from `ResponderFlow`. The two flows are linked by adding the `@InitiatingFlow` and `@InitiatedBy` annotations which both specify the same protocol in this case "my-first-flow":
+To trigger a flow from REST, the flow must  inherit from `ClientStartableFlow`. Most flows will come in pairs; one initiating flow and a corresponding responder flow. The responder flow must inherit from `ResponderFlow`. The two flows are linked by adding the `@InitiatingFlow` and `@InitiatedBy` annotations which both specify the same protocol in this case "my-first-flow":
 ```kotlin
 @InitiatingFlow(protocol = "my-first-flow")
-class MyFirstFlow: RPCStartableFlow { ... }
+class MyFirstFlow: ClientStartableFlow { ... }
 ```
 ```kotlin
 @InitiatedBy(protocol = "my-first-flow")
@@ -209,7 +209,7 @@ We recommend adding an easily searchable tag to each log message. For example:
 ## call() Method
 As with flows in Corda 4, each flow has a `call()` method. This is the method which Corda invokes when the flow is invoked.
 
-When a flow is started via HTTP-RPC, the `requestBody` from the HTTP request is passed into the `call` method as the  `requestBody` parameter, giving the rest of the call method access to the parameters passed in via HTTP.
+When a flow is started via REST, the `requestBody` from the HTTP request is passed into the `call` method as the  `requestBody` parameter, giving the rest of the call method access to the parameters passed in via HTTP.
 
 When a responder flow is invoked as a result of an initiator flow on another node, the flow session with the initiating node is passed in as the parameter `session`.
 
@@ -218,7 +218,7 @@ The `call()` method in both flows must be marked as `@Suspendable`. This is an i
 In the initiating flow:
 ```kotlin
     @Suspendable
-    override fun call(requestBody: RPCRequestData): String { ... }
+    override fun call(requestBody: ClientRequestBody): String { ... }
 ```
 In the responder flow:
 ```kotlin
@@ -235,7 +235,7 @@ There are other services, such as the `Persistence` and `Serialization` services
 
 Services are declared as properties in the flow class with the `@CordaInject` annotation:
 ```kotlin
-class MyFirstFlow: RPCStartableFlow {
+class MyFirstFlow: ClientStartableFlow {
 
     ...
 
@@ -256,12 +256,12 @@ The services are then available in the call function. For example to initiate a 
 ```kotlin
     val session = flowMessaging.initiateFlow(otherMember)
  ```
-## Obtaining the HTTP-RPC requestBody
+## Obtaining the REST requestBody
 The first thing that the `MyFirstFlow.call()` method does is convert the `requestBody` parameters into a Kotlin class.
 It does this using the `getRequestBodyAs()` method. This takes the `jsonMarshallingService` and the class that the `requestBody` parameters should be parsed into. The `flowArgs` variable has the type `MyFirstFlowStartArgs`, the helper class we declared in [the Helper classes section](#helper-classes) and used in the test.
 ```kotlin
 @Suspendable
-    override fun call(requestBody: RPCRequestData): String {
+    override fun call(requestBody: ClientRequestBody): String {
 
         ...
 
@@ -330,7 +330,7 @@ We can now start sending messages to the responder:
 
         return response.message
    ```
-   The response from the initiating flow is always a string, which can be returned when the flow status is queried by HTTP-RPC.
+   The response from the initiating flow is always a string, which can be returned when the flow status is queried by REST.
 
 ## Other Considerations for FlowSessions
 It is important that the sends and receives in the initiator and responder flows match. If the initiator sends a Foo and the responder expects a Bar, the flow hangs and likely results in a timeout error.

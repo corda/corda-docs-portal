@@ -62,7 +62,7 @@ To disable revocation checks, do the following:
    ```
 ## Configure Virtual Node as Network Participant
 
-If using session certificates, you must also add the `sessionCertificateChainAlias` and `useClusterLevelSessionCertificateAndKey` JSON fields to the network setup RPC request. For example:
+If using session certificates, you must also add the `sessionCertificateChainAlias` and `useClusterLevelSessionCertificateAndKey` JSON fields to the network setup REST request. For example:
 ```shell
 curl -k -u admin:admin -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeyId": "'$SESSION_KEY_ID'", "sessionCertificateChainAlias": "session-certificate", "useClusterLevelSessionCertificateAndKey": false}' $API_URL/network/setup/$HOLDING_ID
 ```
