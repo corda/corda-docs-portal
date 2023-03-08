@@ -2,7 +2,10 @@
 {{ $value := .value }}
 {{ $key := .key }}
 {{ $fullurl := .url }}
-<li><code>{{ $key }}</code> - {{ $value.description}} 
+<li><code>{{ $key }}</code> 
+{{ with $value.description}} 
+    - {{ $value.description}} 
+{{ end }}    
 {{ with $value.enum }}
     This must be set to one of the following values:
     <ul>
