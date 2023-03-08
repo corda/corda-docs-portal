@@ -7,5 +7,5 @@ Business network operators are the day to day managers of the network – the ta
 
 ## Key topics
 
-* [Network map]({{< relref "../network-map" >}})
-* [Network certificates]({{< relref "../permissioning" >}})
+* [Network map]({{< relref "../network-map.md" >}})
+* [Network certificates]({{< relref "../permissioning.md" >}})
