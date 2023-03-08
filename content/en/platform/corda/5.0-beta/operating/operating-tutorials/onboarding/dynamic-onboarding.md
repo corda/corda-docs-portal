@@ -21,16 +21,16 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export RPC_HOST=localhost
-   export RPC_PORT=8888
+   export REST_HOST=localhost
+   export REST_PORT=8888
    export P2P_GATEWAY_HOST=localhost
    export P2P_GATEWAY_PORT=8080
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $RPC_HOST = "localhost"
-   $RPC_PORT = 8888
+   $REST_HOST = "localhost"
+   $REST_PORT = 8888
    $P2P_GATEWAY_HOST = "localhost"
    $P2P_GATEWAY_PORT = 8080
    $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("admin:admin" -f $username,$password)))
@@ -44,12 +44,12 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export API_URL="https://$RPC_HOST:$RPC_PORT/api/v1"
+   export API_URL="https://$REST_HOST:$REST_PORT/api/v1"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $API_URL = "https://$RPC_HOST:$RPC_PORT/api/v1"
+   $API_URL = "https://$REST_HOST:$REST_PORT/api/v1"
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -81,17 +81,17 @@ To retrieve the `GroupPolicy.json` file from the MGM:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export MGM_RPC_HOST=localhost
-   export MGM_RPC_PORT=8888
-   export MGM_API_URL="https://$MGM_RPC_HOST:$MGM_RPC_PORT/api/v1"
+   export MGM_REST_HOST=localhost
+   export MGM_REST_PORT=8888
+   export MGM_API_URL="https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
    export MGM_HOLDING_ID=<MGM Holding ID>
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $MGM_RPC_HOST = "localhost"
-   $MGM_RPC_PORT = "8888"
-   $MGM_API_URL = "https://$MGM_RPC_HOST:$MGM_RPC_PORT/api/v1"
+   $MGM_REST_HOST = "localhost"
+   $MGM_REST_PORT = "8888"
+   $MGM_API_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
    $MGM_HOLDING_ID = <MGM Holding ID>
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_API_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > $WORK_DIR/GroupPolicy.json
    ```

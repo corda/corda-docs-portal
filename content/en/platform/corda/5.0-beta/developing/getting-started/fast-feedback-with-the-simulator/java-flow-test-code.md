@@ -62,7 +62,7 @@ First the test class instantiates `MemberX500Name` for two actors. `MemberX500Na
    // Create an instance of the MyFirstFlowStartArgs which contains the request arguments for starting the flow
    MyFirstFlowStartArgs myFirstFlowStartArgs = new MyFirstFlowStartArgs(bobX500);
    ```
-   If running this flow on Corda itself, you would send the following `requestBody` over HTTP-RPC:
+   If running this flow on Corda itself, you would send the following `requestBody` over REST:
    ```http
     {
        "clientRequestId": "r1",
