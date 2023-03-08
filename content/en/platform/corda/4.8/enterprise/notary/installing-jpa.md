@@ -291,7 +291,7 @@ The properties specifying the location of the client certificates must be passed
 string. It is not possible to pass them in as configuration properties. See below for an example connection string.
 
 {{< note >}}
-The dataSource.url property must specify a _minimum_ of 3 nodes. Each node in the connection string must end with the port number 26257.
+The `dataSource.url` property must specify a _minimum_ of three nodes. Each node in the connection string must end with port number 26257.
 {{</ note >}}
 
 ```javascript
