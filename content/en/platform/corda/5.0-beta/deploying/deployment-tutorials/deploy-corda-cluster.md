@@ -340,6 +340,21 @@ Part of the database bootstrapping involves populating the initial admin credent
             name: <INITIAL_ADMIN_USER_SECRET_NAME>
             key: "password"
   ```
+  
+  * By default, there is a single database user configured in Helm that is used for both the bootstrap process and subsequently at runtime by the crypto and DB workers. It is recommended to have seperate bootstrap and runtime users, which can be done by specifying a bootstrap user as follows:
+
+```yaml
+bootstrap:
+  db:
+    cluster:
+      username:
+        value: <POSTGRESQL_BOOTSTRAP_USER>
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_NAME>
+            key: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_KEY>
+```
 
 #### RBAC
 
@@ -473,6 +488,13 @@ bootstrap:
   db:
     clientImage:
       registry: "registry.example.com"
+    cluster:
+      username:
+        value: "bootstrap-user"
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: "bootstrap-password"
   kafka:
     sasl:
       username:
