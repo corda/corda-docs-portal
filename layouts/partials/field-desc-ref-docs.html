@@ -17,13 +17,13 @@
     </ul>
 {{ end }}
 {{ with $value.minimum }}
-    <br>Minimum value: {{ string ($value.minimum) }}.
+    <br>Minimum value: {{ string ($value.minimum) }}
 {{ end }}
 {{ with $value.maximum }}
-    <br>Maximum value: {{ string ($value.maximum) }}.
+    <br>Maximum value: {{ string ($value.maximum) }}
 {{ end }}
 {{ with $value.default }}
-    <br>Default value: {{ string ($value.default) }}.
+    <br>Default value: {{ string ($value.default) }}
 {{ end }}
 {{ $ref := index $value "$ref"}}
 {{ with $ref }}
