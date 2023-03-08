@@ -29,5 +29,5 @@
 {{ with $ref }}
     {{ $urlpath := strings.TrimSuffix (path.Base $fullurl) $fullurl }}
     {{ $refurl := print $urlpath $ref }}
-    {{ partial "referenced-field-desc-ref-docs" (dict "context" . "url" $refurl) }}
+    {{ partial "referenced-field-desc-ref-docs" (dict "url" $refurl) }}
 {{ end }}

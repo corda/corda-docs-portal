@@ -24,15 +24,15 @@
                         {{ with $ref }}
                             {{ $urlpath := strings.TrimSuffix (path.Base $fullurl) $fullurl }}
                             {{ $refurl := print $urlpath $ref }}
-                            {{ partial "referenced-field-desc-ref-docs" (dict "context" . "url" $refurl) }}
+                            {{ partial "referenced-field-desc-ref-docs" (dict "url" $refurl) }}
                         {{ end }}
                         <ul>
                             {{ range $propertykey, $propertyvalue := $condpropval.properties }}
-                                {{ partial "field-desc-ref-docs" (dict "context" . "value" $propertyvalue "key" $propertykey "url" $fullurl) }}
+                                {{ partial "field-desc-ref-docs" (dict "value" $propertyvalue "key" $propertykey "url" $fullurl) }}
                                 <ul>
                                     {{ range $childk, $childv := $propertyvalue.properties }}
                                         {{ with $childv }}
-                                            {{ partial "field-desc-ref-docs" (dict "context" . "value" $childv "key" $childk) }}
+                                            {{ partial "field-desc-ref-docs" (dict "value" $childv "key" $childk) }}
                                         {{ end }}
                                     {{ end }}
                                 </ul>
