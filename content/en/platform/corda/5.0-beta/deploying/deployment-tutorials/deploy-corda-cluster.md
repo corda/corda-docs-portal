@@ -341,7 +341,7 @@ Part of the database bootstrapping involves populating the initial admin credent
             key: "password"
   ```
 
-* By default, there is a single database user configured that is used for both the bootstrap process and, subsequently at runtime, by the crypto and DB workers. It is recommended to have separate bootstrap and runtime users, which can be done by specifying a bootstrap user as follows:
+* By default, there is a single database user used for both the bootstrap process and, subsequently at runtime, by the crypto and DB workers. R3 recommends configuring separate bootstrap and runtime users, by specifying a bootstrap user as follows:
 
 ```yaml
 bootstrap:
