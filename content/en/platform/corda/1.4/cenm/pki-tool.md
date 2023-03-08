@@ -524,7 +524,7 @@ keyStores = {
     "corda-ssl-auth-keys" = {
          type = LOCAL
          file = "./key-stores/ssl-auth-key-store.jks"
-         password = "password"
+         password = "key-password"
     }
     "corda-ssl-gateway-keys" = {
          type = LOCAL
@@ -720,7 +720,7 @@ certificates = {
             type = LOCAL
             includeIn = ["corda-ssl-network-map-keys"]
             algorithm = "ECDSA_SECP256R1_SHA256"
-            password = "password"
+            password = "key-password"
         }
         isSelfSigned = false
         signedBy = "cordasslrootca"
