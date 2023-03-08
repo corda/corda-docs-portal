@@ -133,7 +133,7 @@ These tests stress components in a single node, without any dependencies on othe
 
 #### Empty Flow
 
-The `EmptyFlow` test is part of the `perftest-cordapp` CorDapp. As its name suggests, this flow is empty and does not have any effect of its own - its purpose is to provide a timing for the overhead involved in starting a flow, such as RPC handling, deserialisation of the request, starting/winding down a flow, and sending the response. Note that a flow that requires inputs via RPC might have a larger overhead as these might need to be deserialised.
+The `EmptyFlow` test is part of the `perftest-cordapp` CorDapp. As its name suggests, this flow is empty and does not have any effect of its own - its purpose is to provide a timing for the overhead involved in starting a flow, such as RPC handling, deserialization of the request, starting/winding down a flow, and sending the response. Note that a flow that requires inputs via RPC might have a larger overhead as these might need to be deserialized.
 
 
 #### Issuance

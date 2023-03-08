@@ -727,7 +727,7 @@ goes wrong that needs a manual intervention to resolve (for example, a configura
 than the server supports, `UnsupportedOperationException` is thrown. Otherwise, the behaviour depends
 on the `devMode` node configuration option.
 
-If the server implementation throws an exception, that exception is serialised and re-thrown on the client
+If the server implementation throws an exception, that exception is serialized and re-thrown on the client
 side as if it were thrown from inside the called RPC method. These exceptions can be caught as normal.
 
 ## Configuring wire security

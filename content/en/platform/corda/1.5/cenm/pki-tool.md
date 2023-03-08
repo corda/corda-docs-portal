@@ -20,7 +20,7 @@ title: Public Key Infrastructure (PKI) Tool
 
 ## Overview
 
-As described in the [Certificate Hierarchy Guide](../../../../../en/platform/corda/1.5/cenm/pki-guide.md), a certificate hierarchy with certain properties is required to run a Corda
+As described in the [Certificate Hierarchy Guide](pki-guide.md), a certificate hierarchy with certain properties is required to run a Corda
 network. Specifically, the certificate hierarchy should include the two main CENM entities - the Identity Manager and
 the Network Map - and ensure that all entities map back to one common root of trust. The key pairs and certificates for
 these entities are used within the Signing Service to sign related network data such as approved CSRs, CRRs, Network Map
@@ -43,7 +43,7 @@ separate HSM to only existing as offline shards distributed across different geo
 
 The PKI Tool is a CENM provided utility that can be used to generate a Corda compliant hierarchy.
 
-For more information about X.500 Name constraints, see the `Node naming` section in the [Corda documentation](../../../../../en/platform/corda/4.8/enterprise/node/deploy/generating-a-node.md).
+For more information about X.500 Name constraints, see the `Node naming` section in the [Corda documentation](../../../../../en/platform/corda/4.10/enterprise/node/deploy/generating-a-node.md).
 
 ## Features
 
@@ -119,7 +119,7 @@ are used by the tool for storing generated certificates.
 hierarchy.
 
 {{< note >}}
-The full list of the configuration parameters can be found in [Public Key Infrastructure (PKI) Tool Configuration Parameters](../../../../../en/platform/corda/1.5/cenm/config-pki-tool-parameters.md).
+The full list of the configuration parameters can be found in [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md).
 
 {{< /note >}}
 
@@ -127,7 +127,7 @@ The full list of the configuration parameters can be found in [Public Key Infras
 
 This configuration block defines all key stores that should be used by the PKI Tool. Each key store can be either local
 (backed by a Java key store file) or HSM (backed by a LAN HSM device). For HSM key stores, the available options and
-authentication methods will depend on the HSM being used. See [Public Key Infrastructure (PKI) Tool Configuration Parameters](../../../../../en/platform/corda/1.5/cenm/config-pki-tool-parameters.md) for more details.
+authentication methods will depend on the HSM being used. See [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) for more details.
 
 A mixture of key store types is allowed. That is, it is possible to generate some key pairs within a HSM device and
 others locally. Note that mixing key store types is not supported for a given entity.
@@ -151,7 +151,7 @@ map from the user-defined alias to certificate configuration. The alias serves t
 reference the given entity throughout the rest of the PKI Tool config. Secondly, it also defines the alias for the
 generated (or existing) certificate entry in the corresponding certificate store. The certificate configuration defines
 the entity specific properties of both the X509 certificate and associated key pair. See
-[Public Key Infrastructure (PKI) Tool Configuration Parameters](../../../../../en/platform/corda/1.5/cenm/config-pki-tool-parameters.md) for more information.
+[Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) for more information.
 
 If the desire is to use the resultant certificate hierarchy in a Corda network, this configuration block must define a
 set of certificates that meet some basic requirements. In addition to the hierarchy having to be under a single trust
@@ -285,7 +285,7 @@ certificates = {
 ##### Free-form Certificates
 
 As an alternative to using the templates, each key pair and certificate can defined using the standard configuration
-options. See the [Public Key Infrastructure (PKI) Tool Configuration Parameters](../../../../../en/platform/corda/1.5/cenm/config-pki-tool-parameters.md) documentation for all possible parameters, and see below for examples
+options. See the [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) documentation for all possible parameters, and see below for examples
 that use this approach. Note that the templates only support local key stores - using a HSM requires the certificate
 hierarchy to be defined without templates.
 
@@ -297,7 +297,7 @@ explicitly defines all necessary CRL file configurations or all CRL distribution
 generated without the `Certificate Revocation List Distribution Point` extension and will therefore be incompatible
 with any network using strict revocation checking.
 
-As outlined in the [Public Key Infrastructure (PKI) Tool Configuration Parameters](../../../../../en/platform/corda/1.5/cenm/config-pki-tool-parameters.md) doc, this extension is defined using the following logic:
+As outlined in the [Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) doc, this extension is defined using the following logic:
 
 
 * If the certificate configuration has the `crlDistributionUrl` parameter set then use this.
@@ -347,7 +347,7 @@ subordinate’s CRL file must be hosted, and available, on this endpoint.
 
 {{< note >}}
 Existing revocations can be added to the CRL file via the `crl.revocations` parameter. See
-[Public Key Infrastructure (PKI) Tool Configuration Parameters](../../../../../en/platform/corda/1.5/cenm/config-pki-tool-parameters.md) for more information.
+[Public Key Infrastructure (PKI) Tool Configuration Parameters](config-pki-tool-parameters.md) for more information.
 
 {{< /note >}}
 For a given certificate, the exact crlDistributionPoint extension can be defined explicitly (rather than inheriting from
@@ -374,7 +374,7 @@ certificates {
 
 As previously mentioned, it is up to the network operator to ensure that any configured CRL endpoints are available.
 The Identity Manager supports hosting of these CRL files (see the the “CRL Configuration” section of the
-[Identity Manager Service](../../../../../en/platform/corda/1.5/cenm/identity-manager.md) doc).
+[Identity Manager Service](identity-manager.md) doc).
 
 
 ##### HSM Libraries
@@ -411,10 +411,10 @@ See the example configurations below to see these configuration blocks being use
 
 ###### Azure Key Vault
 
-To keep inline with the other HSMs, the Azure Key Vault client `.jar` needs to provided as above. Unlike the other HSMs,
+To keep inline with the other HSMs, the Azure Key Vault client JAR needs to provided as above. Unlike the other HSMs,
 there are many dependent libraries. The top-level dependencies are `azure-keyvault` and `adal4j`, however these both
 have transitive dependencies that need to be included. That is, either all jars need to be provided separately (via a
-comma-separated list) or an uber `.jar` needs to be provided.
+comma-separated list) or an uber JAR needs to be provided.
 
 The gradle script below will build an uber jar. First copy the following text in to a new file called build.gradle
 anywhere on your file system. Please do not change any of your existing build.gradle files.
@@ -453,12 +453,12 @@ or if gradle is not on the path but gradlew is in the current directory then run
 ./gradlew shadowJar
 ```
 
-This will create a `.jar` called `azure-keyvault-with-deps.jar` which can be referenced in the config.
+This will create a JAR called `azure-keyvault-with-deps.jar` which can be referenced in the config.
 
 
 ##### Generating SSL Keys
 
-As outlined in the [Configuring the CENM services to use SSL](../../../../../en/platform/corda/1.5/cenm/enm-with-ssl.md) doc, all inter-service CENM communication can be configured to encrypt their
+As outlined in the [Configuring the CENM services to use SSL](enm-with-ssl.md) doc, all inter-service CENM communication can be configured to encrypt their
 messages via SSL. This feature requires the operator to provide a set of SSL key pairs and certificates to each service,
 which can be generated using the PKI tool.
 
@@ -485,7 +485,7 @@ certificates = {
 {{< note >}}
 HSM keys used by the Signing Service require an accompanying certificate store that contains all certificates in
 the chain, from the signing entity back to the root. This is because the full chains cannot be stored within the
-HSMs. Refer to the [Signing Service](../../../../../en/platform/corda/1.5/cenm/signing-service.md) documentation for more information.
+HSMs. Refer to the [Signing Service](signing-service.md) documentation for more information.
 
 {{< /note >}}
 
@@ -526,7 +526,7 @@ keyStores = {
     "corda-ssl-auth-keys" = {
          type = LOCAL
          file = "./key-stores/ssl-auth-key-store.jks"
-         password = "password"
+         password = "key-password"
     }
     "corda-ssl-gateway-keys" = {
          type = LOCAL
@@ -722,7 +722,7 @@ certificates = {
             type = LOCAL
             includeIn = ["corda-ssl-network-map-keys"]
             algorithm = "ECDSA_SECP256R1_SHA256"
-            password = "password"
+            password = "key-password"
         }
         isSelfSigned = false
         signedBy = "cordasslrootca"

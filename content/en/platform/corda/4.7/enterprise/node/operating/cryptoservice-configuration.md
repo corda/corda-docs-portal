@@ -163,7 +163,7 @@ keyStore: "tokenlabel:my-partition"
 password: "my-password"
 ```
 
-Note that the Gemalto’s JCA provider (version 7.3) has to be installed as described in the documentation for the Gemalto Luna.
+In addition to the configuration, the Gemalto’s JCA provider (version 7.3) LunaProvider.jar needs to be placed in the node’s *drivers* folder if the node's keys are being stored on HSM.
 
 ## Futurex
 

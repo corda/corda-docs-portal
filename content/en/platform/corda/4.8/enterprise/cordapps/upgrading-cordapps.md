@@ -50,7 +50,7 @@ This document will consider the following types of versioning:
 * Flow versioning
 * State and contract versioning
 * State and state schema versioning
-* Serialisation of custom types
+* Serialization of custom types
 
 
 ## Flow versioning
@@ -293,26 +293,26 @@ this type include utility flows for querying the vault and flows for reaching ou
 * Start the node
 
 If you shut down all nodes and upgrade them all at the same time, any incompatible change can be made.
-                                                                                                                    
-                                                                                                                   
-            
 
-                                                                                                                      
+
+
+
+
 
 In situations where some nodes may still be using previous versions of a flow and thus new versions of your flow may talk to old versions, the updated flows need to be backwards-compatible. This will be the case for almost any real deployment in which you cannot easily coordinate the roll-out of new code across the network.
 
-                                                                                                                   
-
-                                                                                                                     
-
-                                                                                                                  
 
 
-                                                                                                                                                   
+
+
+
+
+
+
 
 ### Draining the node
 
-A flow *checkpoint* is a serialised snapshot of the flow’s stack frames and any objects reachable from the stack. Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts. Automatic checkpointing is an unusual feature of Corda and significantly helps developers write reliable code that can survive node restarts and crashes. It also assists with scaling up, as flows that are waiting for a response can be flushed from memory.
+A flow *checkpoint* is a serialized snapshot of the flow’s stack frames and any objects reachable from the stack. Checkpoints are saved to the database automatically when a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts. Automatic checkpointing is an unusual feature of Corda and significantly helps developers write reliable code that can survive node restarts and crashes. It also assists with scaling up, as flows that are waiting for a response can be flushed from memory.
 
 However, this means that restoring an old checkpoint to a new version of a flow may cause resume failures. For example if you remove a local variable from a method that previously had one, then the flow engine won’t be able to figure out where to put the stored value of the variable.
 
@@ -529,15 +529,15 @@ side-by-side
 * The supplied upgrade flows upgrade one state object at a time
 
 
-## Serialisation
+## Serialization
 
-Currently, the serialisation format for everything except flow checkpoints (which uses a Kryo-based format) is based
-upon AMQP 1.0, a self-describing and controllable serialisation format. AMQP is desirable because it allows us to have
+Currently, the serialization format for everything except flow checkpoints (which uses a Kryo-based format) is based
+upon AMQP 1.0, a self-describing and controllable serialization format. AMQP is desirable because it allows us to have
 a schema describing what has been serialized alongside the data itself. This assists with versioning and deserialising
 long-ago archived data, among other things.
 
 
-### Writing classes that meet the serialisation format requirements                                                                   
+### Writing classes that meet the serialisation format requirements
 
 Although not strictly related to versioning, AMQP serialisation dictates that we must write our classes in a particular way:
 

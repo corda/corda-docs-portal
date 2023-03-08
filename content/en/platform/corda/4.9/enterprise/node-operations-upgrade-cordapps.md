@@ -29,7 +29,7 @@ Before you upgrade a CorDapp on a node, you need to determine if any backwards-c
 changes have been made, such as  database changes or changes in the protocol.
 
 If any backwards-incompatible changes have been made (see [what constitutes a non-backwards compatible flow change?](../../../../../en/platform/corda/4.9/enterprise/cordapps/upgrading-cordapps.html#what-constitutes-a-non-backwards-compatible-flow-change)
-for more information), you need to follow the upgrade method detailed below. Otherwise, the CorDapp `.jar` can just
+for more information), you need to follow the upgrade method detailed below. Otherwise, the CorDapp JAR can just
 be replaced with the new version.
 
 
@@ -39,7 +39,7 @@ There are two types of contract and state upgrade that you can perform.
 
 
 1. *Implicit* upgrades allow multiple implementations of the contract ahead of time, using constraints. See
-[contract constraints](../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.md) to learn more.
+[contract constraints](cordapps/api-contract-constraints.md) to learn more.
 2. *Explicit* upgrades create a special *contract upgrade transaction* and require all participants of a state to sign it using the
 contract upgrade flows.
 
@@ -57,7 +57,7 @@ agree to the proposed upgrade. The following combinations of upgrades are possib
 ## Perform the upgrade
 
 If a contract or state requires an explicit upgrade, update all states to the new contract at a time all the participants agree on.
-by all participants. The updated CorDapp `.jar` needs to be distributed to all relevant parties in advance of the changeover
+by all participants. The updated CorDapp JAR needs to be distributed to all relevant parties in advance of the changeover
 time.
 
 To perform the upgrade:
@@ -80,7 +80,7 @@ To perform the upgrade:
 
 3. Stop the node when all flows are complete.
 
-4. Replace the existing `.jar` with the new version.
+4. Replace the existing JAR with the new version.
 
 5. Make required database changes to any custom vault tables for the upgraded CorDapp by following the database upgrade steps in [deploying CorDapps on a node](../../../../../en/platform/corda/4.9/enterprise/node/operating/node-operations-cordapp-deployment.md). Database changes required for a CorDapp upgrade follow the same steps as those to set up a database for a new CorDapp.
 

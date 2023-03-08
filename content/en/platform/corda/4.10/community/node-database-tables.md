@@ -176,7 +176,7 @@ Read more in [the ledger](key-concepts-ledger.md)
 
 ### Attachments
 
-Read more in [Working with attachments](../../../../tutorials/corda/4.10/community/supplementary-tutorials/tutorial-attachments.md) and [Node services](node-services.md)
+Read more in [Working with attachments](../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-attachments.md) and [Node services](node-services.md)
 
 {{< figure alt="attachments tables" width=80% zoom="/en/images/attachments_tables.png" >}}
 

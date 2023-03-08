@@ -1168,7 +1168,7 @@ Send a `POST` request to the `/customers/upload-attachment` endpoint to upload a
 {{< table >}}
 | Param      | Description                       | Type   | Required |
 | ---------- | --------------------------------- | ------ | -------- |
-| `file`     | `.zip` or `.jar` file attachment. | string | Yes      |
+| `file`     | `.zip` or JAR file attachment. | string | Yes      |
 | `uploader` | Name of the uploader.             | string | Yes      |
 {{< /table >}}
 
@@ -1315,7 +1315,7 @@ Sample response:
 
 ### Get customer by customer ID
 
-Send a `GET` request to the `/customers/{customerId}` endpoint to invoke the <a href="../../../en/apps/bankinabox/back-end-guide.html#getcustomerbyidflow">`GetCustomerByIdFlow`</a>. This flow retrieves the `CustomerSchemaV1.Customer`, which stores personal details and contact information along with creation and modification timestamps, for a given `customerId`. This request requires authorization. It can be sent by an admin user.
+Send a `GET` request to the `/customers/{customerId}` endpoint to invoke the [GetCustomerByIDFlow](back-end-guide.html#getcustomerbyidflow). This flow retrieves the `CustomerSchemaV1.Customer`, which stores personal details and contact information along with creation and modification timestamps, for a given `customerId`. This request requires authorization. It can be sent by an admin user.
 
  - Request type: `GET`.
  - Path: `/customers/{customerId}`.

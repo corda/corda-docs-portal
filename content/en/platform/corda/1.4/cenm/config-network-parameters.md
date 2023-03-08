@@ -91,7 +91,7 @@ Specific configuration for contracts whitelist (optional).
 
 
   * **cordappsJars**:
-  The list of file paths referencing CorDapp `.jar` files that will be automatically scanned for contract classes to be included in the whitelist.
+  The list of file paths referencing CorDapp JAR files that will be automatically scanned for contract classes to be included in the whitelist.
 
 
   * **exclude**:
@@ -106,7 +106,7 @@ Specific configuration for contracts whitelist (optional).
     The full package class name of the contract to be whitelisted.
 
     * **attachmentIds**:
-    List of `.jar` file hashes (given as strings) containing the contract class.
+    List of JAR file hashes (given as strings) containing the contract class.
 
 * **packageOwnership**:
 List of the network-wide Java packages that have been claimed by their owners along with the owners' public keys. Optionally, the list should consist of entries with the following parameters:

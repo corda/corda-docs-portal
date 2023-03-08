@@ -18,7 +18,7 @@ In the context of Corda, the Corda Accounts Library allows a Corda node to parti
 
 Accounts are created by host nodes, which are just regular Corda nodes. Hosts can create accounts for a range of purposes, such as customer accounts, balance sheets or P&L accounts, employee accounts, and so on.
 
-The Corda Accounts Library takes the form of a `.jar` file, which can be dropped into the CorDapps directory. It is optional to use - some nodes will support accounts but others will not. This functionality is intentional, as not all nodes will need to support accounts and the optional nature of accounts reduces the learning curve for new CorDapp developers.
+The Corda Accounts Library takes the form of a JAR file, which can be dropped into the CorDapps directory. It is optional to use - some nodes will support accounts but others will not. This functionality is intentional, as not all nodes will need to support accounts and the optional nature of accounts reduces the learning curve for new CorDapp developers.
 
 You can access the Corda Accounts Library from the [public repository](https://github.com/corda/accounts).
 

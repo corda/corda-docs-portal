@@ -407,7 +407,7 @@ The deployment process provides built-in support for Azure Key Vault in order to
 
 Create an Azure Key Vault following the instructions in the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-cli). Then, perform these steps:
 
-1. Modify the HSM pod configuration to contain the required library `.jar` files.
+1. Modify the HSM pod configuration to contain the required library JAR files.
 2. Modify PKI `values.yaml` configuration file.
 3. Modify Signing Service `values.yaml` configuration file.
 4. Start the deployment as normal. The deployment may take more time than usual this way, due to the communication with the key vault.
@@ -417,8 +417,8 @@ Create an Azure Key Vault following the instructions in the [Microsoft documenta
 The HSM pod is a helper pod, which loads a defined Docker image and attempts to load the folder containing the HSM-related
 files as a volume for the other pods to use. Follow the steps below:
 
-1. <a href="signing-service.html#azure-key-vault">Create the library `.jar`</a>
-2. Create a Docker image containing the `.jar` file and the `.pkcs12` file used as the key store path.
+1. <a href="signing-service.html#azure-key-vault">Create the library JAR</a>
+2. Create a Docker image containing the JAR file and the `.pkcs12` file used as the key store path.
 
 The Docker image and the directory where these files are stored must be specified in the relevant variables in the HSM `values.yaml` file.
 Note that you may need to add permissions to your cluster to download the Docker image successfully.
@@ -509,7 +509,7 @@ In the `values.yml` file, edit the database section of the configuration to chan
 
 The deployed service already contains JDBC drivers for PostgreSQL and SQLServer.
 For an Oracle database, you need to extend the Docker images for the service by adding
-the Oracle JDBC driver `.jar` file to the `/opt/${USER}/drivers/` directory.
+the Oracle JDBC driver JAR file to the `/opt/${USER}/drivers/` directory.
 
 {{< note >}}
 The bootstrap script cannot be used with an external database.

@@ -14,7 +14,7 @@ weight: 4
 # Wire format
 
 This document describes the Corda wire format. With the following information and an implementation of the AMQP/1.0
-specification, you can read Corda serialised binary messages. An example implementation of AMQP/1.0 would be Apache
+specification, you can read Corda serialized binary messages. An example implementation of AMQP/1.0 would be Apache
 Qpid Proton, or Microsoft AMQP.NET Lite.
 
 
@@ -25,7 +25,7 @@ That means you can’t directly feed a Corda message into an AMQP library. You m
 then skip it. This is deliberate, to enable other message formats in future.
 
 The first version byte is set to 1 and indicates the major version of the format. It should always be set to 1,
-if it isn’t that means a backwards incompatible serialisation format has been developed and you should therefore abort.
+if it isn’t that means a backwards incompatible serialization format has been developed and you should therefore abort.
 The second byte is a minor version, you should be able to tolerate this incrementing as long as your code is robust
 to unknown data (e.g. new schema elements). The third byte is an encoding byte. This is used to indicate new features
 like compression are active. You should abort if this isn’t zero.
@@ -58,7 +58,7 @@ classes, records, structs etc.
 You can also define in a *restricted type*, which can be used to define a new type that is a specialisation or subset of
 an existing one. For enumerations the choices can be listed in the schema.
 
-Due to this design you can think of a serialised message as being interpretable at several levels of detail.
+Due to this design you can think of a serialized message as being interpretable at several levels of detail.
 You can parse it just using the basic AMQP type system, which will give you nested lists and maps containing a few basic
 types. This is similar to what JSON would give you. Or you can utilise the descriptors and map those containers to higher
 level, more strongly typed structures.
@@ -79,7 +79,7 @@ AMQP’s type system can solve this, however, out of the box there are two probl
 
 We’d rather not embed XML inside a binary format designed to be digitally signed, so we have defined a straightforward
 mapping from this schema notation to AMQP encoding itself. This makes our AMQP messages self describing, by embedding a
-schema for each application or platform level type that is serialised. The schema provides information like field names,
+schema for each application or platform level type that is serialized. The schema provides information like field names,
 annotations and type variables for generic types. The schema can of course be ignored in many interop cases: it’s there
 to enable version evolution of persisted data structures over time.
 
@@ -93,7 +93,7 @@ most of the lost efficiency.
 
 ## Descriptors
 
-Serialised messages use described types extensively. There are two types of descriptor:
+Serialized messages use described types extensively. There are two types of descriptor:
 
 
 * 64 bit code. In Corda, the top 32 bits are always equal to 0x0000c562 which is R3’s IANA assigned enterprise number. The
@@ -102,7 +102,7 @@ low bits define various elements in our meta-schema (i.e. the way we describe th
 a base64 encoded *fingerprint* of the underlying schema that was generated from the original class. They are
 encoded using the AMQP symbol type.
 
-The fingerprint can be used to determine if the serialised message maps precisely to a holder type (class) you already
+The fingerprint can be used to determine if the serialized message maps precisely to a holder type (class) you already
 have in your environment. If you don’t recognise the fingerprint, you may need to examine the schema data to figure out
 a reasonable approximate mapping to a type you do have … or you can give up and throw a parse error.
 
@@ -191,7 +191,7 @@ part of the class file that actually matters for type information are the parame
 are stored to the wire.
 
 Source code does not have a deterministic field ordering. Developers may re-arrange fields in their classes as they refactor
-their code, which in a conventional serialisation scheme would break the wire format. Thus when mapping classes to AMQP schemas,
+their code, which in a conventional serialization scheme would break the wire format. Thus when mapping classes to AMQP schemas,
 we alphabetically sort the fields. If a new field is added, it may thus appear in the middle of the composite type list rather than
 at the end.
 
@@ -242,9 +242,9 @@ The list type will be defined as a restricted type, like so:
 
 ## Signed data
 
-A common pattern in Corda is that an outer wrapper serialised message contains signatures and certificates for an inner
-serialised message. The inner message is represented as ‘binary’, thus it requires two passes to deserialise such a
-message fully. This is intended as a form of security firebreak, because it means you can avoid processing any serialised
+A common pattern in Corda is that an outer wrapper serialized message contains signatures and certificates for an inner
+serialized message. The inner message is represented as ‘binary’, thus it requires two passes to deserialize such a
+message fully. This is intended as a form of security firebreak, because it means you can avoid processing any serialized
 data until the signatures have been checked and provenance established. It also helps ensure everyone calculates a
 signature over the same binary data without roundtripping issues appearing.
 

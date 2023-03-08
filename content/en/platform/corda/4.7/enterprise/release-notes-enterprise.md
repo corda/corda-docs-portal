@@ -4,13 +4,13 @@ date: '2020-04-07T12:00:00Z'
 menu:
   corda-enterprise-4-7:
     identifier: corda-enterprise-4-7-release-notes
-    parent: about-corda-landing-4-7
+    parent: about-corda-landing-4-7-enterprise
     name: "Release notes"
 tags:
 - release
 - notes
 - enterprise
-weight: 300
+weight: 10
 ---
 
 
@@ -168,7 +168,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 * A security issue has been fixed that affects notary systems that use the JPA notary implementation in an HA configuration, and when the notary backing database has been set up using the Corda database management tool. The new version of the Corda database management tool must be re-run for the fix to take effect.
 * We have fixed several issues that caused memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page](../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration) for details.
 * We have fixed an issue where the HA utilities tool does not write the correct log file.
-* We have fixed an issue that prevented the HA utilities tool loading third-party HSM `.jar` files from the `drivers` directory when the `generate-internal-tunnel-ssl-keystores` command is run.
+* We have fixed an issue that prevented the HA utilities tool loading third-party HSM JAR files from the `drivers` directory when the `generate-internal-tunnel-ssl-keystores` command is run.
 * The `startFlowWithClientId` now uses the same permissioning as the `startFlow` method.
 * Corda Enterprise Edition 4.7.1 now supports version 3.2.1 of the AWS CloudHSM client library.
 * We have fixed an issue that could cause flow execution to hang.
@@ -270,7 +270,7 @@ For more information about platform versions, see [Versioning](../../../../../en
 * We have fixed a [Collaborative recovery](../../../../../en/platform/corda/4.7/enterprise/node/collaborative-recovery/introduction-cr.md) issue where, when using Accounts, [LedgerSync](../../../../../en/platform/corda/4.7/enterprise/node/collaborative-recovery/ledger-sync.md) returned no differences if the party that initiated the transaction wanted to recover against the receiving party.
 * We have fixed an issue where the flow metadata finish time was set in a different time zone than the flow metadata start time.
 * We have fixed an issue where, in case of hot/cold node failover, ongoing flows would sometimes get stuck on a new hot node and/or counterparty nodes while waiting to receive messages from the counterparty.
-* We have fixed an issue where the Corda 4.6 RPC Client could not execute the method `NodeFlowStatusRpcOps::getFlowStatus` against a Corda 4.7 node due to failing to deserialise some enums when querying the node states.
+* We have fixed an issue where the Corda 4.6 RPC Client could not execute the method `NodeFlowStatusRpcOps::getFlowStatus` against a Corda 4.7 node due to failing to deserialize some enums when querying the node states.
 * We have fixed an issue with JPA notaries where, if there were 10 or more input states, the `StateRef` was correctly encoded as `<hash>:a` but then was incorrectly decoded due to an expected integer input.
 * We have fixed an issue where Float handled two connection attempts from the same Bridge at the same time, creating a binding exception as a result.
 

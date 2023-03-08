@@ -308,7 +308,7 @@ See the [CENM deployment](../../../../../en/platform/corda/1.4/cenm/aws-deployme
 #### Other changes
 * We have added support for PostgreSQL 10.10 and 11.5 (JDBC 42.2.8), as noted in [CENM Databases](../../../../../en/platform/corda/1.4/cenm/database-set-up.html#supported-databases) and [CENM support matrix](../../../../../en/platform/corda/1.4/cenm/cenm-support-matrix.html#cenm-databases).
 * A `non-ca-plugin.jar` has been added to `signing-service-plugins` in Artifactory.
-* We have renamed the FARM Service, introduced in CENM 1.3, to [Gateway Service](../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md). As a result, if you are [upgrading](../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md) from CENM 1.3 to CENM 1.4, the FARM Service `.jar` file used in CENM 1.3 should be replaced with the Gateway Service `.jar` file used in CENM 1.4.
+* We have renamed the FARM Service, introduced in CENM 1.3, to [Gateway Service](../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md). As a result, if you are [upgrading](../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md) from CENM 1.3 to CENM 1.4, the FARM Service JAR file used in CENM 1.3 should be replaced with the Gateway Service JAR file used in CENM 1.4.
 * In CENM 1.4 we have changed the way `subZoneID` is set in Signing Service configurations - see the [CENM upgrade guide](../../../../../en/platform/corda/1.4/cenm/upgrade-notes.html#change-in-setting-subzoneid-in-signing-service-configurations) for more details.
 
 ### Fixed issues

@@ -59,8 +59,8 @@ If no configuration file is deployed, metering data will not be shared with any 
 Based on the example configuration above:
 * Nodes `PartyA` and `PartyB` collect [aggregated metering data](#aggregatedmeteringcollectionflow) from the node. This means that only the total number of signing events, which have happened within the specified time period, are shared.
 * Node `PartyB` node collects detailed metering data related to all installed CorDapps called *Corda Finance Demo* (the name must be an exact match).
-* Node `PartyC` collects detailed metering data related to CorDapps with a `.jar` hash either `FC0150EFAB3BBD715BDAA7F67B4C4DB5E133D919B6860A3D3B4C6C7D3EFE25D5` or `44489E8918D7D8F7A3227FE56EC34BFDDF15BD413FF92F23E72DD5D543BD6194`.
-* Node `PartyD` collects detailed metering data related to all CorDapps that have had their `.jar` files signed with the key `AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B`.
+* Node `PartyC` collects detailed metering data related to CorDapps with a JAR hash either `FC0150EFAB3BBD715BDAA7F67B4C4DB5E133D919B6860A3D3B4C6C7D3EFE25D5` or `44489E8918D7D8F7A3227FE56EC34BFDDF15BD413FF92F23E72DD5D543BD6194`.
+* Node `PartyD` collects detailed metering data related to all CorDapps that have had their JAR files signed with the key `AA59D829F2CA8FDDF5ABEA40D815F937E3E54E572B65B93B5C216AE6594E7D6B`.
 
 To create the configuration file correctly, use the <a href="#retrievecordappdataflow">`RetrieveCordappDataFlow`</a> flow to get detailed information about the CorDapps deployed on your node.
 
@@ -70,11 +70,11 @@ It is very important that you create the configuration file correctly. To do so,
 
 * Use the <a href="#retrievecordappdataflow">`RetrieveCordappDataFlow`</a> flow to get detailed information about the CorDapps deployed on your node.
 * Ensure you configure the correct values for the configuration file static keys (`access_configuration`, `network_collectors`, `by_hash`, and so on). Any errors, like a typo, will mean your configuration is ignored and the default applied. As a result, no metering data will be shared.
-* Ensure that every `.jar` hash, `.jar` signature, and CorDapp name in the configuration matches at least one of the deployed CorDapps. This means that you must not whitelist a CorDapp that does not exist. This step is essential in order to pass the configuration validation step that runs at node start-up, which checks that the X.500 names used in the configuration file are valid. If the configuration validation step fails for any reason, the node will fail to start.
+* Ensure that every JAR hash, JAR signature, and CorDapp name in the configuration matches at least one of the deployed CorDapps. This means that you must not whitelist a CorDapp that does not exist. This step is essential in order to pass the configuration validation step that runs at node start-up, which checks that the X.500 names used in the configuration file are valid. If the configuration validation step fails for any reason, the node will fail to start.
 
 ## Install the metering collection tool
 
-The metering collection tool is distributed as part of Corda Enterprise Edition 4.10 under the name `corda-tools-metering-collector-4.10.jar`. You must place this `.jar` file in the `cordapps` directory of the node.
+The metering collection tool is distributed as part of Corda Enterprise Edition 4.10 under the name `corda-tools-metering-collector-4.10.jar`. You must place this JAR file in the `cordapps` directory of the node.
 
 ## Use the metering collection flows
 
@@ -804,8 +804,8 @@ This parameter requires an object created by the `filterBy` parameter that speci
 |-----------------------|-----------------------------------------------------------|------------------------------------------------|-------------------------------------------------------------|
 |NONE|Returns data for all CorDapps|All data for a node|None|
 |CORDAPP_NAMES|Returns data for CorDapps matching the specified names|Data for all versions of a CorDapp|List of names, as specified in the CorDapp build information|
-|CORDAPP_HASHES|Returns data for any CorDapp in the list with a `.jar` hash|Data for particular CorDapp versions|List of SHA256 hashes of CorDapp `.jar` files|
-|SIGNING_KEYS|Returns data for all CorDapps in the list signed with any key|Data for particular Cordapp owner(s)|List of SHA256 hashes of public keys used to sign `.jar` files|
+|CORDAPP_HASHES|Returns data for any CorDapp in the list with a JAR hash|Data for particular CorDapp versions|List of SHA256 hashes of CorDapp JAR files|
+|SIGNING_KEYS|Returns data for all CorDapps in the list signed with any key|Data for particular Cordapp owner(s)|List of SHA256 hashes of public keys used to sign JAR files|
 
 {{< /table >}}
 
@@ -853,8 +853,8 @@ All classes listed below belong to the `com.r3.corda.metering.filter` package.
 | ```Filter.ByTimeStamp.Since``` | Matches only the meterings with a later timestamp than the one provided |
 | ```Filter.ByTimeStamp.Until``` | Matches only the meterings with an earlier timestamp than the one provided |
 | ```Filter.ByCorDapp.ByName``` | Matches only the meterings related to signing events generated by a CorDapp with a name that contains the provided string |
-| ```Filter.ByCorDapp.ByJarHash``` | Matches only the meterings related to signing events generated by a CorDapp with a `.jar` hash that matches the one provided |
-| ```Filter.ByCorDapp.ByJarSignature``` | Matches only the meterings related to signing events generated by a CorDapp with a `.jar` file that was signed with the provided public key |
+| ```Filter.ByCorDapp.ByJarHash``` | Matches only the meterings related to signing events generated by a CorDapp with a JAR hash that matches the one provided |
+| ```Filter.ByCorDapp.ByJarSignature``` | Matches only the meterings related to signing events generated by a CorDapp with a JAR file that was signed with the provided public key |
 | ```Filter.ByCorDapp.ByTransactionType``` | Matches only the meterings related to transactions of the specified transaction type (helpers are available to specify ledger-updating transactions and non-ledger-updating transactions) |
 
 {{< /table >}}
