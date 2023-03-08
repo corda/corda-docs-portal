@@ -288,12 +288,14 @@ service has been tested with driver version 42.2.7. This JAR file should be plac
 ### Connection string
 
 The properties specifying the location of the client certificates must be passed in via the JDBC connection
-string. It will not be possible to pass them in as configuration properties. See below for an example connection
-string.
+string. It will not be possible to pass them in as configuration properties. See below for an example connection string.
 
+{{< note >}}
+You must have a minimum of 3 nodes. Each node in the connection string should have the 26257 port number at the end of it.
+{{</ note >}}
 
 ```javascript
-dataSource.url="jdbc:postgresql://{list of CockroachDB node IP addresses}:26257/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8"
+dataSource.url="jdbc:postgresql://{CockroachDB node1 IP address}:26257,{CockroachDB node2 IP address}:26257,{CockroachDB node3 IP address}:26257/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8"
 ```
 
 Refer to the section [Configuring the notary worker nodes](installing-the-notary-service.md) for more details on configuring the JPA notary.
