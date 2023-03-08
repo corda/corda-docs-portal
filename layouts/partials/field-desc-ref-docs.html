@@ -1,0 +1,30 @@
+
+{{ $value := .value }}
+{{ $key := .key }}
+{{ $fullurl := .url }}
+<li><code>{{ $key }}</code> - {{ $value.description}} 
+{{ with $value.enum }}
+    This must be set to one of the following values:
+    <ul>
+    {{ range $enumval := $value.enum }}
+        <li>
+        {{ $enumval }}
+        </li>
+    {{ end }}
+    </ul>
+{{ end }}
+{{ with $value.minimum }}
+    <br>Minimum value: {{ string ($value.minimum) }}.
+{{ end }}
+{{ with $value.maximum }}
+    <br>Maximum value: {{ string ($value.maximum) }}.
+{{ end }}
+{{ with $value.default }}
+    <br>Default value: {{ string ($value.default) }}.
+{{ end }}
+{{ $ref := index $value "$ref"}}
+{{ with $ref }}
+    {{ $urlpath := strings.TrimSuffix (path.Base $fullurl) $fullurl }}
+    {{ $refurl := print $urlpath $ref }}
+    {{ partial "referenced-field-desc-ref-docs" (dict "context" . "url" $refurl) }}
+{{ end }}

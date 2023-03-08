@@ -1,0 +1,48 @@
+
+{{ $value := .value }}
+{{ $key := .key }}
+{{ $fullurl := .url}}
+    {{ range $allofkey, $allofval := $value.allOf }}
+        {{ range $ifkey, $ifval := $allofval }}
+            {{ if eq $ifkey "if" }}
+                {{ range $ifcondkey, $ifcondval := $ifval }}
+                    {{ if eq $ifcondkey "properties" }}
+                        {{ range $condpropkey, $condpropval := $ifcondval }}
+                            <br>  If <code>{{ $condpropkey }}</code> is set to <code>{{ index $condpropval "const" }}</code>,
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+            {{ if eq $ifkey "then" }}
+                you should also set the following fields:
+                {{ range $ifcondkey, $ifcondval := $ifval }}
+
+                    {{ if eq $ifcondkey "properties" }}
+                        {{ range $condpropkey, $condpropval := $ifcondval }}
+
+                        {{ $ref := index $condpropval "$ref"}}
+                        {{ with $ref }}
+                            {{ $urlpath := strings.TrimSuffix (path.Base $fullurl) $fullurl }}
+                            {{ $refurl := print $urlpath $ref }}
+                            {{ partial "referenced-field-desc-ref-docs" (dict "context" . "url" $refurl) }}
+                        {{ end }}
+                        <ul>
+                            {{ range $propertykey, $propertyvalue := $condpropval.properties }}
+                                {{ partial "field-desc-ref-docs" (dict "context" . "value" $propertyvalue "key" $propertykey "url" $fullurl) }}
+                                <ul>
+                                    {{ range $childk, $childv := $propertyvalue.properties }}
+                                        {{ with $childv }}
+                                            {{ partial "field-desc-ref-docs" (dict "context" . "value" $childv "key" $childk) }}
+                                        {{ end }}
+                                    {{ end }}
+                                </ul>
+                            {{ end }}                        
+                        </ul>
+                        {{ end }}
+                    {{ end }}
+
+
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
