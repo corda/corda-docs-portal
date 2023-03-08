@@ -39,7 +39,7 @@ due.  If a contract state is consumed in the UTXO model, then what *was* the nex
 and the next time sensitive event is determined by any successor contract state.
 
 Knowing when the next time sensitive event is due to occur is useful, but typically some *activity* is expected to take
-place when this event occurs. We already have a model for business processes in the form of [flows](../../../key-concepts-flows.md),
+place when this event occurs. We already have a model for business processes in the form of [flows]({{< relref "../../../key-concepts-flows.md" >}}),
 so in the platform we have introduced the concept of *scheduled activities* that can invoke flow state machines
 at a scheduled time. A contract state can optionally described the next scheduled activity for itself. If it omits
 to do so, then nothing will be scheduled.
