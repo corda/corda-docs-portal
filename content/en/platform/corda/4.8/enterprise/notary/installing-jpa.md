@@ -288,7 +288,7 @@ service has been tested with driver version 42.2.7. This JAR file should be plac
 ### Connection string
 
 The properties specifying the location of the client certificates must be passed in via the JDBC connection
-string. It will not be possible to pass them in as configuration properties. See below for an example connection string.
+string. It is not possible to pass them in as configuration properties. See below for an example connection string.
 
 {{< note >}}
 You must have a minimum of 3 nodes. Each node in the connection string should have the 26257 port number at the end of it.
