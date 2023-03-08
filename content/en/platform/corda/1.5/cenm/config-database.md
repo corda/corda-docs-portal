@@ -27,7 +27,7 @@ Create or upgrade the database schema (database objects like tables, indices) to
 
 
 * **jdbcDriver**:
-Path to the `.jar` file containing the specific JDBC driver
+Path to the JAR file containing the specific JDBC driver
 
 
 * **driverClassName**:

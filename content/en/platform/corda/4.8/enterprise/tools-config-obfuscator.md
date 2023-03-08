@@ -61,7 +61,7 @@ The node or service itself deobfuscates the configuration object internally on s
 
 ## Obfuscate using the command-line tool
 
-The command-line tool is included in Corda Enterprise as a `.jar` file with a name `corda-tools-config-obfuscator-<version>.jar`, where `<version>` stands for the Corda Enterprise version (for example, `corda-tools-config-obfuscator-4.8.jar` or `corda-tools-config-obfuscator-4.8.jar`).
+The command-line tool is included in Corda Enterprise as a JAR file with a name `corda-tools-config-obfuscator-<version>.jar`, where `<version>` stands for the Corda Enterprise version (for example, `corda-tools-config-obfuscator-4.8.jar` or `corda-tools-config-obfuscator-4.8.jar`).
 
 ### Usage
 

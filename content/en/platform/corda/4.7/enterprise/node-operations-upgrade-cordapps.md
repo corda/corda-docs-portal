@@ -25,7 +25,7 @@ To be compatible with Corda Enterprise, CorDapps need to bundle database migarat
 
 ## Flow upgrades
 
-If any backwards-incompatible changes have been made (see [What constitutes a non-backwards compatible flow change?](../../../../../en/platform/corda/4.7/enterprise/cordapps/upgrading-cordapps.html#what-constitutes-a-non-backwards-compatible-flow-change)
+If any backwards-incompatible changes have been made (see [What constitutes a non-backwards compatible flow change?](cordapps/upgrading-cordapps.html#what-constitutes-a-non-backwards-compatible-flow-change)
 for more information), the upgrade method detailed below will need to be followed. Otherwise the CorDapp JAR can just
 be replaced with the new version.
 
@@ -36,7 +36,7 @@ There are two types of contract/state upgrade:
 
 
 * *Implicit:* By allowing multiple implementations of the contract ahead of time, using constraints. See
-api-contract-constraints to learn more.
+[Contract Constraints](cordapps/api-contract-constraints.md) to learn more.
 * *Explicit:* By creating a special *contract upgrade transaction* and getting all participants of a state to sign it using the
 contract upgrade flows.
 

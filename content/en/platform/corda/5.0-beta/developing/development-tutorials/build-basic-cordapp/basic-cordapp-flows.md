@@ -365,7 +365,7 @@ class CreateAndIssueAppleStampResponderFlow : ResponderFlow {
 
 #### Inject the Required Services into `CreateAndIssueAppleStampResponderFlow`
 
-Inject the UtxoLedgerService into `CreateAndIssueAppleStampResponderFlow`. WHY? WHAT DOE THIS SERVICE DO?
+Inject the UtxoLedgerService into `CreateAndIssueAppleStampResponderFlow`.
 
 Your code should now look like this:
 

@@ -22,8 +22,8 @@ Object serialization is the process of converting objects into a stream of bytes
 process of creating objects from a stream of bytes.  It takes place every time nodes pass objects to each other as
 messages, when objects are sent to or from RPC clients from the node, and when we store transactions in the database.
 
-Corda pervasively uses a custom form of type safe binary serialisation. This stands in contrast to some other systems that use
-weakly or untyped string-based serialisation schemes like JSON or XML. The primary drivers for this were:
+Corda pervasively uses a custom form of type safe binary serialization. This stands in contrast to some other systems that use
+weakly or untyped string-based serialization schemes like JSON or XML. The primary drivers for this were:
 
 
 * A desire to have a schema describing what has been serialized alongside the actual data:
@@ -104,7 +104,7 @@ expression that will work with Corda is `Runnable r = (Runnable & Serializable) 
 Corda uses an extended form of AMQP 1.0 as its binary wire protocol. You can learn more about the [Wire format](wire-format.md) Corda
 uses if you intend to parse Corda messages from non-JVM platforms.
 
-Corda serialisation is currently used for:
+Corda serialization is currently used for:
 
 
 
@@ -288,11 +288,11 @@ widened to an open wildcard
 #### Constructor Instantiation
 
 The primary way Corda’s AMQP serialization framework instantiates objects is via a specified constructor. This is
-used to first determine which properties of an object are to be serialised, then, on deserialization, it is used to
+used to first determine which properties of an object are to be serialized, then, on deserialization, it is used to
 instantiate the object with the serialized values.
 
 It is recommended that serializable objects in Corda adhere to the following rules, as they allow immutable state
-objects to be deserialised:
+objects to be deserialized:
 
 
 
@@ -318,10 +318,10 @@ data class Example (val a: Int, val b: String)
 
 {{< /tabs >}}
 
-Properties `a` and `b` will be included in the serialised form.
+Properties `a` and `b` will be included in the serialized form.
 
-However, properties not mentioned in the constructor will not be serialised. For example, in the following code,
-property `c` will not be considered part of the serialised form:
+However, properties not mentioned in the constructor will not be serialized. For example, in the following code,
+property `c` will not be considered part of the serialized form:
 
 {{< tabs name="tabs-2" >}}
 {{% tab name="kotlin" %}}
@@ -420,7 +420,7 @@ class C {
 {{< /tabs >}}
 
 When designing Corda states, it should be remembered that they are not, despite appearances, traditional
-OOP style objects. They are signed over, transformed, serialised, and relationally mapped. As such,
+OOP style objects. They are signed over, transformed, serialized, and relationally mapped. As such,
 all elements should be publicly accessible by design.
 
 

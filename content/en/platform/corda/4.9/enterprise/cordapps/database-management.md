@@ -16,7 +16,7 @@ Corda and your installed CorDapps store their data in a relational database. Whe
 but the existing data needs to be preserved or changed accordingly.
 
 In Corda Enterprise, CorDapps’ custom tables are created or upgraded automatically based on
-database management scripts written in [Liquibase](../node/operating/node-database.html#liquibase-ref) format and embedded in CorDapp `.jar`s.
+database management scripts written in [Liquibase](../node/operating/node-database.html#liquibase-ref) format and embedded in CorDapp JARs.
 Any CorDapp with custom tables (`MappedSchema`)  must contain a matching database management script.
 
 
@@ -146,7 +146,7 @@ The column name change simplifies the migration steps, avoiding in-place column 
 By default, Corda expects a Liquibase script file name to be a hyphenated version of the `MappedSchema` name.
 Change uppercase letters to lowercase, and be prefix the name with hyphen (except at the beginning of file).
 For example, for a `MappedSchema` named `MySchema`, Corda searches for a `my-schema.changelog-master.xml` file.
-You can use `.json` and `.sql` extensions under the `migration` package in CorDapp `.jar`s.
+You can use `.json` and `.sql` extensions under the `migration` package in CorDapp JARs.
 
 You can also set the name and the location in the `MappedSchema` code by overriding the field `val migration/migrationResource: String`.
 Set the value as a `namespace` and a file name without an extension.
@@ -304,15 +304,15 @@ In the above example, the script would fail on an Oracle database, due to the in
 If a CorDapp does not include the required migration scripts for each `MappedSchema`, you can generate and inspect them before they are applied:
 
 
-1. Deploy the CorDapp on your node (copy the `.jar` into the `cordapps` folder).
+1. Deploy the CorDapp on your node (copy the JAR into the `cordapps` folder).
 2. Locate the name of the `MappedSchema` object containing the new contract state entities.
 3. Call the database management tool:
 `java -jar corda-tools-database-manager-${corda_version}.jar --base-directory /path/to/node --create-migration-sql-for-cordapp com.example.MyMappedSchema`.
 This generates a file called `my-mapped-schema.changelog-master.sql` in a folder called `migration` in the `base-directory`.
 If no `MappedSchema` object is specified, the tool generates one SQL file for each schema defined in the CorDapp.
 4. Inspect the file(s) to ensure correctness. This is a standard SQL file with some Liquibase metadata as comments.
-5. Create a `.jar` containing the `migration` folder (`originalCorDappName-migration.jar`).
-6. Deploy the `.jar` in the node’s `cordapps` folder with the CorDapp by running `jar cvf /path/to/node/cordapps/MyCordapp-migration.jar migration` in the node’s base directory.
+5. Create a JAR containing the `migration` folder (`originalCorDappName-migration.jar`).
+6. Deploy the JAR in the node’s `cordapps` folder with the CorDapp by running `jar cvf /path/to/node/cordapps/MyCordapp-migration.jar migration` in the node’s base directory.
 
 Test the migration by running with the database management tool and inspecting the output file.
 

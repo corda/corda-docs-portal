@@ -3,7 +3,7 @@ title: "Corda Enterprise vs Corda Community"
 date: '2021-07-02'
 menu:
   corda-enterprise-4-8:
-    parent: about-corda-landing-4-8
+    parent: about-corda-landing-4-8-enterprise
     weight: 200
     name: "Enterprise vs Community"
 tags:

@@ -14,13 +14,13 @@ weight: 3
 # Enum Evolution
 
 In the continued development of a CorDapp an enumerated type that was fit for purpose at one time may
-require changing. Normally, this would be problematic as anything serialised (and kept in a vault) would
+require changing. Normally, this would be problematic as anything serialized (and kept in a vault) would
 run the risk of being unable to be deserialized in the future or older versions of the app still alive
 within a compatibility zone may fail to deserialize a message.
 
 To facilitate backward and forward support for alterations to enumerated types Corda’s serialization
 framework supports the evolution of such types through a well defined framework that allows different
-versions to interoperate with serialised versions of an enumeration of differing versions.
+versions to interoperate with serialized versions of an enumeration of differing versions.
 
 This is achieved through the use of certain annotations. Whenever a change is made, an annotation
 capturing the change must be added (whilst it can be omitted any interoperability will be lost). Corda
@@ -77,14 +77,14 @@ Corda’s AMQP fingerprinting for enumerated types include the type name and the
 {{< /note >}}
 
 Newer vs older is important as the deserializer needs to use the more recent set of transforms to ensure it
-can transform the serialised object into the form as it exists in the deserializer. Newness is determined simply
+can transform the serialized object into the form as it exists in the deserializer. Newness is determined simply
 by length of the list of all transforms. This is sufficient as transform annotations should only ever be added
 
 
 {{< warning >}}
 technically there is nothing to prevent annotations being removed in newer versions. However,
 this will break backward compatibility and should thus be avoided unless a rigorous upgrade procedure
-is in place to cope with all deployed instances of the class and all serialised versions existing
+is in place to cope with all deployed instances of the class and all serialized versions existing
 within vaults.
 {{< /warning >}}
 
@@ -163,7 +163,7 @@ so is serialized. However, in some circumstances, it could be at the point of de
 Enumeration constants can be added with the `@CordaSerializationTransformEnumDefaults` meta annotation that
 wraps a list of `CordaSerializationTransformEnumDefault` annotations. For each constant added an annotation
 must be included that signifies, on deserialization, which constant value should be used in place of the
-serialised property if that value doesn’t exist on the version of the class as it exists on the deserializing
+serialized property if that value doesn’t exist on the version of the class as it exists on the deserializing
 node.
 
 ```kotlin

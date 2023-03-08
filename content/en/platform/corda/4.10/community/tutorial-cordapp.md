@@ -19,7 +19,7 @@ title: Run a sample CorDapp
 
 # Run a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [CorDapp template](../../../../tutorials/corda/4.10/community/template-tutorial/writing-a-cordapp-using-a-template.md), [building your own](../../../../tutorials/corda/4.10/community/build-basic-cordapp/basic-cordapp-intro.md), or using a [community CorDapp](https://www.corda.net/samples/).
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [Java](https://github.com/corda/cordapp-template-java) or [Kotlin](https://github.com/corda/cordapp-template-kotlin) template, [building your own](../enterprise/get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md), or using a [community CorDapp](https://www.corda.net/samples/).
 
 The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](key-concepts-node.md).
 
@@ -105,7 +105,7 @@ See **Appendix B** for the node structure.
 
 
 {{< note >}}
-`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally](generating-a-node.md) instead, and build your CorDapp `.jar`s as described
+`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally](generating-a-node.md) instead, and build your CorDapp JARs as described
 in [Building and installing a CorDapp](cordapp-build-systems.md).
 {{< /note >}}
 

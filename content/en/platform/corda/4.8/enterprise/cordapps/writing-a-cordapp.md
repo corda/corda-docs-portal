@@ -23,11 +23,11 @@ In this document, you will find:
     A module is a software component or part of a program that contains one or more routines.
 *class*
     A class defines a set of properties and methods that are common to all objects of one type. Classes are written in a defined structure to create a Java or Kotlin object.
-*dependency*  
+*dependency*
     When one object uses another object's function.
 
 
-CorDapp source code is typically divided into two or more modules. Each module is compiled into a separate `.jar`. Together, these `.jar`s form a single CorDapp.
+CorDapp source code is typically divided into two or more modules. Each module is compiled into a separate JAR. Together, these JARs form a single CorDapp.
 
 CorDapps are usually independent structures which contain all the classes they need to run. However, some CorDapps are designed as libraries for other CorDapps, and cannot be run independently.
 
@@ -73,7 +73,7 @@ The templates are split into two modules:
 * A `cordapp-contracts-states` module containing the contracts and states.
 * A `cordapp` module containing the classes that depends on the `cordapp-contracts-states` module.
 
-These modules will be compiled into two `.jar`s - a `cordapp-contracts-states` `.jar` and a `cordapp` `.jar`. Together, these form the template CorDapp.
+These modules will be compiled into two JARs - a `cordapp-contracts-states` JAR and a `cordapp` JAR. Together, these form the template CorDapp.
 
 
 #### Module one: `cordapp-contracts-states`
@@ -157,7 +157,7 @@ The `src` directory is structured as follows:
 
 * `resources/META-INF/services`, which contains registries:
 
-    * `net.corda.core.serialization.SerializationWhitelist`, which registers the CorDapp’s serialisation whitelists.
+    * `net.corda.core.serialization.SerializationWhitelist`, which registers the CorDapp’s serialization whitelists.
     * `net.corda.webserver.services.WebServerPluginRegistry`, which registers the CorDapp’s web plugins.
 
 

@@ -49,10 +49,10 @@ CENM currently supports the following databases:
 * Oracle 11gR2 (Oracle JDBC 6)
 * Oracle 12cR2 (Oracle JDBC 8)
 
-The appropriate JDBC driver `.jar` file must be provided and its location should be specified in the service configuration.
+The appropriate JDBC driver JAR file must be provided and its location should be specified in the service configuration.
 
 {{< warning >}}
-H2 database should only be used for testing. The JDBC driver is shipped as part of the service `.jar` files and does not require an external JDBC driver. It is not supported for use in production.
+H2 database should only be used for testing. The JDBC driver is shipped as part of the service JAR files and does not require an external JDBC driver. It is not supported for use in production.
 {{< /warning >}}
 
 {{< note >}}
@@ -397,7 +397,7 @@ The CENM service configuration file - `identitymanager.conf` or `networkmap.conf
 
 ```groovy
 database = {
-        jdbcDriver = <path to JDBC driver .jar file>
+        jdbcDriver = <path to JDBC driver JARs file>
         driverClassName = <JDBC driver class name>
         url = <JDBC database URL>
         user = <Database user>
@@ -468,8 +468,8 @@ database = {
 
 Replace the placeholders *<database_server>* and *<my_database>* with appropriate values (*<my_database>* is a user database). The `database.schema` is the database schema name assigned to the user.
 
-You can download the Microsoft SQL JDBC driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539) - extract the downloaded archive and copy the file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two `.jar` files).
-The [Database configuration section](#4-database-configuration) further below explains the correct location for the driver `.jar` file in the CENM service installation structure.
+You can download the Microsoft SQL JDBC driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539) - extract the downloaded archive and copy the file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two JAR files).
+The [Database configuration section](#4-database-configuration) further below explains the correct location for the driver JAR file in the CENM service installation structure.
 
 ### SQL Server
 
@@ -503,8 +503,8 @@ database = {
 
 Replace the placeholders *<host>* and *<port>* with appropriate values (the default SQL Server port is 1433). By default, the connection to the database is not SSL. To secure the JDBC connection, refer to [Securing JDBC Driver Applications](https://docs.microsoft.com/en-us/sql/connect/jdbc/securing-jdbc-driver-applications?view=sql-server-2017).
 
-You can download the Microsoft JDBC 6.2 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539) - extract the downloaded archive and copy the file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two `.jar` files).
-The [Database configuration section](#4-database-configuration) further below explains the correct location for the driver `.jar` file in the CENM service installation structure.
+You can download the Microsoft JDBC 6.2 driver from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55539) - extract the downloaded archive and copy the file `mssql-jdbc-6.2.2.jre8.jar` (the archive comes with two JAR files).
+The [Database configuration section](#4-database-configuration) further below explains the correct location for the driver JAR file in the CENM service installation structure.
 
 Ensure that the JDBC connection properties match the SQL Server setup, especially when trying to reuse Azure SQL JDBC URLs, which are invalid for SQL Server. This may lead to CENM failing to start with the following message:
 
@@ -917,7 +917,7 @@ To migrate as service:
 1. Shut down the service.
 2. Back up the service database.
 3. Back up the service configuration.
-4. Update the `.jar` file.
+4. Update the JAR file.
 5. Edit the service configuration to:
   * Set the user to connect to the database as an account with schema migration permissions.
   * Set `runMigration = true` in the database configuration.

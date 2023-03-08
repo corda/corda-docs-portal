@@ -107,8 +107,8 @@ workflows {
 ## Creating a workflow plugin
 
 The workflow plugin must extend `WorkflowPlugin` for certificate signing request or certificate revocation request respectively, issuance and revocation workflows
-can be configured with specific plugin classes as per the configuration shown above. The plugin will need to be made available to the CENM process by including the plugin `.jar` in the classpath.
-This can be done by specifying the `.jar` path via the `pluginJar` configuration option.
+can be configured with specific plugin classes as per the configuration shown above. The plugin will need to be made available to the CENM process by including the plugin JAR in the classpath.
+This can be done by specifying the JAR path via the `pluginJar` configuration option.
 
 {{< note >}}
 For release 1.0 only a simple issuance and optional revocation workflow pair are supported.

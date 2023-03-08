@@ -205,7 +205,7 @@ type error. This is because the framework would attempt to create the new value 
 
 
 ```kotlin
-// changed post serialisation
+// changed post serialization
 data class Example5 (val b: String, val a: Int)
 ```
 

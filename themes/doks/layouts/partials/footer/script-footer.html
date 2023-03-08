@@ -10,6 +10,9 @@
 {{ $highlight := resources.Get "js/highlight.js" -}}
 {{ $highlight := $highlight | js.Build -}}
 
+{{ $bannerMessage := resources.Get "js/banner-message.js" -}}
+{{ $bannerMessage := $bannerMessage | js.Build -}}
+
 {{ $katex := resources.Get "js/vendor/katex/dist/katex.js" -}}
 {{ $katexAutoRender := resources.Get "js/vendor/katex/dist/contrib/auto-render.js" -}}
 
@@ -105,3 +108,5 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript" src="/js/home.js"></script>
 {{ end }}
+
+<script src="{{ $bannerMessage.Permalink }}" defer></script>

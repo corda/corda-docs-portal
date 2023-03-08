@@ -17,10 +17,10 @@ The flow management console allows you to see the state of the flows running on 
 
 It has a front end written in React, and a REST service written in Kotlin, which makes RPC calls to Corda Enterprise.
 
-It consists of two `.jar` files:
+It consists of two JAR files:
 
 * The flow management plug-in: `flow-management-plugin-<release>.jar`.
-* The permissions `.jar` for the plug-in: `auth-baseline-flow-management-<release>.jar`.
+* The permissions JAR for the plug-in: `auth-baseline-flow-management-<release>.jar`.
 
 These files can be downloaded from Artifactory: <a href="https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-gateway-plugins">`corda-gatewayplugins`</a>.
 

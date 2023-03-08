@@ -239,7 +239,7 @@ This tool can generate the private key used by the Bridge or the Node in an HSM.
 This will happen if the `--bridge-hsm-name` and `--bridge-hsm-config-file` options are specified. Otherwise the file-based keystore is used.
 Regardless where the private keys are stored the public certificates are stored in the file based keystores.
 
-The tool does not include any third-party supplied client side `.jar` files needed when connecting to an HSM. These `.jar` files are supplied by the HSM vendor. The tool does however assume that it can load these `.jar` files from the `drivers` sub-directory of the configured base directory option. Before running the tool you need to make sure the required HSM client side `.jar` files are in the `drivers` directory.
+The tool does not include any third-party supplied client side JAR files needed when connecting to an HSM. These JAR files are supplied by the HSM vendor. The tool does however assume that it can load these JAR files from the `drivers` sub-directory of the configured base directory option. Before running the tool you need to make sure the required HSM client side JAR files are in the `drivers` directory.
 This is only necessary when connecting to an HSM.
 
 {{< note >}}

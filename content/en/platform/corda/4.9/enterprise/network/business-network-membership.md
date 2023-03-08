@@ -56,7 +56,7 @@ In a Business Network, you can assign different roles to members of the network.
 
 ## Installation
 
-This is an extension for Corda 4.9. If you have this version of Corda, you can access the required `.jar` files here:
+This is an extension for Corda 4.9. If you have this version of Corda, you can access the required JAR files here:
 
 * [BNE contracts](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-contracts/1.1/business-networks-contracts-1.1.jar).
 * [BNE workflows](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-releases/net/corda/bn/business-networks-workflows/1.1/business-networks-workflows-1.1.jar).

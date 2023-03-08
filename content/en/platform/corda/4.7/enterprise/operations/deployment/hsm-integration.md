@@ -49,7 +49,7 @@ The configuration parser file `AWSCloudConfigurationParser.java` implements the 
 
 {{< codesample file="/content/en/platform/corda/4.8/codesamples/AWSCloudConfigurationParser.java" >}}
 
-The configuration parser will be unique to the HSM implementation, and is used to deserialise HSM configuration to a Java class.
+The configuration parser will be unique to the HSM implementation, and is used to deserialize HSM configuration to a Java class.
 
 ## The factory class
 

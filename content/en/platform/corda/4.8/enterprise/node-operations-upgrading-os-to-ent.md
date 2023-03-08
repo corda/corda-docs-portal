@@ -94,7 +94,7 @@ Please contact R3 for further advice.
 ## Upgrade from an older Corda (open source) release to Corda Enterprise
 
 CorDapps, contracts and states written for Corda 4.x are compatible with Corda Enterprise Edition 4.8, so upgrading
-existing open source Corda nodes should be a simple case of updating the Corda `.jar` file.
+existing open source Corda nodes should be a simple case of updating the Corda JAR file.
 See node-upgrade-notes for general instructions on upgrading your node.
 For developer information on recompiling CorDapps against Corda Enterprise, see upgrade-notes.
 
