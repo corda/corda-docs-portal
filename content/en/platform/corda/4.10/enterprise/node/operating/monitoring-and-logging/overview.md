@@ -126,8 +126,8 @@ Corda nodes can be configured to export metrics and management operations via th
 
 To monitor your node using Jolokia you must:
 
-1. Acquire the Jolokia 1.6.1 agent `.jar` file.
-2. Save the Jolokia `.jar` file in the `drivers` directory of the node. The driver name must be `jolokia-jvm-1.6.1-agent.jar`.
+1. Acquire the Jolokia 1.6.1 agent JAR file.
+2. Save the Jolokia JAR file in the `drivers` directory of the node. The driver name must be `jolokia-jvm-1.6.1-agent.jar`.
 3. Either:
     a. Specify the `jmxMonitoringHttpPort` parameter in the node configuration file. The `jmxMonitoringHttpPort` parameter loads the Jolokia driver from the `drivers` directory.
     b. Start the node with `java -Dcapsule.jvm.args="-javaagent:drivers/jolokia-jvm-1.6.1-agent.jar=port=7777,host=localhost" -jar corda.jar`.

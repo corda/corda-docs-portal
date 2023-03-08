@@ -28,7 +28,7 @@ The Gateway Service does not need its own database - so there is no database con
 
 ### Install the gateway Gateway service
 
-You can install the Gateway Service by installing the Gateway Service `.jar` file:
+You can install the Gateway Service by installing the Gateway Service JAR file:
 
 `java -jar gateway-service.jar -f config.conf`
 

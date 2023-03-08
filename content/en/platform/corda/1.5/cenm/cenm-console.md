@@ -46,8 +46,8 @@ To install the CENM management console:
 
 1. Download the latest Gateway Service binaries from [Artifactory](https://software.r3.com).
 2. Download the CENM management console Gateway Plugin binaries from Artifactory.
-3. Create a directory called `plugins` in the same directory as the Gateway Service `.jar` file (if you do not already have this directory for other plug-ins).
-4. Copy the CENM Gateway Plugin `.jar` file to the `plugins` directory.
+3. Create a directory called `plugins` in the same directory as the Gateway Service JAR file (if you do not already have this directory for other plug-ins).
+4. Copy the CENM Gateway Plugin JAR file to the `plugins` directory.
 5. Configure the Gateway Service using the `auth { }` and `cenm { }` properties.
    Example configuration:
    ```

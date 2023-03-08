@@ -53,7 +53,7 @@ helm install cenm-idman idman --set idmanPublicIP=X.X.X.X --set prefix=cenm --se
 | `acceptLicense`               | Required parameter |  |
 | `cordaJarMx`                  | Memory size allocated to the main Identity Manager Service container (in GB) | `1` |
 | `idmanJar.xmx`                | Value for java `-Xmx` parameter | `1G` |
-| `idmanJar.path`               | The directory where the Identity Manager Service `.jar` file is stored | `bin` |
+| `idmanJar.path`               | The directory where the Identity Manager Service JAR file is stored | `bin` |
 | `idmanJar.configPath`         | The directory where the Identity Manager Service configuration is stored | `etc` |
 | `sleepTimeAfterError`         | Sleep time (in seconds) after an error occurred | `120` |
 | `authPort`                    | Auth Service port | `8081` |

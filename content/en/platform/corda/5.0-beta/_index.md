@@ -1,6 +1,7 @@
 ---
-date: '2023-02-20'
-title: Corda 5.0 Beta 2
+date: '2022-11-23'
+description: "Documentation for the latest beta release for Corda 5.0"
+title: Corda 5.0 Beta 1
 project: corda
 version: 'Corda 5.0 Beta 2'
 section_menu: corda-5-beta

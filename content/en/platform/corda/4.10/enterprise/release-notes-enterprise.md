@@ -12,7 +12,7 @@ tags:
 - notes
 - enterprise
 
-weight: 300
+weight: 10
 ---
 
 # Corda Enterprise Edition 4.10 release notes

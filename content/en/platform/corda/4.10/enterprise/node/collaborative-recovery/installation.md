@@ -56,14 +56,14 @@ Outline of steps for installation:
 
 ### Pre-installation check
 
-The first step in the installation of Collaborative Recovery CorDapps is to obtain the `.jar` files (distributable binaries that the Corda node will run). These should be provided by your Corda Representative.
+The first step in the installation of Collaborative Recovery CorDapps is to obtain the JAR files (distributable binaries that the Corda node will run). These should be provided by your Corda Representative.
 Once you have obtained these CorDapps in a distributable format, you are ready to install them into your operating Corda node.
 
 {{< attention >}}
 If possible, you should perform this installation in a maintenance window or other prescheduled and communicated time slot, as the process requires your node to be down for a short period of time. This means your node will be unable to receive or sign incoming transactions for the duration of the installation process.
 {{< /attention >}}
 
-You should have access to two individual `.jar` files - representing LedgerSync and LedgerRecovery respectively. You should be able to access these files readily on the machine from which you will be performing the installation.
+You should have access to two individual JAR files - representing LedgerSync and LedgerRecovery respectively. You should be able to access these files readily on the machine from which you will be performing the installation.
 
 ### Step 1: Initiate flow draining mode
 
@@ -91,9 +91,9 @@ There are three CorDapps to install:
 * **LedgerRecovery**
 * **LedgerGraph** if you have not already installed this separately.
 
-Using the file transfer protocol of your choice, transfer the `.jar` files representing the required CorDapps to the `cordapps` directory of the Corda node.
+Using the file transfer protocol of your choice, transfer the JAR files representing the required CorDapps to the `cordapps` directory of the Corda node.
 
-Before proceeding, verify that the transfer was completed successfully by checking that the files are present in the CorDapps directory *and* the file sizes are the same as the sizes of the source `.jar` files you received.
+Before proceeding, verify that the transfer was completed successfully by checking that the files are present in the CorDapps directory *and* the file sizes are the same as the sizes of the source JAR files you received.
 
 ### Step 4: Run any necessary database migrations
 

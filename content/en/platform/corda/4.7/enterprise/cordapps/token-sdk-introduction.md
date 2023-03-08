@@ -44,7 +44,7 @@ The main changes in the Tokens SDK from V1.1 to V1.2.1 are designed to improve a
 Overview of changes:
 
 * All of the utility methods, subflows and RPC enabled flows have been annotated with @JVMOverloads to ensure the appropriate Java constructors are generated where the source Kotlin constructor contains nullable arguments. This ensures a seamless experience when using the Tokens SDK from a Java code base.
-* The `selection` and `money` `.jar` files have been moved into the `workflows` `.jar` file.
+* The `selection` and `money` JAR files have been moved into the `workflows` JAR file.
 * Upgraded database interaction for compatibility with Corda 4.6 and Corda Enterprise Edition 4.6.
 
 ### Changes in V1.2.2
@@ -61,7 +61,7 @@ Before upgrading, make sure the platform database schema is properly migrated, a
 
 1. Change the V number (version number) in your CorDapp's relevant Gradle file to the version you are upgrading to - such as 1.2.2
 
-2. Remove all references to `selection` and `money` `.jar` files from your build function (in many cases, Gradle). The functions of these `.jar` files have been moved into `workflows` in versions 1.2 onwards.
+2. Remove all references to `selection` and `money` JAR files from your build function (in many cases, Gradle). The functions of these JAR files have been moved into `workflows` in versions 1.2 onwards.
 
 3. Recompile your CorDapp.
 
@@ -70,12 +70,12 @@ Before upgrading, make sure the platform database schema is properly migrated, a
 
 ## What's inside the Tokens SDK
 
-The Tokens SDK is contained in two `.jar`  files which includes all the required dependencies for your CorDapp, including:
+The Tokens SDK is contained in two JAR  files which includes all the required dependencies for your CorDapp, including:
 
 * **Contracts**, which contains the base token types, states and contracts needed to create a token, including token type definitions for fiat and digital currencies.
 * **Workflows**, which contains the flows for issuing, moving, redeeming tokens, and selection workflows, which allow a party to select which source of fungible tokens they will use to pay with in a transaction.
 
-As the **Contracts** `.jar` file contains the ability to define and create tokens, and the **Workflows** `.jar` file contains the flows required to use them, you must add both `.jar` files to your CorDapp's folder in order to use the Tokens SDK.
+As the **Contracts** JAR file contains the ability to define and create tokens, and the **Workflows** JAR file contains the flows required to use them, you must add both JAR files to your CorDapp's folder in order to use the Tokens SDK.
 
 ## Choose the anatomy of your token
 
@@ -109,7 +109,7 @@ Use the list below to understand what needs to be included in the token you want
 
 Once you have established what type of token you want to create, you can use the Tokens SDK to perform the following key tasks:
 
-* **Define** your token. Using the ready-made utilities contained in the contract `.jar` file, you can define all the required attributes and custom attributes of your tokens.
+* **Define** your token. Using the ready-made utilities contained in the contract JAR file, you can define all the required attributes and custom attributes of your tokens.
 
 * **Issue** tokens onto your ledger, so they can be used as part of a transaction.
 

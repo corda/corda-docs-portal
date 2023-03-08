@@ -237,7 +237,7 @@ revocation = {
 
 The following configuration files configure a small test deployment of the CENM suite of tools on a single machine.
 This is why all of the services are binding to localhost and can refer to a central location for the PKI and
-SSL certificates as well as the `.jar` files.
+SSL certificates as well as the JAR files.
 
 
 ### Identity Manager and Revocation Service

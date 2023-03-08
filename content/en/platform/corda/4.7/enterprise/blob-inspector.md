@@ -13,7 +13,7 @@ weight: 100
 
 # Blob Inspector
 
-There are many benefits to having a custom binary serialisation format (see [Object serialization](serialization.md) for details) but one
+There are many benefits to having a custom binary serialization format (see [Object serialization](serialization.md) for details) but one
 disadvantage is the inability to view the contents in a human-friendly manner. The Corda Blob Inspector tool alleviates
 this issue by allowing the contents of a binary blob file (or URL end-point) to be output in either YAML or JSON. It
 uses `JacksonSupport` to do this (see [JSON](json.md)).
@@ -110,7 +110,7 @@ net.corda.nodeapi.internal.SignedNodeInfo
 }
 ```
 
-Notice the file is actually a serialised `SignedNodeInfo` object, which has a `raw` property of type `SerializedBytes<NodeInfo>`.
+Notice the file is actually a serialized `SignedNodeInfo` object, which has a `raw` property of type `SerializedBytes<NodeInfo>`.
 This property is materialised into a `NodeInfo` and is output under the `deserialized` field.
 
 

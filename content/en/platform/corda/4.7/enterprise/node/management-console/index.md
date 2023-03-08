@@ -36,10 +36,10 @@ You can also interact with the node in the following ways:
 
 It has a front end written in React, and a REST service written in Kotlin, which makes RPC calls to Corda Enterprise.
 
-The plug-in consists of two `.jar` files:
+The plug-in consists of two JAR files:
 
 * The node management plug-in: `node-management-plugin-<release>.jar`.
-* The permissions `.jar` for the plug-in: `auth-baseline-node-management-<release>.jar`.
+* The permissions JAR for the plug-in: `auth-baseline-node-management-<release>.jar`.
 
 These files can be downloaded from Artifactory: [`corda-gatewayplugins`](https://software.r3.com/artifactory/webapp/#/artifacts/browse/tree/General/corda-gateway-plugins).
 

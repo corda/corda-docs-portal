@@ -411,10 +411,10 @@ See the example configurations below to see these configuration blocks being use
 
 ###### Azure Key Vault
 
-To keep inline with the other HSMs, the Azure Key Vault client `.jar` needs to provided as above. Unlike the other HSMs,
+To keep inline with the other HSMs, the Azure Key Vault client JAR needs to provided as above. Unlike the other HSMs,
 there are many dependent libraries. The top-level dependencies are `azure-keyvault` and `adal4j`, however these both
 have transitive dependencies that need to be included. That is, either all jars need to be provided separately (via a
-comma-separated list) or an uber `.jar` needs to be provided.
+comma-separated list) or an uber JAR needs to be provided.
 
 The gradle script below will build an uber jar. First copy the following text in to a new file called build.gradle
 anywhere on your file system. Please do not change any of your existing build.gradle files.
@@ -451,7 +451,7 @@ or if gradle is not on the path but gradlew is in the current directory then run
 ./gradlew shadowJar
 ```
 
-This will create a `.jar` called `azure-keyvault-with-deps.jar` which can be referenced in the config.
+This will create a JAR called `azure-keyvault-with-deps.jar` which can be referenced in the config.
 
 
 ##### Generating SSL Keys
@@ -524,7 +524,7 @@ keyStores = {
     "corda-ssl-auth-keys" = {
          type = LOCAL
          file = "./key-stores/ssl-auth-key-store.jks"
-         password = "password"
+         password = "key-password"
     }
     "corda-ssl-farm-keys" = {
          type = LOCAL
@@ -720,7 +720,7 @@ certificates = {
             type = LOCAL
             includeIn = ["corda-ssl-network-map-keys"]
             algorithm = "ECDSA_SECP256R1_SHA256"
-            password = "password"
+            password = "key-password"
         }
         isSelfSigned = false
         signedBy = "cordasslrootca"

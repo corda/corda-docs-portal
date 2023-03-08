@@ -40,7 +40,7 @@ This document provides the information you need in order to understand what happ
 Corda transactions evolve input states into output states. A state is a data structure containing: the actual data fact (that is expressed as a
 strongly typed serialized java object) and a reference to the logic (contract) that needs to verify a transition to and from this state.
 Corda does not embed the actual verification bytecode in transactions. The logic is expressed as a Java class name and a contract constraint
-(read more in [Contract Constraints](cordapps/api-contract-constraints.md)), and the actual code is contained in a `.jar`  file that is referenced by the transaction.
+(read more in [Contract Constraints](cordapps/api-contract-constraints.md)), and the actual code is contained in a JAR  file that is referenced by the transaction.
 
 
 ### The basic threat model and security requirement.
@@ -64,7 +64,7 @@ long as the JAR containing this contract is signed by `Mega Corp`”.
 
 ### The LedgerTransaction
 
-Another relevant aspect to remember is that because states are serialised binary objects, to perform any useful operation on them they need to
+Another relevant aspect to remember is that because states are serialized binary objects, to perform any useful operation on them they need to
 be deserialized into instances of Java objects. All these instances are made available to the contract code as the `LedgerTransaction` parameter
 passed to the `verify` method. The `LedgerTransaction` class abstracts away a lot of complexity and offers contracts a usable data structure where
 all objects are loaded in the same classloader and can be freely used and filtered by class. This way, the contract developer can focus on the business logic.
@@ -76,10 +76,10 @@ Behind the scenes, the matter is more complex. As can be seen in this illustrati
 {{< note >}}
 Corda’s design is based on the UTXO model. In a serialized transaction the input and reference states are *StateRefs* - only references
 to output states from previous transactions (see api-transactions).
-When building the `LedgerTransaction`, the `inputs` and `references` are resolved to Java objects created by deserialising blobs of data
+When building the `LedgerTransaction`, the `inputs` and `references` are resolved to Java objects created by deserializing blobs of data
 fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#contract-execution-in-the-attachmentsclassloader-and-the-no-overlap-rule)).
 This model has consequences when it comes to how states can be evolved. Removing a field from a newer version of a state would mean
-that when deserialising that state in the context of a transaction using the more recent code, that field could just disappear.
+that when deserializing that state in the context of a transaction using the more recent code, that field could just disappear.
 In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution](serialization-default-evolution.md).
 
 {{< /note >}}
@@ -88,7 +88,7 @@ In Corda 4 we implemented the no-data loss rule, which prevents this to happen. 
 
 Let’s consider a very simple case, a transaction swapping `Apples` for `Oranges`. Each of the states that need to be swapped is the output of a previous transaction.
 Similar to the above image the `Apples` state is the output of some previous transaction, through which it came to be possessed by the party now paying it away in return for some oranges.
-The `Apples` and `Oranges` states that will be consumed in this new transaction exist as serialised `TransactionState`s.
+The `Apples` and `Oranges` states that will be consumed in this new transaction exist as serialized `TransactionState`s.
 It is these `TransactionState`s that specify the fully qualified names of the contract code that should be run to verify their consumption as well as,
 importantly, the governing `constraint`s on which specific implementations of that class name can be used.
 The swap transaction would contain the two input states, the two output states with the new owners of the fruit and the code to be used to deserialize and

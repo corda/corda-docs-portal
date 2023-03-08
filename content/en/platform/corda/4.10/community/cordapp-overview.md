@@ -38,7 +38,7 @@ They implement the `ContractState` interface
 * Contracts, defining what constitutes a valid ledger update (see
 [Key Concepts - Contracts](key-concepts-contracts.md)). They implement the `Contract` interface
 * Services, providing long-lived utilities within the node. They subclass `SingletonSerializationToken`
-* Serialisation whitelists, restricting what types your node will receive off the wire. They implement the
+* Serialization whitelists, restricting what types your node will receive off the wire. They implement the
 `SerializationWhitelist` interface
 
 But the CorDapp JAR can also include other class definitions. These may include:

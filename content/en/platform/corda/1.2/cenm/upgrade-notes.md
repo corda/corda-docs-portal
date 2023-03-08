@@ -32,8 +32,8 @@ We also strongly recommend cross referencing with the [Changelog](changelog.md) 
   Ensure the Identity Manager Service is configured to perform this migration
   by setting the `runMigration` property to `true`.
 
-  The upgrade process is otherwise just a drop-in replacement of the existing `.jar` files with `<service>-1.2.1.jar`.
-  Ensure you stop the service before replacing the `.jar` files.
+  The upgrade process is otherwise just a drop-in replacement of the existing JAR files with `<service>-1.2.1.jar`.
+  Ensure you stop the service before replacing the JAR files.
   Ensure that there are no orphan processes running after shout down.
 
 ## 1.1 to 1.2.1

@@ -140,7 +140,7 @@ be a binary X.509 certificate, and the certs are expected to be in order.
 
 #### Setting zone parameters
 
-Zone parameters are stored in a file containing a Corda AMQP serialised `SignedDataWithCert<NetworkParameters>`
+Zone parameters are stored in a file containing a Corda AMQP serialized `SignedDataWithCert<NetworkParameters>`
 object. It is easy to create such a file with a small Java or Kotlin program. The `NetworkParameters` object is a
 simple data holder that could be read from e.g. a config file, or settings from a database. Signing and saving the
 resulting file is just a few lines of code. A full example can be found in `NetworkParametersCopier.kt` in the source

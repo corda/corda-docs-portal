@@ -175,7 +175,7 @@ they are still executed using the full JDK.
 The `testing` module also has two sub-modules:
 
 1. `core-deterministic:testing:data`
-    * This module generates test data such as serialised transactions and elliptic curve key pairs using the full
+    * This module generates test data such as serialized transactions and elliptic curve key pairs using the full
 non-deterministic `core` library and JDK. This data is all written into a single JAR which the `testing`
 module adds to its classpath.
 2. `core-deterministic:testing:common`
@@ -223,8 +223,8 @@ not available in the deterministic `rt.jar`.
 
 The biggest risk here would be that `JarFilter` would delete the
 primary constructor and that the class could no longer be instantiated, although `JarFilter` will print a warning
-in this case. However, it is also likely that the “determinised” class would have a different serialisation
-signature than its non-deterministic version and so become unserialisable on the deterministic JVM.Primary constructors that have non-deterministic default parameter values must still be annotated as
+in this case. However, it is also likely that the “determinised” class would have a different serialization
+signature than its non-deterministic version and so become unserializable on the deterministic JVM.Primary constructors that have non-deterministic default parameter values must still be annotated as
 `@DeleteForDJVM` because they cannot be refactored without breaking Corda’s binary interface.
 
 The Kotlin compiler

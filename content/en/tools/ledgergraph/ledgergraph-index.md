@@ -158,7 +158,7 @@ You can tune **LedgerGraph**'s behaviour through a small set of configuration pa
 
 ## Configure LedgerGraph parameters
 
-To use LedgerGraph's configuration parameters, create a configuration file named after the **LedgerGraph** `.jar` file. For example, if the JAR file is called `ledger-graph-1.1.jar`, the configuration file would be `<corda_node_dir>/cordapps/config/ledger-graph-1.1.conf`.
+To use LedgerGraph's configuration parameters, create a configuration file named after the **LedgerGraph** JAR file. For example, if the JAR file is called `ledger-graph-1.1.jar`, the configuration file would be `<corda_node_dir>/cordapps/config/ledger-graph-1.1.conf`.
 
 If the configuration parameter is not specified, or the configuration file is not present, the default value(s) will be used.
 

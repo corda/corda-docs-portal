@@ -42,13 +42,13 @@ To re-compile your CorDapp for Corda Enterprise Edition 4.9, you need to:
 1. Update your Gradle build file as follows.
 
 ```shell
-ext.corda_release_distribution = 'com.r3.corda'
-ext.corda_core_release_distribution = 'net.corda'
-ext.corda_release_version = '4.9'
-ext.corda_core_release_version = '4.9'
-ext.corda_gradle_plugins_version = '5.0.12'
-ext.kotlin_version = '1.2.71'
-ext.quasar_version = '0.7.14_r3'
+corda_release_distribution = 'com.r3.corda'
+corda_core_release_distribution = 'net.corda'
+corda_release_version = '4.9'
+corda_core_release_version = '4.9'
+corda_gradle_plugins_version = '5.0.12'
+kotlin_version = '1.2.71'
+quasar_version = '0.7.14_r3'
 ```
 
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
@@ -114,11 +114,11 @@ of all Corda Enterprise artifacts and their dependencies) from your R3 support c
 
 {{< warning >}}
 
-Version 4 of the finance CorDapp is split into the following two signed `.jar` files:
+Version 4 of the finance CorDapp is split into the following two signed JAR files:
 
  * `corda-finance-contracts.jar`
  * `corda-finance-workflows.jar`
-As there should only be one unique hashed version of `corda-finance-contracts.jar` (the hash of a contract `.jar` file undergoes strict
+As there should only be one unique hashed version of `corda-finance-contracts.jar` (the hash of a contract JAR file undergoes strict
 security checking upon transaction resolution), only a single instance of `corda-finance-contracts.jar` is published, and this is from the open source repository.
 
 Please ensure any CorDapps that depend on `corda-finance-contracts.jar` reference this open source dependency as follows:
@@ -145,8 +145,8 @@ Corda Enterprise Edition 4.4 or later will have to depend on the open source ver
 Therefore, you have to add the following variables to your build configuration:
 
 ```shell
-ext.corda_core_release_distribution = 'net.corda'
-ext.corda_core_release_version = '4.9'
+corda_core_release_distribution = 'net.corda'
+corda_core_release_version = '4.9'
 ```
 
 Any dependency on `corda-core` (or `corda-serialization`) has to use these new variables to depend on the open source version of those
@@ -159,7 +159,7 @@ cordaCompile "$corda_release_distribution:corda-core:$corda_release_version"
 Becomes:
 
 ```shell
-cordaCompile "$ext.corda_core_release_distribution:corda-core:$ext.corda_core_release_version"
+cordaCompile "$corda_core_release_distribution:corda-core:$corda_core_release_version"
 ```
 
 

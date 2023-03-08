@@ -151,7 +151,7 @@ Within `main`, we have the following directories:
 
 * `resources/META-INF/services`, which contains various registries:
 
-    * `net.corda.core.serialization.SerializationWhitelist`, which registers the CorDapp’s serialisation whitelists
+    * `net.corda.core.serialization.SerializationWhitelist`, which registers the CorDapp’s serialization whitelists
     * `net.corda.webserver.services.WebServerPluginRegistry`, which registers the CorDapp’s web plugins
 
 

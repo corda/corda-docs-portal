@@ -105,9 +105,9 @@ You can [sign a CorDapp directly from Gradle](cordapp-build-systems.html#signing
 
 ### CorDapp contract storage and retrieval
 
-If a CorDapp `.jar` contains classes implementing the `Contract` interface, the node automatically loads the `.jar` into its `AttachmentStorage` and makes it available in `ContractAttachments`.
+If a CorDapp JAR contains classes implementing the `Contract` interface, the node automatically loads the JAR into its `AttachmentStorage` and makes it available in `ContractAttachments`.
 
-You can retrieve a `.jar` by hash using `AttachmentStorage.openAttachment`. You can install `.jar`s on the node, or they will be fetched automatically over the network when the node receives a transaction.
+You can retrieve a JAR by hash using `AttachmentStorage.openAttachment`. You can install JARs on the node, or they will be fetched automatically over the network when the node receives a transaction.
 
 
 {{< warning >}}
@@ -223,7 +223,7 @@ transaction verification will fail with a `TransactionContractConflictException`
 
 ### Using contract constraints in transactions
 
-Transactions use the CorDapp version defined in its attachments. The `.jar` containing the state and contract classes, and any optional dependencies, is attached to the transaction. If a node has not received a specific `.jar` before, it will download other copies of it from other nodes on the network for verification.
+Transactions use the CorDapp version defined in its attachments. The JAR containing the state and contract classes, and any optional dependencies, is attached to the transaction. If a node has not received a specific JAR before, it will download other copies of it from other nodes on the network for verification.
 
 The `TransactionBuilder` manages the details of constraints for you by selecting both constraints
 and attachments to ensure they line up correctly. By default, the `TransactionBuilder` uses [Signature Constraints](#signature-constraints) for any issuance transactions if the CorDapp attached to it is signed.
@@ -345,7 +345,7 @@ Driver.driver(
 
 ### Starting a node that is missing CorDapp(s)
 
-Make sure you place all CorDapp `.jar`s in the `cordapps` directory of each node. The Gradle Cordform task `deployNodes` copies all `.jar`s by default, if you have specified CorDapps to deploy. See [Creating nodes locally](generating-a-node.html#creating-nodes-locally) for detailed instructions.
+Make sure you place all CorDapp JARs in the `cordapps` directory of each node. The Gradle Cordform task `deployNodes` copies all JARs by default, if you have specified CorDapps to deploy. See [Creating nodes locally](generating-a-node.html#creating-nodes-locally) for detailed instructions.
 
 
 ### Including an incorrect fully-qualified contract name
