@@ -20,7 +20,7 @@ The customer user interface of Bank in a Box allows a customer user to perform a
 
 When you have successfully started the Bank in a Box user interface, you will be prompted to log in with username and password.
 
-The descriptions below apply to the customer user interface. See the [Admin user interface guide](./admin-ui-guide.md) for information on that user interface.
+The descriptions below apply to the customer user interface. See the [Admin user interface guide]({{< relref "./admin-ui-guide.md" >}}) for information on that user interface.
 
 ## Navigation
 

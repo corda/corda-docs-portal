@@ -7,9 +7,9 @@ Business networks are typically created to transact a specific asset type or to 
 
 ## Key topics
 
-* [Tokens SDK]({{< relref "../token-sdk-introduction" >}})
-* [Writing CorDapp States]({{< relref "../api-states" >}})
-* [Writing CordDapp Flows]({{< relref "../api-flows" >}})
-* [Writing vault queries]({{< relref "../api-vault-query" >}})
-* [Understanding transactions]({{< relref "../api-transactions" >}})
-* [Reissuing states]({{< relref "../reissuing-states" >}})
+* [Tokens SDK]({{< relref "../token-sdk-introduction.md" >}})
+* [Writing CorDapp States]({{< relref "../api-states.md" >}})
+* [Writing CordDapp Flows]({{< relref "../api-flows.md" >}})
+* [Writing vault queries]({{< relref "../api-vault-query.md" >}})
+* [Understanding transactions]({{< relref "../api-transactions.md" >}})
+* [Reissuing states]({{< relref "../reissuing-states.md" >}})

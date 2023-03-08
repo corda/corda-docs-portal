@@ -44,7 +44,7 @@ running via the node driver to debug your CorDapp.
 
 ### With the nodes in-process
 
-1. Define a network using the node driver as per [Integration testing](../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-integration-testing.md).
+1. Define a network using the node driver as per [Integration testing]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-integration-testing.md" >}}).
 2. In your `DriverParameters`, ensure that `startNodesInProcess` is set to `true`.
 3. Run the driver using the debugger.
 4. Set your breakpoints.
@@ -57,7 +57,7 @@ The nodes’ webservers always run in a separate process, and cannot be attached
 ### With remote debugging
 
 
-1. Define a network using the node driver as per [Integration testing](../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-integration-testing.md).
+1. Define a network using the node driver as per [Integration testing]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/tutorial-integration-testing.md" >}}).
 
 2. In your `DriverParameters`, ensure that `startNodesInProcess` is set to `false` and `isDebug` is set to `true`.
 
