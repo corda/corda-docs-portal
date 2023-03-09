@@ -1,9 +1,9 @@
 ---
 date: '2023-03-08'
-title: "Configuration Parameters"
+title: "Configuration Fields"
 menu:
   corda-5-beta:
-    identifier: corda-5-beta-config-params
+    identifier: corda-5-beta-config-fields
     parent: corda-5-beta-operate
     weight: 4000
 section_menu: corda-5-beta

@@ -3,7 +3,7 @@ date: '2023-03-08'
 title: "Flow"
 menu:
   corda-5-beta:
-    parent: corda-5-beta-config-params
+    parent: corda-5-beta-config-fields
     identifier: corda-5-beta-config-flow
     weight: 3000
 section_menu: corda-5-beta
