@@ -18,6 +18,9 @@ There is a set of parameters that all Nodes on the network must agree on in orde
 * **minimumPlatformVersion**: 
 The minimum platform version that the nodes must be running. Any node which is below this will not start.
 
+{{< note >}}
+You can set the minimumPlatformVersion network parameter to a value that is as high as the Corda Platform version of the nodes we  allow to run on a network. For example, we can set minimumPlatformVersion to 5 to allow only Corda 4.3+ nodes (= Corda Platform version 5+) to run on a network.
+{{< /note >}}
 
 * **notaries**: 
 List of identity and validation type (either validating or non-validating) of the notaries which are permitted in the compatibility zone.
