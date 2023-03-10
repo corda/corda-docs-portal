@@ -132,7 +132,7 @@ Collaborative Recovery is made up of two CorDapps - **LedgerSync** and **LedgerR
 
 ### LedgerGraph
 
-[LedgerGraph](./../operating/ledger-graph.md) is a CorDapp used to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where **LedgerGraph** is installed. As not all transactions are related to all other transactions, it can actually contain multiple components (or sub-graphs): each a **directed acyclic graph** (DAG).
+[LedgerGraph]({{< relref "./../operating/ledger-graph.md" >}}) is a CorDapp used to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where **LedgerGraph** is installed. As not all transactions are related to all other transactions, it can actually contain multiple components (or sub-graphs): each a **directed acyclic graph** (DAG).
 
 ### LedgerSync
 
