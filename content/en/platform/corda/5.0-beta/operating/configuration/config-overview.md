@@ -8,6 +8,48 @@ menu:
     weight: 4000
 section_menu: corda-5-beta
 ---
-This section lists the fields of each Corda configuration section. Set these fields by sending a valid JSON document to the `put_config` endpoint of the [REST API](../operating-tutorials/rest-api.md).
+This section lists the fields of each Corda configuration section. Set the fields in a section by sending a JSON to the `config` endpoint of the [REST API](../operating-tutorials/rest-api.md).
 
-<!--There are some exceptions though. For example the DB config is passed in when you start Corda. All of that needs a bit of documentation.-->
+For example, to set fields in the [messaging](messaging.md) section:
+
+   {{< tabs >}}
+   {{% tab name="Bash"%}}
+   ```shell
+   curl -k -u <username>:<password> -X PUT -d '{"section":"corda.messaging", "version":"1", "config":"{"maxAllowedMessageSize":972800,"publisher":{"closeTimeout":600,"transactional":true},"subscription":{"commitRetries":3,"pollTimeout":500,"processorRetries":3,"processorTimeout":15000,"subscribeRetries":3,"threadStopTimeout":10000}}", "schemaVersion": {"major": 1, "minor": 0}}' "https://localhost:8888/api/v1/config"
+   ```
+   {{% /tab %}}
+   {{% tab name="PowerShell" %}}
+   ```shell
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f <username>:<password>)} -Method Put -Uri "https://localhost:8888/api/v1/config" -Body (ConvertTo-Json -Depth 4 @{
+    section = "corda.messaging"
+    version = 1
+    {
+     "config": "{
+        "maxAllowedMessageSize":972800,
+        "publisher":{
+           "closeTimeout":600,
+           "transactional":true
+        },
+        "subscription":{
+           "commitRetries":3,
+           "pollTimeout":500,
+           "processorRetries":3,
+           "processorTimeout":15000,
+           "subscribeRetries":3,
+           "threadStopTimeout":10000
+        }
+     }",
+     "schemaVersion": {
+        "major": 1,
+        "minor": 0
+     },
+     "section": "corda.messaging",
+     "version": 1
+   })
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+{{< note >}}
+The `db` confuiguration section is passed in when starting Corda and cannot be updated dynamically through the REST endpoint.
+{{< /note >}}
