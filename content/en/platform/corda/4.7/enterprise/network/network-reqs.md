@@ -19,7 +19,7 @@ There is a set of parameters that all Nodes on the network must agree on in orde
 The minimum platform version that the nodes must be running. Any node which is below this will not start. 
 
 {{< note >}}
-You can set the `minimumPlatformVersion` network parameter to a value that is as high as the Corda Platform version of the nodes we  allow to run on a network. For example, we can set `minimumPlatformVersion` to 5 to allow only Corda 4.3+ nodes (= Corda Platform version 5+) to run on a network.
+You can set the `minimumPlatformVersion` network parameter to a value that is as high as the Corda Platform version of the nodes we run on a network. For example, we can set `minimumPlatformVersion` to 5 to allow only Corda 4.3+ nodes (= Corda Platform version 5+) to run on a network.
 {{< /note >}}
 
 
