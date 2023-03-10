@@ -265,10 +265,10 @@ To create the schema manually, do the following:
    The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the Corda deployment configuration:
 
    ```yaml
-+  config:
-+    encryption:
-       salt: <SALT>
-       passphrase: <PASSPHRASE>
+   config:
+      encryption:
+         salt: <SALT>
+         passphrase: <PASSPHRASE>
    ```
 
    For example:
