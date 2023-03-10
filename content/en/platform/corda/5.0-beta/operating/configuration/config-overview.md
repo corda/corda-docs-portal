@@ -51,5 +51,5 @@ For example, to set fields in the [messaging](messaging.md) section:
    {{< /tabs >}}
 
 {{< note >}}
-The `db` confuiguration section is passed in when starting Corda and cannot be updated dynamically through the REST endpoint.
+The `db` configuration section is passed in when starting Corda and cannot be updated dynamically through the REST endpoint.
 {{< /note >}}
