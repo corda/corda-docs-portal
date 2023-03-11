@@ -37,7 +37,7 @@ There are a few possible recovery actions for a stuck flow. You can:
 
 ### Kill and retry the flow
 
-To kill a flow, use the [Corda shell](../shell.md).
+To kill a flow, use the [Corda shell]({{< relref "../shell.md" >}}).
 
 1. Open the node shell.
 2. Run the `flow kill <flow-id>`, where `<flow-id>` is the unique flow ID. The output will look something like this:

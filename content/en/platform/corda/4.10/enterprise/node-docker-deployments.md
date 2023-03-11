@@ -90,7 +90,7 @@ It is possible to utilize the image to automatically generate a sensible minimal
 Requirements: A Compatibility Zone, the Zone Trust Root and authorisation to join said Zone.
 
 {{< /note >}}
-It is possible to use the image to automate the process of joining an existing Zone as detailed [here](../../../../../en/platform/corda/4.8/enterprise/network/compatibility-zones.md)
+It is possible to use the image to automate the process of joining an existing Zone as detailed [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/network/compatibility-zones.md" >}})
 
 The first step is to obtain the Zone Trust Root, and place it within a directory. In the below example, the Trust Root is stored at `/home/user/docker/certificates/network-root-truststore.jks`.
 It is possible to configure the name of the Trust Root file by setting the `TRUST_STORE_NAME` environment variable in the container.

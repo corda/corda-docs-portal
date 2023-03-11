@@ -13,7 +13,7 @@ weight: 500
 
 # Metering client for the Metering Collection Tool
 
-The [Metering Collection Tool](metering-collector.md) collects metering data from one or more Corda Enterprise Nodes. The purpose of the metering _client_ is to perform this remotely without having to access the environment where the collector node is running, or opening a [Shell](../shell.md) for it. To do this, the metering client uses RPC to connect to a designated collector node. The designated collector node then runs the Metering Collection Tool to collect the metering data from the specified set of nodes: these are known as the destination nodes. The data is then returned to the metering client. The metering client saves the results to a file.
+The [Metering Collection Tool](metering-collector.md) collects metering data from one or more Corda Enterprise Nodes. The purpose of the metering _client_ is to perform this remotely without having to access the environment where the collector node is running, or opening a [Shell]({{< relref "../shell.md" >}}) for it. To do this, the metering client uses RPC to connect to a designated collector node. The designated collector node then runs the Metering Collection Tool to collect the metering data from the specified set of nodes: these are known as the destination nodes. The data is then returned to the metering client. The metering client saves the results to a file.
 
 {{< note >}}
 Destination nodes must be configured to share their metering data with the designated collector node. For more information, see [How metering data is shared](metering-collector.html#how-metering-data-is-shared).
