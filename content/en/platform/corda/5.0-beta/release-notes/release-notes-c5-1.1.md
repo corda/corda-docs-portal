@@ -60,6 +60,3 @@ An exception was incorrectly thrown if an attempt was made to call `getInputStat
 * There is no support for the Corda 4 Accounts SDK.
 * There is no support for the Corda 4 Tokens SDK.
 * There is no support for upgrades from the early access beta versions.
-
-## Log4j patches
-Click [here](./log4j-patches.md) to find all patches addressing the December 2021 Log4j vulnerability.
