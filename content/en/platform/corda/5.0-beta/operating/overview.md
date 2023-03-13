@@ -7,4 +7,4 @@ menu:
     weight: 4075
 section_menu: corda-5-beta
 ---
-This section describes how to interact with a running instance of Corda. It describes how to onboard members and invoke the Corda REST API. It also lists the Corda confguration parameters.
+This section describes how to interact with a running instance of Corda. It describes how to onboard members and invoke the Corda REST API. It also lists the Corda confguration fields.
