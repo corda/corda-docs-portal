@@ -8,7 +8,7 @@ menu:
     weight: 4000
 section_menu: corda-5-beta
 ---
-This section lists the fields of each Corda configuration section. Set the fields in a section by sending a JSON to the `config` endpoint of the [REST API](../operating-tutorials/rest-api.md).
+This section lists the fields of each Corda configuration section. Set the fields in a section by sending JSON to the `config` endpoint of the [REST API](../operating-tutorials/rest-api.md).
 
 For example, to set fields in the [messaging](messaging.md) section:
 
@@ -51,5 +51,5 @@ For example, to set fields in the [messaging](messaging.md) section:
    {{< /tabs >}}
 
 {{< note >}}
-The `db` configuration section is passed in when starting Corda and cannot be updated dynamically through the REST endpoint.
+The `db` configuration section is passed when starting Corda and cannot be updated dynamically through the REST endpoint.
 {{< /note >}}
