@@ -46,7 +46,6 @@ and the counterparty to their new confidential identities. In the future, this f
 identities with multiple parties at once.
 
 You can see an example of using `SwapIdentitiesFlow` in <a href="../../../../../../en/api-ref/corda/4.10/community/kotlin/corda/net.corda.finance.flows/-two-party-deal-flow/index.md">`TwoPartyDealFlow.kt`</a> .
-
 `SwapIdentitiesFlow` goes through the following key steps:
 
 * Generate a new confidential identity from our well-known identity

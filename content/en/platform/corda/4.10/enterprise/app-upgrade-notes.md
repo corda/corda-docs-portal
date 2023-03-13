@@ -17,7 +17,7 @@ weight: 30
 This guide shows you how to upgrade your CorDapp from previous platform versions to benefit
 from the new features in the latest release.
 
-Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs](../../../../api-ref/api-ref-corda-4.md). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
+Most of Corda's public, non-experimental APIs are backwards compatible. See the [full list of stable APIs]({{< relref "../../../../api-ref/api-ref-corda-4.md" >}}). If you are working with a stable API, you don't need to update your CorDapps. However, there are usually new features and other opt-in changes that may improve the security, performance, or usability of your
 CorDapp that are worth considering for any actively maintained software.
 
 {{< warning >}}

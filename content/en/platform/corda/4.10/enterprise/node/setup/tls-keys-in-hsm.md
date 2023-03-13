@@ -45,4 +45,4 @@ enterpriseConfiguration = {
 To migrate from a file-based node's TLS keystore to HSM:
 
 1. Add a `tlsCryptoServiceConfig` section the node configuration file.
-2. Renew the TLS certificate and keys, as described in  the [Renewing TLS certificates](../../ha-utilities.html#renewing-tls-certificates) section in [HA Utilities](../../ha-utilities.md).
+2. Renew the TLS certificate and keys, as described in  the [Renewing TLS certificates](../../ha-utilities.html#renewing-tls-certificates) section in [HA Utilities]({{< relref "../../ha-utilities.md" >}}).
