@@ -9,11 +9,9 @@
 {{ with $value.enum }}
     This must be set to one of the following values:
     <ul>
-    {{ range $enumval := $value.enum }}
-        <li>
-        {{ $enumval }}
-        </li>
-    {{ end }}
+        {{ range $enumval := $value.enum }}
+            <li>{{ $enumval }}</li>
+        {{ end }}
     </ul>
 {{ end }}
 {{ with $value.minimum }}

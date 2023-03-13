@@ -1,4 +1,3 @@
-
 {{ $value := .value }}
 {{ $key := .key }}
 {{ $fullurl := .url}}
@@ -16,16 +15,14 @@
             {{ if eq $ifkey "then" }}
                 you should also set the following fields:
                 {{ range $ifcondkey, $ifcondval := $ifval }}
-
                     {{ if eq $ifcondkey "properties" }}
                         {{ range $condpropkey, $condpropval := $ifcondval }}
-
-                        {{ $ref := index $condpropval "$ref"}}
-                        {{ with $ref }}
-                            {{ $urlpath := strings.TrimSuffix (path.Base $fullurl) $fullurl }}
-                            {{ $refurl := print $urlpath $ref }}
-                            {{ partial "referenced-field-desc-ref-docs" (dict "url" $refurl) }}
-                        {{ end }}
+                            {{ $ref := index $condpropval "$ref"}}
+                            {{ with $ref }}
+                                {{ $urlpath := strings.TrimSuffix (path.Base $fullurl) $fullurl }}
+                                {{ $refurl := print $urlpath $ref }}
+                                {{ partial "referenced-field-desc-ref-docs" (dict "url" $refurl) }}
+                            {{ end }}
                         <ul>
                             {{ range $propertykey, $propertyvalue := $condpropval.properties }}
                                 {{ partial "field-desc-ref-docs" (dict "value" $propertyvalue "key" $propertykey "url" $fullurl) }}
@@ -40,8 +37,6 @@
                         </ul>
                         {{ end }}
                     {{ end }}
-
-
                 {{ end }}
             {{ end }}
         {{ end }}
