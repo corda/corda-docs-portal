@@ -17,7 +17,7 @@ After you have completed this tutorial, you will know how to create and implemen
 
 ## Before You Start
 
-Before you start building states, read more about [states](../../ledger/states.md).
+Before you start building states, read more about [states]({{< relref "../../ledger/states.md" >}}).
 
 
 ## Create the `AppleStamp` State

@@ -30,4 +30,4 @@ Deploying notary virtual nodes to your network follows an almost identical proce
   {{< /note >}}
 
 
-For information on developing notary plugin CorDapps in Corda 5.0 Beta, see the [Developing](../../developing/notaries/overview.md) section.
+For information on developing notary plugin CorDapps in Corda 5.0 Beta, see the [Developing]({{< relref "../../developing/notaries/overview.md" >}}) section.
