@@ -15,9 +15,9 @@ Follow this learning path to build your first CorDapp with a step-by-step guide.
 
 Before you start building your first CorDapp:
 
-- Read about [Corda key concepts](../../../introduction/key-concepts.md).
-- [Get set up for CorDapp development](../../getting-started/get-started.md).
-- [Run the sample CorDapp](../../getting-started/running-your-first-cordapp/run-first-cordapp.md).
+- Read about [Corda key concepts]({{< relref "../../../introduction/key-concepts.md" >}}).
+- [Get set up for CorDapp development]({{< relref "../../getting-started/get-started.md" >}}).
+- [Run the sample CorDapp]({{< relref "../../getting-started/running-your-first-cordapp/run-first-cordapp.md" >}}).
 
 ## The Story
 
@@ -42,7 +42,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 ## How Will It Work on Corda?
 
-1. Farmer Bob issues a voucher to Peter via a ledger transaction. In your CorDapp this voucher is called `AppleStamp` and is a [state](../../ledger/states.md) on the [ledger](../../ledger/ledger.md). One transaction has been performed so far.
+1. Farmer Bob issues a voucher to Peter via a ledger transaction. In your CorDapp this voucher is called `AppleStamp` and is a [state]({{< relref "../../ledger/states.md" >}}) on the [ledger]({{< relref "../../ledger/ledger.md" >}}). One transaction has been performed so far.
 
 2. When Farmer Bob prepares the apples Peter requested, he self-issues a bushel of apples via a self-issue transaction. This is another state on the ledger - `BasketofApples`. Two transactions have been performed so far.
 
@@ -50,7 +50,7 @@ An important feature of this CorDapp is that the voucher cannot be used more tha
 
 4. The `BasketofApples` state is transferred to Peter when the `AppleStamp` state is consumed and Farmer Bob gives Peter his apples.
 
-All of these transactions are initiated by [flows](../../ledger/flows.md).
+All of these transactions are initiated by [flows]({{< relref "../../ledger/flows.md" >}}).
 
 ## Next Steps
 

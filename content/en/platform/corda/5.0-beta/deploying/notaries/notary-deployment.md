@@ -29,4 +29,4 @@ It is currently only possible to have a single notary virtual node associated wi
 
 * `"corda.notary.service.plugin" : "net.corda.notary.NonValidatingNotary"` - This attribute replaces the validating Boolean flag in Corda 4. This is effectively the equivalent to setting `validating = false` in Corda 4.
 
-For information on developing notary plugin CorDapps in Corda 5.0 Beta, see the [Developing](../../developing/notaries/overview.md) section.
+For information on developing notary plugin CorDapps in Corda 5.0 Beta, see the [Developing]({{< relref "../../developing/notaries/overview.md" >}}) section.

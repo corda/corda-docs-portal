@@ -22,7 +22,7 @@ This section describes the new features in Corda 5.0 Beta 1.
 ### Deployment 
 
 #### Red Hat OpenShift Container Platform
-Deployment of Corda 5 to Red Hat OpenShift Container Platform has now been tested and the [documentation](../deploying/deployment-tutorials/deploy-corda-cluster.md) updated.
+Deployment of Corda 5 to Red Hat OpenShift Container Platform has now been tested and the [documentation]({{< relref "../deploying/deployment-tutorials/deploy-corda-cluster.md" >}}) updated.
 
 #### Multiple Kafka Users
 It is now possible to specify separate Kafka credentials for bootstrapping and for each type of worker in the deployment configuration file.
@@ -38,7 +38,7 @@ It is now possible to use certificates, in addition to cryptographic keys, in en
 
 ### Ledger
 
-The Ledger Layer has now been implemented to enable initial testing and development of ledger CorDapps. For more information, see the [Ledger section](../developing/ledger/ledger.md).
+The Ledger Layer has now been implemented to enable initial testing and development of ledger CorDapps. For more information, see the [Ledger section]({{< relref "../developing/ledger/ledger.md" >}}).
 
 #### Smart Contract Interfaces
 Interfaces are now available to define and handle smart contracts in the Corda 5 UTXO ledger.

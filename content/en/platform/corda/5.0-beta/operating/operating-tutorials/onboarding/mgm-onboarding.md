@@ -135,7 +135,7 @@ Add-Content $WORK_DIR/GroupPolicy.json @"
 
 ## Build the CPI
 
-Build a CPI using the Corda CLI packaging plugin, passing in your generated MGM `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section](../../../developing/development-tutorials/cordapp-packaging.md).
+Build a CPI using the Corda CLI packaging plugin, passing in your generated MGM `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section]({{< relref "../../../developing/development-tutorials/cordapp-packaging.md" >}}).
 
 ## Upload the CPI
 
