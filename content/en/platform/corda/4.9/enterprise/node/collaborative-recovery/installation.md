@@ -41,7 +41,7 @@ Outline of steps for installation:
 
 ## Requirements
 
-* [LedgerGraph CorDapp](./../operating/ledger-graph.md). The collaborative recovery CorDapps depend on the LedgerGraph CorDapp.
+* [LedgerGraph CorDapp]({{< relref "./../operating/ledger-graph.md" >}}). The collaborative recovery CorDapps depend on the LedgerGraph CorDapp.
 
 * **Corda Enterprise** Corda nodes must be running Corda Enterprise in order to initiate or participate in Collaborative Recovery. This feature is not available for Corda Community Edition nodes.
 
