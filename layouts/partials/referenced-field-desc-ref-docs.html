@@ -3,7 +3,8 @@
 <ul>
 {{ range $key, $value := $refjson.properties }}
     {{ with $value }}
-        <li><code>{{ $key }}</code> - {{ $value.description}} 
+        <li>
+            <code>{{ $key }}</code> - {{ $value.description}} 
             {{ with $value.enum }}
                 This must be set to one of the following values:
                 <ul>
