@@ -728,13 +728,9 @@ side as if it were thrown from inside the called RPC method. These exceptions ca
 
 ## Configuring wire security
 
-<<<<<<< HEAD
-If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md)).
-The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options](../node-commandline.md)).
-=======
 If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md" >}})).
 The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/node-commandline.md" >}})).
->>>>>>> 14230a57feea43fcbb4b2406ec95d2dfd90c1b02
+
 The generated RPC TLS trust root certificate is exported to a `certificates/export/rpcssltruststore.jks` file, which should be distributed to the authorised RPC clients.
 
 The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](../../../../../../../en/api-ref/corda/4.9/community/javadoc/net/corda/client/rpc/CordaRPCClient.html)) and set this constructor
@@ -746,8 +742,5 @@ Note that RPC TLS does not use mutual authentication, and delegates fine-grained
 
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
-<<<<<<< HEAD
-`@CordaSerializable` annotation (see [Serialization](../../serialization-index.md)). An example is shown in [Working with the CordaRPCClient API](../../get-started/supplementary-tutorials/tutorial-clientrpc-api.md).
-=======
-`@CordaSerializable` annotation (see [Serialization]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/serialization-index.md" >}})). An example is shown in [Working with the CordaRPCClient API]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
->>>>>>> 14230a57feea43fcbb4b2406ec95d2dfd90c1b02
+
+`@CordaSerializable` annotation (see [Serialization]({{< relref "../../serialization-index.md" >}})). An example is shown in [Working with the CordaRPCClient API]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
