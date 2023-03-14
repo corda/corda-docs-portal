@@ -128,6 +128,7 @@ a new proxy for every call you make - reuse an existing one.
 {{< /warning >}}
 
 For further information on using the RPC API, see [Working with the CordaRPCClient API]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
+ 
 ### Defining RPC users and permissions
 
 To interact with the Corda node via the RPC interface, a node operator must define one or more RPC users. Each user is authenticated with a username and password, and is assigned a set of permissions that control which RPC operations they can perform. To interact with the node via the local shell, permissions are not required. Permissions do, however, have effect if the shell is started via SSH.
@@ -729,6 +730,7 @@ side as if it were thrown from inside the called RPC method. These exceptions ca
 
 If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md" >}})).
 The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/node-commandline.md" >}})).
+
 The generated RPC TLS trust root certificate is exported to a `certificates/export/rpcssltruststore.jks` file, which should be distributed to the authorised RPC clients.
 
 The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](../../../../../../../en/api-ref/corda/4.9/community/javadoc/net/corda/client/rpc/CordaRPCClient.html)) and set this constructor
@@ -740,4 +742,5 @@ Note that RPC TLS does not use mutual authentication, and delegates fine-grained
 
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
-`@CordaSerializable` annotation (see [Serialization]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/serialization-index.md" >}})). An example is shown in [Working with the CordaRPCClient API]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
+
+`@CordaSerializable` annotation (see [Serialization]({{< relref "../../serialization-index.md" >}})). An example is shown in [Working with the CordaRPCClient API]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
