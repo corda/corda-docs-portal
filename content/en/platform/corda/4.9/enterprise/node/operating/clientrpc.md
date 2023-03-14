@@ -127,8 +127,8 @@ method on [CordaRPCClient](../../../../../../../en/api-ref/corda/4.9/community/j
 a new proxy for every call you make - reuse an existing one.
 {{< /warning >}}
 
-For further information on using the RPC API, see [Working with the CordaRPCClient API](../../get-started/supplementary-tutorials/tutorial-clientrpc-api.md).
-
+For further information on using the RPC API, see [Working with the CordaRPCClient API]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
+ 
 ### Defining RPC users and permissions
 
 To interact with the Corda node via the RPC interface, a node operator must define one or more RPC users. Each user is authenticated with a username and password, and is assigned a set of permissions that control which RPC operations they can perform. To interact with the node via the local shell, permissions are not required. Permissions do, however, have effect if the shell is started via SSH.
@@ -368,7 +368,7 @@ To interact with your node via any of the following interfaces, you need to buil
 All of these interfaces are located in the `:client:extensions-rpc` module.
 
 {{< note >}}
-`COMPLETED`, `FAILED`, and `KILLED` flows can only be queried when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs using a unique, client-provided ID. For more information, see [Starting a flow with a client-provided unique ID](../../flow-start-with-client-id.md).
+`COMPLETED`, `FAILED`, and `KILLED` flows can only be queried when started by the `startFlowWithClientId` or `startFlowDynamicWithClientId` APIs using a unique, client-provided ID. For more information, see [Starting a flow with a client-provided unique ID]({{< relref "../../flow-start-with-client-id.md" >}}).
 {{< /note >}}
 
 {{< note >}}
@@ -697,7 +697,7 @@ any resources.
 
 ## Versioning
 
-The client RPC protocol is versioned using the node’s platform version number (see [Versioning](../../../../../../../en/platform/corda/4.9/enterprise/cordapps/versioning.md)). When a proxy is created,
+The client RPC protocol is versioned using the node’s platform version number (see [Versioning]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/cordapps/versioning.md" >}})). When a proxy is created,
 the server is queried for its version, and you can specify your minimum requirement. Methods added in later versions
 are tagged with the `@RPCSinceVersion` annotation. If you try to use a method that the server isn’t advertising support
 for, an `UnsupportedOperationException` is thrown. If you want to know the version of the server, just use the
@@ -728,8 +728,13 @@ side as if it were thrown from inside the called RPC method. These exceptions ca
 
 ## Configuring wire security
 
+<<<<<<< HEAD
 If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md)).
 The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options](../node-commandline.md)).
+=======
+If TLS communications to the RPC endpoint are required, the node must be configured with `rpcSettings.useSSL=true` (see [Node configuration options]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-file.md" >}})).
+The node admin must then create a node-specific RPC certificate and key, by running the node once with the `generate-rpc-ssl-settings` command specified (see [Node command-line options]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/node-commandline.md" >}})).
+>>>>>>> 14230a57feea43fcbb4b2406ec95d2dfd90c1b02
 The generated RPC TLS trust root certificate is exported to a `certificates/export/rpcssltruststore.jks` file, which should be distributed to the authorised RPC clients.
 
 The connecting `CordaRPCClient` code must then use one of the constructors with a parameter of type `ClientRpcSslOptions` ([JavaDoc](../../../../../../../en/api-ref/corda/4.9/community/javadoc/net/corda/client/rpc/CordaRPCClient.html)) and set this constructor
@@ -741,4 +746,8 @@ Note that RPC TLS does not use mutual authentication, and delegates fine-grained
 
 CorDapps must whitelist any classes used over RPC with Corda’s serialization framework, unless they are whitelisted by
 default in `DefaultWhitelist`. The whitelisting is done either via the plugin architecture or by using the
+<<<<<<< HEAD
 `@CordaSerializable` annotation (see [Serialization](../../serialization-index.md)). An example is shown in [Working with the CordaRPCClient API](../../get-started/supplementary-tutorials/tutorial-clientrpc-api.md).
+=======
+`@CordaSerializable` annotation (see [Serialization]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/serialization-index.md" >}})). An example is shown in [Working with the CordaRPCClient API]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}).
+>>>>>>> 14230a57feea43fcbb4b2406ec95d2dfd90c1b02
