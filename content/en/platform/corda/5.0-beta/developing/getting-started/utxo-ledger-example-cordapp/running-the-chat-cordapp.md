@@ -12,7 +12,7 @@ section_menu: corda-5-beta
 
 ## Configuring the Application Network (Virtual Nodes)
 
-The CSDE is configured to create a four party application network required to run the Chat CorDapp, including virtual nodes for Alice, Bob, Charlie and a Notary. To change the network configuration, see [Configuring the Network Participants](../../getting-started/configure-the-network-participants/network-participants.md).
+The CSDE is configured to create a four party application network required to run the Chat CorDapp, including virtual nodes for Alice, Bob, Charlie and a Notary. To change the network configuration, see [Configuring the Network Participants]({{< relref "../../getting-started/configure-the-network-participants/network-participants.md" >}}).
 
 {{< note >}}
 You must keep the notary node to enable the CorDapp to finalise transactions.
@@ -20,7 +20,7 @@ You must keep the notary node to enable the CorDapp to finalise transactions.
 
 ## Deploying the CorDapp
 
-To deploy and run the CorDapp, follow the same steps as outlined in the [Running Your First CorDapp](../../getting-started/running-your-first-cordapp/run-first-cordapp.md) section of this [Getting Started guide](../../getting-started/get-started.md).
+To deploy and run the CorDapp, follow the same steps as outlined in the [Running Your First CorDapp]({{< relref "../../getting-started/running-your-first-cordapp/run-first-cordapp.md" >}}) section of this [Getting Started guide]({{< relref "../../getting-started/get-started.md" >}}).
 However, when you come to trigger the flows, you must trigger the appropriate `ChatFlow` rather than `MyFirstFlow`.
 
 {{< note >}}
@@ -30,7 +30,7 @@ Remember to start your docker engine before you attempt to start Corda and make 
 ## Using Swagger
 
 For this walkthrough, we assume you are using the `Swagger GUI` to trigger flows. For each flow we use the Flow Management section of the API.
-You must know the `holdingidentityshorthash` for both Alice and Bob’s nodes. You can retrieve this by running the `listVNodes` Gradle helper in the `csde-queries` section of the [gradle helper](../../../../5.0-beta/developing/getting-started/cordapp-standard-development-environment/csde.md) tasks.
+You must know the `holdingidentityshorthash` for both Alice and Bob’s nodes. You can retrieve this by running the `listVNodes` Gradle helper in the `csde-queries` section of the [gradle helper]({{< relref "../../../../5.0-beta/developing/getting-started/cordapp-standard-development-environment/csde.md" >}}) tasks.
 
 {{< figure src="listvnodes.png" figcaption="listVnodes Gradler helper" alt="listVnodes Gradler helper" >}}
 

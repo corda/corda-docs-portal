@@ -7,6 +7,6 @@ The _network participant_ is the user (or users) in an organisation who have sig
 
 ## Key topics
 
-* [Understanding transactions]({{< relref "../api-transactions" >}})
-* [Writing CorDapp Flows]({{< relref "../api-flows" >}})
-* [Business Network Membership]({{< relref "../business-network-membership" >}})
+* [Understanding transactions]({{< relref "../api-transactions.md" >}})
+* [Writing CorDapp Flows]({{< relref "../api-flows.md" >}})
+* [Business Network Membership]({{< relref "../business-network-membership.md" >}})

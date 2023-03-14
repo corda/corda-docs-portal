@@ -4,7 +4,7 @@ date: '2021-07-02'
 menu:
   corda-community-4-10:
     identifier: corda-community-4-10-release-checksum-os
-    parent: 4-10-release-notes
+    parent: corda-community-4-10-release-notes
     weight: 440
     name: "Release files and checksums"
 ---

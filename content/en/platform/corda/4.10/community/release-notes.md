@@ -7,7 +7,7 @@ aliases:
 date: '2023-02-01'
 menu:
   corda-community-4-10:
-    identifier: 4-10-release-notes
+    identifier: corda-community-4-10-release-notes
     parent: about-corda-landing-4-10-community
     weight: 10
     name: "Release notes"
@@ -94,4 +94,4 @@ The following table lists the dependency version changes between 4.9.5 and 4.10 
 | io.opentelemetry	   | Open Telemetry | -                       | 1.20.1                 |
 
 ## Log4j patches
-Click [here](./log4j-patches.md) to find all patches addressing the December 2021 Log4j vulnerability.
+Click [here]({{< relref "./log4j-patches.md" >}}) to find all patches addressing the December 2021 Log4j vulnerability.

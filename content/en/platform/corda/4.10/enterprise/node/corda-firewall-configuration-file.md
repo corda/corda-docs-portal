@@ -420,7 +420,7 @@ java -jar corda-tools-ha-utilities-4.10.jar node-registration --config-files=./e
 ```
 
 This call will process `node.conf` files and for each legal name performs Doorman registration. Depending on Corda Network configuration this process may require manual approval
-and the program will poll for for Certification Signing Request(CSR) completion. For more information see [Joining a compatibility zone](../network/joining-a-compatibility-zone.md).
+and the program will poll for for Certification Signing Request(CSR) completion. For more information see [Joining a compatibility zone]({{< relref "../network/joining-a-compatibility-zone.md" >}}).
 
 After successful execution this will produce two directories `entityA/certificates` and `entityB/certificates` containing the following files:
 

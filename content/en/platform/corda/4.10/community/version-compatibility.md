@@ -15,4 +15,4 @@ title: Corda and Corda Enterprise compatibility
 
 # Corda and Corda Enterprise compatibility
 
-For full details on Corda and Corda Enterprise compatibility, please see [Corda and Corda Enterprise compatibility](../../4.8/enterprise/version-compatibility.md)
+For full details on Corda and Corda Enterprise compatibility, please see [Corda and Corda Enterprise compatibility]({{< relref "../enterprise/version-compatibility.md" >}})

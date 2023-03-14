@@ -17,7 +17,7 @@ weight: 200
 
 A Corda node exports a number of metrics for the purpose of monitoring the health of the node via JMX. These metrics are described below.
 
-For more information on how to monitor a node, see [Node administration](../node-administration.md), [Node monitoring and logging](overview.md), and [Node monitoring scenarios](monitoring-scenarios.md).
+For more information on how to monitor a node, see [Node administration]({{< relref "../node-administration.md" >}}), [Node monitoring and logging](overview.md), and [Node monitoring scenarios](monitoring-scenarios.md).
 
 ## Metric accuracy and performance
 
