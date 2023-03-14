@@ -1,31 +1,24 @@
 ---
-aliases:
-- /head/key-concepts-tradeoffs.html
-- /HEAD/key-concepts-tradeoffs.html
-- /key-concepts-tradeoffs.html
-date: '2023-03-17'
+date: '2023-03-14'
 menu:
   corda-enterprise-4-8:
     identifier: corda-enterprise-4-8-key-concepts-tradeoffs
     parent: corda-enterprise-4-8-key-concepts
-    weight: 1140
+    weight: 4000
 tags:
 - concepts
 - tradeoffs
 title: Trade-offs
 ---
 
-
 # Trade-offs
 
 
 # Summary
 
-
 * *Permissioned networks are better suited for financial use-cases*
 * *Point-to-point communication allows information to be shared need-to-know*
 * *A UTXO model allows for more transactions-per-second*
-
 
 ## Permissioned vs. permissionless
 
@@ -63,7 +56,7 @@ Corda also uses several other techniques to maximize privacy on the network:
 
 * **Transaction tear-offs**: Transactions are structured in a way that allows them to be digitally signed without
 disclosing the transaction’s contents. This is achieved using a data structure called a Merkle tree. You can read
-more about this technique in [Defining transaction tear-offs](tutorial-tear-offs.md).
+more about this technique in [Defining transaction tear-offs]({{< relref "./get-started/tutorials/supplementary-tutorials/tutorial-tear-offs.md" >}}).
 * **Key randomisation**: The parties to a transaction are identified only by their public keys, and fresh key pairs are
 generated for each transaction. As a result, an onlooker cannot identify which parties were involved in a given
 transaction.
