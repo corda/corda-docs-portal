@@ -29,4 +29,4 @@ The Archive Service consists of the following:
 
 It also makes use of the Application **Entity Manager**, which allows CorDapps to access off-ledger databases using JPA APIs.
 
-Read the full documentation about [The Archive Service](../../../../../../tools/archiving-service/archiving-service-index.md)
+Read the full documentation about [The Archive Service]({{< relref "../../../../../../tools/archiving-service/archiving-service-index.md" >}})

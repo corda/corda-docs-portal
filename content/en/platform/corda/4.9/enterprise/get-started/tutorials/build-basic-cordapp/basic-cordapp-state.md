@@ -19,7 +19,7 @@ After you have completed this tutorial, you will know how to create and implemen
 
 ## Before you start
 
-Before you start building states, read [Key concepts: States](../../../key-concepts-states.md).
+Before you start building states, read [Key concepts: States]({{< relref "../../../key-concepts-states.md" >}}).
 
 
 ## Clone the CorDapp template repo
@@ -480,5 +480,5 @@ Follow the [Write the contracts](basic-cordapp-contract.md) tutorial to continue
 
 ## Related content
 
-* [API: States](../../../cordapps/api-states.md)
-* [Reissuing states](../../../cordapps/reissuing-states.md)
+* [API: States]({{< relref "../../../cordapps/api-states.md" >}})
+* [Reissuing states]({{< relref "../../../cordapps/reissuing-states.md" >}})

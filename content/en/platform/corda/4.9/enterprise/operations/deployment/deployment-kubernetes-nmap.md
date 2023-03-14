@@ -13,7 +13,7 @@ weight: 40
 
 # CENM Network Map Service Helm Chart
 
-This Helm chart is to configure, deploy, and run the [CENM Network Map Service](../../../../1.5/cenm/network-map.md) on Kubernetes.
+This Helm chart is to configure, deploy, and run the [CENM Network Map Service]({{< relref "../../../../1.5/cenm/network-map.md" >}}) on Kubernetes.
 
 ## Example usage
 
@@ -62,4 +62,4 @@ helm install nmap nmap --set shell.password="superDifficultPassword"
 | `logsContainersEnabled`       | Enable container displaying live logs | `true`
 {{< /table >}}
 
-For additional information on database connection details refer to the official documentation: [database documentation](../../../../1.5/cenm/config-database.md).
+For additional information on database connection details refer to the official documentation: [database documentation]({{< relref "../../../../1.5/cenm/config-database.md" >}}).
