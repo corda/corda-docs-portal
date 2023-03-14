@@ -313,4 +313,4 @@ This issue is specific to Corda Enterprise Edition 4.8. Known issues relating to
 {{< /note >}}
 
 ## Log4j patches
-Click [here](./log4j-patches.md) to find all patches addressing the December 2021 Log4j vulnerability.
+Click [here]({{< relref "./log4j-patches.md" >}}) to find all patches addressing the December 2021 Log4j vulnerability.
