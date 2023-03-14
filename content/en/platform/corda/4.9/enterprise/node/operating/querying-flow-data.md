@@ -125,7 +125,7 @@ When this query is executed, a list of the flow IDs for all flows that did not c
 
 ## Querying flow data via the node shell
 
-To query the node for flow data via the [Node Shell](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.md), you must use the `flowStatus` query command.
+To query the node for flow data via the [Node Shell]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.md" >}}), you must use the `flowStatus` query command.
 
 You can use the `flowStatus` query command, in combination with one or more parameters, to retrieve various types of flow data from the node's checkpoints.
 
