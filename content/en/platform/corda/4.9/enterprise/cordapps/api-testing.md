@@ -245,7 +245,7 @@ attributes.
 ### Further examples
 
 * See the [integration testing tutorial]({{< relref "../get-started/tutorials/supplementary-tutorials/tutorial-integration-testing.md" >}}).
-* See the [oracle tutorial]({{< relref ../oracles.md" >}}) for information on testing `@CordaService` classes.
+* See the [oracle tutorial]({{< relref "../oracles.md" >}}) for information on testing `@CordaService` classes.
 
 * Further examples are available in the Example CorDapp in
 [Java](https://github.com/corda/samples/blob/release-V4/cordapp-example/workflows-java/src/test/java/com/example/test/flow/IOUFlowTests.java) and
