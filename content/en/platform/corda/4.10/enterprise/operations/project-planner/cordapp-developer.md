@@ -51,7 +51,7 @@ When developing CorDapps, you should have three initial environments:
 
 A CorDapp development environment can be hosted on a typical development machine, running Windows, Linux, or macOS.
 
-For more information on developing CorDapps, see [developing CorDapps](../../cordapps/cordapp-overview.md).
+For more information on developing CorDapps, see [developing CorDapps]({{< relref "../../cordapps/cordapp-overview.md" >}}).
 
 ### Testing environment
 
@@ -60,4 +60,4 @@ is delivering the intended function. Nodes can be created locally using the netw
 
 A local testing environment should use nodes in **devMode** with no other network components.
 
-For more information on testing CorDapps, see [debugging and testing](../../cordapps/debugging-a-cordapp.md).
+For more information on testing CorDapps, see [debugging and testing]({{< relref "../../cordapps/debugging-a-cordapp.md" >}}).

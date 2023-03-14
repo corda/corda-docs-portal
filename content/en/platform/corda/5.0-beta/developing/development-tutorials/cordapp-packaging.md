@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 
-This section describes how to package your CorDapp as CPKs (Corda Packages), CPBs (Corda Package Bundles), and CPIs (Corda Package Installers). You can read more about the CorDapp packaging format in the [Key Concepts](../../introduction/key-concepts.html#packaging) section. The steps in this section use the [Corda CLI package commands](../../corda-cli-reference/cli-commands/package.md).
+This section describes how to package your CorDapp as CPKs (Corda Packages), CPBs (Corda Package Bundles), and CPIs (Corda Package Installers). You can read more about the CorDapp packaging format in the [Key Concepts](../../introduction/key-concepts.html#packaging) section. The steps in this section use the [Corda CLI package commands]({{< relref "../../corda-cli-reference/cli-commands/package.md" >}}).
 
 ## Before You Start
 

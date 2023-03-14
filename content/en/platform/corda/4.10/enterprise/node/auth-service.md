@@ -20,7 +20,7 @@ The Auth Service is the user authentication and authorisation service for managi
 * Signing Service
 * Network Map (and associated network configurations and node info)
 
-Whenever you use the [User Administration Tool](../../../../../../en/platform/corda/1.5/cenm/user-admin.md) to create new users, groups or roles, the Auth Service is updated to authenticate those users and their permissions. When using the remote management tools such as the [CENM Command Line Interface](../../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md) or the web GUIs hosted on the Gateway Service, the Auth Service verifies your identity and security clearance as needed.
+Whenever you use the [User Administration Tool]({{< relref "../../../../../../en/platform/corda/1.5/cenm/user-admin.md" >}}) to create new users, groups or roles, the Auth Service is updated to authenticate those users and their permissions. When using the remote management tools such as the [CENM Command Line Interface]({{< relref "../../../../../../en/platform/corda/1.5/cenm/cenm-cli-tool.md" >}}) or the web GUIs hosted on the Gateway Service, the Auth Service verifies your identity and security clearance as needed.
 
 You do not need to interact directly with the Auth Service once it has been installed and configured. To protect the integrity of this secure service, there is no direct API contact with the Auth Service: all front-end communications go via the Gateway Service.
 
@@ -68,7 +68,7 @@ Before you can configure the Auth service, you need to prepare SSL certificates,
 
 To do this:
 
-1. Create a SSL certificate in a `.jks` file using the [CENM PKI tool](../../../../../../en/platform/corda/1.5/cenm/pki-tool.md).
+1. Create a SSL certificate in a `.jks` file using the [CENM PKI tool]({{< relref "../../../../../../en/platform/corda/1.5/cenm/pki-tool.md" >}}).
 
 2. Generate a JWT signing key (RSA keypair) in a `.jks` file with the following command-line command:
 `keytool -genkeypair -alias mytest -keyalg RSA -keypass mypass -keystore mytest.jks -storepass mypass`.
@@ -87,10 +87,10 @@ When you create your config file, you establish its connection to your [Gateway 
 
 In the sample below, you can see the initial configuration process:
 
-1. [Database configuration](../../../../../../en/platform/corda/1.5/cenm/database-set-up.md). Add the name, address and login credentials for the SQL database that supports the Auth Service.
+1. [Database configuration]({{< relref "../../../../../../en/platform/corda/1.5/cenm/database-set-up.md" >}}). Add the name, address and login credentials for the SQL database that supports the Auth Service.
 
 {{<note>}}
-If multiple CENM instances are connected to the same database, setting `lockResolutionStrategy` to `SingleInstance` can cause startup problems and/or database corruption. For more information, see the [database configuration options](../../../../../../en/platform/corda/1.5/cenm/config-database.md).
+If multiple CENM instances are connected to the same database, setting `lockResolutionStrategy` to `SingleInstance` can cause startup problems and/or database corruption. For more information, see the [database configuration options]({{< relref "../../../../../../en/platform/corda/1.5/cenm/config-database.md" >}}).
 {{</note>}}
 
 2. JSON Web Key configuration. Set the user name, password, and location of the RSA keypair store for signing. The location must be the absolute path.

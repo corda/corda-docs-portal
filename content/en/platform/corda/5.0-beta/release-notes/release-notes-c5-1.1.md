@@ -23,11 +23,11 @@ This section describes the new features in Corda 5.0 Beta 1.1.
 
 #### Beta 1.1 API
 
-The [CorDapp Standard Development Environment (CSDE)](../developing/getting-started/cordapp-standard-development-environment/csde.md) has been upgraded to use the Corda 5.0 Beta 1.1 API. 
+The [CorDapp Standard Development Environment (CSDE)]({{< relref "../developing/getting-started/cordapp-standard-development-environment/csde.md" >}}) has been upgraded to use the Corda 5.0 Beta 1.1 API. 
 
 #### Example UTXO Ledger CorDapp
 
-The CSDE now includes an [example  UTXO (unspent transaction output) ledger CorDapp](../developing/getting-started/utxo-ledger-example-cordapp/uxto-ledger-example-cordapp.md). This simple chat application is available in both the [CSDE-cordapp-template-kotlin](https://github.com/corda/CSDE-cordapp-template-kotlin) and [CSDE-cordapp-template-java](https://github.com/corda/CSDE-cordapp-template-java) repositories. The Kotlin template also includes a `ContractTestFlow`, which performs tests against the `ChatContract`. This is not available in the Java template yet.
+The CSDE now includes an [example  UTXO (unspent transaction output) ledger CorDapp]({{< relref "../developing/getting-started/utxo-ledger-example-cordapp/uxto-ledger-example-cordapp.md" >}}). This simple chat application is available in both the [CSDE-cordapp-template-kotlin](https://github.com/corda/CSDE-cordapp-template-kotlin) and [CSDE-cordapp-template-java](https://github.com/corda/CSDE-cordapp-template-java) repositories. The Kotlin template also includes a `ContractTestFlow`, which performs tests against the `ChatContract`. This is not available in the Java template yet.
 
 #### Gradle Helpers
 
@@ -60,6 +60,3 @@ An exception was incorrectly thrown if an attempt was made to call `getInputStat
 * There is no support for the Corda 4 Accounts SDK.
 * There is no support for the Corda 4 Tokens SDK.
 * There is no support for upgrades from the early access beta versions.
-
-## Log4j patches
-Click [here](./log4j-patches.md) to find all patches addressing the December 2021 Log4j vulnerability.

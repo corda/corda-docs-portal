@@ -19,7 +19,7 @@ title: Run a sample CorDapp
 
 # Run a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [CorDapp template](../../../../tutorials/corda/4.9/community/template-tutorial/writing-a-cordapp-using-a-template.md), [building your own](../../../../tutorials/corda/4.9/community/build-basic-cordapp/basic-cordapp-intro.md), or using a [community CorDapp](https://www.corda.net/samples/).
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try modifying a [CorDapp template]({{< relref "../../../../tutorials/corda/4.9/community/template-tutorial/writing-a-cordapp-using-a-template.md" >}}), [building your own]({{< relref "../../../../tutorials/corda/4.9/community/build-basic-cordapp/basic-cordapp-intro.md" >}}), or using a [community CorDapp](https://www.corda.net/samples/).
 
 The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](key-concepts-node.md).
 
@@ -270,7 +270,7 @@ You can see the newly-created IOU by running `run vaultQuery contractStateType: 
 
 ### Via the h2 web console
 
-You can connect directly to your node’s database to see its stored states, transactions, and attachments. Follow the instructions in [Node database](../enterprise/node/operating/node-database.md).
+You can connect directly to your node’s database to see its stored states, transactions, and attachments. Follow the instructions in [Node database]({{< relref "../enterprise/node/operating/node-database.md" >}}).
 
 ## Step 6: Test the CorDapp
 
