@@ -25,9 +25,9 @@ The best way to get started with Corda is to:
      * Download the latest Corda Community Edition `.tar` [file](https://download.corda.net/corda-community-edition/4.10/community-4.10.tar) that contains the required Corda `.jars`. 
      * Use the Docker image and accompanying guide from the [Docker Hub](https://hub.docker.com/repository/docker/corda/community).
 
-2. Familiarize yourself with the [Corda key concepts]({{< relref "../../enterprise/about-corda/corda-key-concepts.md" >}}). 
+2. Familiarize yourself with the [Corda key concepts](../../enterprise/about-corda/corda-key-concepts.md). 
 3. Run a [sample CorDapp]({{< relref "../cordapps/tutorial-cordapp.md" >}}) to see Corda in action. 
-4. [Build your own CorDapp]({{< relref "../../community/building-a-cordapp-index.md" >}}) from scratch.
+4. [Build your own CorDapp]({{< relref "../cordapps/cordapp-build-systems.md" >}}) from scratch.
 
 You can then take your Corda integration to the next level by deep-diving into specific topics in our [Corda Enterprise](../../enterprise.html) documentation. You can also view the [API reference material](../../../../../api-ref.html), browse [featured apps]({{< relref "../apps/apps-index.md" >}}), or browse [tools and add-ons](../../../../../tools.html).
 
