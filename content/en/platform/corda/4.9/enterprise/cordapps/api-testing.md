@@ -244,8 +244,6 @@ attributes.
 
 ### Further examples
 
-<<<<<<< HEAD
-
 * See the [integration testing tutorial]({{< relref "../get-started/tutorials/supplementary-tutorials/tutorial-integration-testing.md" >}}).
 * See the [oracle tutorial]({{< relref ../oracles.md" >}}) for information on testing `@CordaService` classes.
 
