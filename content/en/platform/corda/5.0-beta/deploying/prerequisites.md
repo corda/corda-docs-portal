@@ -15,12 +15,12 @@ For information about the prerequisites for local deployment with the [CorDapp S
 
 ## Local Environment
 
-| Software | Version        |
-|----------|----------------|
-| [Corda CLI](../developing/getting-started/installing-corda-cli.html)  |   |  
-| kubectl  | 1.23           |
-| Helm     | 3.9.4 or newer |
-| Docker   |                |
+| Software                                                             | Version        |
+| -------------------------------------------------------------------- | -------------- |
+| [Corda CLI](../developing/getting-started/installing-corda-cli.html) |                |
+| kubectl                                                              | 1.23           |
+| Helm                                                                 | 3.9.4 or newer |
+| Docker                                                               |                |
 
 Corda deployments have been tested with Windows 11 and macOS Monterey version 12.6.1.
 
@@ -28,16 +28,16 @@ Corda deployments have been tested with Windows 11 and macOS Monterey version 12
 
 ### Container Orchestration
 
-| Software                                | Version |
-|-----------------------------------------|---------|
-| Kubernetes                              | 1.23    |
-| Amazon Elastic Kubernetes Service (EKS) | 1.23    |
-| Red Hat OpenShift Container Platform    | 4.10    |
+| Software                                                                                   | Version |
+| ------------------------------------------------------------------------------------------ | ------- |
+| Kubernetes                                                                                 | 1.23    |
+| Amazon Elastic Kubernetes Service (EKS)<br>_Currently only supported on EC2, not Fargate._ | 1.23    |
+| Red Hat OpenShift Container Platform                                                       | 4.10    |
 
 ### Messaging
 
 | Software                                        | Version |
-|-------------------------------------------------|---------|
+| ----------------------------------------------- | ------- |
 | Kafka                                           | 3.2.0   |
 | Amazon Managed Streaming for Apache Kafka (MSK) | 3.2.0   |
 | Confluent Cloud                                 |         |
@@ -45,7 +45,7 @@ Corda deployments have been tested with Windows 11 and macOS Monterey version 12
 ### Database
 
 | Software                  | Version |
-|---------------------------|---------|
+| ------------------------- | ------- |
 | PostgreSQL                | 14.4    |
 | Amazon RDS for PostgreSQL | 14.4    |
 | Amazon Aurora PostgreSQL  | 14.4    |
@@ -55,7 +55,7 @@ Corda deployments have been tested with Windows 11 and macOS Monterey version 12
 Corda 5 cluster deployments have the following minimum requirements:
 
 | Software   | Requirements |
-|------------|--------------|
+| ---------- | ------------ |
 | Kubernetes |              |
 | Kafka      |              |
 | PostgreSQL |              |

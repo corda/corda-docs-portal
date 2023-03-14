@@ -42,7 +42,7 @@ Upgrade steps:
 
 1. Back up your DB cluster.
 2. Test to ensure that you can restore from backup.
-3. Add the new table and indexes to a database in your cluster. It will be replicated to all other databases in the cluster. If you experience problems when the notary worker is restarted, perform a rolling upgrade on the notary worker nodes as detailed in the [node upgrade guide](../node-upgrade-notes.md).
+3. Add the new table and indexes to a database in your cluster. It will be replicated to all other databases in the cluster. If you experience problems when the notary worker is restarted, perform a rolling upgrade on the notary worker nodes as detailed in the [node upgrade guide]({{< relref "../node-upgrade-notes.md" >}}).
 
 ### JPA notary using a CockroachDB database
 
@@ -99,7 +99,7 @@ Upgrade steps:
 * Test you can restore from backup.
 * Log in to any database server of your cluster and add the new column to the `notary_request_log` table, see SQL statements below. It will be replicated to all other database servers.
 * In the unlikely event that the database gets corrupted, take all the notary worker nodes down and restore the database.
-* Perform a rolling upgrade on the notary worker nodes. Follow the [node upgrade guide](../node-upgrade-notes.md) for each node, and make sure the node is running and is no longer in flow draining mode before moving on to the next one.
+* Perform a rolling upgrade on the notary worker nodes. Follow the [node upgrade guide]({{< relref "../node-upgrade-notes.md" >}}) for each node, and make sure the node is running and is no longer in flow draining mode before moving on to the next one.
 
 
 ### JPA Notary
@@ -155,4 +155,4 @@ CREATE TABLE IF NOT EXISTS notary_committed_transactions (
 
 
 * In the unlikely event that the database gets corrupted, take all the notary worker nodes down and restore the database.
-* Perform a rolling upgrade on the notary worker nodes. Follow the [node upgrade guide](../node-upgrade-notes.md) for each node, and make sure the node is running and is no longer in flow draining mode before moving on to the next one.
+* Perform a rolling upgrade on the notary worker nodes. Follow the [node upgrade guide]({{< relref "../node-upgrade-notes.md" >}}) for each node, and make sure the node is running and is no longer in flow draining mode before moving on to the next one.

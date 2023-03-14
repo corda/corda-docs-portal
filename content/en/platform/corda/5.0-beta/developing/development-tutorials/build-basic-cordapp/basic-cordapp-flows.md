@@ -25,7 +25,7 @@ After you have completed this tutorial, you will know how to write and implement
 
 ## Before You Start
 
-Before you start writing flows, read more about [flows](../../ledger/flows.md).
+Before you start writing flows, read more about [flows]({{< relref "../../ledger/flows.md" >}}).
 
 ## Write the `CreateAndIssueAppleStampFlow`
 

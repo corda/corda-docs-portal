@@ -137,10 +137,10 @@ To use the Persistence API from a flow:
 1. Define a reference to the persistence service. This should be supplied via the Corda dependency injection system:
    ```kotlin
    import net.corda.v5.application.flows.CordaInject
-   import net.corda.v5.application.flows.ClientStartableFlow
+   import net.corda.v5.application.flows.RPCStartableFlow
    import net.corda.v5.application.persistence.PersistenceService
 
-   class MyExampleFlow : ClientStartableFlow {
+   class MyExampleFlow : RPCStartableFlow {
        @CordaInject
        lateinit var persistenceService: PersistenceService
 
