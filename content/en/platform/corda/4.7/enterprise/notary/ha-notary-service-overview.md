@@ -68,7 +68,7 @@ will be highly-available. This is because the notary service can continue proces
 replicas and/or notary workers fail. For example, a three-node notary cluster can tolerate one crash fault.
 
 {{< note >}}
-In production we recommend running five or more replicas in the notary state database cluster. However, there is more flexibility regarding the number of notary workers. Since this is only concerned with availability and not durability, there is a tradeoff between the number of notary workers and availability performance.
+In production, we recommend running five or more replicas in the notary state database cluster. However, there is more flexibility regarding the number of notary workers. Since this is only concerned with availability and not durability, there is a tradeoff between the number of notary workers and availability performance.
 {{< /note >}}
 
 If desired, you can choose to run each database server and its Corda notary worker on the same machine:
