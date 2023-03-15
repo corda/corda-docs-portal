@@ -32,7 +32,7 @@ This method returns the rules in the following format:
   }
 ```
 
-Requests that are pending manual approval have the status, `PENDING_MANUAL_APPROVAL`.
+Requests that are pending manual approval have the status `PENDING_MANUAL_APPROVAL`.
 
 To view requests from a specific member, (for example, `C=GB, L=London, O=Alice`) and include historic requests:
 
