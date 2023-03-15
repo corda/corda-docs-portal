@@ -1,6 +1,6 @@
 ---
 date: '2023-03-08'
-title: "Sandbox"
+title: "corda.sandbox"
 menu:
   corda-5-beta:
     parent: corda-5-beta-config-fields
