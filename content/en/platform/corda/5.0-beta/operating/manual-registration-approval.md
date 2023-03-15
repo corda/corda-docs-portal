@@ -21,4 +21,4 @@ This difference will be 100% in case of a first-time registration, since there w
 If any of the keys present in this `MemberInfo` difference match the regular expressions set by the MGM operator, the request requires manual approval. 
 If there are no matches, the request is auto-approved.
 
-To learn how to manage manual approval rules, see [Configuring Manual Approval]({{< relref "./operating-tutorials/manual-approval.md" >}}).
+To learn how to manage manual approval rules, see [Configuring Manual Approval]({{< relref "./operating-tutorials/configuring-manual-approval-rules.md" >}}).
