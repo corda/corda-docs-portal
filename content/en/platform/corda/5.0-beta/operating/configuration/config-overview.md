@@ -8,7 +8,7 @@ menu:
     weight: 4000
 section_menu: corda-5-beta
 ---
-This section lists the fields of each Corda configuration section. Set the fields in a section by sending the configuration fields as JSON to the [`config` endpoint](../../rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config) of the REST API.
+This section lists the fields of each Corda configuration section. Set the fields in a section by sending the configuration fields as JSON to the [config endpoint](../../rest-api/C5_OpenAPI.html#tag/Configuration-API/operation/put_config) of the REST API.
 
 For example, to set fields in the [messaging](messaging.md) section:
 
