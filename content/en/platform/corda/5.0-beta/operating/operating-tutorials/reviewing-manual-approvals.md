@@ -54,7 +54,7 @@ You can only approve requests that are in the `PENDING_MANUAL_APPROVAL` status.
 
 ## Declining a Request
 
-To decline a rquest, pass the ID of the request and a reason to the [POST method of the
+To decline a request, pass the ID of the request and a reason to the [POST method of the
 mgm/{holdingidentityshorthash}/decline/{requestid} endpoint](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__decline__requestid_). You can retrieve the ID of a request from the response of the GET endpoint described in [Viewing Requests Pending Manual Approval]({{< relref "#viewing-requests-pending-manual-approval" >}}). 
 
 ```bash
