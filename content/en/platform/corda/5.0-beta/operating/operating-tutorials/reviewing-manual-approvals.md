@@ -34,7 +34,7 @@ This method returns the rules in the following format:
 
 Requests that are pending manual approval have the status `PENDING_MANUAL_APPROVAL`.
 
-To view requests from a specific member, (for example, `C=GB, L=London, O=Alice`) and include historic requests:
+To view requests from a specific member (for example, `C=GB, L=London, O=Alice`) and include historic requests:
 
 ```bash
 curl --insecure -u <username>:<password> <REST-API-URL>/mgm/<MGM-HOLDING-ID>/approval/registrations?requestsubjectx500name=C%3DGB%2C%20L%3DLondon%2C%20O%3DAlice&viewhistoric=true'
