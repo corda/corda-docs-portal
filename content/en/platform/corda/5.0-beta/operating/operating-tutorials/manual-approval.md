@@ -23,7 +23,7 @@ curl --insecure -u <username>:<password> -d "$RULE_PARAMS" <REST-API-URL>/mgm/<M
 
 ## Viewing Current Group Approval Rules
 
-To retrive all applied group approval rules, use the [GET method of the
+To retrieve all applied group approval rules, use the [GET method of the
 mgm/{holdingidentityshorthash}/approval/rules endpoint](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__approval_rules).
 
 ```bash
