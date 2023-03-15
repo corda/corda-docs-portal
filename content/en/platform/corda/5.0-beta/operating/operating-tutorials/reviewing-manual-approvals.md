@@ -61,5 +61,5 @@ mgm/{holdingidentityshorthash}/decline/{requestid} endpoint](../../rest-api/C5_O
 curl --insecure -u <username>:<password> -d <REASON> <API-URL>/mgm/<MGM-HOLDING-ID>/decline/<REQUEST-ID>
 ```
  {{< note >}}
-You can only decline requests that are in the `PENDING_MANUAL_APPROVAL` status.
+You can only decline requests that have the status `PENDING_MANUAL_APPROVAL`.
 {{< /note >}}
