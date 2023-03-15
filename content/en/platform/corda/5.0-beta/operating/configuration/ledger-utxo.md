@@ -1,6 +1,6 @@
 ---
 date: '2023-03-08'
-title: "UTXO Ledger"
+title: "corda.ledger.utxo"
 menu:
   corda-5-beta:
     parent: corda-5-beta-config-fields

@@ -1,6 +1,6 @@
 ---
 date: '2023-03-08'
-title: "P2P Gateway"
+title: "corda.p2p.gateway"
 menu:
   corda-5-beta:
     parent: corda-5-beta-config-fields
