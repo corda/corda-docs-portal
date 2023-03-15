@@ -344,6 +344,12 @@ name = "Static Networks"
 weight = 1000
 
 [[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-reg-requests"
+parent = "corda-5-beta-onboarding-tutorials"
+name = "Registration Requests"
+weight = 3000
+
+[[corda-5-beta]]
 identifier = "corda-5-beta-tutorials-develop"
 parent = "corda-5-beta-develop"
 name = "Development Tutorials"

@@ -4,8 +4,8 @@ title: "Configuring Manual Approval Rules"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-config-manual-approval
-    parent: corda-5-beta-tutorials-operate
-    weight: 4000
+    parent: corda-5-beta-tutorials-reg-requests
+    weight: 1000
 section_menu: corda-5-beta
 ---
 As described in [Manual Registration Approval]({{< relref "../manual-registration.md" >}}), membership groups can require that member registration requests are manually approved (or declined). This section describes how to manage manual registration rules.

@@ -4,8 +4,8 @@ title: "Reviewing Registration Requests"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-manual-approval-review
-    parent: corda-5-beta-tutorials-operate
-    weight: 4050
+    parent: corda-5-beta-tutorials-reg-requests
+    weight: 2000
 section_menu: corda-5-beta
 ---
 
