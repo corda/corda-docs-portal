@@ -50,7 +50,7 @@ You can upgrade smart contracts via:
 * **Explicit upgrade**. Create a special *contract upgrade transaction* and get all the participants listed on a state to sign it using the contract upgrade flows. This lets you upgrade states even if they have a constraint. Unlike implicit upgrade, this is a complex method which requires all participants to sign and manually authorise the upgrade, and consumes notary and ledger resources.
 
 
-This article focuses on implicit contract upgrades. To learn about the explicit upgrades see [Release new CorDapp versions](../../../../../../en/platform/corda/4.8/enterprise/cordapps/upgrading-cordapps.md).
+This article focuses on implicit contract upgrades. To learn about the explicit upgrades see [Release new CorDapp versions]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/upgrading-cordapps.md" >}}).
 
 
 
@@ -66,7 +66,7 @@ Before signature constraints were released with Corda 4.0, constraints were mana
 * **Hash constraint**: Participants can only use one version of the CorDapp state. This prevents the CorDapp from being upgraded in the future while still making use of any states created using the original version.
 * **Compatibility zone whitelisted (or CZ whitelisted) constraint**: The compatibility zone operator lists the hashes of the versions that can be used with a contract class name.
 
-Learn more about constraints before Corda 4.0 in the <a href="https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs">`archived-docs`</a> directory of the <a href="https://github.com/corda/corda-docs-portal">`corda-docs-portal`</a> repository. You can also [migrate CorDapp contraints](../../../../../../en/platform/corda/4.8/enterprise/cordapps/cordapp-constraint-migration.md) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
+Learn more about constraints before Corda 4.0 in the <a href="https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs">`archived-docs`</a> directory of the <a href="https://github.com/corda/corda-docs-portal">`corda-docs-portal`</a> repository. You can also [migrate CorDapp contraints]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/cordapp-constraint-migration.md" >}}) from older versions by consuming and evolving pre-Corda 4 issued hash or CZ whitelisted constrained states using a Corda 4 signed CorDapp with signature constraints.
 
 
 ## Signature constraints
@@ -82,7 +82,7 @@ The `TransactionBuilder` uses signature constraints when adding output states fo
 
 ## Signing CorDapps
 
-CorDapps that use signature constraints must be signed by a `CompositeKey` or a simpler `PublicKey`. CorDapps can be signed by a single organisation or multiple organisations. After the CorDapp is signed, it can be distributed to the relevant Corda nodes. Signed CorDapps require a [version number](../../../../../../en/platform/corda/4.8/enterprise/cordapps/versioning.md).
+CorDapps that use signature constraints must be signed by a `CompositeKey` or a simpler `PublicKey`. CorDapps can be signed by a single organisation or multiple organisations. After the CorDapp is signed, it can be distributed to the relevant Corda nodes. Signed CorDapps require a [version number]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/versioning.md" >}}).
 
 {{< note >}}
 The platform currently supports `CompositeKey`s, up to a maximum of 20 keys.
@@ -107,7 +107,7 @@ You can retrieve a JAR by hash using `AttachmentStorage.openAttachment`. You can
 
 
 {{< warning >}}
-Follow best practices by [structuring your CorDapp](../../../../../../en/platform/corda/4.8/enterprise/cordapps/writing-a-cordapp.md) as two modules: one that only contains contracts, states, and core data types, and another containing the rest of the CorDapp elements. If you structure your CorDapp as a single module, your entire CorDapp is published to the ledger. This causes the ledger to view changes to your flows or other parts of your CorDapp as a new CorDapp, and could trigger unnecessary upgrade procedures.
+Follow best practices by [structuring your CorDapp]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/writing-a-cordapp.md" >}}) as two modules: one that only contains contracts, states, and core data types, and another containing the rest of the CorDapp elements. If you structure your CorDapp as a single module, your entire CorDapp is published to the ledger. This causes the ledger to view changes to your flows or other parts of your CorDapp as a new CorDapp, and could trigger unnecessary upgrade procedures.
 {{< /warning >}}
 
 
@@ -296,7 +296,7 @@ If the node cannot resolve an attachment constraint it will throw a `MissingCont
 
 ### Not setting CorDapp packages in tests
 
-You must specify which CorDapp packages to scan when you run tests. Provide a package containing the contract class in `MockNetworkParameters`. See [Testing CorDapps](../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-testing.md).
+You must specify which CorDapp packages to scan when you run tests. Provide a package containing the contract class in `MockNetworkParameters`. See [Testing CorDapps]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-testing.md" >}}).
 
 You must also specify a package when testing using `DriverDSl`. `DriverParameters` has a property `cordappsForAllNodes` (Kotlin)
 or method `withCordappsForAllNodes` in Java. Pass the collection of `TestCordapp` created by utility method `TestCordapp.findCordapp(String)`.

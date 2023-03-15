@@ -162,7 +162,7 @@ devMode true
 rpcUsers = [[ user: "user1", "password": "test", "permissions": ["StartFlow.net.corda.flows.MyFlow"]]]
 ```
 
-* `configFile` &lt;string&gt; - use this configuration option to generate an extended node configuration. For more information, see [Node configuration](../setup/corda-configuration-file.md). For example:
+* `configFile` &lt;string&gt; - use this configuration option to generate an extended node configuration. For more information, see [Node configuration]({{< relref "../setup/corda-configuration-file.md" >}}). For example:
 
 ```kotlin
 configFile = "samples/trader-demo/src/main/resources/node-b.conf"
@@ -182,7 +182,7 @@ You can extend the `deployNodes` task with more `node {}` blocks to generate as 
 When adding nodes, make sure that there are no port clashes!
 {{< /warning >}}
 
-To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [Node configuration](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-file.md) format of `node.conf`. The properties set there will be appended to the generated node configuration.
+To extend node configuration beyond the properties defined in the `deployNodes` task, use the `configFile` property with the file path (relative or absolute) set to an additional configuration file. This file should follow the standard [Node configuration]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-file.md" >}}) format of `node.conf`. The properties set there will be appended to the generated node configuration.
 
 {{< note >}}
 If you add a property to the additional configuration file that has already been created by the `deployNodes` task, both properties will be present in generated node configuration.
@@ -222,7 +222,7 @@ running the bootstrapper.
 
 ## Package namespace ownership
 
-To configure [package namespace ownership](../../../../../../../en/platform/corda/4.8/enterprise/node/deploy/env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper](../../../../../../../en/platform/corda/4.8/enterprise/network-bootstrapper.md) tool. For example:
+To configure [package namespace ownership](../../../../../../../en/platform/corda/4.8/enterprise/node/deploy/env-dev.html#package-namespace-ownership), use the optional `networkParameterOverrides` and `packageOwnership` blocks, in a similar way to how the configuration file is used by the [Network Bootstrapper]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/network-bootstrapper.md" >}}) tool. For example:
 
 ```groovy
 task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
@@ -248,7 +248,7 @@ The default Cordform behaviour is to deploy CorDapp JAR files “as built”.
 * As of Corda 4.0, CorDapp JAR files created by the gradle `cordapp` plug-in are signed by a Corda development certificate by default.
 
 You can use the Cordform `signing` entry to override and customise the signing of CorDapp JAR files.
-Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract Constraints](../../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.md).
+Signing a CorDapp enables its contract classes to use signature constraints instead of other types of constraints, such as [Contract Constraints]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.md" >}}).
 
 The signing task may use an external keystore, or create a new one.
 You can use the following parameters in the `signing` entry:
@@ -289,8 +289,8 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 ```
 
 Contracts classes from signed CorDapp JAR files are checked by signature constraints by default.
-You can force them to be checked by zone constraints by adding contract class names to the `includeWhitelist` entry - the list will generate an `include_whitelist.txt` file used internally by the [Network Bootstrapper](../../../../../../../en/platform/corda/4.8/enterprise/network-bootstrapper.md) tool.
-Before you add `includeWhitelist` to the `deployNodes` task, see [Contract Constraints](../../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.md) to understand the implications of using different constraint types.
+You can force them to be checked by zone constraints by adding contract class names to the `includeWhitelist` entry - the list will generate an `include_whitelist.txt` file used internally by the [Network Bootstrapper]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/network-bootstrapper.md" >}}) tool.
+Before you add `includeWhitelist` to the `deployNodes` task, see [Contract Constraints]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.md" >}}) to understand the implications of using different constraint types.
 The snippet below configures contracts classes from the Finance CorDapp to be verified using zone constraints instead of signature constraints:
 
 ```groovy

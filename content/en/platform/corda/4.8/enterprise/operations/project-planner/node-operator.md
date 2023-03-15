@@ -18,7 +18,7 @@ is the component that hosts CorDapps, and executes transactions with other netwo
 
 A Corda node is highly configurable, and care must be taken to correctly configure your node for best performance.
 
-For more information on node configuration, see [node configuration](../../node/setup/node-naming.md).
+For more information on node configuration, see [node configuration]({{< relref "../../node/setup/node-naming.md" >}}).
 
 ## Node sizing
 
@@ -54,7 +54,7 @@ All Corda Nodes have a database. A range of third-party databases are supported 
 
 The node database stores all data required by the node, including CorDapps and state definitions.
 
-To learn more about the node database, see [understanding the node database](../../node/operating/node-database.md).
+To learn more about the node database, see [understanding the node database]({{< relref "../../node/operating/node-database.md" >}}).
 
 ## Testing and production environments
 
@@ -63,7 +63,7 @@ node, and a testing environment for testing CorDapp updates, node upgrades, or o
 
 ## Production environment
 
-A production environment should contain the node, an HA implementation of the [Corda Firewall](../../node/corda-firewall-component.md),
+A production environment should contain the node, an HA implementation of the [Corda Firewall]({{< relref "../../node/corda-firewall-component.md" >}}),
 and an HSM that conforms to your organisation's security policies.
 
 The Corda Firewall consists of the Float and Bridge components. A high-availability implementation of Corda Firewall

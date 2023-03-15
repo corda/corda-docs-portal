@@ -318,7 +318,7 @@ However, this means that restoring an old checkpoint to a new version of a flow 
 
 For this reason, in currently released versions of Corda you must *drain the node* before doing an app upgrade that changes `@Suspendable` code. A drain blocks new flows from starting but allows existing flows to finish. Thus once a drain is complete there should be no outstanding checkpoints or running flows. Upgrading the app will then succeed.
 
-A node can be drained or undrained via RPC using the `setFlowsDrainingModeEnabled` method, and via the shell using the standard `run` command to invoke the RPC. See [node shell](../node/operating/shell.md) to learn more.
+A node can be drained or undrained via RPC using the `setFlowsDrainingModeEnabled` method, and via the shell using the standard `run` command to invoke the RPC. See [node shell]({{< relref "../node/operating/shell.md" >}}) to learn more.
 
 To assist in draining a node, the `checkpoints dump` shell command will output JSON representations of each checkpointed flow.
 A zip containing the JSON files is created in the `logs` directory of the node. This information can then be used to determine the
@@ -438,7 +438,7 @@ in progress.
 #### 6. Re-run the network bootstrapper (only if you want to whitelist the new contract)
 
 If you’re using the network bootstrapper instead of a network map server and have defined any new contracts, you need to
-re-run the network bootstrapper to whitelist the new contracts. See [network bootstrapper](../network-bootstrapper.md).
+re-run the network bootstrapper to whitelist the new contracts. See [network bootstrapper]({{< relref "../network-bootstrapper.md" >}}).
 
 
 #### 7. Restart the nodes

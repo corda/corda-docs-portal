@@ -134,7 +134,7 @@ To monitor your node using Jolokia you must:
 
 The following JMX statistics are exported:
 
-* [Corda specific metrics](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/node-metrics.md).
+* [Corda specific metrics]({{< relref "../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/node-metrics.md" >}}).
 * Apache Artemis queue information for P2P and RPC services.
 * JVM classloading, garbage collection, memory, runtime, threading, and operating system metrics.
 
@@ -185,5 +185,5 @@ To publish metrics to a Graphite server:
 
 ## Related content
 
-* [Node metrics](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/node-metrics.md)
-* [Monitoring scenarios](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/monitoring-scenarios.md)
+* [Node metrics]({{< relref "../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/node-metrics.md" >}})
+* [Monitoring scenarios]({{< relref "../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/monitoring-scenarios.md" >}})

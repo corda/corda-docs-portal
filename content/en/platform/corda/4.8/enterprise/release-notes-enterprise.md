@@ -86,7 +86,7 @@ Corda Enterprise Edition 4.8.7 is a patch release of Corda Enterprise that ensur
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md" >}}).
 
 As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html).
 
@@ -101,7 +101,7 @@ Corda Enterprise Edition 4.8.6 is a patch release of Corda Enterprise which incl
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md" >}}).
 
 As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html).
 
@@ -133,7 +133,7 @@ Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https:
 
 ### Upgrade recommendation
 
-As a developer, you should urgently upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+As a developer, you should urgently upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md" >}}).
 
 As a node operator, you should urgently upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html).
 
@@ -161,7 +161,7 @@ Corda Enterprise Edition 4.8.3 is a patch release of Corda Enterprise that fixes
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md" >}}).
 
 As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
@@ -178,7 +178,7 @@ Corda Enterprise Edition 4.8.2 is a patch release of Corda Enterprise that fixes
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md" >}}).
 
 As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
@@ -206,7 +206,7 @@ Corda Enterprise Edition 4.8.1 is a patch release of Corda Enterprise that fixes
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md" >}}).
 
 As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
@@ -257,13 +257,13 @@ R3 provides LTS for this release for 30 months starting April 21st 2021. This is
 
 Corda 4.8 uses platform version 10.
 
-For more information about platform versions, see [Versioning](../../../../../en/platform/corda/4.8/enterprise/cordapps/versioning.md).
+For more information about platform versions, see [Versioning]({{< relref "../../../../../en/platform/corda/4.8/enterprise/cordapps/versioning.md" >}}).
 
 ## New features and enhancements
 
 ### Notary database support update
 
-The [JPA notary](../../../../../en/platform/corda/4.8/enterprise/notary/installing-jpa.md) now supports [Oracle DB version 19c](../../../../../en/platform/corda/4.8/enterprise/platform-support-matrix.html#jpa-notary-databases). This database is supported until April 30th 2027.
+The [JPA notary]({{< relref "../../../../../en/platform/corda/4.8/enterprise/notary/installing-jpa.md" >}}) now supports [Oracle DB version 19c](../../../../../en/platform/corda/4.8/enterprise/platform-support-matrix.html#jpa-notary-databases). This database is supported until April 30th 2027.
 
 ### Azure managed identities authentication
 
@@ -291,7 +291,7 @@ See [Monitoring Notary Latency](notary/faq/notary-latency-monitoring.md) for mor
 
 Corda Enterprise Edition 4.8 fixes:
 
-* A security issue that affects notary systems that use the JPA notary implementation in an HA configuration and when the notary backing database has been set up using the Corda database management tool. The new version of the Corda [database management tool](../../../../../en/platform/corda/4.8/enterprise/database-management-tool.md) must be re-run for the fix to take effect.
+* A security issue that affects notary systems that use the JPA notary implementation in an HA configuration and when the notary backing database has been set up using the Corda database management tool. The new version of the Corda [database management tool]({{< relref "../../../../../en/platform/corda/4.8/enterprise/database-management-tool.md" >}}) must be re-run for the fix to take effect.
 * Several issues that cause memory leaks. As a result, we have added a new node configuration field - `enableURLConnectionCache` - and we have modified the `attachmentClassLoaderCacheSize` node configuration field. See the [node configuration fields page](../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-fields.html#enterpriseconfiguration) for details.
 * An issue where the node is unable to resolve transaction chains that contain states or contracts that it did not relate to installed CorDapps.
 * Flow state, invocation source, and suspension source filters breaking in the node GUI.
@@ -313,4 +313,4 @@ This issue is specific to Corda Enterprise Edition 4.8. Known issues relating to
 {{< /note >}}
 
 ## Log4j patches
-Click [here](./log4j-patches.md) to find all patches addressing the December 2021 Log4j vulnerability.
+Click [here]({{< relref "./log4j-patches.md" >}}) to find all patches addressing the December 2021 Log4j vulnerability.

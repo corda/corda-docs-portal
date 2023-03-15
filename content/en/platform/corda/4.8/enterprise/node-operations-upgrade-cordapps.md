@@ -15,11 +15,11 @@ weight: 50
 
 # Upgrading deployed CorDapps
 
-For developer information on upgrading CorDapps, see [release new CorDapp versions](../../../../../en/platform/corda/4.8/enterprise/cordapps/upgrading-cordapps.md).
+For developer information on upgrading CorDapps, see [release new CorDapp versions]({{< relref "../../../../../en/platform/corda/4.8/enterprise/cordapps/upgrading-cordapps.md" >}}).
 
 {{< warning >}}
 
-To be compatible with Corda Enterprise, CorDapps need to bundle database migration scripts. See [database management scripts](../../../../../en/platform/corda/4.8/enterprise/cordapps/database-management.md) for more information.
+To be compatible with Corda Enterprise, CorDapps need to bundle database migration scripts. See [database management scripts]({{< relref "../../../../../en/platform/corda/4.8/enterprise/cordapps/database-management.md" >}}) for more information.
 
 {{< /warning >}}
 
@@ -82,7 +82,7 @@ To perform the upgrade:
 
 4. Replace the existing JAR with the new version.
 
-5. Make required database changes to any custom vault tables for the upgraded CorDapp by following the database upgrade steps in [deploying CorDapps on a node](../../../../../en/platform/corda/4.8/enterprise/node/operating/node-operations-cordapp-deployment.md). Database changes required for a CorDapp upgrade follow the same steps as those to set up a database for a new CorDapp.
+5. Make required database changes to any custom vault tables for the upgraded CorDapp by following the database upgrade steps in [deploying CorDapps on a node]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/operating/node-operations-cordapp-deployment.md" >}}). Database changes required for a CorDapp upgrade follow the same steps as those to set up a database for a new CorDapp.
 
 6. Restart the node.
 
