@@ -57,4 +57,4 @@ Private keys used to sign transactions should be preserved with the utmost care.
 
 ## Upgrading
 
-For information about upgrading, see [Upgrading a node to Corda 4.8](../../../../../../../en/platform/corda/4.8/enterprise/node-upgrade-notes.md).
+For information about upgrading, see [Upgrading a node to Corda 4.8]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node-upgrade-notes.md" >}}).
