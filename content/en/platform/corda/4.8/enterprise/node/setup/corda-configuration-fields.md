@@ -237,7 +237,7 @@ Allows fine-grained controls of various features only available in the enterpris
   * The alias of the distributed notary signing key alias (used if this node is a notary). Allowed are up to 100 lower case alphanumeric    characters and the hyphen (-).
   * *Default:* distributed-notary-private-key
 * `messagingServerSslConfiguration`
-  * TLS configuration used to connect to external P2P Artemis message server. Required when `messagingServerExternal` = `true`. Also, it can be used optionally with embedded Artemis when external Bridge is configured. For more information, see [Storing node TLS keys in HSM](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/tls-keys-in-hsm.md).
+  * TLS configuration used to connect to external P2P Artemis message server. Required when `messagingServerExternal` = `true`. Also, it can be used optionally with embedded Artemis when external Bridge is configured. For more information, see [Storing node TLS keys in HSM]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/setup/tls-keys-in-hsm.md" >}}).
   * `sslKeystore`
     * The path to the KeyStore file to use in Artemis connections.
     * *Default:* not defined
@@ -318,7 +318,7 @@ Allows fine-grained controls of various features only available in the enterpris
 * `metricsConfiguration`
   * Optional configuration section that controls metric configuration.
   * Parameters:
-    * `reservoirType`: Sets the reservoir type. Valid values are `EDR` (default) and `TIME_WINDOW`. For more information, see the [metrics documentation](../../node-metrics.md).
+    * `reservoirType`: Sets the reservoir type. Valid values are `EDR` (default) and `TIME_WINDOW`. For more information, see the [metrics documentation]({{< relref "../../node/operating/monitoring-and-logging/node-metrics.md" >}}).
     * `timeWindow`: Sets the data gathering duration for `TIME_WINDOW` data reservoirs. If not set, the default is five minutes.
 
 * `tuning`
@@ -518,7 +518,7 @@ This allows the address and port advertised in `p2pAddress` to differ from the l
 0.0.0.0 is not a valid host setting since p2pAddress must be an external client address.
 
 {{< note >}}
-When `messagingServerExternal` = `true`, `messagingServerSslConfiguration` is required for TLS configuration used to connect to external P2P Artemis message server. For more information, see [Storing node TLS keys in HSM](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/tls-keys-in-hsm.md).
+When `messagingServerExternal` = `true`, `messagingServerSslConfiguration` is required for TLS configuration used to connect to external P2P Artemis message server. For more information, see [Storing node TLS keys in HSM]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/setup/tls-keys-in-hsm.md" >}}).
 {{< /note >}}
 
 *Default:* not defined
@@ -529,7 +529,7 @@ The legal identity of the node.
 This acts as a human-readable alias to the node's public key and can be used with the network map to look up the node's info.
 This is the name that is used in the node's certificates (either when requesting them from the doorman, or when auto-generating them in dev mode).
 At runtime, Corda checks whether this name matches the name in the node's certificates.
-The name must be a valid X.500 distinguished name, as per the [node naming constraints](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/node-naming.md).
+The name must be a valid X.500 distinguished name, as per the [node naming constraints]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/setup/node-naming.md" >}}).
 
 *Default:* not defined
 
@@ -582,7 +582,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
     * Exponential back-off multiplier base for use in determining time increment between reconnection attempts.
     * *Default:* 1.5
   * `maxBatchSize`
-    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics](../../../../../../../en/platform/corda/4.8/enterprise/notary/notary-metrics.md).
+    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/notary/notary-metrics.md" >}}).
     * *Default:* 500
   * `maxBatchInputStates`
     * The maximum combined number of input states processed in a single batch. If the number of transactions in a batch is equal to `maxBatchSize`, but the number of states in the batch is greater than `maxBatchInputStates`, that batch will  be split into two smaller batches.
@@ -645,7 +645,7 @@ Once a notary is configured with a default value, it cannot be reconfigured. To 
       * Must list the addresses of all the members in the cluster. At least one of the members must be active and be able to communicate with the cluster leader for the node to join the cluster. If  empty, a new cluster will be bootstrapped.
       * *Default:* not defined
   * `jpa`
-    * If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](../../../../../../../en/platform/corda/4.8/enterprise/notary/installing-the-notary-service.md).
+    * If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/notary/installing-the-notary-service.md" >}}).
     * `connectionRetries`
       * The number of times to retry connection to the database. This should be based on the number of database servers in the replicated setup.
       * *Default:* 2
@@ -720,7 +720,7 @@ If not provided then the defined defaults below are used.
 
 * `autoAcceptEnabled`
   * This flag toggles auto accepting of network parameter changes.
-  If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator. See [Network map](../../../../../../../en/platform/corda/4.8/enterprise/network/network-map.md) for more information on the update process and current auto-acceptable parameters. Set to ``false`` to disable.
+  If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator. See [Network map]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/network/network-map.md" >}}) for more information on the update process and current auto-acceptable parameters. Set to ``false`` to disable.
   * Default: true
 * `excludedAutoAcceptableParameters`
   * List of auto-acceptable parameter names to explicitly exclude from auto-accepting. Allows a node operator to control the behaviour at a more granular level.
@@ -750,7 +750,7 @@ If the Corda compatibility zone services, both network map and registration (doo
 * `proxyUser`
   * Optional user name for authentication with the proxy. Note that Corda only supports username/password based basic authentication.
 * `proxyPassword`
-  * Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator](../../../../../../../en/platform/corda/4.8/enterprise/tools-config-obfuscator.md).
+  * Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/tools-config-obfuscator.md" >}}).
 * `csrToken`
   * Optional token to provide alongside the certificate signing request (CSR) as part of the HTTP header during node registration. The token can be used by certificate signing authority (or Identity Manager Service) to verify additional identity requirements. The maximum token length is limited by the maximum HTTP header size, which is normally 8KB, assuming that a few other internal attributes are also present in the header. Also, the token length itself may never exceed 8192, limited by the database structure. Only US-ASCII characters are allowed.
   * *Default:* not defined

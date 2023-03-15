@@ -12,7 +12,7 @@ weight: 110
 
 This page contains information about the checkpoint dumper and the checkpoint agent tools. Use these tools to debug stuck flows.
 
-Ensure that you understand the mechanics of [flows](../../../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-flows.md) and [Node flow hospital](../../../../../../../../en/platform/corda/4.8/enterprise/node/node-flow-hospital.md).
+Ensure that you understand the mechanics of [flows]({{< relref "../../../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-flows.md" >}}) and [Node flow hospital]({{< relref "../../../../../../../../en/platform/corda/4.8/enterprise/node/node-flow-hospital.md" >}}).
 
 A checkpoint is a serialised snapshot of the stack frames associated with the flow and any objects reachable from the stack. Checkpoints are saved to the Corda node database automatically whenever a flow suspends or resumes, which typically happens when sending or receiving messages. A flow may be replayed from the last checkpoint if the node restarts, increasing flow durability.
 
@@ -145,7 +145,7 @@ To use the checkpoint agent:
 
 1. Download the checkpoint agent from [Artifactory](https://software.r3.com/artifactory/corda-releases/net/corda/corda-tools-checkpoint-agent/).
 2. Add the `-Dcapsule.jvm.args=-javaagent:<PATH>/checkpoint-agent.jar[=arg=value,...]` option when starting the node. To log checkpoint data only for failing flows, start the checkpoint agent with the `checkpoint-agent.jar=instrumentType=read,instrumentClassname=NONE` arguments.
-3. If you are using the Corda gradle plugin configuration tasks, alter the task to include the checkpoint agent. See [the cordform task](../../deploy/generating-a-node.md) for information on updating the `cordform` task.
+3. If you are using the Corda gradle plugin configuration tasks, alter the task to include the checkpoint agent. See [the cordform task]({{< relref "../../deploy/generating-a-node.md" >}}) for information on updating the `cordform` task.
 
 {{< note >}}
 The checkpoint agent increases the memory requirement of the node. You should set a minimum memory heap size of 1 GB for nodes running the checkpoint agent.
@@ -157,7 +157,7 @@ The checkpoint agent logs output to a Log4j2-configured logger. This logger must
 
 To configure the checkpoint agent logger:
 
-1. Open the `sql.xml` logging configuration file. For information on general logging configuration, see [Monitoring and logging](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/overview.md).
+1. Open the `sql.xml` logging configuration file. For information on general logging configuration, see [Monitoring and logging]({{< relref "../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/overview.md" >}}).
 2. Add the following logger entry:
 
     ```xml
@@ -327,4 +327,4 @@ The feature can also be enabled by setting the system property `reloadCheckpoint
 
 ## Related content
 
-* [Troubleshooting stuck flows](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/diagnosing-stuck-flows.md)
+* [Troubleshooting stuck flows]({{< relref "../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/diagnosing-stuck-flows.md" >}})

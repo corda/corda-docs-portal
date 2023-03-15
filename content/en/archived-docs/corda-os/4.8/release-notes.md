@@ -47,12 +47,12 @@ Corda 4.8, released on April 21st 2021, includes several fixes and improvements.
 You can use states and CorDapps valid in Corda 3.0 and above with Corda 4.8.
 
 
-For the commitment Corda makes to wire and API stability, see [API stability guarantees](../../../../../en/platform/corda/4.8/open-source/api-stability-guarantees.md).
+For the commitment Corda makes to wire and API stability, see [API stability guarantees]({{< relref "../../../../../en/platform/corda/4.8/open-source/api-stability-guarantees.md" >}}).
 {{< /note >}}
 
 ## Long-term support release
 
-Corda 4.8 and [Corda Enterprise Edition 4.8](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md) are our long-term support (LTS) platform versions.
+Corda 4.8 and [Corda Enterprise Edition 4.8]({{< relref "../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md" >}}) are our long-term support (LTS) platform versions.
 
 R3 provides LTS for this release for 30 months starting April 21st 2021. This is 6 months longer than the support periods for previous releases, giving Corda customers extra time to plan for the next upgrade.
 
@@ -60,7 +60,7 @@ R3 provides LTS for this release for 30 months starting April 21st 2021. This is
 
 Corda 4.8 uses platform version 10.
 
-For more information about platform versions, see [Versioning](../../../../../en/platform/corda/4.8/open-source/versioning.md).
+For more information about platform versions, see [Versioning]({{< relref "../../../../../en/platform/corda/4.8/open-source/versioning.md" >}}).
 
 ## Fixed issues
 
