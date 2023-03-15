@@ -13,7 +13,7 @@ Membership groups can be configured to specify that the MGM operator must manual
 The approval process can specify that requests satisfying specific criteria require manual approval, while others are approved automatically. 
 The manual approval process presents the request to the MGM operator, enabling the operator to review the request before approving or declining it using the REST API. 
 This process applies to both registration and re-registration requests. 
-The approval process can be configured at any point in time, and only affects future registration requests - previously approved members are not required to re-register.
+The approval process can be configured at any point in time, and only affects future registration requests: previously approved members are not required to re-register.
 
 Registration requests are evaluated according to regular expression-based rules defined by the MGM operator. 
 The proposed [MemberInfo]({{< relref "../developing/api/api-membership.md#memberinfo" >}}) is compared with the previous (if any) `MemberInfo` to calculate the difference in their member contexts. 
