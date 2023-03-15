@@ -453,7 +453,7 @@ When run successfully, this flow will persist a `RecoveryRequest` in the `CR_REC
 
 If the initiating node throws an exception, it is very likely for one of the following reasons:
 - The reconciliation process is either still in progress or has failed. In the former situation, wait for the reconciliation process to be scheduled or complete. In the
-latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of [LedgerSync documentation](./ledger-sync.md)) and
+latter situation, review the node logs to determine the cause of the reconciliation failure (see the logging section of [LedgerSync documentation]({{< relref "./ledger-sync.md" >}})) and
 then reschedule the reconciliation so that it may be completed successfully.
 
 #### Unhappy path - Exception is thrown by the responding node
