@@ -11,7 +11,7 @@ section_menu: corda-5-beta
 
 A network operator can configure a membership group to require that the operator must manually approve (or decline) member registration requests. 
 The configuration specifies that requests satisfying specific criteria require [manual approval]({{< relref "#manual-approval" >}}), while others are approved automatically. 
-The network operator can also [pre-authenticate specific members]({{< relref "#pre-authentication#" >}}), allowing them to bypass the standard approval rules defined for the group.
+The network operator can also [pre-authenticate specific members]({{< relref "#pre-authentication" >}}), allowing them to bypass the standard approval rules defined for the group.
 The operator can further configure pre-authentication to specify that certain changes to the member's context must be manually reviewed.
 
 ## Manual Approval
