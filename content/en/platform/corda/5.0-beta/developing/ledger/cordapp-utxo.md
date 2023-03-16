@@ -45,7 +45,7 @@ lateinit var ledgerService: UtxoLedgerService
 The Ledger service gives access to the `UtxoTransactionBuilder` that can be used to build a transaction by passing in inputs, outputs, reference states etc. This is very similar to Corda 4 but one difference is that all transactions need a time window with an end date and need a notary. In Corda 5 every UTXO transaction needs to be notarized, even if there are no inputs.
 
 ### Finding Transactions and States
-The ledger service has methods to find states (unconsumed, relevant states of a specific type). In Corda 5.0 Beta 1, no further specialised queries are possible, so you must load the state of the required type and filter in the flow code. Custom queries will be available in a future release.
+The ledger service has methods to find states (unconsumed, relevant states of a specific type). In Corda 5.0 Beta, no further specialised queries are possible, so you must load the state of the required type and filter in the flow code. Custom queries will be available in a future release.
 It is also possible to load transactions by ID.
 
 ### Finality
