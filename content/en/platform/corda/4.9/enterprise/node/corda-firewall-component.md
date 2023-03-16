@@ -132,7 +132,7 @@ from the local bridge to the original node’s float and then on to the original
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md" >}}))
 * Corda Enterprise JAR
 
 The simplest development deployment of the node is without firewall and thus just use the embedded bridge and Peer-to-Peer
@@ -148,7 +148,7 @@ where this is the only available option:
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md" >}}))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 
@@ -221,7 +221,7 @@ networkParametersPath = network-parameters
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md" >}}))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 
@@ -317,7 +317,7 @@ floatOuterConfig {
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md" >}}))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 * SOCKS Proxy
@@ -412,7 +412,7 @@ floatOuterConfig {
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md" >}}))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 * Zookeeper v3.6.1
@@ -553,7 +553,7 @@ More specifically, in order to ensure optimal performance it is required:
 #### Prerequisites
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/cordapps/getting-set-up.md" >}}))
 * Corda Enterprise JAR
 * Corda Firewall JAR
 * Apache Artemis v2.6.2 or RedHat amq broker v7.2.2
@@ -676,7 +676,7 @@ A simple procedure for adding a new node might look like the following:
 
 
 * Back up and shut down all Corda components - Nodes, Bridges, Artemis broker and Float.
-* Register your new entities with the network operator. See [Joining a compatibility zone](../network/joining-a-compatibility-zone.md).
+* Register your new entities with the network operator. See [Joining a compatibility zone]({{< relref "../network/joining-a-compatibility-zone.md" >}}).
 * Locate the SSL keystore file in node’s certificate folder. e.g. `<node base directory>/certificates/sslkeystore.jks`
 * Copy the SSL keystores generated from the registration process to Bridge if they are on a different host.
 * Using the HA Utilities, copy the newly acquired legal entity’s SSL key to the bridge’s SSL keystore.

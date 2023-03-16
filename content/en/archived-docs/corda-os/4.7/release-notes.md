@@ -84,7 +84,7 @@ In this early release version, you can:
 
 #### Reference app: Bank in a Box
 
-[Bank in a Box](../../../../apps/bankinabox/bank-index.md) is a new sample [CorDapp](cordapp-overview.md) that includes accounts, transactions, and other features typical of a retail banking application.
+[Bank in a Box]({{< relref "../../../../apps/bankinabox/bank-index.md" >}}) is a new sample [CorDapp](cordapp-overview.md) that includes accounts, transactions, and other features typical of a retail banking application.
 
 The app is designed to showcase key Corda features:
 
@@ -93,7 +93,7 @@ The app is designed to showcase key Corda features:
 - [Oracles](key-concepts-oracles.md).
 - CorDapp integration with external systems.
 
-Using a set of [flows](key-concepts-flows.md) and [APIs](../../../../apps/bankinabox/api-guide.md), Bank in a Box provides the ability to create intrabank payments, recurring payments, issue loans, set account limits, and more. It offers a complete solution with a straightforward UI and authenticated roles, all delivered in a [Kubernetes container](https://kubernetes.io/docs/concepts/containers/) for easy deployment.
+Using a set of [flows](key-concepts-flows.md) and [APIs]({{< relref "../../../../apps/bankinabox/api-guide.md" >}}), Bank in a Box provides the ability to create intrabank payments, recurring payments, issue loans, set account limits, and more. It offers a complete solution with a straightforward UI and authenticated roles, all delivered in a [Kubernetes container](https://kubernetes.io/docs/concepts/containers/) for easy deployment.
 
 The application highlights best practices and examples for developers who wish to build banking applications using Corda.
 
@@ -1389,6 +1389,6 @@ will have no impact on any deployed configurations.
 
 ### Miscellaneous changes
 
-To learn more about smaller changes, please read the [Changelog](../../4.0/open-source/changelog.md).
+To learn more about smaller changes, please read the [Changelog]({{< relref "../../4.0/open-source/changelog.md" >}}).
 
 Finally, we have added some new jokes. Thank you and good night!

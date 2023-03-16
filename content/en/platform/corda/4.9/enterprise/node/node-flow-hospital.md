@@ -43,7 +43,7 @@ Flow hospital functionality is enabled by default in Corda Enterprise Edition 4.
 There are two aspects to the flow hospital:
 
 * run-time behaviour in the node upon failure, including retry and recovery transitions and policies.
-* visualization of failed flows in the [flow management console](../../../../../../en/platform/corda/4.9/enterprise/node/node-flow-management-console.md).
+* visualization of failed flows in the [flow management console]({{< relref "../../../../../../en/platform/corda/4.9/enterprise/node/node-flow-management-console.md" >}}).
 
 ### Run-time behaviour
 

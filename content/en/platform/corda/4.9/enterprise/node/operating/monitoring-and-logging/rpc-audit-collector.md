@@ -18,7 +18,7 @@ In this section, you will learn how to run the RPC Audit Data Collection Tool in
 
 This tool is distributed as part of Corda Enterprise.
 
-The RPC data recorded by the node is explained in detail on the [RPC Audit Data Recording](../../../../../../../../en/platform/corda/4.9/enterprise/node/setup/rpc-audit-data-recording.md) page.
+The RPC data recorded by the node is explained in detail on the [RPC Audit Data Recording]({{< relref "../../../../../../../../en/platform/corda/4.9/enterprise/node/setup/rpc-audit-data-recording.md" >}}) page.
 
 ## Collecting RPC audit data
 

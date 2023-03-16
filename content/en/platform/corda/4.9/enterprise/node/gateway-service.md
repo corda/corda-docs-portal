@@ -32,9 +32,9 @@ When you configure the Gateway Service, you need to:
 
 1. Specify the endpoint where the Auth Service is exposed - this must match the IP or host name of the machine/VM/container and the port that is configured in the Auth Service config file.
 
-2. Specify the SSL configuration for connecting to the Auth Service. You can do this using the [PKI tool](../../../../../../en/platform/corda/1.5/cenm/pki-tool.md).
+2. Specify the SSL configuration for connecting to the Auth Service. You can do this using the [PKI tool]({{< relref "../../../../../../en/platform/corda/1.5/cenm/pki-tool.md" >}}).
 
-3. Your authentication credentials, as specified in your [Auth Service configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/auth-service.md).
+3. Your authentication credentials, as specified in your [Auth Service configuration]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/auth-service.md" >}}).
 
 4. Your Zone Service address.
 

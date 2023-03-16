@@ -574,7 +574,7 @@ For a single-node notary, you must specify the `validating` and `serviceLegalNam
     * Exponential back-off multiplier base for use in determining time increment between reconnection attempts.
     * *Default:* 1.5
   * `maxBatchSize`
-    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics](../../notary/notary-metrics.md).
+    * The maximum number of transactions processed in a single batch. Larger batches are generally processed more efficiently than smaller batches; however, larger batches may worsen latency. Monitor the `ProcessedBatchSize` metric exposed by the notary to determine batch utilisation. For more information, see [Highly-available notary metrics]({{< relref "../../notary/notary-metrics.md" >}}).
     * *Default:* 500
   * `maxBatchInputStates`
     * The maximum combined number of input states processed in a single batch. If the number of transactions in a batch is equal to `maxBatchSize`, but the number of states in the batch is greater than `maxBatchInputStates`, that batch will  be split into two smaller batches.
@@ -637,7 +637,7 @@ For a single-node notary, you must specify the `validating` and `serviceLegalNam
       * Must list the addresses of all the members in the cluster. At least one of the members must be active and be able to communicate with the cluster leader for the node to join the cluster. If  empty, a new cluster will be bootstrapped.
       * *Default:* not defined
   * `jpa`
-    * If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes](../../notary/installing-the-notary-service.md).
+    * If using the JPA notary, specify this configuration section with the settings below. For more details refer to [Configuring the notary worker nodes]({{< relref "../../notary/installing-the-notary-service.md" >}}).
     * `connectionRetries`
       * The number of times to retry connection to the database. This should be based on the number of database servers in the replicated setup.
       * *Default:* 2
@@ -712,7 +712,7 @@ If not provided then the defined defaults below are used.
 
 * `autoAcceptEnabled`
   * This flag toggles auto accepting of network parameter changes.
-  If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator. See [Network map](../../network/network-map.md) for more information on the update process and current auto-acceptable parameters. Set to ``false`` to disable.
+  If a network operator issues a network parameter change which modifies only auto-acceptable options and this behaviour is enabled then the changes will be accepted without any manual intervention from the node operator. See [Network map]({{< relref "../../network/network-map.md" >}}) for more information on the update process and current auto-acceptable parameters. Set to ``false`` to disable.
   * Default: true
 * `excludedAutoAcceptableParameters`
   * List of auto-acceptable parameter names to explicitly exclude from auto-accepting. Allows a node operator to control the behaviour at a more granular level.
@@ -742,7 +742,7 @@ If the Corda compatibility zone services, both network map and registration (doo
 * `proxyUser`
   * Optional user name for authentication with the proxy. Note that Corda only supports username/password based basic authentication.
 * `proxyPassword`
-  * Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator](../../tools-config-obfuscator.md).
+  * Optional password for authentication with the proxy. The password can be obfuscated using the [Configuration Obfuscator]({{< relref "../../tools-config-obfuscator.md" >}}).
 * `csrToken`
   * Optional token to provide alongside the certificate signing request (CSR) as part of the HTTP header during node registration. The token can be used by certificate signing authority (or Identity Manager Service) to verify additional identity requirements. The maximum token length is limited by the maximum HTTP header size, which is normally 8KB, assuming that a few other internal attributes are also present in the header. Also, the token length itself may never exceed 8192, limited by the database structure. Only US-ASCII characters are allowed.
   * *Default:* not defined

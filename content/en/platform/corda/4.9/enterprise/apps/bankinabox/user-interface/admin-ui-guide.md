@@ -38,7 +38,7 @@ Follow these steps to do so:
 
 {{< /note >}}
 
-The descriptions below apply to the Admin user interface. See the [Customer user interface guide](./customer-ui-guide.md) for information on that user interface.
+The descriptions below apply to the Admin user interface. See the [Customer user interface guide]({{< relref "./customer-ui-guide.md" >}}) for information on that user interface.
 
 ## Navigation
 
@@ -99,8 +99,7 @@ The following elements are shown under the Account tab:
 * **Overdraft limit** - the overdraft limit that has been approved for the account.
 * **Overdraft balance** - the amount of money currently remaining in overdraft.
 
-You can also perform a series of actions on the Account screen, as described in the [How to guide](./user-interface/how-to.md).
-
+You can also perform a series of actions on the Account screen, as described in the [How to guide]({{< relref "../user-interface/how-to.md" >}}).
 #### Account states
 
 As mentioned above, an account can be in three states:

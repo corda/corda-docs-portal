@@ -18,7 +18,7 @@ is maintained with future versions of Corda Enterprise.
 
 Corda Enterprise Edition 4.0 can be used in mixed-version/mixed-distribution networks seamlessly, transacting with nodes running on a minimum platform version of 4.
 
-See [versioning](../../../../../en/platform/corda/4.9/enterprise/cordapps/versioning.md) for further information.
+See [versioning]({{< relref "../../../../../en/platform/corda/4.9/enterprise/cordapps/versioning.md" >}}) for further information.
 
 
 {{< note >}}
