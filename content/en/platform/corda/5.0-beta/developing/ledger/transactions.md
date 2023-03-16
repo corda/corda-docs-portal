@@ -126,7 +126,7 @@ Commands enable you to make adjustments to rules. Including a command in a trans
 ### Attachments
 
 {{< note >}}
-Attachments are not implemented in Corda 5.0 Beta 1.
+Attachments are not implemented in Corda 5.0 Beta.
 {{< /note >}}
 
 Attachments enable you to reuse a large piece of data for several transactions, such as:

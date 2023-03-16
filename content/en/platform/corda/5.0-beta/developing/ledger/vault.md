@@ -30,7 +30,7 @@ The vault supports the management of data in both authoritative on-ledger form a
 * On-ledger data refers to distributed ledger state (cash, deals, trades) to which a party is participant. The on-ledger store tracks unconsumed states. The node updates it internally when all participants verify and sign a smart contract and commit a transaction to the ledger.
 * Off-ledger data refers to a party’s internal reference, static, and systems data.
 
-In Corda 5.0 Beta 1, the vault query API is limited to either load outputs from a known transaction ID or find all unconsumed states of a specific type.
+In Corda 5.0 Beta, the vault query API is limited to either load outputs from a known transaction ID or find all unconsumed states of a specific type.
 Transaction recording flows use a vault update API internally.
 
 ## Soft Locking to Prevent Double Spend Attempts
