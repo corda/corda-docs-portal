@@ -31,7 +31,7 @@ corda-cli.sh mgm groupPolicy --name="C=GB, L=London, O=Alice" --name="C=GB, L=Lo
 
 ## Create a CPI
 
-Build a CPI using the Corda CLI packaging plugin, passing in your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section](../../../developing/development-tutorials/cordapp-packaging.md.
+Build a CPI using the Corda CLI packaging plugin, passing in your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section](../../../developing/development-tutorials/cordapp-packaging.md).
 
 ## Upload the CPI
 
