@@ -32,7 +32,7 @@ The remaining node files and directories will be generated at runtime. These are
 
 ### Run the database migration script if upgrading
 
-{{< note >}} This step is only required when upgrading to Corda Enterpise 4.7. {{< /note >}}
+{{< note >}} This step is only required when upgrading to Corda Enterprise 4.7. {{< /note >}}
 
 1. Remove any `transactionIsolationLevel`, `initialiseSchema`, or `initialiseAppSchema` entries from the database section of your configuration.
 2. Start the node with `run-migration-scripts` sub-command with `--core-schemas` and `--app-schemas`:
