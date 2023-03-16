@@ -16,7 +16,7 @@ The operator can further configure pre-authentication to specify that certain ch
 
 ## Manual Approval
 
-The manual registration approval process presents the request to the MGM operator, enabling the operator to review the request before approving or declining it using the REST API. 
+The manual registration approval process presents the request to the operator, enabling the operator to review the request before approving or declining it using the REST API. 
 This process applies to both registration and re-registration requests. 
 The approval process can be configured at any point in time, and only affects future registration requests: previously approved members are not required to re-register.
 
