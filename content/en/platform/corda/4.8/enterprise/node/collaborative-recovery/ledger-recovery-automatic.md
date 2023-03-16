@@ -26,7 +26,7 @@ In a disaster recovery scenario, you can use LedgerRecover to either automatical
 
 ## Configuration parameters
 
-LedgerRecover can be configured, [like other CorDapps](../../cordapps/cordapp-build-systems.md), by creating a configuration file named after the LedgerRecover configuration JAR file. For example, if the LedgerRecover JAR file is called `ledger-recover-1.0.jar`, the configuration file would be `<corda_node_dir>/cordapps/config/ledger-recover-1.0.conf`.
+LedgerRecover can be configured, [like other CorDapps]({{< relref "../../cordapps/cordapp-build-systems.md" >}}), by creating a configuration file named after the LedgerRecover configuration JAR file. For example, if the LedgerRecover JAR file is called `ledger-recover-1.0.jar`, the configuration file would be `<corda_node_dir>/cordapps/config/ledger-recover-1.0.conf`.
 
 You can adjust LedgerRecover behaviour using the configuration parameters set out in the table below. If a configuration parameter is not specified, or the configuration file is not present, the default value is used.
 

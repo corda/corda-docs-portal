@@ -33,14 +33,14 @@ Single-node notaries are not suitable for a production deployment.
 {{< /warning >}}
 
 
-For a list of databases supported by the MySQL and JPA notaries, please refer to the [Platform support matrix](../platform-support-matrix.md).
+For a list of databases supported by the MySQL and JPA notaries, please refer to the [Platform support matrix]({{< relref "../platform-support-matrix.md" >}}).
 
 ## Single-node notary
 
-To have a regular Corda node provide a notary service you simply need to set appropriate `notary` configuration values as specified in the [node configuration file](../node/setup/corda-configuration-fields.md)
+To have a regular Corda node provide a notary service you simply need to set appropriate `notary` configuration values as specified in the [node configuration file]({{< relref "../node/setup/corda-configuration-fields.md" >}})
 
 For clients to be able to use the notary service, its `notary.serviceLegalName` must be added to the network parameters.
-If you are using the [network bootstrapper](../network-bootstrapper.md) the notary service name will be added to the network parameters automatically.
+If you are using the [network bootstrapper]({{< relref "../network-bootstrapper.md" >}}) the notary service name will be added to the network parameters automatically.
 
 
 ## Notary high-availability mode
@@ -68,9 +68,7 @@ will be highly-available. This is because the notary service can continue proces
 replicas and/or notary workers fail. For example, a three-node notary cluster can tolerate one crash fault.
 
 {{< note >}}
-In production you should consider running five nodes or more, in order to be able to tolerate more than one simultaneous crash fault.
-Although a single Corda notary worker is enough to serve notarisation requests in practice, its capacity might not be sufficient
-depending on your throughput and latency requirements.
+In production, we recommend running five or more replicas in the notary state database cluster. However, there is more flexibility regarding the number of notary workers. Since for notary workers, we are only concerned with availability and not durability, there is a tradeoff between the number of notary workers and availability performance.
 {{< /note >}}
 
 If desired, you can choose to run each database server and its Corda notary worker on the same machine:
@@ -80,7 +78,7 @@ If desired, you can choose to run each database server and its Corda notary work
 ## Notary configuration
 
 Nodes are configured as single-node notaries or notary workers via their `node.conf` files. For more information, please refer to
-[node configuration file](../node/setup/corda-configuration-fields.md).
+[node configuration file]({{< relref "../node/setup/corda-configuration-fields.md" >}}).
 
 
 ## Legal names and identities
@@ -101,12 +99,12 @@ correspond to identities that have their own key pair and certificate, which sho
 Both worker identity and notary service keys and certificates are stored in the same way as for regular Corda nodes. That is, if using local
 key stores, the worker identity, worker node CA and notary service key pairs and certificates are stored in files within the
 `certificates` directory. If an HSM is being used to generate and store the keys then only the certificate chains will be stored in the
-local files. You can find out more in the [permissioning](../network/permissioning.md) document.
+local files. You can find out more in the [permissioning]({{< relref "../network/permissioning.md" >}}) document.
 
 {{< note >}}
 The key store aliases for the worker identity, worker node CA and notary service are fully configurable. Unique worker identity and node
 CA aliases are required for the workers to share the same HA HSM. Although not required for all deployment scenarios, it is recommended
-to configure unique worker aliases. See [node configuration file](../node/setup/corda-configuration-fields.md) for more information.
+to configure unique worker aliases. See [node configuration file]({{< relref "../node/setup/corda-configuration-fields.md" >}}) for more information.
 {{< /note >}}
 
 ## Expected data volume

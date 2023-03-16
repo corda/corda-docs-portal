@@ -26,7 +26,7 @@ Note that the bootstrapper will set up the shared notary service key for
 transaction signing, in addition to the individual keys of the notary workers
 used for P2P messaging.
 
-For more information about the bootstrapper, see [Network Bootstrapper](../network-bootstrapper.md).
+For more information about the bootstrapper, see [Network Bootstrapper]({{< relref "../network-bootstrapper.md" >}}).
 
 ## Expected Outcome
 

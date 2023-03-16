@@ -26,7 +26,7 @@ In addition to the network map, all the nodes must also use the same set of netw
 
 For these reasons, test deployments can avail themselves of the Network Bootstrapper. This is a tool that scans all the node configurations from a common directory to generate the network parameters file, which is then copied to all the nodes’ directories. It also copies each node’s node-info file to every other node so that they can all be visible to each other.
 
-You can find out more about network maps and network parameters from [network map](../../network/network-map.md).
+You can find out more about network maps and network parameters from [network map]({{< relref "../../network/network-map.md" >}}).
 
 
 ## Bootstrap a test network
@@ -89,7 +89,7 @@ added to the Contract Whitelist (see below).
 ### Whitelist contracts
 
 Any CorDapps provided when bootstrapping a network will be scanned for contracts which will be used to create the
-*Zone whitelist* (see [API contract constraints](../../cordapps/api-contract-constraints.md)) for the network.
+*Zone whitelist* (see [API contract constraints]({{< relref "../../cordapps/api-contract-constraints.md" >}})) for the network.
 
 {{< note >}}
 If you only wish to whitelist the CorDapps but not copy them to each node then run with the `--copy-cordapps=No` option.
@@ -313,7 +313,7 @@ The alias for the name associated with the certificate to be associated with the
 
 
 
-Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an example, we will initialise a simple network and then register and unregister a package namespace. Check the sample CorDapp out, then follow the [instructions to build it](../../cordapps/tutorial-cordapp.md).
+Using the [Example CorDapp](https://github.com/corda/cordapp-example) as an example, we will initialise a simple network and then register and unregister a package namespace. Check the sample CorDapp out, then follow the [instructions to build it]({{< relref "../../cordapps/tutorial-cordapp.md" >}}).
 
 {{< note >}}
 You can point to any existing bootstrapped corda network (this will have the effect of updating the associated network parameters file).
@@ -403,4 +403,4 @@ in the given file. See [Overriding network parameters via a file](#override-netw
 
 ### Sub-commands
 
-`install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See [shell extensions for CLI applications](../operating/cli-application-shell-extensions.md) for more info.
+`install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See [shell extensions for CLI applications]({{< relref "../operating/cli-application-shell-extensions.md" >}}) for more info.

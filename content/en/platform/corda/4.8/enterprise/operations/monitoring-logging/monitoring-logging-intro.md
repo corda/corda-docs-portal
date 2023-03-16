@@ -43,7 +43,7 @@ By default the node log files are stored to the logs subdirectory of the working
 
 It may be the case that you require to amend the log level of a particular subset of modules (e.g., if you’d like to take a closer look at hibernate activity). So, for more bespoke logging configuration, the logger settings can be completely overridden with a Log4j2 configuration file assigned to the log4j.configurationFile system property.
 
-To understand the information in the logs, which data is important, and what can be safely kept as a low priority, you can read the [logging documentation](../../node/operating/node-administration.md).
+To understand the information in the logs, which data is important, and what can be safely kept as a low priority, you can read the [logging documentation]({{< relref "../../node/operating/node-administration.md" >}}).
 
 ## Monitoring - the basics
 

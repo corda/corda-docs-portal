@@ -17,7 +17,7 @@ weight: 10
 # Upgrading a node to Corda 4.7
 
 {{< warning >}}
-Corda Enterprise Edition 4.7.1 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.7.1 please read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.7/enterprise/notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.7.1 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.7.1 please read the guidance on [upgrading your notary service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/notary/upgrading-the-ha-notary-service.md" >}}).
 {{< /warning >}}
 
 Corda releases strive to be backwards compatible, so upgrading a node is fairly straightforward and should not require changes to applications. Upgrading from 4.x  consists of the following steps:
@@ -45,7 +45,7 @@ If upgrading from Corda Enterprise 3.x:
 ## Step 1. Drain the node
 
 Before a node, or an application on a node, can be upgraded, the node must be put in draining-mode. This brings the currently running
-[Flows](../../../../../en/platform/corda/4.7/enterprise/cordapps/api-flows.md) to a smooth halt (existing work is finished, and new work is queued rather than being processed).
+[Flows]({{< relref "../../../../../en/platform/corda/4.7/enterprise/cordapps/api-flows.md" >}}) to a smooth halt (existing work is finished, and new work is queued rather than being processed).
 
 Draining flows is a key task for node administrators to perform. It exists to simplify applications by ensuring apps don’t have to be
 able to migrate workflows from any arbitrary point to other arbitrary points, a task that would rapidly become unfeasible as workflow

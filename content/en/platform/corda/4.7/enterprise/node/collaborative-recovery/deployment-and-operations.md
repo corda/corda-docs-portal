@@ -109,7 +109,7 @@ The exact procedure you follow is likely to be unique to your organisation. This
 If you have not been able to use synchronous replication:
 
 * After recovering from a backup/asynchronous replica, some of the flow checkpoints may be stale, and resuming them might cause disruption.
-* In an ideal scenario, all flow checkpoints should be cleaned out manually before starting the node. You can do this using [Corda checkpoint tooling](../../checkpoint-tooling.md).
+* In an ideal scenario, all flow checkpoints should be cleaned out manually before starting the node. You can do this using [Corda checkpoint tooling]({{< relref "../../checkpoint-tooling.md" >}}).
 * Message queue files should also be cleaned manually, as they are unlikely to match the contents of the database anymore, especially when restoring from a backup.
 * After the node has been started, you should run [LedgerSync](ledger-sync.md) to check whether the ledger is missing any transactions.
 
@@ -134,7 +134,7 @@ Inconsistencies in the ledger can indicate some serious underlying issues. If th
 
 6. Once the issue has been debugged and understood, you can recover the missing transactions from other parties on a peer-to-peer basis.
 The list of missing transaction IDs can be obtained from the `lastSuccessfulReconciliationStatus` field of a reconciliation status.
-`lastSuccessfulReconciliationStatus` is a binary field and can be decoded using [Corda Blob Inspector](../../blob-inspector.md).
+`lastSuccessfulReconciliationStatus` is a binary field and can be decoded using [Corda Blob Inspector]({{< relref "../../blob-inspector.md" >}}).
 
 7. Depending on the size of the difference, either [manual](ledger-recovery-manual.md) or [automatic](ledger-recovery-automatic.md) recovery can be used. Consider using automatic LedgerRecover and switch to manual if automatic fails because there have been too many transactions or too frequent recovery requests.
 

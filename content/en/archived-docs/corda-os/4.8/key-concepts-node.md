@@ -70,7 +70,7 @@ Internally, the node has access to a rich set of services that are used during f
 updates. The key services are:
 
 * Information about other nodes on the network and the services they offer.
-* Access to the contents of the [vault](../../../../../en/platform/corda/4.8/open-source/key-concepts-vault.md) and the storage service.
+* Access to the contents of the [vault]({{< relref "../../../../../en/platform/corda/4.8/open-source/key-concepts-vault.md" >}}) and the storage service.
 * Access to the node’s public-private key pairs.
 * Generation of new public-private key pairs.
 * Information about the node itself.
@@ -89,7 +89,7 @@ Your node comes with several default CorDapps installed, which handle common tas
 ## Draining mode
 
 You may want to decommission or shut down a node for various activities, such as planned maintenance and upgrades, or investigating
-performance or latency issues. To shut down a node cleanly, you must drain it so that no node processes (or **[flows](../../../../../en/platform/corda/4.8/open-source/key-concepts-flows.md)**) are active.
+performance or latency issues. To shut down a node cleanly, you must drain it so that no node processes (or **[flows]({{< relref "../../../../../en/platform/corda/4.8/open-source/key-concepts-flows.md" >}})**) are active.
 
 Checkpoints ensure durability against crashes and restarts, by freezing a flow and capturing its current status which is automatically saved to the database. When the node is restarted, it replays the flow from the last checkpoint.
 
@@ -102,4 +102,4 @@ Draining mode ensures that before shutting down:
 Once the number of active flows reaches zero, it is safe to shut the node down.
 The draining mode property is durable, meaning that restarting the node does not reset it to its default value and that an RPC command is required.
 
-The node can be safely shut down via a drain using the [shell](../../../../../en/platform/corda/4.8/open-source/shell.md), Corda's embedded command line.
+The node can be safely shut down via a drain using the [shell]({{< relref "../../../../../en/platform/corda/4.8/open-source/shell.md" >}}), Corda's embedded command line.

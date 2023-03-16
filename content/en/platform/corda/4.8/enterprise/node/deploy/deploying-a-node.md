@@ -43,7 +43,7 @@ handling, and ensures the Corda service is run at boot.
 
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development]({{< relref "../../cordapps/getting-set-up.md" >}}))
 
 
 
@@ -56,7 +56,7 @@ handling, and ensures the Corda service is run at boot.
 (under `/corda-webserver-4.8.jar`) and place it in `/opt/corda`
 * Create a directory called `cordapps` in `/opt/corda` and save your CorDapp jar file to it. Alternatively, download one of
 our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
-* Save the below as `/opt/corda/node.conf`. See [Node configuration](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-file.md) for a description of these options:
+* Save the below as `/opt/corda/node.conf`. See [Node configuration]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-file.md" >}}) for a description of these options:
 
 ```none
 p2pAddress = "example.com:10002"
@@ -90,7 +90,7 @@ communicate with your node.
 * Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
 * Enter an email address which will be used as an administrative contact during the registration process. This is
 only visible to the permissioning service.
-* Enter your node’s desired legal name (see [Node identity](../setup/node-naming.md) for more details).
+* Enter your node’s desired legal name (see [Node identity]({{< relref "../setup/node-naming.md" >}}) for more details).
 * If required, add RPC users
 
 
@@ -247,7 +247,7 @@ at boot, and means the Corda service stays running with no users connected to th
 
 
 
-* A supported Java distribution (see [Getting set up for CorDapp development](../../cordapps/getting-set-up.md))
+* A supported Java distribution (see [Getting set up for CorDapp development]({{< relref "../../cordapps/getting-set-up.md" >}}))
 
 
 
@@ -262,7 +262,7 @@ copy PATH_TO_CORDA_JAR/corda-4.8.jar C:\Corda\corda.jar
 
 * Create a directory called `cordapps` in `C:\Corda\` and save your CorDapp jar file to it. Alternatively,
 download one of our [sample CorDapps](https://www.corda.net/samples/) to the `cordapps` directory
-* Save the below as `C:\Corda\node.conf`. See [Node configuration](../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-file.md) for a description of these options:
+* Save the below as `C:\Corda\node.conf`. See [Node configuration]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/setup/corda-configuration-file.md" >}}) for a description of these options:
 
 ```none
  p2pAddress = "example.com:10002"
@@ -293,7 +293,7 @@ communicate with your node.
 * Change the ports if necessary, for example if you are running multiple nodes on one server (see below).
 * Enter an email address which will be used as an administrative contact during the registration process. This is
 only visible to the permissioning service.
-* Enter your node’s desired legal name (see [Node identity](../setup/node-naming.md) for more details).
+* Enter your node’s desired legal name (see [Node identity]({{< relref "../setup/node-naming.md" >}}) for more details).
 * If required, add RPC users
 
 
@@ -372,7 +372,7 @@ Start the node with the `run-migration-scripts` sub-command with `--core-schemas
 java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 ```
 
-See [Node command-line options](../../../../../../../en/platform/corda/4.8/enterprise/node/node-commandline.md) for more details.
+See [Node command-line options]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/node-commandline.md" >}}) for more details.
 
 ### Database schema migration
 
@@ -393,4 +393,4 @@ java -jar corda.jar run-migration-scripts --core-schemas --app-schemas
 The node will perform any automatic data migrations required, which may take some
 time. If the migration process is interrupted it can be continued simply by starting the node again, without harm. The node will stop automatically when migration is complete.
 
-See [Node command-line options](../node-commandline.md/) for more details.
+See [Node command-line options]({{< relref "../node-commandline.md" >}})) for more details.

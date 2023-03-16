@@ -33,13 +33,13 @@ By default, the node will look for a configuration file called `node.conf` and a
 in the current working directory. You can override the configuration file and workspace paths on the command line (e.g.
 `./corda.jar --config-file=test.conf --base-directory=/opt/corda/nodes/test`).
 
-If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](../node-commandline.md) for details.
+If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options]({{< relref "../node-commandline.md" >}}) for details.
 
 {{< note >}}
 If your node configuration file is obfuscated and you want to deobfuscate it when running the node, you need to pass the
 obfuscation seed and passphrase to the node in the node run command.
 
-To do so using the [Configuration Obfuscator](../../tools-config-obfuscator.md) command-line tool, use the
+To do so using the [Configuration Obfuscator]({{< relref "../../tools-config-obfuscator.md" >}}) command-line tool, use the
 `--config-obfuscation-seed` and `--config-obfuscation-passphrase` flags, respectively, in your node run command.
 
 The following example shows how to pass a seed and a passphrase explicitly to a node component using the Configuration
@@ -173,7 +173,7 @@ Parameters:
 * `--skip-schema-creation`: Skips the default database migration step.
 
 {{< note >}}
-Node `initial-registration` now includes the creation of `identity-private-key` keystore alias. For more information, see [node folder structure](../setup/node-structure.md). Previously, only `cordaclientca` and `cordaclienttls` aliases were created during `initial-registration`, while `identity-private-key` was generated on demand on the first node run. Hence, in Corda 4.8 the content of `nodekeystore.jks` is never altered during a regular node run (except for `devMode = true`, where the certificates directory can be filled with pre-configured keystores).
+Node `initial-registration` now includes the creation of `identity-private-key` keystore alias. For more information, see [node folder structure]({{< relref "../setup/node-structure.md" >}}). Previously, only `cordaclientca` and `cordaclienttls` aliases were created during `initial-registration`, while `identity-private-key` was generated on demand on the first node run. Hence, in Corda 4.8 the content of `nodekeystore.jks` is never altered during a regular node run (except for `devMode = true`, where the certificates directory can be filled with pre-configured keystores).
 {{< /note >}}
 
 `run-migration-scripts`: From version 4.6, a Corda node can no longer modify/create schema on the fly in normal run mode - schema setup or changes must be
@@ -188,7 +188,7 @@ Parameters:
 
 `generate-rpc-ssl-settings`: Generates the SSL keystore and truststore for a secure RPC connection.
 
-`install-shell-extensions`: Installs a `corda` alias and auto completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications](../operating/cli-application-shell-extensions.md).
+`install-shell-extensions`: Installs a `corda` alias and auto completion for `bash` and `zsh`. For more information, see [Shell extensions for CLI Applications]({{< relref "../operating/cli-application-shell-extensions.md" >}}).
 
 `validate-configuration`: Validates the actual configuration without starting the node.
 
@@ -272,7 +272,7 @@ To create nodes locally and run on a remote machine, perform the following steps
 * Optionally, add database configuration settings if they could not be configured in the first step and the local machine does not have access to the remote database.
 In each top-level `[NODE NAME]_node.conf` configuration file, add the database settings and copy the JDBC driver JAR file (if required).
 Edit the top-level `[NODE NAME]_node.conf` files only and not the files inside the node sub-directories (for example, `node.conf`).
-* Optionally, bootstrap the network on the remote machine. This is an optional step when a remote machine does not accept `localhost` addresses, or if the generated nodes are configured to run on another host’s IP address. If needed, change the host addresses in the top-level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress`, `rpcSettings.address`, and  `rpcSettings.adminAddress`. Run the network bootstrapper tool to regenerate the nodes network map: `java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`. For more information, see [Network bootstrapper](../../network-bootstrapper.md).
+* Optionally, bootstrap the network on the remote machine. This is an optional step when a remote machine does not accept `localhost` addresses, or if the generated nodes are configured to run on another host’s IP address. If needed, change the host addresses in the top-level configuration files `[NODE NAME]_node.conf` for entries `p2pAddress`, `rpcSettings.address`, and  `rpcSettings.adminAddress`. Run the network bootstrapper tool to regenerate the nodes network map: `java -jar corda-tools-network-bootstrapper-Master.jar --dir <nodes-root-dir>`. For more information, see [Network bootstrapper]({{< relref "../../network-bootstrapper.md" >}}).
 * Run nodes on the remote machine using [runnodes command](#starting-all-nodes-at-once-on-a-local-machine-from-the-command-prompt).
 
 The steps described above enable you to create the same test deployment as a `deployNodes` Gradle task would create on a local machine.
@@ -281,9 +281,9 @@ The steps described above enable you to create the same test deployment as a `de
 ## Database migrations
 
 Depending on the versions of Corda and of the CorDapps used, database migration scripts might need to run before a node is able to start.
-For more information, see [Database management](../../node-database-intro.md).
+For more information, see [Database management]({{< relref "../../node-database-intro.md" >}}).
 
-If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options](../node-commandline.md) for details.
+If you need to initialise or migrate the node's database schema objects, you need to run the `run-migration-scripts` sub-command. See [Node command-line options]({{< relref "../node-commandline.md" >}}) for details.
 
 
 ## Stability of the Corda Node

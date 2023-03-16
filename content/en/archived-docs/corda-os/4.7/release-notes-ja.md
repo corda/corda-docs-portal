@@ -46,7 +46,7 @@ Corda 4.7では、マルチRPCクライアントと呼ばれる新しいRPCク�
 
 #### 参照アプリ： Bank in a Box
 
-[Bank in a Box](../../../../apps/bankinabox/bank-index.md)は製品化の準備が整った新しい[CorDapp](cordapp-overview.md)で、アカウント、Transactionなど、リテールバンキングに必要なアプリケーションに必要な一般的な機能が含まれています。
+[Bank in a Box]({{< relref "../../../../apps/bankinabox/bank-index.md" >}})は製品化の準備が整った新しい[CorDapp](cordapp-overview.md)で、アカウント、Transactionなど、リテールバンキングに必要なアプリケーションに必要な一般的な機能が含まれています。
 
 アプリはCordaの主な機能を活用できるように設計されています：
 
@@ -55,7 +55,7 @@ Corda 4.7では、マルチRPCクライアントと呼ばれる新しいRPCク�
 - [オラクル](key-concepts-oracles.md)
 - 外部システムとCorDappの統合
 
-一連の[フロー](key-concepts-flows.md)と[API](../../../../apps/bankinabox/api-guide.md)を使って、Bank in a Boxは銀行内振込、定期振込、貸出実行や、口座機能制限などの機能を提供します。わかりやすいUIと権限設定を含んだ完全なソリューションを、簡単に展開できるようにすべてを[Kubernetesコンテナ](https://kubernetes.io/docs/concepts/containers/)でお届けします。
+一連の[フロー](key-concepts-flows.md)と[API]({{< relref "../../../../apps/bankinabox/api-guide.md" >}})を使って、Bank in a Boxは銀行内振込、定期振込、貸出実行や、口座機能制限などの機能を提供します。わかりやすいUIと権限設定を含んだ完全なソリューションを、簡単に展開できるようにすべてを[Kubernetesコンテナ](https://kubernetes.io/docs/concepts/containers/)でお届けします。
 
 このアプリケーションには、Cordaを使って銀行業アプリケーションを構築したい開発者向けのベストプラクティスや事例が盛りだくさんです。
 
