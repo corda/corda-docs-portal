@@ -5,7 +5,7 @@ menu:
   corda-5-beta:
     identifier: corda-5-beta-mutual-tls
     parent: corda-5-beta-operate
-    weight: 1000
+    weight: 2000
 section_menu: corda-5-beta
 ---
 Corda 5 uses TLS to secure a connection between two clusters. While establishing a TLS connection between the gateways of two clusters, the server gateway sends its certificate to the client gateway. The client gateway verifies the server certificate using its trust root certificate. In mutual TLS, in addition to the client verifying the server certificate, the server gateway also requests the client gateway send a client certificate and verifies that it is using its trust root certificate.
