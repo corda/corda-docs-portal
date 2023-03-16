@@ -14,26 +14,25 @@ This section describes how to configure a [dynamic network](../../../deploying/n
 The PowerShell commands listed on this page are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
 {{< /note >}}
 
-To run a dynamic network, you must complete the following high-level steps:
-1. [Start a Corda cluster](deployment-tutorials/deploy-corda-cluster.html).
-2. [Create an MGM GroupPolicy.json file](../operating/operating-tutorials/onboarding/mgm-onboarding.html#create-the-group-policy-file).
-3. [Package the MGM GroupPolicy.json file into an MGM CPI](../operating/operating-tutorials/onboarding/mgm-onboarding.html#build-the-cpi).
-4. [Upload the CPI to your cluster](../operating/operating-tutorials/onboarding/mgm-onboarding.html#upload-the-cpi).
-5. [Create a virtual node in your cluster for the MGM](../operating/operating-tutorials/onboarding/mgm-onboarding.html#create-a-virtual-node).
-6. [Assign required Hardware Security Modules (HSMs) for the MGM](../operating/operating-tutorials/onboarding/mgm-onboarding.html#assign-soft-hsm-and-generate-session-initiation-and-ecdh-key-pair).
-7. [Create required keys and optionally import required certificates](../operating/operating-tutorials/onboarding/mgm-onboarding.html#configure-the-cluster-tls-key-pair-and-certificate).
-8. [Build the registration context](../operating/operating-tutorials/onboarding/mgm-onboarding.html#build-registration-context).
-9. [Use the register endpoint to finalise the MGM setup so that it is ready to accept members](../operating/operating-tutorials/onboarding/mgm-onboarding.html#register-the-mgm).
-10. [Export the GroupPolicy.json file that members require to join the group](../operating/operating-tutorials/onboarding/mgm-onboarding.html#export-the-group-policy).
-11. [Package this GroupPolicy.json file into a member CPI](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#build-the-cpi).
-12. [Upload this CPI to the cluster](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#upload-the-cpi).
-13. [Create the virtual node for the member](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#create-a-virtual-node).
-14. [Assign the required HSMs for P2P session initiation](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#configure-the-p2p-session-initiation-key-pair-and-certificate).
-15. [Assign the required HSMs for the ledger](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#configure-the-ledger-key-pair-and-certificate).
-16. [Create the required keys, and optionally import required certificates](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#configure-the-tls-key-pair-and-certificate).
-17. [Configure the member virtual node for network communication](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#configure-the-member-virtual-node-for-network-communication).
-18. [Build the registration context](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#build-registration-context).
-19. [Use the register endpoint to request membership from the MGM](../operating/operating-tutorials/onboarding/dynamic-onboarding.html#register-members).
+1. [Start a Corda cluster]({{< relref "../../../deploying/deployment-tutorials/deploy-corda-cluster.html" >}}).
+2. [Create an MGM GroupPolicy.json file]({{< relref "./mgm-onboarding.html#create-the-group-policy-file" >}}).
+3. [Package the MGM GroupPolicy.json file into an MGM CPI]({{< relref "./mgm-onboarding.md#build-the-cpi" >}}).
+4. [Upload the CPI to your cluster]({{< relref "./mgm-onboarding.md#upload-the-cpi" >}}).
+5. [Create a virtual node in your cluster for the MGM]({{< relref "./mgm-onboarding.md#create-a-virtual-node" >}}).
+6. [Assign required Hardware Security Modules (HSMs) for the MGM]({{< relref "./mgm-onboarding.md#assign-soft-hsm-and-generate-session-initiation-and-ecdh-key-pair" >}}).
+7. [Create required keys and optionally import required certificates]({{< relref "./mgm-onboarding.md#configure-the-cluster-tls-key-pair-and-certificate" >}}).
+8. [Build the registration context]({{< relref "./mgm-onboarding.md#build-registration-context" >}}).
+9. [Use the register endpoint to finalise the MGM setup so that it is ready to accept members]({{< relref "./mgm-onboarding.md#register-the-mgm" >}}).
+10. [Export the GroupPolicy.json file that members require to join the group]({{< relref "./mgm-onboarding.md#export-the-group-policy" >}}).
+11. [Package this GroupPolicy.json file into a member CPI]({{< relref "#build-the-cpi" >}}).
+12. [Upload this CPI to the cluster]({{< relref "#upload-the-cpi" >}}).
+13. [Create the virtual node for the member]({{< relref "#create-a-virtual-node" >}}).
+14. [Assign the required HSMs for P2P session initiation]({{< relref "#configure-the-p2p-session-initiation-key-pair-and-certificate" >}}).
+15. [Assign the required HSMs for the ledger]({{< relref "#configure-the-ledger-key-pair-and-certificate" >}}).
+16. [Create the required keys, and optionally import required certificates]({{< relref "#configure-the-tls-key-pair-and-certificate" >}}).
+17. [Configure the member virtual node for network communication]({{< relref "#configure-the-member-virtual-node-for-network-communication" >}}).
+18. [Build the registration context]({{< relref "#build-registration-context" >}}).
+19. [Use the register endpoint to request membership from the MGM]({{< relref "#register-members" >}}).
 
 ## Set Variables
 Set the values of variables for use in later commands:

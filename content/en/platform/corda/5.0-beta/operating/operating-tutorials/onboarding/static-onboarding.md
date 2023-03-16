@@ -15,12 +15,12 @@ Static networks do not use an [MGM](../../../introduction/key-concepts.html#memb
 {{< /note >}}
 
 To run a static network, you must complete the following high-level steps:
-1. [Start a Corda cluster](deployment-tutorials/deploy-corda-cluster.html).
-2. [Define the members in the group in the GroupPolicy.json file](../operating/operating-tutorials/onboarding/static-onboarding.html#create-the-group-policy-file).
-3. [Package the GroupPolicy.json file into a CPI](../operating/operating-tutorials/onboarding/static-onboarding.html#create-a-cpi).
-4. [Upload the CPI to your cluster](../operating/operating-tutorials/onboarding/static-onboarding.html#upload-the-cpi).
-5. [Create a virtual node in your cluster for each member defined in the group policy file](../operating/operating-tutorials/onboarding/static-onboarding.html#create-virtual-nodes-for-each-member).
-6. [Register each member in the group](../operating/operating-tutorials/onboarding/static-onboarding.html#register-members).
+1. [Start a Corda cluster]({{< relref "../../../deploying/deployment-tutorials/deploy-corda-cluster.html" >}}).
+2. [Define the members in the group in the GroupPolicy.json file]({{< relref "#create-the-group-policy-file" >}}).
+3. [Package the GroupPolicy.json file into a CPI]({{< relref "#create-a-cpi" >}}).
+4. [Upload the CPI to your cluster]({{< relref "#upload-the-cpi" >}}).
+5. [Create a virtual node in your cluster for each member defined in the group policy file]({{< relref "#create-virtual-nodes-for-each-member" >}}).
+6. [Register each member in the group]({{< relref "#register-members" >}}).
 
 ## Create the Group Policy File
 
