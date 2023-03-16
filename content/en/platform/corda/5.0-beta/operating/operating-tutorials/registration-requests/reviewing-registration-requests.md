@@ -5,9 +5,11 @@ menu:
   corda-5-beta:
     identifier: corda-5-beta-manual-approval-review
     parent: corda-5-beta-tutorials-reg-requests
-    weight: 2000
+    weight: 5000
 section_menu: corda-5-beta
 ---
+
+This section describes how to review and manually approve or decline registration requests. This process applies to registration requests that meet the criteria for manual approval specified by a [standard rule for the group]({{< relref "./configuring-manual-approval-rules.md" >}}) or by a [pre-auth rule]({{< relref "./configuring-pre-auth-rules.md" >}}). 
 
 ## Viewing Requests Pending Manual Approval
 
