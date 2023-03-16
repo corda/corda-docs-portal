@@ -154,13 +154,13 @@ then determine the logging module name from the console output.
 
 ## SSH access
 
-Node can be configured to run SSH server. See [Node shell](../../../../../../en/platform/corda/4.7/enterprise/node/operating/shell.md) for details.
+Node can be configured to run SSH server. See [Node shell]({{< relref "../../../../../../en/platform/corda/4.7/enterprise/node/operating/shell.md" >}}) for details.
 
 
 ## Database access
 
 When running a node backed with a H2 database, the node can be configured to expose the database over a socket
-(see [Node database access h2](../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md)).
+(see [Node database access h2]({{< relref "../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md" >}})).
 
 Note that in a production set up, it is highly recommended to use an enterprise grade database, and access to the
 database should be via the usual database tools mechanisms, including access control and restrictions.
@@ -210,7 +210,7 @@ The format of the driver name needs to be `jolokia-jvm-{VERSION}-agent.jar` wher
 The following JMX statistics are exported:
 
 
-* Corda specific metrics: see [Node metrics](../../../../../../en/platform/corda/4.7/enterprise/node-metrics.md) for a list
+* Corda specific metrics: see [Node metrics]({{< relref "../../../../../../en/platform/corda/4.7/enterprise/node-metrics.md" >}}) for a list
 * Apache Artemis metrics: queue information for P2P and RPC services
 * JVM statistics: classloading, garbage collection, memory, runtime, threading, operating system
 
@@ -359,7 +359,7 @@ If this approach is taken, the passwords will appear in the windows command prom
 
 ## Obfuscating sensitive data
 
-Instead of hiding sensitive data using environment variables, another option is to use configuration obfuscation. Corda ships with a [Configuration Obfuscator](../../../../../../en/platform/corda/4.7/enterprise/tools-config-obfuscator.md) which allows the user to censor string properties in the configuration file. The config would look something like this:
+Instead of hiding sensitive data using environment variables, another option is to use configuration obfuscation. Corda ships with a [Configuration Obfuscator]({{< relref "../../../../../../en/platform/corda/4.7/enterprise/tools-config-obfuscator.md" >}}) which allows the user to censor string properties in the configuration file. The config would look something like this:
 
 ```kotlin
 keyStorePassword = "<{Kwby0G9c/+jxJM+c7Vaiow==:pdy+UaakdFSmmh8WWuBOoQ==}>"
