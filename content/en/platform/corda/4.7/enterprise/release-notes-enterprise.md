@@ -22,7 +22,7 @@ Corda Enterprise Edition 4.7.9 is a patch release of Corda Enterprise focused on
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -36,7 +36,7 @@ Corda Enterprise Edition 4.7.8 is a patch release of Corda Enterprise Edition fo
 
 ### Upgrade recommendation
 
-As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md" >}}).
 
 ### Fixed issues
 
@@ -65,7 +65,7 @@ Corda Enterprise Edition 4.7.7 is a patch release of Corda Enterprise that ensur
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.9/enterprise/upgrading-index.md" >}}).
 
 As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.9/enterprise.html).
 
@@ -80,7 +80,7 @@ Corda Enterprise Edition 4.7.6 is a patch release of Corda Enterprise that fixes
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md" >}}).
 
 As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html).
 
@@ -108,7 +108,7 @@ Upgrade to avoid exposure to the [Apache Log4j 2 vulnerability to attack](https:
 
 ### Upgrade recommendation
 
-As a developer, you should urgently upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md).
+As a developer, you should urgently upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and you can find the latest upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/upgrading-index.md" >}}).
 
 As a node operator, you should urgently upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html).
 
@@ -125,7 +125,7 @@ after an internal notary flow retry.
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md" >}}).
 
 As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
@@ -139,7 +139,7 @@ Corda Enterprise Edition 4.7.2 is a patch release of Corda Enterprise that intro
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md" >}}).
 
 As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
@@ -154,12 +154,12 @@ Corda Enterprise Edition 4.7.1 is a patch release of Corda Enterprise that intro
 
 The main new features and enhancements in Corda Enterprise Edition 4.7.1 are listed below:
 
-* [LedgerGraph version 1.2.1](../../../../../en/platform/corda/4.7/enterprise/node/operating/ledger-graph.md/).
-* [Archive service version 1.0.1](../../../../../en/platform/corda/4.7/enterprise/node/archiving/archiving-setup.md/).
+* [LedgerGraph version 1.2.1]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/operating/ledger-graph.md" >}})).
+* [Archive service version 1.0.1]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/archiving/archiving-setup.md" >}})).
 
 ### Upgrade recommendation
 
-As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here](../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md).
+As a developer, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) as soon as possible. Check the latest Corda Enterprise release notes and upgrade guide [here]({{< relref "../../../../../en/platform/corda/4.8/enterprise/release-notes-enterprise.md" >}}).
 
 As a node operator, you should upgrade to the [latest released version of Corda](../../../../../en/platform/corda/4.8/enterprise.html) if the fixed issues listed below are relevant to your work.
 
@@ -219,15 +219,15 @@ Some features of the Archiving Service:
 
 * Use the Archiving Service with Corda command-line interface (CLI) commands. This allows you to rapidly check archiving jobs, delete data that is no longer required from the vault, import, export, and restore snapshots of the vault’s contents.
 * Use the application entity manager to allow your CorDapps to access off-ledger databases.
-* Integrate your archiving service with [Collaborative Recovery CorDapps](../../../../../en/platform/corda/4.7/enterprise/node/collaborative-recovery/introduction-cr.md) to ensure smooth running of data recovery after a disaster scenario.
+* Integrate your archiving service with [Collaborative Recovery CorDapps]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/collaborative-recovery/introduction-cr.md" >}}) to ensure smooth running of data recovery after a disaster scenario.
 
-See the [Archiving Service documentation section](../../../../../en/platform/corda/4.7/enterprise/node/archiving/archiving-setup.md) for more information.
+See the [Archiving Service documentation section]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/archiving/archiving-setup.md" >}}) for more information.
 
 ### Improved notary backpressure mechanism
 
-To optimise the way notaries handle traffic, we have updated the notary [backpressure mechanism](../../../../../en/platform/corda/4.7/enterprise/notary/faq/eta-mechanism.md) to improve notary performance when there is a sudden increase in notarisation requests. This change increases the accuracy of transaction retry estimates that the notary provides to the node.
+To optimise the way notaries handle traffic, we have updated the notary [backpressure mechanism]({{< relref "../../../../../en/platform/corda/4.7/enterprise/notary/faq/eta-mechanism.md" >}}) to improve notary performance when there is a sudden increase in notarisation requests. This change increases the accuracy of transaction retry estimates that the notary provides to the node.
 
-As a result, the notary backpressure mechanism is now [more precise and responsive](../../../../../en/platform/corda/4.7/enterprise/notary/notary-load-handling.md) under "heavy traffic conditions", which leads to fewer node retries, optimised performance, and a better end-user experience for node operators.
+As a result, the notary backpressure mechanism is now [more precise and responsive]({{< relref "../../../../../en/platform/corda/4.7/enterprise/notary/notary-load-handling.md" >}}) under "heavy traffic conditions", which leads to fewer node retries, optimised performance, and a better end-user experience for node operators.
 
 {{< note >}}
 What is the notary backpressure mechanism?
@@ -239,10 +239,10 @@ By design, a notary can operate normally under extremely high loads of traffic. 
 
 Corda Enterprise Edition 4.7 comes with two new management consoles:
 
-* The **Flow management console** allows you to see the state of the flows running on a node and perform some operations on them. For more information, see [Flow management console](../../../../../en/platform/corda/4.7/enterprise/node/node-flow-management-console.md).
-* The **Node management console** allows you to see information about a node and perform some operations on it. For more information, see [Node management console](../../../../../en/platform/corda/4.7/enterprise/node/management-console/_index.md).
+* The **Flow management console** allows you to see the state of the flows running on a node and perform some operations on them. For more information, see [Flow management console]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/node-flow-management-console.md" >}}).
+* The **Node management console** allows you to see information about a node and perform some operations on it. For more information, see [Node management console]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/management-console/_index.md" >}}).
 
-They both run as part of the [Gateway Service](../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md).
+They both run as part of the [Gateway Service]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md" >}}).
 
 ### Certificate rotation
 
@@ -253,7 +253,7 @@ For more information about this feature, contact your R3 account manager.
 ### Other changes and improvements
 
 * **Single sign-on for Azure AD.** You can now operate a single sign-on (SSO) set-up between Corda services and Azure AD, with a [simple configuration](../../../../../en/platform/corda/4.7/enterprise/node/azure-ad-sso.html) to both your Azure AD and Corda Auth services.
-* **HSM integration support.** Corda Enterprise now supports users to integrate unsupported HSMs with their Corda Enterprise instance. This release includes a sample Java implementation to be used as an example, and a testing suite that can be used to test an implementation before deployment. For guidance on writing an HSM integration, see [HSM documentation](../../../../../en/platform/corda/4.7/enterprise/operations/deployment/hsm-integration.md).
+* **HSM integration support.** Corda Enterprise now supports users to integrate unsupported HSMs with their Corda Enterprise instance. This release includes a sample Java implementation to be used as an example, and a testing suite that can be used to test an implementation before deployment. For guidance on writing an HSM integration, see [HSM documentation]({{< relref "../../../../../en/platform/corda/4.7/enterprise/operations/deployment/hsm-integration.md" >}}).
 * **Ability to store confidential identity keys in HSMs.** Corda Enterprise now provides support for storing the keys associated with confidential identities in nCipher, Futurex, and Azure Key Vault HSMs. nCipher and Azure Key Vault HSMs support native use of confidential identity keys, and Futurex HSMs support the wrapped key mode. For more information on configuring these HSMs to store confidential identity keys, see the [HSM documentation](../../../../../en/platform/corda/4.7/enterprise/operations/deployment/hsm-deployment-confidential.html#using-an-hsm-with-confidential-identities).
 * **HSM APIs.** Corda Enterprise Edition 4.7 introduces an HSM library with its own API that external tooling developers can use to expand Corda Enterprise HSM support.
 * Node `initial-registration` now includes the creation of the `identity-private-key` keystore alias. For more information, see the documentation about [node folder structure](node/setup/node-structure.html#node-folder-structure). Previously, only `cordaclientca` and `cordaclienttls` aliases were created during `initial-registration`, while `identity-private-key` was generated on demand on the first node run. Therefore in Corda Enterprise Edition 4.7 the content of `nodekeystore.jks` is never altered during a regular node run (except for `devMode = true`, where the certificates directory can be filled with pre-configured keystores).
@@ -263,11 +263,11 @@ For more information about this feature, contact your R3 account manager.
 
 The platform version of Corda 4.7 has been bumped up from 8 to 9.
 
-For more information about platform versions, see [Versioning](../../../../../en/platform/corda/4.7/enterprise/cordapps/versioning.md).
+For more information about platform versions, see [Versioning]({{< relref "../../../../../en/platform/corda/4.7/enterprise/cordapps/versioning.md" >}}).
 
 ## Fixed issues
 
-* We have fixed a [Collaborative recovery](../../../../../en/platform/corda/4.7/enterprise/node/collaborative-recovery/introduction-cr.md) issue where, when using Accounts, [LedgerSync](../../../../../en/platform/corda/4.7/enterprise/node/collaborative-recovery/ledger-sync.md) returned no differences if the party that initiated the transaction wanted to recover against the receiving party.
+* We have fixed a [Collaborative recovery]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/collaborative-recovery/introduction-cr.md" >}}) issue where, when using Accounts, [LedgerSync]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/collaborative-recovery/ledger-sync.md" >}}) returned no differences if the party that initiated the transaction wanted to recover against the receiving party.
 * We have fixed an issue where the flow metadata finish time was set in a different time zone than the flow metadata start time.
 * We have fixed an issue where, in case of hot/cold node failover, ongoing flows would sometimes get stuck on a new hot node and/or counterparty nodes while waiting to receive messages from the counterparty.
 * We have fixed an issue where the Corda 4.6 RPC Client could not execute the method `NodeFlowStatusRpcOps::getFlowStatus` against a Corda 4.7 node due to failing to deserialize some enums when querying the node states.
@@ -288,7 +288,7 @@ For more information about platform versions, see [Versioning](../../../../../en
 * A Collaborative Recovery 1.1 (or 1.0) initiator could fail when attempting to recover transactions archived by a Collaborative Recovery 1.2 responder.
 * When performing certificate rotation (introduced in this release), flows could fail with an error when trying to use a state signed by the old key that is not in the `previousIdentityKeyAliases` list.
 * The Health Survey Tool always tries to save its report in the Corda node directory instead of the current directory. This could be a problem for node operators who do not have write access to the Corda node directory.
-* There are some formatting inconsistencies between the Corda HSM Technology Compatibility Kit (TCK) tests console help and the [Corda shell](../../../../../en/platform/corda/4.7/enterprise/node/operating/shell.md) CLI help.
+* There are some formatting inconsistencies between the Corda HSM Technology Compatibility Kit (TCK) tests console help and the [Corda shell]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/operating/shell.md" >}}) CLI help.
 * When running `samples:attachment-demo:deployNodes`, the `runSender` task fails to send the attachment because it uses `myLegalName` instead of `serviceLegalName` for notarisation.
 * When running `run-migration-scripts --core-schemas --app-schemas` to migrate [the custom IOU CorDapp](https://github.com/corda/production-qa-steps/tree/toropovd/rpc-client/rpc-client/cordapp-example), the migration script fails when running on a MS SQL database. The migration works fine against H2, PostgreSQL, and Oracle databases.
 * In some cases, the node keeps trying to reconnect to the counterparty even when the counterparty is down / the flow is killed.
