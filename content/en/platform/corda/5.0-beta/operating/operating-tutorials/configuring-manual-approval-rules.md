@@ -14,7 +14,7 @@ As described in [Manual Registration Approval]({{< relref "../manual-registratio
 
 To add a group approval rule, use the [PUT method of the mgm/{holdingidentityshorthash}/approval/rules endpoint](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__approval_rules) of the REST API.
 
-For example, to specify that all requests in the `corda` namespace must be manually approved:
+For example, to specify that all requests with changes to keys in the Corda namespace must be manually approved:
 
 ```bash
 RULE_PARAMS='{"ruleParams":{"ruleRegex": "corda.*", "ruleLabel": "Review all changes to keys in the Corda namespace"}}'
