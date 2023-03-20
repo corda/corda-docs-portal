@@ -227,13 +227,13 @@ For security reasons, we do not want Corda nodes to be able to just receive inst
 via messaging, since this has been exploited in other Java application containers in the past.  Instead, we require
 every class contained in messages to be whitelisted. Some classes are whitelisted by default (see `DefaultWhitelist`),
 but others outside of that set need to be whitelisted either by using the annotation `@CordaSerializable` or via the
-plugin framework.  See [Object serialization](../../../../../en/platform/corda/4.9/enterprise/serialization.md).  You can see above that the `SellerTradeInfo` has been annotated.
+plugin framework.  See [Object serialization]({{< relref "../../../../../en/platform/corda/4.9/enterprise/serialization.md" >}}).  You can see above that the `SellerTradeInfo` has been annotated.
 
 
 ## Starting your flow
 
 The `StateMachineManager` is the class responsible for taking care of all running flows in a node. It knows
-how to register handlers with the messaging system (see [Networking and messaging](../../../../../en/platform/corda/4.9/enterprise/messaging.md)) and iterate the right state machine
+how to register handlers with the messaging system (see [Networking and messaging]({{< relref "../../../../../en/platform/corda/4.9/enterprise/messaging.md" >}})) and iterate the right state machine
 when messages arrive. It provides the send/receive/sendAndReceive calls that let the code request network
 interaction and it will save/restore serialised versions of the fiber at the right times.
 

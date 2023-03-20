@@ -13,7 +13,7 @@ weight: 6
 # Running nodes remotely
 
 {{< note >}}
-The remote node running method described in this page is designed for testing use. For production-grade deployments visit the [node deployments page](../../../../../../../en/platform/corda/4.8/enterprise/node-docker-deployments.md).
+The remote node running method described in this page is designed for testing use. For production-grade deployments visit the [node deployments page]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node-docker-deployments.md" >}}).
 {{< /note >}}
 
 By default, a [Cordform](generating-a-node-cordform.md) task will run all the generated nodes on the same host machine.

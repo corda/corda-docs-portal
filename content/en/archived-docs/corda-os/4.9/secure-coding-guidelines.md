@@ -62,5 +62,5 @@ Make sure your contracts are secure. Check that:
 
 ## Related Content
 Learn more about:
-* [Writing flows](../enterprise/flow-state-machines.md)
+* [Writing flows]({{< relref "../enterprise/flow-state-machines.md" >}})
 * [Contracts](api-contracts.html)

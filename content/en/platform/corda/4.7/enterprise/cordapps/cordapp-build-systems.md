@@ -320,7 +320,7 @@ To check if CorDapp is signed use [JAR signing and verification tool](https://do
 jarsigner --verify path/to/cordapp.jar
 ```
 
-Cordformation plugin can also sign CorDapps JARs, when deploying set of nodes, see [Generating a node](../node/deploy/generating-a-node.md).
+Cordformation plugin can also sign CorDapps JARs, when deploying set of nodes, see [Generating a node]({{< relref "../node/deploy/generating-a-node.md" >}}).
 
 If your build system post-processes the Cordapp JAR, then the modified JAR content may be out-of-date or not complete
 with regards to a signature file. In this case you can sign the Cordapp as a separate step and disable the automatic signing by the `cordapp` plugin.
@@ -422,7 +422,7 @@ flows (see [Versioning](versioning.md)).
 
 {{< note >}}
 Before installing a CorDapp, you must create one or more nodes to install it on. For instructions, please see
-[generating a node](../node/deploy/generating-a-node.md).
+[generating a node]({{< relref "../node/deploy/generating-a-node.md" >}}).
 
 {{< /note >}}
 At start-up, nodes will load any CorDapps present in their `cordapps` folder. In order to install a CorDapp on a node, the

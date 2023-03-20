@@ -25,7 +25,7 @@ You can use several flexible query mechanisms to access the vault, including:
 
 
 * The vault query API.
-* A JDBC session (see [State Persistence](../../../../../../en/platform/corda/4.8/enterprise/cordapps/state-persistence.md)).
+* A JDBC session (see [State Persistence]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/state-persistence.md" >}})).
 * Custom [JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)/[JPQL](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#hql) queries.
 * Custom third-party data access frameworks such as [Spring Data](http://projects.spring.io/spring-data).
 
@@ -192,7 +192,7 @@ interfaces' common state attributes to the **VAULT_LINEAR_STATES** table.{{< /no
 
 
 * `VaultCustomQueryCriteria` provides the means to specify one or many arbitrary expressions on attributes defined
-by a custom contract state that implements its own schema as described in the [State Persistence](../../../../../../en/platform/corda/4.8/enterprise/cordapps/state-persistence.md)
+by a custom contract state that implements its own schema as described in the [State Persistence]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/state-persistence.md" >}})
 documentation. You can express custom criteria using one of these type-safe forms of
 `CriteriaExpression`: `BinaryLogical`, `Not`, `ColumnPredicateExpression`, and `AggregateFunctionExpression`. The
 `ColumnPredicateExpression` allows for the specification of arbitrary criteria using the previously enumerated operator

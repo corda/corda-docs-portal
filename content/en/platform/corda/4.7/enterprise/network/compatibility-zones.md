@@ -28,7 +28,7 @@ have agreed to trade with each other.
 ### Bootstrapping a compatibility zone
 
 You can easily bootstrap a compatibility zone for testing or pre-production use with either the
-[Network-bootstrapper](../../../../../../en/platform/corda/4.7/enterprise/network-bootstrapper.md) or the Network Builder tools.
+[Network-bootstrapper]({{< relref "../../../../../../en/platform/corda/4.7/enterprise/network-bootstrapper.md" >}}) or the Network Builder tools.
 
 
 ### Joining an existing compatibility zone

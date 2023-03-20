@@ -58,7 +58,7 @@ There are also operations that allow starting/killing the flows or even stopping
 * Starting flows requires `InvokeRpc.registeredFlows` and `InvokeRpc.wellKnownPartyFromX500Name`, as well as a permission for the flow being started.
 * Killing flows (`flow kill`) requires `InvokeRpc.killFlow`. This currently allows the user to kill *any* flow, so please be careful when granting it!
 
-Description of RPC operations can be found in the [RPC operations](../../../../../../../en/platform/corda/4.8/enterprise/api-rpc.md) documentation.
+Description of RPC operations can be found in the [RPC operations]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/api-rpc.md" >}}) documentation.
 
 {{< note >}}
 `InvokeRpc.startTrackedFlowDynamic` permission gives permission to run all existing flows.
@@ -175,7 +175,7 @@ Where:
 * `--help`, `-h`: Show this help message and exit.
 * `--version`, `-V`: Print version information and exit.
 
-Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications](../../../../../../../en/platform/corda/4.8/enterprise/node/operating/cli-application-shell-extensions.md) for more info.
+Additionally, the `install-shell-extensions` subcommand can be used to install the `corda-shell` alias and auto completion for bash and zsh. See [Shell extensions for CLI Applications]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/operating/cli-application-shell-extensions.md" >}}) for more info.
 
 The format of `config-file`:
 
@@ -223,7 +223,7 @@ This is a new mode added in the Enterprise 4.3 release to prevent the CRaSH shel
 
 When a shell is running in unsafe mode, the shell behaviour will be the same as before and will include CRaSH built-in commands. By default the internal shell will run in safe mode but will still be have the ability to execute RPC client calls as before based on existing RPC permissions. No Corda functionality is affected by this change; only the ability to access to the CRaSH shell embedded commands.
 
-  When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items in their RPC permission list, see [Working with the CordaRPCClient API](../../get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md) for more information about the RPC Client API. These shell changes arealso applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onwards). It may be possible that, in the future, the CRaSH shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they are technically not part of Corda functionality.
+  When running an SSH shell, it will run in safe mode for any user that does not explicitly have permission ‘ALL’ as one the items in their RPC permission list, see [Working with the CordaRPCClient API]({{< relref "../../get-started/tutorials/supplementary-tutorials/tutorial-clientrpc-api.md" >}}) for more information about the RPC Client API. These shell changes arealso applied to the Stand Alone shell which will now run in safe mode (Enterprise 4.3 onwards). It may be possible that, in the future, the CRaSH shell embedded commands may become deprecated. Where possible, please do not write any new code that depends on them as they are technically not part of Corda functionality.
 
 ### Getting help
 
@@ -684,7 +684,7 @@ If this action is not successful, you will receive an error message.
 
 #### Pause all hospitalized flows
 
-Use this command to pause all [hospitalized flows](../../../../../../../en/platform/corda/4.8/enterprise/node/node-flow-hospital.md).
+Use this command to pause all [hospitalized flows]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/node-flow-hospital.md" >}}).
 
 ##### Command
 
@@ -806,7 +806,7 @@ class is referenced as `net.corda.finance.contracts.asset.Cash$State` (note the 
 
 {{< note >}}
 If your CorDapp is written in Java, named arguments won’t work unless you compiled the node using the
-`-parameters` argument to `javac`. See the documentation on [Creating nodes locally](../deploy/generating-a-node.md) to learn how to specify it via Gradle.
+`-parameters` argument to `javac`. See the documentation on [Creating nodes locally]({{< relref "../deploy/generating-a-node.md" >}}) to learn how to specify it via Gradle.
 {{< /note >}}
 
 
