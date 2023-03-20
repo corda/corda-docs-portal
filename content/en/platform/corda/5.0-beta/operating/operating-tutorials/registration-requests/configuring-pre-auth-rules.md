@@ -24,7 +24,7 @@ curl --insecure -u <username>:<password> -d $RULE_PARAMS <REST-API-URL>/mgm/<MGM
 
 ## Viewing Current Pre-Auth Approval Rules
 
-To retrieve all applied pre-auth approval rules, use the [mgm/{holdingidentityshorthash}/approval/rules/preauth GET method](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__approval_rules_preauth).
+To retrieve all created pre-auth approval rules, use the [mgm/{holdingidentityshorthash}/approval/rules/preauth GET method](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__approval_rules_preauth).
 
 ```bash
 curl --insecure -u <username>:<password> <REST-API-URL>/mgm/<MGM-HOLDING-ID>/approval/rules/preauth
