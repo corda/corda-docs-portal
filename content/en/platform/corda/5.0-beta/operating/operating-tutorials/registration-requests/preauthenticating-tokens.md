@@ -55,7 +55,7 @@ You can also pass the following optional properties to filter or expand the sear
 * ownerX500Name — the X.500 name of the member who the token was issued for. 
 This is passed as a URL query parameter with the full URL encoded X.500 name.
 * preauthtokenid — the ID of a specific token to look up.
-* viewinactive — set this to `true` to inlude consumed, revoked, or expired tokens.
+* viewinactive — set this to `true` to include consumed, revoked, or expired tokens.
 If this is set to false, only tokens that are active and ready to use are returned.
 
 These optional parameters can be used in any combination. The following is an example of all parameters used together:
