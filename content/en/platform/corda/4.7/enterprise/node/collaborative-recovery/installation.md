@@ -41,7 +41,7 @@ Outline of steps for installation:
 
 ## Requirements
 
-* **[LedgerGraph CorDapp](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/ledger-graph.md)** The collaborative recovery CorDapps depend on the LedgerGraph CorDapp.
+* **[LedgerGraph CorDapp]({{< relref "../../../../../../../en/platform/corda/4.7/enterprise/node/operating/ledger-graph.md" >}})** The collaborative recovery CorDapps depend on the LedgerGraph CorDapp.
 
 * **Corda Enterprise** Corda nodes must be running Corda Enterprise in order to initiate or participate in Collaborative Recovery. This feature is not available for Corda Open Source nodes.
 
@@ -49,7 +49,7 @@ Outline of steps for installation:
 
 * **Network MPV > 6** In addition to a CPV of greater than 6, the network itself must have a sufficient MPV.
 
-* **Database requirements** Collaborative Recovery CorDapps are tested against Corda Enterprise and will work according to the [platform support matrix](../../../../../../../en/platform/corda/4.7/enterprise/platform-support-matrix.md).
+* **Database requirements** Collaborative Recovery CorDapps are tested against Corda Enterprise and will work according to the [platform support matrix]({{< relref "../../../../../../../en/platform/corda/4.7/enterprise/platform-support-matrix.md" >}}).
 
 
 ## Install the CorDapps
@@ -97,11 +97,11 @@ Before proceeding, verify that the transfer was completed successfully by checki
 
 ### Step 4: Run any necessary database migrations
 
-If you are using Corda with a permissioned database, you may need to [perform database migrations](../operating/node-operations-cordapp-deployment.md).
+If you are using Corda with a permissioned database, you may need to [perform database migrations]({{< relref "../operating/node-operations-cordapp-deployment.md" >}}).
 
 ### Step 5: Restart the node
 
-Restart the node in the manner in which the node was [originally started by the node operator](../deploy/deploying-a-node.md).
+Restart the node in the manner in which the node was [originally started by the node operator]({{< relref "../deploy/deploying-a-node.md" >}}).
 
 You have enabled your Corda node for Collaborative Recovery in the event of a disaster scenario.
 

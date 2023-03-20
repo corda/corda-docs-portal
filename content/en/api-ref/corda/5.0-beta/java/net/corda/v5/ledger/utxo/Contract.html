@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../";
 public interface <span class="typeNameLabel"><a href=Contract.html>Contract</a></span>
 
                     </pre>
-                    <div class="block"><p>Defines a mechanism for implementing contracts, which perform transaction verification.</p><p>All participants run this code for every input and output state for every transaction they see on the network. All contracts must verify and accept the associated transaction for it to be finalized and persisted to the ledger. Failure of any contract constraint aborts the transaction, resulting in the transaction not being finalized.</p></div>
+                    <div class="block"><p>Defines a mechanism for implementing contracts, which perform transaction verification. </p><p> All participants run this code for every input and output state for every transaction they see on the network. All contracts must verify and accept the associated transaction for it to be finalized and persisted to the ledger. Failure of any contract constraint aborts the transaction, resulting in the transaction not being finalized.</p></div>
                 </li>
             </ul>
         </div>
@@ -238,17 +238,17 @@ public interface <span class="typeNameLabel"><a href=Contract.html>Contract</a><
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            <td class="colFirst"><code>boolean</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=Contract.html#isRelevant(ContractState,Set)>isRelevant</a>(<a href=ContractState.html>ContractState</a> state, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; myKeys) </code>
+                                            <th class="colSecond" scope="row"><code><a href=Contract.html#isRelevant(ContractState,Set)>isRelevant</a>(@NotNull() <a href=ContractState.html>ContractState</a> state, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; myKeys) </code>
                                             </th>
-                                            <td class="colLast">Establish whether a given state is relevant to a node, given the node's public keys.</td>
+                                            <td class="colLast">TODO : Still in discussion - what do we call this, and where does it live?</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            <td class="colFirst"><code>abstract void</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=Contract.html#verify(UtxoLedgerTransaction)>verify</a>(<a href=transaction/UtxoLedgerTransaction.html>UtxoLedgerTransaction</a> transaction) </code>
+                                            <th class="colSecond" scope="row"><code><a href=Contract.html#verify(UtxoLedgerTransaction)>verify</a>(@NotNull() <a href=transaction/UtxoLedgerTransaction.html>UtxoLedgerTransaction</a> transaction) </code>
                                             </th>
                                             <td class="colLast">Verifies the specified transaction associated with the current contract.</td>
                                         </tr>
@@ -305,8 +305,8 @@ public interface <span class="typeNameLabel"><a href=Contract.html>Contract</a><
                                           >
                                     <li class="blockList">
                                         <h4>isRelevant</h4>
-                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=Contract.html#isRelevant(ContractState,Set)>isRelevant</a>(<a href=ContractState.html>ContractState</a> state, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; myKeys)</pre>
-                                        <div class="block"><p>Establish whether a given state is relevant to a node, given the node's public keys.</p><p>With default implementation, a state is relevant if any of the participants key matching one of this node's public keys.</p></div>
+                                        <pre class="methodSignature"> boolean <a href=Contract.html#isRelevant(ContractState,Set)>isRelevant</a>(@NotNull() <a href=ContractState.html>ContractState</a> state, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; myKeys)</pre>
+                                        <div class="block"><p>TODO : Still in discussion - what do we call this, and where does it live? Determines whether a given state is relevant to a node, given the node's public keys. </p><p> With default implementation, a state is relevant if any of the participants key matching one of this node's public keys.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -320,7 +320,7 @@ public interface <span class="typeNameLabel"><a href=Contract.html>Contract</a><
                                           >
                                     <li class="blockList">
                                         <h4>verify</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=Contract.html#verify(UtxoLedgerTransaction)>verify</a>(<a href=transaction/UtxoLedgerTransaction.html>UtxoLedgerTransaction</a> transaction)</pre>
+                                        <pre class="methodSignature"> abstract void <a href=Contract.html#verify(UtxoLedgerTransaction)>verify</a>(@NotNull() <a href=transaction/UtxoLedgerTransaction.html>UtxoLedgerTransaction</a> transaction)</pre>
                                         <div class="block"><p>Verifies the specified transaction associated with the current contract.</p></div>
                                         
                                         <dl>

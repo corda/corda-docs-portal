@@ -117,7 +117,7 @@ var pathtoroot = "../../../../";
 public final class <span class="typeNameLabel"><a href=ParameterizedSignatureSpec.html>ParameterizedSignatureSpec</a></span>
 extends <a href=SignatureSpec.html>SignatureSpec</a>
                     </pre>
-                    <div class="block"><p>This class is used to define a digital signature scheme which has the additional algorithm parameters, such as RSASSA-PSS</p></div>
+                    <div class="block"><p>This class is used to define a digital signature scheme which has the additional algorithm parameters, such as <code>RSASSA-PSS</code>.</p></div>
                 </li>
             </ul>
         </div>
@@ -165,14 +165,116 @@ extends <a href=SignatureSpec.html>SignatureSpec</a>
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html>AlgorithmParameterSpec</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html>AlgorithmParameterSpec</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=ParameterizedSignatureSpec.html#params>params</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="rowColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#signatureName>signatureName</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#RSA_SHA256>RSA_SHA256</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#RSA_SHA384>RSA_SHA384</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#RSA_SHA512>RSA_SHA512</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public final static <a href=ParameterizedSignatureSpec.html>ParameterizedSignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#RSASSA_PSS_SHA256>RSASSA_PSS_SHA256</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=ParameterizedSignatureSpec.html>ParameterizedSignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#RSASSA_PSS_SHA384>RSASSA_PSS_SHA384</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public final static <a href=ParameterizedSignatureSpec.html>ParameterizedSignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#RSASSA_PSS_SHA512>RSASSA_PSS_SHA512</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#RSA_SHA256_WITH_MGF1>RSA_SHA256_WITH_MGF1</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#RSA_SHA384_WITH_MGF1>RSA_SHA384_WITH_MGF1</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#RSA_SHA512_WITH_MGF1>RSA_SHA512_WITH_MGF1</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#ECDSA_SHA256>ECDSA_SHA256</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#ECDSA_SHA384>ECDSA_SHA384</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#ECDSA_SHA512>ECDSA_SHA512</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#EDDSA_ED25519>EDDSA_ED25519</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#SPHINCS256_SHA512>SPHINCS256_SHA512</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#SM2_SM3>SM2_SM3</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#SM2_SHA256>SM2_SHA256</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static <a href=SignatureSpec.html>SignatureSpec</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SignatureSpec.html#GOST3410_GOST3411>GOST3410_GOST3411</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
@@ -203,7 +305,7 @@ extends <a href=SignatureSpec.html>SignatureSpec</a>
                                             <tr class="altColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
                                                         href="#ParameterizedSignatureSpec(String,AlgorithmParameterSpec)">ParameterizedSignatureSpec</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> signatureName, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html>AlgorithmParameterSpec</a> params)</code></th>
-                                                <td class="colLast"></td>
+                                                <td class="colLast">Construct a parameterized signature spec.</td>
                                             </tr>
                                         
 
@@ -256,7 +358,7 @@ extends <a href=SignatureSpec.html>SignatureSpec</a>
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html>AlgorithmParameterSpec</a></code>
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html>AlgorithmParameterSpec</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ParameterizedSignatureSpec.html#getParams()>getParams</a>() </code>
                                             </th>
@@ -313,7 +415,7 @@ extends <a href=SignatureSpec.html>SignatureSpec</a>
                                     <li class="blockList">
                                         <h4>ParameterizedSignatureSpec</h4>
                                         <pre>ParameterizedSignatureSpec(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> signatureName, <a href=https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html>AlgorithmParameterSpec</a> params)</pre>
-                                        <div class="block"></div>
+                                        <div class="block">Construct a parameterized signature spec.</div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
@@ -352,7 +454,7 @@ extends <a href=SignatureSpec.html>SignatureSpec</a>
                                           >
                                     <li class="blockList">
                                         <h4>getParams</h4>
-                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html>AlgorithmParameterSpec</a> <a href=ParameterizedSignatureSpec.html#getParams()>getParams</a>()</pre>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/security/spec/AlgorithmParameterSpec.html>AlgorithmParameterSpec</a> <a href=ParameterizedSignatureSpec.html#getParams()>getParams</a>()</pre>
                                         <div class="block"></div>
                                         
                                         <!-- TODO missing return annotation -->
@@ -367,7 +469,7 @@ extends <a href=SignatureSpec.html>SignatureSpec</a>
                                           >
                                     <li class="blockList">
                                         <h4>toString</h4>
-                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ParameterizedSignatureSpec.html#toString()>toString</a>()</pre>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ParameterizedSignatureSpec.html#toString()>toString</a>()</pre>
                                         <div class="block"><p>Converts a <a href=ParameterizedSignatureSpec.html>ParameterizedSignatureSpec</a> object to a string representation.</p></div>
                                         
                                         <!-- TODO missing return annotation -->

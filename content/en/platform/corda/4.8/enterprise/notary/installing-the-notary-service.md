@@ -96,7 +96,7 @@ jarDirs = [PATH_TO_JDBC_DRIVER_DIR]
 
 {{< /tabs >}}
 
-See [Node configuration](../node/setup/corda-configuration-file.md) for a complete reference.
+See [Node configuration]({{< relref "../node/setup/corda-configuration-file.md" >}}) for a complete reference.
 
 
 ## MySQL notary (deprecated)
@@ -141,7 +141,7 @@ notary {
 
 Corda Enterprise comes with a tool for obfuscating secret values in configuration files, which is strongly recommended for production deployments.
 For a notary worker node, the database IP addresses, database user credentials, `keyStore` and `trustStore` password fields in
-the configuration file should be obfuscated. Usage instructions can be found on the [Configuration Obfuscator](../tools-config-obfuscator.md) page.
+the configuration file should be obfuscated. Usage instructions can be found on the [Configuration Obfuscator]({{< relref "../tools-config-obfuscator.md" >}}) page.
 
 Note that configuration obfuscation can be used with any notary.
 
@@ -180,4 +180,4 @@ dataSourceProperties = {
 ## Obtaining the notary service identity
 
 The notary service is registered with the CENM identity service using the registration tool as documented in [notary registration](../ha-utilities.html#notary-registration).
-Once the service is registered, each worker node is registered using the `initial-registration` process. See [joining a compatibility zone](../../../../../../en/platform/corda/4.8/enterprise/network/joining-a-compatibility-zone.md).
+Once the service is registered, each worker node is registered using the `initial-registration` process. See [joining a compatibility zone]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/network/joining-a-compatibility-zone.md" >}}).

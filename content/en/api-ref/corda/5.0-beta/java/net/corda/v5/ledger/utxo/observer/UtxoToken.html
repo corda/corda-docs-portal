@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../../";
 public final class <span class="typeNameLabel"><a href=UtxoToken.html>UtxoToken</a></span>
 
                     </pre>
-                    <div class="block"><p>The <a href=UtxoToken.html>UtxoToken</a> defines the structure of a token produced by an instance of <a href=UtxoLedgerTokenStateObserver.html>UtxoLedgerTokenStateObserver</a></p></div>
+                    <div class="block"><p>Represents the structure of a token produced by an instance of <a href=UtxoLedgerTokenStateObserver.html>UtxoLedgerTokenStateObserver</a>.</p></div>
                 </li>
             </ul>
         </div>
@@ -165,19 +165,19 @@ public final class <span class="typeNameLabel"><a href=UtxoToken.html>UtxoToken<
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoToken.html#poolKey>poolKey</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="rowColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoToken.html#amount>amount</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=UtxoTokenFilterFields.html>UtxoTokenFilterFields</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=UtxoTokenFilterFields.html>UtxoTokenFilterFields</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoToken.html#filterFields>filterFields</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
@@ -209,7 +209,7 @@ public final class <span class="typeNameLabel"><a href=UtxoToken.html>UtxoToken<
                                             <tr class="altColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
                                                         href="#UtxoToken(UtxoTokenPoolKey,BigDecimal,UtxoTokenFilterFields)">UtxoToken</a></span>(<a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a> poolKey, <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a> amount, <a href=UtxoTokenFilterFields.html>UtxoTokenFilterFields</a> filterFields)</code></th>
-                                                <td class="colLast"></td>
+                                                <td class="colLast">Creates a new instance of the <a href=UtxoToken.html>UtxoToken</a> class.</td>
                                             </tr>
                                         
 
@@ -262,27 +262,59 @@ public final class <span class="typeNameLabel"><a href=UtxoToken.html>UtxoToken<
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>final <a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a></code>
+                                            <td class="colFirst"><code><a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoToken.html#getPoolKey()>getPoolKey</a>() </code>
                                             </th>
-                                            <td class="colLast">The key of the token pool this token belongs to.</td>
+                                            <td class="colLast">Gets the key of the token pool that this token belongs to.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a></code>
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoToken.html#getAmount()>getAmount</a>() </code>
                                             </th>
-                                            <td class="colLast">The amount represented by this token.</td>
+                                            <td class="colLast">Gets the amount represented by this token.</td>
                                         </tr>
                                         
                                         <tr id="i2" class="altColor">
-                                            <td class="colFirst"><code>final <a href=UtxoTokenFilterFields.html>UtxoTokenFilterFields</a></code>
+                                            <td class="colFirst"><code><a href=UtxoTokenFilterFields.html>UtxoTokenFilterFields</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoToken.html#getFilterFields()>getFilterFields</a>() </code>
                                             </th>
-                                            <td class="colLast">Optional fields available to the <a href=../token/selection/TokenSelection.html>TokenSelection</a> API <a href=../token/selection/TokenClaimCriteria.html>TokenClaimCriteria</a>.</td>
+                                            <td class="colLast">Gets the optional fields available to the <a href=../token/selection/TokenSelection.html>TokenSelection</a> API <a href=../token/selection/TokenClaimCriteria.html>TokenClaimCriteria</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>boolean</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoToken.html#equals(Object)>equals</a>(@Nullable() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> obj) </code>
+                                            </th>
+                                            <td class="colLast">Determines whether the specified object is equal to the current object.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>boolean</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoToken.html#equals(UtxoToken)>equals</a>(@NotNull() <a href=UtxoToken.html>UtxoToken</a> other) </code>
+                                            </th>
+                                            <td class="colLast">Determines whether the specified object is equal to the current object.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>int</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoToken.html#hashCode()>hashCode</a>() </code>
+                                            </th>
+                                            <td class="colLast">Serves as the default hash function.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoToken.html#toString()>toString</a>() </code>
+                                            </th>
+                                            <td class="colLast">Returns a string that represents the current object.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -321,7 +353,24 @@ public final class <span class="typeNameLabel"><a href=UtxoToken.html>UtxoToken<
                                     <li class="blockList">
                                         <h4>UtxoToken</h4>
                                         <pre>UtxoToken(<a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a> poolKey, <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a> amount, <a href=UtxoTokenFilterFields.html>UtxoTokenFilterFields</a> filterFields)</pre>
-                                        <div class="block"></div>
+                                        <div class="block">Creates a new instance of the <a href=UtxoToken.html>UtxoToken</a> class.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>poolKey</code> - The key of the token pool that this token belongs to.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>amount</code> - The amount represented by this token.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>filterFields</code> - Optional fields available to the <a href=../token/selection/TokenSelection.html>TokenSelection</a> API <a href=../token/selection/TokenClaimCriteria.html>TokenClaimCriteria</a>.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                     </li>
                                 </ul>
@@ -347,8 +396,8 @@ public final class <span class="typeNameLabel"><a href=UtxoToken.html>UtxoToken<
                                           >
                                     <li class="blockList">
                                         <h4>getPoolKey</h4>
-                                        <pre class="methodSignature"> final <a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a> <a href=UtxoToken.html#getPoolKey()>getPoolKey</a>()</pre>
-                                        <div class="block"><p>The key of the token pool this token belongs to.</p></div>
+                                        <pre class="methodSignature">@NotNull() <a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a> <a href=UtxoToken.html#getPoolKey()>getPoolKey</a>()</pre>
+                                        <div class="block"><p>Gets the key of the token pool that this token belongs to.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -362,8 +411,8 @@ public final class <span class="typeNameLabel"><a href=UtxoToken.html>UtxoToken<
                                           >
                                     <li class="blockList">
                                         <h4>getAmount</h4>
-                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a> <a href=UtxoToken.html#getAmount()>getAmount</a>()</pre>
-                                        <div class="block"><p>The amount represented by this token.</p></div>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a> <a href=UtxoToken.html#getAmount()>getAmount</a>()</pre>
+                                        <div class="block"><p>Gets the amount represented by this token.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -373,12 +422,90 @@ public final class <span class="typeNameLabel"><a href=UtxoToken.html>UtxoToken<
                                     <!--   -->
                                 </a>
                                 <ul class=
-                                              "blockListLast"
+                                              "blockList"
                                           >
                                     <li class="blockList">
                                         <h4>getFilterFields</h4>
-                                        <pre class="methodSignature"> final <a href=UtxoTokenFilterFields.html>UtxoTokenFilterFields</a> <a href=UtxoToken.html#getFilterFields()>getFilterFields</a>()</pre>
-                                        <div class="block"><p>Optional fields available to the <a href=../token/selection/TokenSelection.html>TokenSelection</a> API <a href=../token/selection/TokenClaimCriteria.html>TokenClaimCriteria</a>.</p></div>
+                                        <pre class="methodSignature">@Nullable() <a href=UtxoTokenFilterFields.html>UtxoTokenFilterFields</a> <a href=UtxoToken.html#getFilterFields()>getFilterFields</a>()</pre>
+                                        <div class="block"><p>Gets the optional fields available to the <a href=../token/selection/TokenSelection.html>TokenSelection</a> API <a href=../token/selection/TokenClaimCriteria.html>TokenClaimCriteria</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="equals(Object)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>equals</h4>
+                                        <pre class="methodSignature"> boolean <a href=UtxoToken.html#equals(Object)>equals</a>(@Nullable() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> obj)</pre>
+                                        <div class="block"><p>Determines whether the specified object is equal to the current object.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>obj</code> - The object to compare with the current object.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="equals(UtxoToken)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>equals</h4>
+                                        <pre class="methodSignature"> boolean <a href=UtxoToken.html#equals(UtxoToken)>equals</a>(@NotNull() <a href=UtxoToken.html>UtxoToken</a> other)</pre>
+                                        <div class="block"><p>Determines whether the specified object is equal to the current object.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>other</code> - The Party to compare with the current object.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="hashCode()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>hashCode</h4>
+                                        <pre class="methodSignature"> int <a href=UtxoToken.html#hashCode()>hashCode</a>()</pre>
+                                        <div class="block"><p>Serves as the default hash function.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toString()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toString</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=UtxoToken.html#toString()>toString</a>()</pre>
+                                        <div class="block"><p>Returns a string that represents the current object.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

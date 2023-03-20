@@ -117,55 +117,7 @@ var pathtoroot = "../../../../../../";
 public interface <span class="typeNameLabel"><a href=UtxoLedgerTokenStateObserver.html>UtxoLedgerTokenStateObserver</a>&lt;T extends <a href=../ContractState.html>ContractState</a>&gt;</span>
 
                     </pre>
-                    <div class="block"><p>The <a href=UtxoLedgerTokenStateObserver.html>UtxoLedgerTokenStateObserver</a> observes produced contract states of type <a href=UtxoLedgerTokenStateObserver.html>T</a> when they are committed to the ledger. Users should implement this interface for any states that need to be selectable via the <a href=../token/selection/TokenSelection.html>TokenSelection</a> API.</p><p>The Corda platform will discover and invoke implementations of this interface for all produced states that match the type specified by UtxoLedgerTokenStateObserver.stateType.</p><p>Example of use in Java.</p><pre><code>public class ExampleStateJ implements ContractState {
-    public List&lt;PublicKey&gt; participants;
-    public SecureHash issuer;
-    public String currency;
-    public BigDecimal amount;
-
-    @NotNull
-    @Override
-    public List&lt;PublicKey&gt; getParticipants() {
-        return participants;
-    }
-}
-
-public class UtxoLedgerTokenStateObserverJavaExample implements UtxoLedgerTokenStateObserver&lt;ExampleStateJ&gt; {
-
-    @NotNull
-    @Override
-    public Class&lt;ExampleStateJ&gt; getStateType() {
-        return ExampleStateJ.class;
-    }
-
-    @NotNull
-    @Override
-    public UtxoToken onCommit(@NotNull ExampleStateJ state) {
-        return new UtxoToken(
-                new UtxoTokenPoolKey(ExampleStateK.class.getName(), state.issuer, state.currency),
-                state.amount,
-                new UtxoTokenFilterFields()
-        );
-    }
-}</code></pre><p>Example of use in Kotlin.</p><pre><code>data class ExampleStateK(
-    override val participants: List&lt;PublicKey&gt;,
-    val issuer: SecureHash,
-    val currency: String,
-    val amount: BigDecimal
-) : ContractState
-
-class UtxoLedgerTokenStateObserverKotlinExample : UtxoLedgerTokenStateObserver&lt;ExampleStateK&gt; {
-
-   override val stateType = ExampleStateK::class.java
-
-   override fun onCommit(state: ExampleStateK): UtxoToken {
-       return UtxoToken(
-           UtxoTokenPoolKey(ExampleStateK::class.java.name, state.issuer, state.currency),
-           state.amount,
-           UtxoTokenFilterFields()
-       )
-   }
-}</code></pre></div>
+                    <div class="block"><p>Defines a mechanism to observe produced contract states of type <a href=UtxoLedgerTokenStateObserver.html>T</a> when they are committed to the ledger. </p><p> Users should implement this interface for any states that need to be selectable via the <a href=../token/selection/TokenSelection.html>TokenSelection</a> API. </p><p> The Corda platform will discover and invoke implementations of this interface for all produced states that match the type specified by <a href=UtxoLedgerTokenStateObserver.html#getStateType()>getStateType</a>. </p><p> Example of use in Java. ```Java public class ExampleStateJ implements ContractState { public Listparticipants; public SecureHash issuer; public String currency; public BigDecimal amount;</p></div>
                 </li>
             </ul>
         </div>
@@ -286,19 +238,19 @@ class UtxoLedgerTokenStateObserverKotlinExample : UtxoLedgerTokenStateObserver&l
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=UtxoToken.html>UtxoToken</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTokenStateObserver.html#onCommit(T)>onCommit</a>(<a href=UtxoLedgerTokenStateObserver.html>T</a> state) </code>
-                                            </th>
-                                            <td class="colLast"><ul><li></li></ul>Called when a state<a href=UtxoLedgerTokenStateObserver.html>T</a> is committed to the ledger</td>
-                                        </tr>
-                                        
-                                        <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTokenStateObserver.html>T</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerTokenStateObserver.html#getStateType()>getStateType</a>() </code>
                                             </th>
-                                            <td class="colLast">Type of contract the observer is for.</td>
+                                            <td class="colLast">Gets the <a href=../ContractState.html>ContractState</a> type that the current observer is intended for.</td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=UtxoToken.html>UtxoToken</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTokenStateObserver.html#onCommit(T)>onCommit</a>(@NotNull() <a href=UtxoLedgerTokenStateObserver.html>T</a> state) </code>
+                                            </th>
+                                            <td class="colLast">The action to be performed when a <a href=../ContractState.html>ContractState</a> of type <a href=UtxoLedgerTokenStateObserver.html>T</a> is committed to the ledger.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -345,40 +297,40 @@ class UtxoLedgerTokenStateObserverKotlinExample : UtxoLedgerTokenStateObserver&l
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="onCommit(T)">
+                                <a id="getStateType()">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockList"
                                           >
                                     <li class="blockList">
-                                        <h4>onCommit</h4>
-                                        <pre class="methodSignature"> abstract <a href=UtxoToken.html>UtxoToken</a> <a href=UtxoLedgerTokenStateObserver.html#onCommit(T)>onCommit</a>(<a href=UtxoLedgerTokenStateObserver.html>T</a> state)</pre>
-                                        <div class="block"><ul><li></li></ul><p>Called when a state<a href=UtxoLedgerTokenStateObserver.html>T</a> is committed to the ledger</p></div>
-                                        
-                                        <dl>
-                                            <dt><span class="paramLabel">Parameters:</span></dt>
-                                            
-                                            
-                                            <dd><code>state</code> - Instance of the committed state.</dd>
-                                            
-                                            
-                                        </dl>
+                                        <h4>getStateType</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTokenStateObserver.html>T</a>&gt; <a href=UtxoLedgerTokenStateObserver.html#getStateType()>getStateType</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=../ContractState.html>ContractState</a> type that the current observer is intended for.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
                                 </ul>
                                 
-                                <a id="getStateType()">
+                                <a id="onCommit(T)">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockListLast"
                                           >
                                     <li class="blockList">
-                                        <h4>getStateType</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTokenStateObserver.html>T</a>&gt; <a href=UtxoLedgerTokenStateObserver.html#getStateType()>getStateType</a>()</pre>
-                                        <div class="block"><p>Type of contract the observer is for.</p></div>
+                                        <h4>onCommit</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=UtxoToken.html>UtxoToken</a> <a href=UtxoLedgerTokenStateObserver.html#onCommit(T)>onCommit</a>(@NotNull() <a href=UtxoLedgerTokenStateObserver.html>T</a> state)</pre>
+                                        <div class="block"><p>The action to be performed when a <a href=../ContractState.html>ContractState</a> of type <a href=UtxoLedgerTokenStateObserver.html>T</a> is committed to the ledger.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>state</code> - The <a href=../ContractState.html>ContractState</a> that was committed to the ledger.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

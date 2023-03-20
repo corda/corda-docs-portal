@@ -44,7 +44,7 @@ Setting up a Corda node to connect to a database requires:
 * [Run the node](#3-run-the-run-migration-script-sub-command-to-create-all-database-schema-objects) to auto-create schema objects
 
 Corda ships out of the box with an [H2 database](http://www.h2database.com) which doesn’t require any configuration
-(see the documentation on [Database access when running H2](../../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md), hence when using H2 database it’s sufficient to [start the node](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database-admin.html#3-corda-node-configuration) and the database will be created.
+(see the documentation on [Database access when running H2]({{< relref "../../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md" >}}), hence when using H2 database it’s sufficient to [start the node](../../../../../../../en/platform/corda/4.7/enterprise/node/operating/node-database-admin.html#3-corda-node-configuration) and the database will be created.
 
 
 
@@ -245,7 +245,7 @@ Configuration templates for each database vendor are shown below:
 #### H2
 
 By default, nodes store their data in an H2 database.
-No database setup is needed. Optionally remote H2 access/port can be configured. See the documentation on [Database access when running H2](../../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md).
+No database setup is needed. Optionally remote H2 access/port can be configured. See the documentation on [Database access when running H2]({{< relref "../../../../../../../en/platform/corda/4.7/enterprise/node-database-access-h2.md" >}}).
 
 
 
@@ -384,7 +384,7 @@ Additionally, the node will create any tables for CorDapps containing Liquibase 
 
 As the Corda node is configured to automatically run migrations on startup,
 no additional database update steps are required when upgrading Corda.
-See the [Corda node upgrade notes](../../node-upgrade-notes.md) for more information.
+See the [Corda node upgrade notes]({{< relref "../../node-upgrade-notes.md" >}}) for more information.
 
 
 

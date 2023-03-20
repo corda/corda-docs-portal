@@ -47,7 +47,7 @@ Certificate revocation is typically required if a certificate was incorrectly is
 ## What is the recommended configuration for the CRL?
 
 You should use a High Availability deployment in order to avoid any impact caused by temporary downtimes.
-See [Identity Manager Service](../../../../1.5/cenm/identity-manager.md) for an example configuration of such a deployment.
+See [Identity Manager Service]({{< relref "../../../../1.5/cenm/identity-manager.md" >}}) for an example configuration of such a deployment.
 
-See [Certificate Revocation List](../../../../1.5/cenm/certificate-revocation.md) for instructions on revoking certificates, and [Signing Services](../../../../1.5/cenm/signing-service.md) for
+See [Certificate Revocation List]({{< relref "../../../../1.5/cenm/certificate-revocation.md" >}}) for instructions on revoking certificates, and [Signing Services]({{< relref "../../../../1.5/cenm/signing-service.md" >}}) for
 configuration of the Signing Service for CRLs (especially the `updatePeriod` option).

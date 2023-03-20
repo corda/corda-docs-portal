@@ -108,12 +108,15 @@ var pathtoroot = "../../../../../";
                         <dt>All Implemented Interfaces:</dt>
                         <dd>
                             
+                            <code>java.lang.annotation.Annotation</code>
+                            
+                            
                         </dd>
                     </dl>
                     
                     <hr>
                     <pre class="wrap-overflow">
-@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/index.html>Target</a>(allowedTargets = {<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-annotation-target/-c-l-a-s-s/index.html>AnnotationTarget.CLASS</a>}) 
+@<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html>Target</a>(value = <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html>ElementType.TYPE</a>)@<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Retention.html>Retention</a>(value = <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/RetentionPolicy.html>RetentionPolicy.RUNTIME</a>) 
 public @interface <span class="typeNameLabel"><a href=BelongsToContract.html>BelongsToContract</a></span>
 
                     </pre>
@@ -162,12 +165,6 @@ public @interface <span class="typeNameLabel"><a href=BelongsToContract.html>Bel
                                             <th class="colFirst" scope="col">Modifier and Type</th>
                                             <th class="colSecond" scope="col">Field</th>
                                             <th class="colLast" scope="col">Description</th>
-                                        </tr>
-                                        
-                                        <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html>KClass</a>&lt;out <a href=Contract.html>Contract</a>&gt;</code></td>
-                                            <th class="colSecond" scope="row"><code><a href=BelongsToContract.html#value>value</a></code></th>
-                                            <td class="colLast"></td>
                                         </tr>
                                         
                                     </table>
@@ -243,11 +240,25 @@ public @interface <span class="typeNameLabel"><a href=BelongsToContract.html>Bel
                                             <th class="colLast" scope="col">Description</th>
                                         </tr>
                                         
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=Contract.html>Contract</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=BelongsToContract.html#value()>value</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
                                         </tbody>
                                     </table>
                                 </div>
                                 <ul class="blockList">
                                 
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.annotation.Annotation">
+                                            <!--   -->
+                                        </a>
+                                            <h3>Methods inherited from class&nbsp;java.lang.annotation.Annotation</h3>
+                                            <code>annotationType, equals, hashCode, toString</code></li>
+                                 
                                     <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
                                         <!--   -->
                                     </a>
@@ -286,6 +297,21 @@ public @interface <span class="typeNameLabel"><a href=BelongsToContract.html>Bel
                                 <!--   -->
                             </a>
                                 <h3>Method Detail</h3>
+                                
+                                <a id="value()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>value</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=Contract.html>Contract</a>&gt; <a href=BelongsToContract.html#value()>value</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
                                 
                             </li>
                         </ul>

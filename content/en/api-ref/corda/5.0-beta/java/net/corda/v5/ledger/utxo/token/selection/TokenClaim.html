@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../../../";
 public interface <span class="typeNameLabel"><a href=TokenClaim.html>TokenClaim</a></span>
 
                     </pre>
-                    <div class="block"><p><a href=TokenClaim.html>TokenClaim</a> is a claimed set of tokens returned by a call to <a href=TokenSelection.html#tryClaim(TokenClaimCriteria)>TokenSelection.tryClaim</a>.</p><p>The claimed <a href=ClaimedToken.html>ClaimedToken</a> list is exclusively locked by the flow that made the claim and are unavailable to any other flows. Once a flow has either spent some or all of the claimed tokens it should call <a href=TokenClaim.html#useAndRelease(List)>TokenClaim.useAndRelease</a> to notify the cache which tokens were used. Any unused tokens will be released and made available to other flows. If the flow does not call <a href=TokenClaim.html#useAndRelease(List)>TokenClaim.useAndRelease</a> the tokens will remain locked until the cache receives a</p><p>consumed notification from the vault or the claim timeout elapses.</p></div>
+                    <div class="block"><p>Defines a claimed set of tokens returned by a call to <a href=TokenSelection.html#tryClaim(TokenClaimCriteria)>tryClaim</a>. </p><p> The claimed <a href=ClaimedToken.html>ClaimedToken</a> list is exclusively locked by the flow that made the claim and are unavailable to any other flows. </p><p> Once a flow has either spent some or all of the claimed tokens it should call <a href=TokenClaim.html#useAndRelease(List)>useAndRelease</a> to notify the cache which tokens were used. </p><p> Any unused tokens will be released and made available to other flows. </p><p> If the flow does not call <a href=TokenClaim.html#useAndRelease(List)>useAndRelease</a> the tokens will remain locked until the cache receives a consumed notification from the vault or the claim timeout elapses.</p></div>
                 </li>
             </ul>
         </div>
@@ -238,19 +238,19 @@ public interface <span class="typeNameLabel"><a href=TokenClaim.html>TokenClaim<
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=TokenClaim.html#useAndRelease(List)>useAndRelease</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../StateRef.html>StateRef</a>&gt; usedTokensRefs) </code>
-                                            </th>
-                                            <td class="colLast">Removes any used tokens from the cache and unlocks any remaining tokens for other flows to claim.</td>
-                                        </tr>
-                                        
-                                        <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ClaimedToken.html>ClaimedToken</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=TokenClaim.html#getClaimedTokens()>getClaimedTokens</a>() </code>
                                             </th>
-                                            <td class="colLast">List of <a href=ClaimedToken.html>ClaimedToken</a> claimed.</td>
+                                            <td class="colLast">Gets a list of claimed tokens.</td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>abstract void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TokenClaim.html#useAndRelease(List)>useAndRelease</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../StateRef.html>StateRef</a>&gt; usedTokensRefs) </code>
+                                            </th>
+                                            <td class="colLast">Removes any used tokens from the cache and unlocks any remaining tokens for other flows to claim.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -297,40 +297,40 @@ public interface <span class="typeNameLabel"><a href=TokenClaim.html>TokenClaim<
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="useAndRelease(List)">
+                                <a id="getClaimedTokens()">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockList"
                                           >
                                     <li class="blockList">
-                                        <h4>useAndRelease</h4>
-                                        <pre class="methodSignature">@<a href=../../../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=TokenClaim.html#useAndRelease(List)>useAndRelease</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../StateRef.html>StateRef</a>&gt; usedTokensRefs)</pre>
-                                        <div class="block"><p>Removes any used tokens from the cache and unlocks any remaining tokens for other flows to claim.</p></div>
-                                        
-                                        <dl>
-                                            <dt><span class="paramLabel">Parameters:</span></dt>
-                                            
-                                            
-                                            <dd><code>usedTokensRefs</code> - List of state refs to mark as used.</dd>
-                                            
-                                            
-                                        </dl>
+                                        <h4>getClaimedTokens</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ClaimedToken.html>ClaimedToken</a>&gt; <a href=TokenClaim.html#getClaimedTokens()>getClaimedTokens</a>()</pre>
+                                        <div class="block"><p>Gets a list of claimed tokens.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
                                 </ul>
                                 
-                                <a id="getClaimedTokens()">
+                                <a id="useAndRelease(List)">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockListLast"
                                           >
                                     <li class="blockList">
-                                        <h4>getClaimedTokens</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ClaimedToken.html>ClaimedToken</a>&gt; <a href=TokenClaim.html#getClaimedTokens()>getClaimedTokens</a>()</pre>
-                                        <div class="block"><p>List of <a href=ClaimedToken.html>ClaimedToken</a> claimed.</p></div>
+                                        <h4>useAndRelease</h4>
+                                        <pre class="methodSignature">@<a href=../../../../base/annotations/Suspendable.html>Suspendable</a>() abstract void <a href=TokenClaim.html#useAndRelease(List)>useAndRelease</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../StateRef.html>StateRef</a>&gt; usedTokensRefs)</pre>
+                                        <div class="block"><p>Removes any used tokens from the cache and unlocks any remaining tokens for other flows to claim.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>usedTokensRefs</code> - The <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a> of <a href=../../StateRef.html>StateRef</a>s to mark as used.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

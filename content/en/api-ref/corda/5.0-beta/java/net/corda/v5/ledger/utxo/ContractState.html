@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../";
 public interface <span class="typeNameLabel"><a href=ContractState.html>ContractState</a></span>
 
                     </pre>
-                    <div class="block"><p>Defines a contract state.</p><p>A contract state (or just &quot;state&quot;) contains opaque data used by a contract program. It can be thought of as a disk file that the program can use to persist data across transactions.</p><p>States are immutable. Once created they are never updated, instead, any changes must generate a new successor state. States can be updated (consumed) only once. The notary is responsible for ensuring there is no &quot;double spending&quot; by only signing a transaction if the input states are all free.</p></div>
+                    <div class="block"><p>Defines a contract state. </p><p> A contract state (or just &quot;state&quot;) contains opaque data used by a contract program. It can be thought of as a disk file that the program can use to persist data across transactions. </p><p> States are immutable. Once created they are never updated, instead, any changes must generate a new successor state. States can be updated (consumed) only once. The notary is responsible for ensuring there is no &quot;double spending&quot; by only signing a transaction if the input states are all free.</p></div>
                 </li>
             </ul>
         </div>
@@ -242,7 +242,7 @@ public interface <span class="typeNameLabel"><a href=ContractState.html>Contract
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ContractState.html#getParticipants()>getParticipants</a>() </code>
                                             </th>
-                                            <td class="colLast">The public keys of any participants associated with the current contract state.</td>
+                                            <td class="colLast">Gets the public keys of any participants associated with the current contract state.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -297,8 +297,8 @@ public interface <span class="typeNameLabel"><a href=ContractState.html>Contract
                                           >
                                     <li class="blockList">
                                         <h4>getParticipants</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=ContractState.html#getParticipants()>getParticipants</a>()</pre>
-                                        <div class="block"><p>The public keys of any participants associated with the current contract state.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=ContractState.html#getParticipants()>getParticipants</a>()</pre>
+                                        <div class="block"><p>Gets the public keys of any participants associated with the current contract state.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

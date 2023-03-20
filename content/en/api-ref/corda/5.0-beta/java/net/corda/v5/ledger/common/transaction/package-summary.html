@@ -115,15 +115,15 @@ var pathtoroot = "../../../../../../";
 </tr>
 <tbody>
 
-    <tr class="altColor"><th class="colFirst" scope="row"><a href=PrivacySalt.html>PrivacySalt</a></th><td class="colLast">A privacy salt is required to compute nonces per transaction component in order to ensure that an adversary cannot use brute force techniques and reveal the content of a Merkle-leaf hashed value.</td></tr>
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=CordaPackageSummary.html>CordaPackageSummary</a></th><td class="colLast">Defines the summary of the metadata of a Corda package (CPK or CPI).</td></tr>
 
-    <tr class="rowColor"><th class="colFirst" scope="row"><a href=CordaPackageSummary.html>CordaPackageSummary</a></th><td class="colLast">Summary of the metadata of a corda package (CPK or CPI)</td></tr>
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=PrivacySalt.html>PrivacySalt</a></th><td class="colLast">Defines a mechanism for implementing a privacy salt.</td></tr>
 
     <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionMetadata.html>TransactionMetadata</a></th><td class="colLast">This interface represents the metadata governing a transaction, capturing a snapshot of the system and software versions as the transaction was created.</td></tr>
 
     <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionSignatureService.html>TransactionSignatureService</a></th><td class="colLast">TransactionSignatureService can be used to sign and verify transaction signatures.</td></tr>
 
-    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionWithMetadata.html>TransactionWithMetadata</a></th><td class="colLast">TransactionWithMetadata contains metadata properties of transactions common across different ledger implementations.</td></tr>
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionWithMetadata.html>TransactionWithMetadata</a></th><td class="colLast">Defines metadata properties of transactions common across difference ledger implementations.</td></tr>
 </tbody>
 </table>
 
@@ -147,9 +147,11 @@ var pathtoroot = "../../../../../../";
 </tr>
 <tbody>
 
-    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionSignatureException.html>TransactionSignatureException</a></th><td class="colLast">Indicates a problem related to signatures of the transaction named by [transactionId].</td></tr>
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionNoAvailableKeysException.html>TransactionNoAvailableKeysException</a></th><td class="colLast">Represents the exception that is thrown when there are no keys available to sign a transaction.</td></tr>
 
-    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionNoAvailableKeysException.html>TransactionNoAvailableKeysException</a></th><td class="colLast">Indicates that the signing attempt failed due to no available signing keys.</td></tr>
+    <tr class="rowColor"><th class="colFirst" scope="row"><a href=TransactionSignatureException.html>TransactionSignatureException</a></th><td class="colLast">Indicates a problem related to signatures of the transaction named by <a href=TransactionSignatureException.html#getTransactionId()>getTransactionId</a>.</td></tr>
+
+    <tr class="altColor"><th class="colFirst" scope="row"><a href=TransactionVerificationException.html>TransactionVerificationException</a></th><td class="colLast">Represents the exception that is thrown to indicate that some aspect of the transaction has violated some rules.</td></tr>
 </tbody>
 </table>
 

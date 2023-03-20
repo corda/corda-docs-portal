@@ -117,7 +117,7 @@ var pathtoroot = "../../../";
 public interface <span class="typeNameLabel"><a href=CordaAvroSerializationFactory.html>CordaAvroSerializationFactory</a></span>
 
                     </pre>
-                    <div class="block"><p>Defines the interface for Message Bus deserialization.  The underlying mechanism may differ.</p></div>
+                    <div class="block"><p>Defines the interface for Message Bus deserialization. The underlying mechanism may differ.</p></div>
                 </li>
             </ul>
         </div>
@@ -238,17 +238,17 @@ public interface <span class="typeNameLabel"><a href=CordaAvroSerializationFacto
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract &lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=CordaAvroSerializer.html>CordaAvroSerializer</a>&lt;<a href=CordaAvroSerializationFactory.html#createAvroSerializer(Consumer)>T</a>&gt;</code>
+                                            <td class="colFirst"><code>abstract &lt;T&gt; <a href=CordaAvroSerializer.html>CordaAvroSerializer</a>&lt;<a href=CordaAvroSerializationFactory.html#createAvroSerializer(Consumer)>T</a>&gt;</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=CordaAvroSerializationFactory.html#createAvroSerializer(Consumer)>createAvroSerializer</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html>Consumer</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a>&gt; onError) </code>
+                                            <th class="colSecond" scope="row"><code><a href=CordaAvroSerializationFactory.html#createAvroSerializer(Consumer)>createAvroSerializer</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html>Consumer</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt;&gt; onError) </code>
                                             </th>
                                             <td class="colLast">Create the <a href=CordaAvroSerializer.html>CordaAvroSerializer</a> for use in Avro/Message bus serialization</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>abstract &lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=CordaAvroDeserializer.html>CordaAvroDeserializer</a>&lt;<a href=CordaAvroSerializationFactory.html#createAvroDeserializer(Consumer,Class)>T</a>&gt;</code>
+                                            <td class="colFirst"><code>abstract &lt;T&gt; <a href=CordaAvroDeserializer.html>CordaAvroDeserializer</a>&lt;<a href=CordaAvroSerializationFactory.html#createAvroDeserializer(Consumer,Class)>T</a>&gt;</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=CordaAvroSerializationFactory.html#createAvroDeserializer(Consumer,Class)>createAvroDeserializer</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html>Consumer</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a>&gt; onError, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=CordaAvroSerializationFactory.html#createAvroDeserializer(Consumer,Class)>T</a>&gt; expectedClass) </code>
+                                            <th class="colSecond" scope="row"><code><a href=CordaAvroSerializationFactory.html#createAvroDeserializer(Consumer,Class)>createAvroDeserializer</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html>Consumer</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt;&gt; onError, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=CordaAvroSerializationFactory.html#createAvroDeserializer(Consumer,Class)>T</a>&gt; expectedClass) </code>
                                             </th>
                                             <td class="colLast">Create the <a href=CordaAvroDeserializer.html>CordaAvroDeserializer</a> for use in Avro/Message bus serialization</td>
                                         </tr>
@@ -305,7 +305,7 @@ public interface <span class="typeNameLabel"><a href=CordaAvroSerializationFacto
                                           >
                                     <li class="blockList">
                                         <h4>createAvroSerializer</h4>
-                                        <pre class="methodSignature"> abstract &lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=CordaAvroSerializer.html>CordaAvroSerializer</a>&lt;<a href=CordaAvroSerializationFactory.html#createAvroSerializer(Consumer)>T</a>&gt; <a href=CordaAvroSerializationFactory.html#createAvroSerializer(Consumer)>createAvroSerializer</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html>Consumer</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a>&gt; onError)</pre>
+                                        <pre class="methodSignature">@NotNull() abstract &lt;T&gt; <a href=CordaAvroSerializer.html>CordaAvroSerializer</a>&lt;<a href=CordaAvroSerializationFactory.html#createAvroSerializer(Consumer)>T</a>&gt; <a href=CordaAvroSerializationFactory.html#createAvroSerializer(Consumer)>createAvroSerializer</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html>Consumer</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt;&gt; onError)</pre>
                                         <div class="block"><p>Create the <a href=CordaAvroSerializer.html>CordaAvroSerializer</a> for use in Avro/Message bus serialization</p></div>
                                         
                                         <!-- TODO missing return annotation -->
@@ -320,7 +320,7 @@ public interface <span class="typeNameLabel"><a href=CordaAvroSerializationFacto
                                           >
                                     <li class="blockList">
                                         <h4>createAvroDeserializer</h4>
-                                        <pre class="methodSignature"> abstract &lt;T extends <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html>Any</a>&gt; <a href=CordaAvroDeserializer.html>CordaAvroDeserializer</a>&lt;<a href=CordaAvroSerializationFactory.html#createAvroDeserializer(Consumer,Class)>T</a>&gt; <a href=CordaAvroSerializationFactory.html#createAvroDeserializer(Consumer,Class)>createAvroDeserializer</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html>Consumer</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a>&gt; onError, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=CordaAvroSerializationFactory.html#createAvroDeserializer(Consumer,Class)>T</a>&gt; expectedClass)</pre>
+                                        <pre class="methodSignature">@NotNull() abstract &lt;T&gt; <a href=CordaAvroDeserializer.html>CordaAvroDeserializer</a>&lt;<a href=CordaAvroSerializationFactory.html#createAvroDeserializer(Consumer,Class)>T</a>&gt; <a href=CordaAvroSerializationFactory.html#createAvroDeserializer(Consumer,Class)>createAvroDeserializer</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html>Consumer</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt;&gt; onError, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=CordaAvroSerializationFactory.html#createAvroDeserializer(Consumer,Class)>T</a>&gt; expectedClass)</pre>
                                         <div class="block"><p>Create the <a href=CordaAvroDeserializer.html>CordaAvroDeserializer</a> for use in Avro/Message bus serialization</p></div>
                                         
                                         <!-- TODO missing return annotation -->

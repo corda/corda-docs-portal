@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../";
 public interface <span class="typeNameLabel"><a href=MembershipSchemaProvider.html>MembershipSchemaProvider</a></span>
 
                     </pre>
-                    <div class="block"><p>Provide the membership schema files to client code, ensuring the load works under OSGi and non-OSGi.</p><p>All provided InputStream objects should be closed by the client.</p></div>
+                    <div class="block"><p>Provide the membership schema files to client code, ensuring the load works under OSGi and non-OSGi. </p><p> All provided InputStream objects should be closed by the client.</p></div>
                 </li>
             </ul>
         </div>
@@ -240,7 +240,7 @@ public interface <span class="typeNameLabel"><a href=MembershipSchemaProvider.ht
                                         <tr id="i0" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=MembershipSchemaProvider.html#getSchema(MembershipSchema,Version)>getSchema</a>(<a href=../MembershipSchema.html>MembershipSchema</a> schema, <a href=../../../v5/base/versioning/Version.html>Version</a> version) </code>
+                                            <th class="colSecond" scope="row"><code><a href=MembershipSchemaProvider.html#getSchema(MembershipSchema,Version)>getSchema</a>(@NotNull() <a href=../MembershipSchema.html>MembershipSchema</a> schema, @NotNull() <a href=../../../v5/base/versioning/Version.html>Version</a> version) </code>
                                             </th>
                                             <td class="colLast">Retrieve the schema file for a membership schema.</td>
                                         </tr>
@@ -248,7 +248,7 @@ public interface <span class="typeNameLabel"><a href=MembershipSchemaProvider.ht
                                         <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=MembershipSchemaProvider.html#getSchemaFile(String)>getSchemaFile</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> fileName) </code>
+                                            <th class="colSecond" scope="row"><code><a href=MembershipSchemaProvider.html#getSchemaFile(String)>getSchemaFile</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> fileName) </code>
                                             </th>
                                             <td class="colLast">Retrieve a schema file with the given path.</td>
                                         </tr>
@@ -305,8 +305,8 @@ public interface <span class="typeNameLabel"><a href=MembershipSchemaProvider.ht
                                           >
                                     <li class="blockList">
                                         <h4>getSchema</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> <a href=MembershipSchemaProvider.html#getSchema(MembershipSchema,Version)>getSchema</a>(<a href=../MembershipSchema.html>MembershipSchema</a> schema, <a href=../../../v5/base/versioning/Version.html>Version</a> version)</pre>
-                                        <div class="block"><p>Retrieve the schema file for a membership schema.</p><p>Note that this does not resolve $ref fields in the schema file.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> <a href=MembershipSchemaProvider.html#getSchema(MembershipSchema,Version)>getSchema</a>(@NotNull() <a href=../MembershipSchema.html>MembershipSchema</a> schema, @NotNull() <a href=../../../v5/base/versioning/Version.html>Version</a> version)</pre>
+                                        <div class="block"><p>Retrieve the schema file for a membership schema. </p><p> Note that this does not resolve $ref fields in the schema file.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
@@ -333,8 +333,8 @@ public interface <span class="typeNameLabel"><a href=MembershipSchemaProvider.ht
                                           >
                                     <li class="blockList">
                                         <h4>getSchemaFile</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> <a href=MembershipSchemaProvider.html#getSchemaFile(String)>getSchemaFile</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> fileName)</pre>
-                                        <div class="block"><p>Retrieve a schema file with the given path.</p><p>This can be used to retrieve files required to resolve $ref fields in the schema.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> <a href=MembershipSchemaProvider.html#getSchemaFile(String)>getSchemaFile</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> fileName)</pre>
+                                        <div class="block"><p>Retrieve a schema file with the given path. </p><p> This can be used to retrieve files required to resolve $ref fields in the schema.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
