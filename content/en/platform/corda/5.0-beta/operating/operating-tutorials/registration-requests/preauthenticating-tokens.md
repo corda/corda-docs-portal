@@ -26,7 +26,7 @@ This token is tied to the specified X.500 name and only a registering member wit
 You can also pass the following optional properties when creating a token:
 * time-to-live — specifies a duration after which the token will no longer be valid. 
 This duration is submitted in the ISO-8601 duration format (PnDTnHnMn.nS). 
-For example, PT15M (15 minutes), P4D (4 days), P1DT2H2M (1 day 2 hours and 2 minutes). 
+For example, PT15M (15 minutes), P4D (4 days), P1DT2H2M (1 day, 2 hours, and 2 minutes). 
 The specified duration is added to the current time when the request to create the token is submitted to calculate the time after which the token is no longer valid. 
 If no time-to-live value is submitted, the token only expires after it is consumed or revoked. 
 * remark —  a user-defined string stored along with the token to provide additional information about the token creation.
