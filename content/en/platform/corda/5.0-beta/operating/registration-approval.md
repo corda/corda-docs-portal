@@ -32,7 +32,7 @@ Corda has a set of REST APIs available for managing approval rules. To learn mor
 
 The network operator can pre-authenticate registrations for specific members. This allows a registering member to bypass approval rules defined for the group. Authentication is done outside of Corda using any criteria the operator chooses. Once the network operator has completed their authentication process, they can generate a one-time-use pre-authentication token, also known as a pre-auth token, specific to the authenticated member.
 
-Corda has a set of REST APIs available for managing these pre-auth tokens. Through these APIs, tokens can be created, revoked, and viewed. When viewing a token, it is possible to see the token ID, the X.500 name of the member the token is assigned to, optionally a time and date when the token expires, the token status, and additional information provided by the MGM when creating or revoking the token. For more information, see [Managing Pre-Authentication Tokens]({{< relref "./operating-tutorials/registration-requests/preauthenticating-tokens.md" >}})
+Corda has a set of REST APIs available for managing these pre-auth tokens. Through these APIs, tokens can be created, revoked, and viewed. When viewing a token, it is possible to see the token ID, the X.500 name of the member the token is assigned to, optionally a time and date when the token expires, the token status, and additional information provided by the MGM when creating or revoking the token. For more information, see [Managing Pre-Authentication Tokens]({{< relref "./operating-tutorials/registration-requests/preauthenticating-tokens.md" >}}).
 
 A registration with a pre-auth token can fail for the following reasons:
 * The token is not a valid UUID.
