@@ -7,6 +7,7 @@ menu:
     identifier: corda-5-beta-simulator
     weight: 4000
 section_menu: corda-5-beta
+draft: "true"
 ---
 
 {{< note >}}

@@ -103,8 +103,7 @@ class MyFirstFlow: ClientStartableFlow {
         val response = session.receive(Message::class.java)
 
         // The return value of a ClientStartableFlow must always be a String, this string will be passed
-        // back as the REST response when the status of the flow is queried on Corda, or as the return
-        // value from the flow when testing using the Simulator
+        // back as the REST response when the status of the flow is queried on Corda
         return response.message
     }
 }
@@ -173,7 +172,6 @@ There are two helper classes:
    ```kotlin
    class MyFirstFlowStartArgs(val otherMember: MemberX500Name)
    ```
-   The [MyFirstFlowTest](../fast-feedback-with-the-simulator/fast-feedback-with-the-simulator.html) Simulator example uses this class.
 * `Message` —  specifies the sender and the message. This is used for both the message sent from the initiator to the responder and subsequently the message sent back from the responder to the initiator. Note, as this is a class defined in a CorDapp and it is going to be sent ‘down the wire’ between two virtual nodes, it requires the `@CordaSerializable` annotation.
    ```kotlin
    @CordaSerializable
