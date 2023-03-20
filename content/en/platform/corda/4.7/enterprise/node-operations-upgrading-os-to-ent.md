@@ -82,9 +82,9 @@ we have validated for this upgrade exercise.
 The procedure for migrating from H2 to a commercial database is as follows:
 
 
-* Create a database schema and configure a Corda node to connect to the new database following [Database schema setup](../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database-admin.md) instructions
+* Create a database schema and configure a Corda node to connect to the new database following [Database schema setup]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database-admin.md" >}}) instructions
 for a production system, or [Simplified database schema setup for development](node/operating/node-database-developer.md) instructions for development/testing purposes.
-Refer to [Understanding the node database](../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database.md) to decide which setup is more suitable.
+Refer to [Understanding the node database]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database.md" >}}) to decide which setup is more suitable.
 * Migrate data from H2 databaseThe migration from the H2 database requires a third party specialized tool.
 Your organisation may need to purchase a licence to use the tool.
 Please contact R3 for further advice.

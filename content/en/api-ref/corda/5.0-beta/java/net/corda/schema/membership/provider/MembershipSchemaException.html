@@ -173,14 +173,20 @@ extends <a href=../../../v5/base/exceptions/CordaRuntimeException.html>CordaRunt
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a></code></td>
-                                            <th class="colSecond" scope="row"><code><a href=../../../v5/ledger/utxo/transaction/filtered/FilteredDataInconsistencyException.html#cause>cause</a></code></th>
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../../v5/ledger/notary/plugin/core/NotaryExceptionUnknown.html#originalExceptionClassName>originalExceptionClassName</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="rowColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
-                                            <th class="colSecond" scope="row"><code><a href=../../../v5/ledger/utxo/transaction/filtered/FilteredDataInconsistencyException.html#message>message</a></code></th>
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../../v5/ledger/notary/plugin/core/NotaryExceptionUnknown.html#cause>cause</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public  <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/StackTraceElement.html>StackTraceElement</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../../v5/ledger/notary/plugin/core/NotaryExceptionUnknown.html#stackTrace>stackTrace</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
@@ -209,6 +215,12 @@ extends <a href=../../../v5/base/exceptions/CordaRuntimeException.html>CordaRunt
 
                                         
                                             <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#MembershipSchemaException(String,Throwable)">MembershipSchemaException</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> msg, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a> cause)</code></th>
+                                                <td class="colLast"></td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
                                                         href="#MembershipSchemaException(String)">MembershipSchemaException</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> msg)</code></th>
                                                 <td class="colLast"></td>
@@ -274,11 +286,11 @@ extends <a href=../../../v5/base/exceptions/CordaRuntimeException.html>CordaRunt
                                             <h3>Methods inherited from class&nbsp;net.corda.v5.base.exceptions.CordaRuntimeException</h3>
                                             <code>addSuppressed, equals, getCause, getMessage, getOriginalExceptionClassName, getOriginalMessage, hashCode, setCause, setMessage, setOriginalExceptionClassName</code></li>
                                  
-                                    <li class="blockList"><a id="methods.inherited.from.class.kotlin.Throwable">
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Throwable">
                                             <!--   -->
                                         </a>
-                                            <h3>Methods inherited from class&nbsp;kotlin.Throwable</h3>
-                                            <code>addSuppressed, fillInStackTrace, getLocalizedMessage, getStackTrace, getSuppressed, initCause, printStackTrace, printStackTrace, printStackTrace, setStackTrace</code></li>
+                                            <h3>Methods inherited from class&nbsp;java.lang.Throwable</h3>
+                                            <code>fillInStackTrace, getLocalizedMessage, getStackTrace, getSuppressed, initCause, printStackTrace, setStackTrace, toString</code></li>
                                  
                                     <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
                                         <!--   -->
@@ -305,6 +317,16 @@ extends <a href=../../../v5/base/exceptions/CordaRuntimeException.html>CordaRunt
                                 <!--   -->
                             </a>
                                 <h3>Constructor Detail</h3>
+                                
+                                <a name="MembershipSchemaException(String,Throwable)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>MembershipSchemaException</h4>
+                                        <pre>MembershipSchemaException(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> msg, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a> cause)</pre>
+                                        <div class="block"></div>
+                                        
+                                    </li>
+                                </ul>
                                 
                                 <a name="MembershipSchemaException(String)"></a>
                                 <ul class="blockList">

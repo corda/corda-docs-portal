@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../../../";
 public interface <span class="typeNameLabel"><a href=LedgerUniquenessCheckerClientService.html>LedgerUniquenessCheckerClientService</a></span>
 
                     </pre>
-                    <div class="block"><p>This service is used to request uniqueness checking. The request will be processed asynchronously and a <a href=https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html>Future</a> will be returned that can be used to check the outcome. This service can be injected to either flows or other services.</p></div>
+                    <div class="block"><p>Defines a service that is used to request uniqueness checking. The request will be processed asynchronously and a Future will be returned that can be used to check the outcome. This service can be injected to either flows or other services.</p></div>
                 </li>
             </ul>
         </div>
@@ -240,9 +240,9 @@ public interface <span class="typeNameLabel"><a href=LedgerUniquenessCheckerClie
                                         <tr id="i0" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=../../../../application/uniqueness/model/UniquenessCheckResult.html>UniquenessCheckResult</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=LedgerUniquenessCheckerClientService.html#requestUniquenessCheck(String,List,List,Integer,Instant,Instant)>requestUniquenessCheck</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> txId, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; inputStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; referenceStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> numOutputStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowLowerBound, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowUpperBound) </code>
+                                            <th class="colSecond" scope="row"><code><a href=LedgerUniquenessCheckerClientService.html#requestUniquenessCheck(String,List,List,int,Instant,Instant)>requestUniquenessCheck</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> transactionId, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; inputStates, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; referenceStates, int numOutputStates, @Nullable() <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowLowerBound, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowUpperBound) </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Requests a uniqueness check.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -289,7 +289,7 @@ public interface <span class="typeNameLabel"><a href=LedgerUniquenessCheckerClie
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="requestUniquenessCheck(String,List,List,Integer,Instant,Instant)">
+                                <a id="requestUniquenessCheck(String,List,List,int,Instant,Instant)">
                                     <!--   -->
                                 </a>
                                 <ul class=
@@ -297,26 +297,26 @@ public interface <span class="typeNameLabel"><a href=LedgerUniquenessCheckerClie
                                           >
                                     <li class="blockList">
                                         <h4>requestUniquenessCheck</h4>
-                                        <pre class="methodSignature">@<a href=../../../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=../../../../application/uniqueness/model/UniquenessCheckResult.html>UniquenessCheckResult</a> <a href=LedgerUniquenessCheckerClientService.html#requestUniquenessCheck(String,List,List,Integer,Instant,Instant)>requestUniquenessCheck</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> txId, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; inputStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; referenceStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> numOutputStates, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowLowerBound, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowUpperBound)</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@<a href=../../../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=../../../../application/uniqueness/model/UniquenessCheckResult.html>UniquenessCheckResult</a> <a href=LedgerUniquenessCheckerClientService.html#requestUniquenessCheck(String,List,List,int,Instant,Instant)>requestUniquenessCheck</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> transactionId, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; inputStates, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; referenceStates, int numOutputStates, @Nullable() <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowLowerBound, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> timeWindowUpperBound)</pre>
+                                        <div class="block"><p>Requests a uniqueness check.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>txId</code> - The ID of the transaction that needs processing</dd>
+                                            <dd><code>transactionId</code> - The ID of the transaction to be processed.</dd>
                                             
                                             
                                             
-                                            <dd><code>inputStates</code> - A list of the input state refs that belongs to the given transaction in a : format.</dd>
+                                            <dd><code>inputStates</code> - A list of the input state refs that belongs to the given transaction.</dd>
                                             
                                             
                                             
-                                            <dd><code>referenceStates</code> - A list of the reference state refs that belongs to the given transaction, in a : format.</dd>
+                                            <dd><code>referenceStates</code> - A list of the reference state refs that belongs to the given transaction.</dd>
                                             
                                             
                                             
-                                            <dd><code>numOutputStates</code> - The number of output states the given transaction has.</dd>
+                                            <dd><code>numOutputStates</code> - The number of output states in the given transaction.</dd>
                                             
                                             
                                             

@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../";
 public interface <span class="typeNameLabel"><a href=StateAndRef.html>StateAndRef</a>&lt;T extends <a href=ContractState.html>ContractState</a>&gt;</span>
 
                     </pre>
-                    <div class="block"><p>Represents a composition of a <a href=TransactionState.html>TransactionState</a> and a <a href=StateRef.html>StateRef</a>.</p></div>
+                    <div class="block"><p>Defines a composition of a <a href=TransactionState.html>TransactionState</a> and a <a href=StateRef.html>StateRef</a>.</p></div>
                 </li>
             </ul>
         </div>
@@ -242,7 +242,7 @@ public interface <span class="typeNameLabel"><a href=StateAndRef.html>StateAndRe
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=StateAndRef.html#getState()>getState</a>() </code>
                                             </th>
-                                            <td class="colLast">The <a href=TransactionState.html>TransactionState</a> component of the current <a href=StateAndRef.html>StateAndRef</a>.</td>
+                                            <td class="colLast">Gets the <a href=TransactionState.html>TransactionState</a> component of the current <a href=StateAndRef.html>StateAndRef</a>.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
@@ -250,7 +250,7 @@ public interface <span class="typeNameLabel"><a href=StateAndRef.html>StateAndRe
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=StateAndRef.html#getRef()>getRef</a>() </code>
                                             </th>
-                                            <td class="colLast">The <a href=StateRef.html>StateRef</a> component of the current <a href=StateAndRef.html>StateAndRef</a>.</td>
+                                            <td class="colLast">Gets the <a href=StateRef.html>StateRef</a> component of the current <a href=StateAndRef.html>StateAndRef</a>.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -305,8 +305,8 @@ public interface <span class="typeNameLabel"><a href=StateAndRef.html>StateAndRe
                                           >
                                     <li class="blockList">
                                         <h4>getState</h4>
-                                        <pre class="methodSignature"> abstract <a href=TransactionState.html>TransactionState</a>&lt;<a href=StateAndRef.html>T</a>&gt; <a href=StateAndRef.html#getState()>getState</a>()</pre>
-                                        <div class="block"><p>The <a href=TransactionState.html>TransactionState</a> component of the current <a href=StateAndRef.html>StateAndRef</a>.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=TransactionState.html>TransactionState</a>&lt;<a href=StateAndRef.html>T</a>&gt; <a href=StateAndRef.html#getState()>getState</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=TransactionState.html>TransactionState</a> component of the current <a href=StateAndRef.html>StateAndRef</a>.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -320,8 +320,8 @@ public interface <span class="typeNameLabel"><a href=StateAndRef.html>StateAndRe
                                           >
                                     <li class="blockList">
                                         <h4>getRef</h4>
-                                        <pre class="methodSignature"> abstract <a href=StateRef.html>StateRef</a> <a href=StateAndRef.html#getRef()>getRef</a>()</pre>
-                                        <div class="block"><p>The <a href=StateRef.html>StateRef</a> component of the current <a href=StateAndRef.html>StateAndRef</a>.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=StateRef.html>StateRef</a> <a href=StateAndRef.html#getRef()>getRef</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=StateRef.html>StateRef</a> component of the current <a href=StateAndRef.html>StateAndRef</a>.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../";
 public interface <span class="typeNameLabel"><a href=ConsensualState.html>ConsensualState</a></span>
 
                     </pre>
-                    <div class="block"><p>A consensual state (or just &quot;state&quot;) contains opaque data used by a consensual ledger. It can be thought of as a disk file that the program can use to persist data across transactions. ConsensualState are immutable: once created they are never updated, instead, any changes must generate a new successor state. Consensual states cannot be consumed.</p></div>
+                    <div class="block"><p>Defines a consensual state. </p><p> A consensual state (or just &quot;state&quot;) contains opaque data used by a consensual ledger. It can be thought of as a disk file that the program can use to persist data across transactions. They are immutable, and can never be consumed. Once created they are never updated, instead, any changes must generate a new successor state.</p></div>
                 </li>
             </ul>
         </div>
@@ -238,19 +238,19 @@ public interface <span class="typeNameLabel"><a href=ConsensualState.html>Consen
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=ConsensualState.html#verify(ConsensualLedgerTransaction)>verify</a>(<a href=transaction/ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> ledgerTransaction) </code>
-                                            </th>
-                                            <td class="colLast">An override of this function needs to be provided to:<ul><li><p>verify the state's well-formedness</p></li><li><p>verify compatibility with the other states of the encapsulating transaction</p></li><li><p>check required signing keys</p></li><li><p>check the transaction's timestamp.</p></li></ul>TODO(make services injectable (crypto, etc...</td>
-                                        </tr>
-                                        
-                                        <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ConsensualState.html#getParticipants()>getParticipants</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets a list of the current consensual state's participants.</td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>abstract void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ConsensualState.html#verify(ConsensualLedgerTransaction)>verify</a>(@NotNull() <a href=transaction/ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> transaction) </code>
+                                            </th>
+                                            <td class="colLast">Verifies the current consensual state.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -297,40 +297,40 @@ public interface <span class="typeNameLabel"><a href=ConsensualState.html>Consen
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="verify(ConsensualLedgerTransaction)">
+                                <a id="getParticipants()">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockList"
                                           >
                                     <li class="blockList">
-                                        <h4>verify</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=ConsensualState.html#verify(ConsensualLedgerTransaction)>verify</a>(<a href=transaction/ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> ledgerTransaction)</pre>
-                                        <div class="block"><p>An override of this function needs to be provided to:</p><ul><li><p>verify the state's well-formedness</p></li><li><p>verify compatibility with the other states of the encapsulating transaction</p></li><li><p>check required signing keys</p></li><li><p>check the transaction's timestamp.</p></li></ul><p>TODO(make services injectable (crypto, etc... CORE-5995)</p></div>
-                                        
-                                        <dl>
-                                            <dt><span class="paramLabel">Parameters:</span></dt>
-                                            
-                                            
-                                            <dd><code>ledgerTransaction</code> - encapsulating transaction</dd>
-                                            
-                                            
-                                        </dl>
+                                        <h4>getParticipants</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=ConsensualState.html#getParticipants()>getParticipants</a>()</pre>
+                                        <div class="block"><p>Gets a list of the current consensual state's participants. </p><p> A participant is any party whose consent is needed to make a consensual state valid and final. Participants are the main and only verification points for Consensual state since they do not have contract code. Every participant has to be involved and approve the transaction so that they receive the updated state, and don't end up in a situation where they can no longer use a state they possess. </p><p> The participants list should normally be derived from the contents of the state.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
                                 </ul>
                                 
-                                <a id="getParticipants()">
+                                <a id="verify(ConsensualLedgerTransaction)">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockListLast"
                                           >
                                     <li class="blockList">
-                                        <h4>getParticipants</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=ConsensualState.html#getParticipants()>getParticipants</a>()</pre>
-                                        <div class="block"></div>
+                                        <h4>verify</h4>
+                                        <pre class="methodSignature"> abstract void <a href=ConsensualState.html#verify(ConsensualLedgerTransaction)>verify</a>(@NotNull() <a href=transaction/ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> transaction)</pre>
+                                        <div class="block"><p>Verifies the current consensual state. </p><p> Implementations of this function should: - verify that the state is well-formed. - verify compatibility or cohesion with other states in the specified transaction. - check for required signing keys. - check the transaction's timestamp. </p><p> TODO : CORE-5995 - Make services injectable (e.g. crypto, etc...)</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>transaction</code> - The transaction in which the current consensual state will be created.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

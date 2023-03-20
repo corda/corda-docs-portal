@@ -242,15 +242,15 @@ public interface <span class="typeNameLabel"><a href=TransactionState.html>Trans
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=TransactionState.html#getContractState()>getContractState</a>() </code>
                                             </th>
-                                            <td class="colLast">The <a href=ContractState.html>ContractState</a> of the current <a href=TransactionState.html>TransactionState</a> instance.</td>
+                                            <td class="colLast">Gets the <a href=ContractState.html>ContractState</a> of the current <a href=TransactionState.html>TransactionState</a> instance.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=TransactionState.html>T</a>&gt;</code>
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=TransactionState.html>T</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=TransactionState.html#getContractStateType()>getContractStateType</a>() </code>
                                             </th>
-                                            <td class="colLast">The <a href=ContractState.html>ContractState</a> type of the current <a href=TransactionState.html>TransactionState</a> instance.</td>
+                                            <td class="colLast">Gets the <a href=ContractState.html>ContractState</a> type of the current <a href=TransactionState.html>TransactionState</a> instance.</td>
                                         </tr>
                                         
                                         <tr id="i2" class="altColor">
@@ -258,7 +258,7 @@ public interface <span class="typeNameLabel"><a href=TransactionState.html>Trans
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=TransactionState.html#getContractType()>getContractType</a>() </code>
                                             </th>
-                                            <td class="colLast">The <a href=Contract.html>Contract</a> type of the current <a href=TransactionState.html>TransactionState</a> instance.</td>
+                                            <td class="colLast">Gets the <a href=Contract.html>Contract</a> type of the current <a href=TransactionState.html>TransactionState</a> instance.</td>
                                         </tr>
                                         
                                         <tr id="i3" class="rowColor">
@@ -266,15 +266,15 @@ public interface <span class="typeNameLabel"><a href=TransactionState.html>Trans
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=TransactionState.html#getNotary()>getNotary</a>() </code>
                                             </th>
-                                            <td class="colLast">The notary of the current <a href=TransactionState.html>TransactionState</a> instance.</td>
+                                            <td class="colLast">Gets the notary of the current <a href=TransactionState.html>TransactionState</a> instance.</td>
                                         </tr>
                                         
                                         <tr id="i4" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=EncumbranceGroup.html>EncumbranceGroup</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=TransactionState.html#getEncumbrance()>getEncumbrance</a>() </code>
+                                            <th class="colSecond" scope="row"><code><a href=TransactionState.html#getEncumbranceGroup()>getEncumbranceGroup</a>() </code>
                                             </th>
-                                            <td class="colLast">The encumbrance of the current <a href=TransactionState.html>TransactionState</a> instance.</td>
+                                            <td class="colLast">Gets the encumbrance of the current <a href=TransactionState.html>TransactionState</a> instance.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -329,8 +329,8 @@ public interface <span class="typeNameLabel"><a href=TransactionState.html>Trans
                                           >
                                     <li class="blockList">
                                         <h4>getContractState</h4>
-                                        <pre class="methodSignature"> abstract <a href=TransactionState.html>T</a> <a href=TransactionState.html#getContractState()>getContractState</a>()</pre>
-                                        <div class="block"><p>The <a href=ContractState.html>ContractState</a> of the current <a href=TransactionState.html>TransactionState</a> instance.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=TransactionState.html>T</a> <a href=TransactionState.html#getContractState()>getContractState</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=ContractState.html>ContractState</a> of the current <a href=TransactionState.html>TransactionState</a> instance.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -344,8 +344,8 @@ public interface <span class="typeNameLabel"><a href=TransactionState.html>Trans
                                           >
                                     <li class="blockList">
                                         <h4>getContractStateType</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=TransactionState.html>T</a>&gt; <a href=TransactionState.html#getContractStateType()>getContractStateType</a>()</pre>
-                                        <div class="block"><p>The <a href=ContractState.html>ContractState</a> type of the current <a href=TransactionState.html>TransactionState</a> instance.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=TransactionState.html>T</a>&gt; <a href=TransactionState.html#getContractStateType()>getContractStateType</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=ContractState.html>ContractState</a> type of the current <a href=TransactionState.html>TransactionState</a> instance.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -359,8 +359,8 @@ public interface <span class="typeNameLabel"><a href=TransactionState.html>Trans
                                           >
                                     <li class="blockList">
                                         <h4>getContractType</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=Contract.html>Contract</a>&gt; <a href=TransactionState.html#getContractType()>getContractType</a>()</pre>
-                                        <div class="block"><p>The <a href=Contract.html>Contract</a> type of the current <a href=TransactionState.html>TransactionState</a> instance.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=Contract.html>Contract</a>&gt; <a href=TransactionState.html#getContractType()>getContractType</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=Contract.html>Contract</a> type of the current <a href=TransactionState.html>TransactionState</a> instance.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -374,23 +374,23 @@ public interface <span class="typeNameLabel"><a href=TransactionState.html>Trans
                                           >
                                     <li class="blockList">
                                         <h4>getNotary</h4>
-                                        <pre class="methodSignature"> abstract <a href=../common/Party.html>Party</a> <a href=TransactionState.html#getNotary()>getNotary</a>()</pre>
-                                        <div class="block"><p>The notary of the current <a href=TransactionState.html>TransactionState</a> instance.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../common/Party.html>Party</a> <a href=TransactionState.html#getNotary()>getNotary</a>()</pre>
+                                        <div class="block"><p>Gets the notary of the current <a href=TransactionState.html>TransactionState</a> instance.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
                                 </ul>
                                 
-                                <a id="getEncumbrance()">
+                                <a id="getEncumbranceGroup()">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockListLast"
                                           >
                                     <li class="blockList">
-                                        <h4>getEncumbrance</h4>
-                                        <pre class="methodSignature"> abstract <a href=EncumbranceGroup.html>EncumbranceGroup</a> <a href=TransactionState.html#getEncumbrance()>getEncumbrance</a>()</pre>
-                                        <div class="block"><p>The encumbrance of the current <a href=TransactionState.html>TransactionState</a> instance.</p></div>
+                                        <h4>getEncumbranceGroup</h4>
+                                        <pre class="methodSignature">@Nullable() abstract <a href=EncumbranceGroup.html>EncumbranceGroup</a> <a href=TransactionState.html#getEncumbranceGroup()>getEncumbranceGroup</a>()</pre>
+                                        <div class="block"><p>Gets the encumbrance of the current <a href=TransactionState.html>TransactionState</a> instance.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

@@ -32,4 +32,4 @@ Bank in a Box highlights best practices for implementing Corda features includin
 - Oracles.
 - CorDapp integration with external systems.
 
-See [Getting started with Bank in a Box](./getting-started.md) to set up the application and start testing.
+See [Getting started with Bank in a Box]({{< relref "./getting-started.md" >}}) to set up the application and start testing.

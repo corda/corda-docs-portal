@@ -141,13 +141,6 @@ public final class <span class="typeNameLabel"><a href=StateRef.html>StateRef</a
                                             <th class="colLast" scope="col">Description</th>
                                         </tr>
                                         
-                                        <tr class="altColor">
-                                            <td class="colFirst"><code>public class</code></td>
-                                            <th class="colSecond" scope="row"><code><a href="StateRef.Companion.html">StateRef.Companion</a></span></code>
-                                            </th>
-                                            <td class="colLast"></td>
-                                        </tr>
-                                        
                                     </table>
                                 </div>
                             </li>
@@ -172,13 +165,13 @@ public final class <span class="typeNameLabel"><a href=StateRef.html>StateRef</a
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=../../crypto/SecureHash.html>SecureHash</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=../../crypto/SecureHash.html>SecureHash</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=StateRef.html#transactionId>transactionId</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="rowColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
+                                            <td class="colFirst"><code>public final int</code></td>
                                             <th class="colSecond" scope="row"><code><a href=StateRef.html#index>index</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
@@ -209,8 +202,8 @@ public final class <span class="typeNameLabel"><a href=StateRef.html>StateRef</a
                                         
                                             <tr class="altColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
-                                                        href="#StateRef(SecureHash,Integer)">StateRef</a></span>(<a href=../../crypto/SecureHash.html>SecureHash</a> transactionId, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> index)</code></th>
-                                                <td class="colLast"></td>
+                                                        href="#StateRef(SecureHash,int)">StateRef</a></span>(<a href=../../crypto/SecureHash.html>SecureHash</a> transactionId, int index)</code></th>
+                                                <td class="colLast">Creates a new instance of the <a href=StateRef.html>StateRef</a> class.</td>
                                             </tr>
                                         
 
@@ -263,27 +256,51 @@ public final class <span class="typeNameLabel"><a href=StateRef.html>StateRef</a
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>final <a href=../../crypto/SecureHash.html>SecureHash</a></code>
+                                            <td class="colFirst"><code><a href=../../crypto/SecureHash.html>SecureHash</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=StateRef.html#getTransactionId()>getTransactionId</a>() </code>
                                             </th>
-                                            <td class="colLast">The id of the transaction in which the referenced state was created.</td>
+                                            <td class="colLast">Gets the id of the transaction in which the referenced state was created.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code>
+                                            <td class="colFirst"><code>int</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=StateRef.html#getIndex()>getIndex</a>() </code>
                                             </th>
-                                            <td class="colLast">The index of the state in the transaction's outputs in which the referenced state was created.</td>
+                                            <td class="colLast">Gets the index of the state in the transaction's outputs in which the referenced state was created.</td>
                                         </tr>
                                         
                                         <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>static <a href=StateRef.html>StateRef</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=StateRef.html#parse(String)>parse</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> value) </code>
+                                            </th>
+                                            <td class="colLast">Parses the specified <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> value into a <a href=StateRef.html>StateRef</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>boolean</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=StateRef.html#equals(Object)>equals</a>(@Nullable() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> o) </code>
+                                            </th>
+                                            <td class="colLast">Determines whether the specified object is equal to the current object.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>int</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=StateRef.html#hashCode()>hashCode</a>() </code>
+                                            </th>
+                                            <td class="colLast">Serves as the default hash function.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
                                             <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=StateRef.html#toString()>toString</a>() </code>
                                             </th>
-                                            <td class="colLast">Gets the <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a> representation of the current object.</td>
+                                            <td class="colLast">Returns a string that represents the current object.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -317,12 +334,25 @@ public final class <span class="typeNameLabel"><a href=StateRef.html>StateRef</a
                             </a>
                                 <h3>Constructor Detail</h3>
                                 
-                                <a name="StateRef(SecureHash,Integer)"></a>
+                                <a name="StateRef(SecureHash,int)"></a>
                                 <ul class="blockList">
                                     <li class="blockList">
                                         <h4>StateRef</h4>
-                                        <pre>StateRef(<a href=../../crypto/SecureHash.html>SecureHash</a> transactionId, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> index)</pre>
-                                        <div class="block"></div>
+                                        <pre>StateRef(<a href=../../crypto/SecureHash.html>SecureHash</a> transactionId, int index)</pre>
+                                        <div class="block">Creates a new instance of the <a href=StateRef.html>StateRef</a> class.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>transactionId</code> - The id of the transaction in which the referenced state was created.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>index</code> - The index of the state in the transaction's outputs in which the referenced state was created.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                     </li>
                                 </ul>
@@ -348,8 +378,8 @@ public final class <span class="typeNameLabel"><a href=StateRef.html>StateRef</a
                                           >
                                     <li class="blockList">
                                         <h4>getTransactionId</h4>
-                                        <pre class="methodSignature"> final <a href=../../crypto/SecureHash.html>SecureHash</a> <a href=StateRef.html#getTransactionId()>getTransactionId</a>()</pre>
-                                        <div class="block"><p>The id of the transaction in which the referenced state was created.</p></div>
+                                        <pre class="methodSignature">@NotNull() <a href=../../crypto/SecureHash.html>SecureHash</a> <a href=StateRef.html#getTransactionId()>getTransactionId</a>()</pre>
+                                        <div class="block"><p>Gets the id of the transaction in which the referenced state was created.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -363,8 +393,71 @@ public final class <span class="typeNameLabel"><a href=StateRef.html>StateRef</a
                                           >
                                     <li class="blockList">
                                         <h4>getIndex</h4>
-                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> <a href=StateRef.html#getIndex()>getIndex</a>()</pre>
-                                        <div class="block"><p>The index of the state in the transaction's outputs in which the referenced state was created.</p></div>
+                                        <pre class="methodSignature"> int <a href=StateRef.html#getIndex()>getIndex</a>()</pre>
+                                        <div class="block"><p>Gets the index of the state in the transaction's outputs in which the referenced state was created.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="parse(String)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>parse</h4>
+                                        <pre class="methodSignature"> static <a href=StateRef.html>StateRef</a> <a href=StateRef.html#parse(String)>parse</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> value)</pre>
+                                        <div class="block"><p>Parses the specified <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> value into a <a href=StateRef.html>StateRef</a>.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - The value to parse into a <a href=StateRef.html>StateRef</a>.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="equals(Object)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>equals</h4>
+                                        <pre class="methodSignature"> boolean <a href=StateRef.html#equals(Object)>equals</a>(@Nullable() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> o)</pre>
+                                        <div class="block"><p>Determines whether the specified object is equal to the current object.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>o</code> - The object to compare with the current object.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="hashCode()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>hashCode</h4>
+                                        <pre class="methodSignature"> int <a href=StateRef.html#hashCode()>hashCode</a>()</pre>
+                                        <div class="block"><p>Serves as the default hash function.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -379,7 +472,7 @@ public final class <span class="typeNameLabel"><a href=StateRef.html>StateRef</a
                                     <li class="blockList">
                                         <h4>toString</h4>
                                         <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=StateRef.html#toString()>toString</a>()</pre>
-                                        <div class="block"><p>Gets the <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a> representation of the current object.</p></div>
+                                        <div class="block"><p>Returns a string that represents the current object.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

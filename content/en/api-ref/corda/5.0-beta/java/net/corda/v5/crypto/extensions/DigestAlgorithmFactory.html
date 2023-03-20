@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../";
 public interface <span class="typeNameLabel"><a href=DigestAlgorithmFactory.html>DigestAlgorithmFactory</a></span>
 
                     </pre>
-                    <div class="block"><p>Digest extensions: Interface defining a factory creating a custom digest implementation. The interface should be implemented if a CPK developer wishes to provide support for digest algorithms beyond supported by the Corda Platform. For each algorithm there must be matching a pair of <a href=DigestAlgorithmFactory.html>DigestAlgorithmFactory</a> and <a href=DigestAlgorithm.html>DigestAlgorithm</a> implementations.</p></div>
+                    <div class="block"><p>Digest extensions: Interface defining a factory creating a custom digest implementation. The interface should be implemented if a CPK developer wishes to provide support for digest algorithms beyond supported by the Corda Platform. For each algorithm there must be matching a pair of [DigestAlgorithmFactory] and [DigestAlgorithm] implementations.</p></div>
                 </li>
             </ul>
         </div>
@@ -238,19 +238,19 @@ public interface <span class="typeNameLabel"><a href=DigestAlgorithmFactory.html
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=DigestAlgorithm.html>DigestAlgorithm</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=DigestAlgorithmFactory.html#getInstance()>getInstance</a>() </code>
-                                            </th>
-                                            <td class="colLast">The factory method.</td>
-                                        </tr>
-                                        
-                                        <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=DigestAlgorithmFactory.html#getAlgorithm()>getAlgorithm</a>() </code>
                                             </th>
                                             <td class="colLast">The algorithm name, e.g.</td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=DigestAlgorithm.html>DigestAlgorithm</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=DigestAlgorithmFactory.html#getInstance()>getInstance</a>() </code>
+                                            </th>
+                                            <td class="colLast">The factory method.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -297,31 +297,31 @@ public interface <span class="typeNameLabel"><a href=DigestAlgorithmFactory.html
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="getInstance()">
+                                <a id="getAlgorithm()">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockList"
                                           >
                                     <li class="blockList">
-                                        <h4>getInstance</h4>
-                                        <pre class="methodSignature"> abstract <a href=DigestAlgorithm.html>DigestAlgorithm</a> <a href=DigestAlgorithmFactory.html#getInstance()>getInstance</a>()</pre>
-                                        <div class="block"><p>The factory method. The method must return a new instance on each call. The method must be thread safe.</p></div>
+                                        <h4>getAlgorithm</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=DigestAlgorithmFactory.html#getAlgorithm()>getAlgorithm</a>()</pre>
+                                        <div class="block"><p>The algorithm name, e.g. 'QUAD-SHA-256', the unique name (per Corda Platform and given CPK) of the digest algorithm. The name must match the names used by the created [DigestAlgorithm].</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
                                 </ul>
                                 
-                                <a id="getAlgorithm()">
+                                <a id="getInstance()">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockListLast"
                                           >
                                     <li class="blockList">
-                                        <h4>getAlgorithm</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=DigestAlgorithmFactory.html#getAlgorithm()>getAlgorithm</a>()</pre>
-                                        <div class="block"><p>The algorithm name, e.g. 'QUAD-SHA-256', the unique name (per Corda Platform and given CPK) of the digest algorithm. The name must match the names used by the created <a href=DigestAlgorithm.html>DigestAlgorithm</a>.</p></div>
+                                        <h4>getInstance</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=DigestAlgorithm.html>DigestAlgorithm</a> <a href=DigestAlgorithmFactory.html#getInstance()>getInstance</a>()</pre>
+                                        <div class="block"><p>The factory method. The method must return a new instance on each call. The method must be thread safe.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

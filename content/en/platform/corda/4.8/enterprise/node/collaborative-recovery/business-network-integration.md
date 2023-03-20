@@ -315,7 +315,7 @@ Another option available to node operators is to initiate manual recovery of led
 outlines a simple wrapping flow that initiates manual recovery, persisting a record or `RecoveryRequest`
 on both the initiating and responding nodes.
 
-The participating nodes may then continue with the processes described [here](../../../../../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/ledger-recovery-manual.md)
+The participating nodes may then continue with the processes described [here]({{< relref "../../../../../../../en/platform/corda/4.8/enterprise/node/collaborative-recovery/ledger-recovery-manual.md" >}})
 to export, transfer and eventually import the missing transaction data.
 
 ```kotlin

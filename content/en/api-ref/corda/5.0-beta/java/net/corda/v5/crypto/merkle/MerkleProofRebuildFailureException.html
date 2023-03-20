@@ -173,14 +173,20 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a></code></td>
-                                            <th class="colSecond" scope="row"><code><a href=../../ledger/utxo/transaction/filtered/FilteredDataInconsistencyException.html#cause>cause</a></code></th>
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../ledger/notary/plugin/core/NotaryExceptionUnknown.html#originalExceptionClassName>originalExceptionClassName</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="rowColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
-                                            <th class="colSecond" scope="row"><code><a href=../../ledger/utxo/transaction/filtered/FilteredDataInconsistencyException.html#message>message</a></code></th>
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../ledger/notary/plugin/core/NotaryExceptionUnknown.html#cause>cause</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public  <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/StackTraceElement.html>StackTraceElement</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../ledger/notary/plugin/core/NotaryExceptionUnknown.html#stackTrace>stackTrace</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
@@ -274,11 +280,11 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                             <h3>Methods inherited from class&nbsp;net.corda.v5.base.exceptions.CordaRuntimeException</h3>
                                             <code>addSuppressed, equals, getCause, getMessage, getOriginalExceptionClassName, getOriginalMessage, hashCode, setCause, setMessage, setOriginalExceptionClassName</code></li>
                                  
-                                    <li class="blockList"><a id="methods.inherited.from.class.kotlin.Throwable">
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Throwable">
                                             <!--   -->
                                         </a>
-                                            <h3>Methods inherited from class&nbsp;kotlin.Throwable</h3>
-                                            <code>addSuppressed, fillInStackTrace, getLocalizedMessage, getStackTrace, getSuppressed, initCause, printStackTrace, printStackTrace, printStackTrace, setStackTrace</code></li>
+                                            <h3>Methods inherited from class&nbsp;java.lang.Throwable</h3>
+                                            <code>fillInStackTrace, getLocalizedMessage, getStackTrace, getSuppressed, initCause, printStackTrace, setStackTrace, toString</code></li>
                                  
                                     <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
                                         <!--   -->

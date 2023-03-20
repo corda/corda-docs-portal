@@ -45,7 +45,7 @@ counterparty we want to exchange confidential identities with. It returns a mapp
 and the counterparty to their new confidential identities. In the future, this flow will be extended to handle swapping
 identities with multiple parties at once.
 
-You can see an example of using `SwapIdentitiesFlow` in <a href="../../../../../../en/api-ref/corda/4.9/community/kotlin/corda/net.corda.finance.flows/-two-party-deal-flow/index.md">`TwoPartyDealFlow.kt`</a> .
+You can see an example of using `SwapIdentitiesFlow` in <a href="../../../../../../en/api-ref/corda/4.9/community/kotlin/corda/net.corda.finance.flows/-two-party-deal-flow/index.md" >`TwoPartyDealFlow.kt`</a> .
 
 `SwapIdentitiesFlow` goes through the following key steps:
 

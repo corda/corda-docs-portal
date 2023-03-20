@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../../";
 public interface <span class="typeNameLabel"><a href=ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a></span>
 
                     </pre>
-                    <div class="block"><p>Defines a Consensual ledger transaction.</p><p>Comparing with <a href=ConsensualSignedTransaction.html>ConsensualSignedTransaction</a>:</p><ul><li><p>It has access to the deserialized details.</p></li><li><p>It does not have direct access to the signatures.</p></li><li><p>It requires a serializer.</p></li></ul><p><a href=ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> is an abstraction that is meant to be used during the transaction verification stage. It needs full access to its states that might be in transactions that are encrypted and unavailable for code running outside the secure enclave. Also, it might need to deserialize states with code that might not be available on the classpath.</p><p>Because of this, trying to create or use a <a href=ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> for any other purpose then transaction verification can result in unexpected exceptions, which need de be handled.</p><p><a href=ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a>s should never be instantiated directly from client code, but rather via net.corda.v5.ledger.consensual.transaction.ConsensualSignedTransaction.toLedgerTransaction</p></div>
+                    <div class="block"><p>Defines a consensual ledger transaction. </p><p> Comparing with <a href=ConsensualSignedTransaction.html>ConsensualSignedTransaction</a>: - It has access to the deserialized details. - It does not have direct access to the signatures. - It requires a serializer. </p><p><a href=ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> is an abstraction that is meant to be used during the transaction verification stage. It needs full access to its states that might be in transactions that are encrypted and unavailable for code running outside the secure enclave. Also, it might need to deserialize states with code that might not be available on the classpath. </p><p> Because of this, trying to create or use a <a href=ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> for any other purpose then transaction verification can result in unexpected exceptions, which need de be handled. </p><p><a href=ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> should never be instantiated directly from client code, but rather via <a href=ConsensualSignedTransaction.html#toLedgerTransaction()>toLedgerTransaction</a></p></div>
                 </li>
             </ul>
         </div>
@@ -242,7 +242,7 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerTransaction
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ConsensualLedgerTransaction.html#getId()>getId</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the ID of the current transaction.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
@@ -250,7 +250,7 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerTransaction
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ConsensualLedgerTransaction.html#getRequiredSignatories()>getRequiredSignatories</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets a set of signatories that are required for transaction validity; essentially the union of the participants of the current transaction's states.</td>
                                         </tr>
                                         
                                         <tr id="i2" class="altColor">
@@ -258,7 +258,7 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerTransaction
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ConsensualLedgerTransaction.html#getTimestamp()>getTimestamp</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the timestamp of the current transaction, which is when it was initially signed.</td>
                                         </tr>
                                         
                                         <tr id="i3" class="rowColor">
@@ -266,7 +266,7 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerTransaction
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ConsensualLedgerTransaction.html#getStates()>getStates</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the output states of the current transaction.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -321,8 +321,8 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerTransaction
                                           >
                                     <li class="blockList">
                                         <h4>getId</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../../crypto/SecureHash.html>SecureHash</a> <a href=ConsensualLedgerTransaction.html#getId()>getId</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../../crypto/SecureHash.html>SecureHash</a> <a href=ConsensualLedgerTransaction.html#getId()>getId</a>()</pre>
+                                        <div class="block"><p>Gets the ID of the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -336,8 +336,8 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerTransaction
                                           >
                                     <li class="blockList">
                                         <h4>getRequiredSignatories</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=ConsensualLedgerTransaction.html#getRequiredSignatories()>getRequiredSignatories</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=ConsensualLedgerTransaction.html#getRequiredSignatories()>getRequiredSignatories</a>()</pre>
+                                        <div class="block"><p>Gets a set of signatories that are required for transaction validity; essentially the union of the participants of the current transaction's states.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -351,8 +351,8 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerTransaction
                                           >
                                     <li class="blockList">
                                         <h4>getTimestamp</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> <a href=ConsensualLedgerTransaction.html#getTimestamp()>getTimestamp</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> <a href=ConsensualLedgerTransaction.html#getTimestamp()>getTimestamp</a>()</pre>
+                                        <div class="block"><p>Gets the timestamp of the current transaction, which is when it was initially signed.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -366,8 +366,8 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerTransaction
                                           >
                                     <li class="blockList">
                                         <h4>getStates</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../ConsensualState.html>ConsensualState</a>&gt; <a href=ConsensualLedgerTransaction.html#getStates()>getStates</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../ConsensualState.html>ConsensualState</a>&gt; <a href=ConsensualLedgerTransaction.html#getStates()>getStates</a>()</pre>
+                                        <div class="block"><p>Gets the output states of the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

@@ -238,35 +238,35 @@ public interface <span class="typeNameLabel"><a href=MerkleTree.html>MerkleTree<
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=MerkleProof.html>MerkleProof</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=MerkleTree.html#createAuditProof(List)>createAuditProof</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>&gt; leafIndices) </code>
-                                            </th>
-                                            <td class="colLast">Creates a <a href=MerkleProof.html>MerkleProof</a> for a set of leaves.</td>
-                                        </tr>
-                                        
-                                        <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a>&gt;</code>
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt;&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=MerkleTree.html#getLeaves()>getLeaves</a>() </code>
                                             </th>
-                                            <td class="colLast">The input data elements.</td>
+                                            <td class="colLast">Return the input data elements.</td>
                                         </tr>
                                         
-                                        <tr id="i2" class="altColor">
+                                        <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=MerkleTree.html#getDigest()>getDigest</a>() </code>
                                             </th>
-                                            <td class="colLast">The <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> used to construct the tree's node and leaf hashes.</td>
+                                            <td class="colLast">Return the <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> used to construct the tree's node and leaf hashes.</td>
                                         </tr>
                                         
-                                        <tr id="i3" class="rowColor">
+                                        <tr id="i2" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=../SecureHash.html>SecureHash</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=MerkleTree.html#getRoot()>getRoot</a>() </code>
                                             </th>
-                                            <td class="colLast">The root element of the tree which is essentially the fingerprint of the whole tree/data set.</td>
+                                            <td class="colLast">Return the root element of the tree which is essentially the fingerprint of the whole tree/data set.</td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=MerkleProof.html>MerkleProof</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MerkleTree.html#createAuditProof(List)>createAuditProof</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>&gt; leafIndices) </code>
+                                            </th>
+                                            <td class="colLast">Creates a <a href=MerkleProof.html>MerkleProof</a> for a set of leaves.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -313,30 +313,6 @@ public interface <span class="typeNameLabel"><a href=MerkleTree.html>MerkleTree<
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="createAuditProof(List)">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>createAuditProof</h4>
-                                        <pre class="methodSignature"> abstract <a href=MerkleProof.html>MerkleProof</a> <a href=MerkleTree.html#createAuditProof(List)>createAuditProof</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>&gt; leafIndices)</pre>
-                                        <div class="block"><p>Creates a <a href=MerkleProof.html>MerkleProof</a> for a set of leaves.</p></div>
-                                        
-                                        <dl>
-                                            <dt><span class="paramLabel">Parameters:</span></dt>
-                                            
-                                            
-                                            <dd><code>leafIndices</code> - whose leaf's inclusion is to be proven by the proof.</dd>
-                                            
-                                            
-                                        </dl>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
                                 <a id="getLeaves()">
                                     <!--   -->
                                 </a>
@@ -345,8 +321,8 @@ public interface <span class="typeNameLabel"><a href=MerkleTree.html>MerkleTree<
                                           >
                                     <li class="blockList">
                                         <h4>getLeaves</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a>&gt; <a href=MerkleTree.html#getLeaves()>getLeaves</a>()</pre>
-                                        <div class="block"><p>The input data elements. Usually something deterministically serialized.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt;&gt; <a href=MerkleTree.html#getLeaves()>getLeaves</a>()</pre>
+                                        <div class="block"><p>Return the input data elements. Usually something deterministically serialized.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -360,8 +336,8 @@ public interface <span class="typeNameLabel"><a href=MerkleTree.html>MerkleTree<
                                           >
                                     <li class="blockList">
                                         <h4>getDigest</h4>
-                                        <pre class="methodSignature"> abstract <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> <a href=MerkleTree.html#getDigest()>getDigest</a>()</pre>
-                                        <div class="block"><p>The <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> used to construct the tree's node and leaf hashes.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> <a href=MerkleTree.html#getDigest()>getDigest</a>()</pre>
+                                        <div class="block"><p>Return the <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> used to construct the tree's node and leaf hashes.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -371,12 +347,36 @@ public interface <span class="typeNameLabel"><a href=MerkleTree.html>MerkleTree<
                                     <!--   -->
                                 </a>
                                 <ul class=
-                                              "blockListLast"
+                                              "blockList"
                                           >
                                     <li class="blockList">
                                         <h4>getRoot</h4>
-                                        <pre class="methodSignature"> abstract <a href=../SecureHash.html>SecureHash</a> <a href=MerkleTree.html#getRoot()>getRoot</a>()</pre>
-                                        <div class="block"><p>The root element of the tree which is essentially the fingerprint of the whole tree/data set.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../SecureHash.html>SecureHash</a> <a href=MerkleTree.html#getRoot()>getRoot</a>()</pre>
+                                        <div class="block"><p>Return the root element of the tree which is essentially the fingerprint of the whole tree/data set.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="createAuditProof(List)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>createAuditProof</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=MerkleProof.html>MerkleProof</a> <a href=MerkleTree.html#createAuditProof(List)>createAuditProof</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a>&gt; leafIndices)</pre>
+                                        <div class="block"><p>Creates a <a href=MerkleProof.html>MerkleProof</a> for a set of leaves.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>leafIndices</code> - whose leaf's inclusion is to be proven by the proof.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
