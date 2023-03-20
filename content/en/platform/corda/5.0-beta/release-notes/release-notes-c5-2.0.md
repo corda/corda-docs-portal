@@ -62,17 +62,28 @@ It is now possible to connect between peer gateways by IP address, as well as DN
 
 ### Virtual Nodes
 
+#### Operational Statuses
+Four fine-grained operational statuses have been added for virtual nodes:
+* `flowOperationalStatus`
+* `flowP2pOperationalStatus`
+* `flowStartOperationalStatus`
+* `vaultDbOperationalStatus`
+These four statuses replace the existing `state` field.
+The `GET virtualnode` method has been updated to return the status of each of the four operational characteristics.
+
 #### Maintenance
-A new PUT method has been added to the `virtualnode` resource to update the state of a virtual node: `/api/v1/virtualnode/{virtualNodeShortHash}/state/maintenance`.
-Setting the state to `IN_MAINTENANCE` prevents the virtual node from starting new flows and running existing flows.
-{{< note >}}
-This is a total “stop-the-world” virtual node operation. A virtual node in the maintenance state can not start or run flows. Any activity arriving for in-progress flows result in the flows being killed.
-{{< /note >}}
-You can check the list of running flows using the get multiple flow status endpoint, `GET /api/v1/flow/{virtualNodeShortHash}`. After all flows have terminated, you can safely perform a virtual node upgrade using the [new upgrade endpoint]({{< relref "#upgrading-a-cpi" >}}).
+Maintenance mode has been updated to disable all four of the [new operational statuses]({{< relref "#operational-statuses" >}}). You can set this mode using the existing change virtual node state endpoint: `/api/v1/virtualnode/{virtualNodeShortHash}/state/{newState}`. Possible states are: `maintenance` or `active`.
+
+A virtual node in maintenance mode does not allow starting or running flows. Any activity for existing flows cause the flow to be killed and marked with a flow status of "KILLED". Counterparty flows fail with an error message indicating a peer is in maintenance.
+This state allows virtual node operators to have a static vault with which they can take backups before performing potentially destructive operations like virtual node upgrade with migrations.
+
+Changing a virtual node's state back to active requires that the virtual node has executed all migrations in the currently associated CPI. This prevents a virtual node from becoming operational while migrations are in progress during a virtual node upgrade.
 
 ### Upgrading a CPI
 A new PUT method has been added to the `virtualnode` resource to upgrade a virtual node's CPI: `/api/v1/virtualnode/{virtualNodeShortHash}/cpi/{target-CPI-file-checksum}`.
-Before upgrading, the virtual node must be in maintenance mode with no other operations currently in progress. The target CPI should have the same name, signer summary hash, and MGM group ID as the existing CPI.
+Before upgrading, the virtual node must be in maintenance mode with no other operations currently in progress.
+You can check the list of running flows using `GET /api/v1/flow/{virtualNodeShortHash}`. When the virtual node is in maintenance, and when no flows are running (all flows have either "COMPLETED", "FAILED" or "KILLED" status), it is safe to trigger a virtual node upgrade.
+The target CPI should have the same name, signer summary hash, and MGM group ID as the existing CPI.
 
 ### Corda CLI
 #### Kebab Case
