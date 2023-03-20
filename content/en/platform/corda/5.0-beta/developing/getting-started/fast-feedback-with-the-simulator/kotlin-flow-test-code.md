@@ -7,6 +7,7 @@ menu:
     identifier: corda-5-beta-flow-test-kotlin
     weight: 1000
 section_menu: corda-5-beta
+draft: "true"
 ---
 
 First the test class instantiates `MemberX500Name` for two actors. `MemberX500Name` is the primary way that identities are represented on a Corda [application Network](../../../introduction/key-concepts.html#application-networks). `MemberX500Name` has a static method `parse()` that turns the string representation of a members identity into a `MemberX500Name` object.

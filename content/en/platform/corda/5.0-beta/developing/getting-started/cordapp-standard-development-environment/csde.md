@@ -78,12 +78,6 @@ For Kotlin, write your flow code in `workflows/src/main/kotlin/<your package pat
 For Java, use `workflows/src/main/java/<your package path>` and your contract and states code in `/contracts/src/main/kotlin<your package path>`.
 
 For test code, use the corresponding test folder.
-
-{{< note >}}
-The Simulator has not yet been updated for `UTXOLedgerService` and so the flow tests you can run are currently limited. There is also currently no unit testing framework for contract code.
-As an approximation, the Kotlin template contains `ContractTestFlow`, which, when run as a normal flow from swagger, tests the `utxoexample` contract.
-{{< /note >}}
-
 ### Gradle Helpers for the Combined Worker
 
 On the right, you can see the Gradle tasks that we have included to help you work with a local deployment of Corda using the combined worker:
