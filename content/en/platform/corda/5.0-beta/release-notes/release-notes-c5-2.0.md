@@ -68,6 +68,7 @@ Four fine-grained operational statuses have been added for virtual nodes:
 * `flowP2pOperationalStatus`
 * `flowStartOperationalStatus`
 * `vaultDbOperationalStatus`
+
 These four statuses replace the existing `state` field.
 The `GET virtualnode` method has been updated to return the status of each of the four operational characteristics.
 
