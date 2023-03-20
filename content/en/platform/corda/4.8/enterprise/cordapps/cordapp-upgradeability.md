@@ -27,7 +27,7 @@ receiver flows to use the new APIs and thus opting in to platform version 4. See
 * All constraint types (hash, CZ whitelisted, signature) are consumable within the same transaction if there is an associated contract attachment that satisfies all of them.
 * CorDapp Contract states generated on ledger using hash constraints are not directly migratable to signature constraints in this release.
 Your compatibility zone operator may whitelist a JAR previously used to issue hash constrained states, and then you can follow the manual
-process described in the paragraph below to migrate these to signature constraints. See [CorDapp constraints migration](../../../../../../en/platform/corda/4.8/enterprise/cordapps/cordapp-constraint-migration.md) for more information.
+process described in the paragraph below to migrate these to signature constraints. See [CorDapp constraints migration]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/cordapp-constraint-migration.md" >}}) for more information.
 * CorDapp Contract states generated on ledger using CZ whitelisted constraints are migratable to signature constraints using a manual process
 that requires programmatic code changes. See [CZ whitelisted constraints migration](../../../../../../en/platform/corda/4.8/enterprise/cordapps/cordapp-constraint-migration.html#migrating-cz-whitelisted-constraints) for more information.
 * Explicit Contract Upgrades are only supported for hash and CZ whitelisted constraint types. See [Performing explicit contract and state upgrades](../../../../../../en/platform/corda/4.8/enterprise/cordapps/upgrading-cordapps.html#performing-explicit-contract-and-state-upgrades) for more information.

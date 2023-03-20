@@ -23,7 +23,7 @@ LedgerGraph is a CorDapp you can use to get in-memory access to transaction data
 LedgerGraph enables other CorDapps, such as the set of Collaborative Recovery CorDapps, to have near real-time access to data concerning all of a node’s transactions and their relationships. Without it, many operations would be unacceptably slow and impractical.
 
 {{< warning >}}
-LedgerGraph is a dependency for the set of [Collaborative Recovery](../../../../../../tools/collaborative-recovery/cl-index.md) CorDapps V1.1 and above. If you are using an earlier version of Collaborative Recovery, you should not install the stand-alone LedgerGraph.
+LedgerGraph is a dependency for the set of [Collaborative Recovery]({{< relref "../../../../../../tools/collaborative-recovery/cl-index.md" >}}) CorDapps V1.1 and above. If you are using an earlier version of Collaborative Recovery, you should not install the stand-alone LedgerGraph.
 {{< /warning >}}
 
-Read the full documentation about [LedgerGraph](../../../../../../tools/ledgergraph/ledgergraph-index.md).
+Read the full documentation about [LedgerGraph]({{< relref "../../../../../../tools/ledgergraph/ledgergraph-index.md" >}}).

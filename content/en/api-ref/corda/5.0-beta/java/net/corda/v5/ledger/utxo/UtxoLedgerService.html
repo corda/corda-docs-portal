@@ -248,7 +248,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                         <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract &lt;T extends <a href=ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerService.html#resolve(Iterable)>T</a>&gt;&gt;</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#resolve(Iterable)>resolve</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=StateRef.html>StateRef</a>&gt; stateRefs) </code>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#resolve(Iterable)>resolve</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=StateRef.html>StateRef</a>&gt; stateRefs) </code>
                                             </th>
                                             <td class="colLast">Resolves the specified <a href=StateRef.html>StateRef</a> instances into <a href=StateAndRef.html>StateAndRef</a> instances of the specified <a href=ContractState.html>ContractState</a> type.</td>
                                         </tr>
@@ -256,7 +256,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                         <tr id="i2" class="altColor">
                                             <td class="colFirst"><code>abstract &lt;T extends <a href=ContractState.html>ContractState</a>&gt; <a href=StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerService.html#resolve(StateRef)>T</a>&gt;</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#resolve(StateRef)>resolve</a>(<a href=StateRef.html>StateRef</a> stateRef) </code>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#resolve(StateRef)>resolve</a>(@NotNull() <a href=StateRef.html>StateRef</a> stateRef) </code>
                                             </th>
                                             <td class="colLast">Resolves the specified <a href=StateRef.html>StateRef</a> instance into a <a href=StateAndRef.html>StateAndRef</a> instance of the specified <a href=ContractState.html>ContractState</a> type.</td>
                                         </tr>
@@ -264,23 +264,23 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                         <tr id="i3" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#findSignedTransaction(SecureHash)>findSignedTransaction</a>(<a href=../../crypto/SecureHash.html>SecureHash</a> id) </code>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#findSignedTransaction(SecureHash)>findSignedTransaction</a>(@NotNull() <a href=../../crypto/SecureHash.html>SecureHash</a> id) </code>
                                             </th>
-                                            <td class="colLast">Finds a transaction by id in the vault and returns it</td>
+                                            <td class="colLast">Finds a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> in the vault by the specified transaction ID.</td>
                                         </tr>
                                         
                                         <tr id="i4" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/UtxoLedgerTransaction.html>UtxoLedgerTransaction</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#findLedgerTransaction(SecureHash)>findLedgerTransaction</a>(<a href=../../crypto/SecureHash.html>SecureHash</a> id) </code>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#findLedgerTransaction(SecureHash)>findLedgerTransaction</a>(@NotNull() <a href=../../crypto/SecureHash.html>SecureHash</a> id) </code>
                                             </th>
-                                            <td class="colLast">Finds a transaction by id in the vault, resolves it to a ledger transaction and returns it</td>
+                                            <td class="colLast">Finds a <a href=transaction/UtxoLedgerTransaction.html>UtxoLedgerTransaction</a> in the vault by the specified transaction ID.</td>
                                         </tr>
                                         
                                         <tr id="i5" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/filtered/UtxoFilteredTransactionBuilder.html>UtxoFilteredTransactionBuilder</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#filterSignedTransaction(UtxoSignedTransaction)>filterSignedTransaction</a>(<a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction) </code>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#filterSignedTransaction(UtxoSignedTransaction)>filterSignedTransaction</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> transaction) </code>
                                             </th>
                                             <td class="colLast">Filters a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to create a <a href=transaction/filtered/UtxoFilteredTransaction.html>UtxoFilteredTransaction</a> that only contains the components specified by the <a href=transaction/filtered/UtxoFilteredTransactionBuilder.html>UtxoFilteredTransactionBuilder</a> output from this method.</td>
                                         </tr>
@@ -288,23 +288,23 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                         <tr id="i6" class="altColor">
                                             <td class="colFirst"><code>abstract &lt;T extends <a href=ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerService.html#findUnconsumedStatesByType(Class)>T</a>&gt;&gt;</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#findUnconsumedStatesByType(Class)>findUnconsumedStatesByType</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=UtxoLedgerService.html#findUnconsumedStatesByType(Class)>T</a>&gt; stateClass) </code>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#findUnconsumedStatesByType(Class)>findUnconsumedStatesByType</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerService.html#findUnconsumedStatesByType(Class)>T</a>&gt; type) </code>
                                             </th>
-                                            <td class="colLast">Finds unconsumed states of specific type in the vault</td>
+                                            <td class="colLast">Finds unconsumed states of the specified <a href=ContractState.html>ContractState</a> type in the vault.</td>
                                         </tr>
                                         
                                         <tr id="i7" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#finalize(UtxoSignedTransaction,List)>finalize</a>(<a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions) </code>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#finalize(UtxoSignedTransaction,List)>finalize</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> transaction, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions) </code>
                                             </th>
-                                            <td class="colLast">Verifies, signs, collects signatures, records and broadcasts a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to involved peers.</td>
+                                            <td class="colLast">Verifies, signs, collects signatures, records and broadcasts a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to participants and observers.</td>
                                         </tr>
                                         
                                         <tr id="i8" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#receiveFinality(FlowSession,UtxoTransactionValidator)>receiveFinality</a>(<a href=../../application/messaging/FlowSession.html>FlowSession</a> session, <a href=transaction/UtxoTransactionValidator.html>UtxoTransactionValidator</a> validator) </code>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerService.html#receiveFinality(FlowSession,UtxoTransactionValidator)>receiveFinality</a>(@NotNull() <a href=../../application/messaging/FlowSession.html>FlowSession</a> session, @NotNull() <a href=transaction/UtxoTransactionValidator.html>UtxoTransactionValidator</a> validator) </code>
                                             </th>
                                             <td class="colLast">Verifies, signs and records a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a>.</td>
                                         </tr>
@@ -361,7 +361,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                           >
                                     <li class="blockList">
                                         <h4>getTransactionBuilder</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/UtxoTransactionBuilder.html>UtxoTransactionBuilder</a> <a href=UtxoLedgerService.html#getTransactionBuilder()>getTransactionBuilder</a>()</pre>
+                                        <pre class="methodSignature">@NotNull()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/UtxoTransactionBuilder.html>UtxoTransactionBuilder</a> <a href=UtxoLedgerService.html#getTransactionBuilder()>getTransactionBuilder</a>()</pre>
                                         <div class="block"><p>Gets a UTXO transaction builder</p></div>
                                         
                                         <!-- TODO missing return annotation -->
@@ -376,7 +376,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                           >
                                     <li class="blockList">
                                         <h4>resolve</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract &lt;T extends <a href=ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerService.html#resolve(Iterable)>T</a>&gt;&gt; <a href=UtxoLedgerService.html#resolve(Iterable)>resolve</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=StateRef.html>StateRef</a>&gt; stateRefs)</pre>
+                                        <pre class="methodSignature">@NotNull()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract &lt;T extends <a href=ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerService.html#resolve(Iterable)>T</a>&gt;&gt; <a href=UtxoLedgerService.html#resolve(Iterable)>resolve</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=StateRef.html>StateRef</a>&gt; stateRefs)</pre>
                                         <div class="block"><p>Resolves the specified <a href=StateRef.html>StateRef</a> instances into <a href=StateAndRef.html>StateAndRef</a> instances of the specified <a href=ContractState.html>ContractState</a> type.</p></div>
                                         
                                         <dl>
@@ -400,7 +400,7 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                           >
                                     <li class="blockList">
                                         <h4>resolve</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract &lt;T extends <a href=ContractState.html>ContractState</a>&gt; <a href=StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerService.html#resolve(StateRef)>T</a>&gt; <a href=UtxoLedgerService.html#resolve(StateRef)>resolve</a>(<a href=StateRef.html>StateRef</a> stateRef)</pre>
+                                        <pre class="methodSignature">@NotNull()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract &lt;T extends <a href=ContractState.html>ContractState</a>&gt; <a href=StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerService.html#resolve(StateRef)>T</a>&gt; <a href=UtxoLedgerService.html#resolve(StateRef)>resolve</a>(@NotNull() <a href=StateRef.html>StateRef</a> stateRef)</pre>
                                         <div class="block"><p>Resolves the specified <a href=StateRef.html>StateRef</a> instance into a <a href=StateAndRef.html>StateAndRef</a> instance of the specified <a href=ContractState.html>ContractState</a> type.</p></div>
                                         
                                         <dl>
@@ -424,14 +424,14 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                           >
                                     <li class="blockList">
                                         <h4>findSignedTransaction</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> <a href=UtxoLedgerService.html#findSignedTransaction(SecureHash)>findSignedTransaction</a>(<a href=../../crypto/SecureHash.html>SecureHash</a> id)</pre>
-                                        <div class="block"><p>Finds a transaction by id in the vault and returns it</p></div>
+                                        <pre class="methodSignature">@Nullable()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> <a href=UtxoLedgerService.html#findSignedTransaction(SecureHash)>findSignedTransaction</a>(@NotNull() <a href=../../crypto/SecureHash.html>SecureHash</a> id)</pre>
+                                        <div class="block"><p>Finds a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> in the vault by the specified transaction ID.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>id</code> - The id of the transaction to find</dd>
+                                            <dd><code>id</code> - The ID of the <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to find.</dd>
                                             
                                             
                                         </dl>
@@ -448,14 +448,14 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                           >
                                     <li class="blockList">
                                         <h4>findLedgerTransaction</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/UtxoLedgerTransaction.html>UtxoLedgerTransaction</a> <a href=UtxoLedgerService.html#findLedgerTransaction(SecureHash)>findLedgerTransaction</a>(<a href=../../crypto/SecureHash.html>SecureHash</a> id)</pre>
-                                        <div class="block"><p>Finds a transaction by id in the vault, resolves it to a ledger transaction and returns it</p></div>
+                                        <pre class="methodSignature">@Nullable()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/UtxoLedgerTransaction.html>UtxoLedgerTransaction</a> <a href=UtxoLedgerService.html#findLedgerTransaction(SecureHash)>findLedgerTransaction</a>(@NotNull() <a href=../../crypto/SecureHash.html>SecureHash</a> id)</pre>
+                                        <div class="block"><p>Finds a <a href=transaction/UtxoLedgerTransaction.html>UtxoLedgerTransaction</a> in the vault by the specified transaction ID.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>id</code> - The id of the transaction to find</dd>
+                                            <dd><code>id</code> - The ID of the <a href=transaction/UtxoLedgerTransaction.html>UtxoLedgerTransaction</a> to find.</dd>
                                             
                                             
                                         </dl>
@@ -472,14 +472,14 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                           >
                                     <li class="blockList">
                                         <h4>filterSignedTransaction</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/filtered/UtxoFilteredTransactionBuilder.html>UtxoFilteredTransactionBuilder</a> <a href=UtxoLedgerService.html#filterSignedTransaction(UtxoSignedTransaction)>filterSignedTransaction</a>(<a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction)</pre>
+                                        <pre class="methodSignature">@NotNull()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/filtered/UtxoFilteredTransactionBuilder.html>UtxoFilteredTransactionBuilder</a> <a href=UtxoLedgerService.html#filterSignedTransaction(UtxoSignedTransaction)>filterSignedTransaction</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> transaction)</pre>
                                         <div class="block"><p>Filters a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to create a <a href=transaction/filtered/UtxoFilteredTransaction.html>UtxoFilteredTransaction</a> that only contains the components specified by the <a href=transaction/filtered/UtxoFilteredTransactionBuilder.html>UtxoFilteredTransactionBuilder</a> output from this method.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>signedTransaction</code> - The <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to filter.</dd>
+                                            <dd><code>transaction</code> - The <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to filter.</dd>
                                             
                                             
                                         </dl>
@@ -496,14 +496,14 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                           >
                                     <li class="blockList">
                                         <h4>findUnconsumedStatesByType</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract &lt;T extends <a href=ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerService.html#findUnconsumedStatesByType(Class)>T</a>&gt;&gt; <a href=UtxoLedgerService.html#findUnconsumedStatesByType(Class)>findUnconsumedStatesByType</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;out <a href=UtxoLedgerService.html#findUnconsumedStatesByType(Class)>T</a>&gt; stateClass)</pre>
-                                        <div class="block"><p>Finds unconsumed states of specific type in the vault</p></div>
+                                        <pre class="methodSignature">@NotNull()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract &lt;T extends <a href=ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerService.html#findUnconsumedStatesByType(Class)>T</a>&gt;&gt; <a href=UtxoLedgerService.html#findUnconsumedStatesByType(Class)>findUnconsumedStatesByType</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerService.html#findUnconsumedStatesByType(Class)>T</a>&gt; type)</pre>
+                                        <div class="block"><p>Finds unconsumed states of the specified <a href=ContractState.html>ContractState</a> type in the vault.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>stateClass</code> - State type</dd>
+                                            <dd><code>type</code> - The <a href=ContractState.html>ContractState</a> type to find in the vault.</dd>
                                             
                                             
                                         </dl>
@@ -520,18 +520,18 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                           >
                                     <li class="blockList">
                                         <h4>finalize</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> <a href=UtxoLedgerService.html#finalize(UtxoSignedTransaction,List)>finalize</a>(<a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> signedTransaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions)</pre>
-                                        <div class="block"><p>Verifies, signs, collects signatures, records and broadcasts a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to involved peers.</p></div>
+                                        <pre class="methodSignature">@NotNull()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> <a href=UtxoLedgerService.html#finalize(UtxoSignedTransaction,List)>finalize</a>(@NotNull() <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> transaction, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions)</pre>
+                                        <div class="block"><p>Verifies, signs, collects signatures, records and broadcasts a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to participants and observers.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>signedTransaction</code> - The <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to verify, finalise and recorded locally and with peer <a href=UtxoLedgerService.html#finalize(UtxoSignedTransaction,List)>sessions</a>.</dd>
+                                            <dd><code>transaction</code> - The <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> to verify, finalize and record.</dd>
                                             
                                             
                                             
-                                            <dd><code>sessions</code> - The <a href=../../application/messaging/FlowSession.html>FlowSession</a>s of the peers involved in the transaction.</dd>
+                                            <dd><code>sessions</code> - The <a href=../../application/messaging/FlowSession.html>FlowSession</a> instances of the participants or observers of the transaction.</dd>
                                             
                                             
                                         </dl>
@@ -548,14 +548,14 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerService.html>Utxo
                                           >
                                     <li class="blockList">
                                         <h4>receiveFinality</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> <a href=UtxoLedgerService.html#receiveFinality(FlowSession,UtxoTransactionValidator)>receiveFinality</a>(<a href=../../application/messaging/FlowSession.html>FlowSession</a> session, <a href=transaction/UtxoTransactionValidator.html>UtxoTransactionValidator</a> validator)</pre>
-                                        <div class="block"><p>Verifies, signs and records a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a>.</p><p><a href=UtxoLedgerService.html#receiveFinality(FlowSession,UtxoTransactionValidator)>receiveFinality</a> should be called in response to <a href=UtxoLedgerService.html#finalize(UtxoSignedTransaction,List)>finalize</a>.</p></div>
+                                        <pre class="methodSignature">@NotNull()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> <a href=UtxoLedgerService.html#receiveFinality(FlowSession,UtxoTransactionValidator)>receiveFinality</a>(@NotNull() <a href=../../application/messaging/FlowSession.html>FlowSession</a> session, @NotNull() <a href=transaction/UtxoTransactionValidator.html>UtxoTransactionValidator</a> validator)</pre>
+                                        <div class="block"><p>Verifies, signs and records a <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a>. </p><p> This method should be called in response to <a href=UtxoLedgerService.html#finalize(UtxoSignedTransaction,List)>finalize</a>.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>session</code> - The <a href=../../application/messaging/FlowSession.html>FlowSession</a> to receive the <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a> from.</dd>
+                                            <dd><code>session</code> - The <a href=../../application/messaging/FlowSession.html>FlowSession</a> of the counter-party finalizing the <a href=transaction/UtxoSignedTransaction.html>UtxoSignedTransaction</a>.</dd>
                                             
                                             
                                             

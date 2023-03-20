@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../../../";
 public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedToken</a></span>
 
                     </pre>
-                    <div class="block"><p><a href=ClaimedToken.html>ClaimedToken</a> represents a claimed token from the <a href=TokenSelection.html>TokenSelection</a>.</p></div>
+                    <div class="block"><p>Defines a claimed token from a <a href=TokenSelection.html>TokenSelection</a>.</p></div>
                 </li>
             </ul>
         </div>
@@ -242,7 +242,7 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ClaimedToken.html#getStateRef()>getStateRef</a>() </code>
                                             </th>
-                                            <td class="colLast">Unique identifier of the token.</td>
+                                            <td class="colLast">Gets the state ref of the token.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
@@ -250,7 +250,7 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ClaimedToken.html#getTokenType()>getTokenType</a>() </code>
                                             </th>
-                                            <td class="colLast">The type of token.</td>
+                                            <td class="colLast">Gets the type of the token.</td>
                                         </tr>
                                         
                                         <tr id="i2" class="altColor">
@@ -258,7 +258,7 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ClaimedToken.html#getIssuerHash()>getIssuerHash</a>() </code>
                                             </th>
-                                            <td class="colLast">The <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the issuer of the token.</td>
+                                            <td class="colLast">Gets the issuer of the token.</td>
                                         </tr>
                                         
                                         <tr id="i3" class="rowColor">
@@ -266,7 +266,7 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ClaimedToken.html#getNotaryX500Name()>getNotaryX500Name</a>() </code>
                                             </th>
-                                            <td class="colLast">The <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> of the notary for the token.</td>
+                                            <td class="colLast">Gets the notary for the token.</td>
                                         </tr>
                                         
                                         <tr id="i4" class="altColor">
@@ -274,7 +274,7 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ClaimedToken.html#getSymbol()>getSymbol</a>() </code>
                                             </th>
-                                            <td class="colLast">The symbol for the token.</td>
+                                            <td class="colLast">gets the symbol for the token.</td>
                                         </tr>
                                         
                                         <tr id="i5" class="rowColor">
@@ -282,39 +282,23 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ClaimedToken.html#getTag()>getTag</a>() </code>
                                             </th>
-                                            <td class="colLast">The user defined tag for the token.</td>
+                                            <td class="colLast">Gets the user-defined tag for the token.</td>
                                         </tr>
                                         
                                         <tr id="i6" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=ClaimedToken.html#setTag(String)>setTag</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> tag) </code>
-                                            </th>
-                                            <td class="colLast">The user defined tag for the token.</td>
-                                        </tr>
-                                        
-                                        <tr id="i7" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=../../../../crypto/SecureHash.html>SecureHash</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ClaimedToken.html#getOwnerHash()>getOwnerHash</a>() </code>
                                             </th>
-                                            <td class="colLast">The <a href=../../../../crypto/SecureHash.html>SecureHash</a> for the owner of the token.</td>
+                                            <td class="colLast">Gets the owner of the token.</td>
                                         </tr>
                                         
-                                        <tr id="i8" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=ClaimedToken.html#setOwnerHash(SecureHash)>setOwnerHash</a>(<a href=../../../../crypto/SecureHash.html>SecureHash</a> ownerHash) </code>
-                                            </th>
-                                            <td class="colLast">The <a href=../../../../crypto/SecureHash.html>SecureHash</a> for the owner of the token.</td>
-                                        </tr>
-                                        
-                                        <tr id="i9" class="rowColor">
+                                        <tr id="i7" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ClaimedToken.html#getAmount()>getAmount</a>() </code>
                                             </th>
-                                            <td class="colLast">The amount of the token.</td>
+                                            <td class="colLast">Gets the amount of the token.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -369,8 +353,8 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                           >
                                     <li class="blockList">
                                         <h4>getStateRef</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../StateRef.html>StateRef</a> <a href=ClaimedToken.html#getStateRef()>getStateRef</a>()</pre>
-                                        <div class="block"><p>Unique identifier of the token.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../StateRef.html>StateRef</a> <a href=ClaimedToken.html#getStateRef()>getStateRef</a>()</pre>
+                                        <div class="block"><p>Gets the state ref of the token.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -384,8 +368,8 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                           >
                                     <li class="blockList">
                                         <h4>getTokenType</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ClaimedToken.html#getTokenType()>getTokenType</a>()</pre>
-                                        <div class="block"><p>The type of token.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ClaimedToken.html#getTokenType()>getTokenType</a>()</pre>
+                                        <div class="block"><p>Gets the type of the token.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -399,8 +383,8 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                           >
                                     <li class="blockList">
                                         <h4>getIssuerHash</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../../../crypto/SecureHash.html>SecureHash</a> <a href=ClaimedToken.html#getIssuerHash()>getIssuerHash</a>()</pre>
-                                        <div class="block"><p>The <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the issuer of the token.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../../../crypto/SecureHash.html>SecureHash</a> <a href=ClaimedToken.html#getIssuerHash()>getIssuerHash</a>()</pre>
+                                        <div class="block"><p>Gets the issuer of the token.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -414,8 +398,8 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                           >
                                     <li class="blockList">
                                         <h4>getNotaryX500Name</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> <a href=ClaimedToken.html#getNotaryX500Name()>getNotaryX500Name</a>()</pre>
-                                        <div class="block"><p>The <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> of the notary for the token.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> <a href=ClaimedToken.html#getNotaryX500Name()>getNotaryX500Name</a>()</pre>
+                                        <div class="block"><p>Gets the notary for the token.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -429,8 +413,8 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                           >
                                     <li class="blockList">
                                         <h4>getSymbol</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ClaimedToken.html#getSymbol()>getSymbol</a>()</pre>
-                                        <div class="block"><p>The symbol for the token.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ClaimedToken.html#getSymbol()>getSymbol</a>()</pre>
+                                        <div class="block"><p>gets the symbol for the token.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -444,23 +428,8 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                           >
                                     <li class="blockList">
                                         <h4>getTag</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ClaimedToken.html#getTag()>getTag</a>()</pre>
-                                        <div class="block"><p>The user defined tag for the token.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="setTag(String)">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>setTag</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=ClaimedToken.html#setTag(String)>setTag</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> tag)</pre>
-                                        <div class="block"><p>The user defined tag for the token.</p></div>
+                                        <pre class="methodSignature">@Nullable() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ClaimedToken.html#getTag()>getTag</a>()</pre>
+                                        <div class="block"><p>Gets the user-defined tag for the token.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -474,23 +443,8 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                           >
                                     <li class="blockList">
                                         <h4>getOwnerHash</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../../../crypto/SecureHash.html>SecureHash</a> <a href=ClaimedToken.html#getOwnerHash()>getOwnerHash</a>()</pre>
-                                        <div class="block"><p>The <a href=../../../../crypto/SecureHash.html>SecureHash</a> for the owner of the token.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="setOwnerHash(SecureHash)">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>setOwnerHash</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=ClaimedToken.html#setOwnerHash(SecureHash)>setOwnerHash</a>(<a href=../../../../crypto/SecureHash.html>SecureHash</a> ownerHash)</pre>
-                                        <div class="block"><p>The <a href=../../../../crypto/SecureHash.html>SecureHash</a> for the owner of the token.</p></div>
+                                        <pre class="methodSignature">@Nullable() abstract <a href=../../../../crypto/SecureHash.html>SecureHash</a> <a href=ClaimedToken.html#getOwnerHash()>getOwnerHash</a>()</pre>
+                                        <div class="block"><p>Gets the owner of the token.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -504,8 +458,8 @@ public interface <span class="typeNameLabel"><a href=ClaimedToken.html>ClaimedTo
                                           >
                                     <li class="blockList">
                                         <h4>getAmount</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a> <a href=ClaimedToken.html#getAmount()>getAmount</a>()</pre>
-                                        <div class="block"><p>The amount of the token.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a> <a href=ClaimedToken.html#getAmount()>getAmount</a>()</pre>
+                                        <div class="block"><p>Gets the amount of the token.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

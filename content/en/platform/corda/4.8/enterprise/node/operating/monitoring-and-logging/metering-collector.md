@@ -12,7 +12,7 @@ title: Metering collection tool
 weight: 400
 ---
 
-All Corda Enterprise nodes record metering data, the metering collection tool is used to collect data from the node. Node metering data can also be collected using the [metering client](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/metering-rpc.md).
+All Corda Enterprise nodes record metering data, the metering collection tool is used to collect data from the node. Node metering data can also be collected using the [metering client]({{< relref "../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/monitoring-and-logging/metering-rpc.md" >}}).
 
 The metering collection tool provides a mechanism for collecting metering data from nodes and notaries running Corda Enterprise. The metering collection tool is a CorDapp that includes a number of flows which return data from the node.
 
@@ -95,7 +95,7 @@ Use the `MeteringCollectionFlow` to collect metering data from a node. You must 
 
 The flow returns the total count of metering events that match the filters within the time window, and a breakdown of these events based on the commands involved and the signing entities based on the information held by the current node.
 
-You invoke this flow from the [shell](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/shell.md). The flow takes the following arguments:
+You invoke this flow from the [shell]({{< relref "../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/shell.md" >}}). The flow takes the following arguments:
 
 - A time window over which the flow runs. This is a mandatory argument. The accepted time window formats are either a start date and an end date (both of type `Instant`), or a start date and a duration (see the [Usage](#usage) section below). Note that the minimum time unit you can use is an hour, so the flow is unable to collect metering data over durations shorter than an hour.
 - A filter to select which CorDapps to collect data for. To specify a filter, provide a `MeteringFilter` object, which consists of `filterBy` criteria and a list of strings that describe
@@ -618,8 +618,8 @@ val corDappData =
 
 There are two mechanisms you can use to collect metering data from multiple nodes on the network - by connecting to the node via:
 
-* the [Corda RPC API](../../../../../../../../en/platform/corda/4.8/enterprise/api-rpc.md)
-* the [node shell](../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/shell.md)
+* the [Corda RPC API]({{< relref "../../../../../../../../en/platform/corda/4.8/enterprise/api-rpc.md" >}})
+* the [node shell]({{< relref "../../../../../../../../en/platform/corda/4.8/enterprise/node/operating/shell.md" >}})
 
 ### Collect data using the RPC API
 

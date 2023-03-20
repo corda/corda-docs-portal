@@ -81,8 +81,7 @@ Corda Enterprise Edition 4.7には2種類の新しい管理コンソールが搭
 どちらのコンソールも、CENM [Gatewayサービス](node/gateway-service.md)の一部として動作します。
 
 ### 証明書ローテーション
-
-Corda Enterprise Edition 4.7では、ノード鍵（Legal Identity）とその証明書をローテーションする機能を導入しています。これによって、[Corda Enterprise Network Manager](../../1.5/cenm.md)のNetwork Map上において、新しい証明書を使ってNode（Notary Nodeを含む）を再登録できるようになります。本機能の詳細については、[R3サポート](https://www.r3.com/support/)までお問い合わせください。
+Corda Enterprise Edition 4.7では、ノード鍵（Legal Identity）とその証明書をローテーションする機能を導入しています。これによって、[Corda Enterprise Network Manager]({{< relref "../../1.5/cenm/_index.md" >}})のNetwork Map上において、新しい証明書を使ってNode（Notary Nodeを含む）を再登録できるようになります。本機能の詳細については、[R3サポート](https://www.r3.com/support/)までお問い合わせください。
 
 ### その他の変更と改善
 

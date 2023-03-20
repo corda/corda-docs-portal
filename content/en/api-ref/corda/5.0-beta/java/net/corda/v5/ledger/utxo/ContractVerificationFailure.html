@@ -242,7 +242,7 @@ public interface <span class="typeNameLabel"><a href=ContractVerificationFailure
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ContractVerificationFailure.html#getContractClassName()>getContractClassName</a>() </code>
                                             </th>
-                                            <td class="colLast">The class name of the <a href=Contract.html>Contract</a> that caused verification failure.</td>
+                                            <td class="colLast">Gets the class name of the <a href=Contract.html>Contract</a> that caused verification failure.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
@@ -250,7 +250,7 @@ public interface <span class="typeNameLabel"><a href=ContractVerificationFailure
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ContractVerificationFailure.html#getContractStateClassNames()>getContractStateClassNames</a>() </code>
                                             </th>
-                                            <td class="colLast">The class names of the contract states that import the <a href=Contract.html>Contract</a> that caused verification failure.</td>
+                                            <td class="colLast">Gets the class names of the contract states that import the <a href=Contract.html>Contract</a> that caused verification failure.</td>
                                         </tr>
                                         
                                         <tr id="i2" class="altColor">
@@ -258,7 +258,7 @@ public interface <span class="typeNameLabel"><a href=ContractVerificationFailure
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ContractVerificationFailure.html#getExceptionClassName()>getExceptionClassName</a>() </code>
                                             </th>
-                                            <td class="colLast">The class name of the <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html>Exception</a> that caused verification failure.</td>
+                                            <td class="colLast">Gets the class name of the <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html>Exception</a> that caused verification failure.</td>
                                         </tr>
                                         
                                         <tr id="i3" class="rowColor">
@@ -266,7 +266,7 @@ public interface <span class="typeNameLabel"><a href=ContractVerificationFailure
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ContractVerificationFailure.html#getExceptionMessage()>getExceptionMessage</a>() </code>
                                             </th>
-                                            <td class="colLast">The details of the <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html>Exception</a> that caused verification failure.</td>
+                                            <td class="colLast">Gets the details of the <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html>Exception</a> that caused verification failure.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -321,8 +321,8 @@ public interface <span class="typeNameLabel"><a href=ContractVerificationFailure
                                           >
                                     <li class="blockList">
                                         <h4>getContractClassName</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ContractVerificationFailure.html#getContractClassName()>getContractClassName</a>()</pre>
-                                        <div class="block"><p>The class name of the <a href=Contract.html>Contract</a> that caused verification failure.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ContractVerificationFailure.html#getContractClassName()>getContractClassName</a>()</pre>
+                                        <div class="block"><p>Gets the class name of the <a href=Contract.html>Contract</a> that caused verification failure.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -336,8 +336,8 @@ public interface <span class="typeNameLabel"><a href=ContractVerificationFailure
                                           >
                                     <li class="blockList">
                                         <h4>getContractStateClassNames</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; <a href=ContractVerificationFailure.html#getContractStateClassNames()>getContractStateClassNames</a>()</pre>
-                                        <div class="block"><p>The class names of the contract states that import the <a href=Contract.html>Contract</a> that caused verification failure.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; <a href=ContractVerificationFailure.html#getContractStateClassNames()>getContractStateClassNames</a>()</pre>
+                                        <div class="block"><p>Gets the class names of the contract states that import the <a href=Contract.html>Contract</a> that caused verification failure.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -351,8 +351,8 @@ public interface <span class="typeNameLabel"><a href=ContractVerificationFailure
                                           >
                                     <li class="blockList">
                                         <h4>getExceptionClassName</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ContractVerificationFailure.html#getExceptionClassName()>getExceptionClassName</a>()</pre>
-                                        <div class="block"><p>The class name of the <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html>Exception</a> that caused verification failure.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ContractVerificationFailure.html#getExceptionClassName()>getExceptionClassName</a>()</pre>
+                                        <div class="block"><p>Gets the class name of the <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html>Exception</a> that caused verification failure.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -366,8 +366,8 @@ public interface <span class="typeNameLabel"><a href=ContractVerificationFailure
                                           >
                                     <li class="blockList">
                                         <h4>getExceptionMessage</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ContractVerificationFailure.html#getExceptionMessage()>getExceptionMessage</a>()</pre>
-                                        <div class="block"><p>The details of the <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html>Exception</a> that caused verification failure.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=ContractVerificationFailure.html#getExceptionMessage()>getExceptionMessage</a>()</pre>
+                                        <div class="block"><p>Gets the details of the <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html>Exception</a> that caused verification failure.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

@@ -117,30 +117,32 @@ var pathtoroot = "../../../../../";
 public interface <span class="typeNameLabel"><a href=DigestAlgorithm.html>DigestAlgorithm</a></span>
 
                     </pre>
-                    <div class="block"><p>Digest extensions: Interface defining a custom digest calculation implementation. The interface should be implemented if a CPK developer wishes to provide support for digest algorithms beyond those supported by the Corda platform. The implementation of the interface must be coupled with the implementation of the <a href=DigestAlgorithmFactory.html>DigestAlgorithmFactory</a> which will be used to create the instances. For each algorithm there must be matching a pair of <a href=DigestAlgorithmFactory.html>DigestAlgorithmFactory</a> and <a href=DigestAlgorithm.html>DigestAlgorithm</a> implementations.</p><p>Example of the algorithm and the factory implementations:</p><pre><code>class TripleSha256Digest : DigestAlgorithm {
- companion object {
-     const val ALGORITHM = &quot;SHA-256-TRIPLE&quot;
-     const val STREAM_BUFFER_SIZE = DEFAULT_BUFFER_SIZE
- }
- override val algorithm = ALGORITHM
- override val digestLength = 32
- override fun digest(bytes: ByteArray): ByteArray = bytes.sha256Bytes().sha256Bytes().sha256Bytes()
- override fun digest(inputStream: InputStream): ByteArray {
-     val messageDigest = MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.name)
-     val buffer = ByteArray(STREAM_BUFFER_SIZE)
-     while (true) {
-         val read = inputStream.read(buffer)
-         if (read &lt;= 0) break
-         messageDigest.update(buffer, 0, read)
-     }
-     return messageDigest.digest().sha256Bytes().sha256Bytes()
- }
+                    <div class="block"><p>Digest extensions: Interface defining a custom digest calculation implementation. The interface should be implemented if a CPK developer wishes to provide support for digest algorithms beyond those supported by the Corda platform. The implementation of the interface must be coupled with the implementation of the <a href=DigestAlgorithmFactory.html>DigestAlgorithmFactory</a> which will be used to create the instances. For each algorithm there must be matching a pair of <a href=DigestAlgorithmFactory.html>DigestAlgorithmFactory</a> and <a href=DigestAlgorithm.html>DigestAlgorithm</a> implementations. Example of the algorithm and the factory implementations: </p><pre><code>
+public class TripleSha256Digest implements DigestAlgorithm {
+  companion object {
+    const val ALGORITHM = &quot;SHA-256-TRIPLE&quot;
+    const val STREAM_BUFFER_SIZE = DEFAULT_BUFFER_SIZE
+  }
+  override val algorithm = ALGORITHM
+  override val digestLength = 32
+  override fun digest(bytes: ByteArray): ByteArray = bytes.sha256Bytes().sha256Bytes().sha256Bytes()
+  override fun digest(inputStream: InputStream): ByteArray {
+    val messageDigest = MessageDigest.getInstance(DigestAlgorithmName.SHA2_256.name)
+    val buffer = ByteArray(STREAM_BUFFER_SIZE)
+    while (true) {
+      val read = inputStream.read(buffer)
+      if (read &lt;= 0) break
+      messageDigest.update(buffer, 0, read)
+    }
+    return messageDigest.digest().sha256Bytes().sha256Bytes().sha256Bytes()
+  }
 }
 
 class TripleSha256 : DigestAlgorithmFactory {
- override val algorithm: String = TripleSha256Digest.ALGORITHM
- override fun getInstance(): DigestAlgorithm = TripleSha256Digest()
-}</code></pre></div>
+  override val algorithm: String = TripleSha256Digest.ALGORITHM
+  override fun getInstance(): DigestAlgorithm = TripleSha256Digest()
+}
+</code></pre>&gt; ```</div>
                 </li>
             </ul>
         </div>
@@ -261,35 +263,35 @@ class TripleSha256 : DigestAlgorithmFactory {
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=DigestAlgorithm.html#digest(ByteArray)>digest</a>(<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a> bytes) </code>
-                                            </th>
-                                            <td class="colLast">Computes the digest of the <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a>.</td>
-                                        </tr>
-                                        
-                                        <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=DigestAlgorithm.html#digest(InputStream)>digest</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> inputStream) </code>
-                                            </th>
-                                            <td class="colLast">Computes the digest of the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> bytes.</td>
-                                        </tr>
-                                        
-                                        <tr id="i2" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=DigestAlgorithm.html#getAlgorithm()>getAlgorithm</a>() </code>
                                             </th>
-                                            <td class="colLast">Algorithm identifier, e.g.</td>
+                                            <td class="colLast">Get the algorithm identifier, e.g.</td>
                                         </tr>
                                         
-                                        <tr id="i3" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code>
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>abstract int</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=DigestAlgorithm.html#getDigestLength()>getDigestLength</a>() </code>
                                             </th>
                                             <td class="colLast">The length of the digest in bytes.</td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=DigestAlgorithm.html#digest(Array)>digest</a>(@NotNull() <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt; bytes) </code>
+                                            </th>
+                                            <td class="colLast">Computes the digest of the byte array.</td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=DigestAlgorithm.html#digest(InputStream)>digest</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> inputStream) </code>
+                                            </th>
+                                            <td class="colLast">Computes the digest of the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> bytes.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -336,7 +338,37 @@ class TripleSha256 : DigestAlgorithmFactory {
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="digest(ByteArray)">
+                                <a id="getAlgorithm()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getAlgorithm</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=DigestAlgorithm.html#getAlgorithm()>getAlgorithm</a>()</pre>
+                                        <div class="block"><p>Get the algorithm identifier, e.g. 'QUAD-SHA-256', the unique name (per Corda Platform and given CPK) of the digest algorithm. The name must match the names used by the corresponding [DigestAlgorithmFactory].</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getDigestLength()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getDigestLength</h4>
+                                        <pre class="methodSignature"> abstract int <a href=DigestAlgorithm.html#getDigestLength()>getDigestLength</a>()</pre>
+                                        <div class="block"><p>The length of the digest in bytes.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="digest(Array)">
                                     <!--   -->
                                 </a>
                                 <ul class=
@@ -344,14 +376,14 @@ class TripleSha256 : DigestAlgorithmFactory {
                                           >
                                     <li class="blockList">
                                         <h4>digest</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a> <a href=DigestAlgorithm.html#digest(ByteArray)>digest</a>(<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a> bytes)</pre>
-                                        <div class="block"><p>Computes the digest of the <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a>. The computation must be stateless and thread safe.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt; <a href=DigestAlgorithm.html#digest(Array)>digest</a>(@NotNull() <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt; bytes)</pre>
+                                        <div class="block"><p>Computes the digest of the byte array. The computation must be stateless and thread safe.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>bytes</code> - The <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a> to hash.</dd>
+                                            <dd><code>bytes</code> - the byte array to hash.</dd>
                                             
                                             
                                         </dl>
@@ -364,51 +396,21 @@ class TripleSha256 : DigestAlgorithmFactory {
                                     <!--   -->
                                 </a>
                                 <ul class=
-                                              "blockList"
+                                              "blockListLast"
                                           >
                                     <li class="blockList">
                                         <h4>digest</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a> <a href=DigestAlgorithm.html#digest(InputStream)>digest</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> inputStream)</pre>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt; <a href=DigestAlgorithm.html#digest(InputStream)>digest</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> inputStream)</pre>
                                         <div class="block"><p>Computes the digest of the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> bytes. The computation must be stateless and thread safe.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>inputStream</code> - The <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> to hash.</dd>
+                                            <dd><code>inputStream</code> - The [InputStream] to hash.</dd>
                                             
                                             
                                         </dl>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getAlgorithm()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getAlgorithm</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=DigestAlgorithm.html#getAlgorithm()>getAlgorithm</a>()</pre>
-                                        <div class="block"><p>Algorithm identifier, e.g. 'QUAD-SHA-256', the unique name (per Corda Platform and given CPK) of the digest algorithm. The name must match the names used by the corresponding <a href=DigestAlgorithmFactory.html>DigestAlgorithmFactory</a>.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getDigestLength()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockListLast"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getDigestLength</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> <a href=DigestAlgorithm.html#getDigestLength()>getDigestLength</a>()</pre>
-                                        <div class="block"><p>The length of the digest in bytes.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

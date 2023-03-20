@@ -19,7 +19,7 @@ weight: 1
 The available configuration fields are listed below. `baseDirectory` is available as a substitution value and contains the absolute path to the firewall’s base directory.
 
 ## healthCheck
-An optional configuration field that specifies whether the firewall can process requests sent by the [Health Survey Tool](../health-survey.md). The default is `true`.
+An optional configuration field that specifies whether the firewall can process requests sent by the [Health Survey Tool]({{< relref "../health-survey.md" >}}). The default is `true`.
 
 ## certificatesDirectory
 An optional configuration field that specifies directory from which SSL keys and truststore keys will be loaded. The default is `baseDirectory/certificates`.

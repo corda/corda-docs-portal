@@ -159,7 +159,7 @@ then determine the logging module name from the console output.
 
 ## SSH access
 
-Node can be configured to run SSH server. See [Node shell](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.md) for details.
+Node can be configured to run SSH server. See [Node shell]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/operating/shell.md" >}}) for details.
 
 
 ## Database access
@@ -214,7 +214,7 @@ In order to ensure that a Jolokia agent is instrumented with the JVM run-time, y
 The following JMX statistics are exported:
 
 
-* Corda specific metrics: see [Node metrics](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/monitoring-and-logging/node-metrics.md) for a list.
+* Corda specific metrics: see [Node metrics]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/operating/monitoring-and-logging/node-metrics.md" >}}) for a list.
 * Apache Artemis metrics: queue information for P2P and RPC services.
 * JVM statistics: classloading, garbage collection, memory, runtime, threading, operating system.
 
@@ -238,7 +238,7 @@ When running in dev mode, Hibernate statistics are also available via the Joloki
 due to expensive run-time costs. They can be turned on and off explicitly regardless of dev mode via the
 `exportHibernateJMXStatistics` flag on the [database configuration](../../../../../../../en/platform/corda/4.9/enterprise/node/setup/corda-configuration-fields.html#database).
 
-When starting Corda nodes using Cordformation runner (see [Running a node](../deploy/running-a-node.md)), you should see a startup message similar to the following:
+When starting Corda nodes using Cordformation runner (see [Running a node]({{< relref "../deploy/running-a-node.md" >}})), you should see a startup message similar to the following:
 **Jolokia: Agent started with URL http://127.0.0.1:7005/jolokia/**
 
 When starting Corda nodes using the ‘driver DSL’, you should see a startup message in the logs similar to the following:
