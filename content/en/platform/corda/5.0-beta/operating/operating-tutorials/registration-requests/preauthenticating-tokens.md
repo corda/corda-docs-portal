@@ -24,7 +24,7 @@ curl --insecure -u <username>:<password> -X POST -d '{"ownerX500Name": "O=Alice,
 This token is tied to the specified X.500 name and only a registering member with the same X.500 name can consume that token.
 
 You can also pass the following optional properties when creating a token:
-* time-to-live — specifies a duration, after which the token will no longer be valid. 
+* time-to-live — specifies a duration after which the token will no longer be valid. 
 This duration is submitted in the ISO-8601 duration format (PnDTnHnMn.nS). 
 For example, PT15M (15 minutes), P4D (4 days), P1DT2H2M (1 day 2 hours and 2 minutes). 
 The specified duration is added to the current time when the request to create the token is submitted to calculate the time after which the token is no longer valid. 
