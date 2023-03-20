@@ -500,7 +500,7 @@ newC.l.add("d")
 The call to `newC.l.add` will throw an `UnsupportedOperationException`.
 
 There are several workarounds that can be used to preserve mutability on reconstituted objects. Firstly, if the class
-isn’t a Kotlin data class and thus isn’t restricted by having to have a primary constructor.
+is not a Kotlin data class and thus is not restricted by having to have a primary constructor.
 
 ```kotlin
 class C {
