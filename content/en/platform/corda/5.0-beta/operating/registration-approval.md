@@ -43,4 +43,4 @@ A registration with a pre-auth token can fail for the following reasons:
 
 If any of these conditions are met, the registration is declined.
 
-Although pre-auth tokens allow registrations to bypass the standard set of registration rules configured, the network operator can specify that certain changes to the member's context must be reviewed, even if a pre-auth token was submitted. This is possible through a set of REST APIs very similar to those used to definine group registration approval rules. For more information, see [Configuring Pre-Authentication Rules]({{< relref "./operating-tutorials/registration-requests/configuring-pre-auth-rules.md" >}})
+Although pre-auth tokens allow registrations to bypass the standard set of registration rules configured, the network operator can specify that certain changes to the member's context must be reviewed, even if a pre-auth token was submitted. This is possible through a set of REST APIs very similar to those used to definine group registration approval rules. For more information, see [Configuring Pre-Authentication Rules]({{< relref "./operating-tutorials/registration-requests/configuring-pre-auth-rules.md" >}}).
