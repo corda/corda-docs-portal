@@ -23,7 +23,7 @@ Running an HA notary requires the following:
 * JPA or MySQL notary implementations
 * A database supported by the notary implementation, configured in high-availability mode
 
-For a list of databases supported by each of the above notary implementations, please refer to the [Platform support matrix](../platform-support-matrix.md)
+For a list of databases supported by each of the above notary implementations, please refer to the [Platform support matrix]({{< relref "../platform-support-matrix.md" >}})
 
 
 ## Prerequisites
@@ -35,13 +35,13 @@ configuration information, and capabilities:
 source has to be monotonic and support leap second smearing.
 * Java runtime
 * Corda Enterprise JAR
-* [Notary Health Check](../notary-healthcheck.md) Tool
+* [Notary Health Check]({{< relref "../notary-healthcheck.md" >}}) Tool
 * HA Utilities JAR to run [notary registration](../ha-utilities.html#notary-registration)
 * Root access to a Linux machine or VM to install the selected database
 * The private IP addresses of your database hosts
 * The public IP addresses of your notary hosts
 * The database driver in the form of a `.JAR` file, located inside the "drivers" folder
-* The relevant HSM library `.JAR` (if storing keys inside a HSM). See [cryptoservice configuration]({{% ref "../node/operating/cryptoservice-configuration.md" %}}) for more information.
+* The relevant HSM library `.JAR` (if storing keys inside a HSM). See [cryptoservice configuration]({{< relref "../node/operating/cryptoservice-configuration.md" >}}) for more information.
 * Database root password, used to create the Corda user, setting up the database and tables (only required for some installation methods)
 * Corda database user password, used by the notary service to access the database
 * State snapshot transfer (SST) database user password, used by the Percona cluster for data replication
@@ -50,7 +50,7 @@ source has to be monotonic and support leap second smearing.
 * Network root truststore
 * Notary worker configuration files
 
-If you are setting up a local network to test the HA notary setup process, use the [Network Bootstrapper](../network-bootstrapper.md)
+If you are setting up a local network to test the HA notary setup process, use the [Network Bootstrapper]({{< relref "../network-bootstrapper.md" >}})
 instead of the [HA Utilities Tool](../ha-utilities.html#notary-registration). In all other implementations, the network bootstrapper is not required.
 
 Ensure that the notary worker P2P ports are reachable from any nodes that might join the network. Each notary worker also
@@ -58,7 +58,7 @@ needs access to its individual node database, and communicates with the underlyi
 
 When writing the notary worker’s `node.conf` file, the notary worker must have both a `myLegalName` and a `notary.serviceLegalName`
 property. The `myLegalName` property must be unique to each notary worker, however, all notary workers in a cluster
-must share the same `notary.serviceLegalName`. For more information, see [Node configuration](../node/setup/corda-configuration-file.md)..
+must share the same `notary.serviceLegalName`. For more information, see [Node configuration]({{< relref "../node/setup/corda-configuration-file.md" >}})..
 
 
 ## HA Notary registration process

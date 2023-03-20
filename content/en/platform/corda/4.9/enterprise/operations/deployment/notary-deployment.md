@@ -28,7 +28,7 @@ database vendor - ensure that the configuration matches the database name.
 
 The JPA notary uses the Java Persistence API (JPA) interface to connect to the notary state database. For performance
 and ease of operation, the recommended database is CockroachDB 21.2.x. The full set of supported configurations is
-listed in the [Platform support matrix](../../platform-support-matrix.md).
+listed in the [Platform support matrix]({{< relref "../../platform-support-matrix.md" >}}).
 
 {{< note >}}
 Please note that CockroachDB is not supported by the Corda Database Management Tool. It is recommended that
@@ -298,7 +298,7 @@ string.
 dataSource.url="jdbc:postgresql://{list of CockroachDB node IP addresses}:26257/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8"
 ```
 
-Refer to the section [Configuring the notary worker nodes](../../notary/installing-the-notary-service.md) for more details on configuring the JPA notary.
+Refer to the section [Configuring the notary worker nodes]({{< relref "../../notary/installing-the-notary-service.md" >}}) for more details on configuring the JPA notary.
 
 
 ## Configuring notary backend - Oracle RAC 19c

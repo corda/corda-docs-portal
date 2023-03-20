@@ -26,7 +26,7 @@ In addition to the network map, all the nodes must also use the same set of netw
 
 For these reasons, test deployments can avail themselves of the Network Bootstrapper. This is a tool that scans all the node configurations from a common directory to generate the network parameters file, which is then copied to all the nodes’ directories. It also copies each node’s node-info file to every other node so that they can all be visible to each other.
 
-You can find out more about network maps and network parameters from [network map](../../../../../../../en/platform/corda/4.9/enterprise/network/network-map.md).
+You can find out more about network maps and network parameters from [network map]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/network/network-map.md" >}}).
 
 
 ## Bootstrapping a test network
@@ -89,15 +89,15 @@ added to the Contract Whitelist (see below).
 ### Whitelisting contracts
 
 Any CorDapps provided when bootstrapping a network will be scanned for contracts which will be used to create the
-*Zone whitelist* (see [API contract constraints](../../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.md)) for the network.
+*Zone whitelist* (see [API contract constraints]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.md" >}})) for the network.
 
 {{< note >}}
 If you only wish to whitelist the CorDapps but not copy them to each node then run with the `--copy-cordapps=No` option.
 
 {{< /note >}}
-The CorDapp JARs will be hashed and scanned for `Contract` classes. These contract class implementations will become part of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` [network map](../../../../../../../en/platform/corda/4.9/enterprise/network/network-map.md)).
+The CorDapp JARs will be hashed and scanned for `Contract` classes. These contract class implementations will become part of the whitelisted contracts in the network parameters (see `NetworkParameters.whitelistedContractImplementations` [network map]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/network/network-map.md" >}})).
 
-By default the Bootstrapper will whitelist all the contracts found in the unsigned CorDapp JARs (a JAR file not signed by jarSigner tool). Whitelisted contracts are checked by *Zone constraints*, while contract classes from signed JARs will be checked by *Signature constraints*. To prevent certain contracts from unsigned JARs from being whitelisted, add their fully qualified class name in the `exclude_whitelist.txt`. These will instead use the more restrictive `HashAttachmentConstraint`. To add certain contracts from signed JARs to whitelist, add their fully qualified class name in the `include_whitelist.txt`. Refer to [API contract constraints](../../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.md) to understand the implication of different constraint types before adding `exclude_whitelist.txt` or `include_whitelist.txt` files.
+By default the Bootstrapper will whitelist all the contracts found in the unsigned CorDapp JARs (a JAR file not signed by jarSigner tool). Whitelisted contracts are checked by *Zone constraints*, while contract classes from signed JARs will be checked by *Signature constraints*. To prevent certain contracts from unsigned JARs from being whitelisted, add their fully qualified class name in the `exclude_whitelist.txt`. These will instead use the more restrictive `HashAttachmentConstraint`. To add certain contracts from signed JARs to whitelist, add their fully qualified class name in the `include_whitelist.txt`. Refer to [API contract constraints]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/cordapps/api-contract-constraints.md" >}}) to understand the implication of different constraint types before adding `exclude_whitelist.txt` or `include_whitelist.txt` files.
 
 The `exclude_whitelist.txt` and `include_whitelist.txt` files should be in the same root directory as the CorDapp JAR files.
 
@@ -403,4 +403,4 @@ in the given file. See [Overriding network parameters via a file](#overriding-ne
 
 ### Sub-commands
 
-`install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See [shell extensions for CLI applications](../../../../../../../en/platform/corda/4.9/enterprise/node/operating/cli-application-shell-extensions.md) for more info.
+`install-shell-extensions`: Install `bootstrapper` alias and auto completion for bash and zsh. See [shell extensions for CLI applications]({{< relref "../../../../../../../en/platform/corda/4.9/enterprise/node/operating/cli-application-shell-extensions.md" >}}) for more info.

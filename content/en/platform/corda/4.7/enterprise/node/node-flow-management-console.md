@@ -13,7 +13,7 @@ weight: 155
 
 # Flow management console
 
-The flow management console allows you to see the state of the flows running on a node and perform some operations on them. It runs as part of the [Gateway Service](../../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md).
+The flow management console allows you to see the state of the flows running on a node and perform some operations on them. It runs as part of the [Gateway Service]({{< relref "../../../../../../en/platform/corda/4.7/enterprise/node/gateway-service.md" >}}).
 
 It has a front end written in React, and a REST service written in Kotlin, which makes RPC calls to Corda Enterprise.
 

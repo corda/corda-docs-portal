@@ -341,7 +341,7 @@ database.transaction {
 }
 ```
 
-JDBC sessions can be used in flows and services. For more information, see [Writing flows](../flow-state-machines.md).
+JDBC sessions can be used in flows and services. For more information, see [Writing flows]({{< relref "../flow-state-machines.md" >}}).
 
 The following example illustrates the creation of a custom Corda service using a `jdbcSession`:
 

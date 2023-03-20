@@ -25,7 +25,7 @@ database vendor - ensure that the configuration matches the database name.
 
 The JPA notary uses the Java Persistence API (JPA) interface to connect to the notary state database. For performance
 and ease of operation, the recommended database is CockroachDB 20.1.6. The full set of supported configurations is
-listed in the [Platform support matrix](../platform-support-matrix.md).
+listed in the [Platform support matrix]({{< relref "../platform-support-matrix.md" >}}).
 
 {{< note >}}
 Please note that CockroachDB is not supported by the Corda Database Management Tool. It is recommended that
