@@ -130,7 +130,7 @@ var pathtoroot = "../../../../";
 public interface <span class="typeNameLabel"><a href=CompositeKey.html>CompositeKey</a></span>
  implements <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>
                     </pre>
-                    <div class="block"><p>A tree data structure that enables the representation of composite public keys, which are used to represent the signing requirements for multi-signature scenarios. A composite key is a list of leaf keys and their contributing weight, and each leaf can be a conventional single key or a composite key. Keys contribute their weight to the total if they are matched by the signature.</p><p>For complex scenarios, such as <i>&quot;Both Alice and Bob need to sign to consume a state S&quot;</i>, we can represent the requirement by creating a tree with a root <a href=CompositeKey.html>CompositeKey</a>, and Alice and Bob as children. The root node would specify <i>weights</i> for each of its children and a <i>threshold</i> – the minimum total weight required (e.g. the minimum number of child signatures required) to satisfy the tree signature requirement.</p><p>Using these constructs we can express e.g. 1 of N (OR) or N of N (AND) signature requirements. By nesting we can create multi-level requirements such as <i>&quot;either the CEO or 3 of 5 of his assistants need to sign&quot;</i>.</p><p>Composite key implementations will track the minimum total weight required (in the simple case – the minimum number of child signatures required) to satisfy the subtree rooted at this node.</p></div>
+                    <div class="block"><p>A tree data structure that enables the representation of composite public keys, which are used to represent the signing requirements for multi-signature scenarios. A composite key is a list of leaf keys and their contributing weight, and each leaf can be a conventional single key or a composite key. Keys contribute their weight to the total if they are matched by the signature. </p><p> For complex scenarios, such as &quot;Both Alice and Bob need to sign to consume a state S&quot;, we can represent the requirement by creating a tree with a root <a href=CompositeKey.html>CompositeKey</a>, and <code>Alice</code> and <code>Bob</code> as children. The root node would specify weights for each of its children and a threshold – the minimum total weight required (e.g. the minimum number of child signatures required) to satisfy the tree signature requirement. </p><p> Using these constructs we can express e.g. 1 of N (OR) or N of N (AND) signature requirements. By nesting we can create multi-level requirements such as &quot;either the CEO or 3 of 5 of his assistants need to sign&quot;. </p><p> Composite key implementations will track the minimum total weight required (in the simple case – the minimum number of child signatures required) to satisfy the subtree rooted at this node.</p></div>
                 </li>
             </ul>
         </div>
@@ -251,7 +251,7 @@ public interface <span class="typeNameLabel"><a href=CompositeKey.html>Composite
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
+                                            <td class="colFirst"><code>abstract void</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=CompositeKey.html#checkValidity()>checkValidity</a>() </code>
                                             </th>
@@ -259,17 +259,17 @@ public interface <span class="typeNameLabel"><a href=CompositeKey.html>Composite
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            <td class="colFirst"><code>abstract boolean</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=CompositeKey.html#isFulfilledBy(PublicKey)>isFulfilledBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key) </code>
+                                            <th class="colSecond" scope="row"><code><a href=CompositeKey.html#isFulfilledBy(PublicKey)>isFulfilledBy</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key) </code>
                                             </th>
                                             <td class="colLast">Takes single <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> and checks if <a href=CompositeKey.html>CompositeKey</a> requirements hold for that key.</td>
                                         </tr>
                                         
                                         <tr id="i2" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            <td class="colFirst"><code>abstract boolean</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=CompositeKey.html#isFulfilledBy(Iterable)>isFulfilledBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; keysToCheck) </code>
+                                            <th class="colSecond" scope="row"><code><a href=CompositeKey.html#isFulfilledBy(Iterable)>isFulfilledBy</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; keysToCheck) </code>
                                             </th>
                                             <td class="colLast">Checks if the public keys corresponding to the signatures are matched against the leaves of the composite key tree in question, and the total combined weight of all children is calculated for every intermediary node.</td>
                                         </tr>
@@ -340,7 +340,7 @@ public interface <span class="typeNameLabel"><a href=CompositeKey.html>Composite
                                           >
                                     <li class="blockList">
                                         <h4>checkValidity</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=CompositeKey.html#checkValidity()>checkValidity</a>()</pre>
+                                        <pre class="methodSignature"> abstract void <a href=CompositeKey.html#checkValidity()>checkValidity</a>()</pre>
                                         <div class="block"><p>This method will detect graph cycles in the full composite key structure to protect against infinite loops when traversing the graph and key duplicates in each layer. It also checks if the threshold and weight constraint requirements are met, while it tests for aggregated-weight integer overflow. In practice, this method should be always invoked on the root <a href=CompositeKey.html>CompositeKey</a>, as it inherently validates the child nodes (all the way till the leaves).</p></div>
                                         
                                         <!-- TODO missing return annotation -->
@@ -355,8 +355,17 @@ public interface <span class="typeNameLabel"><a href=CompositeKey.html>Composite
                                           >
                                     <li class="blockList">
                                         <h4>isFulfilledBy</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=CompositeKey.html#isFulfilledBy(PublicKey)>isFulfilledBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key)</pre>
+                                        <pre class="methodSignature"> abstract boolean <a href=CompositeKey.html#isFulfilledBy(PublicKey)>isFulfilledBy</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> key)</pre>
                                         <div class="block"><p>Takes single <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> and checks if <a href=CompositeKey.html>CompositeKey</a> requirements hold for that key.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>key</code> - the public key</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -370,7 +379,7 @@ public interface <span class="typeNameLabel"><a href=CompositeKey.html>Composite
                                           >
                                     <li class="blockList">
                                         <h4>isFulfilledBy</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=CompositeKey.html#isFulfilledBy(Iterable)>isFulfilledBy</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; keysToCheck)</pre>
+                                        <pre class="methodSignature"> abstract boolean <a href=CompositeKey.html#isFulfilledBy(Iterable)>isFulfilledBy</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>Iterable</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; keysToCheck)</pre>
                                         <div class="block"><p>Checks if the public keys corresponding to the signatures are matched against the leaves of the composite key tree in question, and the total combined weight of all children is calculated for every intermediary node. If all thresholds are satisfied, the composite key requirement is considered to be met.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
@@ -385,7 +394,7 @@ public interface <span class="typeNameLabel"><a href=CompositeKey.html>Composite
                                           >
                                     <li class="blockList">
                                         <h4>getLeafKeys</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=CompositeKey.html#getLeafKeys()>getLeafKeys</a>()</pre>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/Set.html>Set</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=CompositeKey.html#getLeafKeys()>getLeafKeys</a>()</pre>
                                         <div class="block"><p>Set of all leaf keys of that <a href=CompositeKey.html>CompositeKey</a>.</p></div>
                                         
                                         <!-- TODO missing return annotation -->

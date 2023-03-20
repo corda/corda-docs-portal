@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../../../";
 public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.html>UtxoFilteredTransaction</a></span>
 
                     </pre>
-                    <div class="block"><p>A filtered UTXO transaction.</p><p>This class wraps a signed transaction that has been filtered using merkle proofs. This means that we can still calculate and verify the transaction id as Merkle hash, but do not have access to all data in the original transaction.</p><p>For the list based data properties, there are three possibilities:</p><ul><li><p>The whole entry is filtered out - no further information about this data is available. This will be signified by returning an object implementing <a href=UtxoFilteredData.Removed.html>UtxoFilteredData.Removed</a></p></li><li><p>Only the number of original entries is revealed, but not the actual data. In this case, an object implementing <a href=UtxoFilteredData.SizeOnly.html>UtxoFilteredData.SizeOnly</a> is returned</p></li><li><p>Some or all of the original data is revealed. In this case, an object implementing <a href=UtxoFilteredData.Audit.html>UtxoFilteredData.Audit</a> is returned.</p></li></ul><p>There are a few special cases:</p><ul><li><p>id and metadata cannot be filtered and are always returned</p></li><li><p>notary and timeWindow are always unique - they are either revealed, or the filtered transaction     will return null when accessing them.</p></li></ul></div>
+                    <div class="block"><p>Defines a filtered UTXO transaction. </p><p> This wraps a signed transaction that has been filtered using merkle proofs. This means that we can still calculate and verify the transaction ID as a Merkle hash, but do not have access to all data in the original transaction. </p><p> For the list based data properties, there are three possibilities: - The whole entry is filtered out - no further information about this data is available. This will be signified by returning an object implementing <a href=UtxoFilteredData.Removed.html>UtxoFilteredData.Removed</a>. - Only the number of original entries is revealed, but not the actual data. In this case, an object implementing <a href=UtxoFilteredData.SizeOnly.html>UtxoFilteredData.SizeOnly</a> is returned. - Some or all of the original data is revealed. In this case, an object implementing <a href=UtxoFilteredData.Audit.html>UtxoFilteredData.Audit</a> is returned. </p><p> There are a few special cases: - <a href=UtxoFilteredTransaction.html#getId()>getId</a> and <a href=UtxoFilteredTransaction.html#getMetadata()>getMetadata</a> cannot be filtered and are always returned - <a href=UtxoFilteredTransaction.html#getNotary()>getNotary</a> and <a href=UtxoFilteredTransaction.html#getTimeWindow()>getTimeWindow</a> are always unique - they are either revealed, or the filtered transaction will return null when accessing them.</p></div>
                 </li>
             </ul>
         </div>
@@ -238,51 +238,51 @@ public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.htm
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoFilteredTransaction.html#verify()>verify</a>() </code>
-                                            </th>
-                                            <td class="colLast">Verifies the current <a href=UtxoFilteredTransaction.html>UtxoFilteredTransaction</a>.</td>
-                                        </tr>
-                                        
-                                        <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=../../../../crypto/SecureHash.html>SecureHash</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoFilteredTransaction.html#getId()>getId</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the ID of the current transaction.</td>
                                         </tr>
                                         
-                                        <tr id="i2" class="altColor">
+                                        <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=../../../common/transaction/TransactionMetadata.html>TransactionMetadata</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoFilteredTransaction.html#getMetadata()>getMetadata</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the metadata for the current transaction.</td>
                                         </tr>
                                         
-                                        <tr id="i3" class="rowColor">
+                                        <tr id="i2" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=../../TimeWindow.html>TimeWindow</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoFilteredTransaction.html#getTimeWindow()>getTimeWindow</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the validity time window for finalizing/notarising the current transaction, or null if filtered.</td>
                                         </tr>
                                         
-                                        <tr id="i4" class="altColor">
+                                        <tr id="i3" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=../../../common/Party.html>Party</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoFilteredTransaction.html#getNotary()>getNotary</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the notary for the current transaction, or null if filtered.</td>
                                         </tr>
                                         
-                                        <tr id="i5" class="rowColor">
+                                        <tr id="i4" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoFilteredTransaction.html#getSignatories()>getSignatories</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets a potentially filtered list of required signatories for the current transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=../../Command.html>Command</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoFilteredTransaction.html#getCommands()>getCommands</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets a potentially filtered list of commands for the current transaction.</td>
                                         </tr>
                                         
                                         <tr id="i6" class="altColor">
@@ -290,7 +290,7 @@ public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.htm
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoFilteredTransaction.html#getInputStateRefs()>getInputStateRefs</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets a potentially filtered list of input state refs for the current transaction.</td>
                                         </tr>
                                         
                                         <tr id="i7" class="rowColor">
@@ -298,23 +298,23 @@ public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.htm
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoFilteredTransaction.html#getReferenceStateRefs()>getReferenceStateRefs</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets a potentially filtered list of reference input state refs for the current transaction.</td>
                                         </tr>
                                         
                                         <tr id="i8" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=../../StateAndRef.html>StateAndRef</a>&lt;?&gt;&gt;</code>
+                                            <td class="colFirst"><code>abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=../../StateAndRef.html>StateAndRef</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoFilteredTransaction.html#getOutputStateAndRefs()>getOutputStateAndRefs</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets a potentially filtered list of output state refs for the current transaction.</td>
                                         </tr>
                                         
                                         <tr id="i9" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=../../Command.html>Command</a>&gt;</code>
+                                            <td class="colFirst"><code>abstract void</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoFilteredTransaction.html#getCommands()>getCommands</a>() </code>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoFilteredTransaction.html#verify()>verify</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Verifies the current <a href=UtxoFilteredTransaction.html>UtxoFilteredTransaction</a>.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -361,21 +361,6 @@ public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.htm
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="verify()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>verify</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=UtxoFilteredTransaction.html#verify()>verify</a>()</pre>
-                                        <div class="block"><p>Verifies the current <a href=UtxoFilteredTransaction.html>UtxoFilteredTransaction</a>.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
                                 <a id="getId()">
                                     <!--   -->
                                 </a>
@@ -384,8 +369,8 @@ public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.htm
                                           >
                                     <li class="blockList">
                                         <h4>getId</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../../../crypto/SecureHash.html>SecureHash</a> <a href=UtxoFilteredTransaction.html#getId()>getId</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../../../crypto/SecureHash.html>SecureHash</a> <a href=UtxoFilteredTransaction.html#getId()>getId</a>()</pre>
+                                        <div class="block"><p>Gets the ID of the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -399,8 +384,8 @@ public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.htm
                                           >
                                     <li class="blockList">
                                         <h4>getMetadata</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../../common/transaction/TransactionMetadata.html>TransactionMetadata</a> <a href=UtxoFilteredTransaction.html#getMetadata()>getMetadata</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../../common/transaction/TransactionMetadata.html>TransactionMetadata</a> <a href=UtxoFilteredTransaction.html#getMetadata()>getMetadata</a>()</pre>
+                                        <div class="block"><p>Gets the metadata for the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -414,8 +399,8 @@ public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.htm
                                           >
                                     <li class="blockList">
                                         <h4>getTimeWindow</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../TimeWindow.html>TimeWindow</a> <a href=UtxoFilteredTransaction.html#getTimeWindow()>getTimeWindow</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@Nullable() abstract <a href=../../TimeWindow.html>TimeWindow</a> <a href=UtxoFilteredTransaction.html#getTimeWindow()>getTimeWindow</a>()</pre>
+                                        <div class="block"><p>Gets the validity time window for finalizing/notarising the current transaction, or null if filtered.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -429,8 +414,8 @@ public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.htm
                                           >
                                     <li class="blockList">
                                         <h4>getNotary</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../../common/Party.html>Party</a> <a href=UtxoFilteredTransaction.html#getNotary()>getNotary</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@Nullable() abstract <a href=../../../common/Party.html>Party</a> <a href=UtxoFilteredTransaction.html#getNotary()>getNotary</a>()</pre>
+                                        <div class="block"><p>Gets the notary for the current transaction, or null if filtered.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -444,8 +429,23 @@ public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.htm
                                           >
                                     <li class="blockList">
                                         <h4>getSignatories</h4>
-                                        <pre class="methodSignature"> abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=UtxoFilteredTransaction.html#getSignatories()>getSignatories</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=UtxoFilteredTransaction.html#getSignatories()>getSignatories</a>()</pre>
+                                        <div class="block"><p>Gets a potentially filtered list of required signatories for the current transaction.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getCommands()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getCommands</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=../../Command.html>Command</a>&gt; <a href=UtxoFilteredTransaction.html#getCommands()>getCommands</a>()</pre>
+                                        <div class="block"><p>Gets a potentially filtered list of commands for the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -459,8 +459,8 @@ public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.htm
                                           >
                                     <li class="blockList">
                                         <h4>getInputStateRefs</h4>
-                                        <pre class="methodSignature"> abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=../../StateRef.html>StateRef</a>&gt; <a href=UtxoFilteredTransaction.html#getInputStateRefs()>getInputStateRefs</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=../../StateRef.html>StateRef</a>&gt; <a href=UtxoFilteredTransaction.html#getInputStateRefs()>getInputStateRefs</a>()</pre>
+                                        <div class="block"><p>Gets a potentially filtered list of input state refs for the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -474,8 +474,8 @@ public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.htm
                                           >
                                     <li class="blockList">
                                         <h4>getReferenceStateRefs</h4>
-                                        <pre class="methodSignature"> abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=../../StateRef.html>StateRef</a>&gt; <a href=UtxoFilteredTransaction.html#getReferenceStateRefs()>getReferenceStateRefs</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=../../StateRef.html>StateRef</a>&gt; <a href=UtxoFilteredTransaction.html#getReferenceStateRefs()>getReferenceStateRefs</a>()</pre>
+                                        <div class="block"><p>Gets a potentially filtered list of reference input state refs for the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -489,23 +489,23 @@ public interface <span class="typeNameLabel"><a href=UtxoFilteredTransaction.htm
                                           >
                                     <li class="blockList">
                                         <h4>getOutputStateAndRefs</h4>
-                                        <pre class="methodSignature"> abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=../../StateAndRef.html>StateAndRef</a>&lt;?&gt;&gt; <a href=UtxoFilteredTransaction.html#getOutputStateAndRefs()>getOutputStateAndRefs</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=../../StateAndRef.html>StateAndRef</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt; <a href=UtxoFilteredTransaction.html#getOutputStateAndRefs()>getOutputStateAndRefs</a>()</pre>
+                                        <div class="block"><p>Gets a potentially filtered list of output state refs for the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
                                 </ul>
                                 
-                                <a id="getCommands()">
+                                <a id="verify()">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockListLast"
                                           >
                                     <li class="blockList">
-                                        <h4>getCommands</h4>
-                                        <pre class="methodSignature"> abstract <a href=UtxoFilteredData.html>UtxoFilteredData</a>&lt;<a href=../../Command.html>Command</a>&gt; <a href=UtxoFilteredTransaction.html#getCommands()>getCommands</a>()</pre>
-                                        <div class="block"></div>
+                                        <h4>verify</h4>
+                                        <pre class="methodSignature"> abstract void <a href=UtxoFilteredTransaction.html#verify()>verify</a>()</pre>
+                                        <div class="block"><p>Verifies the current <a href=UtxoFilteredTransaction.html>UtxoFilteredTransaction</a>.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

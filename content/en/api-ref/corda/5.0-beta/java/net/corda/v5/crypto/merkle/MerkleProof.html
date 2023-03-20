@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../";
 public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProof</a></span>
 
                     </pre>
-                    <div class="block"><p><a href=MerkleProof.html>MerkleProof</a>s can be used to verify if some specific data is part of a <a href=MerkleTree.html>MerkleTree</a>.</p><p>Use <a href=MerkleTree.html#createAuditProof(List)>net.corda.v5.crypto.merkle.MerkleTree.createAuditProof</a> to create a proof for a set of leaves for an existing <a href=MerkleTree.html>MerkleTree</a>. Construct a <a href=MerkleProof.html>MerkleProof</a> from its (treeSize, leaves, hashes) when you want to <a href=MerkleProof.html#verify(SecureHash,MerkleTreeHashDigest)>verify</a> if the leaves to be checked are part of a <a href=MerkleTree.html>MerkleTree</a> with the specific root.</p></div>
+                    <div class="block"><p><a href=MerkleProof.html>MerkleProof</a>s can be used to verify if some specific data is part of a <a href=MerkleTree.html>MerkleTree</a>. </p><p> Use <a href=MerkleTree.html#createAuditProof(List)>createAuditProof</a> to create a proof for a set of leaves for an existing <a href=MerkleTree.html>MerkleTree</a>. Construct a <a href=MerkleProof.html>MerkleProof</a> from its (<code>treeSize</code>, <code>leaves</code>, <code>hashes</code>) when you want to <code>verify</code>} if the leaves to be checked are part of a <a href=MerkleTree.html>MerkleTree</a> with the specific root.</p></div>
                 </li>
             </ul>
         </div>
@@ -238,51 +238,51 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=MerkleProof.html#verify(SecureHash,MerkleTreeHashDigest)>verify</a>(<a href=../SecureHash.html>SecureHash</a> root, <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> digest) </code>
-                                            </th>
-                                            <td class="colLast">Checks if the <a href=MerkleProof.html>MerkleProof</a> has been generated from a <a href=MerkleTree.html>MerkleTree</a> with the given <a href=MerkleProof.html#verify(SecureHash,MerkleTreeHashDigest)>root</a>.</td>
-                                        </tr>
-                                        
-                                        <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=../SecureHash.html>SecureHash</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=MerkleProof.html#calculateRoot(MerkleTreeHashDigest)>calculateRoot</a>(<a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> digest) </code>
-                                            </th>
-                                            <td class="colLast">Rebuilds the <a href=MerkleTree.html>MerkleTree</a> from the <a href=MerkleProof.html>MerkleProof</a> and returns its root <a href=../SecureHash.html>SecureHash</a>.</td>
-                                        </tr>
-                                        
-                                        <tr id="i2" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=MerkleProofType.html>MerkleProofType</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=MerkleProof.html#getProofType()>getProofType</a>() </code>
                                             </th>
-                                            <td class="colLast">Type of the proof</td>
+                                            <td class="colLast">Get the type of the proof</td>
                                         </tr>
                                         
-                                        <tr id="i3" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code>
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>abstract int</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=MerkleProof.html#getTreeSize()>getTreeSize</a>() </code>
                                             </th>
-                                            <td class="colLast">The total number of leaves in the tree.</td>
+                                            <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i4" class="altColor">
+                                        <tr id="i2" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=IndexedMerkleLeaf.html>IndexedMerkleLeaf</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=MerkleProof.html#getLeaves()>getLeaves</a>() </code>
                                             </th>
-                                            <td class="colLast">The leaf items whose inclusion is proved by the proof.</td>
+                                            <td class="colLast"></td>
                                         </tr>
                                         
-                                        <tr id="i5" class="rowColor">
+                                        <tr id="i3" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../SecureHash.html>SecureHash</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=MerkleProof.html#getHashes()>getHashes</a>() </code>
                                             </th>
-                                            <td class="colLast">The helper hashes needed to reconstruct the whole tree.</td>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>abstract boolean</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MerkleProof.html#verify(SecureHash,MerkleTreeHashDigest)>verify</a>(@NotNull() <a href=../SecureHash.html>SecureHash</a> root, @NotNull() <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> digest) </code>
+                                            </th>
+                                            <td class="colLast">Checks if the <a href=MerkleProof.html>MerkleProof</a> has been generated from a <a href=MerkleTree.html>MerkleTree</a> with the given root.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=../SecureHash.html>SecureHash</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=MerkleProof.html#calculateRoot(MerkleTreeHashDigest)>calculateRoot</a>(@NotNull() <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> digest) </code>
+                                            </th>
+                                            <td class="colLast">Rebuilds the <a href=MerkleTree.html>MerkleTree</a> from the <a href=MerkleProof.html>MerkleProof</a> and returns its root <a href=../SecureHash.html>SecureHash</a>.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -329,6 +329,66 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                             </a>
                                 <h3>Method Detail</h3>
                                 
+                                <a id="getProofType()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getProofType</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=MerkleProofType.html>MerkleProofType</a> <a href=MerkleProof.html#getProofType()>getProofType</a>()</pre>
+                                        <div class="block"><p>Get the type of the proof</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getTreeSize()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getTreeSize</h4>
+                                        <pre class="methodSignature"> abstract int <a href=MerkleProof.html#getTreeSize()>getTreeSize</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getLeaves()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getLeaves</h4>
+                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=IndexedMerkleLeaf.html>IndexedMerkleLeaf</a>&gt; <a href=MerkleProof.html#getLeaves()>getLeaves</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getHashes()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getHashes</h4>
+                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../SecureHash.html>SecureHash</a>&gt; <a href=MerkleProof.html#getHashes()>getHashes</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
                                 <a id="verify(SecureHash,MerkleTreeHashDigest)">
                                     <!--   -->
                                 </a>
@@ -337,8 +397,8 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                                           >
                                     <li class="blockList">
                                         <h4>verify</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=MerkleProof.html#verify(SecureHash,MerkleTreeHashDigest)>verify</a>(<a href=../SecureHash.html>SecureHash</a> root, <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> digest)</pre>
-                                        <div class="block"><p>Checks if the <a href=MerkleProof.html>MerkleProof</a> has been generated from a <a href=MerkleTree.html>MerkleTree</a> with the given <a href=MerkleProof.html#verify(SecureHash,MerkleTreeHashDigest)>root</a>.</p></div>
+                                        <pre class="methodSignature"> abstract boolean <a href=MerkleProof.html#verify(SecureHash,MerkleTreeHashDigest)>verify</a>(@NotNull() <a href=../SecureHash.html>SecureHash</a> root, @NotNull() <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> digest)</pre>
+                                        <div class="block"><p>Checks if the <a href=MerkleProof.html>MerkleProof</a> has been generated from a <a href=MerkleTree.html>MerkleTree</a> with the given root.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
@@ -361,11 +421,11 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                                     <!--   -->
                                 </a>
                                 <ul class=
-                                              "blockList"
+                                              "blockListLast"
                                           >
                                     <li class="blockList">
                                         <h4>calculateRoot</h4>
-                                        <pre class="methodSignature"> abstract <a href=../SecureHash.html>SecureHash</a> <a href=MerkleProof.html#calculateRoot(MerkleTreeHashDigest)>calculateRoot</a>(<a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> digest)</pre>
+                                        <pre class="methodSignature"> abstract <a href=../SecureHash.html>SecureHash</a> <a href=MerkleProof.html#calculateRoot(MerkleTreeHashDigest)>calculateRoot</a>(@NotNull() <a href=MerkleTreeHashDigest.html>MerkleTreeHashDigest</a> digest)</pre>
                                         <div class="block"><p>Rebuilds the <a href=MerkleTree.html>MerkleTree</a> from the <a href=MerkleProof.html>MerkleProof</a> and returns its root <a href=../SecureHash.html>SecureHash</a>.</p></div>
                                         
                                         <dl>
@@ -376,66 +436,6 @@ public interface <span class="typeNameLabel"><a href=MerkleProof.html>MerkleProo
                                             
                                             
                                         </dl>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getProofType()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getProofType</h4>
-                                        <pre class="methodSignature"> abstract <a href=MerkleProofType.html>MerkleProofType</a> <a href=MerkleProof.html#getProofType()>getProofType</a>()</pre>
-                                        <div class="block"><p>Type of the proof</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getTreeSize()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getTreeSize</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> <a href=MerkleProof.html#getTreeSize()>getTreeSize</a>()</pre>
-                                        <div class="block"><p>The total number of leaves in the tree.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getLeaves()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getLeaves</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=IndexedMerkleLeaf.html>IndexedMerkleLeaf</a>&gt; <a href=MerkleProof.html#getLeaves()>getLeaves</a>()</pre>
-                                        <div class="block"><p>The leaf items whose inclusion is proved by the proof.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getHashes()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockListLast"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getHashes</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../SecureHash.html>SecureHash</a>&gt; <a href=MerkleProof.html#getHashes()>getHashes</a>()</pre>
-                                        <div class="block"><p>The helper hashes needed to reconstruct the whole tree.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

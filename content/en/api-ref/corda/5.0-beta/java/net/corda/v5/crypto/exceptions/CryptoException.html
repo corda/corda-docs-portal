@@ -125,7 +125,7 @@ var pathtoroot = "../../../../../";
 public class <span class="typeNameLabel"><a href=CryptoException.html>CryptoException</a></span>
 extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeException</a>
                     </pre>
-                    <div class="block"><p>Base exception for all Crypto Library specific exception. Note that the library may throw common exceptions such as <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html>IllegalArgumentException</a>, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/index.html>IllegalStateException</a> and others as well. This base class is only for the specific cases when a site throwing exception can provide some useful context about the operation.</p><p>Note that the approach for the Crypto Library is to use the existing exception where appropriate and use the specific Crypto Library exceptions only to convey additional context about the conditions which lead to the exception.</p></div>
+                    <div class="block"><p>Base exception for all Crypto Library specific exception. Note that the library may throw common exceptions such as <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html>IllegalArgumentException</a>, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html>IllegalStateException</a> and others as well. This base class is only for the specific cases when a site throwing exception can provide some useful context about the operation. </p><p> Note that the approach for the Crypto Library is to use the existing exception where appropriate and use the specific Crypto Library exceptions only to convey additional context about the conditions which lead to the exception.</p></div>
                 </li>
             </ul>
         </div>
@@ -173,20 +173,26 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code></td>
-                                            <th class="colSecond" scope="row"><code><a href=CryptoThrottlingException.html#isRecoverable()>isRecoverable</a></code></th>
+                                            <td class="colFirst"><code>public final boolean</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=CryptoSignatureException.html#isRecoverable()>isRecoverable</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="rowColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a></code></td>
-                                            <th class="colSecond" scope="row"><code><a href=../../ledger/utxo/transaction/filtered/FilteredDataInconsistencyException.html#cause>cause</a></code></th>
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../ledger/notary/plugin/core/NotaryExceptionUnknown.html#originalExceptionClassName>originalExceptionClassName</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
-                                            <th class="colSecond" scope="row"><code><a href=../../ledger/utxo/transaction/filtered/FilteredDataInconsistencyException.html#message>message</a></code></th>
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../ledger/notary/plugin/core/NotaryExceptionUnknown.html#cause>cause</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public  <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/StackTraceElement.html>StackTraceElement</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../../ledger/notary/plugin/core/NotaryExceptionUnknown.html#stackTrace>stackTrace</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
@@ -222,7 +228,7 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                         
                                             <tr class="rowColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
-                                                        href="#CryptoException(String,Boolean)">CryptoException</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> message, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> isRecoverable)</code></th>
+                                                        href="#CryptoException(String,boolean)">CryptoException</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> message, boolean isRecoverable)</code></th>
                                                 <td class="colLast">Constructs a new exception with the specified detail message and when it's recoverable.</td>
                                             </tr>
                                         
@@ -234,7 +240,7 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                         
                                             <tr class="rowColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
-                                                        href="#CryptoException(String,Boolean,Throwable)">CryptoException</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> message, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> isRecoverable, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a> cause)</code></th>
+                                                        href="#CryptoException(String,boolean,Throwable)">CryptoException</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> message, boolean isRecoverable, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a> cause)</code></th>
                                                 <td class="colLast">Constructs a new exception with the specified detail message, cause, and when it's recoverable.</td>
                                             </tr>
                                         
@@ -288,9 +294,9 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            <td class="colFirst"><code>final boolean</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=CryptoThrottlingException.html#isRecoverable()>isRecoverable</a>() </code>
+                                            <th class="colSecond" scope="row"><code><a href=CryptoSignatureException.html#isRecoverable()>isRecoverable</a>() </code>
                                             </th>
                                             <td class="colLast">If the value is true then the error condition is considered transient and the operation which throws such exceptions can be retried.</td>
                                         </tr>
@@ -306,11 +312,11 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                             <h3>Methods inherited from class&nbsp;net.corda.v5.base.exceptions.CordaRuntimeException</h3>
                                             <code>addSuppressed, equals, getCause, getMessage, getOriginalExceptionClassName, getOriginalMessage, hashCode, setCause, setMessage, setOriginalExceptionClassName</code></li>
                                  
-                                    <li class="blockList"><a id="methods.inherited.from.class.kotlin.Throwable">
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Throwable">
                                             <!--   -->
                                         </a>
-                                            <h3>Methods inherited from class&nbsp;kotlin.Throwable</h3>
-                                            <code>addSuppressed, fillInStackTrace, getLocalizedMessage, getStackTrace, getSuppressed, initCause, printStackTrace, printStackTrace, printStackTrace, setStackTrace</code></li>
+                                            <h3>Methods inherited from class&nbsp;java.lang.Throwable</h3>
+                                            <code>fillInStackTrace, getLocalizedMessage, getStackTrace, getSuppressed, initCause, printStackTrace, setStackTrace, toString</code></li>
                                  
                                     <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
                                         <!--   -->
@@ -357,11 +363,11 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                     </li>
                                 </ul>
                                 
-                                <a name="CryptoException(String,Boolean)"></a>
+                                <a name="CryptoException(String,boolean)"></a>
                                 <ul class="blockList">
                                     <li class="blockList">
                                         <h4>CryptoException</h4>
-                                        <pre>CryptoException(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> message, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> isRecoverable)</pre>
+                                        <pre>CryptoException(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> message, boolean isRecoverable)</pre>
                                         <div class="block">Constructs a new exception with the specified detail message and when it's recoverable.</div>
                                         
                                         <dl>
@@ -403,11 +409,11 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                     </li>
                                 </ul>
                                 
-                                <a name="CryptoException(String,Boolean,Throwable)"></a>
+                                <a name="CryptoException(String,boolean,Throwable)"></a>
                                 <ul class="blockList">
                                     <li class="blockList">
                                         <h4>CryptoException</h4>
-                                        <pre>CryptoException(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> message, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> isRecoverable, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a> cause)</pre>
+                                        <pre>CryptoException(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> message, boolean isRecoverable, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a> cause)</pre>
                                         <div class="block">Constructs a new exception with the specified detail message, cause, and when it's recoverable.</div>
                                         
                                         <dl>
@@ -451,7 +457,7 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                           >
                                     <li class="blockList">
                                         <h4>isRecoverable</h4>
-                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=CryptoThrottlingException.html#isRecoverable()>isRecoverable</a>()</pre>
+                                        <pre class="methodSignature"> final boolean <a href=CryptoSignatureException.html#isRecoverable()>isRecoverable</a>()</pre>
                                         <div class="block"><p>If the value is true then the error condition is considered transient and the operation which throws such exceptions can be retried.</p></div>
                                         
                                         <!-- TODO missing return annotation -->

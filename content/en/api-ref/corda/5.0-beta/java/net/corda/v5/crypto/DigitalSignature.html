@@ -108,7 +108,7 @@ var pathtoroot = "../../../../";
                         <dt>All Implemented Interfaces:</dt>
                         <dd>
                             
-                            <code>kotlin.Comparable</code>
+                            <code>java.lang.Comparable</code>
                             
                             
                         </dd>
@@ -175,13 +175,19 @@ extends <a href=../base/types/OpaqueBytes.html>OpaqueBytes</a>
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
-                                            <th class="colSecond" scope="row"><code><a href=../serialization/SerializedBytes.html#offset>offset</a></code></th>
+                                            <td class="colFirst"><code>public final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../serialization/SerializedBytes.html#bytes>bytes</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="rowColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
+                                            <td class="colFirst"><code>public final int</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../serialization/SerializedBytes.html#offset>offset</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final int</code></td>
                                             <th class="colSecond" scope="row"><code><a href=../serialization/SerializedBytes.html#size>size</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
@@ -212,7 +218,7 @@ extends <a href=../base/types/OpaqueBytes.html>OpaqueBytes</a>
                                         
                                             <tr class="altColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
-                                                        href="#DigitalSignature(ByteArray)">DigitalSignature</a></span>(<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a> bytes)</code></th>
+                                                        href="#DigitalSignature(Array)">DigitalSignature</a></span>(<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt; bytes)</code></th>
                                                 <td class="colLast"></td>
                                             </tr>
                                         
@@ -270,17 +276,17 @@ extends <a href=../base/types/OpaqueBytes.html>OpaqueBytes</a>
                                 </div>
                                 <ul class="blockList">
                                 
-                                    <li class="blockList"><a id="methods.inherited.from.class.net.corda.v5.base.types.ByteSequence">
-                                            <!--   -->
-                                        </a>
-                                            <h3>Methods inherited from class&nbsp;net.corda.v5.base.types.ByteSequence</h3>
-                                            <code>compareTo, copy, copyBytes, equals, getOffset, getSize, hashCode, open, putTo, slice, slice, slice, subSequence, take, toString, writeTo</code></li>
-                                 
                                     <li class="blockList"><a id="methods.inherited.from.class.net.corda.v5.base.types.OpaqueBytes">
                                             <!--   -->
                                         </a>
                                             <h3>Methods inherited from class&nbsp;net.corda.v5.base.types.OpaqueBytes</h3>
-                                            <code>getBytes</code></li>
+                                            <code>getBytes, of</code></li>
+                                 
+                                    <li class="blockList"><a id="methods.inherited.from.class.net.corda.v5.base.types.ByteSequence">
+                                            <!--   -->
+                                        </a>
+                                            <h3>Methods inherited from class&nbsp;net.corda.v5.base.types.ByteSequence</h3>
+                                            <code>compareTo, copy, copyBytes, equals, getOffset, getSize, hashCode, open, putTo, slice, subSequence, take, toString, writeTo</code></li>
                                  
                                     <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
                                         <!--   -->
@@ -308,21 +314,12 @@ extends <a href=../base/types/OpaqueBytes.html>OpaqueBytes</a>
                             </a>
                                 <h3>Constructor Detail</h3>
                                 
-                                <a name="DigitalSignature(ByteArray)"></a>
+                                <a name="DigitalSignature(Array)"></a>
                                 <ul class="blockList">
                                     <li class="blockList">
                                         <h4>DigitalSignature</h4>
-                                        <pre>DigitalSignature(<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a> bytes)</pre>
+                                        <pre>DigitalSignature(<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt; bytes)</pre>
                                         <div class="block"></div>
-                                        
-                                        <dl>
-                                            <dt><span class="paramLabel">Parameters:</span></dt>
-                                            
-                                            
-                                            <dd><code>bytes</code> - The signature.</dd>
-                                            
-                                            
-                                        </dl>
                                         
                                     </li>
                                 </ul>

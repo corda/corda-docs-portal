@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../";
 public interface <span class="typeNameLabel"><a href=TimeWindow.html>TimeWindow</a></span>
 
                     </pre>
-                    <div class="block"><p>Defines an interval on a timeline; not a single, instantaneous point.</p><p>There is no such thing as &quot;exact&quot; time in distributed systems, due to the underlying physics involved, and other issues such as network latency. A time window represents an approximation of an instant with a margin of tolerance, and may be fully bounded.</p></div>
+                    <div class="block"><p>Defines an interval on a timeline; not a single, instantaneous point. </p><p> There is no such thing as &quot;exact&quot; time in distributed systems, due to the underlying physics involved, and other issues such as network latency. A time window represents an approximation of an instant with a margin of tolerance, and may be fully bounded.</p></div>
                 </li>
             </ul>
         </div>
@@ -238,27 +238,27 @@ public interface <span class="typeNameLabel"><a href=TimeWindow.html>TimeWindow<
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a></code>
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=TimeWindow.html#contains(Instant)>contains</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> instant) </code>
+                                            <th class="colSecond" scope="row"><code><a href=TimeWindow.html#getFrom()>getFrom</a>() </code>
                                             </th>
-                                            <td class="colLast">Determines whether the current <a href=TimeWindow.html>TimeWindow</a> contains the specified <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a>.</td>
+                                            <td class="colLast">Gets the boundary at which the time window begins.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=TimeWindow.html#getFrom()>getFrom</a>() </code>
+                                            <th class="colSecond" scope="row"><code><a href=TimeWindow.html#getUntil()>getUntil</a>() </code>
                                             </th>
-                                            <td class="colLast">The boundary at which the time window begins.</td>
+                                            <td class="colLast">Gets the boundary at which the time window ends.</td>
                                         </tr>
                                         
                                         <tr id="i2" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a></code>
+                                            <td class="colFirst"><code>abstract boolean</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=TimeWindow.html#getUntil()>getUntil</a>() </code>
+                                            <th class="colSecond" scope="row"><code><a href=TimeWindow.html#contains(Instant)>contains</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> instant) </code>
                                             </th>
-                                            <td class="colLast">The boundary at which the time window ends.</td>
+                                            <td class="colLast">Determines whether the current <a href=TimeWindow.html>TimeWindow</a> contains the specified <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a>.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -305,15 +305,45 @@ public interface <span class="typeNameLabel"><a href=TimeWindow.html>TimeWindow<
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="contains(Instant)">
+                                <a id="getFrom()">
                                     <!--   -->
                                 </a>
                                 <ul class=
                                               "blockList"
                                           >
                                     <li class="blockList">
+                                        <h4>getFrom</h4>
+                                        <pre class="methodSignature">@Nullable() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> <a href=TimeWindow.html#getFrom()>getFrom</a>()</pre>
+                                        <div class="block"><p>Gets the boundary at which the time window begins.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getUntil()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getUntil</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> <a href=TimeWindow.html#getUntil()>getUntil</a>()</pre>
+                                        <div class="block"><p>Gets the boundary at which the time window ends.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="contains(Instant)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
                                         <h4>contains</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> <a href=TimeWindow.html#contains(Instant)>contains</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> instant)</pre>
+                                        <pre class="methodSignature"> abstract boolean <a href=TimeWindow.html#contains(Instant)>contains</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> instant)</pre>
                                         <div class="block"><p>Determines whether the current <a href=TimeWindow.html>TimeWindow</a> contains the specified <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a>.</p></div>
                                         
                                         <dl>
@@ -324,36 +354,6 @@ public interface <span class="typeNameLabel"><a href=TimeWindow.html>TimeWindow<
                                             
                                             
                                         </dl>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getFrom()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getFrom</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> <a href=TimeWindow.html#getFrom()>getFrom</a>()</pre>
-                                        <div class="block"><p>The boundary at which the time window begins.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getUntil()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockListLast"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getUntil</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> <a href=TimeWindow.html#getUntil()>getUntil</a>()</pre>
-                                        <div class="block"><p>The boundary at which the time window ends.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

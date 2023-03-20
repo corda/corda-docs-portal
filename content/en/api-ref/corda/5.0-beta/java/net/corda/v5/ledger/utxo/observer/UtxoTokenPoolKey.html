@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../../";
 public final class <span class="typeNameLabel"><a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a></span>
 
                     </pre>
-                    <div class="block"><p>The <a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a> defines a key for a pool of similar tokens.</p><p>The full token pool key includes Holding ID, token type, issue, notary and symbol. The platform provides the holding ID, notary and optional token type.</p></div>
+                    <div class="block"><p>Represents a key for a pool of similar tokens. </p><p> The full token pool key includes Holding ID, token type, issue, notary and symbol. The platform provides the holding ID, notary and optional token type.</p></div>
                 </li>
             </ul>
         </div>
@@ -165,19 +165,19 @@ public final class <span class="typeNameLabel"><a href=UtxoTokenPoolKey.html>Utx
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoTokenPoolKey.html#tokenType>tokenType</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="rowColor">
-                                            <td class="colFirst"><code>private final <a href=../../../crypto/SecureHash.html>SecureHash</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=../../../crypto/SecureHash.html>SecureHash</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoTokenPoolKey.html#issuerHash>issuerHash</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoTokenPoolKey.html#symbol>symbol</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
@@ -208,14 +208,14 @@ public final class <span class="typeNameLabel"><a href=UtxoTokenPoolKey.html>Utx
                                         
                                             <tr class="altColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
-                                                        href="#UtxoTokenPoolKey(SecureHash,String)">UtxoTokenPoolKey</a></span>(<a href=../../../crypto/SecureHash.html>SecureHash</a> issuerHash, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> symbol)</code></th>
-                                                <td class="colLast"></td>
+                                                        href="#UtxoTokenPoolKey(String,SecureHash,String)">UtxoTokenPoolKey</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> tokenType, <a href=../../../crypto/SecureHash.html>SecureHash</a> issuerHash, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> symbol)</code></th>
+                                                <td class="colLast">Creates a new instance of the <a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a> class.</td>
                                             </tr>
                                         
                                             <tr class="rowColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
-                                                        href="#UtxoTokenPoolKey(String,SecureHash,String)">UtxoTokenPoolKey</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> tokenType, <a href=../../../crypto/SecureHash.html>SecureHash</a> issuerHash, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> symbol)</code></th>
-                                                <td class="colLast"></td>
+                                                        href="#UtxoTokenPoolKey(SecureHash,String)">UtxoTokenPoolKey</a></span>(<a href=../../../crypto/SecureHash.html>SecureHash</a> issuerHash, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> symbol)</code></th>
+                                                <td class="colLast">Creates a new instance of the <a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a> class.</td>
                                             </tr>
                                         
 
@@ -268,27 +268,59 @@ public final class <span class="typeNameLabel"><a href=UtxoTokenPoolKey.html>Utx
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoTokenPoolKey.html#getTokenType()>getTokenType</a>() </code>
                                             </th>
-                                            <td class="colLast">The type of token within a pool.</td>
+                                            <td class="colLast">Gets the type of token within a pool, or null if no type was specified.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>final <a href=../../../crypto/SecureHash.html>SecureHash</a></code>
+                                            <td class="colFirst"><code><a href=../../../crypto/SecureHash.html>SecureHash</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoTokenPoolKey.html#getIssuerHash()>getIssuerHash</a>() </code>
                                             </th>
-                                            <td class="colLast">The <a href=../../../crypto/SecureHash.html>SecureHash</a> of the issuer of the tokens in a pool.</td>
+                                            <td class="colLast">Gets the SecureHash of the issuer of the tokens in a pool.</td>
                                         </tr>
                                         
                                         <tr id="i2" class="altColor">
-                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoTokenPoolKey.html#getSymbol()>getSymbol</a>() </code>
                                             </th>
-                                            <td class="colLast">The user defined symbol of the tokens in a pool.</td>
+                                            <td class="colLast">Gets the user defined symbol of the tokens in a pool.</td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>boolean</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoTokenPoolKey.html#equals(Object)>equals</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> obj) </code>
+                                            </th>
+                                            <td class="colLast">Determines whether the specified object is equal to the current object.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>boolean</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoTokenPoolKey.html#equals(UtxoTokenPoolKey)>equals</a>(@NotNull() <a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a> other) </code>
+                                            </th>
+                                            <td class="colLast">Determines whether the specified object is equal to the current object.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>int</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoTokenPoolKey.html#hashCode()>hashCode</a>() </code>
+                                            </th>
+                                            <td class="colLast">Serves as the default hash function.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoTokenPoolKey.html#toString()>toString</a>() </code>
+                                            </th>
+                                            <td class="colLast">Returns a string that represents the current object.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -322,22 +354,52 @@ public final class <span class="typeNameLabel"><a href=UtxoTokenPoolKey.html>Utx
                             </a>
                                 <h3>Constructor Detail</h3>
                                 
-                                <a name="UtxoTokenPoolKey(SecureHash,String)"></a>
-                                <ul class="blockList">
-                                    <li class="blockList">
-                                        <h4>UtxoTokenPoolKey</h4>
-                                        <pre>UtxoTokenPoolKey(<a href=../../../crypto/SecureHash.html>SecureHash</a> issuerHash, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> symbol)</pre>
-                                        <div class="block"></div>
-                                        
-                                    </li>
-                                </ul>
-                                
                                 <a name="UtxoTokenPoolKey(String,SecureHash,String)"></a>
                                 <ul class="blockList">
                                     <li class="blockList">
                                         <h4>UtxoTokenPoolKey</h4>
                                         <pre>UtxoTokenPoolKey(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> tokenType, <a href=../../../crypto/SecureHash.html>SecureHash</a> issuerHash, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> symbol)</pre>
-                                        <div class="block"></div>
+                                        <div class="block">Creates a new instance of the <a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a> class.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>tokenType</code> - The type of token within a pool.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>issuerHash</code> - The SecureHash of the issuer of the tokens in a pool.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>symbol</code> - The user defined symbol of the tokens in a pool.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="UtxoTokenPoolKey(SecureHash,String)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>UtxoTokenPoolKey</h4>
+                                        <pre>UtxoTokenPoolKey(<a href=../../../crypto/SecureHash.html>SecureHash</a> issuerHash, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> symbol)</pre>
+                                        <div class="block">Creates a new instance of the <a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a> class.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>issuerHash</code> - The SecureHash of the issuer of the tokens in a pool.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>symbol</code> - The user defined symbol of the tokens in a pool.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                     </li>
                                 </ul>
@@ -363,8 +425,8 @@ public final class <span class="typeNameLabel"><a href=UtxoTokenPoolKey.html>Utx
                                           >
                                     <li class="blockList">
                                         <h4>getTokenType</h4>
-                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=UtxoTokenPoolKey.html#getTokenType()>getTokenType</a>()</pre>
-                                        <div class="block"><p>The type of token within a pool. If nothing is sepecified the platform will default this to the class name of the contact state this key was created from by an implementation of <a href=UtxoLedgerTokenStateObserver.html>UtxoLedgerTokenStateObserver</a></p></div>
+                                        <pre class="methodSignature">@Nullable() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=UtxoTokenPoolKey.html#getTokenType()>getTokenType</a>()</pre>
+                                        <div class="block"><p>Gets the type of token within a pool, or null if no type was specified.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -378,8 +440,8 @@ public final class <span class="typeNameLabel"><a href=UtxoTokenPoolKey.html>Utx
                                           >
                                     <li class="blockList">
                                         <h4>getIssuerHash</h4>
-                                        <pre class="methodSignature"> final <a href=../../../crypto/SecureHash.html>SecureHash</a> <a href=UtxoTokenPoolKey.html#getIssuerHash()>getIssuerHash</a>()</pre>
-                                        <div class="block"><p>The <a href=../../../crypto/SecureHash.html>SecureHash</a> of the issuer of the tokens in a pool.</p></div>
+                                        <pre class="methodSignature">@NotNull() <a href=../../../crypto/SecureHash.html>SecureHash</a> <a href=UtxoTokenPoolKey.html#getIssuerHash()>getIssuerHash</a>()</pre>
+                                        <div class="block"><p>Gets the SecureHash of the issuer of the tokens in a pool.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -389,12 +451,90 @@ public final class <span class="typeNameLabel"><a href=UtxoTokenPoolKey.html>Utx
                                     <!--   -->
                                 </a>
                                 <ul class=
-                                              "blockListLast"
+                                              "blockList"
                                           >
                                     <li class="blockList">
                                         <h4>getSymbol</h4>
-                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=UtxoTokenPoolKey.html#getSymbol()>getSymbol</a>()</pre>
-                                        <div class="block"><p>The user defined symbol of the tokens in a pool.</p></div>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=UtxoTokenPoolKey.html#getSymbol()>getSymbol</a>()</pre>
+                                        <div class="block"><p>Gets the user defined symbol of the tokens in a pool.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="equals(Object)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>equals</h4>
+                                        <pre class="methodSignature"> boolean <a href=UtxoTokenPoolKey.html#equals(Object)>equals</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> obj)</pre>
+                                        <div class="block"><p>Determines whether the specified object is equal to the current object.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>obj</code> - The object to compare with the current object.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="equals(UtxoTokenPoolKey)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>equals</h4>
+                                        <pre class="methodSignature"> boolean <a href=UtxoTokenPoolKey.html#equals(UtxoTokenPoolKey)>equals</a>(@NotNull() <a href=UtxoTokenPoolKey.html>UtxoTokenPoolKey</a> other)</pre>
+                                        <div class="block"><p>Determines whether the specified object is equal to the current object.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>other</code> - The Party to compare with the current object.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="hashCode()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>hashCode</h4>
+                                        <pre class="methodSignature"> int <a href=UtxoTokenPoolKey.html#hashCode()>hashCode</a>()</pre>
+                                        <div class="block"><p>Serves as the default hash function.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toString()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toString</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=UtxoTokenPoolKey.html#toString()>toString</a>()</pre>
+                                        <div class="block"><p>Returns a string that represents the current object.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
