@@ -1,6 +1,6 @@
 ---
 date: '2023-03-15'
-title: "Configuring Pre-Auth Rules"
+title: "Configuring Pre-Authentication Rules"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-config-pre-auth-rules
