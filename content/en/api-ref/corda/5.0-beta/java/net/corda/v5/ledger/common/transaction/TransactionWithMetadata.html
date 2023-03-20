@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../../";
 public interface <span class="typeNameLabel"><a href=TransactionWithMetadata.html>TransactionWithMetadata</a></span>
 
                     </pre>
-                    <div class="block"><p>TransactionWithMetadata contains metadata properties of transactions common across different ledger implementations.</p><ul><li><p>@property signature The signature that was applied.</p></li></ul></div>
+                    <div class="block"><p>Defines metadata properties of transactions common across difference ledger implementations.</p></div>
                 </li>
             </ul>
         </div>
@@ -242,7 +242,7 @@ public interface <span class="typeNameLabel"><a href=TransactionWithMetadata.htm
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=TransactionWithMetadata.html#getId()>getId</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the ID of the transaction.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
@@ -250,7 +250,7 @@ public interface <span class="typeNameLabel"><a href=TransactionWithMetadata.htm
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=TransactionWithMetadata.html#getMetadata()>getMetadata</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the metadata for the specified transaction.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -305,8 +305,8 @@ public interface <span class="typeNameLabel"><a href=TransactionWithMetadata.htm
                                           >
                                     <li class="blockList">
                                         <h4>getId</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../../crypto/SecureHash.html>SecureHash</a> <a href=TransactionWithMetadata.html#getId()>getId</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../../crypto/SecureHash.html>SecureHash</a> <a href=TransactionWithMetadata.html#getId()>getId</a>()</pre>
+                                        <div class="block"><p>Gets the ID of the transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -320,8 +320,8 @@ public interface <span class="typeNameLabel"><a href=TransactionWithMetadata.htm
                                           >
                                     <li class="blockList">
                                         <h4>getMetadata</h4>
-                                        <pre class="methodSignature"> abstract <a href=TransactionMetadata.html>TransactionMetadata</a> <a href=TransactionWithMetadata.html#getMetadata()>getMetadata</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=TransactionMetadata.html>TransactionMetadata</a> <a href=TransactionWithMetadata.html#getMetadata()>getMetadata</a>()</pre>
+                                        <div class="block"><p>Gets the metadata for the specified transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

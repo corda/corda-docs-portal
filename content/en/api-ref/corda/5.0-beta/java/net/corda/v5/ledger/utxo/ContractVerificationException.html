@@ -125,7 +125,7 @@ var pathtoroot = "../../../../../";
 public final class <span class="typeNameLabel"><a href=ContractVerificationException.html>ContractVerificationException</a></span>
 extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeException</a>
                     </pre>
-                    <div class="block"></div>
+                    <div class="block"><p>Represents the exception that is thrown for a contract verification failure.</p></div>
                 </li>
             </ul>
         </div>
@@ -173,26 +173,32 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=../../crypto/SecureHash.html>SecureHash</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=../../crypto/SecureHash.html>SecureHash</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=ContractVerificationException.html#transactionId>transactionId</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="rowColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ContractVerificationFailure.html>ContractVerificationFailure</a>&gt;</code></td>
+                                            <td class="colFirst"><code>public final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ContractVerificationFailure.html>ContractVerificationFailure</a>&gt;</code></td>
                                             <th class="colSecond" scope="row"><code><a href=ContractVerificationException.html#failureReasons>failureReasons</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a></code></td>
-                                            <th class="colSecond" scope="row"><code><a href=transaction/filtered/FilteredDataInconsistencyException.html#cause>cause</a></code></th>
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../notary/plugin/core/NotaryExceptionUnknown.html#originalExceptionClassName>originalExceptionClassName</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="rowColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
-                                            <th class="colSecond" scope="row"><code><a href=transaction/filtered/FilteredDataInconsistencyException.html#message>message</a></code></th>
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html>Throwable</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../notary/plugin/core/NotaryExceptionUnknown.html#cause>cause</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public  <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/StackTraceElement.html>StackTraceElement</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=../notary/plugin/core/NotaryExceptionUnknown.html#stackTrace>stackTrace</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
@@ -223,7 +229,7 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                             <tr class="altColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
                                                         href="#ContractVerificationException(SecureHash,List)">ContractVerificationException</a></span>(<a href=../../crypto/SecureHash.html>SecureHash</a> transactionId, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ContractVerificationFailure.html>ContractVerificationFailure</a>&gt; failureReasons)</code></th>
-                                                <td class="colLast"></td>
+                                                <td class="colLast">Creates a new instance of the <a href=ContractVerificationException.html>ContractVerificationException</a> class.</td>
                                             </tr>
                                         
 
@@ -276,19 +282,19 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>final <a href=../../crypto/SecureHash.html>SecureHash</a></code>
+                                            <td class="colFirst"><code><a href=../../crypto/SecureHash.html>SecureHash</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ContractVerificationException.html#getTransactionId()>getTransactionId</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the transaction ID of the transaction that has failed verification.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ContractVerificationFailure.html>ContractVerificationFailure</a>&gt;</code>
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ContractVerificationFailure.html>ContractVerificationFailure</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ContractVerificationException.html#getFailureReasons()>getFailureReasons</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the list of failure reasons for the transaction that has failed verification.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -302,11 +308,11 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                             <h3>Methods inherited from class&nbsp;net.corda.v5.base.exceptions.CordaRuntimeException</h3>
                                             <code>addSuppressed, equals, getCause, getMessage, getOriginalExceptionClassName, getOriginalMessage, hashCode, setCause, setMessage, setOriginalExceptionClassName</code></li>
                                  
-                                    <li class="blockList"><a id="methods.inherited.from.class.kotlin.Throwable">
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Throwable">
                                             <!--   -->
                                         </a>
-                                            <h3>Methods inherited from class&nbsp;kotlin.Throwable</h3>
-                                            <code>addSuppressed, fillInStackTrace, getLocalizedMessage, getStackTrace, getSuppressed, initCause, printStackTrace, printStackTrace, printStackTrace, setStackTrace</code></li>
+                                            <h3>Methods inherited from class&nbsp;java.lang.Throwable</h3>
+                                            <code>fillInStackTrace, getLocalizedMessage, getStackTrace, getSuppressed, initCause, printStackTrace, setStackTrace, toString</code></li>
                                  
                                     <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
                                         <!--   -->
@@ -339,7 +345,20 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                     <li class="blockList">
                                         <h4>ContractVerificationException</h4>
                                         <pre>ContractVerificationException(<a href=../../crypto/SecureHash.html>SecureHash</a> transactionId, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ContractVerificationFailure.html>ContractVerificationFailure</a>&gt; failureReasons)</pre>
-                                        <div class="block"></div>
+                                        <div class="block">Creates a new instance of the <a href=ContractVerificationException.html>ContractVerificationException</a> class.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>transactionId</code> - The transaction ID of the transaction that has failed verification.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>failureReasons</code> - The list of failure reasons for the transaction that has failed verification.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                     </li>
                                 </ul>
@@ -365,8 +384,8 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                           >
                                     <li class="blockList">
                                         <h4>getTransactionId</h4>
-                                        <pre class="methodSignature"> final <a href=../../crypto/SecureHash.html>SecureHash</a> <a href=ContractVerificationException.html#getTransactionId()>getTransactionId</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() <a href=../../crypto/SecureHash.html>SecureHash</a> <a href=ContractVerificationException.html#getTransactionId()>getTransactionId</a>()</pre>
+                                        <div class="block"><p>Gets the transaction ID of the transaction that has failed verification.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -380,8 +399,8 @@ extends <a href=../../base/exceptions/CordaRuntimeException.html>CordaRuntimeExc
                                           >
                                     <li class="blockList">
                                         <h4>getFailureReasons</h4>
-                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ContractVerificationFailure.html>ContractVerificationFailure</a>&gt; <a href=ContractVerificationException.html#getFailureReasons()>getFailureReasons</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=ContractVerificationFailure.html>ContractVerificationFailure</a>&gt; <a href=ContractVerificationException.html#getFailureReasons()>getFailureReasons</a>()</pre>
+                                        <div class="block"><p>Gets the list of failure reasons for the transaction that has failed verification.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

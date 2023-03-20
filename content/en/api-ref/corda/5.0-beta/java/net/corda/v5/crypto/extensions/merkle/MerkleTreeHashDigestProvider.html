@@ -120,7 +120,7 @@ var pathtoroot = "../../../../../../";
 public interface <span class="typeNameLabel"><a href=MerkleTreeHashDigestProvider.html>MerkleTreeHashDigestProvider</a></span>
  implements <a href=../../merkle/MerkleTreeHashDigest.html>MerkleTreeHashDigest</a>
                     </pre>
-                    <div class="block"><p>Different use cases require different <a href=../../merkle/MerkleTree.html>MerkleTree</a> calculations. <a href=MerkleTreeHashDigestProvider.html>MerkleTreeHashDigestProvider</a>s let us specify the</p><ul><li><p>Leaf Nonce</p></li><li><p>Leaf Hash</p></li><li><p>Node Hash calculation methods</p></li><li><p>Base Digest Algorithm</p></li></ul></div>
+                    <div class="block"><p>Different use cases require different <a href=../../merkle/MerkleTree.html>MerkleTree</a> calculations. <a href=MerkleTreeHashDigestProvider.html>MerkleTreeHashDigestProvider</a>s let us specify the </p><ul><li> Leaf Nonce </li><li> Leaf Hash </li><li> Node Hash calculation methods </li><li> Base Digest Algorithm </li></ul></div>
                 </li>
             </ul>
         </div>
@@ -241,9 +241,9 @@ public interface <span class="typeNameLabel"><a href=MerkleTreeHashDigestProvide
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a></code>
+                                            <td class="colFirst"><code>abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt;</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=MerkleTreeHashDigestProvider.html#leafNonce(Integer)>leafNonce</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> index) </code>
+                                            <th class="colSecond" scope="row"><code><a href=MerkleTreeHashDigestProvider.html#leafNonce(int)>leafNonce</a>(int index) </code>
                                             </th>
                                             <td class="colLast">Calculates the nonce for a leaf.</td>
                                         </tr>
@@ -251,7 +251,7 @@ public interface <span class="typeNameLabel"><a href=MerkleTreeHashDigestProvide
                                         <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=../../SecureHash.html>SecureHash</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=MerkleTreeHashDigestProvider.html#leafHash(Integer,ByteArray,ByteArray)>leafHash</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> index, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a> nonce, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a> bytes) </code>
+                                            <th class="colSecond" scope="row"><code><a href=MerkleTreeHashDigestProvider.html#leafHash(int,Array,Array)>leafHash</a>(int index, @Nullable() <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt; nonce, @NotNull() <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt; bytes) </code>
                                             </th>
                                             <td class="colLast">Calculates the hash of a leaf.</td>
                                         </tr>
@@ -259,7 +259,7 @@ public interface <span class="typeNameLabel"><a href=MerkleTreeHashDigestProvide
                                         <tr id="i2" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=../../SecureHash.html>SecureHash</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=MerkleTreeHashDigestProvider.html#nodeHash(Integer,SecureHash,SecureHash)>nodeHash</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> depth, <a href=../../SecureHash.html>SecureHash</a> left, <a href=../../SecureHash.html>SecureHash</a> right) </code>
+                                            <th class="colSecond" scope="row"><code><a href=MerkleTreeHashDigestProvider.html#nodeHash(int,SecureHash,SecureHash)>nodeHash</a>(int depth, @NotNull() <a href=../../SecureHash.html>SecureHash</a> left, @NotNull() <a href=../../SecureHash.html>SecureHash</a> right) </code>
                                             </th>
                                             <td class="colLast">Calculates the hash of a node.</td>
                                         </tr>
@@ -314,7 +314,7 @@ public interface <span class="typeNameLabel"><a href=MerkleTreeHashDigestProvide
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="leafNonce(Integer)">
+                                <a id="leafNonce(int)">
                                     <!--   -->
                                 </a>
                                 <ul class=
@@ -322,7 +322,7 @@ public interface <span class="typeNameLabel"><a href=MerkleTreeHashDigestProvide
                                           >
                                     <li class="blockList">
                                         <h4>leafNonce</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a> <a href=MerkleTreeHashDigestProvider.html#leafNonce(Integer)>leafNonce</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> index)</pre>
+                                        <pre class="methodSignature">@Nullable() abstract <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt; <a href=MerkleTreeHashDigestProvider.html#leafNonce(int)>leafNonce</a>(int index)</pre>
                                         <div class="block"><p>Calculates the nonce for a leaf.</p></div>
                                         
                                         <dl>
@@ -338,7 +338,7 @@ public interface <span class="typeNameLabel"><a href=MerkleTreeHashDigestProvide
                                     </li>
                                 </ul>
                                 
-                                <a id="leafHash(Integer,ByteArray,ByteArray)">
+                                <a id="leafHash(int,Array,Array)">
                                     <!--   -->
                                 </a>
                                 <ul class=
@@ -346,7 +346,7 @@ public interface <span class="typeNameLabel"><a href=MerkleTreeHashDigestProvide
                                           >
                                     <li class="blockList">
                                         <h4>leafHash</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../SecureHash.html>SecureHash</a> <a href=MerkleTreeHashDigestProvider.html#leafHash(Integer,ByteArray,ByteArray)>leafHash</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> index, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a> nonce, <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html>ByteArray</a> bytes)</pre>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../SecureHash.html>SecureHash</a> <a href=MerkleTreeHashDigestProvider.html#leafHash(int,Array,Array)>leafHash</a>(int index, @Nullable() <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt; nonce, @NotNull() <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;byte&gt; bytes)</pre>
                                         <div class="block"><p>Calculates the hash of a leaf.</p></div>
                                         
                                         <dl>
@@ -370,7 +370,7 @@ public interface <span class="typeNameLabel"><a href=MerkleTreeHashDigestProvide
                                     </li>
                                 </ul>
                                 
-                                <a id="nodeHash(Integer,SecureHash,SecureHash)">
+                                <a id="nodeHash(int,SecureHash,SecureHash)">
                                     <!--   -->
                                 </a>
                                 <ul class=
@@ -378,7 +378,7 @@ public interface <span class="typeNameLabel"><a href=MerkleTreeHashDigestProvide
                                           >
                                     <li class="blockList">
                                         <h4>nodeHash</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../SecureHash.html>SecureHash</a> <a href=MerkleTreeHashDigestProvider.html#nodeHash(Integer,SecureHash,SecureHash)>nodeHash</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a> depth, <a href=../../SecureHash.html>SecureHash</a> left, <a href=../../SecureHash.html>SecureHash</a> right)</pre>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../SecureHash.html>SecureHash</a> <a href=MerkleTreeHashDigestProvider.html#nodeHash(int,SecureHash,SecureHash)>nodeHash</a>(int depth, @NotNull() <a href=../../SecureHash.html>SecureHash</a> left, @NotNull() <a href=../../SecureHash.html>SecureHash</a> right)</pre>
                                         <div class="block"><p>Calculates the hash of a node.</p></div>
                                         
                                         <dl>

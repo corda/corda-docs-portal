@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../../../";
 public final class <span class="typeNameLabel"><a href=TokenClaimCriteria.html>TokenClaimCriteria</a></span>
 
                     </pre>
-                    <div class="block"><p><a href=TokenClaimCriteria.html>TokenClaimCriteria</a> describes the selection criteria for a token selection query using the <a href=TokenSelection.html>TokenSelection</a> API.</p></div>
+                    <div class="block"><p>Represents a description of the selection criteria for a token selection query using the <a href=TokenSelection.html>TokenSelection</a> API.</p></div>
                 </li>
             </ul>
         </div>
@@ -165,44 +165,44 @@ public final class <span class="typeNameLabel"><a href=TokenClaimCriteria.html>T
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private  <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
-                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#tagRegex>tagRegex</a></code></th>
-                                            <td class="colLast"></td>
-                                        </tr>
-                                        
-                                        <tr class="rowColor">
-                                            <td class="colFirst"><code>private  <a href=../../../../crypto/SecureHash.html>SecureHash</a></code></td>
-                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#ownerHash>ownerHash</a></code></th>
-                                            <td class="colLast"></td>
-                                        </tr>
-                                        
-                                        <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#tokenType>tokenType</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="rowColor">
-                                            <td class="colFirst"><code>private final <a href=../../../../crypto/SecureHash.html>SecureHash</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=../../../../crypto/SecureHash.html>SecureHash</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#issuerHash>issuerHash</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#notaryX500Name>notaryX500Name</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="rowColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#symbol>symbol</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
                                         <tr class="altColor">
-                                            <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a></code></td>
+                                            <td class="colFirst"><code>public final <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#targetAmount>targetAmount</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#tagRegex>tagRegex</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public  <a href=../../../../crypto/SecureHash.html>SecureHash</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#ownerHash>ownerHash</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
@@ -233,7 +233,7 @@ public final class <span class="typeNameLabel"><a href=TokenClaimCriteria.html>T
                                             <tr class="altColor">
                                                 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
                                                         href="#TokenClaimCriteria(String,SecureHash,MemberX500Name,String,BigDecimal)">TokenClaimCriteria</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> tokenType, <a href=../../../../crypto/SecureHash.html>SecureHash</a> issuerHash, <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> notaryX500Name, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> symbol, <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a> targetAmount)</code></th>
-                                                <td class="colLast"></td>
+                                                <td class="colLast">Creates a new instance of the <a href=TokenClaimCriteria.html>TokenClaimCriteria</a> class.</td>
                                             </tr>
                                         
 
@@ -286,75 +286,107 @@ public final class <span class="typeNameLabel"><a href=TokenClaimCriteria.html>T
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#getTagRegex()>getTagRegex</a>() </code>
-                                            </th>
-                                            <td class="colLast">Optional regular expression to match against the ClaimedToken.tag field.</td>
-                                        </tr>
-                                        
-                                        <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#setTagRegex(String)>setTagRegex</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> tagRegex) </code>
-                                            </th>
-                                            <td class="colLast">Optional regular expression to match against the ClaimedToken.tag field.</td>
-                                        </tr>
-                                        
-                                        <tr id="i2" class="altColor">
-                                            <td class="colFirst"><code>final <a href=../../../../crypto/SecureHash.html>SecureHash</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#getOwnerHash()>getOwnerHash</a>() </code>
-                                            </th>
-                                            <td class="colLast">Optional owner <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the tokens to be selected .</td>
-                                        </tr>
-                                        
-                                        <tr id="i3" class="rowColor">
-                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#setOwnerHash(SecureHash)>setOwnerHash</a>(<a href=../../../../crypto/SecureHash.html>SecureHash</a> ownerHash) </code>
-                                            </th>
-                                            <td class="colLast">Optional owner <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the tokens to be selected .</td>
-                                        </tr>
-                                        
-                                        <tr id="i4" class="altColor">
-                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#getTokenType()>getTokenType</a>() </code>
                                             </th>
-                                            <td class="colLast">The type of tokens to be selected.</td>
+                                            <td class="colLast">Gets the type of tokens to be selected.</td>
                                         </tr>
                                         
-                                        <tr id="i5" class="rowColor">
-                                            <td class="colFirst"><code>final <a href=../../../../crypto/SecureHash.html>SecureHash</a></code>
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code><a href=../../../../crypto/SecureHash.html>SecureHash</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#getIssuerHash()>getIssuerHash</a>() </code>
                                             </th>
-                                            <td class="colLast">The <a href=../../../../crypto/SecureHash.html>SecureHash</a> of issuer of tokens to be selected.</td>
+                                            <td class="colLast">Gets the <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the issuer of tokens to be selected.</td>
                                         </tr>
                                         
-                                        <tr id="i6" class="altColor">
-                                            <td class="colFirst"><code>final <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a></code>
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code><a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#getNotaryX500Name()>getNotaryX500Name</a>() </code>
                                             </th>
-                                            <td class="colLast">The <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> of the notary of tokens to be selected.</td>
+                                            <td class="colLast">Gets the <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> of the notary of the tokens to be selected.</td>
                                         </tr>
                                         
-                                        <tr id="i7" class="rowColor">
-                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#getSymbol()>getSymbol</a>() </code>
                                             </th>
-                                            <td class="colLast">The symbol of the notary of tokens to be selected.</td>
+                                            <td class="colLast">Gets the symbol of the notary of tokens to be selected.</td>
                                         </tr>
                                         
-                                        <tr id="i8" class="altColor">
-                                            <td class="colFirst"><code>final <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a></code>
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#getTargetAmount()>getTargetAmount</a>() </code>
                                             </th>
-                                            <td class="colLast">The minimum value for the sum of ClaimedToken.amount for the selected tokens.</td>
+                                            <td class="colLast">Gets the minimum value for the sum of <a href=ClaimedToken.html#getAmount()>getAmount</a> for the selected tokens.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#getTagRegex()>getTagRegex</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets an optional regular expression to match against the <a href=ClaimedToken.html#getTag()>getTag</a> field, or null to match all tags.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#setTagRegex(String)>setTagRegex</a>(@Nullable() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> tagRegex) </code>
+                                            </th>
+                                            <td class="colLast">Sets an optional regular expression to match against the <a href=ClaimedToken.html#getTag()>getTag</a> field, or null to match all tags.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code><a href=../../../../crypto/SecureHash.html>SecureHash</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#getOwnerHash()>getOwnerHash</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets an optional owner <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the tokens to be selected, or null to match all owners.</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#setOwnerHash(SecureHash)>setOwnerHash</a>(@Nullable() <a href=../../../../crypto/SecureHash.html>SecureHash</a> ownerHash) </code>
+                                            </th>
+                                            <td class="colLast">Sets an optional owner <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the tokens to be selected, or null to match all owners.</td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>boolean</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#equals(Object)>equals</a>(@Nullable() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> obj) </code>
+                                            </th>
+                                            <td class="colLast">Determines whether the specified object is equal to the current object.</td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>boolean</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#equals(TokenClaimCriteria)>equals</a>(@NotNull() <a href=TokenClaimCriteria.html>TokenClaimCriteria</a> other) </code>
+                                            </th>
+                                            <td class="colLast">Determines whether the specified object is equal to the current object.</td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code>int</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#hashCode()>hashCode</a>() </code>
+                                            </th>
+                                            <td class="colLast">Serves as the default hash function.</td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=TokenClaimCriteria.html#toString()>toString</a>() </code>
+                                            </th>
+                                            <td class="colLast">Returns a string that represents the current object.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -393,7 +425,32 @@ public final class <span class="typeNameLabel"><a href=TokenClaimCriteria.html>T
                                     <li class="blockList">
                                         <h4>TokenClaimCriteria</h4>
                                         <pre>TokenClaimCriteria(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> tokenType, <a href=../../../../crypto/SecureHash.html>SecureHash</a> issuerHash, <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> notaryX500Name, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> symbol, <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a> targetAmount)</pre>
-                                        <div class="block"></div>
+                                        <div class="block">Creates a new instance of the <a href=TokenClaimCriteria.html>TokenClaimCriteria</a> class.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>tokenType</code> - The type of tokens to be selected.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>issuerHash</code> - The <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the issuer of tokens to be selected.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>notaryX500Name</code> - The <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> of the notary of the tokens to be selected.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>symbol</code> - The symbol of the notary of tokens to be selected.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>targetAmount</code> - The minimum value for the sum of <a href=ClaimedToken.html#getAmount()>getAmount</a> for the selected tokens.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                     </li>
                                 </ul>
@@ -411,66 +468,6 @@ public final class <span class="typeNameLabel"><a href=TokenClaimCriteria.html>T
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="getTagRegex()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getTagRegex</h4>
-                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=TokenClaimCriteria.html#getTagRegex()>getTagRegex</a>()</pre>
-                                        <div class="block"><p>Optional regular expression to match against the ClaimedToken.tag field. Null matches all.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="setTagRegex(String)">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>setTagRegex</h4>
-                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=TokenClaimCriteria.html#setTagRegex(String)>setTagRegex</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> tagRegex)</pre>
-                                        <div class="block"><p>Optional regular expression to match against the ClaimedToken.tag field. Null matches all.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getOwnerHash()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getOwnerHash</h4>
-                                        <pre class="methodSignature"> final <a href=../../../../crypto/SecureHash.html>SecureHash</a> <a href=TokenClaimCriteria.html#getOwnerHash()>getOwnerHash</a>()</pre>
-                                        <div class="block"><p>Optional owner <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the tokens to be selected . Null matches all.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="setOwnerHash(SecureHash)">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>setOwnerHash</h4>
-                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=TokenClaimCriteria.html#setOwnerHash(SecureHash)>setOwnerHash</a>(<a href=../../../../crypto/SecureHash.html>SecureHash</a> ownerHash)</pre>
-                                        <div class="block"><p>Optional owner <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the tokens to be selected . Null matches all.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
                                 <a id="getTokenType()">
                                     <!--   -->
                                 </a>
@@ -479,8 +476,8 @@ public final class <span class="typeNameLabel"><a href=TokenClaimCriteria.html>T
                                           >
                                     <li class="blockList">
                                         <h4>getTokenType</h4>
-                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=TokenClaimCriteria.html#getTokenType()>getTokenType</a>()</pre>
-                                        <div class="block"><p>The type of tokens to be selected.</p></div>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=TokenClaimCriteria.html#getTokenType()>getTokenType</a>()</pre>
+                                        <div class="block"><p>Gets the type of tokens to be selected.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -494,8 +491,8 @@ public final class <span class="typeNameLabel"><a href=TokenClaimCriteria.html>T
                                           >
                                     <li class="blockList">
                                         <h4>getIssuerHash</h4>
-                                        <pre class="methodSignature"> final <a href=../../../../crypto/SecureHash.html>SecureHash</a> <a href=TokenClaimCriteria.html#getIssuerHash()>getIssuerHash</a>()</pre>
-                                        <div class="block"><p>The <a href=../../../../crypto/SecureHash.html>SecureHash</a> of issuer of tokens to be selected.</p></div>
+                                        <pre class="methodSignature">@NotNull() <a href=../../../../crypto/SecureHash.html>SecureHash</a> <a href=TokenClaimCriteria.html#getIssuerHash()>getIssuerHash</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the issuer of tokens to be selected.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -509,8 +506,8 @@ public final class <span class="typeNameLabel"><a href=TokenClaimCriteria.html>T
                                           >
                                     <li class="blockList">
                                         <h4>getNotaryX500Name</h4>
-                                        <pre class="methodSignature"> final <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> <a href=TokenClaimCriteria.html#getNotaryX500Name()>getNotaryX500Name</a>()</pre>
-                                        <div class="block"><p>The <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> of the notary of tokens to be selected.</p></div>
+                                        <pre class="methodSignature">@NotNull() <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> <a href=TokenClaimCriteria.html#getNotaryX500Name()>getNotaryX500Name</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=../../../../base/types/MemberX500Name.html>MemberX500Name</a> of the notary of the tokens to be selected.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -524,8 +521,8 @@ public final class <span class="typeNameLabel"><a href=TokenClaimCriteria.html>T
                                           >
                                     <li class="blockList">
                                         <h4>getSymbol</h4>
-                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=TokenClaimCriteria.html#getSymbol()>getSymbol</a>()</pre>
-                                        <div class="block"><p>The symbol of the notary of tokens to be selected.</p></div>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=TokenClaimCriteria.html#getSymbol()>getSymbol</a>()</pre>
+                                        <div class="block"><p>Gets the symbol of the notary of tokens to be selected.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -535,12 +532,150 @@ public final class <span class="typeNameLabel"><a href=TokenClaimCriteria.html>T
                                     <!--   -->
                                 </a>
                                 <ul class=
-                                              "blockListLast"
+                                              "blockList"
                                           >
                                     <li class="blockList">
                                         <h4>getTargetAmount</h4>
-                                        <pre class="methodSignature"> final <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a> <a href=TokenClaimCriteria.html#getTargetAmount()>getTargetAmount</a>()</pre>
-                                        <div class="block"><p>The minimum value for the sum of ClaimedToken.amount for the selected tokens.</p></div>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html>BigDecimal</a> <a href=TokenClaimCriteria.html#getTargetAmount()>getTargetAmount</a>()</pre>
+                                        <div class="block"><p>Gets the minimum value for the sum of <a href=ClaimedToken.html#getAmount()>getAmount</a> for the selected tokens.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getTagRegex()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getTagRegex</h4>
+                                        <pre class="methodSignature">@Nullable() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=TokenClaimCriteria.html#getTagRegex()>getTagRegex</a>()</pre>
+                                        <div class="block"><p>Gets an optional regular expression to match against the <a href=ClaimedToken.html#getTag()>getTag</a> field, or null to match all tags.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setTagRegex(String)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setTagRegex</h4>
+                                        <pre class="methodSignature"> void <a href=TokenClaimCriteria.html#setTagRegex(String)>setTagRegex</a>(@Nullable() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> tagRegex)</pre>
+                                        <div class="block"><p>Sets an optional regular expression to match against the <a href=ClaimedToken.html#getTag()>getTag</a> field, or null to match all tags.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getOwnerHash()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getOwnerHash</h4>
+                                        <pre class="methodSignature">@Nullable() <a href=../../../../crypto/SecureHash.html>SecureHash</a> <a href=TokenClaimCriteria.html#getOwnerHash()>getOwnerHash</a>()</pre>
+                                        <div class="block"><p>Gets an optional owner <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the tokens to be selected, or null to match all owners.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setOwnerHash(SecureHash)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setOwnerHash</h4>
+                                        <pre class="methodSignature"> void <a href=TokenClaimCriteria.html#setOwnerHash(SecureHash)>setOwnerHash</a>(@Nullable() <a href=../../../../crypto/SecureHash.html>SecureHash</a> ownerHash)</pre>
+                                        <div class="block"><p>Sets an optional owner <a href=../../../../crypto/SecureHash.html>SecureHash</a> of the tokens to be selected, or null to match all owners.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="equals(Object)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>equals</h4>
+                                        <pre class="methodSignature"> boolean <a href=TokenClaimCriteria.html#equals(Object)>equals</a>(@Nullable() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> obj)</pre>
+                                        <div class="block"><p>Determines whether the specified object is equal to the current object.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>obj</code> - The object to compare with the current object.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="equals(TokenClaimCriteria)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>equals</h4>
+                                        <pre class="methodSignature"> boolean <a href=TokenClaimCriteria.html#equals(TokenClaimCriteria)>equals</a>(@NotNull() <a href=TokenClaimCriteria.html>TokenClaimCriteria</a> other)</pre>
+                                        <div class="block"><p>Determines whether the specified object is equal to the current object.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>other</code> - The Party to compare with the current object.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="hashCode()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>hashCode</h4>
+                                        <pre class="methodSignature"> int <a href=TokenClaimCriteria.html#hashCode()>hashCode</a>()</pre>
+                                        <div class="block"><p>Serves as the default hash function.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toString()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toString</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=TokenClaimCriteria.html#toString()>toString</a>()</pre>
+                                        <div class="block"><p>Returns a string that represents the current object.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

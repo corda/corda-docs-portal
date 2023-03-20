@@ -238,211 +238,211 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=../Attachment.html>Attachment</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getAttachment(SecureHash)>getAttachment</a>(<a href=../../../crypto/SecureHash.html>SecureHash</a> id) </code>
-                                            </th>
-                                            <td class="colLast">Obtains the ledger transaction <a href=../Attachment.html>Attachment</a> with the specified id.</td>
-                                        </tr>
-                                        
-                                        <tr id="i1" class="rowColor">
-                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../Command.html>Command</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getCommands(Class)>T</a>&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getCommands(Class)>getCommands</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getCommands(Class)>T</a>&gt; type) </code>
-                                            </th>
-                                            <td class="colLast">Obtains all ledger transaction <a href=../Command.html>Command</a> instances that match the specified type.</td>
-                                        </tr>
-                                        
-                                        <tr id="i2" class="altColor">
-                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStateAndRefs(Class)>T</a>&gt;&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getInputStateAndRefs(Class)>getInputStateAndRefs</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStateAndRefs(Class)>T</a>&gt; type) </code>
-                                            </th>
-                                            <td class="colLast">Obtains all ledger transaction <a href=../StateAndRef.html>StateAndRef</a> inputs that match the specified <a href=../ContractState.html>ContractState</a> type.</td>
-                                        </tr>
-                                        
-                                        <tr id="i3" class="rowColor">
-                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStates(Class)>T</a>&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getInputStates(Class)>getInputStates</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStates(Class)>T</a>&gt; type) </code>
-                                            </th>
-                                            <td class="colLast">Obtains all ledger transaction <a href=../ContractState.html>ContractState</a> inputs that match the specified <a href=../ContractState.html>ContractState</a> type.</td>
-                                        </tr>
-                                        
-                                        <tr id="i4" class="altColor">
-                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs(Class)>T</a>&gt;&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs(Class)>getReferenceStateAndRefs</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs(Class)>T</a>&gt; type) </code>
-                                            </th>
-                                            <td class="colLast">Obtains all ledger transaction <a href=../StateAndRef.html>StateAndRef</a> references that match the specified <a href=../ContractState.html>ContractState</a> type.</td>
-                                        </tr>
-                                        
-                                        <tr id="i5" class="rowColor">
-                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStates(Class)>T</a>&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getReferenceStates(Class)>getReferenceStates</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStates(Class)>T</a>&gt; type) </code>
-                                            </th>
-                                            <td class="colLast">Obtains all ledger transaction <a href=../ContractState.html>ContractState</a> references that match the specified <a href=../ContractState.html>ContractState</a> type.</td>
-                                        </tr>
-                                        
-                                        <tr id="i6" class="altColor">
-                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStateAndRefs(Class)>T</a>&gt;&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getOutputStateAndRefs(Class)>getOutputStateAndRefs</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStateAndRefs(Class)>T</a>&gt; type) </code>
-                                            </th>
-                                            <td class="colLast">Obtains all ledger transaction <a href=../StateAndRef.html>StateAndRef</a> outputs that match the specified <a href=../ContractState.html>ContractState</a> type.</td>
-                                        </tr>
-                                        
-                                        <tr id="i7" class="rowColor">
-                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStates(Class)>T</a>&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getOutputStates(Class)>getOutputStates</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStates(Class)>T</a>&gt; type) </code>
-                                            </th>
-                                            <td class="colLast">Obtains all ledger transaction <a href=../ContractState.html>ContractState</a> outputs that match the specified <a href=../ContractState.html>ContractState</a> type.</td>
-                                        </tr>
-                                        
-                                        <tr id="i8" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=../../../crypto/SecureHash.html>SecureHash</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getId()>getId</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the transaction ID associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i9" class="rowColor">
+                                        <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=../../common/Party.html>Party</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getNotary()>getNotary</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the notary associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i10" class="altColor">
+                                        <tr id="i2" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=../../common/transaction/TransactionMetadata.html>TransactionMetadata</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getMetadata()>getMetadata</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the transaction metadata associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i11" class="rowColor">
+                                        <tr id="i3" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=../TimeWindow.html>TimeWindow</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getTimeWindow()>getTimeWindow</a>() </code>
                                             </th>
-                                            <td class="colLast">The time window associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
+                                            <td class="colLast">Gets the time window associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i12" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../Attachment.html>Attachment</a>&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getAttachments()>getAttachments</a>() </code>
-                                            </th>
-                                            <td class="colLast">The attachments associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
-                                        </tr>
-                                        
-                                        <tr id="i13" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../Command.html>Command</a>&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getCommands()>getCommands</a>() </code>
-                                            </th>
-                                            <td class="colLast">The commands and signatories associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
-                                        </tr>
-                                        
-                                        <tr id="i14" class="altColor">
+                                        <tr id="i4" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getSignatories()>getSignatories</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the signatories associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../Attachment.html>Attachment</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getAttachments()>getAttachments</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the attachments associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=../Attachment.html>Attachment</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getAttachment(SecureHash)>getAttachment</a>(@NotNull() <a href=../../../crypto/SecureHash.html>SecureHash</a> id) </code>
+                                            </th>
+                                            <td class="colLast">Obtains an attachment associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../Command.html>Command</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getCommands()>getCommands</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the commands associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../Command.html>Command</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getCommands(Class)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getCommands(Class)>getCommands</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getCommands(Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast">Obtains all commands that match the specified type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getInputStateRefs()>getInputStateRefs</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the input state refs associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getInputStateAndRefs()>getInputStateAndRefs</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the input states and state refs associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStateAndRefs(Class)>T</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getInputStateAndRefs(Class)>getInputStateAndRefs</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStateAndRefs(Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast">Obtains all input states and state refs that match the specified type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../TransactionState.html>TransactionState</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getInputTransactionStates()>getInputTransactionStates</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the input transaction states associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i13" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../ContractState.html>ContractState</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getInputContractStates()>getInputContractStates</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the input contract states associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i14" class="altColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStates(Class)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getInputStates(Class)>getInputStates</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStates(Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast">Obtains all input contract states that match the specified type.</td>
                                         </tr>
                                         
                                         <tr id="i15" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt;</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getInputStateRefs()>getInputStateRefs</a>() </code>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getReferenceStateRefs()>getReferenceStateRefs</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the reference input state refs associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
                                         </tr>
                                         
                                         <tr id="i16" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;?&gt;&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getInputStateAndRefs()>getInputStateAndRefs</a>() </code>
-                                            </th>
-                                            <td class="colLast">The input states and state references to be consumed by the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
-                                        </tr>
-                                        
-                                        <tr id="i17" class="rowColor">
-                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../TransactionState.html>TransactionState</a>&lt;?&gt;&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getInputTransactionStates()>getInputTransactionStates</a>() </code>
-                                            </th>
-                                            <td class="colLast"></td>
-                                        </tr>
-                                        
-                                        <tr id="i18" class="altColor">
-                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../ContractState.html>ContractState</a>&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getInputContractStates()>getInputContractStates</a>() </code>
-                                            </th>
-                                            <td class="colLast"></td>
-                                        </tr>
-                                        
-                                        <tr id="i19" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getReferenceStateRefs()>getReferenceStateRefs</a>() </code>
-                                            </th>
-                                            <td class="colLast"></td>
-                                        </tr>
-                                        
-                                        <tr id="i20" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;?&gt;&gt;</code>
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs()>getReferenceStateAndRefs</a>() </code>
                                             </th>
-                                            <td class="colLast">The input states and state referenced to be referenced by the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
+                                            <td class="colLast">Gets the reference input states and state refs associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i21" class="rowColor">
-                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../TransactionState.html>TransactionState</a>&lt;?&gt;&gt;</code>
+                                        <tr id="i17" class="rowColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs(Class)>T</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs(Class)>getReferenceStateAndRefs</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs(Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast">Obtains all reference input states and state refs that match the specified type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i18" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../TransactionState.html>TransactionState</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getReferenceTransactionStates()>getReferenceTransactionStates</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the reference input transaction states associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i22" class="altColor">
+                                        <tr id="i19" class="rowColor">
                                             <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../ContractState.html>ContractState</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getReferenceContractStates()>getReferenceContractStates</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the reference input contract states associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i23" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;?&gt;&gt;</code>
+                                        <tr id="i20" class="altColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStates(Class)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getReferenceStates(Class)>getReferenceStates</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStates(Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast">Obtains all reference input contract states that match the specified type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i21" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getOutputStateAndRefs()>getOutputStateAndRefs</a>() </code>
                                             </th>
-                                            <td class="colLast">The output states and state references to be created by the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
+                                            <td class="colLast">Gets the output states and state refs associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i24" class="altColor">
-                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../TransactionState.html>TransactionState</a>&lt;?&gt;&gt;</code>
+                                        <tr id="i22" class="altColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStateAndRefs(Class)>T</a>&gt;&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getOutputStateAndRefs(Class)>getOutputStateAndRefs</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStateAndRefs(Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast">Obtains all output states and state refs that match the specified type.</td>
+                                        </tr>
+                                        
+                                        <tr id="i23" class="rowColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../TransactionState.html>TransactionState</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getOutputTransactionStates()>getOutputTransactionStates</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the output transaction states associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i25" class="rowColor">
+                                        <tr id="i24" class="altColor">
                                             <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../ContractState.html>ContractState</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getOutputContractStates()>getOutputContractStates</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the output contract states associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
+                                        </tr>
+                                        
+                                        <tr id="i25" class="rowColor">
+                                            <td class="colFirst"><code>abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStates(Class)>T</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoLedgerTransaction.html#getOutputStates(Class)>getOutputStates</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStates(Class)>T</a>&gt; type) </code>
+                                            </th>
+                                            <td class="colLast">Obtains all output contract states that match the specified type.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -489,6 +489,96 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                             </a>
                                 <h3>Method Detail</h3>
                                 
+                                <a id="getId()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getId</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../../crypto/SecureHash.html>SecureHash</a> <a href=UtxoLedgerTransaction.html#getId()>getId</a>()</pre>
+                                        <div class="block"><p>Gets the transaction ID associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getNotary()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getNotary</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../common/Party.html>Party</a> <a href=UtxoLedgerTransaction.html#getNotary()>getNotary</a>()</pre>
+                                        <div class="block"><p>Gets the notary associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getMetadata()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getMetadata</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../common/transaction/TransactionMetadata.html>TransactionMetadata</a> <a href=UtxoLedgerTransaction.html#getMetadata()>getMetadata</a>()</pre>
+                                        <div class="block"><p>Gets the transaction metadata associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getTimeWindow()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getTimeWindow</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../TimeWindow.html>TimeWindow</a> <a href=UtxoLedgerTransaction.html#getTimeWindow()>getTimeWindow</a>()</pre>
+                                        <div class="block"><p>Gets the time window associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getSignatories()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getSignatories</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=UtxoLedgerTransaction.html#getSignatories()>getSignatories</a>()</pre>
+                                        <div class="block"><p>Gets the signatories associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getAttachments()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getAttachments</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../Attachment.html>Attachment</a>&gt; <a href=UtxoLedgerTransaction.html#getAttachments()>getAttachments</a>()</pre>
+                                        <div class="block"><p>Gets the attachments associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
                                 <a id="getAttachment(SecureHash)">
                                     <!--   -->
                                 </a>
@@ -497,17 +587,32 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getAttachment</h4>
-                                        <pre class="methodSignature"> abstract <a href=../Attachment.html>Attachment</a> <a href=UtxoLedgerTransaction.html#getAttachment(SecureHash)>getAttachment</a>(<a href=../../../crypto/SecureHash.html>SecureHash</a> id)</pre>
-                                        <div class="block"><p>Obtains the ledger transaction <a href=../Attachment.html>Attachment</a> with the specified id.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../Attachment.html>Attachment</a> <a href=UtxoLedgerTransaction.html#getAttachment(SecureHash)>getAttachment</a>(@NotNull() <a href=../../../crypto/SecureHash.html>SecureHash</a> id)</pre>
+                                        <div class="block"><p>Obtains an attachment associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>id</code> - The id of the ledger transaction <a href=../Attachment.html>Attachment</a> to obtain.</dd>
+                                            <dd><code>id</code> - The ID of the attachment to obtain.</dd>
                                             
                                             
                                         </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getCommands()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getCommands</h4>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../Command.html>Command</a>&gt; <a href=UtxoLedgerTransaction.html#getCommands()>getCommands</a>()</pre>
+                                        <div class="block"><p>Gets the commands associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -521,8 +626,8 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getCommands</h4>
-                                        <pre class="methodSignature"> abstract &lt;T extends <a href=../Command.html>Command</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getCommands(Class)>T</a>&gt; <a href=UtxoLedgerTransaction.html#getCommands(Class)>getCommands</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getCommands(Class)>T</a>&gt; type)</pre>
-                                        <div class="block"><p>Obtains all ledger transaction <a href=../Command.html>Command</a> instances that match the specified type.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract &lt;T extends <a href=../Command.html>Command</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getCommands(Class)>T</a>&gt; <a href=UtxoLedgerTransaction.html#getCommands(Class)>getCommands</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getCommands(Class)>T</a>&gt; type)</pre>
+                                        <div class="block"><p>Obtains all commands that match the specified type.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
@@ -537,255 +642,6 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                     </li>
                                 </ul>
                                 
-                                <a id="getInputStateAndRefs(Class)">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getInputStateAndRefs</h4>
-                                        <pre class="methodSignature"> abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStateAndRefs(Class)>T</a>&gt;&gt; <a href=UtxoLedgerTransaction.html#getInputStateAndRefs(Class)>getInputStateAndRefs</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStateAndRefs(Class)>T</a>&gt; type)</pre>
-                                        <div class="block"><p>Obtains all ledger transaction <a href=../StateAndRef.html>StateAndRef</a> inputs that match the specified <a href=../ContractState.html>ContractState</a> type.</p></div>
-                                        
-                                        <dl>
-                                            <dt><span class="paramLabel">Parameters:</span></dt>
-                                            
-                                            
-                                            <dd><code>type</code> - The type of the <a href=../ContractState.html>ContractState</a>.</dd>
-                                            
-                                            
-                                        </dl>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getInputStates(Class)">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getInputStates</h4>
-                                        <pre class="methodSignature"> abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStates(Class)>T</a>&gt; <a href=UtxoLedgerTransaction.html#getInputStates(Class)>getInputStates</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStates(Class)>T</a>&gt; type)</pre>
-                                        <div class="block"><p>Obtains all ledger transaction <a href=../ContractState.html>ContractState</a> inputs that match the specified <a href=../ContractState.html>ContractState</a> type.</p></div>
-                                        
-                                        <dl>
-                                            <dt><span class="paramLabel">Parameters:</span></dt>
-                                            
-                                            
-                                            <dd><code>type</code> - The type of the <a href=../ContractState.html>ContractState</a>.</dd>
-                                            
-                                            
-                                        </dl>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getReferenceStateAndRefs(Class)">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getReferenceStateAndRefs</h4>
-                                        <pre class="methodSignature"> abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs(Class)>T</a>&gt;&gt; <a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs(Class)>getReferenceStateAndRefs</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs(Class)>T</a>&gt; type)</pre>
-                                        <div class="block"><p>Obtains all ledger transaction <a href=../StateAndRef.html>StateAndRef</a> references that match the specified <a href=../ContractState.html>ContractState</a> type.</p></div>
-                                        
-                                        <dl>
-                                            <dt><span class="paramLabel">Parameters:</span></dt>
-                                            
-                                            
-                                            <dd><code>type</code> - The type of the <a href=../ContractState.html>ContractState</a>.</dd>
-                                            
-                                            
-                                        </dl>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getReferenceStates(Class)">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getReferenceStates</h4>
-                                        <pre class="methodSignature"> abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStates(Class)>T</a>&gt; <a href=UtxoLedgerTransaction.html#getReferenceStates(Class)>getReferenceStates</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStates(Class)>T</a>&gt; type)</pre>
-                                        <div class="block"><p>Obtains all ledger transaction <a href=../ContractState.html>ContractState</a> references that match the specified <a href=../ContractState.html>ContractState</a> type.</p></div>
-                                        
-                                        <dl>
-                                            <dt><span class="paramLabel">Parameters:</span></dt>
-                                            
-                                            
-                                            <dd><code>type</code> - The type of the <a href=../ContractState.html>ContractState</a>.</dd>
-                                            
-                                            
-                                        </dl>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getOutputStateAndRefs(Class)">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getOutputStateAndRefs</h4>
-                                        <pre class="methodSignature"> abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStateAndRefs(Class)>T</a>&gt;&gt; <a href=UtxoLedgerTransaction.html#getOutputStateAndRefs(Class)>getOutputStateAndRefs</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStateAndRefs(Class)>T</a>&gt; type)</pre>
-                                        <div class="block"><p>Obtains all ledger transaction <a href=../StateAndRef.html>StateAndRef</a> outputs that match the specified <a href=../ContractState.html>ContractState</a> type.</p></div>
-                                        
-                                        <dl>
-                                            <dt><span class="paramLabel">Parameters:</span></dt>
-                                            
-                                            
-                                            <dd><code>type</code> - The type of the <a href=../ContractState.html>ContractState</a>.</dd>
-                                            
-                                            
-                                        </dl>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getOutputStates(Class)">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getOutputStates</h4>
-                                        <pre class="methodSignature"> abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStates(Class)>T</a>&gt; <a href=UtxoLedgerTransaction.html#getOutputStates(Class)>getOutputStates</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStates(Class)>T</a>&gt; type)</pre>
-                                        <div class="block"><p>Obtains all ledger transaction <a href=../ContractState.html>ContractState</a> outputs that match the specified <a href=../ContractState.html>ContractState</a> type.</p></div>
-                                        
-                                        <dl>
-                                            <dt><span class="paramLabel">Parameters:</span></dt>
-                                            
-                                            
-                                            <dd><code>type</code> - The type of the <a href=../ContractState.html>ContractState</a>.</dd>
-                                            
-                                            
-                                        </dl>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getId()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getId</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../../crypto/SecureHash.html>SecureHash</a> <a href=UtxoLedgerTransaction.html#getId()>getId</a>()</pre>
-                                        <div class="block"></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getNotary()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getNotary</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../common/Party.html>Party</a> <a href=UtxoLedgerTransaction.html#getNotary()>getNotary</a>()</pre>
-                                        <div class="block"></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getMetadata()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getMetadata</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../common/transaction/TransactionMetadata.html>TransactionMetadata</a> <a href=UtxoLedgerTransaction.html#getMetadata()>getMetadata</a>()</pre>
-                                        <div class="block"></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getTimeWindow()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getTimeWindow</h4>
-                                        <pre class="methodSignature"> abstract <a href=../TimeWindow.html>TimeWindow</a> <a href=UtxoLedgerTransaction.html#getTimeWindow()>getTimeWindow</a>()</pre>
-                                        <div class="block"><p>The time window associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getAttachments()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getAttachments</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../Attachment.html>Attachment</a>&gt; <a href=UtxoLedgerTransaction.html#getAttachments()>getAttachments</a>()</pre>
-                                        <div class="block"><p>The attachments associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getCommands()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getCommands</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../Command.html>Command</a>&gt; <a href=UtxoLedgerTransaction.html#getCommands()>getCommands</a>()</pre>
-                                        <div class="block"><p>The commands and signatories associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
-                                <a id="getSignatories()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>getSignatories</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=UtxoLedgerTransaction.html#getSignatories()>getSignatories</a>()</pre>
-                                        <div class="block"></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
                                 <a id="getInputStateRefs()">
                                     <!--   -->
                                 </a>
@@ -794,8 +650,8 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getInputStateRefs</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt; <a href=UtxoLedgerTransaction.html#getInputStateRefs()>getInputStateRefs</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt; <a href=UtxoLedgerTransaction.html#getInputStateRefs()>getInputStateRefs</a>()</pre>
+                                        <div class="block"><p>Gets the input state refs associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -809,8 +665,32 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getInputStateAndRefs</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;?&gt;&gt; <a href=UtxoLedgerTransaction.html#getInputStateAndRefs()>getInputStateAndRefs</a>()</pre>
-                                        <div class="block"><p>The input states and state references to be consumed by the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt; <a href=UtxoLedgerTransaction.html#getInputStateAndRefs()>getInputStateAndRefs</a>()</pre>
+                                        <div class="block"><p>Gets the input states and state refs associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getInputStateAndRefs(Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getInputStateAndRefs</h4>
+                                        <pre class="methodSignature">@NotNull() abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStateAndRefs(Class)>T</a>&gt;&gt; <a href=UtxoLedgerTransaction.html#getInputStateAndRefs(Class)>getInputStateAndRefs</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStateAndRefs(Class)>T</a>&gt; type)</pre>
+                                        <div class="block"><p>Obtains all input states and state refs that match the specified type.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>type</code> - The type of the <a href=../ContractState.html>ContractState</a>.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -824,8 +704,8 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getInputTransactionStates</h4>
-                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../TransactionState.html>TransactionState</a>&lt;?&gt;&gt; <a href=UtxoLedgerTransaction.html#getInputTransactionStates()>getInputTransactionStates</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../TransactionState.html>TransactionState</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt; <a href=UtxoLedgerTransaction.html#getInputTransactionStates()>getInputTransactionStates</a>()</pre>
+                                        <div class="block"><p>Gets the input transaction states associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -839,8 +719,32 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getInputContractStates</h4>
-                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../ContractState.html>ContractState</a>&gt; <a href=UtxoLedgerTransaction.html#getInputContractStates()>getInputContractStates</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../ContractState.html>ContractState</a>&gt; <a href=UtxoLedgerTransaction.html#getInputContractStates()>getInputContractStates</a>()</pre>
+                                        <div class="block"><p>Gets the input contract states associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getInputStates(Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getInputStates</h4>
+                                        <pre class="methodSignature">@NotNull() abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStates(Class)>T</a>&gt; <a href=UtxoLedgerTransaction.html#getInputStates(Class)>getInputStates</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getInputStates(Class)>T</a>&gt; type)</pre>
+                                        <div class="block"><p>Obtains all input contract states that match the specified type.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>type</code> - The type of the <a href=../ContractState.html>ContractState</a>.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -854,8 +758,8 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getReferenceStateRefs</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt; <a href=UtxoLedgerTransaction.html#getReferenceStateRefs()>getReferenceStateRefs</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt; <a href=UtxoLedgerTransaction.html#getReferenceStateRefs()>getReferenceStateRefs</a>()</pre>
+                                        <div class="block"><p>Gets the reference input state refs associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -869,8 +773,32 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getReferenceStateAndRefs</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;?&gt;&gt; <a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs()>getReferenceStateAndRefs</a>()</pre>
-                                        <div class="block"><p>The input states and state referenced to be referenced by the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt; <a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs()>getReferenceStateAndRefs</a>()</pre>
+                                        <div class="block"><p>Gets the reference input states and state refs associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getReferenceStateAndRefs(Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getReferenceStateAndRefs</h4>
+                                        <pre class="methodSignature">@NotNull() abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs(Class)>T</a>&gt;&gt; <a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs(Class)>getReferenceStateAndRefs</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStateAndRefs(Class)>T</a>&gt; type)</pre>
+                                        <div class="block"><p>Obtains all reference input states and state refs that match the specified type.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>type</code> - The type of the <a href=../ContractState.html>ContractState</a>.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -884,8 +812,8 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getReferenceTransactionStates</h4>
-                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../TransactionState.html>TransactionState</a>&lt;?&gt;&gt; <a href=UtxoLedgerTransaction.html#getReferenceTransactionStates()>getReferenceTransactionStates</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../TransactionState.html>TransactionState</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt; <a href=UtxoLedgerTransaction.html#getReferenceTransactionStates()>getReferenceTransactionStates</a>()</pre>
+                                        <div class="block"><p>Gets the reference input transaction states associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -899,8 +827,32 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getReferenceContractStates</h4>
-                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../ContractState.html>ContractState</a>&gt; <a href=UtxoLedgerTransaction.html#getReferenceContractStates()>getReferenceContractStates</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../ContractState.html>ContractState</a>&gt; <a href=UtxoLedgerTransaction.html#getReferenceContractStates()>getReferenceContractStates</a>()</pre>
+                                        <div class="block"><p>Gets the reference input contract states associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getReferenceStates(Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getReferenceStates</h4>
+                                        <pre class="methodSignature">@NotNull() abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStates(Class)>T</a>&gt; <a href=UtxoLedgerTransaction.html#getReferenceStates(Class)>getReferenceStates</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getReferenceStates(Class)>T</a>&gt; type)</pre>
+                                        <div class="block"><p>Obtains all reference input contract states that match the specified type.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>type</code> - The type of the <a href=../ContractState.html>ContractState</a>.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -914,8 +866,32 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getOutputStateAndRefs</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;?&gt;&gt; <a href=UtxoLedgerTransaction.html#getOutputStateAndRefs()>getOutputStateAndRefs</a>()</pre>
-                                        <div class="block"><p>The output states and state references to be created by the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt; <a href=UtxoLedgerTransaction.html#getOutputStateAndRefs()>getOutputStateAndRefs</a>()</pre>
+                                        <div class="block"><p>Gets the output states and state refs associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getOutputStateAndRefs(Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getOutputStateAndRefs</h4>
+                                        <pre class="methodSignature">@NotNull() abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStateAndRefs(Class)>T</a>&gt;&gt; <a href=UtxoLedgerTransaction.html#getOutputStateAndRefs(Class)>getOutputStateAndRefs</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStateAndRefs(Class)>T</a>&gt; type)</pre>
+                                        <div class="block"><p>Obtains all output states and state refs that match the specified type.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>type</code> - The type of the <a href=../ContractState.html>ContractState</a>.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -929,8 +905,8 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getOutputTransactionStates</h4>
-                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../TransactionState.html>TransactionState</a>&lt;?&gt;&gt; <a href=UtxoLedgerTransaction.html#getOutputTransactionStates()>getOutputTransactionStates</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../TransactionState.html>TransactionState</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt; <a href=UtxoLedgerTransaction.html#getOutputTransactionStates()>getOutputTransactionStates</a>()</pre>
+                                        <div class="block"><p>Gets the output transaction states associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -940,12 +916,36 @@ public interface <span class="typeNameLabel"><a href=UtxoLedgerTransaction.html>
                                     <!--   -->
                                 </a>
                                 <ul class=
-                                              "blockListLast"
+                                              "blockList"
                                           >
                                     <li class="blockList">
                                         <h4>getOutputContractStates</h4>
-                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../ContractState.html>ContractState</a>&gt; <a href=UtxoLedgerTransaction.html#getOutputContractStates()>getOutputContractStates</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../ContractState.html>ContractState</a>&gt; <a href=UtxoLedgerTransaction.html#getOutputContractStates()>getOutputContractStates</a>()</pre>
+                                        <div class="block"><p>Gets the output contract states associated with the current <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getOutputStates(Class)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getOutputStates</h4>
+                                        <pre class="methodSignature">@NotNull() abstract &lt;T extends <a href=../ContractState.html>ContractState</a>&gt; <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStates(Class)>T</a>&gt; <a href=UtxoLedgerTransaction.html#getOutputStates(Class)>getOutputStates</a>(@NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html>Class</a>&lt;<a href=UtxoLedgerTransaction.html#getOutputStates(Class)>T</a>&gt; type)</pre>
+                                        <div class="block"><p>Obtains all output contract states that match the specified type.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>type</code> - The type of the <a href=../ContractState.html>ContractState</a>.</dd>
+                                            
+                                            
+                                        </dl>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

@@ -120,7 +120,7 @@ var pathtoroot = "../../../../../../";
 public interface <span class="typeNameLabel"><a href=UtxoSignedTransaction.html>UtxoSignedTransaction</a></span>
  implements <a href=../../common/transaction/TransactionWithMetadata.html>TransactionWithMetadata</a>
                     </pre>
-                    <div class="block"><p>Defines a signed UTXO transaction.</p><p>Comparing with <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>:</p><ul><li><p>It does not have access to the deserialized details.</p></li><li><p>It has direct access to the signatures.</p></li><li><p>It does not require a serializer.</p></li></ul><p><a href=UtxoSignedTransaction.html>UtxoSignedTransaction</a> wraps the wire representation of the transaction. It contains one or more signatures, each one for a public key (including composite keys) that is mentioned inside a transaction state. <a href=UtxoSignedTransaction.html>UtxoSignedTransaction</a> is frequently passed around the network and stored. The identity of a transaction is the hash of Merkle root of the wrapped wire representation, therefore if you are storing data keyed by wire representations hash be aware that multiple different <a href=UtxoSignedTransaction.html>UtxoSignedTransaction</a>s may map to the same key (and they could be different in important ways, like validity!). The signatures on a UtxoSignedTransaction might be invalid or missing: the type does not imply validity. A transaction ID should be the hash of the wrapped wire representation's Merkle tree root. Thus adding or removing a signature does not change it.</p></div>
+                    <div class="block"><p>Defines a signed UTXO transaction. </p><p> Comparing with <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>: </p><ul><li>It does not have access to the deserialized details.</li><li>It has direct access to the signatures.</li><li>It does not require a serializer.</li></ul><p><a href=UtxoSignedTransaction.html>UtxoSignedTransaction</a> wraps the wire representation of the transaction. It contains one or more signatures, each one for a public key (including composite keys) that is mentioned inside a transaction state. </p><p><a href=UtxoSignedTransaction.html>UtxoSignedTransaction</a> is frequently passed around the network and stored. The identity of a transaction is the hash of Merkle root of the wrapped wire representation, therefore if you are storing data keyed by wire representations hash be aware that multiple different <a href=UtxoSignedTransaction.html>UtxoSignedTransaction</a>s may map to the same key, and they could be different in important ways, like validity! </p><p> The signatures on a <a href=UtxoSignedTransaction.html>UtxoSignedTransaction</a> might be invalid or missing: the type does not imply validity. A transaction ID should be the hash of the wrapped wire representation's Merkle tree root, therefore adding or removing a signature does not change it.</p></div>
                 </li>
             </ul>
         </div>
@@ -241,75 +241,75 @@ public interface <span class="typeNameLabel"><a href=UtxoSignedTransaction.html>
                                         </tr>
                                         
                                         <tr id="i0" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a></code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoSignedTransaction.html#toLedgerTransaction()>toLedgerTransaction</a>() </code>
-                                            </th>
-                                            <td class="colLast">Converts the current <a href=UtxoSignedTransaction.html>UtxoSignedTransaction</a> into a <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
-                                        </tr>
-                                        
-                                        <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../../application/crypto/DigitalSignatureAndMetadata.html>DigitalSignatureAndMetadata</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoSignedTransaction.html#getSignatures()>getSignatures</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the <a href=../../../application/crypto/DigitalSignatureAndMetadata.html>DigitalSignatureAndMetadata</a> signatures that have been applied to the current transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoSignedTransaction.html#getInputStateRefs()>getInputStateRefs</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the <a href=../StateRef.html>StateRef</a> instances of the inputs for the current transaction.</td>
                                         </tr>
                                         
                                         <tr id="i2" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt;</code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoSignedTransaction.html#getInputStateRefs()>getInputStateRefs</a>() </code>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoSignedTransaction.html#getReferenceStateRefs()>getReferenceStateRefs</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the <a href=../StateRef.html>StateRef</a> instances of the reference inputs for the current transaction.</td>
                                         </tr>
                                         
                                         <tr id="i3" class="rowColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt;</code>
-                                            </td>
-                                            <th class="colSecond" scope="row"><code><a href=UtxoSignedTransaction.html#getReferenceStateRefs()>getReferenceStateRefs</a>() </code>
-                                            </th>
-                                            <td class="colLast"></td>
-                                        </tr>
-                                        
-                                        <tr id="i4" class="altColor">
-                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;?&gt;&gt;</code>
+                                            <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoSignedTransaction.html#getOutputStateAndRefs()>getOutputStateAndRefs</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the <a href=../StateAndRef.html>StateAndRef</a> instances of the outputs for the current transaction.</td>
                                         </tr>
                                         
-                                        <tr id="i5" class="rowColor">
+                                        <tr id="i4" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=../../common/Party.html>Party</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoSignedTransaction.html#getNotary()>getNotary</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the notary <a href=../../common/Party.html>Party</a> used for notarising the current transaction.</td>
                                         </tr>
                                         
-                                        <tr id="i6" class="altColor">
+                                        <tr id="i5" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=../TimeWindow.html>TimeWindow</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoSignedTransaction.html#getTimeWindow()>getTimeWindow</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the validity <a href=../TimeWindow.html>TimeWindow</a> for notarising and finalizing the current transaction.</td>
                                         </tr>
                                         
-                                        <tr id="i7" class="rowColor">
+                                        <tr id="i6" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../Command.html>Command</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoSignedTransaction.html#getCommands()>getCommands</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the <a href=../Command.html>Command</a> instances for the current transaction.</td>
                                         </tr>
                                         
-                                        <tr id="i8" class="altColor">
+                                        <tr id="i7" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt;</code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=UtxoSignedTransaction.html#getSignatories()>getSignatories</a>() </code>
                                             </th>
-                                            <td class="colLast"></td>
+                                            <td class="colLast">Gets the <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> instances for the signatories of the current transaction.</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code>abstract <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=UtxoSignedTransaction.html#toLedgerTransaction()>toLedgerTransaction</a>() </code>
+                                            </th>
+                                            <td class="colLast">Converts the current <a href=UtxoSignedTransaction.html>UtxoSignedTransaction</a> into a <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -362,21 +362,6 @@ public interface <span class="typeNameLabel"><a href=UtxoSignedTransaction.html>
                             </a>
                                 <h3>Method Detail</h3>
                                 
-                                <a id="toLedgerTransaction()">
-                                    <!--   -->
-                                </a>
-                                <ul class=
-                                              "blockList"
-                                          >
-                                    <li class="blockList">
-                                        <h4>toLedgerTransaction</h4>
-                                        <pre class="methodSignature">@<a href=../../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a> <a href=UtxoSignedTransaction.html#toLedgerTransaction()>toLedgerTransaction</a>()</pre>
-                                        <div class="block"><p>Converts the current <a href=UtxoSignedTransaction.html>UtxoSignedTransaction</a> into a <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
-                                        
-                                        <!-- TODO missing return annotation -->
-                                    </li>
-                                </ul>
-                                
                                 <a id="getSignatures()">
                                     <!--   -->
                                 </a>
@@ -385,8 +370,8 @@ public interface <span class="typeNameLabel"><a href=UtxoSignedTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getSignatures</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../../application/crypto/DigitalSignatureAndMetadata.html>DigitalSignatureAndMetadata</a>&gt; <a href=UtxoSignedTransaction.html#getSignatures()>getSignatures</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../../application/crypto/DigitalSignatureAndMetadata.html>DigitalSignatureAndMetadata</a>&gt; <a href=UtxoSignedTransaction.html#getSignatures()>getSignatures</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=../../../application/crypto/DigitalSignatureAndMetadata.html>DigitalSignatureAndMetadata</a> signatures that have been applied to the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -400,8 +385,8 @@ public interface <span class="typeNameLabel"><a href=UtxoSignedTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getInputStateRefs</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt; <a href=UtxoSignedTransaction.html#getInputStateRefs()>getInputStateRefs</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt; <a href=UtxoSignedTransaction.html#getInputStateRefs()>getInputStateRefs</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=../StateRef.html>StateRef</a> instances of the inputs for the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -415,8 +400,8 @@ public interface <span class="typeNameLabel"><a href=UtxoSignedTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getReferenceStateRefs</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt; <a href=UtxoSignedTransaction.html#getReferenceStateRefs()>getReferenceStateRefs</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateRef.html>StateRef</a>&gt; <a href=UtxoSignedTransaction.html#getReferenceStateRefs()>getReferenceStateRefs</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=../StateRef.html>StateRef</a> instances of the reference inputs for the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -430,8 +415,8 @@ public interface <span class="typeNameLabel"><a href=UtxoSignedTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getOutputStateAndRefs</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;?&gt;&gt; <a href=UtxoSignedTransaction.html#getOutputStateAndRefs()>getOutputStateAndRefs</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../StateAndRef.html>StateAndRef</a>&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;&gt; <a href=UtxoSignedTransaction.html#getOutputStateAndRefs()>getOutputStateAndRefs</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=../StateAndRef.html>StateAndRef</a> instances of the outputs for the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -445,8 +430,8 @@ public interface <span class="typeNameLabel"><a href=UtxoSignedTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getNotary</h4>
-                                        <pre class="methodSignature"> abstract <a href=../../common/Party.html>Party</a> <a href=UtxoSignedTransaction.html#getNotary()>getNotary</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../../common/Party.html>Party</a> <a href=UtxoSignedTransaction.html#getNotary()>getNotary</a>()</pre>
+                                        <div class="block"><p>Gets the notary <a href=../../common/Party.html>Party</a> used for notarising the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -460,8 +445,8 @@ public interface <span class="typeNameLabel"><a href=UtxoSignedTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getTimeWindow</h4>
-                                        <pre class="methodSignature"> abstract <a href=../TimeWindow.html>TimeWindow</a> <a href=UtxoSignedTransaction.html#getTimeWindow()>getTimeWindow</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=../TimeWindow.html>TimeWindow</a> <a href=UtxoSignedTransaction.html#getTimeWindow()>getTimeWindow</a>()</pre>
+                                        <div class="block"><p>Gets the validity <a href=../TimeWindow.html>TimeWindow</a> for notarising and finalizing the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -475,8 +460,8 @@ public interface <span class="typeNameLabel"><a href=UtxoSignedTransaction.html>
                                           >
                                     <li class="blockList">
                                         <h4>getCommands</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../Command.html>Command</a>&gt; <a href=UtxoSignedTransaction.html#getCommands()>getCommands</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../Command.html>Command</a>&gt; <a href=UtxoSignedTransaction.html#getCommands()>getCommands</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=../Command.html>Command</a> instances for the current transaction.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -486,12 +471,27 @@ public interface <span class="typeNameLabel"><a href=UtxoSignedTransaction.html>
                                     <!--   -->
                                 </a>
                                 <ul class=
-                                              "blockListLast"
+                                              "blockList"
                                           >
                                     <li class="blockList">
                                         <h4>getSignatories</h4>
-                                        <pre class="methodSignature"> abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=UtxoSignedTransaction.html#getSignatories()>getSignatories</a>()</pre>
-                                        <div class="block"></div>
+                                        <pre class="methodSignature">@NotNull() abstract <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a>&gt; <a href=UtxoSignedTransaction.html#getSignatories()>getSignatories</a>()</pre>
+                                        <div class="block"><p>Gets the <a href=https://docs.oracle.com/javase/8/docs/api/java/security/PublicKey.html>PublicKey</a> instances for the signatories of the current transaction.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toLedgerTransaction()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toLedgerTransaction</h4>
+                                        <pre class="methodSignature">@NotNull()@<a href=../../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a> <a href=UtxoSignedTransaction.html#toLedgerTransaction()>toLedgerTransaction</a>()</pre>
+                                        <div class="block"><p>Converts the current <a href=UtxoSignedTransaction.html>UtxoSignedTransaction</a> into a <a href=UtxoLedgerTransaction.html>UtxoLedgerTransaction</a>.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

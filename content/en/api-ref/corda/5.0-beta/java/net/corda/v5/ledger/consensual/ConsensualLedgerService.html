@@ -117,7 +117,7 @@ var pathtoroot = "../../../../../";
 public interface <span class="typeNameLabel"><a href=ConsensualLedgerService.html>ConsensualLedgerService</a></span>
 
                     </pre>
-                    <div class="block"><p>It provides access to the different Consensual Ledger Services</p></div>
+                    <div class="block"><p>Defines the consensual ledger service.</p></div>
                 </li>
             </ul>
         </div>
@@ -242,39 +242,39 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerService.htm
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ConsensualLedgerService.html#getTransactionBuilder()>getTransactionBuilder</a>() </code>
                                             </th>
-                                            <td class="colLast">Gets a Consensual transaction builder.</td>
+                                            <td class="colLast">Gets a <a href=transaction/ConsensualTransactionBuilder.html>ConsensualTransactionBuilder</a> instance.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=ConsensualLedgerService.html#findSignedTransaction(SecureHash)>findSignedTransaction</a>(<a href=../../crypto/SecureHash.html>SecureHash</a> id) </code>
+                                            <th class="colSecond" scope="row"><code><a href=ConsensualLedgerService.html#findSignedTransaction(SecureHash)>findSignedTransaction</a>(@NotNull() <a href=../../crypto/SecureHash.html>SecureHash</a> id) </code>
                                             </th>
-                                            <td class="colLast">Finds a transaction by id in the vault and returns it</td>
+                                            <td class="colLast">Finds a <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> in the vault by its transaction ID.</td>
                                         </tr>
                                         
                                         <tr id="i2" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=ConsensualLedgerService.html#findLedgerTransaction(SecureHash)>findLedgerTransaction</a>(<a href=../../crypto/SecureHash.html>SecureHash</a> id) </code>
+                                            <th class="colSecond" scope="row"><code><a href=ConsensualLedgerService.html#findLedgerTransaction(SecureHash)>findLedgerTransaction</a>(@NotNull() <a href=../../crypto/SecureHash.html>SecureHash</a> id) </code>
                                             </th>
-                                            <td class="colLast">Finds a transaction by id in the vault, resolves it to a ledger transaction and returns it</td>
+                                            <td class="colLast">Finds a <a href=transaction/ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> in the vault by its transaction ID.</td>
                                         </tr>
                                         
                                         <tr id="i3" class="rowColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=ConsensualLedgerService.html#finalize(ConsensualSignedTransaction,List)>finalize</a>(<a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> signedTransaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions) </code>
+                                            <th class="colSecond" scope="row"><code><a href=ConsensualLedgerService.html#finalize(ConsensualSignedTransaction,List)>finalize</a>(@NotNull() <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> transaction, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions) </code>
                                             </th>
-                                            <td class="colLast">Collects signatures, records and broadcasts to involved peers a <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a>.</td>
+                                            <td class="colLast">Finalizes a transaction by collecting any remaining required signatures from counter-parties, and broadcasts the fully signed transaction to all participants involved in the transaction to be recorded in the vault.</td>
                                         </tr>
                                         
                                         <tr id="i4" class="altColor">
                                             <td class="colFirst"><code>abstract <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a></code>
                                             </td>
-                                            <th class="colSecond" scope="row"><code><a href=ConsensualLedgerService.html#receiveFinality(FlowSession,ConsensualTransactionValidator)>receiveFinality</a>(<a href=../../application/messaging/FlowSession.html>FlowSession</a> session, <a href=transaction/ConsensualTransactionValidator.html>ConsensualTransactionValidator</a> validator) </code>
+                                            <th class="colSecond" scope="row"><code><a href=ConsensualLedgerService.html#receiveFinality(FlowSession,ConsensualTransactionValidator)>receiveFinality</a>(@NotNull() <a href=../../application/messaging/FlowSession.html>FlowSession</a> session, @NotNull() <a href=transaction/ConsensualTransactionValidator.html>ConsensualTransactionValidator</a> validator) </code>
                                             </th>
-                                            <td class="colLast">Verifies, signs and records a <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a>.</td>
+                                            <td class="colLast">Verifies, signs and records the fully signed <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a>.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -329,8 +329,8 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerService.htm
                                           >
                                     <li class="blockList">
                                         <h4>getTransactionBuilder</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/ConsensualTransactionBuilder.html>ConsensualTransactionBuilder</a> <a href=ConsensualLedgerService.html#getTransactionBuilder()>getTransactionBuilder</a>()</pre>
-                                        <div class="block"><p>Gets a Consensual transaction builder.</p></div>
+                                        <pre class="methodSignature">@NotNull()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/ConsensualTransactionBuilder.html>ConsensualTransactionBuilder</a> <a href=ConsensualLedgerService.html#getTransactionBuilder()>getTransactionBuilder</a>()</pre>
+                                        <div class="block"><p>Gets a <a href=transaction/ConsensualTransactionBuilder.html>ConsensualTransactionBuilder</a> instance.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -344,14 +344,14 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerService.htm
                                           >
                                     <li class="blockList">
                                         <h4>findSignedTransaction</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> <a href=ConsensualLedgerService.html#findSignedTransaction(SecureHash)>findSignedTransaction</a>(<a href=../../crypto/SecureHash.html>SecureHash</a> id)</pre>
-                                        <div class="block"><p>Finds a transaction by id in the vault and returns it</p></div>
+                                        <pre class="methodSignature">@Nullable()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> <a href=ConsensualLedgerService.html#findSignedTransaction(SecureHash)>findSignedTransaction</a>(@NotNull() <a href=../../crypto/SecureHash.html>SecureHash</a> id)</pre>
+                                        <div class="block"><p>Finds a <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> in the vault by its transaction ID.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>id</code> - The id of the transaction to find</dd>
+                                            <dd><code>id</code> - The transaction ID of the <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> to find in the vault.</dd>
                                             
                                             
                                         </dl>
@@ -368,14 +368,14 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerService.htm
                                           >
                                     <li class="blockList">
                                         <h4>findLedgerTransaction</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> <a href=ConsensualLedgerService.html#findLedgerTransaction(SecureHash)>findLedgerTransaction</a>(<a href=../../crypto/SecureHash.html>SecureHash</a> id)</pre>
-                                        <div class="block"><p>Finds a transaction by id in the vault, resolves it to a ledger transaction and returns it</p></div>
+                                        <pre class="methodSignature">@Nullable()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> <a href=ConsensualLedgerService.html#findLedgerTransaction(SecureHash)>findLedgerTransaction</a>(@NotNull() <a href=../../crypto/SecureHash.html>SecureHash</a> id)</pre>
+                                        <div class="block"><p>Finds a <a href=transaction/ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> in the vault by its transaction ID.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>id</code> - The id of the transaction to find</dd>
+                                            <dd><code>id</code> - The transaction ID of the <a href=transaction/ConsensualLedgerTransaction.html>ConsensualLedgerTransaction</a> to find in the vault.</dd>
                                             
                                             
                                         </dl>
@@ -392,18 +392,18 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerService.htm
                                           >
                                     <li class="blockList">
                                         <h4>finalize</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> <a href=ConsensualLedgerService.html#finalize(ConsensualSignedTransaction,List)>finalize</a>(<a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> signedTransaction, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions)</pre>
-                                        <div class="block"><p>Collects signatures, records and broadcasts to involved peers a <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a>.</p></div>
+                                        <pre class="methodSignature">@NotNull()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> <a href=ConsensualLedgerService.html#finalize(ConsensualSignedTransaction,List)>finalize</a>(@NotNull() <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> transaction, @NotNull() <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=../../application/messaging/FlowSession.html>FlowSession</a>&gt; sessions)</pre>
+                                        <div class="block"><p>Finalizes a transaction by collecting any remaining required signatures from counter-parties, and broadcasts the fully signed transaction to all participants involved in the transaction to be recorded in the vault.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>signedTransaction</code> - The <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> to finalise and recorded locally and with peer <a href=ConsensualLedgerService.html#finalize(ConsensualSignedTransaction,List)>sessions</a>.</dd>
+                                            <dd><code>transaction</code> - The transaction to finalize.</dd>
                                             
                                             
                                             
-                                            <dd><code>sessions</code> - The <a href=../../application/messaging/FlowSession.html>FlowSession</a>s of the peers involved in the transaction.</dd>
+                                            <dd><code>sessions</code> - The sessions representing the counter-party participants of the transaction.</dd>
                                             
                                             
                                         </dl>
@@ -420,14 +420,14 @@ public interface <span class="typeNameLabel"><a href=ConsensualLedgerService.htm
                                           >
                                     <li class="blockList">
                                         <h4>receiveFinality</h4>
-                                        <pre class="methodSignature">@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> <a href=ConsensualLedgerService.html#receiveFinality(FlowSession,ConsensualTransactionValidator)>receiveFinality</a>(<a href=../../application/messaging/FlowSession.html>FlowSession</a> session, <a href=transaction/ConsensualTransactionValidator.html>ConsensualTransactionValidator</a> validator)</pre>
-                                        <div class="block"><p>Verifies, signs and records a <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a>.</p></div>
+                                        <pre class="methodSignature">@NotNull()@<a href=../../base/annotations/Suspendable.html>Suspendable</a>() abstract <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> <a href=ConsensualLedgerService.html#receiveFinality(FlowSession,ConsensualTransactionValidator)>receiveFinality</a>(@NotNull() <a href=../../application/messaging/FlowSession.html>FlowSession</a> session, @NotNull() <a href=transaction/ConsensualTransactionValidator.html>ConsensualTransactionValidator</a> validator)</pre>
+                                        <div class="block"><p>Verifies, signs and records the fully signed <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a>.</p></div>
                                         
                                         <dl>
                                             <dt><span class="paramLabel">Parameters:</span></dt>
                                             
                                             
-                                            <dd><code>session</code> - The <a href=../../application/messaging/FlowSession.html>FlowSession</a> to receive the <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> from.</dd>
+                                            <dd><code>session</code> - The session from which the <a href=transaction/ConsensualSignedTransaction.html>ConsensualSignedTransaction</a> was received.</dd>
                                             
                                             
                                             
