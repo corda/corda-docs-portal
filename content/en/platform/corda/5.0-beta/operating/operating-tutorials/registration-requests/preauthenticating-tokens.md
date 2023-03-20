@@ -67,7 +67,7 @@ curl --insecure -u <username>:<password> <REST-API-URL>'/mgm/<MGM-HOLDING-ID>/pr
 
 ## Revoking Tokens
 
-To revoke a pre-auth token, pass the ID of the token to the [mgm/{holdingidentityshorthash}/preauthtoken/revoke/{preauthtokenid} PUT method](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/put_mgm__holdingidentityshorthash__preauthtoken_revoke__preauthtokenid_). You can retrieve the ID of a token from the response of creating the token, or from the response of the GET method described in [Viewing Tokens]({{< relref "#viewing-tokens" >}}). This prevent the token from being used. Any registrations submitted with a revoked token are automatically declined.
+To revoke a pre-auth token, pass the ID of the token to the [mgm/{holdingidentityshorthash}/preauthtoken/revoke/{preauthtokenid} PUT method](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/put_mgm__holdingidentityshorthash__preauthtoken_revoke__preauthtokenid_). You can retrieve the ID of a token from the response of creating the token, or from the response of the GET method described in [Viewing Tokens]({{< relref "#viewing-tokens" >}}). This prevents the token from being used. Any registrations submitted with a revoked token are automatically declined.
 
 ```bash
 curl --insecure -u <username>:<password> -X PUT <REST-API-URL>/mgm/<MGM-HOLDING-ID>/preauthtoken/revoke/<TOKEN-ID>
