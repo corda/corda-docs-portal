@@ -28,5 +28,3 @@ By depending on `corda-application`, your CorDapp does not need to directly depe
 * [messaging](messaging.md)
 * [persistence](persistence.md)
 * [serialization](serialization.md)
-
-For further details of what is present in each of these packages and what is available via these APIs, see the <a href="../../../../../../api-ref/corda/5.0-beta/kotlin/application/index.html" target="_blank">Kotlin API documentation</a>.
