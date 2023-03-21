@@ -75,7 +75,7 @@ The `GET virtualnode` method has been updated to return the status of each of th
 #### Maintenance
 Maintenance mode has been updated to disable all four of the [new operational statuses]({{< relref "#operational-statuses" >}}). You can set this mode using the existing change virtual node state endpoint: `/api/v1/virtualnode/{virtualNodeShortHash}/state/{newState}`. Possible states are: `maintenance` or `active`.
 
-A virtual node in maintenance mode does not allow starting or running flows. Any activity for existing flows cause the flow to be killed and marked with a flow status of "KILLED". Counterparty flows fail with an error message indicating a peer is in maintenance.
+A virtual node in maintenance mode does not allow starting or running flows. Any activity for existing flows cause the flow to be killed and marked with a flow status of "KILLED". Counterparty flows fail with an error message indicating that a peer is in maintenance.
 This state allows virtual node operators to have a static vault with which they can take backups before performing potentially destructive operations like virtual node upgrade with migrations.
 
 Changing a virtual node's state back to active requires that the virtual node has executed all migrations in the currently associated CPI. This prevents a virtual node from becoming operational while migrations are in progress during a virtual node upgrade.
