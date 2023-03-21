@@ -17,7 +17,7 @@ The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csd
 To run the flow, you must first start a local [combined worker](../../../introduction/corda4-differences.html#combined-worker) version of Corda. CSDE includes helper Gradle tasks to do this.
 {{< figure src="starting-corda.png" width="50%" figcaption="CSDE startCorda task" alt="CSDE task to start the combined worker in IntelliJ" >}}
 
-The `startCorda` task will run in an Intellij 'Run' window, after about a minute it will show the following output:
+The `startCorda` task runs in an Intellij 'Run' window. After about one minute, it shows the following output:
 {{< figure src="starting-corda-running.png" figcaption="CSDE startCorda task running" alt="CSDE task to start the combined worker in IntelliJ" >}}
 
 The `startCorda` will continue to run whilst the corda cluster is running. It will stop when the cluster is shut down.
