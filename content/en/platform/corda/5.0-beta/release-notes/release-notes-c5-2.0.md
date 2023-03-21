@@ -29,7 +29,7 @@ A new `messaging` [configuration field]({{< relref "../operating/configuration/c
 The `maxAllowedMessageSize` value must be lower than the maximum message size configured on the message bus itself, for example, Kafka. If the Corda configuration value is set to a value higher than that of the message bus, the messages will not send.
 
 #### Registration Approval
-A network operator can now configure a membership group to require that the operator must manually approve (or decline) member registration requests. Requests satisfying specific criteria require manual approval, while others are approved automatically. The operator can also pre-authenticate specific members, allowing them to bypass the standard approval rules defined for the group. The operator can further configure pre-authentication to specify that certain changes to the member’s context must be manually reviewed. For more information, see [Manual Registration Approval]({{< relref "../operating/manual-registration-approval.md" >}}).
+A network operator can now configure a membership group to require that the operator must manually approve (or decline) member registration requests. Requests satisfying specific criteria require manual approval, while others are approved automatically. The operator can also pre-authenticate specific members, allowing them to bypass the standard approval rules defined for the group. The operator can further configure pre-authentication to specify that certain changes to the member’s context must be manually reviewed. For more information, see [Manual Registration Approval]({{< relref "../operating/registration-approval.md" >}}).
 
 ### CorDapp Development
 
