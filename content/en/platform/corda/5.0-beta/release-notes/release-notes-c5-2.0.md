@@ -102,6 +102,8 @@ This section describes the issues resolved in Corda 5.0 Beta 2.0.
 
 #### Flows with Transient Errors
 Flows did not correctly handle transient errors while sessions were in progress.
+In some cases, the 'error' flag was cleared early by other events, incorrectly indicating that the error had been resolved. 
+This flag can now only be cleared when the event that caused the transient error is retried.
 
 ## Known Limitations and Issues
 
