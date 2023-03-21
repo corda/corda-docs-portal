@@ -339,7 +339,7 @@ networkParametersPath = network-parameters // The network-parameters file is exp
 
 [float.conf](../../resources/float.conf)
 
-A full list of the parameters that can be utilized in these configuration files can be found in [Configuring the Corda Enterprise Firewall](../corda-firewall-configuration-file.md).
+A full list of the parameters that can be utilized in these configuration files can be found in [Configuring the Corda Enterprise Firewall]({{< relref "../corda-firewall-configuration-file.md" >}}).
 
 
 ### Corda 3.x vs Corda 4.x Firewall Upgrade

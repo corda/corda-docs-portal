@@ -24,7 +24,7 @@ to the [backpressure mechanism](eta-mechanism.md).
 ## How does the timeout work?
 
 It is based on the `flowTimeout` section of the node configuration. Flows to HA notaries will be retried after the configured
-time. Information can be found in the [Corda configuration file](../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.md).
+time. Information can be found in the [Corda configuration file]({{< relref "../../../../../../../en/platform/corda/4.7/enterprise/node/setup/corda-configuration-file.md" >}}).
 
 
 ## What is the backpressure mechanism?
