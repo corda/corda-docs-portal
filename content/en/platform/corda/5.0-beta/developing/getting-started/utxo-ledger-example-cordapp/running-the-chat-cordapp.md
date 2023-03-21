@@ -116,7 +116,7 @@ If the flow has run successfully, this returns a “COMPLETED” status together
   "flowResult": "SHA-256D:AA9C38E9EE5EA62595AD68F19DD2BA360CC665D8086045E7FFB4E7FCD3CDC24E",
   "flowError": null,
   "timestamp": "2023-03-20T17:28:49.213Z"
-  }
+}
   ```
 
 {{< note >}}
