@@ -18,11 +18,11 @@ By default, the images are made available via Docker Hub.
 If your Kubernetes cluster can pull images from Docker Hub, you can skip this section.
 If not, then the following instructions describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster.
 
-1. Download `corda-worker-images-Fox.tar` from the [R3 Customer Hub](https://r3.force.com/).
+1. Download `corda-worker-images-Gecko.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
-2. Inflate and load the `corda-worker-images-Fox.tar` file into the local Docker engine with the following command:
+2. Inflate and load the `corda-worker-images-Gecko.tar` file into the local Docker engine with the following command:
    ```shell
-   docker load -i corda-worker-images-Fox.tar
+   docker load -i corda-worker-images-Gecko.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
@@ -58,7 +58,7 @@ If not, then the following instructions describe how to push the images from the
 If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
 
 ```shell
-helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Fox.1.1
+helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Gecko
 ```
 
 If you do not have access to Docker Hub, you can download the `corda-5.0.0-Gecko2.0.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
@@ -602,13 +602,13 @@ helm install -n <NAMESPACE> <HELM-RELEASE-NAME> corda-5.0.0-Gecko2.0.tgz -f <PAT
 For example, to create a Helm release called `corda` in the `corda` namespace using the overrides specified in a file called `values.yaml`, run the following:
 
 ```shell
-helm install -n corda corda corda-5.0.0-Fox1.1.tgz -f values.yaml
+helm install -n corda corda corda-5.0.0-Gecko.tgz -f values.yaml
 ```
 
 If you are using the Helm chart from Docker Hub, you can install directly from there rather than using `helm fetch` first. For example:
 
 ```shell
-helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0.0-Fox.1.1 -f values.yaml
+helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0.0-Gecko -f values.yaml
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how to access the [Corda REST API](../../operating/operating-tutorials/rest-api.html). If the Helm install fails, see the troubleshooting section on [Cluster Health](../troubleshooting/cluster-health.html).
