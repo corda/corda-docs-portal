@@ -12,7 +12,7 @@ section_menu: corda-5-beta
 
 ## Configuring the Application Network (Virtual Nodes)
 
-The CSDE is configured to create a four party application network required to run the Chat CorDapp, including virtual nodes for Alice, Bob, Charlie and a Notary. To change the network configuration, see [Configuring the Network Participants]({{< relref "../../getting-started/configure-the-network-participants/network-participants.md" >}}).
+The CSDE is configured to create a five party application network required to run the Chat CorDapp, including virtual nodes for Alice, Bob, Charlie, Dave and a Notary. To change the network configuration, see [Configuring the Network Participants]({{< relref "../../getting-started/configure-the-network-participants/network-participants.md" >}}).
 
 {{< note >}}
 You must keep the notary node to enable the CorDapp to finalise transactions.
@@ -38,7 +38,7 @@ The task returns something similar to this:
 
 {{< figure src="listvnodes-result.png" figcaption="listVnodes result" alt="listVnodes result" >}}
 
-The vnode `holdingidentityshorthashes` (short hashes) are the 12 digit hex numbers. In the above example,  Alice’s short hash is "17F49B05B2B5" and Bob’s is “8C73E39AF476”. Whenever the API requires the short hash, substitute the appropriate number depending on which vnode you want to run the flow on.
+The vnode `holdingidentityshorthashes` (short hashes) are the 12 digit hex numbers. In the above example,  Alice’s short hash is "253501665E9D" and Bob’s is “86BC1B1A18AA”. Whenever the API requires the short hash, substitute the appropriate number depending on which vnode you want to run the flow on.
 
 For running the flows use the `POST: /flow/{holdingidentityshorthash}/` endpoint. This requires a request body to be provided which includes:
 
@@ -46,7 +46,7 @@ For running the flows use the `POST: /flow/{holdingidentityshorthash}/` endpoint
 
 * `flowClassName` which provides the fully qualified name of the flow to be triggered
 
-* `requestData` which provides the input arguments for the flow
+* `requestBody` which provides the input arguments for the flow
 
 For example:
 
@@ -54,7 +54,7 @@ For example:
    {
     "clientRequestId": "create-1",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.CreateNewChatFlow",
-    "requestData": {
+    "requestBody": {
         "chatName":"Chat with Bob",
         "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB",
         "message": "Hello Bob"
@@ -66,17 +66,18 @@ Swagger also gives the curl command which you can use to run the request directl
 
   ```java
 curl -X 'POST' \
-  'https://localhost:8888/api/v1/flow/17F49B05B2B5' \
+  'https://localhost:8888/api/v1/flow/253501665E9D' \
   -H 'accept: application/json' \
+  -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
   -H 'Content-Type: application/json' \
   -d '{
-    "clientRequestId": "create-1",
-    "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.CreateNewChatFlow",
-    "requestData": {
-        "chatName":"Chat with Bob",
-        "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB",
-        "message": "Hello Bob"
-        }
+  "clientRequestId": "create-1",
+  "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.CreateNewChatFlow",
+  "requestBody": {
+  "chatName":"Chat with Bob",
+  "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB",
+  "message": "Hello Bob"
+  }
 }'
 ```
 
@@ -84,13 +85,13 @@ If the flow has been successfully started, Swagger shows “START REQUESTED” r
 
   ```java
 {
-  "holdingIdentityShortHash": "17F49B05B2B5",
+  "holdingIdentityShortHash": "253501665E9D",
   "clientRequestId": "create-1",
   "flowId": null,
   "flowStatus": "START_REQUESTED",
   "flowResult": null,
   "flowError": null,
-  "timestamp": "2023-01-18T09:45:25.911889Z"
+  "timestamp": "2023-03-20T17:23:18.998Z"
 }
 ```
 
@@ -99,21 +100,22 @@ For polling for the result of a flow, use the `GET: /flow/{holdingidentityshorth
 
 The curl version is:
   ```java
-  curl -X 'GET' \
-  'https://localhost:8888/api/v1/flow/17F49B05B2B5/create-1' \
-  -H 'accept: application/json'
+curl -X 'GET' \
+  'https://localhost:8888/api/v1/flow/253501665E9D/create-1' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Basic YWRtaW46YWRtaW4='
   ```
 If the flow has run successfully, this returns a “COMPLETED” status together with the `flowResult`.
 
   ```java
 {
-  "holdingIdentityShortHash": "17F49B05B2B5",
+  "holdingIdentityShortHash": "253501665E9D",
   "clientRequestId": "create-1",
-  "flowId": "fa0dec91-4a94-476c-8b1b-82dc95a55134",
+  "flowId": "a1109c50-b455-48e0-adf2-f1811e420bb6",
   "flowStatus": "COMPLETED",
-  "flowResult": "SHA-256D:FACC6487F3478D69A543CE7061611C8792C0FBC1FCC4903742ABF82E0D8F1D14",
+  "flowResult": "SHA-256D:AA9C38E9EE5EA62595AD68F19DD2BA360CC665D8086045E7FFB4E7FCD3CDC24E",
   "flowError": null,
-  "timestamp": "2023-01-18T10:36:16.889777Z"
+  "timestamp": "2023-03-20T17:28:49.213Z"
 }
   ```
 
@@ -131,7 +133,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
    {
     "clientRequestId": "create-1",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.CreateNewChatFlow",
-    "requestData": {
+    "requestBody": {
         "chatName":"Chat with Bob",
         "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB",
         "message": "Hello Bob"
@@ -141,13 +143,13 @@ The following is a typical set of flows for a conversation between Alice and Bob
 
    Followed by polling for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}`. This should return “COMPLETED” after a short delay.
 
-2. Bob lists his chats that he is a participant in using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:   
+2. Bob lists his chats that he is a participant in using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:
 
    ```java
    {
     "clientRequestId": "list-1",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.ListChatsFlow",
-    "requestData": {}
+    "requestBody": {}
    }
    ```
 
@@ -155,7 +157,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
 
      ```java
     {
-     "holdingIdentityShortHash": "8C73E39AF476",
+     "holdingIdentityShortHash": "86BC1B1A18AA",
      "clientRequestId": "list-1",
      "flowId": "fee5d450-4796-49ec-9347-247a9dfd4c5b",
      "flowStatus": "COMPLETED",
@@ -165,13 +167,13 @@ The following is a typical set of flows for a conversation between Alice and Bob
      }
      ```
 
-3. Bob updates the chat twice using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:   
+3. Bob updates the chat twice using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:
 
    ```java
    {
     "clientRequestId": "update-1",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.UpdateChatFlow",
-    "requestData": {
+    "requestBody": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "message": "Hi Alice"
         }
@@ -188,7 +190,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
    {
     "clientRequestId": "update-2",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.UpdateChatFlow",
-    "requestData": {
+    "requestBody": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "message": "How are you today?"
         }
@@ -202,19 +204,19 @@ The following is a typical set of flows for a conversation between Alice and Bob
    {
     "clientRequestId": "list-2",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.ListChatsFlow",
-    "requestData": {}
+    "requestBody": {}
    }
    ```
 
    Poll for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}` and wait for “COMPLETED” status.
 
-5. Alice checks the history on the chat with Bob using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:   
+5. Alice checks the history on the chat with Bob using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:
 
    ```java
    {
     "clientRequestId": "get-1",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.GetChatFlow",
-    "requestData": {
+    "requestBody": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "numberOfRecords":"4"
     }
@@ -225,7 +227,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
 
    ```java
    {
-     "holdingIdentityShortHash": "17F49B05B2B5",
+     "holdingIdentityShortHash": "253501665E9D",
      "clientRequestId": "get-1",
      "flowId": "25932ec9-ff81-4b58-bf7c-c21e67487cf9",
      "flowStatus": "COMPLETED",
@@ -235,13 +237,13 @@ The following is a typical set of flows for a conversation between Alice and Bob
    }
    ```
 
-6. Alice replies to Bob using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:    
+6. Alice replies to Bob using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:
 
    ```java
    {
     "clientRequestId": "update-4",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.UpdateChatFlow",
-    "requestData": {
+    "requestBody": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "message": "I am very well thank you"
         }
@@ -250,13 +252,13 @@ The following is a typical set of flows for a conversation between Alice and Bob
 
    Poll for status with `GET: /flow/{holdingidentityshorthash}/{clientrequestid}` and wait for “COMPLETED” status.
 
-7. Bob gets the chat history limited it to the last 2 entries using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:   
+7. Bob gets the chat history limited it to the last 2 entries using the `POST: /flow/{holdingidentityshorthash}` endpoint and the following code:
 
    ```java
    {
     "clientRequestId": "get-2",
     "flowClassName": "com.r3.developers.csdetemplate.utxoexample.workflows.GetChatFlow",
-    "requestData": {
+    "requestBody": {
         "id":"674276c9-f311-43a6-90b8-73439bc7e28b",
         "numberOfRecords":"2"
     }
@@ -267,7 +269,7 @@ The following is a typical set of flows for a conversation between Alice and Bob
 
    ```java
    {
-     "holdingIdentityShortHash": "8C73E39AF476",
+     "holdingIdentityShortHash": "86BC1B1A18AA",
      "clientRequestId": "get-2",
      "flowId": "7dd326dc-31b5-42b7-b20b-ca8512b076db",
      "flowStatus": "COMPLETED",
