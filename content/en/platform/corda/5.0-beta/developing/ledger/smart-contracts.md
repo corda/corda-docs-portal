@@ -44,7 +44,7 @@ The contract code can:
 
 ## Determinism
 
-For the nodes on a network to reach consensus about a proposed update to the ledger, transaction verification must be deterministic. That means contracts must always accept or always reject a given transaction, regardless of when it is validated, or the amount of information the node running the contract holds.
+To enable the nodes on a network to reach consensus about a proposed update to the ledger, transaction verification must be deterministic. That means contracts must always accept or always reject a given transaction, regardless of when it is validated or the amount of information the node running the contract holds.
 
 ## Contract Limitations
 
