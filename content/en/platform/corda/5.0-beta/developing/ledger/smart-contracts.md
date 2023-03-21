@@ -9,7 +9,6 @@ menu:
 section_menu: corda-5-beta
 ---
 
-
 Smart contracts digitize agreements by turning them into code that executes automatically if the contract terms are met. Participants do not need to trust each other to follow through on contract terms, because the terms are enforced by the code. No external enforcement is required, and contracts are always interpreted the same way. Smart contracts govern the evolution of states over time. 
 
 The contract code is replicated on the virtual nodes in an application network. The network members have to reach a consensus that the terms of the agreement have been met before they execute the contract.
@@ -38,14 +37,14 @@ Each transaction state specifies a contract type. The contract specified takes t
 The contract code can:
 
 * Check the number of inputs, outputs, commands, or attachments.
-* Check for time windows.
+* Check that a [time window]({{< relref "./time-windows.md" >}}) exists and that time points mentioned in states fall within this time window.
 * Check the contents of all components.
 * Evaluate looping constructs, variable assignments, function calls, helper methods, and other aspects of the transaction code.
 * Group similar states to validate them as a group. For example, it can impose a rule on the combined value of all the cash states.
 
 ## Determinism
 
-For the nodes on a network to reach consensus about a proposed update to the ledger, transaction verification must be deterministic. That means contracts must always accept or always reject a given transaction. For example, a transaction’s validity cannot depend on the time it was validated, or the amount of information the node running the contract holds.
+For the nodes on a network to reach consensus about a proposed update to the ledger, transaction verification must be deterministic. That means contracts must always accept or always reject a given transaction, regardless of when it is validated, or the amount of information the node running the contract holds.
 
 ## Contract Limitations
 
