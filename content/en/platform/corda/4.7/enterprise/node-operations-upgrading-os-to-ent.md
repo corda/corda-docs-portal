@@ -53,7 +53,7 @@ You should run the tool against an empty database, not the database you are reus
 java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_directory
 ```
 
-The option `-b` points to the base directory (the directory containing a `node.conf` file, and the *drivers* and *cordapps* subdirectories). The generated script (*migration/*.sql*) will be present in the base directory.
+The option `-b` points to the base directory (the directory containing a `node.conf` file, and the *drivers* and *cordapps* subdirectories). The generated script named *migrationYYYYMMDDHHMMSS.sql* will be present in the current directory.
 This script contains all of the statements to create the data structures (e.g. tables/indexes) for CorDapps,
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
 For a description of the options, refer to the [Corda Database Management Tool](database-management-tool.md) manual.
@@ -75,7 +75,7 @@ Copy selected insert statements and execute them on the database, using the corr
 
 {{< note >}}
 Switching from an H2 development database to a commercial production database requires migrating both schemas and data.
-Specialist third party tools are available on the market to facilitate this activity. Please contact R3 for advice on specialised tooling
+Specialist third party tools are available on the market to facilitate this activity. Please contact R3 for advice on specialized tooling
 we have validated for this upgrade exercise.
 
 {{< /note >}}
@@ -84,20 +84,22 @@ The procedure for migrating from H2 to a commercial database is as follows:
 
 * Create a database schema and configure a Corda node to connect to the new database following [Database schema setup]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database-admin.md" >}}) instructions
 for a production system, or [Simplified database schema setup for development](node/operating/node-database-developer.md) instructions for development/testing purposes.
-Refer to [Understanding the node database]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/operating/node-database.md" >}}) to decide which setup is more suitable.
-* Migrate data from H2 databaseThe migration from the H2 database requires a third party specialized tool.
-Your organisation may need to purchase a licence to use the tool.
+
+Refer to [Understanding the node database]({{< relref "node/operating/node-database.md" >}}) to decide which setup is more suitable.
+* Migrate data from H2 database. The migration from the H2 database requires a third party specialized tool.
+Your organization may need to purchase a license to use the tool.
+
 Please contact R3 for further advice.
 * Follow the same CorDapp database upgrade steps (1-3) in [reusing an existing database](#reusing-an-existing-database).
 
 
 
-## Upgrade from an older Corda (open source) release to Corda Enterpise
+## Upgrade from an older Corda (open source) release to Corda Enterprise
 
 CorDapps, contracts and states written for Corda 4.x are compatible with Corda Enterprise Edition 4.7, so upgrading
 existing open source Corda nodes should be a simple case of updating the Corda JAR file.
-See node-upgrade-notes for general instructions on upgrading your node.
-For developer information on recompiling CorDapps against Corda Enterprise, see upgrade-notes.
+See [Upgrading a node](node-upgrade-notes.md) for general instructions on upgrading your node.
+For developer information on recompiling CorDapps against Corda Enterprise, See [Upgrading a CorDapp to a newer platform version](app-upgrade-notes.md).
 
 ### Reusing an existing database
 
@@ -109,7 +111,7 @@ To reuse an existing database, follow the same database instructions as
 
 {{< note >}}
 Switching from an H2 development database to a commercial production database requires the migration of both schema and data.
-Specialist third party tools are available that facilitate this activity. Please contact R3 for advice on specialised tooling
+Specialist third party tools are available that facilitate this activity. Please contact R3 for advice on specialized tooling
 that we have validated for this upgrade exercise.
 
 {{< /note >}}
