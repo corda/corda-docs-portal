@@ -49,7 +49,7 @@ The Kotlin API has been replaced with a Java API. Kotlin and Java developers can
 `SignatureSpec` is now an explicit field in `DigitalSignatureMetadata`. In previous versions, it was necessary to add it in the `DigitalSignatureMetadata.properties` map.
 
 #### P2P Avro Types
-Avro types for the peer-to-peer communications layer were moved from the `net.corda.p2p` namespace to the `net.corda.data.p2p namespace`.
+Avro types for the peer-to-peer communications layer were moved from the `net.corda.p2p` namespace to the `net.corda.data.p2p` namespace.
 
 #### Find Signing Keys
 A new function, `findMySigningKeys`, has been added to the `SigningService` interface. This function checks if the specified set of keys are owned by the caller. It returns a mapping from the requested key to the same key if it is owned by the caller or to null if the key is not owned by the caller.
