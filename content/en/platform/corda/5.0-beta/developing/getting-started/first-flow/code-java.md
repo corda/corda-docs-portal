@@ -140,7 +140,7 @@ public class MyFirstFlow implements ClientStartableFlow {
 }
 
 /*
-RequestBody for triggering the flow via http-rpc:
+RequestBody for triggering the flow via REST:
 {
     "clientRequestId": "r1",
     "flowClassName": "com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow",
