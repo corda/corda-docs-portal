@@ -105,7 +105,7 @@ These tasks help with the lifecycle of your local Corda cluster.
 | `1-createGroupPolicy`                 | Creates the Group policy which is required to set up the Application Network.                                                                                                           |
 | `2-createKeyStore`                    | Creates the signing keys for publishing the CPIs.                                                                                                                                       |
 | `3-buildCPIs`                         | Builds your CorDapp and wraps it in a signed CPI.                                                                                                                                       |
-| `4-deployCPIs`                        | Deploys the CPI to your local Corda cluster. If the CPI has already been deployed to the nodes on the cluster it will perform a forced upload and replace the old CPI with the new one. |
+| `4-deployCPIs`                        | Deploys the CPI to your local Corda cluster. If the CPI has already been deployed to the nodes on the cluster, this task performs a forced upload and replaces the old CPI with the new one. |
 | `5-vNodeSetup`                        | Sets up the Virtual Nodes specified in `config/static-network-config.json` on you local Corda cluster with the uploaded CPI.                                                            |
 
 Each of these tasks has a dependency on the previous. So, if you run 3, it also runs 1 and 2.
