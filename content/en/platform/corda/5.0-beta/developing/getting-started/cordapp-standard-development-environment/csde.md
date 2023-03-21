@@ -111,7 +111,7 @@ These tasks help with the lifecycle of your local Corda cluster.
 Each of these tasks has a dependency on the previous. So, if you run 3, it also runs 1 and 2.
 
 {{< note >}}
-You only need to run `5-vNodeSetup` the first time you upload your CPI to the corda cluster. On subsequent builds, you can just run `4-deployCPIs`. (Note, `5-vNodeSetup` would have no effect if the virtual nodes have already been set up, it will not try to recreate them.)
+You only need to run `5-vNodeSetup` the first time you upload your CPI to the corda cluster. On subsequent builds, you can just run `4-deployCPIs`. (Note, `5-vNodeSetup` has no effect if the virtual nodes have already been set up. It will not try to recreate them.)
 
 #### csde-queries
 
