@@ -78,7 +78,7 @@ curl -X 'POST' \
   "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB",
   "message": "Hello Bob"
   }
-  }'
+}'
 ```
 
 If the flow has been successfully started, Swagger shows “START REQUESTED” response, for example:
@@ -92,7 +92,7 @@ If the flow has been successfully started, Swagger shows “START REQUESTED” r
   "flowResult": null,
   "flowError": null,
   "timestamp": "2023-03-20T17:23:18.998Z"
-  }
+}
 ```
 
 If something has gone wrong, Swagger shows an error response.
