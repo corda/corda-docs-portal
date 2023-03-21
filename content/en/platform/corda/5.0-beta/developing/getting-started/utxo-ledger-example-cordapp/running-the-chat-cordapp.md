@@ -31,6 +31,7 @@ Remember to start your docker engine before you attempt to start Corda and make 
 
 For this walkthrough, we assume you are using the `Swagger GUI` to trigger flows. For each flow we use the Flow Management section of the API.
 You must know the `holdingidentityshorthash` for both Alice and Bob’s nodes. You can retrieve this by running the `listVNodes` Gradle helper in the `csde-queries` section of the [gradle helper]({{< relref "../../../../5.0-beta/developing/getting-started/cordapp-standard-development-environment/csde.md" >}}) tasks.
+You must know the `holdingidentityshorthash` for both Alice and Bob’s nodes. You can retrieve this by running the `listVNodes` Gradle helper in the `csde-queries` section of the [gradle helper]({{< relref "../../../../5.0-beta/developing/getting-started/cordapp-standard-development-environment/csde.md" >}}) tasks.
 
 {{< figure src="listvnodes.png" figcaption="listVnodes Gradler helper" alt="listVnodes Gradler helper" >}}
 
