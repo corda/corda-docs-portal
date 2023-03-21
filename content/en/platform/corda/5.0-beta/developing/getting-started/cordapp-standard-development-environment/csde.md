@@ -12,7 +12,7 @@ section_menu: corda-5-beta
 The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://community.r3.com/c/corda-5-developer-preview/41).
 {{< /note >}}
 
-The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Beta 1.1 more straight-forward.
+The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Beta 2 more straight-forward.
 The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cordapp-template-java` repository to your local machine. The CSDE provides:
 * a prepared CorDapp project that you can use as a starting point to develop your own prototypes.
 * a base Gradle configuration that brings in the dependencies you need to write and test a Corda 5 CorDapp.
@@ -23,7 +23,7 @@ The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cord
 * the ability to configure the members of the local Corda network.
 
 {{< note >}}
-The images in this section show the `CSDE-cordapp-template-kotlin` repository in IntelliJ. If you are working with the `CSDE-cordapp-template-java` repository, it looks very similar but the flow code and flow tests are in a `java` folder and the flow code is saved in more source files. For more information, see [Java Flow Code](../first-flow/code-java.html).
+The images in this section show the `CSDE-cordapp-template-kotlin` repository in IntelliJ. If you are working with the `CSDE-cordapp-template-java` repository, it looks very similar but the flow code is in a `java` folder and the flow code is saved in more source files. For more information, see [Java Flow Code](../first-flow/code-java.html).
 {{< /note >}}
 
 ## Downloading the CSDE
@@ -44,10 +44,10 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Change to the new directory and checkout the Beta 1 branch:
+2. Change to the new folder and checkout the Beta 2 branch:
 
    ```sh
-   git checkout release/corda-5-beta-1
+   git checkout release/corda-5-beta-2
    ```
 
 3. Initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo.
@@ -93,27 +93,25 @@ The helpers are split into three folders:
 
 These tasks help with the lifecycle of your local Corda cluster.
 
-| <div style="width:220px">Helper   </div> | Description                              |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `startCorda`                             | 1. Downloads and locally stores a copy of the combined worker JAR, if required. <br> 2. Starts an instance of a Postgres Docker container. You will need Docker Engine or Docker Desktop running.<br> 3. Starts the combined worker.<br> Note, Corda takes about one minute to start up. However, at present, the Gradle task shows as complete before the start up has finished. It is best to poll the cluster with one of the `csde-query` helpers until it responds to confirm if the cluster is live and ready to interact. |
-| `stopCorda`                              | 1. Stops the Postgres database. <br> 2. Stops the combined worker.        |
+| <div style="width:220px">Helper   </div> | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ---------------------------------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `startCorda`                             | 1. Downloads a copy of the combined worker JAR, if required. <br> 2. Starts an instance of a Postgres Docker container. You will need Docker Engine or Docker Desktop running.<br> 3. Starts the combined worker. The Combined Worker will continue to run in a 'Run' Console until it is shut down. <br> Note, Corda takes about one minute to start up. It is best to poll the cluster with one of the `csde-query` helpers until it responds to confirm if the cluster is live and ready to interact. |
+| `stopCorda`                              | 1. Stops the Postgres database. <br> 2. Stops the combined worker.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 #### csde-cordapp
 
-| <div style="width:220px">Helper</div> | Description                                                                                            |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `1-createGroupPolicy`                 | Creates the Group policy which is required to set up the Application Network.                          |
-| `2-createKeyStore`                    | Creates the signing keys for publishing the CPIs.                                                      |
-| `3-buildCPIs`                         | Builds your CorDapp and wraps it in a signed CPI.                                                      |
-| `4-deployCPIs`                        | Deploys the CPI to your local Corda cluster.                                                           |
-| `5-createAndRegisterVNodes`           | Sets up the Virtual Nodes specified in `config/dev-net.json` on you local corda with the uploaded CPI. |
-| `quickDeployCordapp`           | An alias for `5-createAndRegisterVNodes`. Run this to perform your first deployment of your CorDapp to a newly started cluster. |
+| <div style="width:220px">Helper</div> | Description                                                                                                                                                                             |
+|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `1-createGroupPolicy`                 | Creates the Group policy which is required to set up the Application Network.                                                                                                           |
+| `2-createKeyStore`                    | Creates the signing keys for publishing the CPIs.                                                                                                                                       |
+| `3-buildCPIs`                         | Builds your CorDapp and wraps it in a signed CPI.                                                                                                                                       |
+| `4-deployCPIs`                        | Deploys the CPI to your local Corda cluster. If the CPI has already been deployed to the nodes on the cluster, this task performs a forced upload and replaces the old CPI with the new one. |
+| `5-vNodeSetup`                        | Sets up the Virtual Nodes specified in `config/static-network-config.json` on you local Corda cluster with the uploaded CPI.                                                            |
 
 Each of these tasks has a dependency on the previous. So, if you run 3, it also runs 1 and 2.
 
 {{< note >}}
-You only need to run `quickDeployCordapp` the first time you upload your CPI to the corda cluster. On subsequent builds, you can just run `4-deployCPIs`. This reduces your turnaround time for deploying your code from 1-2 mins to around 20-30 seconds.
-{{< /note >}}
+You only need to run `5-vNodeSetup` the first time you upload your CPI to the corda cluster. On subsequent builds, you can just run `4-deployCPIs`. (Note, `5-vNodeSetup` has no effect if the virtual nodes have already been set up. It will not try to recreate them.)
 
 #### csde-queries
 
