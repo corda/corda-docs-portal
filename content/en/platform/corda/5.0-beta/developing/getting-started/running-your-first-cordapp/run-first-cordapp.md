@@ -17,10 +17,10 @@ The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csd
 To run the flow, you must first start a local [combined worker](../../../introduction/corda4-differences.html#combined-worker) version of Corda. CSDE includes helper Gradle tasks to do this.
 {{< figure src="starting-corda.png" width="50%" figcaption="CSDE startCorda task" alt="CSDE task to start the combined worker in IntelliJ" >}}
 
-The `startCorda` task should complete relatively quickly with this message:
-{{< figure src="starting-corda-complete.png" figcaption="CSDE startCorda task completed" alt="CSDE task to start the combined worker in IntelliJ completed" >}}
+The `startCorda` task runs in an Intellij 'Run' window. After about one minute, it shows the following output:
+{{< figure src="starting-corda-running.png" figcaption="CSDE startCorda task running" alt="CSDE task to start the combined worker in IntelliJ" >}}
 
-However, you must wait approximately one minute for Corda to finish its start-up routine.
+The `startCorda` will continue to run whilst the corda cluster is running. It will stop when the cluster is shut down.
 Currently, we do not have a liveness detector for Corda in the CSDE so we check liveness by manually hitting an endpoint. You can use the [listVNodes helper](../cordapp-standard-development-environment/csde.html#csde-queries) to do this.
 
 ## Testing Liveness and Swagger
@@ -73,8 +73,8 @@ Once authorised, you can start hitting endpoints. The easiest one to try is `/cp
 ## Deploying a CorDapp
 
 You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
-1. Click the `quickDeployCorda` Gradle task:
-{{< figure src="deploy-cordapp.png" width="50%" figcaption="CSDE deployCorda task" alt="CSDE task to deploy a CorDapp in IntelliJ" >}}
+1. Click the `5-vNodeSetup` Gradle task:
+{{< figure src="vnodesetup.png" width="50%" figcaption="CSDE vNodeSetup task" alt="CSDE task to set up the vNodes in IntelliJ" >}}
    This task runs a series of Gradle tasks to:
    * Build the [CPB](../../../introduction/key-concepts.html#corda-package-bundles-cpbs)
    * Create the GroupPolicy (Application Network definition)
@@ -105,14 +105,14 @@ requestBody code:
 {
    "clientRequestId": "r1",
    "flowClassName": "com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow",
-   "requestData": {
+   "requestBody": {
       "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB"
    }
 }
 ```
 * `ClientRequestId` is a unique identifier for the request to start a flow.
 * `flowClassName` is the fully qualified path to the flow class you want to run.
-* `requestData` is the set of arguments you pass to the flow.
+* `requestBody` is the set of arguments you pass to the flow.
 
    Swagger should display the following response:
    {{< figure src="post-flow-start-requested.png" figcaption="Successful response for POST /flow/{holdingidentityshorthash}" >}}
