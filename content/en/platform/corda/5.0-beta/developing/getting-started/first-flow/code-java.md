@@ -68,7 +68,7 @@ import org.slf4j.LoggerFactory;
 // MyFirstFlow is an initiating flow, it's corresponding responder flow is called MyFirstFlowResponder (defined below)
 // to link the two sides of the flow together they need to have the same protocol.
 @InitiatingFlow(protocol = "my-first-flow")
-// MyFirstFlow should inherit from ClientStartableFlow, which tells Corda it can be started via an RPC call
+// MyFirstFlow should inherit from ClientStartableFlow, which tells Corda it can be started via an REST call
 public class MyFirstFlow implements ClientStartableFlow {
 
   // Log messages from the flows for debugging.
@@ -132,8 +132,8 @@ public class MyFirstFlow implements ClientStartableFlow {
     // Receive a response from the responder flow.
     Message response = session.receive(Message.class);
 
-    // The return value of a RPCStartableFlow must always be a String. This will be passed
-    // back as the REST RPC response when the status of the flow is queried on Corda, or as the return
+    // The return value of a ClientStartableFlow must always be a String. This will be passed
+    // back as the REST response when the status of the flow is queried on Corda, or as the return
     // value from the flow when testing using the simulator.
     return response.getMessage();
   }
@@ -171,7 +171,7 @@ import org.slf4j.LoggerFactory;
 // MyFirstFlow is an initiating flow, it's corresponding responder flow is called MyFirstFlowResponder (defined below)
 // to link the two sides of the flow together they need to have the same protocol.
 @InitiatingFlow(protocol = "my-first-flow")
-// MyFirstFlow should inherit from ClientStartableFlow, which tells Corda it can be started via an RPC call
+// MyFirstFlow should inherit from ClientStartableFlow, which tells Corda it can be started via an REST call
 public class MyFirstFlow implements ClientStartableFlow {
 
   // Log messages from the flows for debugging.
@@ -235,14 +235,14 @@ public class MyFirstFlow implements ClientStartableFlow {
     // Receive a response from the responder flow.
     Message response = session.receive(Message.class);
 
-    // The return value of a RPCStartableFlow must always be a String. This will be passed
-    // back as the REST RPC response when the status of the flow is queried on Corda.
+    // The return value of a ClientStartableFlow must always be a String. This will be passed
+    // back as the REST response when the status of the flow is queried on Corda.
     return response.getMessage();
   }
 }
 
 /*
-RequestBody for triggering the flow via http-rpc:
+RequestBody for triggering the flow via REST:
 {
     "clientRequestId": "r1",
     "flowClassName": "com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow",

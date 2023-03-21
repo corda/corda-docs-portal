@@ -103,7 +103,7 @@ class MyFirstFlow: ClientStartableFlow {
     val response = session.receive(Message::class.java)
 
     // The return value of a ClientStartableFlow must always be a String, this string will be passed
-    // back as the REST RPC response when the status of the flow is queried on Corda.
+    // back as the REST response when the status of the flow is queried on Corda.
     return response.message
   }
 }
@@ -159,7 +159,7 @@ class MyFirstFlowResponder: ResponderFlow {
   }
 }
 /*
-RequestBody for triggering the flow via http-rpc:
+RequestBody for triggering the flow via REST:
 {
     "clientRequestId": "r1",
     "flowClassName": "com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow",
