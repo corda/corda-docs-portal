@@ -11,66 +11,6 @@
         "default": 1000000,
         "minimum": 1000
       },
-      "replayAlgorithm": {
-        "description": "The algorithm used to schedule messages for replay.",
-        "type": "object",
-        "default": {
-          "constant": {
-            "messageReplayPeriod": 2000
-          }
-        },
-        "properties": {
-          "exponentialBackoff": {
-            "type": "object",
-            "description": "Replay messages with capped exponential backoff.",
-            "properties": {
-              "baseReplayPeriod": {
-                "description": "The message replay period base in milliseconds.",
-                "type": "integer",
-                "default": 2000,
-                "minimum": 500
-              },
-              "replayPeriodCutoff": {
-                "description": "The message replay period cutoff in milliseconds.",
-                "type": "integer",
-                "default": 10000,
-                "minimum": 500
-              }
-            },
-            "additionalProperties": false
-          },
-          "constant": {
-            "type": "object",
-            "description": "Replay messages at a constant rate.",
-            "properties": {
-              "messageReplayPeriod": {
-                "description": "The message replay period in milliseconds.",
-                "type": "integer",
-                "default": 2000,
-                "minimum": 500
-              }
-            },
-            "additionalProperties": false
-          }
-        },
-        "additionalProperties": false,
-        "dependencies": {
-          "exponentialBackOff": {
-            "not": {
-              "required": [
-                "constant"
-              ]
-            }
-          },
-          "constant": {
-            "not": {
-              "required": [
-                "exponentialBackOff"
-              ]
-            }
-          }
-        }
-      },
       "maxReplayingMessages": {
         "description": "The maximum number of replaying messages between two peers.",
         "type": "integer",
@@ -95,30 +35,7 @@
         "default": 4,
         "minimum": 1
       },
-      "revocationCheck": {
-        "type": "object",
-        "default": {},
-        "description": "How to check for revocation of the session certificate.",
-        "properties": {
-          "mode": {
-            "oneOf": [
-              {
-                "const": "SOFT_FAIL",
-                "title": "The revocation check will succeed if the revocation status cannot be determined under certain circumstances. See java.security.cert.PKIXRevocationChecker.Option.SOFT_FAIL java doc for more details."
-              },
-              {
-                "const": "HARD_FAIL",
-                "title": "Opposite of SOFT_FAIL - i.e. most rigorous check. Among other things, this check requires that CRL checking URL is available on every level of certificate chain."
-              },
-              {
-                "const": "OFF",
-                "title": "Switch CRL check off."
-              }
-            ],
-            "default": "SOFT_FAIL"
-          }
-        }
-      },
+
       "sessionRefreshThreshold": {
         "description": "Session refresh threshold in seconds. The default is five days.",
         "type": "integer",
