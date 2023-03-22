@@ -52,7 +52,7 @@ The Kotlin API has been replaced with a Java API. Kotlin and Java developers can
 Avro types for the peer-to-peer communications layer were moved from the `net.corda.p2p` namespace to the `net.corda.data.p2p` namespace.
 
 #### Find Signing Keys
-A new function, `findMySigningKeys`, has been added to the `SigningService` interface. This function checks the set of specified signing keys to find keys owned by the caller. In the case of `CompositeKey`, it checks the composite key leaves and returns the firstly found owned composite key leaf.
+A new function, `findMySigningKeys`, has been added to the `SigningService` interface. This function checks a set of specified signing keys to find keys owned by the caller. In the case of `CompositeKey`, it checks the composite key leaves and returns the owned composite key leaf found first.
 
 ### P2P
 
