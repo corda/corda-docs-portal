@@ -79,7 +79,7 @@ This state allows virtual node operators to have a static vault with which they 
 
 Changing a virtual node's state back to active requires that the virtual node has executed all migrations in the currently associated CPI. This prevents a virtual node from becoming operational while migrations are in progress during a virtual node upgrade.
 
-### Upgrading a CPI
+#### Upgrading a CPI
 A new PUT method has been added to the `virtualnode` resource to upgrade a virtual node's CPI: `/api/v1/virtualnode/{virtualNodeShortHash}/cpi/{target-CPI-file-checksum}`.
 Before upgrading, the virtual node must be in maintenance mode with no other operations currently in progress.
 You can check the list of running flows using `GET /api/v1/flow/{virtualNodeShortHash}`. When the virtual node is in maintenance, and when no flows are running (all flows have either "COMPLETED", "FAILED" or "KILLED" status), it is safe to trigger a virtual node upgrade.
