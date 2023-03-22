@@ -1,6 +1,6 @@
 ---
 date: '2023-02-01'
-title: "Corda 5.0 Beta 1.1 Release files and checksums"
+title: "Corda 5.0 Beta 2 Release files and checksums"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-release-checksums
@@ -12,27 +12,22 @@ section_menu: corda-5-beta
 
 Before you install downloaded files, verify the integrity of each file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the **checksum** of your downloaded file, then comparing its value to the checksum value provided below.
 
-## platform-jars-Fox1.1.tar.gz
+## platform-jars-Gecko1.0.tar.gz 
+* MD5: a7f47daff240aa4585f0f276cd75e2c4
+* Sha1: ff02fb8d0ea57f5eaeabd0e8c74e38ebc25189b3
 
-* Sha1:  b96cd57911b0589df886fe24d33f3a0b44108c51
-* MD5:   76944eefbfece0c57f44e54da37b295b
+## cordApp-dev-pack-Gecko1.0.tar.gz 
+* MD5: 34d96e07b1b05f9116320b0f0ab57e00
+* Sha1: 0ad43abe14571f4b1cd64e900712e8585030e6a7
 
-## cordApp-dev-pack-Fox1.1.tar.gz
+## corda-worker-images-Gecko1.0.tar
+* MD5: 7fbc54a1e44b4e3dd63355965b0fe302
+* Sha1: d61db174dccf8f1747c9e37014f3ba573cc972bd
 
-* Sha1:  49d5a5df6c5b4abf027260a1bfb18eb70a81229f
-* MD5:   a93f9f84e26aa0418884e4ad20d9f08d
+## corda-5.0.0-Gecko1.0.tgz
+* MD5: a04ec8bb0e305ef0cc9d9794f2bf6c56
+* Sha1: 8ae822b6b5c533034a088739b2c29fd17259176e
 
-## corda-worker-images-Fox1.1.tar
-
-* Sha1: a162455c6829478e9059e98dd4758cb2d6435a13
-* MD5: f16a70de9de808978355efdc1691e65a
-
-## corda-5.0.0-Fox.1.1.tgz
-
-* Sha1: 50f95c2d220cd2ef74d4d5c4b77779aec91f8c62
-* MD5: 3b916ce1346d417927ac8e00d4f3c3bd
-
-## supporting-scripts-Fox1.1.tar.gz
-
-* Sha1: 73c1bad0c1a71b667e88cc849d331d53311ec45c
-* MD5: 068d871221c11ef84ead6aa1420e2693
+## supporting-scripts-Gecko1.0.tar.gz
+* MD5: ed0c491194f6892366ec0b2df314c94d
+* Sha1: 9f8565d691b80f716ae5478c85e18000283c4405

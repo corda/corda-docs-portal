@@ -74,16 +74,16 @@ For example:
 
 The `create-cpi` argument creates a CPI file using the following arguments:
 
-| <div style="width:160px">Argument</div> | Description                                                                              |
-| --------------------------------------- | ---------------------------------------------------------------------------------------- |
-| \-\-cpb                                 | Specifies the CPB file to include in the CPI.                                            |
+| <div style="width:160px">Argument</div> | Description                                                                                 |
+| --------------------------------------- | ------------------------------------------------------------------------------------------- |
+| \-\-cpb                                 | Specifies the CPB file to include in the CPI.                                               |
 | \-\-group-policy                        | Specifies the [group policy file](../../deploying/group-policy.html) to include in the CPI. |
-| \-\-cpi-name                            | Specifies a name for the CPI.                                                            |
-| \-\-cpi-version                         | Specifies the CPI version.                                                               |
-| \-\-file                                | Specifies the name of the CPI file to create.                                            |
-| \-\-keystore                            | Specifies the keystore file used to sign the file.                                       |
-| \-\-storepass                           | Specifies the password for the keystore.                                                 |
-| \-\-key                                 | Specifies the name of the key.                                                           |
+| \-\-cpi-name                            | Specifies a name for the CPI.                                                               |
+| \-\-cpi-version                         | Specifies the CPI version.                                                                  |
+| \-\-file                                | Specifies the name of the CPI file to create.                                               |
+| \-\-keystore                            | Specifies the keystore file used to sign the file.                                          |
+| \-\-storepass                           | Specifies the password for the keystore.                                                    |
+| \-\-key                                 | Specifies the name of the key.                                                              |
 
 For example:
 

@@ -23,9 +23,9 @@ import net.corda.v5.application.messaging.FlowSession
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.base.annotations.Suspendable
 import net.corda.v5.base.types.MemberX500Name
-import net.corda.v5.base.util.contextLogger
+import org.slf4j.LoggerFactory
 
-// A class to hold the arguments required to start the flow
+// A class to hold the deserialized arguments required to start the flow
 class MyFirstFlowStartArgs(val otherMember: MemberX500Name)
 
 
@@ -38,75 +38,74 @@ class Message(val sender: MemberX500Name, val message: String)
 // MyFirstFlow is an initiating flow, it's corresponding responder flow is called MyFirstFlowResponder (defined below)
 // to link the two sides of the flow together they need to have the same protocol.
 @InitiatingFlow(protocol = "my-first-flow")
-// MyFirstFlow should inherit from RPCStartableFlow, which tells Corda it can be started via an RPC call
-class MyFirstFlow: RPCStartableFlow {
+// MyFirstFlow should inherit from ClientStartableFlow, which tells Corda it can be started via an REST call from a client
+class MyFirstFlow: ClientStartableFlow {
 
-    // It is useful to be able to log messages from the flows for debugging.
-    private companion object {
-        val log = contextLogger()
-    }
+  // It is useful to be able to log messages from the flows for debugging.
+  private companion object {
+    val log = LoggerFactory.getLogger(this::class.java.enclosingClass)
+  }
 
-    // Corda has a set of injectable services which are injected into the flow at runtime.
-    // Flows declare them with @CordaInjectable, then the flows have access to their services.
+  // Corda has a set of injectable services which are injected into the flow at runtime.
+  // Flows declare them with @CordaInjectable, then the flows have access to their services.
 
-    // JsonMarshallingService provides a Service for manipulating json
-    @CordaInject
-    lateinit var jsonMarshallingService: JsonMarshallingService
+  // JsonMarshallingService provides a Service for manipulating json
+  @CordaInject
+  lateinit var jsonMarshallingService: JsonMarshallingService
 
-    // FlowMessaging provides a service for establishing flow sessions between Virtual Nodes and
-    // sending and receiving payloads between them
-    @CordaInject
-    lateinit var flowMessaging: FlowMessaging
+  // FlowMessaging provides a service for establishing flow sessions between Virtual Nodes and
+  // sending and receiving payloads between them
+  @CordaInject
+  lateinit var flowMessaging: FlowMessaging
 
-    // MemberLookup provides a service for looking up information about members of the Virtual Network which
-    // this CorDapp is operating in.
-    @CordaInject
-    lateinit var memberLookup: MemberLookup
+  // MemberLookup provides a service for looking up information about members of the Virtual Network which
+  // this CorDapp is operating in.
+  @CordaInject
+  lateinit var memberLookup: MemberLookup
 
 
 
-    // When a flow is invoked it's call() method is called.
-    // call() methods must be marked as @Suspendable, this allows Corda to pause mid-execution to wait
-    // for a response from the other flows and services
-    @Suspendable
-    override fun call(requestBody: RPCRequestData): String {
+  // When a flow is invoked it's call() method is called.
+  // call() methods must be marked as @Suspendable, this allows Corda to pause mid-execution to wait
+  // for a response from the other flows and services
+  @Suspendable
+  override fun call(requestBody: ClientRequestBody): String {
 
-        // Useful logging to follow what's happening in the console or logs
-        log.info("MFF: MyFirstFlow.call() called")
+    // Useful logging to follow what's happening in the console or logs
+    log.info("MFF: MyFirstFlow.call() called")
 
-        // Show the requestBody in the logs - this can be used to help establish the format for starting a flow on corda
-        log.info("MFF: requestBody: ${requestBody.getRequestBody()}")
+    // Show the requestBody in the logs - this can be used to help establish the format for starting a flow on corda
+    log.info("MFF: requestBody: ${requestBody.getRequestBody()}")
 
-        // Deserialize the Json requestBody into the MyfirstFlowStartArgs class using the JsonSerialisation Service
-        val flowArgs = requestBody.getRequestBodyAs(jsonMarshallingService, MyFirstFlowStartArgs::class.java)
+    // Deserialize the Json requestBody into the MyfirstFlowStartArgs class using the JsonSerialisation Service
+    val flowArgs = requestBody.getRequestBodyAs(jsonMarshallingService, MyFirstFlowStartArgs::class.java)
 
-        // Obtain the MemberX500Name of counterparty
-        val otherMember = flowArgs.otherMember
+    // Obtain the MemberX500Name of counterparty
+    val otherMember = flowArgs.otherMember
 
-        // Get our identity from the MemberLookup service.
-        val ourIdentity = memberLookup.myInfo().name
+    // Get our identity from the MemberLookup service.
+    val ourIdentity = memberLookup.myInfo().name
 
-        // Create the message payload using the MessageClass we defined.
-        val message = Message(otherMember, "Hello from $ourIdentity.")
+    // Create the message payload using the MessageClass we defined.
+    val message = Message(otherMember, "Hello from $ourIdentity.")
 
-        // Log the message to be sent.
-        log.info("MFF: message.message: ${message.message}")
+    // Log the message to be sent.
+    log.info("MFF: message.message: ${message.message}")
 
-        // Start a flow session with the otherMember using the FlowMessaging service
-        // The otherMember's Virtual Node will run the corresponding MyFirstFlowResponder responder flow
-        val session = flowMessaging.initiateFlow(otherMember)
+    // Start a flow session with the otherMember using the FlowMessaging service
+    // The otherMember's Virtual Node will run the corresponding MyFirstFlowResponder responder flow
+    val session = flowMessaging.initiateFlow(otherMember)
 
-        // Send the Payload using the send method on the session to the MyFirstFlowResponder Responder flow
-        session.send(message)
+    // Send the Payload using the send method on the session to the MyFirstFlowResponder Responder flow
+    session.send(message)
 
-        // Receive a response from the Responder flow
-        val response = session.receive(Message::class.java)
+    // Receive a response from the Responder flow
+    val response = session.receive(Message::class.java)
 
-        // The return value of a RPCStartableFlow must always be a String, this string will be passed
-        // back as the REST RPC response when the status of the flow is queried on Corda, or as the return
-        // value from the flow when testing using the Simulator
-        return response.message
-    }
+    // The return value of a ClientStartableFlow must always be a String, this string will be passed
+    // back as the REST response when the status of the flow is queried on Corda.
+    return response.message
+  }
 }
 
 // MyFirstFlowResponder is a responder flow, it's corresponding initiating flow is called MyFirstFlow (defined above)
@@ -115,55 +114,58 @@ class MyFirstFlow: RPCStartableFlow {
 // Responder flows must inherit from ResponderFlow
 class MyFirstFlowResponder: ResponderFlow {
 
-    // It is useful to be able to log messages from the flows for debugging.
-    private companion object {
-        val log = contextLogger()
-    }
+  // It is useful to be able to log messages from the flows for debugging.
+  private companion object {
+    val log = LoggerFactory.getLogger(this::class.java.enclosingClass)
+  }
 
-    // MemberLookup provides a service for looking up information about members of the Virtual Network which
-    // this CorDapp is operating in.
-    @CordaInject
-    lateinit var memberLookup: MemberLookup
+  // MemberLookup provides a service for looking up information about members of the Virtual Network which
+  // this CorDapp is operating in.
+  @CordaInject
+  lateinit var memberLookup: MemberLookup
 
 
-    // Responder flows are invoked when an initiating flow makes a call via a session set up with the Virtual
-    // node hosting the Responder flow. When a responder flow is invoked it's call() method is called.
-    // call() methods must be marked as @Suspendable, this allows Corda to pause mid-execution to wait
-    // for a response from the other flows and services/
-    // The Call method has the flow session passed in as a parameter by Corda so the session is available to
-    // responder flow code, you don't need to inject the FlowMessaging service.
-    @Suspendable
-    override fun call(session: FlowSession) {
+  // Responder flows are invoked when an initiating flow makes a call via a session set up with the Virtual
+  // node hosting the Responder flow. When a responder flow is invoked, its call() method is called.
+  // call() methods must be marked as @Suspendable, this allows Corda to pause mid-execution to wait
+  // for a response from the other flows and services/
+  // The Call method has the flow session passed in as a parameter by Corda so the session is available to
+  // responder flow code, you don't need to inject the FlowMessaging service.
+  @Suspendable
+  override fun call(session: FlowSession) {
 
-        // Useful logging to follow what's happening in the console or logs
-        log.info("MFF: MyFirstResponderFlow.call() called")
+    // Useful logging to follow what's happening in the console or logs
+    log.info("MFF: MyFirstResponderFlow.call() called")
 
-        // Receive the payload and deserialize it into a Message class
-        val receivedMessage = session.receive(Message::class.java)
 
-        // Log the message as a proxy for performing some useful operation on it.
-        log.info("MFF: Message received from ${receivedMessage.sender}: ${receivedMessage.message} ")
+    // Receive the payload and deserialize it into a Message class
+    val receivedMessage = session.receive(Message::class.java)
 
-        // Get our identity from the MemberLookup service.
-        val ourIdentity = memberLookup.myInfo().name
+    // Log the message as a proxy for performing some useful operation on it.
+    log.info("MFF: Message received from ${receivedMessage.sender}: ${receivedMessage.message} ")
 
-        // Create a response to greet the sender
-        val response = Message(ourIdentity,
-            "Hello ${session.counterparty.commonName}, best wishes from ${ourIdentity.commonName}")
+    // Get our identity from the MemberLookup service.
+    val ourIdentity = memberLookup.myInfo().name
 
-        // Log the response to be sent.
-        log.info("MFF: response.message: ${response.message}")
+    // Create a response to greet the sender
+    val response = Message(ourIdentity,
+      "Hello ${session.counterparty.commonName}, best wishes from ${ourIdentity.commonName}")
 
-        // Send the response via the send method on the flow session
-        session.send(response)
-    }
+    // Log the response to be sent.
+    log.info("MFF: response.message: ${response.message}")
+
+    // Send the response via the send method on the flow session
+    session.send(response)
+  }
 }
 /*
-RequestBody for triggering the flow via http-rpc:
+RequestBody for triggering the flow via REST:
 {
     "clientRequestId": "r1",
-    "flowClassName": "com.r3.developers.csdetemplate.MyFirstFlow",
-    "requestData": {"otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB","message":"Hello Bob"}
+    "flowClassName": "com.r3.developers.csdetemplate.flowexample.workflows.MyFirstFlow",
+    "requestBody": {
+        "otherMember":"CN=Bob, OU=Test Dept, O=R3, L=London, C=GB"
+        }
 }
  */
  ```
@@ -173,17 +175,16 @@ There are two helper classes:
    ```kotlin
    class MyFirstFlowStartArgs(val otherMember: MemberX500Name)
    ```
-   The [MyFirstFlowTest](../fast-feedback-with-the-simulator/fast-feedback-with-the-simulator.html) Simulator example uses this class.
 * `Message` —  specifies the sender and the message. This is used for both the message sent from the initiator to the responder and subsequently the message sent back from the responder to the initiator. Note, as this is a class defined in a CorDapp and it is going to be sent ‘down the wire’ between two virtual nodes, it requires the `@CordaSerializable` annotation.
    ```kotlin
    @CordaSerializable
    class Message(val sender: MemberX500Name, val message: String)
    ```
 ## Initiating and Responding Flows
-To trigger a flow from HTTP-RPC, the flow must  inherit from `RPCStartableFlow`. Most flows will come in pairs; one initiating flow and a corresponding responder flow. The responder flow must inherit from `ResponderFlow`. The two flows are linked by adding the `@InitiatingFlow` and `@InitiatedBy` annotations which both specify the same protocol in this case "my-first-flow":
+To trigger a flow from REST, the flow must  inherit from `ClientStartableFlow`. Most flows will come in pairs; one initiating flow and a corresponding responder flow. The responder flow must inherit from `ResponderFlow`. The two flows are linked by adding the `@InitiatingFlow` and `@InitiatedBy` annotations which both specify the same protocol in this case "my-first-flow":
 ```kotlin
 @InitiatingFlow(protocol = "my-first-flow")
-class MyFirstFlow: RPCStartableFlow { ... }
+class MyFirstFlow: ClientStartableFlow { ... }
 ```
 ```kotlin
 @InitiatedBy(protocol = "my-first-flow")
@@ -196,11 +197,11 @@ When running tests locally, the console displays log entries.
 When running on Corda, the log files are updated.
 ```kotlin
     private companion object {
-        val log = contextLogger()
+        val log = LoggerFactory.getLogger(this::class.java.enclosingClass)
     }
 ```
 The log files for CSDE are located in the logs folder in the root of the project.
-The CSDE starts a new log file each time a new instance of Corda is created or when the log file grows too large.
+The CSDE starts a new log file each time a new instance of Corda is created or when the log file grows too large. The logging can be configured by editing the `config/static-network-config.json` file.
 Because the Corda combined worker runs all of the Corda processes in one JVM process, there are a lot of log entries.
 We recommend adding an easily searchable tag to each log message. For example:
 ```kotlin
@@ -209,7 +210,7 @@ We recommend adding an easily searchable tag to each log message. For example:
 ## call() Method
 As with flows in Corda 4, each flow has a `call()` method. This is the method which Corda invokes when the flow is invoked.
 
-When a flow is started via HTTP-RPC, the `requestBody` from the HTTP request is passed into the `call` method as the  `requestBody` parameter, giving the rest of the call method access to the parameters passed in via HTTP.
+When a flow is started via REST, the `requestBody` from the HTTP request is passed into the `call` method as the  `requestBody` parameter, giving the rest of the call method access to the parameters passed in via HTTP.
 
 When a responder flow is invoked as a result of an initiator flow on another node, the flow session with the initiating node is passed in as the parameter `session`.
 
@@ -218,7 +219,7 @@ The `call()` method in both flows must be marked as `@Suspendable`. This is an i
 In the initiating flow:
 ```kotlin
     @Suspendable
-    override fun call(requestBody: RPCRequestData): String { ... }
+    override fun call(requestBody: ClientRequestBody): String { ... }
 ```
 In the responder flow:
 ```kotlin
@@ -235,7 +236,7 @@ There are other services, such as the `Persistence` and `Serialization` services
 
 Services are declared as properties in the flow class with the `@CordaInject` annotation:
 ```kotlin
-class MyFirstFlow: RPCStartableFlow {
+class MyFirstFlow: ClientStartableFlow {
 
     ...
 
@@ -256,12 +257,12 @@ The services are then available in the call function. For example to initiate a 
 ```kotlin
     val session = flowMessaging.initiateFlow(otherMember)
  ```
-## Obtaining the HTTP-RPC requestBody
+## Obtaining the REST requestBody
 The first thing that the `MyFirstFlow.call()` method does is convert the `requestBody` parameters into a Kotlin class.
 It does this using the `getRequestBodyAs()` method. This takes the `jsonMarshallingService` and the class that the `requestBody` parameters should be parsed into. The `flowArgs` variable has the type `MyFirstFlowStartArgs`, the helper class we declared in [the Helper classes section](#helper-classes) and used in the test.
 ```kotlin
 @Suspendable
-    override fun call(requestBody: RPCRequestData): String {
+    override fun call(requestBody: ClientRequestBody): String {
 
         ...
 
@@ -330,7 +331,7 @@ We can now start sending messages to the responder:
 
         return response.message
    ```
-   The response from the initiating flow is always a string, which can be returned when the flow status is queried by HTTP-RPC.
+   The response from the initiating flow is always a string, which can be returned when the flow status is queried by REST.
 
 ## Other Considerations for FlowSessions
 It is important that the sends and receives in the initiator and responder flows match. If the initiator sends a Foo and the responder expects a Bar, the flow hangs and likely results in a timeout error.

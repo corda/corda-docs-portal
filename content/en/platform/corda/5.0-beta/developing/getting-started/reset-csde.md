@@ -32,7 +32,7 @@ The instructions in this section use the following terms:
 To reset the CSDE:
 1. Stop any running combined worker processes:
    * On Linux/macOS:
-      
+
       a. To find the process ID (pid), run:
 
       ```shell
@@ -42,15 +42,32 @@ To reset the CSDE:
        The combined worker process is the second ID returned. For example, 63892 in the following response:
 
       ```shell
-      503 63892 52310   0  1:05PM ??         2:36.96 /Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home/bin/java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Dco.paralleluniverse.fibers.verifyInstrumentation=true -jar /Users/.gradle/caches/modules-2/files-2.1/net.corda/corda-combined-worker/5.0.0.0-Fox1.1/1b7c6fdecd5e54e09ec080905f2b6e14fad1a4d5/corda-combined-worker-5.0.0.0-Fox1.1.jar --instanceId=0 -mbus.busType=DATABASE -spassphrase=password -ssalt=salt -spassphrase=password -ssalt=salt -ddatabase.user=user -ddatabase.pass=password -ddatabase.jdbc.url=jdbc:postgresql://localhost:5432/cordacluster -ddatabase.jdbc.directory=/Users/.corda/corda5/jdbcDrivers
+      503 63892 52310   0  1:05PM ??         2:36.96 /Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home/bin/java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Dco.paralleluniverse.fibers.verifyInstrumentation=true -jar /Users/.gradle/caches/modules-2/files-2.1/net.corda/corda-combined-worker/5.0.0.0-Gecko2.0/1b7c6fdecd5e54e09ec080905f2b6e14fad1a4d5/corda-combined-worker-5.0.0.0-Gecko2.0.jar --instance-id=0 -mbus.busType=DATABASE -spassphrase=password -ssalt=salt -spassphrase=password -ssalt=salt -ddatabase.user=user -ddatabase.pass=password -ddatabase.jdbc.url=jdbc:postgresql://localhost:5432/cordacluster -ddatabase.jdbc.directory=/Users/.corda/corda5/jdbcDrivers
       ```
-      
+
+      Alternatively, you can use the jps command to list java processes running:
+
+      ```shell
+      jps
+     ```
+     Which returns:
+     ```
+     23666 GradleDaemon
+     25400 GradleDaemon
+     18986
+     1114
+     41770 Jps
+     25419 KotlinCompileDaemon
+     63892 corda-combined-worker-5.0.0.0-Gecko.jar
+
+     ```
+
       b. To stop the process, run:
-         
+
       ```shell
       kill <pid-for-corda-combined-worker>
       ```
-      
+
    * On Windows, run in PowerShell:
      ```shell
      Invoke-CimMethod -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'" -MethodName "Terminate"
@@ -60,6 +77,11 @@ To reset the CSDE:
       ```shell
       ps -ef | grep corda-combined-worker
       ```
+      or
+      ```shell
+      jps
+      ```
+
    * On Windows, run:
       ```shell
       Get-CimInstance -Query "SELECT * from Win32_Process WHERE name LIKE 'java.exe' and Commandline like '%corda-combined-worker%'"

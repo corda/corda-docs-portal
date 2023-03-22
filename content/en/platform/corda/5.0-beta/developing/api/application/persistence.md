@@ -137,10 +137,10 @@ To use the Persistence API from a flow:
 1. Define a reference to the persistence service. This should be supplied via the Corda dependency injection system:
    ```kotlin
    import net.corda.v5.application.flows.CordaInject
-   import net.corda.v5.application.flows.RPCStartableFlow
+   import net.corda.v5.application.flows.ClientStartableFlow
    import net.corda.v5.application.persistence.PersistenceService
 
-   class MyExampleFlow : RPCStartableFlow {
+   class MyExampleFlow : ClientStartableFlow {
        @CordaInject
        lateinit var persistenceService: PersistenceService
 
@@ -177,7 +177,7 @@ To use the Persistence API from a flow:
    val newDogName = input.getValue("name")
    persistenceService.merge(Dog(dogId, newDogName, Instant.now(), "none"))
    ```
-   All of the operations available are defined in the public interface: <a href="../../../../../../api-ref/corda/5.0-beta/kotlin/application/net.corda.v5.application.persistence/-persistence-service/index.html" target="_blank">`PersistenceService`</a>.
+   All of the operations available are defined in the public interface: <a href="../../../../../../api-ref/corda/5.0-beta/java/net/corda/v5/application/persistence/PersistenceService.html" target="_blank">`PersistenceService`</a>.
 
 
 {{< note >}}
