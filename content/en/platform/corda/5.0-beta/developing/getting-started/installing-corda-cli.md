@@ -26,7 +26,7 @@ Java     | Azul JDK 11
 
 To obtain the Corda CLI installer from the release pack on Customer Hub:
 1. Download `platform-jars-Gecko.tar.gz` from the [R3 Customer Hub](https://r3.force.com/) or from the [R3 S3 repository](https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-Gecko1.0/corda-cli-downloader-5.0.0.0-Gecko1.0.zip).
-2. Extract `corda-cli-installer-5.0.0.0-Gecko2.0.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Gecko2.0`.
+2. Extract `corda-cli-installer-5.0.0.0-Gecko1.0.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Gecko1.0`.
 
 
 ## Installing on Linux/macOS
@@ -40,7 +40,7 @@ To obtain the Corda CLI installer from the release pack on Customer Hub:
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-installer-5.0.0.0-Gecko2.0
+   cd corda-cli-installer-5.0.0.0-Gecko1.0
    ```
 5. Run the install script:
    ```shell
@@ -61,11 +61,11 @@ To obtain the Corda CLI installer from the release pack on Customer Hub:
 2. Change directory to where you saved `corda-cli-installer-5.0.0.0--Gecko.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   Expand-Archive .\corda-cli-installer-5.0.0.0-Gecko2.0.zip
+   Expand-Archive .\corda-cli-installer-5.0.0.0-Gecko1.0.zip
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-installer-5.0.0.0-Gecko2.0
+   cd corda-cli-installer-5.0.0.0-Gecko1.0
    ```
 5. Run the install script:
    ```shell

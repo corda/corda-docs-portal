@@ -38,7 +38,7 @@ If not, then the following instructions describe how to push the images from the
     "corda-os-member-worker" "corda-os-p2p-gateway-worker"
     "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
     "corda-os-crypto-worker" "corda-os-plugins" )
-   tag=5.0.0.0-Gecko2.0
+   tag=5.0.0.0-Gecko1.0
    target_registry=$1
 
    for image in "${images[@]}"; do
@@ -58,10 +58,10 @@ If not, then the following instructions describe how to push the images from the
 If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
 
 ```shell
-helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Gecko
+helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Gecko1.0
 ```
 
-If you do not have access to Docker Hub, you can download the `corda-5.0.0-Gecko2.0.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
+If you do not have access to Docker Hub, you can download the `corda-5.0.0-Gecko1.0.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
@@ -69,12 +69,12 @@ For each deployment, you should create a YAML file to define a set of Helm overr
 The following sections describe the minimal set of configuration options required for a deployment.
 You can extract a README containing the full set of options from the Helm chart using the following command:
 ```shell
-helm show readme corda-5.0.0-Gecko2.0.tgz
+helm show readme corda-5.0.0-Gecko1.0.tgz
 ```
 
 You can extract a YAML file containing all of the default values using the following command:
 ```shell
-helm show values corda-5.0.0-Gecko2.0.tgz
+helm show values corda-5.0.0-Gecko1.0.tgz
 ```
 
 ### Image Registry
@@ -597,18 +597,18 @@ workers:
 
 Once the configuration for the environment has been defined in a YAML file, you can install the Helm chart:
 ```shell
-helm install -n <NAMESPACE> <HELM-RELEASE-NAME> corda-5.0.0-Gecko2.0.tgz -f <PATH-TO-YAML-FILE>
+helm install -n <NAMESPACE> <HELM-RELEASE-NAME> corda-5.0.0-Gecko1.0.tgz -f <PATH-TO-YAML-FILE>
 ```
 For example, to create a Helm release called `corda` in the `corda` namespace using the overrides specified in a file called `values.yaml`, run the following:
 
 ```shell
-helm install -n corda corda corda-5.0.0-Gecko.tgz -f values.yaml
+helm install -n corda corda corda-5.0.0-Gecko1.0.tgz -f values.yaml
 ```
 
 If you are using the Helm chart from Docker Hub, you can install directly from there rather than using `helm fetch` first. For example:
 
 ```shell
-helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0.0-Gecko -f values.yaml
+helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0.0-Gecko1.0 -f values.yaml
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how to access the [Corda REST API](../../operating/operating-tutorials/rest-api.html). If the Helm install fails, see the troubleshooting section on [Cluster Health](../troubleshooting/cluster-health.html).
