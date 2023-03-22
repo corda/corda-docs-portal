@@ -4,7 +4,7 @@ section_menu: tools
 menu:
   tools:
     name: Installing the Digital Currencies Demo
-    weight: 600
+    weight: 100
     parent: digital-currencies
     identifier: digital-currencies-installing
 title: Installing the Digital Currencies Demo
