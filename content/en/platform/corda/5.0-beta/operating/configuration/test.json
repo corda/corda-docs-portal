@@ -33,19 +33,6 @@
             }
           },
           "additionalProperties": false
-        },
-        "constant": {
-          "type": "object",
-          "description": "Replay messages at a constant rate.",
-          "properties": {
-            "messageReplayPeriod": {
-              "description": "The message replay period in milliseconds.",
-              "type": "integer",
-              "default": 2000,
-              "minimum": 500
-            }
-          },
-          "additionalProperties": false
         }
       },
       "additionalProperties": false,
