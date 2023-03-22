@@ -13,7 +13,7 @@ As described in [Registration Approval]({{< relref "../../registration-approval.
 
 ## Adding a Group Approval Rule
 
-To add a group approval rule, use the [mgm/{holdingidentityshorthash}/approval/rules POST method](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__approval_rules) of the REST API.
+To add a group approval rule, use the [mgm/{holdingidentityshorthash}/approval/rules POST method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__approval_rules) of the REST API.
 
 For example, to specify that all requests with changes to keys in the Corda namespace must be manually approved:
 
@@ -24,7 +24,7 @@ curl --insecure -u <username>:<password> -d "$RULE_PARAMS" <REST-API-URL>/mgm/<M
 
 ## Viewing Current Group Approval Rules
 
-To retrieve all applied group approval rules, use the [mgm/{holdingidentityshorthash}/approval/rules GET method](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__approval_rules).
+To retrieve all applied group approval rules, use the [mgm/{holdingidentityshorthash}/approval/rules GET method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__approval_rules).
 
 ```bash
 curl --insecure -u <username>:<password> <REST-API-URL>/mgm/<MGM-HOLDING-ID>/approval/rules
@@ -41,7 +41,7 @@ This method returns the rules in the following format:
 
 ## Deleting a Group Approval Rule
 
-To delete an applied group approval rule, pass the ID of the rule to the [mgm/{holdingidentityshorthash}/approval/rules/{ruleid} DELETE method](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/delete_mgm__holdingidentityshorthash__approval_rules__ruleid_). You can retrieve the ID of a rule from the response of creating the rule, or from the response of the GET method described in [Viewing Current Group Approval Rules]({{< relref "#viewing-current-group-approval-rules" >}}).
+To delete an applied group approval rule, pass the ID of the rule to the [mgm/{holdingidentityshorthash}/approval/rules/{ruleid} DELETE method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/delete_mgm__holdingidentityshorthash__approval_rules__ruleid_). You can retrieve the ID of a rule from the response of creating the rule, or from the response of the GET method described in [Viewing Current Group Approval Rules]({{< relref "#viewing-current-group-approval-rules" >}}).
 
 ```bash
 curl --insecure -u <username>:<password> -X DELETE <REST-API-URL>/mgm/<MGM-HOLDING-ID>/approval/rules/<RULE-ID>

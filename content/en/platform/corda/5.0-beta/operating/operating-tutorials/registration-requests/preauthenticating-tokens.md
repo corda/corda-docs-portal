@@ -13,7 +13,7 @@ As described in [Registration Approval]({{< relref "../../registration-approval.
 
 ## Creating a Token
 
-To create a pre-auth token for a member, use the [mgm/{holdingidentityshorthash}/preauthtoken POST method](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__preauthtoken) of the REST API.
+To create a pre-auth token for a member, use the [mgm/{holdingidentityshorthash}/preauthtoken POST method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/post_mgm__holdingidentityshorthash__preauthtoken) of the REST API.
 
 For example, for the member `O=Alice, L=London, C=GB`:
 
@@ -33,7 +33,7 @@ If no time-to-live value is submitted, the token only expires after it is consum
 
 ## Viewing Tokens
 
-To retrieve all valid pre-auth tokens, use the [mgm/{holdingidentityshorthash}/preauthtoken GET method](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__preauthtoken). A valid token is one that has not been consumed, revoked, or expired.
+To retrieve all valid pre-auth tokens, use the [mgm/{holdingidentityshorthash}/preauthtoken GET method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/get_mgm__holdingidentityshorthash__preauthtoken). A valid token is one that has not been consumed, revoked, or expired.
 
 ```bash
 curl --insecure -u <username>:<password> <REST-API-URL>/mgm/<MGM-HOLDING-ID>/preauthtoken
@@ -67,7 +67,7 @@ curl --insecure -u <username>:<password> <REST-API-URL>'/mgm/<MGM-HOLDING-ID>/pr
 
 ## Revoking Tokens
 
-To revoke a pre-auth token, pass the ID of the token to the [mgm/{holdingidentityshorthash}/preauthtoken/revoke/{preauthtokenid} PUT method](../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/put_mgm__holdingidentityshorthash__preauthtoken_revoke__preauthtokenid_). You can retrieve the ID of a token from the response of creating the token, or from the response of the GET method described in [Viewing Tokens]({{< relref "#viewing-tokens" >}}). This prevents the token from being used. Any registrations submitted with a revoked token are automatically declined.
+To revoke a pre-auth token, pass the ID of the token to the [mgm/{holdingidentityshorthash}/preauthtoken/revoke/{preauthtokenid} PUT method](../../../rest-api/C5_OpenAPI.html#tag/MGM-API/operation/put_mgm__holdingidentityshorthash__preauthtoken_revoke__preauthtokenid_). You can retrieve the ID of a token from the response of creating the token, or from the response of the GET method described in [Viewing Tokens]({{< relref "#viewing-tokens" >}}). This prevents the token from being used. Any registrations submitted with a revoked token are automatically declined.
 
 ```bash
 curl --insecure -u <username>:<password> -X PUT <REST-API-URL>/mgm/<MGM-HOLDING-ID>/preauthtoken/revoke/<TOKEN-ID>
