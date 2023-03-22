@@ -58,10 +58,10 @@ If not, then the following instructions describe how to push the images from the
 If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
 
 ```shell
-helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Gecko
+helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Gecko1.0
 ```
 
-If you do not have access to Docker Hub, you can download the `corda-5.0.0-Gecko2.0.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
+If you do not have access to Docker Hub, you can download the `corda-5.0.0-Gecko1.0.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
