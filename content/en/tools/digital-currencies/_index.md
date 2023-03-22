@@ -6,7 +6,7 @@ menu:
     name: Digital Currencies
     weight: 600
     identifier: digital-currencies
-title: Collaborative Recovery
+title: Welcome to Digital Currencies
 ---
 
 # Welcome to Digital Currencies

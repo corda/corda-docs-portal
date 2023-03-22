@@ -14,7 +14,7 @@ title: Installing the Digital Currencies Demo
 
 ## Summary
 
-1. [Install the rerequisites](#prerequisites)
+1. [Install the prerequisites](#prerequisites)
 2. [Clone the Digital Currencies repositories](#clone-the-digital-currencies-repositories)
 3. [Run a clean version of corda](#run-corda)
 4. [Deploy the Digital Currencies CorDapp](#deploy-the-digital-currencies-cordapp)
@@ -22,9 +22,8 @@ title: Installing the Digital Currencies Demo
    (Temporary) switch to CDC-247/POC-external-apis-with-flow-tracking branch.
    
 5. [Run the External API Service using the runExternalApiServer Gradle task](#run-the-external-api-service-using-the-runexternalapiserver-gradle-task)
-6. [Run the Digital Currencies UI](#run-the-digital-currencies-ui)
-7. [Specify Virtual Node for Digital Currencies UI](#specify-virtual-node-for-digital-currencies-ui)
-8. [Run the Digital Currencies UI](#run-the-digital-currencies-ui)
+6. [Specify Virtual Node for Digital Currencies UI](#specify-virtual-node-for-digital-currencies-ui)
+7. [Run the Digital Currencies UI](#run-the-digital-currencies-ui)
 
 ## Prerequisites
 
@@ -237,35 +236,6 @@ Temporary step: Need to check out the branch origin/CDC-247/POC-external-apis-wi
 
    The log panel at the bottom of the screen should show output ending with *BUILD SUCCESSFUL*:
 
-## Run the Digital Currencies UI
-
-1. Open a command prompt and navigate to the *digital-currencies-ui* directory, where you cloned that repository.
-
-2. Run the command:
-
-   ```
-   npm ci
-   ```
-
-   This command downloads the dependencies required by the web server front-end.
-
-3. Run the command:
-
-   ```
-   npm run dev
-   ```
-
-   The following output is displayed:
-
-   ```
-   VITE v3.1.3  ready in 417 ms
-
-   ➜  Local:   http://127.0.0.1:5173/
-   ➜  Network: use --host to expose
-   ```
-
-The Digital Currencies UI is now available from the above URL.
-
 ## Specify Virtual Node for Digital Currencies UI
 
 1. Open the Swagger UI.
@@ -324,6 +294,33 @@ The Digital Currencies UI is now available from the above URL.
 
 10. Save and close the file.
 
-## Accessing the Digital Currencies UI
+## Run the Digital Currencies UI
 
-In a browser access the URL http://localhost:5173/.
+1. Open a command prompt and navigate to the *digital-currencies-ui* directory, where you cloned that repository.
+
+2. Run the command:
+
+   ```
+   npm ci
+   ```
+
+   This command downloads the dependencies required by the web server front-end.
+
+3. Run the command:
+
+   ```
+   npm run dev
+   ```
+
+   The following output is displayed:
+
+   ```
+   VITE v3.1.3  ready in 417 ms
+
+   ➜  Local:   http://127.0.0.1:5173/
+   ➜  Network: use --host to expose
+   ```
+
+The Digital Currencies UI is now available.
+
+In a browser access the URL http://localhost:5173/ (rather than the above URL).
