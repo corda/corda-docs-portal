@@ -18,7 +18,7 @@ title: API reference
 
 ## Corda 5 Beta API reference
 
-See the [Corda 5.0 Beta 1](../../en/api-ref/corda/5.0-beta/kotlin/index.html) page to access the API reference documentation for all API modules publicly exposed in the Corda 5 beta release.
+See the [Corda 5.0 Beta](../../en/api-ref/corda/5.0-beta/kotlin/index.html) page to access the API reference documentation for all API modules publicly exposed in the Corda 5 beta release.
 
 ## Corda 4 API reference
 

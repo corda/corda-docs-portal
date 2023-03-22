@@ -96,8 +96,8 @@ As with the pre-install jobs, retrieve the logs to identify any failures:
 kubectl logs job/corda-setup-rbac --all-containers
 ```
 
-If errors are being returned from the REST API, check the logs for the RPC workers:
+If errors are being returned from the REST API, check the logs for the REST workers:
 
 ```shell
-kubectl logs deployment/corda-rpc-worker
+kubectl logs deployment/corda-rest-worker
 ```
