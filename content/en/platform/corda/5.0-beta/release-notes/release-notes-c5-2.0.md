@@ -46,7 +46,7 @@ The Kotlin API has been replaced with a Java API. Kotlin and Java developers can
 `UtxoLedgerService.resolve()` functions have been added to the API.
 
 #### Crypto API
-`SignatureSpec` is now an explicit field in `DigitalSignatureMetadata`. In previous versions, it was necessary to add it in the `DigitalSignatureMetadata.properties` map.
+`SignatureSpec` is now an explicit field in `DigitalSignatureMetadata`. Previously, in order to add the signature spec, it was necessary to include it in `DigitalSignatureMetadata.properties` map.
 
 #### P2P Avro Types
 Avro types for the peer-to-peer communications layer were moved from the `net.corda.p2p` namespace to the `net.corda.data.p2p` namespace.
