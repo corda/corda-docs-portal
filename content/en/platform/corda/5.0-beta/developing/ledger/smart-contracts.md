@@ -37,14 +37,14 @@ Each transaction state specifies a contract type. The contract specified takes t
 The contract code can:
 
 * Check the number of inputs, outputs, commands, or attachments.
-* Check that a [time window]({{< relref "./time-windows.md" >}}) exists and that time points mentioned in states fall within this time window.
+* Check that the [time window]({{< relref "./time-windows.md" >}}) matches the expectations for the given transaction. For example, that a point in time mentioned in one of the states (inputs, outputs, references) falls within the time window.
 * Check the contents of all components.
 * Evaluate looping constructs, variable assignments, function calls, helper methods, and other aspects of the transaction code.
 * Group similar states to validate them as a group. For example, it can impose a rule on the combined value of all the cash states.
 
 ## Determinism
 
-To enable the nodes on a network to reach consensus about a proposed update to the ledger, transaction verification must be deterministic. This means that contracts must always accept or reject a given transaction, regardless of when it is validated, or the amount of information that the node running the contract holds.
+To enable the nodes on a network to reach consensus about a proposed update to the ledger, transaction verification must be deterministic. This means that contracts must always accept or always reject a particular transaction, regardless of when it is validated, or the amount of information that the node running the contract holds.
 
 ## Contract Limitations
 
