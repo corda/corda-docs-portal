@@ -3,14 +3,4 @@
     "$id": "https://corda.r3.com/net/corda/schema/configuration/p2p/1.0/corda.p2p.linkmanager.json",
     "title": "Corda P2P Link Manager Configuration Schema",
     "description": "Configuration schema for the P2P link manager.",
-    "type": "object",
-    "properties": {
-      "maxMessageSize": {
-        "description": "The maximum message size in bytes.",
-        "type": "integer",
-        "default": 1000000,
-        "minimum": 1000
-      },
-    },
-    "additionalProperties": false
   }
