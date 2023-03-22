@@ -37,7 +37,7 @@ Each transaction state specifies a contract type. The contract specified takes t
 The contract code can:
 
 * Check the number of inputs, outputs, commands, or attachments.
-* Check that the [time window]({{< relref "./time-windows.md" >}}) matches the expectations for the given transaction. For example, that a point in time mentioned in one of the states (inputs, outputs, references) falls within the time window.
+* Check that the [time window]({{< relref "./time-windows.md" >}}) matches the expectations for the given transaction. For example, that a point in time mentioned in one of the states (inputs, outputs, or references) occurs within the time window.
 * Check the contents of all components.
 * Evaluate looping constructs, variable assignments, function calls, helper methods, and other aspects of the transaction code.
 * Group similar states to validate them as a group. For example, it can impose a rule on the combined value of all the cash states.
