@@ -14,6 +14,11 @@
     "replayAlgorithm": {
       "description": "The algorithm used to schedule messages for replay.",
       "type": "object",
+      "default": {
+        "constant": {
+          "messageReplayPeriod": 2000
+        }
+      },
       "properties": {
         "exponentialBackoff": {
           "type": "object",
