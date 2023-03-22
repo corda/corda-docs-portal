@@ -11,6 +11,66 @@
       "default": 1000000,
       "minimum": 1000
     },
+    "replayAlgorithm": {
+      "description": "The algorithm used to schedule messages for replay.",
+      "type": "object",
+      "default": {
+        "constant": {
+          "messageReplayPeriod": 2000
+        }
+      },
+      "properties": {
+        "exponentialBackoff": {
+          "type": "object",
+          "description": "Replay messages with capped exponential backoff.",
+          "properties": {
+            "baseReplayPeriod": {
+              "description": "The message replay period base in milliseconds.",
+              "type": "integer",
+              "default": 2000,
+              "minimum": 500
+            },
+            "replayPeriodCutoff": {
+              "description": "The message replay period cutoff in milliseconds.",
+              "type": "integer",
+              "default": 10000,
+              "minimum": 500
+            }
+          },
+          "additionalProperties": false
+        },
+        "constant": {
+          "type": "object",
+          "description": "Replay messages at a constant rate.",
+          "properties": {
+            "messageReplayPeriod": {
+              "description": "The message replay period in milliseconds.",
+              "type": "integer",
+              "default": 2000,
+              "minimum": 500
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "dependencies": {
+        "exponentialBackOff": {
+          "not": {
+            "required": [
+              "constant"
+            ]
+          }
+        },
+        "constant": {
+          "not": {
+            "required": [
+              "exponentialBackOff"
+            ]
+          }
+        }
+      }
+    },
     "maxReplayingMessages": {
       "description": "The maximum number of replaying messages between two peers.",
       "type": "integer",
