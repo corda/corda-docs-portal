@@ -1,6 +1,6 @@
 ---
 date: '2023-01-23'
-title: "Chat CorDapp design"
+title: "Chat CorDapp Design"
 menu:
   corda-5-beta:
     parent: corda-5-beta-utxo-example
@@ -80,25 +80,25 @@ There are six flows in the Chat Application:
 <tbody>
 <tr>
 <td><code>CreateNewChatFlow </code></td>
-<td><code>RPCStartableFlow </code></td>
+<td><code>ClientStartableFlow </code></td>
 <td><code><li>chatName</li><li>otherMember</li><li>message</li></code></td>
 <td> <li>Forms a draft transaction using the transaction builder, which creates a new ChatState with the details provided.</li> <li> Signs the draft transaction with the VNodes first Ledger Key.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalizes the transaction.</li></td>
 </tr>
 <tr>
 <td><code>UpdateChatFlow </code></td>
-<td><code>RPCStartableFlow </code></td>
+<td><code>ClientStartableFlow </code></td>
 <td><code> <li>id</li><li>message</li> </code></td>
 <td> <li>Locates the last message in the backchain for the given <code>id</code>.</li><li> Creates a draft transaction which consumes the last message in the chain and creates a new ChatState with the latest message.</li> <li>Signs the draft transaction with the vnodes first Ledger Key.</li><li> Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
 </tr>
 <tr>
 <td><code>ListChatsFlow </code></a></td>
-<td><code>RPCStartableFlow </code></td>
+<td><code>ClientStartableFlow </code></td>
 <td><code><li>none</li></code></td>
 <td><li>Calls <code>FinalizeChatSubFlow</code> which finalises the transaction.</li></td>
 </tr>
 <tr>
 <td><code>GetChatsFlow </code></td>
-<td><code>RPCStartableFlow </code></td>
+<td><code>ClientStartableFlow </code></td>
 <td><code><li>id</li><li>numberofRecords</li> </code></td>
 <td><li>Reads the backchain to a depth of <code>numberOfRecords</code> for a given <code>id</code>.</li><li> Returns the list of messages together with who sent them.</li></td>
 </tr>

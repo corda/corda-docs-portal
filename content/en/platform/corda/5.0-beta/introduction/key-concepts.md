@@ -151,7 +151,7 @@ For more information about the flows API, see [Corda API](../developing/api/appl
 ## Workers
 
 An instance of Corda is composed of a number of processes executing in parallel to perform all of the required operations.
-This includes responding to RPC requests, running CorDapps, accessing cryptographic material, etc.
+This includes responding to REST requests, running CorDapps, accessing cryptographic material, etc.
 These processes are hosted by Corda **workers**. The exact division of processes to workers is determined by the requirements of the running instance. Simpler instances may co-locate many processes into a single worker sacrificing finer-grained control and scaling for simplicity of management.
 
 Workers are optimally hosted in a Kubernetes environment.

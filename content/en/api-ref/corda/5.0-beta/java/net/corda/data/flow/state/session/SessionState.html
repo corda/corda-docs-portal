@@ -1,0 +1,1496 @@
+<!DOCTYPE HTML>
+<!-- NewPage -->
+<html lang="en"><head>
+    <title>SessionState </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="dc.created" content="2020-03-25">
+    <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../../../dokka-javadoc-stylesheet.css" title="Style">
+    <link rel="stylesheet" type="text/css" href="../../../../../../jquery/jquery-ui.css" title="Style">
+    <script type="text/javascript" src="../../../../../../jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../../../../../jquery/jquery-migrate-3.4.0.min.js"></script>
+    <script type="text/javascript" src="../../../../../../jquery/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../../../../../search.js"></script>
+    <script async type="text/javascript" src="../../../../../../module-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../../package-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../../type-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../../member-search-index.js"></script>
+    <script async type="text/javascript" src="../../../../../../tag-search-index.js"></script>
+</head><body>
+<script type="text/javascript">
+var pathtoroot = "../../../../../../";
+</script>
+<noscript>
+    <div>JavaScript is disabled on your browser.</div>
+</noscript><header role="banner">
+    <nav role="navigation">
+        <div class="fixedNav">
+            <!-- ========= START OF TOP NAVBAR ======= -->
+            <div class="topNav"><a id="navbar.top">
+                <!--   -->
+            </a>
+                <div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a>
+                </div>
+                <a id="navbar.top.firstrow">
+                    <!--   -->
+                </a>
+                <ul class="navList" title="Navigation">
+    <li><a href="../../../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+            <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" class="ui-autocomplete-input" autocomplete="off" placeholder="Search">
+<input type="reset" id="reset" value="reset">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ========= END OF TOP NAVBAR ========= -->
+        </div>
+        <div class="navPadding">&nbsp;</div>
+        <script type="text/javascript"><!--
+        $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
+        //-->
+        </script>
+    </nav>
+</header>
+
+<main role="main">
+    <div class="header">
+        <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html"></a></div>
+        <h2 title="Class SessionState" class="title">Class SessionState</h2>
+    </div>
+    <div class="contentContainer">
+        <!-- <ul class="inheritance">
+            <li>java.lang.Object</li>
+            <li>
+                <ul class="inheritance">
+                    <li>adaptation.Adaptation</li>
+                </ul>
+            </li>
+        </ul> TODO inheritance tree -->
+        <div class="description">
+            <ul class="blockList">
+                <li class="blockList">
+                    
+                    <dl>
+                        <dt>All Implemented Interfaces:</dt>
+                        <dd>
+                            
+                            <code>java.io.Externalizable</code>
+                            
+                            ,
+                            
+                            
+                            <code>java.io.Serializable</code>
+                            
+                            ,
+                            
+                            
+                            <code>java.lang.Comparable</code>
+                            
+                            ,
+                            
+                            
+                            <code>org.apache.avro.generic.GenericContainer</code>
+                            
+                            ,
+                            
+                            
+                            <code>org.apache.avro.generic.GenericRecord</code>
+                            
+                            ,
+                            
+                            
+                            <code>org.apache.avro.generic.IndexedRecord</code>
+                            
+                            ,
+                            
+                            
+                            <code>org.apache.avro.specific.SpecificRecord</code>
+                            
+                            
+                        </dd>
+                    </dl>
+                    
+                    <hr>
+                    <pre class="wrap-overflow">
+
+public class <span class="typeNameLabel"><a href=SessionState.html>SessionState</a></span>
+extends SpecificRecordBase implements SpecificRecord
+                    </pre>
+                    <div class="block"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="summary">
+            <ul class="blockList">
+                <li class="blockList">
+                <!-- ======== NESTED CLASS SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="nested.class.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Nested Class Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Class</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public class</code></td>
+                                            <th class="colSecond" scope="row"><code><a href="SessionState.Builder.html">SessionState.Builder</a></span></code>
+                                            </th>
+                                            <td class="colLast"><p>RecordBuilder for SessionState instances.</p></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== FIELD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="field.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Field Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Field</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public final static Schema</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#SCHEMA$>SCHEMA$</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#sessionId>sessionId</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#sessionStartTime>sessionStartTime</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#lastReceivedMessageTime>lastReceivedMessageTime</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public  <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#lastSentMessageTime>lastSentMessageTime</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public  <a href=../../../identity/HoldingIdentity.html>HoldingIdentity</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#counterpartyIdentity>counterpartyIdentity</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public  boolean</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#sendAck>sendAck</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public  <a href=SessionProcessState.html>SessionProcessState</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#receivedEventsState>receivedEventsState</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public  <a href=SessionProcessState.html>SessionProcessState</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#sendEventsState>sendEventsState</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="rowColor">
+                                            <td class="colFirst"><code>public  <a href=SessionStateType.html>SessionStateType</a></code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#status>status</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>public  boolean</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#hasScheduledCleanup>hasScheduledCleanup</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ======== CONSTRUCTOR SUMMARY ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Summary</h3>
+                                <div class="memberSummary">
+                                    <table>
+                                        <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+                                        <tbody>
+                                        <tr>
+                                            <th class="colFirst" scope="col">Constructor</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+
+                                        
+                                            <tr class="altColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#SessionState()">SessionState</a></span>()</code></th>
+                                                <td class="colLast">Default constructor.</td>
+                                            </tr>
+                                        
+                                            <tr class="rowColor">
+                                                <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a
+                                                        href="#SessionState(String,Instant,Instant,Instant,HoldingIdentity,Boolean,SessionProcessState,SessionProcessState,SessionStateType,Boolean)">SessionState</a></span>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> sessionId, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> sessionStartTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> lastReceivedMessageTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> lastSentMessageTime, <a href=../../../identity/HoldingIdentity.html>HoldingIdentity</a> counterpartyIdentity, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> sendAck, <a href=SessionProcessState.html>SessionProcessState</a> receivedEventsState, <a href=SessionProcessState.html>SessionProcessState</a> sendEventsState, <a href=SessionStateType.html>SessionStateType</a> status, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> hasScheduledCleanup)</code></th>
+                                                <td class="colLast">All-args constructor.</td>
+                                            </tr>
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- =========== ENUM CONSTANT SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="enum.constant.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Enum Constant Summary</h3>
+                                <table class="memberSummary">
+                                    <caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+                                    <tr>
+                                        <th class="colFirst" scope="col">Enum Constant</th>
+                                        <th class="colLast" scope="col">Description</th>
+                                    </tr>
+                                    
+                                </table>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ========== METHOD SUMMARY =========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.summary">
+                                <!--   -->
+                            </a>
+                                <h3>Method Summary</h3>
+                                <div class="memberSummary">
+                                    <div role="tablist" aria-orientation="horizontal">
+                                        <button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button>
+                                        <!-- TODO: Instance and Concrete Methods #1118 -->
+                                    </div>
+                                    <div id="memberSummary_tabpanel" role="tabpanel">
+                                    <table aria-labelledby="t0">
+                                        <tr>
+                                            <th class="colFirst" scope="col">Modifier and Type</th>
+                                            <th class="colSecond" scope="col">Method</th>
+                                            <th class="colLast" scope="col">Description</th>
+                                        </tr>
+                                        
+                                        <tr id="i0" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getSessionId()>getSessionId</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the value of the 'sessionId' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i1" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#setSessionId(String)>setSessionId</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> value) </code>
+                                            </th>
+                                            <td class="colLast">Sets the value of the 'sessionId' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getSessionStartTime()>getSessionStartTime</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the value of the 'sessionStartTime' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i3" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#setSessionStartTime(Instant)>setSessionStartTime</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> value) </code>
+                                            </th>
+                                            <td class="colLast">Sets the value of the 'sessionStartTime' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getLastReceivedMessageTime()>getLastReceivedMessageTime</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the value of the 'lastReceivedMessageTime' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#setLastReceivedMessageTime(Instant)>setLastReceivedMessageTime</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> value) </code>
+                                            </th>
+                                            <td class="colLast">Sets the value of the 'lastReceivedMessageTime' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getLastSentMessageTime()>getLastSentMessageTime</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the value of the 'lastSentMessageTime' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#setLastSentMessageTime(Instant)>setLastSentMessageTime</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> value) </code>
+                                            </th>
+                                            <td class="colLast">Sets the value of the 'lastSentMessageTime' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
+                                            <td class="colFirst"><code><a href=../../../identity/HoldingIdentity.html>HoldingIdentity</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getCounterpartyIdentity()>getCounterpartyIdentity</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the value of the 'counterpartyIdentity' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i9" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#setCounterpartyIdentity(HoldingIdentity)>setCounterpartyIdentity</a>(<a href=../../../identity/HoldingIdentity.html>HoldingIdentity</a> value) </code>
+                                            </th>
+                                            <td class="colLast">Sets the value of the 'counterpartyIdentity' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i10" class="altColor">
+                                            <td class="colFirst"><code>boolean</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getSendAck()>getSendAck</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the value of the 'sendAck' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i11" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#setSendAck(boolean)>setSendAck</a>(boolean value) </code>
+                                            </th>
+                                            <td class="colLast">Sets the value of the 'sendAck' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i12" class="altColor">
+                                            <td class="colFirst"><code><a href=SessionProcessState.html>SessionProcessState</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getReceivedEventsState()>getReceivedEventsState</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the value of the 'receivedEventsState' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i13" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#setReceivedEventsState(SessionProcessState)>setReceivedEventsState</a>(<a href=SessionProcessState.html>SessionProcessState</a> value) </code>
+                                            </th>
+                                            <td class="colLast">Sets the value of the 'receivedEventsState' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i14" class="altColor">
+                                            <td class="colFirst"><code><a href=SessionProcessState.html>SessionProcessState</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getSendEventsState()>getSendEventsState</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the value of the 'sendEventsState' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i15" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#setSendEventsState(SessionProcessState)>setSendEventsState</a>(<a href=SessionProcessState.html>SessionProcessState</a> value) </code>
+                                            </th>
+                                            <td class="colLast">Sets the value of the 'sendEventsState' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i16" class="altColor">
+                                            <td class="colFirst"><code><a href=SessionStateType.html>SessionStateType</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getStatus()>getStatus</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the value of the 'status' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i17" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#setStatus(SessionStateType)>setStatus</a>(<a href=SessionStateType.html>SessionStateType</a> value) </code>
+                                            </th>
+                                            <td class="colLast">Sets the value of the 'status' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i18" class="altColor">
+                                            <td class="colFirst"><code>boolean</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getHasScheduledCleanup()>getHasScheduledCleanup</a>() </code>
+                                            </th>
+                                            <td class="colLast">Gets the value of the 'hasScheduledCleanup' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i19" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#setHasScheduledCleanup(boolean)>setHasScheduledCleanup</a>(boolean value) </code>
+                                            </th>
+                                            <td class="colLast">Sets the value of the 'hasScheduledCleanup' field.</td>
+                                        </tr>
+                                        
+                                        <tr id="i20" class="altColor">
+                                            <td class="colFirst"><code>static Schema</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getClassSchema()>getClassSchema</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i21" class="rowColor">
+                                            <td class="colFirst"><code>static BinaryMessageEncoder&lt;<a href=SessionState.html>SessionState</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getEncoder()>getEncoder</a>() </code>
+                                            </th>
+                                            <td class="colLast">Return the BinaryMessageEncoder instance used by this class.</td>
+                                        </tr>
+                                        
+                                        <tr id="i22" class="altColor">
+                                            <td class="colFirst"><code>static BinaryMessageDecoder&lt;<a href=SessionState.html>SessionState</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getDecoder()>getDecoder</a>() </code>
+                                            </th>
+                                            <td class="colLast">Return the BinaryMessageDecoder instance used by this class.</td>
+                                        </tr>
+                                        
+                                        <tr id="i23" class="rowColor">
+                                            <td class="colFirst"><code>static BinaryMessageDecoder&lt;<a href=SessionState.html>SessionState</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#createDecoder(SchemaStore)>createDecoder</a>(SchemaStore resolver) </code>
+                                            </th>
+                                            <td class="colLast">Create a new BinaryMessageDecoder instance for this class that uses the specified SchemaStore.</td>
+                                        </tr>
+                                        
+                                        <tr id="i24" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html>ByteBuffer</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#toByteBuffer()>toByteBuffer</a>() </code>
+                                            </th>
+                                            <td class="colLast">Serializes this SessionState to a ByteBuffer.</td>
+                                        </tr>
+                                        
+                                        <tr id="i25" class="rowColor">
+                                            <td class="colFirst"><code>static <a href=SessionState.html>SessionState</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#fromByteBuffer(ByteBuffer)>fromByteBuffer</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html>ByteBuffer</a> b) </code>
+                                            </th>
+                                            <td class="colLast">Deserializes a SessionState from a ByteBuffer.</td>
+                                        </tr>
+                                        
+                                        <tr id="i26" class="altColor">
+                                            <td class="colFirst"><code>SpecificData</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getSpecificData()>getSpecificData</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i27" class="rowColor">
+                                            <td class="colFirst"><code>Schema</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getSchema()>getSchema</a>() </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i28" class="altColor">
+                                            <td class="colFirst"><code><a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#get(int)>get</a>(int field$) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i29" class="rowColor">
+                                            <td class="colFirst"><code>Conversion&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#getConversion(int)>getConversion</a>(int field) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i30" class="altColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#put(int,Object)>put</a>(int field$, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> value$) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i31" class="rowColor">
+                                            <td class="colFirst"><code>static <a href=SessionState.Builder.html>SessionState.Builder</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#newBuilder()>newBuilder</a>() </code>
+                                            </th>
+                                            <td class="colLast">Creates a new SessionState RecordBuilder.</td>
+                                        </tr>
+                                        
+                                        <tr id="i32" class="altColor">
+                                            <td class="colFirst"><code>static <a href=SessionState.Builder.html>SessionState.Builder</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#newBuilder(SessionState.Builder)>newBuilder</a>(<a href=SessionState.Builder.html>SessionState.Builder</a> other) </code>
+                                            </th>
+                                            <td class="colLast">Creates a new SessionState RecordBuilder by copying an existing Builder.</td>
+                                        </tr>
+                                        
+                                        <tr id="i33" class="rowColor">
+                                            <td class="colFirst"><code>static <a href=SessionState.Builder.html>SessionState.Builder</a></code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#newBuilder(SessionState)>newBuilder</a>(<a href=SessionState.html>SessionState</a> other) </code>
+                                            </th>
+                                            <td class="colLast">Creates a new SessionState RecordBuilder by copying an existing SessionState instance.</td>
+                                        </tr>
+                                        
+                                        <tr id="i34" class="altColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#writeExternal(ObjectOutput)>writeExternal</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/ObjectOutput.html>ObjectOutput</a> out) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr id="i35" class="rowColor">
+                                            <td class="colFirst"><code>void</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=SessionState.html#readExternal(ObjectInput)>readExternal</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/ObjectInput.html>ObjectInput</a> in) </code>
+                                            </th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="blockList">
+                                
+                                    <li class="blockList"><a id="methods.inherited.from.class.org.apache.avro.specific.SpecificRecordBase">
+                                            <!--   -->
+                                        </a>
+                                            <h3>Methods inherited from class&nbsp;org.apache.avro.specific.SpecificRecordBase</h3>
+                                            <code>compareTo, customDecode, customEncode, equals, hashCode, toString</code></li>
+                                 
+                                    <li class="blockList"><a id="methods.inherited.from.class.org.apache.avro.generic.GenericRecord">
+                                            <!--   -->
+                                        </a>
+                                            <h3>Methods inherited from class&nbsp;org.apache.avro.generic.GenericRecord</h3>
+                                            <code>hasField</code></li>
+                                 
+                                    <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+                                        <!--   -->
+                                    </a>
+                                        <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+                                        <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString,
+                                            wait, wait, wait</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="details">
+            <ul class="blockList">
+                <li class="blockList">
+                    <!-- ========= CONSTRUCTOR DETAIL ======== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="constructor.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Constructor Detail</h3>
+                                
+                                <a name="SessionState()"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>SessionState</h4>
+                                        <pre>SessionState()</pre>
+                                        <div class="block">Default constructor.</div>
+                                        
+                                    </li>
+                                </ul>
+                                
+                                <a name="SessionState(String,Instant,Instant,Instant,HoldingIdentity,Boolean,SessionProcessState,SessionProcessState,SessionStateType,Boolean)"></a>
+                                <ul class="blockList">
+                                    <li class="blockList">
+                                        <h4>SessionState</h4>
+                                        <pre>SessionState(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> sessionId, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> sessionStartTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> lastReceivedMessageTime, <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> lastSentMessageTime, <a href=../../../identity/HoldingIdentity.html>HoldingIdentity</a> counterpartyIdentity, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> sendAck, <a href=SessionProcessState.html>SessionProcessState</a> receivedEventsState, <a href=SessionProcessState.html>SessionProcessState</a> sendEventsState, <a href=SessionStateType.html>SessionStateType</a> status, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html>Boolean</a> hasScheduledCleanup)</pre>
+                                        <div class="block">All-args constructor.</div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>sessionId</code> - UUID for the session.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>sessionStartTime</code> - Time ([Instant]) in milliseconds when the session was created</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>lastReceivedMessageTime</code> - Time ([Instant]) in milliseconds when the last session event was received from a counterparty</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>lastSentMessageTime</code> - Time ([Instant]) in milliseconds of the last message sent to a counterparty</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>counterpartyIdentity</code> - Identity of the counterparty in the session.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>sendAck</code> - True if there are messages to ack to a counterparty.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>receivedEventsState</code> - Record the highest contiguous sequence number received from the counterparty.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>sendEventsState</code> - Record the sequence number of the last event sent to the counterparty.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>status</code> - The status of the session.</dd>
+                                            
+                                            
+                                            
+                                            <dd><code>hasScheduledCleanup</code> - Whether the session state has already scheduled a cleanup event with the flow mapper.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- ============ METHOD DETAIL ========== -->
+                    
+                    <section role="region">
+                        <ul class="blockList">
+                            <li class="blockList"><a id="method.detail">
+                                <!--   -->
+                            </a>
+                                <h3>Method Detail</h3>
+                                
+                                <a id="getSessionId()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getSessionId</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> <a href=SessionState.html#getSessionId()>getSessionId</a>()</pre>
+                                        <div class="block"><p>Gets the value of the 'sessionId' field.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setSessionId(String)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setSessionId</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#setSessionId(String)>setSessionId</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> value)</pre>
+                                        <div class="block"><p>Sets the value of the 'sessionId' field. UUID for the session. The initiated party sessionID will have a suffix of `-INITIATED`</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - the value to set.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getSessionStartTime()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getSessionStartTime</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> <a href=SessionState.html#getSessionStartTime()>getSessionStartTime</a>()</pre>
+                                        <div class="block"><p>Gets the value of the 'sessionStartTime' field.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setSessionStartTime(Instant)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setSessionStartTime</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#setSessionStartTime(Instant)>setSessionStartTime</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> value)</pre>
+                                        <div class="block"><p>Sets the value of the 'sessionStartTime' field. Time ([Instant]) in milliseconds when the session was created</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - the value to set.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getLastReceivedMessageTime()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getLastReceivedMessageTime</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> <a href=SessionState.html#getLastReceivedMessageTime()>getLastReceivedMessageTime</a>()</pre>
+                                        <div class="block"><p>Gets the value of the 'lastReceivedMessageTime' field.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setLastReceivedMessageTime(Instant)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setLastReceivedMessageTime</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#setLastReceivedMessageTime(Instant)>setLastReceivedMessageTime</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> value)</pre>
+                                        <div class="block"><p>Sets the value of the 'lastReceivedMessageTime' field. Time ([Instant]) in milliseconds when the last session event was received from a counterparty</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - the value to set.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getLastSentMessageTime()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getLastSentMessageTime</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> <a href=SessionState.html#getLastSentMessageTime()>getLastSentMessageTime</a>()</pre>
+                                        <div class="block"><p>Gets the value of the 'lastSentMessageTime' field.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setLastSentMessageTime(Instant)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setLastSentMessageTime</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#setLastSentMessageTime(Instant)>setLastSentMessageTime</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html>Instant</a> value)</pre>
+                                        <div class="block"><p>Sets the value of the 'lastSentMessageTime' field. Time ([Instant]) in milliseconds of the last message sent to a counterparty</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - the value to set.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getCounterpartyIdentity()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getCounterpartyIdentity</h4>
+                                        <pre class="methodSignature"> <a href=../../../identity/HoldingIdentity.html>HoldingIdentity</a> <a href=SessionState.html#getCounterpartyIdentity()>getCounterpartyIdentity</a>()</pre>
+                                        <div class="block"><p>Gets the value of the 'counterpartyIdentity' field.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setCounterpartyIdentity(HoldingIdentity)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setCounterpartyIdentity</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#setCounterpartyIdentity(HoldingIdentity)>setCounterpartyIdentity</a>(<a href=../../../identity/HoldingIdentity.html>HoldingIdentity</a> value)</pre>
+                                        <div class="block"><p>Sets the value of the 'counterpartyIdentity' field. Identity of the counterparty in the session.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - the value to set.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getSendAck()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getSendAck</h4>
+                                        <pre class="methodSignature"> boolean <a href=SessionState.html#getSendAck()>getSendAck</a>()</pre>
+                                        <div class="block"><p>Gets the value of the 'sendAck' field.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setSendAck(boolean)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setSendAck</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#setSendAck(boolean)>setSendAck</a>(boolean value)</pre>
+                                        <div class="block"><p>Sets the value of the 'sendAck' field. True if there are messages to ack to a counterparty. False if there are no messages received that have not been acked.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - the value to set.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getReceivedEventsState()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getReceivedEventsState</h4>
+                                        <pre class="methodSignature"> <a href=SessionProcessState.html>SessionProcessState</a> <a href=SessionState.html#getReceivedEventsState()>getReceivedEventsState</a>()</pre>
+                                        <div class="block"><p>Gets the value of the 'receivedEventsState' field.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setReceivedEventsState(SessionProcessState)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setReceivedEventsState</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#setReceivedEventsState(SessionProcessState)>setReceivedEventsState</a>(<a href=SessionProcessState.html>SessionProcessState</a> value)</pre>
+                                        <div class="block"><p>Sets the value of the 'receivedEventsState' field. Record the highest contiguous sequence number received from the counterparty. Record all events received but not yet processed by this party's client code.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - the value to set.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getSendEventsState()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getSendEventsState</h4>
+                                        <pre class="methodSignature"> <a href=SessionProcessState.html>SessionProcessState</a> <a href=SessionState.html#getSendEventsState()>getSendEventsState</a>()</pre>
+                                        <div class="block"><p>Gets the value of the 'sendEventsState' field.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setSendEventsState(SessionProcessState)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setSendEventsState</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#setSendEventsState(SessionProcessState)>setSendEventsState</a>(<a href=SessionProcessState.html>SessionProcessState</a> value)</pre>
+                                        <div class="block"><p>Sets the value of the 'sendEventsState' field. Record the sequence number of the last event sent to the counterparty. Record all events sent but not yet acknowledged by the counterparty as well as any messages to send to the counterparty.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - the value to set.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getStatus()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getStatus</h4>
+                                        <pre class="methodSignature"> <a href=SessionStateType.html>SessionStateType</a> <a href=SessionState.html#getStatus()>getStatus</a>()</pre>
+                                        <div class="block"><p>Gets the value of the 'status' field.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setStatus(SessionStateType)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setStatus</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#setStatus(SessionStateType)>setStatus</a>(<a href=SessionStateType.html>SessionStateType</a> value)</pre>
+                                        <div class="block"><p>Sets the value of the 'status' field. The status of the session.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - the value to set.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getHasScheduledCleanup()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getHasScheduledCleanup</h4>
+                                        <pre class="methodSignature"> boolean <a href=SessionState.html#getHasScheduledCleanup()>getHasScheduledCleanup</a>()</pre>
+                                        <div class="block"><p>Gets the value of the 'hasScheduledCleanup' field.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="setHasScheduledCleanup(boolean)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>setHasScheduledCleanup</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#setHasScheduledCleanup(boolean)>setHasScheduledCleanup</a>(boolean value)</pre>
+                                        <div class="block"><p>Sets the value of the 'hasScheduledCleanup' field. Whether the session state has already scheduled a cleanup event with the flow mapper.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>value</code> - the value to set.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getClassSchema()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getClassSchema</h4>
+                                        <pre class="methodSignature"> static Schema <a href=SessionState.html#getClassSchema()>getClassSchema</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getEncoder()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getEncoder</h4>
+                                        <pre class="methodSignature"> static BinaryMessageEncoder&lt;<a href=SessionState.html>SessionState</a>&gt; <a href=SessionState.html#getEncoder()>getEncoder</a>()</pre>
+                                        <div class="block"><p>Return the BinaryMessageEncoder instance used by this class.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getDecoder()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getDecoder</h4>
+                                        <pre class="methodSignature"> static BinaryMessageDecoder&lt;<a href=SessionState.html>SessionState</a>&gt; <a href=SessionState.html#getDecoder()>getDecoder</a>()</pre>
+                                        <div class="block"><p>Return the BinaryMessageDecoder instance used by this class.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="createDecoder(SchemaStore)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>createDecoder</h4>
+                                        <pre class="methodSignature"> static BinaryMessageDecoder&lt;<a href=SessionState.html>SessionState</a>&gt; <a href=SessionState.html#createDecoder(SchemaStore)>createDecoder</a>(SchemaStore resolver)</pre>
+                                        <div class="block"><p>Create a new BinaryMessageDecoder instance for this class that uses the specified SchemaStore.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>resolver</code> - a SchemaStore used to find schemas by fingerprint</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="toByteBuffer()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>toByteBuffer</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html>ByteBuffer</a> <a href=SessionState.html#toByteBuffer()>toByteBuffer</a>()</pre>
+                                        <div class="block"><p>Serializes this SessionState to a ByteBuffer.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="fromByteBuffer(ByteBuffer)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>fromByteBuffer</h4>
+                                        <pre class="methodSignature"> static <a href=SessionState.html>SessionState</a> <a href=SessionState.html#fromByteBuffer(ByteBuffer)>fromByteBuffer</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html>ByteBuffer</a> b)</pre>
+                                        <div class="block"><p>Deserializes a SessionState from a ByteBuffer.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>b</code> - a byte buffer holding serialized data for an instance of this class</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getSpecificData()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getSpecificData</h4>
+                                        <pre class="methodSignature"> SpecificData <a href=SessionState.html#getSpecificData()>getSpecificData</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getSchema()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getSchema</h4>
+                                        <pre class="methodSignature"> Schema <a href=SessionState.html#getSchema()>getSchema</a>()</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="get(int)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>get</h4>
+                                        <pre class="methodSignature"> <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> <a href=SessionState.html#get(int)>get</a>(int field$)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="getConversion(int)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getConversion</h4>
+                                        <pre class="methodSignature"> Conversion&lt;out <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a>&gt; <a href=SessionState.html#getConversion(int)>getConversion</a>(int field)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="put(int,Object)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>put</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#put(int,Object)>put</a>(int field$, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>Object</a> value$)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="newBuilder()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>newBuilder</h4>
+                                        <pre class="methodSignature"> static <a href=SessionState.Builder.html>SessionState.Builder</a> <a href=SessionState.html#newBuilder()>newBuilder</a>()</pre>
+                                        <div class="block"><p>Creates a new SessionState RecordBuilder.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="newBuilder(SessionState.Builder)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>newBuilder</h4>
+                                        <pre class="methodSignature"> static <a href=SessionState.Builder.html>SessionState.Builder</a> <a href=SessionState.html#newBuilder(SessionState.Builder)>newBuilder</a>(<a href=SessionState.Builder.html>SessionState.Builder</a> other)</pre>
+                                        <div class="block"><p>Creates a new SessionState RecordBuilder by copying an existing Builder.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>other</code> - The existing builder to copy.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="newBuilder(SessionState)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>newBuilder</h4>
+                                        <pre class="methodSignature"> static <a href=SessionState.Builder.html>SessionState.Builder</a> <a href=SessionState.html#newBuilder(SessionState)>newBuilder</a>(<a href=SessionState.html>SessionState</a> other)</pre>
+                                        <div class="block"><p>Creates a new SessionState RecordBuilder by copying an existing SessionState instance.</p></div>
+                                        
+                                        <dl>
+                                            <dt><span class="paramLabel">Parameters:</span></dt>
+                                            
+                                            
+                                            <dd><code>other</code> - The existing instance to copy.</dd>
+                                            
+                                            
+                                        </dl>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="writeExternal(ObjectOutput)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>writeExternal</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#writeExternal(ObjectOutput)>writeExternal</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/ObjectOutput.html>ObjectOutput</a> out)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="readExternal(ObjectInput)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>readExternal</h4>
+                                        <pre class="methodSignature"> void <a href=SessionState.html#readExternal(ObjectInput)>readExternal</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/ObjectInput.html>ObjectInput</a> in)</pre>
+                                        <div class="block"></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </section>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<footer role="contentinfo">
+    <nav role="navigation">
+        <!-- ======= START OF BOTTOM NAVBAR ====== -->
+        <div class="bottomNav"><a id="navbar.bottom">
+            <!--   -->
+        </a>
+            <div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a>
+            </div>
+            <a id="navbar.bottom.firstrow">
+                <!--   -->
+            </a>
+            <ul class="navList" title="Navigation">
+    <li><a href="../../../../../../index.html">Overview</a></li>
+    
+    <li><a href="package-summary.html">Package</a></li>
+    
+    <li class="navBarCell1Rev">Class</li>
+    
+    <li><a href="package-tree.html">Tree</a></li>
+    
+    <li><a href="../../../../../../deprecated.html">Deprecated</a></li>
+    <li><a href="../../../../../../index-files/index-1.html">Index</a></li>
+    <li>Help</li>
+</ul></div>
+        <a id="skip.navbar.bottom">
+            <!--   -->
+        </a>
+        <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top" style="display: block;">
+    <li><a href="../../../../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
+<a id="skip.navbar.top">
+<!--   -->
+</a></div><!-- ======== END OF BOTTOM NAVBAR ======= -->
+    </nav>
+</footer><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0"
+    style="display: none;"></ul>
+<span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+</body>
+</html>
