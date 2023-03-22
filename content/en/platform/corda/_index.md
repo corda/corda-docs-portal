@@ -28,22 +28,18 @@ The Corda platform documentation covers the following current versions of the Co
 
 {{< table >}}
 
-| Corda version                 | Link to documentation                                 | 
+| Product                 | Link to specific versions                                 | 
 |-------------------------------|-------------------------------------------------------|
-| **Corda 5**                   |                                                       |
-| Corda 5.0 Beta              |[Link](../platform/corda/5.0-beta.html)                |
-| **Corda 4 Community Edition (Formerly Open Source)**|                                 |
-| Corda 4.10 Community Edition  |[Link](../platform/corda/4.10/community.html)          |
-| **Corda 4 Enterprise**        |                                                       |
-| Corda 4.10 Enterprise         |[Link](../platform/corda/4.10/enterprise.html)         |
-| Corda 4.9 Enterprise          |[Link](../platform/corda/4.9/enterprise.html)          |
-| Corda 4.8 Enterprise          |[Link](../platform/corda/4.8/enterprise.html)          |
-| Corda 4.7 Enterprise          |[Link](../platform/corda/4.7/enterprise.html)          |
-| **Corda Enterprise Network Manager (CENM)** |                                         |
-| CENM 1.5                      |[Link](../platform/corda/1.5/cenm.html)                |
-| CENM 1.4                      |[Link](../platform/corda/1.4/cenm.html)                |
-| CENM 1.3                      |[Link](../platform/corda/1.3/cenm.html)                |
-| CENM 1.2                      |[Link](../platform/corda/1.2/cenm.html)                |
+| **Corda 5**                   |[Corda 5.0 Beta](../platform/corda/5.0-beta.html)                |
+| **Corda 4 Enterprise**        |[Corda Enterprise 4.10](../platform/corda/4.10/enterprise.html)|
+|                       |[Corda Enterprise 4.9](../platform/corda/4.9/enterprise.html)  |
+|                       |[Corda Enterprise 4.8](../platform/corda/4.8/enterprise.html)  |
+|                       |[Corda Enterprise 4.7](../platform/corda/4.7/enterprise.html)  |
+| **Corda 4 Community Edition & Open Source**|[Corda Community Edition and Open Source 4.10](../platform/corda/4.10/community.html)|
+| **Corda Enterprise Network Manager (CENM)** |[CENM 1.5](../platform/corda/1.5/cenm.html)|
+|                       |[CENM 1.4](../platform/corda/1.4/cenm.html)                |
+|                       |[CENM 1.3](../platform/corda/1.3/cenm.html)                |
+|                       |[CENM 1.2](../platform/corda/1.2/cenm.html)                |
 
 {{< /table >}}
 
@@ -81,37 +77,37 @@ Documentation for non-supported releases of Corda Open Source, Corda Enterprise,
 
 {{< table >}}
 
-| Corda version          | Link to archived docs                                              | 
+| Product          | Link to archived docs                                              | 
 | :--------------------- | :-------------- | 
-| Corda 5 Dev Preview 1  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-5/5.0-dev-preview-1) | 
-| Corda Enterprise 3.0   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/3.0) | 
-| Corda Enterprise 3.1   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/3.1) | 
-| Corda Enterprise 3.2   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/3.2) | 
-| Corda Enterprise 3.3   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/3.3) | 
-| Corda Enterprise 4.0   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.0) | 
-| Corda Enterprise 4.1   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.1) | 
-| Corda Enterprise 4.2   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.2) | 
-| Corda Enterprise 4.3   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.3) | 
-| Corda Enterprise 4.4   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.4) |
-| Corda Enterprise 4.5   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.5) |
-| Corda Enterprise 4.6   | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.6) | 
-| Corda Open Source 1.0  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/1.0) | 
-| Corda Open Source 2.0  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/2.0) | 
-| Corda Open Source 3.0  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/3.0) | 
-| Corda Open Source 3.1  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/3.1) | 
-| Corda Open Source 3.2  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/3.2) | 
-| Corda Open Source 3.3  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/3.3) | 
-| Corda Open Source 3.4  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/3.4) | 
-| Corda Open Source 4.0  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.0) | 
-| Corda Open Source 4.1  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.1) |  
-| Corda Open Source 4.3  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.3) | 
-| Corda Open Source 4.4  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.4) | 
-| Corda Open Source 4.5  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.5) | 
-| Corda Open Source 4.6  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.6) | 
-| Corda Open Source 4.7  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7) | 
-| Corda Open Source 4.8  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.8) | 
-| Corda Open Source 4.9  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.9) | 
-| CENM 1.0  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/CENM/1.0) | 
-| CENM 1.1  | [Archive Link](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/CENM/1.1) | 
+| **Corda 5**   | [Corda 5 Dev Preview 1](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-5/5.0-dev-preview-1) | 
+| **Corda Enterprise**   | [Corda Enterprise 3.0](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/3.0) | 
+|    | [Corda Enterprise 3.1](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/3.1) | 
+|    | [Corda Enterprise 3.2](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/3.2) | 
+|    | [Corda Enterprise 3.3](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/3.3) | 
+|    | [Corda Enterprise 4.0](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.0) | 
+|    | [Corda Enterprise 4.1](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.1) | 
+|    | [Corda Enterprise 4.2](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.2) | 
+|    | [Corda Enterprise 4.3](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.3) | 
+|    | [Corda Enterprise 4.4](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.4) |
+|    | [Corda Enterprise 4.5](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.5) |
+|    | [Corda Enterprise 4.6](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-enterprise/4.6) | 
+| **CENM**  | [CENM 1.0](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/CENM/1.0) | 
+|   | [CENM 1.1](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/CENM/1.1) | 
+| **Corda Open Source**  | [Corda Open Source 1.0](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/1.0) | 
+|   | [Corda Open Source 2.0](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/2.0) | 
+|   | [Corda Open Source 3.0](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/3.0) | 
+|   | [Corda Open Source 3.1](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/3.1) | 
+|   | [Corda Open Source 3.2](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/3.2) | 
+|   | [Corda Open Source 3.3](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/3.3) | 
+|   | [Corda Open Source 3.4](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/3.4) | 
+|   | [Corda Open Source 4.0](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.0) | 
+|   | [Corda Open Source 4.1](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.1) |  
+|   | [Corda Open Source 4.3](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.3) | 
+|   | [Corda Open Source 4.4](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.4) | 
+|   | [Corda Open Source 4.5](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.5) | 
+|   | [Corda Open Source 4.6](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.6) | 
+|   | [Corda Open Source 4.7](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.7) | 
+|   | [Corda Open Source 4.8](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.8) | 
+|   | [Corda Open Source 4.9](https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs/corda-os/4.9) | 
 
 {{< /table >}}
