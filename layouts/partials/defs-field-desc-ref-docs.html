@@ -1,0 +1,17 @@
+{{ $def := .def }}
+{{ $url := .url }}
+{{ $json := getJSON $url }}
+{{ $defmap := index $json "$defs"}}
+    {{ range $key, $value := $defmap }}
+        {{ if eq $key $def}}
+                {{ range $key2, $value2 := $value.anyOf }}
+                    {{ with $value2.minimum }}
+                        <br>Minimum value: {{ string ($value2.minimum) }}
+                    {{ end }}
+                    {{ with $value2.maximum }}
+                        <br>Maximum value: {{ string ($value2.maximum) }}
+                    {{ end }}
+                {{ end }}
+        {{ end }}
+    {{ end }}
+ 
