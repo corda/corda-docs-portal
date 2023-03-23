@@ -40,7 +40,12 @@
 {{ end }}
 {{ $ref := index $value "$ref"}}
 {{ with $ref }}
-    {{ $urlpath := strings.TrimSuffix (path.Base $fullurl) $fullurl }}
-    {{ $refurl := print $urlpath $ref }}
-    {{ partial "referenced-field-desc-ref-docs" (dict "url" $refurl) }}
+    {{ if (strings.Contains $ref ".json") }} 
+        {{ $urlpath := strings.TrimSuffix (path.Base $fullurl) $fullurl }}
+        {{ $refurl := print $urlpath $ref }}
+        {{ partial "referenced-field-desc-ref-docs" (dict "url" $refurl) }}
+    {{ else if (strings.Contains $ref "#/$defs/") }} 
+        {{ $def := (strings.TrimLeft "#/$defs/" $ref) }}
+        {{ partial "defs-field-desc-ref-docs" (dict "url" $fullurl "def" $def) }}       
+    {{ end }}
 {{ end }}
