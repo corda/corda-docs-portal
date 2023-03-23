@@ -8,10 +8,10 @@
                 <ul>
                 {{ range $childk, $childv := $value.properties }}
                     {{ with $childv }}
-                        {{ partial "field-desc-ref-docs" (dict "value" $childv "key" $childk) }}
+                        {{ partial "field-desc-ref-docs" (dict "value" $childv "key" $childk "url" $.Params.url) }}
                         {{ range $childk2, $childv2 := $childv.properties }}
                            {{ with $childv2 }}
-                              <ul>{{ partial "field-desc-ref-docs" (dict "value" $childv2 "key" $childk2) }}</ul>
+                              <ul>{{ partial "field-desc-ref-docs" (dict "value" $childv2 "key" $childk2 "url" $.Params.url) }}</ul>
                             {{ end }}
                         {{ end }}   
                     {{ end }}
