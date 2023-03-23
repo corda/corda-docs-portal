@@ -28,7 +28,6 @@
             {{ end }}
         {{ else if reflect.IsMap $value.default }}
         {{ range $defaultk, $defaultv := $value.default }}
-            <li>defaultk - {{ $defaultk }}</li>
             <li>defaultv - {{ $defaultv }}</li>
         {{ end }}
     {{ else }}
