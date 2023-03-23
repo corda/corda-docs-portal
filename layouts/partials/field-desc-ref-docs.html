@@ -10,7 +10,7 @@
     This must be set to one of the following values:
     <ul>
         {{ range $oneOfk, $oneOfv := $value.oneOf }}
-            <li>{{ $oneOfv.const }} - {{ $oneOfv.title }}</li>
+                <li>{{ $oneOfv.const }} - {{ $oneOfv.title }}</li>
         {{ end }}
     </ul>
 {{ end }}
@@ -31,15 +31,11 @@
 {{ with $value.default }}
     {{ if eq $value.type "array" }}
         <br>Default value: 
-            {{ range $arrayvalue := $value.default }}
-                {{ $arrayvalue }}
-            {{ end }}
-        {{ else if reflect.IsMap $value.default }}
-        {{ range $defaultk, $defaultv := $value.default }}
-            <li>defaultv - {{ $defaultv }}</li>
+        {{ range $arrayvalue := $value.default }}
+            {{ $arrayvalue }}
         {{ end }}
-    {{ else }}
-       <br>Default value: {{ string ($value.default) }} 
+    {{ else if not (reflect.IsMap $value.default) }}
+        <br>Default value: {{ string ($value.default) }} 
     {{ end }}
 {{ end }}
 {{ $ref := index $value "$ref"}}
