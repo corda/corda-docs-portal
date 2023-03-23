@@ -6,6 +6,14 @@
 {{ with $value.description}} 
     - {{ $value.description}} 
 {{ end }}    
+{{ with $value.oneOf }}
+    This must be set to one of the following values:
+    <ul>
+        {{ range $oneOfk, $oneOfv := $value.oneOf }}
+            <li>{{ $oneOfv.const }} - {{ $oneOfv.title }}</li>
+        {{ end }}
+    </ul>
+{{ end }}
 {{ with $value.enum }}
     This must be set to one of the following values:
     <ul>
