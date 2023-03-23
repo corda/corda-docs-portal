@@ -10,3 +10,4 @@ section_menu: corda-5-beta
 ---
 * [corda-api](legal-info-api.html)
 * [corda-runtime-os](legal-info-runtime-os.html)
+* [corda-cli-plugin-host](legal-info-corda-cli.html)
