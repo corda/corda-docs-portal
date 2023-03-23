@@ -9,6 +9,11 @@
                 {{ range $childk, $childv := $value.properties }}
                     {{ with $childv }}
                         {{ partial "field-desc-ref-docs" (dict "value" $childv "key" $childk) }}
+                        {{ range $childk2, $childv2 := $childv.properties }}
+                           {{ with $childv2 }}
+                              <ul>{{ partial "field-desc-ref-docs" (dict "value" $childv2 "key" $childk2) }}</ul>
+                            {{ end }}
+                        {{ end }}   
                     {{ end }}
                 {{ end }}
                 {{ with $value.allOf }}
