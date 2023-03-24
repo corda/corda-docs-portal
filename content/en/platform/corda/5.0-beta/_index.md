@@ -13,7 +13,7 @@ menu:
     name: Corda 5.0 Beta 2
 ---
 
-## Corda 5.0 Beta 2
+## Corda 5.0: Next-Gen Corda
 
 Corda is a platform that enables you to build permissioned networks, create applications that solve a business problem that requires parties to come to some agreement, and interact in a completely secure ecosystem. Corda 5 is the next-generation version, designed with an understanding that it is the job of a platform to serve those running software on it.
 
