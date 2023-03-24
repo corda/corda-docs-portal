@@ -6,6 +6,14 @@
 {{ with $value.description}} 
     - {{ $value.description}} 
 {{ end }}    
+{{ with $value.oneOf }}
+    This must be set to one of the following values:
+    <ul>
+        {{ range $oneOfk, $oneOfv := $value.oneOf }}
+                <li>{{ $oneOfv.const }} - {{ $oneOfv.title }}</li>
+        {{ end }}
+    </ul>
+{{ end }}
 {{ with $value.enum }}
     This must be set to one of the following values:
     <ul>
@@ -21,11 +29,23 @@
     <br>Maximum value: {{ string ($value.maximum) }}
 {{ end }}
 {{ with $value.default }}
-    <br>Default value: {{ string ($value.default) }}
+    {{ if eq $value.type "array" }}
+        <br>Default value: 
+        {{ range $arrayvalue := $value.default }}
+            {{ $arrayvalue }}
+        {{ end }}
+    {{ else if not (reflect.IsMap $value.default) }}
+        <br>Default value: {{ string ($value.default) }} 
+    {{ end }}
 {{ end }}
 {{ $ref := index $value "$ref"}}
 {{ with $ref }}
-    {{ $urlpath := strings.TrimSuffix (path.Base $fullurl) $fullurl }}
-    {{ $refurl := print $urlpath $ref }}
-    {{ partial "referenced-field-desc-ref-docs" (dict "url" $refurl) }}
+    {{ if (strings.Contains $ref ".json") }} 
+        {{ $urlpath := strings.TrimSuffix (path.Base $fullurl) $fullurl }}
+        {{ $refurl := print $urlpath $ref }}
+        {{ partial "referenced-field-desc-ref-docs" (dict "url" $refurl) }}
+    {{ else if (strings.Contains $ref "#/$defs/") }} 
+        {{ $def := (strings.TrimLeft "#/$defs/" $ref) }}
+        {{ partial "defs-field-desc-ref-docs" (dict "url" $fullurl "def" $def) }}       
+    {{ end }}
 {{ end }}
