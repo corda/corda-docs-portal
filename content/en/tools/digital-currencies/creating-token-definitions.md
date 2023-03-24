@@ -6,8 +6,9 @@ menu:
   tools:
     name: "Creating Token Definitions"
     weight: 300
-    parent: digital-currencies-token-types-overview
-    identifier: digital-currencies-defining-token-types
+    parent: digital-currencies-tokens-overview
+    identifier: digital-currencies-creating-token-definitions
+    description: "Digital Currencies documentation describing how to create token definitions via the GUI"
 title: "Creating Token Definitions"
 ---
 

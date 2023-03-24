@@ -7,6 +7,8 @@ menu:
     weight: 600
     identifier: digital-currencies
 title: Welcome to Digital Currencies
+description: "Documentation describing the Digital Currencies feature from R3"
+
 ---
 
 # Welcome to Digital Currencies

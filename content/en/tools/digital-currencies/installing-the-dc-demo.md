@@ -6,11 +6,12 @@ menu:
     name: Installing the Digital Currencies Demo
     weight: 100
     parent: digital-currencies
-    identifier: digital-currencies-installing
+    identifier: digital-currencies-installing-demo
+    description: "Digital Currencies documentation describing how to install the Digital Currencies demo"
 title: Installing the Digital Currencies Demo
 ---
 
-# Setting up Digital Currencies
+This topic describes how to install the Digital Currencies demo, enabling you to trigger flow actions via a web-enabled GUI.
 
 ## Summary
 
@@ -57,7 +58,7 @@ You need a local copy of both the following repositories:
   {{<
   figure
 	 src="images/cloned-repos.png"
-   width=80%
+   width=40%
 	 figcaption="Cloned Repositories"
 	 alt="Cloned Repositories"
    >}}
@@ -87,7 +88,7 @@ The project includes Gradle tasks to manage a local deployment of Corda and DC:
    {{<
      figure
 	 src="images/gradle-tasks.png"
-   width=80%
+   width=40%
 	 figcaption="Digital Currencies Project Gradle Tasks"
 	 alt="Digital Currencies Project Gradle Tasks"
    >}}
@@ -153,7 +154,7 @@ To access Corda, you must authorize Swagger:
     {{<
       figure
 	  src="images/swagger_auth_button.png"
-      width=30%
+      width=20%
 	  figcaption="Swagger Authorize Button"
 	  alt="Swagger Authorize Button"
     >}}
@@ -164,7 +165,7 @@ To access Corda, you must authorize Swagger:
     {{<
       figure
 	  src="images/available_auth_dialog.png"
-      width=80%
+      width=60%
 	  figcaption="Swagger Authorize Button"
 	  alt="Swagger Authorize Button"
     >}}
@@ -176,7 +177,7 @@ To access Corda, you must authorize Swagger:
    {{<
       figure
 	  src="images/swagger_authorized.png"
-      width=80%
+      width=60%
 	  figcaption="Swagger Authorized"
 	  alt="Swagger Authorized"
     >}}
@@ -202,7 +203,7 @@ For the purposes of testing Corda, we will use the cpi endpoint.
    {{<
       figure
 	  src="images/cpi-get-response.png"
-      width=80%
+      width=100%
 	  figcaption="cpi GET response"
 	  alt="cpi GET method"
    >}}
@@ -245,7 +246,7 @@ Temporary step: Need to check out the branch origin/CDC-247/POC-external-apis-wi
    {{<
       figure
 	  src="images/virtual-node-api.png"
-      width=80%
+      width=100%
 	  figcaption="Virtual Node API"
 	  alt="Virtual Node API"
    >}}

@@ -7,7 +7,8 @@ menu:
     name: "Tokens Overview"
     weight: 200
     parent: digital-currencies
-    identifier: digital-currencies-token-types-overview
+    identifier: digital-currencies-tokens-overview
+    description: "Digital Currencies documentation describing the concept of tokens."
 title: "Tokens Overview"
 ---
 
@@ -20,7 +21,7 @@ To define a token definition, the following values are specified:
 * **Decimals:** An integer that specifies the number of decimal places for the currency; for many currencies this is 2; for example, the Canadian dollar (€9.99)
 * **Token Issuer:** The name of the Token Issuing Entity that can mint and burn tokens of this type <!-- only one in initial release -->
 * **Token Definers:** The name of the Token Defining Entity that defined the token definition. This value is set automatically when the token definition is defined.
-* **Custodian:** The name of the Custodian responsible for the exchange of off-ledger collateral when a non-issuing party requests tokens of this token definition state from the Token Issuer; this setting is optional and can be "No custodian"
+* **Custodian:** The name of the Custodian responsible for the exchange of off-ledger collateral when a non-issuing party requests tokens of this token definition state from the Token Issuer; this setting is optional and can be "None"
 * **Timestamp:** The date and time at which the token definition was committed to the Corda ledger; this setting is specified automatically when the token definition is defined
 * **ID:** The unique ID for the token definition; this setting is specified automatically when the token definition is defined
 * **Version:** An integer specifying the version of the token definition
