@@ -12,15 +12,24 @@ table,
 
   thead {
     tr {
+      background-color: $gray-300;
       border-bottom: 2px solid $gray-200;
+      border-top: 2px solid $gray-200;
+      border-right: 1px solid $gray-200;
+      border-left: 1px solid $gray-200;
+      
     }
   }
 
   tbody {
-    tr {
-      &:nth-child(2n+1) {
-        background-color: $gray-300;
-      }
+    tr { 
+    background-color: $white;
+    border-right: 1px solid $gray-200;
+    border-left: 1px solid $gray-200;
     }
   }
+}
+
+table, th, td {
+  border: 1px solid $gray-200;
 }
