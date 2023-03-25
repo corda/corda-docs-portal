@@ -19,7 +19,7 @@ As described in the [mutual TLS introduction](../../mutual-tls.md), you can conf
 
 ## Modify the Cluster Configurations
 
-To configure a cluster to use mutual TLS, you must set the `sslConfig.tlsType` flag in the [corda.p2p.gateway configuration]({{< relref "../configuration/p2p-gateway.md" >}}) to `MUTUAL` for the following:
+To configure a cluster to use mutual TLS, you must set the `sslConfig.tlsType` flag in the [corda.p2p.gateway configuration section]({{< relref "../configuration/p2p-gateway.md" >}}) to `MUTUAL` for the following:
 * The MGM cluster before registering the MGM
 * All member clusters before uploading the CPI
 
