@@ -31,7 +31,7 @@ Any worker and CLI long options that used camel case now use kebab case. This ma
 ### Network Operation
 
 #### Gateway Address
-It is now possible to connect between peer gateways by IP address, as well as DNS name. <!--reword-->
+It is now possible to connect between peer gateways by IP address, as well as DNS name. <!--reword "configure gateways to use IP address"-->
 
 #### Member Registration Approval
 It is now possible configure a membership group so that the operator is required to manually approve (or decline) member registration requests. Requests satisfying specific criteria require manual approval, while others are approved automatically. The operator can also pre-authenticate specific members, allowing them to bypass the standard approval rules defined for the group. The operator can further configure pre-authentication to specify that certain changes to the member’s context must be manually reviewed. For more information, see [Member Registration Approval]({{< relref "../operating/registration-approval.md" >}}).
