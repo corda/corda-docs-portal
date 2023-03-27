@@ -18,11 +18,11 @@ By default, the images are made available via Docker Hub.
 If your Kubernetes cluster can pull images from Docker Hub, you can skip this section.
 If not, then the following instructions describe how to push the images from the provided `tar` file into a container registry that is accessible from the cluster.
 
-1. Download `corda-worker-images-Fox.tar` from the [R3 Customer Hub](https://r3.force.com/).
+1. Download `corda-worker-images-Gecko.tar` from the [R3 Customer Hub](https://r3.force.com/).
 
-2. Inflate and load the `corda-worker-images-Fox.tar` file into the local Docker engine with the following command:
+2. Inflate and load the `corda-worker-images-Gecko.tar` file into the local Docker engine with the following command:
    ```shell
-   docker load -i corda-worker-images-Fox.tar
+   docker load -i corda-worker-images-Gecko.tar
    ```
 
 3. Retag each image using the name of the registry to be used and push the image. The following is an example script to automate this. It takes the target container registry as an argument. If the target registry requires authentication, you must perform a `docker login` against the registry before running the script.
@@ -34,11 +34,11 @@ If not, then the following instructions describe how to push the images from the
    fi
 
    declare -a images=(
-    "corda-os-rpc-worker" "corda-os-flow-worker"
+    "corda-os-rest-worker" "corda-os-flow-worker"
     "corda-os-member-worker" "corda-os-p2p-gateway-worker"
     "corda-os-p2p-link-manager-worker" "corda-os-db-worker"
     "corda-os-crypto-worker" "corda-os-plugins" )
-   tag=5.0.0.0-Fox1.1
+   tag=5.0.0.0-Gecko1.0
    target_registry=$1
 
    for image in "${images[@]}"; do
@@ -58,10 +58,10 @@ If not, then the following instructions describe how to push the images from the
 If you have access to Docker Hub, you can download the Corda Helm chart using the following command:
 
 ```shell
-helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Fox.1.1
+helm fetch oci://registry-1.docker.io/corda/corda --version 5.0.0-Gecko1.0
 ```
 
-If you do not have access to Docker Hub, you can download the `corda-5.0.0-Fox1.1.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
+If you do not have access to Docker Hub, you can download the `corda-5.0.0-Gecko1.0.tgz` file from the [R3 Customer Hub](https://r3.force.com/).
 
 ## Configure the Deployment
 
@@ -69,12 +69,12 @@ For each deployment, you should create a YAML file to define a set of Helm overr
 The following sections describe the minimal set of configuration options required for a deployment.
 You can extract a README containing the full set of options from the Helm chart using the following command:
 ```shell
-helm show readme corda-5.0.0-Fox1.1.tgz
+helm show readme corda-5.0.0-Gecko1.0.tgz
 ```
 
 You can extract a YAML file containing all of the default values using the following command:
 ```shell
-helm show values corda-5.0.0-Fox1.1.tgz
+helm show values corda-5.0.0-Gecko1.0.tgz
 ```
 
 ### Image Registry
@@ -104,7 +104,7 @@ workers:
     replicaCount: 3
   membership:
     replicaCount: 3
-  rpc:
+  rest:
     replicaCount: 3
   p2pGateway:
     replicaCount: 3
@@ -147,7 +147,7 @@ As with the number of replicas, you may need to adjust these values based on tes
 By default, the [REST API](../../operating/operating-tutorials/rest-api.html) is exposed on an internal Kubernetes service. To enable access from outside the Kubernetes cluster, the API should be fronted by a load balancer. The Helm chart allows annotations to be specified to facilitate the creation of a load balancer by a cloud-platform specific controller. For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html) fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
 ```yaml
 workers:
-  rpc:
+  rest:
     service:
       type: LoadBalancer
       annotations:
@@ -341,6 +341,21 @@ Part of the database bootstrapping involves populating the initial admin credent
             key: "password"
   ```
 
+* By default, there is a single database user used for both the bootstrap process and, subsequently at runtime, by the crypto and DB workers. R3 recommends configuring separate bootstrap and runtime users, by specifying a bootstrap user as follows:
+
+```yaml
+bootstrap:
+  db:
+    cluster:
+      username:
+        value: <POSTGRESQL_BOOTSTRAP_USER>
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_NAME>
+            key: <POSTGRESQL_BOOTSTRAP_PASSWORD_SECRET_KEY>
+```
+
 #### RBAC
 
 The RBAC bootstrapping creates three default RBAC roles. It is enabled by default:
@@ -473,6 +488,13 @@ bootstrap:
   db:
     clientImage:
       registry: "registry.example.com"
+    cluster:
+      username:
+        value: "bootstrap-user"
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: "bootstrap-password"
   kafka:
     sasl:
       username:
@@ -551,16 +573,16 @@ workers:
               name: "kafka-credentials"
               key: "p2pLinkManager"
     replicaCount: 3
-  rpc:
+  rest:
     kafka:
       sasl:
         username:
-          value: "rpc"
+          value: "rest"
         password:
           valueFrom:
             secretKeyRef:
               name: "kafka-credentials"
-              key: "rpc"
+              key: "rest"
     replicaCount: 3
     service:
       type: "LoadBalancer"
@@ -575,18 +597,18 @@ workers:
 
 Once the configuration for the environment has been defined in a YAML file, you can install the Helm chart:
 ```shell
-helm install -n <NAMESPACE> <HELM-RELEASE-NAME> corda-5.0.0-Fox1.1.tgz -f <PATH-TO-YAML-FILE>
+helm install -n <NAMESPACE> <HELM-RELEASE-NAME> corda-5.0.0-Gecko1.0.tgz -f <PATH-TO-YAML-FILE>
 ```
 For example, to create a Helm release called `corda` in the `corda` namespace using the overrides specified in a file called `values.yaml`, run the following:
 
 ```shell
-helm install -n corda corda corda-5.0.0-Fox1.1.tgz -f values.yaml
+helm install -n corda corda corda-5.0.0-Gecko1.0.tgz -f values.yaml
 ```
 
 If you are using the Helm chart from Docker Hub, you can install directly from there rather than using `helm fetch` first. For example:
 
 ```shell
-helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0.0-Fox.1.1 -f values.yaml
+helm install -n corda corda oci://registry-1.docker.io/corda/corda --version 5.0.0-Gecko1.0 -f values.yaml
 ```
 
 Once the Helm install completes, all of the Corda workers are ready. A message is output containing instructions on how to access the [Corda REST API](../../operating/operating-tutorials/rest-api.html). If the Helm install fails, see the troubleshooting section on [Cluster Health](../troubleshooting/cluster-health.html).

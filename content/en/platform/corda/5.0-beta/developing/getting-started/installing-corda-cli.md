@@ -25,22 +25,22 @@ Java     | Azul JDK 11
 ## Downloading Corda CLI
 
 To obtain the Corda CLI installer from the release pack on Customer Hub:
-1. Download `platform-jars-Fox.tar.gz` from the [R3 Customer Hub](https://r3.force.com/) or from the [R3 S3 repository](https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-Fox1.1/corda-cli-downloader-5.0.0.0-Fox1.1.zip).
-2. Extract `corda-cli-installer-5.0.0.0-Fox1.1.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Fox1.1`.
+1. Download `platform-jars-Gecko.tar.gz` from the [R3 Customer Hub](https://r3.force.com/) or from the [R3 S3 repository](https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-Gecko1.0/corda-cli-downloader-5.0.0.0-Gecko1.0.zip).
+2. Extract `corda-cli-installer-5.0.0.0-Gecko1.0.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Gecko1.0`.
 
 
 ## Installing on Linux/macOS
 
 1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
 2. Start a shell session (bash or zsh).
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox1.1.zip`.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Gecko.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   unzip ./corda-cli-installer-5.0.0.0-Fox1.1.zip -d corda-cli-installer-5.0.0.0-Fox1.1
+   unzip ./corda-cli-installer-5.0.0.0-Gecko.zip -d corda-cli-installer-5.0.0.0-Gecko
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-installer-5.0.0.0-Fox1.1
+   cd corda-cli-installer-5.0.0.0-Gecko1.0
    ```
 5. Run the install script:
    ```shell
@@ -58,14 +58,14 @@ To obtain the Corda CLI installer from the release pack on Customer Hub:
 
 1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
 2. Start a Powershell session.
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Fox1.1`.
+2. Change directory to where you saved `corda-cli-installer-5.0.0.0--Gecko.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   Expand-Archive .\corda-cli-installer-5.0.0.0-Fox1.1.zip
+   Expand-Archive .\corda-cli-installer-5.0.0.0-Gecko1.0.zip
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-installer-5.0.0.0-Fox1.1
+   cd corda-cli-installer-5.0.0.0-Gecko1.0
    ```
 5. Run the install script:
    ```shell

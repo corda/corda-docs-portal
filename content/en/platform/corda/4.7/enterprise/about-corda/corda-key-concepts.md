@@ -43,7 +43,7 @@ When you build a custom CorDapp, your CorDapp will have state, transaction, cont
 ## Advanced Corda concepts
 
 The following **advanced Corda concepts** describe important conceptual information:
-[](../)
+
 * [Consensus]({{< relref "../key-concepts-consensus.md" >}}) - how parties on the network reach consensus about shared facts on the ledger.
 * [Notaries]({{< relref "../key-concepts-notaries.md" >}}) - the component that assures uniqueness consensus (prevents double spends).
 * [Vault]({{< relref "../key-concepts-vault.md" >}}) - the component that stores on-ledger shared facts for a node.

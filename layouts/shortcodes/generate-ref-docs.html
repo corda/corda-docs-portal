@@ -1,0 +1,26 @@
+{{ with $.Params.url }}
+    {{ $json := getJSON $.Params.url }}
+    <p>{{ $json.description }}</p> 
+    {{ range $key, $value := $json.properties }}
+        {{ with $value }}
+            <ul>
+                {{ partial "field-desc-ref-docs" (dict "value" $value "key" $key "url" $.Params.url) }}
+                <ul>
+                {{ range $childk, $childv := $value.properties }}
+                    {{ with $childv }}
+                        {{ partial "field-desc-ref-docs" (dict "value" $childv "key" $childk "url" $.Params.url) }}
+                        {{ range $childk2, $childv2 := $childv.properties }}
+                           {{ with $childv2 }}
+                              <ul>{{ partial "field-desc-ref-docs" (dict "value" $childv2 "key" $childk2 "url" $.Params.url) }}</ul>
+                            {{ end }}
+                        {{ end }}   
+                    {{ end }}
+                {{ end }}
+                {{ with $value.allOf }}
+                    {{ partial "conditional-field-desc-ref-docs" (dict "value" $value "key" $key "url" $.Params.url) }}
+                {{ end }}
+                </ul>      
+           </ul>
+       {{ end }}
+   {{ end }}
+{{ end }}

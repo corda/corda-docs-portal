@@ -5,7 +5,7 @@ menu:
   corda-5-beta:
     parent: corda-5-beta-release-notes
     identifier: corda-5-beta-release-notes-1.1
-    weight: 1000
+    weight: 1050
 section_menu: corda-5-beta
 ---
 

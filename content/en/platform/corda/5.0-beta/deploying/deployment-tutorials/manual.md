@@ -92,7 +92,7 @@ Specify a set of name-value pairs giving the Kafka username that will be used fo
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
   connect
 ```
 {{% /tab %}}
@@ -101,7 +101,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
   connect
 ```
 {{% /tab %}}
@@ -110,7 +110,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
   create -r <REPLICAS> -p <PARTITIONS> `
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> `
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> `
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> `
   connect
 ```
 {{% /tab %}}
@@ -176,7 +176,7 @@ Specify a set of name-value pairs giving the Kafka username that will be used fo
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
   connect
 ```
 {{% /tab %}}
@@ -185,7 +185,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> \
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> \
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> \
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> \
   connect
 ```
 {{% /tab %}}
@@ -194,7 +194,7 @@ corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties `
   create -r <REPLICAS> -p <PARTITIONS> `
   -u crypto=<CRYPTO_USER> -u db=<DB_USER> -u flow=<FLOW_USER> -u membership=<MEMBERSHIP_USER> `
-  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rpc=<RPC_USER> `
+  -u p2pGateway=<P2P_GATEWAY_USER> -u p2pLinkManager=<P2P_LINK_MANAGER_USER> -u rest=<REST_USER> `
   connect
 ```
 {{% /tab %}}
@@ -242,33 +242,33 @@ To create the schema manually, do the following:
    {{% tab name="Linux" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
-     --name corda-rbac --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
-     --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+     --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC \
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="macOS" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
-     --name corda-rbac --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
-     --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+     --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC \
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="Windows" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> `
-     --name corda-rbac --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
-     --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+     --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC `
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
 
-   The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the Corda deployment configuration for the DB worker:
+   The `<SALT>` and `<PASSPHRASE>` are used to encrypt the credentials in the database. These must match the values specified in the Corda deployment configuration:
 
    ```yaml
-   workers:
-     db:
-       salt: <SALT>
-       passphrase: <PASSPHRASE>
+   config:
+      encryption:
+         salt: <SALT>
+         passphrase: <PASSPHRASE>
    ```
 
    For example:
@@ -277,22 +277,22 @@ To create the schema manually, do the following:
    {{% tab name="Linux" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u rbac-user -p rc9VLHU3 \
-     --name corda-rbac --jdbcURL jdbc:postgresql://postgres.example.com:5432/cordacluster \
-     --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+     --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC \
+     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="macOS" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u rbac-user -p rc9VLHU3 \
-     --name corda-rbac --jdbcURL jdbc:postgresql://postgres.example.com:5432/cordacluster \
-     --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+     --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC \
+     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="Windows" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u rbac-user -p rc9VLHU3 `
-     --name corda-rbac --jdbcURL jdbc:postgresql://postgres.example.com:5432/cordacluster `
-     --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+     --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC `
+     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -305,22 +305,22 @@ To create the schema manually, do the following:
    {{% tab name="Linux" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> \
-     --name corda-crypto --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO \
-     --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+     --name corda-crypto --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO \
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="macOS" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> \
-     --name corda-crypto --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO \
-     --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+     --name corda-crypto --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO \
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="Windows" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> `
-     --name corda-crypto --jdbcURL jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO `
-     --jdbcPoolMaxSize <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
+     --name corda-crypto --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO `
+     --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -334,22 +334,22 @@ To create the schema manually, do the following:
    {{% tab name="Linux" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u crypto-user -p TqoCp4v2 \
-     --name corda-crypto --jdbcURL jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO \
-     --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+     --name corda-crypto --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO \
+     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="macOS" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u crypto-user -p TqoCp4v2 \
-     --name corda-crypto --jdbcURL jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO \
-     --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+     --name corda-crypto --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO \
+     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="Windows" %}}
    ```shell
    corda-cli.cmd initial-config create-db-config -u crypto-user -p TqoCp4v2 `
-     --name corda-crypto --jdbcURL jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO `
-     --jdbcPoolMaxSize 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
+     --name corda-crypto --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO `
+     --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -382,8 +382,8 @@ To create the schema manually, do the following:
 
     ```sql
     CREATE USER <RBAC-USERNAME> WITH ENCRYPTED PASSWORD '<RBAC-PASSWORD>';
-    GRANT USAGE ON SCHEMA RPC_RBAC to <RBAC-USERNAME>;
-    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RPC_RBAC to <RBAC-USERNAME>;
+    GRANT USAGE ON SCHEMA RBAC to <RBAC-USERNAME>;
+    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA RBAC to <RBAC-USERNAME>;
     CREATE USER <CRYPTO-USERNAME> WITH ENCRYPTED PASSWORD '<CRYPTO-PASSWORD>';
     GRANT USAGE ON SCHEMA CRYPTO to <CRYPTO-USERNAME>;
     GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA CRYPTO to <CRYPTO-USERNAME>;
@@ -459,4 +459,4 @@ To create the roles manually, do the following:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-   `<API-ENDPOINT>` should be a URL where the Corda API is accessible, either via a load balancer or by forwarding port 8888 from one of the RPC worker pods.
+   `<API-ENDPOINT>` should be a URL where the Corda API is accessible, either via a load balancer or by forwarding port 8888 from one of the REST worker pods.

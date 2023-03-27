@@ -52,19 +52,19 @@ Here is an example of both ways you can do this for a couple of example classes.
 
 ```kotlin
 // Not annotated, so need to add custom serializer.
-data class ExampleRPCValue(val foo: String)
+data class ExampleRESTValue(val foo: String)
 
 // Annotated, so no need to add custom serializer.
 @CordaSerializable
-data class ExampleRPCValue2(val bar: Int)
+data class ExampleRESTValue2(val bar: Int)
 
-// Define a custom serializer for ExampleRPCValue
-class ExampleRPCValueSerializer : SerializationCustomSerializer<ExampleRPCValue, String> {
-    override fun toProxy(obj: ExampleRPCValue): String {
+// Define a custom serializer for ExampleRESTValue
+class ExampleRESTValueSerializer : SerializationCustomSerializer<ExampleRESTValue, String> {
+    override fun toProxy(obj: ExampleRESTValue): String {
         return obj.foo
     }
-    override fun fromProxy(proxy: String): ExampleRPCValue {
-        return ExampleRPCValue(proxy)
+    override fun fromProxy(proxy: String): ExampleRESTValue {
+        return ExampleRESTValue(proxy)
     }
 }
 ```
@@ -500,7 +500,7 @@ newC.l.add("d")
 The call to `newC.l.add` will throw an `UnsupportedOperationException`.
 
 There are several workarounds that can be used to preserve mutability on reconstituted objects. Firstly, if the class
-isn’t a Kotlin data class and thus isn’t restricted by having to have a primary constructor.
+is not a Kotlin data class and thus is not restricted by having to have a primary constructor.
 
 ```kotlin
 class C {
