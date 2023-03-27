@@ -1,6 +1,6 @@
 ---
 date: '2023-03-15'
-title: "Registration Approval"
+title: "Member Registration Approval"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-registration
