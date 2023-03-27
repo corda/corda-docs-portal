@@ -1,12 +1,12 @@
 ---
 date: '2023-02-01'
-title: "Corda 5.0 Beta 2 Release files and checksums"
+title: "Corda 5.0 Beta 2 Release Files and Checksums"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-release-checksums
     parent: corda-5-beta-release-notes
     weight: 3000
-    name: "Release files and checksums"
+    name: "Release Files and Checksums"
 section_menu: corda-5-beta
 ---
 

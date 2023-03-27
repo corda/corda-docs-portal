@@ -2,7 +2,7 @@
 date: '2021-04-24T00:00:00Z'
 title: Corda
 project: corda
-version: 'Corda index'
+version: 'Corda Index'
 section_menu: corda-index
 identifier: corda-index
 menu:
@@ -11,8 +11,8 @@ menu:
     project: corda
     identifier: corda-index
   versions:
-    version: 'Corda index'
-    name: "Corda index"
+    version: 'Corda Index'
+    name: "Corda Index"
     weight: -800
 ---
 
