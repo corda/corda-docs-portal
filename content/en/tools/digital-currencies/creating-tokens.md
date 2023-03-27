@@ -12,10 +12,6 @@ menu:
 title: "Creating Tokens"
 ---
 
-
-
-## Creating Tokens 
-
 Once a token definition has been created, new tokens of that type can be issued. Such tokens can then be used as for currency or utility purposes and allows the issuing party to maintain monetary policy and provide easily accessible digital currency tokens to specific entities.
 
 <!-- Wholesale banks and financial institutions can deposit assets in exchange for tokens minted on the network. This process involves:

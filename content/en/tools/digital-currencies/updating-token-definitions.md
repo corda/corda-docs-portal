@@ -11,3 +11,6 @@ menu:
     description: "Digital Currencies documentation describing how to update existing token definitions via the GUI"
 title: "Updating Token Definitions"
 ---
+
+After a [token definition has been initially created]({{< relref "creating-token-definitions.md" >}}), it can be updated, even when [tokens of that type have already been created]({{< relref "creating-tokens.md" >}}).
+

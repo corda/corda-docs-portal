@@ -102,6 +102,27 @@ Before tokens can be created, a token definition, which specifies all that param
 	  alt="Token Definition Success"
    >}}
    
+   The token definition flow begins and its progress can be checked in the pull-out **Latest Flows** on the right-hand side of the screen:
+    
+   {{< 
+      figure
+	  src="images/define-token-flow-running.png"
+      width=50%
+	  figcaption="Creating Token Definitions - Flow Running"
+	  alt="Creating Token Definitions - Flow Running"
+   >}}  
+   
+   Once the token definition flow completes, the flow displays as Completed:
+   
+     
+   {{< 
+      figure
+	  src="images/define-token-flow-completed.png"
+      width=50%
+	  figcaption="Creating Token Definitions - Flow Completed"
+	  alt="Creating Token Definitions - Flow Completed"
+   >}} 
+   
    The new token definition now appears in the **Active Token Definitions** pane:
    
    {{< 
