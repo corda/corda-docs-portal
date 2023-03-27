@@ -17,6 +17,22 @@ weight: 10
 
 # Corda Enterprise Edition 4.10 release notes
 
+## Corda Enterprise Edition 4.10.1 release notes
+
+Corda Enterprise Edition 4.10.1 is a patch release of Corda Enterprise focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](upgrading-index.md).
+
+### Fixed issues
+
+Corda Enterprise Edition 4.10.1 contains the following fix:
+
+* Previously, a stackover flow exception was thrown when an attempt was made to store a deleted party in the vault; this issue has been resolved.
+
+## Corda Enterprise Edition 4.10 release notes
+
 Corda Enterprise Edition 4.10 includes several new features, enhancements, and fixes.
 
 ## Platform version change
