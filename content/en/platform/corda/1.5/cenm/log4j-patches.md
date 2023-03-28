@@ -109,7 +109,6 @@ Check the [patch release timetable](#corda-enterprise-and-cenm-patch-release-tim
 
 If a patch has been released for this version of Corda, follow the instructions in the Corda docs for upgrading nodes to a new minor version. You do not need to patch CorDapps, as they inherit Apache Log4j from the Corda runtime.
 
-
 If you are waiting for the release of the required emergency patch for your current version, you can apply one of the following steps to mitigate the threat implied by the Apache Log4j vulnerability:
 
 ### For Corda OS/ENT 4.3 and above and CENM 1.3 and above
