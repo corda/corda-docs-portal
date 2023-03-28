@@ -45,7 +45,7 @@ Specifically, `P2P_GATEWAY_HOST` and `P2P_GATEWAY_PORT` correspond to the hostna
 in order to send messages to this cluster.
 
 If we assume that all clusters are set up in a single k8s cluster, then you can set those values to
-the hostname and the port the corresponding k8s service is listening to.
+the hostname and the port that the corresponding k8s service is listening to.
 For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a`
 is the namespace that the Corda cluster is deployed within, you can set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`.
 
