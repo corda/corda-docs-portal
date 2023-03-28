@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 {{< note >}}
-The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://community.r3.com/c/corda-5-developer-preview/41).
+The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://developer.r3.com/forums/forum/corda-5-developer-preview/).
 {{< /note >}}
 
 The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Beta 2 more straight-forward.
