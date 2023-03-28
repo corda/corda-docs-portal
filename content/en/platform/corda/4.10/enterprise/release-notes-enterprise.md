@@ -29,7 +29,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 Corda Enterprise Edition 4.10.1 contains the following fix:
 
-* Previously, a stackover flow exception was thrown when an attempt was made to store a deleted party in the vault; this issue has been resolved.
+* A `StackOverflowException` was thrown when an attempt was made to store a deleted party in the vault.
 
 ## Corda Enterprise Edition 4.10 release notes
 
