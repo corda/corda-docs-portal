@@ -27,7 +27,7 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-Corda Enterprise Edition 4.10.1 contains the following fix:
+The following issues were resolved in Corda Enterprise Edition 4.10.1:
 
 * A `StackOverflowException` was thrown when an attempt was made to store a deleted party in the vault.
 
