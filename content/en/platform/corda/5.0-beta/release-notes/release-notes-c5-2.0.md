@@ -14,10 +14,10 @@ section_menu: corda-5-beta
 
 <style>
 table th:first-of-type {
-    width: 30%;
+    width: 35%;
 }
 table th:nth-of-type(2) {
-    width: 70%;
+    width: 65%;
 }
 </style>
 
