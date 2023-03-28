@@ -18,7 +18,7 @@ The PowerShell commands listed on this page are for use with  PowerShell 7.0 and
 ## Set Variables
 Set the values of variables for use in later commands:
 
-1. Set the P2P gateway host and port and the [REST API](../../../operating/operating-tutorials/rest-api.html) host and port. 
+1. Set the P2P gateway host and port and the [REST API](../../../operating/operating-tutorials/rest-api.html) host and port.
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -40,9 +40,16 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-   These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`.
+These values can vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
+Specifically, `P2P_GATEWAY_HOST` and `P2P_GATEWAY_PORT` correspond to the hostname that other clusters should be able to connect to
+in order to send messages to this cluster.
 
-2. Set the [REST API](../../../operating/operating-tutorials/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
+If we assume that all clusters are set up in a single k8s cluster, then you can set those values to
+the hostname and the port the corresponding k8s service is listening to.
+For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a`
+is the namespace that the Corda cluster is deployed within, you can set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`.
+
+4. Set the [REST API](../../../operating/operating-tutorials/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -57,7 +64,7 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-3. Set the working directory for storing temporary files:
+5. Set the working directory for storing temporary files:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -74,7 +81,7 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-4. Set the path to your local clone of `corda-runtime-os`:
+6. Set the path to your local clone of `corda-runtime-os`:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
@@ -582,3 +589,4 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 {{< /tabs >}}
 
 You can now use the MGM to [set up members in your network](dynamic-onboarding.html).
+
