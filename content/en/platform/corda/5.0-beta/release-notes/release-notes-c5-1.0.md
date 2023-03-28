@@ -22,7 +22,7 @@ This section describes the new features in Corda 5.0 Beta 1.
 ### Deployment 
 
 #### Red Hat OpenShift Container Platform
-Deployment of Corda 5 to Red Hat OpenShift Container Platform has now been tested and the [documentation](../deploying/deployment-tutorials/deploy-corda-cluster.md) updated.
+Deployment of Corda 5 to Red Hat OpenShift Container Platform has now been tested and the [documentation]({{< relref "../deploying/deployment-tutorials/deploy-corda-cluster.md" >}}) updated.
 
 #### Multiple Kafka Users
 It is now possible to specify separate Kafka credentials for bootstrapping and for each type of worker in the deployment configuration file.
@@ -38,7 +38,7 @@ It is now possible to use certificates, in addition to cryptographic keys, in en
 
 ### Ledger
 
-The Ledger Layer has now been implemented to enable initial testing and development of ledger CorDapps. For more information, see the [Ledger section](../developing/ledger/ledger.md).
+The Ledger Layer has now been implemented to enable initial testing and development of ledger CorDapps. For more information, see the [Ledger section]({{< relref "../developing/ledger/ledger.md" >}}).
 
 #### Smart Contract Interfaces
 Interfaces are now available to define and handle smart contracts in the Corda 5 UTXO ledger.
@@ -74,13 +74,13 @@ The certificates API has changed:
 * To import a cluster-level certificate, use PUT with `cluster/<usage>` where `usage` is one of the following:
    * 'p2p-tls' — TLS certificate to be used in P2P communication
    * 'p2p-session' — session certificate to be used in P2P communication
-   * 'rpc-api-tls' — TLS certificate to be used in RPC API communication
+   * 'rpc-api-tls' — TLS certificate to be used in REST API communication
    * 'code-signer' — certificate of the code signing service
    The unique alias and the certificate should be in the request body.
 * To import a virtual node certificate, use PUT with `vnode/<holdingIdentityId>/<usage>` where `usage` is one of the following:
    * 'p2p-tls' — TLS certificate to be used in P2P communication
    * 'p2p-session' — session certificate to be used in P2P communication
-   * 'rpc-api-tls' — TLS certificate to be used in RPC API communication
+   * 'rpc-api-tls' — TLS certificate to be used in REST API communication
    * 'code-signer' — certificate of the code signing service
    The unique alias and the certificate should be in the request body.
 * To list all of the cluster-level certificate aliases, use GET with `cluster/<usage>`.
@@ -148,6 +148,3 @@ Context: States must be marked as consumed in the vault when they have been used
 Issue: Input states to a UTXO transaction are marked as consumed when the transaction is first persisted, before it is completely signed and notarised. Should counter-signing or notarisation fail, states will be wrongly marked as consumed in the initiating's node vault and no longer be available as inputs.
 
 Impact: In the case of transaction failures, states will be wrongly marked as consumed and thus unusable. Transaction rollback does not behave correctly in the current version of the UTXO ledger.
-
-## Log4j patches
-Click [here](./log4j-patches.md) to find all patches addressing the December 2021 Log4j vulnerability.

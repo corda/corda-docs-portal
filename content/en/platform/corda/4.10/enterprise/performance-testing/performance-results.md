@@ -275,7 +275,7 @@ from `startFlow`.  Corda Enterprise Edition 4.0 provides better scheduling than 
 
 In the highest throughput scenarios in Figure 1, node A experiences between 500 and 600Mbit/s outbound network traffic. The inbound network traffic is much less,
 because the flow checkpoint traffic is write-only under normal circumstances. In order to maximise the bandwidth available between two nodes,
-you must use the `useOpenSsl` option, as described in [Configuring a node](../node/setup/corda-configuration-file.md). The JVM implementation of SSL is restricted in the
+you must use the `useOpenSsl` option, as described in [Configuring a node]({{< relref "../node/setup/corda-configuration-file.md" >}}). The JVM implementation of SSL is restricted in the
 bandwidth it can sustain over a single connection.
 
 ## Comparing Corda Enterprise Edition 4.3 vs Corda Enterprise Edition 4.6
@@ -325,7 +325,7 @@ The main observations from the tests follow below:
 
 #### Impact of new tuning options
 
-The last test performed was focused on the impact of some of the new tuning options introduced in Corda Enterprise Edition 4.5. The goal of this test was to provide some insight into the behaviour of these parameters, and to evaluate the default options. The options that were covered were those controlling the flush frequency of Artemis buffers (`brokerConnectionTtlCheckIntervalMs` and `journalBufferTimeout`), and the option controlling P2P message compression (`enableP2PCompression`). For more information, see [Node configuration](../node/setup/corda-configuration-file.md).
+The last test performed was focused on the impact of some of the new tuning options introduced in Corda Enterprise Edition 4.5. The goal of this test was to provide some insight into the behaviour of these parameters, and to evaluate the default options. The options that were covered were those controlling the flush frequency of Artemis buffers (`brokerConnectionTtlCheckIntervalMs` and `journalBufferTimeout`), and the option controlling P2P message compression (`enableP2PCompression`). For more information, see [Node configuration]({{< relref "../node/setup/corda-configuration-file.md" >}}).
 
 Five different variations were tested, as follows:
 * The default configuration, which had `brokerConnectionTtlCheckIntervalMs = 20`, `journalBufferTimeout = 3333333` and `enableP2PCompression = true` configured. This variation is called "default" in the graphs below.

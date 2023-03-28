@@ -21,9 +21,9 @@ weight: 20
 ---
 # Run a sample CorDapp
 
-Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try [building your own](../../../../../tutorials/corda/4.10/community/build-basic-cordapp/basic-cordapp-intro.md), modifying a [template](../../../../../tutorials/corda/4.10/community/template-tutorial/writing-a-cordapp-using-a-template.md), or using a [community CorDapp](https://www.corda.net/samples/).
+Get started with Corda by running a sample CorDapp. Learn how to download, deploy, launch, interact with, and test a CorDapp before you try [building your own]({{< relref "../get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}}), modifying a [Java](https://github.com/corda/cordapp-template-java) or [Kotlin](https://github.com/corda/cordapp-template-kotlin) template, or using a [community CorDapp](https://www.corda.net/samples/).
 
-The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation](../node/component-topology.md).
+The local Corda network in the sample includes one notary and two nodes, each representing a party in the network. A Corda node is an individual instance of Corda representing one party in a network. For more information on nodes, see the [node documentation]({{< relref "../node/component-topology.md" >}}).
 
 The sample CorDapp allows nodes to reach loan agreements with each other, as long as they obey the following contract rules:
 
@@ -109,7 +109,7 @@ You will see the following output:
 
 
 {{< note >}}
-`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally](../node/deploy/generating-a-node.md) instead, and build your CorDapp JARs as described
+`deployNodes` is a utility task that can be used in a development environment to create a new set of nodes for testing a CorDapp. In a production environment, you would create a single node as described in [Creating nodes locally]({{< relref "../node/deploy/generating-a-node.md" >}}) instead, and build your CorDapp JARs as described
 in [Building and installing a CorDapp](cordapp-build-systems.md).
 {{< /note >}}
 
@@ -137,7 +137,7 @@ Look for the `Started Server in X seconds` message &mdash; don’t rely on the %
 
 
 {{< warning >}}
-On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell](../node/operating/shell.md).
+On Unix/Mac OSX, do not click/change focus until all seven additional terminal windows have opened, or some nodes may fail to start. You can run `workflows-java/build/nodes/runnodes --headless` to prevent each server from opening in a new terminal window. To interact with the nodes, you will need to use ssh, see [Node shell]({{< relref "../node/operating/shell.md" >}}).
 {{< /warning >}}
 
 
@@ -275,7 +275,7 @@ You can see the newly-created IOU by running `run vaultQuery contractStateType: 
 ### Via the h2 web console
 
 
-You can connect directly to your node’s database to see its stored states, transactions and attachments. Follow the instructions in [Node database](../node/operating/node-database.md).
+You can connect directly to your node’s database to see its stored states, transactions and attachments. Follow the instructions in [Node database]({{< relref "../node/operating/node-database.md" >}}).
 
 
 ## Step 6: Test the CorDapp

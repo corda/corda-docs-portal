@@ -16,12 +16,12 @@ weight: 20
 # Upgrading a CorDapp to Corda Enterprise Edition 4.8
 
 {{< warning >}}
-Corda Enterprise Edition 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.8, read the guidance on [upgrading your notary service](../../../../../en/platform/corda/4.8/enterprise/notary/upgrading-the-ha-notary-service.md).
+Corda Enterprise Edition 4.8 fixes a security vulnerability in the JPA notary. Before upgrading to Corda Enterprise Edition 4.8, read the guidance on [upgrading your notary service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/notary/upgrading-the-ha-notary-service.md" >}}).
 {{< /warning >}}
 
 ## Upgrading from Corda open source
 
-Before upgrading to Corda Enterprise Edition 4.8, upgrade your CorDapp to Corda open source 4.8. See [upgrading CorDapps to newer platform versions](../../../../../en/platform/corda/4.8/enterprise/app-upgrade-notes.md) for detailed instructions.
+Before upgrading to Corda Enterprise Edition 4.8, upgrade your CorDapp to Corda open source 4.8. See [upgrading CorDapps to newer platform versions]({{< relref "../../../../../en/platform/corda/4.8/enterprise/app-upgrade-notes.md" >}}) for detailed instructions.
 
 You don't need to re-compile your CorDapp to Corda Enterprise for it to run on Corda Enterprise. If you want your CorDapp to
 be compatible with nodes running open source, then compile it against Corda open source 4.x.
@@ -30,7 +30,7 @@ in an open source production environment, then follow the [re-compiling for Cord
 
 {{< note >}}
 Corda Enterprise and Corda open source public APIs are currently identical. However, this may change for future releases.
-See [Corda and Corda Enterprise compatibility](../../../../../en/platform/corda/4.8/enterprise/version-compatibility.md) guarantees for further information.
+See [Corda and Corda Enterprise compatibility]({{< relref "../../../../../en/platform/corda/4.8/enterprise/version-compatibility.md" >}}) guarantees for further information.
 
 {{< /note >}}
 
@@ -42,13 +42,13 @@ To re-compile your CorDapp for Corda Enterprise Edition 4.8, you need to:
 1. Update your Gradle build file as follows.
 
 ```shell
-ext.corda_release_distribution = 'com.r3.corda'
-ext.corda_core_release_distribution = 'net.corda'
-ext.corda_release_version = '4.8'
-ext.corda_core_release_version = '4.8'
-ext.corda_gradle_plugins_version = '5.0.12'
-ext.kotlin_version = '1.2.71'
-ext.quasar_version = '0.7.13_r3'
+corda_release_distribution = 'com.r3.corda'
+corda_core_release_distribution = 'net.corda'
+corda_release_version = '4.8'
+corda_core_release_version = '4.8'
+corda_gradle_plugins_version = '5.0.12'
+kotlin_version = '1.2.71'
+quasar_version = '0.7.13_r3'
 ```
 
 2. Specify an additional repository entry pointing to the location of the Corda Enterprise distribution and Corda dependencies. Any
@@ -145,8 +145,8 @@ Corda Enterprise Edition 4.4 or later will have to depend on the open source ver
 Therefore, you have to add the following variables to your build configuration:
 
 ```shell
-ext.corda_core_release_distribution = 'net.corda'
-ext.corda_core_release_version = '4.8'
+corda_core_release_distribution = 'net.corda'
+corda_core_release_version = '4.8'
 ```
 
 Any dependency on `corda-core` (or `corda-serialization`) has to use these new variables to depend on the open source version of those
@@ -159,7 +159,7 @@ cordaCompile "$corda_release_distribution:corda-core:$corda_release_version"
 Becomes:
 
 ```shell
-cordaCompile "$ext.corda_core_release_distribution:corda-core:$ext.corda_core_release_version"
+cordaCompile "$corda_core_release_distribution:corda-core:$corda_core_release_version"
 ```
 
 

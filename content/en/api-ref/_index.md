@@ -18,11 +18,11 @@ title: API reference
 
 ## Corda 5 Beta API reference
 
-See the [Corda 5.0 Beta 1](../../en/api-ref/corda/5.0-beta/kotlin/index.html) page to access the API reference documentation for all API modules publicly exposed in the Corda 5 beta release.
+See the [Corda 5.0 Beta](../../en/api-ref/corda/5.0-beta/java/index.html) page to access the API reference documentation for all API modules publicly exposed in the Corda 5 beta release.
 
 ## Corda 4 API reference
 
-See the [Corda 4 API reference](api-ref/api-ref-corda-4.md) page to access the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda Community Edition 4.10, Corda Enterprise 4.5 to 4.10, and Corda Enterprise Network Manager (CENM) 1.0 to 1.5.
+See the [Corda 4 API reference]({{< relref "api-ref-corda-4.md" >}}) page to access the API reference documentation for all API modules publicly exposed in the Corda 4 releases, including Corda Community Edition 4.10, Corda Enterprise 4.5 to 4.10, and Corda Enterprise Network Manager (CENM) 1.0 to 1.5.
 
 ## Older Corda API reference
 

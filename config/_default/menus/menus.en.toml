@@ -329,7 +329,7 @@ weight = 9000
 identifier = "corda-5-beta-tutorials-operate"
 parent = "corda-5-beta-operate"
 name = "Operating Tutorials"
-weight = 1000
+weight = 3000
 
 [[corda-5-beta]]
 identifier = "corda-5-beta-tutorials-deploy-dynamic"
@@ -342,6 +342,18 @@ identifier = "corda-5-beta-tutorials-deploy-static"
 parent = "corda-5-beta-onboarding-tutorials"
 name = "Static Networks"
 weight = 1000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-tutorials-reg-requests"
+parent = "corda-5-beta-tutorials-operate"
+name = "Registration Requests"
+weight = 3000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-reg-requests-pre-auth"
+parent = "corda-5-beta-tutorials-reg-requests"
+name = "Pre-Authorization"
+weight = 3000
 
 [[corda-5-beta]]
 identifier = "corda-5-beta-tutorials-develop"

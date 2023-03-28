@@ -4,24 +4,23 @@
   <div class="banner-message" data-banner-messages-container>
     <!-- Each message must have this data attribute -->
     <div class="banner-message__item" data-banner-message>
-        <b><a style="color:#FFFFFF; text-decoration: underline;" href="https://docs.r3.com/en/platform/corda/5.0-beta.html">Corda 5 Beta</a></b> - Read more about the next-gen Corda.
+      <b><a style="color:#FFFFFF; text-decoration: underline;"
+          href="https://docs.r3.com/en/platform/corda/5.0-beta.html">Corda 5 Beta</a></b> - Read more about Next-Gen Corda.
     </div>
-    <!-- Uncomment, edit and duplicate as necassary -->
+    <!-- Uncomment, edit and duplicate as necessary, try to keep the word count under 15 to be mobile-device friendly -->
     <div class="banner-message__item" data-banner-message>
-        Recently archived versions of 'Corda Enterprise' and 'Corda Open Source' documentation can be found <b><a style ="color:#FFFFFF; text-decoration: underline;" href="https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs">HERE.</a></b>
+      Recently archived versions of Corda documentation can be found <b><a
+          style="color:#FFFFFF; text-decoration: underline;"
+          href="https://github.com/corda/corda-docs-portal/tree/main/content/en/archived-docs">HERE.</a></b>
     </div>
-    <!-- Uncomment, edit and duplicate as necassary -->
-    <div class="banner-message__item" data-banner-message>
-        Corda 5 Beta 2.0 is coming soon. Release is planned for 22nd March 2023.
-    </div>
-</div>
+  </div>
 
-    <!-- <b><a style ="color:#FFFFFF; text-decoration: underline;" href="https://docs.r3.com/en/platform/corda/5.0-dev-preview-2.html">Corda 5 Developer Preview 2</a></b> is now available. -->
+  <!-- <b><a style ="color:#FFFFFF; text-decoration: underline;" href="https://docs.r3.com/en/platform/corda/5.0-dev-preview-2.html">Corda 5 Developer Preview 2</a></b> is now available. -->
 
   <div class="navbar  navbar-dark">
     <div class="container-fluid">
       <div id="header-links">
-        <a href="https://developer.r3.com/" target="_blank">Developer platform</a>
+        <a href="https://developer.r3.com/" target="_blank">Developer Platform</a>
         <a href="https://developer.r3.com/support" target="_blank">Support</a>
       </div>
 
@@ -37,19 +36,37 @@
 
       <a class="navbar-brand order-1" href="{{ .Site.BaseURL | absURL }}" aria-label="{{ .Site.Title }} home page">
         <img src="{{ "images/r3.svg" | absURL }}" alt="R3 Docs" class="d-lg-none ms-2 me-3" height="32">
-        <img src="{{ "images/r3.svg" | absURL }}" alt="R3 Docs" class="d-none d-lg-inline-block me-4"  height="40">
+        <img src="{{ "images/r3.svg" | absURL }}" alt="R3 Docs" class="d-none d-lg-inline-block me-4" height="40">
         <span class="badge bg-secondary docs">Docs</span>
       </a>
 
       <input class="menu-btn order-0" type="checkbox" id="top-search-checkbox">
-      <label  for="top-search-checkbox" id="top-search-btn" class="btn btn-link order-2 order-sm-3 order-lg-4 d-lg-none" aria-label="Toggle Search">
-        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
+      <label for="top-search-checkbox" id="top-search-btn" class="btn btn-link order-2 order-sm-3 order-lg-4 d-lg-none"
+        aria-label="Toggle Search">
+        <img
+          src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
       </label>
 
       {{ if .Site.Params.options.darkMode -}}
       <button id="mode" class="btn btn-link order-3 order-sm-4 order-lg-5" type="button" aria-label="Toggle mode">
-        <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
-        <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+        <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-moon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg></span>
+        <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-sun">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg></span>
       </button>
       {{ end -}}
 
@@ -70,21 +87,25 @@
 
       <div class="order-4 order-sm-5 order-lg-3 d-none d-lg-flex" id="top-search">
         <form class="navbar-form order-lg-4 order-0">
-        {{ if .Site.Params.options.flexSearch -}}
-            <input id="userinput" class="form-control is-search rounded-pill" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
-            <button class="btn_search">
-              <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
-            </button>
-            <div id="suggestions" class="suggestions shadow rounded"></div>
-        {{ end -}}
+          {{ if .Site.Params.options.flexSearch -}}
+          <input id="userinput" class="form-control is-search rounded-pill" type="search" placeholder="Search docs..."
+            aria-label="Search docs..." autocomplete="off">
+          <button class="btn_search">
+            <img
+              src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
+          </button>
+          <div id="suggestions" class="suggestions shadow rounded"></div>
+          {{ end -}}
 
-        {{ if .Site.Params.options.algolia -}}
-            <input id="search-input" class="form-control is-search rounded-pill" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
-            <button class="btn_search">
-              <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
-            </button>
-        {{ end -}}
-          </form>
+          {{ if .Site.Params.options.algolia -}}
+          <input id="search-input" class="form-control is-search rounded-pill" type="search"
+            placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
+          <button class="btn_search">
+            <img
+              src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>">
+          </button>
+          {{ end -}}
+        </form>
       </div>
 
       {{ end -}}

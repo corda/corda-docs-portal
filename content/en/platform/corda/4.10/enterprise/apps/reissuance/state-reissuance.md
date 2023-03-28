@@ -12,7 +12,7 @@ section_menu: corda-enterprise-4-10
 
 The state reissuance CorDapps listed below provide a state reissuance mechanism that enables you to break transaction backchains by reissuing a state with a guaranteed state replacement.
 
-Read more about reissuing states [here](../../../community/reissuing-states.md).
+Read more about reissuing states [here]({{< relref "../../../community/reissuing-states.md" >}}).
 
 Sample CorDapps:
 

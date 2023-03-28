@@ -66,7 +66,7 @@ the optimal number, it is necessary to tweak that number via the configuration, 
 numbers have changed. In order to keep the tests reproducible, it might be a good idea to wipe the database between tests so index sizes
 and query times do not skew the test results for later runs (see [Resetting a Node](practical-considerations.html#resetting-a-node)).
 
-Flow and RPC threads can be set explicitly using the [tuning section](../node/setup/corda-configuration-file.md) of the enterprise configuration. Add the following section to your
+Flow and RPC threads can be set explicitly using the [tuning section]({{< relref "../node/setup/corda-configuration-file.md" >}}) of the enterprise configuration. Add the following section to your
 node configuration file:
 
 ```kotlin

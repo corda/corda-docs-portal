@@ -40,7 +40,7 @@ This document provides the information you need in order to understand what happ
 Corda transactions evolve input states into output states. A state is a data structure containing: the actual data fact (that is expressed as a
 strongly typed serialized java object) and a reference to the logic (contract) that needs to verify a transition to and from this state.
 Corda does not embed the actual verification bytecode in transactions. The logic is expressed as a Java class name and a contract constraint
-(read more in [Contract Constraints](../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.md)), and the actual code is contained in a JAR  file that is referenced by the transaction.
+(read more in [Contract Constraints]({{< relref "../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.md" >}})), and the actual code is contained in a JAR  file that is referenced by the transaction.
 
 
 ### The basic threat model and security requirement.
@@ -80,7 +80,7 @@ When building the `LedgerTransaction`, the `inputs` and `references` are resolve
 fetched from previous transactions that were in turn serialized in that context (within the classloader of that transaction - introduced here: [Contract execution in the AttachmentsClassloader and the no-overlap rule.](#contract-execution-in-the-attachmentsclassloader-and-the-no-overlap-rule)).
 This model has consequences when it comes to how states can be evolved. Removing a field from a newer version of a state would mean
 that when deserializing that state in the context of a transaction using the more recent code, that field could just disappear.
-In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution](../../../../../en/platform/corda/4.8/enterprise/serialization-default-evolution.md).
+In Corda 4 we implemented the no-data loss rule, which prevents this to happen. See [Default Class Evolution]({{< relref "../../../../../en/platform/corda/4.8/enterprise/serialization-default-evolution.md" >}}).
 
 {{< /note >}}
 

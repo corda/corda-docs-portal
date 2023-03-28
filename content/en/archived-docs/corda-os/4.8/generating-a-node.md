@@ -67,4 +67,4 @@ tasks.register('deployNodes', Cordform) {
 ```
 
 * Nodes deployed via `Dockerform` use Docker containers. A `Dockerform` task is similar to `Cordform` but it provides an extra file that enables you to easily spin up nodes using `docker-compose`. This creates a `docker-compose` file that enables you to run a single command to control the deployment of Corda nodes and databases (instead of deploying each node/database manually).
-* For more information about the tasks, visit the [Dockerform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-dockerform.md) and [Cordform](../../../../../en/platform/corda/4.8/open-source/generating-a-node-cordform.md) pages.
+* For more information about the tasks, visit the [Dockerform]({{< relref "../../../../../en/platform/corda/4.8/open-source/generating-a-node-dockerform.md" >}}) and [Cordform]({{< relref "../../../../../en/platform/corda/4.8/open-source/generating-a-node-cordform.md" >}}) pages.

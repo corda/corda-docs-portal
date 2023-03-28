@@ -14,6 +14,26 @@ This section describes how to configure a [dynamic network](../../../deploying/n
 The PowerShell commands listed on this page are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
 {{< /note >}}
 
+1. [Start a Corda cluster](../../../deploying/deployment-tutorials/deploy-corda-cluster.html).
+2. [Create an MGM GroupPolicy.json file](./mgm-onboarding.html#create-the-group-policy-file ).
+3. [Package the MGM GroupPolicy.json file into an MGM CPI](./mgm-onboarding.md#build-the-cpi).
+4. [Upload the CPI to your cluster](./mgm-onboarding.md#upload-the-cpi).
+5. [Create a virtual node in your cluster for the MGM](./mgm-onboarding.md#create-a-virtual-node").
+6. [Assign required Hardware Security Modules (HSMs) for the MGM](./mgm-onboarding.md#assign-soft-hsm-and-generate-session-initiation-and-ecdh-key-pair).
+7. [Create required keys and optionally import required certificates](./mgm-onboarding.md#configure-the-cluster-tls-key-pair-and-certificate).
+8. [Build the registration context](./mgm-onboarding.md#build-registration-context).
+9. [Use the register endpoint to finalise the MGM setup so that it is ready to accept members](./mgm-onboarding.md#register-the-mgm).
+10. [Export the GroupPolicy.json file that members require to join the group](./mgm-onboarding.md#export-the-group-policy).
+11. [Package this GroupPolicy.json file into a member CPI](#build-the-cpi).
+12. [Upload this CPI to the cluster](#upload-the-cpi).
+13. [Create the virtual node for the member](#create-a-virtual-node).
+14. [Assign the required HSMs for P2P session initiation](#configure-the-p2p-session-initiation-key-pair-and-certificate).
+15. [Assign the required HSMs for the ledger](#configure-the-ledger-key-pair-and-certificate).
+16. [Create the required keys, and optionally import required certificates](#configure-the-tls-key-pair-and-certificate).
+17. [Configure the member virtual node for network communication](#configure-the-member-virtual-node-for-network-communication).
+18. [Build the registration context](#build-registration-context).
+19. [Use the register endpoint to request membership from the MGM](#register-members).
+
 ## Set Variables
 Set the values of variables for use in later commands:
 
@@ -21,16 +41,16 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export RPC_HOST=localhost
-   export RPC_PORT=8888
+   export REST_HOST=localhost
+   export REST_PORT=8888
    export P2P_GATEWAY_HOST=localhost
    export P2P_GATEWAY_PORT=8080
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $RPC_HOST = "localhost"
-   $RPC_PORT = 8888
+   $REST_HOST = "localhost"
+   $REST_PORT = 8888
    $P2P_GATEWAY_HOST = "localhost"
    $P2P_GATEWAY_PORT = 8080
    $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("admin:admin" -f $username,$password)))
@@ -38,18 +58,18 @@ Set the values of variables for use in later commands:
    {{% /tab %}}
    {{< /tabs >}}
 
-   These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`.
+   These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`.
 
 2. Set the [REST API](../../../operating/operating-tutorials/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export API_URL="https://$RPC_HOST:$RPC_PORT/api/v1"
+   export API_URL="https://$REST_HOST:$REST_PORT/api/v1"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $API_URL = "https://$RPC_HOST:$RPC_PORT/api/v1"
+   $API_URL = "https://$REST_HOST:$REST_PORT/api/v1"
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -81,17 +101,17 @@ To retrieve the `GroupPolicy.json` file from the MGM:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export MGM_RPC_HOST=localhost
-   export MGM_RPC_PORT=8888
-   export MGM_API_URL="https://$MGM_RPC_HOST:MGM_RPC_PORT/api/v1"
+   export MGM_REST_HOST=localhost
+   export MGM_REST_PORT=8888
+   export MGM_API_URL="https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
    export MGM_HOLDING_ID=<MGM Holding ID>
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $MGM_RPC_HOST = "localhost"
-   $MGM_RPC_PORT = "8888"
-   $MGM_API_URL = "https://$MGM_RPC_HOST:$MGM_RPC_PORT/api/v1"
+   $MGM_REST_HOST = "localhost"
+   $MGM_REST_PORT = "8888"
+   $MGM_API_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
    $MGM_HOLDING_ID = <MGM Holding ID>
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_API_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > $WORK_DIR/GroupPolicy.json
    ```
@@ -104,7 +124,7 @@ To retrieve the `GroupPolicy.json` file from the MGM:
 
 ## Create a CPI
 
-Build a CPI using the Corda CLI packaging plugin, passing in the member CPB and your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section](../../../developing/development-tutorials/cordapp-packaging.md).
+Build a CPI using the Corda CLI packaging plugin, passing in the member CPB and your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section]({{< relref "../../../developing/development-tutorials/cordapp-packaging.md" >}}).
 
 ## Upload the CPI
 
@@ -265,6 +285,8 @@ When using cluster-level TLS, it is only necessary to do this once per cluster.
 You must perform the same steps that you did for setting up the MGM to enable P2P communication for the locally hosted identities.
 Use the Certificate Authority (CA) whose trustroot certificate was configured in the MGM's registration context.
 
+If using mutual TLS, you must must add the certificate subject to the allowed list of the MGM. For more information, see [Update the MGM Allowed Certificate Subject List](mutual-tls.html#update-the-mgm-allowed-certificate-subject-list).
+
 1. Create a TLS key pair at the P2P cluster-level by running this command:
 
    {{< tabs >}}
@@ -290,7 +312,7 @@ Use the Certificate Authority (CA) whose trustroot certificate was configured in
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL/certificates/p2p/$TLS_KEY_ID > "$WORK_DIR"/request1.csr
+   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London, O=Org", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL/certificates/p2p/$TLS_KEY_ID > "$WORK_DIR"/request2.csr
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -298,14 +320,14 @@ Use the Certificate Authority (CA) whose trustroot certificate was configured in
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/certificates/p2p/$TLS_KEY_ID" -Body (ConvertTo-Json @{
        x500Name = "CN=CordaOperator, C=GB, L=London"
        subjectAlternativeNames = @($P2P_GATEWAY_HOST)
-   }) > $WORK_DIR/request1.csr
+   }) > $WORK_DIR/request2.csr
    ```
    {{% /tab %}}
    {{< /tabs >}}
 
-   You can inspect the `request1.csr` file by running this command:
+   You can inspect the `request2.csr` file by running this command:
    ```shell
-   openssl req -text -noout -verify -in ./request1.csr
+   openssl req -text -noout -verify -in ./request.csr
    ```
    The contents should resemble the following:
 

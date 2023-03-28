@@ -52,10 +52,10 @@ You should run the tool against an empty database, not the database you are reus
 java -jar tools-database-manager-|release|.jar dry-run -b path_to_configuration_directory
 ```
 
-The option `-b` points to the base directory (the directory containing a `node.conf` file, and the *drivers* and *cordapps* subdirectories). The generated script (*migration/*.sql*) will be present in the base directory.
+The option `-b` points to the base directory (the directory containing a `node.conf` file, and the *drivers* and *cordapps* subdirectories). The generated script named *migrationYYYYMMDDHHMMSS.sql* will be present in the current directory.
 This script contains all of the statements to create the data structures (e.g. tables/indexes) for CorDapps,
 and inserts to the Liquibase management table *DATABASECHANGELOG*.
-For a description of the options, refer to the [Corda Database Management Tool](../../../../../en/platform/corda/4.9/enterprise/database-management-tool.md) manual.
+For a description of the options, refer to the [Corda Database Management Tool]({{< relref "../../../../../en/platform/corda/4.9/enterprise/database-management-tool.md" >}}) manual.
 
 * Run selected insert statements to update Liquibase database change logIn the generated script, find all inserts into *DATABASECHANGELOG* table related to your CorDapp,
 you can search for *– Changeset migration/<file-name>* lines, where <file-name> references the Liquibase Script file name from the CorDapp.
@@ -81,10 +81,10 @@ we have validated for this upgrade exercise.
 The procedure for migrating from H2 to a commercial database is as follows:
 
 
-* Create a database schema and configure a Corda node to connect to the new database following [Database schema setup](../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database-admin.md) instructions
+* Create a database schema and configure a Corda node to connect to the new database following [Database schema setup]({{< relref "../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database-admin.md" >}}) instructions
 for a production system, or [Simplified database schema setup for development](node/operating/node-database-developer.md) instructions for development/testing purposes.
-Refer to [Understanding the node database](../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database.md) to decide which setup is more suitable.
-* Migrate data from H2 databaseThe migration from the H2 database requires a third party specialized tool.
+Refer to [Understanding the node database]({{< relref "../../../../../en/platform/corda/4.9/enterprise/node/operating/node-database.md" >}}) to decide which setup is more suitable.
+* Migrate data from the H2 database. The migration from the H2 database requires a third party specialized tool.
 Your organisation may need to purchase a licence to use the tool.
 Please contact R3 for further advice.
 * Follow the same CorDapp database upgrade steps (1-3) in [reusing an existing database](#reusing-an-existing-database).
@@ -95,8 +95,8 @@ Please contact R3 for further advice.
 
 CorDapps, contracts and states written for Corda 4.x are compatible with Corda Enterprise Edition 4.9, so upgrading
 existing Corda Community Edition nodes should be a simple case of updating the Corda JAR file.
-See node-upgrade-notes for general instructions on upgrading your node.
-For developer information on recompiling CorDapps against Corda Enterprise, see upgrade-notes.
+See [Upgrading a node](node-upgrade-notes.md) for general instructions on upgrading your node.
+For developer information on recompiling CorDapps against Corda Enterprise, See [Upgrading a CorDapp to a newer platform version](app-upgrade-notes.md).
 
 ### Reusing an existing database
 

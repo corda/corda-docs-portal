@@ -80,7 +80,7 @@ The set of REST end-points for the network map service are as follows.
 ### Additional endpoints from R3
 
 Network maps hosted by R3 or other parties using R3’s commercial network management tools typically provide some
-additional endpoints for users. These additional endpoints can be found [here](../../../../../../en/platform/corda/1.5/cenm/network-map-overview.md).
+additional endpoints for users. These additional endpoints can be found [here]({{< relref "../../../../../../en/platform/corda/1.5/cenm/network-map-overview.md" >}}).
 
 HTTP is used for the network map service instead of Corda’s own AMQP based peer to peer messaging protocol to
 enable the server to be placed behind caching content delivery networks like Cloudflare, Akamai, Amazon Cloudfront and so on.
@@ -110,7 +110,7 @@ the network, along with the network parameters file and identity certificates. G
 online at once - an offline node that isn’t being interacted with doesn’t impact the network in any way. So a test
 cluster generated like this can be sized for the maximum size you may need, and then scaled up and down as necessary.
 
-More information can be found in [Network Bootstrapper](../network-bootstrapper.md).
+More information can be found in [Network Bootstrapper]({{< relref "../network-bootstrapper.md" >}}).
 
 
 
@@ -193,7 +193,7 @@ Read more about package ownership in the [Package namespace ownership](../node/d
 
 
 {{< note >}}
-To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.9, see [Corda versioning](../cordapps/versioning.md).
+To determine which *minimumPlatformVersion* a zone must mandate in order to permit all the features of Corda 4.9, see [Corda versioning]({{< relref "../cordapps/versioning.md" >}}).
 
 {{< /note >}}
 More parameters will be added in future releases to regulate things like allowed port numbers, whether or not IPv6
@@ -291,7 +291,7 @@ be used in the early stages when it’s possible to deduce the members of a busi
 joined the Network, this feature will be turned off and previously private nodes will be made visible in the public network map.
 
 An additional REST `/network-map/{uuid}` endpoint serving private network maps was introduced. For nodes to be able to query
-that information automatically you need to change `node.conf` to include private network UUIDs in `extraNetworkMapKeys` see [Node configuration](../node/setup/corda-configuration-file.md).
+that information automatically you need to change `node.conf` to include private network UUIDs in `extraNetworkMapKeys` see [Node configuration]({{< relref "../node/setup/corda-configuration-file.md" >}}).
 
 From the node operator’s perspective the process is simple. During the initial registration the Compatibility Zone operator will
 mark the node as belonging to the private network map and will provide the node operator with UUID that should be put in the node’s config file.

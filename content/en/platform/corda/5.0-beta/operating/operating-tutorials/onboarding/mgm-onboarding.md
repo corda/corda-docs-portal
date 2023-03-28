@@ -22,16 +22,16 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export RPC_HOST=localhost
-   export RPC_PORT=8888
+   export REST_HOST=localhost
+   export REST_PORT=8888
    export P2P_GATEWAY_HOST=localhost
    export P2P_GATEWAY_PORT=8080
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $RPC_HOST = "localhost"
-   $RPC_PORT = 8888
+   $REST_HOST = "localhost"
+   $REST_PORT = 8888
    $P2P_GATEWAY_HOST = "localhost"
    $P2P_GATEWAY_PORT = 8080
    $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("admin:admin" -f $username,$password)))
@@ -53,12 +53,12 @@ is the namespace that the Corda cluster is deployed within, you can set `$P2P_GA
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export API_URL="https://$RPC_HOST:$RPC_PORT/api/v1"
+   export API_URL="https://$REST_HOST:$REST_PORT/api/v1"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $API_URL="https://$RPC_HOST:$RPC_PORT/api/v1"
+   $API_URL="https://$REST_HOST:$REST_PORT/api/v1"
    ```
    }
    {{% /tab %}}
@@ -142,7 +142,7 @@ Add-Content $WORK_DIR/GroupPolicy.json @"
 
 ## Build the CPI
 
-Build a CPI using the Corda CLI packaging plugin, passing in your generated MGM `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section](../../../developing/development-tutorials/cordapp-packaging.md).
+Build a CPI using the Corda CLI packaging plugin, passing in your generated MGM `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section]({{< relref "../../../developing/development-tutorials/cordapp-packaging.md" >}}).
 
 ## Upload the CPI
 
@@ -297,13 +297,13 @@ To set up the TLS key pair and certificate for the cluster:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL"/certificates/p2p/"$TLS_KEY_ID > "$WORK_DIR"/request1.csr
+   curl -k -u admin:admin  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London, O=Org", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $API_URL"/certificates/p2p/"$TLS_KEY_ID > "$WORK_DIR"/request1.csr
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
    Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/certificates/p2p/$TLS_KEY_ID" -Body (ConvertTo-Json @{
-       x500Name = "CN=CordaOperator, C=GB, L=London"
+       x500Name = "CN=CordaOperator, C=GB, L=London, O=Org"
        subjectAlternativeNames = @($P2P_GATEWAY_HOST)
    }) > $WORK_DIR/request1.csr
    ```
@@ -315,7 +315,7 @@ To set up the TLS key pair and certificate for the cluster:
    openssl req -text -noout -verify -in ./request1.csr
    ```
    The contents should resemble the following:
-   ```properties
+   ```shell
    -----BEGIN CERTIFICATE REQUEST-----
    MIIDkjCCAfwCAQAwLjELMAkGA1UEBhMCR0IxDzANBgNVBAcTBkxvbmRvbjEOMAwG
    A1UEAxMFQWxpY2UwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQChJ9CW
@@ -365,7 +365,10 @@ To set up the TLS key pair and certificate for the cluster:
    {{< /note >}}
 
 ### Disable Revocation Checks
-If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks. By default, revocation checks are enabled.
+If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks:
+* [Disable Revocation Checks Using Bash](#disable-revocation-checks-using-bash)
+* [Disable Revocation Checks Using PowerShell](#disable-revocation-checks-using-powershell)
+By default, revocation checks are enabled.
 This only needs to be done once per cluster.
 
 #### Disable Revocation Checks Using Bash
@@ -417,7 +420,8 @@ The examples in this section set `corda.group.key.session.policy` to `Distinct`,
 You can also optionally set the session certificate trustroot using the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`. However, when `corda.group.pki.session` is set to `NoPKI`, the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates](session-certificates.html).
 
 {{< note >}}
-If using session certificates for the P2P layer, see [Configuring Optional Session Certificates](session-certificates.html#build-registration-context-for-mgm-registration) for information about the additional JSON fields required.
+* If using session certificates for the P2P layer, see [Configuring Optional Session Certificates](session-certificates.html#build-registration-context-for-mgm-registration) for information about the additional JSON fields required.
+* If using mutual TLS, you must set the `corda.group.tls.type` field to `Mutual`. For more information, see [Configuring Mutual TLS](mutual-tls.html#set-the-tls-type-in-the-mgm-context). 
 {{< /note >}}
 
 ### Build Registration Context Using Bash
@@ -435,6 +439,7 @@ export REGISTRATION_CONTEXT='{
   "corda.group.key.session.policy": "Distinct",
   "corda.group.pki.session": "NoPKI",
   "corda.group.pki.tls": "Standard",
+  "corda.group.tls.type": "OneWay",
   "corda.group.tls.version": "1.3",
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
   "corda.endpoints.0.protocolVersion": "1",
@@ -486,6 +491,7 @@ curl --insecure -u admin:admin -d '{ "memberRegistrationRequest": { "action": "r
   "corda.group.key.session.policy": "Distinct",
   "corda.group.pki.session": "NoPKI",
   "corda.group.pki.tls": "Standard",
+  "corda.group.tls.type": "OneWay",
   "corda.group.tls.version": "1.3",
   "corda.endpoints.0.connectionURL": "https://localhost:8080",
   "corda.endpoints.0.protocolVersion": "1",

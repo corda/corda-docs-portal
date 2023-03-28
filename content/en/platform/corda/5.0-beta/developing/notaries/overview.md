@@ -12,11 +12,11 @@ section_menu: corda-5-beta
 
 This section outlines what you need to know to get a notary up and running on a Corda 5 application network.
 
-* [Network Member Roles](../notaries/network-member-roles.md)
-* [Notary Plugin CorDapps](../notaries/plugin-cordapps-notary.md)
-* [CSDE Environment](../notaries/csde.md)
+* [Network Member Roles]({{< relref "../notaries/network-member-roles.md" >}})
+* [Notary Plugin CorDapps]({{< relref "../notaries/plugin-cordapps-notary.md" >}})
+* [CSDE Environment]({{< relref "../notaries/csde.md" >}})
 
-For information on deploying notary virtual nodes to your network, see the [Notary Deployment](../../deploying/notaries/notary-deployment.md) section.
+For information on deploying notary virtual nodes to your network, see the [Notary Deployment]({{< relref "../../deploying/notaries/notary-deployment.md" >}}) section.
 
 ## Points to Note for the Corda 5 Beta Release
 

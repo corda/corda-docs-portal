@@ -25,7 +25,7 @@ database vendor - ensure that the configuration matches the database name.
 
 The JPA notary uses the Java Persistence API (JPA) interface to connect to the notary state database. For performance
 and ease of operation, the recommended database is CockroachDB 19.1.2. The full set of supported configurations is
-listed in the [Platform support matrix](../platform-support-matrix.md).
+listed in the [Platform support matrix]({{< relref "../platform-support-matrix.md" >}}).
 
 {{< note >}}
 Please note that CockroachDB is not supported by the Corda Database Management Tool. It is recommended that
@@ -288,12 +288,14 @@ service has been tested with driver version 42.2.7. This JAR file should be plac
 ### Connection string
 
 The properties specifying the location of the client certificates must be passed in via the JDBC connection
-string. It will not be possible to pass them in as configuration properties. See below for an example connection
-string.
+string. It is not possible to pass them in as configuration properties. See below for an example connection string.
 
+{{< note >}}
+The `dataSource.url` property must specify a _minimum_ of three nodes. Each node in the connection string must end with port number 26257.
+{{</ note >}}
 
 ```javascript
-dataSource.url="jdbc:postgresql://{list of CockroachDB node IP addresses}:26257/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8"
+dataSource.url="jdbc:postgresql://<CockroachDB-node1-IP-address>:26257,<CockroachDB-node2-IP-address>:26257,<CockroachDB-node3-IP-address>:26257/corda?sslmode=require&sslrootcert=certificates/ca.crt&sslcert=certificates/client.corda.crt&sslkey=certificates/client.corda.key.pk8"
 ```
 
 Refer to the section [Configuring the notary worker nodes](installing-the-notary-service.md) for more details on configuring the JPA notary.

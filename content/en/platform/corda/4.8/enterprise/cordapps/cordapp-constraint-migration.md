@@ -14,7 +14,7 @@ weight: 4
 # CorDapp constraints migration
 
 {{< note >}}
-Before reading this page, you should be familiar with the key concepts of [Contract Constraints](../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.md).
+Before reading this page, you should be familiar with the key concepts of [Contract Constraints]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/api-contract-constraints.md" >}}).
 {{< /note >}}
 
 Corda 4 introduces and recommends building signed CorDapps that issue states with signature constraints. When building transactions in Corda 4, existing on-ledger states that were issued before Corda 4 are only automatically transitioned to the new Signature Constraint if they were originally using the CZ Whitelisted Constraint. Here, we explain how to modify existing CorDapp flows to explicitly consume and evolve pre Corda 4 states.
@@ -125,15 +125,15 @@ These instructions only apply to CorDapp Contract JARs (unless otherwise stated)
 Corda 4.5 requires some additional steps to consume and evolve pre-existing on-ledger **CZ whitelisted** constrained states:
 
 
-* As the original developer of the CorDapp, the first step is to sign the latest version of the JAR that was released (see [Building and installing a CorDapp](../../../../../../en/platform/corda/4.8/enterprise/cordapps/cordapp-build-systems.md)).
+* As the original developer of the CorDapp, the first step is to sign the latest version of the JAR that was released (see [Building and installing a CorDapp]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/cordapps/cordapp-build-systems.md" >}})).
 The key used for signing will be used to sign all subsequent releases, so it should be stored appropriately. The JAR can be signed by multiple keys owned
-by different parties and it will be expressed as a `CompositeKey` in the `SignatureAttachmentConstraint` (see [API: Core types](../../../../../../en/platform/corda/4.8/enterprise/api-core-types.md)).
+by different parties and it will be expressed as a `CompositeKey` in the `SignatureAttachmentConstraint` (see [API: Core types]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/api-core-types.md" >}})).
 * The new Corda 4 signed CorDapp JAR must be registered with the CZ network operator (as whitelisted in the network parameters which are distributed
 to all nodes in that CZ). The CZ network operator should check that the JAR is signed and not allow any more versions of it to be whitelisted in the future.
 From now on the development organisation that signed the JAR is responsible for signing new versions. The process of CZ network CorDapp whitelisting depends on how the Corda network is configured:
 
-* If using a hosted CZ network (such as [Corda Network Production environment](../../../../../../en/platform/corda/4.8/enterprise/corda-network/the-corda-network.md) or
-[Corda Network Pre-Production environment](../../../../../../en/platform/corda/4.8/enterprise/corda-network/uat.md)) running an Identity Operator (formerly known as Doorman) and
+* If using a hosted CZ network (such as [Corda Network Production environment]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/corda-network/the-corda-network.md" >}}) or
+[Corda Network Pre-Production environment]({{< relref "../../../../../../en/platform/corda/4.8/enterprise/corda-network/uat.md" >}})) running an Identity Operator (formerly known as Doorman) and
 Network Map Service, you should manually send the hashes of the two JARs to the CZ network operator and request these be added using
 their network parameter update process.
 * If using a local network created using the Network Bootstrapper tool, please follow the instructions in

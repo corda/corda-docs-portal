@@ -13,7 +13,7 @@ weight: 4
 
 # Recording of RPC audit data
 
-In this section, you will learn how the node records [Remote Procedure Call (RPC)](../../api-rpc.md) audit data.
+In this section, you will learn how the node records [Remote Procedure Call (RPC)]({{< relref "../../api-rpc.md" >}}) audit data.
 
 This feature is distributed as part of Corda Enterprise.
 
@@ -55,4 +55,4 @@ The current `AuditService` configuration supports the following audit types:
 
 ## Collecting RPC audit data
 
-In addition to recording RPC Audit Data it will also be useful to collect information on any data recorded.  See the [RPC Audit Data Collector](../operating/monitoring-and-logging/rpc-audit-collector.md) page for details on this.
+In addition to recording RPC Audit Data it will also be useful to collect information on any data recorded.  See the [RPC Audit Data Collector]({{< relref "../operating/monitoring-and-logging/rpc-audit-collector.md" >}}) page for details on this.

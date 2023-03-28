@@ -14,6 +14,14 @@ This section describes the onboarding process for [static networks](../../../dep
 Static networks do not use an [MGM](../../../introduction/key-concepts.html#membership-management). If you require an MGM, see [Dynamic Onboarding](dynamic-onboarding.html).
 {{< /note >}}
 
+To run a static network, you must complete the following high-level steps:
+1. [Start a Corda cluster](../../../deploying/deployment-tutorials/deploy-corda-cluster.html).
+2. [Define the members in the group in the GroupPolicy.json file](#create-the-group-policy-file).
+3. [Package the GroupPolicy.json file into a CPI](#create-a-cpi).
+4. [Upload the CPI to your cluster](#upload-the-cpi).
+5. [Create a virtual node in your cluster for each member defined in the group policy file](#create-virtual-nodes-for-each-member).
+6. [Register each member in the group](#register-members).
+
 ## Create the Group Policy File
 
 Use the [Corda CLI](../../../developing/getting-started/installing-corda-cli.html) to generate a [GroupPolicy.json file](../../../deploying/group-policy.html#static-network-member-group-policy), where `group-policy-folder` is the path to the folder in which you want to generate the file:
@@ -23,7 +31,7 @@ corda-cli.sh mgm groupPolicy --name="C=GB, L=London, O=Alice" --name="C=GB, L=Lo
 
 ## Create a CPI
 
-Build a CPI using the Corda CLI packaging plugin, passing in your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section](../../../developing/development-tutorials/cordapp-packaging.md).
+Build a CPI using the Corda CLI packaging plugin, passing in your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section]({{< relref "../../../developing/development-tutorials/cordapp-packaging.md" >}}).
 
 ## Upload the CPI
 

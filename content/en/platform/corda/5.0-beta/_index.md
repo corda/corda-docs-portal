@@ -1,112 +1,28 @@
 ---
 date: '2022-11-23'
 description: "Documentation for the latest beta release for Corda 5.0"
-title: Corda 5.0 Beta 1
+title: Corda 5.0 Beta 2
 project: corda
-version: 'Corda 5.0 Beta 1'
+version: 'Corda 5.0 Beta 2'
 section_menu: corda-5-beta
 menu:
   versions:
     weight: -652
   corda-5-beta:
     weight: 1000
-    name: Corda 5.0 Beta 1
+    name: Corda 5.0 Beta 2
 ---
-<section class="section" style="text-align:center; color:white; background-image:url('5.0-beta/icons/bg-dark.jpg');">
-  <h1>
-    Corda 5.0 Beta 1
-  </h1>
-</section>
-<section class="section">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5">
-<div class="col">
-  <div class="card h-100">
-    <div class="card-body">
-      <h3 class="card-title">
-      <a href="5.0-beta/introduction/introduction.html">
-      <img src="5.0-beta/icons/corda.svg" alt="Introduction" style="padding: 1rem; border: 0;" class="light-only" height="124">
-      <img src="5.0-beta/icons/corda.svg" alt="Introduction" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-      <span>Introduction</span></h3></a>
-    </div>
-  </div>
-</div>
-<div class="col">
-       <div class="card h-100">
-         <div class="card-body">
-           <h3 class="card-title">
-           <a href="5.0-beta/developing/overview.html">
-            <img src="5.0-beta/icons/develop.png" alt="Developing" style="padding: 1rem; border: 0;" class="light-only" height="124">
-            <img src="5.0-beta/icons/develop.png" alt="Developing" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-             <span>Developing</span></h3></a>
-         </div>
-       </div>
-</div>
-<div class="col">
-  <div class="card h-100">
-    <div class="card-body">
-      <h3 class="card-title">
-      <a href="5.0-beta/deploying/overview.html">
-          <img src="5.0-beta/icons/deploy.png" alt="Deploy" style="padding: 1rem; border: 0;" class="light-only" height="124">
-              <img src="5.0-beta/icons/deploy.png" alt="Deploy" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-        <span>Deploying</span></h3></a>
-    </div>
-  </div>
-</div>
-<div class="col">
-  <div class="card h-100">
-    <div class="card-body">
-      <h3 class="card-title">
-      <a href="5.0-beta/operating/overview.html">
-          <img src="5.0-beta/icons/operate.png" alt="Operate" style="padding: 1rem; border: 0;" class="light-only" height="124">
-          <img src="5.0-beta/icons/operate.png" alt="Operate" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-        <span>Operating</span></h3></a>
-    </div>
-  </div>
-</div>
-<div class="col">
-  <div class="card h-100">
-    <div class="card-body">
-      <h3 class="card-title">
-      <a href="5.0-beta/corda-cli-reference/overview.html">
-          <img src="5.0-beta/icons/corda-cli.png" alt="Corda CLI Reference" style="padding: 1rem; border: 0;" class="light-only" height="124">
-          <img src="5.0-beta/icons/corda-cli.png" alt="Corda CLI Reference" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-        <span>Corda CLI Reference</span></h3></a>
-    </div>
-  </div>
-</div>
-<div class="col">
-  <div class="card h-100">
-    <div class="card-body">
-      <h3 class="card-title">
-      <a href="../../../../../../en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html" target="_blank">
-          <img src="5.0-beta/icons/API.png" alt="REST API" style="padding: 1rem; border: 0;" class="light-only" height="124">
-          <img src="5.0-beta/icons/API.png" alt="REST API" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-        <span>REST API Reference</span></h3></a>
-    </div>
-  </div>
-</div>
-<!--
-<div class="col">
-  <div class="card h-100">
-    <div class="card-body">
-      <h3 class="card-title">
-      <a href="5.0-beta/use-cases/overview.html">
-      <img src="5.0-beta/icons/use-cases.png" alt="Release notes" style="padding: 1rem; border: 0;" class="light-only" height="124">
-      <img src="5.0-beta/icons/use-cases.png" alt="Release notes" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-        <span>Use Cases</span></h3></a>
-    </div>
-  </div>
-</div>
--->
-<div class="col">
-  <div class="card h-100">
-    <div class="card-body">
-      <h3 class="card-title">
-      <a href="5.0-beta/release-notes/release-notes-c5-1.1.html">
-      <img src="5.0-beta/icons/release-notes.png" alt="Release notes" style="padding: 1rem; border: 0;" class="light-only" height="124">
-      <img src="5.0-beta/icons/release-notes.png" alt="Release notes" style="background: #202020; padding: 1rem; border: 0;" class="dark-only" height="124"></br>
-              <span>Release Notes</span></h3></a>
-    </div>
-  </div>
-</div>
-</section>
+
+## Next-Gen Corda 5.0 - Beta 2.0
+
+Corda is a platform that enables you to build permissioned networks, create applications that solve a business problem that requires parties to come to some agreement, and interact in a completely secure ecosystem. Corda 5 is the next-generation version, designed with an understanding that it is the job of a platform to serve those running software on it.
+
+For Developers, Corda 5 is an accessible toolbox with well-defined layers that enables you to create solutions. It does not force complexity or concepts, but gives a streamlined iteration for the testing and development loop. It is supported by RESTful APIs.
+
+As an operator of a network, Corda 5 places the control in your hands, acknowledging that the rules governing access to a network are best set and managed by you. Deployments can match the scale of the problem and then grow and adapt as it changes. It is cloud-native; behaving as any other modern application, with the tooling to match.
+
+{{< warning >}}
+Corda 5.0 Beta is, as the name suggests, a pre-release version for testing purposes only.
+If you are not part of the current beta program, the Corda 5.0 Beta documentation is for information only. 
+Contact R3 to register your interest in joining the beta program.
+{{< /warning >}}

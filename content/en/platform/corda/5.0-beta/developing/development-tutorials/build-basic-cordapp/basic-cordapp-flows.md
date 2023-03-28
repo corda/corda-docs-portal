@@ -25,7 +25,7 @@ After you have completed this tutorial, you will know how to write and implement
 
 ## Before You Start
 
-Before you start writing flows, read more about [flows](../../ledger/flows.md).
+Before you start writing flows, read more about [flows]({{< relref "../../ledger/flows.md" >}}).
 
 ## Write the `CreateAndIssueAppleStampFlow`
 
@@ -41,16 +41,16 @@ The `CreateAndIssueAppleStampFlow` action requires interaction between the issue
 Add the `CreateAndIssueAppleStampFlow` class to `net/cordapp/utxo/apples/flowsnet/cordapp/utxo/apples/flows/issue`.
 
 
-#### Make the `CreateAndIssueAppleStampFlow` Startable by RPC
+#### Make the `CreateAndIssueAppleStampFlow` Startable by REST
 
-Add the `RPCStartableFlow` to the `CreateAndIssueAppleStampFlow`.
+Add the `ClientStartableFlow` to the `CreateAndIssueAppleStampFlow`.
 
-This allows the flow to be started by RPC. You must implement this interface if you want to trigger the flow with RPC via Corda’s HTTP endpoints.
+This allows the flow to be started by REST. You must implement this interface if you want to trigger the flow with REST via Corda’s HTTP endpoints.
 
 So far your code should look like this:
 
 ```kotlin
-class CreateAndIssueAppleStampFlow : RPCStartableFlow
+class CreateAndIssueAppleStampFlow : ClientStartableFlow
 ```
 
 #### Allow `CreateAndIssueAppleStampFlow` to Initiate Flows with Peers
@@ -65,13 +65,13 @@ So far your code should look like this:
 
 ```kotlin
 @InitiatingFlow(protocol = "create-and-issue-apple-stamp")
-class CreateAndIssueAppleStampFlow : RPCStartableFlow
+class CreateAndIssueAppleStampFlow : ClientStartableFlow
 ```
 
 
 #### Add the `call` Method
 
-1. Add the `call` method with an `RPCRequestData` argument and `String` return type (that `RPCStartableFlow` requires implemented).
+1. Add the `call` method with an `ClientRequestBody` argument and `String` return type (that `ClientStartableFlow` requires implemented).
 
 2. Add the `@Suspendable` annotation.
 
@@ -83,10 +83,10 @@ Your code should now look like this:
 
 ```kotlin
 @InitiatingFlow(protocol = "create-and-issue-apple-stamp")
-class CreateAndIssueAppleStampFlow : RPCStartableFlow {
+class CreateAndIssueAppleStampFlow : ClientStartableFlow {
 
     @Suspendable
-    override fun call(requestBody: RPCRequestData): String {
+    override fun call(requestBody: ClientRequestBody): String {
 
     }
 }
@@ -101,7 +101,7 @@ Add the following code to inject the services required by this flow. This code a
 
 ```kotlin
 @InitiatingFlow(protocol = "create-and-issue-apple-stamp")
-class CreateAndIssueAppleStampFlow : RPCStartableFlow {
+class CreateAndIssueAppleStampFlow : ClientStartableFlow {
 
     @CordaInject
     lateinit var flowMessaging: FlowMessaging
@@ -119,7 +119,7 @@ class CreateAndIssueAppleStampFlow : RPCStartableFlow {
     lateinit var utxoLedgerService: UtxoLedgerService
 
     @Suspendable
-    override fun call(requestBody: RPCRequestData): String {
+    override fun call(requestBody: ClientRequestBody): String {
 
     }
 }
@@ -128,7 +128,7 @@ class CreateAndIssueAppleStampFlow : RPCStartableFlow {
 
 #### Extract the `CreateAndIssueAppleStampFlow`'s Request Parameters
 
-`RPCRequestData` contains the flow’s request parameters passed in via HTTP. To extract the data from the RPCRequestData, you should create a class that represents the data.
+`ClientRequestBody` contains the flow’s request parameters passed in via HTTP. To extract the data from the ClientRequestBody, you should create a class that represents the data.
 
 1. Create `CreateAndIssueAppleStampRequest` with the following properties:
 
@@ -144,7 +144,7 @@ data class CreateAndIssueAppleStampRequest(
 )
 ```
 
-2. To extract the request data into a `CreateAndIssueAppleStampRequest`, add `RPCRequestData.getRequestBodyAs` to `CreateAndIssueAppleStampFlow`.
+2. To extract the request data into a `CreateAndIssueAppleStampRequest`, add `ClientRequestBody.getRequestBodyAs` to `CreateAndIssueAppleStampFlow`.
 
 3. Add variables for `stampDescription` and `holderName` and extract them from the `CreateAndIssueAppleStampRequest` instance.
 
@@ -152,7 +152,7 @@ Your code should now look like this:
 
 ```kotlin
 @InitiatingFlow(protocol = "create-and-issue-apple-stamp")
-class CreateAndIssueAppleStampFlow : RPCStartableFlow {
+class CreateAndIssueAppleStampFlow : ClientStartableFlow {
 
     @CordaInject
     lateinit var flowMessaging: FlowMessaging
@@ -170,7 +170,7 @@ class CreateAndIssueAppleStampFlow : RPCStartableFlow {
     lateinit var utxoLedgerService: UtxoLedgerService
 
     @Suspendable
-    override fun call(requestBody: RPCRequestData): String {
+    override fun call(requestBody: ClientRequestBody): String {
         val request = requestBody.getRequestBodyAs<CreateAndIssueAppleStampRequest>(jsonMarshallingService)
         val stampDescription = request.stampDescription
         val holderName = request.holder
@@ -412,8 +412,8 @@ package net.cordapp.utxo.apples.flows.issue
 
 import net.corda.v5.application.flows.CordaInject
 import net.corda.v5.application.flows.InitiatingFlow
-import net.corda.v5.application.flows.RPCRequestData
-import net.corda.v5.application.flows.RPCStartableFlow
+import net.corda.v5.application.flows.ClientRequestBody
+import net.corda.v5.application.flows.ClientStartableFlow
 import net.corda.v5.application.flows.getRequestBodyAs
 import net.corda.v5.application.marshalling.JsonMarshallingService
 import net.corda.v5.application.membership.MemberLookup
@@ -429,7 +429,7 @@ import java.time.temporal.ChronoUnit
 import java.util.UUID
 
 @InitiatingFlow(protocol = "create-and-issue-apple-stamp")
-class CreateAndIssueAppleStampFlow : RPCStartableFlow {
+class CreateAndIssueAppleStampFlow : ClientStartableFlow {
 
     @CordaInject
     lateinit var flowMessaging: FlowMessaging
@@ -447,7 +447,7 @@ class CreateAndIssueAppleStampFlow : RPCStartableFlow {
     lateinit var utxoLedgerService: UtxoLedgerService
 
     @Suspendable
-    override fun call(requestBody: RPCRequestData): String {
+    override fun call(requestBody: ClientRequestBody): String {
         val request = requestBody.getRequestBodyAs<CreateAndIssueAppleStampRequest>(jsonMarshallingService)
         val stampDescription = request.stampDescription
         val holderName = request.holder
@@ -568,8 +568,8 @@ data class PackApplesRequest(val appleDescription: String, val weight: Int)
 package net.cordapp.utxo.apples.flows.pack
 
 import net.corda.v5.application.flows.CordaInject
-import net.corda.v5.application.flows.RPCRequestData
-import net.corda.v5.application.flows.RPCStartableFlow
+import net.corda.v5.application.flows.ClientRequestBody
+import net.corda.v5.application.flows.ClientStartableFlow
 import net.corda.v5.application.flows.getRequestBodyAs
 import net.corda.v5.application.marshalling.JsonMarshallingService
 import net.corda.v5.application.membership.MemberLookup
@@ -582,7 +582,7 @@ import net.cordapp.utxo.apples.contracts.BasketOfApplesContract
 import java.time.Instant
 import java.time.temporal.ChronoUnit
 
-class PackApplesFlow : RPCStartableFlow {
+class PackApplesFlow : ClientStartableFlow {
 
     @CordaInject
     lateinit var jsonMarshallingService: JsonMarshallingService
@@ -597,7 +597,7 @@ class PackApplesFlow : RPCStartableFlow {
     lateinit var utxoLedgerService: UtxoLedgerService
 
     @Suspendable
-    override fun call(requestBody: RPCRequestData): String {
+    override fun call(requestBody: ClientRequestBody): String {
         val request = requestBody.getRequestBodyAs<PackApplesRequest>(jsonMarshallingService)
         val appleDescription = request.appleDescription
         val weight = request.weight
@@ -673,8 +673,8 @@ package net.cordapp.utxo.apples.flows.redeem
 
 import net.corda.v5.application.flows.CordaInject
 import net.corda.v5.application.flows.InitiatingFlow
-import net.corda.v5.application.flows.RPCRequestData
-import net.corda.v5.application.flows.RPCStartableFlow
+import net.corda.v5.application.flows.ClientRequestBody
+import net.corda.v5.application.flows.ClientStartableFlow
 import net.corda.v5.application.flows.getRequestBodyAs
 import net.corda.v5.application.marshalling.JsonMarshallingService
 import net.corda.v5.application.membership.MemberLookup
@@ -690,7 +690,7 @@ import java.time.Instant
 import java.time.temporal.ChronoUnit
 
 @InitiatingFlow(protocol = "redeem-apples")
-class RedeemApplesFlow : RPCStartableFlow {
+class RedeemApplesFlow : ClientStartableFlow {
 
     @CordaInject
     lateinit var flowMessaging: FlowMessaging
@@ -708,7 +708,7 @@ class RedeemApplesFlow : RPCStartableFlow {
     lateinit var utxoLedgerService: UtxoLedgerService
 
     @Suspendable
-    override fun call(requestBody: RPCRequestData): String {
+    override fun call(requestBody: ClientRequestBody): String {
         val request = requestBody.getRequestBodyAs<RedeemApplesRequest>(jsonMarshallingService)
         val buyerName = request.buyer
         val stampId = request.stampId
