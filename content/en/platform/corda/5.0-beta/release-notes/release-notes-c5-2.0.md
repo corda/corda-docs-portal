@@ -11,8 +11,16 @@ section_menu: corda-5-beta
 
 ## New Features and Enhancements
 
+<style>
+table th:first-of-type {
+    width: 30%;
+}
+table th:nth-of-type(2) {
+    width: 70%;
+}
+</style>
 
-| <div style="width:160px">Change Topic </div> | Specific Change                                    | 
+| Topic | Specific Change                                    | 
 | -------------------------------------------- | -------------------------------------------------- |
 | **Deployment**                               | **Mutual TLS** - It is now possible to configure Corda cluster gateways to connect with each other using [mutual TLS]({{< relref "../operating/mutual-tls-connections.md" >}}). The TLS mode (mutual or one-way) is defined in the gateway configuration and applies to the entire cluster, including all members in all groups hosted on the cluster. R3 recommend using the default non-mutual TLS mode as it is more extensible. |
 |                                              | **Gateway Address** - It is now possible to use the IP address for gateway endpoints. Using the DNS name is also still supported.|
@@ -21,9 +29,9 @@ section_menu: corda-5-beta
 | **CorDapp Development**                      | **Java API** - The Kotlin API has been replaced with a Java API. As a result, existing CorDapps must be adapted. Kotlin and Java developers can now use this API to build CorDapps. |
 |                                              | **Corda CLI** - Any worker and CLI long options that used camel case now use kebab case. This may require that existing scripts are updated. |
 |                                              | **Unauthenticated Message Logging** - A message ID field was added to unauthenticated messages. This is logged if there are issues delivering a message to identify the message that was not sent. |
-|                                              | **Sign Without Arguments** - `UtxoTransactionBuilder.toSignedTransaction(signatory: PublicKey)` and `ConsensualTransactionBuilder.toSignedTransaction(signatory: PublicKey)` have been removed. New versions without arguments are now available. These sign with all the available required keys. |
-|                                              | **Transaction Notary** - `UtxoLedgerTx.notary` is now available. This is the notary used for notarising this transaction. |
-|                                              | **UtxoLedgerService** - `UtxoLedgerService.resolve()` functions have been added to the API. | 
+|                                              | **Transaction Builder Signing** - `UtxoTransactionBuilder.toSignedTransaction(signatory: PublicKey)` and `ConsensualTransactionBuilder.toSignedTransaction(signatory: PublicKey)` have been removed. New versions of these methods without arguments are now available. These new versions sign using all of the available required keys when generating a transaction, removing the need to specify particular keys. |
+|                                              | **Transaction Notary Property** - The `UtxoLedgerTransaction.notary` property has been exposed. This is the notary used for notarising this transaction. |
+|                                              | **UtxoLedgerService** - The following functions have been added to resolve the specified `StateRef` instances into `StateAndRef` instances of the specified `ContractState` type:<ul><li>`UtxoLedgerService.resolve(StateRef)`</li><li>`UtxoLedgerService.resolve(Iterable<StateRef>)`</li><ul>| 
 |                                              | **Crypto API** - `SignatureSpec` is now an explicit field in `DigitalSignatureMetadata`. Previously, in order to add the signature spec, it was necessary to include it in `DigitalSignatureMetadata.properties` map. |
 |                                              | **Find Signing Keys** - A new function, `findMySigningKeys`, has been added to the `SigningService` interface. This function checks a set of specified signing keys to find keys owned by the caller. In the case of `CompositeKey`, it checks the composite key leaves and returns the owned composite key leaf found first.  |
 | **Network Operation**                        | **Member Registration Approval** - A network operator can now configure membership groups so that the operator is required to manually approve (or decline) member registration requests. For more information, see [Member Registration Approval]({{< relref "../operating/registration-approval.md" >}}). |     
@@ -33,7 +41,7 @@ section_menu: corda-5-beta
 
 ## Resolved Issues
 
-| <div style="width:160px">Change Topic </div> | Specific Changes | 
+| Topic  | Specific Change | 
 | -------------------------------------------- | -------------------------------------------------- |
 | **CorDapp Development**                      | **Flows with Transient Errors** - Flows did not correctly handle transient errors while sessions were in progress. In some cases, the 'error' flag was cleared early by other events, incorrectly indicating that the error had been resolved. This flag can now only be cleared when the event that caused the transient error is retried.  |
 
