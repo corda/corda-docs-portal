@@ -17,8 +17,10 @@
 <h4><a href="-b-e-f-o-r-e_-s-t-a-t-e_-m-a-c-h-i-n-e_-s-t-a-r-t.html">BEFORE_STATE_MACHINE_START</a></h4>
 </td>
 <td>
-<p>This event is dispatched when State Machine is fully started such that <a href="../../net.corda.core.node/-app-service-hub/index.html">net.corda.core.node.AppServiceHub</a> available
-for <a href="../-corda-service/index.html">CordaService</a> to be use.</p>
+<p>This event is dispatched when the node is about to start the State Machine. The State Machine will not be started until
+all handlers return from processing this event.
+Handlers can delay the node start-up, and the processing of flows, by not returning from handling this event until their
+CorDapp is ready for flows to be started/resumed.</p>
 </td>
 </tr>
 <tr>
@@ -26,6 +28,8 @@ for <a href="../-corda-service/index.html">CordaService</a> to be use.</p>
 <h4><a href="-s-t-a-t-e_-m-a-c-h-i-n-e_-s-t-a-r-t-e-d.html">STATE_MACHINE_STARTED</a></h4>
 </td>
 <td>
+<p>This event is dispatched when State Machine is fully started such that <a href="../../net.corda.core.node/-app-service-hub/index.html">net.corda.core.node.AppServiceHub</a> available
+for <a href="../-corda-service/index.html">CordaService</a> to be use.</p>
 </td>
 </tr>
 </tbody>

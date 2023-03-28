@@ -11,7 +11,6 @@ section_menu: corda-5-beta
 
 ## New Features and Enhancements
 
-
 <style>
 table th:first-of-type {
     width: 30%;
