@@ -171,11 +171,6 @@ identifier = "cenm-1-5-public-key-infrastructure"
 name = "Public Key Infrastructure"
 weight = 300
 
-[[cenm-1-5-cenm-releases]]
-identifier = "cenm-1-5-7-legal-info"
-name = "CENM 1.5.7 Legal Info"
-weight = 131
-
 [[cenm-1-5]]
 identifier = "cenm-1-5-signing-plugin-samples"
 name = "Signing Plugin Samples"
