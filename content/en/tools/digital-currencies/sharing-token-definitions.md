@@ -15,3 +15,4 @@ title: "Sharing Token Definitions"
 
 Once a party [creates a token definition]({{< relref "creating-token-definitions.md" >}}), they can make other network participants be aware of this token definition state and allow other them to use this token definition state.
 
+An issuer can chose whether to share the token definition with every participant on the network, or only with specific participants.
