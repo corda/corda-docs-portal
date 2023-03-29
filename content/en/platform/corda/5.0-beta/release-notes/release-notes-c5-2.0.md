@@ -21,7 +21,7 @@ table th:nth-of-type(2) {
 }
 </style>
 
-| Topic | Specific Change                                    | 
+| Domain | Specific Change                                    | 
 | -------------------------------------------- | -------------------------------------------------- |
 | **Cluster Administration**                   | **Mutual TLS** - It is now possible to configure Corda clusters to use [mutual TLS]({{< relref "../operating/mutual-tls-connections.md" >}}). The TLS mode (mutual or one-way) is defined in the gateway configuration and applies to the entire cluster, including all members in all groups hosted on the cluster. R3 recommend using the default non-mutual TLS mode as it is more extensible. |
 |                                              | **Gateway Address** - It is now possible to use the IP address for gateway endpoints. Using the DNS name is also still supported.|
@@ -42,7 +42,7 @@ table th:nth-of-type(2) {
 
 ## Resolved Issues
 
-| Topic  | Specific Change | 
+| Domain  | Specific Change | 
 | -------------------------------------------- | -------------------------------------------------- |
 | **CorDapp Development**                      | **Flows with Transient Errors** - Flows did not correctly handle transient errors while sessions were in progress. In some cases, the 'error' flag was cleared early by other events, incorrectly indicating that the error had been resolved. This flag can now only be cleared when the event that caused the transient error is retried.  |
 
