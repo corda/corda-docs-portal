@@ -138,7 +138,7 @@ The upgrade process for 1.2.1 to 1.2.2 is a drop-in replacement of the existing 
 
  **Identity Manager**
 
-  The release includes changes to database schemas (see [Changelog](../../../../../en/platform/corda/1.2/cenm/changelog.md) for Oracle databases;
+  The release includes changes to database schemas (see [Changelog]({{< relref "../../../../../en/platform/corda/1.2/cenm/changelog.md" >}}) for Oracle databases;
   new columns are created automatically upon each service start-up.
   Ensure the Identity Manager is configured to perform this migration
   by setting ``runMigration`` property to ``true``.
@@ -153,7 +153,7 @@ The upgrade process for 1.2.1 to 1.2.2 is a drop-in replacement of the existing 
 
 ## 1.1 to 1.2
 
-The release includes changes to database schemas (see [Changelog](../../../../../en/platform/corda/1.2/cenm/changelog.md); new columns are created automatically
+The release includes changes to database schemas (see [Changelog]({{< relref "../../../../../en/platform/corda/1.2/cenm/changelog.md" >}}); new columns are created automatically
 upon each service start-up. Ensure the Identity Manager and Network Map are configured to perform this migration
 by setting `runMigration` property to `true`.
 

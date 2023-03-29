@@ -17,9 +17,9 @@ title: Gateway Service
 # Gateway Service
 
 
-The Gateway Service provides a transfer layer between front-end Corda Enterprise Network Manager (CENM) interfaces, and the [Auth Service](../../../../../en/platform/corda/1.4/cenm/auth-service.md) that underpins authentication and authorisation in CENM.
+The Gateway Service provides a transfer layer between front-end Corda Enterprise Network Manager (CENM) interfaces, and the [Auth Service]({{< relref "../../../../../en/platform/corda/1.4/cenm/auth-service.md" >}}) that underpins authentication and authorisation in CENM.
 
-Once installed and configured, users can connect with the Gateway Service via the [CENM CLI Tool](../../../../../en/platform/corda/1.4/cenm/cenm-cli-tool.md) to manage CENM service tasks. Administrators can use the Gateway Service address plus `/admin` to access the (CENM User Admin Tool)[user-admin] via a web browser.
+Once installed and configured, users can connect with the Gateway Service via the [CENM CLI Tool]({{< relref "../../../../../en/platform/corda/1.4/cenm/cenm-cli-tool.md" >}}) to manage CENM service tasks. Administrators can use the Gateway Service address plus `/admin` to access the (CENM User Admin Tool)[user-admin] via a web browser.
 
 {{< warning >}}
 The Gateway Service does not need its own database - so there is no database configuration required when you are setting up.
@@ -38,9 +38,9 @@ When you configure the Gateway Service, you need to:
 
 1. Specify the endpoint where the Auth service is exposed - this must match the IP or host name of the machine/VM/container and the port that is configured in the Auth Service config file.
 
-2. Specify the SSL configuration for connecting to the Auth service. You can do this using the [PKI tool](../../../../../en/platform/corda/1.4/cenm/pki-tool.md).
+2. Specify the SSL configuration for connecting to the Auth service. You can do this using the [PKI tool]({{< relref "../../../../../en/platform/corda/1.4/cenm/pki-tool.md" >}}).
 
-3. Your authentication credentials, as specified in your [Auth Service configuration](../../../../../en/platform/corda/1.4/cenm/auth-service.md).
+3. Your authentication credentials, as specified in your [Auth Service configuration]({{< relref "../../../../../en/platform/corda/1.4/cenm/auth-service.md" >}}).
 
 4. Your Zone Service address.
 
