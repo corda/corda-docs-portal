@@ -11,8 +11,6 @@ tags:
 title: Third-party software notices and licence information - CENM 1.5.6
 ---
 
-# Corda Enterprise Network Manager 1.5.6 third-party software notices and licence information
-
 **Do not translate or localise.**
 
 ## org.apache.commons : commons-lang3 : 3.9
