@@ -1,10 +1,6 @@
 ---
 title: "Corda Enterprise Edition 4.10 release files and checksums"
-<<<<<<< HEAD
 date: '2023-03-29'
-=======
-date: '2023-03-27'
->>>>>>> 1f51ce70e037bde1aa4e4169ac2a9c634ee45f6a
 menu:
   corda-enterprise-4-10:
     parent: corda-enterprise-4-10-release-notes
