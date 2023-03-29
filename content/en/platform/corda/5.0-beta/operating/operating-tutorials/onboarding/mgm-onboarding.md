@@ -421,7 +421,7 @@ You can also optionally set the session certificate trustroot using the property
 
 {{< note >}}
 * If using session certificates for the P2P layer, see [Configuring Optional Session Certificates](session-certificates.html#build-registration-context-for-mgm-registration) for information about the additional JSON fields required.
-* If using mutual TLS, you must set the `corda.group.tls.type` field to `Mutual`. For more information, see [Configuring Mutual TLS](mutual-tls.html#set-the-tls-type-in-the-mgm-context). 
+* If using mutual TLS, you must set the `corda.group.tls.type` field to `Mutual`. For more information, see [Configuring Mutual TLS]({{< relref "../mutual-tls.md#set-the-tls-type-in-the-mgm-context" >}}). 
 {{< /note >}}
 
 ### Build Registration Context Using Bash
