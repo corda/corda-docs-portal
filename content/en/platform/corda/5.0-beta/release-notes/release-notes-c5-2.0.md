@@ -23,7 +23,7 @@ table th:nth-of-type(2) {
 
 | Topic | Specific Change                                    | 
 | -------------------------------------------- | -------------------------------------------------- |
-| **Deployment**                               | **Mutual TLS** - It is now possible to configure Corda cluster gateways to connect with each other using [mutual TLS]({{< relref "../operating/mutual-tls-connections.md" >}}). The TLS mode (mutual or one-way) is defined in the gateway configuration and applies to the entire cluster, including all members in all groups hosted on the cluster. R3 recommend using the default non-mutual TLS mode as it is more extensible. |
+| **Cluster Administration**                   | **Mutual TLS** - It is now possible to configure Corda clusters to use [mutual TLS]({{< relref "../operating/mutual-tls-connections.md" >}}). The TLS mode (mutual or one-way) is defined in the gateway configuration and applies to the entire cluster, including all members in all groups hosted on the cluster. R3 recommend using the default non-mutual TLS mode as it is more extensible. |
 |                                              | **Gateway Address** - It is now possible to use the IP address for gateway endpoints. Using the DNS name is also still supported.|
 |                                              | **Corda CLI** - Any worker and CLI long options that used camel case now use kebab case. This may require that existing scripts are updated. | 
 |                                              | **Messaging Maximum Size** - A new `messaging` [configuration field]({{< relref "../operating/configuration/config-overview.md" >}}), `maxAllowedMessageSize`, enables you to specify the maximum size of a message sent from a Corda worker to the message bus. Corda breaks messages that exceed this size into smaller messages before sending. |                                           
@@ -48,4 +48,4 @@ table th:nth-of-type(2) {
 
 ## Known Limitations and Issues
 
-There is no support for upgrades from the early access beta versions.
+There is no support for upgrades from the beta versions.
