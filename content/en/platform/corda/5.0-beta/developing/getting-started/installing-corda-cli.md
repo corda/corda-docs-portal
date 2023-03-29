@@ -33,10 +33,10 @@ To obtain the Corda CLI installer from the release pack on Customer Hub:
 
 1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
 2. Start a shell session (bash or zsh).
-2. Change directory to where you saved `corda-cli-installer-5.0.0.0-Gecko.zip`.
+2. Change directory to where you saved `corda-cli-downloader-5.0.0.0-Gecko1.0.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   unzip ./corda-cli-installer-5.0.0.0-Gecko.zip -d corda-cli-installer-5.0.0.0-Gecko
+   unzip ./corda-cli-downloader-5.0.0.0-Gecko1.0.zip -d corda-cli-installer-5.0.0.0-Gecko
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
