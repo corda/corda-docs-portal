@@ -12,7 +12,7 @@ weight: 500
 
 # CENM Zone Service Helm Chart
 
-This Helm chart is to configure, deploy, and run the [CENM Zone Service](../../../../../en/platform/corda/1.5/cenm/zone-service.md) on Kubernetes.
+This Helm chart is to configure, deploy, and run the [CENM Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}}) on Kubernetes.
 
 ## Example usage
 
@@ -54,4 +54,4 @@ helm install cenm-zone auth --set idmanPublicIP=X.X.X.X --set prefix=cenm --set 
 | `logsContainersEnabled`       | Enable container displaying live logs | `true`
 {{< /table >}}
 
-For additional information on database connection details, refer to the official documentation: [database documentation](../../../../../en/platform/corda/1.5/cenm/config-database.md).
+For additional information on database connection details, refer to the official documentation: [database documentation]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-database.md" >}}).

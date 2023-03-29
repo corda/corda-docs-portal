@@ -17,30 +17,30 @@ title: Release notes (Japanese)
 
 ## Corda Enterprise Network Manager 1.5
 
-Corda Enterprise Network Manager (CENM) 1.5では、新しい[CENM管理コンソール](../../../../../en/platform/corda/1.5/cenm/cenm-console.md)、CENMの管理コンソールへのAzure ADを用いたシングルサインオン、ノード鍵（Legal Identity）とその証明書をローテーションする機能など、多くの新機能と機能強化が導入されています。
+Corda Enterprise Network Manager (CENM) 1.5では、新しい[CENM管理コンソール]({{< relref "../../../../../en/platform/corda/1.5/cenm/cenm-console.md" >}})、CENMの管理コンソールへのAzure ADを用いたシングルサインオン、ノード鍵（Legal Identity）とその証明書をローテーションする機能など、多くの新機能と機能強化が導入されています。
 
 今回のリリースには後方互換性がありますが、Corda Enterprise Network Managerの以前のバージョンからのアップグレードをご検討ください。
 
 {{< warning >}}
-[Corda Enterprise Network Managerのアップグレード](../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md)のページを必ずご確認ください。
+[Corda Enterprise Network Managerのアップグレード]({{< relref "../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md" >}})のページを必ずご確認ください。
 {{< /warning >}}
 
 ### 新機能と機能強化
 
 #### CENM管理コンソール
 
-[CENM管理コンソール](../../../../../en/platform/corda/1.5/cenm/cenm-console.md)は、CSRやCRRのリクエストを確認し、Network Map上でNodeを表示し、Cordaネットワークの設定値変更（Flag Day）を実施し、サービス構成をアップデートできる、CENMの新しいウェブインターフェースです。
+[CENM管理コンソール]({{< relref "../../../../../en/platform/corda/1.5/cenm/cenm-console.md" >}})は、CSRやCRRのリクエストを確認し、Network Map上でNodeを表示し、Cordaネットワークの設定値変更（Flag Day）を実施し、サービス構成をアップデートできる、CENMの新しいウェブインターフェースです。
 
 #### Azure ADを使ったシングルサインオン
 
-CENM 1.5 では、CENM [Authサービス](../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md)用のシングルサインオン（SSO）として、Azure Active Directory（AAD）のサポートを導入しています。完全なロールベースアクセス制御（RBAC）をサポートし、システム管理者がユーザーグループや権限を作成し、管理できるウェブベースの管理インターフェースを提供します。[この結果](../../../../../en/platform/corda/4.7/enterprise/node/azure-ad-sso.html)、Azure ADとCorda Authサービスで簡単な設定を行うだけで、CordaサービスとAzure AD間でSSO設定を運用できるようになりました。
+CENM 1.5 では、CENM [Authサービス]({{< relref "../../../../../en/platform/corda/4.7/enterprise/node/auth-service.md" >}})用のシングルサインオン（SSO）として、Azure Active Directory（AAD）のサポートを導入しています。完全なロールベースアクセス制御（RBAC）をサポートし、システム管理者がユーザーグループや権限を作成し、管理できるウェブベースの管理インターフェースを提供します。[この結果](../../../../../en/platform/corda/4.7/enterprise/node/azure-ad-sso.html)、Azure ADとCorda Authサービスで簡単な設定を行うだけで、CordaサービスとAzure AD間でSSO設定を運用できるようになりました。
 
 #### 証明書ローテーション：ノード鍵（Legal Identity）とその証明書をローテーションする機能
 
 Corda Enterprise Edition 4.7では、ノード鍵（Legal Identity）とその証明書をローテーションする機能を導入しています。これによって、CENMがNetwork Map上において、新しい証明書を使ってNode（Notary Nodeを含む）を再登録できるようになります。
 
 {{< warning >}}
-本機能の導入によって、お使いのシステムで証明書ローテーション機能を利用する予定の有無にかかわらず、独自構築したIdentity Managerワークフロープラグインがある場合、プラグインの改造が必要になる場合があります。.[Corda Enterprise Network Managerのアップグレード](../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md)のページを必ずご確認ください。
+本機能の導入によって、お使いのシステムで証明書ローテーション機能を利用する予定の有無にかかわらず、独自構築したIdentity Managerワークフロープラグインがある場合、プラグインの改造が必要になる場合があります。.[Corda Enterprise Network Managerのアップグレード]({{< relref "../../../../../en/platform/corda/1.5/cenm/upgrade-notes.md" >}})のページを必ずご確認ください。
 {{< /warning >}}
 
 本機能の詳細については、[R3サポート](https://www.r3.com/support/)までお問い合わせください。

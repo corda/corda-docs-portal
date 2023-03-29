@@ -53,7 +53,7 @@ To get the tool ready to use from within the Docker container, check the [Kubern
 
 In order to use the CLI, you must have permission to access the CENM services you plan to use.
 
-You should have an account that has been set up by a user administrator using the [User Admin application](../../../../../en/platform/corda/1.5/cenm/user-admin.md). This account gives you the credentials, roles, and permissions you need to access CENM services via the CLI.
+You should have an account that has been set up by a user administrator using the [User Admin application]({{< relref "../../../../../en/platform/corda/1.5/cenm/user-admin.md" >}}). This account gives you the credentials, roles, and permissions you need to access CENM services via the CLI.
 
 For the below example, the credentials of a sample CENM user are shown:
 
@@ -180,7 +180,7 @@ Your interaction with CENM services through the CLI is managed by the Front-end 
 
 When you log in to each session, you specify the full endpoint address of the Gateway service instance you are accessing, for example: `http://10.230.41.12`. You do this using the argument `<server>` in the command line. This endpoint forms the **context** for your session.
 
-Setting a context means that your session can last for the full session duration set in your [Auth Service](../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md) configuration, without being interrupted by any natural time-outs in your CENM service. It also means you can switch between servers, like staging and production servers, simply by switching from one context alias to another.
+Setting a context means that your session can last for the full session duration set in your [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}) configuration, without being interrupted by any natural time-outs in your CENM service. It also means you can switch between servers, like staging and production servers, simply by switching from one context alias to another.
 
 In most commands in the CLI, you can specify the context you want to use with the command option:
 
@@ -198,7 +198,7 @@ This command allows you to change the password you use to access your CENM servi
 
 {{< attention >}}
 
-If you have been allocated a new password by an administrator using the [User admin tool](../../../../../en/platform/corda/1.5/cenm/user-admin.md), you must change it to something only you know. You must do this before you continue to use CENM services.
+If you have been allocated a new password by an administrator using the [User admin tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/user-admin.md" >}}), you must change it to something only you know. You must do this before you continue to use CENM services.
 
 {{< /attention >}}
 
