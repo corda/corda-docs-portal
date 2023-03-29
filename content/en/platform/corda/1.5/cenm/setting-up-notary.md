@@ -90,7 +90,7 @@ java -jar corda.jar --config-file <NODE_CONF_FILE> --just-generate-node-info
 
 ### Setup Network Map Service
 
-Follow instructions here [Network Map Service](../../../../../en/platform/corda/1.5/cenm/network-map.md)
+Follow instructions here [Network Map Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/network-map.md" >}})
 
 
 ### Run The Notary

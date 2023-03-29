@@ -91,4 +91,4 @@ These error codes can be accessed by using the `code` property when encountering
 
 ## Corda Enterprise error codes
 
-For a list of node error codes in Corda Enterprise, see [Node error codes](../../../../../en/platform/corda/4.8/enterprise/node/operating/error-codes.md).
+For a list of node error codes in Corda Enterprise, see [Node error codes]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/operating/error-codes.md" >}}).

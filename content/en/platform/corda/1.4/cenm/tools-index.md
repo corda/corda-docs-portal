@@ -30,5 +30,5 @@ A small number of tools and utilities are available to help with setting up, run
 
 ## Other Tools
 
-* [Config Obfuscation Tool](../../../../../en/platform/corda/4.6/enterprise/tools-config-obfuscator.md)
+* [Config Obfuscation Tool]({{< relref "../../4.7/enterprise/tools-config-obfuscator.md" >}})
 * [CRL Endpoint Check Tool](crl-endpoint-check-tool.md)
