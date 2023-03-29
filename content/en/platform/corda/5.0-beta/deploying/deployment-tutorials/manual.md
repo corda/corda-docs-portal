@@ -276,21 +276,21 @@ To create the schema manually, do the following:
    {{< tabs name="RBAC-example">}}
    {{% tab name="Linux" %}}
    ```sh
-   corda-cli.sh initial-config create-db-config -u rbac-user -p rc9VLHU3 \
+   corda-cli.sh initial-config create-db-config -u rbacuser -p rc9VLHU3 \
      --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC \
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="macOS" %}}
    ```sh
-   corda-cli.sh initial-config create-db-config -u rbac-user -p rc9VLHU3 \
+   corda-cli.sh initial-config create-db-config -u rbacuser -p rc9VLHU3 \
      --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC \
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="Windows" %}}
    ```shell
-   corda-cli.cmd initial-config create-db-config -u rbac-user -p rc9VLHU3 `
+   corda-cli.cmd initial-config create-db-config -u rbacuser -p rc9VLHU3 `
      --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC `
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
@@ -333,21 +333,21 @@ To create the schema manually, do the following:
    {{< tabs name="DDL-crypto-example">}}
    {{% tab name="Linux" %}}
    ```sh
-   corda-cli.sh initial-config create-db-config -u crypto-user -p TqoCp4v2 \
+   corda-cli.sh initial-config create-db-config -u cryptouser -p TqoCp4v2 \
      --name corda-crypto --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO \
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="macOS" %}}
    ```sh
-   corda-cli.sh initial-config create-db-config -u crypto-user -p TqoCp4v2 \
+   corda-cli.sh initial-config create-db-config -u cryptouser -p TqoCp4v2 \
      --name corda-crypto --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO \
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
    {{% tab name="Windows" %}}
    ```shell
-   corda-cli.cmd initial-config create-db-config -u crypto-user -p TqoCp4v2 `
+   corda-cli.cmd initial-config create-db-config -u cryptouser -p TqoCp4v2 `
      --name corda-crypto --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO `
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```

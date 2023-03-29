@@ -21,7 +21,7 @@ It is used by nodes when they establish a TLS connection between each other and 
 In order to add entries to the certificate revocation list there is the certificate revocation process that resembles
 the one from the certificate signing request (CSR).
 
-Note: For context on how the certificate revocation list fits into the wider context, see [Certificate Hierarchy Guide](../../../../../en/platform/corda/1.5/cenm/pki-guide.md). Once added, the entries cannot be removed from the certificate revocation list.
+Note: For context on how the certificate revocation list fits into the wider context, see [Certificate Hierarchy Guide]({{< relref "../../../../../en/platform/corda/1.5/cenm/pki-guide.md" >}}). Once added, the entries cannot be removed from the certificate revocation list.
 
 As with CSR, the approval workflow for revocation requests is integrated with the JIRA tool by default,
 and the submitted requests follow the same lifecycle. To support the above functionality, there are two
@@ -173,6 +173,6 @@ This does not use HTTP to avoid exposing any web vulnerabilities to the signing 
 <!-- This sentence below needs more clarity - need to explain the purpose of "next update" so the next bit of the sentence makes sense -->
 CRLs contain a field called "next update”, after which the CRL is no longer valid. This is to ensure that an up-to-date CRL is distributed in the network before the previous one expires. Conventionally, they have a lifecycle of 6 months and are manually signed every 3 months. This kind of scheduling allows plenty of time to resolve any signing issues.
 
-{{< note >}} See [Signing Services](../../../../../en/platform/corda/1.5/cenm/signing-service.md) for details on building and signing CRLs, and especially the “updatePeriod”
-configuration field which is used to determine the next update deadline. See also [CRL Endpoint Check Tool](../../../../../en/platform/corda/1.5/cenm/crl-endpoint-check-tool.md)
+{{< note >}} See [Signing Services]({{< relref "../../../../../en/platform/corda/1.5/cenm/signing-service.md" >}}) for details on building and signing CRLs, and especially the “updatePeriod”
+configuration field which is used to determine the next update deadline. See also [CRL Endpoint Check Tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/crl-endpoint-check-tool.md" >}})
 for more information how to check CRLs’ update deadlines. {{< /note >}}
