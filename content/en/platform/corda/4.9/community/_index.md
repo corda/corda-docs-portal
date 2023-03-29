@@ -9,7 +9,7 @@ menu:
 project: corda
 section_menu: corda-community-4-9
 title: Corda Community Edition 4.9
-version: 'Community Edition 4.9'
+version: 'Community 4.9'
 ---
 
 # Corda Community Edition
