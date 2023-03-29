@@ -48,4 +48,4 @@ table th:nth-of-type(2) {
 
 ## Known Limitations and Issues
 
-There is no support for upgrades from the beta versions.
+During the Beta process, R3 do not guarantee the stability of our user APIs. As a result, seemless upgrade between Beta versions is not supported.
