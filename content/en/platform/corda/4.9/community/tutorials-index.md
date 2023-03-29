@@ -17,7 +17,7 @@ title: Tutorials
 
 #  Tutorials
 
-The Corda Community 4.9 tutorials can now be found in the [Tutorials]({{< relref "../../../../tutorials/corda/4.9/community/overview.md" >}}) section. There you can learn about:
+The Corda Community 4.9 tutorials can now be found in the [Tutorials]({{< relref "../enterprise/get-started/tutorials/overview.md" >}}) section. There you can learn about:
 
-* [Building your first basic CorDapp]({{< relref "../../../../tutorials/corda/4.9/community/build-basic-cordapp/basic-cordapp-intro.md" >}})
-* [Platform feature tutorials]({{< relref "../../../../tutorials/corda/4.9/community/supplementary-tutorials/supplementary-tutorials-intro.md" >}})
+* [Building your first basic CorDapp]({{< relref "../enterprise/get-started/tutorials/build-basic-cordapp/basic-cordapp-intro.md" >}})
+* [Platform feature tutorials]({{< relref "../enterprise/get-started/tutorials/supplementary-tutorials/supplementary-tutorials-intro.md" >}})
