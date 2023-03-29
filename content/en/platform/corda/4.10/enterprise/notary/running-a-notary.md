@@ -21,7 +21,7 @@ title: Setting up a notary service
 Corda comes with several notary implementations built-in:
 
 
-* **Single-node**: a simple notary service that persists notarisation requests in the node’s database. It is easy to set up
+* **Single-node**: a simple notary service that persists notarization requests in the node’s database. It is easy to set up
 and is recommended for testing, and production networks that do not have strict availability requirements.
 * **Crash fault-tolerant** *(experimental)*: a highly available notary service operated by a single party.
 * **Byzantine fault-tolerant** *(experimental)*: a decentralised highly available notary service operated by a group of parties.
