@@ -21,9 +21,9 @@ table th:nth-of-type(2) {
 }
 </style>
 
-| Topic | Specific Change                                    | 
+| Domain | Specific Change                                    | 
 | -------------------------------------------- | -------------------------------------------------- |
-| **Deployment**                               | **Mutual TLS** - It is now possible to configure Corda cluster gateways to connect with each other using [mutual TLS]({{< relref "../operating/mutual-tls-connections.md" >}}). The TLS mode (mutual or one-way) is defined in the gateway configuration and applies to the entire cluster, including all members in all groups hosted on the cluster. R3 recommend using the default non-mutual TLS mode as it is more extensible. |
+| **Cluster Administration**                   | **Mutual TLS** - It is now possible to configure Corda clusters to use [mutual TLS]({{< relref "../operating/mutual-tls-connections.md" >}}). The TLS mode (mutual or one-way) is defined in the gateway configuration and applies to the entire cluster, including all members in all groups hosted on the cluster. R3 recommend using the default non-mutual TLS mode as it is more extensible. |
 |                                              | **Gateway Address** - It is now possible to use the IP address for gateway endpoints. Using the DNS name is also still supported.|
 |                                              | **Corda CLI** - Any worker and CLI long options that used camel case now use kebab case. This may require that existing scripts are updated. | 
 |                                              | **Messaging Maximum Size** - A new `messaging` [configuration field]({{< relref "../operating/configuration/config-overview.md" >}}), `maxAllowedMessageSize`, enables you to specify the maximum size of a message sent from a Corda worker to the message bus. Corda breaks messages that exceed this size into smaller messages before sending. |                                           
@@ -42,10 +42,10 @@ table th:nth-of-type(2) {
 
 ## Resolved Issues
 
-| Topic  | Specific Change | 
+| Domain  | Specific Change | 
 | -------------------------------------------- | -------------------------------------------------- |
 | **CorDapp Development**                      | **Flows with Transient Errors** - Flows did not correctly handle transient errors while sessions were in progress. In some cases, the 'error' flag was cleared early by other events, incorrectly indicating that the error had been resolved. This flag can now only be cleared when the event that caused the transient error is retried.  |
 
 ## Known Limitations and Issues
 
-There is no support for upgrades from the early access beta versions.
+During the Beta process, R3 do not guarantee the stability of our user APIs. As a result, seemless upgrade between Beta versions is not supported.
