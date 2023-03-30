@@ -27,7 +27,7 @@ Java     | Azul JDK 11
 You can obtain the Corda CLI installer in one of the following ways:
 * Download `platform-jars-Gecko.tar.gz` from the [R3 Customer Hub](https://r3.force.com/)
 and extract `corda-cli-downloader-5.0.0.0-Gecko1.0.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Gecko1.0`.
-* OR download `corda-cli-downloader-5.0.0.0-Gecko1.0.zip` directly from the [R3 S3 repository](https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-Gecko1.0/corda-cli-downloader-5.0.0.0-Gecko1.0.zip).
+* Download `corda-cli-downloader-5.0.0.0-Gecko1.0.zip` directly from the [R3 S3 repository](https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-Gecko1.0/corda-cli-downloader-5.0.0.0-Gecko1.0.zip).
 
 ## Installing on Linux/macOS
 
