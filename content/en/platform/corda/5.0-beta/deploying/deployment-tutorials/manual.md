@@ -415,7 +415,14 @@ To create the schema manually, do the following:
 ## RBAC Roles
 
 By default, a post-install job normally creates three default RBAC roles for the Corda API.
-To create the roles manually, do the following:
+To create the roles manually, perform the steps described in this section.
+
+{{< note >}}
+
+You can create RBAC roles manually only after the Corda cluster setup has been completed as an RBAC role takes
+<API-ENDPOINT> that should be a URL where the Corda API is accessible, either via a load balancer or by forwarding port 8888 from one of the REST worker pods.
+
+{{</ note >}}
 
 1. Set the following override in the deployment configuration to disable the automatic creation:
 
@@ -459,4 +466,3 @@ To create the roles manually, do the following:
    ```
    {{% /tab %}}
    {{< /tabs >}}
-   `<API-ENDPOINT>` should be a URL where the Corda API is accessible, either via a load balancer or by forwarding port 8888 from one of the REST worker pods.
