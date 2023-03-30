@@ -18,10 +18,7 @@ This topic describes how to install the Digital Currencies demo, enabling you to
 1. [Install the prerequisites](#prerequisites)
 2. [Clone the Digital Currencies repositories](#clone-the-digital-currencies-repositories)
 3. [Run a clean version of corda](#run-corda)
-4. [Deploy the Digital Currencies CorDapp](#deploy-the-digital-currencies-cordapp)
-
-   (Temporary) switch to CDC-247/POC-external-apis-with-flow-tracking branch.
-   
+4. [Deploy the Digital Currencies CorDapp](#deploy-the-digital-currencies-cordapp) <!--   (Temporary) switch to CDC-247/POC-external-apis-with-flow-tracking branch. -->
 5. [Run the External API Service using the runExternalApiServer Gradle task](#run-the-external-api-service-using-the-runexternalapiserver-gradle-task)
 6. [Specify Virtual Node for Digital Currencies UI](#specify-virtual-node-for-digital-currencies-ui)
 7. [Run the Digital Currencies UI](#run-the-digital-currencies-ui)
@@ -63,9 +60,11 @@ You need a local copy of both the following repositories:
 	 alt="Cloned Repositories"
    >}}
 
+<!--
 {{< note >}}
 For digital-currencies-ie, switch to the POC-DEMO branch.
 {{</ note >}}
+--> 
 
 3. If necessary, initialise the git repos and change the remotes so you do not inadvertently push your work back.
 
@@ -322,6 +321,4 @@ Temporary step: Need to check out the branch origin/CDC-247/POC-external-apis-wi
    ➜  Network: use --host to expose
    ```
 
-The Digital Currencies UI is now available.
-
-In a browser access the URL http://localhost:5173/ (rather than the above URL).
+The Digital Currencies UI is now available. See [Launching the Digital Currencies GUI]({{< relref "launching-the-dc-demo.md" >}}).
