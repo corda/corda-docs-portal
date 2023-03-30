@@ -4,7 +4,7 @@ menu:
   versions:
     weight: -650
   corda-community-4-9:
-    weight: 1
+    weight: -10
     name: Corda Community Edition 4.9
 project: corda
 section_menu: corda-community-4-9
