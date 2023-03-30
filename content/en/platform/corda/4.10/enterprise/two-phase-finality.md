@@ -4,11 +4,11 @@ menu:
   corda-enterprise-4-10:
     parent: corda-enterprise-4-10-cordapps-flows
 tags:
-- flow
+- two
+- phase
 - finality
-- recovery
 title: Two Phase Finality
-weight: 20
+weight: 40
 ---
 
 # Two Phase Finality
@@ -29,11 +29,11 @@ One or more **receivers** will use the built-in flow `ReceiveFinalityFlow` to re
 
 Up until Corda 4.10, the finality flow protocol was implemented using a single pass transaction sharing mechanism as depicted below:
 
-{{< figure alt="conventional finality protocol" width=80% zoom="./resources/C4 Finality - Conventional.png" >}}
+{{< figure alt="conventional finality protocol" width=100% zoom="./resources/C4 Finality - Conventional.png" >}}
 
 Note the following:
 
-- Peers only receive the finalised transaction after successful notarisation
+- Peers only receive the finalised transaction after successful notarisation.
 - Recovery is only possible at the Initiator side as Peers have no record of a transaction until finality.
 - Failure conditions may lead to ledger inconsistency requiring manual intervention for recovery.
 
@@ -41,15 +41,16 @@ Note the following:
 
 To address the shortcomings of the conventional protocol, Two Phase Finality introduces a multi-phased protocol whereby:
 
-- All parties have a copy of the Un-notarised transaction (Phase 1).
+- All parties have a copy of the un-notarised transaction (Phase 1).
 - Additional metadata is stored with the un-notarised transaction to aid recovery.
-- All parties eventually have a copy of the Notarised transaction (Phase 2)
-- Recovery is possible at both Initiator and Peer sides.
-- Failure conditions may lead to ledger inconsistency which is recoverable using a new suite of recovery tools and commands.
+- All parties eventually have a copy of the notarised transaction (Phase 2)
+- Recovery is possible at both Initiator and Receiver sides.
+- Failure conditions may lead to ledger inconsistency which is recoverable using a new suite of
+  [finality flow recovery tools and commands](finality-flow-recovery.md).
 
 The following diagram illustrates the new protocol:
 
-{{< figure alt="conventional finality protocol" width=80% zoom="./resources/C4 Finality - Optimised 2Phase Finality.png" >}}
+{{< figure alt="conventional finality protocol" width=100% zoom="./resources/C4 Finality - Optimised 2Phase Finality.png" >}}
 
 The two primary optimisations used within the protocol are:
 
