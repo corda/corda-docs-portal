@@ -313,6 +313,27 @@ identifier = "corda-community-4-10-contributing-index"
 name = "Participate"
 weight = 500
 
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-upgrading"
+name = "Upgrading CorDapps and nodes"
+weight = 15
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-corda-api"
+name = "Corda API"
+weight = 17
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-development"
+name = "Development"
+weight = 20
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-operations"
+name = "Operations"
+weight = 30
+[[corda-community-4-9]]
+identifier = "corda-community-4-9-contributing-index"
+name = "Participate"
+weight = 500
+
 [[corda-5-beta]]
 identifier = "corda-5-beta-deploy-troubleshoot"
 parent = "corda-5-beta-deploy"
