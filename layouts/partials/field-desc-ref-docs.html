@@ -30,9 +30,10 @@
 {{ end }}
 {{ with $value.default }}
     {{ if eq $value.type "array" }}
-        <br>Default value: 
         {{ range $arrayvalue := $value.default }}
-            {{ $arrayvalue }}
+            {{ if not (reflect.IsMap $arrayvalue)}}
+                <br>Default value: {{ $arrayvalue }}
+            {{ end }}
         {{ end }}
     {{ else if not (reflect.IsMap $value.default) }}
         <br>Default value: {{ string ($value.default) }} 
