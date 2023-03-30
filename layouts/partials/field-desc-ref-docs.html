@@ -49,3 +49,10 @@
         {{ partial "defs-field-desc-ref-docs" (dict "url" $fullurl "def" $def) }}       
     {{ end }}
 {{ end }}
+{{ with $value.items.properties }}
+    <ul>
+    {{ range $childk, $childv := $value.items.properties }}
+        {{ partial "field-desc-ref-docs" (dict "value" $childv "key" $childk "url" $.Params.url) }}
+    {{ end }}
+    </ul>
+{{ end }}
