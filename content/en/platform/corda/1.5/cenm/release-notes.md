@@ -20,15 +20,15 @@ CENM 1.5.7 introduces enhancements and fixes to known issues in CENM 1.5.
 
 ### Enhancements
 
-* The non-existent 'Organization' column filter has been removed from the CRR/CRL status tab in the CENM management console.
-* All of the Java serialization in CENM has not been disabled as a security mitigation against access being obtained maliciously to perform remote code execution.
-* A synchronous call will now be made to the `IDManager` instead of an asynchronous call when a node requests to publish `nodeInfo` when trying to persist to the database. This is to prevent exponential back-off retry.
+* The 'Organization' column filter has been removed from the CRR/CRL status tab.
+* The Java serialization in CENM has been disabled as a security mitigation against access being obtained maliciously to perform remote code execution.
+* A synchronous call will now be made to the `IDManager` instead of an asynchronous call when a node requests to publish `nodeInfo`.
 
 ### Fixed Issues 
 
-* Improved error messages are now returned when submitting a second CRR request for the same node via the CRR submission tool, and identity manager does not return an unnecessary exception.
-* Removed/reduced deadlocks in the network map database associated with the insert and/or update of `NodeInfoEntity` records.
-* Fixed the hanging network map issue when the CRL server cannot be reached.
+* Improved error messages are returned when submitting a second CRR request for the same node via the CRR submission tool.
+* Reduced deadlocks associated with the insert and/or update of `NodeInfoEntity` records.
+* Fixed the hanging network map issue.
 * The validity period of a child's certificate cannot be longer than the validity period of the parent's certificate. If the expiration date of the child's certificate is set to be longer than the parent's certificate, it will now be adjusted to fit within the expiration time window of the parent's certificate.
 * The ‘Reset’ button is now always enabled, so any configuration changes made in the CENM UI can be reverted.
 
