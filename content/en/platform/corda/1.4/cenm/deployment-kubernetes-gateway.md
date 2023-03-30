@@ -12,7 +12,7 @@ weight: 60
 
 # CENM Gateway Service Helm Chart
 
-This Helm chart is to configure, deploy, and run the [CENM Gateway Service](../../../../../en/platform/corda/1.4/cenm/gateway-service.md) on Kubernetes.
+This Helm chart is to configure, deploy, and run the [CENM Gateway Service]({{< relref "../../../../../en/platform/corda/1.4/cenm/gateway-service.md" >}}) on Kubernetes.
 
 ## Example usage
 
@@ -45,4 +45,4 @@ helm install cenm-gateway gateway --set prefix=cenm --set acceptLicense=Y --set 
 | `logsContainersEnabled`       | Enable container displaying live logs | `true`
 {{< /table >}}
 
-For additional information on database connection details refer to the official documentation: [database documentation](../../../../../en/platform/corda/1.4/cenm/config-database.md).
+For additional information on database connection details refer to the official documentation: [database documentation]({{< relref "../../../../../en/platform/corda/1.4/cenm/config-database.md" >}}).

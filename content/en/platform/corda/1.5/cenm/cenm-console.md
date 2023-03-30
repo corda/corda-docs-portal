@@ -21,7 +21,7 @@ You can use the CENM management console to perform key CENM tasks and access CEN
 * Review Identity Manager progress for Onboarding and Removing members.
 
 {{< note >}}
-Your ability to perform certain tasks using the CENM management console depends on your user permissions. Permissions for each CENM service can be allocated and managed by an administrator in the [User Admin tool](../../../../../en/platform/corda/1.5/cenm/user-admin.md). You will not be able to self-allocate the required permissions - they must be granted by an administrator.
+Your ability to perform certain tasks using the CENM management console depends on your user permissions. Permissions for each CENM service can be allocated and managed by an administrator in the [User Admin tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/user-admin.md" >}}). You will not be able to self-allocate the required permissions - they must be granted by an administrator.
 {{< /note >}}
 
 To use the CENM management console, you must install it as a *plug-in* to your Gateway Service. Once you have installed the plug-in, anyone with the required permissions can access and use the management console from any web browser.
@@ -30,13 +30,13 @@ To use the CENM management console, you must install it as a *plug-in* to your G
 
 ### Requirements
 
-- [Auth Service](../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md) that has been set up with at least one user (ideally an admin user) and running.
-- [Zone Service](../../../../../en/platform/corda/1.5/cenm/zone-service.md) running.
-- [Gateway Service](../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md) is installed and running.
+- [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}) that has been set up with at least one user (ideally an admin user) and running.
+- [Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}}) running.
+- [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}}) is installed and running.
 
 ### Install the CENM management console
 
-The CENM management console is accessed via the [Gateway Service](../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md). Once you have added the plugin binaries to the correct directory on the machine that hosts your Gateway Service, you can access the web service from any browser.
+The CENM management console is accessed via the [Gateway Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/gateway-service.md" >}}). Once you have added the plugin binaries to the correct directory on the machine that hosts your Gateway Service, you can access the web service from any browser.
 
 {{< note >}}
 Apache Log4j dependency has been updated to version 2.16.0. This is to prevent exposure to security issues raised with earlier versions of Log4j 2.
@@ -90,7 +90,7 @@ Internet Explorer 11 is not supported for this tool.
 9. You can either open the **USER ADMINISTRATION** page to manage users, groups, and roles (please note that this requires admin rights), or open the CENM management console to manage your CENM instance.
 
 {{< note >}}
-See the [CENM User Admin tool](../../../../../en/platform/corda/1.5/cenm/user-admin.md) documentation for more information. This tool is accessed in the same way as the CENM management console.
+See the [CENM User Admin tool]({{< relref "../../../../../en/platform/corda/1.5/cenm/user-admin.md" >}}) documentation for more information. This tool is accessed in the same way as the CENM management console.
 {{< /note >}}
 
 ## User guide

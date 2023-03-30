@@ -52,8 +52,8 @@ We have updated the default value of the optional `timeout` parameter, introduce
 
 ### Fixed issues
 
-* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool](../../../../../en/platform/corda/1.4/cenm/pki-tool.md) now generates certificates with serial number sizes of up to 16 octets/bytes.
-* We have fixed an issue where the [PKI Tool](../../../../../en/platform/corda/1.4/cenm/pki-tool.md) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
+* We have fixed an issue where the maximum length of a certificate's serial number allowed by CENM was 28 digits (`NUMBER(28)` format in the database) - roughly about 93 bits of data. To extend the support (introduced in CENM 1.2) for third-party CAs such as [SwissPKI](https://www.swisspki.com/), the Identity Manager Service can now handle certificate serial numbers with sizes up to 20 octets/bytes (160 bits) to comply with [RFC 5280](https://tools.ietf.org/html/rfc5280). In addition, the [PKI Tool]({{< relref "../../../../../en/platform/corda/1.4/cenm/pki-tool.md" >}}) now generates certificates with serial number sizes of up to 16 octets/bytes.
+* We have fixed an issue where the [PKI Tool]({{< relref "../../../../../en/platform/corda/1.4/cenm/pki-tool.md" >}}) would throw an error when using [securosys HSM](https://www.securosys.com/) with multiple partitions.
 * We have fixed an issue where the [signing request status command](#check-the-connection-status-of-the-signing-service) in the [CENM Command-line Interface Tool](cenm-cli-tool.md) did not work for requests with `COMPLETED` status.
 * We have fixed an issue where the `APP VERSION` column was not shown when running helm charts while bootstrapping CENM.
 
@@ -166,12 +166,12 @@ Supported deployment scenarios in CENM 1.4:
 Not supported in CENM 1.4:
 * AWS with PostgreSQL deployed in cluster.
 
-See the [CENM deployment](../../../../../en/platform/corda/1.4/cenm/aws-deployment-guide.md) section for more information.
+See the [CENM deployment]({{< relref "../../../../../en/platform/corda/1.4/cenm/aws-deployment-guide.md" >}}) section for more information.
 
 #### Other changes
 * We have added support for PostgreSQL 10.10 and 11.5 (JDBC 42.2.8), as noted in [CENM Databases](../../../../../en/platform/corda/1.4/cenm/database-set-up.html#supported-databases) and [CENM support matrix](../../../../../en/platform/corda/1.4/cenm/cenm-support-matrix.html#cenm-databases).
 * A `non-ca-plugin.jar` has been added to `signing-service-plugins` in Artifactory.
-* We have renamed the FARM Service, introduced in CENM 1.3, to [Gateway Service](../../../../../en/platform/corda/1.4/cenm/gateway-service.md). As a result, if you are [upgrading](../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md) from CENM 1.3 to CENM 1.4, the FARM Service JAR file used in CENM 1.3 should be replaced with the Gateway Service JAR file used in CENM 1.4.
+* We have renamed the FARM Service, introduced in CENM 1.3, to [Gateway Service]({{< relref "../../../../../en/platform/corda/1.4/cenm/gateway-service.md" >}}). As a result, if you are [upgrading]({{< relref "../../../../../en/platform/corda/1.4/cenm/upgrade-notes.md" >}}) from CENM 1.3 to CENM 1.4, the FARM Service JAR file used in CENM 1.3 should be replaced with the Gateway Service JAR file used in CENM 1.4.
 * In CENM 1.4 we have changed the way `subZoneID` is set in Signing Service configurations - see the [CENM upgrade guide](../../../../../en/platform/corda/1.4/cenm/upgrade-notes.html#change-in-setting-subzoneid-in-signing-service-configurations) for more details.
 
 ### Fixed issues
