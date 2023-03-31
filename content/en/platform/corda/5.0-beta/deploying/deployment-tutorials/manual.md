@@ -225,7 +225,7 @@ If you do want to use specific schemas, you have to provide those or the tool as
 
 {{</ note >}}
 
-The following command generates the files in the directory `/tmp/db`:
+The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema should be used for the corresponding components and generates the files in the directory `/tmp/db`:
 
    {{< tabs name="DML">}}
    {{% tab name="Linux" %}}
