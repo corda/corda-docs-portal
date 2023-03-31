@@ -420,7 +420,7 @@ To create the roles manually, perform the steps described in this section.
 {{< note >}}
 
 You can create RBAC roles manually only after the Corda cluster setup has been completed as an RBAC role takes
-<API-ENDPOINT> that should be a URL where the Corda API is accessible, either via a load balancer or by forwarding port 8888 from one of the REST worker pods.
+<API-ENDPOINT> as a parameter. That value should be a URL where the Corda API is accessible, either via a load balancer or by forwarding port 8888 from one of the REST worker pods.
 
 {{</ note >}}
 
