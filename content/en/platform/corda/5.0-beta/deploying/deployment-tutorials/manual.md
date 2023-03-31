@@ -215,7 +215,7 @@ To create the schema manually, do the following:
    ```
 
 2. Use the Corda CLI to generate DML files for creating the database tables to use for each of the `crypto`, `config`, and `rbac` components.
-If the tables are not specified, then they will be created in the default schema and the next steps in this procedure will need updating to reflect this.
+If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
 
 {{< note >}}
 
