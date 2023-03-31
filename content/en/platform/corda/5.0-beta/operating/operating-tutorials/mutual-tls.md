@@ -4,8 +4,8 @@ title: "Configuring Mutual TLS"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-mgm-onboarding-tls
-    parent: corda-5-beta-tutorials-deploy-dynamic
-    weight: 4000
+    parent: corda-5-beta-tutorials-operate
+    weight: 2000
 section_menu: corda-5-beta
 ---
 As described in the [mutual TLS introduction](../../mutual-tls.md), you can configure the clusters in a dynamic network to connect using mutual TLS. This requires additional steps when onboarding an MGM or member into the dynamic network.
@@ -19,7 +19,7 @@ As described in the [mutual TLS introduction](../../mutual-tls.md), you can conf
 
 ## Modify the Cluster Configurations
 
-To configure a cluster to use mutual TLS, you must set the `sslConfig.tlsType` flag in the `corda.p2p.gateway` configuration to `MUTUAL` for the following:
+To configure a cluster to use mutual TLS, you must set the `sslConfig.tlsType` flag in the [corda.p2p.gateway configuration section]({{< relref "../configuration/p2p-gateway.md" >}}) to `MUTUAL` for the following:
 * The MGM cluster before registering the MGM
 * All member clusters before uploading the CPI
 
@@ -116,7 +116,7 @@ export REGISTRATION_CONTEXT='{
 
 ## Update the MGM Allowed Certificate Subject List
 
-To add a member TLS certificate subject to the MGM allowed list, run the following, where `CN=CordaOperator,C=GB,L=London,O=Org` is the subject of the TLS certificate created as part of [member onboarding](dynamic-onboarding.html#tls-key-pair-and-certificate):
+To add a member TLS certificate subject to the MGM allowed list, run the following, where `CN=CordaOperator,C=GB,L=London,O=Org` is the subject of the TLS certificate created as part of [member onboarding]({{< relref "./onboarding/dynamic-onboarding.md#tls-key-pair-and-certificate" >}}):
 
 {{< tabs >}}
 {{% tab name="Bash"%}}

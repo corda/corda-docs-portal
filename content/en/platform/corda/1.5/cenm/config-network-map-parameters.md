@@ -24,9 +24,9 @@ Configuration reference for the Network Map Service
 * **address**:
 The host and port on which the service runs
 * **database**:
-See [CENM Database Configuration](../../../../../en/platform/corda/1.5/cenm/config-database.md)
+See [CENM Database Configuration]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-database.md" >}})
 * **shell**:
-*(Optional)*  See [Shell Configuration Parameters](../../../../../en/platform/corda/1.5/cenm/config-shell.md)
+*(Optional)*  See [Shell Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-shell.md" >}})
 * **enmListener** (optional in a simple test deployment):
 Details on how the service will communicate with the rest of the CENM deployment.
   * **port**:
@@ -36,7 +36,7 @@ Details on how the service will communicate with the rest of the CENM deployment
   * **reconnect**:
   Informs whether a client should attempt to reconnect if the connection is dropped.
   * **ssl**:
-  See [SSL Settings](../../../../../en/platform/corda/1.5/cenm/config-ssl.md)
+  See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}})
 * **checkRevocation** (optional, defaults to `false` if omitted):
 If set to true, the Network Map will check with the Identity Manager’s revocation service to find out if the registering node is revoked.
 * **pollingInterval**:
@@ -48,7 +48,7 @@ Details where the issuance service is on the network
   * **port**:
   The port that its `enmListener` is bound to.
   * **ssl**:
-  See [SSL Settings](../../../../../en/platform/corda/1.5/cenm/config-ssl.md) for details.
+  See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}) for details.
 * **revocation** (optional in a simple test deployment):
 Details where the revocation service is on the network
   * **host**:
@@ -56,7 +56,7 @@ Details where the revocation service is on the network
   * **port**:
   The port that its `enmListener` is bound to.
   * **ssl**:
-  See [SSL Settings](../../../../../en/platform/corda/1.5/cenm/config-ssl.md) for details.
+  See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}) for details.
 * **localSigner**:
 *(Optional)* Configuration of the local signer for the Network Map Service. Useful for debugging, testing or when HSM support is not available.
   * **keyStore**:
@@ -104,7 +104,7 @@ version of Corda that does not support the new PKI structure (arbitrary length c
 
 * **adminListener**:
   To use the RPC API in the Identity Manager Service, you must define a configuration property called `adminListener`.
-  You can add `port`, `reconnect`, and `verbose`. Also, this property has an SSL field - see [SSL Settings](../../../../../en/platform/corda/1.5/cenm/config-ssl.md) for more information.
+  You can add `port`, `reconnect`, and `verbose`. Also, this property has an SSL field - see [SSL Settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}) for more information.
   * **port**:
     Port number to listen to for Admin RPC connections.
   * **verbose**:
@@ -112,7 +112,7 @@ version of Corda that does not support the new PKI structure (arbitrary length c
   * **reconnect**:
     *(Optional)* Determines if a client should attempt to reconnect if the connection is dropped. Defaults to `true`.
   * **ssl**:
-    See [SSL Settings](../../../../../en/platform/corda/1.5/cenm/config-ssl.md) for details.
+    See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}) for details.
 
 {{% important %}}
 If the `adminListener` property is present in the configuration, this means that the service must only be used via Admin RPC. In this case, the `shell` configuration property will be disabled. The `shell` and `adminListener` properties cannot be used in the configuration at the same time.
@@ -121,7 +121,7 @@ If the `adminListener` property is present in the configuration, this means that
 * **authServiceConfig**:
   The admin RPC interface requires an Auth Service to verify
   requests, which must be configured below in a `authServiceConfig` block. Typically
-  this is provided automatically by the [Zone Service](../../../../../en/platform/corda/1.5/cenm/zone-service.md) (via an Angel Service),
+  this is provided automatically by the [Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}}) (via an Angel Service),
   however the parameters are detailed below for reference:
   * **host**: The hostname of the Auth Service. Required unless authentication is disabled.
   * **port**: The port number of the Auth Service. Required unless authentication is disabled.

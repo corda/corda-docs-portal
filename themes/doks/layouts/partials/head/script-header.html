@@ -13,7 +13,7 @@
       ];
 
 //if the page does not have a parent, the version is returned as "corda index"
-    {{ else if or (eq .Parent.Page.Params.version "Corda index") (eq .Parent.Page.Params.version nil) }}
+    {{ else if or (eq .Parent.Page.Params.version "Corda Index") (eq .Parent.Page.Params.version nil) }}
       {{ $project := .Page.Params.project}}
       {{ $version := .Page.Params.version}}
       window.facetFilters = [

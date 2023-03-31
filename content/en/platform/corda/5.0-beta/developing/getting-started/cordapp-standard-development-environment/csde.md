@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 {{< note >}}
-The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://community.r3.com/c/corda-5-developer-preview/41).
+The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://developer.r3.com/forums/forum/corda-5-developer-preview/).
 {{< /note >}}
 
 The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Beta 2 more straight-forward.
@@ -96,7 +96,7 @@ These tasks help with the lifecycle of your local Corda cluster.
 | <div style="width:220px">Helper   </div> | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ---------------------------------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `startCorda`                             | 1. Downloads a copy of the combined worker JAR, if required. <br> 2. Starts an instance of a Postgres Docker container. You will need Docker Engine or Docker Desktop running.<br> 3. Starts the combined worker. The Combined Worker will continue to run in a 'Run' Console until it is shut down. <br> Note, Corda takes about one minute to start up. It is best to poll the cluster with one of the `csde-query` helpers until it responds to confirm if the cluster is live and ready to interact. |
-| `stopCorda`                              | 1. Stops the Postgres database. <br> 2. Stops the combined worker.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `stopCorda`                              | 1. Stops the Postgres database. <br> 2. Stops the combined worker.        |
 
 #### csde-cordapp
 
@@ -111,7 +111,8 @@ These tasks help with the lifecycle of your local Corda cluster.
 Each of these tasks has a dependency on the previous. So, if you run 3, it also runs 1 and 2.
 
 {{< note >}}
-You only need to run `5-vNodeSetup` the first time you upload your CPI to the corda cluster. On subsequent builds, you can just run `4-deployCPIs`. (Note, `5-vNodeSetup` has no effect if the virtual nodes have already been set up. It will not try to recreate them.)
+You only need to run `5-vNodeSetup` the first time you upload your CPI to the corda cluster. On subsequent builds, you can just run `4-deployCPIs`. (`5-vNodeSetup` has no effect if the virtual nodes have already been set up. It will not try to recreate them.)
+{{< /note >}}
 
 #### csde-queries
 
