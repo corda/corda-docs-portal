@@ -1,5 +1,5 @@
 {{ with $.Params.word }}
     {{ $glossarylist := getJSON "content/en/platform/corda/5.0-beta/glossaryitems.json" }}
     {{ $definition := index $glossarylist $.Params.word }} 
-    <span class="definition"> {{ $definition }}</span>
+    <span class="definition">{{ $definition }}</span>
 {{ end }}    
