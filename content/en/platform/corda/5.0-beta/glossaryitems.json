@@ -1,4 +1,4 @@
 {
     "cordapp": "A distributed application (Dapp) deployed on Corda.",
-    "virtual node": "A Corda node."
+    "virtual node": "The combination of the context of an identity and the temporary compute instances created to execute flows on behalf of that identity."
 }    
