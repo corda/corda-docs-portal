@@ -12,7 +12,7 @@ This section describes how to configure a [dynamic network](../../../deploying/n
 
 {{< warning >}}
 A dynamic network can only work if the member CPI is using the exported MGM group policy.
-{{< warning >}}
+{{< /warning >}}
 
 {{< note >}}
 The PowerShell commands listed on this page are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
