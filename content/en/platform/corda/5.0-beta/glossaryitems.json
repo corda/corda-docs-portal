@@ -1,0 +1,4 @@
+{
+    "cordapp": "A distributed application (Dapp) deployed on Corda.",
+    "virtual node": "A Corda node."
+}    
