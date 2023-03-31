@@ -10,10 +10,6 @@ section_menu: corda-5-beta
 ---
 This section describes how to configure a [dynamic network](../../../deploying/network-types.html#dynamic-networks) to onboard new members. It assumes that you have configured the [MGM for the network](mgm-onboarding.html).
 
-{{< warning >}}
-A dynamic network can only work if the member CPI is using the exported MGM group policy.
-{{< /warning >}}
-
 {{< note >}}
 The PowerShell commands listed on this page are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
 {{< /note >}}
@@ -129,6 +125,10 @@ To retrieve the `GroupPolicy.json` file from the MGM:
 ## Create a CPI
 
 Build a CPI using the Corda CLI packaging plugin, passing in the member CPB and your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section]({{< relref "../../../developing/development-tutorials/cordapp-packaging.md" >}}).
+
+{{< warning >}}
+A dynamic network can only work if the member CPI is using the exported MGM group policy.
+{{< /warning >}}
 
 ## Upload the CPI
 
