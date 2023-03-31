@@ -240,7 +240,7 @@ The following command generates the files in the directory `/tmp/db`:
    {{% /tab %}}
    {{% tab name="Windows" %}}
    ```shell
-   corda-cli.sh database spec -g config:CONFIG,rbac:RBAC,crypto:CRYPTO -c -l /tmp/db
+   corda-cli.cmd database spec -g config:CONFIG,rbac:RBAC,crypto:CRYPTO -c -l /tmp/db
    ```
    {{% /tab %}}
    {{< /tabs >}}
