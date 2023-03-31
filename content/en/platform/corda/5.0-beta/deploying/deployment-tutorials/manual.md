@@ -239,9 +239,9 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
 If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
 {{< note >}}
 
-4. Review the DML files generated and then execute against the database.
+3. Review the DML files generated and then execute against the database.
 
-5. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration:
+4. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration:
 
    {{< tabs name="RBAC">}}
    {{% tab name="Linux" %}}
@@ -302,9 +302,9 @@ If the schemas are not specified, then the tables will be created in the default
    {{% /tab %}}
    {{< /tabs >}}
 
-6. Review the DDL files generated and then execute against the database.
+5. Review the DDL files generated and then execute against the database.
 
-7. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration:
+6. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration:
 
    {{< tabs name="DDL-crypto">}}
    {{% tab name="Linux" %}}
