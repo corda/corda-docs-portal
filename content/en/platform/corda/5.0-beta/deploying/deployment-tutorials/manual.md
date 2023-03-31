@@ -215,16 +215,6 @@ To create the schema manually, do the following:
    ```
 
 2. Use the Corda CLI to generate DML files for creating the database tables to use for each of the `crypto`, `config`, and `rbac` components.
-If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
-
-{{< note >}}
-
-Corda 5 no longer forces users to use any schema. You can choose your own schema names, or even use the public schema
-(most useful where there are multiple databases in use, for example, one for RBAC, one for CRYPTO, and so on).
-If you do want to use specific schemas, you have to provide those or the tool assumes that you want to use the public schema.
-
-{{</ note >}}
-
 The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema should be used for the corresponding components and generates the files in the directory `/tmp/db`:
 
    {{< tabs name="DML">}}
@@ -245,9 +235,13 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
    {{% /tab %}}
    {{< /tabs >}}
 
-3. Review the DML files generated and then execute against the database.
+{{< note >}}
+If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
+{{< note >}}
 
-4. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration:
+4. Review the DML files generated and then execute against the database.
+
+5. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration:
 
    {{< tabs name="RBAC">}}
    {{% tab name="Linux" %}}
@@ -308,9 +302,9 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
    {{% /tab %}}
    {{< /tabs >}}
 
-5. Review the DDL files generated and then execute against the database.
+6. Review the DDL files generated and then execute against the database.
 
-6. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration:
+7. Execute the following Corda CLI command to generate DDL for populating the Crypto database connection configuration:
 
    {{< tabs name="DDL-crypto">}}
    {{% tab name="Linux" %}}
