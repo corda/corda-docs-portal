@@ -184,14 +184,14 @@ The flow returns a set because the exact order of backchain transactions is not 
 
 ### Reissuance - state machine
 
-State machine [CDL]({{< relref "../../cdl/cdl/cdl-overview.md" >}}) chart:
+State machine [CDL]({{< relref "../../../../tools/cdl/cdl-overview.md" >}}) chart:
 
 {{% figure zoom="/en/images/reissuance-state-machine.png" alt="State reissuance - state machine CDL chart"%}}
 
 ### Reissuance - state evolution
 
-State evolution [CDL]({{< relref "../../cdl/cdl/cdl-overview.md" >}}) chart:
-
+State evolution [CDL]({{< relref "../../../../tools/cdl/cdl-overview.md" >}}) chart:
+[](../community/)
 {{% figure zoom="/en/images/reissuance-state-evolution.png" alt="State reissuance - state evolution CDL chart"%}}
 
 ## Limitations
