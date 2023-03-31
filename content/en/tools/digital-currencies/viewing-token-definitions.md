@@ -12,7 +12,7 @@ menu:
 title: "Viewing Token Definitions"
 ---
 
-Once token definitions have been created they can be viewed:
+Once [token definitions]({{< relref "tokens-overview.md#token-definitions" >}}) have been created, they can be viewed on the **Token Definitions** page.
 
 * In the Digital Currencies GUI, select **Token Definitions**.
 

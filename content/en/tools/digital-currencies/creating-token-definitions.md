@@ -13,7 +13,7 @@ title: "Creating Token Definitions"
 ---
 
 
-Before tokens can be created, a token definition, which specifies all that parameters of that token, must be created. 
+Before tokens can be created, a [token definition]({{< relref "tokens-overview.md#token-definitions" >}}), which specifies all that parameters of that token, must be created. 
 
 1. In the Digital Currencies GUI, select **Define Token**.
 
@@ -57,8 +57,8 @@ Before tokens can be created, a token definition, which specifies all that param
    
 4. Specify the following parameters:
 
-   * **Token Issuer:** The name of the Token Issuing Entity that can mint and burn tokens of this type
-   * **Custodian:** The name of the Custodian responsible for the exchange of off-ledger collateral when a non-issuing party requests tokens of this token definition state from the Token Issuer; this setting is optional and can be "No custodian"
+   * **Token Issuer:** The name of the Token Issuing Entity; this is the party on the network that can issue tokens of this type.  This party will make the final decision whether an issuance happens or not.
+   * **Custodian:** The name of the Custodian; they are the party on the network responsible for the exchange of off-ledger collateral when a non-issuing party requests tokens of this token definition state from the Token Issuer. This party’s responsibility is to inform the issuer that a requesting bank has paid for the token they are requesting. This setting is optional and can be "None".
 
 
 
@@ -102,7 +102,7 @@ Before tokens can be created, a token definition, which specifies all that param
 	  alt="Token Definition Success"
    >}}
    
-   The token definition flow begins and its progress can be checked in the pull-out **Latest Flows** on the right-hand side of the screen:
+   The token definition flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
     
    {{< 
       figure
@@ -112,7 +112,7 @@ Before tokens can be created, a token definition, which specifies all that param
 	  alt="Creating Token Definitions - Flow Running"
    >}}  
    
-   Once the token definition flow completes, the flow displays as Completed:
+   Once the token definition flow completes, the flow status is displayed as **Completed**:
    
      
    {{< 
@@ -143,14 +143,10 @@ Before tokens can be created, a token definition, which specifies all that param
 	  alt="Token Definitions Page"
    >}}
    
-   Now that a token definition has been created, you can create tokens based on that definition.
-   
-   
-   
-<!-- This process involves:
+Now that a token definition has been created, you can:
 
-* A bank or financial institution requests a deposit in exchange for tokens, as described in *[Requesting Deposits](#requesting-deposits)*.
-* A custodian approves the deposit request, as described in *[Accepting or Rejecting Deposit Requests](#accepting-or-rejecting-deposit-requests)*.
-* The bank issues a payment to transfer collateral (off-ledger assets) to the custodian in exchange for the issuance of tokens, as described in *[Issuing Payments](#issuing-payments)*.
-* The custodian accepts the payment, as described in *[Accepting or Rejecting Payments](#accepting-or-rejecting-payments)*. -->
-
+* [View existing token definitions]({{< relref "viewing-token-definitions.md" >}})
+* [Create tokens based on that definition]({{< relref "creating-tokens.md" >}})
+   
+   
+ 

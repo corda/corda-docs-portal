@@ -14,6 +14,6 @@ title: "Burning Tokens"
 
 ## Burning Tokens
 
-The last stage of the token life cycle is *redemption*. A bank on the network can send a request to redeem their tokens for collateral at any time.
+The last stage of the token life cycle is *redemption*. An entity on the network can send a request to redeem their tokens for collateral at any time. During redemption, the tokens are 'burnt', or removed from circulation. 
 
 

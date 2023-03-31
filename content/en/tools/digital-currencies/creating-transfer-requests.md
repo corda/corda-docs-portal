@@ -4,12 +4,12 @@ lastmod: '2023-03-21'
 section_menu: tools
 menu:
   tools:
-    name: "Transfering Tokens"
+    name: "Creating Transfer Requests"
     weight: 1300
     parent: digital-currencies-tokens-overview
-    identifier: digital-currencies-transfering-tokens
+    identifier: digital-currencies-creating-transfer-requests
     description: "Digital Currencies documentation describing how to transfer tokens via the GUI"
-title: "Transfering Tokens"
+title: "Creating Transfer Requests"
 ---
 
 A transfer is the movement of tokens (value) between two or more entities (for example, wholesale banks, bank branches, retailers, retailer branches or franchises) on a Corda network to exchange goods and services. The transfer process can work both ways: both *requests to send* and *requests to receive* can be made.

@@ -30,7 +30,7 @@ The GUI has the following elements:
   * **Token Definitions**: See [Viewing Token Definitions]({{< relref "viewing-token-definitions.md" >}})
   * **Create Tokens**: See [Creating Tokens]({{< relref "creating-tokens.md" >}})
   * **Issue Tokens**: See [Issuing Tokens]({{< relref "issuing-tokens.md" >}}) 
-* The **Settings** button (![](images/setting-buttons.png)): See [Changing Settings]({{< relref "changing-settings.md" >}}). 
-* The flow drawer button (![](images/flow-drawer-button.png)): When performing flows such as creating token definitions and creating tokens, click this button to display a pop-out drawer screen element which displays the current status of the flow.
+* The **Settings** button (![](images/setting-buttons.png)): See [Viewing the GUI Settings]({{< relref "viewing-the-gui-settings.md" >}}). 
+* The flow tracker button (![](images/flow-drawer-button.png)): When performing flows such as creating token definitions and creating tokens, click this button to display a pop-out flow tracker which displays the current status of flows. By default, the five most recent flows are displayed.
   
 

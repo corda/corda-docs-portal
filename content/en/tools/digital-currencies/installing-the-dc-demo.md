@@ -134,7 +134,7 @@ Test that Corda is live by accessing and testing its Swagger UI.
 
 1. In a browser, open the URL:
 
-    https://localhost:8888/api/v1/swagger#/
+    [https://localhost:8888/api/v1/swagger#/](https://localhost:8888/api/v1/swagger#/)
 
     If Corda has started, the following page is displayed:
 
@@ -169,7 +169,7 @@ To access Corda, you must authorize Swagger:
 	  alt="Swagger Authorize Button"
     >}}
 
-3. Enter the username and password admin/admin and click **Authorize**.
+3. Enter the username and password *admin* and *admin* and click **Authorize**.
 
    You are now authorized:
 
@@ -183,9 +183,9 @@ To access Corda, you must authorize Swagger:
 
 4. Click **Close**.
 
-For the purposes of testing Corda, we will use the cpi endpoint.
+For the purposes of testing Corda, we will use the CPI endpoint.
 
-5. Click on the cpi GET method to expand it:
+5. Click the CPI GET method to expand it:
 
     {{<
       figure

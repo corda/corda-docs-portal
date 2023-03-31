@@ -14,15 +14,6 @@ title: "Creating Tokens"
 
 Once a token definition has been created, new tokens of that type can be issued. Such tokens can then be used as for currency or utility purposes and allows the issuing party to maintain monetary policy and provide easily accessible digital currency tokens to specific entities.
 
-<!-- Wholesale banks and financial institutions can deposit assets in exchange for tokens minted on the network. This process involves:
-
-* A bank or financial institution requests a deposit in exchange for tokens, as described in *[Requesting Deposits](#requesting-deposits)*.
-* A custodian approves the deposit request, as described in *[Accepting or Rejecting Deposit Requests](#accepting-or-rejecting-deposit-requests)*.
-* The bank issues a payment to transfer collateral (off-ledger assets) to the custodian in exchange for the issuance of tokens, as described in *[Issuing Payments](#issuing-payments)*.
-* The custodian accepts the payment, as described in *[Accepting or Rejecting Payments](#accepting-or-rejecting-payments)*.
-
--->
-
 1. Click **Create Tokens** in the left-hand sidebar.
 
    The **Create Token** page is displayed:
