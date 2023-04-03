@@ -9,4 +9,4 @@ menu:
 section_menu: corda-5-beta
 ---
 
-This is some text. To learn more about how to package a {{< tooltip >}} CorDapp {{< definition word="cordapp" >}}{{< /tooltip >}} read the rest of this page. We can also tell you what a {{< tooltip >}} virtual node {{< definition word="virtual node" >}}{{< /tooltip >}} is.
+This is some text. To learn more about how to package a {{< tooltip >}}CorDapp{{< definition word="cordapp" >}}{{< /tooltip >}} read the rest of this page. We can also tell you what a {{< tooltip >}}virtual node{{< definition word="virtual node" >}}{{< /tooltip >}} is.
