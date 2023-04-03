@@ -1,9 +1,9 @@
 ---
 date: '2023-01-12'
 menu:
-  corda-enterprise-4-9:
-    identifier: corda-enterprise-4-9-tutorial-basic-cordapp-contract
-    parent: corda-enterprise-4-9-tutorial-basic-cordapp-intro
+  corda-community-4-9:
+    identifier: corda-community-4-9-tutorial-basic-cordapp-contract
+    parent: corda-community-4-9-tutorial-basic-cordapp-intro
     weight: 80
 tags:
 - tutorial
