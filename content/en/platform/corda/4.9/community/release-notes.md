@@ -8,7 +8,7 @@ date: '2023-02-10'
 menu:
   corda-community-4-9:
     identifier: corda-community-4-9-release-notes
-    weight: 1
+    weight: -5
     name: "Release notes"
 tags:
 - release

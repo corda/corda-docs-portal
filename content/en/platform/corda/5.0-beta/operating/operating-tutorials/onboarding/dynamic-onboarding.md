@@ -126,6 +126,10 @@ To retrieve the `GroupPolicy.json` file from the MGM:
 
 Build a CPI using the Corda CLI packaging plugin, passing in the member CPB and your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section]({{< relref "../../../developing/development-tutorials/cordapp-packaging.md" >}}).
 
+{{< warning >}}
+A dynamic network can only work if the member CPI is using the exported MGM group policy.
+{{< /warning >}}
+
 ## Upload the CPI
 
 To upload the CPI, run the following:
