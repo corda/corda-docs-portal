@@ -237,7 +237,7 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
 
 {{< note >}}
 If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
-{{< note >}}
+{{< /note >}}
 
 3. Review the DML files generated and then execute against the database.
 
