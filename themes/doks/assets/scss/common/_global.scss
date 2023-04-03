@@ -424,3 +424,9 @@ figure {
   width: 300px;
   overflow: auto;
 }
+
+.footer {
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
