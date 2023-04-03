@@ -14,6 +14,24 @@ title: Release notes
 
 # Corda Enterprise Network Manager release notes
 
+## Corda Enterprise Network Manager 1.5.7
+
+CENM 1.5.7 introduces enhancements and fixes to known issues in CENM 1.5.
+
+### Enhancements
+
+* The 'Organization' column filter has been removed from the CRR/CRL status tab.
+* The Java serialization in CENM has been disabled as a security mitigation against access being obtained maliciously to perform remote code execution.
+* A synchronous call will now be made to the `IDManager` instead of an asynchronous call when a node requests to publish `nodeInfo`.
+
+### Fixed Issues 
+
+* Improved error messages are returned when submitting a second CRR request for the same node via the CRR submission tool.
+* Reduced deadlocks associated with the insert and/or update of `NodeInfoEntity` records.
+* Fixed the hanging network map issue.
+* The validity period of a child's certificate cannot be longer than the validity period of the parent's certificate. If the expiration date of the child's certificate is set to be longer than the parent's certificate, it will now be adjusted to fit within the expiration time window of the parent's certificate.
+* The ‘Reset’ button is now always enabled, so any configuration changes made in the CENM UI can be reverted.
+
 ## Corda Enterprise Network Manager 1.5.6
 
 CENM 1.5.6 fixes two vulnerabilities by:
