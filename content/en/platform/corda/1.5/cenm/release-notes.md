@@ -30,7 +30,7 @@ CENM 1.5.7 introduces enhancements and fixes to known issues in CENM 1.5.
 * Reduced deadlocks associated with the insert and/or update of `NodeInfoEntity` records.
 * Fixed the hanging network map issue.
 * The validity period of a child's certificate cannot be longer than the validity period of the parent's certificate. If the expiration date of the child's certificate is set to be longer than the parent's certificate, it will now be adjusted to fit within the expiration time window of the parent's certificate.
-* The ‘Reset’ button is now always enabled, so any configuration changes made in the CENM UI can be reverted.
+* The ‘Reset’ button is now always enabled in the CENM UI, so any configuration changes made can be reverted.
 
 ## Corda Enterprise Network Manager 1.5.6
 
