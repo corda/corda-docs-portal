@@ -30,6 +30,8 @@ Use this guide to:
 
 ### Upgrading Tokens SDK
 
+For more information on the latest changes in Tokens SDK, see the [release notes]({{< relref "../../../../../tools/tokens-sdk/tokens-sdk-index.md" >}}). 
+
 To upgrade the Tokens SDK:
 
 {{< warning >}}

@@ -27,31 +27,9 @@ Use this guide to:
 2. Design a token with the correct characteristics for its intended use.
 
 3. Create flows that issue your token correctly onto the ledger, move it from party to party, and have it redeemed.
+### Upgrading Tokens SDK
 
-
-## Upgrading
-
-If you have developed a CorDapp that uses the Tokens SDK V1.1 or V1.2.1, you can upgrade to 1.2.2.
-
-### Compatibility
-
-Version 1.2.1 of the Tokens SDK is compatible with **Corda release version 4.6** and higher.
-
-### Changes in V1.2.1
-
-The main changes in the Tokens SDK from V1.1 to V1.2.1 are designed to improve application of the SDK for those using a Java code base.
-
-Overview of changes:
-
-* All of the utility methods, subflows and RPC enabled flows have been annotated with @JVMOverloads to ensure the appropriate Java constructors are generated where the source Kotlin constructor contains nullable arguments. This ensures a seamless experience when using the Tokens SDK from a Java code base.
-* The `selection` and `money` JAR files have been moved into the `workflows` JAR file.
-* Upgraded database interaction for compatibility with Corda 4.6 and Corda Enterprise Edition 4.6.
-
-### Changes in V1.2.2
-
-In V1.2.2, a new [Token Selection](token-selection.md) feature allows the exception `InsufficientNotLockedBalanceException` to be thrown when sufficient funds appear to exist for a transaction to take place, but an excess of those funds are soft locked by other in-flight transactions. The warning tells you that there are insufficient funds that have not been soft locked to satisfy the transaction amount.
-
-### Upgrade Tokens SDK
+For more information on the latest changes in Tokens SDK, see the [release notes]({{< relref "../../../../../tools/tokens-sdk/tokens-sdk-index.md" >}}). 
 
 To upgrade the Tokens SDK:
 
