@@ -27,9 +27,12 @@ Use this guide to:
 2. Design a token with the correct characteristics for its intended use.
 
 3. Create flows that issue your token correctly onto the ledger, move it from party to party, and have it redeemed.
-### Upgrading Tokens SDK
 
-For more information on the latest changes in Tokens SDK, see the [release notes]({{< relref "../../../../../tools/tokens-sdk/tokens-sdk-index.md" >}}). 
+### Changes in Tokens SDK 
+
+For information on the latest changes in Tokens SDK, see the [release notes]({{< relref "../../../../../tools/tokens-sdk/tokens-sdk-index.md" >}}). 
+
+### Upgrading Tokens SDK
 
 To upgrade the Tokens SDK:
 
