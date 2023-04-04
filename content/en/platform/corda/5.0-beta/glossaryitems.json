@@ -1,5 +1,12 @@
 {
-    "CorDapp": "A distributed application (Dapp) deployed on Corda.",
-    "Virtual node": "The combination of the context of an identity and the temporary compute instances created to execute flows on behalf of that identity.",
-    "Application network": "The set of all possible entities onboarded according to the rules of the network."
+    "CorDapp": {
+        "definition": "A distributed application (Dapp) deployed on Corda."
+    },
+    "Virtual node": {
+        "definition": "The combination of the context of an identity and the temporary compute instances created to execute flows on behalf of that identity." 
+    },
+    "Application network": {
+        "definition": "The set of all possible entities onboarded according to the rules of the network.",
+        "more": "It is the sum of all members and the states that they have created and transacted between them. This is all of the possible users permitted to use an application. For the operator of an application, it is their complete list of customers. From the perspective of one of those customers, it is who they are allowed to interact with. For more information see the <a href=\"./introduction/key-concepts.html#application-networks\">Key Concepts</a> page. "
+    } 
 }    
