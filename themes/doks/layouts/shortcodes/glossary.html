@@ -2,6 +2,6 @@
 
 {{ $glossarylist := getJSON "content/en/platform/corda/5.0-beta/glossaryitems.json" }}
 
-{{ range $term, $definition := $glossarylist }}
-    <li><b>{{ $term }}</b> {{ $definition }}</li>
+{{ range $term, $value := $glossarylist }}
+    <li><b>{{ $term }}</b> {{ $value.definition }} {{ safeHTML $value.more }} </li>
 {{ end }}

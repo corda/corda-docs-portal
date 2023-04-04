@@ -1,12 +1,17 @@
 {{/* Function to display the definition for the specified term, as defined for Corda 5 in glossaryitems.json, as a tooltip.*/}}
 {{/* Example usage: {{< tooltip >}}CorDapp{{< definition word="cordapp" >}}{{< /tooltip >}}*/}}
+{{/* NOTE the "term" passed to this shortcode must match the term in the JSON file exactly (including case).*/}}
 
-{{ with $.Params.word }}
+{{ with $.Params.term }}
     {{ $glossarylist := getJSON "content/en/platform/corda/5.0-beta/glossaryitems.json" }}
-    {{ range $term, $definition := $glossarylist }}
-        {{ $term_lower := lower $term }}
-        {{ if eq $term_lower (lower $.Params.word) }} 
-            <span class="definition">{{ $definition }}</span>
+    {{ if (isset $glossarylist $.Params.term ) }}
+        {{ range $term, $value := $glossarylist }}
+            {{ if eq $term $.Params.term}} 
+                <span class="definition">{{ $value.definition }}</span>
+            {{ end }}
         {{ end }}
+    {{ else }}
+        <span class="definition"> not found!! </span>
+        {{ errorf "Glossary term" $.Params.term "not found." }}
     {{ end }}
 {{ end }}    
