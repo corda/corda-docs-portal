@@ -1,0 +1,7 @@
+{{/* Function to display the full list of terms and definitions defined for Corda 5 in glossaryitems.json, as a tooltip. */}}
+
+{{ $glossarylist := getJSON "content/en/platform/corda/5.0-beta/glossaryitems.json" }}
+
+{{ range $term, $definition := $glossarylist }}
+    <li><b>{{ $term }}</b> {{ $definition }}</li>
+{{ end }}
