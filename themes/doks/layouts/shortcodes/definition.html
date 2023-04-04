@@ -5,7 +5,7 @@
     {{ $glossarylist := getJSON "content/en/platform/corda/5.0-beta/glossaryitems.json" }}
     {{ range $term, $definition := $glossarylist }}
         {{ $term_lower := lower $term }}
-        {{ if index $term (lower $.Params.word) }} 
+        {{ if eq $term_lower (lower $.Params.word) }} 
             <span class="definition">{{ $definition }}</span>
         {{ end }}
     {{ end }}
