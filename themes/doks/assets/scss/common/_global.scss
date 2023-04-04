@@ -418,3 +418,18 @@ figure {
   flex-direction: column;
   align-items: center;
 }
+
+main > nav[aria-label="breadcrumb"] {
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    position: sticky;
+    padding: 0.5rem;
+    top: 150.5px;
+    background-color: var(--bs-body-bg);
+    width: 100%;
+    padding: 2px;
+    z-index: 1000;
+   }
+}
+
