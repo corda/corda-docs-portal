@@ -84,7 +84,7 @@ node {
     sshdPort 2223
 }
 ```
-                                 
+
 
 {{< note >}}
 Make sure to use Corda gradle plugin version 5.0.10 or above. If you do not specify the `sshd` port number for a node, it will use the default value `2222`. Please run the `docker ps` command to check the allocated port on your host that maps to this port.
@@ -251,10 +251,18 @@ EOSQL
 }
 ```
 
-2. In the `build.gradle` file, add the gradle task `generateInitScripts` to the `dependsOn` list of the `prepareDockerNodes` task, add the `dockerConfig` element, and initialise it with the `postgres` block. An example is shown below:
-                                                                                                                                                                                                                                                                                        
+2. In the `build.gradle` file, add the following code:
+
+* To apply the `postgres.gradle` script, add `apply from: 'postgres.gradle'`.
+* Add gradle task `generateInitScripts` to the `dependsOn` list of the `prepareDockerNodes` task.
+* Add the `dockerConfig` element.
+* Initialise it with the `postgres` block.
+
+An example is shown below:
 
 ```groovy
+apply from: 'postgres.gradle'
+
 task prepareDockerNodes(type: net.corda.plugins.Dockerform, dependsOn: ['jar',  'generateInitScripts']) {
 
     [...]
