@@ -424,7 +424,6 @@ main > nav[aria-label="breadcrumb"] {
 
   @include media-breakpoint-up(md) {
     position: sticky;
-    padding: 0.5rem;
     top: 150.5px;
     background-color: var(--bs-body-bg);
     width: 100%;
