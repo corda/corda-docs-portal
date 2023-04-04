@@ -237,7 +237,7 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
 
 {{< note >}}
 If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
-{{< note >}}
+{{< /note >}}
 
 3. Review the DML files generated and then execute against the database.
 
@@ -254,7 +254,7 @@ If the schemas are not specified, then the tables will be created in the default
    {{% tab name="macOS" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
-     --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC \
+     --name corda-rbac --jbdc-url 'jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=RBAC' \
      --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
@@ -289,7 +289,7 @@ If the schemas are not specified, then the tables will be created in the default
    {{% tab name="macOS" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u rbacuser -p rc9VLHU3 \
-     --name corda-rbac --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC \
+     --name corda-rbac --jbdc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=RBAC' \
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
@@ -317,7 +317,7 @@ If the schemas are not specified, then the tables will be created in the default
    {{% tab name="macOS" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u <CRYPTO-USERNAME> -p <CRYPTO-PASSWORD> \
-     --name corda-crypto --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO \
+     --name corda-crypto --jbdc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME>?currentSchema=CRYPTO` \
      --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
    ```
    {{% /tab %}}
@@ -346,7 +346,7 @@ If the schemas are not specified, then the tables will be created in the default
    {{% tab name="macOS" %}}
    ```sh
    corda-cli.sh initial-config create-db-config -u cryptouser -p TqoCp4v2 \
-     --name corda-crypto --jbdc-url jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO \
+     --name corda-crypto --jbdc-url 'jdbc:postgresql://postgres.example.com:5432/cordacluster?currentSchema=CRYPTO' \
      --jdbc-pool-max-size 5 --salt X3UaCpUH --passphrase UUWLhD8S -l /tmp/db
    ```
    {{% /tab %}}
