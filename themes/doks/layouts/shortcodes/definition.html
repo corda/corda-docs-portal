@@ -1,3 +1,5 @@
+<!--Function to display the definition for the specified term, as defined for Corda 5 in glossaryitems.json, as a tooltip. Example usage: {{< tooltip >}}CorDapp{{< definition word="cordapp" >}}{{< /tooltip >}}-->
+
 {{ with $.Params.word }}
     {{ $glossarylist := getJSON "content/en/platform/corda/5.0-beta/glossaryitems.json" }}
     {{ $definition := index $glossarylist $.Params.word }} 
