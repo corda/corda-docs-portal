@@ -20,9 +20,3 @@ Corda is a platform that enables you to build permissioned networks, create appl
 For Developers, Corda 5 is an accessible toolbox with well-defined layers that enables you to create solutions. It does not force complexity or concepts, but gives a streamlined iteration for the testing and development loop. It is supported by RESTful APIs.
 
 As an operator of a network, Corda 5 places the control in your hands, acknowledging that the rules governing access to a network are best set and managed by you. Deployments can match the scale of the problem and then grow and adapt as it changes. It is cloud-native; behaving as any other modern application, with the tooling to match.
-
-{{< warning >}}
-Corda 5.0 Beta is, as the name suggests, a pre-release version for testing purposes only.
-If you are not part of the current beta program, the Corda 5.0 Beta documentation is for information only. 
-Contact R3 to register your interest in joining the beta program.
-{{< /warning >}}

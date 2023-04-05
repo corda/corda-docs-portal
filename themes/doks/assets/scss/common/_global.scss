@@ -138,7 +138,6 @@ body {
 
     .docs-sidebar-content {
       background-color: $gray-300;
-      width: 313px;
       padding-left: 2rem;
       height: 100%;
     }
@@ -167,6 +166,7 @@ body {
   padding-top: 1rem;
   padding-bottom: 7rem;
   padding-right: .75rem;
+  margin-bottom: 320px;
 }
 
 @include media-breakpoint-up(lg) {
@@ -432,3 +432,15 @@ main > nav[aria-label="breadcrumb"] {
    }
 }
 
+.docs-sidebar-content {
+  position: fixed;
+  height: 100%;
+  width: 300px;
+  overflow: auto;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
