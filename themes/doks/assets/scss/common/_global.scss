@@ -431,3 +431,15 @@ figure {
   width: 100%;
   z-index: 1000;
 }
+
+details > summary {
+  list-style-type: '[...]';
+}
+
+details[open] > summary {
+  list-style-type: none;
+}
+
+details {
+  display: inline-block;
+}

@@ -1,0 +1,28 @@
+<style>
+    .definition {
+        visibility: hidden;
+        width: 300px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .term {
+        position: relative;
+        display: inline;
+        border-bottom: 1px dotted black;
+    }
+    .term:hover .definition {
+        visibility: visible;
+        opacity: 1;
+    }
+</style>
+<span class="term">&nbsp{{ .Inner }}</span>
