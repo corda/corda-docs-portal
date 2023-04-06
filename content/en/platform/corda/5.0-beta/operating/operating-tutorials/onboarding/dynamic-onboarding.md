@@ -497,13 +497,13 @@ export REGISTRATION_CONTEXT='{
   "corda.session.key.signature.spec": "SHA256withECDSA",
   "corda.ledger.keys.0.id": "'$LEDGER_KEY_ID'",
   "corda.ledger.keys.0.signature.spec": "SHA256withECDSA",
-  "corda.notary.keys.0.id" = "$NOTARY_KEY_ID",
-  "corda.notary.keys.0.signature.spec" = "SHA256withECDSA"
+  "corda.notary.keys.0.id": "$NOTARY_KEY_ID",
+  "corda.notary.keys.0.signature.spec": "SHA256withECDSA"
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
   "corda.endpoints.0.protocolVersion": "1",
-  "corda.roles.0" : "notary",
-  "corda.notary.service.name" : <An X500 name for the notary service>,
-  "corda.notary.service.plugin" : "net.corda.notary.NonValidatingNotary"
+  "corda.roles.0": "notary",
+  "corda.notary.service.name": <An X500 name for the notary service>,
+  "corda.notary.service.plugin": "net.corda.notary.NonValidatingNotary"
 }'
 ```
 {{% /tab %}}
@@ -518,9 +518,9 @@ $REGISTRATION_CONTEXT = @{
   "corda.notary.keys.0.signature.spec" = "SHA256withECDSA"
   'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST`:$P2P_GATEWAY_PORT"
   'corda.endpoints.0.protocolVersion' = "1"
-  'corda.roles.0' : "notary",
-  'corda.notary.service.name' : <An X500 name for the notary service>,
-  'corda.notary.service.plugin' : "net.corda.notary.NonValidatingNotary"
+  'corda.roles.0' = "notary",
+  'corda.notary.service.name' = <An X500 name for the notary service>,
+  'corda.notary.service.plugin' = "net.corda.notary.NonValidatingNotary"
 }
 ```
 {{% /tab %}}
