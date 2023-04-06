@@ -32,11 +32,6 @@ To display the Swagger UI, use the following link:
 
 [https://localhost:8888/api/v1/swagger#/](https://localhost:8888/api/v1/swagger#/)
 
-{{< note >}}
-* A message about certificates may be displayed. You will need to click through to the page.
-* Currently the UI may not display on Chrome and we advise using a different browser.
-{{< / note >}}
-
 If Corda has started, the Swagger UI displays:
 {{< figure src="swagger-ui.png" figcaption="Swagger UI showing Corda liveness" alt="Swagger UI showing Corda" >}}
 
