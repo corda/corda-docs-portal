@@ -447,13 +447,9 @@ main > nav[aria-label="breadcrumb"] {
 }
 
 details > summary {
-  list-style-type: '[+]';
+  list-style-image: url("/icons/icon-arrow-down.svg");
 }
 
 details[open] > summary {
-  list-style-type: '[-]';
-}
-
-details {
-  display: inline-block;
+  list-style-image: url("/icons/icon-arrow-up.svg");
 }
