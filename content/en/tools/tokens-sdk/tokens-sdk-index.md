@@ -29,7 +29,7 @@ Version 1.2.4 of the Tokens SDK is compatible with **Corda release version 4.8**
 
 ## Changes in Tokens SDK 1.2.4
 
-Previously, the in-memory token selector would start loading its tokens in parallel to the vault being initialised, which may have resulted in some tokens not being loaded into the selector. This issue has now been resolved.
+Previously, the in-memory token selector would start loading its tokens in parallel to the vault being initialised or during node startup, which may have resulted in some tokens not being loaded into the selector. This issue has now been resolved.
 
 ## Changes in Tokens SDK 1.2.3
 
