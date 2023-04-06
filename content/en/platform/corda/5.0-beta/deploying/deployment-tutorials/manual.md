@@ -26,7 +26,7 @@ To create the topics manually, do the following:
 2. Create a [Kafka client properties](https://kafka.apache.org/documentation/#configuration) file. The following is an example properties file for a Kafka cluster using TLS and SASL authentication:
 
    ```properties
-   security.protocol=SASL-SSL
+   security.protocol=SASL_SSL
    sasl.mechanism=SCRAM-SHA-256
    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="<USERNAME>" password="<PASSWORD>" ;
    ssl.truststore.location=ca.crt
