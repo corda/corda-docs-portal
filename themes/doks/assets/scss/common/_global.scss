@@ -419,6 +419,20 @@ figure {
   align-items: center;
 }
 
+main > nav[aria-label="breadcrumb"] {
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    position: sticky;
+    top: 150.5px;
+    background-color: var(--bs-body-bg);
+    width: 100%;
+    padding: 2px;
+    z-index: 900;
+    border-bottom: solid 1px $gray-200;
+   }
+}
+
 .docs-sidebar-content {
   position: fixed;
   height: 100%;
