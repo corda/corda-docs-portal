@@ -446,10 +446,18 @@ main > nav[aria-label="breadcrumb"] {
   z-index: 1000;
 }
 
-details > summary {
-  list-style-image: url("/icons/icon-arrow-down.svg");
+details>summary {
+ 
+  list-style: none;
+  margin-top: 1rem;
+}
+summary::-webkit-details-marker {
+  display: none
 }
 
-details[open] > summary {
-  list-style-image: url("/icons/icon-arrow-up.svg");
+summary::after {
+  content: url("/icons/icon-arrow-down.svg");
+}
+details[open] summary:after {
+  content: url("/icons/icon-arrow-up.svg");
 }

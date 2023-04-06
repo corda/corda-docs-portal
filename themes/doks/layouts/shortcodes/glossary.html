@@ -1,12 +1,11 @@
 {{/* Function to display the full list of terms and definitions defined for Corda 5 in glossaryitems.json. */}}
 
 {{ $glossarylist := getJSON "content/en/platform/corda/5.0-beta/glossaryitems.json" }}
-<dl>
-{{ range $term, $value := $glossarylist }}
-    <dt>{{ $term }}</dt> <dd> {{ $value.definition }}  
-    {{ with $value.more }}
-       <details><summary></summary>{{ safeHTML $value.more }}</details>
+
+    {{ range $term, $value := $glossarylist }}
+        {{ with $value.more }}
+            <details><summary ><b>{{ $term }}</b><br>{{ $value.definition }}</summary>{{ safeHTML $value.more }}</details>
+        {{ else }}
+            <p style="margin-top: 1rem";><b>{{ $term }}</b><br>{{ $value.definition }}</p>
+        {{ end }}
     {{ end }}
-    </dd>
-{{ end }}
-</dl>
