@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
 				document.querySelector(`#TableOfContents li a[href="#${id}"]`).classList.remove('active');
 			}
 		});
-	});
+  }, { root: null, rootMargin: "-230px",});
 
 	// Track all sections that have an `id` applied
 	document.querySelectorAll('main h2, main h3, main h4, main h5').forEach((section) => {
