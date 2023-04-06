@@ -437,7 +437,7 @@ details > summary {
 }
 
 details[open] > summary {
-  list-style-type: none;
+  list-style-type: '[-]';
 }
 
 details {
