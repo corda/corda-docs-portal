@@ -1,4 +1,6 @@
 {{/* Function to display the full list of terms and definitions defined for Corda 5 in glossaryitems.json. */}}
+{{/*The "definition" field in glossaryitems.json should only be one sentence. This is the text displayed as the ToolTip throughout the content and also displayed by default on the Glossary page.*/}}
+{{/*The "more" field in glossaryitems.json displays any additional content displayed by expanding the paragraph on the Glossary page.*/}}
 
 {{ $glossarylist := getJSON "content/en/platform/corda/5.0-beta/glossaryitems.json" }}
 
