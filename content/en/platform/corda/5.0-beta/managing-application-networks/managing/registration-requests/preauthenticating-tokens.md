@@ -1,15 +1,15 @@
 ---
-date: '2023-03-16'
+date: '2023-04-07'
 title: "Managing Pre-Authentication Tokens"
 menu:
   corda-5-beta:
-    identifier: corda-5-beta-config-pre-auth-tokens
-    parent: corda-5-beta-reg-requests-pre-auth
-    weight: 3000
+    identifier: corda-5-beta-pre-auth-tokens
+    parent: corda-5-beta-pre-auth
+    weight: 1000
 section_menu: corda-5-beta
 ---
 
-As described in [Registration Approval]({{< relref "../../registration-approval.md#pre-authentication" >}}), the network operator can pre-authenticate member registrations. This section describes how to manage pre-auth tokens for a member using the Corda REST API.
+
 
 ## Creating a Token
 

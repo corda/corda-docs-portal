@@ -334,6 +334,8 @@ identifier = "corda-community-4-9-contributing-index"
 name = "Participate"
 weight = 500
 
+#original C5
+
 [[corda-5-beta]]
 identifier = "corda-5-beta-deploy-troubleshoot"
 parent = "corda-5-beta-deploy"
@@ -404,6 +406,37 @@ weight = 1000
 identifier = "corda-5-beta-release-notes"
 name = "Release Notes"
 weight = 6000
+
+#resturcture
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-app-networks"
+name = "Managing Application Networks"
+weight = 5000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-app-networks-create"
+parent = "corda-5-beta-app-networks"
+name = "Creating Application Networks"
+weight = 2000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-app-networks-manage"
+parent = "corda-5-beta-app-networks"
+name = "Managing Members"
+weight = 3000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-pre-auth"
+parent = "corda-5-beta-app-networks-reg-requests"
+name = "Pre-Authorization"
+weight = 2000
+
+[[corda-5-beta]]
+identifier = "corda-5-beta-app-networks-alternative"
+parent = "corda-5-beta-app-networks-create"
+name = "Alternative Configurations"
+weight = 4000
 
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
