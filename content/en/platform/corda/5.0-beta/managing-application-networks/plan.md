@@ -9,4 +9,4 @@ menu:
 section_menu: corda-5-beta
 ---
 
-_How to plan and design your application Network
+_How to plan and design your application Network_
