@@ -9,14 +9,14 @@ menu:
 section_menu: corda-5-beta
 ---
 
-A network operator can configure a membership group to require that the operator must manually approve (or decline) member registration requests. 
+A network operator can configure a membership group so that the operator must manually approve (or decline) member registration requests. 
 The configuration specifies that requests satisfying specific criteria require [manual approval]({{< relref "#manual-approval" >}}), while others are approved automatically. 
 The network operator can also [pre-authenticate specific members]({{< relref "#pre-authentication" >}}), allowing them to bypass the standard approval rules defined for the group.
 The operator can further configure pre-authentication to specify that certain changes to the member's context must be manually reviewed.
 
 ## Manual Approval
 
-The manual registration approval process presents the request to the operator, enabling the operator to [review the request]({{< relref "./reviewing-registration-requests.md" >}}) before approving or declining it using the REST API. 
+The manual registration approval process presents requests to the operator, enabling the operator to [review the request]({{< relref "./reviewing-registration-requests.md" >}}) before approving or declining it using the REST API. 
 This process applies to both registration and re-registration requests. 
 The approval process can be configured at any point in time, and only affects future registration requests: previously approved members are not required to re-register.
 
@@ -24,7 +24,7 @@ Registration requests are evaluated according to regular expression-based rules 
 The proposed [MemberInfo]({{< relref "../../../developing/api/api-membership.md#memberinfo" >}}) is compared with the previous (if any) `MemberInfo` to calculate the difference in their member contexts. 
 This difference will be 100% in case of a first-time registration, since there will be no previous `MemberInfo` for that member known to the MGM. 
 If any of the keys present in this `MemberInfo` difference match the regular expressions set by the MGM operator, the request requires manual approval. 
-If there are no matches, the request is auto-approved.
+If there are no difference matches, the request is auto-approved.
 
 Corda has a set of REST APIs available for managing approval rules. To learn more, see [Configuring Manual Approval Rules]({{< relref "./configuring-manual-approval-rules.md" >}}).
 

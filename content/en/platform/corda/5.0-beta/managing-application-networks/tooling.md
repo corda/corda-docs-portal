@@ -8,3 +8,6 @@ menu:
     weight: 2000
 section_menu: corda-5-beta
 ---
+Corda Network Operators require the following:
+* [curl](https://curl.se/)
+* [Corda CLI]({{< relref "./installing-corda-cli.md" >}})
