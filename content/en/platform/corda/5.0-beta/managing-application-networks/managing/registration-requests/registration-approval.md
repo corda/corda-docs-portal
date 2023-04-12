@@ -1,13 +1,12 @@
 ---
-date: '2023-03-15'
-title: "Member Registration Approval"
+date: '2023-04-07'
+title: "Member Registration"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-app-networks-reg-requests
-    parent: corda-5-beta-app-networks
+    parent: corda-5-beta-app-networks-manage
     weight: 4000
 section_menu: corda-5-beta
-draft: "true"
 ---
 
 A network operator can configure a membership group to require that the operator must manually approve (or decline) member registration requests. 

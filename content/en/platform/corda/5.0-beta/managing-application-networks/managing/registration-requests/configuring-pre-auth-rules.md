@@ -1,5 +1,5 @@
 ---
-date: '2023-07-07'
+date: '2023-04-07'
 title: "Configuring Pre-Authentication Rules"
 menu:
   corda-5-beta:
@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 ---
 
-As described in [Registration Approval]({{< relref "../../registration-approval.md" >}}), you can specify that certain changes to the member’s context must be manually approved (or declined), even if a pre-auth token was submitted. This section describes how to manage pre-auth registration rules using the Corda REST API.
+As described in [Registration Approval]({{< relref "./registration-approval.md" >}}), you can specify that certain changes to the member’s context must be manually approved (or declined), even if a pre-auth token was submitted. This section describes how to manage pre-auth registration rules using the Corda REST API.
 
 ## Adding a Pre-Auth Approval Rule
 

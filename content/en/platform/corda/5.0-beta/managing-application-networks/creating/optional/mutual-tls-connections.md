@@ -4,7 +4,7 @@ title: "Mutual TLS Connections"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-app-network-mutual-tls
-    parent: corda-5-beta-app-networks-alternative
+    parent: corda-5-beta-app-networks-optional
     weight: 1000
 section_menu: corda-5-beta
 ---
@@ -14,7 +14,7 @@ As the gateway manages the TLS connections for an entire cluster, the TLS mode (
 
 The server gateway has a set of accepted certificate subjects. As part of the client certificate verification, the server rejects a connection with a certificate that has a subject not specified in the allowed list. Before a member can register with a cluster that is configured with mutual TLS, you must add the certificate subject of that member to the allowed list of the MGM. Once a member is successfully onboarded, the MGM distributes the certificate subject of the member to all other members in the group. The gateway in each member cluster uses this to accept TLS connections from any onboarded member.
 
-<!--For information about how to onboard to dynamic networks that use mutual TLS, see the [operating tutorial](operating-tutorials/mutual-tls.md). Mutual TLS is relevant only for [dynamic networks](../deploying/network-types.html#dynamic-networks), as [static networks](../deploying/network-types.html#static-networks) can only span a single cluster.!-->
+For information about how to onboard to dynamic networks that use mutual TLS, see the [operating tutorial](operating-tutorials/mutual-tls.md). Mutual TLS is relevant only for [dynamic networks](../deploying/network-types.html#dynamic-networks), as [static networks](../deploying/network-types.html#static-networks) can only span a single cluster.
 
 {{< note >}}
 * Mutual TLS is set per cluster. It must apply to all groups that the cluster hosts and all clusters that host those groups. You can not onboard a member unless the TLS type of the MGM cluster is aligned with the TLS type of the member cluster.
@@ -122,7 +122,7 @@ export REGISTRATION_CONTEXT='{
 
 ## Update the MGM Allowed Certificate Subject List
 
-<!--To add a member TLS certificate subject to the MGM allowed list, run the following, where `CN=CordaOperator,C=GB,L=London,O=Org` is the subject of the TLS certificate created as part of [member onboarding]("./onboarding/dynamic-onboarding.md#tls-key-pair-and-certificate" ):!-->
+To add a member TLS certificate subject to the MGM allowed list, run the following, where `CN=CordaOperator,C=GB,L=London,O=Org` is the subject of the TLS certificate created as part of [member onboarding]("./onboarding/dynamic-onboarding.md#tls-key-pair-and-certificate" ):
 
 {{< tabs >}}
 {{% tab name="Bash"%}}

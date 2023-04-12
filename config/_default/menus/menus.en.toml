@@ -418,13 +418,13 @@ weight = 5000
 identifier = "corda-5-beta-app-networks-create"
 parent = "corda-5-beta-app-networks"
 name = "Creating Application Networks"
-weight = 2000
+weight = 3000
 
 [[corda-5-beta]]
 identifier = "corda-5-beta-app-networks-manage"
 parent = "corda-5-beta-app-networks"
 name = "Managing Members"
-weight = 3000
+weight = 4000
 
 [[corda-5-beta]]
 identifier = "corda-5-beta-pre-auth"
@@ -433,9 +433,9 @@ name = "Pre-Authorization"
 weight = 2000
 
 [[corda-5-beta]]
-identifier = "corda-5-beta-app-networks-alternative"
+identifier = "corda-5-beta-app-networks-optional"
 parent = "corda-5-beta-app-networks-create"
-name = "Alternative Configurations"
+name = "Optional Configurations"
 weight = 4000
 
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu

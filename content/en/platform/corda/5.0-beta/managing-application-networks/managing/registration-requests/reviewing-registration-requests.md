@@ -7,7 +7,6 @@ menu:
     parent: corda-5-beta-app-networks-reg-requests
     weight: 3000
 section_menu: corda-5-beta
-draft: "true"
 ---
 
 This section describes how to review and manually approve or decline registration requests. This process applies to registration requests that meet the criteria for manual approval specified by a [standard rule for the group]({{< relref "./configuring-manual-approval-rules.md" >}}) or by a [pre-auth rule]({{< relref "./configuring-pre-auth-rules.md" >}}). 

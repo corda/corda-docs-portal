@@ -1,10 +1,10 @@
 ---
 date: '2022-11-15'
-title: "Configuring Optional Session Certificates"
+title: "Session Certificates"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-app-network-session-certificates
-    parent: corda-5-beta-app-networks-alternative
+    parent: corda-5-beta-app-networks-optional
     weight: 2000
 section_menu: corda-5-beta
 ---
