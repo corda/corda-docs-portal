@@ -15,7 +15,9 @@ The Archive Service is a standalone service that operates on a different release
 
 ## Archive Service 1.0.3
 
-In V1.0.3, a new configuration option has been added which allows the Archive Service to ignore transactions that cause failures when exporting a JSON snapshot. For more information, see the [Archive Service]({{< relref "archiving-service-index.md#new-in-v103" >}}) documentation.
+In this release:
+
+* A new configuration option has been added which allows the Archive Service to ignore transactions that cause failures when exporting a JSON snapshot. For more information, see the [Archive Service]({{< relref "archiving-service-index.md#new-in-v103" >}}) documentation.
 
 ## Archive Service 1.0.2
 

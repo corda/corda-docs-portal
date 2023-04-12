@@ -21,4 +21,5 @@ In this release:
 ## LedgerGraph 1.2.3 release notes
  
 In this release:
+
 * Logging of the Archiving tool has been increased to aid in troubleshooting.
