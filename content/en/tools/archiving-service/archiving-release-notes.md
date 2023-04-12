@@ -21,7 +21,7 @@ In this release:
 
 ## Archive Service 1.0.2
 
-## Fixed issues
+### Fixed issues
 
 In this release:
 
