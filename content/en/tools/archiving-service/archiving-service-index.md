@@ -54,7 +54,7 @@ In order to improve speed and memory usage when using the Archiving Service, JVM
 
 A new configuration option has been added which allows the Archive Service to skip/ignore transactions that have legacy `ContractStates` associated with them when deserializing causes exceptions. This configuration option is: `ignoreSnapshotExportFailures: true`.
 
-By default this value is false and the behaviour of the Archive Service is unchanged. However, if you are experiencing a `TransactionDeserializationException` (that then causes a `JsonMappingException`), this configuration option can be added, which enables these transactions to be skipped and a snapshot to be exported to JSON. The transactions that caused the failures won’t be included in the export. If a binary export is also created (where the data doesn’t need to be deserialized to start with), then you can have a true representation of your vault without issues.
+By default, this value is false and the behaviour of the Archive Service is unchanged. However, if you are experiencing a `TransactionDeserializationException` (that then causes a `JsonMappingException`), this configuration option can be added, enabling these transactions to be skipped and a snapshot to be exported to JSON. The transactions that caused the failures won’t be included in the export. If a binary export is also created (where the data doesn’t need to be deserialized to start with), then you can have a true representation of your vault without issues.
 
 ## New in V1.0.2
 

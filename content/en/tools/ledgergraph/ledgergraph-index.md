@@ -34,7 +34,7 @@ In order to improve speed and memory usage when using the Archiving Service, JVM
 A new configuration option has been added which allows LedgerGraph to initialize even when transactions that have legacy `contractStates` associated with them fail to deserialize. This configuration option is:
 `ignoreTransactionLoadingFailures = true`.
 
-By default, this value is false and the behaviour of LedgerGraph is unchanged. However, if you experience a `TransactionDeserializationException` when initialising LedgerGraph, this configuration option can be added. This allows these transactions to be skipped by substituting in its place an `UnknownContractState`. The transactions that cause failures will still be included in the graph, however some of the data contained in these transactions will be altered to unknown values. This may cause issues if filtering the graph by **Contract** or by **Participant Data**, but the graph that is built will still be complete.
+By default, this value is false and the behaviour of LedgerGraph is unchanged. However, this configuration can be added if you experience a `TransactionDeserializationException` when initialising LedgerGraph, allowing these transactions to be skipped by substituting in its place an `UnknownContractState`. The transactions that cause failures will still be included in the graph, however some of the data contained in these transactions will be altered to unknown values. This may cause issues when filtering the graph by **Contract** or by **Participant Data**, but the graph that is built will still be complete.
 
 ### In V1.2.3
 
