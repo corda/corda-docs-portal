@@ -16,6 +16,8 @@ You can download the Archive Service release files if you have access to the rep
 
 Before you install the downloaded files, verify the integrity of each file to ensure that it has not been tampered with or corrupted during the download. You can do this by calculating the **checksum** of your downloaded file, then comparing its value to the checksum value provided below.
 
+## Checksums of Archive Service 1.0.3 release files
+
 ## Checksums of Archive Service 1.0.2 release files
 
 * archive-service-1.0.2-javadoc.jar (261 bytes / 261 bytes)

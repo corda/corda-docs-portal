@@ -11,9 +11,13 @@ weight: 705
 
 # Archive Service release notes
 
-## Archive Service 1.0.2
-
 The Archive Service is a standalone service that operates on a different release cadence to the Corda platform.
+
+## Archive Service 1.0.3
+
+In V1.0.3, a new configuration option has been added which allows the Archive Service to ignore transactions that cause failures when exporting a JSON snapshot. For more information, see the [Archive Service]({{< relref "archiving-service-index.md#new-in-v103" >}}) documentation.
+
+## Archive Service 1.0.2
 
 ## Fixed issues
 
