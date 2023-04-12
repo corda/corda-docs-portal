@@ -16,7 +16,7 @@ LedgerGraph is a standalone service that operates on a different release cadence
 
 In this release:
 
-* A configuration option has been added which allows LedgerGraph to deal with transactions that cause failures during initialization. For more information, see the [LedgerGraph]({{< relref "ledgergraph-index.md#in-v124" >}}) documentation.
+* A configuration option has been added which allows LedgerGraph to handle transactions that cause failures during initialization. For more information, see the [LedgerGraph]({{< relref "ledgergraph-index.md#in-v124" >}}) documentation.
 
 ## LedgerGraph 1.2.3 release notes
  
