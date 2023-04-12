@@ -54,7 +54,7 @@ In order to improve speed and memory usage when using the Archiving Service, JVM
 
 A new configuration option has been added which allows the Archive Service to skip transactions that have legacy contract states that cause exceptions during a snapshot export. This configuration option is: `ignoreSnapshotExportFailures: true`.
 
-By default, this value is false and the behaviour of the Archiving Service is unchanged. However, if you are experiencing a `TransactionDeserializationException` or a `JsonMappingException` during the export of a JSON snapshot, this configuration option can be added to skip these transactions for a successful export. These transactions won’t be included in the export, but if a binary export is also created, all transactions can be preserved.
+By default, this value is false and the behaviour of the Archive Service is unchanged. However, if you are experiencing a `TransactionDeserializationException` or a `JsonMappingException` during the export of a JSON snapshot, this configuration option can be added to skip these transactions for a successful export. These transactions won’t be included in the export, but if a binary export is also created, all transactions can be preserved.
 
 ## New in V1.0.2
 
