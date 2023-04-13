@@ -1,6 +1,6 @@
 ---
 date: '2023-04-07'
-title: "Configuring Key Pairs and Certificates"
+title: "Configure Key Pairs and Certificates"
 menu:
   corda-5-beta:
     parent: corda-5-beta-app-networks-mgm
@@ -9,12 +9,12 @@ menu:
 section_menu: corda-5-beta
 ---
 
-## Assign a Soft HSM
+## Generate a Session Initiation Key Pair
 
 To assign a soft high security module (HSM) and generate a session initiation key pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
-```
+```bash
 curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/hsm/soft/$MGM_HOLDING_ID/SESSION_INIT
 curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/keys/$MGM_HOLDING_ID/alias/$MGM_HOLDING_ID-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1
 ```
@@ -30,13 +30,13 @@ $SESSION_KEY_ID = $SESSION_KEY_RESPONSE.id
 
 If using Bash, the result contains the session key ID (for example, 3B9A266F96E2). Run the following command to save this ID for use in subsequent steps:
 ```shell
-export SESSION_KEY_ID=<SESSION_KEY_ID>
+export SESSION_KEY_ID=<session-key-ID>
 ```
 {{< note >}}
 You can use a certificate in addition to the session initiation key pair. For more information, see [Configuring Optional Session Certificates]({{< relref "../optional/session-certificates.md" >}}).
 {{< /note >}}
 
-## Generate Session Initiation and ECDH Key Pair
+## Generate ECDH Key Pair
 
 To generate an Elliptic-curve Diffie–Hellman (ECDH) key pair:
 {{< tabs >}}
@@ -56,7 +56,7 @@ $ECDH_KEY_ID = $ECDH_KEY_RESPONSE.id
 {{< /tabs >}}
 If using Bash, the result contains the key ID (for example, 3B9A266F96E2). Run the following command to save this ID for use in subsequent steps:
 ```
-export ECDH_KEY_ID=<ECDH_KEY_ID>
+export ECDH_KEY_ID=<ECDH-key-ID>
 ```
 
 You can use the following schemes for ECDH key derivation:
@@ -65,7 +65,7 @@ You can use the following schemes for ECDH key derivation:
 * X25519
 * SM2
 
-## Configure the Cluster TLS Key Pair and Certificate
+## Configure the Cluster TLS Key Pair
 {{< note >}}
 This step is only necessary if setting up a new cluster.
 When using cluster-level TLS, it is only necessary to do this once per cluster.
@@ -90,7 +90,7 @@ To set up the TLS key pair and certificate for the cluster:
 
    If using Bash, the endpoint returns the TLS key ID. Run the following command to save this ID for use in subsequent steps:
    ```shell
-   export TLS_KEY_ID=<TLS-KEY-ID>
+   export TLS_KEY_ID=<TLS-key-ID>
    ```
 2. Create a certificate for the TLS key pair. In order to do so, you must create a certificate signing request (CSR). To generate a CSR, run this command:
    {{< tabs >}}
@@ -141,11 +141,11 @@ To set up the TLS key pair and certificate for the cluster:
 
 3. Provide the chosen CA with this CSR and request for certificate issuance.
 
-4. To upload the certificate chain to the Corda cluster, run this command, where `CERTIFICATE_FOLDER` is the path to the folder in which you saved the certificate received from the CA:
+4. To upload the certificate chain to the Corda cluster, run this command, where `certificate-folder` is the path to the folder in which you saved the certificate received from the CA:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  -F certificate=<CERTIFICATE_FOLDER>/certificate.pem -F alias=p2p-tls-cert $REST_API_URL/certificates/cluster/p2p-tls
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  -F certificate=<certificate-folder>/certificate.pem -F alias=p2p-tls-cert $REST_API_URL/certificates/cluster/p2p-tls
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
@@ -166,10 +166,10 @@ To set up the TLS key pair and certificate for the cluster:
 ### Disable Revocation Checks
 
 If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks:
-* [Disable Revocation Checks Using Bash](#disable-revocation-checks-using-bash)
-* [Disable Revocation Checks Using PowerShell](#disable-revocation-checks-using-powershell)
+* [Disable Revocation Checks Using Bash]({{< relref "#disable-revocation-checks-using-bash">}})
+* [Disable Revocation Checks Using PowerShell]({{< relref "#disable-revocation-checks-using-powershell">}})
 By default, revocation checks are enabled.
-You only need to do this once per cluster.
+You only need to disable revocation checks once per cluster.
 
 #### Disable Revocation Checks Using Bash
 

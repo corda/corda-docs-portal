@@ -1,6 +1,6 @@
 ---
 date: '2023-04-07'
-title: "Building the MGM CPI"
+title: "Build the MGM CPI"
 menu:
   corda-5-beta:
     parent: corda-5-beta-app-networks-mgm
@@ -12,20 +12,20 @@ section_menu: corda-5-beta
 ## Set Variables
 Set the values of variables for use in later commands:
 
-1. Set the P2P gateway host and port and the [REST API](../../../operating/operating-tutorials/rest-api.html) host and port. For example:
+1. Set the P2P gateway host and port and the REST API host and port. For example:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export REST_HOST=localhost
-   export REST_PORT=8888
+   export REST_API_HOST=localhost
+   export REST_API_PORT=8888
    export P2P_GATEWAY_HOST=localhost
    export P2P_GATEWAY_PORT=8080
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $REST_HOST = "localhost"
-   $REST_PORT = 8888
+   $REST_API_HOST = "localhost"
+   $REST_API_PORT = 8888
    $P2P_GATEWAY_HOST = "localhost"
    $P2P_GATEWAY_PORT = 8080
    $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("$REST_API_USER:$REST_API_PASSWORD" -f $username,$password)))
@@ -40,16 +40,16 @@ Set the values of variables for use in later commands:
    Assuming all clusters are set up in a single k8s cluster, you can set those values to the hostname and the port that the corresponding k8s service is listening to.
    For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, you can set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`.
 
-2. Set the [REST API](../../../operating/operating-tutorials/rest-api.html) URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
+2. Set the REST API URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export API_URL="https://$REST_HOST:$REST_PORT/api/v1"
+   export API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $API_URL="https://$REST_HOST:$REST_PORT/api/v1"
+   $API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
    ```
    }
    {{% /tab %}}
@@ -112,7 +112,7 @@ Registration for an MGM is essentially finalising setup of the the group, but th
 
 This is a simple file that you can construct manually. You can also use the Corda CLI to export a default version. For more infromation about the Corda CLI `mgm groupPolicy` command, see [Creating MGM Group Policy with Corda CLI]({{< relref "./cli-mgm.md" >}}).
 
-For example, to manually create the [GroupPolicy.json file](../../../deploying/group-policy.html#mgm-group-policy) in the same directory as the CPB created in the previous example:
+For example, to manually create the GroupPolicy.json file in the same directory as the CPB created in the previous example:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
@@ -179,7 +179,7 @@ To upload the CPI to your network, run the following:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-export CPI_PATH=<CPI_DIRECTORY/CPI-FILENAME.cpi>
+export CPI_PATH=<CPI-directory/CPI-filename.cpi>
 curl -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi/
 ```
 {{% /tab %}}
@@ -198,7 +198,7 @@ Use this identifier to get the checksum of the CPI:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```
-export CPI_ID=<CPI ID>
+export CPI_ID=<CPI-ID>
 curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID
 ```
 {{% /tab %}}

@@ -60,7 +60,7 @@ If this is set to false, only tokens that are active and ready to use are return
 
 These optional parameters can be used in any combination. The following is an example of all parameters used together:
 ```bash
-TOKEN_ID=<token-id>
+TOKEN_ID=<token-ID>
 OWNER_X500=<URL-encoded-X.500-name>
 curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/mgm/$MGM_HOLDING_ID/reauthtoken?viewInactive=true&preAuthTokenId='$TOKEN_ID'&ownerX500Name='$OWNER_X500
 ```
@@ -76,6 +76,6 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -X PUT $REST_API_URL/mgm/$MGM_HOLDING_
 Optionally, you can submit a remark with the action to revoke the token. This will be stored with the token and visible when viewing tokens for future reference. To include a remark, include a body in the request. For example:
 
 ```bash
-TOKEN_ID=<token id>
+TOKEN_ID=<token-ID>
 curl -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"remarks":"Additional authentication required."}' $REST_API_URL/mgm/$MGM_HOLDING_ID/preauthtoken/revoke/$TOKEN_ID
 ```

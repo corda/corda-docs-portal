@@ -1,6 +1,6 @@
 ---
 date: '2023-04-07'
-title: "Creating a Virtual Node"
+title: "Create a Virtual Node"
 menu:
   corda-5-beta:
     parent: corda-5-beta-app-networks-mgm
@@ -13,7 +13,7 @@ To create a virtual node for the MGM, run the following, using the checksum retr
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-export CPI_CHECKSUM=<CPI_CHECKSUM>
+export CPI_CHECKSUM=<CPI-checksum>
 curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "C=GB, L=London, O=MGM"}}' $REST_API_URL/virtualnode
 ```
 {{% /tab %}}
@@ -31,7 +31,7 @@ $MGM_HOLDING_ID = $VIRTUAL_NODE_RESPONSE.holdingIdentity.shortHash
 {{% /tab %}}
 {{< /tabs >}}
 
-If using Bash, run the following, replacing `<HOLDING_IDENTITY_ID>` with the ID returned in `holdingIdentity.shortHash` (for example, `58B6030FABDD`).
+If using Bash, run the following, replacing `<holding-identity-ID>` with the ID returned in `holdingIdentity.shortHash` (for example, `58B6030FABDD`).
 ```
-export MGM_HOLDING_ID=<HOLDING_IDENTITY_ID>
+export MGM_HOLDING_ID=<holding-identity-ID>
 ```

@@ -1,6 +1,6 @@
 ---
 date: '2023-04-07'
-title: "Registering the MGM"
+title: "Register the MGM"
 menu:
   corda-5-beta:
     parent: corda-5-beta-app-networks-mgm
@@ -9,12 +9,11 @@ menu:
 section_menu: corda-5-beta
 ---
 
-
 ## Build Registration Context
 
 To register the MGM, you must first generate the registration context:
-* [Build Registration Context Using Bash](#build-registration-context-using-bash)
-* [Build Registration Context Using PowerShell](#build-registration-context-using-powershell)
+* [Build Registration Context Using Bash]({{< relref "#build-registration-context-using-bash">}})
+* [Build Registration Context Using PowerShell]({{< relref "#build-registration-context-using-powershell">}})
 
 The examples in this section set `corda.group.key.session.policy` to `Distinct`, indicating that the ledger and session initiation key must not be the same key. Alternatively, setting `corda.group.key.session.policy` to `Combined` means that the ledger key used by a member must be the same as the session initiation key.
 
@@ -67,12 +66,11 @@ $REGISTRATION_CONTEXT = @{
   'corda.group.truststore.tls.0'  =  [IO.File]::ReadAllText($TLS_CA_CERT_PATH)
 }
 ```
-
 ## Register the MGM
 
 You can now use the registration context to register the MGM on the network:
-* [Register the MGM using Bash](#register-the-mgm-using-bash)
-* [Register the MGM using PowerShell](#register-the-mgm-using-powershell)
+* [Register the MGM using Bash]({{< relref "#register-the-mgm-using-bash">}})
+* [Register the MGM using PowerShell]({{< relref "#register-the-mgm-using-powershell">}})
 
 ### Register the MGM using Bash
 
@@ -135,11 +133,12 @@ $REGISTER_RESPONSE.registrationStatus
 ### Confirm Registration
 
 Registration should return a successful response with the status `SUBMITTED`.
-You can confirm that the MGM was onboarded successfully by checking the status of the registration request. The `REGISTRATION_ID` is returned from the member regsitration request `:
+You can confirm that the MGM was onboarded successfully by checking the status of the registration request. The registration ID is returned from the member regsitration request:
+
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-export REGISTRATION_ID=<REGISTRATION_ID>
+export REGISTRATION_ID=<registration-ID>
 curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/membership/$MGM_HOLDING_ID/$REGISTRATION_ID
 ```
 {{% /tab %}}

@@ -14,8 +14,6 @@ As the gateway manages the TLS connections for an entire cluster, the TLS mode (
 
 The server gateway has a set of accepted certificate subjects. As part of the client certificate verification, the server rejects a connection with a certificate that has a subject not specified in the allowed list. Before a member can register with a cluster that is configured with mutual TLS, you must add the certificate subject of that member to the allowed list of the MGM. Once a member is successfully onboarded, the MGM distributes the certificate subject of the member to all other members in the group. The gateway in each member cluster uses this to accept TLS connections from any onboarded member.
 
-For information about how to onboard to dynamic networks that use mutual TLS, see the [operating tutorial](operating-tutorials/mutual-tls.md). Mutual TLS is relevant only for [dynamic networks](../deploying/network-types.html#dynamic-networks), as [static networks](../deploying/network-types.html#static-networks) can only span a single cluster.
-
 {{< note >}}
 * Mutual TLS is set per cluster. It must apply to all groups that the cluster hosts and all clusters that host those groups. You can not onboard a member unless the TLS type of the MGM cluster is aligned with the TLS type of the member cluster.
 * Changing the TLS type after a member or an MGM was onboarded makes any TLS connection with that member unusable.
@@ -26,8 +24,8 @@ For information about how to onboard to dynamic networks that use mutual TLS, se
 ## Modify the Cluster Configurations
 
 To configure a cluster to use mutual TLS, you must set the `sslConfig.tlsType` flag in the [corda.p2p.gateway configuration section]({{< relref "../../../operating/configuration/p2p-gateway.md" >}}) to `MUTUAL` for the following:
-* The MGM cluster before registering the MGM
-* All member clusters before uploading the CPI
+* The MGM cluster before registering the MGM.
+* All member clusters before uploading the CPI.
 
 ### Enable Mutual TLS Using Bash
 
@@ -48,12 +46,12 @@ If using Bash, perform the following steps to enable mutual TLS by configuring t
 3. Using that version number, send the following request:
 
    ```shell
-   curl -k -u admin:admin -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"tlsType\": \"MUTUAL\"  }  }", "schemaVersion": {"major": 1, "minor": 0}}' $API_URL"/config"
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"tlsType\": \"MUTUAL\"  }  }", "schemaVersion": {"major": 1, "minor": 0}}' $API_URL"/config"
    ```
    This command overwrites the revocation check setting. If you chose to disable revocation checks, use the following command instead:
 
    ```shell
-   curl -k -u admin:admin -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"tlsType\": \"MUTUAL\" , \"revocationCheck\": {\"mode\" : \"OFF\"} } }", "schemaVersion": {"major": 1, "minor": 0}}' $API_URL"/config"
+   curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"section":"corda.p2p.gateway", "version":"'$CONFIG_VERSION'", "config":"{ \"sslConfig\": { \"tlsType\": \"MUTUAL\" , \"revocationCheck\": {\"mode\" : \"OFF\"} } }", "schemaVersion": {"major": 1, "minor": 0}}' $API_URL"/config"
    ```
 
 ### Enable Mutual TLS Using PowerShell
@@ -127,7 +125,7 @@ To add a member TLS certificate subject to the MGM allowed list, run the followi
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u admin:admin -X PUT  "$MGM_API_URL/mgm/$MGM_HOLDING_ID/mutual-tls/allowed-client-certificate-subjects/CN=CordaOperator,C=GB,L=London,O=Org"
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  "$MGM_API_URL/mgm/$MGM_HOLDING_ID/mutual-tls/allowed-client-certificate-subjects/CN=CordaOperator,C=GB,L=London,O=Org"
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
@@ -139,7 +137,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 The `allowed-client-certificate-subjects` API also supports a `DELETE` and `GET` to manage the accepted list of certificates by the MGM. For example:
 ```shell
-curl -k -u admin:admin -X DELETE  "$MGM_API_URL/mgm/$MGM_HOLDING_ID/mutual-tls/allowed-client-certificate-subjects/CN=CordaOperatorTwo,C=GB,L=London,O=Org"
-curl -k -u admin:admin -X PUT  "$MGM_API_URL/mgm/$MGM_HOLDING_ID/mutual-tls/allowed-client-certificate-subjects/CN=CordaOperatorThree,C=GB,L=London,O=Org"
-curl -k -u admin:admin "$MGM_API_URL/mgm/$MGM_HOLDING_ID/mutual-tls/allowed-client-certificate-subjects"
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X DELETE  "$MGM_API_URL/mgm/$MGM_HOLDING_ID/mutual-tls/allowed-client-certificate-subjects/CN=CordaOperatorTwo,C=GB,L=London,O=Org"
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  "$MGM_API_URL/mgm/$MGM_HOLDING_ID/mutual-tls/allowed-client-certificate-subjects/CN=CordaOperatorThree,C=GB,L=London,O=Org"
+curl -k -u $REST_API_USER:$REST_API_PASSWORD "$MGM_API_URL/mgm/$MGM_HOLDING_ID/mutual-tls/allowed-client-certificate-subjects"
 ```

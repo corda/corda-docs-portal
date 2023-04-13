@@ -6,7 +6,7 @@ menu:
     weight: 1000
     parent: corda-5-beta-app-networks-mgm-cpi
 section_menu: corda-5-beta
-title: "Creating MGM Group Policy with Corda CLI"
+title: "Create MGM Group Policy with Corda CLI"
 ---
 
 This section describes the Corda CLI `mgm groupPolicy` command.
@@ -29,10 +29,10 @@ Alternatively, use the following command line arguments to define the static net
 
 | <div style="width:160px">Argument</div> | Description                                                                                                                                                        |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| \-\-file, -f                            | The path to a JSON or YAML file that contains static network information; see [Generating GroupPolicy Using File Input](#generating-groupPolicy-using-file-input). |
-| \-\-name                                | The X.500 name of the member; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).                               |
-| \-\-endpoint                            | The endpoint base URL; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).                                      |
-| \-\-endpoint-protocol                   | The version of end-to-end authentication protocol; see [Generating GroupPolicy Using String Parameters](#generating-grouppolicy-using-string-parameters).          |
+| \-\-file, -f                            | The path to a JSON or YAML file that contains static network information; see [Generating GroupPolicy Using File Input]({{< relref "#generating-groupPolicy-using-file-input">}}). |
+| \-\-name                                | The X.500 name of the member; see [Generating GroupPolicy Using String Parameters]({{< relref "#generating-grouppolicy-using-string-parameters">}}).                               |
+| \-\-endpoint                            | The endpoint base URL; see [Generating GroupPolicy Using String Parameters]({{< relref "#generating-grouppolicy-using-string-parameters">}}).                                      |
+| \-\-endpoint-protocol                   | The version of end-to-end authentication protocol; see [Generating GroupPolicy Using String Parameters]({{< relref "#generating-grouppolicy-using-string-parameters">}}).          |
 
 ## Generating Group Policy Using File Input
 

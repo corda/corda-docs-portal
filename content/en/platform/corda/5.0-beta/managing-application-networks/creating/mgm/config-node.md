@@ -1,6 +1,6 @@
 ---
 date: '2023-04-07'
-title: "Configuring Communication Properties"
+title: "Configure Communication Properties"
 menu:
   corda-5-beta:
     parent: corda-5-beta-app-networks-mgm
@@ -13,13 +13,13 @@ To configure the MGM virtual node as a Network Participant with the properties r
 
 * `p2pTlsCertificateChainAlias` — the alias used when importing the TLS certificate.
 * `p2pTlsTenantId` — the tenant ID under which the TLS cert was stored ("p2p" for cluster level).
-* `sessionKeyId` — the [session key ID previously generated](./key-pairs.md#assign-a-soft-hsm).
+* `sessionKeyId` — the [session key ID previously generated]({{< relref "./key-pairs.md#assign-a-soft-hsm">}}).
 * `useClusterLevelTlsCertificateAndKey` - `true` if the TLS certificate and key are cluster-level certificates and keys.
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeyId": "'$SESSION_KEY_ID'"}' $API_URL/network/setup/$MGM_HOLDING_ID
+curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeyId": "'$SESSION_KEY_ID'"}' $REST_API_URL/network/setup/$MGM_HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
