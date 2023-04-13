@@ -11,9 +11,9 @@ section_menu: corda-5-beta
 This section describes how to onboard a new member as a notary service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/overview.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page. The sections must be completed in the order in which they are presented:
 
 1. [Build the member CPI]({{< relref "./members/cpi.md">}}). For information about developing a notary CPB, see [Notary Plugin CorDapps]({{< relref "../../developing/notaries/plugin-cordapps-notary.md" >}}).
-2. [Create a virtual node]({{< relref "./members/virtual-node.md">}}).
+2. [Create a member virtual node]({{< relref "./members/virtual-node.md">}}).
 3. [Generate a notary key pair]({{< relref "#generate-a-notary-key-pair">}}).
-4. [Configure communication properties]({{< relref "./members/config-node.md">}}).
+4. [Configure the member communication properties]({{< relref "./members/config-node.md">}}).
 5. [Register the notary.]({{< relref "#register-the-notary">}}).
 
 {{< note >}}

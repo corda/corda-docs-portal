@@ -19,7 +19,7 @@ This section describes how to configure the MGM, through which a membership grou
 {{< note >}}
 These tutorials all assume that you have:
 * [deployed Corda 5 to a Kubernetes cluster]({{< relref "../../../deploying/deployment-tutorials/deploy-corda-cluster.html">}}).
-* cloned the [corda-runtime-os repository](https://github.com/corda/corda-runtime-os).
+* cloned the [GitHub corda-runtime-os repository](https://github.com/corda/corda-runtime-os).
 
 The PowerShell commands listed are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
 
