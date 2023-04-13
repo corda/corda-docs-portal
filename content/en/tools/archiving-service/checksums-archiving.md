@@ -22,27 +22,22 @@ Before you install the downloaded files, verify the integrity of each file to en
   * `67cfd55bf0a95762710c7596eda2ead7d4d7911d` (sha1)
   * `7ea89acac01f98f822b401f76107bf99` (md5)
   * `4849740cf0f3ab9f62804ea4047ff4bbeda3b9d696576fe017446bbcc936966f` (sha256)
-
 * archive-service-1.0.3.jar (692kb)
   * `bdf2eff03016b6d42d9c1ddbab4035b266fc1cfa` (sha1)
   * `ad37ef3a53ba81a7dcbe3d8aca7c0ae8` (md5)
   * `7040602a7cca9c08ad2ebe856768f80e161e7703d20574d883e7152a57ac4723` (sha256)
-
 * archive-service-1.0.3.pom (978 bytes / 978 bytes)
   * `d029645871037adb7eca31c2d169195a1cf6994f` (sha1)
   * `b9f0085abd191184e5d4f3750c19f040` (md5)
   * `bd4ed1b85a2d545757f65cc4f002713350ced1526d6310f2a5db486c1655bfe7` (sha256)
-
 * corda-tools-archive-service-1.0.3-javadoc.jar (261 bytes / 261 bytes)
   * `67cfd55bf0a95762710c7596eda2ead7d4d7911d` (sha1)
   * `7ea89acac01f98f822b401f76107bf99` (md5)
   * `4849740cf0f3ab9f62804ea4047ff4bbeda3b9d696576fe017446bbcc936966f` (sha256)
-
 * corda-tools-archive-service-1.0.3.jar (80 Mb)
   * `5d37a8a3d8b9c9bd5723852fe1b3b894a22b573d` (sha1)
   * `25b613288c17bb345e3527925da720a7` (md5)
   * `c763d6298562e0ad55e4558b83e74f3dca7508ba057b78d23b8abceb95f1ee15` (sha256)
-
 * corda-tools-archive-service-1.0.3.pom (1002 bytes / 1002 bytes)
   * `a1db689ffe522ad739c000ea531448bbe30070b6` (sha1)
   * `e89d484f85b277a854a09cebf9a0da4b` (md5)
