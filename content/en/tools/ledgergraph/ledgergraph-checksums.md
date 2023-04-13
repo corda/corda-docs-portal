@@ -17,6 +17,46 @@ Before you install the downloaded files, verify the integrity of each file to en
 
 ## Checksums of LedgerGraph 1.2.4 release files
 
+* ledger-graph-1.2.4-javadoc.jar (261 bytes / 261 bytes)
+  * `aaa88c3071fa9da5b214d910c6c031c5dd535bc0` (sha1) 
+  * `ee1706e2c3760a1cebb8df3dc6ea68de`(md5)
+  * `4c6351a0e1c1037be3c3bcacd2136ccba379aba857f298ff641df4df31ec9d70`(sha256)
+
+* ledger-graph-1.2.4.jar (176Kb)
+  * `25754145bd6a50b27b8f6526c6325027c368a00e` (sha1)
+  * `bfa2a359cf135cf053f696402c0e81db` (md5)
+  * `c5d8a5464371717b5a99e6cccbe826d909529333d7926253cb49ab9584a4c2a0` (sha256)
+
+* ledger-graph-1.2.4.module (5.5kb)
+  * `682fcae84f6be551a9554f3054f20cbfbef0be48` (sha1)
+  * `6439668c659f3e1d53920f26eaf6e368` (md5)
+  * `9187b14b27165171bcea0cd069eac0f60fd4e216d37f7c0cf4ac1c82017003bb` (sha256)
+
+* ledger-graph-1.2.4.pom (744 bytes / 744 bytes)
+  * `9df071ad58f8875555e424a795c8f6b7b0d7fed5` (sha1)
+  * `786f942fb656b1b1a92f85b764e928cf` (md5)
+  * `a9a69b8f0f0a9bd5850580545aa186bf9805921df1eaeb9a049811e2b7f47079` (sha256)
+
+* ledger-graph-confidential-identities-1.2.4-javadoc.jar (261 bytes / 261 bytes)
+  * `aaa88c3071fa9da5b214d910c6c031c5dd535bc0` (sha1)
+  * `ee1706e2c3760a1cebb8df3dc6ea68de` (md5) 
+  * `4c6351a0e1c1037be3c3bcacd2136ccba379aba857f298ff641df4df31ec9d70` (sha256) 
+
+* ledger-graph-confidential-identities-1.2.4.jar (13kb)
+  * `b80c940e6ca846e9f59c76edacff0df3f3d7c716` (sha1)
+  * `9365731193608ccf265941bbf2440d8d` (md5)
+  * `fc43aef2b1d06ead77aca2b7d32214b7af9eb8f3155ea0066a0b66c8e79ba530` (sha256) 
+
+* ledger-graph-confidential-identities-1.2.4.module (4.8kb)
+  * `a64fb902f8113a36a4f832d96fc63de9cb244369` (sha1) 
+  * `4be0e4c722e9276873baa6266c4abb37` (md5) 
+  * `4a4bf9bf853ae63b04cd0fea66c43a4bdab47c31c56af11ae5475ceac3e4b26f` (sha256)  
+
+* ledger-graph-confidential-identities-1.2.4.pom (768 bytes / 768 bytes)
+  * `996d433d1b28da01d024ab674b31bfdf3419d717` (sha1)
+  * `a80fca385254792ea9514ec9f3e0ac1d` (md5)
+  * `2d15745bc1e017e3036dc686bf9b5ae2e897ee4ca618af0bd5749bf7085ef398` (sha256)
+
 ## Checksums of LedgerGraph 1.2.3 release files
 
 
