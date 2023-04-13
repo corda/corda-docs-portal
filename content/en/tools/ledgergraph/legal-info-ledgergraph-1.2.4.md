@@ -2,16 +2,16 @@
 date: '2023-04-11'
 menu:
   tools:
-    identifier: archive-service-1-0-3-legal-info
-    parent: release-notes-archiving
-    weight: 716
+    identifier: ledger-graph-1-2-4-legal-info
+    parent: tools-ledgergraph
+    weight: 803
 tags:
 - legal
 - info
-title: Third-party software licence information - Archive Service 1.0.3
+title: Third-party software licence information - LedgerGraph 1.2.4
 ---
 
-# Archive Service 1.0.3 third-party software notices and licence information
+# LedgerGraph 1.2.4 third-party software notices and licence information
 
 **Do not translate or localize**
 
