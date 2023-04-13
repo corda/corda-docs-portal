@@ -30,4 +30,4 @@ For information on deploying notary virtual nodes to your network, see the [Nota
    }.ledgerKeys.first()
    ```
 
-* The uniqueness checking within the notary server flow currently uses a naive database lookup implementation. Performance will be poor under high throughput situations, or when specifying many states in one transaction. This will be improved for Beta 2.
+* The uniqueness checking within the notary server flow currently uses a naive database lookup implementation. Performance will be poor under high throughput situations, or when specifying many states in one transaction. This will be improved for Beta 3.

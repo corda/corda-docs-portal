@@ -12,7 +12,7 @@ section_menu: corda-5-beta
 The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://developer.r3.com/forums/forum/corda-5-developer-preview/).
 {{< /note >}}
 
-The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Beta 2 more straight-forward.
+The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Beta 3 more straight-forward.
 The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cordapp-template-java` repository to your local machine. The CSDE provides:
 * a prepared CorDapp project that you can use as a starting point to develop your own prototypes.
 * a base Gradle configuration that brings in the dependencies you need to write and test a Corda 5 CorDapp.
@@ -44,7 +44,7 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
    {{% /tab %}}
    {{< /tabs >}}
 
-2. Change to the new folder and checkout the Beta 2 branch:
+2. Change to the new folder and checkout the Beta 3 branch:
 
    ```sh
    git checkout release/corda-5-beta-2
