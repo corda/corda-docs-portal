@@ -79,7 +79,7 @@ Users of the RBAC database are able to retrieve these properties and make decisi
 
 This entity represents a group of `Users`.
 
-### Peroperties
+### Properties
 
 * `Name` is a human-readable name of the group.
   It also has a UUID identifier for a concrete reference to the instance of an entity.

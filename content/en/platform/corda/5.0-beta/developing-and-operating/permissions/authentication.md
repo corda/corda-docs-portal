@@ -14,4 +14,4 @@ However, before we can authorize a user request, we must first authenticate the 
 that they are indeed the person or system account they claim to be.
 
 Such authentication can be performed using user name and password credentials or via single sign-on (SSO).
-In the case of SSO, we delegate the authentication of RPC users to a trusted SSO provider that the RPC gateway is configured to use.
+In the case of SSO, we delegate the authentication of REST users to a trusted SSO provider that the REST gateway is configured to use.
