@@ -9,7 +9,7 @@ menu:
 title: LedgerGraph
 ---
 
-# LedgerGraph V1.2.2
+# LedgerGraph
 
 **LedgerGraph** is a CorDapp you can use to get in-memory access to transaction data. Transaction information is kept in a graph structure on any node where **LedgerGraph** is installed. As not all transactions are related to all other transactions, there can actually be multiple components in the graph: each a **directed acyclic graph** (DAG).
 
@@ -29,7 +29,13 @@ There is also a risk of Ledger Graph initialisation failure if transactions are 
 In order to improve speed and memory usage when using the Archiving Service, JVM heap memory of the node can be increased to handle larger ledgers. In addition, the `transactionReaderPoolSize` config parameter can be adjusted upwards to use more CPU threads to increase speed, and increase the number of CPUs or cores a node has access to.
 {{< /note >}}
 
-### New in V1.2.3
+### In V1.2.4
+
+A new configuration option has been added which allows LedgerGraph to initialize and include transactions that have legacy contract states associated with them, that would otherwise fail to deserialize. This configuration option is: `ignoreTransactionLoadingFailures = true`.
+
+By default, this value is false and the behaviour of LedgerGraph is unchanged. However, if you experience a `TransactionDeserializationException` when initializing LedgerGraph, this configuration option can be added. This allows these transactions to be skipped by substituting in their place an `UnknownContractState`. The transactions that cause failures will still be included in the graph, however, some of the data contained in these transactions will have unknown values. This may cause issues if filtering the graph by **Contract** or **Participant Data**.
+
+### In V1.2.3
 
 To see what's new in V1.2.3, see the [LedgerGraph release notes](../ledgergraph/ledgergraph-release-notes.md).
 
