@@ -109,9 +109,9 @@ As most of the information in a group policy file is exported by the MGM, the in
 The MGM group policy file only requires a flag to indicate that a group ID must be generated during virtual node onboarding and information about how to register itself as part of the group.
 Registration for an MGM is essentially finalising setup of the the group, but the registration terminology is kept in-line with the member setup.
 
-This is a simple file that you can construct manually. You can also use the Corda CLI to export a default version. For more infromation about the Corda CLI `mgm groupPolicy` command, see [Creating MGM Group Policy with Corda CLI]({{< relref "./cli-mgm.md" >}}).
-
+This is a simple file that you can construct manually. 
 For example, to manually create the GroupPolicy.json file in the same directory as the CPB created in the previous example:
+
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell

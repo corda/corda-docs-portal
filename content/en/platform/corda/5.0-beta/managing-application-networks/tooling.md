@@ -8,6 +8,13 @@ menu:
     weight: 2000
 section_menu: corda-5-beta
 ---
-Corda Network Operators require the following:
-* [curl](https://curl.se/)
-* [Corda CLI]({{< relref "./installing-corda-cli.md" >}})
+This page lists the various tools that Corda Network Operators require.
+
+## curl
+
+Examples in this documentation for Linux and macOS use the curl CLI to interact with HTTP endpoints. For information about installing curl, see the [curl documentation](https://curl.se/). Alternatives may be used if desired.
+On Windows, PowerShell contains native support for HTTP calls.
+## Corda CLI
+
+Network operators require the Corda CLI to build CPIs.
+For information about installation, see [Installing the Corda CLI]({{< relref "../corda-cli/installing-corda-cli.md" >}}).

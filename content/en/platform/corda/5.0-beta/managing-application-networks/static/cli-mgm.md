@@ -7,6 +7,7 @@ menu:
     parent: corda-5-beta-app-networks-mgm-cpi
 section_menu: corda-5-beta
 title: "Create MGM Group Policy with Corda CLI"
+draft: "true"
 ---
 
 This section describes the Corda CLI `mgm groupPolicy` command.
