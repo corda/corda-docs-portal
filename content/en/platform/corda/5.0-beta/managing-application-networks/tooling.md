@@ -18,3 +18,7 @@ On Windows, PowerShell contains native support for HTTP calls.
 
 Network operators require the Corda CLI to build CPIs.
 For information about installation, see [Installing the Corda CLI]({{< relref "../corda-cli/installing-corda-cli.md" >}}).
+
+## OpenSSL
+
+Examples in this documentation use OpenSSL to display the content of certificates in a readable form. This is not optional tool. For information, see the [OpenSSL documentation](https://www.openssl.org/docs/). 

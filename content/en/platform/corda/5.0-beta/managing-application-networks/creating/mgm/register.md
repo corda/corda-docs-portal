@@ -17,11 +17,9 @@ To register the MGM, you must first generate the registration context:
 
 The examples in this section set `corda.group.key.session.policy` to `Distinct`, indicating that the ledger and session initiation key must not be the same key. Alternatively, setting `corda.group.key.session.policy` to `Combined` means that the ledger key used by a member must be the same as the session initiation key.
 
-You can also optionally set the session certificate trustroot using the property `corda.group.truststore.session.0`, similar to `corda.group.truststore.tls.0`. However, when `corda.group.pki.session` is set to `NoPKI`, the session certificates are not validated against a session trustroot. For more information, see [Configuring Optional Session Certificates]({{< relref "../optional/session-certificates.md" >}}).
-
 {{< note >}}
-* If using session certificates for peer-to-peer communication, see [Configuring Optional Session Certificates]({{< relref "../optional/session-certificates.html#build-registration-context-for-mgm-registration" >}}) for information about the additional JSON fields required in the registration context.
-* If using mutual TLS, you must set the `corda.group.tls.type` field to `Mutual`. For more information, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#set-the-tls-type-in-the-mgm-context" >}}). 
+* If you want to use certificates for session initiation keys for peer-to-peer communication, see [Configuring Optional Session Certificates]({{< relref "../optional/session-certificates.html#build-registration-context-for-mgm-registration" >}}) for information about the additional JSON fields required in the registration context.
+* If you want to use mutual TLS, see [Configuring Mutual TLS]({{< relref "../optional/mutual-tls-connections.md#set-the-tls-type-in-the-mgm-context" >}}) for additonal configuration steps. 
 {{< /note >}}
 
 ### Build Registration Context Using Bash

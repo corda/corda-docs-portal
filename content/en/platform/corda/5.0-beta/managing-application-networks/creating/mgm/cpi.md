@@ -95,7 +95,7 @@ This root CA certificate in PEM format must be included later when onboarding th
 
 ## Create the CPB
 
-As with all CPI files, the MGM CPI requires a group policy file and a CPB file. You can run the following to use the MGM test CPB included in the `corda-runtime-os` GitHub repository:
+As with all CPI files, the MGM CPI requires a group policy file and a CPB file. However, the The MGM CPI does not contain any application code and so you can either build an empty CPB yourself or you can run the following to build an empty CPB using the `corda-runtime-os` GitHub repository:
 ``` shell
 cd "$RUNTIME_OS"
 ./gradlew testing:cpbs:mgm:build
@@ -107,10 +107,10 @@ cp testing/cpbs/mgm/build/libs/mgm-5.0.0.0-SNAPSHOT-package.cpb "$WORK_DIR"
 As most of the information in a group policy file is exported by the MGM, the initial MGM group policy is a much smaller file than that needed to create a member.
 
 The MGM group policy file only requires a flag to indicate that a group ID must be generated during virtual node onboarding and information about how to register itself as part of the group.
-Registration for an MGM is essentially finalising setup of the the group, but the registration terminology is kept in-line with the member setup.
+Registration for an MGM is essentially finalising setup of the the group, but currently the registration terminology is kept in-line with the member setup.
 
 This is a simple file that you can construct manually. 
-For example, to manually create the GroupPolicy.json file in the same directory as the CPB created in the previous example:
+For example, to manually create the `GroupPolicy.json` file in the same directory as the CPB created in the previous example:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}

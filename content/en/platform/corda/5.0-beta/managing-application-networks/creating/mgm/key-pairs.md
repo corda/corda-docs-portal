@@ -11,7 +11,7 @@ section_menu: corda-5-beta
 
 ## Generate a Session Initiation Key Pair
 
-To assign a soft high security module (HSM) and generate a session initiation key pair:
+To assign a soft hardware security module (HSM) and generate a session initiation key pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
@@ -68,7 +68,7 @@ You can use the following schemes for ECDH key derivation:
 ## Configure the Cluster TLS Key Pair
 {{< note >}}
 This step is only necessary if setting up a new cluster.
-When using cluster-level TLS, it is only necessary to do this once per cluster.
+It is only required once per cluster, allowing you to re-use the same TLS key and certificate for the whole cluster.
 {{< /note >}}
 
 To set up the TLS key pair and certificate for the cluster:
@@ -168,6 +168,7 @@ To set up the TLS key pair and certificate for the cluster:
 If the CA has not been configured with revocation (for example, via CRL or OCSP), you can disable revocation checks:
 * [Disable Revocation Checks Using Bash]({{< relref "#disable-revocation-checks-using-bash">}})
 * [Disable Revocation Checks Using PowerShell]({{< relref "#disable-revocation-checks-using-powershell">}})
+
 By default, revocation checks are enabled.
 You only need to disable revocation checks once per cluster.
 
