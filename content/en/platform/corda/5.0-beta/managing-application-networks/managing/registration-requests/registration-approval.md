@@ -24,7 +24,7 @@ Registration requests are evaluated according to regular expression-based rules 
 The proposed [MemberInfo]({{< relref "../../../developing/api/api-membership.md#memberinfo" >}}) is compared with the previous (if any) `MemberInfo` to calculate the difference in their member contexts. 
 This difference will be 100% in case of a first-time registration, since there will be no previous `MemberInfo` for that member known to the MGM. 
 If any of the keys present in this `MemberInfo` difference match the regular expressions set by the MGM operator, the request requires manual approval. 
-If there are no difference matches, the request is auto-approved.
+If there are no differences, the request is auto-approved.
 
 Corda has a set of REST APIs available for managing approval rules. To learn more, see [Configuring Manual Approval Rules]({{< relref "./configuring-manual-approval-rules.md" >}}).
 
