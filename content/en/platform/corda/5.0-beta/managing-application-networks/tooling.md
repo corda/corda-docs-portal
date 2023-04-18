@@ -14,6 +14,7 @@ This page lists the tools required by Corda Network Operators.
 
 Examples in this documentation use the curl CLI to interact with HTTP endpoints on Linux and macOS. For information about installing curl, see the [curl documentation](https://curl.se/). Alternatives may be used if desired.
 On Windows, PowerShell contains native support for HTTP calls.
+
 ## Corda CLI
 
 Network operators require the Corda CLI to build {{< tooltip >}}CPIs{{< definition term="CPI" >}}{{< /tooltip >}}.
