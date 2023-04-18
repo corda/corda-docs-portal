@@ -46,6 +46,8 @@ before failure at a given participant:
     - where the receiver triggers recovery first, then the initiator must also follow (only if it also failed after the
       notarisation step).
 - if notarisation hasn't yet taken place then recovery must be triggered from the initiator side only.
+- if the initiator of a transaction successfully notarised and finalised, it is possible to trigger recovery of failed peers
+  by triggering recovery on the initiator side and specifying the transaction id to recover.
 
 {{< warning >}}
 
@@ -69,7 +71,17 @@ manual intervention.
 
 ## How to recover finality flows
 
-You can recover a finality flow via both the nodes shell and the extensions `FlowRPCOps` RPC API.
+You can recover a finality flow by using any of the following methods:
+- the extensions `FlowRPCOps` RPC API.
+- node shell commands
+- directly invoking the recovery flows (either from the Node Shell or programmatically within a CorDapp):
+
+```kotlin
+net.corda.node.internal.recovery.FinalityRecoveryFlow
+net.corda.node.internal.recovery.FinalityPeerRecoveryFlow
+```
+
+### Recovering finality flows using the extensions `FlowRPCOps` RPC API.
 
 The `FlowRPCOps` API exposes the following recovery operations:
 
