@@ -30,15 +30,10 @@ Set the values of variables for use in later commands:
    $P2P_GATEWAY_PORT = 8080
    $AUTH_INFO = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("$REST_API_USER:$REST_API_PASSWORD" -f $username,$password)))
    ```
-   }
    {{% /tab %}}
    {{< /tabs >}}
 
-   These values can vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
-   Specifically, `P2P_GATEWAY_HOST` and `P2P_GATEWAY_PORT` correspond to the hostname that other clusters should be able to connect to in order to send messages to this cluster.
-
-   Assuming all clusters are set up in a single k8s cluster, you can set those values to the hostname and the port that the corresponding k8s service is listening to.
-   For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, you can set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`.
+ These values vary depending on where you have deployed your cluster(s) and how you have forwarded the ports. For example, if `corda-p2p-gateway-worker` is the name of the P2P gateway Kubernetes service and `corda-cluster-a` is the namespace that the Corda cluster is deployed within, set `$P2P_GATEWAY_HOST` to `corda-p2p-gateway-worker.corda-cluster-a`. Alternatively, you can specify the IP address of the gateway, instead of the hostname. For example, `192.168.0.1`.
 
 2. Set the REST API URL. This may vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
    {{< tabs >}}

@@ -8,7 +8,7 @@ menu:
     weight: 2000
 section_menu: corda-5-beta
 ---
-This page lists the various tools that Corda Network Operators require.
+This page lists the tools required by Corda Network Operators.
 
 ## curl
 
@@ -17,7 +17,7 @@ On Windows, PowerShell contains native support for HTTP calls.
 ## Corda CLI
 
 Network operators require the Corda CLI to build CPIs.
-For information about installation, see [Installing the Corda CLI]({{< relref "../corda-cli/installing-corda-cli.md" >}}).
+For information about installation, see [Installing the Corda CLI]({{< relref "./installing-corda-cli.md" >}}).
 
 ## OpenSSL
 

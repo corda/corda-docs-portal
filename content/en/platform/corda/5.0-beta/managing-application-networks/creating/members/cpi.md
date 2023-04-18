@@ -12,7 +12,7 @@ section_menu: corda-5-beta
 ## Set Variables
 Set the values of variables for use in later commands:
 
-1. Set the P2P gateway host and port and the REST API host and port. This may also vary depending on where you have deployed your cluster(s) and how you have forwarded the ports.
+1. Set the P2P gateway host and port and the REST API host and port. For example:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
