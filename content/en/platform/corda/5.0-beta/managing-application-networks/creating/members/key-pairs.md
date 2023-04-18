@@ -32,6 +32,7 @@ If using Bash, the result contains the session key ID (for example, 3B9A266F96E2
 ```shell
 export SESSION_KEY_ID=<session-key-ID>
 ```
+
 ## Generate a Ledger Key Pair
 
 To assign a soft hardware security module (HSM) and generate a ledger key pair:
