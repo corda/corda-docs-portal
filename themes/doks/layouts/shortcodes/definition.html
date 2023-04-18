@@ -4,6 +4,7 @@
 
 {{ with $.Params.term }}
     {{ $glossarylist := getJSON "content/en/platform/corda/5.0-beta/glossaryitems.json" }}
+    {{ with $glossarylist}}
     {{ if (isset $glossarylist $.Params.term ) }}
         {{ range $term, $value := $glossarylist }}
             {{ if eq $term $.Params.term}} 
@@ -13,4 +14,10 @@
     {{ else }}
         {{ errorf "Glossary term not found: %q" $.Params.term $.Page}}
     {{ end }}
+    {{ else }}
+    <span class="definition"> no JSON</span>
+    {{ end }}
 {{ end }}    
+{{ else }}
+<span class="definition"> no term</span>
+{{ end }}
