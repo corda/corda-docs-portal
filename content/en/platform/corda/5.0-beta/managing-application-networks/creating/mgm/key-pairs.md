@@ -38,7 +38,7 @@ You can use a certificate in addition to the session initiation key pair. For mo
 
 ## Generate ECDH Key Pair
 
-To generate an Elliptic-curve Diffie–Hellman (ECDH) key pair:
+To generate an Elliptic-Curve Diffie–Hellman (ECDH) key pair:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```
