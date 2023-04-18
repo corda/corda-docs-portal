@@ -415,12 +415,6 @@ name = "Managing Application Networks"
 weight = 5000
 
 [[corda-5-beta]]
-identifier = "corda-5-beta-app-networks-create"
-parent = "corda-5-beta-app-networks"
-name = "Creating Application Networks"
-weight = 3000
-
-[[corda-5-beta]]
 identifier = "corda-5-beta-app-networks-manage"
 parent = "corda-5-beta-app-networks"
 name = "Managing Members"
