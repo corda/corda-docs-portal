@@ -11,7 +11,7 @@
         "more": "It is the sum of all members and the states that they have created and transacted between them. This is all of the possible users permitted to use an application. For the operator of an application, it is their complete list of customers. From the perspective of one of those customers, it is who they are allowed to interact with. For more information see the <a href=\"./key-concepts.html#application-networks\">Key Concepts</a> page. "
     },
     "MGM": {
-        "definition": "A CorDapp that manages members for an application network.",
+        "definition": "Membership Group Manager. A CorDapp that manages members for an application network.",
         "more": "It approves or declines new members and distributes membership lists to members. For more information see the <a href=\"./key-concepts.html#mgm\">Key Concepts</a> page. "
     } ,
     "Notary": {
