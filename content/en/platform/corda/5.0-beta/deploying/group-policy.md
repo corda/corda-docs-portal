@@ -55,7 +55,7 @@ Alternatively, with optional parameters:
 }
 ```
 
-For more information, see [MGM Onboarding]({{< relref "../operating/operating-tutorials/onboarding/mgm-onboarding.md" >}}).
+For more information, see [MGM Onboarding]({{< relref "../managing-application-networks/creating/mgm/overview.md" >}}).
 
 ### Dynamic Network Member Group Policy
 
