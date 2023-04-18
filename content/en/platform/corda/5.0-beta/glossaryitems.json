@@ -13,5 +13,25 @@
     "MGM": {
         "definition": "A CorDapp that manages members for an application network.",
         "more": "It approves or declines new members and distributes membership lists to members. For more information see the <a href=\"./key-concepts.html#mgm\">Key Concepts</a> page. "
-    } 
+    } ,
+    "Notary": {
+        "definition": "Corda’s uniqueness consensus service.",
+        "more": "The notary’s primary role is to prevent double-spends by ensuring each transaction contains only unique unconsumed input states. "
+    } ,
+    "Group policy": {
+        "definition": "A JSON file containing network information that is bundled with a CPB to create a CPI. ",
+        "more": ""
+    },
+    "CPK": {
+        "definition": "Corda Package. The Corda equivalent of a software library",
+        "more": "They represent testable, reusable, sub-components of a final application. Corda runs each CPK runs in its own sandbox, isolated from other CPKs."
+    }, 
+    "CPB": {
+        "definition": "Corda Package Bundle. These are complete applications minus the “run time information” required to onboard entities.",
+        "more": ""
+    },
+    "CPI": {
+        "definition": "Corda Package Installer. These contain the CPB and all of the information required to join and participate in an application network.",
+        "more": "The only difference between a development CPI and a production CPI is the network information. Both environments deploy the same CPB but that CPB will be wrapped into a different CPI for installation and setup."
+    }    
 }    

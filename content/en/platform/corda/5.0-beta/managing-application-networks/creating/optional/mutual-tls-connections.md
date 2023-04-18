@@ -25,7 +25,7 @@ The server gateway has a set of accepted certificate subjects. As part of the cl
 
 To configure a cluster to use mutual TLS, you must set the `sslConfig.tlsType` flag in the [corda.p2p.gateway configuration section]({{< relref "../../../operating/configuration/p2p-gateway.md" >}}) to `MUTUAL` for the following:
 * The MGM cluster before registering the MGM.
-* All member clusters before uploading the CPI.
+* All member clusters before uploading the {{< tooltip >}}CPI{{< definition word="CPI" >}}{{< /tooltip >}}.
 
 ### Enable Mutual TLS Using Bash
 

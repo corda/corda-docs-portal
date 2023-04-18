@@ -90,7 +90,7 @@ This root CA certificate in PEM format must be included later when onboarding th
 
 ## Create the CPB
 
-As with all CPI files, the MGM CPI requires a group policy file and a CPB file. However, the The MGM CPI does not contain any application code and so you can either build an empty CPB yourself or you can run the following to build an empty CPB using the `corda-runtime-os` GitHub repository:
+As with all {{< tooltip >}}CPI{{< definition word="CPI" >}}{{< /tooltip >}} files, the MGM CPI requires a group policy file and a {{< tooltip >}}CPB{{< definition word="CPB" >}}{{< /tooltip >}} file. However, the The MGM CPI does not contain any application code and so you can either build an empty CPB yourself or you can run the following to build an empty CPB using the `corda-runtime-os` GitHub repository:
 ``` shell
 cd "$RUNTIME_OS"
 ./gradlew testing:cpbs:mgm:build

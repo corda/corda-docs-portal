@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5-beta
 draft: "true"
 ---
-Once the MGM is onboarded, you can export a group policy file with the MGM connection details. To output the full contents of the `GroupPolicy.json` file to package within the CPI for members, run the following:
+Once the MGM is onboarded, you can export a group policy file with the MGM connection details. To output the full contents of the `GroupPolicy.json` file to package within the {{< tooltip >}}CPI{{< definition word="CPI" >}}{{< /tooltip >}} for members, run the following:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
