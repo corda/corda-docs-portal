@@ -81,6 +81,11 @@ net.corda.node.internal.recovery.FinalityRecoveryFlow
 net.corda.node.internal.recovery.FinalityPeerRecoveryFlow
 ```
 
+All recovery operations return the following:
+*  **true** if a transaction is successfully recovered
+*  **false** if a transaction does not require recovery
+*  **FlowRecoveryException** if there is an error whilst performing recovery
+
 ### Recovering finality flows using the extensions `FlowRPCOps` RPC API.
 
 The `FlowRPCOps` API exposes the following recovery operations:
@@ -90,7 +95,11 @@ The `FlowRPCOps` API exposes the following recovery operations:
      * Recover a failed finality flow by id.
      * [forceRecover] will attempt to recover flows which are in a RUNNABLE, PAUSED or HOSPITALIZED state.
      *
-     * @return whether the flow was successfully recovered.
+     * @return
+     *   true if a transaction is successfully recovered
+     *   false if a transaction does not require recovery
+     *
+     * @throws [FlowRecoveryException] if there is an error whilst performing recovery
      */
     fun recoverFinalityFlow(id: StateMachineRunId, forceRecover: Boolean = false): Boolean
 
@@ -116,14 +125,20 @@ The `FlowRPCOps` API exposes the following recovery operations:
     /**
      * Recover a failed finality flow by transaction id.
      * [forceRecover] will also attempt to recover flows which are in a RUNNABLE, PAUSED or HOSPITALIZED state.
+     * This operation will attempt to recovery failed peers if the initiator-side of the transaction completed successfully.
      *
-     * @return whether the flow was successfully recovered.
+     * @return
+     *   true if a transaction is successfully recovered
+     *   false if a transaction does not require recovery
+     *
+     * @throws [FlowRecoveryException] if there is an error whilst performing recovery
      */
     fun recoverFinalityFlowByTxnId(txnId: SecureHash, forceRecover: Boolean = false): Boolean
 
     /**
      * Recover a specified set of failed finality flows by transaction id.
      * [forceRecover] will also attempt to recover flows which are in a RUNNABLE, PAUSED or HOSPITALIZED state.
+     * This operation will attempt to recovery failed peers if the initiator-side of the transaction completed successfully.
      *
      * @return map of identified failed transactions and whether they were successfully recovered.
      */
