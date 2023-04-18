@@ -67,7 +67,7 @@ Set the values of variables for use in later commands:
 
 ## Generate the Group Policy File
 
-To join a group, members must use a {{< tooltip >}}group policy{{< definition word="group policy" >}}{{< /tooltip >}} file exported from the MGM of that group. To retrieve the `GroupPolicy.json` file from the MGM:
+To join a group, members must use a {{< tooltip >}}group policy{{< definition term="Group policy" >}}{{< /tooltip >}} file exported from the MGM of that group. To retrieve the `GroupPolicy.json` file from the MGM:
 
    {{< tabs >}}
    {{% tab name="Bash"%}}
@@ -95,7 +95,7 @@ To join a group, members must use a {{< tooltip >}}group policy{{< definition wo
 
 ## Create the CPI
 
-Build a {{< tooltip >}}CPI{{< definition word="CPI" >}}{{< /tooltip >}} using the Corda CLI, passing in the member CPB and the `GroupPolicy.json` file exported from the MGM. 
+Build a {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} using the Corda CLI, passing in the member CPB and the `GroupPolicy.json` file exported from the MGM. 
 
    {{< tabs name="build-cpi">}}
    {{% tab name="Bash" %}}

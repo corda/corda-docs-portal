@@ -16,7 +16,7 @@ Examples in this documentation use the curl CLI to interact with HTTP endpoints 
 On Windows, PowerShell contains native support for HTTP calls.
 ## Corda CLI
 
-Network operators require the Corda CLI to build {{< tooltip >}}CPIs{{< definition word="CPI" >}}{{< /tooltip >}}.
+Network operators require the Corda CLI to build {{< tooltip >}}CPIs{{< definition term="CPI" >}}{{< /tooltip >}}.
 For information about installation, see [Installing the Corda CLI]({{< relref "./installing-corda-cli.md" >}}).
 
 ## OpenSSL
