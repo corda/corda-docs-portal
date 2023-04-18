@@ -382,7 +382,7 @@ weight = 6000
 [[corda-5-beta]]
 identifier = "corda-5-beta-app-networks"
 name = "Managing Application Networks"
-weight = 5000
+weight = 4050
 
 [[corda-5-beta]]
 identifier = "corda-5-beta-app-networks-manage"
