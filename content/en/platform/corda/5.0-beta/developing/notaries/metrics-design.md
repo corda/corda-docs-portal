@@ -45,9 +45,9 @@ The context exposed to this service is minimal. As a result, only a single metri
 
 {{< table >}}
 
-|Metric name|Type|Tags|Description|
-|-------------------------------|------------------|------------------|------------------------|
-|`ledger.uniqueness.client.run.time`|Timer|`result.type`|The time taken from requesting a uniqueness check to a response being received. The `result.type` tag is set to the relevant simple class name of the specific `UniquenessCheckResult` subclass.|
+| Metric name                         |Type   | Tags         | Description                                |
+|-------------------------------------|-------|--------------|--------------------------------------------|
+| `ledger.uniqueness.client.run.time` | Timer |`result.type` |The time taken from requesting a uniqueness check to a response being received. The `result.type` tag is set to the relevant simple class name of the specific `UniquenessCheckResult` subclass.|
 
 {{< /table >}}
 
