@@ -43,19 +43,24 @@ Instead, metrics will be added at the following levels:
 
 The context exposed to this service is minimal. As a result, only a single metric is captured for this service:
 
-{{< table >}}
+<style>
+table th:first-of-type {
+    width: 20%;
+}
+table th:nth-of-type(2) {
+    width: 20%;
+}
+table th:nth-of-type(3) {
+    width: 20%;
+}
+table th:nth-of-type(4) {
+    width: 40%;
+}
+</style>
 
 | Metric name                         |Type   | Tags         | Description                                |
 |-------------------------------------|-------|--------------|--------------------------------------------|
 | `ledger.uniqueness.client.run.time` | Timer |`result.type` |The time taken from requesting a uniqueness check to a response being received. The `result.type` tag is set to the relevant simple class name of the specific `UniquenessCheckResult` subclass.|
-
-{{< /table >}}
-
-{{< table >}}
-| Metric name  | Type     | Tags  | Description |
-| :------------- | :------------- | :----------- | :----------- |
-| `ledger.uniqueness.client.run.time` | Timer | `result.type` | The time taken from requesting a uniqueness check to a response being received. The `result.type` tag is set to the relevant simple class name of the specific `UniquenessCheckResult` subclass. |
-{{< /table >}}
 
 ### Uniqueness Checker
 
@@ -65,8 +70,6 @@ This handles the business logic of uniqueness checking. As our implemenation is 
 * Metrics starting with `uniqueness.checker.subbatch` relate to "sub-batch level" metrics. Each sub-batch represents a partition for each notary virtual node identity within a batch, and therefore are associated with this context via the existing `virtualnode.source` tag, which is already used in the context of P2P metrics.
 * Metrics starting with `uniqueness.checker.request` relate to metrics applicable to specific requests within a sub-batch, such as the result of a request. These are also tagged with the `virtualnode.source`.
 
-{{< table >}}
-
 |Metric Name|Type|Tags|Description|
 |-------------------------------|------------------|------------------|------------------------|
 | `uniqueness.checker.batch.execution.time`    | Timer    | None    | The overall execution time for a batch, inclusive of all sub-batches. |
@@ -75,13 +78,9 @@ This handles the business logic of uniqueness checking. As our implemenation is 
 | `uniqueness.checker.subbatch.size`    | DistributionSummary    | `virtualnode.source`    |The number of requests in a sub-batch.  |
 | `uniqueness.checker.request.count`    | Counter    | `virtualnode.source`, `result.type`, `duplicate`   | A count of the number of requests processed. Not useful on its own as this information is already captured at the batch and sub-batch levels, but the tags can be used to provide additional context. The `result.type` tag can be used to understand the number of successful vs failed requests, and the type of failures. The `duplicate` tag is set to `true` if the uniqueness checker has seen a request for this transaction before, and is therefore simply returning the original result, and is `false` otherwise.  |
 
-{{< /table >}}
-
 ## Backing Store 
 
 This is responsible for abstracting database access from the uniqueness checker, and performs all read and write operations against the uniqueness database. These metrics also have the `virtualnode.source` tag which allows metrics to be associated with the holding IDs of specific notary virtual nodes.
-
-{{< table >}}
 
 |Metric Name|Type|Tags|Description|
 |-------------------------------|------------------|------------------|------------------------|
@@ -92,7 +91,6 @@ This is responsible for abstracting database access from the uniqueness checker,
 |`uniqueness.backingstore.db.commit.time`|Timer|`virtualnode.source`|The time taken to commit a transaction (meaning write) to the database.  This metric is only updated if data is written to the database, so is not cumulative across retry attempts for a given transaction.|
 |`uniqueness.backingstore.db.read.time`|Timer|`virtualnode.source`, `operation.name`|The time taken to perform a single read operation from the database. The existing `operation.name` tag is re-purposed to reflect the specific type of read operation being performed, currently one of `getStateDetails`, `getTransactionDetails` or `getTransactionError`. If a transaction is retried, each retry contributes independently to this metric, meaning the number is not cumulative across retries.|
 
-{{< /table >}}
 
 ### Time Metric Visualisation
 
