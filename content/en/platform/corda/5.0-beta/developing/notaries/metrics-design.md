@@ -51,6 +51,12 @@ The context exposed to this service is minimal. As a result, only a single metri
 
 {{< /table >}}
 
+{{< table >}}
+| Metric name  | Type     | Tags  | Description |
+| :------------- | :------------- | :----------- | :----------- |
+| `ledger.uniqueness.client.run.time` | Timer | `result.type` | The time taken from requesting a uniqueness check to a response being received. The `result.type` tag is set to the relevant simple class name of the specific `UniquenessCheckResult` subclass. |
+{{< /table >}}
+
 ### Uniqueness Checker
 
 This handles the business logic of uniqueness checking. As our implemenation is batched at two levels, three categories of metrics are provided:
