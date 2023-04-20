@@ -1,0 +1,13 @@
+---
+date: '2023-04-20'
+title: "Optional Configurations"
+menu:
+  corda-5:
+    identifier: corda-5-app-networks-optional
+    parent: corda-5-app-networks-create
+    weight: 4000
+section_menu: corda-5
+---
+This section describes alternative configurations. It contains the following:
+* [Mutual TLS Connections]({{< relref " ./mutual-tls-connections.md">}})
+* [Session Certificates]({{< relref " ./session-certificates.md">}})

@@ -16,7 +16,7 @@ This section describes how to onboard new members to a dynamic network. It assum
 5. [Configure communication properties]({{< relref "./config-node.md">}}).
 4. [Register the member]({{< relref "./register.md">}}).
 
-These sections describe a standard configuration. You can read about alternative configurations in the [Mutual TLS Connections]({{< relref "../optional/mutual-tls-connections.md">}}) and [Session Certificates]({{< relref "../optional/session-certificates.md">}}) sections.
+These sections describe a standard configuration. You can read about alternative configurations in the [Optional Configurations]({{< relref"../optional/_index.md">}}) section. 
 
 {{< note >}}
 The PowerShell commands listed are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.

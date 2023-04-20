@@ -334,12 +334,6 @@ parent = "corda-5-app-networks-reg-requests"
 name = "Pre-Authorization"
 weight = 2000
 
-[[corda-5]]
-identifier = "corda-5-app-networks-optional"
-parent = "corda-5-app-networks-create"
-name = "Optional Configurations"
-weight = 4000
-
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
 #identifier = "tools-cdl"

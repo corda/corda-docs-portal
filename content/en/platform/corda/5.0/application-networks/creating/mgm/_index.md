@@ -16,7 +16,7 @@ This section describes how to configure the MGM, through which a membership grou
 4. [Register the MGM]({{< relref "./register.md">}}).
 5. [Configure communication properties]({{< relref "./config-node.md">}}).
 
-These sections describe a standard configuration. You can read about alternative configurations in the [Mutual TLS Connections]({{< relref "../optional/mutual-tls-connections.md">}}) and [Session Certificates]({{< relref "../optional/session-certificates.md">}}) sections.
+These sections describe a standard configuration. You can read about alternative configurations in the [Optional Configurations]({{< relref"../optional/_index.md">}}) section.
 
 {{< note >}}
 These tutorials all assume that you have:
