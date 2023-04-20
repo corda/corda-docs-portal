@@ -328,76 +328,17 @@ identifier = "corda-community-4-9-contributing-index"
 name = "Participate"
 weight = 500
 
-[[corda-5-beta]]
-identifier = "corda-5-beta-deploy-troubleshoot"
-parent = "corda-5-beta-deploy"
-name = "Troubleshooting"
-weight = 6000
-
-[[corda-5-beta]]
-identifier = "corda-5-beta-tutorials-deploy"
-parent = "corda-5-beta-deploy"
-name = "Deployment Tutorials"
-weight = 9000
-
-[[corda-5-beta]]
-identifier = "corda-5-beta-tutorials-operate"
-parent = "corda-5-beta-operate"
-name = "Operating Tutorials"
-weight = 3000
-
-[[corda-5-beta]]
-identifier = "corda-5-beta-tutorials-deploy-dynamic"
-parent = "corda-5-beta-onboarding-tutorials"
-name = "Dynamic Networks"
+[[corda-5]]
+identifier = "corda-5-pre-auth"
+parent = "corda-5-app-networks-reg-requests"
+name = "Pre-Authorization"
 weight = 2000
 
-[[corda-5-beta]]
-identifier = "corda-5-beta-tutorials-deploy-static"
-parent = "corda-5-beta-onboarding-tutorials"
-name = "Static Networks"
-weight = 1000
-
-[[corda-5-beta]]
-identifier = "corda-5-beta-tutorials-reg-requests"
-parent = "corda-5-beta-tutorials-operate"
-name = "Registration Requests"
-weight = 3000
-
-[[corda-5-beta]]
-identifier = "corda-5-beta-reg-requests-pre-auth"
-parent = "corda-5-beta-tutorials-reg-requests"
-name = "Pre-Authorization"
-weight = 3000
-
-[[corda-5-beta]]
-identifier = "corda-5-beta-tutorials-develop"
-parent = "corda-5-beta-develop"
-name = "Development Tutorials"
-weight = 9000
-
-[[corda-5-beta]]
-identifier = "corda-5-beta-operate-rest-ref"
-name = "REST API Reference"
-weight = 5050
-url = 'https://docs.r3.com/en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html'
-
-[[corda-5-beta]]
-name = "net.corda.v5.ledger"
-identifier = "corda-5-beta-api-ledger"
-parent = "corda-5-beta-api"
-weight = 5500
-
-[[corda-5-beta]]
-name = "net.corda.v5.ledger.utxo"
-identifier = "corda-5-beta-api-ledger-utxo"
-parent = "corda-5-beta-api-ledger"
-weight = 1000
-
-[[corda-5-beta]]
-identifier = "corda-5-beta-release-notes"
-name = "Release Notes"
-weight = 6000
+[[corda-5]]
+identifier = "corda-5-app-networks-optional"
+parent = "corda-5-app-networks-create"
+name = "Optional Configurations"
+weight = 4000
 
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
