@@ -1,22 +1,25 @@
 ---
-date: '2023-01-10'
+date: '2023-04-20'
 menu:
   corda-5-beta:
-    identifier: corda-5-beta-RBAC-permissions-templates
-    weight: 6000
-    parent: corda-5-cli-reference
+    identifier: corda-5-beta-managing-roles
+    weight: 3000
+    parent: corda-5-beta-operate
 section_menu: corda-5-beta
-title: "RBAC Permission Templates"
+title: "Managing Roles and Permissions"
 ---
 
-By default, when a cluster starts there is a single "admin" account auto-created which can do everything. While this account can be used to perform any action, there is room for error if not used carefully. RBAC permission templates enable you to create fine-grained roles for specific actions such as:
+By default, when a cluster starts, the "super admin" REST user is created, which has unrestricted access permissions.
+While this account can be used to perform any action, there is room for error if not used carefully.
+Role-based access control (RBAC) permission templates enable you to create fine-grained roles for specific actions such as:
 
 * A dedicated role which can create users, roles, and permissions and drive all the associations between them.
 * A dedicated role with a set of all the necessary permissions to create a virtual node (including CPI upload).
 * A dedicated role which allows flows to run on this virtual node.
 
 {{< note >}}
-These roles and permissions enable certain common operations. The creation of users and associating such users to these roles should be done manually by an admin user.
+These roles and permissions enable certain common operations.
+The creation of users and associating such users to these roles should be done manually by an admin user.
 {{< /note >}}
 
 | <div style="width:160px">Role</div>   | Description |
