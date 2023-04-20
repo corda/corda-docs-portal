@@ -3,7 +3,7 @@ date: '2023-04-20'
 title: "Configuring Users"
 menu:
 corda-5-beta:
-identifier: corda-5-beta-configuring-users
+identifier: corda-5-beta-configuring
 parent: corda-5-beta-operate
 weight: 1000
 section_menu: corda-5-beta
