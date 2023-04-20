@@ -9,6 +9,4 @@ menu:
 section_menu: corda-5
 ---
 
-{{ $.Params.parent }}
-
 _How to plan and design your application Network_
