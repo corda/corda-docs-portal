@@ -148,19 +148,46 @@ You should now see a list of flows printed to the console, including those liste
 
 ## Configuration Parameters
 
-You can tune **LedgerGraph**'s behaviour through a small set of configuration parameters, shown in this table:
+You can tune **LedgerGraph**'s behaviour through the following configuration parameters:
 
-{{< table >}}
-|Configuration Parameter|Default Value|Acceptable Value(s)|Description|
-|-|:-:|:-:|-|
-|`transactionReaderPageSize` &dagger; |`100`|`10` to `10,000,000`|The number of transactions to include in the result set when querying the database during graph initialization.|
-|`transactionReaderPoolSize` &Dagger;|`10`|`1` to `1000`|The number of threads to use when deserializing transaction data during graph initialization.|
-|`onDemand`|`true`| `true`, `false`|When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md). This saves heap memory usage.
-{{< /table >}}
+ 
 
-**&dagger;** Because there can be an extremely large number of transactions in a node's vault, it is important to select an appropriate page size for your database to optimize retrieval performance. Some amount of experimentation may be required on your part to find/define the best value to be used here, so we don't recommend the default value for most production environments.
 
-**&Dagger;** When Corda stores transactions, their data is serialized before being added to a database table. In order for **LedgerGraph** to make use of this data, it must first _deserialize_ it. This can be a relatively slow process, so allowing multiple threads to perform the deserialization in parallel can greatly reduce overall initialization time. You may need to experiment in your set up to find and define the best value to be used here.
+### `transactionReaderPageSize`
+
+**Default value:** 100
+
+**Possible values:** 10 to 10000000
+
+**Description:** The number of transactions to include in the result set when querying the database during graph initialization.|
+
+{{< note >}} Because there can be an extremely large number of transactions in a node's vault, it is important to select an appropriate page size for your database to optimize retrieval performance. Some amount of experimentation may be required on your part to find/define the best value to be used here, so we don't recommend the default value for most production environments. {{</ note >}}
+
+### `transactionReaderPoolSize`
+
+**Default value:** 10
+
+**Possible values:** 1 to 1000
+
+**Description:** The number of threads to use when deserializing transaction data during graph initialization.|
+
+{{< note >}} When Corda stores transactions, their data is serialized before being added to a database table. In order for **LedgerGraph** to make use of this data, it must first _deserialize_ it. This can be a relatively slow process, so allowing multiple threads to perform the deserialization in parallel can greatly reduce overall initialization time. You may need to experiment in your set up to find and define the best value to be used here. {{</ note >}}
+
+### `onDemand` 
+
+**Default value:** true
+
+**Possible values:** true, false
+
+**Description:** When set to `true`, your LedgerGraph becomes an on-demand service, active only when triggered by the [Archive Service](../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md). This saves heap memory usage.
+
+### `ignoreTransactionLoadingFailures`
+
+**Default value:** false
+
+**Possible values:** true, false
+
+**Description**: If true, allows Ledger Graph to initialize even when transactions with associated legacy `ContractStates` fail to serialize. By default, `ignoreTransactionLoadingFailures` is false and the behavior of Ledger Graph is unchanged. However, if a `TransactionDeserializationException` is generated when initializing Ledger Graph, add this config option which allows transactions to be skipped by substituting an UnknownContractState. The transactions that cause failures will still be included in the graph; however, some of the data contained in these transactions will be altered to Unknown values. This might cause issues if filtering the graph by Contract or by Participant Data. The graph that is built will still be complete.|
 
 ## Configure LedgerGraph parameters
 
