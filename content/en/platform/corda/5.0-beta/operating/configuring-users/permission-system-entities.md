@@ -2,10 +2,10 @@
 date: '2023-04-20'
 title: "Permission System Entities"
 menu:
-corda-5-beta:
-identifier: corda-5-beta-permission-system-entities
-parent: corda-5-beta-operate
-weight: 4000
+  corda-5-beta:
+    identifier: corda-5-beta-permission-system-entities
+    parent: corda-5-beta-operate
+    weight: 4000
 section_menu: corda-5-beta
 ---
 

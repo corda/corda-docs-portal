@@ -2,10 +2,10 @@
 date: '2023-04-20'
 title: "Administrator"
 menu:
-corda-5-beta:
-identifier: corda-5-beta-administrator
-parent: corda-5-beta-operate
-weight: 2000
+  corda-5-beta:
+    identifier: corda-5-beta-administrator
+    parent: corda-5-beta-operate
+    weight: 2000
 section_menu: corda-5-beta
 ---
 

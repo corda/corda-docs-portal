@@ -1,12 +1,12 @@
 ---
 date: '2023-04-20'
+title: "Managing Roles and Permissions"
 menu:
   corda-5-beta:
     identifier: corda-5-beta-managing-roles
     weight: 3000
     parent: corda-5-beta-operate
 section_menu: corda-5-beta
-title: "Managing Roles and Permissions"
 ---
 
 By default, when a cluster starts, the "super admin" REST user is created, which has unrestricted access permissions.
