@@ -3,15 +3,15 @@ date: '2023-04-18'
 title: "Notary Metrics Design"
 menu:
   corda-5-beta:
-    parent: corda-5-beta-notaries-overview
+    parent: corda-5-beta-operate
     identifier: corda-5-beta-notary-metrics-design
-    weight: 6010
+    weight: 2010
 section_menu: corda-5-beta
 
 ---
 # Notary Metrics Design
 
-This document outlines the metrics that are provided in the Corda 5.0 (GA) release for notary and uniqueness checking functionality.
+This section outlines the metrics that are provided in Corda 5 for notary and uniqueness checking functionality.
 
 ## Corda 5 Metric Architecture
 
@@ -21,7 +21,7 @@ This factors into the design, and this section will cover both the tags used for
 
 ## Metric Categories
 
-Notarisation is formed of three main stages:
+Notarisation consists of three main stages:
 
 * Initiation of a notary client flow on the requesting (application) virtual node. This is done as part of a sub-flow of the UTXO ledger finalisation.
 
@@ -58,7 +58,7 @@ table th:nth-of-type(4) {
 }
 </style>
 
-| Metric name                         |Type   | Tags         | Description                                |
+|Metric name|Type|Tags| Description|
 |-------------------------------------|-------|--------------|--------------------------------------------|
 | `ledger.uniqueness.client.run.time` | Timer |`result.type` |The time taken from requesting a uniqueness check to a response being received. The `result.type` tag is set to the relevant simple class name of the specific `UniquenessCheckResult` subclass.|
 
