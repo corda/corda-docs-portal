@@ -1,6 +1,8 @@
 {{ with .Parent -}}
   {{ partial "main/breadcrumb.html" . -}}
-  {{ if or .IsHome .Title}}
-  <li class="breadcrumb-item"><a href="{{ .Permalink }}">{{ if .IsHome }}Home{{ else }}{{ .Title }}{{ end }}</a></li>
+  {{ if .Title}}
+    {{ if ne .Title "Corda" "R3 Documentation" }}
+      <li class="breadcrumb-item"><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
   {{ end }}
 {{ end -}}
