@@ -20,11 +20,11 @@ LedgerGraph is a dependency for the set of Collaborative Recovery CorDapps V1.1 
 {{< /warning >}}
 
 {{< note >}}
-The [Archive Service](../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md) relies on the Ledger Graph functionality. For the Archiving Service to work correctly, the Ledger Graph must load your entire graph in memory to function. This can cause:
+The [Archive Service](../../../en/platform/corda/4.9/enterprise/node/archiving/archiving-setup.md) relies on the LedgerGraph functionality. For the Archiving Service to work correctly, the LedgerGraph must load your entire graph in memory to function. This can cause:
 * Increased time to run Archiving tasks.
 * Increased JVM heap memory usage while Archiving tasks are being performed.
 
-There is also a risk of Ledger Graph initialisation failure if transactions are in progress while the graph is being loaded (initialised) – if this happens it is deemed invalid and you must restart the node to re-initialise the ledger.
+There is also a risk of LedgerGraph initialisation failure if transactions are in progress while the graph is being loaded (initialised) – if this happens it is deemed invalid and you must restart the node to re-initialise the ledger.
 
 In order to improve speed and memory usage when using the Archiving Service, JVM heap memory of the node can be increased to handle larger ledgers. In addition, the `transactionReaderPoolSize` config parameter can be adjusted upwards to use more CPU threads to increase speed, and increase the number of CPUs or cores a node has access to.
 {{< /note >}}
@@ -187,7 +187,7 @@ You can tune **LedgerGraph**'s behaviour through the following configuration par
 
 **Possible values:** true, false
 
-**Description**:  Specifies if Ledger Graph can initialize even when transactions with associated legacy `ContractStates` fail to serialize. By default, `ignoreTransactionLoadingFailures` is false and the behavior of Ledger Graph is unchanged. However, if a `TransactionDeserializationException` is generated when initializing Ledger Graph, set this config parameter to `true` to allow transactions to be skipped by substituting an UnknownContractState. The transactions that cause failures will still be included in the graph; however, some of the data contained in these transactions will be altered to Unknown values. This might cause issues if filtering the graph by Contract or by Participant Data. The graph that is built will still be complete.
+**Description**:  Specifies if LedgerGraph can initialize even when transactions with associated legacy `ContractStates` fail to serialize. By default, `ignoreTransactionLoadingFailures` is false and the behavior of LedgerGraph is unchanged. However, if a `TransactionDeserializationException` is generated when initializing LedgerGraph, set this config parameter to `true` to allow transactions to be skipped by substituting an UnknownContractState. The transactions that cause failures will still be included in the graph; however, some of the data contained in these transactions will be altered to Unknown values. This might cause issues if filtering the graph by Contract or by Participant Data. The graph that is built will still be complete.
 
 ## Configure LedgerGraph parameters
 
