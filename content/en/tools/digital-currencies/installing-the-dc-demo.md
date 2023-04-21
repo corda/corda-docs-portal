@@ -15,7 +15,8 @@ This topic describes how to install the Digital Currencies demo, enabling you to
 
 ## Summary
 
-1. [Install the prerequisites](#prerequisites)
+1. [Install the prerequisites](#install-the-prerequisites)
+2. [Configure Artifactory authentication](#configure-artifactory-authentication)
 2. [Clone the Digital Currencies repositories](#clone-the-digital-currencies-repositories)
 3. [Run a clean version of corda](#run-corda)
 4. [Deploy the Digital Currencies CorDapp](#deploy-the-digital-currencies-cordapp) <!--   (Temporary) switch to CDC-247/POC-external-apis-with-flow-tracking branch. -->
@@ -23,7 +24,7 @@ This topic describes how to install the Digital Currencies demo, enabling you to
 6. [Specify Virtual Node for Digital Currencies UI](#specify-virtual-node-for-digital-currencies-ui)
 7. [Run the Digital Currencies UI](#run-the-digital-currencies-ui)
 
-## Prerequisites
+## Install the Prerequisites
 
 The following guide assumes you have the following prerequisites installed.
 
@@ -36,6 +37,37 @@ The following guide assumes you have the following prerequisites installed.
 * Docker Engine ~v20.X.Y or Docker Desktop ~v3.5.X
 * Intellij
 * [Corda CLI]({{< relref "../../platform/corda/5.0-beta/developing/getting-started/installing-corda-cli.md" >}})
+
+## Configure Artifactory Authentication
+
+This section describes how to specify the environment variables CORDA_ARTIFACTORY_USERNAME and CORDA_ARTIFACTORY_PASSWORD which are required to access internal Maven repositories. 
+
+1. Navigate to https://software.r3.com/ui/user_profile.
+
+2. If required, log in with your usual credentials.
+
+3. Click on your email address at the top-right, then select **Edit Profile** from the menu displayed.
+
+   The User Profile page is displayed.
+
+4. Scroll down and click on **Generate API Key**.
+
+   The message *Successfully generated API key* is displayed.
+   
+5. Copy the value in the **API Key** field.
+
+6. In the Windows search box, search for *environment variables*.
+
+7. Click **Edit the system environment variables**.
+
+   The **System Properties** dialog box is displayed.
+
+8. Click **Environment Variables**.
+
+9. Add the following system variables:
+
+   * `CORDA_ARTIFACTORY_USERNAME`: Set this to your email address.
+   * `CORDA_ARTIFACTORY_PASSWORD`: Set this to the value of the **API Key** field from step 5.
 
 ## Clone the Digital Currencies Repositories
 
