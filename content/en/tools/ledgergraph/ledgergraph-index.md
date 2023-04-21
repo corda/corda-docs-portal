@@ -187,7 +187,7 @@ You can tune **LedgerGraph**'s behaviour through the following configuration par
 
 **Possible values:** true, false
 
-**Description**: If true, allows Ledger Graph to initialize even when transactions with associated legacy `ContractStates` fail to serialize. By default, `ignoreTransactionLoadingFailures` is false and the behavior of Ledger Graph is unchanged. However, if a `TransactionDeserializationException` is generated when initializing Ledger Graph, add this config option which allows transactions to be skipped by substituting an UnknownContractState. The transactions that cause failures will still be included in the graph; however, some of the data contained in these transactions will be altered to Unknown values. This might cause issues if filtering the graph by Contract or by Participant Data. The graph that is built will still be complete.|
+**Description**:  Specifies if Ledger Graph can initialize even when transactions with associated legacy `ContractStates` fail to serialize. By default, `ignoreTransactionLoadingFailures` is false and the behavior of Ledger Graph is unchanged. However, if a `TransactionDeserializationException` is generated when initializing Ledger Graph, set this config parameter to `true` to allow transactions to be skipped by substituting an UnknownContractState. The transactions that cause failures will still be included in the graph; however, some of the data contained in these transactions will be altered to Unknown values. This might cause issues if filtering the graph by Contract or by Participant Data. The graph that is built will still be complete.
 
 ## Configure LedgerGraph parameters
 
