@@ -13,4 +13,3 @@ menu:
     name: Corda 5.0
 ---
 
-## Next-Gen Corda 5.0
