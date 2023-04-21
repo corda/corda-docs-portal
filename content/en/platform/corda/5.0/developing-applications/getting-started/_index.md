@@ -10,4 +10,4 @@ menu:
     weight: 4000
 section_menu: corda-5
 ---
-_direct lift of existing Getting Started section?_
+_direct lift of existing Getting Started sections?_

@@ -10,4 +10,3 @@ menu:
     weight: 4000
 section_menu: corda-5
 ---
-CorDap

@@ -9,12 +9,12 @@
       </div>
 		</div>
     {{ end -}}
-		{{ if ne .Parent.Page.Params.version "Corda 5.0 Beta 2" }}
+		{{ if ne .Parent.Page.Params.version "Corda 5.0" }}
 			<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
 				{{ partial "sidebar/docs-toc.html" . }}
 			</nav>
 		{{ end -}}
-		{{ if ne .Parent.Page.Params.version "Corda 5.0 Beta 2"}}
+		{{ if ne .Parent.Page.Params.version "Corda 5.0"}}
 			<main class="docs-content col-lg-11 col-xl-9 mx-lg-auto">
 		{{ else -}}
 			<main class="docs-content col-lg-11 col-xl-12 mx-lg-auto">

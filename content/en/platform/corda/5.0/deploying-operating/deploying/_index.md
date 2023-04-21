@@ -1,6 +1,6 @@
 ---
 date: '2023-02-23'
-title: "Deploying Corda"
+title: "Corda Deployment"
 project: corda
 version: 'Corda 5.0'
 menu:
