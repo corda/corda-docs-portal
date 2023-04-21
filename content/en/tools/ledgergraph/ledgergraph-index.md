@@ -159,7 +159,7 @@ You can tune **LedgerGraph**'s behaviour through the following configuration par
 
 **Possible values:** 10 to 10000000
 
-**Description:** The number of transactions to include in the result set when querying the database during graph initialization.|
+**Description:** The number of transactions to include in the result set when querying the database during graph initialization.
 
 {{< note >}} Because there can be an extremely large number of transactions in a node's vault, it is important to select an appropriate page size for your database to optimize retrieval performance. Some amount of experimentation may be required on your part to find/define the best value to be used here, so we don't recommend the default value for most production environments. {{</ note >}}
 
