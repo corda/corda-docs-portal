@@ -169,7 +169,7 @@ You can tune **LedgerGraph**'s behaviour through the following configuration par
 
 **Possible values:** 1 to 1000
 
-**Description:** The number of threads to use when deserializing transaction data during graph initialization.|
+**Description:** The number of threads to use when deserializing transaction data during graph initialization.
 
 {{< note >}} When Corda stores transactions, their data is serialized before being added to a database table. In order for **LedgerGraph** to make use of this data, it must first _deserialize_ it. This can be a relatively slow process, so allowing multiple threads to perform the deserialization in parallel can greatly reduce overall initialization time. You may need to experiment in your set up to find and define the best value to be used here. {{</ note >}}
 
