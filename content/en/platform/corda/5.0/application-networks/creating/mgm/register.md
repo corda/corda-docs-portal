@@ -3,8 +3,8 @@ date: '2023-04-07'
 title: "Register the MGM"
 menu:
   corda-5:
-    parent: corda-5-app-networks-mgm
-    identifier: corda-5-app-networks-mgm-register
+    parent: corda-5-networks-mgm
+    identifier: corda-5-networks-mgm-register
     weight: 4000
 section_menu: corda-5
 ---

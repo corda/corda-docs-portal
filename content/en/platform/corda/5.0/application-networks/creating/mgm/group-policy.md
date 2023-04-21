@@ -3,8 +3,8 @@ date: '2023-04-07'
 title: "Export the Group Policy"
 menu:
   corda-5:
-    parent: corda-5-app-networks-mgm
-    identifier: corda-5-app-networks-mgm-group-policy
+    parent: corda-5-networks-mgm
+    identifier: corda-5-networks-mgm-group-policy
     weight: 6000
 section_menu: corda-5
 draft: "true"

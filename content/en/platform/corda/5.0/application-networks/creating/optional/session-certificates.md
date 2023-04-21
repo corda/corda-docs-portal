@@ -3,8 +3,8 @@ date: '2022-11-15'
 title: "Session Certificates"
 menu:
   corda-5:
-    identifier: corda-5-app-network-session-certificates
-    parent: corda-5-app-networks-optional
+    identifier: corda-5-network-session-certificates
+    parent: corda-5-networks-optional
     weight: 2000
 section_menu: corda-5
 ---

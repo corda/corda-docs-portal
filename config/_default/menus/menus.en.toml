@@ -328,12 +328,6 @@ identifier = "corda-community-4-9-contributing-index"
 name = "Participate"
 weight = 500
 
-[[corda-5]]
-identifier = "corda-5-pre-auth"
-parent = "corda-5-app-networks-reg-requests"
-name = "Pre-Authorization"
-weight = 2000
-
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
 #identifier = "tools-cdl"

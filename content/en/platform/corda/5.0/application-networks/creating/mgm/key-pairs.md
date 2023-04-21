@@ -3,8 +3,8 @@ date: '2023-04-07'
 title: "Configure Key Pairs and Certificates"
 menu:
   corda-5:
-    parent: corda-5-app-networks-mgm
-    identifier: corda-5-app-networks-mgm-key-pairs
+    parent: corda-5-networks-mgm
+    identifier: corda-5-networks-mgm-key-pairs
     weight: 3000
 section_menu: corda-5
 ---

@@ -3,8 +3,8 @@ date: '2023-02-23'
 title: "Planning Application Networks"
 menu:
   corda-5:
-    identifier: corda-5-app-networks-plan
-    parent: corda-5-app-networks
+    identifier: corda-5-networks-plan
+    parent: corda-5-networks
     weight: 1000
 section_menu: corda-5
 ---

@@ -3,8 +3,8 @@ date: '2023-02-23'
 title: "Mutual TLS Connections"
 menu:
   corda-5:
-    identifier: corda-5-app-network-mutual-tls
-    parent: corda-5-app-networks-optional
+    identifier: corda-5-network-mutual-tls
+    parent: corda-5-networks-optional
     weight: 1000
 section_menu: corda-5
 ---

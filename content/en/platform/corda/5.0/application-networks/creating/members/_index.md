@@ -5,8 +5,8 @@ project: corda
 version: 'Corda 5.0'
 menu:
   corda-5:
-    identifier: corda-5-app-networks-members
-    parent: corda-5-app-networks-create
+    identifier: corda-5-networks-members
+    parent: corda-5-networks-create
     weight: 2000
 section_menu: corda-5
 ---

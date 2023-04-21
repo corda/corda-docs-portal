@@ -3,8 +3,8 @@ date: '2023-04-07'
 title: "Member Registration"
 menu:
   corda-5:
-    identifier: corda-5-app-networks-reg-requests
-    parent: corda-5-app-networks-manage
+    identifier: corda-5-networks-reg-requests
+    parent: corda-5-networks-manage
     weight: 4000
 section_menu: corda-5
 ---
@@ -32,7 +32,7 @@ Corda has a set of REST APIs available for managing approval rules. To learn mor
 
 The network operator can pre-authenticate registrations for specific members. This allows a registering member to bypass approval rules defined for the group. Authentication is done outside of Corda using any criteria the operator chooses. Once the network operator has completed their authentication process, they can generate a one-time-use pre-authentication token, also known as a pre-auth token, specific to the authenticated member.
 
-Corda has a set of REST APIs available for managing these pre-auth tokens. Through these APIs, tokens can be created, revoked, and viewed. When viewing a token, it is possible to see the token ID, the X.500 name of the member the token is assigned to, optionally a time and date when the token expires, the token status, and additional information provided by the MGM when creating or revoking the token. For more information, see [Managing Pre-Authentication Tokens]({{< relref "./preauthenticating-tokens.md" >}}).
+Corda has a set of REST APIs available for managing these pre-auth tokens. Through these APIs, tokens can be created, revoked, and viewed. When viewing a token, it is possible to see the token ID, the X.500 name of the member the token is assigned to, optionally a time and date when the token expires, the token status, and additional information provided by the MGM when creating or revoking the token. For more information, see [Managing Pre-Authentication Tokens]({{< relref "pre-auth/preauthenticating-tokens.md" >}}).
 
 A registration with a pre-auth token can fail for the following reasons:
 * The token is not a valid UUID.
@@ -43,4 +43,4 @@ A registration with a pre-auth token can fail for the following reasons:
 
 If any of these conditions are met, the registration is declined.
 
-Although pre-auth tokens allow registrations to bypass the standard set of registration rules configured, the network operator can specify that certain changes to the member's context must be reviewed, even if a pre-auth token was submitted. This is possible through a set of REST APIs very similar to those used to definine group registration approval rules. For more information, see [Configuring Pre-Authentication Rules]({{< relref "./configuring-pre-auth-rules.md" >}}).
+Although pre-auth tokens allow registrations to bypass the standard set of registration rules configured, the network operator can specify that certain changes to the member's context must be reviewed, even if a pre-auth token was submitted. This is possible through a set of REST APIs very similar to those used to definine group registration approval rules. For more information, see [Configuring Pre-Authentication Rules]({{< relref "pre-auth/configuring-pre-auth-rules.md" >}}).

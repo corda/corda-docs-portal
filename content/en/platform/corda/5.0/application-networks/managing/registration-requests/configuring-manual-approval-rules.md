@@ -4,7 +4,7 @@ title: "Configuring Manual Approval Rules"
 menu:
   corda-5:
     identifier: corda-5-manual-approval-rules
-    parent: corda-5-app-networks-reg-requests
+    parent: corda-5-networks-reg-requests
     weight: 1000
 section_menu: corda-5
 ---

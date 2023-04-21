@@ -3,8 +3,8 @@ date: '2023-04-13'
 title: "Create a Virtual Node"
 menu:
   corda-5:
-    identifier: corda-5-app-networks-members-node
-    parent: corda-5-app-networks-members
+    identifier: corda-5-networks-members-node
+    parent: corda-5-networks-members
     weight: 2000
 section_menu: corda-5
 ---

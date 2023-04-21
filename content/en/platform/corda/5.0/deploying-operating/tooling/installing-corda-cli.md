@@ -2,9 +2,9 @@
 date: '2023-04-12'
 menu:
   corda-5:
-    identifier: corda-5-networks-cli
+    identifier: corda-5-cluster-cli
     weight: 1050
-    parent: corda-5-networks-tooling
+    parent: corda-5-cluster-tooling
 section_menu: corda-5
 title: Installing the Corda CLI
 ---

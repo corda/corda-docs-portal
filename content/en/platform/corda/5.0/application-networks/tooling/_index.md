@@ -5,8 +5,8 @@ project: corda
 version: 'Corda 5.0'
 menu:
   corda-5:
-    identifier: corda-5-app-networks-tooling
-    parent: corda-5-app-networks
+    identifier: corda-5-networks-tooling
+    parent: corda-5-networks
     weight: 2000
 section_menu: corda-5
 ---

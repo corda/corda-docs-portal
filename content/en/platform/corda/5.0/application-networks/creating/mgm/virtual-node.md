@@ -3,8 +3,8 @@ date: '2023-04-07'
 title: "Create a Virtual Node"
 menu:
   corda-5:
-    parent: corda-5-app-networks-mgm
-    identifier: corda-5-app-networks-mgm-virtual-node
+    parent: corda-5-networks-mgm
+    identifier: corda-5-networks-mgm-virtual-node
     weight: 2000
 section_menu: corda-5
 ---

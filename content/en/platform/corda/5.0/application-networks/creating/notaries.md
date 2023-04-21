@@ -3,8 +3,8 @@ date: '2023-02-23'
 title: "Onboarding Notaries"
 menu:
   corda-5:
-    identifier: corda-5-app-networks-notaries
-    parent: corda-5-app-networks-create
+    identifier: corda-5-networks-notaries
+    parent: corda-5-networks-create
     weight: 3000
 section_menu: corda-5
 ---

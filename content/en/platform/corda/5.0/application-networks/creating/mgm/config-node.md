@@ -3,8 +3,8 @@ date: '2023-04-07'
 title: "Configure Communication Properties"
 menu:
   corda-5:
-    parent: corda-5-app-networks-mgm
-    identifier: corda-5-app-networks-mgm-config-node
+    parent: corda-5-networks-mgm
+    identifier: corda-5-networks-mgm-config-node
     weight: 5000
 section_menu: corda-5
 ---

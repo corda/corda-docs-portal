@@ -4,12 +4,10 @@ title: "Managing Pre-Authentication Tokens"
 menu:
   corda-5:
     identifier: corda-5-pre-auth-tokens
-    parent: corda-5-pre-auth
+    parent: corda-5-networks-pre-auth
     weight: 1000
 section_menu: corda-5
 ---
-
-
 
 ## Creating a Token
 
