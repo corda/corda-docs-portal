@@ -10,4 +10,6 @@ menu:
     weight: 5000
 section_menu: corda-5
 ---
-_direct lift of existing section?_
+_direct lift of existing section?_:
+
+{{< img-simple src="basic-cordapp-structure.png" alt="" caption="" class="border-0" >}}

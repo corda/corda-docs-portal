@@ -10,4 +10,6 @@ menu:
     weight: 4000
 section_menu: corda-5
 ---
-_direct lift of existing Getting Started sections?_
+_direct lift of existing Getting Started sections?_:
+
+{{< img-simple src="csde-structure.png" alt="" caption="" class="border-0" >}}
