@@ -1,6 +1,8 @@
 ---
 date: '2023-04-07'
 title: "Onboarding the MGM"
+project: corda
+version: 'Corda 5.0'
 menu:
   corda-5:
     parent: corda-5-app-networks-create

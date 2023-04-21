@@ -1,6 +1,8 @@
 ---
 date: '2023-02-23'
 title: "Network Operator Tooling"
+project: corda
+version: 'Corda 5.0'
 menu:
   corda-5:
     identifier: corda-5-app-networks-tooling
