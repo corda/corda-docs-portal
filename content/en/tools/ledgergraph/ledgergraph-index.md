@@ -205,7 +205,7 @@ transactionReaderPoolSize = 32
 
 ## Support for Confidential Identities
 
-If you are using Corda [Confidential Identities](../../../en/platform/corda/4.9/enterprise/cordapps/api-confidential-identity.md), you need to add further configuration to LedgerGraph  in order to properly support your environment. This is due to a limitation in the current implementation of the Confidential Identities CorDapp.
+If you are using Corda [Confidential Identities](../../../en/platform/corda/4.9/enterprise/cordapps/api-confidential-identity.md), you need to add further configuration to LedgerGraph in order to properly support your environment. This is due to a limitation in the current implementation of the Confidential Identities CorDapp.
 
 This additional configuration step helps to ensure that confidential identities on your node are properly mapped to known identities (where they have been shared with your node) when new transactions are processed and added to the graph.
 
