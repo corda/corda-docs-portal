@@ -12,4 +12,5 @@ section_menu: corda-5
 ---
 Corda Cluster Operators require the following:
 
-* **curl** — Examples i
+* **Corda CLI** — Cluster operators require the Corda CLI to********************.
+For information about installation, see [Installing the Corda CLI]({{< relref "./installing-corda-cli.md" >}}).

@@ -4,7 +4,7 @@ title: "Submitting a Token in a Registration Request"
 menu:
   corda-5:
     identifier: corda-5-submit-token
-    parent: corda-5-pre-auth
+    parent: corda-5-networks-pre-auth
     weight: 3000
 section_menu: corda-5
 ---
