@@ -12,4 +12,4 @@ section_menu: corda-5
 ---
 _direct lift of existing section?_:
 
-{{< img-simple src="basic-cordapp-structure.png" alt="" caption="" class="border-0" >}}
+{{< figure src="basic-cordapp-structure.png" width=30% >}}

@@ -12,4 +12,4 @@ section_menu: corda-5
 ---
 _direct lift of existing Getting Started sections?_:
 
-{{< img-simple src="csde-structure.png" alt="" caption="" class="border-0" >}}
+{{< figure src="csde-structure.png" width=20% >}}
