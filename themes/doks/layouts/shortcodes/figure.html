@@ -22,9 +22,10 @@
   {{ $src = .Get 0 }}
   {{ $alt = .Get 1 }}
 {{end}}
+{{ $image := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) -}}
 <figure>
   {{if $zoom}}<a href="{{$zoom}}" target="_blank">{{end}}
-  <img src="{{$src}}" alt="{{$alt}}"{{if $title  }} title="{{$title}}"{{end}}{{if $width}} width="{{$width}}"{{end}}{{if $height }} height="{{$height}}"{{end}}{{if $align}} align="{{$align}}"{{end}}/>
+  <img {{if $image }} src="{{ $image.RelPermalink }}"{{ else }}src="{{$src}}" {{ end }} alt="{{$alt}}"{{if $title }} title="{{$title}}"{{end}}{{if $width}} width="{{$width}}"{{end}}{{if $height }} height="{{$height}}"{{end}}{{if $align}} align="{{$align}}"{{end}}/>
   {{if $figcaption }}<figcaption>{{$figcaption}}</figcaption>{{end}}
   {{if $zoom}}</a>{{end}}
 </figure>
