@@ -15,13 +15,13 @@ table th:first-of-type {
     width: 20%;
 }
 table th:nth-of-type(2) {
-    width: 20%;
+    width: 30%;
 }
 table th:nth-of-type(3) {
     width: 20%;
 }
 table th:nth-of-type(4) {
-    width: 40%;
+    width: 30%;
 }
 </style>
 
