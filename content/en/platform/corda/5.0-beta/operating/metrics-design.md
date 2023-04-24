@@ -41,11 +41,11 @@ Notarisation consists of three main stages:
 
 * Initiation of a notary client flow on the requesting (application) virtual node. This is done as part of a sub-flow of the UTXO ledger finalisation.
 
-* Sending a payload across to a notary virtual node, which initiates a notary server responder flow to perform notary protocol specific verification. This then uses a uniqueness checker client service to initiate uniqueness checking. 
+* Sending a payload across to a notary virtual node, which initiates a notary server responder flow to perform notary protocol specific verification. This then uses a uniqueness checker client service to initiate uniqueness checking.
 
-* A uniqueness processor picks up uniqueness check requests, and performs double spend, time window checks etc. This delegates database operations to a backing store component.
+* A uniqueness processor picks up uniqueness check requests and performs double spend, time window checks etc. This delegates database operations to a backing store component.
 
-Metrics to the flows will not be introduced at this point; flows already have a standard set of metrics available, although the existing metrics capture needs to be extended to capture subflow (as well as top level flow) metrics in order to do this for the notary client flow. Futhermore, the non-validating notary protocol is sufficiently straightforward that it is not deemed worthwhile to add any metrics specific to this protocol. Its main actions are to request uniqueness checking, which has its own metrics, and signing via the signing service, which should similarly have service level metrics added.
+We will not introduce any metrics to the flows at this point; flows already have a standard set of metrics available, although the existing metrics capture needs to be extended to capture subflow (as well as top level flow) metrics in order to do this for the notary client flow. Further, the non-validating notary protocol is sufficiently straightforward that it is not deemed worthwhile to add any metrics specific to this protocol. Its main actions are to request uniqueness checking, which has its own metrics, and signing via the signing service, which should similarly have service level metrics added.
 
 Instead, metrics will be added at the following levels:
 
@@ -79,7 +79,7 @@ The uniqueness checker handles the business logic of uniqueness checking. As the
 | `uniqueness.checker.subbatch.size`    | DistributionSummary    | `virtualnode.source`    |The number of requests in a sub-batch.  |
 | `uniqueness.checker.request.count`    | Counter    | `virtualnode.source`, `result.type`, `duplicate`   | A count of the number of requests processed. It is useless on its own as this information is already captured at the batch and sub-batch levels, but the tags can be used to provide additional context. The `result.type` tag can be used to understand the number of successful vs failed requests, and the type of failures. The `duplicate` tag is set to `true` if the uniqueness checker has seen a request for this transaction before, and is therefore simply returning the original result. Otherwise, it is `false`.  |
 
-## Backing Store 
+## Backing Store
 
 The backing store is responsible for abstracting database access from the uniqueness checker, and performs all read and write operations against the uniqueness database. These metrics also have the `virtualnode.source` tag which allows metrics to be associated with the holding IDs of specific notary virtual nodes.
 
@@ -89,7 +89,7 @@ The backing store is responsible for abstracting database access from the unique
 |`uniqueness.backingstore.transaction.execution.time`|Timer|`virtualnode.source`|The execution time for a transaction, which excludes retriving uniqueness database connection details and getting a database connection. If a transaction needs to be retried due to database exceptions, the execution time covers the cumulative duration of all retry attempts.|
 |`uniqueness.backingstore.transaction.error.count`|Counter|`virtualnode.source`, `error.type`|Cumulative number of errors raised by the backing store when executing a transaction. This is incremented regardless of whether an expected or unexpected error is raised, and is incremented on each retry, so a transaction that fails up to the maximum 10 retries with the same error will increment by 10 in total. The tags provide the context as to the affected holding identity and the specific error class name (captured by `error.type`). |
 |`uniqueness.backingstore.transaction.attempts`|DistributionSummary|`virtualnode.source`|The number of attempts that were made before a transaction ultimately succeeded. Generally, this should return 1. In the event that a transaction was unsuccessful due to reaching the maximum number of attempts, this metric is not updated and the failure would be reflected in the `uniqueness.backingstore.transaction.error.count` metric.|
-|`uniqueness.backingstore.db.commit.time`|Timer|`virtualnode.source`|The time taken to commit a transaction (i.e. write) to the database.  This metric is only updated if data is written to the database, so is not cumulative across retry attempts for a given transaction.|
+|`uniqueness.backingstore.db.commit.time`|Timer|`virtualnode.source`|The time taken to commit a transaction (i.e. write) to the database. This metric is only updated if data is written to the database, so is not cumulative across retry attempts for a given transaction.|
 |`uniqueness.backingstore.db.read.time`|Timer|`virtualnode.source`, `operation.name`|The time taken to perform a single read operation from the database. The existing `operation.name` tag is re-purposed to reflect the specific type of read operation being performed, currently one of `getStateDetails`, `getTransactionDetails` or `getTransactionError`. If a transaction is retried, each retry contributes independently to this metric, meaning the number is not cumulative across retries.|
 
 
@@ -97,4 +97,4 @@ The backing store is responsible for abstracting database access from the unique
 
 The diagram below shows a composition of the different time based metrics. Note that the size of the bars is not indicative of the expected proportion of time for a metric with respect to its parent. These are arbitrary and for visualisation purposes only.
 
-{{< figure src="C5-Notary-Metrics.png" figcaption="Corda 5 notary metric timings" alt="Corda 5 notary metric timings" >}}
+{{< figure src="C5-Notary-Metrics.png" figcaption="Time based metrics" alt="Time based metrics" >}}
