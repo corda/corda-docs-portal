@@ -243,7 +243,7 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
    {{< /tabs >}}
 
 {{< note >}}
-In the case of schemas, `CONFIG` applies to database and `RBAC` applies to create-user-config. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
+In the case of schemas, `CONFIG` applies to database and crypto and `RBAC` applies to create-user-config. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
 {{< /note >}}
 
 3. Review the DML files generated and then execute against the database.
@@ -393,7 +393,7 @@ In the case of schemas, `CONFIG` applies to database and `RBAC` applies to creat
    {{< /tabs >}}
 
 {{< note >}}
-There is no schema in `--jdbc-url` as vnodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
+There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
 {{< /note >}}
 
 9. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda:
