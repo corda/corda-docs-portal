@@ -221,6 +221,7 @@ To apply SQL to a schema run the psql command line tool and use the format:
 
 
 2. Use the Corda CLI to generate DML files for creating the database tables to use for each of the `crypto`, `config`, and `rbac` components.
+
 The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema should be used for the corresponding components and generates the files in the directory `/tmp/db`:
 
    {{< tabs name="DML">}}
@@ -242,10 +243,10 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
    {{< /tabs >}}
 
 {{< note >}}
-If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
+In the case of schemas, `CONFIG` applies to database and `RBAC` applies to create-user-config. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
 {{< /note >}}
 
-3. Review the DML files generated and then execute against the database. In the case of schemas, `CONFIG` applies to database and crypto.
+3. Review the DML files generated and then execute against the database.
 
 4. Execute the following Corda CLI command to generate DDL for populating the RBAC database connection configuration:
 
