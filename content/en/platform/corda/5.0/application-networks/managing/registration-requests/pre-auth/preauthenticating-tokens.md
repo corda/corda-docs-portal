@@ -2,11 +2,11 @@
 date: '2023-04-07'
 title: "Managing Pre-Authentication Tokens"
 menu:
-  corda-5:
-    identifier: corda-5-pre-auth-tokens
-    parent: corda-5-networks-pre-auth
+  corda5:
+    identifier: corda5-pre-auth-tokens
+    parent: corda5-networks-pre-auth
     weight: 1000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 ## Creating a Token

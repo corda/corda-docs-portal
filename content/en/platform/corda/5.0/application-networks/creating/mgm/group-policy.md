@@ -2,11 +2,11 @@
 date: '2023-04-07'
 title: "Export the Group Policy"
 menu:
-  corda-5:
-    parent: corda-5-networks-mgm
-    identifier: corda-5-networks-mgm-group-policy
+  corda5:
+    parent: corda5-networks-mgm
+    identifier: corda5-networks-mgm-group-policy
     weight: 6000
-section_menu: corda-5
+section_menu: corda5
 draft: "true"
 ---
 Once the MGM is onboarded, you can export a group policy file with the MGM connection details. To output the full contents of the `GroupPolicy.json` file to package within the {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} for members, run the following:

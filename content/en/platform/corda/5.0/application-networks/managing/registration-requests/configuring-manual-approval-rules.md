@@ -2,11 +2,11 @@
 date: '2023-04-07'
 title: "Configuring Manual Approval Rules"
 menu:
-  corda-5:
-    identifier: corda-5-manual-approval-rules
-    parent: corda-5-networks-reg-requests
+  corda5:
+    identifier: corda5-manual-approval-rules
+    parent: corda5-networks-reg-requests
     weight: 1000
-section_menu: corda-5
+section_menu: corda5
 ---
 As described in [Registration Approval]({{< relref "./registration-approval.md#manual-approval" >}}), membership groups can require that member registration requests are manually approved (or declined). This section describes how to manage manual registration rules using the Corda REST API.
 ## Adding a Group Approval Rule

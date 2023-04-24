@@ -4,11 +4,11 @@ title: "Managing Virtual Nodes"
 project: corda
 version: 'Corda 5.0'
 menu:
-  corda-5:
-    identifier: corda-5-cluster-nodes
-    parent: corda-5-cluster
+  corda5:
+    identifier: corda5-cluster-nodes
+    parent: corda5-cluster
     weight: 5000
-section_menu: corda-5
+section_menu: corda5
 ---
 This section **. It contains the following:
 * 

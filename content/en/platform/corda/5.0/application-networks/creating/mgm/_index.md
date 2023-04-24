@@ -4,11 +4,11 @@ title: "Onboarding the MGM"
 project: corda
 version: 'Corda 5.0'
 menu:
-  corda-5:
-    parent: corda-5-networks-create
-    identifier: corda-5-networks-mgm
+  corda5:
+    parent: corda5-networks-create
+    identifier: corda5-networks-mgm
     weight: 1000
-section_menu: corda-5
+section_menu: corda5
 ---
 This section describes how to configure the MGM, through which a membership group is created for a dynamic network. The sections must be completed in the order in which they are presented:
 

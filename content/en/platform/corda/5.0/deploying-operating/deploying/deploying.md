@@ -2,10 +2,10 @@
 date: '2023-02-23'
 title: "Deploying"
 menu:
-  corda-5:
-    parent: corda-5-cluster-deploy
-    identifier: corda-5-cluster-deploying
+  corda5:
+    parent: corda5-cluster-deploy
+    identifier: corda5-cluster-deploying
     weight: 4000
-section_menu: corda-5
+section_menu: corda5
 ---
  
