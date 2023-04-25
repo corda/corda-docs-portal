@@ -65,7 +65,7 @@ of the class.
 
 If, however, the fingerprints differ then we know that the class we are attempting to deserialize is different
 than the version we will be deserializing it into. What we cannot know is which version is newer, at least
-not by examining the fingerprint
+not by examining the fingerprint.
 
 {{< note >}}
 Corda’s AMQP fingerprinting for enumerated types include the type name and the enum constants.
