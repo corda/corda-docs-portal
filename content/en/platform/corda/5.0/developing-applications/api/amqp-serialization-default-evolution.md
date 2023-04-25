@@ -196,7 +196,7 @@ Example3 (1, 2, 3, 4, 5)    // example IV
 
 ## Removing Properties
 
-Property removal is effectively a mirror of adding properties (both nullable and non nullable) given that this functionality
+Property removal is effectively a mirror of adding properties (both nullable and non-nullable) given that this functionality
 is required to facilitate the addition of properties. When this state is detected by the serialization framework, properties
 that don’t have matching parameters in the main constructor are simply omitted from object construction.
 
