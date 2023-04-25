@@ -335,7 +335,7 @@ If the schemas are not specified, then the tables will be created in the default
    {{< /tabs >}}
 
   {{< note >}}
-  If you get an error after copying the code from documentation, try passing the exact parameters in the Corda CLI manually.
+  If you get an error after copying these commands from the documentation, try passing the exact parameters in the Corda CLI manually.
   {{</ note >}}
 
    The `<SALT>` and `<PASSPHRASE>` must match those used above and specified in the Corda deployment configuration.
