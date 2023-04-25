@@ -215,10 +215,12 @@ To create the schema manually, do the following:
    ```
 
 {{< note >}}
-To apply SQL to a schema run the psql command line tool and use the format:
-`--dbname "dbname=cordacluster options=--search_path=CONFIG"`
+If you are applying SQL to a schema using the `psql` command you can specify which schema to apply it to using the `--dbname` parameter like so: `--dbname "dbname=cordacluster options=--search_path=<SCHEMA-NAME>"`
 {{</ note >}}
 
+{{< note >}}
+If you are targeting schemas, database and crypto generated SQL should be applied to the CONFIG schema, and create-user-config generated SQL should be applied to the RBAC schema. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
+{{< /note >}}
 
 2. Use the Corda CLI to generate DML files for creating the database tables to use for each of the `crypto`, `config`, and `rbac` components.
 
@@ -241,10 +243,6 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
    ```
    {{% /tab %}}
    {{< /tabs >}}
-
-{{< note >}}
-In the case of schemas, `CONFIG` applies to database and crypto and `RBAC` applies to create-user-config. If the schemas are not specified, then the tables will be created in the default schema and the next steps in this procedure will need updating to reflect this.
-{{< /note >}}
 
 3. Review the DML files generated and then execute against the database.
 
@@ -386,7 +384,7 @@ In the case of schemas, `CONFIG` applies to database and crypto and `RBAC` appli
    {{% /tab %}}
    {{% tab name="Windows" %}}
    ```shell
-   corda-cli.sh initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
+   corda-cli.md initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
     --name orda-virtual-nodes --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin`
    ```
    {{% /tab %}}
