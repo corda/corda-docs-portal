@@ -214,7 +214,7 @@ data class Example4 (val b: String?, c: Int?) // (Version B)
 
 {{< /tabs >}}
 
-In practice, what this means is removing nullable properties is possible. However, removing non nullable properties isn’t because
+In practice, what this means is removing nullable properties is possible. However, removing non-nullable properties is not because
 a node receiving a message containing a serialized form of an object with fewer properties than it requires for construction has
 no capacity to guess what values should or could be used as sensible defaults. When those properties are nullable it simply sets
 them to null.
