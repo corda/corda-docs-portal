@@ -236,7 +236,7 @@ enum class Example {
 {{< /note >}}
 
 When deserializing the most applicable transform will be applied. Continuing the above example, deserializing
-nodes could have three distinct views on what the enum Example looks like (annotations omitted for brevity)
+nodes could have three distinct views on what the enum example looks like (annotations omitted for brevity).
 
 ```kotlin
 // The original version of the class. Will deserialize: -
