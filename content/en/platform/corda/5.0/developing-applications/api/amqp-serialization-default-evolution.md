@@ -220,7 +220,7 @@ no capacity to guess what values should or could be used as sensible defaults. W
 them to null.
 
 
-## Reordering Constructor Parameter Order
+## Changing Constructor Parameter Order
 
 Properties (in Kotlin this corresponds to constructor parameters) may be reordered freely. The evolution serializer will create a
 mapping between how a class was serialized and its current constructor parameter order. This is important to our AMQP framework as it
