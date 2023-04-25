@@ -2,11 +2,11 @@
 date: '2023-03-08'
 title: "corda.secrets"
 menu:
-  corda-5:
-    parent: corda-5-config-fields
-    identifier: corda-5-config-secrets
+  corda5:
+    parent: corda5-config-fields
+    identifier: corda5-config-secrets
     weight: 11000
-section_menu: corda-5
+section_menu: corda5
 draft: "true"
 ---
 

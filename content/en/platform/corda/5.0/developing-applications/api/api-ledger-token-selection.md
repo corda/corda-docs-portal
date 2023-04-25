@@ -2,11 +2,11 @@
 date: '2023-01-30'
 title: "net.corda.v5.ledger.utxo.token.selection"
 menu:
-  corda-5:
-    identifier: corda-5-api-ledger-utxo-token-selection
-    parent: corda-5-api
+  corda5:
+    identifier: corda5-api-ledger-utxo-token-selection
+    parent: corda5-api
     weight: 4000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 The Token Selection API enables a flow to exclusively select a set of states to potentially use as input states in a UTXO transaction. Although this can be achieved with simple vault queries, the selection API offers the following key features that improve the performance and reliability of the flows:

@@ -2,11 +2,11 @@
 date: '2022-09-21T14:27:00+01:00'
 title: "Enum Evolution"
 menu:
-  corda-5:
-    identifier: corda-5-api-serialisation-enum-evolution
-    parent: corda-5-api-serialisation
+  corda5:
+    identifier: corda5-api-serialisation-enum-evolution
+    parent: corda5-api-serialisation
     weight: 8000
-section_menu: corda-5
+section_menu: corda5
 ---
 In the continued development of a CorDapp an enumerated type that was fit for purpose at one time may
 require changing. Normally, this would be problematic as anything serialised (and kept in a vault) would

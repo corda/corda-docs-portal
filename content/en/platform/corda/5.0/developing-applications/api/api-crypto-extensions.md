@@ -2,11 +2,11 @@
 date: '2023-02-10'
 title: "net.corda.v5.crypto"
 menu:
-  corda-5:
-    identifier: corda-5-api-crypto
-    parent: corda-5-api
+  corda5:
+    identifier: corda5-api-crypto
+    parent: corda5-api
     weight: 5000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 The `corda-crypto` module is one of several modules of the `Corda Crypto API`. The module defines low-level services that can be used to extend functionality of the Corda Crypto Library by implementing them in a CPK. 

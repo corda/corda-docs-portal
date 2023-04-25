@@ -2,10 +2,10 @@
 date: '2022-12-20'
 menu:
   corda5:
-    identifier: corda-5-cordacli-mgm
+    identifier: corda5-cordacli-mgm
     weight: 3000
-    parent: corda-5-cli-reference
-section_menu: corda-5
+    parent: corda5-cli-reference
+section_menu: corda5
 title: "mgm"
 ---
 

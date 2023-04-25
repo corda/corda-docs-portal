@@ -2,11 +2,11 @@
 date: '2023-02-10'
 title: "net.corda.v5.application.messaging"
 menu:
-  corda-5:
-    identifier: corda-5-api-app-messaging
-    parent: corda-5-api-application
+  corda5:
+    identifier: corda5-api-app-messaging
+    parent: corda5-api-application
     weight: 5000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 The `messaging` package provides services and types for creating and working with peer-to-peer sessions. The <a href="../../../../../../api-ref/corda/5.0-beta/java/net/corda/v5/application/messaging/FlowMessaging.html" target="_blank">`FlowMessaging`</a> service allows you to create new sessions with counterparties. Once created, a <a href="../../../../../../api-ref/corda/5.0-beta/java/net/corda/v5/application/messaging/FlowSession.html" target="_blank">`FlowSession`</a> can be used to send and receive messages from a peer.

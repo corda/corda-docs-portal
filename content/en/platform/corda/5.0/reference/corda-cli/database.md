@@ -1,11 +1,11 @@
 ---
 date: '2022-12-20'
 menu:
-  corda-5:
-    identifier: corda-5-cordacli-database
+  corda5:
+    identifier: corda5-cordacli-database
     weight: 1000
-    parent: corda-5-cli-reference
-section_menu: corda-5
+    parent: corda5-cli-reference
+section_menu: corda5
 title: "database"
 ---
 

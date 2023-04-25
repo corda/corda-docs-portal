@@ -2,11 +2,11 @@
 date: '2023-02-10'
 title: "net.corda.v5.application"
 menu:
-  corda-5:
-    identifier: corda-5-api-application
-    parent: corda-5-api
+  corda5:
+    identifier: corda5-api-application
+    parent: corda5-api
     weight: 1000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 The `corda-application` module provides the fundamental building blocks required to create a [flow](../../../introduction/key-concepts.html#flows) and so all CorDapps use this module.

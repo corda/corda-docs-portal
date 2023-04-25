@@ -1,11 +1,11 @@
 ---
 date: '2023-01-06'
 menu:
-  corda-5:
-    identifier: corda-5-cordacli-develop-commands
+  corda5:
+    identifier: corda5-cordacli-develop-commands
     weight: 4000
-    parent: corda-5-cli-reference
-section_menu: corda-5
+    parent: corda5-cli-reference
+section_menu: corda5
 title: "package"
 ---
 
