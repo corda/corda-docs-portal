@@ -31,7 +31,7 @@ forward.
 
 The biggest hurdle to allowing enum constants to be changed is that there will exist instances of those
 classes, either serialized in a vault or on nodes with the old, unmodified, version of the class that we
-must be able to inter-operate with. Thus if a received data structure references an enum assigned a constant
+must be able to inter-operate with. Thus, if a received data structure references an enum assigned a constant
 value that doesn’t exist on the running JVM, a solution is needed.
 
 For this, we use the annotations to allow developers to express their backward compatible intentions.
