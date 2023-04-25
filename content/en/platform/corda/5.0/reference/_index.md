@@ -9,3 +9,5 @@ menu:
     weight: 6000
 section_menu: corda-5
 ---
+This section contains reference material for use by multiple Corda personas. It contains the following:
+{{< childpages >}}

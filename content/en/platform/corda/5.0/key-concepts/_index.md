@@ -9,3 +9,5 @@ menu:
     weight: 2000
 section_menu: corda-5
 ---
+This section provides a detailed look at Corda 5.0. It contains the following:
+{{< childpages >}}

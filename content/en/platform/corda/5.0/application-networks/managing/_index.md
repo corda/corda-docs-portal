@@ -8,3 +8,5 @@ menu:
     weight: 4000
 section_menu: corda-5
 ---
+This section describes how to manage members of your application network. It contains the following:
+{{< childpages >}}

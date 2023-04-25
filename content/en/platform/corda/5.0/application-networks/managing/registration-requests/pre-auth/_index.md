@@ -10,3 +10,5 @@ menu:
     parent: corda-5-networks-reg-requests
 section_menu: corda-5
 ---
+This section contains the following:
+{{< childpages >}}
