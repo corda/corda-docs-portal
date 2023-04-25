@@ -275,7 +275,7 @@ depending on how the deserializing node understands the class.
 ### Rules
 
 * New constants must be added to the end of the existing list of constants
-* Defaults can only be set to “older” constants, i.e. those to the left of the new constant in the list
+* Defaults can only be set to “older” constants, that is, those to the left of the new constant in the list
 * Constants must never be removed once added
 * New constants can be renamed at a later date using the appropriate annotation
 * When renamed, if a defaulting annotation refers to the old name, it should be left as is
