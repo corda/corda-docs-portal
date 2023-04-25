@@ -244,7 +244,7 @@ When we serialize `e` its properties will be encoded in order of its primary con
 
 `999,hello`
 
-Were those parameters to be reordered post serialisation then deserializing, without evolution, would fail with a basic
+If those parameters are reordered post-serialization, then deserializing, without evolution, would fail with a basic
 type error as we’d attempt to create the new value of `Example5` with the values provided in the wrong order:
 
 {{< tabs name="tabs-12" >}}
