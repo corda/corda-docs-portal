@@ -10,4 +10,4 @@ section_menu: corda-5
 draft: "true"
 ---
 
-{{< generate-ref-docs url="https://raw.githubusercontent.com/corda/corda-api/release/os/5.0-Beta2/data/config-schema/src/main/resources/net/corda/schema/configuration/secrets/1.0/corda.secrets.json" >}}
+{{< generate-ref-docs url="https://raw.githubusercontent.com/corda/corda-api/release/os/5.0/data/config-schema/src/main/resources/net/corda/schema/configuration/secrets/1.0/corda.secrets.json" >}}

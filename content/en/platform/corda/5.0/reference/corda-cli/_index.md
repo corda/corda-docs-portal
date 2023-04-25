@@ -11,4 +11,4 @@ menu:
 section_menu: corda-5
 ---
 This section describes the CLI commands:
-{{< pages >}}
+{{< childpages >}}
