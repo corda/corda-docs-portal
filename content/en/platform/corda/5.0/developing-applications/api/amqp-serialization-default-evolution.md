@@ -149,7 +149,7 @@ Example3 (1, 2, 3, 4, 5)    // example IV
 
 Examples I, II, and III would require evolution and thus selection of constructor. Now, with no versioning applied, there
 is ambiguity as to which constructor should be used. For example, example II could use ‘alt constructor 2’ which matches
-it’s arguments most tightly or ‘alt constructor 1’ and not instantiate parameter c.
+its arguments most tightly or ‘alt constructor 1’ and not instantiate parameter c.
 
 `constructor (a: Int, b: Int, c: Int) : this(a, b, c, -1, -1)`
 
