@@ -224,7 +224,7 @@ them to null.
 
 Properties (in Kotlin this corresponds to constructor parameters) may be reordered freely. The evolution serializer will create a
 mapping between how a class was serialized and its current constructor parameter order. This is important to our AMQP framework as it
-constructs objects using their primary (or annotated) constructor. The ordering of whose parameters will have determined the way
+constructs objects using their primary (or annotated) constructor. The ordering of those parameters will have determined the way
 an object’s properties were serialised into the byte stream.
 
 For an illustrative example consider a simple class:
