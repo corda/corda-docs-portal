@@ -10,9 +10,7 @@ section_menu: corda-5
 ---
 
 The R3's role-based access control (RBAC) permissions system is made up of multiple entities.
-The following diagram presents those entities and relationships between them:
-
-{{< figure src="images/entities.png" figcaption="Permission System Entities" width="55% length="55%">}}
+The following section describes those entities and relationships between them.
 
 ## User
 
@@ -43,31 +41,6 @@ This entity represents a human user or system user.
 * `User` can have multiple roles associated with it.
 * `Change Audit` entries may have one-to-one references to acting `User`.
 * `User` can have multiple `Properties` assigned to it.
-
-### Properties
-
-Properties here mean a set of `Key` and `Value` pairs associated with either `User` or `Group`.
-Users of the RBAC database are able to retrieve these properties and make decisions depending on the context.
-
-* `Key` is a string representing a value. Only one unique key is allowed for a given `User` or `Group`.
-* `Value` is a string representing a value associated with a `Key`.
-
-## Group
-
-This entity represents a group of `Users`.
-
-### Properties
-
-* `Name` is a human-readable name of the group.
-  It also has a UUID identifier for a concrete reference to the instance of an entity.
-* `Parent group` is an optional property which specifies parent group for the current instance of the entity. This value
-  can be `null` which means it is a root-level group. Each group can have at most one parent.
-
-### Relationships
-
-* `Group` may have a one-to-one reference to itself for parent/child group relationships.
-* `Group` can have multiple roles associated with it.
-* `Group` can have multiple `Properties` assigned to it.
 
 ## Role
 
