@@ -221,5 +221,5 @@ into the serialized byte stream.
 
 ## Allow List
 
-By writing a custom serializer for a class, it has the effect of adding that class to the allow list, meaning such
+Writing a custom serializer for a class has the effect of adding that class to the allow list, meaning such
 classes do not need the `@CordaSerializable` annotation.
