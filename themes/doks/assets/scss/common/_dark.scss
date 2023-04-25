@@ -579,4 +579,18 @@ body.dark {
     background-color: $body-overlay-dark;
     border: solid 2px $gray-500;
   }
+
+  main > nav[aria-label="breadcrumb"] {
+    position: relative;
+  
+    @include media-breakpoint-up(md) {
+      position: sticky;
+      top: 150.5px;
+      background-color: #262626;
+      width: 100%;
+      padding: 2px;
+      z-index: 900;
+      border-bottom: solid 1px $gray-200;
+     }
+  }
 }
