@@ -72,7 +72,7 @@ Corda’s AMQP fingerprinting for enumerated types include the type name and the
 {{< /note >}}
 
 Newer vs older is important as the deserializer needs to use the more recent set of transforms to ensure it
-can transform the serialised object into the form as it exists in the deserializer. Newness is determined simply
+can transform the serialized object into the form as it exists in the deserializer. Newness is determined simply
 by length of the list of all transforms. This is sufficient as transform annotations should only ever be added
 
 
