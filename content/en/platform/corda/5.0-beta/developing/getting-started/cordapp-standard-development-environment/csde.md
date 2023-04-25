@@ -64,6 +64,8 @@ The CSDE includes [Gradle tasks](#gradle-helpers-for-the-combined-worker) to man
 
 {{< figure src="gradle-configuration.png" figcaption="Gradle Java version" alt="JVM version in IntelliJ for CSDE project" >}}
 
+{{< figure src="configure-CSDE-build-gradle-block.png" figcaption="CSDE build gradle" alt="CSDE build gradle block in IntelliJ for CSDE project" >}}
+
 ## CSDE Overview
 
 This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a CorDapp.
