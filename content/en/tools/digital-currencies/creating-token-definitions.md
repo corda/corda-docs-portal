@@ -92,7 +92,7 @@ Before tokens can be created, a [token definition]({{< relref "tokens-overview.m
    
 7. Select **I confirm that the details are correct** and click **Submit**.
 
-   The token definition is submitted and a success message should be displayed:
+   The token definition is submitted and a success message is displayed:
 
    {{< 
       figure
@@ -112,8 +112,17 @@ Before tokens can be created, a [token definition]({{< relref "tokens-overview.m
 	  alt="Creating Token Definitions - Flow Running"
    >}}  
    
-   Once the token definition flow completes, the flow status is displayed as **Completed**:
+   Once the token definition flow completes, the message *A new token definition has been successfully created* is displayed:
+
+   {{< 
+      figure
+	  src="images/a-new-token-definition-created-message.png"
+      width=50%
+	  figcaption="'A New Token Definition has Been Successfully Created' Message"
+	  alt="'A new token definition has been successfully created' Message"
+   >}}  
    
+   The flow status is displayed as **Completed**:
      
    {{< 
       figure
@@ -138,7 +147,7 @@ Before tokens can be created, a [token definition]({{< relref "tokens-overview.m
    {{< 
       figure
 	  src="images/token-definitions-page.png"
-      width=50%
+      width=100%
 	  figcaption="Token Definitions Page"
 	  alt="Token Definitions Page"
    >}}

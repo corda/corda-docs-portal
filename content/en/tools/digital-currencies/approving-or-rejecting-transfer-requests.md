@@ -1,18 +1,18 @@
 ---
-date: '2023-03-21'
-lastmod: '2023-03-21'
+date: '2023-04-25'
+lastmod: '2023-04-25'
 section_menu: tools
 menu:
   tools:
-    name: "Viewing Transfer Requests"
+    name: "Approving or Rejecting Transfer Requests"
     weight: 1350
     parent: digital-currencies-tokens-overview
-    identifier: digital-currencies-viewing-transfer-requests
-    description: "Digital Currencies documentation describing how to view transfer requests via the GUI"
-title: "Viewing Transfer Requests"
+    identifier: digital-currencies-approving-rejecting-transfer-requests
+    description: "Digital Currencies documentation describing how to approve or reject transfer requests via the GUI"
+title: "Approving or Rejecting Transfer Requests"
 ---
 
-To view the list of existing transfer requests:
+To approve or reject a transfer:
 
 1. In the left-hand menu, click on **Transfers**.
 
@@ -20,7 +20,7 @@ To view the list of existing transfer requests:
    
    {{< 
       figure
-	  src="images/commercial-bank-transfers-page.png"
+	  src="images/transfers-page.png"
       width=100%
 	  figcaption="Transfers Page"
 	  alt="Transfers Page"

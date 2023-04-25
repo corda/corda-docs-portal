@@ -23,7 +23,7 @@ A transfer is the movement of tokens (value) between two or more entities (for e
    
    {{< 
       figure
-	  src="images/transfers-page.png"
+	  src="images/commercial-bank-transfers-page.png"
       width=100%
 	  figcaption="Transfers Page"
 	  alt="Transfers Page"
@@ -35,9 +35,57 @@ A transfer is the movement of tokens (value) between two or more entities (for e
   * **Request Transfer**: Allows you to perform a transfer request.
   * **Transfer Requests:** Lists any existing transfer requests and their status; see [Viewing Transfer Requests](viewing-transfer-requests.md).
 
-2. In the **Transfer Request** panel, specify the following values:
+2. In the **Request Transfer** panel, specify the following values:
 
    * **Token Definition**: Select the [token definition](tokens-overview.md#token-definitions) for the token you want to transfer.
-   * ** **Amount**: Enter the number of tokens you want to request.
+   * **Amount**: Enter the number of tokens you want to request.
    
 3. Click **Request**. 
+
+   The message *Successfully submitted a transfer request* is displayed:
+
+   {{< 
+      figure
+	  src="images/successfully-submitted-transfer-request-message.png"
+      width=40%
+	  alt="'Successfully submitted a transfer request' Message"
+	  figcaption="'Successfully submitted a transfer request' Message"
+   >}}
+
+   The transfer flow begins and its progress can be checked in the pull-out flow tracker on the right-hand side of the screen:
+    
+   {{< 
+      figure
+	  src="images/running-flows-request-tokens.png"
+      width=50%
+	  figcaption="Transferring Tokens - Flow Running"
+	  alt="Transferring Tokens - Flow Running"
+   >}}  
+
+   Once the transfer flow finishes, the message *Your transfer request has been successfully created* is displayed:
+
+   {{< 
+      figure
+	  src="images/transfer-request-successfully-created-message.png"
+      width=50%
+	  alt="'Your transfer request has been successfully created' Message"
+	  figcaption="'Your transfer request has been successfully created' Message"
+   >}}
+
+   The **Transfer Requests** pane is updated to display the pending transfer request:
+   
+   {{< 
+      figure
+	  src="images/pending-transfer-request.png"
+      width=50%
+	  alt="Transfer Requests Pane"
+	  figcaption="Transfer Requests Pane"
+   >}}
+   
+
+
+   
+   
+   
+   
+   

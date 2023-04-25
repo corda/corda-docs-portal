@@ -19,8 +19,7 @@ This topic describes how to install the Digital Currencies demo, enabling you to
 2. [Configure Artifactory authentication](#configure-artifactory-authentication)
 2. [Clone the Digital Currencies repositories](#clone-the-digital-currencies-repositories)
 3. [Run a clean version of corda](#run-corda)
-4. [Deploy the Digital Currencies CorDapp](#deploy-the-digital-currencies-cordapp) <!--   (Temporary) switch to CDC-247/POC-external-apis-with-flow-tracking branch. -->
-5. [Run the External API Service using the runExternalApiServer Gradle task](#run-the-external-api-service-using-the-runexternalapiserver-gradle-task)
+4. [Deploy the Digital Currencies CorDapp](#deploy-the-digital-currencies-cordapp) 
 6. [Specify Virtual Node for Digital Currencies UI](#specify-virtual-node-for-digital-currencies-ui)
 7. [Run the Digital Currencies UI](#run-the-digital-currencies-ui)
 
@@ -36,7 +35,11 @@ The following guide assumes you have the following prerequisites installed.
 * gradle
 * Docker Engine ~v20.X.Y or Docker Desktop ~v3.5.X
 * Intellij
-* [Corda CLI]({{< relref "../../platform/corda/5.0-beta/developing/getting-started/installing-corda-cli.md" >}})
+* [Corda CLI]({{< relref "../../platform/corda/5.0-beta/developing/getting-started/installing-corda-cli.md" >}}) 
+
+  {{< attention >}}
+  Ensure that you have the latest version of Corda CLI ("Gecko").
+  {{</ attention >}}
 
 ## Configure Artifactory Authentication
 
@@ -249,25 +252,48 @@ For the purposes of testing Corda, we will use the CPI endpoint.
 
 ## Deploy the Digital Currencies CorDapp
 
-1. In IntelliJ, double-click the **digital-currencies/Tasks/csde-cordapp/quickDeployCorDapp** Gradle task.
+1. In IntelliJ, double-click the **digital-currencies/Tasks/csde-cordapp/5-vNodeSetup** Gradle task.
 
+   The task will run tasks 1 to 5 in turn:
+   
+   ```
+   Starting Gradle Daemon...
+   Gradle Daemon started in 1 s 205 ms
+   ...
+   
+   > Task :1-createGroupPolicy
+   createGroupPolicy: Creating a GroupPolicy
+
+   > Task :2-createKeystore
+   createKeystore: Create a keystore
+   ...
+   
+   > Task :3-buildCPIs
+   appCpbs:
+   C:\Repos\digital-currencies\workflows\build\libs\workflows-0.1-SNAPSHOT-package.cpb
+   ...
+   
+
+   > Task :4-deployCPIs
+   
+   ....
+   
+   > Task :5-vNodeSetup
+   Creating virtual node for CN=Alice, OU=Test Dept, O=R3, L=London, C=GB
+   Vnode 4175C44E4916 registered. 
+
+   ```
+   
+   
+   
    The log panel at the bottom of the screen should show output ending with *BUILD SUCCESSFUL*:
 
    ```
-   BUILD SUCCESSFUL in 1m 15s
-   40 actionable tasks: 12 executed, 28 up-to-date
-   19:38:37: Execution finished 'quickDeployCorDapp'.
+   BUILD SUCCESSFUL in 1m 30s
+   38 actionable tasks: 14 executed, 24 up-to-date
+   12:32:24: Execution finished '5-vNodeSetup'.
    ```
- {{< note >}}
-Temporary step: Need to check out the branch origin/CDC-247/POC-external-apis-with-flow-tracking
- {{</ note >}}
  
-## Run the External API Service using the runExternalApiServer Gradle task
-
-*  In IntelliJ, double-click the **digital-currencies/external-api/Tasks/other/runExternalApiServer** Gradle task.
-
-   The log panel at the bottom of the screen should show output ending with *BUILD SUCCESSFUL*:
-
 ## Specify Virtual Node for Digital Currencies UI
 
 1. Open the Swagger UI.
@@ -304,13 +330,18 @@ Temporary step: Need to check out the branch origin/CDC-247/POC-external-apis-wi
 	  alt="Virtual Node API Get Method Response"
    >}}
 
-5. Take a note of the *shortHash* value and *x500Name* for any node.
+5. Take a note of the *shortHash* value and *x500Name* for *two* nodes.
 
 6. Navigate to the *digital-currencies-ui/public/appConfig* directory.
 
 7. Edit the file *appConfig.json*.
 
-   The file contains both a *holdingIdHash* parameter and a *x500* parameter:
+   The file contains both configuration details for multiple notes: 
+   
+   * one of appType "CENTRAL_BANK",
+   * one of appType "COMMERCIAL_BANK",
+
+   Each has a *holdingIdHash* parameter and a *x500* parameter:
 
    ```
    {
@@ -318,6 +349,14 @@ Temporary step: Need to check out the branch origin/CDC-247/POC-external-apis-wi
     "apiUrl": "http://localhost:10055",
     "holdingIdHash": "BA0AE88BD184",
     "x500": "CN=Charlie, OU=Test Dept, O=R3, L=London, C=GB",
+    
+    ...
+    
+    "appType": "COMMERCIAL_BANK",
+    "apiUrl": "https://localhost:8888",
+    "holdingIdHash": "11BD540F9730",
+    "x500": "CN=Bob, OU=Test Dept, O=R3, L=London, C=GB",
+  
     ```
 
 8. Replace the value of *holdingIdHash* with the *shortHash* value noted in step 5.

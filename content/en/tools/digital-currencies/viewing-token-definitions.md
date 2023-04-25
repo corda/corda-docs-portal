@@ -41,7 +41,7 @@ The page displays two panels:
     <!--* **Version:** An integer specifying the version of the token definition -->
 * **Decommisioned Token Definitions:** This panel lists any decommissioned token definitions
    
-<!-- From this page, you can perform the following actions:
+From this page, you can perform the following actions:
 
-* [Decommission token definitions]({{< relref "decommissioning-token-definitions.md" >}}) -->
-  
+* [Decommission token definitions]({{< relref "decommissioning-token-definitions.md" >}})
+* [Activate token definitions]({{< relref "activating-token-definitions.md" >}})
