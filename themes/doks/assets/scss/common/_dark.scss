@@ -510,7 +510,7 @@ body.dark {
     @extend .table-dark;
 
     > :not(caption) > * > * {
-      background-color: unset;
+      background-color: $body-bg-dark;
       border-bottom: 1px solid $gray-600;
     }
 
@@ -586,7 +586,7 @@ body.dark {
     @include media-breakpoint-up(md) {
       position: sticky;
       top: 150.5px;
-      background-color: #262626;
+      background-color: $body-bg-dark;
       width: 100%;
       padding: 2px;
       z-index: 900;
