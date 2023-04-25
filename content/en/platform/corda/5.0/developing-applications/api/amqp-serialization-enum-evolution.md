@@ -37,7 +37,7 @@ value that doesn’t exist on the running JVM, a solution is needed.
 For this, we use the annotations to allow developers to express their backward compatible intentions.
 
 In the case of renaming constants this is somewhat obvious, the deserializing node will simply treat any
-constants it doesn’t understand as their “old” values, i.e. those values that it currently knows about.
+constants it doesn’t understand as their “old” values, that is, those values that it currently knows about.
 
 In the case of adding new constants the developer must chose which constant (that existed *before* adding
 the new one) a deserializing system should treat any instances of the new one as.
