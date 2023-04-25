@@ -1,12 +1,12 @@
 ---
 date: '2023-04-12'
 menu:
-  corda-5:
-    identifier: corda-5-develop-cli
+  corda5:
+    identifier: corda5-develop-cli
     weight: 1050
-    parent: corda-5-develop-tooling   
-    identifier: corda-5-develop-cli-tooling
-section_menu: corda-5
+    parent: corda5-develop-tooling   
+    identifier: corda5-develop-cli-tooling
+section_menu: corda5
 title: Installing the Corda CLI
 ---
 

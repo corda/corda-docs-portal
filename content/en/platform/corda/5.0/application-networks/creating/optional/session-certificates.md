@@ -2,11 +2,11 @@
 date: '2022-11-15'
 title: "Session Certificates"
 menu:
-  corda-5:
-    identifier: corda-5-network-session-certificates
-    parent: corda-5-networks-optional
+  corda5:
+    identifier: corda5-network-session-certificates
+    parent: corda5-networks-optional
     weight: 2000
-section_menu: corda-5
+section_menu: corda5
 ---
 You can configure a dynamic network to use session certificates when sending messages. This requires additional steps when onboarding an MGM or member into the dynamic network.
 

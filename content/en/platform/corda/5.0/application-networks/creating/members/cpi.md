@@ -2,11 +2,11 @@
 date: '2023-04-13'
 title: "Build the Member CPI"
 menu:
-  corda-5:
-    identifier: corda-5-networks-members-cpi
-    parent: corda-5-networks-members
+  corda5:
+    identifier: corda5-networks-members-cpi
+    parent: corda5-networks-members
     weight: 1000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 ## Set Variables

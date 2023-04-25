@@ -2,11 +2,11 @@
 date: '2023-04-13'
 title: "Create a Virtual Node"
 menu:
-  corda-5:
-    identifier: corda-5-networks-members-node
-    parent: corda-5-networks-members
+  corda5:
+    identifier: corda5-networks-members-node
+    parent: corda5-networks-members
     weight: 2000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 To create a virtual node for a member, run the following commands, changing the X.500 name:

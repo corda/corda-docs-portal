@@ -4,10 +4,10 @@ title: "Managing Application Networks"
 project: corda
 version: 'Corda 5.0'
 menu:
-  corda-5:
-    identifier: corda-5-networks
+  corda5:
+    identifier: corda5-networks
     weight: 5000
-section_menu: corda-5
+section_menu: corda5
 ---
 This section describes the tasks performed by Corda network operators. It contains the following:
 {{< childpages >}}

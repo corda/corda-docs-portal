@@ -2,11 +2,11 @@
 date: '2023-04-07'
 title: "Create a Virtual Node"
 menu:
-  corda-5:
-    parent: corda-5-networks-mgm
-    identifier: corda-5-networks-mgm-virtual-node
+  corda5:
+    parent: corda5-networks-mgm
+    identifier: corda5-networks-mgm-virtual-node
     weight: 2000
-section_menu: corda-5
+section_menu: corda5
 ---
 To create a virtual node for the MGM, run the following, using the checksum retrieved when you [uploaded the MGM CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
 

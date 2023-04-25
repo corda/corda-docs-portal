@@ -4,11 +4,11 @@ title: "Creating Application Networks"
 project: corda
 version: 'Corda 5.0'
 menu:
-  corda-5:
-    identifier: corda-5-networks-create
-    parent: corda-5-networks
+  corda5:
+    identifier: corda5-networks-create
+    parent: corda5-networks
     weight: 3000
-section_menu: corda-5
+section_menu: corda5
 ---
 This section describes how to set up a dynamic network. The network requires a running {{< tooltip >}}MGM{{< definition term="MGM" >}}{{< /tooltip >}} that all members must register with before they can transact among the group. This section also describes how to onboard a new member as a {{< tooltip >}}notary{{< definition term="Notary" >}}{{< /tooltip >}} service representative. 
 

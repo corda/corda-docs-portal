@@ -4,11 +4,11 @@ title: "Optional Configurations"
 project: corda
 version: 'Corda 5.0'
 menu:
-  corda-5:
-    identifier: corda-5-networks-optional
-    parent: corda-5-networks-create
+  corda5:
+    identifier: corda5-networks-optional
+    parent: corda5-networks-create
     weight: 4000
-section_menu: corda-5
+section_menu: corda5
 ---
 This section describes alternative configurations. It contains the following:
 {{< childpages >}}

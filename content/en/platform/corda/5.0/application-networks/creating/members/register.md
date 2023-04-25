@@ -2,11 +2,11 @@
 date: '2023-04-13'
 title: "Register the Member"
 menu:
-  corda-5:
-    identifier: corda-5-networks-members-register
-    parent: corda-5-networks-members
+  corda5:
+    identifier: corda5-networks-members-register
+    parent: corda5-networks-members
     weight: 5000
-section_menu: corda-5
+section_menu: corda5
 
 ---
 
