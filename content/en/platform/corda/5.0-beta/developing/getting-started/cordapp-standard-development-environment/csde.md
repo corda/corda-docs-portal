@@ -55,7 +55,7 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
 3. Open the project in IntelliJ and let the import process complete.
   When complete, the project structure looks as follows:
 
-  {{< figure src="CDSE-full-screen.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
+  {{< figure src="CSDE-full-screen.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
 
 
 ## Configuring the CSDE
