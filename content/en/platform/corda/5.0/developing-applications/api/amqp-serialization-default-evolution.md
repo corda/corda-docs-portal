@@ -12,7 +12,7 @@ Whilst more complex evolutionary modifications to classes require annotating, Co
 framework supports several minor modifications to classes without any external modification except
 the actual code changes. These are:
 * Adding nullable properties
-* Adding non nullable properties if, and only if, an annotated constructor is provided
+* Adding non-nullable properties if, and only if, an annotated constructor is provided
 * Removing properties
 * Reordering constructor parameters
 
