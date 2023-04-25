@@ -14,7 +14,7 @@ run the risk of being unable to be deserialized in the future or older versions 
 within a compatibility zone may fail to deserialize a message.
 
 To facilitate backward and forward support for alterations to enumerated types Corda’s serialization
-framework supports the evolution of such types through a well defined framework that allows different
+framework supports the evolution of such types through a well-defined framework that allows different
 versions to interoperate with serialised versions of an enumeration of differing versions.
 
 This is achieved through the use of certain annotations. Whenever a change is made, an annotation
