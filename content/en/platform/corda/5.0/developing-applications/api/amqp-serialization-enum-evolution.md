@@ -83,7 +83,7 @@ is in place to cope with all deployed instances of the class and all serialized 
 within vaults.
 {{< /warning >}}
 
-Thus, on deserialization, there will be two options to chose from in terms of transformation rules
+Thus, on deserialization, there will be two options to chose from in terms of transformation rules:
 
 * Determined from the local class and the annotations applied to it (the local copy)
 * Parsed from the AMQP header (the remote copy)
