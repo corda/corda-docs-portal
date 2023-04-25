@@ -1,10 +1,10 @@
 ---
 date: '2023-03-08'
-title: "corda.cryptoLibrary"
+title: "corda.crypto"
 menu:
   corda5:
     parent: corda5-config-fields
-    identifier: corda5-config-cryptolibrary
+    identifier: corda5-config-crypto
     weight: 1000
 section_menu: corda5
 ---

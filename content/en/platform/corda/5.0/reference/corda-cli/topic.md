@@ -9,7 +9,7 @@ section_menu: corda5
 title: "topic"
 ---
 
-This section lists the Corda CLI `topic` arguments. You can use these commands to manually create or delete topics in Kafka, as described in the [Manual Bootstrapping Tutorial](../../deploying/deployment-tutorials/manual.html).
+This section lists the Corda CLI `topic` arguments. You can use these commands to manually create or delete topics in Kafka,  as described in the [Manual Bootstrapping]({{< relref "../../deploying-operating/deploying/bootstrapping.md" >}}) section.
 
 | <div style="width:160px">Argument</div> | Description                                                                                                                                                       |
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
