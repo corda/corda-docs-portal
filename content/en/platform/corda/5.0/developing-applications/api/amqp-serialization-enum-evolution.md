@@ -19,7 +19,7 @@ versions to interoperate with serialised versions of an enumeration of differing
 
 This is achieved through the use of certain annotations. Whenever a change is made, an annotation
 capturing the change must be added (whilst it can be omitted any interoperability will be lost). Corda
-supports two modifications to enumerated types, adding new constants, and renaming existing constants
+supports two modifications to enumerated types, adding new constants, and renaming existing constants.
 
 {{< warning >}}
 Once added, evolution annotations MUST NEVER be removed from a class, doing so will break
