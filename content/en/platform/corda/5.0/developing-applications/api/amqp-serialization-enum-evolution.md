@@ -79,7 +79,7 @@ by length of the list of all transforms. This is sufficient as transform annotat
 {{< warning >}}
 Technically there is nothing to prevent annotations being removed in newer versions. However,
 this will break backward compatibility and should thus be avoided unless a rigorous upgrade procedure
-is in place to cope with all deployed instances of the class and all serialised versions existing
+is in place to cope with all deployed instances of the class and all serialized versions existing
 within vaults.
 {{< /warning >}}
 
