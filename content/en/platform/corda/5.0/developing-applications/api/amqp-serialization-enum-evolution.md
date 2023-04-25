@@ -158,7 +158,7 @@ However, in some circumstances, it could be at the point of deserialization.
 Enumeration constants can be added with the `@CordaSerializationTransformEnumDefaults` meta annotation that
 wraps a list of `CordaSerializationTransformEnumDefault` annotations. For each constant added an annotation
 must be included that signifies, on deserialization, which constant value should be used in place of the
-serialised property if that value doesn’t exist on the version of the class as it exists on the deserializing
+serialized property if that value does not exist on the version of the class as it exists on the deserializing
 node.
 
 ```kotlin
