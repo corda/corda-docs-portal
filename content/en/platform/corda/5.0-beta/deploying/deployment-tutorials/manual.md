@@ -384,7 +384,7 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
    {{% /tab %}}
    {{% tab name="Windows" %}}
    ```shell
-   corda-cli.md initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
+   corda-cli.cmd initial-config create-db-config -u <VNODE-USERNAME> -p <VNODE-PASSWORD> \
     --name orda-virtual-nodes --jdbc-url `jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \ --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db \ --is-admin`
    ```
    {{% /tab %}}
