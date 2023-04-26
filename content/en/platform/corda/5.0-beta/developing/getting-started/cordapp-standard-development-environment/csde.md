@@ -83,7 +83,7 @@ For test code, use the corresponding test folder.
 ### Gradle Helpers for the Combined Worker
 
 On the right, you can see the Gradle tasks that we have included to help you work with a local deployment of Corda using the combined worker:
-{{< figure src="gradle-helpers.png" figcaption="CSDE gradle helpers" alt="CSDE gradle tasks in IntelliJ" >}}
+{{< figure src="gradle-helpers.png" figcaption="CSDE gradle helpers" alt="CSDE gradle tasks in IntelliJ" width=80% length=80% >}}
 The **combined worker** is a Corda cluster that runs all of the workers in one JVM process.
 
 The helpers are split into three folders:
