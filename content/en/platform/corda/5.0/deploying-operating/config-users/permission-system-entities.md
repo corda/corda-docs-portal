@@ -30,7 +30,7 @@ This entity represents a human user or system user.
 * `Hashed password` is a salted and hashed representation of the password.
  This property can be set to `null` for SSO-only accounts.
 * `Password expiry` is only applicable when password is assigned and when it specifies the timestamp after which the password
-  is deemed expire and needs changing.
+  is deemed expired and needs changing.
 * `Parent Group` is an optional identifier of the group to which the user belongs. This property can be se to `null`. In such
   case, the user is assumed to belong to the "root" group. In the current model, the user can belong to just a
   single group. However, groups can be nested.
