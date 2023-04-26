@@ -313,7 +313,7 @@ enum class OngoingExample { A, B, CAT, D, E }
 Note how the first set of modifications still reference C, not CAT. This is as it should be and will
 continue to work as expected.
 
-Subsequently is is fine to add an additional new constant that references the renamed value.
+Subsequently, it is fine to add an additional new constant that references the renamed value.
 
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
