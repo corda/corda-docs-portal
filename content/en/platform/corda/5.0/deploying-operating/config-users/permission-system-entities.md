@@ -72,7 +72,7 @@ This entity represents an individual fine-grained permission.
 ## Change Audit
 
 This entity represents an audit log for every change to the permission data. This can be the introduction of a new `User`,
-assignment `User` to a `Group`, creation of a `Role`, and so on.
+assignment of a `User` to a `Group`, creation of a `Role`, and so on.
 
 Writing to this entity's database table is performed atomically in the same transaction as the permission data change.
 Once written, the rows of this table are never modified or deleted, so it is an append-only entity.
