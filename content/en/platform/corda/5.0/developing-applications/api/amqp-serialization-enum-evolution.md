@@ -299,7 +299,7 @@ For the first evolution, two constants are added, D and E, both of which are set
 enum class OngoingExample { A, B, C, D, E }
 ```
 
-Then lets assume constant C is renamed to CAT
+Then lets assume constant C is renamed to CAT:
 
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
