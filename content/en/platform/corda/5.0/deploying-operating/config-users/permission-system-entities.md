@@ -25,7 +25,7 @@ This entity represents a human user or system user.
 * `Enabled` is a boolean flag to indicate whether the user is enabled or temporarily suspended.
 * `E-mail` is an email address for the user account used for communication of any important information
   affecting this account. The same email address may be used for multiple accounts.
-* `Salt value` is a randomly generated value used when hashing the password. It only makes sense when password is
+* `Salt value` is a randomly generated value used when hashing the password. It only makes sense when the password is
   assigned as well.
 * `Hashed password` ia a salted and hashed representation of the password.
  This property can be set to `null` for SSO-only accounts.
