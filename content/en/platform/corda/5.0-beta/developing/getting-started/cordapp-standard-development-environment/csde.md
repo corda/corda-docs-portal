@@ -73,7 +73,7 @@ This section provides an overview of the content of CSDE. Other sections show yo
 ### Project Structure
 
 On the left, you can see the folder structure created, ready for CorDapps development.
- {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" width=80% length=80% >}}
+ {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
 
 For Kotlin, write your flow code in `workflows/src/main/kotlin/<your package path>` and your contract and states code in `/contracts/src/main/kotlin<your package path>`.
 
