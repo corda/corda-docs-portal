@@ -54,7 +54,7 @@ This entity represents a set of `Permissions`.
 ### Relationships
 
 Each role can be associated with multiple `Permissions`. A given `Permission` can belong to multiple roles. Hence,
-there is many-to-many relationship between `Role` and `Permission`.
+there is a many-to-many relationship between `Role` and `Permission`.
 
 ## Permission
 
