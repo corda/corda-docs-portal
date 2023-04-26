@@ -289,7 +289,7 @@ in turn be renamed and everything will continue to be deserializeable. For examp
 enum class OngoingExample { A, B, C }
 ```
 
-For the first evolution, two constants are added, D and E, both of which are set to default to C when not present
+For the first evolution, two constants are added, D and E, both of which are set to default to C when not present:
 
 ```kotlin
 @CordaSerializationTransformEnumDefaults (
