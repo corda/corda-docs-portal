@@ -11,5 +11,4 @@ menu:
 section_menu: corda5
 ---
 This section describes alternative configurations. It contains the following:
-* [Mutual TLS Connections]({{< relref " ./mutual-tls-connections.md">}})
-* [Session Certificates]({{< relref " ./session-certificates.md">}})
+{{< childpages >}}

@@ -328,6 +328,13 @@ identifier = "corda-community-4-9-contributing-index"
 name = "Participate"
 weight = 500
 
+[[corda5]]
+identifier = "corda-rest-ref"
+parent = "corda5-references"
+name = "REST API Reference"
+weight = 3000
+url = 'https://docs.r3.com/en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html'
+
 #keeping for when we decide to move CDL to a standalone sub-section with a LHS menu
 #[[tools-cdl]]
 #identifier = "tools-cdl"
