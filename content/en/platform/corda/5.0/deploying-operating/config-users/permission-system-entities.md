@@ -16,7 +16,7 @@ The following section describes those entities and relationships between them.
 
 This entity represents a human user or system user.
 
-### Properties
+### Attributes
 
 * `Full Name` is a human-readable name. This is a property which will cannot be used to code any permissions against it.
   It also has a UUID identifier for a concrete reference to the instance of an entity.
