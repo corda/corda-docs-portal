@@ -4,11 +4,11 @@ description: "Documentation for the next-gen release of Corda"
 title: Corda 5.0
 project: corda
 version: 'Corda 5.0'
-section_menu: corda-5
+section_menu: corda5
 menu:
   versions:
     weight: -652
-  corda-5:
+  corda5:
     weight: 1000
     name: Corda 5.0
 ---

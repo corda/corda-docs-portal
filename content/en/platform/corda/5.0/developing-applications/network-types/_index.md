@@ -4,9 +4,9 @@ title: "Network Types"
 project: corda
 version: 'Corda 5.0'
 menu:
-  corda-5:
-    identifier: corda-5-develop-networks
-    parent: corda-5-develop
+  corda5:
+    identifier: corda5-develop-networks
+    parent: corda5-develop
     weight: 3000
-section_menu: corda-5
+section_menu: corda5
 ---

@@ -2,11 +2,11 @@
 date: '2023-04-07'
 title: "Member Registration"
 menu:
-  corda-5:
-    identifier: corda-5-networks-reg-requests
-    parent: corda-5-networks-manage
+  corda5:
+    identifier: corda5-networks-reg-requests
+    parent: corda5-networks-manage
     weight: 4000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 A network operator can configure a membership group so that the operator must manually approve (or decline) member registration requests. 

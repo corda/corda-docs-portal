@@ -2,11 +2,11 @@
 date: '2023-04-07'
 title: "Build the MGM CPI"
 menu:
-  corda-5:
-    parent: corda-5-networks-mgm
-    identifier: corda-5-networks-mgm-cpi
+  corda5:
+    parent: corda5-networks-mgm
+    identifier: corda5-networks-mgm-cpi
     weight: 1000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 ## Set Variables

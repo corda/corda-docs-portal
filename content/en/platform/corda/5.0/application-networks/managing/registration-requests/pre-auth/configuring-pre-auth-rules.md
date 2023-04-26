@@ -2,11 +2,11 @@
 date: '2023-04-07'
 title: "Configuring Pre-Authentication Rules"
 menu:
-  corda-5:
-    identifier: corda-5-pre-auth-rules
-    parent: corda-5-networks-pre-auth
+  corda5:
+    identifier: corda5-pre-auth-rules
+    parent: corda5-networks-pre-auth
     weight: 2000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 As described in [Registration Approval]({{< relref "../registration-approval.md#pre-authentication" >}}), you can specify that certain changes to the member’s context must be manually approved (or declined), even if a pre-auth token was submitted. This section describes how to manage pre-auth registration rules using the Corda REST API.

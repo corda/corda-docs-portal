@@ -2,11 +2,11 @@
 date: '2023-04-07'
 title: "Configure Key Pairs and Certificates"
 menu:
-  corda-5:
-    parent: corda-5-networks-mgm
-    identifier: corda-5-networks-mgm-key-pairs
+  corda5:
+    parent: corda5-networks-mgm
+    identifier: corda5-networks-mgm-key-pairs
     weight: 3000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 ## Generate a Session Initiation Key Pair

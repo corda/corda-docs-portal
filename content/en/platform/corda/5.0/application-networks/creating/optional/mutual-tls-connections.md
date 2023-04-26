@@ -2,11 +2,11 @@
 date: '2023-02-23'
 title: "Mutual TLS Connections"
 menu:
-  corda-5:
-    identifier: corda-5-network-mutual-tls
-    parent: corda-5-networks-optional
+  corda5:
+    identifier: corda5-network-mutual-tls
+    parent: corda5-networks-optional
     weight: 1000
-section_menu: corda-5
+section_menu: corda5
 ---
 Corda 5 uses TLS to secure a connection between two clusters. While establishing a TLS connection between the gateways of two clusters, the server gateway sends its certificate to the client gateway. The client gateway verifies the server certificate using its trust root certificate. In mutual TLS, in addition to the client verifying the server certificate, the server gateway also requests the client gateway send a client certificate and verifies that it is using its trust root certificate.
 

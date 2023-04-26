@@ -2,11 +2,11 @@
 date: '2023-04-07'
 title: "Register the MGM"
 menu:
-  corda-5:
-    parent: corda-5-networks-mgm
-    identifier: corda-5-networks-mgm-register
+  corda5:
+    parent: corda5-networks-mgm
+    identifier: corda5-networks-mgm-register
     weight: 4000
-section_menu: corda-5
+section_menu: corda5
 ---
 
 ## Build Registration Context
