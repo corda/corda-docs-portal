@@ -31,8 +31,7 @@ The creation of users and associating such users to these roles should be done m
 
 ## Querying Permissions via REST
 
-At the moment, it is only possible to retrieve a permission if its identifier is known to the caller.
-However, there might be cases when a new role is being set up and existing permissions need to be included.
+To retrieve permissions matching certain query criteria, use the [get_permission](https://docs.r3.com/en/platform/corda/5.0-beta/rest-api/C5_OpenAPI.html#tag/RBAC-Permission-API/operation/get_permission) API call.
 
 ## Checking Permissions When Starting Flows
 
