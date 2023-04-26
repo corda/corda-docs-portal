@@ -71,7 +71,7 @@ This entity represents an individual fine-grained permission.
 
 ## Change Audit
 
-This entity represents an audit log for every change to the permission data. This can be introduction of a new `User`,
+This entity represents an audit log for every change to the permission data. This can be the introduction of a new `User`,
 assignment `User` to a `Group`, creation of a `Role`, and so on.
 
 Writing to this entity's database table is performed atomically in the same transaction as the permission data change.
