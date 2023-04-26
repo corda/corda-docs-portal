@@ -54,7 +54,7 @@ When a flow needs to select fungible states to spend, it can execute a claim que
 When a flow executes a successful query to select tokens via the selection API, it receives a Token Claim. The claim represents a list of tokens that have been exclusively claimed and can be used as inputs to a new transaction. Once the flow has completed (successfully or not), it should release the claim, signaling which tokens, if any, were consumed in a transaction. Any unused tokens are released back to the pool for others to use.
 
 ## Token Eligibility
-As described, a Token is a representation of state that is available to spend. The following rules control the eligibility of a token/state for selection:
+As described, a token is a representation of state that is available to be spent. The following rules control the eligibility of a token/state for selection:
 
 * **Consumed/Unconsumed Status:** Only tokens that are unconsumed are eligible for selection. When a transaction is finalized, all the input states for that transaction are considered consumed and immediately become ineligible for selection. Conversely, any output states of a finalized transaction, become available for selection, if the other criteria below are met.
 * **Relevancy:** By default, a state is relevant if the holding identity (node) is a participant in the transaction. However, you can control the relevancy of a state by implementing the `isRelevant` method on the states' contract. Only output states marked as `isRelevant=true` are available for selection.

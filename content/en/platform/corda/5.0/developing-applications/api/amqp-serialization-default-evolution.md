@@ -69,7 +69,7 @@ The `@DeprecatedConstructorForDeserialization` annotation is important; this sig
 serialization framework that this constructor should be considered for building instances of the
 object when evolution is required.
 
-Furthermore, the integer parameter passed to the constructor if the annotation indicates a precedence
+Furthermore, the integer parameter passed to the constructor in the annotation indicates a precedence
 order; see the discussion below.
 
 {{< /note >}}

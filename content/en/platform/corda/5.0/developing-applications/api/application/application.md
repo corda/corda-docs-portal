@@ -11,7 +11,7 @@ section_menu: corda5
 
 The `corda-application` module provides the fundamental building blocks required to create a [flow](../../../introduction/key-concepts.html#flows) and so all CorDapps use this module.
 
-`corda-application` sits at a higher level in the module hiarachy and exposes the following modules as API dependencies:
+`corda-application` sits at a higher level in the module hierachy and exposes the following modules as API dependencies:
 
 - `corda-base`
 - `corda-crypto`

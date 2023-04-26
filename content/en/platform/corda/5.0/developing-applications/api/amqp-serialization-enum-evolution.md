@@ -60,7 +60,7 @@ have access to any transformative rules it needs to build a local instance of th
 On deserialization (technically on construction of a serialization object that facilitates serialization
 and deserialization) a class’s fingerprint is compared to the fingerprint received as part of the AMQP
 header of the corresponding class. If they match then we are sure that the two class versions are functionally
-the same and no further steps are required save the deserialization of the serialized information into an instance
+the same and no further steps are required to save the deserialization of the serialized information into an instance
 of the class.
 
 If, however, the fingerprints differ then we know that the class we are attempting to deserialize is different
