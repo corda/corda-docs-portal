@@ -27,7 +27,7 @@ This entity represents a human user or system user.
   affecting this account. The same email address may be used for multiple accounts.
 * `Salt value` is a randomly generated value used when hashing the password. It only makes sense when the password is
   assigned as well.
-* `Hashed password` ia a salted and hashed representation of the password.
+* `Hashed password` is a salted and hashed representation of the password.
  This property can be set to `null` for SSO-only accounts.
 * `Password expiry` is only applicable when password is assigned and when it specifies the timestamp after which the password
   is deemed expire and needs changing.
