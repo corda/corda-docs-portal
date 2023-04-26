@@ -55,7 +55,7 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
 3. Open the project in IntelliJ and let the import process complete.
   When complete, the project structure looks as follows:
 
-  {{< figure src="CDSE-full-screen.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
+  {{< figure src="CSDE-full-screen.png" figcaption="CSDE project" alt="CSDE project in IntelliJ" >}}
 
 
 ## Configuring the CSDE
@@ -64,6 +64,8 @@ The CSDE includes [Gradle tasks](#gradle-helpers-for-the-combined-worker) to man
 
 {{< figure src="gradle-configuration.png" figcaption="Gradle Java version" alt="JVM version in IntelliJ for CSDE project" >}}
 
+{{< figure src="configure-CSDE-build-gradle-block.png" figcaption="Configure the CSDE plugin via the build.gradle file" alt="CSDE build gradle block in IntelliJ for CSDE project" >}}
+
 ## CSDE Overview
 
 This section provides an overview of the content of CSDE. Other sections show you how to use it in the process of writing a CorDapp.
@@ -71,7 +73,7 @@ This section provides an overview of the content of CSDE. Other sections show yo
 ### Project Structure
 
 On the left, you can see the folder structure created, ready for CorDapps development.
-{{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
+ {{< figure src="project-structure.png" figcaption="CSDE folder structure" alt="CSDE folders in IntelliJ" >}}
 
 For Kotlin, write your flow code in `workflows/src/main/kotlin/<your package path>` and your contract and states code in `/contracts/src/main/kotlin<your package path>`.
 
@@ -81,7 +83,7 @@ For test code, use the corresponding test folder.
 ### Gradle Helpers for the Combined Worker
 
 On the right, you can see the Gradle tasks that we have included to help you work with a local deployment of Corda using the combined worker:
-{{< figure src="gradle-helpers.png" figcaption="CSDE gradle helpers" alt="CSDE gradle tasks in IntelliJ" >}}
+{{< figure src="gradle-helpers.png" figcaption="CSDE gradle helpers" alt="CSDE gradle tasks in IntelliJ" width=100% length=100% >}}
 The **combined worker** is a Corda cluster that runs all of the workers in one JVM process.
 
 The helpers are split into three folders:
