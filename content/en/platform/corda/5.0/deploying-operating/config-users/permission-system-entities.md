@@ -9,7 +9,7 @@ menu:
 section_menu: corda-5
 ---
 
-Corda 5 role-based access control (RBAC) permissions system is made up of multiple entities.
+The role-based access control (RBAC) permissions system in Corda 5  is made up of multiple entities.
 The following section describes those entities and relationships between them.
 
 ## User
