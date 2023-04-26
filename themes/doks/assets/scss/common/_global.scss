@@ -461,14 +461,3 @@ summary::after {
 details[open] summary:after {
   content: url("/icons/icon-arrow-up.svg");
 }
-
-.link-heading .link-heading-icon{
-  visibility: hidden;
-}
-
-.link-heading:hover .link-heading-icon{
-  visibility: visible;
-  text-decoration: none;
-  font-size: large;
-  opacity: 0.6;
-}
