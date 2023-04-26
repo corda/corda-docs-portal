@@ -18,7 +18,7 @@ This entity represents a human user or system user.
 
 ### Attributes
 
-* `Full Name` is a human-readable name. This is a property which will cannot be used to code any permissions against it.
+* `Full Name` is a human-readable name. This is a property which cannot be used to code any permissions against it.
   It also has a UUID identifier for a concrete reference to the instance of an entity.
 * `Login Name` is the name used for authentication and authorization purposes. It can be in an email address
   in case of SSO. There can be only one `Enabled` user for a given `Login Name`.
