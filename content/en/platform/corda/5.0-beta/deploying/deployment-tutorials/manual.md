@@ -401,7 +401,7 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
 There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
 {{< /note >}}
 
-9. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Cord, in this case use RBAC:
+9. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda, in this case use RBAC:
 
    {{< tabs name="DDL-user">}}
    {{% tab name="Linux" %}}
