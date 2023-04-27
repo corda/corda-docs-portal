@@ -39,12 +39,12 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
+   export REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
+   $REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
    ```
    }
    {{% /tab %}}
@@ -199,7 +199,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID
 {{% tab name="PowerShell" %}}
 ```shell
 $CPI_ID = $CPI_UPLOAD_RESPONSE.id
-$CPI_STATUS_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/cpi/status/$CPI_ID"
+$CPI_STATUS_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/status/$CPI_ID"
 ```
 {{% /tab %}}
 {{< /tabs >}}

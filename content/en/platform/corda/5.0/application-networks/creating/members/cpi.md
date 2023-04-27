@@ -1,6 +1,6 @@
 ---
 date: '2023-04-13'
-title: "Build the Member CPI"
+title: "Build and Upload the Member CPI"
 menu:
   corda5:
     identifier: corda5-networks-members-cpi
@@ -8,6 +8,13 @@ menu:
     weight: 1000
 section_menu: corda5
 ---
+
+This section describes how to build a member CPI and upload it to the network. It contains the following:
+1. [Set Variables]({{< relref " #set-variables" >}})
+2. [Generate the Group Policy File]({{< relref " #generate-the-group-policy-file" >}})
+3. [Create the CPI File]({{< relref " #create-the-cpi-file" >}})
+4. [Import Code Signing Certificates]({{< relref " #import-code-signing-certificates" >}})
+5. [Upload the CPI]({{< relref " #upload-the-cpi" >}})
 
 ## Set Variables
 Set the values of variables for use in later commands:
@@ -39,12 +46,12 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
+   export REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $API_URL = "https://$REST_API_HOST:$REST_API_PORT/api/v1"
+   $REST_API_URL = "https://$REST_API_HOST:$REST_API_PORT/api/v1"
    ```
    {{% /tab %}}
    {{< /tabs >}}
@@ -82,20 +89,20 @@ To join a group, members must use a {{< tooltip >}}group policy{{< definition te
    ```shell
    $MGM_REST_HOST = "localhost"
    $MGM_REST_PORT = "8888"
-   $MGM_API_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
+   $MGM_REST_URL = "https://$MGM_REST_HOST:$MGM_REST_PORT/api/v1"
    $MGM_HOLDING_ID = <MGM-holding-ID>
-   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_API_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > $WORK_DIR/GroupPolicy.json
+   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_REST_URL/mgm/$MGM_HOLDING_ID/info" | ConvertTo-Json -Depth 4 > $WORK_DIR/GroupPolicy.json
    ```
    {{% /tab %}}
    {{< /tabs >}}
    If using Bash, create the `GroupPolicy.json` by exporting it using the MGM, by running this command:
    ```shell
-   curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $MGM_API_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
+   curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $MGM_REST_URL/mgm/$MGM_HOLDING_ID/info > "$WORK_DIR/GroupPolicy.json"
    ```
 
-## Create the CPI
+## Create the CPI File
 
-Build a {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} using the Corda CLI, passing in the member CPB and the `GroupPolicy.json` file exported from the MGM. 
+Build a {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} using the Corda CLI, passing in the member CPB, the `GroupPolicy.json` file exported from the MGM, and the details of the keystore certificate used to sign the CPB. 
 
    {{< tabs name="build-cpi">}}
    {{% tab name="Bash" %}}
@@ -126,7 +133,27 @@ Build a {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} using th
    {{% /tab %}}
    {{< /tabs >}}
 
-<!--For more information about creating CPIs, see the [CorDapp Packaging section]().-->
+## Import Code Signing Certificates
+
+{{< note >}}
+You do not have to repeat this step if previously uplaoded CPIs use the same certificate.
+{{< /note >}}
+
+Corda validates that uploaded CPIs are signed with a trusted key. To trust your signing keys:
+
+1. Export the signing key certificate from the keystore:
+    ```shell
+    keytool -exportcert -rfc -alias "<key-alias>" -keystore <signingkeys.pfx> -storepass "<keystore-password>" -file <signingkey1.pem>
+    ```
+2. Import the signing key into Corda:
+    ```shell
+    curl -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="signingkey1-2022" -F certificate=@<signingkey1.pem> $REST_API_URL/certificates/cluster/code-signer
+    ```
+
+{{< note >}}
+Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same X.500 name as existing certificates.
+{{< /note >}}
+
 
 ## Upload the CPI
 
@@ -135,13 +162,13 @@ To upload the CPI to the network, run the following:
 {{% tab name="Bash"%}}
 ```
 export CPI_PATH=<CPI-directory/CPI-filename.cpi>
-curl -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $API_URL/cpi/
+curl -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi/
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
 $CPI_PATH = "$WORK_DIR\mgm-5.0.0.0-SNAPSHOT-package.cpi"
-$CPI_UPLOAD_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/cpi/" -Method Post -Form @{
+$CPI_UPLOAD_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/" -Method Post -Form @{
     upload = Get-Item -Path $CPI_PATH
 }
 ```
@@ -160,7 +187,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD $API_URL/cpi/status/$CPI_ID
 {{% tab name="PowerShell" %}}
 ```shell
 $CPI_ID = $CPI_UPLOAD_RESPONSE.id
-$CPI_STATUS_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/cpi/status/$CPI_ID"
+$CPI_STATUS_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/status/$CPI_ID"
 ```
 {{% /tab %}}
 {{< /tabs >}}
