@@ -23,7 +23,7 @@ table th:nth-of-type(2) {
 
 | Domain                     | Specific Change                                                                                                                                             |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Cluster Administration** | The notary server CPB is now signed. For information about building and uploading a CPI using the test key used in this beta release, see {{< relref "" >}} |
+| **Cluster Administration** | The notary server CPB is now signed. For information about building and uploading a CPI using the test key used in this beta release, see [Notary Server CPB]{{< relref "../developing/notaries/plugin-cordapps-notary.md#notary-server-cpb" >}}. |
 | **CorDapp Development**    |                                                                                                                                                             |
 | **Network Operation**      |                                                                                                                                                             |
 
