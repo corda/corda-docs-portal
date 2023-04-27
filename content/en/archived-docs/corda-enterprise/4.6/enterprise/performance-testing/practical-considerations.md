@@ -45,7 +45,7 @@ It is important to not delete any other files/directories from the node director
 successfully.
 This requires that the database user of the node has permission to create the respective tables/and indices. This is
 not recommended in a production setting but might be useful in a performance testing context.
-Also note that to allow liquibase to run and rebuild the schema, you need to run the `run-migration-script` sub-command.
+Also note that to allow liquibase to run and rebuild the schema, you need to run the `run-migration-scripts` sub-command.
 
 Note that this will not reset the node registration, identity, keys or the network parameters - it only affects the states and transactions
 it knows about. If you have a performance test cluster, it is advisable to reset the whole cluster at the same time.
