@@ -180,7 +180,7 @@ db:
 Specify the Kafka bootstrap servers as a comma-separated list:
 ```yaml
 kafka:
-  boostrapServers: <KAFKA_BOOTSTRAP_SERVERS>
+  bootstrapServers: <KAFKA_BOOTSTRAP_SERVERS>
 ```
 If desired, a prefix can be applied to all of the Kafka topics used by the Corda deployment. This enables multiple Corda clusters to share a Kafka cluster. For example:
 ```yaml
@@ -477,7 +477,7 @@ db:
           key: "password"
 
 kafka:
-  boostrapServers: "kafka-1.example.com,kafka-2.example.com,kafka-3.example.com"
+  bootstrapServers: "kafka-1.example.com,kafka-2.example.com,kafka-3.example.com"
   tls:
     enabled: true
   sasl:
