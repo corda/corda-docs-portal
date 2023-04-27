@@ -10,10 +10,12 @@
   {{ end -}}
 {{ end -}}
 
-{{ if .IsHome -}}
+{{ if or .IsHome -}}
   <title>{{ .Site.Params.title }} {{ .Site.Params.titleSeparator }} {{ .Site.Params.titleAddition }}</title>
+{{ else if or (eq .Params.version "Corda Index" "api-ref" "tools") (eq .Parent.Page.Params.version "api-ref" "tools")}}  
+<title>{{ .Title }} {{ .Site.Params.titleSeparator }} {{ .Site.Params.title }} </title>
 {{ else -}}
-  <title>{{ .Title }} {{ .Site.Params.titleSeparator }} {{ .Site.Params.title }}</title>
+  <title>{{ .Title }} {{ .Site.Params.titleSeparator }} {{ if .Params.version }} {{ .Params.version }} {{ .Site.Params.titleSeparator }} {{ else }}{{.Parent.Page.Params.version}}{{ end }}</title>
 {{ end -}}
 
 {{ with .Description -}}

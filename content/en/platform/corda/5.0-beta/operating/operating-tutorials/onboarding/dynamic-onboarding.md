@@ -126,6 +126,10 @@ To retrieve the `GroupPolicy.json` file from the MGM:
 
 Build a CPI using the Corda CLI packaging plugin, passing in the member CPB and your generated `GroupPolicy.json` file. For more information about creating CPIs, see the [CorDapp Packaging section]({{< relref "../../../developing/development-tutorials/cordapp-packaging.md" >}}).
 
+{{< warning >}}
+A dynamic network can only work if the member CPI is using the exported MGM group policy.
+{{< /warning >}}
+
 ## Upload the CPI
 
 To upload the CPI, run the following:
@@ -285,7 +289,7 @@ When using cluster-level TLS, it is only necessary to do this once per cluster.
 You must perform the same steps that you did for setting up the MGM to enable P2P communication for the locally hosted identities.
 Use the Certificate Authority (CA) whose trustroot certificate was configured in the MGM's registration context.
 
-If using mutual TLS, you must must add the certificate subject to the allowed list of the MGM. For more information, see [Update the MGM Allowed Certificate Subject List](mutual-tls.html#update-the-mgm-allowed-certificate-subject-list).
+If using mutual TLS, you must must add the certificate subject to the allowed list of the MGM. For more information, see [Update the MGM Allowed Certificate Subject List]({{< relref "../mutual-tls.md#update-the-mgm-allowed-certificate-subject-list" >}}).
 
 1. Create a TLS key pair at the P2P cluster-level by running this command:
 
@@ -493,13 +497,13 @@ export REGISTRATION_CONTEXT='{
   "corda.session.key.signature.spec": "SHA256withECDSA",
   "corda.ledger.keys.0.id": "'$LEDGER_KEY_ID'",
   "corda.ledger.keys.0.signature.spec": "SHA256withECDSA",
-  "corda.notary.keys.0.id" = "$NOTARY_KEY_ID",
-  "corda.notary.keys.0.signature.spec" = "SHA256withECDSA"
+  "corda.notary.keys.0.id": "$NOTARY_KEY_ID",
+  "corda.notary.keys.0.signature.spec": "SHA256withECDSA"
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
   "corda.endpoints.0.protocolVersion": "1",
-  "corda.roles.0" : "notary",
-  "corda.notary.service.name" : <An X500 name for the notary service>,
-  "corda.notary.service.plugin" : "net.corda.notary.NonValidatingNotary"
+  "corda.roles.0": "notary",
+  "corda.notary.service.name": <An X500 name for the notary service>,
+  "corda.notary.service.plugin": "net.corda.notary.NonValidatingNotary"
 }'
 ```
 {{% /tab %}}
@@ -514,9 +518,9 @@ $REGISTRATION_CONTEXT = @{
   "corda.notary.keys.0.signature.spec" = "SHA256withECDSA"
   'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST`:$P2P_GATEWAY_PORT"
   'corda.endpoints.0.protocolVersion' = "1"
-  'corda.roles.0' : "notary",
-  'corda.notary.service.name' : <An X500 name for the notary service>,
-  'corda.notary.service.plugin' : "net.corda.notary.NonValidatingNotary"
+  'corda.roles.0' = "notary",
+  'corda.notary.service.name' = <An X500 name for the notary service>,
+  'corda.notary.service.plugin' = "net.corda.notary.NonValidatingNotary"
 }
 ```
 {{% /tab %}}

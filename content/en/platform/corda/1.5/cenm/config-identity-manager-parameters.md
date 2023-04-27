@@ -26,11 +26,11 @@ The host and port on which the service runs
 
 
 * **database**:
-See [CENM Database Configuration](../../../../../en/platform/corda/1.5/cenm/config-database.md)
+See [CENM Database Configuration]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-database.md" >}})
 
 
 * **shell**:
-  *(Optional)* See [Shell Configuration Parameters](../../../../../en/platform/corda/1.5/cenm/config-shell.md) for more information. Note that
+  *(Optional)* See [Shell Configuration Parameters]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-shell.md" >}}) for more information. Note that
                we are planning to deprecate the shell and the recommended path for interacting with CENM services
                is the admin RPC interface detailed below.
 
@@ -80,7 +80,7 @@ It is needed as this URL is encoded in certificates issued by the Identity Manag
     Determines if a client should attempt to reconnect if the connection is dropped.
 
     * **ssl**:
-    See [SSL Settings](../../../../../en/platform/corda/1.5/cenm/config-ssl.md).
+    See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}).
 
 
 * **plugin**:
@@ -127,7 +127,7 @@ It is needed as this URL is encoded in certificates issued by the Identity Manag
 A list of CRLs hosted by the Identity Manager Service, in addition to the CRLs hosted by node operators. This allows the Identity Manager Service to host the CRLs for node operators that will not host their own CRL infrastructure, at the cost of not being able to revoke TLS certificates issued by the node.
 * **adminListener**:
   A configuration property you must define in order to use the RPC API in the Identity Manager Service.
-  You can add `port`, `reconnect`, and `verbose`. Also, this property has an SSL field - for more information, see [SSL Settings](../../../../../en/platform/corda/1.5/cenm/config-ssl.md).
+  You can add `port`, `reconnect`, and `verbose`. Also, this property has an SSL field - for more information, see [SSL Settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}).
   * **port**:
     Port number to listen to for Admin RPC connections.
   * **verbose**:
@@ -135,7 +135,7 @@ A list of CRLs hosted by the Identity Manager Service, in addition to the CRLs h
   * **reconnect**:
     *(Optional)* Determines if a client should attempt to reconnect if the connection is dropped. Defaults to `true`.
   * **ssl**:
-    See [SSL Settings](../../../../../en/platform/corda/1.5/cenm/config-ssl.md) for details.
+    See [SSL Settings]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-ssl.md" >}}) for details.
 
 {{% important %}}
 If the `adminListener` property is present in the configuration, this means that the service must only be used via Admin RPC. In this case, the `shell` configuration property will be disabled. The `shell` and `adminListener` properties cannot be used in the configuration at the same time.
@@ -144,7 +144,7 @@ If the `adminListener` property is present in the configuration, this means that
 * **authServiceConfig**:
   The admin RPC interface requires an Auth Service to verify
   requests, which must be configured below in a `authServiceConfig` block. Typically
-  this is provided automatically by the [Zone Service](../../../../../en/platform/corda/1.5/cenm/zone-service.md) (via an Angel Service),
+  this is provided automatically by the [Zone Service]({{< relref "../../../../../en/platform/corda/1.5/cenm/zone-service.md" >}}) (via an Angel Service),
   however the parameters are detailed below for reference:
   * **host**: The hostname of the Auth Service. Required unless authentication is disabled.
   * **port**: The port number of the Auth Service. Required unless authentication is disabled.
@@ -160,7 +160,7 @@ If the `adminListener` property is present in the configuration, this means that
 ## Obfuscated configuration files
 
 To view the latest changes to the obfuscated configuration files,
-see [Obfuscation configuration file changes](../../../../../en/platform/corda/1.5/cenm/obfuscated-config-file-changes.md).
+see [Obfuscation configuration file changes]({{< relref "../../../../../en/platform/corda/1.5/cenm/obfuscated-config-file-changes.md" >}}).
 
 ## Redirection forbidden
 

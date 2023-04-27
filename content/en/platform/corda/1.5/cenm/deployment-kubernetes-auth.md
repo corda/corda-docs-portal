@@ -12,7 +12,7 @@ weight: 20
 
 # CENM Auth Service Helm Chart
 
-This Helm chart is to configure, deploy, and run the [Auth Service](../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md) on Kubernetes.
+This Helm chart is to configure, deploy, and run the [Auth Service]({{< relref "../../../../../en/platform/corda/4.8/enterprise/node/auth-service.md" >}}) on Kubernetes.
 
 ## Example usage
 
@@ -49,4 +49,4 @@ helm install cenm-auth auth --set prefix=cenm --set acceptLicense=Y --set volume
 | `sleepTimeAfterError`         | Sleep time (in seconds) after an error occurred | `120` |
 | `logsContainersEnabled`       | Enable container displaying live logs | `true`
 {{< /table >}}
-For additional information on database connection details refer to the official documentation: [database documentation](../../../../../en/platform/corda/1.5/cenm/config-database.md).
+For additional information on database connection details refer to the official documentation: [database documentation]({{< relref "../../../../../en/platform/corda/1.5/cenm/config-database.md" >}}).
