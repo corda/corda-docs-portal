@@ -9,6 +9,11 @@ menu:
 section_menu: corda5
 ---
 
+This section describes how to register the MGM on a network. It contains the following:
+1. [Build Registration Context]({{< relref "#build-registration-context" >}})
+2. [Register the MGM]({{< relref "#register-the-mgm" >}})
+3. [Confirm Registration]({{< relref "#confirm-registration" >}})
+
 ## Build Registration Context
 
 To register the MGM, you must first generate the registration context:

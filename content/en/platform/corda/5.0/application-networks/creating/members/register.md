@@ -11,6 +11,10 @@ section_menu: corda5
 ---
 
 This section describes how to register a member on a network. You can learn more about configuring the registration process in the [Managing Members section]({{< relref "../../managing/registration-requests/registration-approval.md" >}}).
+This section contains the following:
+1. [Build Registration Context]({{< relref "#build-registration-context" >}})
+2. [Register the Member]({{< relref "#register-the-member" >}})
+3. [Confirm Registration]({{< relref "#confirm-registration" >}})
 
 ## Build Registration Context
 {{< note >}}

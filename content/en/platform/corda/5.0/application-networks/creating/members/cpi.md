@@ -10,11 +10,11 @@ section_menu: corda5
 ---
 
 This section describes how to build a member CPI and upload it to the network. It contains the following:
-1. [Set Variables]({{< relref " #set-variables" >}})
-2. [Generate the Group Policy File]({{< relref " #generate-the-group-policy-file" >}})
-3. [Create the CPI File]({{< relref " #create-the-cpi-file" >}})
-4. [Import Code Signing Certificates]({{< relref " #import-code-signing-certificates" >}})
-5. [Upload the CPI]({{< relref " #upload-the-cpi" >}})
+1. [Set Variables]({{< relref "#set-variables" >}})
+2. [Generate the Group Policy File]({{< relref "#generate-the-group-policy-file" >}})
+3. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})
+4. [Import Code Signing Certificates]({{< relref "#import-code-signing-certificates" >}})
+5. [Upload the CPI]({{< relref "#upload-the-cpi" >}})
 
 ## Set Variables
 Set the values of variables for use in later commands:
@@ -136,7 +136,7 @@ Build a {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} using th
 ## Import Code Signing Certificates
 
 {{< note >}}
-You do not have to repeat this step if previously uplaoded CPIs use the same certificate.
+You do not have to repeat this step if a CPI previously uplaoded to the network uses the same certificate.
 {{< /note >}}
 
 Corda validates that uploaded CPIs are signed with a trusted key. To trust your signing keys:
@@ -147,7 +147,7 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
     ```
 2. Import the signing key into Corda:
     ```shell
-    curl -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="signingkey1-2022" -F certificate=@<signingkey1.pem> $REST_API_URL/certificates/cluster/code-signer
+    curl -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="<unique-key-alias>" -F certificate=@<signingkey1.pem> $REST_API_URL/certificates/cluster/code-signer
     ```
 
 {{< note >}}
