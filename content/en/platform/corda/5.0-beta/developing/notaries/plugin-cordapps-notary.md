@@ -72,8 +72,6 @@ tasks.register("getNotaryServerCPB", Copy) {
 }
 ```
 
-The CPB can also be downloaded directly from [Artifactory](https://software.r3.com/ui/native/corda-os-maven/com/r3/corda/notary/plugin/nonvalidating/notary-plugin-non-validating-server/). You should download the file ending with a `.cpb` extension.
-
 ### Trust the Signing Key
 
 For this beta release, the notary server CPB is signed with a test signing key. To use it, import the certificate, as follows:
