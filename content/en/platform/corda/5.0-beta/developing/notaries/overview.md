@@ -18,7 +18,7 @@ This section outlines what you need to know to get a notary up and running on a 
 
 For information on deploying notary virtual nodes to your network, see the [Notary Deployment]({{< relref "../../deploying/notaries/notary-deployment.md" >}}) section.
 
-For information on the metrics that are provided in Corda 5 for notary and uniqueness checking functionality, see the [Notary Metrics Design]({{< relref "../../operating/metrics-design.md" >}}) section.
+For information on the metrics that are provided in Corda 5 for notary and uniqueness checking functionality, see the [Notary Metrics]({{< relref "../../operating/notary-metrics.md" >}}) section.
 
 ## Points to Note for the Corda 5 Beta Release
 
