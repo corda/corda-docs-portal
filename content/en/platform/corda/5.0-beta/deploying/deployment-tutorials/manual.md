@@ -373,7 +373,7 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
 
 7. Review the DDL files generated and then execute against the database.
 
-8. Execute the following Corda CLI command to configure vNodes, in this case use RBAC:
+8. Execute the following Corda CLI command to configure vNodes, in this case use CONFIG:
 
 
    {{< tabs name="vNode-example">}}
@@ -401,7 +401,7 @@ The following command specifies that the `CONFIG`, `RBAC` and `CRYPTO` schema sh
 There is no schema in `--jdbc-url` as vNodes create their own schemas. However, `--is-admin` is required as this is a DDL configuration not DML.
 {{< /note >}}
 
-9. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Corda:
+9. Execute the following Corda CLI command to generate DDL for populating the initial admin user for Cord, in this case use RBAC:
 
    {{< tabs name="DDL-user">}}
    {{% tab name="Linux" %}}
