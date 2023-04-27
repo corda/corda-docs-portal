@@ -14,8 +14,8 @@ Before you install downloaded files, verify the integrity of each file to ensure
 
 | <div style="width:220px">Filename</div> | Checksum Value                           |
 | --------------------------------------- | ---------------------------------------- |
-| platform-jars-Gecko1.0.tar.gz           | <ul><li> MD5:</li> <li> Sha1:</li></ul>  |
-| cordApp-dev-pack-Gecko1.0.tar.gz        | <ul><li> MD5:</li><li> Sha1:</li></ul>   |
-| corda-worker-images-Gecko1.0.tar        | <ul><li> MD5:</li> <li> Sha1:</li></ul>  |
-| corda-5.0.0-Gecko1.0.tgz                | <ul><li> MD5: </li> <li> Sha1:</li></ul> |
-| supporting-scripts-Gecko1.0.tar.gz      | <ul><li> MD5: </li> <li> Sha1:</li></ul> |
+| platform-jars-Hawk1.0.tar.gz           | <ul><li> MD5:</li> <li> Sha1:</li></ul>  |
+| cordApp-dev-pack-Hawk1.0.tar.gz        | <ul><li> MD5:</li><li> Sha1:</li></ul>   |
+| corda-worker-images-Hawk1.0.tar        | <ul><li> MD5:</li> <li> Sha1:</li></ul>  |
+| corda-5.0.0-Hawk1.0.tgz                | <ul><li> MD5: </li> <li> Sha1:</li></ul> |
+| supporting-scripts-Hawk1.0.tar.gz      | <ul><li> MD5: </li> <li> Sha1:</li></ul> |
