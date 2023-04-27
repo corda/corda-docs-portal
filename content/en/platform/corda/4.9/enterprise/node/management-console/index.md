@@ -92,14 +92,26 @@ General node information is displayed on the **Status** tab. To access the **Sta
 1. Log on to the node management console.
 2. Navigate to **Status** tab.
 
-{{% figure zoom="management-console/node-management-console_status.png" alt="Node management console status tab" figcaption="Node management console status tab"%}}
+   {{< 
+     figure
+	    src="management-console/node-management-console_status.png"
+      width=100%
+	    figcaption="Node management console status tab"
+	    alt="Node management console status tab"
+   >}}
 
 ## Viewing the node configuration file
 
 1. Log on to the node management console.
 2. Navigate to **NODE** tab under **Configuration**.
 
-{{% figure zoom="management-console/node-management-console_node-configuration.png" alt="Node management console node configuration tab" figcaption="Node management console node configuration tab" %}}
+   {{< 
+     figure
+	    src="management-console/node-management-console_node-configuration.png"
+      width=100%
+	    figcaption="Node management console node configuration tab"
+	    alt="Node management console node configuration tab"
+   >}}
 
 ## Viewing the log4j configuration file
 
@@ -109,7 +121,13 @@ General node information is displayed on the **Status** tab. To access the **Sta
 
 Logging configuration will be displayed in the text editor. The editor can be configured via footer bar to set language, theme, and font size. The editor will be in read-only mode, so no changes may be made.
 
-{{% figure zoom="management-console/node-management-console_log-configuration.png" alt="Node management console configuration tab" figcaption="Node management console logging configuration tab" %}}
+   {{< 
+     figure
+	    src="management-console/node-management-console_log-configuration.png"
+      width=100%
+	    figcaption="Node management console logging configuration tab"
+	    alt="Node management console logging configuration tab"
+   >}}
 
 ### Failure conditions
 
@@ -126,7 +144,13 @@ If you do not have permission to perform this action and you click the tab, a me
 
 The most recent 500 log events are displayed. Note that this list is static: it does not change. Click **Refresh** to see the most recent 500 log events. This list does *not* contain the startup logs.
 
-{{% figure zoom="management-console/node-management-console_logs.png" alt="Node management console logs tab" figcaption="Node management console logs tab" %}}
+   {{< 
+     figure
+	    src="management-console/node-management-console_logs.png"
+      width=100%
+	    figcaption="Node management console logs tab"
+	    alt="Node management console logs tab"
+   >}}
 
 ### Failure conditions
 
@@ -148,7 +172,13 @@ The table will list the `short name`, `type`, and `vendor` for each CorDapp. The
 To view more information about a particular CorDapp, click on an entry in the table and
 the entry expands to show a more comprehensive list of properties for that CorDapp.
 
-{{% figure zoom="management-console/node-management-console_cordapps.png" alt="Node management console CorDapps tab" figcaption="Node management console CorDapps tab" %}}
+   {{< 
+     figure
+	    src="management-console/node-management-console_cordapps.png"
+      width=100%
+	    figcaption="Node management console CorDapps tab"
+	    alt="Node management console CorDapps tab"
+   >}}
 
 ### Empty state
 
@@ -170,7 +200,13 @@ If you do not have permission to perform this action and you click the tab, a me
 
 A table shows the names of the drivers on the node.
 
-{{% figure zoom="management-console/node-management-console_drivers.png" alt="Node management console drivers tab" figcaption="Node management console drivers tab" %}}
+   {{< 
+     figure
+	    src="management-console/node-management-console_drivers.png"
+      width=100%
+	    figcaption="Node management console drivers tab"
+	    alt="Node management console drivers tab"
+   >}}
 
 ### Empty state
 
@@ -186,7 +222,13 @@ If you do not have permission to perform this action and you click the tab, a me
 2. Navigate to **Status** tab.
 3. Click the **Draining mode** toggle to turn draining mode on or off.
 
-{{% figure zoom="management-console/node-management-console_status.png" alt="Node management console status tab" figcaption="Node management console status tab"%}}
+   {{< 
+     figure
+	    src="management-console/node-management-console_status.png"
+      width=100%
+	    figcaption="Node management console status tab"
+	    alt="Node management console status tab"
+   >}}
 
 ## Shutting down a node gracefully
 
@@ -215,7 +257,14 @@ When the node management console is reloaded, the node diagnostic info is unavai
 If you stop a node from the command line, the node will still appear in the console because Corda does not poll the node to see if it is still connected. Refresh the page to show the correct status.
 {{% /note %}}
 
-{{% figure zoom="management-console/node-management-console_status.png" alt="Node management console status tab" figcaption="Node management console status tab"%}}
+   {{< 
+     figure
+	    src="management-console/node-management-console_status.png"
+      width=100%
+	    figcaption="Node management console status tab"
+	    alt="Node management console status tab"
+   >}}
+
 
 ### Permission
 
