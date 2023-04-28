@@ -1,0 +1,55 @@
+{
+	"CBDC": {
+		"definition": "Central bank digital currency: a central bank-issued digital money, denominated in a national unit of account, which is backed by the full faith and credit of the issuing central bank.",
+		"more": ""
+	},
+	"custodian": {
+		"definition": "EA custodian attests to the reception of the underlying collateral funds for tokens created by the TIE on the network. It verifies collateral payments that are received from a network participant through banking deposits either held with a central bank or a commercial bank.",
+		"more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>" 
+	},
+	"issuance": {
+		"definition": "The process where a central bank or commercial bank creates new tokens and then transfers them to another party.",
+		"more": "For more information, see the topic <a href=\"./issuing-tokens.md\">Issuing Tokens</a>."
+	},
+
+    "redemption": {
+        "definition": "When a commercial bank or central bank removes a token, which it defined, from a transacting entity or a network.",
+        "more": ""
+    },
+    "regulator": {
+		"definition": "Regulators only have read permissions and can view issuances, transfers and redemptions to keep track of economic statistics. They are unable to make transfers or hold tokens. Such a role might be used by regulatory authorities or risk departments.",
+		"more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>" 
+	},
+	"stablecoins": {
+		"definition": "A digital money, issued by an officially chartered organization, such as a bank, that can be backed by fiat, a basket of assets, or faith in the issuer's balance sheet.",
+		"more": ""
+	},
+    "token defining entity": {
+        "definition": "The role used to create token definitions. A TDE can create multiple token definitions. In a central bank, this role might be held by someone from the Currency vault management. In a Commercial bank, the Head of Treasury.",
+        "more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>"       
+    },
+    "token definition": {
+		"definition": "A token definition specifies all the properties that a token of that type can have.",
+		"more": "For more information, see <a href=\"./tokens-overview.html#token-definitions\">Tokens Overview</a>"
+	},
+    "token definition authority": {
+        "definition": "The role used to approve any token definitions. There can be multiple users across the entity which reside in different departments. Their function is to review the token definition presented and approve or reject. In a central bank, this role might be held by a Board of Governors; in a commercial bank, it might be Head of Legal Services or Head of Regulation/Compliance.",
+        "more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>." 
+    },
+    "token definition authority": {
+        "definition": "The role used to approve any token definitions. There can be multiple users across the entity which reside in different departments. Their function is to review the token definition presented and approve or reject. In a central bank, this role might be held by a Board of Governors; in a commercial bank, it might be Head of Legal Services or Head of Regulation/Compliance.",
+        "more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>." 
+    },
+    "token issuing entity": {
+        "definition": "They are responsible for receiving attestation from custodians with regards to the backing of the collateral and issuing (creating then transfering) tokens to recipients.",
+        "more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>." 
+    "transacting entity": {
+        "definition": "Entities on the network that can request tokens and have tokens issued to them, which they can use to actively settle assets on the network in real time between each other.",
+        "more": "For more information, see the topic <a href=\"./roles-overview.html\">Roles Overview</a>." 
+    },
+	"transfer": {
+		"definition": "The movement of tokens (value) between two or more entities (for example, wholesale banks, bank branches, retailers, retailer branches or franchises) on a Corda network to exchange goods and services.",
+		"more": "For more information, see the topic <a href=\"./transfering-tokens.html\">Transfering Tokens</a>."
+
+	}
+}

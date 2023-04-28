@@ -13,7 +13,7 @@ title: "Creating Token Definitions"
 ---
 
 
-Before tokens can be created, a [token definition]({{< relref "tokens-overview.md#token-definitions" >}}), which specifies all that parameters of that token, must be created. 
+Before [tokens can be created]({{< relref "creating-tokens.md" >}}), a {{< tooltip >}}token definition{{< definitiondc term="token definition" >}}{{< /tooltip >}} must be created. 
 
 1. In the Digital Currencies GUI, select **Define Token**.
 
@@ -151,7 +151,12 @@ Before tokens can be created, a [token definition]({{< relref "tokens-overview.m
 	  figcaption="Token Definitions Page"
 	  alt="Token Definitions Page"
    >}}
+   #
    
+<!-- Future - Once the token definition has been created, it must go through a number of business units to gain approval, before being broadcast to the token issuing entity. In a central bank, this maybe a policy department; in a commercial bank, the legal department. There can be multiple approvers and each must be able to approve, reject or amend the definition in order to meet approval guidelines. 
+
+The token defining entity cannot publish the token definition to the TIE unless the token is approved.  --> 
+
 Now that a token definition has been created, you can:
 
 * [View existing token definitions]({{< relref "viewing-token-definitions.md" >}})

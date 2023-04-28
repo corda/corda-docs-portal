@@ -20,7 +20,7 @@ This topic describes how to install the Digital Currencies demo, enabling you to
 2. [Clone the Digital Currencies repositories](#clone-the-digital-currencies-repositories)
 3. [Run a clean version of corda](#run-corda)
 4. [Deploy the Digital Currencies CorDapp](#deploy-the-digital-currencies-cordapp) 
-6. [Specify Virtual Node for Digital Currencies UI](#specify-virtual-node-for-digital-currencies-ui)
+6. [Specify Virtual Nodes for Digital Currencies UI](#specify-virtual-nodes-for-digital-currencies-ui)
 7. [Run the Digital Currencies UI](#run-the-digital-currencies-ui)
 
 ## Install the Prerequisites
@@ -294,9 +294,11 @@ For the purposes of testing Corda, we will use the CPI endpoint.
    12:32:24: Execution finished '5-vNodeSetup'.
    ```
  
-## Specify Virtual Node for Digital Currencies UI
+## Specify Virtual Nodes for Digital Currencies UI
 
-1. Open the Swagger UI.
+1. Open the Swagger UI:
+
+   [https://localhost:8888/api/v1/swagger#/](https://localhost:8888/api/v1/swagger#/)
 
 2. Scroll down to the Virtual Node API:
 
@@ -320,7 +322,9 @@ For the purposes of testing Corda, we will use the CPI endpoint.
 
 4. Click **Try it out**, then **Execute**.
 
-   The response body will include a list of one or more nodes:
+   (You may need to enter your credentials - *admin/admin* - again.)
+
+   The response body will include a list of five nodes:
 
    {{< 
       figure
@@ -330,20 +334,20 @@ For the purposes of testing Corda, we will use the CPI endpoint.
 	  alt="Virtual Node API Get Method Response"
    >}}
 
-5. Take a note of the *shortHash* value and *x500Name* for *two* nodes.
+5. Take a note of the *shortHash* value and *x500Name* for two nodes.
 
 6. Navigate to the *digital-currencies-ui/public/appConfig* directory.
 
 7. Edit the file *appConfig.json*.
 
-   The file contains both configuration details for multiple notes: 
+   The file contains both configuration details for multiple nodes: 
    
    * one of appType "CENTRAL_BANK",
    * one of appType "COMMERCIAL_BANK",
 
    Each has a *holdingIdHash* parameter and a *x500* parameter:
 
-   ```
+   ```json 
    {
     "appType": "CENTRAL_BANK",
     "apiUrl": "http://localhost:10055",
@@ -356,8 +360,9 @@ For the purposes of testing Corda, we will use the CPI endpoint.
     "apiUrl": "https://localhost:8888",
     "holdingIdHash": "11BD540F9730",
     "x500": "CN=Bob, OU=Test Dept, O=R3, L=London, C=GB",
-  
     ```
+
+For each bank:
 
 8. Replace the value of *holdingIdHash* with the *shortHash* value noted in step 5.
 

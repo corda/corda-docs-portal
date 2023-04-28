@@ -1,4 +1,4 @@
----
+ 
 date: '2023-03-21'
 lastmod: '2023-03-21'
 section_menu: tools
@@ -10,8 +10,7 @@ menu:
     identifier: digital-currencies-roles-glossary
     description: "Digital Currencies documentation glossary."
 title: "Digital Currencies Glossary"
----
-
+ 
 
 ** Central bank digital currency (CBDC)** A central bank-issued digital money, denominated in a national unit of account, which is backed by the full faith and credit of the issuing central bank.
 
@@ -19,13 +18,12 @@ title: "Digital Currencies Glossary"
 
 
 
-**Issuing** Involved a central bank or commerical bank both minting new tokens and then transferring them to another party.
 
 **Issuing party** The network party 
 
 **Redeeming** When a commercial bank or central bank removes a token, which it defined, from a transacting entity or a network.
 
-**Stablecoins** A digital money, issued by an officially chartered organization, such as bank, that can be backed by fiat, a basket of assets, or faith in the issuers balance sheet.
+**Stablecoins** A digital money, issued by an officially chartered organization, such as a bank, that can be backed by fiat, a basket of assets, or faith in the issuer's balance sheet.
 
 **Token Operator**
 
