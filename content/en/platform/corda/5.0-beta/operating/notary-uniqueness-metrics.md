@@ -43,7 +43,7 @@ The context exposed to the ledger uniqueness checker client service is minimal. 
 
 |Metric name|Type|Tags| Description|
 |-------------------------------------|-------|--------------|--------------------------------------------|
-| `ledger.uniqueness.client.run.time` | Timer |`result.type` |The time taken from requesting a uniqueness check to a response being received. The `result.type` tag is set to the relevant simple class name of the specific `UniquenessCheckResult` subclass.|
+| `ledger.uniqueness.client.run.time` | Timer |`result.type` | The time taken from requesting a uniqueness check to a response being received. The `result.type` tag is set to the specific type of uniqueness check result that was returned.|
 
 ## Uniqueness Checker
 
