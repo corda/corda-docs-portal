@@ -74,7 +74,7 @@ tasks.register("getNotaryServerCPB", Copy) {
 
 ### Trust the Signing Key
 
-For this beta release, the notary server CPB is signed with a test signing key. To use it, import the certificate, as follows:
+For this beta release, the notary server CPB is signed with a test signing key. To use it, import the certificate as follows:
 1. Save the following text into a file named `beta-ca-root.pem`:
    ```shell
    -----BEGIN CERTIFICATE-----
