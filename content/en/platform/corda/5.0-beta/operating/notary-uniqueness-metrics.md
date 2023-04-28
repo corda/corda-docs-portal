@@ -51,7 +51,7 @@ The uniqueness checker handles the business logic of uniqueness checking. The im
 
 * Metrics starting with `uniqueness.checker.batch` relate to "top level" metrics, which apply to a single batch processed by the uniqueness checker. As a batch may contain requests from different notary services and/or virtual nodes, these metrics provide no context as to the identities of the batch being processed.
 * Metrics starting with `uniqueness.checker.subbatch` relate to "sub-batch level" metrics. Each sub-batch represents a partition for each notary virtual node identity within a batch. The virtual node identity is captured via the existing `virtualnode.source` tag.
-* Metrics starting with `uniqueness.checker.request` relate to metrics applicable to specific requests within a sub-batch, such as the result of a request. These are also tagged with the `virtualnode.source`.
+* Metrics starting with `uniqueness.checker.request` relate to metrics applicable to specific requests within a sub-batch, such as the result of a request. Like the sub-batch metrics, these are also associated with the `virtualnode.source` tag.
 
 |Metric Name|Type|Tags|Description|
 |-------------------------------|------------------|------------------|------------------------|
