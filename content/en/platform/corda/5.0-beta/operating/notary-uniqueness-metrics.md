@@ -34,7 +34,7 @@ This section outlines the metrics that are provided in Corda 5 for notary and un
 * Backing store
 
 {{< note >}}
-The ledger uniqueness checker client service metrics are from the perspective of the notarization flow running on a notary virtual node. The uniqueness checker and backing store metrics are part of the uniqueness service which is running separately.
+The ledger uniqueness checker client service metrics are from the perspective of the notarization flow running on a notary virtual node. The uniqueness checker and backing store metrics are from the perspective of uniqueness processing, which runs independently from flow processing.
 {{< /note >}}
 
 ## Ledger Uniqueness Checker Client Service
