@@ -37,7 +37,7 @@ This section outlines the metrics that are provided in Corda 5 for notary and un
 The ledger uniqueness checker client service metrics are from the perspective of the notarization flow running on a notary virtual node. The uniqueness checker and backing store metrics are part of the uniqueness service which is running separately.
 {{< /note >}}
 
-### Ledger Uniqueness Checker Client Service
+## Ledger Uniqueness Checker Client Service
 
 The context exposed to the ledger uniqueness checker client service is minimal. As a result, only a single metric is captured:
 
@@ -45,7 +45,7 @@ The context exposed to the ledger uniqueness checker client service is minimal. 
 |-------------------------------------|-------|--------------|--------------------------------------------|
 | `ledger.uniqueness.client.run.time` | Timer |`result.type` |The time taken from requesting a uniqueness check to a response being received. The `result.type` tag is set to the relevant simple class name of the specific `UniquenessCheckResult` subclass.|
 
-### Uniqueness Checker
+## Uniqueness Checker
 
 The uniqueness checker handles the business logic of uniqueness checking. The implemenation is batched at two levels and three categories of metrics are provided:
 
