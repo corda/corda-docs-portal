@@ -44,33 +44,7 @@ The non-validating notary server CPB only contains CPKs that are produced by R3.
 
 ### Downloading the CPB
 
-This CPB is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
-
-The following is an example Gradle configuration fragment that downloads this:
-
-```kotlin
-configurations {
-    notaryServerCPB {
-        canBeConsumed = false
-        canBeResolved = true
-    }
-}
-
-dependencies {
-    notaryServerCPB("com.r3.corda.notary.plugin.nonvalidating:notary-plugin-non-validating-server:$cordaNotaryPluginsVersion") {
-        artifact {
-            classifier = 'package'
-            extension = 'cpb'
-        }
-    }
-}
-
-tasks.register("getNotaryServerCPB", Copy) {
-    group = pluginImplGroupName
-    from configurations.notaryServerCPB
-    into cordaNotaryServerDir
-}
-```
+The notary server CPB is available from our [GitHub release page](https://github.com/corda/corda-runtime-os/releases/).
 
 ### Trust the Signing Key
 
