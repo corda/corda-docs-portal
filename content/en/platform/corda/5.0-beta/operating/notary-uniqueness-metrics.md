@@ -1,10 +1,10 @@
 ---
 date: '2023-04-18'
-title: "Notary Metrics"
+title: "Notary Uniqueness Metrics"
 menu:
   corda-5-beta:
     parent: corda-5-beta-operate
-    identifier: corda-5-beta-notary-metrics-design
+    identifier: corda-5-beta-notary-uniqueness-metrics
     weight: 2010
 section_menu: corda-5-beta
 
@@ -25,13 +25,17 @@ table th:nth-of-type(4) {
 }
 </style>
 
-# Notary Metrics
+# Notary Uniqueness Metrics
 
 This section outlines the metrics that are provided in Corda 5 for notary and uniqueness checking functionality. Metrics have been added at the following levels:
 
 * Ledger uniqueness checker client service
 * Uniqueness checker
 * Backing store
+
+{{< note >}}
+The ledger uniqueness checker client service metrics are from the perspective of the notarization flow running on a notary virtual node. The uniqueness checker and backing store metrics are part of the uniqueness service which is running separately.
+{{< /note >}}
 
 ### Ledger Uniqueness Checker Client Service
 
