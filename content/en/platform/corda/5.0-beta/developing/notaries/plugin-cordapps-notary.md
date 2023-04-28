@@ -113,7 +113,7 @@ For this beta release, the notary server CPB is signed with a test signing key. 
    -----END CERTIFICATE-----
    ```
    
-   2. Import the `beta-ca-root.pem` file into the keystore:
+2. Import the `beta-ca-root.pem` file into the keystore:
    ```
    keytool -importcert -keystore signingkeys.pfx -storepass "keystore password" -noprompt -alias beta-ca-root -file beta-ca-root.pem
    ```
