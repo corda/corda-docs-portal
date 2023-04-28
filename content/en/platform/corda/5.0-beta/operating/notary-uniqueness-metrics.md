@@ -39,8 +39,6 @@ The ledger uniqueness checker client service metrics are from the perspective of
 
 ## Ledger Uniqueness Checker Client Service
 
-The context exposed to the ledger uniqueness checker client service is minimal. As a result, only a single metric is captured:
-
 |Metric name|Type|Tags| Description|
 |-------------------------------------|-------|--------------|--------------------------------------------|
 | `ledger.uniqueness.client.run.time` | Timer |`result.type` | The time taken from requesting a uniqueness check to a response being received. The `result.type` tag is set to the specific type of uniqueness check result that was returned.|
