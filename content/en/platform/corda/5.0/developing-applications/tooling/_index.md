@@ -7,7 +7,7 @@ menu:
   corda5:
     identifier: corda5-develop-tooling
     parent: corda5-develop
-    weight: 2000
+    weight: 1000
 section_menu: corda5
 ---
 CorDapp developers require the following:

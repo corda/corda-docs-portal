@@ -7,6 +7,6 @@ menu:
   corda5:
     identifier: corda5-develop-networks
     parent: corda5-develop
-    weight: 3000
+    weight: 2000
 section_menu: corda5
 ---

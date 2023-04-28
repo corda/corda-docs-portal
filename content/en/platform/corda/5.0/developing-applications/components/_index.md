@@ -7,6 +7,6 @@ menu:
   corda5:
     identifier: corda5-develop-components
     parent: corda5-develop
-    weight: 4000
+    weight: 3000
 section_menu: corda5
 ---
