@@ -669,7 +669,7 @@ database = {
 {{< note >}}
 *Node configuration <database_properties_ref>* contains a complete list of database specific properties.{{< /note >}}
 
-* The restricted node database user has no permissions to alter a database schema, so the `run-migration-script` sub-command cannot be run.
+* The restricted node database user has no permissions to alter a database schema, so the `run-migration-scripts` sub-command cannot be run.
 * The Corda distribution does not include any JDBC drivers with the exception of the H2 driver.
 It is the responsibility of the node administrator or a developer to install the appropriate JDBC driver.
 Corda will search for valid JDBC drivers under the `./drivers` subdirectory of the node base directory.
