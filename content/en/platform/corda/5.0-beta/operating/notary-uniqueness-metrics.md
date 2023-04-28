@@ -59,7 +59,7 @@ The uniqueness checker handles the business logic of uniqueness checking. The im
 | `uniqueness.checker.batch.size`    | DistributionSummary    | None    | The number of requests in a batch.  |
 | `uniqueness.checker.subbatch.execution.time`    | Timer    | `virtualnode.source`    | The execution time for a specific sub-batch.  |
 | `uniqueness.checker.subbatch.size`    | DistributionSummary    | `virtualnode.source`    |The number of requests in a sub-batch.  |
-| `uniqueness.checker.request.count`    | Counter    | `virtualnode.source`, `result.type`, `duplicate`   | A count of the number of requests processed. It is useless on its own as this information is already captured at the batch and sub-batch levels, but the tags can be used to provide additional context. The `result.type` tag can be used to understand the number of successful vs failed requests, and the type of failures. The `duplicate` tag is set to `true` if the uniqueness checker has seen a request for this transaction before, and is therefore simply returning the original result. Otherwise, it is `false`.  |
+| `uniqueness.checker.request.count`    | Counter    | `virtualnode.source`, `result.type`, `duplicate`   | A count of the number of requests processed. On its own this simply duplicates information that is already captured at the batch and sub-batch levels, but the tags can be used to provide additional context not available in the other metrics. The `result.type` tag can be used to understand the number of successful vs failed requests, and the type of failures. The `duplicate` tag is set to `true` if the uniqueness checker has seen a request for this transaction before, and is therefore simply returning the original result. Otherwise, it is `false`.  |
 
 ## Backing Store
 
