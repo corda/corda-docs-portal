@@ -450,7 +450,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 * `p2pTlsCertificateChainAlias` — the alias used when importing the TLS certificate.
 * `useClusterLevelTlsCertificateAndKey` - true if the TLS certificate and key are cluster-level certificates and keys
-* `sessionKeyId` — the [session key ID previously generated](#configure-key-pairs-and-certificates).
+* `sessionKeyId` — the [session key ID previously generated]({{< relref "#configure-key-pairs-and-certificates" >}}).
 
 ## Build Registration Context
 {{< note >}}
