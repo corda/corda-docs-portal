@@ -684,13 +684,13 @@ If no errors occur from reloading the flow from the newly created checkpoint, th
 
 #### Deserialization errors
 
-If an error does occur when deserializing the flow's checkpoint, a `ReloadFlowFromCheckpointException` is thrown, which causes the flow to be keptIf an error does occur when deserializing the flow's checkpoint, a `ReloadFlowFromCheckpointException` is thrown, which causes the flow to be kept in on pause (`HOSPITALIZED` status in the database) until either:
+If an error does occur when deserializing the flow's checkpoint, a `ReloadFlowFromCheckpointException` is thrown, which causes the flow to be kept paused (`HOSPITALIZED` status in the database) until either:
 
 * the node is restarted
-* node operator manually restarts the flow
+* a node operator manually restarts the flow
 * a node operator manually kills the flow off  
 
-This only occurs when the configuration option is turned on as this is not standard behaviour. The exception that caused the failure is logged, which will hopefully provides enough information to figure out what object could not be deserialized correctly. From this point, you can either change your flow or apply custom serialization for objects that failed deserialization.
+This only occurs when the configuration option is turned on as this is not standard behaviour. The exception that caused the failure is logged, which will hopefully provide enough information to figure out what object could not be deserialized correctly. From this point, you can either change your flow or apply custom serialization for objects that failed deserialization.
 
 When a failure occurs, you can see an error in the node's logs. The stack trace indicates what object it attempted to serialize, which allows you to determine the source of the error.
 
