@@ -1,7 +1,7 @@
 ---
 date: '2022-11-23'
 description: "Documentation for the latest beta release for Corda 5.0"
-title: Corda 5.0 Beta 3
+title: Next-Gen Corda 5.0 - Beta 3.0
 project: corda
 version: 'Corda 5.0 Beta 3'
 section_menu: corda-5-beta
@@ -12,8 +12,6 @@ menu:
     weight: 1000
     name: Corda 5.0 Beta 3
 ---
-
-## Next-Gen Corda 5.0 - Beta 3.0
 
 Corda is a platform that enables you to build permissioned networks, create applications that solve a business problem that requires parties to come to some agreement, and interact in a completely secure ecosystem. Corda 5 is the next-generation version, designed with an understanding that it is the job of a platform to serve those running software on it.
 
