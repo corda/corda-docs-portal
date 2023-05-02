@@ -142,9 +142,32 @@ workers:
 ```
 As with the number of replicas, you may need to adjust these values based on testing with your actual application workload.
 
-### REST API Load Balancer
+### Exposing the REST API
 
-By default, the [REST API](../../operating/operating-tutorials/rest-api.html) is exposed on an internal Kubernetes service. To enable access from outside the Kubernetes cluster, the API should be fronted by a load balancer. The Helm chart allows annotations to be specified to facilitate the creation of a load balancer by a cloud-platform specific controller. For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html) fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
+By default, the [REST API]({{< relref "../../operating/operating-tutorials/rest-api.md" >}}) is exposed on an internal Kubernetes service. To enable access from outside the Kubernetes cluster, use one of the following:
+
+* [Kubernetes Ingress]({{< relref "#kubernetes-ingress" >}})
+* [AWS Load Balancer Controller]({{< relref "#aws-load-balancer-controller" >}})
+
+#### Kubernetes Ingress
+
+We recommend configuring Kubernetes Ingress to provide the REST worker with HTTP load balancing. This also enables optional annotations for additional integration, such as External DNS or Cert Manager. For example:
+```yaml
+workers:
+  rest:
+    ingress:
+      # optional annotations for the REST worker ingress
+      annotations: {}
+      # optional className for the REST worker ingress
+      className: "nginx"
+      # required hosts for the REST worker ingress
+      hosts:
+      - <your-rest-worker.development.example.com>
+```
+
+#### AWS Load Balancer Controller
+
+Alternatively, the API can be fronted directly by a load balancer. The Helm chart allows annotations to be specified to facilitate the creation of a load balancer by a cloud-platform specific controller. For example, the following configuration specifies that the [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html) fronts the REST API with a Network Load Balancer internal to the Virtual Private Cloud (VPC):
 ```yaml
 workers:
   rest:
