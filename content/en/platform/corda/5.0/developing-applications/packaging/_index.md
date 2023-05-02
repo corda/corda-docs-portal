@@ -56,7 +56,7 @@ To build a CPB:
 
 
 
-For more information about the Corda CLI `package` command, see the [Corda CLI Refernce]({{< relref "../../../reference/corda-cli/package.md" >}}).
+For more information about the Corda CLI `package` command, see the [Corda CLI Refernce]({{< relref "../../reference/corda-cli/package.md" >}}).
 
 ## Sign a CPB
 
