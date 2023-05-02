@@ -144,7 +144,7 @@ As with the number of replicas, you may need to adjust these values based on tes
 
 ### Exposing the REST API
 
-By default, the [REST API](../../operating/operating-tutorials/rest-api.html) is exposed on an internal Kubernetes service. To enable access from outside the Kubernetes cluster, use one of the following:
+By default, the [REST API]({{< relref "../../operating/operating-tutorials/rest-api.md" >}}) is exposed on an internal Kubernetes service. To enable access from outside the Kubernetes cluster, use one of the following:
 
 * [Kubernetes Ingress]({{< relref "#kubernetes-ingress" >}})
 * [AWS Load Balancer Controller]({{< relref "#aws-load-balancer-controller" >}})
