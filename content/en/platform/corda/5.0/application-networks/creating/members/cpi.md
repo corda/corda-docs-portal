@@ -126,7 +126,7 @@ Build a {{< tooltip >}}CPI{{< definition term="CPI" >}}{{< /tooltip >}} using th
    {{% /tab %}}
    {{< /tabs >}}
 
-<!--For more information about creating CPIs, see the [CorDapp Packaging section]().-->
+For more information about the Corda CLI `package` command, see the [Corda CLI Refernce]({{< relref "../../../reference/corda-cli/package.md" >}}).
 
 ## Upload the CPI
 

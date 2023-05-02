@@ -16,35 +16,47 @@ Just like a regular application, your CorDapp must be packaged for distribution 
 2. **Corda Package Bundle (CPB)** — built using a collection of CPKs, which represents a full application. CPBs are complete applications minus the “run time information” needed to onboard entities into it. CPBs represent the final efforts of the development team, a discrete and testable application, encapsulating the solution to a problem that can be deployed to form an application network.
 3. **Corda Package Installer (CPI)** — contains the CPB and information about the network. The Network Operator builds this when [onboarding members]({{< relref "../../application-networks/creating/members/_index.md" >}}).
 
-## Configure the Packaging Plugins in Gradle
-
-To add the CPK plugin to your project, add the following to the top of the `build.gradle` file of your CorDapp Gradle project:
-```
-plugins {
-    id 'net.corda.plugins.cordapp-cpk2'
-}
-```
-
-To add the CPB plugin to your project, add the following to the top of the `build.gradle` file of your CorDapp Gradle project:
-```
-plugins {
-    id 'net.corda.plugins.cordapp-cpb2'
-}
-```
-
 ## Build a CPK
 
-To build a CPK, configure the project with either `cordapp-cpk2` or `cordapp-cpb2` plugin and run the `jar` Gradle task:
-```
-./gradlew jar
-```
+To build a CPK:
+
+1. Add the CPK plugin to your project by adding the following to the top of the `build.gradle` file of your CorDapp Gradle project:
+   ```
+   plugins {
+       id 'net.corda.plugins.cordapp-cpk2'
+   }
+   ```
+
+2. Run the `jar` Gradle task:
+   ```
+   ./gradlew jar
+   ```
 
 ## Build a CPB
 
-To build a CPB, configure the project with the `cordapp-cpb2` plugin and run the `cbp` Gradle task:
-```
-./gradlew jar
-```
+
+
+### Build a CPB Using Gradle
+
+To build a CPB:
+
+1. Add the add the CPB plugin to your project by adding the following to the top of the `build.gradle` file of your CorDapp Gradle project:
+   ```
+   plugins {
+       id 'net.corda.plugins.cordapp-cpb2'
+   }
+   ```
+
+2. Run the `cbp` Gradle task:
+   ```
+   ./gradlew cpb
+   ```
+
+#### Build a CPB Using the Corda CLI
+
+
+
+For more information about the Corda CLI `package` command, see the [Corda CLI Refernce]({{< relref "../../../reference/corda-cli/package.md" >}}).
 
 ## Sign a CPB
 
