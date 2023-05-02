@@ -10,18 +10,9 @@ menu:
 section_menu: corda-5-beta
 ---
 
-<style>
-table th:first-of-type {
-    width: 25%;
-}
-table th:nth-of-type(2) {
-    width: 75%;
-}
-</style>
-
 Before you install downloaded files, verify the integrity of each file to ensure it has not been tampered with or corrupted during the download. You can do this by calculating the **checksum** of your downloaded file, then comparing its value to the checksum value provided below.
 
-| Filename | Checksum Value                           |
+| <div style="width:220px">Filename</div> | Checksum Value                           |
 | --------------------------------------- | ---------------------------------------- |
 | platform-jars-Hawk1.0.tar.gz            | <ul><li> MD5: `09017f5dd96ea342d25c91016187af75`</li> <li> Sha1: `d7e31f06fdbe833a464cd8991cbd21a2c83a980f8e94ae70599914198ea3169c`</li></ul>           |
 | cordApp-dev-pack-Hawk1.0.tar.gz         | <ul><li> MD5: `d2fa79ae0c112a75fea3a61d7a59b208`</li><li> Sha1: `a3ea06f56057af07ea536eeaea89249b7ab7bd96c9064f96953ef8bb82c442fa`</li></ul>           |
