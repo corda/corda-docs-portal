@@ -32,8 +32,34 @@ plugins {
 }
 ```
 
-If your Gradle project only contains a single module, apply both plugins together.
-
 ## Build a CPK
 
+To build a CPK, configure the project with either `cordapp-cpk2` or `cordapp-cpb2` plugin and run the `jar` Gradle task:
+```
+./gradlew jar
+```
+
 ## Build a CPB
+
+To build a CPB, configure the project with the `cordapp-cpb2` plugin and run the `cbp` Gradle task:
+```
+./gradlew jar
+```
+
+## Sign a CPB
+
+CPBs muct be signed with a key that you can share with the Network Operator responsible for building the CPI from the CPB. 
+
+{{< note >}} 
+You should always sign test CPBs with a different key used only for testing. The final key that the Network Operator uses should not be used for signing until you are ready to release.
+{{< /note >}}
+
+For example, to generate a code signing key:
+
+```
+keytool -genkeypair -alias "<key-alias>" -keystore <signingkeys.pfx> -storepass "<keystore-password>" -dname "cn=<CPI Plugin Example - Signing Key 1, o=R3, L=London, c=GB>" -keyalg RSA -storetype pkcs12 -validity 4000
+```
+
+{{< warning >}}
+Never commit your keystore to git.
+{{< /warning >}}
