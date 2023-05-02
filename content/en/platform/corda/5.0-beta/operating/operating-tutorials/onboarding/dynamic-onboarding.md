@@ -8,7 +8,7 @@ menu:
     weight: 2000
 section_menu: corda-5-beta
 ---
-This section describes how to configure a [dynamic network]({{<relref "../../../deploying/network-types.md#dynamic-networks" >}}) to onboard new members. It assumes that you have configured the [MGM for the network]({{<relref "mgm-onboarding.md" >}}).
+This section describes how to configure a [dynamic network]({{< relref "../../../deploying/network-types.md#dynamic-networks" >}}) to onboard new members. It assumes that you have configured the [MGM for the network]({{< relref "mgm-onboarding.md" >}}).
 
 {{< note >}}
 The PowerShell commands listed on this page are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
