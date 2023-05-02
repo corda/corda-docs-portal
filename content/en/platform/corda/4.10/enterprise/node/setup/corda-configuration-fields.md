@@ -121,7 +121,10 @@ Optional path to the configuration file for the CryptoService provider. This may
 The *absolute value* of *cryptoServiceFlowRetryCount* determines the number of times that the flow is retried. The *sign* of the value determines what happens when all retries are exhausted: 
 
 * If a *negative* value is specified, a `CryptoServiceException` is propagated back to the calling code and the flow fails; this was the default behaviour in versions of Corda before 4.10.
-* If a *positive* value is specified, then the flow is held in the flow hospital for overnight observation so that a node operator can review it.
+* If a *positive* value is specified, then the flow is held in the flow hospital on pause, until either:
+  * the node is restarted
+  * node operator manually restarts the flow
+  * a node operator manually kills the flow off
 
 For example, if `cryptoServiceFlowRetryCount` is set to `-2`, then the flow is retried a maximum of two times. If it still fails, then the exception is propagated back to the code that invoked the flow and the flow failed.
 
