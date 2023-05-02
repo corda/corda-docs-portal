@@ -151,7 +151,19 @@ By default, the [REST API](../../operating/operating-tutorials/rest-api.html) is
 
 #### Kubernetes Ingress
 
-We recommend configuring Kubernetes Ingress to provide the REST worker with HTTP load balancing. This also enables optional annotations for additional integration, such as External DNS or Cert Manager. For example, the following configuration specifies
+We recommend configuring Kubernetes Ingress to provide the REST worker with HTTP load balancing. This also enables optional annotations for additional integration, such as External DNS or Cert Manager. For example:
+```yaml
+workers:
+  rest:
+    ingress:
+      # optional annotations for the REST worker ingress
+      annotations: {}
+      # optional className for the REST worker ingress
+      className: "nginx"
+      # required hosts for the REST worker ingress
+      hosts:
+      - <your-rest-worker.development.example.com>
+```
 
 #### AWS Load Balancer Controller
 
