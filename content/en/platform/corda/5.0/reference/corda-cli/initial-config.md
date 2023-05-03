@@ -22,17 +22,12 @@ The `create-user-config` command creates the SQL script to add the RBAC configur
 | -u, \-\-user                            | The user name of the initial admin user.      |
 
 {{< tabs name="DDL-user">}}
-{{% tab name="Linux" %}}
+{{% tab name="Bash" %}}
 ```sh
 corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
 ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
-```sh
-corda-cli.sh initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
-```
-{{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd initial-config create-user-config -u <INITIAL-ADMIN-USERNAME> -p <INITIAL-ADMIN-PASSWORD> -l /tmp/db
 ```
@@ -57,21 +52,14 @@ The `create-db-config` command creates the SQL statements to insert the connecti
 | -u, \-\-user                            | The user name for the database connection. Required.                                                                                             |
 
 {{< tabs name="RBAC">}}
-{{% tab name="Linux" %}}
+{{% tab name="Bash" %}}
 ```sh
 corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
   --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
   --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
 ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
-```sh
-corda-cli.sh initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> \
-  --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> \
-  --jdbc-pool-max-size <POOL-SIZE> --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-```
-{{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd initial-config create-db-config -u <RBAC-USERNAME> -p <RBAC-PASSWORD> `
   --name corda-rbac --jbdc-url jdbc:postgresql://<DB-HOST>:<DB-PORT>/<DB=NAME> `
@@ -93,17 +81,12 @@ The `create-crypto-config` command creates the SQL statements to insert the init
 | -ws, \-\-wrapping-salt                  | Salt for the soft HSM root wrapping key.                                                                                                         |
 
 {{< tabs name="DDL-crypto-config">}}
-{{% tab name="Linux" %}}
+{{% tab name="Bash" %}}
 ```sh
 corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
 ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
-```sh
-corda-cli.sh initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
-```
-{{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd initial-config create-crypto-config --salt <SALT> --passphrase <PASSPHRASE> -l /tmp/db
 ```
