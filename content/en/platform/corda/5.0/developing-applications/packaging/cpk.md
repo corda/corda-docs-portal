@@ -19,7 +19,7 @@ This section describes how to create CPKs. It contains the following:
 ## Configure your Project
 To configure your CPK project:
 
-1. Add the CPK plugin to your project by adding the following to the top of the `build.gradle` file of your CorDapp Gradle project:
+1. Add the CPK plugin to your project by adding the following to the start of the `build.gradle` file of your CorDapp Gradle project:
    ```
    plugins {
        id 'net.corda.plugins.cordapp-cpk2'
