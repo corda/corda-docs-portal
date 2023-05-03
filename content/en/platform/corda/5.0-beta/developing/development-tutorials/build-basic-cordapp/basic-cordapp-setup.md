@@ -45,12 +45,12 @@ cordapp {
 }
 
 dependencies {
-    cordaProvided 'net.corda:corda-ledger-utxo:5.0.0.523-Hawk1.0'
+    cordaProvided 'net.corda:corda-ledger-utxo:5.0.0.523-Hawk1.0.1'
 
     cordapp project(':testing:cpbs:ledger-apples-example:ledger-utxo-apples-example-contract')
 
     // Common and API packages pulled in as transitive dependencies through client
-    cordapp 'com.r3.corda.notary.plugin.nonvalidating:notary-plugin-non-validating-client:5.0.0.0-Hawk1.0'
+    cordapp 'com.r3.corda.notary.plugin.nonvalidating:notary-plugin-non-validating-client:5.0.0.0-Hawk1.0.1'
 }
 ```
 
@@ -76,7 +76,7 @@ cordapp {
 }
 
 dependencies {
-    cordaProvided 'net.corda:corda-ledger-utxo:5.0.0.523-Hawk1.0'
+    cordaProvided 'net.corda:corda-ledger-utxo:5.0.0.523-Hawk1.0.1'
 }
 ```
 

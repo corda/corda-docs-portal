@@ -14,8 +14,8 @@ Before you install downloaded files, verify the integrity of each file to ensure
 
 | <div style="width:220px">Filename</div> | Checksum Value                           |
 | --------------------------------------- | ---------------------------------------- |
-| platform-jars-Hawk1.0.tar.gz            | <ul><li> MD5: `09017f5dd96ea342d25c91016187af75`</li> <li> Sha1: `d7e31f06fdbe833a464cd8991cbd21a2c83a980f8e94ae70599914198ea3169c`</li></ul>           |
-| cordApp-dev-pack-Hawk1.0.tar.gz         | <ul><li> MD5: `d2fa79ae0c112a75fea3a61d7a59b208`</li><li> Sha1: `a3ea06f56057af07ea536eeaea89249b7ab7bd96c9064f96953ef8bb82c442fa`</li></ul>           |
-| corda-worker-images-Hawk1.0.tar         | <ul><li> MD5: `23a22e11ced30d220e1d32344bf9f27c`</li> <li> Sha1: `cbc845ea5e690cf983e7f30d627b1be03166aeb9d3d061ca6185923d2e00a019`</li></ul>           |
-| corda-5.0.0-Hawk1.0.tgz                 | <ul><li> MD5: `11d4544201e1b997bd30631e8f905394` </li> <li> Sha1: `55b804ed36e7595ee7313880022e95aeb9c02b21338e01bdce83e330f1c50c80`</li></ul>           |
-| supporting-scripts-Hawk1.0.tar.gz       | <ul><li> MD5: `e5bd95a8f19dca69a0e626e7849c186e` </li> <li> Sha1: `f12db97e1f86a6508cada6cbb887ee3b5e3c9fe6036fd5434255f9ab6ff85f96`</li></ul>           |
+| platform-jars-Hawk1.0.1.tar.gz            | <ul><li> MD5: `3df5b01637ba448c07dad442fb924246`</li> <li> SHA256: `5470e6b53a07d7019bc3167bc2d78060f3dfeca1d7f58c02d1ba035341095632`</li></ul>           |
+| cordApp-dev-pack-Hawk1.0.1.tar.gz         | <ul><li> MD5: `2d63d204ee09e4070c2f0db9ef53194f`</li><li> SHA256: `15e81d3afe55832d5b938d854e65a863c826871bb471c6256c0d8354c3651824`</li></ul>           |
+| corda-worker-images-Hawk1.0.1.tar         | <ul><li> MD5: `b6a3ea18358729416bac90153dd10113`</li> <li> SHA256: `3115b1305fd301929b9e349b9f83f7221fc1e09e10043943e4a25e25f0d654b5`</li></ul>           |
+| corda-5.0.0-Hawk1.0.1.tgz                 | <ul><li> MD5: `05389326f07d9b570d7a2cb7883339b3` </li> <li> SHA256: `d95cc87c9de5b411f885462d0261cf79ed3ef59dd1c5741a3d962d24ba9073c4`</li></ul>           |
+| supporting-scripts-Hawk1.0.1.tar.gz       | <ul><li> MD5: `d1f84250f9e95047aebb222e7821b473` </li> <li> SHA256: `1a1059ed44325cf0690942bdd5e9e81b7bc7ac1dc4ee6157bd800ac4162a15df`</li></ul>           |

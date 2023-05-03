@@ -25,22 +25,22 @@ Java     | Azul JDK 11
 ## Downloading Corda CLI
 
 You can obtain the Corda CLI installer in one of the following ways:
-* Download `platform-jars-Hawk1.0.tar.gz` from the [R3 Customer Hub](https://r3.force.com/)
-and extract `corda-cli-downloader-5.0.0.0-Hawk1.0.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Hawk1.0`.
-* Download `corda-cli-downloader-5.0.0.0-Hawk1.0.zip` directly from the [R3 S3 repository](https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-Hawk1.0/corda-cli-downloader-5.0.0.0-Hawk1.0.zip).
+* Download `platform-jars-Hawk1.0.1.tar.gz` from the [R3 Customer Hub](https://r3.force.com/)
+and extract `corda-cli-downloader-5.0.0.0-Hawk1.0.1.zip` from `net\corda\cli\deployment\corda-cli-installer\5.0.0.0-Hawk1.0.1`.
+* Download `corda-cli-downloader-5.0.0.0-Hawk1.0.1.zip` directly from the [R3 S3 repository](https://download.corda.net/packages/corda-cli-downloader/5.0.0.0-Hawk1.0.1/corda-cli-downloader-5.0.0.0-Hawk1.0.1.zip).
 
 ## Installing on Linux/macOS
 
 1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
 2. Start a shell session (bash or zsh).
-2. Change directory to where you saved `corda-cli-downloader-5.0.0.0-Hawk1.0.zip`.
+2. Change directory to where you saved `corda-cli-downloader-5.0.0.0-Hawk1.0.1.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   unzip ./corda-cli-downloader-5.0.0.0-Hawk1.0.zip -d corda-cli-downloader-5.0.0.0-Hawk1.0
+   unzip ./corda-cli-downloader-5.0.0.0-Hawk1.0.1.zip -d corda-cli-downloader-5.0.0.0-Hawk1.0.1
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-downloader-5.0.0.0-Hawk1.0
+   cd corda-cli-downloader-5.0.0.0-Hawk1.0.1
    ```
 5. Run the install script:
    ```shell
@@ -58,14 +58,14 @@ and extract `corda-cli-downloader-5.0.0.0-Hawk1.0.zip` from `net\corda\cli\deplo
 
 1. Ensure that you remove any existing installations of Corda CLI by deleting the `<user-home>/.corda/cli` folder.
 2. Start a Powershell session.
-2. Change directory to where you saved `corda-cli-downloader-5.0.0.0-Hawk1.0.zip`.
+2. Change directory to where you saved `corda-cli-downloader-5.0.0.0-Hawk1.0.1.zip`.
 3. Extract the contents of the `zip` file:
    ```shell
-   Expand-Archive .\corda-cli-downloader-5.0.0.0-Hawk1.0.zip
+   Expand-Archive .\corda-cli-downloader-5.0.0.0-Hawk1.0.1.zip
    ```
 4. Change directory to the directory extracted from the `zip` file:
    ```shell
-   cd corda-cli-downloader-5.0.0.0-Hawk1.0
+   cd corda-cli-downloader-5.0.0.0-Hawk1.0.1
    ```
 5. Run the install script:
    ```shell
