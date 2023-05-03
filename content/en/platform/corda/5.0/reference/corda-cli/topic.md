@@ -27,19 +27,13 @@ This section lists the Corda CLI `topic` arguments. You can use these commands t
 ## create
 
 {{< tabs name="create-topics">}}
-{{% tab name="Linux" %}}
+{{% tab name="Bash" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
   create -r <REPLICAS> -p <PARTITIONS> connect
 ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
-```sh
-corda-cli.sh topic -b <BOOTSTRAP-SERVERS> -k config.properties \
-  create -r <REPLICAS> -p <PARTITIONS> connect
-   ```
-{{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLICAS> -p <PARTITIONS> connect
 ```
@@ -49,17 +43,12 @@ corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> -k config.properties create -r <REPLI
 ## delete
 
 {{< tabs name="delete-topics">}}
-{{% tab name="Linux" %}}
+{{% tab name="Bash" %}}
 ```sh
 corda-cli.sh topic -b <BOOTSTRAP-SERVERS> delete connect
 ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
-```sh
-corda-cli.sh topic -b <BOOTSTRAP-SERVERS> delete connect
-   ```
-{{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd topic -b <BOOTSTRAP-SERVERS> delete connect
 ```

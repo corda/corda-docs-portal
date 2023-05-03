@@ -14,17 +14,12 @@ This section lists the Corda CLI `mgm` arguments. You can use these commands to 
 Running the `groupPolicy` command without any arguments prints a sample `GroupPolicy.json` file that you can manually tweak.
 
 {{< tabs name="groupPolicy">}}
-{{% tab name="Linux" %}}
+{{% tab name="Bash" %}}
 ```sh
 corda-cli.sh mgm groupPolicy
 ```
 {{% /tab %}}
-{{% tab name="macOS" %}}
-```sh
-corda-cli.sh mgm groupPolicy
-```
-{{% /tab %}}
-{{% tab name="Windows" %}}
+{{% tab name="PowerShell" %}}
 ```shell
 corda-cli.cmd mgm groupPolicy
 ```
@@ -44,17 +39,12 @@ Alternatively, use the following command line arguments to define the static net
 
 To generate GroupPolicy using file input:
    {{< tabs name="groupPolicy-file">}}
-   {{% tab name="Linux" %}}
+   {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh groupPolicy --file="app/build/resources/src.yaml"
    ```
    {{% /tab %}}
-  {{% tab name="macOS" %}}
-   ```sh
-   corda-cli.sh groupPolicy --file="app/build/resources/src.yaml"
-   ```
-   {{% /tab %}}
-   {{% tab name="Windows" %}}
+   {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd groupPolicy --file="app/build/resources/src.yaml"
    ```
@@ -118,17 +108,12 @@ To generate GroupPolicy using file input:
 
 To generate GroupPolicy using parameters:
    {{< tabs name="groupPolicy-params">}}
-   {{% tab name="Linux" %}}
+   {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh groupPolicy --name="C=GB, L=London, O=Member1" --name="C=GB, L=London, O=Member2" --endpoint-protocol=5 --endpoint="http://dummy-url"
    ```
    {{% /tab %}}
-   {{% tab name="macOS" %}}
-   ```sh
-   corda-cli.sh groupPolicy --name="C=GB, L=London, O=Member1" --name="C=GB, L=London, O=Member2" --endpoint-protocol=5 --endpoint="http://dummy-url"
-   ```
-   {{% /tab %}}
-   {{% tab name="Windows" %}}
+   {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd groupPolicy --name="C=GB, L=London, O=Member1" --name="C=GB, L=London, O=Member2" --endpoint-protocol=5 --endpoint="http://dummy-url"
    ```

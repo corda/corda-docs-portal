@@ -32,7 +32,7 @@ The `create-cpb` argument creates a CPB file from a set of CPK files using the f
 For example:
 
    {{< tabs name="create-cpb">}}
-   {{% tab name="Linux" %}}
+   {{% tab name="Bash" %}}
    ```sh
    ./corda-cli.sh package create-cpb \
     mycpk0.cpk mycpk1.cpk \
@@ -44,19 +44,7 @@ For example:
     --key "signing key 1"
    ```
    {{% /tab %}}
-   {{% tab name="macOS" %}}
-   ```sh
-   ./corda-cli.sh package create-cpb \
-    mycpk0.cpk mycpk1.cpk \
-    --cpb-name manifest-attribute-cpb-name \
-    --cpb-version manifest-attribute-cpb-version \
-    --file output.cpb \
-    --keystore signingkeys.pfx \
-    --storepass "keystore password" \
-    --key "signing key 1"
-   ```
-   {{% /tab %}}
-   {{% tab name="Windows" %}}
+   {{% tab name="PowerShell" %}}
    ```shell
     ./corda-cli.cmd package create-cpb `
     mycpk0.cpk mycpk1.cpk `
@@ -88,7 +76,7 @@ The `create-cpi` argument creates a CPI file using the following arguments:
 For example:
 
    {{< tabs name="create-cpi">}}
-   {{% tab name="Linux" %}}
+   {{% tab name="Bash" %}}
    ```sh
    ./corda-cli.sh package create-cpi \
     --cpb mycpb.cpb \
@@ -101,20 +89,7 @@ For example:
     --key "signing key 1"
    ```
    {{% /tab %}}
-   {{% tab name="macOS" %}}
-   ```sh
-   ./corda-cli.sh package create-cpi \
-    --cpb mycpb.cpb \
-    --group-policy TestGroupPolicy.json \
-    --cpi-name "cpi name" \
-    --cpi-version "1.0.0.0-SNAPSHOT" \
-    --file output.cpi \
-    --keystore signingkeys.pfx \
-    --storepass "keystore password" \
-    --key "signing key 1"
-   ```
-   {{% /tab %}}
-   {{% tab name="Windows" %}}
+   {{% tab name="PowerShell" %}}
    ```shell
     ./corda-cli.cmd package create-cpi `
     --cpb mycpb.cpb `
