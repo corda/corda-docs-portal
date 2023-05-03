@@ -21,17 +21,12 @@ This section lists the Corda CLI `database` arguments. You can use these command
 For example, the following command generates the files in the directory `/tmp/db`:
 
    {{< tabs name="database">}}
-   {{% tab name="Linux" %}}
+   {{% tab name="Bash" %}}
    ```sh
    corda-cli.sh database spec -c -l /tmp/db
    ```
    {{% /tab %}}
-   {{% tab name="macOS" %}}
-   ```sh
-   corda-cli.sh database spec -c -l /tmp/db
-   ```
-   {{% /tab %}}
-   {{% tab name="Windows" %}}
+   {{% tab name="PowerShell" %}}
    ```shell
    corda-cli.cmd database spec -c -l /tmp/db
    ```
