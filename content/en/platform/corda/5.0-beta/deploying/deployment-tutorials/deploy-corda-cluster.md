@@ -334,12 +334,12 @@ db:
     repository: "postgres"
     tag: "14.4"
 ```
-Part of the database bootstrapping involves populating the initial admin credentials. You can specify these in one of the following ways:
+Part of the database bootstrapping involves populating the initial credentials for the REST API admin. You can specify these in one of the following ways:
 
 * Pass the user name and password as Helm values:
   ```yaml
   bootstrap:
-    initialAdminUser:
+    restApiAdmin:
       username:
         value: <USERNAME>
       password:
@@ -351,7 +351,7 @@ Part of the database bootstrapping involves populating the initial admin credent
 * Create a Kubernetes secret containing the user credentials:
   ```yaml
   bootstrap:
-    initialAdminUser:
+    restApiAdmin:
       username:
         valueFrom:
           secretKeyRef:
