@@ -9,6 +9,15 @@ menu:
 section_menu: corda5
 ---
 
+This section describes how to build a member CPI and upload it to the network. It contains the following:
+1. [Set Variables]({{< relref "#set-variables" >}})
+2. [Select a Certificate Authority]({{< relref "#select-a-certificate-authority" >}})
+3. [Create the CPB]({{< relref "#create-the-cpb" >}})
+3. [Create the Group Policy File]({{< relref "#create-the-group-policy-file" >}})
+3. [Create the CPI File]({{< relref "#create-the-cpi-file" >}})
+4. [Import Code Signing Certificates]({{< relref "#import-code-signing-certificates" >}})
+5. [Upload the CPI]({{< relref "#upload-the-cpi" >}})
+
 ## Set Variables
 Set the values of variables for use in later commands:
 
@@ -39,12 +48,12 @@ Set the values of variables for use in later commands:
    {{< tabs >}}
    {{% tab name="Bash"%}}
    ```shell
-   export API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
+   export REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
+   $REST_API_URL="https://$REST_API_HOST:$REST_API_PORT/api/v1"
    ```
    }
    {{% /tab %}}
@@ -132,7 +141,7 @@ Add-Content $WORK_DIR/GroupPolicy.json @"
 {{% /tab %}}
 {{< /tabs >}}
 
-## Create the CPI
+## Create the CPI File
 
 Build a CPI using the Corda CLI, passing in your generated MGM CPB and `GroupPolicy.json` files:
 
@@ -165,7 +174,26 @@ Build a CPI using the Corda CLI, passing in your generated MGM CPB and `GroupPol
    {{% /tab %}}
    {{< /tabs >}}
 
-For more information about the Corda CLI `package` command, see the [Corda CLI Reference]({{< relref "../../../reference/corda-cli/package.md" >}}).
+## Import Code Signing Certificates
+
+{{< note >}}
+You do not have to repeat this step if a CPI previously uploaded to the network uses the same certificate.
+{{< /note >}}
+
+Corda validates that uploaded CPIs are signed with a trusted key. To trust your signing keys:
+
+1. Export the signing key certificate from the keystore:
+    ```shell
+    keytool -exportcert -rfc -alias "<key-alias>" -keystore <signingkeys.pfx> -storepass "<keystore-password>" -file <signingkey1.pem>
+    ```
+2. Import the signing key into Corda:
+    ```shell
+    curl -u $REST_API_USER:$REST_API_PASSWORD -X PUT -F alias="<unique-key-alias>" -F certificate=@<signingkey1.pem> $REST_API_URL/certificates/cluster/code-signer
+    ```
+
+{{< note >}}
+Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same X.500 name as existing certificates.
+{{< /note >}}
 
 ## Upload the CPI
 
@@ -199,7 +227,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID
 {{% tab name="PowerShell" %}}
 ```shell
 $CPI_ID = $CPI_UPLOAD_RESPONSE.id
-$CPI_STATUS_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/cpi/status/$CPI_ID"
+$CPI_STATUS_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/status/$CPI_ID"
 ```
 {{% /tab %}}
 {{< /tabs >}}

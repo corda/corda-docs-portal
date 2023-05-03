@@ -8,7 +8,11 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
-
+This section describes how to configure key pairs and certificates. It contains the following:
+1. [Generate a Session Initiation Key Pair]({{< relref "#generate-a-session-initiation-key-pair">}})
+2. [Generate ECDH Key Pair]({{< relref "#generate-ecdh-key-pair">}})
+2. [Configure the Cluster TLS Key Pair]({{< relref "#configure-the-cluster-tls-key-pair">}})
+4. [Disable Revocation Checks]({{< relref "#disable-revocation-checks">}})
 ## Generate a Session Initiation Key Pair
 
 To assign a soft hardware security module (HSM) and generate a session initiation key pair:
