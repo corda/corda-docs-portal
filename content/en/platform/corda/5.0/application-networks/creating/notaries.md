@@ -10,11 +10,11 @@ section_menu: corda5
 ---
 This section describes how to onboard a new member as a notary service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/_index.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page. The sections must be completed in the order in which they are presented:
 
-1. [Build the member CPI]({{< relref "./members/cpi.md">}}). For information about developing a notary CPB, see the [Notary section of Developing Applications]({{< relref "../../developing-applications/notaries/_index.md" >}}).
+1. [Build the member CPI]({{< relref "./members/cpi.md">}}). <!--For information about developing a notary CPB, see [Notary Plugin CorDapps]().>
 2. [Create a member virtual node]({{< relref "./members/virtual-node.md">}}).
 3. [Generate a notary key pair]({{< relref "#generate-a-notary-key-pair">}}).
 4. [Configure the member communication properties]({{< relref "./members/config-node.md">}}).
-5. [Register the notary]({{< relref "#register-the-notary">}}).
+5. [Register the notary.]({{< relref "#register-the-notary">}}).
 
 {{< note >}}
 The PowerShell commands listed are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
@@ -31,14 +31,14 @@ Generate notary keys in a similar way as done for other key types. First, create
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/hsm/soft/$HOLDING_ID/NOTARY
-curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-notary/category/NOTARY/scheme/CORDA.ECDSA.SECP256R1
+curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL/hsm/soft/$HOLDING_ID/NOTARY
+curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-notary/category/NOTARY/scheme/CORDA.ECDSA.SECP256R1
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/hsm/soft/$HOLDING_ID/NOTARY"
-$LEDGER_KEY_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-notary/category/NOTARY/scheme/CORDA.ECDSA.SECP256R1"
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/hsm/soft/$HOLDING_ID/NOTARY"
+$LEDGER_KEY_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/keys/$HOLDING_ID/alias/$HOLDING_ID-notary/category/NOTARY/scheme/CORDA.ECDSA.SECP256R1"
 $NOTARY_KEY_ID = $NOTARY_KEY_RESPONSE.id
 ```
 {{% /tab %}}
@@ -98,12 +98,12 @@ To register a member, run the following command:
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```shell
-curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": '$REGISTRATION_CONTEXT' } }' $REST_API_URL/membership/$HOLDING_ID
+curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": '$REGISTRATION_CONTEXT' } }' $API_URL/membership/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-$REGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
+$REGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
     memberRegistrationRequest = @{
         action = "requestJoin"
         context = $REGISTRATION_CONTEXT
@@ -123,12 +123,12 @@ You can confirm if the notary was onboarded successfully by checking the status 
 {{% tab name="Bash"%}}
 ```
 export REGISTRATION_ID=<registration-ID>
-curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
+curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/membership/$HOLDING_ID/${REGISTER_RESPONSE.registrationId}"
+Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/membership/$HOLDING_ID/${REGISTER_RESPONSE.registrationId}"
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -139,12 +139,12 @@ After registration, you can use the look-up functions provided by the `MemberLoo
 {{< tabs >}}
 {{% tab name="Bash"%}}
 ```bash
-curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $REST_API_URL/members/$HOLDING_ID
+curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/members/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
- Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/membership/$HOLDING_ID" | ConvertTo-Json -Depth 4
+ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/membership/$HOLDING_ID" | ConvertTo-Json -Depth 4
 ```
 {{% /tab %}}
 {{< /tabs >}}
