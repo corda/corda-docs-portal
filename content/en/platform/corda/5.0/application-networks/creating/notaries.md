@@ -8,7 +8,7 @@ menu:
     weight: 3000
 section_menu: corda5
 ---
-This section describes how to onboard a new member as a notary service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/_index.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page. The sections must be completed in the order in which they are presented:
+This section describes how to onboard a new member as a notary service representative. It assumes that you have configured the [MGM for the network]({{< relref "./mgm/_index.md" >}}). Onboarding a notary member is similar to any other member, but with the exceptions outlined on this page. The sections must be completed in the following order:
 
 1. [Build the member CPI]({{< relref "./members/cpi.md">}}) using the Notary CPB. For information about the notary CPB, see the [Notary section of Developing Applications]({{< relref "../../developing-applications/notaries/_index.md" >}}).
 2. [Import Notary CPB Code Signing Certificate]({{< relref "#import-notary-cpb-code-signing-certificate">}}). This is in addition to importing certificates for application CPKs or CPBs.
@@ -128,7 +128,7 @@ export REGISTRATION_CONTEXT='{
   "corda.endpoints.0.connectionURL": "https://'$P2P_GATEWAY_HOST':'$P2P_GATEWAY_PORT'",
   "corda.endpoints.0.protocolVersion": "1",
   "corda.roles.0": "notary",
-  "corda.notary.service.name": <An X500 name for the notary service>,
+  "corda.notary.service.name": <notary-service-X.500-name>,
   "corda.notary.service.plugin": "net.corda.notary.NonValidatingNotary"
 }'
 ```
@@ -145,13 +145,21 @@ $REGISTRATION_CONTEXT = @{
   'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST`:$P2P_GATEWAY_PORT"
   'corda.endpoints.0.protocolVersion' = "1"
   'corda.roles.0' = "notary",
-  'corda.notary.service.name' = <An X500 name for the notary service>,
+  'corda.notary.service.name' = <notary-service-X.500-name>,
   'corda.notary.service.plugin' = "net.corda.notary.NonValidatingNotary"
 }
 ```
 {{% /tab %}}
 {{< /tabs >}}
 
+This sets the following notary specific values:
+* `'corda.roles.0' = "notary"` — indicates that the virtual node is taking the role of a notary on the network.
+* `"corda.notary.service.name" : <notary-service-X.500-name>` - specifies a X.500 name for the notary service that this virtual node will represent. This is the name that will be used by CorDapps when specifying which notary to use for notarization.
+* `"corda.notary.service.plugin" : "net.corda.notary.NonValidatingNotary"` - indicates that the virtual node uses the R3 non-validating notary protocol plugin.
+
+{{< note >}}
+It is currently only possible to have a single notary virtual node associated with a notary service X.500 name. The eventual intent is to allow a many-to-one mapping, similar to the HA notary implementation in Corda 4. This will allow a notary service to be hosted across multiple Corda clusters/regions.
+{{< /note >}}
 ### Register the Notary
 
 To register a member, run the following command:
