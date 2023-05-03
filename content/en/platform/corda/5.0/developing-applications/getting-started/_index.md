@@ -7,7 +7,7 @@ menu:
   corda5:
     identifier: corda5-develop-get-started
     parent: corda5-develop
-    weight: 4000
+    weight: 5000
 section_menu: corda5
 ---
 _direct lift of existing Getting Started sections?_:

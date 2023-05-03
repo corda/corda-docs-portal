@@ -9,6 +9,12 @@ menu:
 section_menu: corda5
 ---
 
+This section describes how to configure key pairs and certificates. It contains the following:
+1. [Generate a Session Initiation Key Pair]({{< relref "#generate-a-session-initiation-key-pair">}})
+2. [Generate a Ledger Key Pair]({{< relref "#generate-a-ledger-key-pair">}})
+3. [Generate a TLS Key Pair]({{< relref "#generate-a-tls-key-pair">}})
+4. [Disable Revocation Checks]({{< relref "#disable-revocation-checks">}})
+
 ## Generate a Session Initiation Key Pair
 
 To assign a soft hardware security module (HSM) and generate a session initiation key pair:
