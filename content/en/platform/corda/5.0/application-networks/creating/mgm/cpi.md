@@ -165,7 +165,7 @@ Build a CPI using the Corda CLI, passing in your generated MGM CPB and `GroupPol
    {{% /tab %}}
    {{< /tabs >}}
 
-For more information about the Corda CLI `package` command, see the [Corda CLI Refernce]({{< relref "../../../reference/corda-cli/package.md" >}}).
+For more information about the Corda CLI `package` command, see the [Corda CLI Reference]({{< relref "../../../reference/corda-cli/package.md" >}}).
 
 ## Upload the CPI
 
