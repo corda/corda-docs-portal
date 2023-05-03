@@ -1,6 +1,6 @@
 ---
 date: '2023-02-23'
-title: "Testing Your CorDapp"
+title: "Testing CorDapps"
 project: corda
 version: 'Corda 5.0'
 menu:

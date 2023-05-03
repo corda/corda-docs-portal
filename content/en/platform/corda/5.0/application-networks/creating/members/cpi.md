@@ -154,7 +154,6 @@ Corda validates that uploaded CPIs are signed with a trusted key. To trust your 
 Use an alias that will remain unique over time, taking into account that certificate expiry will require new certificates with the same X.500 name as existing certificates.
 {{< /note >}}
 
-
 ## Upload the CPI
 
 To upload the CPI to the network, run the following:
