@@ -177,7 +177,7 @@ Build a CPI using the Corda CLI, passing in your generated MGM CPB and `GroupPol
 ## Import Code Signing Certificates
 
 {{< note >}}
-You do not have to repeat this step if a CPI previously uplaoded to the network uses the same certificate.
+You do not have to repeat this step if a CPI previously uploaded to the network uses the same certificate.
 {{< /note >}}
 
 Corda validates that uploaded CPIs are signed with a trusted key. To trust your signing keys:
