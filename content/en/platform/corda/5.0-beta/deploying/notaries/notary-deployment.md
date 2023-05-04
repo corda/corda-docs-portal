@@ -25,7 +25,7 @@ Deploying notary virtual nodes to your network follows an almost identical proce
 
   - `"corda.notary.service.flow.protocol.name" : "com.r3.corda.notary.plugin.nonvalidating"` - This attribute replaces the validating Boolean flag in Corda 4. This is effectively the equivalent to setting `validating = false` in Corda 4.
 
-  - `"corda.notary.service.flow.protocol.version.0" : "1"` - This must be specified and must be set to version 1 for now. The 0 on the end of the name reflects the fact that in future there may be multiple versions supported, which would be reflected in the MGM standard way using 1, 2, 3 for each additional version supported.
+  - `"corda.notary.service.flow.protocol.version.0" : "1"` - This must be specified and currently must be set to version 1. The 0 at the end of the name reflects the fact that in future there may be multiple versions supported, with additional versions specified by 1,2, and so on. 
 
   {{< note >}}
   It is currently only possible to have a single notary virtual node associated with a notary service X.500 name. The eventual intent is to allow a many-to-one mapping, similar to the HA notary implementation in Corda 4. This will allow a notary service to be hosted across multiple Corda clusters/regions.
