@@ -37,7 +37,14 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
    git checkout release/corda-5-beta-3
    ```
 
-3. Initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo.
+3. Initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo:
+
+   ```sh
+   git init 
+   git remote add origin {remote_url}
+   ```
+   
+   where {remote_url} is the URL of the remote repository that you have created.
 
 3. Open the project in IntelliJ and let the import process complete.
   When complete, the project structure looks as follows:

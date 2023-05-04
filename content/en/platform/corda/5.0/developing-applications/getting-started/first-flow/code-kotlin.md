@@ -201,7 +201,7 @@ When running on Corda, the log files are updated.
     }
 ```
 The log files for CSDE are located in the logs folder in the root of the project.
-The CSDE starts a new log file each time a new instance of Corda is created or when the log file grows too large. The logging can be configured by editing the `config/static-network-config.json` file.
+The CSDE starts a new log file each time a new instance of Corda is created or when the log file grows too large. The logging can be configured by editing the `config/log4j2.xml` file.
 Because the Corda combined worker runs all of the Corda processes in one JVM process, there are a lot of log entries.
 We recommend adding an easily searchable tag to each log message. For example:
 ```kotlin

@@ -62,7 +62,7 @@ Once authorised, you can start hitting endpoints. The easiest one to try is `/cp
    {{< figure src="get-cpi-error.png" figcaption="Swagger showing an error response to GET /cpi" alt="Swagger showing an error response to GET /cpi" >}}
    If this occurs, you either have not started Corda, Corda has not finished starting, or something has gone wrong. If something has gone wrong, you should try again or [reset the environment]({{< relref "../reset-csde.md" >}}) and start again.
    {{< note >}}
-   Each time you start Corda it is a fresh instance. There is no persistence of state between restarts.
+   Each time you start Corda for the specific combined worker development environment, it is a fresh instance. There is no persistence of state between restarts.
    {{< /note >}}
 
 ## Deploying a CorDapp
