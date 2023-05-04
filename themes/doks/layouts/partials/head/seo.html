@@ -18,10 +18,9 @@
   <title>
     {{ .Title }} 
     {{ if .Params.version }}
-      {{ .Site.Params.titleSeparator }}{{ .Params.version }}
+      {{ .Site.Params.titleSeparator }} {{ .Params.version }}
     {{ else }}
-      {{ .Site.Params.titleSeparator }}
-      {{.Parent.Page.Params.version}}
+      {{ .Site.Params.titleSeparator }} {{.Parent.Page.Params.version}}
     {{ end }}
   </title>
 {{ end -}}
