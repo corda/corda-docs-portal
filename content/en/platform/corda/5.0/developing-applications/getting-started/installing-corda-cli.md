@@ -13,7 +13,7 @@ Corda CLI (command line interface) is a command line tool that supports various 
 The CorDapp Standard Development Environment (CSDE) uses Corda CLI in the background. As a result, you must install Corda CLI before using CSDE.
 
 {{< note >}}
-Performing command line instructions directly is described in the relevant sections throughout the documentation. The [Corda CLI Reference]({{< relref "../../corda-cli-reference/overview.md" >}}) lists all of the CLI commands.
+Performing command line instructions directly is described in the relevant sections throughout the documentation. The [Corda CLI Reference]({{< relref "../../reference/corda-cli/package.md" >}}) lists all of the CLI commands.
 {{< /note >}}
 
 ## Third-Party Prerequisites
