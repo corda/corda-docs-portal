@@ -17,7 +17,7 @@ This section describes how to configure key pairs and certificates. It contains 
 
 To assign a soft hardware security module (HSM) and generate a session initiation key pair:
 {{< tabs >}}
-{{% tab name="Bash"%}}
+{{% tab name="Curl"%}}
 ```bash
 curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/hsm/soft/$MGM_HOLDING_ID/SESSION_INIT
 curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/keys/$MGM_HOLDING_ID/alias/$MGM_HOLDING_ID-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1
@@ -25,8 +25,8 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/keys/$MGM_HOLDIN
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/hsm/soft/$MGM_HOLDING_ID/SESSION_INIT"
-$SESSION_KEY_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/keys/$MGM_HOLDING_ID/alias/$MGM_HOLDING_ID-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1"
+Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/hsm/soft/$MGM_HOLDING_ID/SESSION_INIT"
+$SESSION_KEY_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/keys/$MGM_HOLDING_ID/alias/$MGM_HOLDING_ID-session/category/SESSION_INIT/scheme/CORDA.ECDSA.SECP256R1"
 $SESSION_KEY_ID = $SESSION_KEY_RESPONSE.id
 ```
 {{% /tab %}}
@@ -44,7 +44,7 @@ You can use a certificate in addition to the session initiation key pair. For mo
 
 To generate an Elliptic-Curve Diffie–Hellman (ECDH) key pair:
 {{< tabs >}}
-{{% tab name="Bash"%}}
+{{% tab name="Curl"%}}
 ```
 curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/hsm/soft/$MGM_HOLDING_ID/PRE_AUTH
 curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/keys/$MGM_HOLDING_ID/alias/$MGM_HOLDING_ID-auth/category/PRE_AUTH/scheme/CORDA.ECDSA.SECP256R1
@@ -52,8 +52,8 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -X POST $REST_API_URL/keys/$MGM_HOLDIN
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/hsm/soft/$MGM_HOLDING_ID/PRE_AUTH"
-$ECDH_KEY_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/keys/$MGM_HOLDING_ID/alias/$MGM_HOLDING_ID-auth/category/PRE_AUTH/scheme/CORDA.ECDSA.SECP256R1"
+Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/hsm/soft/$MGM_HOLDING_ID/PRE_AUTH"
+$ECDH_KEY_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/keys/$MGM_HOLDING_ID/alias/$MGM_HOLDING_ID-auth/category/PRE_AUTH/scheme/CORDA.ECDSA.SECP256R1"
 $ECDH_KEY_ID = $ECDH_KEY_RESPONSE.id
 ```
 {{% /tab %}}
@@ -79,14 +79,14 @@ To set up the TLS key pair and certificate for the cluster:
 
 1. Create a TLS key pair at the cluster level by running this command:
    {{< tabs >}}
-   {{% tab name="Bash"%}}
+   {{% tab name="Curl"%}}
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X POST -H "Content-Type: application/json" $REST_API_URL/keys/p2p/alias/p2p-TLS/category/TLS/scheme/CORDA.RSA
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   $TLS_KEY_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/keys/p2p/alias/p2p-TLS/category/TLS/scheme/CORDA.RSA"
+   $TLS_KEY_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/keys/p2p/alias/p2p-TLS/category/TLS/scheme/CORDA.RSA"
    $TLS_KEY_ID = $TLS_KEY_RESPONSE.id
    ```
    {{% /tab %}}
@@ -98,14 +98,14 @@ To set up the TLS key pair and certificate for the cluster:
    ```
 2. Create a certificate for the TLS key pair. In order to do so, you must create a certificate signing request (CSR). To generate a CSR, run this command:
    {{< tabs >}}
-   {{% tab name="Bash"%}}
+   {{% tab name="Curl"%}}
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD  -X POST -H "Content-Type: application/json" -d '{"x500Name": "CN=CordaOperator, C=GB, L=London, O=Org", "subjectAlternativeNames": ["'$P2P_GATEWAY_HOST'"]}' $REST_API_URL"/certificates/p2p/"$TLS_KEY_ID > "$WORK_DIR"/request1.csr
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/certificates/p2p/$TLS_KEY_ID" -Body (ConvertTo-Json @{
+   Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$REST_API_URL/certificates/p2p/$TLS_KEY_ID" -Body (ConvertTo-Json @{
        x500Name = "CN=CordaOperator, C=GB, L=London, O=Org"
        subjectAlternativeNames = @($P2P_GATEWAY_HOST)
    }) > $WORK_DIR/request1.csr
@@ -147,14 +147,14 @@ To set up the TLS key pair and certificate for the cluster:
 
 4. To upload the certificate chain to the Corda cluster, run this command, where `certificate-folder` is the path to the folder in which you saved the certificate received from the CA:
    {{< tabs >}}
-   {{% tab name="Bash"%}}
+   {{% tab name="Curl"%}}
    ```shell
    curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  -F certificate=<certificate-folder>/certificate.pem -F alias=p2p-tls-cert $REST_API_URL/certificates/cluster/p2p-tls
    ```
    {{% /tab %}}
    {{% tab name="PowerShell" %}}
    ```shell
-   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/certificates/cluster/p2p-tls"  -Form @{
+   Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/certificates/cluster/p2p-tls"  -Form @{
        certificate = Get-Item -Path <CERTIFICATE_FOLDER>\certificate.pem
        alias = "p2p-tls-cert"
    }
@@ -196,8 +196,8 @@ If using Bash, to disable revocation checks, do the following:
 
 If using PowerShell, to disable revocation checks, run the following:
 ```shell
-$CONFIG_VERSION = (Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/config/corda.p2p.gateway").version
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
+$CONFIG_VERSION = (Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/config/corda.p2p.gateway").version
+Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$REST_API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
     section = "corda.p2p.gateway"
     version = $CONFIG_VERSION
     config = @{

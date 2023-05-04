@@ -59,8 +59,8 @@ If using Bash, perform the following steps to enable mutual TLS by configuring t
 If using PowerShell, perform the following steps to enable mutual TLS by configuring the gateway SSL:
 
    ```shell
-   $CONFIG_VERSION = (Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/config/corda.p2p.gateway").version
-   Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
+   $CONFIG_VERSION = (Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/config/corda.p2p.gateway").version
+   Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
     section = "corda.p2p.gateway"
     version = $CONFIG_VERSION
     config = @{
@@ -78,8 +78,8 @@ If using PowerShell, perform the following steps to enable mutual TLS by configu
 
 This command overwrites the revocation check setting. If you chose to disable revocation checks, use the following command instead:
 ```shell
-$CONFIG_VERSION = (Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/config/corda.p2p.gateway").version
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
+$CONFIG_VERSION = (Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/config/corda.p2p.gateway").version
+Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Put -Uri "$API_URL/config" -Body (ConvertTo-Json -Depth 4 @{
     section = "corda.p2p.gateway"
     version = $CONFIG_VERSION
     config = @{
@@ -123,14 +123,14 @@ export REGISTRATION_CONTEXT='{
 To add a member TLS certificate subject to the MGM allowed list, run the following, where `CN=CordaOperator,C=GB,L=London,O=Org` is the subject of the TLS certificate created as part of [member onboarding]("./onboarding/dynamic-onboarding.md#tls-key-pair-and-certificate" ):
 
 {{< tabs >}}
-{{% tab name="Bash"%}}
+{{% tab name="Curl"%}}
 ```shell
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT  "$MGM_API_URL/mgm/$MGM_HOLDING_ID/mutual-tls/allowed-client-certificate-subjects/CN=CordaOperator,C=GB,L=London,O=Org"
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_API_URL/mgm/$MGM_HOLDING_ID/mutual-tls/allowed-client-certificate-subjects/CN=CordaOperator,C=GB,L=London,O=Org" -Method Put
+Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$MGM_API_URL/mgm/$MGM_HOLDING_ID/mutual-tls/allowed-client-certificate-subjects/CN=CordaOperator,C=GB,L=London,O=Org" -Method Put
 ```
 {{% /tab %}}
 {{< /tabs >}}

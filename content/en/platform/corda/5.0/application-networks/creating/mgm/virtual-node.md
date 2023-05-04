@@ -8,10 +8,10 @@ menu:
     weight: 2000
 section_menu: corda5
 ---
-To create a virtual node for the MGM, run the following, using the checksum retrieved when you [uploaded the MGM CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
+To create a virtual node for the MGM, run the following commands, changing the X.500 name and using the checksum retrieved when you [uploaded the MGM CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
 
 {{< tabs >}}
-{{% tab name="Bash"%}}
+{{% tab name="Curl"%}}
 ```shell
 export CPI_CHECKSUM=<CPI-checksum>
 curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "'$CPI_CHECKSUM'", "x500Name": "C=GB, L=London, O=MGM"}}' $REST_API_URL/virtualnode
@@ -19,7 +19,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "request": {"cpiFileChecksum": "
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-$VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode" -Method Post -Body (ConvertTo-Json @{
+$VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/virtualnode" -Method Post -Body (ConvertTo-Json @{
     request = @{
        cpiFileChecksum = $CPI_STATUS_RESPONSE.cpiFileChecksum
        x500Name = "C=GB, L=London, O=MGM"

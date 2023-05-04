@@ -9,10 +9,10 @@ menu:
 section_menu: corda5
 ---
 
-To create a virtual node for a member, run the following commands, changing the X.500 name:
+To create a virtual node for a member, run the following commands, changing the X.500 name and using the checksum retrieved when you [uploaded the member CPI]({{< relref"./cpi.md#upload-the-cpi" >}}):
 
 {{< tabs >}}
-{{% tab name="Bash"%}}
+{{% tab name="Curl"%}}
 ```shell
 export CPI_CHECKSUM=<CPI-checksum>
 export X500_NAME="C=GB, L=London, O=Alice"
@@ -22,7 +22,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -d '{"request": {"cpiFileChecksum": "'
 {{% tab name="PowerShell" %}}
 ```shell
 $X500_NAME = "C=GB, L=London, O=Alice"
-$VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/virtualnode" -Method Post -Body (ConvertTo-Json @{
+$VIRTUAL_NODE_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/virtualnode" -Method Post -Body (ConvertTo-Json @{
     request = @{
        cpiFileChecksum = $CPI_STATUS_RESPONSE.cpiFileChecksum
        x500Name = $X500_NAME

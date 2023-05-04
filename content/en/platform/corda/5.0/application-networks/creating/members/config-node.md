@@ -19,13 +19,13 @@ To configure the member virtual node, run the following command, setting these p
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
-```bash
+```Curl
 curl -k -u $REST_API_USER:$REST_API_PASSWORD -X PUT -d '{"p2pTlsCertificateChainAlias": "p2p-tls-cert", "useClusterLevelTlsCertificateAndKey": true, "sessionKeyId": "'$SESSION_KEY_ID'"}' $API_URL/network/setup/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/network/setup/$HOLDING_ID" -Method Put -Body (ConvertTo-Json @{
+Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/network/setup/$HOLDING_ID" -Method Put -Body (ConvertTo-Json @{
     p2pTlsCertificateChainAlias = "p2p-tls-cert"
     useClusterLevelTlsCertificateAndKey = $true
     sessionKeyId = $SESSION_KEY_ID

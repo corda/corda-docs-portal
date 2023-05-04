@@ -54,14 +54,14 @@ $REGISTRATION_CONTEXT = @{
 
 To register a member, run the following command:
 {{< tabs >}}
-{{% tab name="Bash"%}}
+{{% tab name="Curl"%}}
 ```shell
 curl -u $REST_API_USER:$REST_API_PASSWORD -d '{ "memberRegistrationRequest": { "action": "requestJoin", "context": '$REGISTRATION_CONTEXT' } }' $API_URL/membership/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-$REGISTER_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
+$REGISTER_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Method Post -Uri "$API_URL/membership/$HOLDING_ID" -Body (ConvertTo-Json -Depth 4 @{
     memberRegistrationRequest = @{
         action = "requestJoin"
         context = $REGISTRATION_CONTEXT
@@ -88,7 +88,7 @@ If you are using the Swagger UI, use the following:
 
 You can confirm if the member was onboarded successfully by checking the status of the registration request:
 {{< tabs >}}
-{{% tab name="Bash"%}}
+{{% tab name="Curl"%}}
 ```
 export REGISTRATION_ID=<registration-ID>
 curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/membership/$HOLDING_ID/$REGISTRATION_ID
@@ -96,7 +96,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/membership/$HOLDING_ID
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
-Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/membership/$HOLDING_ID/${REGISTER_RESPONSE.registrationId}"
+Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/membership/$HOLDING_ID/${REGISTER_RESPONSE.registrationId}"
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -105,14 +105,14 @@ If successful, you should see the `APPROVED` registration status.
 
 After registration, you can use the look-up functions provided by the `MemberLookupRpcOps` to confirm that your member can see other members and has `ACTIVE` membership status:
 {{< tabs >}}
-{{% tab name="Bash"%}}
+{{% tab name="Curl"%}}
 ```bash
 curl -u $REST_API_USER:$REST_API_PASSWORD -X GET $API_URL/members/$HOLDING_ID
 ```
 {{% /tab %}}
 {{% tab name="PowerShell" %}}
 ```shell
- Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/membership/$HOLDING_ID" | ConvertTo-Json -Depth 4
+ Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$API_URL/membership/$HOLDING_ID" | ConvertTo-Json -Depth 4
 ```
 {{% /tab %}}
 {{< /tabs >}}

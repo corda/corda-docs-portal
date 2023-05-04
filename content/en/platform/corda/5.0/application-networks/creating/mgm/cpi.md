@@ -199,7 +199,7 @@ Use an alias that will remain unique over time, taking into account that certifi
 
 To upload the CPI to your network, run the following:
 {{< tabs >}}
-{{% tab name="Bash"%}}
+{{% tab name="Curl"%}}
 ```bash
 export CPI_PATH=<CPI-directory/CPI-filename.cpi>
 curl -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi/
@@ -208,7 +208,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD -F upload=@$CPI_PATH $REST_API_URL/cpi
 {{% tab name="PowerShell" %}}
 ```shell
 $CPI_PATH = <CPI_DIRECTORY/CPI-FILENAME.cpi>
-$CPI_UPLOAD_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/" -Method Post -Form @{
+$CPI_UPLOAD_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/" -Method Post -Form @{
     upload = Get-Item -Path $CPI_PATH
 }
 ```
@@ -218,7 +218,7 @@ $CPI_UPLOAD_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Autho
 The returned identifier (for example `f0a0f381-e0d6-49d2-abba-6094992cef02`) is the `CPI ID`.
 Use this identifier to get the checksum of the CPI:
 {{< tabs >}}
-{{% tab name="Bash"%}}
+{{% tab name="Curl"%}}
 ```
 export CPI_ID=<CPI-ID>
 curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID
@@ -227,7 +227,7 @@ curl -u $REST_API_USER:$REST_API_PASSWORD $REST_API_URL/cpi/status/$CPI_ID
 {{% tab name="PowerShell" %}}
 ```shell
 $CPI_ID = $CPI_UPLOAD_RESPONSE.id
-$CPI_STATUS_RESPONSE = Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/status/$CPI_ID"
+$CPI_STATUS_RESPONSE = Invoke-RestMethod -Headers @{Authorization=("Basic {0}" -f $AUTH_INFO)} -Uri "$REST_API_URL/cpi/status/$CPI_ID"
 ```
 {{% /tab %}}
 {{< /tabs >}}
