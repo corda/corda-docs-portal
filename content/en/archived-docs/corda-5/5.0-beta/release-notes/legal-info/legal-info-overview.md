@@ -1,5 +1,5 @@
 ---
-date: '2021-09-24'
+date: '2023-05-02'
 title: "Third-Party Software Notices and Information"
 menu:
   corda-5-beta:
@@ -10,4 +10,9 @@ section_menu: corda-5-beta
 ---
 * [corda-api](legal-info-api.html)
 * [corda-runtime-os](legal-info-runtime-os.html)
-* [corda-cli-plugin-host](legal-info-corda-cli.html)
+* [corda-cli](legal-info-corda-cli.html)
+* [corda-CSDE-cordapp-template-java](legal-info-CSDE-cordapp-template-java.html)
+* [corda-CSDE-cordapp-template-kotlin](legal-info-CSDE-cordapp-template-kotlin.html)
+* [corda-utxo-ledger-extensions](legal-info-utxo-ledger-extensions.html)
+* [corda-csde-gradle-plugin.html](legal-info-csde-gradle-plugin.html)
+

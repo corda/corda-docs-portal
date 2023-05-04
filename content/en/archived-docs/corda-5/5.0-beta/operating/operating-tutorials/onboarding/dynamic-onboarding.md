@@ -8,31 +8,31 @@ menu:
     weight: 2000
 section_menu: corda-5-beta
 ---
-This section describes how to configure a [dynamic network](../../../deploying/network-types.html#dynamic-networks) to onboard new members. It assumes that you have configured the [MGM for the network](mgm-onboarding.html).
+This section describes how to configure a [dynamic network]({{< relref "../../../deploying/network-types.md#dynamic-networks" >}}) to onboard new members. It assumes that you have configured the [MGM for the network]({{< relref "mgm-onboarding.md" >}}).
 
 {{< note >}}
 The PowerShell commands listed on this page are for use with PowerShell 7.0 and will not execute correctly with PowerShell 5.x.
 {{< /note >}}
 
-1. [Start a Corda cluster](../../../deploying/deployment-tutorials/deploy-corda-cluster.html).
-2. [Create an MGM GroupPolicy.json file](./mgm-onboarding.html#create-the-group-policy-file ).
-3. [Package the MGM GroupPolicy.json file into an MGM CPI](./mgm-onboarding.md#build-the-cpi).
-4. [Upload the CPI to your cluster](./mgm-onboarding.md#upload-the-cpi).
-5. [Create a virtual node in your cluster for the MGM](./mgm-onboarding.md#create-a-virtual-node").
-6. [Assign required Hardware Security Modules (HSMs) for the MGM](./mgm-onboarding.md#assign-soft-hsm-and-generate-session-initiation-and-ecdh-key-pair).
-7. [Create required keys and optionally import required certificates](./mgm-onboarding.md#configure-the-cluster-tls-key-pair-and-certificate).
-8. [Build the registration context](./mgm-onboarding.md#build-registration-context).
-9. [Use the register endpoint to finalise the MGM setup so that it is ready to accept members](./mgm-onboarding.md#register-the-mgm).
-10. [Export the GroupPolicy.json file that members require to join the group](./mgm-onboarding.md#export-the-group-policy).
-11. [Package this GroupPolicy.json file into a member CPI](#build-the-cpi).
-12. [Upload this CPI to the cluster](#upload-the-cpi).
-13. [Create the virtual node for the member](#create-a-virtual-node).
-14. [Assign the required HSMs for P2P session initiation](#configure-the-p2p-session-initiation-key-pair-and-certificate).
-15. [Assign the required HSMs for the ledger](#configure-the-ledger-key-pair-and-certificate).
-16. [Create the required keys, and optionally import required certificates](#configure-the-tls-key-pair-and-certificate).
-17. [Configure the member virtual node for network communication](#configure-the-member-virtual-node-for-network-communication).
-18. [Build the registration context](#build-registration-context).
-19. [Use the register endpoint to request membership from the MGM](#register-members).
+1. [Start a Corda cluster]({{< relref "../../../deploying/deployment-tutorials/deploy-corda-cluster.md" >}}).
+2. [Create an MGM GroupPolicy.json file]({{< relref "./mgm-onboarding.md#create-the-group-policy-file" >}} ).
+3. [Package the MGM GroupPolicy.json file into an MGM CPI]({{< relref "./mgm-onboarding.md#build-the-cpi" >}}).
+4. [Upload the CPI to your cluster]({{< relref "./mgm-onboarding.md#upload-the-cpi" >}}).
+5. [Create a virtual node in your cluster for the MGM]({{< relref "./mgm-onboarding.md#create-a-virtual-node" >}}).
+6. [Assign required Hardware Security Modules (HSMs) for the MGM]({{< relref "./mgm-onboarding.md#assign-soft-hsm-and-generate-session-initiation-and-ecdh-key-pair" >}}).
+7. [Create required keys and optionally import required certificates]({{< relref "./mgm-onboarding.md#configure-the-cluster-tls-key-pair-and-certificate" >}}).
+8. [Build the registration context]({{< relref "./mgm-onboarding.md#build-registration-context" >}}).
+9. [Use the register endpoint to finalise the MGM setup so that it is ready to accept members]({{< relref "./mgm-onboarding.md#register-the-mgm" >}}).
+10. [Export the GroupPolicy.json file that members require to join the group]({{< relref "./mgm-onboarding.md#export-the-group-policy" >}}).
+11. [Package this GroupPolicy.json file into a member CPI]({{< relref "#create-a-cpi" >}}).
+12. [Upload this CPI to the cluster]({{< relref "#upload-the-cpi" >}}).
+13. [Create the virtual node for the member]({{< relref "#create-a-virtual-node" >}}).
+14. [Assign the required HSMs for P2P session initiation]({{< relref "#p2p-session-initiation-key-pair-and-certificate" >}}).
+15. [Assign the required HSMs for the ledger]({{< relref "#ledger-key-pair-and-certificate" >}}).
+16. [Create the required keys, and optionally import required certificates]({{< relref "#tls-key-pair-and-certificate" >}}).
+17. [Configure the member virtual node for network communication]({{< relref "#configure-the-member-virtual-node-for-network-communication" >}}).
+18. [Build the registration context]({{< relref "#build-registration-context" >}}).
+19. [Use the register endpoint to request membership from the MGM]({{< relref "#register-members" >}}).
 
 ## Set Variables
 Set the values of variables for use in later commands:
@@ -450,7 +450,7 @@ Invoke-RestMethod -SkipCertificateCheck  -Headers @{Authorization=("Basic {0}" -
 
 * `p2pTlsCertificateChainAlias` — the alias used when importing the TLS certificate.
 * `useClusterLevelTlsCertificateAndKey` - true if the TLS certificate and key are cluster-level certificates and keys
-* `sessionKeyId` — the [session key ID previously generated](#assign-hsm-and-generate-key-pairs).
+* `sessionKeyId` — the [session key ID previously generated]({{< relref "#configure-key-pairs-and-certificates" >}}).
 
 ## Build Registration Context
 {{< note >}}
@@ -503,7 +503,8 @@ export REGISTRATION_CONTEXT='{
   "corda.endpoints.0.protocolVersion": "1",
   "corda.roles.0": "notary",
   "corda.notary.service.name": <An X500 name for the notary service>,
-  "corda.notary.service.plugin": "net.corda.notary.NonValidatingNotary"
+  "corda.notary.service.flow.protocol.name": "com.r3.corda.notary.plugin.nonvalidating",
+  "corda.notary.service.flow.protocol.version.0": "1"
 }'
 ```
 {{% /tab %}}
@@ -514,13 +515,14 @@ $REGISTRATION_CONTEXT = @{
   'corda.session.key.signature.spec' = "SHA256withECDSA"
   'corda.ledger.keys.0.id' = $LEDGER_KEY_ID
   'corda.ledger.keys.0.signature.spec' = "SHA256withECDSA"
-  "corda.notary.keys.0.id" = "$NOTARY_KEY_ID",
-  "corda.notary.keys.0.signature.spec" = "SHA256withECDSA"
+  'corda.notary.keys.0.id' = "$NOTARY_KEY_ID",
+  'corda.notary.keys.0.signature.spec' = "SHA256withECDSA"
   'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST`:$P2P_GATEWAY_PORT"
   'corda.endpoints.0.protocolVersion' = "1"
   'corda.roles.0' = "notary",
   'corda.notary.service.name' = <An X500 name for the notary service>,
-  'corda.notary.service.plugin' = "net.corda.notary.NonValidatingNotary"
+  'corda.notary.service.flow.protocol.name' = "com.r3.corda.notary.plugin.nonvalidating",
+  'corda.notary.service.flow.protocol.version.0' = "1"
 }
 ```
 {{% /tab %}}
