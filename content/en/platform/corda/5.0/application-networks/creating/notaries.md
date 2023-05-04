@@ -155,7 +155,7 @@ $REGISTRATION_CONTEXT = @{
 {{< /tabs >}}
 
 This sets the following notary specific values:
-* `'corda.roles.0' = "notary"` -  This indicates that the virtual node is taking the role of a notary on the network.
+* `'corda.roles.0' : "notary"` -  This indicates that the virtual node is taking the role of a notary on the network.
 * `"corda.notary.service.name" : <x500 name>` - This specifies an X.500 name for the notary service that this virtual node will represent. This is the name that will be used by CorDapps when specifying which notary to use for notarization.
 * `"corda.notary.service.flow.protocol.name" : "com.r3.corda.notary.plugin.nonvalidating"` - This attribute replaces the validating Boolean flag in Corda 4. This is effectively the equivalent to setting `validating = false` in Corda 4.
 * `"corda.notary.service.flow.protocol.version.0" : "1"` - This must be specified and currently must be set to version 1. The 0 at the end of the name reflects the fact that in future there may be multiple versions supported, with additional versions specified by 1,2, and so on. 
