@@ -2,11 +2,11 @@
 date: '2022-10-19'
 title: "Java Flow Code Walkthrough"
 menu:
-  corda-5-beta:
-    parent: corda-5-beta-flow
-    identifier: corda-5-beta-flow-java
+  corda5:
+    parent: corda5-flow
+    identifier: corda5-flow-java
     weight: 2000
-section_menu: corda-5-beta
+section_menu: corda5
 ---
 
 The Java code for the flows and supporting classes can be found in the CSDE repo in the `src/main/java/com/r3/developers/csdetemplate/flowexample/workflows` folder.

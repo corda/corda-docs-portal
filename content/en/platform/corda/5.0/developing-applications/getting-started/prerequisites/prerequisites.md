@@ -2,11 +2,11 @@
 date: '2022-09-19'
 title: "Prerequisites for the CSDE"
 menu:
-  corda-5-beta:
-    parent: corda-5-beta-start
-    identifier: corda-5-beta-prereqs
+  corda5:
+    parent: corda5-develop-get-started
+    identifier: corda5-prereqs
     weight: 1000
-section_menu: corda-5-beta
+section_menu: corda5
 ---
 
 This section lists the third-party software prerequisites for local deployment with the [CorDapp Standard Development Environment (CSDE)](../cordapp-standard-development-environment/csde.html)

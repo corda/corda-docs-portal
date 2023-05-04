@@ -2,11 +2,11 @@
 date: '2022-09-20'
 title: "Your First Flow"
 menu:
-  corda-5-beta:
-    parent: corda-5-beta-start
-    identifier: corda-5-beta-flow
+  corda5:
+    parent: corda5-develop-get-started
+    identifier: corda5-flow
     weight: 5000
-section_menu: corda-5-beta
+section_menu: corda5
 ---
 
 The `MyFirstFlow` and `MyFirstResponderFlow` flows are basic flows that illustrate the main features of Corda 5 flows.
