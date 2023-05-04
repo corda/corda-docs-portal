@@ -8,7 +8,7 @@
 
     {{ if eq .IsHome true }}
       window.facetFilters = [
-        ['project:get-started', 'project:tutorials', 'project:samples', 'project:tools', 'project:announcements', 'version:Community Edition 4.10', 'version:Enterprise 4.10', 'version:CENM 1.5', 'version:Corda 5.0 Beta 2'],
+        ['project:get-started', 'project:tutorials', 'project:samples', 'project:tools', 'project:announcements', 'version:Community Edition 4.10', 'version:Enterprise 4.10', 'version:CENM 1.5', 'version:Corda 5.0 Beta 3'],
         'language:en'
       ];
 
@@ -16,7 +16,7 @@
       {{ $project := .Page.Params.project}}
       window.facetFilters = [
         ['project:{{- $project -}}'],
-        ['version:Community Edition 4.10', 'version:Enterprise 4.10', 'version:CENM 1.5', 'version:Corda 5.0 Beta 2'],
+        ['version:Community Edition 4.10', 'version:Enterprise 4.10', 'version:CENM 1.5', 'version:Corda 5.0 Beta 3'],
         'language:en'
       ];
     {{ else if eq .Page.Params.version nil }}
