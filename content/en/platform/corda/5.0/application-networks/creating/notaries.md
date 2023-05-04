@@ -129,7 +129,8 @@ export REGISTRATION_CONTEXT='{
   "corda.endpoints.0.protocolVersion": "1",
   "corda.roles.0": "notary",
   "corda.notary.service.name": <notary-service-X.500-name>,
-  "corda.notary.service.plugin": "net.corda.notary.NonValidatingNotary"
+  "corda.notary.service.flow.protocol.name": "com.r3.corda.notary.plugin.nonvalidating",
+  "corda.notary.service.flow.protocol.version.0": "1"
 }'
 ```
 {{% /tab %}}
@@ -140,22 +141,24 @@ $REGISTRATION_CONTEXT = @{
   'corda.session.key.signature.spec' = "SHA256withECDSA"
   'corda.ledger.keys.0.id' = $LEDGER_KEY_ID
   'corda.ledger.keys.0.signature.spec' = "SHA256withECDSA"
-  "corda.notary.keys.0.id" = "$NOTARY_KEY_ID",
-  "corda.notary.keys.0.signature.spec" = "SHA256withECDSA"
+  'corda.notary.keys.0.id' = "$NOTARY_KEY_ID",
+  'corda.notary.keys.0.signature.spec' = "SHA256withECDSA"
   'corda.endpoints.0.connectionURL' = "https://$P2P_GATEWAY_HOST`:$P2P_GATEWAY_PORT"
   'corda.endpoints.0.protocolVersion' = "1"
   'corda.roles.0' = "notary",
   'corda.notary.service.name' = <notary-service-X.500-name>,
-  'corda.notary.service.plugin' = "net.corda.notary.NonValidatingNotary"
+  'corda.notary.service.flow.protocol.name' = "com.r3.corda.notary.plugin.nonvalidating",
+  'corda.notary.service.flow.protocol.version.0' = "1"
 }
 ```
 {{% /tab %}}
 {{< /tabs >}}
 
 This sets the following notary specific values:
-* `'corda.roles.0' = "notary"` — indicates that the virtual node is taking the role of a notary on the network.
-* `"corda.notary.service.name" : <notary-service-X.500-name>` - specifies a X.500 name for the notary service that this virtual node will represent. This is the name that will be used by CorDapps when specifying which notary to use for notarization.
-* `"corda.notary.service.plugin" : "net.corda.notary.NonValidatingNotary"` - indicates that the virtual node uses the R3 non-validating notary protocol plugin.
+* `'corda.roles.0' = "notary"` -  This indicates that the virtual node is taking the role of a notary on the network.
+* `"corda.notary.service.name" : <notary-service-X.500-name>` - This specifies a X.500 name for the notary service that this virtual node will represent. This is the name that will be used by CorDapps when specifying which notary to use for notarization.
+* `"corda.notary.service.flow.protocol.name" : "com.r3.corda.notary.plugin.nonvalidating"` - This attribute replaces the validating Boolean flag in Corda 4. This is effectively the equivalent to setting `validating = false` in Corda 4.
+* `"corda.notary.service.flow.protocol.version.0" : "1"` - This must be specified and currently must be set to version 1. The 0 at the end of the name reflects the fact that in future there may be multiple versions supported, with additional versions specified by 1,2, and so on. 
 
 {{< note >}}
 It is currently only possible to have a single notary virtual node associated with a notary service X.500 name. The eventual intent is to allow a many-to-one mapping, similar to the HA notary implementation in Corda 4. This will allow a notary service to be hosted across multiple Corda clusters/regions.
