@@ -23,7 +23,7 @@ To debug:
    {{< figure src="debugger-connected.png" figcaption="DebugCorDapp connection success in IntelliJ" >}}
 5. Place a breakpoint next to the place in the code you want to inspect.
    {{< figure src="place-breakpoint.png" figcaption="Breakpoint added in IntelliJ" >}}
-6. Start a flow using the Swagger UI; see [Running your First CorDapp section](../running-your-first-cordapp/run-first-cordapp.html).
+6. Start a flow using the Swagger UI; see [Running your First CorDapp](../running-your-first-cordapp/run-first-cordapp.html).
    The CorDapp stops execution at the breakpoint and you can inspect the stack.
    {{< figure src="pause-at-breakpoint.png" figcaption="Pause at breakpoint in IntelliJ" >}}
   {{< note >}}

@@ -14,7 +14,7 @@ The code for the flow can be found in the `src/main/kotlin.com.r3.developers.csd
 
 ## Starting the Corda Combined Worker
 
-To run the flow, you must first start a local [combined worker](../../../introduction/corda4-differences.html#combined-worker) version of Corda. CSDE includes helper Gradle tasks to do this.
+To run the flow, you must first start a local combined worker version of Corda. CSDE includes helper Gradle tasks to do this.
 {{< figure src="starting-corda.png" width="50%" figcaption="CSDE startCorda task" alt="CSDE task to start the combined worker in IntelliJ" >}}
 
 The `startCorda` task runs in an Intellij 'Run' window. After about one minute, it shows the following output:
@@ -25,7 +25,7 @@ Currently, we do not have a liveness detector for Corda in the CSDE so we check 
 
 ## Testing Liveness and Swagger
 
-Corda exposes HTTP REST API]endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
+Corda exposes HTTP REST API endpoints for interacting with itself and the CorDapps running on it. It also exposes a Swagger interface which is described in the following sections.
 
 ### Displaying the Swagger UI
 To display the Swagger UI, use the following link:
@@ -60,7 +60,7 @@ Once authorised, you can start hitting endpoints. The easiest one to try is `/cp
    As we have not uploaded any CPIs yet, the returned list of CPIs is empty.
    If Corda has not started yet, Swagger will return an error:
    {{< figure src="get-cpi-error.png" figcaption="Swagger showing an error response to GET /cpi" alt="Swagger showing an error response to GET /cpi" >}}
-   If this occurs, you either have not started Corda, Corda has not finished starting, or something has gone wrong. If something has gone wrong, you should try again or [reset the environment](../reset-csde.html) and start again.
+   If this occurs, you either have not started Corda, Corda has not finished starting, or something has gone wrong. If something has gone wrong, you should try again or [reset the environment]({{< relref "../reset-csde.md" >}}) and start again.
    {{< note >}}
    Each time you start Corda it is a fresh instance. There is no persistence of state between restarts.
    {{< /note >}}
@@ -71,9 +71,9 @@ You can use the `MyFirstFlow` flow to build a CorDapp, without any further work:
 1. Click the `5-vNodeSetup` Gradle task:
 {{< figure src="vnodesetup.png" width="50%" figcaption="CSDE vNodeSetup task" alt="CSDE task to set up the vNodes in IntelliJ" >}}
    This task runs a series of Gradle tasks to:
-   * Build the [CPB](../../../introduction/key-concepts.html#corda-package-bundles-cpbs)
+   * Build the CPB
    * Create the GroupPolicy (Application Network definition)
-   * Generate signing keys to sign the CPB and [CPI](../../../introduction/key-concepts.html#corda-package-installer-cpi)
+   * Generate signing keys to sign the CPB and CPI
    * Build the CPI (combination of CPB and Group Policy)
    * Sign the CPI
    * Upload the CPI to Corda

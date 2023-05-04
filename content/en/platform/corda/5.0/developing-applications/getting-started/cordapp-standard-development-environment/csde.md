@@ -1,29 +1,16 @@
 ---
 date: '2022-09-19'
-title: "CorDapp Standard Development Environment (CSDE)"
+title: "Installing the CorDapp Standard Development Environment (CSDE)"
 menu:
   corda5:
     parent: corda5-develop-get-started
-    identifier: corda5-csde
+    identifier: corda5-csde-installing
     weight: 2000
 section_menu: corda5
 ---
-{{< note >}}
-The CSDE is experimental. The decision whether or not we release it as part of Corda 5.0 will, in part, be based on your [feedback](https://developer.r3.com/forums/forum/corda-5-developer-preview/).
-{{< /note >}}
-
-The CorDapp Standard Development Environment (CSDE) makes the process of prototyping CorDapps on Beta 3 more straight-forward.
-The CSDE is obtained by cloning our `CSDE-cordapp-template-kotlin` or `CSDE-cordapp-template-java` repository to your local machine. The CSDE provides:
-* a prepared CorDapp project that you can use as a starting point to develop your own prototypes.
-* a base Gradle configuration that brings in the dependencies you need to write and test a Corda 5 CorDapp.
-* a set of Gradle helper tasks which speed up and simplify the development and deployment process; these are effectively wrappers over the [Corda CLI](../installing-corda-cli.html).
-* debug configuration for debugging a local Corda cluster.
-* the `MyFirstFlow` code which forms the basis of the Getting Started documentation.
-* the `utxoexample` Chat CorDapp, which provides a basic, working UTXO Ledger CorDapp.
-* the ability to configure the members of the local Corda network.
 
 {{< note >}}
-The images in this section show the `CSDE-cordapp-template-kotlin` repository in IntelliJ. If you are working with the `CSDE-cordapp-template-java` repository, it looks very similar but the flow code is in a `java` folder and the flow code is saved in more source files. For more information, see [Java Flow Code](../first-flow/code-java.html).
+The images in this section show the `CSDE-cordapp-template-kotlin` repository in IntelliJ. If you are working with the `CSDE-cordapp-template-java` repository, it looks very similar but the flow code is in a `java` folder and the flow code is saved in more source files. For more information, see [Java Flow Code]({{< relref "../first-flow/code-java.md" >}}).
 {{< /note >}}
 
 ## Downloading the CSDE
