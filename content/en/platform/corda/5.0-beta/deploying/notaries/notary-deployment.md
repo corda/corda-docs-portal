@@ -23,7 +23,7 @@ Deploying notary virtual nodes to your network follows an almost identical proce
 
   - `"corda.notary.service.name" : <x500 name>` - This is a user-specified X.500 name for the notary service that this virtual node will represent. This is the name that will be used by CorDapps when specifying which notary to use for notarization.
 
-  - `"corda.notary.service.plugin" : "com.r3.corda.notary.plugin.nonvalidating"` - This attribute replaces the validating Boolean flag in Corda 4. This is effectively the equivalent to setting `validating = false` in Corda 4.
+  - `"corda.notary.service.flow.protocol.name" : "com.r3.corda.notary.plugin.nonvalidating"` - This attribute replaces the validating Boolean flag in Corda 4. This is effectively the equivalent to setting `validating = false` in Corda 4.
 
   - `"corda.notary.service.flow.protocol.version.0" : "1"` - This must be specified and must be set to version 1 for now. The 0 on the end of the name reflects the fact that in future there may be multiple versions supported, which would be reflected in the MGM standard way using 1, 2, 3 for each additional version supported.
 
