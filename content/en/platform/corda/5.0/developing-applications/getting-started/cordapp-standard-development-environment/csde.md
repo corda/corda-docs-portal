@@ -1,6 +1,6 @@
 ---
 date: '2022-09-19'
-title: "Installing the CorDapp Standard Development Environment (CSDE)"
+title: "Installing the CorDapp Standard Development Environment"
 menu:
   corda5:
     parent: corda5-develop-get-started
@@ -40,10 +40,10 @@ The images in this section show the `CSDE-cordapp-template-kotlin` repository in
 3. Initialise the git repo and change the remote so you do not inadvertently push your work back to our R3 repo:
 
    ```sh
-   git init 
-   git remote add origin {remote_url}
+   git init
+   git remote add origin <remote-url>
    ```
-   
+
    where {remote_url} is the URL of the remote repository that you have created.
 
 3. Open the project in IntelliJ and let the import process complete.
