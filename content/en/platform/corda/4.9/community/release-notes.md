@@ -27,6 +27,8 @@ Corda Community Edition 4.9.7 is a patch release of Corda Community Edition whic
 
   To resolve this, the NodeDriver now has a new parameter, notaryHandleTimeout. This parameter specifies how long to wait (in minutes) for a notary handle to come back after the notary has been started.
 
+* A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
+
 ## Corda Community Edition 4.9.6 release notes
 
 Corda Community Edition 4.9.6 is a patch release of Corda Community Edition to keep it synchronised with the release of Corda Enterprise Edition 4.9.6.

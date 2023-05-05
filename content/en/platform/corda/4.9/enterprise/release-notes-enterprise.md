@@ -64,6 +64,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
   [INFO ] 2023-02-03T17:00:43,606Z [main] statemachine.MultiThreadedStateMachineManager. - Loaded 24001 finished flows {}
   [INFO ] 2023-02-03T17:00:46,650Z [main] statemachine.MultiThreadedStateMachineManager. - Number of finished flows : 27485 {}
 
+* A fix for cache eviction has been applied where an issue resulted in an incorrect contract verification status while a database transaction was in progress during contract verification.
+
 ## Corda Enterprise Edition 4.9.6 release notes
 
 Corda Enterprise Edition 4.9.6 is a patch release of Corda Enterprise focused on resolving issues.
