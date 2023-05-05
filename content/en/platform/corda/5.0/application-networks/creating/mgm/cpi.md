@@ -104,7 +104,7 @@ The MGM group policy file only requires a flag to indicate that a group ID must 
 Registration for an MGM is essentially finalising setup of the the group, but currently the registration terminology is kept in-line with the member setup.
 
 This is a simple file that you can construct manually. 
-For example, to manually create the `GroupPolicy.json` file in the same directory as the CPB created in the previous example:
+For example, to manually create the `GroupPolicy.json` file in your working directory:
 
 {{< tabs >}}
 {{% tab name="Bash"%}}
