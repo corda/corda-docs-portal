@@ -1,6 +1,6 @@
 ---
 title: Corda Enterprise Edition 4.9 release notes
-date: '2023-02-03'
+date: '2023-05-05'
 
 menu:
   corda-enterprise-4-9:
@@ -17,6 +17,18 @@ weight: 10
 
 # Corda Enterprise Edition 4.9 release notes
 
+## Corda Enterprise Edition 4.9.7 release notes
+
+Corda Enterprise Edition 4.9.7 is a patch release of Corda Enterprise focused on resolving issues.
+
+### Upgrade recommendation
+
+As a developer or node operator, you should upgrade to the [latest released version of Corda](../enterprise.html) as soon as possible. The latest Corda Enterprise release notes are on this page, and for the latest upgrade guide, refer to [Upgrading a CorDapp or node](upgrading-index.md).
+
+### Fixed issues
+
+* Previously, where nodes had invoked a very large number of flows, the cache of client IDs that had not been removed were taking up significant heap space. A solution has been implemented where the space taken up has been reduced by 170 bytes per entry. For example, 1 million unremoved client IDs now take up 170,000,000 bytes less heap space than before.”
+
 ## Corda Enterprise Edition 4.9.6 release notes
 
 Corda Enterprise Edition 4.9.6 is a patch release of Corda Enterprise focused on resolving issues.
@@ -27,8 +39,8 @@ As a developer or node operator, you should upgrade to the [latest released vers
 
 ### Fixed issues
 
-* When FIPS mode is activated in the Luna HSM, version 7.7.1 of the firmware does not allow the mechanism AES/CBC/PKCS5Padding to use wrap functionality. This has resulted in flow errors with confidential identities when using "wrapped" mode. 
-  
+* When FIPS mode is activated in the Luna HSM, version 7.7.1 of the firmware does not allow the mechanism AES/CBC/PKCS5Padding to use wrap functionality. This has resulted in flow errors with confidential identities when using "wrapped" mode.
+
   A new mechanism (AES/KWP/NoPadding) has been enabled that allows wrapping when in FIPS mode. To switch to this new mechanism, a new Boolean configuration parameter, `usekwp`, has been added to the Luna HSM configuration file. If this parameter is set to true, then the new mechanism is used. If false or the parameter does not exist in the configuration file, then the existing mechanism is used.
 
 ## Corda Enterprise Edition 4.9.5 release notes
@@ -149,7 +161,7 @@ As a node operator, you should upgrade to the [latest released version of Corda]
 In this release:
 
 * Corda shell has been removed to its own repository for improved security. You can now use a standalone shell outside of the node, or from within the node's drivers. For more information about using the standalone shell, see [The standalone shell](./node/operating/shell.html#the-standalone-shell). For information on adding the shell to the node's drivers, see [Upgrading a node to Corda Enterprise Edition 4.9](node-upgrade-notes.html).
-{{< note >}} 
+{{< note >}}
 The Corda shell has a dependency on Groovy that the Corda API does not. As a result, for any flows dependent on Groovy, you must now add the dependency to the CorDapp or the drivers' directory.
 {{< /note >}}
 * Security updates to prevent possibility of Denial of Service attacks.
